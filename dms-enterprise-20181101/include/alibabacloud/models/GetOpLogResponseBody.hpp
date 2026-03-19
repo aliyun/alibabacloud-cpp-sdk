@@ -152,29 +152,13 @@ namespace Models
 
 
       protected:
-        // The endpoint of the database instance.
-        // 
-        // > 
-        // 
-        // *   This parameter is valid only for database instances of the LocalInstance type.
-        // 
-        // *   This parameter is valid only for operations on the functional modules related to tasks.
         shared_ptr<string> database_ {};
-        // The functional module for which the operation log is queried.
         shared_ptr<string> module_ {};
-        // The details of the operation.
         shared_ptr<string> opContent_ {};
-        // The time when the operation was performed.
         shared_ptr<string> opTime_ {};
-        // The ID of the user who performed the operation.
         shared_ptr<int64_t> opUserId_ {};
-        // The ID of the ticket or task.
-        // 
-        // >  This parameter is valid only for operations on the functional modules related to tasks and the task management module in system management.
         shared_ptr<int64_t> orderId_ {};
-        // The ID of the Alibaba Cloud account.
         shared_ptr<string> userId_ {};
-        // The display name of the user.
         shared_ptr<string> userNick_ {};
       };
 
@@ -243,7 +227,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
-    // The details of the operation log.
     shared_ptr<GetOpLogResponseBody::OpLogDetails> opLogDetails_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -313,9 +313,7 @@ namespace Models
       shared_ptr<string> instanceAlias_ {};
       // The ID of the instance.
       shared_ptr<string> instanceId_ {};
-      // The IDs of the owners of the database.
       shared_ptr<Database::OwnerIdList> ownerIdList_ {};
-      // The names of the owners of the database.
       shared_ptr<Database::OwnerNameList> ownerNameList_ {};
       // The port that is used to connect to the database.
       shared_ptr<int32_t> port_ {};

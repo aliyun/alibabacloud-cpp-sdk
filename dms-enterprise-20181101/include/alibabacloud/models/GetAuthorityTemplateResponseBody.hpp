@@ -181,27 +181,13 @@ namespace Models
 
 
         protected:
-          // Other information. For example, you can add the logon permission on an instance to the permission template.
           shared_ptr<string> attribute_ {};
-          // The ID of the database.
           shared_ptr<int64_t> dbId_ {};
-          // The ID of the instance.
           shared_ptr<int64_t> instanceId_ {};
-          // The ID of the resource.
           shared_ptr<int64_t> itemId_ {};
-          // The ID of the user who modified the resource.
           shared_ptr<int64_t> modifierId_ {};
-          // The type of the resource. Valid values:
-          // 
-          // *   **INSTANCE**: instance
-          // *   **LOGIC_DB**: logical database
-          // *   **META_DB**: physical database
-          // *   **LOGIC_TABLE**: logical table
-          // *   **SINGLE_TABLE**: physical table
           shared_ptr<string> resourceType_ {};
-          // The name of the table.
           shared_ptr<string> tableName_ {};
-          // The ID of the permission template.
           shared_ptr<int64_t> templateId_ {};
         };
 
@@ -266,7 +252,6 @@ namespace Models
 
 
     protected:
-      // The resource information in the permission template.
       shared_ptr<AuthorityTemplateView::AuthorityTemplateItemList> authorityTemplateItemList_ {};
       // The time when the permission template was created. The time is in the yyyy-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};

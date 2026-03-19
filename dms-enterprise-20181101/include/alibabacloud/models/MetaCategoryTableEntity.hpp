@@ -121,15 +121,38 @@ namespace Models
 
 
   protected:
+    // For PostgreSQL-compatible databases, specify the database name.
     shared_ptr<string> catalogName_ {};
+    // The category ID.
     shared_ptr<int64_t> categoryId_ {};
+    // The name that is used to search for the database.
     shared_ptr<string> databaseSearchName_ {};
+    // The database ID. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the ID of a physical database and the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the ID of a logical database.
+    // 
+    // > The value of DatabaseId is that of DbId.
     shared_ptr<int32_t> dbId_ {};
+    // The type of the database. Valid values include but are not limited to:
+    // 
+    // *   **MySQL**
+    // *   **SQLServer**
+    // *   **PostgreSQL**
+    // *   **Oracle**
+    // *   **DRDS**
+    // *   **OceanBase**
+    // *   **Mongo**
+    // *   **Redis**
     shared_ptr<string> dbType_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the instance ID.
     shared_ptr<int32_t> instanceId_ {};
+    // Database name (for PostgreSQL-compatible databases, specify the schema name). You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to query the name of the database.
+    // 
+    // > You can also call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the SchemaName of a physical database or call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the SchemaName of a logical database.
     shared_ptr<string> schemaName_ {};
+    // The name of the table.
     shared_ptr<string> tableName_ {};
+    // The schema name of the table, which is required only for SQL Server instances.
     shared_ptr<string> tableSchemaName_ {};
   };
 

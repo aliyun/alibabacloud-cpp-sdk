@@ -198,34 +198,18 @@ namespace Models
 
 
       protected:
-        // The alias of the instance.
         shared_ptr<string> alias_ {};
-        // The ID of the database in DMS.
         shared_ptr<string> dbId_ {};
-        // The ID of the instance to which the database belongs.
         shared_ptr<string> dbInstanceId_ {};
-        // The database engine type. For more information about the valid values of the DbType parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
         shared_ptr<string> dbType_ {};
-        // The type of the environment to which the database instance belongs.
         shared_ptr<string> envType_ {};
-        // The endpoint of the instance to which the database belongs.
         shared_ptr<string> host_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the database is a logical database. Valid values:
-        // 
-        // *   **true**: The database is a logical database
-        // *   **false**: The database is a physical database.
         shared_ptr<bool> logic_ {};
-        // The connection port of the instance to which the database belongs.
         shared_ptr<int64_t> port_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The query name of the database.
         shared_ptr<string> searchName_ {};
-        // The table ID.
         shared_ptr<string> tableId_ {};
-        // The table name.
         shared_ptr<string> tableName_ {};
       };
 
@@ -290,7 +274,6 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request was successful. Valid values:
     shared_ptr<ListUserOwnedResourcesResponseBody::Data> data_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

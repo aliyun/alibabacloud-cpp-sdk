@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the task flow edge.
         shared_ptr<int64_t> id_ {};
-        // The ID of the end node on the edge.
         shared_ptr<int64_t> nodeEnd_ {};
-        // The ID of the start node on the edge.
         shared_ptr<int64_t> nodeFrom_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The list of task flow edges.
     shared_ptr<ListTaskFlowEdgesByConditionResponseBody::Edges> edges_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

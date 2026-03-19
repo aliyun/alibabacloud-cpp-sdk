@@ -507,7 +507,7 @@ AddTableToCategoryResponse Client::addTableToCategory(const AddTableToCategoryRe
 }
 
 /**
- * @summary Adds directed edges for an existing task node.
+ * @summary Creates directed edges for the existing task nodes of a task flow.
  *
  * @description When you add directed edges for a task node, take note of the following limits:
  * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
@@ -556,7 +556,7 @@ AddTaskFlowEdgesResponse Client::addTaskFlowEdgesWithOptions(const AddTaskFlowEd
 }
 
 /**
- * @summary Adds directed edges for an existing task node.
+ * @summary Creates directed edges for the existing task nodes of a task flow.
  *
  * @description When you add directed edges for a task node, take note of the following limits:
  * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
@@ -761,7 +761,7 @@ ApproveOrderResponse Client::approveOrder(const ApproveOrderRequest &request) {
 }
 
 /**
- * @summary Backfills data for task orchestration.
+ * @summary Backfills data for a task flow.
  *
  * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
  *
@@ -844,7 +844,7 @@ BackFillResponse Client::backFillWithOptions(const BackFillRequest &tmpReq, cons
 }
 
 /**
- * @summary Backfills data for task orchestration.
+ * @summary Backfills data for a task flow.
  *
  * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
  *
@@ -1137,7 +1137,7 @@ BuyPayAsYouGoOrderResponse Client::buyPayAsYouGoOrder(const BuyPayAsYouGoOrderRe
 }
 
 /**
- * @summary Adjusts the sensitivity level of one or more fields.
+ * @summary Adjusts the sensitivity level of fields.
  *
  * @param request ChangeColumnSecLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1192,7 +1192,7 @@ ChangeColumnSecLevelResponse Client::changeColumnSecLevelWithOptions(const Chang
 }
 
 /**
- * @summary Adjusts the sensitivity level of one or more fields.
+ * @summary Adjusts the sensitivity level of fields.
  *
  * @param request ChangeColumnSecLevelRequest
  * @return ChangeColumnSecLevelResponse
@@ -1269,7 +1269,7 @@ ChangeColumnSecurityLevelResponse Client::changeColumnSecurityLevel(const Change
 }
 
 /**
- * @summary 移交数仓开发任务流
+ * @summary Transfers the ownership of a task flow in a workspace of Data Management (DMS).
  *
  * @description Usage notes:
  * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
@@ -1312,7 +1312,7 @@ ChangeLhDagOwnerResponse Client::changeLhDagOwnerWithOptions(const ChangeLhDagOw
 }
 
 /**
- * @summary 移交数仓开发任务流
+ * @summary Transfers the ownership of a task flow in a workspace of Data Management (DMS).
  *
  * @description Usage notes:
  * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
@@ -1648,16 +1648,18 @@ FutureGenerator<ChatWithDesensitizeSSEResponse> Client::chatWithDesensitizeSSEWi
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<ChatWithDesensitizeSSEResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatWithDesensitizeSSEResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -3022,6 +3024,10 @@ CreateDifyInstanceResponse Client::createDifyInstanceWithOptions(const CreateDif
     query["DbStorageType"] = request.getDbStorageType();
   }
 
+  if (!!request.hasDifyInstanceName()) {
+    query["DifyInstanceName"] = request.getDifyInstanceName();
+  }
+
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
   }
@@ -3134,6 +3140,10 @@ CreateDifyInstanceResponse Client::createDifyInstanceWithOptions(const CreateDif
     query["StorageType"] = request.getStorageType();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
   if (!!request.hasVSwitchId()) {
     query["VSwitchId"] = request.getVSwitchId();
   }
@@ -3240,7 +3250,7 @@ CreateDifyInstanceResponse Client::createDifyInstance(const CreateDifyInstanceRe
 }
 
 /**
- * @summary 创建无锁变更工单
+ * @summary Creates a lock-free change ticket.
  *
  * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
  * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
@@ -3304,7 +3314,7 @@ CreateFreeLockCorrectOrderResponse Client::createFreeLockCorrectOrderWithOptions
 }
 
 /**
- * @summary 创建无锁变更工单
+ * @summary Creates a lock-free change ticket.
  *
  * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
  * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
@@ -3394,7 +3404,7 @@ CreateLakeHouseSpaceResponse Client::createLakeHouseSpace(const CreateLakeHouseS
 }
 
 /**
- * @summary Creates a logical database in Database Management (DMS).
+ * @summary Creates a logical database in Data Management (DMS).
  *
  * @param tmpReq CreateLogicDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3439,7 +3449,7 @@ CreateLogicDatabaseResponse Client::createLogicDatabaseWithOptions(const CreateL
 }
 
 /**
- * @summary Creates a logical database in Database Management (DMS).
+ * @summary Creates a logical database in Data Management (DMS).
  *
  * @param request CreateLogicDatabaseRequest
  * @return CreateLogicDatabaseResponse
@@ -3518,7 +3528,7 @@ CreateMetaCategoryResponse Client::createMetaCategory(const CreateMetaCategoryRe
 }
 
 /**
- * @summary Creates a ticket in Data Management (DMS).
+ * @summary Creates a ticket.
  *
  * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
  * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
@@ -3587,7 +3597,7 @@ CreateOrderResponse Client::createOrderWithOptions(const CreateOrderRequest &tmp
 }
 
 /**
- * @summary Creates a ticket in Data Management (DMS).
+ * @summary Creates a ticket.
  *
  * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
  * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
@@ -3738,7 +3748,7 @@ CreateProxyResponse Client::createProxy(const CreateProxyRequest &request) {
 }
 
 /**
- * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+ * @summary Grants a user the permissions to access a database instance by using the secure access proxy feature.
  *
  * @description - The data security protection feature is enabled for the instance.
  * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
@@ -3788,7 +3798,7 @@ CreateProxyAccessResponse Client::createProxyAccessWithOptions(const CreateProxy
 }
 
 /**
- * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+ * @summary Grants a user the permissions to access a database instance by using the secure access proxy feature.
  *
  * @description - The data security protection feature is enabled for the instance.
  * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
@@ -4230,7 +4240,7 @@ CreateTaskFlowResponse Client::createTaskFlow(const CreateTaskFlowRequest &reque
 }
 
 /**
- * @summary 创建上传附件任务
+ * @summary Creates a task to upload an attachment file.
  *
  * @param request CreateUploadFileJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4273,7 +4283,7 @@ CreateUploadFileJobResponse Client::createUploadFileJobWithOptions(const CreateU
 }
 
 /**
- * @summary 创建上传附件任务
+ * @summary Creates a task to upload an attachment file.
  *
  * @param request CreateUploadFileJobRequest
  * @return CreateUploadFileJobResponse
@@ -4916,7 +4926,7 @@ DeleteLakeHouseSpaceResponse Client::deleteLakeHouseSpace(const DeleteLakeHouseS
 }
 
 /**
- * @summary 删除数仓空间成员
+ * @summary Removes a workspace member or a task flow developer in Data Management (DMS).
  *
  * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
  * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
@@ -4968,7 +4978,7 @@ DeleteLhMembersResponse Client::deleteLhMembersWithOptions(const DeleteLhMembers
 }
 
 /**
- * @summary 删除数仓空间成员
+ * @summary Removes a workspace member or a task flow developer in Data Management (DMS).
  *
  * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
  * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
@@ -4982,7 +4992,7 @@ DeleteLhMembersResponse Client::deleteLhMembers(const DeleteLhMembersRequest &re
 }
 
 /**
- * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+ * @summary Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
  *
  * @param request DeleteLogicDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5017,7 +5027,7 @@ DeleteLogicDatabaseResponse Client::deleteLogicDatabaseWithOptions(const DeleteL
 }
 
 /**
- * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+ * @summary Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
  *
  * @param request DeleteLogicDatabaseRequest
  * @return DeleteLogicDatabaseResponse
@@ -5028,7 +5038,7 @@ DeleteLogicDatabaseResponse Client::deleteLogicDatabase(const DeleteLogicDatabas
 }
 
 /**
- * @summary Deletes the routing algorithm of a logical table.
+ * @summary Deletes a routing algorithm from a logical table.
  *
  * @param request DeleteLogicTableRouteConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5067,7 +5077,7 @@ DeleteLogicTableRouteConfigResponse Client::deleteLogicTableRouteConfigWithOptio
 }
 
 /**
- * @summary Deletes the routing algorithm of a logical table.
+ * @summary Deletes a routing algorithm from a logical table.
  *
  * @param request DeleteLogicTableRouteConfigRequest
  * @return DeleteLogicTableRouteConfigResponse
@@ -5174,7 +5184,7 @@ DeleteProxyResponse Client::deleteProxy(const DeleteProxyRequest &request) {
 }
 
 /**
- * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+ * @summary Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
  *
  * @param request DeleteProxyAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5209,7 +5219,7 @@ DeleteProxyAccessResponse Client::deleteProxyAccessWithOptions(const DeleteProxy
 }
 
 /**
- * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+ * @summary Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
  *
  * @param request DeleteProxyAccessRequest
  * @return DeleteProxyAccessResponse
@@ -5568,7 +5578,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const DeleteWorkspaceRequest &re
 }
 
 /**
- * @summary 用于创建DIFY实例及相关资源，支持自定义配置。
+ * @summary Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
  *
  * @description ## 请求说明
  * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
@@ -5620,7 +5630,7 @@ DescribeDifyAttributeResponse Client::describeDifyAttributeWithOptions(const Des
 }
 
 /**
- * @summary 用于创建DIFY实例及相关资源，支持自定义配置。
+ * @summary Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
  *
  * @description ## 请求说明
  * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
@@ -5836,7 +5846,7 @@ DescribeDifyRegionsResponse Client::describeDifyRegions(const DescribeDifyRegion
 }
 
 /**
- * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+ * @summary Disables a user that is temporarily not used in Data Management (DMS).
  *
  * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
  * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
@@ -5874,7 +5884,7 @@ DisableUserResponse Client::disableUserWithOptions(const DisableUserRequest &req
 }
 
 /**
- * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+ * @summary Disables a user that is temporarily not used in Data Management (DMS).
  *
  * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
  * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
@@ -5980,7 +5990,7 @@ DownloadDataTrackResultResponse Client::downloadDataTrackResult(const DownloadDa
 }
 
 /**
- * @summary Modifies the information about a logical database.
+ * @summary Edits the information about a logical database.
  *
  * @param tmpReq EditLogicDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6029,7 +6039,7 @@ EditLogicDatabaseResponse Client::editLogicDatabaseWithOptions(const EditLogicDa
 }
 
 /**
- * @summary Modifies the information about a logical database.
+ * @summary Edits the information about a logical database.
  *
  * @param request EditLogicDatabaseRequest
  * @return EditLogicDatabaseResponse
@@ -6102,7 +6112,7 @@ EditMetaKnowledgeAssetResponse Client::editMetaKnowledgeAsset(const EditMetaKnow
 }
 
 /**
- * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+ * @summary Enables a user that is disabled.
  *
  * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
  * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
@@ -6140,7 +6150,7 @@ EnableUserResponse Client::enableUserWithOptions(const EnableUserRequest &reques
 }
 
 /**
- * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+ * @summary Enables a user that is disabled.
  *
  * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
  * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
@@ -6492,7 +6502,7 @@ GenMetaKnowledgeAssetResponse Client::genMetaKnowledgeAsset(const GenMetaKnowled
 }
 
 /**
- * @summary 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+ * @summary Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
  *
  * @description ## 请求说明
  * - 该API用于将用户的自然语言问题转换为可执行的SQL查询语句。
@@ -6559,7 +6569,7 @@ GenerateSqlFromNLResponse Client::generateSqlFromNLWithOptions(const GenerateSql
 }
 
 /**
- * @summary 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+ * @summary Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
  *
  * @description ## 请求说明
  * - 该API用于将用户的自然语言问题转换为可执行的SQL查询语句。
@@ -6575,6 +6585,101 @@ GenerateSqlFromNLResponse Client::generateSqlFromNLWithOptions(const GenerateSql
 GenerateSqlFromNLResponse Client::generateSqlFromNL(const GenerateSqlFromNLRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateSqlFromNLWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取大模型工单审批建议
+ *
+ * @param request GetAIOrderApprovalCommentSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAIOrderApprovalCommentSSEResponse
+ */
+FutureGenerator<GetAIOrderApprovalCommentSSEResponse> Client::getAIOrderApprovalCommentSSEWithSSE(const GetAIOrderApprovalCommentSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrderId()) {
+    query["OrderId"] = request.getOrderId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAIOrderApprovalCommentSSE"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GetAIOrderApprovalCommentSSEResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 获取大模型工单审批建议
+ *
+ * @param request GetAIOrderApprovalCommentSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAIOrderApprovalCommentSSEResponse
+ */
+GetAIOrderApprovalCommentSSEResponse Client::getAIOrderApprovalCommentSSEWithOptions(const GetAIOrderApprovalCommentSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrderId()) {
+    query["OrderId"] = request.getOrderId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAIOrderApprovalCommentSSE"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAIOrderApprovalCommentSSEResponse>();
+}
+
+/**
+ * @summary 获取大模型工单审批建议
+ *
+ * @param request GetAIOrderApprovalCommentSSERequest
+ * @return GetAIOrderApprovalCommentSSEResponse
+ */
+GetAIOrderApprovalCommentSSEResponse Client::getAIOrderApprovalCommentSSE(const GetAIOrderApprovalCommentSSERequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAIOrderApprovalCommentSSEWithOptions(request, runtime);
 }
 
 /**
@@ -7012,7 +7117,7 @@ GetDataArchiveOrderDetailResponse Client::getDataArchiveOrderDetail(const GetDat
 }
 
 /**
- * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+ * @summary Obtains the download URL of the backup file for the specified ticket.
  *
  * @param tmpReq GetDataCorrectBackupFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7057,7 +7162,7 @@ GetDataCorrectBackupFilesResponse Client::getDataCorrectBackupFilesWithOptions(c
 }
 
 /**
- * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+ * @summary Obtains the download URL of the backup file for the specified ticket.
  *
  * @param request GetDataCorrectBackupFilesRequest
  * @return GetDataCorrectBackupFilesResponse
@@ -9720,7 +9825,7 @@ GetTaskFlowNotificationResponse Client::getTaskFlowNotification(const GetTaskFlo
 }
 
 /**
- * @summary Queries the information about the nodes in an execution record of a task flow.
+ * @summary Queries the task nodes of a task flow instance.
  *
  * @param request GetTaskInstanceRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9759,7 +9864,7 @@ GetTaskInstanceRelationResponse Client::getTaskInstanceRelationWithOptions(const
 }
 
 /**
- * @summary Queries the information about the nodes in an execution record of a task flow.
+ * @summary Queries the task nodes of a task flow instance.
  *
  * @param request GetTaskInstanceRelationRequest
  * @return GetTaskInstanceRelationResponse
@@ -10920,7 +11025,7 @@ ListDataCorrectPreCheckDBResponse Client::listDataCorrectPreCheckDB(const ListDa
 }
 
 /**
- * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
+ * @summary Queries the information about SQL statements that are involved in the precheck of a data change ticket.
  *
  * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
  *
@@ -10969,7 +11074,7 @@ ListDataCorrectPreCheckSQLResponse Client::listDataCorrectPreCheckSQLWithOptions
 }
 
 /**
- * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
+ * @summary Queries the information about SQL statements that are involved in the precheck of a data change ticket.
  *
  * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
  *
@@ -11974,7 +12079,7 @@ ListDefaultSLARulesResponse Client::listDefaultSLARules(const ListDefaultSLARule
 }
 
 /**
- * @summary Queries masking rules.
+ * @summary Queries a list of masking rules.
  *
  * @param request ListDesensitizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12029,7 +12134,7 @@ ListDesensitizationRuleResponse Client::listDesensitizationRuleWithOptions(const
 }
 
 /**
- * @summary Queries masking rules.
+ * @summary Queries a list of masking rules.
  *
  * @param request ListDesensitizationRuleRequest
  * @return ListDesensitizationRuleResponse
@@ -12270,7 +12375,7 @@ ListInstanceLoginAuditLogResponse Client::listInstanceLoginAuditLog(const ListIn
 }
 
 /**
- * @summary Queries the permissions of a user on a specific instance.
+ * @summary Queries the permissions of a user on an instance.
  *
  * @param request ListInstanceUserPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12317,7 +12422,7 @@ ListInstanceUserPermissionsResponse Client::listInstanceUserPermissionsWithOptio
 }
 
 /**
- * @summary Queries the permissions of a user on a specific instance.
+ * @summary Queries the permissions of a user on an instance.
  *
  * @param request ListInstanceUserPermissionsRequest
  * @return ListInstanceUserPermissionsResponse
@@ -12410,7 +12515,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+ * @summary Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
  *
  * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
  * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
@@ -12452,7 +12557,7 @@ ListLhTaskFlowAndScenarioResponse Client::listLhTaskFlowAndScenarioWithOptions(c
 }
 
 /**
- * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+ * @summary Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
  *
  * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
  * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
@@ -12466,7 +12571,7 @@ ListLhTaskFlowAndScenarioResponse Client::listLhTaskFlowAndScenario(const ListLh
 }
 
 /**
- * @summary Queries the details of logical databases.
+ * @summary Queries the detailed information about logical databases.
  *
  * @param request ListLogicDatabasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12505,7 +12610,7 @@ ListLogicDatabasesResponse Client::listLogicDatabasesWithOptions(const ListLogic
 }
 
 /**
- * @summary Queries the details of logical databases.
+ * @summary Queries the detailed information about logical databases.
  *
  * @param request ListLogicDatabasesRequest
  * @return ListLogicDatabasesResponse
@@ -12678,7 +12783,7 @@ ListMetaCategoryResponse Client::listMetaCategory(const ListMetaCategoryRequest 
 }
 
 /**
- * @summary Queries tickets in Data Management (DMS).
+ * @summary Queries tickets.
  *
  * @param request ListOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12745,7 +12850,7 @@ ListOrdersResponse Client::listOrdersWithOptions(const ListOrdersRequest &reques
 }
 
 /**
- * @summary Queries tickets in Data Management (DMS).
+ * @summary Queries tickets.
  *
  * @param request ListOrdersRequest
  * @return ListOrdersResponse
@@ -12844,7 +12949,7 @@ ListProxyAccessesResponse Client::listProxyAccesses(const ListProxyAccessesReque
 }
 
 /**
- * @summary 操作审计-数据安全代理SQL执行列表
+ * @summary Queries the audit logs generated by the secure access proxy feature.
  *
  * @param request ListProxySQLExecAuditLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12907,7 +13012,7 @@ ListProxySQLExecAuditLogResponse Client::listProxySQLExecAuditLogWithOptions(con
 }
 
 /**
- * @summary 操作审计-数据安全代理SQL执行列表
+ * @summary Queries the audit logs generated by the secure access proxy feature.
  *
  * @param request ListProxySQLExecAuditLogRequest
  * @return ListProxySQLExecAuditLogResponse
@@ -12918,7 +13023,7 @@ ListProxySQLExecAuditLogResponse Client::listProxySQLExecAuditLog(const ListProx
 }
 
 /**
- * @summary Queries the custom service level agreement (SLA) rules.
+ * @summary Queries the custom service level agreement (SLA) rules of a task flow.
  *
  * @param request ListSLARulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12953,7 +13058,7 @@ ListSLARulesResponse Client::listSLARulesWithOptions(const ListSLARulesRequest &
 }
 
 /**
- * @summary Queries the custom service level agreement (SLA) rules.
+ * @summary Queries the custom service level agreement (SLA) rules of a task flow.
  *
  * @param request ListSLARulesRequest
  * @return ListSLARulesResponse
@@ -12964,7 +13069,7 @@ ListSLARulesResponse Client::listSLARules(const ListSLARulesRequest &request) {
 }
 
 /**
- * @summary Queries SQL statements that were written on the SQLConsole tab.
+ * @summary Queries the audit logs of SQL statements that are executed in Data Management (DMS).
  *
  * @param request ListSQLExecAuditLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13027,7 +13132,7 @@ ListSQLExecAuditLogResponse Client::listSQLExecAuditLogWithOptions(const ListSQL
 }
 
 /**
- * @summary Queries SQL statements that were written on the SQLConsole tab.
+ * @summary Queries the audit logs of SQL statements that are executed in Data Management (DMS).
  *
  * @param request ListSQLExecAuditLogRequest
  * @return ListSQLExecAuditLogResponse
@@ -13678,7 +13783,7 @@ ListTablesInCategoryResponse Client::listTablesInCategory(const ListTablesInCate
 }
 
 /**
- * @summary 任务编排获取任务流列表
+ * @summary Queries a list of task flows.
  *
  * @param request ListTaskFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13709,7 +13814,7 @@ ListTaskFlowResponse Client::listTaskFlowWithOptions(const ListTaskFlowRequest &
 }
 
 /**
- * @summary 任务编排获取任务流列表
+ * @summary Queries a list of task flows.
  *
  * @param request ListTaskFlowRequest
  * @return ListTaskFlowResponse
@@ -13766,7 +13871,7 @@ ListTaskFlowConstantsResponse Client::listTaskFlowConstants(const ListTaskFlowCo
 }
 
 /**
- * @summary Queries the users that are involved in a specified task flow.
+ * @summary Queries a list of users that are involved in a task flow.
  *
  * @param request ListTaskFlowCooperatorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13801,7 +13906,7 @@ ListTaskFlowCooperatorsResponse Client::listTaskFlowCooperatorsWithOptions(const
 }
 
 /**
- * @summary Queries the users that are involved in a specified task flow.
+ * @summary Queries a list of users that are involved in a task flow.
  *
  * @param request ListTaskFlowCooperatorsRequest
  * @return ListTaskFlowCooperatorsResponse
@@ -13812,7 +13917,7 @@ ListTaskFlowCooperatorsResponse Client::listTaskFlowCooperators(const ListTaskFl
 }
 
 /**
- * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+ * @summary Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
  *
  * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
  *
@@ -13861,7 +13966,7 @@ ListTaskFlowEdgesByConditionResponse Client::listTaskFlowEdgesByConditionWithOpt
 }
 
 /**
- * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+ * @summary Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
  *
  * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
  *
@@ -13994,7 +14099,7 @@ ListTaskFlowTimeVariablesResponse Client::listTaskFlowTimeVariables(const ListTa
 }
 
 /**
- * @summary Queries task flows by page.
+ * @summary Queries the details of task flows by page.
  *
  * @param tmpReq ListTaskFlowsByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14051,7 +14156,7 @@ ListTaskFlowsByPageResponse Client::listTaskFlowsByPageWithOptions(const ListTas
 }
 
 /**
- * @summary Queries task flows by page.
+ * @summary Queries the details of task flows by page.
  *
  * @param request ListTaskFlowsByPageRequest
  * @return ListTaskFlowsByPageResponse
@@ -14182,7 +14287,7 @@ ListUserOwnedResourcesResponse Client::listUserOwnedResources(const ListUserOwne
 }
 
 /**
- * @summary Queries the permissions of a specific user on a database or a table.
+ * @summary Queries the permissions of a user on databases and tables.
  *
  * @param request ListUserPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14249,7 +14354,7 @@ ListUserPermissionsResponse Client::listUserPermissionsWithOptions(const ListUse
 }
 
 /**
- * @summary Queries the permissions of a specific user on a database or a table.
+ * @summary Queries the permissions of a user on databases and tables.
  *
  * @param request ListUserPermissionsRequest
  * @return ListUserPermissionsResponse
@@ -14260,7 +14365,7 @@ ListUserPermissionsResponse Client::listUserPermissions(const ListUserPermission
 }
 
 /**
- * @summary 获取用户租户列表
+ * @summary Queries tenants.
  *
  * @param request ListUserTenantsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14291,7 +14396,7 @@ ListUserTenantsResponse Client::listUserTenantsWithOptions(const ListUserTenants
 }
 
 /**
- * @summary 获取用户租户列表
+ * @summary Queries tenants.
  *
  * @param request ListUserTenantsRequest
  * @return ListUserTenantsResponse
@@ -14916,7 +15021,7 @@ MoveTaskFlowToScenarioResponse Client::moveTaskFlowToScenario(const MoveTaskFlow
 }
 
 /**
- * @summary Unpublishes a published task flow.
+ * @summary Unpublishes a published task flow in Data Management (DMS).
  *
  * @param request OfflineTaskFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14951,7 +15056,7 @@ OfflineTaskFlowResponse Client::offlineTaskFlowWithOptions(const OfflineTaskFlow
 }
 
 /**
- * @summary Unpublishes a published task flow.
+ * @summary Unpublishes a published task flow in Data Management (DMS).
  *
  * @param request OfflineTaskFlowRequest
  * @return OfflineTaskFlowResponse
@@ -15274,7 +15379,7 @@ QueryDataTrackResultDownloadStatusResponse Client::queryDataTrackResultDownloadS
 }
 
 /**
- * @summary 部署任务流的历史版本
+ * @summary Redeploys the published versions of a task flow.
  *
  * @param request ReDeployLhDagVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15313,7 +15418,7 @@ ReDeployLhDagVersionResponse Client::reDeployLhDagVersionWithOptions(const ReDep
 }
 
 /**
- * @summary 部署任务流的历史版本
+ * @summary Redeploys the published versions of a task flow.
  *
  * @param request ReDeployLhDagVersionRequest
  * @return ReDeployLhDagVersionResponse
@@ -15650,7 +15755,7 @@ RegisterInstanceResponse Client::registerInstance(const RegisterInstanceRequest 
 }
 
 /**
- * @summary Registers a user for your enterprise.
+ * @summary Adds a user of your enterprise.
  *
  * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
  *
@@ -15699,7 +15804,7 @@ RegisterUserResponse Client::registerUserWithOptions(const RegisterUserRequest &
 }
 
 /**
- * @summary Registers a user for your enterprise.
+ * @summary Adds a user of your enterprise.
  *
  * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
  *
@@ -15928,7 +16033,7 @@ RestartDataExportJobResponse Client::restartDataExportJob(const RestartDataExpor
 }
 
 /**
- * @summary Resumes a suspended task flow.
+ * @summary Resumes a suspended task flow instance.
  *
  * @description You can call this operation only for task flows that are suspended.
  *
@@ -15973,7 +16078,7 @@ ResumeTaskFlowInstanceResponse Client::resumeTaskFlowInstanceWithOptions(const R
 }
 
 /**
- * @summary Resumes a suspended task flow.
+ * @summary Resumes a suspended task flow instance.
  *
  * @description You can call this operation only for task flows that are suspended.
  *
@@ -16528,7 +16633,7 @@ SetWorkflowExtraInfoResponse Client::setWorkflowExtraInfo(const SetWorkflowExtra
 }
 
 /**
- * @summary 添加实例
+ * @summary This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
  *
  * @param request SimplyAddInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16583,7 +16688,7 @@ SimplyAddInstanceResponse Client::simplyAddInstanceWithOptions(const SimplyAddIn
 }
 
 /**
- * @summary 添加实例
+ * @summary This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
  *
  * @param request SimplyAddInstanceRequest
  * @return SimplyAddInstanceResponse
@@ -17674,7 +17779,7 @@ UpdateMetaCategoryResponse Client::updateMetaCategory(const UpdateMetaCategoryRe
 }
 
 /**
- * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
+ * @summary Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
  *
  * @description SLA rules take effect after task flows are deployed and published.
  *
@@ -17721,7 +17826,7 @@ UpdateSLARulesResponse Client::updateSLARulesWithOptions(const UpdateSLARulesReq
 }
 
 /**
- * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
+ * @summary Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
  *
  * @description SLA rules take effect after task flows are deployed and published.
  *
@@ -18058,7 +18163,7 @@ UpdateTaskFlowConstantsResponse Client::updateTaskFlowConstants(const UpdateTask
 }
 
 /**
- * @summary Updates the IDs of the users who are involved in the task flow.
+ * @summary Updates the IDs of the users that are involved in a task flow.
  *
  * @param tmpReq UpdateTaskFlowCooperatorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18103,7 +18208,7 @@ UpdateTaskFlowCooperatorsResponse Client::updateTaskFlowCooperatorsWithOptions(c
 }
 
 /**
- * @summary Updates the IDs of the users who are involved in the task flow.
+ * @summary Updates the IDs of the users that are involved in a task flow.
  *
  * @param request UpdateTaskFlowCooperatorsRequest
  * @return UpdateTaskFlowCooperatorsResponse
@@ -18236,7 +18341,7 @@ UpdateTaskFlowNameAndDescResponse Client::updateTaskFlowNameAndDesc(const Update
 }
 
 /**
- * @summary Updates the notification settings for task flows.
+ * @summary Updates the notification settings for a task flow.
  *
  * @param request UpdateTaskFlowNotificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18283,7 +18388,7 @@ UpdateTaskFlowNotificationResponse Client::updateTaskFlowNotificationWithOptions
 }
 
 /**
- * @summary Updates the notification settings for task flows.
+ * @summary Updates the notification settings for a task flow.
  *
  * @param request UpdateTaskFlowNotificationRequest
  * @return UpdateTaskFlowNotificationResponse
@@ -18592,7 +18697,7 @@ UpdateTaskNameResponse Client::updateTaskName(const UpdateTaskNameRequest &reque
 }
 
 /**
- * @summary Updates the output variables for a specified task node.
+ * @summary Updates the output variables for a task node.
  *
  * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
  *
@@ -18633,7 +18738,7 @@ UpdateTaskOutputResponse Client::updateTaskOutputWithOptions(const UpdateTaskOut
 }
 
 /**
- * @summary Updates the output variables for a specified task node.
+ * @summary Updates the output variables for a task node.
  *
  * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
  *

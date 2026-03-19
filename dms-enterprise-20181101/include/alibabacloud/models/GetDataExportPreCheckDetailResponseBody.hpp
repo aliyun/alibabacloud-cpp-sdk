@@ -116,9 +116,7 @@ namespace Models
 
 
         protected:
-          // The estimated number of data rows to be affected.
           shared_ptr<int64_t> affectRows_ {};
-          // The SQL statement.
           shared_ptr<string> SQL_ {};
         };
 
@@ -160,7 +158,6 @@ namespace Models
       // - true
       // - false
       shared_ptr<bool> ignoreAffectRows_ {};
-      // The list of pre-check details.
       shared_ptr<PreCheckResult::PreCheckDetailList> preCheckDetailList_ {};
     };
 

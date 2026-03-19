@@ -262,59 +262,25 @@ namespace Models
 
 
       protected:
-        // The ID of the user who created the task flow.
         shared_ptr<string> creatorId_ {};
-        // The username of the user who created the task flow.
         shared_ptr<string> creatorNickName_ {};
-        // The start time of scheduled scheduling. The task flow is not scheduled before this point in time.
         shared_ptr<string> cronBeginDate_ {};
-        // The end time of scheduled scheduling. The task flow is not scheduled after this point in time.
         shared_ptr<string> cronEndDate_ {};
-        // Scheduled Cron.
         shared_ptr<string> cronStr_ {};
-        // Whether to enable scheduled scheduling.
         shared_ptr<bool> cronSwitch_ {};
-        // Scheduling cycle type. Valid values:
-        // - **2**: Hourly scheduling
-        // - **3**: Daily scheduling
-        // - **4**: Weekly scheduling
-        // - **5**: Monthly scheduling
         shared_ptr<int32_t> cronType_ {};
-        // The name of the task flow.
         shared_ptr<string> dagName_ {};
-        // The user ID of the task flow owner.
         shared_ptr<string> dagOwnerId_ {};
-        // The username of the owner of the task flow.
         shared_ptr<string> dagOwnerNickName_ {};
-        // The ID of the last deployment record of the task flow.
         shared_ptr<int64_t> deployId_ {};
-        // The description of the task flow.
         shared_ptr<string> description_ {};
-        // The ID of the task flow.
         shared_ptr<int64_t> id_ {};
-        // The status of the last execution of the task flow. Valid values:
-        // 
-        // *   **0**: invalid
-        // *   **1**: scheduling disabled
-        // *   **2**: waiting to be scheduled
         shared_ptr<int32_t> latestInstanceStatus_ {};
-        // The time when the last execution record was created.
         shared_ptr<string> latestInstanceTime_ {};
-        // The ID of the application scenario.
         shared_ptr<string> scenarioId_ {};
-        // Event scheduling configuration, JSON string format.
         shared_ptr<string> scheduleParam_ {};
-        // The status of the task flow. Valid values:
-        // 
-        // *   **0**: invalid
-        // *   **1**: scheduling disabled
-        // *   **2**: waiting to be scheduled
         shared_ptr<int32_t> status_ {};
-        // Time zone setting. Default value: East 8(Asia/Shanghai).
         shared_ptr<string> timeZoneId_ {};
-        // The trigger type. Valid values:
-        // - **0**: Periodic scheduling
-        // - **1**: Run manually
         shared_ptr<int32_t> triggerType_ {};
       };
 
@@ -390,7 +356,6 @@ namespace Models
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The details of the returned task flows.
     shared_ptr<ListTaskFlowsByPageResponseBody::TaskFlowList> taskFlowList_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

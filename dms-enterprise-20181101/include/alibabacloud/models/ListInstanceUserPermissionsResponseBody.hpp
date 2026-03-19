@@ -177,20 +177,11 @@ namespace Models
 
 
           protected:
-            // The time when the permissions were granted.
             shared_ptr<string> createDate_ {};
-            // The time when the permissions expire.
             shared_ptr<string> expireDate_ {};
-            // This parameter is reserved.
             shared_ptr<string> extraData_ {};
-            // The user who grants the permissions.
             shared_ptr<string> originFrom_ {};
-            // The type of the permissions. Valid values:
-            // 
-            // *   LOGIN: the logon permissions
-            // *   PERF: the query permissions on the instance
             shared_ptr<string> permType_ {};
-            // The ID of the authorization record.
             shared_ptr<string> userAccessId_ {};
           };
 
@@ -241,13 +232,9 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The details of permissions.
         shared_ptr<UserPermission::PermDetails> permDetails_ {};
-        // The ID of the user.
         shared_ptr<string> userId_ {};
-        // The nickname of the user.
         shared_ptr<string> userNickName_ {};
       };
 
@@ -325,7 +312,6 @@ namespace Models
     shared_ptr<bool> success_ {};
     // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The permissions of the user on the instance.
     shared_ptr<ListInstanceUserPermissionsResponseBody::UserPermissions> userPermissions_ {};
   };
 

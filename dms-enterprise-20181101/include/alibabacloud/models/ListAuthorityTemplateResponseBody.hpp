@@ -126,15 +126,10 @@ namespace Models
 
 
       protected:
-        // The time when the permission template was created. The time is in the yyyy-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
-        // The ID of the user who created the permission template.
         shared_ptr<int64_t> creatorId_ {};
-        // The description of the permission template.
         shared_ptr<string> description_ {};
-        // The name of the permission template.
         shared_ptr<string> name_ {};
-        // The ID of the permission template.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -207,7 +202,6 @@ namespace Models
 
 
   protected:
-    // The permission templates.
     shared_ptr<ListAuthorityTemplateResponseBody::AuthorityTemplateViewList> authorityTemplateViewList_ {};
     // The error code that is returned if the request failed.
     shared_ptr<string> errorCode_ {};

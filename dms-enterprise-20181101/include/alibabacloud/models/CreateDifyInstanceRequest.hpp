@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEDIFYINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEDIFYINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DbResourceId, dbResourceId_);
       DARABONBA_PTR_TO_JSON(DbStorageSize, dbStorageSize_);
       DARABONBA_PTR_TO_JSON(DbStorageType, dbStorageType_);
+      DARABONBA_PTR_TO_JSON(DifyInstanceName, difyInstanceName_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(EnableExtraEndpoint, enableExtraEndpoint_);
@@ -56,6 +58,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SegDiskPerformanceLevel, segDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(SegNodeNum, segNodeNum_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VectordbAccount, vectordbAccount_);
       DARABONBA_PTR_TO_JSON(VectordbCategory, vectordbCategory_);
@@ -90,6 +93,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DbResourceId, dbResourceId_);
       DARABONBA_PTR_FROM_JSON(DbStorageSize, dbStorageSize_);
       DARABONBA_PTR_FROM_JSON(DbStorageType, dbStorageType_);
+      DARABONBA_PTR_FROM_JSON(DifyInstanceName, difyInstanceName_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(EnableExtraEndpoint, enableExtraEndpoint_);
@@ -118,6 +122,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SegDiskPerformanceLevel, segDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(SegNodeNum, segNodeNum_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VectordbAccount, vectordbAccount_);
       DARABONBA_PTR_FROM_JSON(VectordbCategory, vectordbCategory_);
@@ -147,19 +152,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->adbpgInstanceMode_ == nullptr
         && this->autoRenew_ == nullptr && this->backupVSwitchId_ == nullptr && this->clientToken_ == nullptr && this->dataRegion_ == nullptr && this->databaseOption_ == nullptr
         && this->dbEngineType_ == nullptr && this->dbEngineVersion_ == nullptr && this->dbInstanceAccount_ == nullptr && this->dbInstanceCategory_ == nullptr && this->dbInstanceClass_ == nullptr
-        && this->dbInstancePassword_ == nullptr && this->dbResourceId_ == nullptr && this->dbStorageSize_ == nullptr && this->dbStorageType_ == nullptr && this->dryRun_ == nullptr
-        && this->edition_ == nullptr && this->enableExtraEndpoint_ == nullptr && this->gpuNodeSpec_ == nullptr && this->kvStoreAccount_ == nullptr && this->kvStoreEngineVersion_ == nullptr
-        && this->kvStoreInstanceClass_ == nullptr && this->kvStoreNodeType_ == nullptr && this->kvStoreOption_ == nullptr && this->kvStorePassword_ == nullptr && this->kvStoreResourceId_ == nullptr
-        && this->kvStoreType_ == nullptr && this->majorVersion_ == nullptr && this->modelId_ == nullptr && this->modelOption_ == nullptr && this->natGatewayOption_ == nullptr
-        && this->onlyIntranet_ == nullptr && this->ossPath_ == nullptr && this->ossResourceId_ == nullptr && this->payPeriod_ == nullptr && this->payPeriodType_ == nullptr
-        && this->payType_ == nullptr && this->replicas_ == nullptr && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr && this->segDiskPerformanceLevel_ == nullptr
-        && this->segNodeNum_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vectordbAccount_ == nullptr && this->vectordbCategory_ == nullptr
-        && this->vectordbEngineVersion_ == nullptr && this->vectordbInstanceSpec_ == nullptr && this->vectordbOption_ == nullptr && this->vectordbPassword_ == nullptr && this->vectordbResourceId_ == nullptr
-        && this->vectordbStorageSize_ == nullptr && this->vectordbStorageType_ == nullptr && this->vectordbType_ == nullptr && this->vpcId_ == nullptr && this->workspaceDescription_ == nullptr
-        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceOption_ == nullptr && this->zoneId_ == nullptr; };
+        && this->dbInstancePassword_ == nullptr && this->dbResourceId_ == nullptr && this->dbStorageSize_ == nullptr && this->dbStorageType_ == nullptr && this->difyInstanceName_ == nullptr
+        && this->dryRun_ == nullptr && this->edition_ == nullptr && this->enableExtraEndpoint_ == nullptr && this->gpuNodeSpec_ == nullptr && this->kvStoreAccount_ == nullptr
+        && this->kvStoreEngineVersion_ == nullptr && this->kvStoreInstanceClass_ == nullptr && this->kvStoreNodeType_ == nullptr && this->kvStoreOption_ == nullptr && this->kvStorePassword_ == nullptr
+        && this->kvStoreResourceId_ == nullptr && this->kvStoreType_ == nullptr && this->majorVersion_ == nullptr && this->modelId_ == nullptr && this->modelOption_ == nullptr
+        && this->natGatewayOption_ == nullptr && this->onlyIntranet_ == nullptr && this->ossPath_ == nullptr && this->ossResourceId_ == nullptr && this->payPeriod_ == nullptr
+        && this->payPeriodType_ == nullptr && this->payType_ == nullptr && this->replicas_ == nullptr && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr
+        && this->segDiskPerformanceLevel_ == nullptr && this->segNodeNum_ == nullptr && this->storageType_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vectordbAccount_ == nullptr && this->vectordbCategory_ == nullptr && this->vectordbEngineVersion_ == nullptr && this->vectordbInstanceSpec_ == nullptr && this->vectordbOption_ == nullptr
+        && this->vectordbPassword_ == nullptr && this->vectordbResourceId_ == nullptr && this->vectordbStorageSize_ == nullptr && this->vectordbStorageType_ == nullptr && this->vectordbType_ == nullptr
+        && this->vpcId_ == nullptr && this->workspaceDescription_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceOption_ == nullptr
+        && this->zoneId_ == nullptr; };
     // adbpgInstanceMode Field Functions 
     bool hasAdbpgInstanceMode() const { return this->adbpgInstanceMode_ != nullptr;};
     void deleteAdbpgInstanceMode() { this->adbpgInstanceMode_ = nullptr;};
@@ -263,6 +311,13 @@ namespace Models
     void deleteDbStorageType() { this->dbStorageType_ = nullptr;};
     inline string getDbStorageType() const { DARABONBA_PTR_GET_DEFAULT(dbStorageType_, "") };
     inline CreateDifyInstanceRequest& setDbStorageType(string dbStorageType) { DARABONBA_PTR_SET_VALUE(dbStorageType_, dbStorageType) };
+
+
+    // difyInstanceName Field Functions 
+    bool hasDifyInstanceName() const { return this->difyInstanceName_ != nullptr;};
+    void deleteDifyInstanceName() { this->difyInstanceName_ = nullptr;};
+    inline string getDifyInstanceName() const { DARABONBA_PTR_GET_DEFAULT(difyInstanceName_, "") };
+    inline CreateDifyInstanceRequest& setDifyInstanceName(string difyInstanceName) { DARABONBA_PTR_SET_VALUE(difyInstanceName_, difyInstanceName) };
 
 
     // dryRun Field Functions 
@@ -461,6 +516,15 @@ namespace Models
     inline CreateDifyInstanceRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<CreateDifyInstanceRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDifyInstanceRequest::Tag>) };
+    inline vector<CreateDifyInstanceRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateDifyInstanceRequest::Tag>) };
+    inline CreateDifyInstanceRequest& setTag(const vector<CreateDifyInstanceRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateDifyInstanceRequest& setTag(vector<CreateDifyInstanceRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -597,6 +661,7 @@ namespace Models
     shared_ptr<int32_t> dbResourceId_ {};
     shared_ptr<string> dbStorageSize_ {};
     shared_ptr<string> dbStorageType_ {};
+    shared_ptr<string> difyInstanceName_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> edition_ {};
     shared_ptr<bool> enableExtraEndpoint_ {};
@@ -627,6 +692,7 @@ namespace Models
     shared_ptr<string> segDiskPerformanceLevel_ {};
     shared_ptr<int32_t> segNodeNum_ {};
     shared_ptr<string> storageType_ {};
+    shared_ptr<vector<CreateDifyInstanceRequest::Tag>> tag_ {};
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
     shared_ptr<string> vectordbAccount_ {};
@@ -645,7 +711,6 @@ namespace Models
     shared_ptr<string> workspaceId_ {};
     shared_ptr<string> workspaceName_ {};
     shared_ptr<string> workspaceOption_ {};
-    // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -191,22 +191,12 @@ namespace Models
 
 
           protected:
-            // The description of the approval node.
             shared_ptr<string> comment_ {};
-            // The ID of the creator.
             shared_ptr<int64_t> createUserId_ {};
-            // The ID of the approval node.
             shared_ptr<int64_t> nodeId_ {};
-            // The name of the approval node.
             shared_ptr<string> nodeName_ {};
-            // The type of the approval node. Valid values:
-            // 
-            // *   SYS: The approval node is predefined by the system.
-            // *   USER_LIST: The approval node is created by a user.
             shared_ptr<string> nodeType_ {};
-            // The position of the approval node.
             shared_ptr<int32_t> position_ {};
-            // The ID of the template.
             shared_ptr<int64_t> templateId_ {};
           };
 
@@ -279,25 +269,12 @@ namespace Models
 
 
       protected:
-        // The description of the approval template.
         shared_ptr<string> comment_ {};
-        // The ID of the creator.
         shared_ptr<int64_t> createUserId_ {};
-        // Indicates whether the approval template is enabled. Valid values:
-        // 
-        // *   Y: The approval template is enabled.
-        // *   N: The approval template is disabled.
         shared_ptr<string> enabled_ {};
-        // Indicates whether the approval template is predefined by the system. Valid values:
-        // 
-        // *   1: The approval template is predefined by the system.
-        // *   0: The approval template is not predefined by the system.
         shared_ptr<int32_t> isSystem_ {};
-        // The ID of the approval template.
         shared_ptr<int64_t> templateId_ {};
-        // The name of the approval template.
         shared_ptr<string> templateName_ {};
-        // The details of approval nodes.
         shared_ptr<WorkFlowTemplate::WorkflowNodes> workflowNodes_ {};
       };
 
@@ -363,7 +340,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The approval templates.
     shared_ptr<ListWorkFlowTemplatesResponseBody::WorkFlowTemplates> workFlowTemplates_ {};
   };
 

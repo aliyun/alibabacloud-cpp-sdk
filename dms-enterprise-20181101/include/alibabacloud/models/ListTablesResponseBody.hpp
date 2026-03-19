@@ -268,31 +268,18 @@ namespace Models
 
 
       protected:
-        // The ID of the physical database.
         shared_ptr<string> databaseId_ {};
-        // The description of the table.
         shared_ptr<string> description_ {};
-        // The encoding format of the table.
         shared_ptr<string> encoding_ {};
-        // The engine of the table.
         shared_ptr<string> engine_ {};
-        // The number of rows in the table. This is a statistical value and does not indicate the actual number of rows.
         shared_ptr<int64_t> numRows_ {};
-        // The ID list of the table owners.
         shared_ptr<Table::OwnerIdList> ownerIdList_ {};
-        // The nickname list of the table owners.
         shared_ptr<Table::OwnerNameList> ownerNameList_ {};
-        // The storage space that is occupied by the table. This is a statistical value and does not indicate the accurate storage space. Unit: MB.
         shared_ptr<int64_t> storeCapacity_ {};
-        // The GUID of the table in DMS.
         shared_ptr<string> tableGuid_ {};
-        // The ID of the table.
         shared_ptr<string> tableId_ {};
-        // The table name.
         shared_ptr<string> tableName_ {};
-        // The database in which the table resides.
         shared_ptr<string> tableSchemaName_ {};
-        // The type of the table. Default value: NORMAL.
         shared_ptr<string> tableType_ {};
       };
 
@@ -368,7 +355,6 @@ namespace Models
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The details of the tables.
     shared_ptr<ListTablesResponseBody::TableList> tableList_ {};
     // The total number of tables that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};

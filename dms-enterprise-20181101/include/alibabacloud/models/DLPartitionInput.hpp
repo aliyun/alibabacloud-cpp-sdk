@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // The time when the partition was created. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int32_t> createTime_ {};
+    // The time when the partition was last accessed. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int32_t> lastAccessTime_ {};
+    // The key-value pair of the partition.
     shared_ptr<map<string, string>> parameters_ {};
+    // The description of the data storage.
     shared_ptr<DLStorageDescriptor> storageDescriptor_ {};
+    // The values of the partition key columns.
     shared_ptr<vector<string>> values_ {};
   };
 

@@ -295,42 +295,21 @@ namespace Models
 
 
       protected:
-        // The name of the catalog to which the database belongs.
         shared_ptr<string> catalogName_ {};
-        // The ID of the database.
         shared_ptr<string> databaseId_ {};
-        // The type of the database engine.
         shared_ptr<string> dbType_ {};
-        // The ID of the DBA.
         shared_ptr<string> dbaId_ {};
-        // The nickname of the Database administrator (DBA) to which the database belongs.
         shared_ptr<string> dbaName_ {};
-        // The encoding format of the database.
         shared_ptr<string> encoding_ {};
-        // The type of the environment to which the database belongs.
         shared_ptr<string> envType_ {};
-        // The endpoint of the instance to which the database belongs.
         shared_ptr<string> host_ {};
-        // The ID of the instance to which the database belongs.
         shared_ptr<string> instanceId_ {};
-        // The IDs of the owners of the database.
         shared_ptr<Database::OwnerIdList> ownerIdList_ {};
-        // The nicknames of the database owners.
         shared_ptr<Database::OwnerNameList> ownerNameList_ {};
-        // The connection port of the instance to which the database belongs.
         shared_ptr<int32_t> port_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The name that is used for searching the database.
         shared_ptr<string> searchName_ {};
-        // The system ID (SID) of the instance to which the database belongs.
         shared_ptr<string> sid_ {};
-        // The state of the database. Valid values:
-        // 
-        // *   NORMAL: The database is normal.
-        // *   DISABLE: The database is disabled.
-        // *   OFFLINE: The database is unpublished.
-        // *   NOT_EXIST: The database does not exist.
         shared_ptr<string> state_ {};
       };
 
@@ -395,7 +374,6 @@ namespace Models
 
 
   protected:
-    // The details of the databases.
     shared_ptr<ListDatabasesResponseBody::DatabaseList> databaseList_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

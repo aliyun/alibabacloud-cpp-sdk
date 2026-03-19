@@ -111,7 +111,6 @@ namespace Models
 
 
   protected:
-    // The download URL of the backup file for the ticket.
     shared_ptr<GetDataCorrectBackupFilesResponseBody::DataCorrectBackupFiles> dataCorrectBackupFiles_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

@@ -196,51 +196,18 @@ namespace Models
 
 
       protected:
-        // Indicates whether the column is an auto-increment column. Valid values:
-        // 
-        // *   true: The column is an auto-increment column.
-        // *   false: The column is not an auto-increment column.
         shared_ptr<bool> autoIncrement_ {};
-        // The ID of the column.
         shared_ptr<string> columnId_ {};
-        // The name of the column.
         shared_ptr<string> columnName_ {};
-        // The data type of the column.
         shared_ptr<string> columnType_ {};
-        // The length of the field.
         shared_ptr<int64_t> dataLength_ {};
-        // The number of valid digits for the field.
         shared_ptr<int32_t> dataPrecision_ {};
-        // The number of decimal places for the field.
         shared_ptr<int32_t> dataScale_ {};
-        // The default value of the column.
         shared_ptr<string> defaultValue_ {};
-        // The description of the column.
         shared_ptr<string> description_ {};
-        // The type of the masking algorithm that is used for the field. Valid values:
-        // 
-        // *   null: No masking algorithm is used.
-        // *   DEFAULT: A full masking algorithm is used.
-        // *   FIX_POS: The fixed position is masked.
-        // *   FIX_CHAR: The fixed characters are replaced.
         shared_ptr<string> functionType_ {};
-        // Indicates whether the column can be empty. Valid values:
-        // 
-        // *   **true**: The column can be empty.
-        // *   **false**: The column cannot be empty.
         shared_ptr<bool> nullable_ {};
-        // The security level of the column. Valid values:
-        // 
-        // *   INNER: The column is an internal column but not sensitive.
-        // *   SENSITIVE: The column is a sensitive column.
-        // *   CONFIDENTIAL: The column is a confidential column.
-        // 
-        // > For more information, see [Sensitivity levels of fields](https://help.aliyun.com/document_detail/66091.html).
         shared_ptr<string> securityLevel_ {};
-        // Indicates whether the column is a sensitive column. Valid values:
-        // 
-        // *   **true**: The column is a sensitive column.
-        // *   **false**: The column is not a sensitive column.
         shared_ptr<bool> sensitive_ {};
       };
 
@@ -298,7 +265,6 @@ namespace Models
 
 
   protected:
-    // The details about columns.
     shared_ptr<ListColumnsResponseBody::ColumnList> columnList_ {};
     // The error code returned.
     shared_ptr<string> errorCode_ {};

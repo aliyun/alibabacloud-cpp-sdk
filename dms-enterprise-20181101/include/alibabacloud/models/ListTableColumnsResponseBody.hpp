@@ -196,49 +196,18 @@ namespace Models
 
 
       protected:
-        // Indicates whether the field is an auto-increment field. Valid values:
-        // 
-        // *   true: The field is an auto-increment field.
-        // *   false: The field is not an auto-increment field.
         shared_ptr<bool> autoIncrement_ {};
-        // The ID of the field.
         shared_ptr<string> columnId_ {};
-        // The field name.
         shared_ptr<string> columnName_ {};
-        // The data type of the field.
         shared_ptr<string> columnType_ {};
-        // The length of the field.
         shared_ptr<int64_t> dataLength_ {};
-        // The number of valid digits for the column.
         shared_ptr<int32_t> dataPrecision_ {};
-        // The number of decimal places of the field data.
         shared_ptr<int32_t> dataScale_ {};
-        // The default value of the column.
         shared_ptr<string> defaultValue_ {};
-        // The description of the field.
         shared_ptr<string> description_ {};
-        // The type of the masking algorithm that is used for the field. Valid values:
-        // 
-        // *   null: No masking algorithm is used.
-        // *   DEFAULT: A full masking algorithm is used.
-        // *   FIX_POS: The fixed position is masked.
-        // *   FIX_CHAR: The fixed characters are replaced.
         shared_ptr<string> functionType_ {};
-        // Indicates whether the field can be empty. Valid values:
-        // 
-        // *   true: The field can be empty.
-        // *   false: The field cannot be empty.
         shared_ptr<bool> nullable_ {};
-        // The security level of the field. Valid values:
-        // 
-        // *   INNER: The field is an internal field but not sensitive.
-        // *   SENSITIVE: The field is sensitive.
-        // *   CONFIDENTIAL: The field is a confidential column.
         shared_ptr<string> securityLevel_ {};
-        // Indicates whether the field is a sensitive column. Valid values:
-        // 
-        // *   true: The field is a sensitive field.
-        // *   false: The field is not a sensitive field.
         shared_ptr<bool> sensitive_ {};
       };
 
@@ -296,7 +265,6 @@ namespace Models
 
 
   protected:
-    // The details about fields in the table.
     shared_ptr<ListTableColumnsResponseBody::ColumnList> columnList_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

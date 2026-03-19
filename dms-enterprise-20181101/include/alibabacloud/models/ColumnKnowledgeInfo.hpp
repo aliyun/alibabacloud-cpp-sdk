@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // User-edited business knowledge content, which can be modified via the EditMetaKnowledgeAsset API.
     shared_ptr<string> assetDescription_ {};
+    // The last modified time of the field.
     shared_ptr<string> assetModifiedGmt_ {};
+    // The name of the field.
     shared_ptr<string> columnName_ {};
+    // The data type of the field.
     shared_ptr<string> columnType_ {};
+    // Field description in the CREATE TABLE statement.
     shared_ptr<string> description_ {};
+    // The field order in the CREATE TABLE statement.
     shared_ptr<int32_t> position_ {};
   };
 

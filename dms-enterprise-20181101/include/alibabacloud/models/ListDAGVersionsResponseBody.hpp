@@ -133,17 +133,11 @@ namespace Models
 
 
       protected:
-        // The name of the task flow.
         shared_ptr<string> dagName_ {};
-        // The ID of the task flow owner.
         shared_ptr<string> dagOwnerId_ {};
-        // The name of the task flow owner.
         shared_ptr<string> dagOwnerNickName_ {};
-        // The ID of the previously published version.
         shared_ptr<int64_t> lastVersionId_ {};
-        // The description of the version.
         shared_ptr<string> versionComments_ {};
-        // The ID of the version.
         shared_ptr<int64_t> versionId_ {};
       };
 
@@ -208,7 +202,6 @@ namespace Models
 
 
   protected:
-    // The information about the published versions.
     shared_ptr<ListDAGVersionsResponseBody::DagVersionList> dagVersionList_ {};
     // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};

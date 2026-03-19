@@ -159,30 +159,14 @@ namespace Models
 
 
       protected:
-        // The business time of the node.
         shared_ptr<string> businessTime_ {};
-        // The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
         shared_ptr<string> endTime_ {};
-        // The amount of time consumed for running the node. Unit: milliseconds.
         shared_ptr<int64_t> executeTime_ {};
-        // The ID of the execution record of the task flow.
         shared_ptr<int64_t> id_ {};
-        // The description of the task.
         shared_ptr<string> message_ {};
-        // The ID of the node.
         shared_ptr<int64_t> nodeId_ {};
-        // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
         shared_ptr<int32_t> nodeType_ {};
-        // The status of the node. Valid values:
-        // 
-        // *   **0**: The node is waiting to be scheduled.
-        // *   **1**: The node is running.
-        // *   **2**: The node is suspended.
-        // *   **3**: The node failed to run.
-        // *   **4**: The node is run.
-        // *   **5**: The node is complete.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -244,7 +228,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // The information about the nodes in the execution record of the task flow.
     shared_ptr<GetTaskInstanceRelationResponseBody::NodeList> nodeList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

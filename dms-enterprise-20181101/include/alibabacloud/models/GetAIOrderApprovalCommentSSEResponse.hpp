@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CHATWITHDESENSITIZESSERESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_CHATWITHDESENSITIZESSERESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETAIORDERAPPROVALCOMMENTSSERESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_GETAIORDERAPPROVALCOMMENTSSERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/ChatWithDesensitizeSSEResponseBody.hpp>
+#include <alibabacloud/models/GetAIOrderApprovalCommentSSEResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,29 +12,29 @@ namespace DmsEnterprise20181101
 {
 namespace Models
 {
-  class ChatWithDesensitizeSSEResponse : public Darabonba::Model {
+  class GetAIOrderApprovalCommentSSEResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ChatWithDesensitizeSSEResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetAIOrderApprovalCommentSSEResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(event, event_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, ChatWithDesensitizeSSEResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetAIOrderApprovalCommentSSEResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(event, event_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    ChatWithDesensitizeSSEResponse() = default ;
-    ChatWithDesensitizeSSEResponse(const ChatWithDesensitizeSSEResponse &) = default ;
-    ChatWithDesensitizeSSEResponse(ChatWithDesensitizeSSEResponse &&) = default ;
-    ChatWithDesensitizeSSEResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ChatWithDesensitizeSSEResponse() = default ;
-    ChatWithDesensitizeSSEResponse& operator=(const ChatWithDesensitizeSSEResponse &) = default ;
-    ChatWithDesensitizeSSEResponse& operator=(ChatWithDesensitizeSSEResponse &&) = default ;
+    GetAIOrderApprovalCommentSSEResponse() = default ;
+    GetAIOrderApprovalCommentSSEResponse(const GetAIOrderApprovalCommentSSEResponse &) = default ;
+    GetAIOrderApprovalCommentSSEResponse(GetAIOrderApprovalCommentSSEResponse &&) = default ;
+    GetAIOrderApprovalCommentSSEResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetAIOrderApprovalCommentSSEResponse() = default ;
+    GetAIOrderApprovalCommentSSEResponse& operator=(const GetAIOrderApprovalCommentSSEResponse &) = default ;
+    GetAIOrderApprovalCommentSSEResponse& operator=(GetAIOrderApprovalCommentSSEResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -46,38 +46,38 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline ChatWithDesensitizeSSEResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline ChatWithDesensitizeSSEResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline GetAIOrderApprovalCommentSSEResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline GetAIOrderApprovalCommentSSEResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline ChatWithDesensitizeSSEResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline GetAIOrderApprovalCommentSSEResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
-    inline ChatWithDesensitizeSSEResponse& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+    inline GetAIOrderApprovalCommentSSEResponse& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // event Field Functions 
     bool hasEvent() const { return this->event_ != nullptr;};
     void deleteEvent() { this->event_ = nullptr;};
     inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
-    inline ChatWithDesensitizeSSEResponse& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+    inline GetAIOrderApprovalCommentSSEResponse& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ChatWithDesensitizeSSEResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, ChatWithDesensitizeSSEResponseBody) };
-    inline ChatWithDesensitizeSSEResponseBody getBody() { DARABONBA_PTR_GET(body_, ChatWithDesensitizeSSEResponseBody) };
-    inline ChatWithDesensitizeSSEResponse& setBody(const ChatWithDesensitizeSSEResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline ChatWithDesensitizeSSEResponse& setBody(ChatWithDesensitizeSSEResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const GetAIOrderApprovalCommentSSEResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, GetAIOrderApprovalCommentSSEResponseBody) };
+    inline GetAIOrderApprovalCommentSSEResponseBody getBody() { DARABONBA_PTR_GET(body_, GetAIOrderApprovalCommentSSEResponseBody) };
+    inline GetAIOrderApprovalCommentSSEResponse& setBody(const GetAIOrderApprovalCommentSSEResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline GetAIOrderApprovalCommentSSEResponse& setBody(GetAIOrderApprovalCommentSSEResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<int32_t> statusCode_ {};
     shared_ptr<string> id_ {};
     shared_ptr<string> event_ {};
-    shared_ptr<ChatWithDesensitizeSSEResponseBody> body_ {};
+    shared_ptr<GetAIOrderApprovalCommentSSEResponseBody> body_ {};
   };
 
   } // namespace Models

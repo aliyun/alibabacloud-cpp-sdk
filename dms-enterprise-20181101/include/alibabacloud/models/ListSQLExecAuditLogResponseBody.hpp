@@ -207,51 +207,19 @@ namespace Models
 
 
       protected:
-        // The number of rows affected by the SQL statement. For example, if you execute an SQL statement to query data, the number of retrieved rows is returned.
         shared_ptr<int64_t> affectRows_ {};
-        // The ID of the database.
         shared_ptr<int64_t> dbId_ {};
-        // The amount of time consumed by the execution of the SQL statement. Unit: milliseconds.
         shared_ptr<int64_t> elapsedTime_ {};
-        // The execution status of the SQL statement. Valid values:
-        // 
-        // *   **FAIL**: The SQL statement fails to be executed.
-        // *   **NOEXE**: The SQL statement has not been executed.
-        // *   **RUNNING**: The SQL statement is being executed.
-        // *   **CANCEL**: The execution of the SQL statement is canceled.
-        // *   **SUCCESS**: The SQL statement is executed.
         shared_ptr<string> execState_ {};
-        // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
-        // The name of the database.
-        // 
-        // >  If the SQL statement takes effect on an instance, the name of the instance is returned.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the database is a logical database. Valid values:
-        // 
-        // *   **true**: The database is a logical database.
-        // *   **false**: The database is a physical database.
         shared_ptr<bool> logic_ {};
-        // The time when the operation specified by the SQL statement was performed on the instance or database.
         shared_ptr<string> opTime_ {};
-        // The comment on the SQL statement.
         shared_ptr<string> remark_ {};
-        // The SQL statement that was written.
         shared_ptr<string> SQL_ {};
-        // The type of the SQL statement. Valid values:
-        // 
-        // *   **SELECT**: the SQL statement that is used to query data.
-        // *   **INSERT**: the SQL statement that is used to insert data.
-        // *   **DELETE**: the SQL statement that is used to delete data.
-        // *   **CREATE_TABLE**: the SQL statement that is used to create tables.
-        // 
-        // >  To view more types of SQL statements, log on to the DMS console and click Security and Specifications. In the left-side navigation pane, click **Operation Audit**. Then, you can view all supported types of SQL statements from the **SQL type** drop-down list.
         shared_ptr<string> SQLType_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The ID of the user who wrote the SQL statement.
         shared_ptr<int64_t> userId_ {};
-        // The nickname of the user who wrote the SQL statement.
         shared_ptr<string> userName_ {};
       };
 
@@ -322,7 +290,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The entries returned.
     shared_ptr<ListSQLExecAuditLogResponseBody::SQLExecAuditLogList> SQLExecAuditLogList_ {};
     // Indicates whether the request was successful. Valid values:
     // 

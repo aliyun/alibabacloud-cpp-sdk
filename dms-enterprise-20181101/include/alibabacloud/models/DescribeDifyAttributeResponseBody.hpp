@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDIFYATTRIBUTERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDIFYATTRIBUTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Root, root_);
       DARABONBA_PTR_TO_JSON(Success, success_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDifyAttributeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
@@ -29,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Root, root_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     DescribeDifyAttributeResponseBody() = default ;
     DescribeDifyAttributeResponseBody(const DescribeDifyAttributeResponseBody &) = default ;
@@ -41,13 +44,59 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(TagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(TagValue, tagValue_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline Tags& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline Tags& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      shared_ptr<string> tagKey_ {};
+      shared_ptr<string> tagValue_ {};
+    };
+
     class Root : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Root& obj) { 
+        DARABONBA_PTR_TO_JSON(AppType, appType_);
         DARABONBA_PTR_TO_JSON(AppUuid, appUuid_);
         DARABONBA_PTR_TO_JSON(BillingInstanceId, billingInstanceId_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+        DARABONBA_PTR_TO_JSON(DifyInstanceId, difyInstanceId_);
+        DARABONBA_PTR_TO_JSON(DifyInstanceName, difyInstanceName_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Replicas, replicas_);
         DARABONBA_PTR_TO_JSON(ResourceQuota, resourceQuota_);
         DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
@@ -59,10 +108,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       };
       friend void from_json(const Darabonba::Json& j, Root& obj) { 
+        DARABONBA_PTR_FROM_JSON(AppType, appType_);
         DARABONBA_PTR_FROM_JSON(AppUuid, appUuid_);
         DARABONBA_PTR_FROM_JSON(BillingInstanceId, billingInstanceId_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+        DARABONBA_PTR_FROM_JSON(DifyInstanceId, difyInstanceId_);
+        DARABONBA_PTR_FROM_JSON(DifyInstanceName, difyInstanceName_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
         DARABONBA_PTR_FROM_JSON(ResourceQuota, resourceQuota_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
@@ -84,10 +137,18 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->appUuid_ == nullptr
-        && this->billingInstanceId_ == nullptr && this->chargeType_ == nullptr && this->expireTime_ == nullptr && this->replicas_ == nullptr && this->resourceQuota_ == nullptr
-        && this->securityGroupId_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
+      virtual bool empty() const override { return this->appType_ == nullptr
+        && this->appUuid_ == nullptr && this->billingInstanceId_ == nullptr && this->chargeType_ == nullptr && this->difyInstanceId_ == nullptr && this->difyInstanceName_ == nullptr
+        && this->expireTime_ == nullptr && this->regionId_ == nullptr && this->replicas_ == nullptr && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr
+        && this->status_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workspaceId_ == nullptr
+        && this->zoneId_ == nullptr; };
+      // appType Field Functions 
+      bool hasAppType() const { return this->appType_ != nullptr;};
+      void deleteAppType() { this->appType_ = nullptr;};
+      inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+      inline Root& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
+
+
       // appUuid Field Functions 
       bool hasAppUuid() const { return this->appUuid_ != nullptr;};
       void deleteAppUuid() { this->appUuid_ = nullptr;};
@@ -109,11 +170,32 @@ namespace Models
       inline Root& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
+      // difyInstanceId Field Functions 
+      bool hasDifyInstanceId() const { return this->difyInstanceId_ != nullptr;};
+      void deleteDifyInstanceId() { this->difyInstanceId_ = nullptr;};
+      inline string getDifyInstanceId() const { DARABONBA_PTR_GET_DEFAULT(difyInstanceId_, "") };
+      inline Root& setDifyInstanceId(string difyInstanceId) { DARABONBA_PTR_SET_VALUE(difyInstanceId_, difyInstanceId) };
+
+
+      // difyInstanceName Field Functions 
+      bool hasDifyInstanceName() const { return this->difyInstanceName_ != nullptr;};
+      void deleteDifyInstanceName() { this->difyInstanceName_ = nullptr;};
+      inline string getDifyInstanceName() const { DARABONBA_PTR_GET_DEFAULT(difyInstanceName_, "") };
+      inline Root& setDifyInstanceName(string difyInstanceName) { DARABONBA_PTR_SET_VALUE(difyInstanceName_, difyInstanceName) };
+
+
       // expireTime Field Functions 
       bool hasExpireTime() const { return this->expireTime_ != nullptr;};
       void deleteExpireTime() { this->expireTime_ = nullptr;};
       inline int64_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
       inline Root& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline Root& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
       // replicas Field Functions 
@@ -180,10 +262,14 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> appType_ {};
       shared_ptr<string> appUuid_ {};
       shared_ptr<string> billingInstanceId_ {};
       shared_ptr<string> chargeType_ {};
+      shared_ptr<string> difyInstanceId_ {};
+      shared_ptr<string> difyInstanceName_ {};
       shared_ptr<int64_t> expireTime_ {};
+      shared_ptr<string> regionId_ {};
       shared_ptr<string> replicas_ {};
       shared_ptr<string> resourceQuota_ {};
       shared_ptr<string> securityGroupId_ {};
@@ -197,7 +283,7 @@ namespace Models
 
     virtual bool empty() const override { return this->code_ == nullptr
         && this->errorCode_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->root_ == nullptr
-        && this->success_ == nullptr; };
+        && this->success_ == nullptr && this->tags_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -249,6 +335,15 @@ namespace Models
     inline DescribeDifyAttributeResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<DescribeDifyAttributeResponseBody::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeDifyAttributeResponseBody::Tags>) };
+    inline vector<DescribeDifyAttributeResponseBody::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<DescribeDifyAttributeResponseBody::Tags>) };
+    inline DescribeDifyAttributeResponseBody& setTags(const vector<DescribeDifyAttributeResponseBody::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeDifyAttributeResponseBody& setTags(vector<DescribeDifyAttributeResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> errorCode_ {};
@@ -257,6 +352,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDifyAttributeResponseBody::Root> root_ {};
     shared_ptr<bool> success_ {};
+    shared_ptr<vector<DescribeDifyAttributeResponseBody::Tags>> tags_ {};
   };
 
   } // namespace Models

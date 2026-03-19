@@ -117,13 +117,18 @@ namespace Models
 
 
   protected:
+    // The category ID.
     shared_ptr<int64_t> categoryId_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The level of the category. This parameter is set to 1 for a root category.
     shared_ptr<int32_t> depth_ {};
     shared_ptr<string> description_ {};
+    // The name of the category.
     shared_ptr<string> name_ {};
     shared_ptr<vector<int64_t>> ownerIds_ {};
     shared_ptr<vector<string>> ownerNickNames_ {};
+    // The ID of the parent category. This parameter is left empty for a root category.
     shared_ptr<int64_t> parentCategoryId_ {};
     shared_ptr<string> remark_ {};
   };

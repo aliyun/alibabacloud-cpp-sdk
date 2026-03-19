@@ -186,21 +186,37 @@ namespace Models
 
 
   protected:
+    // The time when the table was created.
     shared_ptr<int32_t> createTime_ {};
+    // The ID of the user who created the table.
     shared_ptr<int64_t> creatorId_ {};
+    // The description of the table.
     shared_ptr<string> description_ {};
+    // The time when the table was last accessed.
     shared_ptr<int32_t> lastAccessTime_ {};
+    // The storage path of the table.
     shared_ptr<string> location_ {};
+    // The ID of the user who last modified the table.
     shared_ptr<int64_t> modifierId_ {};
+    // The table name.
     shared_ptr<string> name_ {};
+    // The owner of the table.
     shared_ptr<string> owner_ {};
+    // The type of the owner. Valid values: USER, ROLE, and GROUP.
     shared_ptr<string> ownerType_ {};
+    // The key-value pairs.
     shared_ptr<map<string, string>> parameters_ {};
+    // The column attributes of the table.
     shared_ptr<vector<DLColumn>> partitionKeys_ {};
+    // The retention period of the table.
     shared_ptr<int32_t> retention_ {};
+    // The description of data storage, including the storage characteristics and format of the table.
     shared_ptr<DLStorageDescriptor> storageDescriptor_ {};
+    // The type of the metadata table. Valid values: MANAGED_TABLE, EXTERNAL_TABLE, VIRTUAL_VIEW, INDEX_TABLE, and MATERIALIZED_VIEW.
     shared_ptr<string> tableType_ {};
+    // The expanded text of the view if the table type is view.
     shared_ptr<string> viewExpandedText_ {};
+    // The original text of the view if the table type is view.
     shared_ptr<string> viewOriginalText_ {};
   };
 

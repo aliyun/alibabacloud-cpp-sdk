@@ -203,21 +203,11 @@ namespace Models
 
 
           protected:
-            // The time when the permissions were granted.
             shared_ptr<string> createDate_ {};
-            // The time when the permissions expire.
             shared_ptr<string> expireDate_ {};
-            // This parameter is reserved.
             shared_ptr<string> extraData_ {};
-            // The user who grants the permissions.
             shared_ptr<string> originFrom_ {};
-            // The type of the permissions. Valid values:
-            // 
-            // *   QUERY: the query permissions
-            // *   EXPORT: the export permissions
-            // *   CORRECT: the change permissions
             shared_ptr<string> permType_ {};
-            // The ID of the authorization record.
             shared_ptr<string> userAccessId_ {};
           };
 
@@ -362,56 +352,22 @@ namespace Models
 
 
       protected:
-        // The alias of the instance.
         shared_ptr<string> alias_ {};
-        // The name of the field.
         shared_ptr<string> columnName_ {};
-        // The ID of the database.
         shared_ptr<string> dbId_ {};
-        // The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
         shared_ptr<string> dbType_ {};
-        // The permissions on a specific type of objects that are granted to the user. Valid values: 
-        // 
-        // - DATABASE: permissions on physical databases
-        // - LOGIC_DATABASE: permissions on logical databases
-        // - TABLE: permissions on physical tables
-        // - LOGIC_TABLE: permissions on logical tables
         shared_ptr<string> dsType_ {};
-        // The type of the environment to which the database belongs. Valid values:
-        // 
-        // - product: production environment
-        // - dev: development environment
-        // - pre: staging environment
-        // - test: test environment
-        // - sit: SIT environment
-        // - uat: UAT environment
-        // - pet: stress testing environment
-        // - stag: STAG environment
         shared_ptr<string> envType_ {};
-        // The endpoint that is used to connect the database.
         shared_ptr<string> host_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the database is a logical database. Valid values:
-        // 
-        // *   true: The database is a logical database.
-        // *   false: The database is a physical database.
         shared_ptr<bool> logic_ {};
-        // The details of permissions.
         shared_ptr<UserPermission::PermDetails> permDetails_ {};
-        // The port that is used to connect to the instance.
         shared_ptr<int64_t> port_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The name that is used to search for the database.
         shared_ptr<string> searchName_ {};
-        // The ID of the table.
         shared_ptr<string> tableId_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // The ID of the user.
         shared_ptr<string> userId_ {};
-        // The nickname of the user.
         shared_ptr<string> userNickName_ {};
       };
 
@@ -489,7 +445,6 @@ namespace Models
     shared_ptr<bool> success_ {};
     // The total number of entries that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
-    // The details of the permissions that the user has.
     shared_ptr<ListUserPermissionsResponseBody::UserPermissions> userPermissions_ {};
   };
 

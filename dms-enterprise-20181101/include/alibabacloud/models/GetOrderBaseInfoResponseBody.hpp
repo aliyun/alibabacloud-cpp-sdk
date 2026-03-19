@@ -283,9 +283,7 @@ namespace Models
       shared_ptr<string> originAttachmentName_ {};
       // The type of the ticket. For more information about the value of this parameter, see the request parameters of the [CreateOrder](https://help.aliyun.com/document_detail/465865.html) operation.
       shared_ptr<string> pluginType_ {};
-      // The IDs of the operators that are related to the ticket.
       shared_ptr<OrderBaseInfo::RelatedUserList> relatedUserList_ {};
-      // The nicknames of the operators that are related to the ticket.
       shared_ptr<OrderBaseInfo::RelatedUserNickList> relatedUserNickList_ {};
       // The status code of the ticket. Valid values:
       // 

@@ -286,47 +286,20 @@ namespace Models
 
 
       protected:
-        // The name that is used to search for the database to which the table belongs.
         shared_ptr<string> DBSearchName_ {};
-        // The ID of the database to which the table belongs.
         shared_ptr<string> databaseId_ {};
-        // The name of the database.
         shared_ptr<string> dbName_ {};
-        // The type of the database. Valid values:
-        // 
-        // *   **MySQL**
-        // *   **SQLServer**
-        // *   **PostgreSQL**
-        // *   **Oracle**
-        // *   **DRDS**
-        // *   **OceanBase**
-        // *   **Mongo**
-        // *   **Redis**
         shared_ptr<string> dbType_ {};
-        // The description of the table.
         shared_ptr<string> description_ {};
-        // The encoding format of the table.
         shared_ptr<string> encoding_ {};
-        // The engine of the table.
         shared_ptr<string> engine_ {};
-        // The type of the environment to which the database belongs.
         shared_ptr<string> envType_ {};
-        // Indicates whether the table is a logical table. Valid values:
-        // 
-        // *   **true**: The table is a logical table.
-        // *   **false**: The table is not a logical table.
         shared_ptr<bool> logic_ {};
-        // The IDs of the table owners.
         shared_ptr<SearchTable::OwnerIdList> ownerIdList_ {};
-        // The nicknames of the table owners.
         shared_ptr<SearchTable::OwnerNameList> ownerNameList_ {};
-        // The GUID of the table.
         shared_ptr<string> tableGuid_ {};
-        // The ID of the table.
         shared_ptr<string> tableId_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // The name of the database to which the table belongs.
         shared_ptr<string> tableSchemaName_ {};
       };
 
@@ -397,7 +370,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the tables.
     shared_ptr<SearchTableResponseBody::SearchTableList> searchTableList_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

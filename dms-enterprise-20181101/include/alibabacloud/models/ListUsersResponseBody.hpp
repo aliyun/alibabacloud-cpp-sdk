@@ -314,78 +314,23 @@ namespace Models
 
 
       protected:
-        // The number of queries that were performed on the current day.
         shared_ptr<int64_t> curExecuteCount_ {};
-        // The number of rows that were queried on the current day.
         shared_ptr<int64_t> curResultCount_ {};
-        // The DingTalk chatbot URL that is used to receive notifications.
-        // 
-        // > 
-        // 
-        // *   The system returns this parameter if you have set a DingTalk chatbot URL in the console. To set a DingTalk chatbot URL in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-        // 
-        // *   The system does not return this parameter if you have not set a DingTalk chatbot URL.
         shared_ptr<string> dingRobot_ {};
-        // The email address that is used to receive notifications.
-        // 
-        // > 
-        // 
-        // *   The system returns this parameter if you have set an email address in the console. To set an email address in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-        // 
-        // *   The system does not return this parameter if you have not set an email address.
         shared_ptr<string> email_ {};
-        // The time when the user last logged on to the console.
         shared_ptr<string> lastLoginTime_ {};
-        // The maximum number of queries that can be performed on the current day.
         shared_ptr<int64_t> maxExecuteCount_ {};
-        // The maximum number of rows that can be queried on the current day.
         shared_ptr<int64_t> maxResultCount_ {};
-        // The mobile phone number of the user.
-        // 
-        // > 
-        // 
-        // *   The system returns this parameter if you have set a mobile phone number in the console. To set a mobile phone number in the console, move the pointer over the profile picture in the upper-right corner and click the Edit icon next to **Notice**.
-        // 
-        // *   The system does not return this parameter if you have not set a mobile phone number.
         shared_ptr<string> mobile_ {};
-        // The nickname of the user.
         shared_ptr<string> nickName_ {};
-        // The notification method. The system returns one or more values. Valid values:
-        // 
-        // *   **SMS**: text message
-        // *   **EMAIL**: email.
-        // *   **DINGDING**: DingTalk.
-        // *   **DINGROBOT**: DingTalk chatbot.
-        // *   **WEBHOOK**: webhook.
         shared_ptr<string> notificationMode_ {};
-        // The ID of the Alibaba Cloud account of the user.
         shared_ptr<string> parentUid_ {};
-        // The IDs of the roles.
         shared_ptr<User::RoleIdList> roleIdList_ {};
-        // The names of roles.
         shared_ptr<User::RoleNameList> roleNameList_ {};
-        // The signature method that is used to secure connections when a webhook URL is used. Valid values:
-        // 
-        // *   **NONE**: no signature.
-        // *   **HMAC_SHA1**: HMAC_SHA1.
         shared_ptr<string> signatureMethod_ {};
-        // The status of the user. Valid values:
-        // 
-        // *   **NORMAL**: The user is normal.
-        // *   **DISABLE**: The user is disabled.
-        // *   **DELETE**: The user is deleted.
         shared_ptr<string> state_ {};
-        // The ID of the Alibaba Cloud account.
         shared_ptr<string> uid_ {};
-        // The ID of the user.
         shared_ptr<string> userId_ {};
-        // The webhook URL that is used to receive notifications.
-        // 
-        // > 
-        // 
-        // *   If you have set a webhook URL, DMS sends notifications to the specified URL.
-        // 
-        // *   The system does not return this parameter if you have not set a webhook URL.
         shared_ptr<string> webhook_ {};
       };
 
@@ -463,7 +408,6 @@ namespace Models
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The details of users.
     shared_ptr<ListUsersResponseBody::UserList> userList_ {};
   };
 

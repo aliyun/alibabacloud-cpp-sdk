@@ -155,9 +155,7 @@ namespace Models
 
 
           protected:
-            // The ID of the partial masking algorithm.
             shared_ptr<int64_t> ruleId_ {};
-            // The partial masking algorithm name.
             shared_ptr<string> ruleName_ {};
           };
 
@@ -213,9 +211,7 @@ namespace Models
 
 
         protected:
-          // The masking algorithm ID.
           shared_ptr<int64_t> ruleId_ {};
-          // The masking algorithm name.
           shared_ptr<string> ruleName_ {};
         };
 
@@ -304,31 +300,16 @@ namespace Models
 
 
       protected:
-        // The name of the category.
         shared_ptr<string> categoryName_ {};
-        // The name of the sensitive field.
         shared_ptr<string> columnName_ {};
-        // The information about the default masking algorithm.
         shared_ptr<SensitiveColumn::DefaultDesensitizationRule> defaultDesensitizationRule_ {};
-        // The ID of the instance.
         shared_ptr<int32_t> instanceId_ {};
-        // Indicates whether the sensitive field is displayed in plaintext.
         shared_ptr<bool> isPlain_ {};
-        // The sample data.
         shared_ptr<string> sampleData_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The sensitivity level of the field. Valid values:
-        // 
-        // *   Low
-        // *   Medium
-        // *   High
         shared_ptr<string> securityLevel_ {};
-        // The list of partial masking algorithms.
         shared_ptr<SensitiveColumn::SemiDesensitizationRuleList> semiDesensitizationRuleList_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // The user-defined sensitivity level.
         shared_ptr<string> userSensitivityLevel_ {};
       };
 
@@ -399,7 +380,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The request ID. You can use the request ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The details of the sensitive field.
     shared_ptr<ListSensitiveColumnInfoResponseBody::SensitiveColumnList> sensitiveColumnList_ {};
     // Indicates whether the request was successful. Valid values:
     // 

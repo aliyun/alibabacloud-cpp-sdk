@@ -159,17 +159,29 @@ namespace Models
 
 
   protected:
+    // The list of bucket column names, which determines the distribution of stored data based on hashes.
     shared_ptr<vector<string>> bucketCols_ {};
+    // The description of the data columns.
     shared_ptr<vector<DLColumn>> columns_ {};
+    // The name of the input format class that is used to read data.
     shared_ptr<string> inputFormat_ {};
+    // Specifies whether the stored data is compressed.
     shared_ptr<bool> isCompressed_ {};
+    // The location where the data is stored.
     shared_ptr<string> location_ {};
+    // The number of buckets.
     shared_ptr<int32_t> numBuckets_ {};
+    // The description of the original column.
     shared_ptr<vector<DLColumn>> originalColumns_ {};
+    // The name of the output format class that is used to write data.
     shared_ptr<string> outputFormat_ {};
+    // Other parameter mappings of data storage.
     Darabonba::Json parameters_ {};
+    // The information about how to perform data serialization and deserialization.
     shared_ptr<DLSerdeInfo> serdeInfo_ {};
+    // The information about the skewed column.
     shared_ptr<DLSkewedInfo> skewedInfo_ {};
+    // The description of the column based on which you want to sort query results.
     shared_ptr<vector<DLOrder>> sortCols_ {};
   };
 

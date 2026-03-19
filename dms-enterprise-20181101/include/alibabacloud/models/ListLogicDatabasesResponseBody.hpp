@@ -275,36 +275,15 @@ namespace Models
 
 
       protected:
-        // The alias of the logical database.
         shared_ptr<string> alias_ {};
-        // The ID of the logical database.
         shared_ptr<string> databaseId_ {};
-        // Logical database sub-ID list.
         shared_ptr<LogicDatabase::DatabaseIds> databaseIds_ {};
-        // The type of the logical database. For more information about the valid values of this parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
         shared_ptr<string> dbType_ {};
-        // The type of the environment to which the logical database belongs. Valid values:
-        // 
-        // - **product**: production environment
-        // - **dev**: development environment
-        // - **pre**: staging environment
-        // - **test**: test environment
-        // - **sit**: system integration testing (SIT) environment
-        // - **uat**: user acceptance testing (UAT) environment
-        // - **pet**: stress testing environment
-        // - **stag**: STAG environment
         shared_ptr<string> envType_ {};
-        // Indicates whether the database is a logical database. The return value is true.
         shared_ptr<bool> logic_ {};
-        // The IDs of the owners of the logical database.
         shared_ptr<LogicDatabase::OwnerIdList> ownerIdList_ {};
-        // The names of the owners of the logical database.
         shared_ptr<LogicDatabase::OwnerNameList> ownerNameList_ {};
-        // The name of the logical database.
         shared_ptr<string> schemaName_ {};
-        // The name that is used to search for the logical database.
-        // 
-        // > We recommend that you do not use this parameter for business development. The format of the parameter value may be modified in later versions.
         shared_ptr<string> searchName_ {};
       };
 
@@ -373,7 +352,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message that is returned.
     shared_ptr<string> errorMessage_ {};
-    // The details of logical databases.
     shared_ptr<ListLogicDatabasesResponseBody::LogicDatabaseList> logicDatabaseList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

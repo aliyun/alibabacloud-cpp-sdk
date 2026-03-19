@@ -150,29 +150,13 @@ namespace Models
 
 
       protected:
-        // The ID of the user who creates the task flow.
         shared_ptr<string> creatorId_ {};
-        // The name of the user who creates the task flow.
         shared_ptr<string> creatorNickName_ {};
-        // The name of the task flow owner.
         shared_ptr<string> dagOwnerNickName_ {};
-        // The ID of the latest deployment record.
         shared_ptr<int64_t> deployId_ {};
-        // The ID of the task flow.
         shared_ptr<int64_t> id_ {};
-        // The status of the latest execution. Valid values:
-        // 
-        // *   **0**: invalid.
-        // *   **1**: scheduling disabled.
-        // *   **2**: waiting to be scheduled.
         shared_ptr<int32_t> latestInstanceStatus_ {};
-        // The time when the latest execution record was generated.
         shared_ptr<string> latestInstanceTime_ {};
-        // The status of the task flow. Valid values:
-        // 
-        // *   **0**: The task flow is invalid.
-        // *   **1**: Scheduling is disabled for the task flow.
-        // *   **2**: The task flow is waiting to be scheduled.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -241,7 +225,6 @@ namespace Models
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The information about the task flows returned.
     shared_ptr<ListTaskFlowResponseBody::TaskFlowList> taskFlowList_ {};
   };
 

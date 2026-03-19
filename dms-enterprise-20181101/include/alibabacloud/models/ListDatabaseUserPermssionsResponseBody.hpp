@@ -199,21 +199,11 @@ namespace Models
 
 
           protected:
-            // The time when the permission was created.
             shared_ptr<string> createDate_ {};
-            // The time when the permissions expire.
             shared_ptr<string> expireDate_ {};
-            // The extra information. This parameter is reserved.
             shared_ptr<string> extraData_ {};
-            // The description of the entity that authorizes the permission.
             shared_ptr<string> originFrom_ {};
-            // The type of the permission. Valid values:
-            // 
-            // *   QUERY: the query permissions
-            // *   EXPORT: the export permissions
-            // *   CORRECT: the change permissions
             shared_ptr<string> permType_ {};
-            // The ID of the authorization record.
             shared_ptr<string> userAccessId_ {};
           };
 
@@ -343,35 +333,20 @@ namespace Models
 
 
       protected:
-        // The alias of the database instance.
         shared_ptr<string> alias_ {};
-        // The name of a column.
         shared_ptr<string> columnName_ {};
-        // The ID of the database.
         shared_ptr<string> dbId_ {};
-        // The type of the database engine.
         shared_ptr<string> dbType_ {};
-        // The type of resources on which the user has permissions.
         shared_ptr<string> dsType_ {};
-        // The type of the environment to which the database belongs.
         shared_ptr<string> envType_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the database is a logical database.
         shared_ptr<bool> logic_ {};
-        // The details of user permissions.
         shared_ptr<UserPermission::PermDetails> permDetails_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The name that is used to search for the database.
         shared_ptr<string> searchName_ {};
-        // The ID of the table.
         shared_ptr<string> tableId_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // The ID of the user.
         shared_ptr<string> userId_ {};
-        // The nickname of the user.
         shared_ptr<string> userNickName_ {};
       };
 
@@ -446,7 +421,6 @@ namespace Models
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The details of user permissions.
     shared_ptr<ListDatabaseUserPermssionsResponseBody::UserPermissions> userPermissions_ {};
   };
 

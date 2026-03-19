@@ -139,7 +139,7 @@ namespace DmsEnterprise20181101
       Models::AddTableToCategoryResponse addTableToCategory(const Models::AddTableToCategoryRequest &request);
 
       /**
-       * @summary Adds directed edges for an existing task node.
+       * @summary Creates directed edges for the existing task nodes of a task flow.
        *
        * @description When you add directed edges for a task node, take note of the following limits:
        * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
@@ -152,7 +152,7 @@ namespace DmsEnterprise20181101
       Models::AddTaskFlowEdgesResponse addTaskFlowEdgesWithOptions(const Models::AddTaskFlowEdgesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds directed edges for an existing task node.
+       * @summary Creates directed edges for the existing task nodes of a task flow.
        *
        * @description When you add directed edges for a task node, take note of the following limits:
        * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
@@ -227,7 +227,7 @@ namespace DmsEnterprise20181101
       Models::ApproveOrderResponse approveOrder(const Models::ApproveOrderRequest &request);
 
       /**
-       * @summary Backfills data for task orchestration.
+       * @summary Backfills data for a task flow.
        *
        * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
        *
@@ -238,7 +238,7 @@ namespace DmsEnterprise20181101
       Models::BackFillResponse backFillWithOptions(const Models::BackFillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Backfills data for task orchestration.
+       * @summary Backfills data for a task flow.
        *
        * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
        *
@@ -316,7 +316,7 @@ namespace DmsEnterprise20181101
       Models::BuyPayAsYouGoOrderResponse buyPayAsYouGoOrder(const Models::BuyPayAsYouGoOrderRequest &request);
 
       /**
-       * @summary Adjusts the sensitivity level of one or more fields.
+       * @summary Adjusts the sensitivity level of fields.
        *
        * @param request ChangeColumnSecLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +325,7 @@ namespace DmsEnterprise20181101
       Models::ChangeColumnSecLevelResponse changeColumnSecLevelWithOptions(const Models::ChangeColumnSecLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adjusts the sensitivity level of one or more fields.
+       * @summary Adjusts the sensitivity level of fields.
        *
        * @param request ChangeColumnSecLevelRequest
        * @return ChangeColumnSecLevelResponse
@@ -350,7 +350,7 @@ namespace DmsEnterprise20181101
       Models::ChangeColumnSecurityLevelResponse changeColumnSecurityLevel(const Models::ChangeColumnSecurityLevelRequest &request);
 
       /**
-       * @summary 移交数仓开发任务流
+       * @summary Transfers the ownership of a task flow in a workspace of Data Management (DMS).
        *
        * @description Usage notes:
        * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
@@ -363,7 +363,7 @@ namespace DmsEnterprise20181101
       Models::ChangeLhDagOwnerResponse changeLhDagOwnerWithOptions(const Models::ChangeLhDagOwnerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移交数仓开发任务流
+       * @summary Transfers the ownership of a task flow in a workspace of Data Management (DMS).
        *
        * @description Usage notes:
        * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
@@ -769,7 +769,7 @@ namespace DmsEnterprise20181101
       Models::CreateDifyInstanceResponse createDifyInstance(const Models::CreateDifyInstanceRequest &request);
 
       /**
-       * @summary 创建无锁变更工单
+       * @summary Creates a lock-free change ticket.
        *
        * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
        * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
@@ -781,7 +781,7 @@ namespace DmsEnterprise20181101
       Models::CreateFreeLockCorrectOrderResponse createFreeLockCorrectOrderWithOptions(const Models::CreateFreeLockCorrectOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建无锁变更工单
+       * @summary Creates a lock-free change ticket.
        *
        * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
        * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
@@ -815,7 +815,7 @@ namespace DmsEnterprise20181101
       Models::CreateLakeHouseSpaceResponse createLakeHouseSpace(const Models::CreateLakeHouseSpaceRequest &request);
 
       /**
-       * @summary Creates a logical database in Database Management (DMS).
+       * @summary Creates a logical database in Data Management (DMS).
        *
        * @param tmpReq CreateLogicDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -824,7 +824,7 @@ namespace DmsEnterprise20181101
       Models::CreateLogicDatabaseResponse createLogicDatabaseWithOptions(const Models::CreateLogicDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a logical database in Database Management (DMS).
+       * @summary Creates a logical database in Data Management (DMS).
        *
        * @param request CreateLogicDatabaseRequest
        * @return CreateLogicDatabaseResponse
@@ -849,7 +849,7 @@ namespace DmsEnterprise20181101
       Models::CreateMetaCategoryResponse createMetaCategory(const Models::CreateMetaCategoryRequest &request);
 
       /**
-       * @summary Creates a ticket in Data Management (DMS).
+       * @summary Creates a ticket.
        *
        * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
        * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
@@ -864,7 +864,7 @@ namespace DmsEnterprise20181101
       Models::CreateOrderResponse createOrderWithOptions(const Models::CreateOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a ticket in Data Management (DMS).
+       * @summary Creates a ticket.
        *
        * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
        * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
@@ -924,7 +924,7 @@ namespace DmsEnterprise20181101
       Models::CreateProxyResponse createProxy(const Models::CreateProxyRequest &request);
 
       /**
-       * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+       * @summary Grants a user the permissions to access a database instance by using the secure access proxy feature.
        *
        * @description - The data security protection feature is enabled for the instance.
        * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
@@ -936,7 +936,7 @@ namespace DmsEnterprise20181101
       Models::CreateProxyAccessResponse createProxyAccessWithOptions(const Models::CreateProxyAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+       * @summary Grants a user the permissions to access a database instance by using the secure access proxy feature.
        *
        * @description - The data security protection feature is enabled for the instance.
        * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
@@ -1072,7 +1072,7 @@ namespace DmsEnterprise20181101
       Models::CreateTaskFlowResponse createTaskFlow(const Models::CreateTaskFlowRequest &request);
 
       /**
-       * @summary 创建上传附件任务
+       * @summary Creates a task to upload an attachment file.
        *
        * @param request CreateUploadFileJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1081,7 +1081,7 @@ namespace DmsEnterprise20181101
       Models::CreateUploadFileJobResponse createUploadFileJobWithOptions(const Models::CreateUploadFileJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建上传附件任务
+       * @summary Creates a task to upload an attachment file.
        *
        * @param request CreateUploadFileJobRequest
        * @return CreateUploadFileJobResponse
@@ -1288,7 +1288,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLakeHouseSpaceResponse deleteLakeHouseSpace(const Models::DeleteLakeHouseSpaceRequest &request);
 
       /**
-       * @summary 删除数仓空间成员
+       * @summary Removes a workspace member or a task flow developer in Data Management (DMS).
        *
        * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
        * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
@@ -1300,7 +1300,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLhMembersResponse deleteLhMembersWithOptions(const Models::DeleteLhMembersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数仓空间成员
+       * @summary Removes a workspace member or a task flow developer in Data Management (DMS).
        *
        * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
        * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
@@ -1311,7 +1311,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLhMembersResponse deleteLhMembers(const Models::DeleteLhMembersRequest &request);
 
       /**
-       * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+       * @summary Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
        *
        * @param request DeleteLogicDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1320,7 +1320,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLogicDatabaseResponse deleteLogicDatabaseWithOptions(const Models::DeleteLogicDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+       * @summary Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
        *
        * @param request DeleteLogicDatabaseRequest
        * @return DeleteLogicDatabaseResponse
@@ -1328,7 +1328,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLogicDatabaseResponse deleteLogicDatabase(const Models::DeleteLogicDatabaseRequest &request);
 
       /**
-       * @summary Deletes the routing algorithm of a logical table.
+       * @summary Deletes a routing algorithm from a logical table.
        *
        * @param request DeleteLogicTableRouteConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1337,7 +1337,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLogicTableRouteConfigResponse deleteLogicTableRouteConfigWithOptions(const Models::DeleteLogicTableRouteConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the routing algorithm of a logical table.
+       * @summary Deletes a routing algorithm from a logical table.
        *
        * @param request DeleteLogicTableRouteConfigRequest
        * @return DeleteLogicTableRouteConfigResponse
@@ -1383,7 +1383,7 @@ namespace DmsEnterprise20181101
       Models::DeleteProxyResponse deleteProxy(const Models::DeleteProxyRequest &request);
 
       /**
-       * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+       * @summary Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
        *
        * @param request DeleteProxyAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1392,7 +1392,7 @@ namespace DmsEnterprise20181101
       Models::DeleteProxyAccessResponse deleteProxyAccessWithOptions(const Models::DeleteProxyAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+       * @summary Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
        *
        * @param request DeleteProxyAccessRequest
        * @return DeleteProxyAccessResponse
@@ -1537,7 +1537,7 @@ namespace DmsEnterprise20181101
       Models::DeleteWorkspaceResponse deleteWorkspace(const Models::DeleteWorkspaceRequest &request);
 
       /**
-       * @summary 用于创建DIFY实例及相关资源，支持自定义配置。
+       * @summary Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
        *
        * @description ## 请求说明
        * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
@@ -1555,7 +1555,7 @@ namespace DmsEnterprise20181101
       Models::DescribeDifyAttributeResponse describeDifyAttributeWithOptions(const Models::DescribeDifyAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于创建DIFY实例及相关资源，支持自定义配置。
+       * @summary Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
        *
        * @description ## 请求说明
        * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
@@ -1677,7 +1677,7 @@ namespace DmsEnterprise20181101
       Models::DescribeDifyRegionsResponse describeDifyRegions(const Models::DescribeDifyRegionsRequest &request);
 
       /**
-       * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+       * @summary Disables a user that is temporarily not used in Data Management (DMS).
        *
        * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
        * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
@@ -1689,7 +1689,7 @@ namespace DmsEnterprise20181101
       Models::DisableUserResponse disableUserWithOptions(const Models::DisableUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+       * @summary Disables a user that is temporarily not used in Data Management (DMS).
        *
        * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
        * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
@@ -1717,7 +1717,7 @@ namespace DmsEnterprise20181101
       Models::DownloadDataTrackResultResponse downloadDataTrackResult(const Models::DownloadDataTrackResultRequest &request);
 
       /**
-       * @summary Modifies the information about a logical database.
+       * @summary Edits the information about a logical database.
        *
        * @param tmpReq EditLogicDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1726,7 +1726,7 @@ namespace DmsEnterprise20181101
       Models::EditLogicDatabaseResponse editLogicDatabaseWithOptions(const Models::EditLogicDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a logical database.
+       * @summary Edits the information about a logical database.
        *
        * @param request EditLogicDatabaseRequest
        * @return EditLogicDatabaseResponse
@@ -1755,7 +1755,7 @@ namespace DmsEnterprise20181101
       Models::EditMetaKnowledgeAssetResponse editMetaKnowledgeAsset(const Models::EditMetaKnowledgeAssetRequest &request);
 
       /**
-       * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+       * @summary Enables a user that is disabled.
        *
        * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
        * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
@@ -1767,7 +1767,7 @@ namespace DmsEnterprise20181101
       Models::EnableUserResponse enableUserWithOptions(const Models::EnableUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+       * @summary Enables a user that is disabled.
        *
        * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
        * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
@@ -1894,7 +1894,7 @@ namespace DmsEnterprise20181101
       Models::GenMetaKnowledgeAssetResponse genMetaKnowledgeAsset(const Models::GenMetaKnowledgeAssetRequest &request);
 
       /**
-       * @summary 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+       * @summary Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
        *
        * @description ## 请求说明
        * - 该API用于将用户的自然语言问题转换为可执行的SQL查询语句。
@@ -1911,7 +1911,7 @@ namespace DmsEnterprise20181101
       Models::GenerateSqlFromNLResponse generateSqlFromNLWithOptions(const Models::GenerateSqlFromNLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+       * @summary Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
        *
        * @description ## 请求说明
        * - 该API用于将用户的自然语言问题转换为可执行的SQL查询语句。
@@ -1925,6 +1925,32 @@ namespace DmsEnterprise20181101
        * @return GenerateSqlFromNLResponse
        */
       Models::GenerateSqlFromNLResponse generateSqlFromNL(const Models::GenerateSqlFromNLRequest &request);
+
+      /**
+       * @summary 获取大模型工单审批建议
+       *
+       * @param request GetAIOrderApprovalCommentSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAIOrderApprovalCommentSSEResponse
+       */
+      FutureGenerator<Models::GetAIOrderApprovalCommentSSEResponse> getAIOrderApprovalCommentSSEWithSSE(const Models::GetAIOrderApprovalCommentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取大模型工单审批建议
+       *
+       * @param request GetAIOrderApprovalCommentSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAIOrderApprovalCommentSSEResponse
+       */
+      Models::GetAIOrderApprovalCommentSSEResponse getAIOrderApprovalCommentSSEWithOptions(const Models::GetAIOrderApprovalCommentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取大模型工单审批建议
+       *
+       * @param request GetAIOrderApprovalCommentSSERequest
+       * @return GetAIOrderApprovalCommentSSEResponse
+       */
+      Models::GetAIOrderApprovalCommentSSEResponse getAIOrderApprovalCommentSSE(const Models::GetAIOrderApprovalCommentSSERequest &request);
 
       /**
        * @summary Queries the details of a policy, including the name, content, and the user who created the policy.
@@ -2088,7 +2114,7 @@ namespace DmsEnterprise20181101
       Models::GetDataArchiveOrderDetailResponse getDataArchiveOrderDetail(const Models::GetDataArchiveOrderDetailRequest &request);
 
       /**
-       * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+       * @summary Obtains the download URL of the backup file for the specified ticket.
        *
        * @param tmpReq GetDataCorrectBackupFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2097,7 +2123,7 @@ namespace DmsEnterprise20181101
       Models::GetDataCorrectBackupFilesResponse getDataCorrectBackupFilesWithOptions(const Models::GetDataCorrectBackupFilesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+       * @summary Obtains the download URL of the backup file for the specified ticket.
        *
        * @param request GetDataCorrectBackupFilesRequest
        * @return GetDataCorrectBackupFilesResponse
@@ -3050,7 +3076,7 @@ namespace DmsEnterprise20181101
       Models::GetTaskFlowNotificationResponse getTaskFlowNotification(const Models::GetTaskFlowNotificationRequest &request);
 
       /**
-       * @summary Queries the information about the nodes in an execution record of a task flow.
+       * @summary Queries the task nodes of a task flow instance.
        *
        * @param request GetTaskInstanceRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3059,7 +3085,7 @@ namespace DmsEnterprise20181101
       Models::GetTaskInstanceRelationResponse getTaskInstanceRelationWithOptions(const Models::GetTaskInstanceRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the nodes in an execution record of a task flow.
+       * @summary Queries the task nodes of a task flow instance.
        *
        * @param request GetTaskInstanceRelationRequest
        * @return GetTaskInstanceRelationResponse
@@ -3436,7 +3462,7 @@ namespace DmsEnterprise20181101
       Models::ListDataCorrectPreCheckDBResponse listDataCorrectPreCheckDB(const Models::ListDataCorrectPreCheckDBRequest &request);
 
       /**
-       * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
+       * @summary Queries the information about SQL statements that are involved in the precheck of a data change ticket.
        *
        * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
        *
@@ -3447,7 +3473,7 @@ namespace DmsEnterprise20181101
       Models::ListDataCorrectPreCheckSQLResponse listDataCorrectPreCheckSQLWithOptions(const Models::ListDataCorrectPreCheckSQLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
+       * @summary Queries the information about SQL statements that are involved in the precheck of a data change ticket.
        *
        * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
        *
@@ -3720,7 +3746,7 @@ namespace DmsEnterprise20181101
       Models::ListDefaultSLARulesResponse listDefaultSLARules(const Models::ListDefaultSLARulesRequest &request);
 
       /**
-       * @summary Queries masking rules.
+       * @summary Queries a list of masking rules.
        *
        * @param request ListDesensitizationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3729,7 +3755,7 @@ namespace DmsEnterprise20181101
       Models::ListDesensitizationRuleResponse listDesensitizationRuleWithOptions(const Models::ListDesensitizationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries masking rules.
+       * @summary Queries a list of masking rules.
        *
        * @param request ListDesensitizationRuleRequest
        * @return ListDesensitizationRuleResponse
@@ -3823,7 +3849,7 @@ namespace DmsEnterprise20181101
       Models::ListInstanceLoginAuditLogResponse listInstanceLoginAuditLog(const Models::ListInstanceLoginAuditLogRequest &request);
 
       /**
-       * @summary Queries the permissions of a user on a specific instance.
+       * @summary Queries the permissions of a user on an instance.
        *
        * @param request ListInstanceUserPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3832,7 +3858,7 @@ namespace DmsEnterprise20181101
       Models::ListInstanceUserPermissionsResponse listInstanceUserPermissionsWithOptions(const Models::ListInstanceUserPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the permissions of a user on a specific instance.
+       * @summary Queries the permissions of a user on an instance.
        *
        * @param request ListInstanceUserPermissionsRequest
        * @return ListInstanceUserPermissionsResponse
@@ -3857,7 +3883,7 @@ namespace DmsEnterprise20181101
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+       * @summary Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
        *
        * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
        * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
@@ -3869,7 +3895,7 @@ namespace DmsEnterprise20181101
       Models::ListLhTaskFlowAndScenarioResponse listLhTaskFlowAndScenarioWithOptions(const Models::ListLhTaskFlowAndScenarioRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+       * @summary Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
        *
        * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
        * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
@@ -3880,7 +3906,7 @@ namespace DmsEnterprise20181101
       Models::ListLhTaskFlowAndScenarioResponse listLhTaskFlowAndScenario(const Models::ListLhTaskFlowAndScenarioRequest &request);
 
       /**
-       * @summary Queries the details of logical databases.
+       * @summary Queries the detailed information about logical databases.
        *
        * @param request ListLogicDatabasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3889,7 +3915,7 @@ namespace DmsEnterprise20181101
       Models::ListLogicDatabasesResponse listLogicDatabasesWithOptions(const Models::ListLogicDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of logical databases.
+       * @summary Queries the detailed information about logical databases.
        *
        * @param request ListLogicDatabasesRequest
        * @return ListLogicDatabasesResponse
@@ -3948,7 +3974,7 @@ namespace DmsEnterprise20181101
       Models::ListMetaCategoryResponse listMetaCategory(const Models::ListMetaCategoryRequest &request);
 
       /**
-       * @summary Queries tickets in Data Management (DMS).
+       * @summary Queries tickets.
        *
        * @param request ListOrdersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3957,7 +3983,7 @@ namespace DmsEnterprise20181101
       Models::ListOrdersResponse listOrdersWithOptions(const Models::ListOrdersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tickets in Data Management (DMS).
+       * @summary Queries tickets.
        *
        * @param request ListOrdersRequest
        * @return ListOrdersResponse
@@ -3999,7 +4025,7 @@ namespace DmsEnterprise20181101
       Models::ListProxyAccessesResponse listProxyAccesses(const Models::ListProxyAccessesRequest &request);
 
       /**
-       * @summary 操作审计-数据安全代理SQL执行列表
+       * @summary Queries the audit logs generated by the secure access proxy feature.
        *
        * @param request ListProxySQLExecAuditLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4008,7 +4034,7 @@ namespace DmsEnterprise20181101
       Models::ListProxySQLExecAuditLogResponse listProxySQLExecAuditLogWithOptions(const Models::ListProxySQLExecAuditLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 操作审计-数据安全代理SQL执行列表
+       * @summary Queries the audit logs generated by the secure access proxy feature.
        *
        * @param request ListProxySQLExecAuditLogRequest
        * @return ListProxySQLExecAuditLogResponse
@@ -4016,7 +4042,7 @@ namespace DmsEnterprise20181101
       Models::ListProxySQLExecAuditLogResponse listProxySQLExecAuditLog(const Models::ListProxySQLExecAuditLogRequest &request);
 
       /**
-       * @summary Queries the custom service level agreement (SLA) rules.
+       * @summary Queries the custom service level agreement (SLA) rules of a task flow.
        *
        * @param request ListSLARulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4025,7 +4051,7 @@ namespace DmsEnterprise20181101
       Models::ListSLARulesResponse listSLARulesWithOptions(const Models::ListSLARulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the custom service level agreement (SLA) rules.
+       * @summary Queries the custom service level agreement (SLA) rules of a task flow.
        *
        * @param request ListSLARulesRequest
        * @return ListSLARulesResponse
@@ -4033,7 +4059,7 @@ namespace DmsEnterprise20181101
       Models::ListSLARulesResponse listSLARules(const Models::ListSLARulesRequest &request);
 
       /**
-       * @summary Queries SQL statements that were written on the SQLConsole tab.
+       * @summary Queries the audit logs of SQL statements that are executed in Data Management (DMS).
        *
        * @param request ListSQLExecAuditLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4042,7 +4068,7 @@ namespace DmsEnterprise20181101
       Models::ListSQLExecAuditLogResponse listSQLExecAuditLogWithOptions(const Models::ListSQLExecAuditLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries SQL statements that were written on the SQLConsole tab.
+       * @summary Queries the audit logs of SQL statements that are executed in Data Management (DMS).
        *
        * @param request ListSQLExecAuditLogRequest
        * @return ListSQLExecAuditLogResponse
@@ -4245,7 +4271,7 @@ namespace DmsEnterprise20181101
       Models::ListTablesInCategoryResponse listTablesInCategory(const Models::ListTablesInCategoryRequest &request);
 
       /**
-       * @summary 任务编排获取任务流列表
+       * @summary Queries a list of task flows.
        *
        * @param request ListTaskFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4254,7 +4280,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowResponse listTaskFlowWithOptions(const Models::ListTaskFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务编排获取任务流列表
+       * @summary Queries a list of task flows.
        *
        * @param request ListTaskFlowRequest
        * @return ListTaskFlowResponse
@@ -4279,7 +4305,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowConstantsResponse listTaskFlowConstants(const Models::ListTaskFlowConstantsRequest &request);
 
       /**
-       * @summary Queries the users that are involved in a specified task flow.
+       * @summary Queries a list of users that are involved in a task flow.
        *
        * @param request ListTaskFlowCooperatorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4288,7 +4314,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowCooperatorsResponse listTaskFlowCooperatorsWithOptions(const Models::ListTaskFlowCooperatorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the users that are involved in a specified task flow.
+       * @summary Queries a list of users that are involved in a task flow.
        *
        * @param request ListTaskFlowCooperatorsRequest
        * @return ListTaskFlowCooperatorsResponse
@@ -4296,7 +4322,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowCooperatorsResponse listTaskFlowCooperators(const Models::ListTaskFlowCooperatorsRequest &request);
 
       /**
-       * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+       * @summary Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
        *
        * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
        *
@@ -4307,7 +4333,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowEdgesByConditionResponse listTaskFlowEdgesByConditionWithOptions(const Models::ListTaskFlowEdgesByConditionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+       * @summary Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
        *
        * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
        *
@@ -4351,7 +4377,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowTimeVariablesResponse listTaskFlowTimeVariables(const Models::ListTaskFlowTimeVariablesRequest &request);
 
       /**
-       * @summary Queries task flows by page.
+       * @summary Queries the details of task flows by page.
        *
        * @param tmpReq ListTaskFlowsByPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4360,7 +4386,7 @@ namespace DmsEnterprise20181101
       Models::ListTaskFlowsByPageResponse listTaskFlowsByPageWithOptions(const Models::ListTaskFlowsByPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries task flows by page.
+       * @summary Queries the details of task flows by page.
        *
        * @param request ListTaskFlowsByPageRequest
        * @return ListTaskFlowsByPageResponse
@@ -4402,7 +4428,7 @@ namespace DmsEnterprise20181101
       Models::ListUserOwnedResourcesResponse listUserOwnedResources(const Models::ListUserOwnedResourcesRequest &request);
 
       /**
-       * @summary Queries the permissions of a specific user on a database or a table.
+       * @summary Queries the permissions of a user on databases and tables.
        *
        * @param request ListUserPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4411,7 +4437,7 @@ namespace DmsEnterprise20181101
       Models::ListUserPermissionsResponse listUserPermissionsWithOptions(const Models::ListUserPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the permissions of a specific user on a database or a table.
+       * @summary Queries the permissions of a user on databases and tables.
        *
        * @param request ListUserPermissionsRequest
        * @return ListUserPermissionsResponse
@@ -4419,7 +4445,7 @@ namespace DmsEnterprise20181101
       Models::ListUserPermissionsResponse listUserPermissions(const Models::ListUserPermissionsRequest &request);
 
       /**
-       * @summary 获取用户租户列表
+       * @summary Queries tenants.
        *
        * @param request ListUserTenantsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4428,7 +4454,7 @@ namespace DmsEnterprise20181101
       Models::ListUserTenantsResponse listUserTenantsWithOptions(const Models::ListUserTenantsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户租户列表
+       * @summary Queries tenants.
        *
        * @param request ListUserTenantsRequest
        * @return ListUserTenantsResponse
@@ -4589,7 +4615,7 @@ namespace DmsEnterprise20181101
       Models::MoveTaskFlowToScenarioResponse moveTaskFlowToScenario(const Models::MoveTaskFlowToScenarioRequest &request);
 
       /**
-       * @summary Unpublishes a published task flow.
+       * @summary Unpublishes a published task flow in Data Management (DMS).
        *
        * @param request OfflineTaskFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4598,7 +4624,7 @@ namespace DmsEnterprise20181101
       Models::OfflineTaskFlowResponse offlineTaskFlowWithOptions(const Models::OfflineTaskFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unpublishes a published task flow.
+       * @summary Unpublishes a published task flow in Data Management (DMS).
        *
        * @param request OfflineTaskFlowRequest
        * @return OfflineTaskFlowResponse
@@ -4716,7 +4742,7 @@ namespace DmsEnterprise20181101
       Models::QueryDataTrackResultDownloadStatusResponse queryDataTrackResultDownloadStatus(const Models::QueryDataTrackResultDownloadStatusRequest &request);
 
       /**
-       * @summary 部署任务流的历史版本
+       * @summary Redeploys the published versions of a task flow.
        *
        * @param request ReDeployLhDagVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4725,7 +4751,7 @@ namespace DmsEnterprise20181101
       Models::ReDeployLhDagVersionResponse reDeployLhDagVersionWithOptions(const Models::ReDeployLhDagVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 部署任务流的历史版本
+       * @summary Redeploys the published versions of a task flow.
        *
        * @param request ReDeployLhDagVersionRequest
        * @return ReDeployLhDagVersionResponse
@@ -4823,7 +4849,7 @@ namespace DmsEnterprise20181101
       Models::RegisterInstanceResponse registerInstance(const Models::RegisterInstanceRequest &request);
 
       /**
-       * @summary Registers a user for your enterprise.
+       * @summary Adds a user of your enterprise.
        *
        * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
        *
@@ -4834,7 +4860,7 @@ namespace DmsEnterprise20181101
       Models::RegisterUserResponse registerUserWithOptions(const Models::RegisterUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers a user for your enterprise.
+       * @summary Adds a user of your enterprise.
        *
        * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
        *
@@ -4912,7 +4938,7 @@ namespace DmsEnterprise20181101
       Models::RestartDataExportJobResponse restartDataExportJob(const Models::RestartDataExportJobRequest &request);
 
       /**
-       * @summary Resumes a suspended task flow.
+       * @summary Resumes a suspended task flow instance.
        *
        * @description You can call this operation only for task flows that are suspended.
        *
@@ -4923,7 +4949,7 @@ namespace DmsEnterprise20181101
       Models::ResumeTaskFlowInstanceResponse resumeTaskFlowInstanceWithOptions(const Models::ResumeTaskFlowInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes a suspended task flow.
+       * @summary Resumes a suspended task flow instance.
        *
        * @description You can call this operation only for task flows that are suspended.
        *
@@ -5077,7 +5103,7 @@ namespace DmsEnterprise20181101
       Models::SetWorkflowExtraInfoResponse setWorkflowExtraInfo(const Models::SetWorkflowExtraInfoRequest &request);
 
       /**
-       * @summary 添加实例
+       * @summary This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
        *
        * @param request SimplyAddInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5086,7 +5112,7 @@ namespace DmsEnterprise20181101
       Models::SimplyAddInstanceResponse simplyAddInstanceWithOptions(const Models::SimplyAddInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加实例
+       * @summary This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
        *
        * @param request SimplyAddInstanceRequest
        * @return SimplyAddInstanceResponse
@@ -5405,7 +5431,7 @@ namespace DmsEnterprise20181101
       Models::UpdateMetaCategoryResponse updateMetaCategory(const Models::UpdateMetaCategoryRequest &request);
 
       /**
-       * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
+       * @summary Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
        *
        * @description SLA rules take effect after task flows are deployed and published.
        *
@@ -5416,7 +5442,7 @@ namespace DmsEnterprise20181101
       Models::UpdateSLARulesResponse updateSLARulesWithOptions(const Models::UpdateSLARulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
+       * @summary Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
        *
        * @description SLA rules take effect after task flows are deployed and published.
        *
@@ -5540,7 +5566,7 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskFlowConstantsResponse updateTaskFlowConstants(const Models::UpdateTaskFlowConstantsRequest &request);
 
       /**
-       * @summary Updates the IDs of the users who are involved in the task flow.
+       * @summary Updates the IDs of the users that are involved in a task flow.
        *
        * @param tmpReq UpdateTaskFlowCooperatorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5549,7 +5575,7 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskFlowCooperatorsResponse updateTaskFlowCooperatorsWithOptions(const Models::UpdateTaskFlowCooperatorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the IDs of the users who are involved in the task flow.
+       * @summary Updates the IDs of the users that are involved in a task flow.
        *
        * @param request UpdateTaskFlowCooperatorsRequest
        * @return UpdateTaskFlowCooperatorsResponse
@@ -5603,7 +5629,7 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskFlowNameAndDescResponse updateTaskFlowNameAndDesc(const Models::UpdateTaskFlowNameAndDescRequest &request);
 
       /**
-       * @summary Updates the notification settings for task flows.
+       * @summary Updates the notification settings for a task flow.
        *
        * @param request UpdateTaskFlowNotificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5612,7 +5638,7 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskFlowNotificationResponse updateTaskFlowNotificationWithOptions(const Models::UpdateTaskFlowNotificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the notification settings for task flows.
+       * @summary Updates the notification settings for a task flow.
        *
        * @param request UpdateTaskFlowNotificationRequest
        * @return UpdateTaskFlowNotificationResponse
@@ -5719,7 +5745,7 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskNameResponse updateTaskName(const Models::UpdateTaskNameRequest &request);
 
       /**
-       * @summary Updates the output variables for a specified task node.
+       * @summary Updates the output variables for a task node.
        *
        * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
        *
@@ -5730,7 +5756,7 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskOutputResponse updateTaskOutputWithOptions(const Models::UpdateTaskOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the output variables for a specified task node.
+       * @summary Updates the output variables for a task node.
        *
        * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
        *

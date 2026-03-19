@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The name of the time variable.
         shared_ptr<string> name_ {};
-        // The format of the time variable.
         shared_ptr<string> pattern_ {};
       };
 
@@ -166,7 +164,6 @@ namespace Models
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The time variables for the task flow.
     shared_ptr<ListTaskFlowTimeVariablesResponseBody::TimeVariables> timeVariables_ {};
   };
 

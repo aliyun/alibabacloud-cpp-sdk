@@ -189,40 +189,17 @@ namespace Models
 
 
       protected:
-        // Indicates the total number of rows returned after the SQL statement was executed. If an SELECT SQL statement is executed, the return value of this parameter indicates the total number of the queried data rows.
         shared_ptr<int64_t> affectRows_ {};
-        // The amount of time that is consumed to execute the SQL statement. Unit: milliseconds.
         shared_ptr<int64_t> elapsedTime_ {};
-        // The execution status of the SQL statement. Valid values:
-        // 
-        // *   **FAIL**: The execution of the SQL statement fails.
-        // *   **CANCEL**: The execution of the SQL statement is canceled.
-        // *   **SUCCESS**: The SQL statement is executed.
         shared_ptr<string> execState_ {};
-        // The ID of the database instance.
         shared_ptr<int64_t> instanceId_ {};
-        // The name of the database instance.
         shared_ptr<string> instanceName_ {};
-        // The time at which the user executes the SQL statement on the database instance. The value of this parameter must be a timestamp that follows the UNIX time format.
         shared_ptr<string> opTime_ {};
-        // The description.
         shared_ptr<string> remark_ {};
-        // The SQL statement that was executed.
         shared_ptr<string> SQL_ {};
-        // The type of the SQL statement. Valid values:
-        // 
-        // *   **SELECT**
-        // *   **INSERT**
-        // *   **DELETE**
-        // *   **CREATE_TABLE**
-        // 
-        // >  You can choose Operation Audit > Secure Access Proxy in the top navigation bar of the DMS console to view more types of SQL statements.
         shared_ptr<string> SQLType_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The ID of the user.
         shared_ptr<int64_t> userId_ {};
-        // The nickname of the user.
         shared_ptr<string> userName_ {};
       };
 
@@ -291,7 +268,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned.
     shared_ptr<string> errorMessage_ {};
-    // The audit information about the database instance that is provided by the secure access proxy feature.
     shared_ptr<ListProxySQLExecAuditLogResponseBody::ProxySQLExecAuditLogList> proxySQLExecAuditLogList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

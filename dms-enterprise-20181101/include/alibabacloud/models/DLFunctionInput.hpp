@@ -116,14 +116,29 @@ namespace Models
 
 
   protected:
+    // The JAVA class that contains the function code.
     shared_ptr<string> className_ {};
+    // The time when the function was created.
     shared_ptr<int32_t> createTime_ {};
+    // The ID of the user who created the function.
     shared_ptr<int64_t> creatorId_ {};
+    // The name of the function.
     shared_ptr<string> functionName_ {};
+    // The type of the function.
     shared_ptr<string> functionType_ {};
+    // The ID of the user who modified the function.
     shared_ptr<int64_t> modifierId_ {};
+    // The owner of the function.
     shared_ptr<string> ownerName_ {};
+    // The type of the owner.
+    // 
+    // Valid values:
+    // 
+    // *   ROLE
+    // *   GROUP
+    // *   USER
     shared_ptr<string> ownerType_ {};
+    // The resource URIs of the function. You cannot modify the resource URIs after the function is created.
     shared_ptr<vector<DLResourceUri>> resourceUris_ {};
   };
 

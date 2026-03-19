@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the column.
     shared_ptr<string> col_ {};
+    // The position of the column in the sort.
     shared_ptr<int32_t> order_ {};
   };
 

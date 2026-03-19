@@ -122,21 +122,10 @@ namespace Models
 
 
       protected:
-        // The description of the index.
         shared_ptr<string> indexComment_ {};
-        // The ID of the index.
         shared_ptr<string> indexId_ {};
-        // The name of the index.
         shared_ptr<string> indexName_ {};
-        // The type of the index. Valid values:
-        // 
-        // *   Primary
-        // *   Unique
-        // *   Normal
-        // *   FullText
-        // *   Spatial
         shared_ptr<string> indexType_ {};
-        // The ID of the table.
         shared_ptr<string> tableId_ {};
       };
 
@@ -198,7 +187,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The details of indexes.
     shared_ptr<ListIndexesResponseBody::IndexList> indexList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

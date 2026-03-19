@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // The email address of the user.
         shared_ptr<string> email_ {};
-        // The username.
         shared_ptr<string> loginName_ {};
-        // The alias of the user.
         shared_ptr<string> nickName_ {};
-        // userId.
         shared_ptr<string> userId_ {};
       };
 
@@ -177,7 +173,6 @@ namespace Models
 
 
   protected:
-    // The users that are involved in the task flow.
     shared_ptr<ListTaskFlowCooperatorsResponseBody::CooperatorList> cooperatorList_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

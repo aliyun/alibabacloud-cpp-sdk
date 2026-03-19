@@ -341,9 +341,7 @@ namespace Models
       // 
       // > An Alibaba Cloud account can contain one or more RAM users.
       shared_ptr<int64_t> parentUid_ {};
-      // The list of role IDs.
       shared_ptr<User::RoleIdList> roleIdList_ {};
-      // The list of role names.
       shared_ptr<User::RoleNameList> roleNameList_ {};
       // The signature method that is used to secure connections when a webhook URL is used. Valid values:
       // 

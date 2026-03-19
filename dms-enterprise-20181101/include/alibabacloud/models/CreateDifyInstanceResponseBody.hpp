@@ -45,6 +45,8 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AppUuid, appUuid_);
+        DARABONBA_PTR_TO_JSON(DifyInstanceId, difyInstanceId_);
+        DARABONBA_PTR_TO_JSON(DifyInstanceName, difyInstanceName_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(Replicas, replicas_);
@@ -58,6 +60,8 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AppUuid, appUuid_);
+        DARABONBA_PTR_FROM_JSON(DifyInstanceId, difyInstanceId_);
+        DARABONBA_PTR_FROM_JSON(DifyInstanceName, difyInstanceName_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
@@ -81,13 +85,28 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appUuid_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->replicas_ == nullptr && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr
-        && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->difyInstanceId_ == nullptr && this->difyInstanceName_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->replicas_ == nullptr
+        && this->resourceQuota_ == nullptr && this->securityGroupId_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
       // appUuid Field Functions 
       bool hasAppUuid() const { return this->appUuid_ != nullptr;};
       void deleteAppUuid() { this->appUuid_ = nullptr;};
       inline string getAppUuid() const { DARABONBA_PTR_GET_DEFAULT(appUuid_, "") };
       inline Data& setAppUuid(string appUuid) { DARABONBA_PTR_SET_VALUE(appUuid_, appUuid) };
+
+
+      // difyInstanceId Field Functions 
+      bool hasDifyInstanceId() const { return this->difyInstanceId_ != nullptr;};
+      void deleteDifyInstanceId() { this->difyInstanceId_ = nullptr;};
+      inline string getDifyInstanceId() const { DARABONBA_PTR_GET_DEFAULT(difyInstanceId_, "") };
+      inline Data& setDifyInstanceId(string difyInstanceId) { DARABONBA_PTR_SET_VALUE(difyInstanceId_, difyInstanceId) };
+
+
+      // difyInstanceName Field Functions 
+      bool hasDifyInstanceName() const { return this->difyInstanceName_ != nullptr;};
+      void deleteDifyInstanceName() { this->difyInstanceName_ = nullptr;};
+      inline string getDifyInstanceName() const { DARABONBA_PTR_GET_DEFAULT(difyInstanceName_, "") };
+      inline Data& setDifyInstanceName(string difyInstanceName) { DARABONBA_PTR_SET_VALUE(difyInstanceName_, difyInstanceName) };
 
 
       // instanceId Field Functions 
@@ -162,6 +181,8 @@ namespace Models
 
     protected:
       shared_ptr<string> appUuid_ {};
+      shared_ptr<string> difyInstanceId_ {};
+      shared_ptr<string> difyInstanceName_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> instanceName_ {};
       shared_ptr<int32_t> replicas_ {};

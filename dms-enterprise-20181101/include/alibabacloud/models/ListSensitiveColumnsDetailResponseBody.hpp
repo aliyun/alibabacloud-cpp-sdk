@@ -168,28 +168,15 @@ namespace Models
 
 
       protected:
-        // The description of the field.
         shared_ptr<string> columnDescription_ {};
-        // The name of the field.
         shared_ptr<string> columnName_ {};
-        // The data type of the field.
         shared_ptr<string> columnType_ {};
-        // The ID of the database.
         shared_ptr<int64_t> dbId_ {};
-        // The type of the database.
         shared_ptr<string> dbType_ {};
-        // The type of the environment to which the database belongs.
         shared_ptr<string> envType_ {};
-        // Indicates whether the database is a logical database. Valid values:
-        // 
-        // *   **true**: The database is a logical database.
-        // *   **false**: The database is not a logical database.
         shared_ptr<bool> logic_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The name that is used to search for the database.
         shared_ptr<string> searchName_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -253,7 +240,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the sensitive field.
     shared_ptr<ListSensitiveColumnsDetailResponseBody::SensitiveColumnsDetailList> sensitiveColumnsDetailList_ {};
     // Indicates whether the request was successful. Valid values:
     // 

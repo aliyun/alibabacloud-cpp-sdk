@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The constant key.
         shared_ptr<string> key_ {};
-        // The constant value.
         shared_ptr<string> value_ {};
       };
 
@@ -155,7 +153,6 @@ namespace Models
 
 
   protected:
-    // A list of constant key-value pairs for the task flow.
     shared_ptr<ListTaskFlowConstantsResponseBody::DagConstants> dagConstants_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

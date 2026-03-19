@@ -189,39 +189,17 @@ namespace Models
 
 
       protected:
-        // The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
         shared_ptr<string> businessTime_ {};
-        // The ID of the task flow.
         shared_ptr<string> dagId_ {};
-        // The name of the task flow.
         shared_ptr<string> dagName_ {};
-        // The version of the task flow.
         shared_ptr<string> dagVersion_ {};
-        // The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
         shared_ptr<string> endTime_ {};
-        // The ID of the previously published version of the task flow.
         shared_ptr<int64_t> historyDagId_ {};
-        // The ID of the execution record.
         shared_ptr<int64_t> id_ {};
-        // The description of the task.
         shared_ptr<string> message_ {};
-        // The name of the task flow owner.
         shared_ptr<string> ownerName_ {};
-        // The status of the task flow. Valid values:
-        // 
-        // *   **0**: The task flow is waiting to be scheduled.
-        // *   **1**: The task flow is being executed.
-        // *   **2**: The task flow is paused.
-        // *   **3**: The task flow failed.
-        // *   **4**: The task flow is executed.
-        // *   **5**: The task flow is complete.
         shared_ptr<int32_t> status_ {};
-        // The mode in which the task flow is triggered. Valid values:
-        // 
-        // *   **0**: The task flow is automatically triggered based on periodic scheduling.
-        // *   **1**: The task flow is manually triggered.
         shared_ptr<int32_t> triggerType_ {};
-        // The time when the execution of the task flow was start. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -286,7 +264,6 @@ namespace Models
 
 
   protected:
-    // The information about the execution records returned.
     shared_ptr<ListTaskFlowInstanceResponseBody::DAGInstanceList> DAGInstanceList_ {};
     // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};

@@ -171,11 +171,8 @@ namespace Models
 
 
             protected:
-              // The nickname of the approver.
               shared_ptr<string> nickName_ {};
-              // The name of the approver.
               shared_ptr<string> realName_ {};
-              // The ID of the approver.
               shared_ptr<int64_t> userId_ {};
             };
 
@@ -226,19 +223,9 @@ namespace Models
 
 
         protected:
-          // The approvers.
           shared_ptr<WorkflowNode::AuditUserList> auditUserList_ {};
-          // The remarks of the approval node.
           shared_ptr<string> comment_ {};
-          // The name of the approval node.
           shared_ptr<string> nodeName_ {};
-          // The type of the approval node.
-          // 
-          // Valid values:
-          // 
-          // *   USER_LIST: The approval node is created by a user.
-          // *   UNKNOWN: The source of the approval node is unknown.
-          // *   SYS: The approval node is predefined by the system.
           shared_ptr<string> nodeType_ {};
         };
 
@@ -286,7 +273,6 @@ namespace Models
       shared_ptr<string> comment_ {};
       // The name of the approval template.
       shared_ptr<string> wfCateName_ {};
-      // The approval nodes.
       shared_ptr<WorkflowDetail::WorkflowNodeList> workflowNodeList_ {};
     };
 

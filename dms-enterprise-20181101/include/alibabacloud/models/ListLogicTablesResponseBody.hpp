@@ -240,25 +240,15 @@ namespace Models
 
 
       protected:
-        // The ID of the logical database.
         shared_ptr<string> databaseId_ {};
-        // Indicates whether the table is a logical table. The value is fixed to true.
         shared_ptr<bool> logic_ {};
-        // The IDs of the owners of the logical tables.
         shared_ptr<LogicTable::OwnerIdList> ownerIdList_ {};
-        // The nicknames of the owners of the logical tables.
         shared_ptr<LogicTable::OwnerNameList> ownerNameList_ {};
-        // The logical database to which the logical table belongs.
         shared_ptr<string> schemaName_ {};
-        // The number of logical tables.
         shared_ptr<string> tableCount_ {};
-        // The expression of the logical table.
         shared_ptr<string> tableExpr_ {};
-        // The GUID of the logical table.
         shared_ptr<string> tableGuid_ {};
-        // The ID of the logical table.
         shared_ptr<string> tableId_ {};
-        // The name of the logical table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -327,7 +317,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The details of the logical tables.
     shared_ptr<ListLogicTablesResponseBody::LogicTableList> logicTableList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

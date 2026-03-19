@@ -122,18 +122,10 @@ namespace Models
 
 
       protected:
-        // The ID of the task flow.
         shared_ptr<int64_t> dagId_ {};
-        // The ID of the SLA rule.
         shared_ptr<int64_t> id_ {};
-        // The timeout period. Unit: minutes.
         shared_ptr<int32_t> intervalMinutes_ {};
-        // The ID of the task node.
         shared_ptr<int64_t> nodeId_ {};
-        // The type of the rule. Valid values:
-        // 
-        // *   **0**: an SLA rule for a task flow
-        // *   **1**: an SLA rule for a task node
         shared_ptr<int32_t> ruleType_ {};
       };
 
@@ -197,7 +189,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The ID of the request. You can use the ID to query logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The list of SLA rules.
     shared_ptr<ListSLARulesResponseBody::SLARuleList> SLARuleList_ {};
     // Indicates whether the request was successful. Valid values:
     // 

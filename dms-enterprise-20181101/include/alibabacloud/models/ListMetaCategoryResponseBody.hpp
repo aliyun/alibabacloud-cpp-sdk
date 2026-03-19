@@ -121,7 +121,6 @@ namespace Models
 
 
   protected:
-    // The list of categories.
     shared_ptr<ListMetaCategoryResponseBody::CategoryList> categoryList_ {};
     // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};

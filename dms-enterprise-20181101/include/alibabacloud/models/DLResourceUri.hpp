@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The resource type.
+    // 
+    // Valid values:
+    // 
+    // *   ARCHIVE
+    // *   JAR
+    // *   FILE
     shared_ptr<string> resourceType_ {};
+    // The URL used to access the resource.
     shared_ptr<string> uri_ {};
   };
 

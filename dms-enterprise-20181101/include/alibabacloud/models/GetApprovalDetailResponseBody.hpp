@@ -209,24 +209,11 @@ namespace Models
 
 
         protected:
-          // The IDs of the approvers.
           shared_ptr<WorkflowNode::AuditUserIdList> auditUserIdList_ {};
-          // The name of the approval node.
           shared_ptr<string> nodeName_ {};
-          // The remarks of the approval.
           shared_ptr<string> operateComment_ {};
-          // The time when the ticket was submitted.
           shared_ptr<string> operateTime_ {};
-          // The ID of the user who submitted the ticket.
           shared_ptr<int64_t> operatorId_ {};
-          // The approval status of the ticket. Valid values:
-          // 
-          // *   **START**: The ticket was submitted.
-          // *   **ERROR**: An error occurred.
-          // *   **AUDITING**: The ticket is being reviewed.
-          // *   **REJECT**: The ticket was rejected.
-          // *   **CANCEL**: The ticket was revoked.
-          // *   **APPROVED**: The ticket was approved.
           shared_ptr<string> workflowInsCode_ {};
         };
 
@@ -334,9 +321,7 @@ namespace Models
 
 
         protected:
-          // The ID of the user.
           shared_ptr<int64_t> id_ {};
-          // The nickname of the user.
           shared_ptr<string> nickName_ {};
         };
 
@@ -460,7 +445,6 @@ namespace Models
       shared_ptr<int64_t> auditId_ {};
       // The time when the approval process was created.
       shared_ptr<string> createTime_ {};
-      // The information about the approver.
       shared_ptr<ApprovalDetail::CurrentHandlers> currentHandlers_ {};
       // The description of the approval process.
       shared_ptr<string> description_ {};
@@ -477,7 +461,6 @@ namespace Models
       // *   **OWNER_APPLY**: an owner role application ticket
       // *   **SENSITIVITY**: a column sensitivity level change ticket
       shared_ptr<string> orderType_ {};
-      // The reasons for the approval.
       shared_ptr<ApprovalDetail::ReasonList> reasonList_ {};
       // The ID of the workflow template.
       shared_ptr<int64_t> templateId_ {};
@@ -496,7 +479,6 @@ namespace Models
       // 
       // > An approval process contains multiple approval nodes, and this parameter is returned for each approval node.
       shared_ptr<string> workflowInsCode_ {};
-      // The details of approval nodes.
       shared_ptr<ApprovalDetail::WorkflowNodes> workflowNodes_ {};
     };
 

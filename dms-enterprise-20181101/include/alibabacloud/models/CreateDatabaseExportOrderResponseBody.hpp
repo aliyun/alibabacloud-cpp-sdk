@@ -111,7 +111,6 @@ namespace Models
 
 
   protected:
-    // The information about the ticket.
     shared_ptr<CreateDatabaseExportOrderResponseBody::CreateOrderResult> createOrderResult_ {};
     // The error code returned.
     shared_ptr<string> errorCode_ {};

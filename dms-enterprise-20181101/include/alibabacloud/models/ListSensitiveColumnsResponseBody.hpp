@@ -133,24 +133,11 @@ namespace Models
 
 
       protected:
-        // The number of sensitive fields.
         shared_ptr<int64_t> columnCount_ {};
-        // The name of the field.
         shared_ptr<string> columnName_ {};
-        // The type of the de-identification algorithm. Valid values:
-        // 
-        // *   DEFAULT: All characters are masked. This is the default value.
-        // *   FIX_POS: The characters at specific positions are masked.
-        // *   FIX_CHAR: Specific characters are masked.
         shared_ptr<string> functionType_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The sensitivity level of the field. Valid values:
-        // 
-        // *   SENSITIVE
-        // *   CONFIDENTIAL
         shared_ptr<string> securityLevel_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -221,7 +208,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The sensitive fields.
     shared_ptr<ListSensitiveColumnsResponseBody::SensitiveColumnList> sensitiveColumnList_ {};
     // Indicates whether the request is successful. Valid values:
     // 

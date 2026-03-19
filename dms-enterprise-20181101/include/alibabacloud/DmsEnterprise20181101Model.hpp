@@ -25,6 +25,7 @@
 #include <alibabacloud/models/MetaCategory.hpp>
 #include <alibabacloud/models/MetaCategoryTableEntity.hpp>
 #include <alibabacloud/models/PartitionError.hpp>
+#include <alibabacloud/models/SkillInfoDO.hpp>
 #include <alibabacloud/models/StsApplyVO.hpp>
 #include <alibabacloud/models/StsTokenVO.hpp>
 #include <alibabacloud/models/TableKnowledgeInfo.hpp>
@@ -344,6 +345,9 @@
 #include <alibabacloud/models/GenerateSqlFromNLRequest.hpp>
 #include <alibabacloud/models/GenerateSqlFromNLResponseBody.hpp>
 #include <alibabacloud/models/GenerateSqlFromNLResponse.hpp>
+#include <alibabacloud/models/GetAIOrderApprovalCommentSSERequest.hpp>
+#include <alibabacloud/models/GetAIOrderApprovalCommentSSEResponseBody.hpp>
+#include <alibabacloud/models/GetAIOrderApprovalCommentSSEResponse.hpp>
 #include <alibabacloud/models/GetAbacPolicyRequest.hpp>
 #include <alibabacloud/models/GetAbacPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetAbacPolicyResponse.hpp>

@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // Table usage instructions, which are not editable in OpenAPI.
     shared_ptr<string> assetDescription_ {};
+    // Last modified time.
     shared_ptr<string> assetModifiedGmt_ {};
+    // The columns of the table.
     shared_ptr<vector<ColumnKnowledgeInfo>> columnList_ {};
+    // Table description in the CREAT TABLE statement.
     shared_ptr<string> description_ {};
+    // Table business description, which can be edited via EditMetaKnowledgeAsset.
     shared_ptr<string> summary_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

@@ -295,42 +295,21 @@ namespace Models
 
 
       protected:
-        // The alias of the database.
         shared_ptr<string> alias_ {};
-        // The name of the catalog to which the database belongs.
-        // 
-        // > If the type of the database engine is PostgreSQL, the name of the database is displayed.
         shared_ptr<string> catalogName_ {};
-        // The ID of the database.
         shared_ptr<string> databaseId_ {};
-        // The name of the data link for cross-database queries.
         shared_ptr<string> datalinkName_ {};
-        // The type of the database engine.
         shared_ptr<string> dbType_ {};
-        // The ID of the user who assumes the database administrator (DBA) role.
         shared_ptr<string> dbaId_ {};
-        // The encoding method of the database.
         shared_ptr<string> encoding_ {};
-        // The environment type of the database. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
         shared_ptr<string> envType_ {};
-        // The endpoint of the instance in which the database resides.
         shared_ptr<string> host_ {};
-        // Indicates whether the database is a logical database. Valid values:
-        // 
-        // *   **true**: The database is a logical database.
-        // *   **false**: The database is not a logical database.
         shared_ptr<bool> logic_ {};
-        // The IDs of the owners of the databases.
         shared_ptr<SearchDatabase::OwnerIdList> ownerIdList_ {};
-        // The nicknames of the database owners.
         shared_ptr<SearchDatabase::OwnerNameList> ownerNameList_ {};
-        // The port of the instance in which the database resides.
         shared_ptr<int32_t> port_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The name that is used to search for the database.
         shared_ptr<string> searchName_ {};
-        // The system ID (SID) of the instance in which the database resides.
         shared_ptr<string> sid_ {};
       };
 
@@ -401,7 +380,6 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the databases.
     shared_ptr<SearchDatabaseResponseBody::SearchDatabaseList> searchDatabaseList_ {};
     // Indicates whether the request is successful. Valid values:
     // 

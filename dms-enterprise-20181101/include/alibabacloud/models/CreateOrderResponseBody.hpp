@@ -111,7 +111,6 @@ namespace Models
 
 
   protected:
-    // The ID of the ticket.
     shared_ptr<CreateOrderResponseBody::CreateOrderResult> createOrderResult_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

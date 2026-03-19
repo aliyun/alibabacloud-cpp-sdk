@@ -111,7 +111,6 @@ namespace Models
 
 
   protected:
-    // The list of task flow edge IDs.
     shared_ptr<AddTaskFlowEdgesResponseBody::EdgeIds> edgeIds_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

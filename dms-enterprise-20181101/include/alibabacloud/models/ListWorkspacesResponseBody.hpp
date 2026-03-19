@@ -257,43 +257,24 @@ namespace Models
 
 
       protected:
-        // Whether the current user has joined the workspace.
         shared_ptr<bool> alreadyJoined_ {};
-        // The ID of the creator.
         shared_ptr<int64_t> creatorId_ {};
-        // The nickname of the creator.
         shared_ptr<string> creatorNickName_ {};
-        // The Alibaba Cloud account UID of the creator.
         shared_ptr<string> creatorUid_ {};
-        // The description of the workspace.
         shared_ptr<string> description_ {};
-        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The update time.
         shared_ptr<string> gmtModified_ {};
-        // The name of the workspace.
         shared_ptr<string> name_ {};
-        // The owner ID.
         shared_ptr<int64_t> ownerId_ {};
-        // The nickname of the owner.
         shared_ptr<string> ownerNickName_ {};
-        // The Alibaba Cloud UID of the owner.
         shared_ptr<string> ownerUid_ {};
-        // The region ID.
         shared_ptr<string> region_ {};
-        // The ID of the service account.
         shared_ptr<int64_t> serviceAccountId_ {};
-        // The nickname of the service account.
         shared_ptr<string> serviceAccountNickName_ {};
-        // The Alibaba Cloud account UID of the service account.
         shared_ptr<string> serviceAccountUid_ {};
-        // The ID of the tenant to which the workspace belongs.
         shared_ptr<int64_t> tenantId_ {};
-        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The workspace ID.
         shared_ptr<int64_t> workspaceId_ {};
-        // The name of the workspace.
         shared_ptr<string> workspaceName_ {};
       };
 
@@ -373,7 +354,6 @@ namespace Models
 
 
   protected:
-    // The dataset.
     shared_ptr<ListWorkspacesResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

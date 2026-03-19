@@ -154,11 +154,8 @@ namespace Models
 
 
           protected:
-            // The nickname of the approver.
             shared_ptr<string> nickName_ {};
-            // The real name of the approver.
             shared_ptr<string> realName_ {};
-            // The ID of the approver. The ID is different from the ID of the Alibaba Cloud account of the approver.
             shared_ptr<int64_t> userId_ {};
           };
 
@@ -231,22 +228,12 @@ namespace Models
 
 
       protected:
-        // The details about approvers.
         shared_ptr<WorkflowNode::AuditUsers> auditUsers_ {};
-        // The description of the approval template.
         shared_ptr<string> comment_ {};
-        // The ID of the creator. This ID is different from the ID of the Alibaba Cloud account of the creator.
         shared_ptr<int64_t> createUserId_ {};
-        // The name of the user who creates the approval node.
         shared_ptr<string> createUserNickName_ {};
-        // The ID of the approval node.
         shared_ptr<int64_t> nodeId_ {};
-        // The name of the approval node.
         shared_ptr<string> nodeName_ {};
-        // The type of the approval node. Valid values:
-        // 
-        // *   SYS: The approval node is predefined by the system.
-        // *   USER_LIST: The approval node is created by a user.
         shared_ptr<string> nodeType_ {};
       };
 
@@ -312,7 +299,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The details of approval nodes.
     shared_ptr<ListWorkFlowNodesResponseBody::WorkflowNodes> workflowNodes_ {};
   };
 

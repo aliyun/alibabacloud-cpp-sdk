@@ -161,32 +161,14 @@ namespace Models
 
 
       protected:
-        // The remarks of the ticket.
         shared_ptr<string> comment_ {};
-        // The user who submitted the ticket.
         shared_ptr<string> committer_ {};
-        // The ID of the user who submitted the ticket.
         shared_ptr<int64_t> committerId_ {};
-        // The time when the ticket was created.
         shared_ptr<string> createTime_ {};
-        // The time when the ticket was last modified.
         shared_ptr<string> lastModifyTime_ {};
-        // The ID of the ticket.
         shared_ptr<int64_t> orderId_ {};
-        // The type of the ticket.
         shared_ptr<string> pluginType_ {};
-        // The status code of the ticket. Valid values:
-        // 
-        // *   **fail**: The ticket fails to be executed.
-        // *   **toaudit**: The ticket is waiting for approval.
-        // *   **cancel**: The ticket is cancelled.
-        // *   **processing**: The ticket is being executed.
-        // *   **approved**: The ticket is approved.
-        // *   **reject**: The ticket is rejected.
-        // *   **success**: The ticket is executed.
-        // *   **closed**: The ticket is closed.
         shared_ptr<string> statusCode_ {};
-        // The status description of the ticket.
         shared_ptr<string> statusDesc_ {};
       };
 
@@ -255,7 +237,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The details about the tickets.
     shared_ptr<ListOrdersResponseBody::Orders> orders_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

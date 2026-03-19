@@ -285,11 +285,8 @@ namespace Models
           // *   **STRUCT**: The schema of the database was exported.
           // *   **DATA_STRUCT**: The data and schema of the database were exported.
           shared_ptr<string> exportContent_ {};
-          // The type of schema that was exported.
           shared_ptr<Config::ExportTypes> exportTypes_ {};
-          // The extension options of the SQL script.
           shared_ptr<Config::SQLExtOption> SQLExtOption_ {};
-          // The tables that were exported from the database.
           shared_ptr<Config::SelectedTables> selectedTables_ {};
           // The format in which the database was exported. Valid values:
           // 

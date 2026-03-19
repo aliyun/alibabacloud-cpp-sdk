@@ -143,19 +143,12 @@ namespace Models
 
 
       protected:
-        // The database account that is used to log on to the instance.
         shared_ptr<string> dbUser_ {};
-        // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // The time when the user performed an operation on the instance.
         shared_ptr<string> opTime_ {};
-        // The source IP address of the request.
         shared_ptr<string> requestIp_ {};
-        // The ID of the user.
         shared_ptr<int64_t> userId_ {};
-        // The alias of the user.
         shared_ptr<string> userName_ {};
       };
 
@@ -224,7 +217,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned.
     shared_ptr<string> errorMessage_ {};
-    // The logon records of the instance.
     shared_ptr<ListInstanceLoginAuditLogResponseBody::InstanceLoginAuditLogList> instanceLoginAuditLogList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

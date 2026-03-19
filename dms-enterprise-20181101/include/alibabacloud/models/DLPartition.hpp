@@ -112,13 +112,21 @@ namespace Models
 
 
   protected:
+    // The name of the catalog.
     shared_ptr<string> catalogName_ {};
+    // The time when the partition was created. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int32_t> createTime_ {};
+    // The name of the database.
     shared_ptr<string> dbName_ {};
+    // The time when the table was last accessed.
     shared_ptr<int32_t> lastAccessTime_ {};
+    // The key-value pair of the partition.
     shared_ptr<map<string, string>> parameters_ {};
+    // The description of the data storage.
     shared_ptr<DLStorageDescriptor> sd_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
+    // The values in a partition key column.
     shared_ptr<vector<string>> values_ {};
   };
 

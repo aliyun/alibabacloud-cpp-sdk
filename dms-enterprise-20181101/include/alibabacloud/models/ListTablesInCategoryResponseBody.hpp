@@ -121,7 +121,6 @@ namespace Models
 
 
   protected:
-    // List of table information associated with the asset category.
     shared_ptr<ListTablesInCategoryResponseBody::EntityList> entityList_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};

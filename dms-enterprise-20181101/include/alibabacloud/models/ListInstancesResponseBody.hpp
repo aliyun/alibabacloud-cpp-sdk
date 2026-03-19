@@ -168,13 +168,7 @@ namespace Models
 
 
         protected:
-          // The type of the control mode. Valid values:
-          // 
-          // *   **COMMON**: Security Collaboration
-          // *   **NONE_CONTROL**: Flexible Management
-          // *   **STABLE**: Stable Change
           shared_ptr<string> groupMode_ {};
-          // The name of the security rule corresponding to the control mode.
           shared_ptr<string> groupName_ {};
         };
 
@@ -447,73 +441,32 @@ namespace Models
 
 
       protected:
-        // The name of the database link for the database instance.
         shared_ptr<string> dataLinkName_ {};
-        // The password that is used to log on to the database instance.
         shared_ptr<string> databasePassword_ {};
-        // The account that is used to log on to the database.
         shared_ptr<string> databaseUser_ {};
-        // The ID of the database administrator (DBA) of the database instance.
         shared_ptr<string> dbaId_ {};
-        // The nickname of the DBA of the instance.
         shared_ptr<string> dbaNickName_ {};
-        // Indicates whether the lock-free schema change feature is enabled for the database instance.
         shared_ptr<int32_t> ddlOnline_ {};
-        // The ID of the ECS instance on which the database instance is deployed.
         shared_ptr<string> ecsInstanceId_ {};
-        // The ID of the region in which the database instance resides.
         shared_ptr<string> ecsRegion_ {};
-        // The type of the environment to which the database instance belongs. Valid values:
-        // 
-        // *   **product:** production environment
-        // *   **dev**: development environment
-        // *   **pre**: pre-release environment
-        // *   **test**: test environment
-        // *   **sit**: SIT environment
-        // *   **uat**: UAT environment
-        // *   **pet**: stress testing environment
-        // *   **stag:** staging environment
         shared_ptr<string> envType_ {};
-        // The timeout period for exporting data from the database instance.
         shared_ptr<int32_t> exportTimeout_ {};
-        // The host address that is used to connect to the database instance.
         shared_ptr<string> host_ {};
-        // The alias of the database instance.
         shared_ptr<string> instanceAlias_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The source of the database instance.
         shared_ptr<string> instanceSource_ {};
-        // The type of the database instance.
         shared_ptr<string> instanceType_ {};
-        // The IDs of the owners of the database instance.
         shared_ptr<Instance::OwnerIdList> ownerIdList_ {};
-        // The nicknames of the owners of the database instance.
         shared_ptr<Instance::OwnerNameList> ownerNameList_ {};
-        // The port number that is used to connect to the database instance.
         shared_ptr<int32_t> port_ {};
-        // The timeout period for querying data in the database instance.
         shared_ptr<int32_t> queryTimeout_ {};
-        // The ID of the security rule set of the database instance.
         shared_ptr<string> safeRuleId_ {};
-        // Indicates whether the sensitive data protection feature is enabled. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> sellSitd_ {};
         shared_ptr<string> sellTrust_ {};
-        // The system ID (SID) of the database instance.
         shared_ptr<string> sid_ {};
-        // The control mode of the database instance.
         shared_ptr<Instance::StandardGroup> standardGroup_ {};
-        // The status of the database instance.
         shared_ptr<string> state_ {};
-        // Indicates whether the cross-database query feature is enabled for the database instance. Valid values:
-        // 
-        // *   **0**: disabled
-        // *   **1:**: enabled
         shared_ptr<int32_t> useDsql_ {};
-        // The ID of the VPC to which the database instance belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -582,7 +535,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message that is returned.
     shared_ptr<string> errorMessage_ {};
-    // The information about the database instances that are returned.
     shared_ptr<ListInstancesResponseBody::InstanceList> instanceList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

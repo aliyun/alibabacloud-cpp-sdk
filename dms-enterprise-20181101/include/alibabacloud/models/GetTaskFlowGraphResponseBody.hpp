@@ -177,21 +177,13 @@ namespace Models
 
 
         protected:
-          // The ID of the task flow.
           shared_ptr<int64_t> dagId_ {};
-          // The position of the node in the DAG.
           shared_ptr<string> graphParam_ {};
-          // The advanced configuration of the node.
           shared_ptr<string> nodeConfig_ {};
-          // The configuration of the node.
           shared_ptr<string> nodeContent_ {};
-          // The ID of the node.
           shared_ptr<int64_t> nodeId_ {};
-          // The name of the node.
           shared_ptr<string> nodeName_ {};
-          // The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
           shared_ptr<int64_t> nodeType_ {};
-          // The time variables for the node.
           shared_ptr<string> timeVariables_ {};
         };
 
@@ -284,13 +276,9 @@ namespace Models
 
 
         protected:
-          // The ID of the task flow.
           shared_ptr<int64_t> dagId_ {};
-          // The ID of the task flow edge.
           shared_ptr<int64_t> id_ {};
-          // The ID of the end node on the edge.
           shared_ptr<int64_t> nodeEnd_ {};
-          // The ID of the start node on the edge.
           shared_ptr<int64_t> nodeFrom_ {};
         };
 
@@ -357,9 +345,7 @@ namespace Models
       shared_ptr<bool> canEdit_ {};
       // The name of the task flow.
       shared_ptr<string> dagName_ {};
-      // The list of task flow edges.
       shared_ptr<TaskFlowGraph::Edges> edges_ {};
-      // The node list of the task flow.
       shared_ptr<TaskFlowGraph::Nodes> nodes_ {};
       // The status of the task flow. Valid values:
       // 

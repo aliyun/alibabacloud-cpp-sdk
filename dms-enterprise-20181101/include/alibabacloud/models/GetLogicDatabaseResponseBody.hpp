@@ -258,7 +258,6 @@ namespace Models
       shared_ptr<string> alias_ {};
       // The ID of the logical database.
       shared_ptr<string> databaseId_ {};
-      // The IDs of database shards of the logical database.
       shared_ptr<LogicDatabase::DatabaseIds> databaseIds_ {};
       // The database engine. For more information about the valid values of the DbType parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
       shared_ptr<string> dbType_ {};
@@ -275,9 +274,7 @@ namespace Models
       shared_ptr<string> envType_ {};
       // Indicates whether the database is a logical database. The return value is true.
       shared_ptr<bool> logic_ {};
-      // The IDs of the owners of the logical database.
       shared_ptr<LogicDatabase::OwnerIdList> ownerIdList_ {};
-      // The names of the owners of the logical database.
       shared_ptr<LogicDatabase::OwnerNameList> ownerNameList_ {};
       // The name of the logical database.
       shared_ptr<string> schemaName_ {};

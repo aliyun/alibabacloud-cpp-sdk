@@ -150,21 +150,13 @@ namespace Models
 
 
       protected:
-        // The position of the node on the Directed Acyclic Graph (DAG).
         shared_ptr<string> graphParam_ {};
-        // The advanced configuration for the node.
         shared_ptr<string> nodeConfig_ {};
-        // The configuration for the node.
         shared_ptr<string> nodeContent_ {};
-        // The ID of the node.
         shared_ptr<string> nodeId_ {};
-        // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The output variables for the task.
         shared_ptr<string> nodeOutput_ {};
-        // The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
         shared_ptr<string> nodeType_ {};
-        // The time variables configured for the node.
         shared_ptr<string> timeVariables_ {};
       };
 
@@ -233,7 +225,6 @@ namespace Models
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The tasks in the task flow.
     shared_ptr<ListTasksInTaskFlowResponseBody::Tasks> tasks_ {};
   };
 

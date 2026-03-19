@@ -127,11 +127,8 @@ namespace Models
 
 
         protected:
-          // The ID of the user who creates the business scenario.
           shared_ptr<string> creatorId_ {};
-          // The description of the business scenario.
           shared_ptr<string> description_ {};
-          // The name of the business scenario.
           shared_ptr<string> scenarioName_ {};
         };
 
@@ -320,51 +317,21 @@ namespace Models
 
 
           protected:
-            // Indicates whether the task flow can be modified. Valid values:
-            // 
-            // - **true**: The task flow can be modified.
-            // - **false**: The task flow cannot be modified.
             shared_ptr<bool> canEdit_ {};
-            // The ID of the user who creates the task flow.
             shared_ptr<string> creatorId_ {};
-            // The name of the user who creates the workspace.
             shared_ptr<string> creatorNickName_ {};
-            // The name of the task flow.
             shared_ptr<string> dagName_ {};
-            // The user ID of the task flow owner.
             shared_ptr<string> dagOwnerId_ {};
-            // The name of the task flow owner.
             shared_ptr<string> dagOwnerNickName_ {};
-            // The extended field. No meaning is specified for this field.
             shared_ptr<int64_t> dataFlowId_ {};
-            // The extended field. No meaning is specified for this field.
             shared_ptr<string> demoId_ {};
-            // The ID of the latest deployment record.
             shared_ptr<int64_t> deployId_ {};
-            // The ID of the task flow.
             shared_ptr<int64_t> id_ {};
-            // Indicates whether the task flow is deleted. Valid values:
-            // 
-            // - **true**: deleted
-            // - **false**: not deleted
             shared_ptr<bool> isDeleted_ {};
-            // The status of the latest execution. Valid values:
-            // 
-            // - 0: invalid
-            // - 1: scheduling disabled
-            // - 2: waiting to be scheduled
             shared_ptr<int32_t> latestInstanceStatus_ {};
-            // The time when the latest execution record was generated.
             shared_ptr<int32_t> latestInstanceTime_ {};
-            // The ID of the business scenario.
             shared_ptr<int64_t> scenarioId_ {};
-            // The ID of the workspace.
             shared_ptr<int64_t> spaceId_ {};
-            // The status of the task flow. Valid values:
-            // 
-            // - **0**: invalid
-            // - **1**: scheduling disabled
-            // - **2**: waiting to be scheduled
             shared_ptr<int32_t> status_ {};
           };
 
@@ -403,9 +370,7 @@ namespace Models
 
 
       protected:
-        // The list of task flows.
         shared_ptr<ScenarioDAG::DagList> dagList_ {};
-        // The information about the business scenario.
         shared_ptr<ScenarioDAG::Scenario> scenario_ {};
       };
 
@@ -608,51 +573,21 @@ namespace Models
 
 
       protected:
-        // Indicates whether the task flow can be modified. Valid values:
-        // 
-        // *   **true**: The task flow can be modified.
-        // *   **false**: The task flow cannot be modified.
         shared_ptr<bool> canEdit_ {};
-        // The ID of the user who creates the task flow.
         shared_ptr<string> creatorId_ {};
-        // The name of the user who creates the workspace.
         shared_ptr<string> creatorNickName_ {};
-        // The name of the task flow.
         shared_ptr<string> dagName_ {};
-        // The user ID of the task flow owner.
         shared_ptr<string> dagOwnerId_ {};
-        // The name of the task flow owner.
         shared_ptr<string> dagOwnerNickName_ {};
-        // The extended field. No meaning is specified for this field.
         shared_ptr<int64_t> dataFlowId_ {};
-        // The extended field. No meaning is specified for this field.
         shared_ptr<string> demoId_ {};
-        // The ID of the latest deployment record.
         shared_ptr<int64_t> deployId_ {};
-        // The ID of the task flow.
         shared_ptr<int64_t> id_ {};
-        // Indicates whether the task flow is deleted. Valid values:
-        // 
-        // *   **true**: deleted
-        // *   **false**: not deleted
         shared_ptr<bool> isDeleted_ {};
-        // The status of the latest execution. Valid values:
-        // 
-        // *   **0**: invalid
-        // *   **1**: scheduling disabled
-        // *   **2**: waiting to be scheduled
         shared_ptr<int32_t> latestInstanceStatus_ {};
-        // The time when the latest execution record was generated.
         shared_ptr<int32_t> latestInstanceTime_ {};
-        // The ID of the business scenario.
         shared_ptr<int64_t> scenarioId_ {};
-        // The ID of the workspace.
         shared_ptr<int64_t> spaceId_ {};
-        // The status of the task flow. Valid values:
-        // 
-        // *   **0**: invalid
-        // *   **1**: scheduling disabled
-        // *   **2**: waiting to be scheduled
         shared_ptr<int32_t> status_ {};
       };
 
@@ -723,11 +658,9 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // The task flows in the default business scenario.
     shared_ptr<ListLhTaskFlowAndScenarioResponseBody::RawDAGList> rawDAGList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The task flows in other business scenarios.
     shared_ptr<ListLhTaskFlowAndScenarioResponseBody::ScenarioDAGList> scenarioDAGList_ {};
     // Indicates whether the request is successful. Valid values:
     // 

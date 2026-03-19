@@ -152,27 +152,13 @@ namespace Models
 
 
       protected:
-        // The additional information. For example, permissions to log on to an instance are added to the permission template.
         shared_ptr<string> attribute_ {};
-        // The ID of the database.
         shared_ptr<int64_t> dbId_ {};
-        // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
-        // The ID of the resource.
         shared_ptr<int64_t> itemId_ {};
-        // The ID of the user who modifies the resource.
         shared_ptr<int64_t> modifierId_ {};
-        // The type of the resource. Valid values:
-        // 
-        // *   **INSTANCE**: instance
-        // *   **LOGIC_DB**: logical database
-        // *   **META_DB**: physical database
-        // *   **LOGIC_TABLE**: logical table
-        // *   **LOGIC_TABLE**: physical table
         shared_ptr<string> resourceType_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // The ID of the permission template.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -237,7 +223,6 @@ namespace Models
 
 
   protected:
-    // The permission templates.
     shared_ptr<GetAuthorityTemplateItemResponseBody::AuthorityTemplateItemList> authorityTemplateItemList_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

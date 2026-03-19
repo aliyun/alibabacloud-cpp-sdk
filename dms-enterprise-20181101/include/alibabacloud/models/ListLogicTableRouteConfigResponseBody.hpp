@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The routing algorithm expression.
         shared_ptr<string> routeExpr_ {};
-        // The unique key of the routing algorithm.
         shared_ptr<string> routeKey_ {};
-        // The ID of the logical table.
         shared_ptr<int64_t> tableId_ {};
       };
 
@@ -170,7 +167,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned.
     shared_ptr<string> errorMessage_ {};
-    // The routing algorithms.
     shared_ptr<ListLogicTableRouteConfigResponseBody::LogicTableRouteConfigList> logicTableRouteConfigList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
