@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DestSourceType, destSourceType_);
       DARABONBA_PTR_TO_JSON(Detail, detailShrink_);
       DARABONBA_PTR_TO_JSON(Disabled, disabled_);
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Exclude, exclude_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(Include, include_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DestSourceType, destSourceType_);
       DARABONBA_PTR_FROM_JSON(Detail, detailShrink_);
       DARABONBA_PTR_FROM_JSON(Disabled, disabled_);
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Exclude, exclude_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(Include, include_);
@@ -209,11 +211,11 @@ namespace Models
     virtual bool empty() const override { return this->backupType_ == nullptr
         && this->bucket_ == nullptr && this->changeListPath_ == nullptr && this->clusterId_ == nullptr && this->createTime_ == nullptr && this->crossAccountRoleName_ == nullptr
         && this->crossAccountType_ == nullptr && this->crossAccountUserId_ == nullptr && this->dataSourceId_ == nullptr && this->destDataSourceDetailShrink_ == nullptr && this->destDataSourceId_ == nullptr
-        && this->destSourceType_ == nullptr && this->detailShrink_ == nullptr && this->disabled_ == nullptr && this->exclude_ == nullptr && this->fileSystemId_ == nullptr
-        && this->include_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->keepLatestSnapshots_ == nullptr && this->options_ == nullptr
-        && this->otsDetailShrink_ == nullptr && this->path_ == nullptr && this->planName_ == nullptr && this->prefix_ == nullptr && this->retention_ == nullptr
-        && this->rule_ == nullptr && this->schedule_ == nullptr && this->sourceType_ == nullptr && this->speedLimit_ == nullptr && this->udmRegionId_ == nullptr
-        && this->vaultId_ == nullptr; };
+        && this->destSourceType_ == nullptr && this->detailShrink_ == nullptr && this->disabled_ == nullptr && this->edition_ == nullptr && this->exclude_ == nullptr
+        && this->fileSystemId_ == nullptr && this->include_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->keepLatestSnapshots_ == nullptr
+        && this->options_ == nullptr && this->otsDetailShrink_ == nullptr && this->path_ == nullptr && this->planName_ == nullptr && this->prefix_ == nullptr
+        && this->retention_ == nullptr && this->rule_ == nullptr && this->schedule_ == nullptr && this->sourceType_ == nullptr && this->speedLimit_ == nullptr
+        && this->udmRegionId_ == nullptr && this->vaultId_ == nullptr; };
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};
@@ -310,6 +312,13 @@ namespace Models
     void deleteDisabled() { this->disabled_ = nullptr;};
     inline bool getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
     inline CreateBackupPlanShrinkRequest& setDisabled(bool disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
+
+
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline CreateBackupPlanShrinkRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // exclude Field Functions 
@@ -478,6 +487,7 @@ namespace Models
     shared_ptr<string> detailShrink_ {};
     // Is the plan disabled by default
     shared_ptr<bool> disabled_ {};
+    shared_ptr<string> edition_ {};
     // This parameter is required only when **SourceType** is set to **ECS_FILE**. It specifies the path that should not be backed up, meaning all files under this path will not be included in the backup. The maximum length is 255 characters.
     shared_ptr<string> exclude_ {};
     // This parameter is required when **SourceType** is set to **NAS**. It represents the file system ID.

@@ -181,6 +181,100 @@ AddCrossAccountResponse Client::addCrossAccount(const AddCrossAccountRequest &re
 }
 
 /**
+ * @summary 浏览备份文件
+ *
+ * @param request BrowseFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BrowseFilesResponse
+ */
+BrowseFilesResponse Client::browseFilesWithOptions(const BrowseFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAbsolutePath()) {
+    query["AbsolutePath"] = request.getAbsolutePath();
+  }
+
+  if (!!request.hasClientId()) {
+    query["ClientId"] = request.getClientId();
+  }
+
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.getEdition();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasRestoreId()) {
+    query["RestoreId"] = request.getRestoreId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasSnapshotHash()) {
+    query["SnapshotHash"] = request.getSnapshotHash();
+  }
+
+  if (!!request.hasStorageClass()) {
+    query["StorageClass"] = request.getStorageClass();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  if (!!request.hasVaultId()) {
+    query["VaultId"] = request.getVaultId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BrowseFiles"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BrowseFilesResponse>();
+}
+
+/**
+ * @summary 浏览备份文件
+ *
+ * @param request BrowseFilesRequest
+ * @return BrowseFilesResponse
+ */
+BrowseFilesResponse Client::browseFiles(const BrowseFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return browseFilesWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels a backup job.
  *
  * @param request CancelBackupJobRequest
@@ -583,6 +677,10 @@ CreateBackupPlanResponse Client::createBackupPlanWithOptions(const CreateBackupP
 
   if (!!request.hasDisabled()) {
     query["Disabled"] = request.getDisabled();
+  }
+
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.getEdition();
   }
 
   if (!!request.hasFileSystemId()) {
@@ -4455,6 +4553,48 @@ GenerateRamPolicyResponse Client::generateRamPolicyWithOptions(const GenerateRam
 GenerateRamPolicyResponse Client::generateRamPolicy(const GenerateRamPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateRamPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Obtains basic backup statistics.
+ *
+ * @param request GetBasicStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBasicStatisticsResponse
+ */
+GetBasicStatisticsResponse Client::getBasicStatisticsWithOptions(const GetBasicStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBasicStatistics"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBasicStatisticsResponse>();
+}
+
+/**
+ * @summary Obtains basic backup statistics.
+ *
+ * @param request GetBasicStatisticsRequest
+ * @return GetBasicStatisticsResponse
+ */
+GetBasicStatisticsResponse Client::getBasicStatistics(const GetBasicStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBasicStatisticsWithOptions(request, runtime);
 }
 
 /**

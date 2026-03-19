@@ -12,6 +12,9 @@
 #include <alibabacloud/models/AddCrossAccountRequest.hpp>
 #include <alibabacloud/models/AddCrossAccountResponseBody.hpp>
 #include <alibabacloud/models/AddCrossAccountResponse.hpp>
+#include <alibabacloud/models/BrowseFilesRequest.hpp>
+#include <alibabacloud/models/BrowseFilesResponseBody.hpp>
+#include <alibabacloud/models/BrowseFilesResponse.hpp>
 #include <alibabacloud/models/CancelBackupJobRequest.hpp>
 #include <alibabacloud/models/CancelBackupJobResponseBody.hpp>
 #include <alibabacloud/models/CancelBackupJobResponse.hpp>
@@ -217,6 +220,9 @@
 #include <alibabacloud/models/GenerateRamPolicyRequest.hpp>
 #include <alibabacloud/models/GenerateRamPolicyResponseBody.hpp>
 #include <alibabacloud/models/GenerateRamPolicyResponse.hpp>
+#include <alibabacloud/models/GetBasicStatisticsRequest.hpp>
+#include <alibabacloud/models/GetBasicStatisticsResponseBody.hpp>
+#include <alibabacloud/models/GetBasicStatisticsResponse.hpp>
 #include <alibabacloud/models/GetTempFileDownloadLinkRequest.hpp>
 #include <alibabacloud/models/GetTempFileDownloadLinkResponseBody.hpp>
 #include <alibabacloud/models/GetTempFileDownloadLinkResponse.hpp>

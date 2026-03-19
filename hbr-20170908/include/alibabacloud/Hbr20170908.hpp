@@ -55,6 +55,23 @@ namespace Hbr20170908
       Models::AddCrossAccountResponse addCrossAccount(const Models::AddCrossAccountRequest &request);
 
       /**
+       * @summary 浏览备份文件
+       *
+       * @param request BrowseFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BrowseFilesResponse
+       */
+      Models::BrowseFilesResponse browseFilesWithOptions(const Models::BrowseFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 浏览备份文件
+       *
+       * @param request BrowseFilesRequest
+       * @return BrowseFilesResponse
+       */
+      Models::BrowseFilesResponse browseFiles(const Models::BrowseFilesRequest &request);
+
+      /**
        * @summary Cancels a backup job.
        *
        * @param request CancelBackupJobRequest
@@ -1317,6 +1334,23 @@ namespace Hbr20170908
        * @return GenerateRamPolicyResponse
        */
       Models::GenerateRamPolicyResponse generateRamPolicy(const Models::GenerateRamPolicyRequest &request);
+
+      /**
+       * @summary Obtains basic backup statistics.
+       *
+       * @param request GetBasicStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBasicStatisticsResponse
+       */
+      Models::GetBasicStatisticsResponse getBasicStatisticsWithOptions(const Models::GetBasicStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtains basic backup statistics.
+       *
+       * @param request GetBasicStatisticsRequest
+       * @return GetBasicStatisticsResponse
+       */
+      Models::GetBasicStatisticsResponse getBasicStatistics(const Models::GetBasicStatisticsRequest &request);
 
       /**
        * @summary Obtains download links of files such as job reports.
