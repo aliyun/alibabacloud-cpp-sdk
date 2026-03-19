@@ -1753,6 +1753,24 @@ namespace Elasticsearch20170613
       Models::ListEcsInstancesResponse listEcsInstances(const Models::ListEcsInstancesRequest &request);
 
       /**
+       * @summary 获取事件列表
+       *
+       * @param request ListEventRecordsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEventRecordsResponse
+       */
+      Models::ListEventRecordsResponse listEventRecordsWithOptions(const string &eventType, const Models::ListEventRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取事件列表
+       *
+       * @param request ListEventRecordsRequest
+       * @return ListEventRecordsResponse
+       */
+      Models::ListEventRecordsResponse listEventRecords(const string &eventType, const Models::ListEventRecordsRequest &request);
+
+      /**
        * @summary Queries the extended file configuration of a Logstash instance.
        *
        * @param headers map
@@ -2067,6 +2085,24 @@ namespace Elasticsearch20170613
       Models::ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceId(const string &InstanceId);
 
       /**
+       * @summary 统计事件记录
+       *
+       * @param request ListStatsEventRecordsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStatsEventRecordsResponse
+       */
+      Models::ListStatsEventRecordsResponse listStatsEventRecordsWithOptions(const Models::ListStatsEventRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 统计事件记录
+       *
+       * @param request ListStatsEventRecordsRequest
+       * @return ListStatsEventRecordsResponse
+       */
+      Models::ListStatsEventRecordsResponse listStatsEventRecords(const Models::ListStatsEventRecordsRequest &request);
+
+      /**
        * @summary Queries the tags that are added to one or more resources.
        *
        * @param request ListTagResourcesRequest
@@ -2203,6 +2239,24 @@ namespace Elasticsearch20170613
        * @return ModifyInstanceMaintainTimeResponse
        */
       Models::ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTime(const string &InstanceId, const Models::ModifyInstanceMaintainTimeRequest &request);
+
+      /**
+       * @summary 修改计划执行时间
+       *
+       * @param request ModifyScheduleExecuteTimeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyScheduleExecuteTimeResponse
+       */
+      Models::ModifyScheduleExecuteTimeResponse modifyScheduleExecuteTimeWithOptions(const string &instanceId, const Models::ModifyScheduleExecuteTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改计划执行时间
+       *
+       * @param request ModifyScheduleExecuteTimeRequest
+       * @return ModifyScheduleExecuteTimeResponse
+       */
+      Models::ModifyScheduleExecuteTimeResponse modifyScheduleExecuteTime(const string &instanceId, const Models::ModifyScheduleExecuteTimeRequest &request);
 
       /**
        * @summary Updates an IP address whitelist of an Elasticsearch cluster.

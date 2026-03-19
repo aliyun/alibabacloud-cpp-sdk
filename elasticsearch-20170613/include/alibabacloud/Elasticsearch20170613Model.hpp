@@ -290,6 +290,9 @@
 #include <alibabacloud/models/ListEcsInstancesRequest.hpp>
 #include <alibabacloud/models/ListEcsInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListEcsInstancesResponse.hpp>
+#include <alibabacloud/models/ListEventRecordsRequest.hpp>
+#include <alibabacloud/models/ListEventRecordsResponseBody.hpp>
+#include <alibabacloud/models/ListEventRecordsResponse.hpp>
 #include <alibabacloud/models/ListExtendfilesResponseBody.hpp>
 #include <alibabacloud/models/ListExtendfilesResponse.hpp>
 #include <alibabacloud/models/ListILMPoliciesRequest.hpp>
@@ -342,6 +345,9 @@
 #include <alibabacloud/models/ListShardRecoveriesResponse.hpp>
 #include <alibabacloud/models/ListSnapshotReposByInstanceIdResponseBody.hpp>
 #include <alibabacloud/models/ListSnapshotReposByInstanceIdResponse.hpp>
+#include <alibabacloud/models/ListStatsEventRecordsRequest.hpp>
+#include <alibabacloud/models/ListStatsEventRecordsResponseBody.hpp>
+#include <alibabacloud/models/ListStatsEventRecordsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -363,6 +369,9 @@
 #include <alibabacloud/models/ModifyInstanceMaintainTimeRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceMaintainTimeResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceMaintainTimeResponse.hpp>
+#include <alibabacloud/models/ModifyScheduleExecuteTimeRequest.hpp>
+#include <alibabacloud/models/ModifyScheduleExecuteTimeResponseBody.hpp>
+#include <alibabacloud/models/ModifyScheduleExecuteTimeResponse.hpp>
 #include <alibabacloud/models/ModifyWhiteIpsRequest.hpp>
 #include <alibabacloud/models/ModifyWhiteIpsResponseBody.hpp>
 #include <alibabacloud/models/ModifyWhiteIpsResponse.hpp>

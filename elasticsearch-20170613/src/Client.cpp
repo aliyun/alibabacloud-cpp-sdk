@@ -4615,6 +4615,71 @@ ListEcsInstancesResponse Client::listEcsInstances(const ListEcsInstancesRequest 
 }
 
 /**
+ * @summary 获取事件列表
+ *
+ * @param request ListEventRecordsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEventRecordsResponse
+ */
+ListEventRecordsResponse Client::listEventRecordsWithOptions(const string &eventType, const ListEventRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBeginTime()) {
+    query["beginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.getSize();
+  }
+
+  if (!!request.hasTermContent()) {
+    query["termContent"] = request.getTermContent();
+  }
+
+  if (!!request.hasTermType()) {
+    query["termType"] = request.getTermType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEventRecords"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/" , Darabonba::Encode::Encoder::percentEncode(eventType) , "/listEventRecords")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEventRecordsResponse>();
+}
+
+/**
+ * @summary 获取事件列表
+ *
+ * @param request ListEventRecordsRequest
+ * @return ListEventRecordsResponse
+ */
+ListEventRecordsResponse Client::listEventRecords(const string &eventType, const ListEventRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listEventRecordsWithOptions(eventType, request, headers, runtime);
+}
+
+/**
  * @summary Queries the extended file configuration of a Logstash instance.
  *
  * @param headers map
@@ -5640,6 +5705,59 @@ ListSnapshotReposByInstanceIdResponse Client::listSnapshotReposByInstanceId(cons
 }
 
 /**
+ * @summary 统计事件记录
+ *
+ * @param request ListStatsEventRecordsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListStatsEventRecordsResponse
+ */
+ListStatsEventRecordsResponse Client::listStatsEventRecordsWithOptions(const ListStatsEventRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventType()) {
+    query["eventType"] = request.getEventType();
+  }
+
+  if (!!request.hasLevel()) {
+    query["level"] = request.getLevel();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListStatsEventRecords"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/event/statsEventRecords")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListStatsEventRecordsResponse>();
+}
+
+/**
+ * @summary 统计事件记录
+ *
+ * @param request ListStatsEventRecordsRequest
+ * @return ListStatsEventRecordsResponse
+ */
+ListStatsEventRecordsResponse Client::listStatsEventRecords(const ListStatsEventRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listStatsEventRecordsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the tags that are added to one or more resources.
  *
  * @param request ListTagResourcesRequest
@@ -5990,6 +6108,55 @@ ModifyInstanceMaintainTimeResponse Client::modifyInstanceMaintainTime(const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modifyInstanceMaintainTimeWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改计划执行时间
+ *
+ * @param request ModifyScheduleExecuteTimeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyScheduleExecuteTimeResponse
+ */
+ModifyScheduleExecuteTimeResponse Client::modifyScheduleExecuteTimeWithOptions(const string &instanceId, const ModifyScheduleExecuteTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventId()) {
+    query["eventId"] = request.getEventId();
+  }
+
+  if (!!request.hasScheduleExecuteTime()) {
+    query["scheduleExecuteTime"] = request.getScheduleExecuteTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyScheduleExecuteTime"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/event/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/actions/modify-execute-time")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyScheduleExecuteTimeResponse>();
+}
+
+/**
+ * @summary 修改计划执行时间
+ *
+ * @param request ModifyScheduleExecuteTimeRequest
+ * @return ModifyScheduleExecuteTimeResponse
+ */
+ModifyScheduleExecuteTimeResponse Client::modifyScheduleExecuteTime(const string &instanceId, const ModifyScheduleExecuteTimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyScheduleExecuteTimeWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
