@@ -990,6 +990,68 @@ CloneDBInstanceResponse Client::cloneDBInstance(const CloneDBInstanceRequest &re
 }
 
 /**
+ * @summary 创建 AI 服务
+ *
+ * @param request CreateAIServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAIServiceResponse
+ */
+CreateAIServiceResponse Client::createAIServiceWithOptions(const CreateAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasServiceAccount()) {
+    query["ServiceAccount"] = request.getServiceAccount();
+  }
+
+  if (!!request.hasServiceAccountPassword()) {
+    query["ServiceAccountPassword"] = request.getServiceAccountPassword();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAIService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAIServiceResponse>();
+}
+
+/**
+ * @summary 创建 AI 服务
+ *
+ * @param request CreateAIServiceRequest
+ * @return CreateAIServiceResponse
+ */
+CreateAIServiceResponse Client::createAIService(const CreateAIServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAIServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an initial account for an AnalyticDB for PostgreSQL instance.
  *
  * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
@@ -3166,6 +3228,56 @@ DeleteAINodeResponse Client::deleteAINode(const DeleteAINodeRequest &request) {
 }
 
 /**
+ * @summary 删除 AI 服务
+ *
+ * @param request DeleteAIServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAIServiceResponse
+ */
+DeleteAIServiceResponse Client::deleteAIServiceWithOptions(const DeleteAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAIService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAIServiceResponse>();
+}
+
+/**
+ * @summary 删除 AI 服务
+ *
+ * @param request DeleteAIServiceRequest
+ * @return DeleteAIServiceResponse
+ */
+DeleteAIServiceResponse Client::deleteAIService(const DeleteAIServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAIServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a database account.
  *
  * @param request DeleteAccountRequest
@@ -4657,6 +4769,56 @@ DeployPrivateRAGServiceResponse Client::deployPrivateRAGServiceWithOptions(const
 DeployPrivateRAGServiceResponse Client::deployPrivateRAGService(const DeployPrivateRAGServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deployPrivateRAGServiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取 AI 服务详情
+ *
+ * @param request DescribeAIServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIServiceResponse
+ */
+DescribeAIServiceResponse Client::describeAIServiceWithOptions(const DescribeAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIServiceResponse>();
+}
+
+/**
+ * @summary 获取 AI 服务详情
+ *
+ * @param request DescribeAIServiceRequest
+ * @return DescribeAIServiceResponse
+ */
+DescribeAIServiceResponse Client::describeAIService(const DescribeAIServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIServiceWithOptions(request, runtime);
 }
 
 /**
@@ -10302,6 +10464,60 @@ ListAINodePoolsResponse Client::listAINodePools(const ListAINodePoolsRequest &re
 }
 
 /**
+ * @summary 获取 AI 服务列表
+ *
+ * @param request ListAIServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAIServicesResponse
+ */
+ListAIServicesResponse Client::listAIServicesWithOptions(const ListAIServicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAIServices"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAIServicesResponse>();
+}
+
+/**
+ * @summary 获取 AI 服务列表
+ *
+ * @param request ListAIServicesRequest
+ * @return ListAIServicesResponse
+ */
+ListAIServicesResponse Client::listAIServices(const ListAIServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAIServicesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of backup jobs.
  *
  * @param request ListBackupJobsRequest
@@ -11737,6 +11953,60 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改 AI 服务白名单
+ *
+ * @param request ModifyAIServiceSecurityIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAIServiceSecurityIpsResponse
+ */
+ModifyAIServiceSecurityIpsResponse Client::modifyAIServiceSecurityIpsWithOptions(const ModifyAIServiceSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAIServiceSecurityIps"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAIServiceSecurityIpsResponse>();
+}
+
+/**
+ * @summary 修改 AI 服务白名单
+ *
+ * @param request ModifyAIServiceSecurityIpsRequest
+ * @return ModifyAIServiceSecurityIpsResponse
+ */
+ModifyAIServiceSecurityIpsResponse Client::modifyAIServiceSecurityIps(const ModifyAIServiceSecurityIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAIServiceSecurityIpsWithOptions(request, runtime);
 }
 
 /**

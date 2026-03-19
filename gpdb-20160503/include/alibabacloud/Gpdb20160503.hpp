@@ -312,6 +312,23 @@ namespace Gpdb20160503
       Models::CloneDBInstanceResponse cloneDBInstance(const Models::CloneDBInstanceRequest &request);
 
       /**
+       * @summary 创建 AI 服务
+       *
+       * @param request CreateAIServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIServiceResponse
+       */
+      Models::CreateAIServiceResponse createAIServiceWithOptions(const Models::CreateAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 AI 服务
+       *
+       * @param request CreateAIServiceRequest
+       * @return CreateAIServiceResponse
+       */
+      Models::CreateAIServiceResponse createAIService(const Models::CreateAIServiceRequest &request);
+
+      /**
        * @summary Creates an initial account for an AnalyticDB for PostgreSQL instance.
        *
        * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
@@ -796,6 +813,23 @@ namespace Gpdb20160503
        * @return DeleteAINodeResponse
        */
       Models::DeleteAINodeResponse deleteAINode(const Models::DeleteAINodeRequest &request);
+
+      /**
+       * @summary 删除 AI 服务
+       *
+       * @param request DeleteAIServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAIServiceResponse
+       */
+      Models::DeleteAIServiceResponse deleteAIServiceWithOptions(const Models::DeleteAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 AI 服务
+       *
+       * @param request DeleteAIServiceRequest
+       * @return DeleteAIServiceResponse
+       */
+      Models::DeleteAIServiceResponse deleteAIService(const Models::DeleteAIServiceRequest &request);
 
       /**
        * @summary Deletes a database account.
@@ -1287,6 +1321,23 @@ namespace Gpdb20160503
        * @return DeployPrivateRAGServiceResponse
        */
       Models::DeployPrivateRAGServiceResponse deployPrivateRAGService(const Models::DeployPrivateRAGServiceRequest &request);
+
+      /**
+       * @summary 获取 AI 服务详情
+       *
+       * @param request DescribeAIServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIServiceResponse
+       */
+      Models::DescribeAIServiceResponse describeAIServiceWithOptions(const Models::DescribeAIServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取 AI 服务详情
+       *
+       * @param request DescribeAIServiceRequest
+       * @return DescribeAIServiceResponse
+       */
+      Models::DescribeAIServiceResponse describeAIService(const Models::DescribeAIServiceRequest &request);
 
       /**
        * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
@@ -3136,6 +3187,23 @@ namespace Gpdb20160503
       Models::ListAINodePoolsResponse listAINodePools(const Models::ListAINodePoolsRequest &request);
 
       /**
+       * @summary 获取 AI 服务列表
+       *
+       * @param request ListAIServicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAIServicesResponse
+       */
+      Models::ListAIServicesResponse listAIServicesWithOptions(const Models::ListAIServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取 AI 服务列表
+       *
+       * @param request ListAIServicesRequest
+       * @return ListAIServicesResponse
+       */
+      Models::ListAIServicesResponse listAIServices(const Models::ListAIServicesRequest &request);
+
+      /**
        * @summary Queries a list of backup jobs.
        *
        * @param request ListBackupJobsRequest
@@ -3560,6 +3628,23 @@ namespace Gpdb20160503
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary 修改 AI 服务白名单
+       *
+       * @param request ModifyAIServiceSecurityIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAIServiceSecurityIpsResponse
+       */
+      Models::ModifyAIServiceSecurityIpsResponse modifyAIServiceSecurityIpsWithOptions(const Models::ModifyAIServiceSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改 AI 服务白名单
+       *
+       * @param request ModifyAIServiceSecurityIpsRequest
+       * @return ModifyAIServiceSecurityIpsResponse
+       */
+      Models::ModifyAIServiceSecurityIpsResponse modifyAIServiceSecurityIps(const Models::ModifyAIServiceSecurityIpsRequest &request);
 
       /**
        * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.

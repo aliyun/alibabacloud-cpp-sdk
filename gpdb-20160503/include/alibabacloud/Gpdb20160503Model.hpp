@@ -47,6 +47,9 @@
 #include <alibabacloud/models/CloneDBInstanceRequest.hpp>
 #include <alibabacloud/models/CloneDBInstanceResponseBody.hpp>
 #include <alibabacloud/models/CloneDBInstanceResponse.hpp>
+#include <alibabacloud/models/CreateAIServiceRequest.hpp>
+#include <alibabacloud/models/CreateAIServiceResponseBody.hpp>
+#include <alibabacloud/models/CreateAIServiceResponse.hpp>
 #include <alibabacloud/models/CreateAccountRequest.hpp>
 #include <alibabacloud/models/CreateAccountResponseBody.hpp>
 #include <alibabacloud/models/CreateAccountResponse.hpp>
@@ -130,6 +133,9 @@
 #include <alibabacloud/models/DeleteAINodeRequest.hpp>
 #include <alibabacloud/models/DeleteAINodeResponseBody.hpp>
 #include <alibabacloud/models/DeleteAINodeResponse.hpp>
+#include <alibabacloud/models/DeleteAIServiceRequest.hpp>
+#include <alibabacloud/models/DeleteAIServiceResponseBody.hpp>
+#include <alibabacloud/models/DeleteAIServiceResponse.hpp>
 #include <alibabacloud/models/DeleteAccountRequest.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountResponse.hpp>
@@ -211,6 +217,9 @@
 #include <alibabacloud/models/DeployPrivateRAGServiceRequest.hpp>
 #include <alibabacloud/models/DeployPrivateRAGServiceResponseBody.hpp>
 #include <alibabacloud/models/DeployPrivateRAGServiceResponse.hpp>
+#include <alibabacloud/models/DescribeAIServiceRequest.hpp>
+#include <alibabacloud/models/DescribeAIServiceResponseBody.hpp>
+#include <alibabacloud/models/DescribeAIServiceResponse.hpp>
 #include <alibabacloud/models/DescribeAccountsRequest.hpp>
 #include <alibabacloud/models/DescribeAccountsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccountsResponse.hpp>
@@ -487,6 +496,9 @@
 #include <alibabacloud/models/ListAINodePoolsRequest.hpp>
 #include <alibabacloud/models/ListAINodePoolsResponseBody.hpp>
 #include <alibabacloud/models/ListAINodePoolsResponse.hpp>
+#include <alibabacloud/models/ListAIServicesRequest.hpp>
+#include <alibabacloud/models/ListAIServicesResponseBody.hpp>
+#include <alibabacloud/models/ListAIServicesResponse.hpp>
 #include <alibabacloud/models/ListBackupJobsRequest.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBody.hpp>
 #include <alibabacloud/models/ListBackupJobsResponse.hpp>
@@ -559,6 +571,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ModifyAIServiceSecurityIpsRequest.hpp>
+#include <alibabacloud/models/ModifyAIServiceSecurityIpsResponseBody.hpp>
+#include <alibabacloud/models/ModifyAIServiceSecurityIpsResponse.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionResponse.hpp>
