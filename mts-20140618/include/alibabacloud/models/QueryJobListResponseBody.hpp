@@ -1174,6 +1174,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(Bitrate, bitrate_);
               DARABONBA_PTR_TO_JSON(Duration, duration_);
               DARABONBA_PTR_TO_JSON(FileFormat, fileFormat_);
+              DARABONBA_PTR_TO_JSON(FileMd5, fileMd5_);
               DARABONBA_PTR_TO_JSON(FileSize, fileSize_);
               DARABONBA_PTR_TO_JSON(Format, format_);
               DARABONBA_PTR_TO_JSON(Fps, fps_);
@@ -1186,6 +1187,7 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(Bitrate, bitrate_);
               DARABONBA_PTR_FROM_JSON(Duration, duration_);
               DARABONBA_PTR_FROM_JSON(FileFormat, fileFormat_);
+              DARABONBA_PTR_FROM_JSON(FileMd5, fileMd5_);
               DARABONBA_PTR_FROM_JSON(FileSize, fileSize_);
               DARABONBA_PTR_FROM_JSON(Format, format_);
               DARABONBA_PTR_FROM_JSON(Fps, fps_);
@@ -2096,8 +2098,8 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->bitrate_ == nullptr
-        && this->duration_ == nullptr && this->fileFormat_ == nullptr && this->fileSize_ == nullptr && this->format_ == nullptr && this->fps_ == nullptr
-        && this->height_ == nullptr && this->sourceLogos_ == nullptr && this->streams_ == nullptr && this->width_ == nullptr; };
+        && this->duration_ == nullptr && this->fileFormat_ == nullptr && this->fileMd5_ == nullptr && this->fileSize_ == nullptr && this->format_ == nullptr
+        && this->fps_ == nullptr && this->height_ == nullptr && this->sourceLogos_ == nullptr && this->streams_ == nullptr && this->width_ == nullptr; };
             // bitrate Field Functions 
             bool hasBitrate() const { return this->bitrate_ != nullptr;};
             void deleteBitrate() { this->bitrate_ = nullptr;};
@@ -2117,6 +2119,13 @@ namespace Models
             void deleteFileFormat() { this->fileFormat_ = nullptr;};
             inline string getFileFormat() const { DARABONBA_PTR_GET_DEFAULT(fileFormat_, "") };
             inline Properties& setFileFormat(string fileFormat) { DARABONBA_PTR_SET_VALUE(fileFormat_, fileFormat) };
+
+
+            // fileMd5 Field Functions 
+            bool hasFileMd5() const { return this->fileMd5_ != nullptr;};
+            void deleteFileMd5() { this->fileMd5_ = nullptr;};
+            inline string getFileMd5() const { DARABONBA_PTR_GET_DEFAULT(fileMd5_, "") };
+            inline Properties& setFileMd5(string fileMd5) { DARABONBA_PTR_SET_VALUE(fileMd5_, fileMd5) };
 
 
             // fileSize Field Functions 
@@ -2178,6 +2187,7 @@ namespace Models
             shared_ptr<string> bitrate_ {};
             shared_ptr<string> duration_ {};
             shared_ptr<string> fileFormat_ {};
+            shared_ptr<string> fileMd5_ {};
             shared_ptr<string> fileSize_ {};
             shared_ptr<Properties::Format> format_ {};
             shared_ptr<string> fps_ {};
