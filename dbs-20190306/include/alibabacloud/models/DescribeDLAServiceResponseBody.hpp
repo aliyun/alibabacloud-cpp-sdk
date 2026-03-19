@@ -44,91 +44,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoAdd_ == nullptr
-        && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->haveJobFailed_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr
-        && return this->state_ == nullptr && return this->success_ == nullptr; };
+        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->haveJobFailed_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr
+        && this->state_ == nullptr && this->success_ == nullptr; };
     // autoAdd Field Functions 
     bool hasAutoAdd() const { return this->autoAdd_ != nullptr;};
     void deleteAutoAdd() { this->autoAdd_ = nullptr;};
-    inline bool autoAdd() const { DARABONBA_PTR_GET_DEFAULT(autoAdd_, false) };
+    inline bool getAutoAdd() const { DARABONBA_PTR_GET_DEFAULT(autoAdd_, false) };
     inline DescribeDLAServiceResponseBody& setAutoAdd(bool autoAdd) { DARABONBA_PTR_SET_VALUE(autoAdd_, autoAdd) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline DescribeDLAServiceResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline DescribeDLAServiceResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // haveJobFailed Field Functions 
     bool hasHaveJobFailed() const { return this->haveJobFailed_ != nullptr;};
     void deleteHaveJobFailed() { this->haveJobFailed_ = nullptr;};
-    inline bool haveJobFailed() const { DARABONBA_PTR_GET_DEFAULT(haveJobFailed_, false) };
+    inline bool getHaveJobFailed() const { DARABONBA_PTR_GET_DEFAULT(haveJobFailed_, false) };
     inline DescribeDLAServiceResponseBody& setHaveJobFailed(bool haveJobFailed) { DARABONBA_PTR_SET_VALUE(haveJobFailed_, haveJobFailed) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DescribeDLAServiceResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDLAServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline DescribeDLAServiceResponseBody& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeDLAServiceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // Specifies whether to enable the feature of automatically adding incremental data to a data lake. If this feature is enabled, DBS adds the backup sets that are newly generated to the data lake that is created for the backup schedule. Valid values:
     // 
-    // *   **true**: enables the feature.
-    // *   **false**: disables the feature.
-    std::shared_ptr<bool> autoAdd_ = nullptr;
+    // - **true**: enables the feature.
+    // 
+    // - **false**: disables the feature.
+    shared_ptr<bool> autoAdd_ {};
     // The error code.
-    std::shared_ptr<string> errCode_ = nullptr;
+    shared_ptr<string> errCode_ {};
     // The error message.
-    std::shared_ptr<string> errMessage_ = nullptr;
+    shared_ptr<string> errMessage_ {};
     // Indicates whether a failed DLA task exists in the return result. Valid values:
     // 
-    // *   **true**: A failed DLA task exists.
-    // *   **false**: No failed DLA task exists.
-    std::shared_ptr<bool> haveJobFailed_ = nullptr;
+    // - **true**: A failed DLA task exists.
+    // 
+    // - **false**: No failed DLA task exists.
+    shared_ptr<bool> haveJobFailed_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the DLA service for the backup schedule. Valid values:
     // 
-    // *   **Running**: DLA is running.
-    // *   **Closing**: DLA is being disabled.
-    // *   **Closed**: DLA is disabled.
-    std::shared_ptr<string> state_ = nullptr;
+    // - **Running**: DLA is running.
+    // 
+    // - **Closing**: DLA is being disabled.
+    // 
+    // - **Closed**: DLA is disabled.
+    shared_ptr<string> state_ {};
     // Indicates whether the request is successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -42,75 +42,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupPlanId_ == nullptr
-        && return this->createdFullBackupsetId_ == nullptr && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->createdFullBackupsetId_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // backupPlanId Field Functions 
     bool hasBackupPlanId() const { return this->backupPlanId_ != nullptr;};
     void deleteBackupPlanId() { this->backupPlanId_ = nullptr;};
-    inline string backupPlanId() const { DARABONBA_PTR_GET_DEFAULT(backupPlanId_, "") };
+    inline string getBackupPlanId() const { DARABONBA_PTR_GET_DEFAULT(backupPlanId_, "") };
     inline StartBackupPlanResponseBody& setBackupPlanId(string backupPlanId) { DARABONBA_PTR_SET_VALUE(backupPlanId_, backupPlanId) };
 
 
     // createdFullBackupsetId Field Functions 
     bool hasCreatedFullBackupsetId() const { return this->createdFullBackupsetId_ != nullptr;};
     void deleteCreatedFullBackupsetId() { this->createdFullBackupsetId_ = nullptr;};
-    inline string createdFullBackupsetId() const { DARABONBA_PTR_GET_DEFAULT(createdFullBackupsetId_, "") };
+    inline string getCreatedFullBackupsetId() const { DARABONBA_PTR_GET_DEFAULT(createdFullBackupsetId_, "") };
     inline StartBackupPlanResponseBody& setCreatedFullBackupsetId(string createdFullBackupsetId) { DARABONBA_PTR_SET_VALUE(createdFullBackupsetId_, createdFullBackupsetId) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline StartBackupPlanResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline StartBackupPlanResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline StartBackupPlanResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartBackupPlanResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline StartBackupPlanResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The ID of the backup schedule.
-    std::shared_ptr<string> backupPlanId_ = nullptr;
+    // The ID of the backup plan.
+    shared_ptr<string> backupPlanId_ {};
     // The ID of the full backup set.
-    std::shared_ptr<string> createdFullBackupsetId_ = nullptr;
+    shared_ptr<string> createdFullBackupsetId_ {};
     // The error code.
-    std::shared_ptr<string> errCode_ = nullptr;
+    shared_ptr<string> errCode_ {};
     // The error message.
-    std::shared_ptr<string> errMessage_ = nullptr;
+    shared_ptr<string> errMessage_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
-    // Indicates whether the request is successful. Valid values:
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request is successful.
-    // *   **false**: The request fails.
-    std::shared_ptr<bool> success_ = nullptr;
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -2,8 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBENODECIDRLISTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBENODECIDRLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeNodeCidrListResponseBodyInternetIPs.hpp>
-#include <alibabacloud/models/DescribeNodeCidrListResponseBodyIntranetIPs.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,77 +42,141 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IntranetIPs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IntranetIPs& obj) { 
+        DARABONBA_PTR_TO_JSON(IntranetIP, intranetIP_);
+      };
+      friend void from_json(const Darabonba::Json& j, IntranetIPs& obj) { 
+        DARABONBA_PTR_FROM_JSON(IntranetIP, intranetIP_);
+      };
+      IntranetIPs() = default ;
+      IntranetIPs(const IntranetIPs &) = default ;
+      IntranetIPs(IntranetIPs &&) = default ;
+      IntranetIPs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IntranetIPs() = default ;
+      IntranetIPs& operator=(const IntranetIPs &) = default ;
+      IntranetIPs& operator=(IntranetIPs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->intranetIP_ == nullptr; };
+      // intranetIP Field Functions 
+      bool hasIntranetIP() const { return this->intranetIP_ != nullptr;};
+      void deleteIntranetIP() { this->intranetIP_ = nullptr;};
+      inline const vector<string> & getIntranetIP() const { DARABONBA_PTR_GET_CONST(intranetIP_, vector<string>) };
+      inline vector<string> getIntranetIP() { DARABONBA_PTR_GET(intranetIP_, vector<string>) };
+      inline IntranetIPs& setIntranetIP(const vector<string> & intranetIP) { DARABONBA_PTR_SET_VALUE(intranetIP_, intranetIP) };
+      inline IntranetIPs& setIntranetIP(vector<string> && intranetIP) { DARABONBA_PTR_SET_RVALUE(intranetIP_, intranetIP) };
+
+
+    protected:
+      shared_ptr<vector<string>> intranetIP_ {};
+    };
+
+    class InternetIPs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const InternetIPs& obj) { 
+        DARABONBA_PTR_TO_JSON(InternetIP, internetIP_);
+      };
+      friend void from_json(const Darabonba::Json& j, InternetIPs& obj) { 
+        DARABONBA_PTR_FROM_JSON(InternetIP, internetIP_);
+      };
+      InternetIPs() = default ;
+      InternetIPs(const InternetIPs &) = default ;
+      InternetIPs(InternetIPs &&) = default ;
+      InternetIPs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~InternetIPs() = default ;
+      InternetIPs& operator=(const InternetIPs &) = default ;
+      InternetIPs& operator=(InternetIPs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->internetIP_ == nullptr; };
+      // internetIP Field Functions 
+      bool hasInternetIP() const { return this->internetIP_ != nullptr;};
+      void deleteInternetIP() { this->internetIP_ = nullptr;};
+      inline const vector<string> & getInternetIP() const { DARABONBA_PTR_GET_CONST(internetIP_, vector<string>) };
+      inline vector<string> getInternetIP() { DARABONBA_PTR_GET(internetIP_, vector<string>) };
+      inline InternetIPs& setInternetIP(const vector<string> & internetIP) { DARABONBA_PTR_SET_VALUE(internetIP_, internetIP) };
+      inline InternetIPs& setInternetIP(vector<string> && internetIP) { DARABONBA_PTR_SET_RVALUE(internetIP_, internetIP) };
+
+
+    protected:
+      shared_ptr<vector<string>> internetIP_ {};
+    };
+
     virtual bool empty() const override { return this->errCode_ == nullptr
-        && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->internetIPs_ == nullptr && return this->intranetIPs_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->internetIPs_ == nullptr && this->intranetIPs_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline DescribeNodeCidrListResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline DescribeNodeCidrListResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DescribeNodeCidrListResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // internetIPs Field Functions 
     bool hasInternetIPs() const { return this->internetIPs_ != nullptr;};
     void deleteInternetIPs() { this->internetIPs_ = nullptr;};
-    inline const DescribeNodeCidrListResponseBodyInternetIPs & internetIPs() const { DARABONBA_PTR_GET_CONST(internetIPs_, DescribeNodeCidrListResponseBodyInternetIPs) };
-    inline DescribeNodeCidrListResponseBodyInternetIPs internetIPs() { DARABONBA_PTR_GET(internetIPs_, DescribeNodeCidrListResponseBodyInternetIPs) };
-    inline DescribeNodeCidrListResponseBody& setInternetIPs(const DescribeNodeCidrListResponseBodyInternetIPs & internetIPs) { DARABONBA_PTR_SET_VALUE(internetIPs_, internetIPs) };
-    inline DescribeNodeCidrListResponseBody& setInternetIPs(DescribeNodeCidrListResponseBodyInternetIPs && internetIPs) { DARABONBA_PTR_SET_RVALUE(internetIPs_, internetIPs) };
+    inline const DescribeNodeCidrListResponseBody::InternetIPs & getInternetIPs() const { DARABONBA_PTR_GET_CONST(internetIPs_, DescribeNodeCidrListResponseBody::InternetIPs) };
+    inline DescribeNodeCidrListResponseBody::InternetIPs getInternetIPs() { DARABONBA_PTR_GET(internetIPs_, DescribeNodeCidrListResponseBody::InternetIPs) };
+    inline DescribeNodeCidrListResponseBody& setInternetIPs(const DescribeNodeCidrListResponseBody::InternetIPs & internetIPs) { DARABONBA_PTR_SET_VALUE(internetIPs_, internetIPs) };
+    inline DescribeNodeCidrListResponseBody& setInternetIPs(DescribeNodeCidrListResponseBody::InternetIPs && internetIPs) { DARABONBA_PTR_SET_RVALUE(internetIPs_, internetIPs) };
 
 
     // intranetIPs Field Functions 
     bool hasIntranetIPs() const { return this->intranetIPs_ != nullptr;};
     void deleteIntranetIPs() { this->intranetIPs_ = nullptr;};
-    inline const DescribeNodeCidrListResponseBodyIntranetIPs & intranetIPs() const { DARABONBA_PTR_GET_CONST(intranetIPs_, DescribeNodeCidrListResponseBodyIntranetIPs) };
-    inline DescribeNodeCidrListResponseBodyIntranetIPs intranetIPs() { DARABONBA_PTR_GET(intranetIPs_, DescribeNodeCidrListResponseBodyIntranetIPs) };
-    inline DescribeNodeCidrListResponseBody& setIntranetIPs(const DescribeNodeCidrListResponseBodyIntranetIPs & intranetIPs) { DARABONBA_PTR_SET_VALUE(intranetIPs_, intranetIPs) };
-    inline DescribeNodeCidrListResponseBody& setIntranetIPs(DescribeNodeCidrListResponseBodyIntranetIPs && intranetIPs) { DARABONBA_PTR_SET_RVALUE(intranetIPs_, intranetIPs) };
+    inline const DescribeNodeCidrListResponseBody::IntranetIPs & getIntranetIPs() const { DARABONBA_PTR_GET_CONST(intranetIPs_, DescribeNodeCidrListResponseBody::IntranetIPs) };
+    inline DescribeNodeCidrListResponseBody::IntranetIPs getIntranetIPs() { DARABONBA_PTR_GET(intranetIPs_, DescribeNodeCidrListResponseBody::IntranetIPs) };
+    inline DescribeNodeCidrListResponseBody& setIntranetIPs(const DescribeNodeCidrListResponseBody::IntranetIPs & intranetIPs) { DARABONBA_PTR_SET_VALUE(intranetIPs_, intranetIPs) };
+    inline DescribeNodeCidrListResponseBody& setIntranetIPs(DescribeNodeCidrListResponseBody::IntranetIPs && intranetIPs) { DARABONBA_PTR_SET_RVALUE(intranetIPs_, intranetIPs) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeNodeCidrListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeNodeCidrListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The error code.
-    std::shared_ptr<string> errCode_ = nullptr;
+    shared_ptr<string> errCode_ {};
     // The error message.
-    std::shared_ptr<string> errMessage_ = nullptr;
+    shared_ptr<string> errMessage_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    // The public CIDR blocks.
-    std::shared_ptr<DescribeNodeCidrListResponseBodyInternetIPs> internetIPs_ = nullptr;
-    // The internal CIDR blocks.
-    std::shared_ptr<DescribeNodeCidrListResponseBodyIntranetIPs> intranetIPs_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<DescribeNodeCidrListResponseBody::InternetIPs> internetIPs_ {};
+    shared_ptr<DescribeNodeCidrListResponseBody::IntranetIPs> intranetIPs_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

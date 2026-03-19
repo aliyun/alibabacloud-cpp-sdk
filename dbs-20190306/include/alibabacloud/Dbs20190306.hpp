@@ -21,7 +21,7 @@ namespace Dbs20190306
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Configures a DBS backup schedule.
+       * @summary This API is used to configure a DBS backup plan.
        *
        * @param request ConfigureBackupPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Dbs20190306
       Models::ConfigureBackupPlanResponse configureBackupPlanWithOptions(const Models::ConfigureBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a DBS backup schedule.
+       * @summary This API is used to configure a DBS backup plan.
        *
        * @param request ConfigureBackupPlanRequest
        * @return ConfigureBackupPlanResponse
@@ -38,9 +38,9 @@ namespace Dbs20190306
       Models::ConfigureBackupPlanResponse configureBackupPlan(const Models::ConfigureBackupPlanRequest &request);
 
       /**
-       * @summary Creates, configures, and starts a backup schedule.
+       * @summary Creates, configures, and starts a backup plan.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+       * @description Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
        *
        * @param request CreateAndStartBackupPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,9 +49,9 @@ namespace Dbs20190306
       Models::CreateAndStartBackupPlanResponse createAndStartBackupPlanWithOptions(const Models::CreateAndStartBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates, configures, and starts a backup schedule.
+       * @summary Creates, configures, and starts a backup plan.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+       * @description Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
        *
        * @param request CreateAndStartBackupPlanRequest
        * @return CreateAndStartBackupPlanResponse
@@ -59,9 +59,9 @@ namespace Dbs20190306
       Models::CreateAndStartBackupPlanResponse createAndStartBackupPlan(const Models::CreateAndStartBackupPlanRequest &request);
 
       /**
-       * @summary Creates a backup schedule.
+       * @summary Creates a Database Backup Service (DBS) backup plan.
        *
-       * @description For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+       * @description To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
        *
        * @param request CreateBackupPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -70,9 +70,9 @@ namespace Dbs20190306
       Models::CreateBackupPlanResponse createBackupPlanWithOptions(const Models::CreateBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a backup schedule.
+       * @summary Creates a Database Backup Service (DBS) backup plan.
        *
-       * @description For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+       * @description To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
        *
        * @param request CreateBackupPlanRequest
        * @return CreateBackupPlanResponse
@@ -80,7 +80,7 @@ namespace Dbs20190306
       Models::CreateBackupPlanResponse createBackupPlan(const Models::CreateBackupPlanRequest &request);
 
       /**
-       * @summary Creates and starts a full backup set download task.
+       * @summary This operation creates a task to download a full backup set.
        *
        * @param request CreateFullBackupSetDownloadRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -89,7 +89,7 @@ namespace Dbs20190306
       Models::CreateFullBackupSetDownloadResponse createFullBackupSetDownloadWithOptions(const Models::CreateFullBackupSetDownloadRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and starts a full backup set download task.
+       * @summary This operation creates a task to download a full backup set.
        *
        * @param request CreateFullBackupSetDownloadRequest
        * @return CreateFullBackupSetDownloadResponse
@@ -135,7 +135,11 @@ namespace Dbs20190306
       Models::CreateIncrementBackupSetDownloadResponse createIncrementBackupSetDownload(const Models::CreateIncrementBackupSetDownloadRequest &request);
 
       /**
-       * @summary Creates a restoration task.
+       * @summary This interface creates DBS restore jobs.
+       *
+       * @description ### Related operations
+       * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+       * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
        *
        * @param request CreateRestoreTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -144,7 +148,11 @@ namespace Dbs20190306
       Models::CreateRestoreTaskResponse createRestoreTaskWithOptions(const Models::CreateRestoreTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a restoration task.
+       * @summary This interface creates DBS restore jobs.
+       *
+       * @description ### Related operations
+       * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+       * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
        *
        * @param request CreateRestoreTaskRequest
        * @return CreateRestoreTaskResponse
@@ -152,7 +160,7 @@ namespace Dbs20190306
       Models::CreateRestoreTaskResponse createRestoreTask(const Models::CreateRestoreTaskRequest &request);
 
       /**
-       * @summary Queries backup gateways.
+       * @summary Queries a list of backup gateways in Database Backup Service (DBS).
        *
        * @param request DescribeBackupGatewayListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -161,7 +169,7 @@ namespace Dbs20190306
       Models::DescribeBackupGatewayListResponse describeBackupGatewayListWithOptions(const Models::DescribeBackupGatewayListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries backup gateways.
+       * @summary Queries a list of backup gateways in Database Backup Service (DBS).
        *
        * @param request DescribeBackupGatewayListRequest
        * @return DescribeBackupGatewayListResponse
@@ -169,7 +177,7 @@ namespace Dbs20190306
       Models::DescribeBackupGatewayListResponse describeBackupGatewayList(const Models::DescribeBackupGatewayListRequest &request);
 
       /**
-       * @summary Queries the billing information of a backup schedule.
+       * @summary This operation queries the billing information of a backup plan.
        *
        * @param request DescribeBackupPlanBillingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -178,7 +186,7 @@ namespace Dbs20190306
       Models::DescribeBackupPlanBillingResponse describeBackupPlanBillingWithOptions(const Models::DescribeBackupPlanBillingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the billing information of a backup schedule.
+       * @summary This operation queries the billing information of a backup plan.
        *
        * @param request DescribeBackupPlanBillingRequest
        * @return DescribeBackupPlanBillingResponse
@@ -186,9 +194,9 @@ namespace Dbs20190306
       Models::DescribeBackupPlanBillingResponse describeBackupPlanBilling(const Models::DescribeBackupPlanBillingRequest &request);
 
       /**
-       * @summary Query the list of backup plans
+       * @summary This operation lets you view a DBS backup plan.
        *
-       * @description Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+       * @description Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
        *
        * @param request DescribeBackupPlanListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -197,9 +205,9 @@ namespace Dbs20190306
       Models::DescribeBackupPlanListResponse describeBackupPlanListWithOptions(const Models::DescribeBackupPlanListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of backup plans
+       * @summary This operation lets you view a DBS backup plan.
        *
-       * @description Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+       * @description Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
        *
        * @param request DescribeBackupPlanListRequest
        * @return DescribeBackupPlanListResponse
@@ -207,7 +215,7 @@ namespace Dbs20190306
       Models::DescribeBackupPlanListResponse describeBackupPlanList(const Models::DescribeBackupPlanListRequest &request);
 
       /**
-       * @summary Queries backup set download tasks.
+       * @summary Queries the list of download tasks for backup sets in Database Backup Service (DBS).
        *
        * @param request DescribeBackupSetDownloadTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +224,7 @@ namespace Dbs20190306
       Models::DescribeBackupSetDownloadTaskListResponse describeBackupSetDownloadTaskListWithOptions(const Models::DescribeBackupSetDownloadTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries backup set download tasks.
+       * @summary Queries the list of download tasks for backup sets in Database Backup Service (DBS).
        *
        * @param request DescribeBackupSetDownloadTaskListRequest
        * @return DescribeBackupSetDownloadTaskListResponse
@@ -241,7 +249,7 @@ namespace Dbs20190306
       Models::DescribeDLAServiceResponse describeDLAService(const Models::DescribeDLAServiceRequest &request);
 
       /**
-       * @summary cn-hangzhou
+       * @summary You can call this operation to list full backup jobs in Database Backup Service (DBS).
        *
        * @param request DescribeFullBackupListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +258,7 @@ namespace Dbs20190306
       Models::DescribeFullBackupListResponse describeFullBackupListWithOptions(const Models::DescribeFullBackupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary cn-hangzhou
+       * @summary You can call this operation to list full backup jobs in Database Backup Service (DBS).
        *
        * @param request DescribeFullBackupListRequest
        * @return DescribeFullBackupListResponse
@@ -258,7 +266,7 @@ namespace Dbs20190306
       Models::DescribeFullBackupListResponse describeFullBackupList(const Models::DescribeFullBackupListRequest &request);
 
       /**
-       * @summary Queries incremental backup tasks.
+       * @summary This operation queries the list of incremental backup tasks for DBS.
        *
        * @param request DescribeIncrementBackupListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -267,7 +275,7 @@ namespace Dbs20190306
       Models::DescribeIncrementBackupListResponse describeIncrementBackupListWithOptions(const Models::DescribeIncrementBackupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries incremental backup tasks.
+       * @summary This operation queries the list of incremental backup tasks for DBS.
        *
        * @param request DescribeIncrementBackupListRequest
        * @return DescribeIncrementBackupListResponse
@@ -275,7 +283,7 @@ namespace Dbs20190306
       Models::DescribeIncrementBackupListResponse describeIncrementBackupList(const Models::DescribeIncrementBackupListRequest &request);
 
       /**
-       * @summary Queries the error information of a Database Backup (DBS) task.
+       * @summary Queries the error code of a Database Backup Service (DBS) job.
        *
        * @param request DescribeJobErrorCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -284,7 +292,7 @@ namespace Dbs20190306
       Models::DescribeJobErrorCodeResponse describeJobErrorCodeWithOptions(const Models::DescribeJobErrorCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the error information of a Database Backup (DBS) task.
+       * @summary Queries the error code of a Database Backup Service (DBS) job.
        *
        * @param request DescribeJobErrorCodeRequest
        * @return DescribeJobErrorCodeResponse
@@ -309,7 +317,7 @@ namespace Dbs20190306
       Models::DescribeNodeCidrListResponse describeNodeCidrList(const Models::DescribeNodeCidrListRequest &request);
 
       /**
-       * @summary Queries the precheck progress of a backup schedule or a restore task.
+       * @summary This operation queries the precheck progress for a backup plan or a restore job.
        *
        * @param request DescribePreCheckProgressListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,7 +326,7 @@ namespace Dbs20190306
       Models::DescribePreCheckProgressListResponse describePreCheckProgressListWithOptions(const Models::DescribePreCheckProgressListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the precheck progress of a backup schedule or a restore task.
+       * @summary This operation queries the precheck progress for a backup plan or a restore job.
        *
        * @param request DescribePreCheckProgressListRequest
        * @return DescribePreCheckProgressListResponse
@@ -326,7 +334,7 @@ namespace Dbs20190306
       Models::DescribePreCheckProgressListResponse describePreCheckProgressList(const Models::DescribePreCheckProgressListRequest &request);
 
       /**
-       * @summary Queries the regions that Database Backup (DBS) supports.
+       * @summary Queries the regions where DBS is available.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +343,7 @@ namespace Dbs20190306
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the regions that Database Backup (DBS) supports.
+       * @summary Queries the regions where DBS is available.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -343,7 +351,7 @@ namespace Dbs20190306
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the range of time to which you can restore data in a backup schedule.
+       * @summary This operation returns the time ranges available for restoring data from a backup plan.
        *
        * @param request DescribeRestoreRangeInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,7 +360,7 @@ namespace Dbs20190306
       Models::DescribeRestoreRangeInfoResponse describeRestoreRangeInfoWithOptions(const Models::DescribeRestoreRangeInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the range of time to which you can restore data in a backup schedule.
+       * @summary This operation returns the time ranges available for restoring data from a backup plan.
        *
        * @param request DescribeRestoreRangeInfoRequest
        * @return DescribeRestoreRangeInfoResponse
@@ -360,7 +368,7 @@ namespace Dbs20190306
       Models::DescribeRestoreRangeInfoResponse describeRestoreRangeInfo(const Models::DescribeRestoreRangeInfoRequest &request);
 
       /**
-       * @summary Queries restore tasks.
+       * @summary Queries restore jobs in Database Backup Service (DBS).
        *
        * @param request DescribeRestoreTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -369,7 +377,7 @@ namespace Dbs20190306
       Models::DescribeRestoreTaskListResponse describeRestoreTaskListWithOptions(const Models::DescribeRestoreTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries restore tasks.
+       * @summary Queries restore jobs in Database Backup Service (DBS).
        *
        * @param request DescribeRestoreTaskListRequest
        * @return DescribeRestoreTaskListResponse
@@ -377,10 +385,10 @@ namespace Dbs20190306
       Models::DescribeRestoreTaskListResponse describeRestoreTaskList(const Models::DescribeRestoreTaskListRequest &request);
 
       /**
-       * @summary Disables incremental backup for a backup schedule.
+       * @summary Disable incremental backup for a backup plan.
        *
-       * @description ### Impact
-       * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+       * @description ## Impact
+       * After you disable incremental backup, the backup plan no longer performs incremental backups.
        *
        * @param request DisableBackupLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -389,10 +397,10 @@ namespace Dbs20190306
       Models::DisableBackupLogResponse disableBackupLogWithOptions(const Models::DisableBackupLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables incremental backup for a backup schedule.
+       * @summary Disable incremental backup for a backup plan.
        *
-       * @description ### Impact
-       * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+       * @description ## Impact
+       * After you disable incremental backup, the backup plan no longer performs incremental backups.
        *
        * @param request DisableBackupLogRequest
        * @return DisableBackupLogResponse
@@ -400,10 +408,10 @@ namespace Dbs20190306
       Models::DisableBackupLogResponse disableBackupLog(const Models::DisableBackupLogRequest &request);
 
       /**
-       * @summary Enables incremental backup for a backup schedule.
+       * @summary This operation enables incremental backup for a backup plan.
        *
        * @description ## Impact
-       * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+       * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
        *
        * @param request EnableBackupLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,10 +420,10 @@ namespace Dbs20190306
       Models::EnableBackupLogResponse enableBackupLogWithOptions(const Models::EnableBackupLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables incremental backup for a backup schedule.
+       * @summary This operation enables incremental backup for a backup plan.
        *
        * @description ## Impact
-       * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+       * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
        *
        * @param request EnableBackupLogRequest
        * @return EnableBackupLogResponse
@@ -424,6 +432,8 @@ namespace Dbs20190306
 
       /**
        * @summary Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+       *
+       * @description 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
        *
        * @param request GetDBListFromAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -434,13 +444,17 @@ namespace Dbs20190306
       /**
        * @summary Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
        *
+       * @description 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+       *
        * @param request GetDBListFromAgentRequest
        * @return GetDBListFromAgentResponse
        */
       Models::GetDBListFromAgentResponse getDBListFromAgent(const Models::GetDBListFromAgentRequest &request);
 
       /**
-       * @summary Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+       * @summary Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+       *
+       * @description DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
        *
        * @param request InitializeDbsServiceLinkedRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -449,14 +463,16 @@ namespace Dbs20190306
       Models::InitializeDbsServiceLinkedRoleResponse initializeDbsServiceLinkedRoleWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+       * @summary Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+       *
+       * @description DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
        *
        * @return InitializeDbsServiceLinkedRoleResponse
        */
       Models::InitializeDbsServiceLinkedRoleResponse initializeDbsServiceLinkedRole();
 
       /**
-       * @summary Modifies backup objects of a backup schedule in Database Backup (DBS).
+       * @summary Modifies the objects included in a Database Backup Service (DBS) backup plan.
        *
        * @param request ModifyBackupObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -465,7 +481,7 @@ namespace Dbs20190306
       Models::ModifyBackupObjectsResponse modifyBackupObjectsWithOptions(const Models::ModifyBackupObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies backup objects of a backup schedule in Database Backup (DBS).
+       * @summary Modifies the objects included in a Database Backup Service (DBS) backup plan.
        *
        * @param request ModifyBackupObjectsRequest
        * @return ModifyBackupObjectsResponse
@@ -473,7 +489,7 @@ namespace Dbs20190306
       Models::ModifyBackupObjectsResponse modifyBackupObjects(const Models::ModifyBackupObjectsRequest &request);
 
       /**
-       * @summary Changes the name of a backup schedule.
+       * @summary Modifies the name of a backup plan.
        *
        * @param request ModifyBackupPlanNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -482,7 +498,7 @@ namespace Dbs20190306
       Models::ModifyBackupPlanNameResponse modifyBackupPlanNameWithOptions(const Models::ModifyBackupPlanNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of a backup schedule.
+       * @summary Modifies the name of a backup plan.
        *
        * @param request ModifyBackupPlanNameRequest
        * @return ModifyBackupPlanNameResponse
@@ -491,6 +507,8 @@ namespace Dbs20190306
 
       /**
        * @summary Enables, configures, or disables the automatic download feature.
+       *
+       * @description 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
        *
        * @param request ModifyBackupSetDownloadRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -501,13 +519,15 @@ namespace Dbs20190306
       /**
        * @summary Enables, configures, or disables the automatic download feature.
        *
+       * @description 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+       *
        * @param request ModifyBackupSetDownloadRulesRequest
        * @return ModifyBackupSetDownloadRulesResponse
        */
       Models::ModifyBackupSetDownloadRulesResponse modifyBackupSetDownloadRules(const Models::ModifyBackupSetDownloadRulesRequest &request);
 
       /**
-       * @summary Modifies the data source of a backup schedule.
+       * @summary This operation modifies a Database Backup source endpoint.
        *
        * @param request ModifyBackupSourceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -516,7 +536,7 @@ namespace Dbs20190306
       Models::ModifyBackupSourceEndpointResponse modifyBackupSourceEndpointWithOptions(const Models::ModifyBackupSourceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the data source of a backup schedule.
+       * @summary This operation modifies a Database Backup source endpoint.
        *
        * @param request ModifyBackupSourceEndpointRequest
        * @return ModifyBackupSourceEndpointResponse
@@ -541,7 +561,7 @@ namespace Dbs20190306
       Models::ModifyBackupStrategyResponse modifyBackupStrategy(const Models::ModifyBackupStrategyRequest &request);
 
       /**
-       * @summary Modifies the lifecycle of data that is backed up based on a backup schedule.
+       * @summary Modify the lifecycle of stored data in a backup plan.
        *
        * @param request ModifyStorageStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -550,7 +570,7 @@ namespace Dbs20190306
       Models::ModifyStorageStrategyResponse modifyStorageStrategyWithOptions(const Models::ModifyStorageStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the lifecycle of data that is backed up based on a backup schedule.
+       * @summary Modify the lifecycle of stored data in a backup plan.
        *
        * @param request ModifyStorageStrategyRequest
        * @return ModifyStorageStrategyResponse
@@ -558,10 +578,10 @@ namespace Dbs20190306
       Models::ModifyStorageStrategyResponse modifyStorageStrategy(const Models::ModifyStorageStrategyRequest &request);
 
       /**
-       * @summary Releases a pay-as-you-go backup schedule.
+       * @summary This operation releases a pay-as-you-go backup plan.
        *
-       * @description ## Impacts
-       * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+       * @description ## Impact
+       * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
        *
        * @param request ReleaseBackupPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -570,10 +590,10 @@ namespace Dbs20190306
       Models::ReleaseBackupPlanResponse releaseBackupPlanWithOptions(const Models::ReleaseBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a pay-as-you-go backup schedule.
+       * @summary This operation releases a pay-as-you-go backup plan.
        *
-       * @description ## Impacts
-       * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+       * @description ## Impact
+       * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
        *
        * @param request ReleaseBackupPlanRequest
        * @return ReleaseBackupPlanResponse
@@ -598,7 +618,7 @@ namespace Dbs20190306
       Models::RenewBackupPlanResponse renewBackupPlan(const Models::RenewBackupPlanRequest &request);
 
       /**
-       * @summary Starts a backup schedule.
+       * @summary This operation starts a DBS backup plan.
        *
        * @param request StartBackupPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -607,7 +627,7 @@ namespace Dbs20190306
       Models::StartBackupPlanResponse startBackupPlanWithOptions(const Models::StartBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a backup schedule.
+       * @summary This operation starts a DBS backup plan.
        *
        * @param request StartBackupPlanRequest
        * @return StartBackupPlanResponse
@@ -615,7 +635,7 @@ namespace Dbs20190306
       Models::StartBackupPlanResponse startBackupPlan(const Models::StartBackupPlanRequest &request);
 
       /**
-       * @summary Starts a restore task.
+       * @summary Starts a DBS restore job.
        *
        * @param request StartRestoreTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +644,7 @@ namespace Dbs20190306
       Models::StartRestoreTaskResponse startRestoreTaskWithOptions(const Models::StartRestoreTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a restore task.
+       * @summary Starts a DBS restore job.
        *
        * @param request StartRestoreTaskRequest
        * @return StartRestoreTaskResponse
@@ -632,7 +652,7 @@ namespace Dbs20190306
       Models::StartRestoreTaskResponse startRestoreTask(const Models::StartRestoreTaskRequest &request);
 
       /**
-       * @summary Stops a backup schedule.
+       * @summary This operation pauses a DBS backup plan.
        *
        * @param request StopBackupPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -641,7 +661,7 @@ namespace Dbs20190306
       Models::StopBackupPlanResponse stopBackupPlanWithOptions(const Models::StopBackupPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a backup schedule.
+       * @summary This operation pauses a DBS backup plan.
        *
        * @param request StopBackupPlanRequest
        * @return StopBackupPlanResponse

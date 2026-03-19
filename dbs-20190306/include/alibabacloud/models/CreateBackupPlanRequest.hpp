@@ -58,197 +58,206 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupMethod_ == nullptr
-        && return this->clientToken_ == nullptr && return this->databaseRegion_ == nullptr && return this->databaseType_ == nullptr && return this->fromApp_ == nullptr && return this->instanceClass_ == nullptr
-        && return this->instanceType_ == nullptr && return this->ownerId_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->region_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->storageRegion_ == nullptr && return this->storageType_ == nullptr && return this->usedTime_ == nullptr; };
+        && this->clientToken_ == nullptr && this->databaseRegion_ == nullptr && this->databaseType_ == nullptr && this->fromApp_ == nullptr && this->instanceClass_ == nullptr
+        && this->instanceType_ == nullptr && this->ownerId_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->region_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->storageRegion_ == nullptr && this->storageType_ == nullptr && this->usedTime_ == nullptr; };
     // backupMethod Field Functions 
     bool hasBackupMethod() const { return this->backupMethod_ != nullptr;};
     void deleteBackupMethod() { this->backupMethod_ = nullptr;};
-    inline string backupMethod() const { DARABONBA_PTR_GET_DEFAULT(backupMethod_, "") };
+    inline string getBackupMethod() const { DARABONBA_PTR_GET_DEFAULT(backupMethod_, "") };
     inline CreateBackupPlanRequest& setBackupMethod(string backupMethod) { DARABONBA_PTR_SET_VALUE(backupMethod_, backupMethod) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateBackupPlanRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // databaseRegion Field Functions 
     bool hasDatabaseRegion() const { return this->databaseRegion_ != nullptr;};
     void deleteDatabaseRegion() { this->databaseRegion_ = nullptr;};
-    inline string databaseRegion() const { DARABONBA_PTR_GET_DEFAULT(databaseRegion_, "") };
+    inline string getDatabaseRegion() const { DARABONBA_PTR_GET_DEFAULT(databaseRegion_, "") };
     inline CreateBackupPlanRequest& setDatabaseRegion(string databaseRegion) { DARABONBA_PTR_SET_VALUE(databaseRegion_, databaseRegion) };
 
 
     // databaseType Field Functions 
     bool hasDatabaseType() const { return this->databaseType_ != nullptr;};
     void deleteDatabaseType() { this->databaseType_ = nullptr;};
-    inline string databaseType() const { DARABONBA_PTR_GET_DEFAULT(databaseType_, "") };
+    inline string getDatabaseType() const { DARABONBA_PTR_GET_DEFAULT(databaseType_, "") };
     inline CreateBackupPlanRequest& setDatabaseType(string databaseType) { DARABONBA_PTR_SET_VALUE(databaseType_, databaseType) };
 
 
     // fromApp Field Functions 
     bool hasFromApp() const { return this->fromApp_ != nullptr;};
     void deleteFromApp() { this->fromApp_ = nullptr;};
-    inline string fromApp() const { DARABONBA_PTR_GET_DEFAULT(fromApp_, "") };
+    inline string getFromApp() const { DARABONBA_PTR_GET_DEFAULT(fromApp_, "") };
     inline CreateBackupPlanRequest& setFromApp(string fromApp) { DARABONBA_PTR_SET_VALUE(fromApp_, fromApp) };
 
 
     // instanceClass Field Functions 
     bool hasInstanceClass() const { return this->instanceClass_ != nullptr;};
     void deleteInstanceClass() { this->instanceClass_ = nullptr;};
-    inline string instanceClass() const { DARABONBA_PTR_GET_DEFAULT(instanceClass_, "") };
+    inline string getInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(instanceClass_, "") };
     inline CreateBackupPlanRequest& setInstanceClass(string instanceClass) { DARABONBA_PTR_SET_VALUE(instanceClass_, instanceClass) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline CreateBackupPlanRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline CreateBackupPlanRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline CreateBackupPlanRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline CreateBackupPlanRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline CreateBackupPlanRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateBackupPlanRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // storageRegion Field Functions 
     bool hasStorageRegion() const { return this->storageRegion_ != nullptr;};
     void deleteStorageRegion() { this->storageRegion_ = nullptr;};
-    inline string storageRegion() const { DARABONBA_PTR_GET_DEFAULT(storageRegion_, "") };
+    inline string getStorageRegion() const { DARABONBA_PTR_GET_DEFAULT(storageRegion_, "") };
     inline CreateBackupPlanRequest& setStorageRegion(string storageRegion) { DARABONBA_PTR_SET_VALUE(storageRegion_, storageRegion) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline CreateBackupPlanRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
-    inline int32_t usedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0) };
+    inline int32_t getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0) };
     inline CreateBackupPlanRequest& setUsedTime(int32_t usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
   protected:
-    // The backup method of the backup schedule. Valid values:
+    // The backup method. Valid values:
     // 
-    // *   **logical**: logical backup
-    // *   **physical**: physical backup
-    // *   **duplication**: dump backup
+    // - **logical**: logical backup
     // 
-    // This parameter is required.
-    std::shared_ptr<string> backupMethod_ = nullptr;
-    // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    // The region in which the database you want to back up resides.
-    // 
-    // > This parameter is required if the **PayType** parameter is set to **postpay**.
-    std::shared_ptr<string> databaseRegion_ = nullptr;
-    // The type of the source database. Valid values:
-    // 
-    // *   **MySQL**
-    // *   **MSSQL**
-    // *   **Oracle**
-    // *   **MariaDB**
-    // *   **PostgreSQL**
-    // *   **DRDS**
-    // *   **MongoDB**
-    // *   **Redis**
+    // - **physical**: physical backup
     // 
     // This parameter is required.
-    std::shared_ptr<string> databaseType_ = nullptr;
-    // The source of the request. The default value is OpenAPI and cannot be changed.
-    std::shared_ptr<string> fromApp_ = nullptr;
-    // The type of the backup schedule. Valid values:
+    shared_ptr<string> backupMethod_ {};
+    // A client token that is used to ensure the idempotence of the request.
+    shared_ptr<string> clientToken_ {};
+    // The region of the database.
+    shared_ptr<string> databaseRegion_ {};
+    // The database type. Valid values:
     // 
-    // *   **micro**
-    // *   **small**
-    // *   **medium**
-    // *   **large**
-    // *   **xlarge**
+    // - **MySQL**
     // 
-    // >  A backup schedule type with higher specifications offers higher backup and restoration performance. For more information, see [Select a backup schedule type](https://help.aliyun.com/document_detail/84372.html).
+    // - **MSSQL**
+    // 
+    // - **Oracle**
+    // 
+    // - **MariaDB**
+    // 
+    // - **PostgreSQL**
+    // 
+    // - **DRDS**
+    // 
+    // - **MongoDB**
+    // 
+    // - **Redis**
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceClass_ = nullptr;
-    // The type of the source database instance. Valid values:
+    shared_ptr<string> databaseType_ {};
+    // The source of the request. The default value is OpenAPI. You do not need to set this parameter.
+    shared_ptr<string> fromApp_ {};
+    // The instance class. Valid values:
     // 
-    // *   **RDS**: ApsaraDB RDS.
-    // *   **PolarDB**: PolarDB.
-    // *   **DDS**: ApsaraDB for MongoDB.
-    // *   **Kvstore**: ApsaraDB for Redis.
-    // *   **Other**: Database connected by using an IP address and a port number.
-    // *   **dg**: Self-managed database that has no public IP address or port number and is connected over Database Gateway.
+    // - **micro**: Entry
     // 
-    // >  If **PayType** is set to **postpay**, this parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    // The billing method of the backup schedule. Valid values:
+    // - **small**: Basic
     // 
-    // *   **postpay**: pay-as-you-go
-    // *   **prepay**: subscription
+    // - **medium**: Standard
     // 
-    // > The default value is **prepay**. If the **BackupMethod** parameter is set to **duplication**, **postpay** is supported.
-    std::shared_ptr<string> payType_ = nullptr;
-    // The unit of the subscription period. Valid values:
+    // - **large**: Enhanced
     // 
-    // *   **Year**: yearly subscription
-    // *   **Month**: monthly subscription
-    std::shared_ptr<string> period_ = nullptr;
-    // The ID of the region in which you can activate Data Disaster Recovery. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2869853.html) operation to query the regions supported by Data Disaster Recovery.
+    // - **xlarge**: Enhanced (no traffic limit)
     // 
-    // >  For more information, see [Endpoints](https://help.aliyun.com/document_detail/2869810.html).
-    std::shared_ptr<string> region_ = nullptr;
+    // > The higher the instance class, the better the performance of backup and recovery. For more information, see [Specifications](https://help.aliyun.com/document_detail/84372.html).
+    // 
+    // This parameter is required.
+    shared_ptr<string> instanceClass_ {};
+    // The database instance type. Valid values:
+    // 
+    // - **RDS**
+    // 
+    // - **PolarDB**
+    // 
+    // - **DDS**: Alibaba Cloud MongoDB
+    // 
+    // - **Kvstore**: Alibaba Cloud Redis
+    // 
+    // - **Other**: A database that is connected over the Internet.
+    // 
+    // - **dg**: A self-managed database without a public IP address and port that is connected through Database Gateway (DG).
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<string> ownerId_ {};
+    // The payment method. Valid value:
+    // 
+    // **prepay**: subscription
+    shared_ptr<string> payType_ {};
+    // The billing cycle of the subscription instance. Valid values:
+    // 
+    // - **Year**
+    // 
+    // - **Month**
+    shared_ptr<string> period_ {};
+    // The region ID of the DBS instance. This parameter is required. Call the [DescribeRegions](https://help.aliyun.com/document_detail/2869853.html) operation to view the regions that DBS supports.
+    // 
+    // > For more information, see [Endpoints](https://help.aliyun.com/document_detail/2869810.html).
+    shared_ptr<string> region_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    // The region in which you want to store the backup data.
+    shared_ptr<string> resourceGroupId_ {};
+    // The storage region.
+    shared_ptr<string> storageRegion_ {};
+    // This parameter is not used.
+    shared_ptr<string> storageType_ {};
+    // The subscription duration. Valid values:
     // 
-    // > This parameter is required if the **PayType** parameter is set to **postpay**.
-    std::shared_ptr<string> storageRegion_ = nullptr;
-    // This parameter is unavailable.
-    std::shared_ptr<string> storageType_ = nullptr;
-    // The subscription period. Valid values:
+    // - If you set the **Period** parameter to **Year**, the value of **UsedTime** can be 1 to 5.
     // 
-    // *   If **Period** is set to **Year**, the valid values of **UsedTime** range from 1 to 5.
-    // *   If **Period** is set to **Month**, the valid values of **UsedTime** range from 1 to 11.
-    std::shared_ptr<int32_t> usedTime_ = nullptr;
+    // - If you set the **Period** parameter to **Month**, the value of **UsedTime** can be 1 to 11.
+    shared_ptr<int32_t> usedTime_ {};
   };
 
   } // namespace Models

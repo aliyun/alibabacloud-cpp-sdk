@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupPlanId_ == nullptr
-        && return this->backupPlanName_ == nullptr && return this->clientToken_ == nullptr && return this->ownerId_ == nullptr; };
+        && this->backupPlanName_ == nullptr && this->clientToken_ == nullptr && this->ownerId_ == nullptr; };
     // backupPlanId Field Functions 
     bool hasBackupPlanId() const { return this->backupPlanId_ != nullptr;};
     void deleteBackupPlanId() { this->backupPlanId_ = nullptr;};
-    inline string backupPlanId() const { DARABONBA_PTR_GET_DEFAULT(backupPlanId_, "") };
+    inline string getBackupPlanId() const { DARABONBA_PTR_GET_DEFAULT(backupPlanId_, "") };
     inline ModifyBackupPlanNameRequest& setBackupPlanId(string backupPlanId) { DARABONBA_PTR_SET_VALUE(backupPlanId_, backupPlanId) };
 
 
     // backupPlanName Field Functions 
     bool hasBackupPlanName() const { return this->backupPlanName_ != nullptr;};
     void deleteBackupPlanName() { this->backupPlanName_ = nullptr;};
-    inline string backupPlanName() const { DARABONBA_PTR_GET_DEFAULT(backupPlanName_, "") };
+    inline string getBackupPlanName() const { DARABONBA_PTR_GET_DEFAULT(backupPlanName_, "") };
     inline ModifyBackupPlanNameRequest& setBackupPlanName(string backupPlanName) { DARABONBA_PTR_SET_VALUE(backupPlanName_, backupPlanName) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyBackupPlanNameRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline ModifyBackupPlanNameRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
   protected:
-    // The ID of the backup schedule.
+    // The ID of the backup plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backupPlanId_ = nullptr;
-    // The name of the backup schedule.
+    shared_ptr<string> backupPlanId_ {};
+    // The name of the backup plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backupPlanName_ = nullptr;
-    // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> backupPlanName_ {};
+    // The client token that is used to ensure the idempotence of the request. This prevents the same request from being submitted multiple times.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> ownerId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEREGIONSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEREGIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,65 +40,97 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Regions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Regions& obj) { 
+        DARABONBA_PTR_TO_JSON(RegionCode, regionCode_);
+      };
+      friend void from_json(const Darabonba::Json& j, Regions& obj) { 
+        DARABONBA_PTR_FROM_JSON(RegionCode, regionCode_);
+      };
+      Regions() = default ;
+      Regions(const Regions &) = default ;
+      Regions(Regions &&) = default ;
+      Regions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Regions() = default ;
+      Regions& operator=(const Regions &) = default ;
+      Regions& operator=(Regions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->regionCode_ == nullptr; };
+      // regionCode Field Functions 
+      bool hasRegionCode() const { return this->regionCode_ != nullptr;};
+      void deleteRegionCode() { this->regionCode_ = nullptr;};
+      inline const vector<string> & getRegionCode() const { DARABONBA_PTR_GET_CONST(regionCode_, vector<string>) };
+      inline vector<string> getRegionCode() { DARABONBA_PTR_GET(regionCode_, vector<string>) };
+      inline Regions& setRegionCode(const vector<string> & regionCode) { DARABONBA_PTR_SET_VALUE(regionCode_, regionCode) };
+      inline Regions& setRegionCode(vector<string> && regionCode) { DARABONBA_PTR_SET_RVALUE(regionCode_, regionCode) };
+
+
+    protected:
+      shared_ptr<vector<string>> regionCode_ {};
+    };
+
     virtual bool empty() const override { return this->errCode_ == nullptr
-        && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->regions_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->regions_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline DescribeRegionsResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline DescribeRegionsResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DescribeRegionsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // regions Field Functions 
     bool hasRegions() const { return this->regions_ != nullptr;};
     void deleteRegions() { this->regions_ = nullptr;};
-    inline const DescribeRegionsResponseBodyRegions & regions() const { DARABONBA_PTR_GET_CONST(regions_, DescribeRegionsResponseBodyRegions) };
-    inline DescribeRegionsResponseBodyRegions regions() { DARABONBA_PTR_GET(regions_, DescribeRegionsResponseBodyRegions) };
-    inline DescribeRegionsResponseBody& setRegions(const DescribeRegionsResponseBodyRegions & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
-    inline DescribeRegionsResponseBody& setRegions(DescribeRegionsResponseBodyRegions && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
+    inline const DescribeRegionsResponseBody::Regions & getRegions() const { DARABONBA_PTR_GET_CONST(regions_, DescribeRegionsResponseBody::Regions) };
+    inline DescribeRegionsResponseBody::Regions getRegions() { DARABONBA_PTR_GET(regions_, DescribeRegionsResponseBody::Regions) };
+    inline DescribeRegionsResponseBody& setRegions(const DescribeRegionsResponseBody::Regions & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
+    inline DescribeRegionsResponseBody& setRegions(DescribeRegionsResponseBody::Regions && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeRegionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeRegionsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The error code.
-    std::shared_ptr<string> errCode_ = nullptr;
-    // The error message returned if the request failed.
-    std::shared_ptr<string> errMessage_ = nullptr;
-    // The HTTP status code returned.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    // The regions that DBS supports.
-    std::shared_ptr<DescribeRegionsResponseBodyRegions> regions_ = nullptr;
-    // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
-    // The status of the request.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> errCode_ {};
+    // The error message.
+    shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
+    // The ID of the request.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

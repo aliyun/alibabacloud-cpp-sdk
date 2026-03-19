@@ -61,7 +61,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Configures a DBS backup schedule.
+ * @summary This API is used to configure a DBS backup plan.
  *
  * @param request ConfigureBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,127 +71,147 @@ ConfigureBackupPlanResponse Client::configureBackupPlanWithOptions(const Configu
   request.validate();
   json query = {};
   if (!!request.hasAutoStartBackup()) {
-    query["AutoStartBackup"] = request.autoStartBackup();
+    query["AutoStartBackup"] = request.getAutoStartBackup();
   }
 
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasBackupLogIntervalSeconds()) {
-    query["BackupLogIntervalSeconds"] = request.backupLogIntervalSeconds();
+    query["BackupLogIntervalSeconds"] = request.getBackupLogIntervalSeconds();
   }
 
   if (!!request.hasBackupObjects()) {
-    query["BackupObjects"] = request.backupObjects();
+    query["BackupObjects"] = request.getBackupObjects();
   }
 
   if (!!request.hasBackupPeriod()) {
-    query["BackupPeriod"] = request.backupPeriod();
+    query["BackupPeriod"] = request.getBackupPeriod();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupPlanName()) {
-    query["BackupPlanName"] = request.backupPlanName();
+    query["BackupPlanName"] = request.getBackupPlanName();
   }
 
   if (!!request.hasBackupRateLimit()) {
-    query["BackupRateLimit"] = request.backupRateLimit();
+    query["BackupRateLimit"] = request.getBackupRateLimit();
   }
 
   if (!!request.hasBackupRetentionPeriod()) {
-    query["BackupRetentionPeriod"] = request.backupRetentionPeriod();
+    query["BackupRetentionPeriod"] = request.getBackupRetentionPeriod();
   }
 
   if (!!request.hasBackupSpeedLimit()) {
-    query["BackupSpeedLimit"] = request.backupSpeedLimit();
+    query["BackupSpeedLimit"] = request.getBackupSpeedLimit();
   }
 
   if (!!request.hasBackupStartTime()) {
-    query["BackupStartTime"] = request.backupStartTime();
+    query["BackupStartTime"] = request.getBackupStartTime();
+  }
+
+  if (!!request.hasBackupStorageEncryptMethod()) {
+    query["BackupStorageEncryptMethod"] = request.getBackupStorageEncryptMethod();
   }
 
   if (!!request.hasBackupStorageType()) {
-    query["BackupStorageType"] = request.backupStorageType();
+    query["BackupStorageType"] = request.getBackupStorageType();
   }
 
   if (!!request.hasBackupStrategyType()) {
-    query["BackupStrategyType"] = request.backupStrategyType();
+    query["BackupStrategyType"] = request.getBackupStrategyType();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCrossAliyunId()) {
-    query["CrossAliyunId"] = request.crossAliyunId();
+    query["CrossAliyunId"] = request.getCrossAliyunId();
   }
 
   if (!!request.hasCrossRoleName()) {
-    query["CrossRoleName"] = request.crossRoleName();
+    query["CrossRoleName"] = request.getCrossRoleName();
   }
 
   if (!!request.hasDuplicationArchivePeriod()) {
-    query["DuplicationArchivePeriod"] = request.duplicationArchivePeriod();
+    query["DuplicationArchivePeriod"] = request.getDuplicationArchivePeriod();
   }
 
   if (!!request.hasDuplicationInfrequentAccessPeriod()) {
-    query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod();
+    query["DuplicationInfrequentAccessPeriod"] = request.getDuplicationInfrequentAccessPeriod();
   }
 
   if (!!request.hasEnableBackupLog()) {
-    query["EnableBackupLog"] = request.enableBackupLog();
+    query["EnableBackupLog"] = request.getEnableBackupLog();
+  }
+
+  if (!!request.hasEnableMysqlPhysicalBackupBinlog()) {
+    query["EnableMysqlPhysicalBackupBinlog"] = request.getEnableMysqlPhysicalBackupBinlog();
+  }
+
+  if (!!request.hasEnableSourceEndpointSsl()) {
+    query["EnableSourceEndpointSsl"] = request.getEnableSourceEndpointSsl();
   }
 
   if (!!request.hasOSSBucketName()) {
-    query["OSSBucketName"] = request.OSSBucketName();
+    query["OSSBucketName"] = request.getOSSBucketName();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceEndpointDatabaseName()) {
-    query["SourceEndpointDatabaseName"] = request.sourceEndpointDatabaseName();
+    query["SourceEndpointDatabaseName"] = request.getSourceEndpointDatabaseName();
   }
 
   if (!!request.hasSourceEndpointIP()) {
-    query["SourceEndpointIP"] = request.sourceEndpointIP();
+    query["SourceEndpointIP"] = request.getSourceEndpointIP();
   }
 
   if (!!request.hasSourceEndpointInstanceID()) {
-    query["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID();
+    query["SourceEndpointInstanceID"] = request.getSourceEndpointInstanceID();
   }
 
   if (!!request.hasSourceEndpointInstanceType()) {
-    query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType();
+    query["SourceEndpointInstanceType"] = request.getSourceEndpointInstanceType();
+  }
+
+  if (!!request.hasSourceEndpointOracleHome()) {
+    query["SourceEndpointOracleHome"] = request.getSourceEndpointOracleHome();
   }
 
   if (!!request.hasSourceEndpointOracleSID()) {
-    query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID();
+    query["SourceEndpointOracleSID"] = request.getSourceEndpointOracleSID();
   }
 
   if (!!request.hasSourceEndpointPassword()) {
-    query["SourceEndpointPassword"] = request.sourceEndpointPassword();
+    query["SourceEndpointPassword"] = request.getSourceEndpointPassword();
   }
 
   if (!!request.hasSourceEndpointPort()) {
-    query["SourceEndpointPort"] = request.sourceEndpointPort();
+    query["SourceEndpointPort"] = request.getSourceEndpointPort();
   }
 
   if (!!request.hasSourceEndpointRegion()) {
-    query["SourceEndpointRegion"] = request.sourceEndpointRegion();
+    query["SourceEndpointRegion"] = request.getSourceEndpointRegion();
   }
 
   if (!!request.hasSourceEndpointUserName()) {
-    query["SourceEndpointUserName"] = request.sourceEndpointUserName();
+    query["SourceEndpointUserName"] = request.getSourceEndpointUserName();
+  }
+
+  if (!!request.hasSslCaPem()) {
+    query["SslCaPem"] = request.getSslCaPem();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -212,7 +232,7 @@ ConfigureBackupPlanResponse Client::configureBackupPlanWithOptions(const Configu
 }
 
 /**
- * @summary Configures a DBS backup schedule.
+ * @summary This API is used to configure a DBS backup plan.
  *
  * @param request ConfigureBackupPlanRequest
  * @return ConfigureBackupPlanResponse
@@ -223,9 +243,9 @@ ConfigureBackupPlanResponse Client::configureBackupPlan(const ConfigureBackupPla
 }
 
 /**
- * @summary Creates, configures, and starts a backup schedule.
+ * @summary Creates, configures, and starts a backup plan.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+ * @description Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
  *
  * @param request CreateAndStartBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -235,171 +255,171 @@ CreateAndStartBackupPlanResponse Client::createAndStartBackupPlanWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasBackupLogIntervalSeconds()) {
-    query["BackupLogIntervalSeconds"] = request.backupLogIntervalSeconds();
+    query["BackupLogIntervalSeconds"] = request.getBackupLogIntervalSeconds();
   }
 
   if (!!request.hasBackupMethod()) {
-    query["BackupMethod"] = request.backupMethod();
+    query["BackupMethod"] = request.getBackupMethod();
   }
 
   if (!!request.hasBackupObjects()) {
-    query["BackupObjects"] = request.backupObjects();
+    query["BackupObjects"] = request.getBackupObjects();
   }
 
   if (!!request.hasBackupPeriod()) {
-    query["BackupPeriod"] = request.backupPeriod();
+    query["BackupPeriod"] = request.getBackupPeriod();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupPlanName()) {
-    query["BackupPlanName"] = request.backupPlanName();
+    query["BackupPlanName"] = request.getBackupPlanName();
   }
 
   if (!!request.hasBackupRateLimit()) {
-    query["BackupRateLimit"] = request.backupRateLimit();
+    query["BackupRateLimit"] = request.getBackupRateLimit();
   }
 
   if (!!request.hasBackupRetentionPeriod()) {
-    query["BackupRetentionPeriod"] = request.backupRetentionPeriod();
+    query["BackupRetentionPeriod"] = request.getBackupRetentionPeriod();
   }
 
   if (!!request.hasBackupSpeedLimit()) {
-    query["BackupSpeedLimit"] = request.backupSpeedLimit();
+    query["BackupSpeedLimit"] = request.getBackupSpeedLimit();
   }
 
   if (!!request.hasBackupStartTime()) {
-    query["BackupStartTime"] = request.backupStartTime();
+    query["BackupStartTime"] = request.getBackupStartTime();
   }
 
   if (!!request.hasBackupStorageType()) {
-    query["BackupStorageType"] = request.backupStorageType();
+    query["BackupStorageType"] = request.getBackupStorageType();
   }
 
   if (!!request.hasBackupStrategyType()) {
-    query["BackupStrategyType"] = request.backupStrategyType();
+    query["BackupStrategyType"] = request.getBackupStrategyType();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCrossAliyunId()) {
-    query["CrossAliyunId"] = request.crossAliyunId();
+    query["CrossAliyunId"] = request.getCrossAliyunId();
   }
 
   if (!!request.hasCrossRoleName()) {
-    query["CrossRoleName"] = request.crossRoleName();
+    query["CrossRoleName"] = request.getCrossRoleName();
   }
 
   if (!!request.hasDatabaseRegion()) {
-    query["DatabaseRegion"] = request.databaseRegion();
+    query["DatabaseRegion"] = request.getDatabaseRegion();
   }
 
   if (!!request.hasDatabaseType()) {
-    query["DatabaseType"] = request.databaseType();
+    query["DatabaseType"] = request.getDatabaseType();
   }
 
   if (!!request.hasDuplicationArchivePeriod()) {
-    query["DuplicationArchivePeriod"] = request.duplicationArchivePeriod();
+    query["DuplicationArchivePeriod"] = request.getDuplicationArchivePeriod();
   }
 
   if (!!request.hasDuplicationInfrequentAccessPeriod()) {
-    query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod();
+    query["DuplicationInfrequentAccessPeriod"] = request.getDuplicationInfrequentAccessPeriod();
   }
 
   if (!!request.hasEnableBackupLog()) {
-    query["EnableBackupLog"] = request.enableBackupLog();
+    query["EnableBackupLog"] = request.getEnableBackupLog();
   }
 
   if (!!request.hasFromApp()) {
-    query["FromApp"] = request.fromApp();
+    query["FromApp"] = request.getFromApp();
   }
 
   if (!!request.hasInstanceClass()) {
-    query["InstanceClass"] = request.instanceClass();
+    query["InstanceClass"] = request.getInstanceClass();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasOSSBucketName()) {
-    query["OSSBucketName"] = request.OSSBucketName();
+    query["OSSBucketName"] = request.getOSSBucketName();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPayType()) {
-    query["PayType"] = request.payType();
+    query["PayType"] = request.getPayType();
   }
 
   if (!!request.hasPeriod()) {
-    query["Period"] = request.period();
+    query["Period"] = request.getPeriod();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSourceEndpointDatabaseName()) {
-    query["SourceEndpointDatabaseName"] = request.sourceEndpointDatabaseName();
+    query["SourceEndpointDatabaseName"] = request.getSourceEndpointDatabaseName();
   }
 
   if (!!request.hasSourceEndpointIP()) {
-    query["SourceEndpointIP"] = request.sourceEndpointIP();
+    query["SourceEndpointIP"] = request.getSourceEndpointIP();
   }
 
   if (!!request.hasSourceEndpointInstanceID()) {
-    query["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID();
+    query["SourceEndpointInstanceID"] = request.getSourceEndpointInstanceID();
   }
 
   if (!!request.hasSourceEndpointInstanceType()) {
-    query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType();
+    query["SourceEndpointInstanceType"] = request.getSourceEndpointInstanceType();
   }
 
   if (!!request.hasSourceEndpointOracleSID()) {
-    query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID();
+    query["SourceEndpointOracleSID"] = request.getSourceEndpointOracleSID();
   }
 
   if (!!request.hasSourceEndpointPassword()) {
-    query["SourceEndpointPassword"] = request.sourceEndpointPassword();
+    query["SourceEndpointPassword"] = request.getSourceEndpointPassword();
   }
 
   if (!!request.hasSourceEndpointPort()) {
-    query["SourceEndpointPort"] = request.sourceEndpointPort();
+    query["SourceEndpointPort"] = request.getSourceEndpointPort();
   }
 
   if (!!request.hasSourceEndpointRegion()) {
-    query["SourceEndpointRegion"] = request.sourceEndpointRegion();
+    query["SourceEndpointRegion"] = request.getSourceEndpointRegion();
   }
 
   if (!!request.hasSourceEndpointUserName()) {
-    query["SourceEndpointUserName"] = request.sourceEndpointUserName();
+    query["SourceEndpointUserName"] = request.getSourceEndpointUserName();
   }
 
   if (!!request.hasStorageRegion()) {
-    query["StorageRegion"] = request.storageRegion();
+    query["StorageRegion"] = request.getStorageRegion();
   }
 
   if (!!request.hasStorageType()) {
-    query["StorageType"] = request.storageType();
+    query["StorageType"] = request.getStorageType();
   }
 
   if (!!request.hasUsedTime()) {
-    query["UsedTime"] = request.usedTime();
+    query["UsedTime"] = request.getUsedTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -420,9 +440,9 @@ CreateAndStartBackupPlanResponse Client::createAndStartBackupPlanWithOptions(con
 }
 
 /**
- * @summary Creates, configures, and starts a backup schedule.
+ * @summary Creates, configures, and starts a backup plan.
  *
- * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+ * @description Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
  *
  * @param request CreateAndStartBackupPlanRequest
  * @return CreateAndStartBackupPlanResponse
@@ -433,9 +453,9 @@ CreateAndStartBackupPlanResponse Client::createAndStartBackupPlan(const CreateAn
 }
 
 /**
- * @summary Creates a backup schedule.
+ * @summary Creates a Database Backup Service (DBS) backup plan.
  *
- * @description For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+ * @description To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
  *
  * @param request CreateBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -445,63 +465,63 @@ CreateBackupPlanResponse Client::createBackupPlanWithOptions(const CreateBackupP
   request.validate();
   json query = {};
   if (!!request.hasBackupMethod()) {
-    query["BackupMethod"] = request.backupMethod();
+    query["BackupMethod"] = request.getBackupMethod();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDatabaseRegion()) {
-    query["DatabaseRegion"] = request.databaseRegion();
+    query["DatabaseRegion"] = request.getDatabaseRegion();
   }
 
   if (!!request.hasDatabaseType()) {
-    query["DatabaseType"] = request.databaseType();
+    query["DatabaseType"] = request.getDatabaseType();
   }
 
   if (!!request.hasFromApp()) {
-    query["FromApp"] = request.fromApp();
+    query["FromApp"] = request.getFromApp();
   }
 
   if (!!request.hasInstanceClass()) {
-    query["InstanceClass"] = request.instanceClass();
+    query["InstanceClass"] = request.getInstanceClass();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPayType()) {
-    query["PayType"] = request.payType();
+    query["PayType"] = request.getPayType();
   }
 
   if (!!request.hasPeriod()) {
-    query["Period"] = request.period();
+    query["Period"] = request.getPeriod();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasStorageRegion()) {
-    query["StorageRegion"] = request.storageRegion();
+    query["StorageRegion"] = request.getStorageRegion();
   }
 
   if (!!request.hasStorageType()) {
-    query["StorageType"] = request.storageType();
+    query["StorageType"] = request.getStorageType();
   }
 
   if (!!request.hasUsedTime()) {
-    query["UsedTime"] = request.usedTime();
+    query["UsedTime"] = request.getUsedTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -522,9 +542,9 @@ CreateBackupPlanResponse Client::createBackupPlanWithOptions(const CreateBackupP
 }
 
 /**
- * @summary Creates a backup schedule.
+ * @summary Creates a Database Backup Service (DBS) backup plan.
  *
- * @description For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+ * @description To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
  *
  * @param request CreateBackupPlanRequest
  * @return CreateBackupPlanResponse
@@ -535,7 +555,7 @@ CreateBackupPlanResponse Client::createBackupPlan(const CreateBackupPlanRequest 
 }
 
 /**
- * @summary Creates and starts a full backup set download task.
+ * @summary This operation creates a task to download a full backup set.
  *
  * @param request CreateFullBackupSetDownloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -545,19 +565,19 @@ CreateFullBackupSetDownloadResponse Client::createFullBackupSetDownloadWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBackupSetDataFormat()) {
-    query["BackupSetDataFormat"] = request.backupSetDataFormat();
+    query["BackupSetDataFormat"] = request.getBackupSetDataFormat();
   }
 
   if (!!request.hasBackupSetId()) {
-    query["BackupSetId"] = request.backupSetId();
+    query["BackupSetId"] = request.getBackupSetId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -578,7 +598,7 @@ CreateFullBackupSetDownloadResponse Client::createFullBackupSetDownloadWithOptio
 }
 
 /**
- * @summary Creates and starts a full backup set download task.
+ * @summary This operation creates a task to download a full backup set.
  *
  * @param request CreateFullBackupSetDownloadRequest
  * @return CreateFullBackupSetDownloadResponse
@@ -601,31 +621,31 @@ CreateGetDBListFromAgentTaskResponse Client::createGetDBListFromAgentTaskWithOpt
   request.validate();
   json query = {};
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDatabaseType()) {
-    query["DatabaseType"] = request.databaseType();
+    query["DatabaseType"] = request.getDatabaseType();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSourceEndpointIP()) {
-    query["SourceEndpointIP"] = request.sourceEndpointIP();
+    query["SourceEndpointIP"] = request.getSourceEndpointIP();
   }
 
   if (!!request.hasSourceEndpointPort()) {
-    query["SourceEndpointPort"] = request.sourceEndpointPort();
+    query["SourceEndpointPort"] = request.getSourceEndpointPort();
   }
 
   if (!!request.hasSourceEndpointRegion()) {
-    query["SourceEndpointRegion"] = request.sourceEndpointRegion();
+    query["SourceEndpointRegion"] = request.getSourceEndpointRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -669,23 +689,23 @@ CreateIncrementBackupSetDownloadResponse Client::createIncrementBackupSetDownloa
   request.validate();
   json query = {};
   if (!!request.hasBackupSetDataFormat()) {
-    query["BackupSetDataFormat"] = request.backupSetDataFormat();
+    query["BackupSetDataFormat"] = request.getBackupSetDataFormat();
   }
 
   if (!!request.hasBackupSetId()) {
-    query["BackupSetId"] = request.backupSetId();
+    query["BackupSetId"] = request.getBackupSetId();
   }
 
   if (!!request.hasBackupSetName()) {
-    query["BackupSetName"] = request.backupSetName();
+    query["BackupSetName"] = request.getBackupSetName();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -717,7 +737,11 @@ CreateIncrementBackupSetDownloadResponse Client::createIncrementBackupSetDownloa
 }
 
 /**
- * @summary Creates a restoration task.
+ * @summary This interface creates DBS restore jobs.
+ *
+ * @description ### Related operations
+ * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+ * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
  *
  * @param request CreateRestoreTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -726,92 +750,140 @@ CreateIncrementBackupSetDownloadResponse Client::createIncrementBackupSetDownloa
 CreateRestoreTaskResponse Client::createRestoreTaskWithOptions(const CreateRestoreTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoOpenDatabase()) {
+    query["AutoOpenDatabase"] = request.getAutoOpenDatabase();
+  }
+
+  if (!!request.hasAutoShutdownDatabase()) {
+    query["AutoShutdownDatabase"] = request.getAutoShutdownDatabase();
+  }
+
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupSetId()) {
-    query["BackupSetId"] = request.backupSetId();
+    query["BackupSetId"] = request.getBackupSetId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCrossAliyunId()) {
-    query["CrossAliyunId"] = request.crossAliyunId();
+    query["CrossAliyunId"] = request.getCrossAliyunId();
   }
 
   if (!!request.hasCrossRoleName()) {
-    query["CrossRoleName"] = request.crossRoleName();
+    query["CrossRoleName"] = request.getCrossRoleName();
+  }
+
+  if (!!request.hasDestDatabaseInstanceClass()) {
+    query["DestDatabaseInstanceClass"] = request.getDestDatabaseInstanceClass();
+  }
+
+  if (!!request.hasDestDatabaseInstanceDatabaseVersion()) {
+    query["DestDatabaseInstanceDatabaseVersion"] = request.getDestDatabaseInstanceDatabaseVersion();
+  }
+
+  if (!!request.hasDestDatabaseInstanceRegion()) {
+    query["DestDatabaseInstanceRegion"] = request.getDestDatabaseInstanceRegion();
+  }
+
+  if (!!request.hasDestDatabaseInstanceStorageSize()) {
+    query["DestDatabaseInstanceStorageSize"] = request.getDestDatabaseInstanceStorageSize();
+  }
+
+  if (!!request.hasDestDatabaseInstanceType()) {
+    query["DestDatabaseInstanceType"] = request.getDestDatabaseInstanceType();
+  }
+
+  if (!!request.hasDestDatabaseInstanceVSwitch()) {
+    query["DestDatabaseInstanceVSwitch"] = request.getDestDatabaseInstanceVSwitch();
+  }
+
+  if (!!request.hasDestDatabaseInstanceVpc()) {
+    query["DestDatabaseInstanceVpc"] = request.getDestDatabaseInstanceVpc();
   }
 
   if (!!request.hasDestinationEndpointDatabaseName()) {
-    query["DestinationEndpointDatabaseName"] = request.destinationEndpointDatabaseName();
+    query["DestinationEndpointDatabaseName"] = request.getDestinationEndpointDatabaseName();
   }
 
   if (!!request.hasDestinationEndpointIP()) {
-    query["DestinationEndpointIP"] = request.destinationEndpointIP();
+    query["DestinationEndpointIP"] = request.getDestinationEndpointIP();
   }
 
   if (!!request.hasDestinationEndpointInstanceID()) {
-    query["DestinationEndpointInstanceID"] = request.destinationEndpointInstanceID();
+    query["DestinationEndpointInstanceID"] = request.getDestinationEndpointInstanceID();
   }
 
   if (!!request.hasDestinationEndpointInstanceType()) {
-    query["DestinationEndpointInstanceType"] = request.destinationEndpointInstanceType();
+    query["DestinationEndpointInstanceType"] = request.getDestinationEndpointInstanceType();
   }
 
   if (!!request.hasDestinationEndpointOracleSID()) {
-    query["DestinationEndpointOracleSID"] = request.destinationEndpointOracleSID();
+    query["DestinationEndpointOracleSID"] = request.getDestinationEndpointOracleSID();
   }
 
   if (!!request.hasDestinationEndpointPassword()) {
-    query["DestinationEndpointPassword"] = request.destinationEndpointPassword();
+    query["DestinationEndpointPassword"] = request.getDestinationEndpointPassword();
   }
 
   if (!!request.hasDestinationEndpointPort()) {
-    query["DestinationEndpointPort"] = request.destinationEndpointPort();
+    query["DestinationEndpointPort"] = request.getDestinationEndpointPort();
   }
 
   if (!!request.hasDestinationEndpointRegion()) {
-    query["DestinationEndpointRegion"] = request.destinationEndpointRegion();
+    query["DestinationEndpointRegion"] = request.getDestinationEndpointRegion();
   }
 
   if (!!request.hasDestinationEndpointUserName()) {
-    query["DestinationEndpointUserName"] = request.destinationEndpointUserName();
+    query["DestinationEndpointUserName"] = request.getDestinationEndpointUserName();
   }
 
   if (!!request.hasDuplicateConflict()) {
-    query["DuplicateConflict"] = request.duplicateConflict();
+    query["DuplicateConflict"] = request.getDuplicateConflict();
+  }
+
+  if (!!request.hasEnableDestinationEndpointSsl()) {
+    query["EnableDestinationEndpointSsl"] = request.getEnableDestinationEndpointSsl();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRestoreDestinationMode()) {
+    query["RestoreDestinationMode"] = request.getRestoreDestinationMode();
   }
 
   if (!!request.hasRestoreDir()) {
-    query["RestoreDir"] = request.restoreDir();
+    query["RestoreDir"] = request.getRestoreDir();
   }
 
   if (!!request.hasRestoreHome()) {
-    query["RestoreHome"] = request.restoreHome();
+    query["RestoreHome"] = request.getRestoreHome();
   }
 
   if (!!request.hasRestoreObjects()) {
-    query["RestoreObjects"] = request.restoreObjects();
+    query["RestoreObjects"] = request.getRestoreObjects();
   }
 
   if (!!request.hasRestoreTaskName()) {
-    query["RestoreTaskName"] = request.restoreTaskName();
+    query["RestoreTaskName"] = request.getRestoreTaskName();
   }
 
   if (!!request.hasRestoreTime()) {
-    query["RestoreTime"] = request.restoreTime();
+    query["RestoreTime"] = request.getRestoreTime();
+  }
+
+  if (!!request.hasSslCaPem()) {
+    query["SslCaPem"] = request.getSslCaPem();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -832,7 +904,11 @@ CreateRestoreTaskResponse Client::createRestoreTaskWithOptions(const CreateResto
 }
 
 /**
- * @summary Creates a restoration task.
+ * @summary This interface creates DBS restore jobs.
+ *
+ * @description ### Related operations
+ * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+ * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
  *
  * @param request CreateRestoreTaskRequest
  * @return CreateRestoreTaskResponse
@@ -843,7 +919,7 @@ CreateRestoreTaskResponse Client::createRestoreTask(const CreateRestoreTaskReque
 }
 
 /**
- * @summary Queries backup gateways.
+ * @summary Queries a list of backup gateways in Database Backup Service (DBS).
  *
  * @param request DescribeBackupGatewayListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -853,27 +929,27 @@ DescribeBackupGatewayListResponse Client::describeBackupGatewayListWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasIdentifier()) {
-    query["Identifier"] = request.identifier();
+    query["Identifier"] = request.getIdentifier();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -894,7 +970,7 @@ DescribeBackupGatewayListResponse Client::describeBackupGatewayListWithOptions(c
 }
 
 /**
- * @summary Queries backup gateways.
+ * @summary Queries a list of backup gateways in Database Backup Service (DBS).
  *
  * @param request DescribeBackupGatewayListRequest
  * @return DescribeBackupGatewayListResponse
@@ -905,7 +981,7 @@ DescribeBackupGatewayListResponse Client::describeBackupGatewayList(const Descri
 }
 
 /**
- * @summary Queries the billing information of a backup schedule.
+ * @summary This operation queries the billing information of a backup plan.
  *
  * @param request DescribeBackupPlanBillingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -915,19 +991,19 @@ DescribeBackupPlanBillingResponse Client::describeBackupPlanBillingWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasShowStorageType()) {
-    query["ShowStorageType"] = request.showStorageType();
+    query["ShowStorageType"] = request.getShowStorageType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -948,7 +1024,7 @@ DescribeBackupPlanBillingResponse Client::describeBackupPlanBillingWithOptions(c
 }
 
 /**
- * @summary Queries the billing information of a backup schedule.
+ * @summary This operation queries the billing information of a backup plan.
  *
  * @param request DescribeBackupPlanBillingRequest
  * @return DescribeBackupPlanBillingResponse
@@ -959,9 +1035,9 @@ DescribeBackupPlanBillingResponse Client::describeBackupPlanBilling(const Descri
 }
 
 /**
- * @summary Query the list of backup plans
+ * @summary This operation lets you view a DBS backup plan.
  *
- * @description Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+ * @description Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
  *
  * @param request DescribeBackupPlanListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -970,40 +1046,56 @@ DescribeBackupPlanBillingResponse Client::describeBackupPlanBilling(const Descri
 DescribeBackupPlanListResponse Client::describeBackupPlanListWithOptions(const DescribeBackupPlanListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBackupMethod()) {
+    query["BackupMethod"] = request.getBackupMethod();
+  }
+
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupPlanName()) {
-    query["BackupPlanName"] = request.backupPlanName();
+    query["BackupPlanName"] = request.getBackupPlanName();
   }
 
   if (!!request.hasBackupPlanStatus()) {
-    query["BackupPlanStatus"] = request.backupPlanStatus();
+    query["BackupPlanStatus"] = request.getBackupPlanStatus();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasShowBackupStrategyInfo()) {
+    query["ShowBackupStrategyInfo"] = request.getShowBackupStrategyInfo();
+  }
+
+  if (!!request.hasShowRecoverTimeRange()) {
+    query["ShowRecoverTimeRange"] = request.getShowRecoverTimeRange();
+  }
+
+  if (!!request.hasShowStorageStrategyInfo()) {
+    query["ShowStorageStrategyInfo"] = request.getShowStorageStrategyInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1024,9 +1116,9 @@ DescribeBackupPlanListResponse Client::describeBackupPlanListWithOptions(const D
 }
 
 /**
- * @summary Query the list of backup plans
+ * @summary This operation lets you view a DBS backup plan.
  *
- * @description Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+ * @description Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
  *
  * @param request DescribeBackupPlanListRequest
  * @return DescribeBackupPlanListResponse
@@ -1037,7 +1129,7 @@ DescribeBackupPlanListResponse Client::describeBackupPlanList(const DescribeBack
 }
 
 /**
- * @summary Queries backup set download tasks.
+ * @summary Queries the list of download tasks for backup sets in Database Backup Service (DBS).
  *
  * @param request DescribeBackupSetDownloadTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,27 +1139,27 @@ DescribeBackupSetDownloadTaskListResponse Client::describeBackupSetDownloadTaskL
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupSetDownloadTaskId()) {
-    query["BackupSetDownloadTaskId"] = request.backupSetDownloadTaskId();
+    query["BackupSetDownloadTaskId"] = request.getBackupSetDownloadTaskId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1088,7 +1180,7 @@ DescribeBackupSetDownloadTaskListResponse Client::describeBackupSetDownloadTaskL
 }
 
 /**
- * @summary Queries backup set download tasks.
+ * @summary Queries the list of download tasks for backup sets in Database Backup Service (DBS).
  *
  * @param request DescribeBackupSetDownloadTaskListRequest
  * @return DescribeBackupSetDownloadTaskListResponse
@@ -1109,15 +1201,15 @@ DescribeDLAServiceResponse Client::describeDLAServiceWithOptions(const DescribeD
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1149,7 +1241,7 @@ DescribeDLAServiceResponse Client::describeDLAService(const DescribeDLAServiceRe
 }
 
 /**
- * @summary cn-hangzhou
+ * @summary You can call this operation to list full backup jobs in Database Backup Service (DBS).
  *
  * @param request DescribeFullBackupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1159,39 +1251,47 @@ DescribeFullBackupListResponse Client::describeFullBackupListWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupSetId()) {
-    query["BackupSetId"] = request.backupSetId();
+    query["BackupSetId"] = request.getBackupSetId();
+  }
+
+  if (!!request.hasBackupSetStatus()) {
+    query["BackupSetStatus"] = request.getBackupSetStatus();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEndTimestamp()) {
-    query["EndTimestamp"] = request.endTimestamp();
+    query["EndTimestamp"] = request.getEndTimestamp();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasShowProgress()) {
+    query["ShowProgress"] = request.getShowProgress();
   }
 
   if (!!request.hasShowStorageType()) {
-    query["ShowStorageType"] = request.showStorageType();
+    query["ShowStorageType"] = request.getShowStorageType();
   }
 
   if (!!request.hasStartTimestamp()) {
-    query["StartTimestamp"] = request.startTimestamp();
+    query["StartTimestamp"] = request.getStartTimestamp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1212,7 +1312,7 @@ DescribeFullBackupListResponse Client::describeFullBackupListWithOptions(const D
 }
 
 /**
- * @summary cn-hangzhou
+ * @summary You can call this operation to list full backup jobs in Database Backup Service (DBS).
  *
  * @param request DescribeFullBackupListRequest
  * @return DescribeFullBackupListResponse
@@ -1223,7 +1323,7 @@ DescribeFullBackupListResponse Client::describeFullBackupList(const DescribeFull
 }
 
 /**
- * @summary Queries incremental backup tasks.
+ * @summary This operation queries the list of incremental backup tasks for DBS.
  *
  * @param request DescribeIncrementBackupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1233,35 +1333,35 @@ DescribeIncrementBackupListResponse Client::describeIncrementBackupListWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEndTimestamp()) {
-    query["EndTimestamp"] = request.endTimestamp();
+    query["EndTimestamp"] = request.getEndTimestamp();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasShowStorageType()) {
-    query["ShowStorageType"] = request.showStorageType();
+    query["ShowStorageType"] = request.getShowStorageType();
   }
 
   if (!!request.hasStartTimestamp()) {
-    query["StartTimestamp"] = request.startTimestamp();
+    query["StartTimestamp"] = request.getStartTimestamp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1282,7 +1382,7 @@ DescribeIncrementBackupListResponse Client::describeIncrementBackupListWithOptio
 }
 
 /**
- * @summary Queries incremental backup tasks.
+ * @summary This operation queries the list of incremental backup tasks for DBS.
  *
  * @param request DescribeIncrementBackupListRequest
  * @return DescribeIncrementBackupListResponse
@@ -1293,7 +1393,7 @@ DescribeIncrementBackupListResponse Client::describeIncrementBackupList(const De
 }
 
 /**
- * @summary Queries the error information of a Database Backup (DBS) task.
+ * @summary Queries the error code of a Database Backup Service (DBS) job.
  *
  * @param request DescribeJobErrorCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1303,19 +1403,19 @@ DescribeJobErrorCodeResponse Client::describeJobErrorCodeWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1336,7 +1436,7 @@ DescribeJobErrorCodeResponse Client::describeJobErrorCodeWithOptions(const Descr
 }
 
 /**
- * @summary Queries the error information of a Database Backup (DBS) task.
+ * @summary Queries the error code of a Database Backup Service (DBS) job.
  *
  * @param request DescribeJobErrorCodeRequest
  * @return DescribeJobErrorCodeResponse
@@ -1357,15 +1457,15 @@ DescribeNodeCidrListResponse Client::describeNodeCidrListWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1397,7 +1497,7 @@ DescribeNodeCidrListResponse Client::describeNodeCidrList(const DescribeNodeCidr
 }
 
 /**
- * @summary Queries the precheck progress of a backup schedule or a restore task.
+ * @summary This operation queries the precheck progress for a backup plan or a restore job.
  *
  * @param request DescribePreCheckProgressListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1407,19 +1507,19 @@ DescribePreCheckProgressListResponse Client::describePreCheckProgressListWithOpt
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRestoreTaskId()) {
-    query["RestoreTaskId"] = request.restoreTaskId();
+    query["RestoreTaskId"] = request.getRestoreTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1440,7 +1540,7 @@ DescribePreCheckProgressListResponse Client::describePreCheckProgressListWithOpt
 }
 
 /**
- * @summary Queries the precheck progress of a backup schedule or a restore task.
+ * @summary This operation queries the precheck progress for a backup plan or a restore job.
  *
  * @param request DescribePreCheckProgressListRequest
  * @return DescribePreCheckProgressListResponse
@@ -1451,7 +1551,7 @@ DescribePreCheckProgressListResponse Client::describePreCheckProgressList(const 
 }
 
 /**
- * @summary Queries the regions that Database Backup (DBS) supports.
+ * @summary Queries the regions where DBS is available.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1461,11 +1561,11 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1486,7 +1586,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries the regions that Database Backup (DBS) supports.
+ * @summary Queries the regions where DBS is available.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -1497,7 +1597,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the range of time to which you can restore data in a backup schedule.
+ * @summary This operation returns the time ranges available for restoring data from a backup plan.
  *
  * @param request DescribeRestoreRangeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1507,27 +1607,27 @@ DescribeRestoreRangeInfoResponse Client::describeRestoreRangeInfoWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBeginTimestampForRestore()) {
-    query["BeginTimestampForRestore"] = request.beginTimestampForRestore();
+    query["BeginTimestampForRestore"] = request.getBeginTimestampForRestore();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEndTimestampForRestore()) {
-    query["EndTimestampForRestore"] = request.endTimestampForRestore();
+    query["EndTimestampForRestore"] = request.getEndTimestampForRestore();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRecentlyRestore()) {
-    query["RecentlyRestore"] = request.recentlyRestore();
+    query["RecentlyRestore"] = request.getRecentlyRestore();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1548,7 +1648,7 @@ DescribeRestoreRangeInfoResponse Client::describeRestoreRangeInfoWithOptions(con
 }
 
 /**
- * @summary Queries the range of time to which you can restore data in a backup schedule.
+ * @summary This operation returns the time ranges available for restoring data from a backup plan.
  *
  * @param request DescribeRestoreRangeInfoRequest
  * @return DescribeRestoreRangeInfoResponse
@@ -1559,7 +1659,7 @@ DescribeRestoreRangeInfoResponse Client::describeRestoreRangeInfo(const Describe
 }
 
 /**
- * @summary Queries restore tasks.
+ * @summary Queries restore jobs in Database Backup Service (DBS).
  *
  * @param request DescribeRestoreTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1569,35 +1669,35 @@ DescribeRestoreTaskListResponse Client::describeRestoreTaskListWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEndTimestamp()) {
-    query["EndTimestamp"] = request.endTimestamp();
+    query["EndTimestamp"] = request.getEndTimestamp();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRestoreTaskId()) {
-    query["RestoreTaskId"] = request.restoreTaskId();
+    query["RestoreTaskId"] = request.getRestoreTaskId();
   }
 
   if (!!request.hasStartTimestamp()) {
-    query["StartTimestamp"] = request.startTimestamp();
+    query["StartTimestamp"] = request.getStartTimestamp();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1618,7 +1718,7 @@ DescribeRestoreTaskListResponse Client::describeRestoreTaskListWithOptions(const
 }
 
 /**
- * @summary Queries restore tasks.
+ * @summary Queries restore jobs in Database Backup Service (DBS).
  *
  * @param request DescribeRestoreTaskListRequest
  * @return DescribeRestoreTaskListResponse
@@ -1629,10 +1729,10 @@ DescribeRestoreTaskListResponse Client::describeRestoreTaskList(const DescribeRe
 }
 
 /**
- * @summary Disables incremental backup for a backup schedule.
+ * @summary Disable incremental backup for a backup plan.
  *
- * @description ### Impact
- * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+ * @description ## Impact
+ * After you disable incremental backup, the backup plan no longer performs incremental backups.
  *
  * @param request DisableBackupLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1642,15 +1742,19 @@ DisableBackupLogResponse Client::disableBackupLogWithOptions(const DisableBackup
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDisableMysqlPhysicalBackupBinlogOnly()) {
+    query["DisableMysqlPhysicalBackupBinlogOnly"] = request.getDisableMysqlPhysicalBackupBinlogOnly();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1671,10 +1775,10 @@ DisableBackupLogResponse Client::disableBackupLogWithOptions(const DisableBackup
 }
 
 /**
- * @summary Disables incremental backup for a backup schedule.
+ * @summary Disable incremental backup for a backup plan.
  *
- * @description ### Impact
- * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+ * @description ## Impact
+ * After you disable incremental backup, the backup plan no longer performs incremental backups.
  *
  * @param request DisableBackupLogRequest
  * @return DisableBackupLogResponse
@@ -1685,10 +1789,10 @@ DisableBackupLogResponse Client::disableBackupLog(const DisableBackupLogRequest 
 }
 
 /**
- * @summary Enables incremental backup for a backup schedule.
+ * @summary This operation enables incremental backup for a backup plan.
  *
  * @description ## Impact
- * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+ * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
  *
  * @param request EnableBackupLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1698,15 +1802,19 @@ EnableBackupLogResponse Client::enableBackupLogWithOptions(const EnableBackupLog
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasEnableMysqlPhysicalBackupBinlog()) {
+    query["EnableMysqlPhysicalBackupBinlog"] = request.getEnableMysqlPhysicalBackupBinlog();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1727,10 +1835,10 @@ EnableBackupLogResponse Client::enableBackupLogWithOptions(const EnableBackupLog
 }
 
 /**
- * @summary Enables incremental backup for a backup schedule.
+ * @summary This operation enables incremental backup for a backup plan.
  *
  * @description ## Impact
- * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+ * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
  *
  * @param request EnableBackupLogRequest
  * @return EnableBackupLogResponse
@@ -1743,6 +1851,8 @@ EnableBackupLogResponse Client::enableBackupLog(const EnableBackupLogRequest &re
 /**
  * @summary Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
  *
+ * @description 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+ *
  * @param request GetDBListFromAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDBListFromAgentResponse
@@ -1751,23 +1861,23 @@ GetDBListFromAgentResponse Client::getDBListFromAgentWithOptions(const GetDBList
   request.validate();
   json query = {};
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSourceEndpointRegion()) {
-    query["SourceEndpointRegion"] = request.sourceEndpointRegion();
+    query["SourceEndpointRegion"] = request.getSourceEndpointRegion();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1790,6 +1900,8 @@ GetDBListFromAgentResponse Client::getDBListFromAgentWithOptions(const GetDBList
 /**
  * @summary Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
  *
+ * @description 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+ *
  * @param request GetDBListFromAgentRequest
  * @return GetDBListFromAgentResponse
  */
@@ -1799,7 +1911,9 @@ GetDBListFromAgentResponse Client::getDBListFromAgent(const GetDBListFromAgentRe
 }
 
 /**
- * @summary Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+ * @summary Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+ *
+ * @description DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
  *
  * @param request InitializeDbsServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1822,7 +1936,9 @@ InitializeDbsServiceLinkedRoleResponse Client::initializeDbsServiceLinkedRoleWit
 }
 
 /**
- * @summary Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+ * @summary Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+ *
+ * @description DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
  *
  * @return InitializeDbsServiceLinkedRoleResponse
  */
@@ -1832,7 +1948,7 @@ InitializeDbsServiceLinkedRoleResponse Client::initializeDbsServiceLinkedRole() 
 }
 
 /**
- * @summary Modifies backup objects of a backup schedule in Database Backup (DBS).
+ * @summary Modifies the objects included in a Database Backup Service (DBS) backup plan.
  *
  * @param request ModifyBackupObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1842,19 +1958,19 @@ ModifyBackupObjectsResponse Client::modifyBackupObjectsWithOptions(const ModifyB
   request.validate();
   json query = {};
   if (!!request.hasBackupObjects()) {
-    query["BackupObjects"] = request.backupObjects();
+    query["BackupObjects"] = request.getBackupObjects();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1875,7 +1991,7 @@ ModifyBackupObjectsResponse Client::modifyBackupObjectsWithOptions(const ModifyB
 }
 
 /**
- * @summary Modifies backup objects of a backup schedule in Database Backup (DBS).
+ * @summary Modifies the objects included in a Database Backup Service (DBS) backup plan.
  *
  * @param request ModifyBackupObjectsRequest
  * @return ModifyBackupObjectsResponse
@@ -1886,7 +2002,7 @@ ModifyBackupObjectsResponse Client::modifyBackupObjects(const ModifyBackupObject
 }
 
 /**
- * @summary Changes the name of a backup schedule.
+ * @summary Modifies the name of a backup plan.
  *
  * @param request ModifyBackupPlanNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1896,19 +2012,19 @@ ModifyBackupPlanNameResponse Client::modifyBackupPlanNameWithOptions(const Modif
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupPlanName()) {
-    query["BackupPlanName"] = request.backupPlanName();
+    query["BackupPlanName"] = request.getBackupPlanName();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1929,7 +2045,7 @@ ModifyBackupPlanNameResponse Client::modifyBackupPlanNameWithOptions(const Modif
 }
 
 /**
- * @summary Changes the name of a backup schedule.
+ * @summary Modifies the name of a backup plan.
  *
  * @param request ModifyBackupPlanNameRequest
  * @return ModifyBackupPlanNameResponse
@@ -1942,6 +2058,8 @@ ModifyBackupPlanNameResponse Client::modifyBackupPlanName(const ModifyBackupPlan
 /**
  * @summary Enables, configures, or disables the automatic download feature.
  *
+ * @description 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+ *
  * @param request ModifyBackupSetDownloadRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyBackupSetDownloadRulesResponse
@@ -1950,43 +2068,43 @@ ModifyBackupSetDownloadRulesResponse Client::modifyBackupSetDownloadRulesWithOpt
   request.validate();
   json query = {};
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupSetDownloadDir()) {
-    query["BackupSetDownloadDir"] = request.backupSetDownloadDir();
+    query["BackupSetDownloadDir"] = request.getBackupSetDownloadDir();
   }
 
   if (!!request.hasBackupSetDownloadTargetType()) {
-    query["BackupSetDownloadTargetType"] = request.backupSetDownloadTargetType();
+    query["BackupSetDownloadTargetType"] = request.getBackupSetDownloadTargetType();
   }
 
   if (!!request.hasBackupSetDownloadTargetTypeLocation()) {
-    query["BackupSetDownloadTargetTypeLocation"] = request.backupSetDownloadTargetTypeLocation();
+    query["BackupSetDownloadTargetTypeLocation"] = request.getBackupSetDownloadTargetTypeLocation();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasFullDataFormat()) {
-    query["FullDataFormat"] = request.fullDataFormat();
+    query["FullDataFormat"] = request.getFullDataFormat();
   }
 
   if (!!request.hasIncrementDataFormat()) {
-    query["IncrementDataFormat"] = request.incrementDataFormat();
+    query["IncrementDataFormat"] = request.getIncrementDataFormat();
   }
 
   if (!!request.hasOpenAutoDownload()) {
-    query["OpenAutoDownload"] = request.openAutoDownload();
+    query["OpenAutoDownload"] = request.getOpenAutoDownload();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2009,6 +2127,8 @@ ModifyBackupSetDownloadRulesResponse Client::modifyBackupSetDownloadRulesWithOpt
 /**
  * @summary Enables, configures, or disables the automatic download feature.
  *
+ * @description 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+ *
  * @param request ModifyBackupSetDownloadRulesRequest
  * @return ModifyBackupSetDownloadRulesResponse
  */
@@ -2018,7 +2138,7 @@ ModifyBackupSetDownloadRulesResponse Client::modifyBackupSetDownloadRules(const 
 }
 
 /**
- * @summary Modifies the data source of a backup schedule.
+ * @summary This operation modifies a Database Backup source endpoint.
  *
  * @param request ModifyBackupSourceEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2028,67 +2148,79 @@ ModifyBackupSourceEndpointResponse Client::modifyBackupSourceEndpointWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBackupGatewayId()) {
-    query["BackupGatewayId"] = request.backupGatewayId();
+    query["BackupGatewayId"] = request.getBackupGatewayId();
   }
 
   if (!!request.hasBackupObjects()) {
-    query["BackupObjects"] = request.backupObjects();
+    query["BackupObjects"] = request.getBackupObjects();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCrossAliyunId()) {
-    query["CrossAliyunId"] = request.crossAliyunId();
+    query["CrossAliyunId"] = request.getCrossAliyunId();
   }
 
   if (!!request.hasCrossRoleName()) {
-    query["CrossRoleName"] = request.crossRoleName();
+    query["CrossRoleName"] = request.getCrossRoleName();
+  }
+
+  if (!!request.hasEnableSourceEndpointSsl()) {
+    query["EnableSourceEndpointSsl"] = request.getEnableSourceEndpointSsl();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSourceEndpointDatabaseName()) {
-    query["SourceEndpointDatabaseName"] = request.sourceEndpointDatabaseName();
+    query["SourceEndpointDatabaseName"] = request.getSourceEndpointDatabaseName();
   }
 
   if (!!request.hasSourceEndpointIP()) {
-    query["SourceEndpointIP"] = request.sourceEndpointIP();
+    query["SourceEndpointIP"] = request.getSourceEndpointIP();
   }
 
   if (!!request.hasSourceEndpointInstanceID()) {
-    query["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID();
+    query["SourceEndpointInstanceID"] = request.getSourceEndpointInstanceID();
   }
 
   if (!!request.hasSourceEndpointInstanceType()) {
-    query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType();
+    query["SourceEndpointInstanceType"] = request.getSourceEndpointInstanceType();
+  }
+
+  if (!!request.hasSourceEndpointOracleHome()) {
+    query["SourceEndpointOracleHome"] = request.getSourceEndpointOracleHome();
   }
 
   if (!!request.hasSourceEndpointOracleSID()) {
-    query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID();
+    query["SourceEndpointOracleSID"] = request.getSourceEndpointOracleSID();
   }
 
   if (!!request.hasSourceEndpointPassword()) {
-    query["SourceEndpointPassword"] = request.sourceEndpointPassword();
+    query["SourceEndpointPassword"] = request.getSourceEndpointPassword();
   }
 
   if (!!request.hasSourceEndpointPort()) {
-    query["SourceEndpointPort"] = request.sourceEndpointPort();
+    query["SourceEndpointPort"] = request.getSourceEndpointPort();
   }
 
   if (!!request.hasSourceEndpointRegion()) {
-    query["SourceEndpointRegion"] = request.sourceEndpointRegion();
+    query["SourceEndpointRegion"] = request.getSourceEndpointRegion();
   }
 
   if (!!request.hasSourceEndpointUserName()) {
-    query["SourceEndpointUserName"] = request.sourceEndpointUserName();
+    query["SourceEndpointUserName"] = request.getSourceEndpointUserName();
+  }
+
+  if (!!request.hasSslCaPem()) {
+    query["SslCaPem"] = request.getSslCaPem();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2109,7 +2241,7 @@ ModifyBackupSourceEndpointResponse Client::modifyBackupSourceEndpointWithOptions
 }
 
 /**
- * @summary Modifies the data source of a backup schedule.
+ * @summary This operation modifies a Database Backup source endpoint.
  *
  * @param request ModifyBackupSourceEndpointRequest
  * @return ModifyBackupSourceEndpointResponse
@@ -2130,31 +2262,31 @@ ModifyBackupStrategyResponse Client::modifyBackupStrategyWithOptions(const Modif
   request.validate();
   json query = {};
   if (!!request.hasBackupLogIntervalSeconds()) {
-    query["BackupLogIntervalSeconds"] = request.backupLogIntervalSeconds();
+    query["BackupLogIntervalSeconds"] = request.getBackupLogIntervalSeconds();
   }
 
   if (!!request.hasBackupPeriod()) {
-    query["BackupPeriod"] = request.backupPeriod();
+    query["BackupPeriod"] = request.getBackupPeriod();
   }
 
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupStartTime()) {
-    query["BackupStartTime"] = request.backupStartTime();
+    query["BackupStartTime"] = request.getBackupStartTime();
   }
 
   if (!!request.hasBackupStrategyType()) {
-    query["BackupStrategyType"] = request.backupStrategyType();
+    query["BackupStrategyType"] = request.getBackupStrategyType();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2186,7 +2318,7 @@ ModifyBackupStrategyResponse Client::modifyBackupStrategy(const ModifyBackupStra
 }
 
 /**
- * @summary Modifies the lifecycle of data that is backed up based on a backup schedule.
+ * @summary Modify the lifecycle of stored data in a backup plan.
  *
  * @param request ModifyStorageStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2196,27 +2328,55 @@ ModifyStorageStrategyResponse Client::modifyStorageStrategyWithOptions(const Mod
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasBackupRetentionPeriod()) {
-    query["BackupRetentionPeriod"] = request.backupRetentionPeriod();
+    query["BackupRetentionPeriod"] = request.getBackupRetentionPeriod();
+  }
+
+  if (!!request.hasBackupStorageEncryptMethod()) {
+    query["BackupStorageEncryptMethod"] = request.getBackupStorageEncryptMethod();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDuplicationArchivePeriod()) {
-    query["DuplicationArchivePeriod"] = request.duplicationArchivePeriod();
+    query["DuplicationArchivePeriod"] = request.getDuplicationArchivePeriod();
   }
 
   if (!!request.hasDuplicationInfrequentAccessPeriod()) {
-    query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod();
+    query["DuplicationInfrequentAccessPeriod"] = request.getDuplicationInfrequentAccessPeriod();
+  }
+
+  if (!!request.hasIncrementBackupRetentionPeriod()) {
+    query["IncrementBackupRetentionPeriod"] = request.getIncrementBackupRetentionPeriod();
+  }
+
+  if (!!request.hasIncrementDuplicationArchivePeriod()) {
+    query["IncrementDuplicationArchivePeriod"] = request.getIncrementDuplicationArchivePeriod();
+  }
+
+  if (!!request.hasIncrementDuplicationInfrequentAccessPeriod()) {
+    query["IncrementDuplicationInfrequentAccessPeriod"] = request.getIncrementDuplicationInfrequentAccessPeriod();
+  }
+
+  if (!!request.hasLogBackupRetentionPeriod()) {
+    query["LogBackupRetentionPeriod"] = request.getLogBackupRetentionPeriod();
+  }
+
+  if (!!request.hasLogDuplicationArchivePeriod()) {
+    query["LogDuplicationArchivePeriod"] = request.getLogDuplicationArchivePeriod();
+  }
+
+  if (!!request.hasLogDuplicationInfrequentAccessPeriod()) {
+    query["LogDuplicationInfrequentAccessPeriod"] = request.getLogDuplicationInfrequentAccessPeriod();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2237,7 +2397,7 @@ ModifyStorageStrategyResponse Client::modifyStorageStrategyWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the lifecycle of data that is backed up based on a backup schedule.
+ * @summary Modify the lifecycle of stored data in a backup plan.
  *
  * @param request ModifyStorageStrategyRequest
  * @return ModifyStorageStrategyResponse
@@ -2248,10 +2408,10 @@ ModifyStorageStrategyResponse Client::modifyStorageStrategy(const ModifyStorageS
 }
 
 /**
- * @summary Releases a pay-as-you-go backup schedule.
+ * @summary This operation releases a pay-as-you-go backup plan.
  *
- * @description ## Impacts
- * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+ * @description ## Impact
+ * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
  *
  * @param request ReleaseBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2261,15 +2421,15 @@ ReleaseBackupPlanResponse Client::releaseBackupPlanWithOptions(const ReleaseBack
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2290,10 +2450,10 @@ ReleaseBackupPlanResponse Client::releaseBackupPlanWithOptions(const ReleaseBack
 }
 
 /**
- * @summary Releases a pay-as-you-go backup schedule.
+ * @summary This operation releases a pay-as-you-go backup plan.
  *
- * @description ## Impacts
- * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+ * @description ## Impact
+ * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
  *
  * @param request ReleaseBackupPlanRequest
  * @return ReleaseBackupPlanResponse
@@ -2314,23 +2474,23 @@ RenewBackupPlanResponse Client::renewBackupPlanWithOptions(const RenewBackupPlan
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPeriod()) {
-    query["Period"] = request.period();
+    query["Period"] = request.getPeriod();
   }
 
   if (!!request.hasUsedTime()) {
-    query["UsedTime"] = request.usedTime();
+    query["UsedTime"] = request.getUsedTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2362,7 +2522,7 @@ RenewBackupPlanResponse Client::renewBackupPlan(const RenewBackupPlanRequest &re
 }
 
 /**
- * @summary Starts a backup schedule.
+ * @summary This operation starts a DBS backup plan.
  *
  * @param request StartBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2372,15 +2532,15 @@ StartBackupPlanResponse Client::startBackupPlanWithOptions(const StartBackupPlan
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2401,7 +2561,7 @@ StartBackupPlanResponse Client::startBackupPlanWithOptions(const StartBackupPlan
 }
 
 /**
- * @summary Starts a backup schedule.
+ * @summary This operation starts a DBS backup plan.
  *
  * @param request StartBackupPlanRequest
  * @return StartBackupPlanResponse
@@ -2412,7 +2572,7 @@ StartBackupPlanResponse Client::startBackupPlan(const StartBackupPlanRequest &re
 }
 
 /**
- * @summary Starts a restore task.
+ * @summary Starts a DBS restore job.
  *
  * @param request StartRestoreTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2422,15 +2582,15 @@ StartRestoreTaskResponse Client::startRestoreTaskWithOptions(const StartRestoreT
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRestoreTaskId()) {
-    query["RestoreTaskId"] = request.restoreTaskId();
+    query["RestoreTaskId"] = request.getRestoreTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2451,7 +2611,7 @@ StartRestoreTaskResponse Client::startRestoreTaskWithOptions(const StartRestoreT
 }
 
 /**
- * @summary Starts a restore task.
+ * @summary Starts a DBS restore job.
  *
  * @param request StartRestoreTaskRequest
  * @return StartRestoreTaskResponse
@@ -2462,7 +2622,7 @@ StartRestoreTaskResponse Client::startRestoreTask(const StartRestoreTaskRequest 
 }
 
 /**
- * @summary Stops a backup schedule.
+ * @summary This operation pauses a DBS backup plan.
  *
  * @param request StopBackupPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2472,19 +2632,19 @@ StopBackupPlanResponse Client::stopBackupPlanWithOptions(const StopBackupPlanReq
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasStopMethod()) {
-    query["StopMethod"] = request.stopMethod();
+    query["StopMethod"] = request.getStopMethod();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2505,7 +2665,7 @@ StopBackupPlanResponse Client::stopBackupPlanWithOptions(const StopBackupPlanReq
 }
 
 /**
- * @summary Stops a backup schedule.
+ * @summary This operation pauses a DBS backup plan.
  *
  * @param request StopBackupPlanRequest
  * @return StopBackupPlanResponse
@@ -2526,19 +2686,19 @@ UpgradeBackupPlanResponse Client::upgradeBackupPlanWithOptions(const UpgradeBack
   request.validate();
   json query = {};
   if (!!request.hasBackupPlanId()) {
-    query["BackupPlanId"] = request.backupPlanId();
+    query["BackupPlanId"] = request.getBackupPlanId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasInstanceClass()) {
-    query["InstanceClass"] = request.instanceClass();
+    query["InstanceClass"] = request.getInstanceClass();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

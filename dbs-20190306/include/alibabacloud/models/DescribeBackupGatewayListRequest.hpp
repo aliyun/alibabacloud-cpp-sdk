@@ -40,80 +40,91 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->identifier_ == nullptr && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr; };
+        && this->identifier_ == nullptr && this->ownerId_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DescribeBackupGatewayListRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline DescribeBackupGatewayListRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline DescribeBackupGatewayListRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline DescribeBackupGatewayListRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeBackupGatewayListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeBackupGatewayListRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    // The unique identifier of the backup gateway. You can query multiple backup gateways. Separate multiple identifiers with commas (,).
-    std::shared_ptr<string> identifier_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    // The number of the page to return. The value must be a positive integer. Default value: 0.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
-    // The number of entries to return on each page. Valid values:
+    // A client token used to ensure the idempotence of the request. This prevents duplicate requests.
+    shared_ptr<string> clientToken_ {};
+    // The unique identifier of the backup gateway. You can query multiple gateways by separating the identifiers with commas (,).
+    shared_ptr<string> identifier_ {};
+    shared_ptr<string> ownerId_ {};
+    // The page number. The value must be greater than or equal to 0 and cannot exceed the maximum value of an integer. The default value is 0.
+    shared_ptr<int32_t> pageNum_ {};
+    // The number of records on each page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **30**
     // 
-    // > Default value: 30.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The region in which Database Backup (DBS) is activated. Valid values:
+    // - **50**
     // 
-    // *   **cn-hangzhou**: China (Hangzhou)
-    // *   **cn-shanghai**: China (Shanghai)
-    // *   **cn-qingdao**: China (Qingdao)
-    // *   **cn-beijing**: China (Beijing)
-    // *   **cn-shenzhen**: China (Shenzhen)
-    // *   **cn-hongkong**: China (Hong Kong)
-    // *   **ap-southeast-1**: Singapore (Singapore)
-    // *   **cn-hangzhou-finance**: China East 1 Finance
-    // *   **cn-shanghai-finance**: China East 2 Finance
-    // *   **cn-shenzhen-finance**: China South 1 Finance
+    // - **100**
+    // 
+    // > The default value is 30.
+    shared_ptr<int32_t> pageSize_ {};
+    // The region of the DBS instance. Valid values:
+    // 
+    // - **cn-hangzhou**: China (Hangzhou)
+    // 
+    // - **cn-shanghai**: China (Shanghai)
+    // 
+    // - **cn-qingdao**: China (Qingdao)
+    // 
+    // - **cn-beijing**: China (Beijing)
+    // 
+    // - **cn-shenzhen**: China (Shenzhen)
+    // 
+    // - **cn-hongkong**: China (Hong Kong)
+    // 
+    // - **ap-southeast-1**: Singapore
+    // 
+    // - **cn-hangzhou-finance**: Hangzhou Finance Cloud
+    // 
+    // - **cn-shanghai-finance**: Shanghai Finance Cloud
+    // 
+    // - **cn-shenzhen-finance**: Shenzhen Finance Cloud
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models
