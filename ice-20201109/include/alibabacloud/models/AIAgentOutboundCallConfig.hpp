@@ -567,12 +567,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Eagerness, eagerness_);
         DARABONBA_PTR_TO_JSON(EnableVoiceInterrupt, enableVoiceInterrupt_);
         DARABONBA_PTR_TO_JSON(InterruptWords, interruptWords_);
+        DARABONBA_PTR_TO_JSON(KeepInterruptWordsForLLM, keepInterruptWordsForLLM_);
         DARABONBA_PTR_TO_JSON(NoInterruptMode, noInterruptMode_);
       };
       friend void from_json(const Darabonba::Json& j, InterruptConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(Eagerness, eagerness_);
         DARABONBA_PTR_FROM_JSON(EnableVoiceInterrupt, enableVoiceInterrupt_);
         DARABONBA_PTR_FROM_JSON(InterruptWords, interruptWords_);
+        DARABONBA_PTR_FROM_JSON(KeepInterruptWordsForLLM, keepInterruptWordsForLLM_);
         DARABONBA_PTR_FROM_JSON(NoInterruptMode, noInterruptMode_);
       };
       InterruptConfig() = default ;
@@ -587,7 +589,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->eagerness_ == nullptr
-        && this->enableVoiceInterrupt_ == nullptr && this->interruptWords_ == nullptr && this->noInterruptMode_ == nullptr; };
+        && this->enableVoiceInterrupt_ == nullptr && this->interruptWords_ == nullptr && this->keepInterruptWordsForLLM_ == nullptr && this->noInterruptMode_ == nullptr; };
       // eagerness Field Functions 
       bool hasEagerness() const { return this->eagerness_ != nullptr;};
       void deleteEagerness() { this->eagerness_ = nullptr;};
@@ -611,6 +613,13 @@ namespace Models
       inline InterruptConfig& setInterruptWords(vector<string> && interruptWords) { DARABONBA_PTR_SET_RVALUE(interruptWords_, interruptWords) };
 
 
+      // keepInterruptWordsForLLM Field Functions 
+      bool hasKeepInterruptWordsForLLM() const { return this->keepInterruptWordsForLLM_ != nullptr;};
+      void deleteKeepInterruptWordsForLLM() { this->keepInterruptWordsForLLM_ = nullptr;};
+      inline bool getKeepInterruptWordsForLLM() const { DARABONBA_PTR_GET_DEFAULT(keepInterruptWordsForLLM_, false) };
+      inline InterruptConfig& setKeepInterruptWordsForLLM(bool keepInterruptWordsForLLM) { DARABONBA_PTR_SET_VALUE(keepInterruptWordsForLLM_, keepInterruptWordsForLLM) };
+
+
       // noInterruptMode Field Functions 
       bool hasNoInterruptMode() const { return this->noInterruptMode_ != nullptr;};
       void deleteNoInterruptMode() { this->noInterruptMode_ = nullptr;};
@@ -624,6 +633,7 @@ namespace Models
       shared_ptr<bool> enableVoiceInterrupt_ {};
       // Words or phrases that will trigger an interruption.
       shared_ptr<vector<string>> interruptWords_ {};
+      shared_ptr<bool> keepInterruptWordsForLLM_ {};
       shared_ptr<string> noInterruptMode_ {};
     };
 
