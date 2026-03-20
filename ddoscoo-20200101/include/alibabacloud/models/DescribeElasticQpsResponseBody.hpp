@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status2, status2_);
         DARABONBA_PTR_TO_JSON(Status3, status3_);
         DARABONBA_PTR_TO_JSON(Status4, status4_);
+        DARABONBA_PTR_TO_JSON(Status410Pv, status410Pv_);
         DARABONBA_PTR_TO_JSON(Status5, status5_);
         DARABONBA_PTR_TO_JSON(Ups, ups_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status2, status2_);
         DARABONBA_PTR_FROM_JSON(Status3, status3_);
         DARABONBA_PTR_FROM_JSON(Status4, status4_);
+        DARABONBA_PTR_FROM_JSON(Status410Pv, status410Pv_);
         DARABONBA_PTR_FROM_JSON(Status5, status5_);
         DARABONBA_PTR_FROM_JSON(Ups, ups_);
       };
@@ -69,7 +71,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->index_ == nullptr
         && this->maxNormalQps_ == nullptr && this->maxQps_ == nullptr && this->pv_ == nullptr && this->status2_ == nullptr && this->status3_ == nullptr
-        && this->status4_ == nullptr && this->status5_ == nullptr && this->ups_ == nullptr; };
+        && this->status4_ == nullptr && this->status410Pv_ == nullptr && this->status5_ == nullptr && this->ups_ == nullptr; };
       // index Field Functions 
       bool hasIndex() const { return this->index_ != nullptr;};
       void deleteIndex() { this->index_ = nullptr;};
@@ -119,6 +121,13 @@ namespace Models
       inline ElasticQps& setStatus4(int64_t status4) { DARABONBA_PTR_SET_VALUE(status4_, status4) };
 
 
+      // status410Pv Field Functions 
+      bool hasStatus410Pv() const { return this->status410Pv_ != nullptr;};
+      void deleteStatus410Pv() { this->status410Pv_ = nullptr;};
+      inline int64_t getStatus410Pv() const { DARABONBA_PTR_GET_DEFAULT(status410Pv_, 0L) };
+      inline ElasticQps& setStatus410Pv(int64_t status410Pv) { DARABONBA_PTR_SET_VALUE(status410Pv_, status410Pv) };
+
+
       // status5 Field Functions 
       bool hasStatus5() const { return this->status5_ != nullptr;};
       void deleteStatus5() { this->status5_ = nullptr;};
@@ -148,6 +157,7 @@ namespace Models
       shared_ptr<int64_t> status3_ {};
       // The total number of HTTP 4xx status codes during the step size period.
       shared_ptr<int64_t> status4_ {};
+      shared_ptr<int64_t> status410Pv_ {};
       // The total number of HTTP 5xx status codes during the step size period.
       shared_ptr<int64_t> status5_ {};
       // The total number of origin requests during the step size period.

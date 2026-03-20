@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The ID of the Anti-DDoS Proxy (Chinese Mainland) instance.
         shared_ptr<string> resourceId_ {};
-        // The resource type. The value is fixed as **INSTANCE**, which indicates an Anti-DDoS Proxy instance.
         shared_ptr<string> resourceType_ {};
-        // The key of the tag that is added to the Anti-DDoS Proxy (Chinese Mainland) instance.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag that is added to the Anti-DDoS Proxy (Chinese Mainland) instance.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -163,7 +159,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The tags that are added to the Anti-DDoS Proxy (Chinese Mainland) instance.
     shared_ptr<DescribeTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

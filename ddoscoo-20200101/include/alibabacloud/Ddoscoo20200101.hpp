@@ -21,6 +21,8 @@ namespace Ddoscoo20200101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       *
        * @param request AddAutoCcBlacklistRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddAutoCcBlacklistResponse
@@ -28,6 +30,8 @@ namespace Ddoscoo20200101
       Models::AddAutoCcBlacklistResponse addAutoCcBlacklistWithOptions(const Models::AddAutoCcBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       *
        * @param request AddAutoCcBlacklistRequest
        * @return AddAutoCcBlacklistResponse
        */
@@ -112,7 +116,7 @@ namespace Ddoscoo20200101
       Models::ConfigDomainSecurityProfileResponse configDomainSecurityProfile(const Models::ConfigDomainSecurityProfileRequest &request);
 
       /**
-       * @summary 配置全局模板规则
+       * @summary Configures an Anti-DDoS global mitigation policy.
        *
        * @param request ConfigL7GlobalRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -121,7 +125,7 @@ namespace Ddoscoo20200101
       Models::ConfigL7GlobalRuleResponse configL7GlobalRuleWithOptions(const Models::ConfigL7GlobalRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置全局模板规则
+       * @summary Configures an Anti-DDoS global mitigation policy.
        *
        * @param request ConfigL7GlobalRuleRequest
        * @return ConfigL7GlobalRuleResponse
@@ -294,7 +298,7 @@ namespace Ddoscoo20200101
       Models::ConfigUdpReflectResponse configUdpReflect(const Models::ConfigUdpReflectRequest &request);
 
       /**
-       * @summary 配置新版基于匹配条件的cc规则
+       * @summary Creates or modifies the custom frequency control rule of a website.
        *
        * @param request ConfigWebCCRuleV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -303,7 +307,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebCCRuleV2Response configWebCCRuleV2WithOptions(const Models::ConfigWebCCRuleV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置新版基于匹配条件的cc规则
+       * @summary Creates or modifies the custom frequency control rule of a website.
        *
        * @param request ConfigWebCCRuleV2Request
        * @return ConfigWebCCRuleV2Response
@@ -970,6 +974,8 @@ namespace Ddoscoo20200101
       Models::DescribeCertsResponse describeCerts(const Models::DescribeCertsRequest &request);
 
       /**
+       * @summary Queries the CNAME reuse information about websites.
+       *
        * @param request DescribeCnameReusesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCnameReusesResponse
@@ -977,6 +983,8 @@ namespace Ddoscoo20200101
       Models::DescribeCnameReusesResponse describeCnameReusesWithOptions(const Models::DescribeCnameReusesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the CNAME reuse information about websites.
+       *
        * @param request DescribeCnameReusesRequest
        * @return DescribeCnameReusesResponse
        */
@@ -1782,7 +1790,7 @@ namespace Ddoscoo20200101
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary 展示全局模板规则
+       * @summary Queries an Anti-DDoS global mitigation policy.
        *
        * @param request DescribeL7GlobalRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1791,7 +1799,7 @@ namespace Ddoscoo20200101
       Models::DescribeL7GlobalRuleResponse describeL7GlobalRuleWithOptions(const Models::DescribeL7GlobalRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 展示全局模板规则
+       * @summary Queries an Anti-DDoS global mitigation policy.
        *
        * @param request DescribeL7GlobalRuleRequest
        * @return DescribeL7GlobalRuleResponse
@@ -2055,7 +2063,7 @@ namespace Ddoscoo20200101
       Models::DescribePortConnsListResponse describePortConnsList(const Models::DescribePortConnsListRequest &request);
 
       /**
-       * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
        *
        * @param request DescribePortFlowListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2064,7 +2072,7 @@ namespace Ddoscoo20200101
       Models::DescribePortFlowListResponse describePortFlowListWithOptions(const Models::DescribePortFlowListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
        *
        * @param request DescribePortFlowListRequest
        * @return DescribePortFlowListResponse
@@ -2202,6 +2210,8 @@ namespace Ddoscoo20200101
       Models::DescribeSceneDefensePoliciesResponse describeSceneDefensePolicies(const Models::DescribeSceneDefensePoliciesRequest &request);
 
       /**
+       * @summary Queries the scheduling rules of Sec-Traffic Manager.
+       *
        * @param request DescribeSchedulerRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSchedulerRulesResponse
@@ -2209,6 +2219,8 @@ namespace Ddoscoo20200101
       Models::DescribeSchedulerRulesResponse describeSchedulerRulesWithOptions(const Models::DescribeSchedulerRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the scheduling rules of Sec-Traffic Manager.
+       *
        * @param request DescribeSchedulerRulesRequest
        * @return DescribeSchedulerRulesResponse
        */
@@ -3607,8 +3619,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebRuleResponse modifyWebRule(const Models::ModifyWebRuleRequest &request);
 
       /**
-       * @summary The ID of the instance that you want to release.
-       * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+       * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @description The ID of the request, which is used to locate and troubleshoot issues.
        *
@@ -3619,8 +3630,7 @@ namespace Ddoscoo20200101
       Models::ReleaseInstanceResponse releaseInstanceWithOptions(const Models::ReleaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the instance that you want to release.
-       * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+       * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @description The ID of the request, which is used to locate and troubleshoot issues.
        *

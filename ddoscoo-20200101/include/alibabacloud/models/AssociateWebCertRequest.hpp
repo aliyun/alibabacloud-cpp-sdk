@@ -94,17 +94,33 @@ namespace Models
 
 
   protected:
+    // The public key of the certificate that you want to associate. This parameter must be used together with the CertName and Key parameters.
+    // 
+    // >  If you specify a value for the CertName, Cert, and Key parameters, you do not need to specify a value for the CertId parameter.
     shared_ptr<string> cert_ {};
+    // The ID of the certificate.
+    // 
+    // >  If you specify a certificate ID, you do not need to specify a value for the CertName, Cert, and Key parameters. You can specify only one of this parameter and the CertIdentifier parameter.
     shared_ptr<int32_t> certId_ {};
     // The globally unique ID of the certificate. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of the CertIdentifier parameter is 123-cn-hangzhou.
     // 
     // >  You can specify only one of this parameter and the CertId parameter.
     shared_ptr<string> certIdentifier_ {};
+    // The name of the certificate.
+    // 
+    // >  You can specify the name of the certificate that you want to associate. This parameter must be used together with the Cert and Key parameters.
     shared_ptr<string> certName_ {};
     // The region of the certificate. Valid values: **cn-hangzhou** and **ap-southeast-1**. Default value: **cn-hangzhou**.
     shared_ptr<string> certRegion_ {};
+    // The domain name of the website.
+    // 
+    // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    // The private key of the certificate that you want to associate. This parameter must be used together with the CertName and Cert parameters.
+    // 
+    // >  If you specify a value for the CertName, Cert, and Key parameters, you do not need to specify a value for the CertId parameter.
     shared_ptr<string> key_ {};
   };
 

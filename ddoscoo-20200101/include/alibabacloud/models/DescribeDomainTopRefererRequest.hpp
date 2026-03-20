@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Limit, limit_);
+      DARABONBA_PTR_TO_JSON(QueryType, queryType_);
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
+      DARABONBA_PTR_FROM_JSON(QueryType, queryType_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && this->endTime_ == nullptr && this->limit_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->limit_ == nullptr && this->queryType_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteLimit() { this->limit_ = nullptr;};
     inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
     inline DescribeDomainTopRefererRequest& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
+
+
+    // queryType Field Functions 
+    bool hasQueryType() const { return this->queryType_ != nullptr;};
+    void deleteQueryType() { this->queryType_ = nullptr;};
+    inline string getQueryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
+    inline DescribeDomainTopRefererRequest& setQueryType(string queryType) { DARABONBA_PTR_SET_VALUE(queryType_, queryType) };
 
 
     // region Field Functions 
@@ -89,6 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> limit_ {};
+    shared_ptr<string> queryType_ {};
     // The region in which your service is deployed. Valid values:
     // 
     // *   **cn**: a region in the Chinese mainland.

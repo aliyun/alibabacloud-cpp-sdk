@@ -36,6 +36,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ *
  * @param request AddAutoCcBlacklistRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddAutoCcBlacklistResponse
@@ -73,6 +75,8 @@ AddAutoCcBlacklistResponse Client::addAutoCcBlacklistWithOptions(const AddAutoCc
 }
 
 /**
+ * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ *
  * @param request AddAutoCcBlacklistRequest
  * @return AddAutoCcBlacklistResponse
  */
@@ -308,7 +312,7 @@ ConfigDomainSecurityProfileResponse Client::configDomainSecurityProfile(const Co
 }
 
 /**
- * @summary 配置全局模板规则
+ * @summary Configures an Anti-DDoS global mitigation policy.
  *
  * @param request ConfigL7GlobalRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -343,7 +347,7 @@ ConfigL7GlobalRuleResponse Client::configL7GlobalRuleWithOptions(const ConfigL7G
 }
 
 /**
- * @summary 配置全局模板规则
+ * @summary Configures an Anti-DDoS global mitigation policy.
  *
  * @param request ConfigL7GlobalRuleRequest
  * @return ConfigL7GlobalRuleResponse
@@ -784,7 +788,7 @@ ConfigUdpReflectResponse Client::configUdpReflect(const ConfigUdpReflectRequest 
 }
 
 /**
- * @summary 配置新版基于匹配条件的cc规则
+ * @summary Creates or modifies the custom frequency control rule of a website.
  *
  * @param request ConfigWebCCRuleV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -823,7 +827,7 @@ ConfigWebCCRuleV2Response Client::configWebCCRuleV2WithOptions(const ConfigWebCC
 }
 
 /**
- * @summary 配置新版基于匹配条件的cc规则
+ * @summary Creates or modifies the custom frequency control rule of a website.
  *
  * @param request ConfigWebCCRuleV2Request
  * @return ConfigWebCCRuleV2Response
@@ -2704,6 +2708,8 @@ DescribeCertsResponse Client::describeCerts(const DescribeCertsRequest &request)
 }
 
 /**
+ * @summary Queries the CNAME reuse information about websites.
+ *
  * @param request DescribeCnameReusesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCnameReusesResponse
@@ -2737,6 +2743,8 @@ DescribeCnameReusesResponse Client::describeCnameReusesWithOptions(const Describ
 }
 
 /**
+ * @summary Queries the CNAME reuse information about websites.
+ *
  * @param request DescribeCnameReusesRequest
  * @return DescribeCnameReusesResponse
  */
@@ -3515,6 +3523,10 @@ DescribeDomainH2FingerprintResponse Client::describeDomainH2FingerprintWithOptio
     query["Limit"] = request.getLimit();
   }
 
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
@@ -3965,6 +3977,10 @@ DescribeDomainTopFingerprintResponse Client::describeDomainTopFingerprintWithOpt
     query["Limit"] = request.getLimit();
   }
 
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
+  }
+
   if (!!request.hasRegion()) {
     query["Region"] = request.getRegion();
   }
@@ -4021,6 +4037,10 @@ DescribeDomainTopHttpMethodResponse Client::describeDomainTopHttpMethodWithOptio
 
   if (!!request.hasLimit()) {
     query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasRegion()) {
@@ -4081,6 +4101,10 @@ DescribeDomainTopRefererResponse Client::describeDomainTopRefererWithOptions(con
     query["Limit"] = request.getLimit();
   }
 
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
+  }
+
   if (!!request.hasRegion()) {
     query["Region"] = request.getRegion();
   }
@@ -4137,6 +4161,10 @@ DescribeDomainTopUserAgentResponse Client::describeDomainTopUserAgentWithOptions
 
   if (!!request.hasLimit()) {
     query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasRegion()) {
@@ -5112,7 +5140,7 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary 展示全局模板规则
+ * @summary Queries an Anti-DDoS global mitigation policy.
  *
  * @param request DescribeL7GlobalRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5147,7 +5175,7 @@ DescribeL7GlobalRuleResponse Client::describeL7GlobalRuleWithOptions(const Descr
 }
 
 /**
- * @summary 展示全局模板规则
+ * @summary Queries an Anti-DDoS global mitigation policy.
  *
  * @param request DescribeL7GlobalRuleRequest
  * @return DescribeL7GlobalRuleResponse
@@ -5888,7 +5916,7 @@ DescribePortConnsListResponse Client::describePortConnsList(const DescribePortCo
 }
 
 /**
- * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
  *
  * @param request DescribePortFlowListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5935,7 +5963,7 @@ DescribePortFlowListResponse Client::describePortFlowListWithOptions(const Descr
 }
 
 /**
- * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
  *
  * @param request DescribePortFlowListRequest
  * @return DescribePortFlowListResponse
@@ -6286,6 +6314,8 @@ DescribeSceneDefensePoliciesResponse Client::describeSceneDefensePolicies(const 
 }
 
 /**
+ * @summary Queries the scheduling rules of Sec-Traffic Manager.
+ *
  * @param request DescribeSchedulerRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSchedulerRulesResponse
@@ -6327,6 +6357,8 @@ DescribeSchedulerRulesResponse Client::describeSchedulerRulesWithOptions(const D
 }
 
 /**
+ * @summary Queries the scheduling rules of Sec-Traffic Manager.
+ *
  * @param request DescribeSchedulerRulesRequest
  * @return DescribeSchedulerRulesResponse
  */
@@ -10218,8 +10250,7 @@ ModifyWebRuleResponse Client::modifyWebRule(const ModifyWebRuleRequest &request)
 }
 
 /**
- * @summary The ID of the instance that you want to release.
- * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+ * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @description The ID of the request, which is used to locate and troubleshoot issues.
  *
@@ -10252,8 +10283,7 @@ ReleaseInstanceResponse Client::releaseInstanceWithOptions(const ReleaseInstance
 }
 
 /**
- * @summary The ID of the instance that you want to release.
- * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+ * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @description The ID of the request, which is used to locate and troubleshoot issues.
  *
