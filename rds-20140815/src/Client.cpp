@@ -775,6 +775,52 @@ AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInsta
 }
 
 /**
+ * @summary 检查备份加密信息
+ *
+ * @param request AuthorizeBackupEncryptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeBackupEncryptionResponse
+ */
+AuthorizeBackupEncryptionResponse Client::authorizeBackupEncryptionWithOptions(const AuthorizeBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeBackupEncryption"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeBackupEncryptionResponse>();
+}
+
+/**
+ * @summary 检查备份加密信息
+ *
+ * @param request AuthorizeBackupEncryptionRequest
+ * @return AuthorizeBackupEncryptionResponse
+ */
+AuthorizeBackupEncryptionResponse Client::authorizeBackupEncryption(const AuthorizeBackupEncryptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeBackupEncryptionWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds rules to the specified security group.
  *
  * @param tmpReq AuthorizeRCSecurityGroupPermissionRequest
@@ -1074,6 +1120,52 @@ CheckAccountNameAvailableResponse Client::checkAccountNameAvailableWithOptions(c
 CheckAccountNameAvailableResponse Client::checkAccountNameAvailable(const CheckAccountNameAvailableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkAccountNameAvailableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 检查备份加密授权
+ *
+ * @param request CheckBackupEncryptionAuthorizedRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckBackupEncryptionAuthorizedResponse
+ */
+CheckBackupEncryptionAuthorizedResponse Client::checkBackupEncryptionAuthorizedWithOptions(const CheckBackupEncryptionAuthorizedRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckBackupEncryptionAuthorized"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckBackupEncryptionAuthorizedResponse>();
+}
+
+/**
+ * @summary 检查备份加密授权
+ *
+ * @param request CheckBackupEncryptionAuthorizedRequest
+ * @return CheckBackupEncryptionAuthorizedResponse
+ */
+CheckBackupEncryptionAuthorizedResponse Client::checkBackupEncryptionAuthorized(const CheckBackupEncryptionAuthorizedRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkBackupEncryptionAuthorizedWithOptions(request, runtime);
 }
 
 /**
@@ -1458,6 +1550,56 @@ CheckRdsCustomInitResponse Client::checkRdsCustomInitWithOptions(const CheckRdsC
 CheckRdsCustomInitResponse Client::checkRdsCustomInit(const CheckRdsCustomInitRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkRdsCustomInitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 检查地域是否支持备份加密
+ *
+ * @param request CheckRegionSupportBackupEncryptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckRegionSupportBackupEncryptionResponse
+ */
+CheckRegionSupportBackupEncryptionResponse Client::checkRegionSupportBackupEncryptionWithOptions(const CheckRegionSupportBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceID()) {
+    query["DBInstanceID"] = request.getDBInstanceID();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckRegionSupportBackupEncryption"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckRegionSupportBackupEncryptionResponse>();
+}
+
+/**
+ * @summary 检查地域是否支持备份加密
+ *
+ * @param request CheckRegionSupportBackupEncryptionRequest
+ * @return CheckRegionSupportBackupEncryptionResponse
+ */
+CheckRegionSupportBackupEncryptionResponse Client::checkRegionSupportBackupEncryption(const CheckRegionSupportBackupEncryptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkRegionSupportBackupEncryptionWithOptions(request, runtime);
 }
 
 /**
@@ -19609,6 +19751,92 @@ DescribeVSwitchesResponse Client::describeVSwitches(const DescribeVSwitchesReque
 }
 
 /**
+ * @summary 查询VPC列表
+ *
+ * @param request DescribeVpcsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcsResponse
+ */
+DescribeVpcsResponse Client::describeVpcsWithOptions(const DescribeVpcsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProduct()) {
+    query["Product"] = request.getProduct();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcs"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcsResponse>();
+}
+
+/**
+ * @summary 查询VPC列表
+ *
+ * @param request DescribeVpcsRequest
+ * @return DescribeVpcsResponse
+ */
+DescribeVpcsResponse Client::describeVpcs(const DescribeVpcsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about the specified IP whitelist.
  *
  * @description ### Supported database engines
@@ -20000,6 +20228,56 @@ DetachWhitelistTemplateToInstanceResponse Client::detachWhitelistTemplateToInsta
 DetachWhitelistTemplateToInstanceResponse Client::detachWhitelistTemplateToInstance(const DetachWhitelistTemplateToInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return detachWhitelistTemplateToInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开启备份加密
+ *
+ * @param request EnableBackupEncryptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableBackupEncryptionResponse
+ */
+EnableBackupEncryptionResponse Client::enableBackupEncryptionWithOptions(const EnableBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasEncryptionKey()) {
+    query["EncryptionKey"] = request.getEncryptionKey();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableBackupEncryption"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableBackupEncryptionResponse>();
+}
+
+/**
+ * @summary 开启备份加密
+ *
+ * @param request EnableBackupEncryptionRequest
+ * @return EnableBackupEncryptionResponse
+ */
+EnableBackupEncryptionResponse Client::enableBackupEncryption(const EnableBackupEncryptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableBackupEncryptionWithOptions(request, runtime);
 }
 
 /**
@@ -24207,6 +24485,10 @@ ModifyDBInstanceSpecResponse Client::modifyDBInstanceSpecWithOptions(const Modif
   }
 
   json query = {};
+  if (!!request.hasAllocateStrategy()) {
+    query["AllocateStrategy"] = request.getAllocateStrategy();
+  }
+
   if (!!request.hasAllowMajorVersionUpgrade()) {
     query["AllowMajorVersionUpgrade"] = request.getAllowMajorVersionUpgrade();
   }
@@ -26357,6 +26639,60 @@ ModifyParameterTimedScheduleTaskResponse Client::modifyParameterTimedScheduleTas
 }
 
 /**
+ * @summary 修改部署集的名称和描述信息
+ *
+ * @param request ModifyRCDeploymentSetAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRCDeploymentSetAttributeResponse
+ */
+ModifyRCDeploymentSetAttributeResponse Client::modifyRCDeploymentSetAttributeWithOptions(const ModifyRCDeploymentSetAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeploymentSetId()) {
+    query["DeploymentSetId"] = request.getDeploymentSetId();
+  }
+
+  if (!!request.hasDeploymentSetName()) {
+    query["DeploymentSetName"] = request.getDeploymentSetName();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRCDeploymentSetAttribute"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRCDeploymentSetAttributeResponse>();
+}
+
+/**
+ * @summary 修改部署集的名称和描述信息
+ *
+ * @param request ModifyRCDeploymentSetAttributeRequest
+ * @return ModifyRCDeploymentSetAttributeResponse
+ */
+ModifyRCDeploymentSetAttributeResponse Client::modifyRCDeploymentSetAttribute(const ModifyRCDeploymentSetAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRCDeploymentSetAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改块存储属性
  *
  * @param request ModifyRCDiskAttributeRequest
@@ -26754,6 +27090,10 @@ ModifyRCInstanceAttributeResponse Client::modifyRCInstanceAttributeWithOptions(c
   json query = {};
   if (!!request.hasDeletionProtection()) {
     query["DeletionProtection"] = request.getDeletionProtection();
+  }
+
+  if (!!request.hasEnableJumboFrame()) {
+    query["EnableJumboFrame"] = request.getEnableJumboFrame();
   }
 
   if (!!request.hasHostName()) {
@@ -30527,6 +30867,10 @@ RunRCInstancesResponse Client::runRCInstancesWithOptions(const RunRCInstancesReq
     request.setDataDiskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataDisk(), "DataDisk", "json"));
   }
 
+  if (!!tmpReq.hasNetworkOptions()) {
+    request.setNetworkOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNetworkOptions(), "NetworkOptions", "json"));
+  }
+
   if (!!tmpReq.hasSecurityGroupIds()) {
     request.setSecurityGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSecurityGroupIds(), "SecurityGroupIds", "json"));
   }
@@ -30626,6 +30970,10 @@ RunRCInstancesResponse Client::runRCInstancesWithOptions(const RunRCInstancesReq
 
   if (!!request.hasKeyPairName()) {
     query["KeyPairName"] = request.getKeyPairName();
+  }
+
+  if (!!request.hasNetworkOptionsShrink()) {
+    query["NetworkOptions"] = request.getNetworkOptionsShrink();
   }
 
   if (!!request.hasPassword()) {

@@ -58,6 +58,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DiskQuantity, diskQuantity_);
           DARABONBA_PTR_TO_JSON(InstanceTypeFamily, instanceTypeFamily_);
           DARABONBA_PTR_TO_JSON(InstanceTypeId, instanceTypeId_);
+          DARABONBA_PTR_TO_JSON(JumboFrameSupport, jumboFrameSupport_);
           DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
         };
         friend void from_json(const Darabonba::Json& j, InstanceType& obj) { 
@@ -65,6 +66,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DiskQuantity, diskQuantity_);
           DARABONBA_PTR_FROM_JSON(InstanceTypeFamily, instanceTypeFamily_);
           DARABONBA_PTR_FROM_JSON(InstanceTypeId, instanceTypeId_);
+          DARABONBA_PTR_FROM_JSON(JumboFrameSupport, jumboFrameSupport_);
           DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
         };
         InstanceType() = default ;
@@ -79,7 +81,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cpuCoreCount_ == nullptr
-        && this->diskQuantity_ == nullptr && this->instanceTypeFamily_ == nullptr && this->instanceTypeId_ == nullptr && this->memorySize_ == nullptr; };
+        && this->diskQuantity_ == nullptr && this->instanceTypeFamily_ == nullptr && this->instanceTypeId_ == nullptr && this->jumboFrameSupport_ == nullptr && this->memorySize_ == nullptr; };
         // cpuCoreCount Field Functions 
         bool hasCpuCoreCount() const { return this->cpuCoreCount_ != nullptr;};
         void deleteCpuCoreCount() { this->cpuCoreCount_ = nullptr;};
@@ -108,6 +110,13 @@ namespace Models
         inline InstanceType& setInstanceTypeId(string instanceTypeId) { DARABONBA_PTR_SET_VALUE(instanceTypeId_, instanceTypeId) };
 
 
+        // jumboFrameSupport Field Functions 
+        bool hasJumboFrameSupport() const { return this->jumboFrameSupport_ != nullptr;};
+        void deleteJumboFrameSupport() { this->jumboFrameSupport_ = nullptr;};
+        inline bool getJumboFrameSupport() const { DARABONBA_PTR_GET_DEFAULT(jumboFrameSupport_, false) };
+        inline InstanceType& setJumboFrameSupport(bool jumboFrameSupport) { DARABONBA_PTR_SET_VALUE(jumboFrameSupport_, jumboFrameSupport) };
+
+
         // memorySize Field Functions 
         bool hasMemorySize() const { return this->memorySize_ != nullptr;};
         void deleteMemorySize() { this->memorySize_ = nullptr;};
@@ -123,6 +132,7 @@ namespace Models
         shared_ptr<string> instanceTypeFamily_ {};
         // The instance type of the instance.
         shared_ptr<string> instanceTypeId_ {};
+        shared_ptr<bool> jumboFrameSupport_ {};
         // The memory size of the instance type. Unit: GiB.
         shared_ptr<int32_t> memorySize_ {};
       };

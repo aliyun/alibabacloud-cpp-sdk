@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
       DARABONBA_PTR_TO_JSON(IoOptimized, ioOptimized_);
       DARABONBA_PTR_TO_JSON(KeyPairName, keyPairName_);
+      DARABONBA_PTR_TO_JSON(NetworkOptions, networkOptions_);
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(PasswordInherit, passwordInherit_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -82,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
       DARABONBA_PTR_FROM_JSON(IoOptimized, ioOptimized_);
       DARABONBA_PTR_FROM_JSON(KeyPairName, keyPairName_);
+      DARABONBA_PTR_FROM_JSON(NetworkOptions, networkOptions_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(PasswordInherit, passwordInherit_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -208,6 +210,37 @@ namespace Models
       shared_ptr<string> performanceLevel_ {};
       // The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
       shared_ptr<int32_t> size_ {};
+    };
+
+    class NetworkOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const NetworkOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableJumboFrame, enableJumboFrame_);
+      };
+      friend void from_json(const Darabonba::Json& j, NetworkOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableJumboFrame, enableJumboFrame_);
+      };
+      NetworkOptions() = default ;
+      NetworkOptions(const NetworkOptions &) = default ;
+      NetworkOptions(NetworkOptions &&) = default ;
+      NetworkOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~NetworkOptions() = default ;
+      NetworkOptions& operator=(const NetworkOptions &) = default ;
+      NetworkOptions& operator=(NetworkOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enableJumboFrame_ == nullptr; };
+      // enableJumboFrame Field Functions 
+      bool hasEnableJumboFrame() const { return this->enableJumboFrame_ != nullptr;};
+      void deleteEnableJumboFrame() { this->enableJumboFrame_ = nullptr;};
+      inline bool getEnableJumboFrame() const { DARABONBA_PTR_GET_DEFAULT(enableJumboFrame_, false) };
+      inline NetworkOptions& setEnableJumboFrame(bool enableJumboFrame) { DARABONBA_PTR_SET_VALUE(enableJumboFrame_, enableJumboFrame) };
+
+
+    protected:
+      shared_ptr<bool> enableJumboFrame_ {};
     };
 
     class DataDisk : public Darabonba::Model {
@@ -358,11 +391,11 @@ namespace Models
         && this->createAckEdgeParam_ == nullptr && this->createExtraParam_ == nullptr && this->createMode_ == nullptr && this->dataDisk_ == nullptr && this->deletionProtection_ == nullptr
         && this->deploymentSetId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
         && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
-        && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->spotStrategy_ == nullptr
-        && this->supportCase_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr && this->userData_ == nullptr && this->userDataInBase64_ == nullptr
-        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->networkOptions_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr
+        && this->spotStrategy_ == nullptr && this->supportCase_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr && this->userData_ == nullptr
+        && this->userDataInBase64_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // acuType Field Functions 
     bool hasAcuType() const { return this->acuType_ != nullptr;};
     void deleteAcuType() { this->acuType_ = nullptr;};
@@ -526,6 +559,15 @@ namespace Models
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
     inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline RunRCInstancesRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
+
+
+    // networkOptions Field Functions 
+    bool hasNetworkOptions() const { return this->networkOptions_ != nullptr;};
+    void deleteNetworkOptions() { this->networkOptions_ = nullptr;};
+    inline const RunRCInstancesRequest::NetworkOptions & getNetworkOptions() const { DARABONBA_PTR_GET_CONST(networkOptions_, RunRCInstancesRequest::NetworkOptions) };
+    inline RunRCInstancesRequest::NetworkOptions getNetworkOptions() { DARABONBA_PTR_GET(networkOptions_, RunRCInstancesRequest::NetworkOptions) };
+    inline RunRCInstancesRequest& setNetworkOptions(const RunRCInstancesRequest::NetworkOptions & networkOptions) { DARABONBA_PTR_SET_VALUE(networkOptions_, networkOptions) };
+    inline RunRCInstancesRequest& setNetworkOptions(RunRCInstancesRequest::NetworkOptions && networkOptions) { DARABONBA_PTR_SET_RVALUE(networkOptions_, networkOptions) };
 
 
     // password Field Functions 
@@ -729,6 +771,7 @@ namespace Models
     shared_ptr<string> ioOptimized_ {};
     // The name of the AccessKey pair. You can specify only one name.
     shared_ptr<string> keyPairName_ {};
+    shared_ptr<RunRCInstancesRequest::NetworkOptions> networkOptions_ {};
     // The password of the account that is used to log on to the instance.
     shared_ptr<string> password_ {};
     shared_ptr<bool> passwordInherit_ {};

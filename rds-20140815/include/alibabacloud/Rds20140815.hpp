@@ -290,6 +290,23 @@ namespace Rds20140815
       Models::AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstance(const Models::AttachWhitelistTemplateToInstanceRequest &request);
 
       /**
+       * @summary 检查备份加密信息
+       *
+       * @param request AuthorizeBackupEncryptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AuthorizeBackupEncryptionResponse
+       */
+      Models::AuthorizeBackupEncryptionResponse authorizeBackupEncryptionWithOptions(const Models::AuthorizeBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查备份加密信息
+       *
+       * @param request AuthorizeBackupEncryptionRequest
+       * @return AuthorizeBackupEncryptionResponse
+       */
+      Models::AuthorizeBackupEncryptionResponse authorizeBackupEncryption(const Models::AuthorizeBackupEncryptionRequest &request);
+
+      /**
        * @summary Adds rules to the specified security group.
        *
        * @param tmpReq AuthorizeRCSecurityGroupPermissionRequest
@@ -430,6 +447,23 @@ namespace Rds20140815
       Models::CheckAccountNameAvailableResponse checkAccountNameAvailable(const Models::CheckAccountNameAvailableRequest &request);
 
       /**
+       * @summary 检查备份加密授权
+       *
+       * @param request CheckBackupEncryptionAuthorizedRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckBackupEncryptionAuthorizedResponse
+       */
+      Models::CheckBackupEncryptionAuthorizedResponse checkBackupEncryptionAuthorizedWithOptions(const Models::CheckBackupEncryptionAuthorizedRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查备份加密授权
+       *
+       * @param request CheckBackupEncryptionAuthorizedRequest
+       * @return CheckBackupEncryptionAuthorizedResponse
+       */
+      Models::CheckBackupEncryptionAuthorizedResponse checkBackupEncryptionAuthorized(const Models::CheckBackupEncryptionAuthorizedRequest &request);
+
+      /**
        * @summary Checks permissions that are granted on an instance.
        *
        * @description ### [](#)Supported database engines
@@ -559,6 +593,23 @@ namespace Rds20140815
        * @return CheckRdsCustomInitResponse
        */
       Models::CheckRdsCustomInitResponse checkRdsCustomInit(const Models::CheckRdsCustomInitRequest &request);
+
+      /**
+       * @summary 检查地域是否支持备份加密
+       *
+       * @param request CheckRegionSupportBackupEncryptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckRegionSupportBackupEncryptionResponse
+       */
+      Models::CheckRegionSupportBackupEncryptionResponse checkRegionSupportBackupEncryptionWithOptions(const Models::CheckRegionSupportBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查地域是否支持备份加密
+       *
+       * @param request CheckRegionSupportBackupEncryptionRequest
+       * @return CheckRegionSupportBackupEncryptionResponse
+       */
+      Models::CheckRegionSupportBackupEncryptionResponse checkRegionSupportBackupEncryption(const Models::CheckRegionSupportBackupEncryptionRequest &request);
 
       /**
        * @summary Checks whether a service-linked role (SLR) is created.
@@ -6535,6 +6586,23 @@ namespace Rds20140815
       Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
 
       /**
+       * @summary 查询VPC列表
+       *
+       * @param request DescribeVpcsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcsResponse
+       */
+      Models::DescribeVpcsResponse describeVpcsWithOptions(const Models::DescribeVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询VPC列表
+       *
+       * @param request DescribeVpcsRequest
+       * @return DescribeVpcsResponse
+       */
+      Models::DescribeVpcsResponse describeVpcs(const Models::DescribeVpcsRequest &request);
+
+      /**
        * @summary Queries information about the specified IP whitelist.
        *
        * @description ### Supported database engines
@@ -6679,6 +6747,23 @@ namespace Rds20140815
        * @return DetachWhitelistTemplateToInstanceResponse
        */
       Models::DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstance(const Models::DetachWhitelistTemplateToInstanceRequest &request);
+
+      /**
+       * @summary 开启备份加密
+       *
+       * @param request EnableBackupEncryptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableBackupEncryptionResponse
+       */
+      Models::EnableBackupEncryptionResponse enableBackupEncryptionWithOptions(const Models::EnableBackupEncryptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启备份加密
+       *
+       * @param request EnableBackupEncryptionRequest
+       * @return EnableBackupEncryptionResponse
+       */
+      Models::EnableBackupEncryptionResponse enableBackupEncryption(const Models::EnableBackupEncryptionRequest &request);
 
       /**
        * @summary 评估紧急本地扩容磁盘解锁可使用的磁盘空间
@@ -8816,6 +8901,23 @@ namespace Rds20140815
        * @return ModifyParameterTimedScheduleTaskResponse
        */
       Models::ModifyParameterTimedScheduleTaskResponse modifyParameterTimedScheduleTask(const Models::ModifyParameterTimedScheduleTaskRequest &request);
+
+      /**
+       * @summary 修改部署集的名称和描述信息
+       *
+       * @param request ModifyRCDeploymentSetAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRCDeploymentSetAttributeResponse
+       */
+      Models::ModifyRCDeploymentSetAttributeResponse modifyRCDeploymentSetAttributeWithOptions(const Models::ModifyRCDeploymentSetAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改部署集的名称和描述信息
+       *
+       * @param request ModifyRCDeploymentSetAttributeRequest
+       * @return ModifyRCDeploymentSetAttributeResponse
+       */
+      Models::ModifyRCDeploymentSetAttributeResponse modifyRCDeploymentSetAttribute(const Models::ModifyRCDeploymentSetAttributeRequest &request);
 
       /**
        * @summary 修改块存储属性

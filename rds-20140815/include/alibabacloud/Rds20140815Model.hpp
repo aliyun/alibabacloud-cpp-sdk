@@ -30,6 +30,9 @@
 #include <alibabacloud/models/AttachWhitelistTemplateToInstanceRequest.hpp>
 #include <alibabacloud/models/AttachWhitelistTemplateToInstanceResponseBody.hpp>
 #include <alibabacloud/models/AttachWhitelistTemplateToInstanceResponse.hpp>
+#include <alibabacloud/models/AuthorizeBackupEncryptionRequest.hpp>
+#include <alibabacloud/models/AuthorizeBackupEncryptionResponseBody.hpp>
+#include <alibabacloud/models/AuthorizeBackupEncryptionResponse.hpp>
 #include <alibabacloud/models/AuthorizeRCSecurityGroupPermissionRequest.hpp>
 #include <alibabacloud/models/AuthorizeRCSecurityGroupPermissionShrinkRequest.hpp>
 #include <alibabacloud/models/AuthorizeRCSecurityGroupPermissionResponseBody.hpp>
@@ -43,6 +46,9 @@
 #include <alibabacloud/models/CheckAccountNameAvailableRequest.hpp>
 #include <alibabacloud/models/CheckAccountNameAvailableResponseBody.hpp>
 #include <alibabacloud/models/CheckAccountNameAvailableResponse.hpp>
+#include <alibabacloud/models/CheckBackupEncryptionAuthorizedRequest.hpp>
+#include <alibabacloud/models/CheckBackupEncryptionAuthorizedResponseBody.hpp>
+#include <alibabacloud/models/CheckBackupEncryptionAuthorizedResponse.hpp>
 #include <alibabacloud/models/CheckCloudResourceAuthorizedRequest.hpp>
 #include <alibabacloud/models/CheckCloudResourceAuthorizedResponseBody.hpp>
 #include <alibabacloud/models/CheckCloudResourceAuthorizedResponse.hpp>
@@ -58,6 +64,9 @@
 #include <alibabacloud/models/CheckRdsCustomInitRequest.hpp>
 #include <alibabacloud/models/CheckRdsCustomInitResponseBody.hpp>
 #include <alibabacloud/models/CheckRdsCustomInitResponse.hpp>
+#include <alibabacloud/models/CheckRegionSupportBackupEncryptionRequest.hpp>
+#include <alibabacloud/models/CheckRegionSupportBackupEncryptionResponseBody.hpp>
+#include <alibabacloud/models/CheckRegionSupportBackupEncryptionResponse.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleRequest.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResponseBody.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResponse.hpp>
@@ -746,6 +755,9 @@
 #include <alibabacloud/models/DescribeVSwitchesRequest.hpp>
 #include <alibabacloud/models/DescribeVSwitchesResponseBody.hpp>
 #include <alibabacloud/models/DescribeVSwitchesResponse.hpp>
+#include <alibabacloud/models/DescribeVpcsRequest.hpp>
+#include <alibabacloud/models/DescribeVpcsResponseBody.hpp>
+#include <alibabacloud/models/DescribeVpcsResponse.hpp>
 #include <alibabacloud/models/DescribeWhitelistTemplateRequest.hpp>
 #include <alibabacloud/models/DescribeWhitelistTemplateResponseBody.hpp>
 #include <alibabacloud/models/DescribeWhitelistTemplateResponse.hpp>
@@ -764,6 +776,9 @@
 #include <alibabacloud/models/DetachWhitelistTemplateToInstanceRequest.hpp>
 #include <alibabacloud/models/DetachWhitelistTemplateToInstanceResponseBody.hpp>
 #include <alibabacloud/models/DetachWhitelistTemplateToInstanceResponse.hpp>
+#include <alibabacloud/models/EnableBackupEncryptionRequest.hpp>
+#include <alibabacloud/models/EnableBackupEncryptionResponseBody.hpp>
+#include <alibabacloud/models/EnableBackupEncryptionResponse.hpp>
 #include <alibabacloud/models/EvaluateLocalExtendDiskRequest.hpp>
 #include <alibabacloud/models/EvaluateLocalExtendDiskResponseBody.hpp>
 #include <alibabacloud/models/EvaluateLocalExtendDiskResponse.hpp>
@@ -991,6 +1006,9 @@
 #include <alibabacloud/models/ModifyParameterTimedScheduleTaskRequest.hpp>
 #include <alibabacloud/models/ModifyParameterTimedScheduleTaskResponseBody.hpp>
 #include <alibabacloud/models/ModifyParameterTimedScheduleTaskResponse.hpp>
+#include <alibabacloud/models/ModifyRCDeploymentSetAttributeRequest.hpp>
+#include <alibabacloud/models/ModifyRCDeploymentSetAttributeResponseBody.hpp>
+#include <alibabacloud/models/ModifyRCDeploymentSetAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyRCDiskAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyRCDiskAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyRCDiskAttributeResponse.hpp>

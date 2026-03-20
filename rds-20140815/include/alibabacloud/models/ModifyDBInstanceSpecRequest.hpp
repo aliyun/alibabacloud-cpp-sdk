@@ -13,6 +13,7 @@ namespace Models
   class ModifyDBInstanceSpecRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceSpecRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllocateStrategy, allocateStrategy_);
       DARABONBA_PTR_TO_JSON(AllowMajorVersionUpgrade, allowMajorVersionUpgrade_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneIdSlave1, zoneIdSlave1_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceSpecRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllocateStrategy, allocateStrategy_);
       DARABONBA_PTR_FROM_JSON(AllowMajorVersionUpgrade, allowMajorVersionUpgrade_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
@@ -183,14 +185,21 @@ namespace Models
       shared_ptr<bool> switchForce_ {};
     };
 
-    virtual bool empty() const override { return this->allowMajorVersionUpgrade_ == nullptr
-        && this->autoUseCoupon_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->coldDataEnabled_ == nullptr && this->compressionMode_ == nullptr
-        && this->DBInstanceClass_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceStorageType_ == nullptr && this->dedicatedHostGroupId_ == nullptr
-        && this->direction_ == nullptr && this->effectiveTime_ == nullptr && this->engineVersion_ == nullptr && this->ioAccelerationEnabled_ == nullptr && this->optimizedWrites_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->payType_ == nullptr && this->promotionCode_ == nullptr && this->readOnlyDBInstanceClass_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->serverlessConfiguration_ == nullptr && this->sourceBiz_ == nullptr
-        && this->switchTime_ == nullptr && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr
-        && this->zoneIdSlave1_ == nullptr; };
+    virtual bool empty() const override { return this->allocateStrategy_ == nullptr
+        && this->allowMajorVersionUpgrade_ == nullptr && this->autoUseCoupon_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->coldDataEnabled_ == nullptr
+        && this->compressionMode_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceStorageType_ == nullptr
+        && this->dedicatedHostGroupId_ == nullptr && this->direction_ == nullptr && this->effectiveTime_ == nullptr && this->engineVersion_ == nullptr && this->ioAccelerationEnabled_ == nullptr
+        && this->optimizedWrites_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->payType_ == nullptr && this->promotionCode_ == nullptr
+        && this->readOnlyDBInstanceClass_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->serverlessConfiguration_ == nullptr
+        && this->sourceBiz_ == nullptr && this->switchTime_ == nullptr && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr && this->zoneIdSlave1_ == nullptr; };
+    // allocateStrategy Field Functions 
+    bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
+    void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};
+    inline string getAllocateStrategy() const { DARABONBA_PTR_GET_DEFAULT(allocateStrategy_, "") };
+    inline ModifyDBInstanceSpecRequest& setAllocateStrategy(string allocateStrategy) { DARABONBA_PTR_SET_VALUE(allocateStrategy_, allocateStrategy) };
+
+
     // allowMajorVersionUpgrade Field Functions 
     bool hasAllowMajorVersionUpgrade() const { return this->allowMajorVersionUpgrade_ != nullptr;};
     void deleteAllowMajorVersionUpgrade() { this->allowMajorVersionUpgrade_ = nullptr;};
@@ -418,6 +427,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> allocateStrategy_ {};
     // Specifies whether to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance. For more information, see [Upgrade the major engine version](https://help.aliyun.com/document_detail/127458.html). Valid values:
     // 
     // *   **true**

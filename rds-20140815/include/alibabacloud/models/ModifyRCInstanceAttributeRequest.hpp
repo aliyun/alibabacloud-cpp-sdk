@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyRCInstanceAttributeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_TO_JSON(EnableJumboFrame, enableJumboFrame_);
       DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
@@ -27,6 +28,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyRCInstanceAttributeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_FROM_JSON(EnableJumboFrame, enableJumboFrame_);
       DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
@@ -49,13 +51,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deletionProtection_ == nullptr
-        && this->hostName_ == nullptr && this->instanceId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr && this->password_ == nullptr
-        && this->reboot_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr; };
+        && this->enableJumboFrame_ == nullptr && this->hostName_ == nullptr && this->instanceId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr
+        && this->password_ == nullptr && this->reboot_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr; };
     // deletionProtection Field Functions 
     bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
     inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
     inline ModifyRCInstanceAttributeRequest& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
+
+
+    // enableJumboFrame Field Functions 
+    bool hasEnableJumboFrame() const { return this->enableJumboFrame_ != nullptr;};
+    void deleteEnableJumboFrame() { this->enableJumboFrame_ = nullptr;};
+    inline bool getEnableJumboFrame() const { DARABONBA_PTR_GET_DEFAULT(enableJumboFrame_, false) };
+    inline ModifyRCInstanceAttributeRequest& setEnableJumboFrame(bool enableJumboFrame) { DARABONBA_PTR_SET_VALUE(enableJumboFrame_, enableJumboFrame) };
 
 
     // hostName Field Functions 
@@ -131,6 +140,7 @@ namespace Models
     // - **true**: enables the release protection feature.
     // - **false** (default): does not enable the release protection feature.
     shared_ptr<bool> deletionProtection_ {};
+    shared_ptr<bool> enableJumboFrame_ {};
     // The hostname of the instance.
     shared_ptr<string> hostName_ {};
     // The instance ID.

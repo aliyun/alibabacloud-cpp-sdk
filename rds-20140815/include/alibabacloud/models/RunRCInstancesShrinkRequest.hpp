@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
       DARABONBA_PTR_TO_JSON(IoOptimized, ioOptimized_);
       DARABONBA_PTR_TO_JSON(KeyPairName, keyPairName_);
+      DARABONBA_PTR_TO_JSON(NetworkOptions, networkOptionsShrink_);
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(PasswordInherit, passwordInherit_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -82,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
       DARABONBA_PTR_FROM_JSON(IoOptimized, ioOptimized_);
       DARABONBA_PTR_FROM_JSON(KeyPairName, keyPairName_);
+      DARABONBA_PTR_FROM_JSON(NetworkOptions, networkOptionsShrink_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(PasswordInherit, passwordInherit_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -161,11 +163,11 @@ namespace Models
         && this->createAckEdgeParamShrink_ == nullptr && this->createExtraParam_ == nullptr && this->createMode_ == nullptr && this->dataDiskShrink_ == nullptr && this->deletionProtection_ == nullptr
         && this->deploymentSetId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
         && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
-        && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIdsShrink_ == nullptr && this->spotStrategy_ == nullptr
-        && this->supportCase_ == nullptr && this->systemDiskShrink_ == nullptr && this->tag_ == nullptr && this->userData_ == nullptr && this->userDataInBase64_ == nullptr
-        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->networkOptionsShrink_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIdsShrink_ == nullptr
+        && this->spotStrategy_ == nullptr && this->supportCase_ == nullptr && this->systemDiskShrink_ == nullptr && this->tag_ == nullptr && this->userData_ == nullptr
+        && this->userDataInBase64_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // acuType Field Functions 
     bool hasAcuType() const { return this->acuType_ != nullptr;};
     void deleteAcuType() { this->acuType_ = nullptr;};
@@ -325,6 +327,13 @@ namespace Models
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
     inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline RunRCInstancesShrinkRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
+
+
+    // networkOptionsShrink Field Functions 
+    bool hasNetworkOptionsShrink() const { return this->networkOptionsShrink_ != nullptr;};
+    void deleteNetworkOptionsShrink() { this->networkOptionsShrink_ = nullptr;};
+    inline string getNetworkOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(networkOptionsShrink_, "") };
+    inline RunRCInstancesShrinkRequest& setNetworkOptionsShrink(string networkOptionsShrink) { DARABONBA_PTR_SET_VALUE(networkOptionsShrink_, networkOptionsShrink) };
 
 
     // password Field Functions 
@@ -524,6 +533,7 @@ namespace Models
     shared_ptr<string> ioOptimized_ {};
     // The name of the AccessKey pair. You can specify only one name.
     shared_ptr<string> keyPairName_ {};
+    shared_ptr<string> networkOptionsShrink_ {};
     // The password of the account that is used to log on to the instance.
     shared_ptr<string> password_ {};
     shared_ptr<bool> passwordInherit_ {};
