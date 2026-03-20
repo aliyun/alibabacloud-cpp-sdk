@@ -21,6 +21,74 @@ namespace Datahub20240620
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 创建Project资源
+       *
+       * @param request CreateProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProjectResponse
+       */
+      Models::CreateProjectResponse createProjectWithOptions(const Models::CreateProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Project资源
+       *
+       * @param request CreateProjectRequest
+       * @return CreateProjectResponse
+       */
+      Models::CreateProjectResponse createProject(const Models::CreateProjectRequest &request);
+
+      /**
+       * @summary 创建Topic资源
+       *
+       * @param request CreateTopicRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTopicResponse
+       */
+      Models::CreateTopicResponse createTopicWithOptions(const Models::CreateTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Topic资源
+       *
+       * @param request CreateTopicRequest
+       * @return CreateTopicResponse
+       */
+      Models::CreateTopicResponse createTopic(const Models::CreateTopicRequest &request);
+
+      /**
+       * @summary 删除Project资源
+       *
+       * @param request DeleteProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectResponse
+       */
+      Models::DeleteProjectResponse deleteProjectWithOptions(const Models::DeleteProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Project资源
+       *
+       * @param request DeleteProjectRequest
+       * @return DeleteProjectResponse
+       */
+      Models::DeleteProjectResponse deleteProject(const Models::DeleteProjectRequest &request);
+
+      /**
+       * @summary 删除Topic资源
+       *
+       * @param request DeleteTopicRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTopicResponse
+       */
+      Models::DeleteTopicResponse deleteTopicWithOptions(const Models::DeleteTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Topic资源
+       *
+       * @param request DeleteTopicRequest
+       * @return DeleteTopicResponse
+       */
+      Models::DeleteTopicResponse deleteTopic(const Models::DeleteTopicRequest &request);
+
+      /**
        * @summary 查询Connector信息
        *
        * @param request GetConnectorRequest
@@ -257,6 +325,40 @@ namespace Datahub20240620
        * @return PutRecordsResponse
        */
       Models::PutRecordsResponse putRecords(const Models::PutRecordsRequest &request);
+
+      /**
+       * @summary 更新Project资源属性
+       *
+       * @param request UpdateProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProjectResponse
+       */
+      Models::UpdateProjectResponse updateProjectWithOptions(const Models::UpdateProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Project资源属性
+       *
+       * @param request UpdateProjectRequest
+       * @return UpdateProjectResponse
+       */
+      Models::UpdateProjectResponse updateProject(const Models::UpdateProjectRequest &request);
+
+      /**
+       * @summary 更新Topic资源属性
+       *
+       * @param request UpdateTopicRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTopicResponse
+       */
+      Models::UpdateTopicResponse updateTopicWithOptions(const Models::UpdateTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Topic资源属性
+       *
+       * @param request UpdateTopicRequest
+       * @return UpdateTopicResponse
+       */
+      Models::UpdateTopicResponse updateTopic(const Models::UpdateTopicRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Datahub20240620

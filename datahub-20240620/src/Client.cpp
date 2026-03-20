@@ -36,6 +36,214 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 创建Project资源
+ *
+ * @param request CreateProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProjectResponse
+ */
+CreateProjectResponse Client::createProjectWithOptions(const CreateProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateProject"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProjectResponse>();
+}
+
+/**
+ * @summary 创建Project资源
+ *
+ * @param request CreateProjectRequest
+ * @return CreateProjectResponse
+ */
+CreateProjectResponse Client::createProject(const CreateProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建Topic资源
+ *
+ * @param request CreateTopicRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTopicResponse
+ */
+CreateTopicResponse Client::createTopicWithOptions(const CreateTopicRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasEnableSchemaRegistry()) {
+    query["EnableSchemaRegistry"] = request.getEnableSchemaRegistry();
+  }
+
+  if (!!request.hasExpandMode()) {
+    query["ExpandMode"] = request.getExpandMode();
+  }
+
+  if (!!request.hasLifecycle()) {
+    query["Lifecycle"] = request.getLifecycle();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasRecordSchema()) {
+    query["RecordSchema"] = request.getRecordSchema();
+  }
+
+  if (!!request.hasRecordType()) {
+    query["RecordType"] = request.getRecordType();
+  }
+
+  if (!!request.hasShardCount()) {
+    query["ShardCount"] = request.getShardCount();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTopic"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTopicResponse>();
+}
+
+/**
+ * @summary 创建Topic资源
+ *
+ * @param request CreateTopicRequest
+ * @return CreateTopicResponse
+ */
+CreateTopicResponse Client::createTopic(const CreateTopicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTopicWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除Project资源
+ *
+ * @param request DeleteProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProjectWithOptions(const DeleteProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProject"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProjectResponse>();
+}
+
+/**
+ * @summary 删除Project资源
+ *
+ * @param request DeleteProjectRequest
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProject(const DeleteProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除Topic资源
+ *
+ * @param request DeleteTopicRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTopicResponse
+ */
+DeleteTopicResponse Client::deleteTopicWithOptions(const DeleteTopicRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTopic"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTopicResponse>();
+}
+
+/**
+ * @summary 删除Topic资源
+ *
+ * @param request DeleteTopicRequest
+ * @return DeleteTopicResponse
+ */
+DeleteTopicResponse Client::deleteTopic(const DeleteTopicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTopicWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询Connector信息
  *
  * @param request GetConnectorRequest
@@ -799,6 +1007,102 @@ PutRecordsResponse Client::putRecordsWithOptions(const PutRecordsRequest &tmpReq
 PutRecordsResponse Client::putRecords(const PutRecordsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return putRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新Project资源属性
+ *
+ * @param request UpdateProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProjectResponse
+ */
+UpdateProjectResponse Client::updateProjectWithOptions(const UpdateProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateProject"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProjectResponse>();
+}
+
+/**
+ * @summary 更新Project资源属性
+ *
+ * @param request UpdateProjectRequest
+ * @return UpdateProjectResponse
+ */
+UpdateProjectResponse Client::updateProject(const UpdateProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新Topic资源属性
+ *
+ * @param request UpdateTopicRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTopicResponse
+ */
+UpdateTopicResponse Client::updateTopicWithOptions(const UpdateTopicRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateTopic"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTopicResponse>();
+}
+
+/**
+ * @summary 更新Topic资源属性
+ *
+ * @param request UpdateTopicRequest
+ * @return UpdateTopicResponse
+ */
+UpdateTopicResponse Client::updateTopic(const UpdateTopicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateTopicWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Datahub20240620

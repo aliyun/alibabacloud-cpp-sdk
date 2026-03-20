@@ -2,6 +2,18 @@
 #ifndef ALIBABACLOUD_DATAHUB20240620MODEL_HPP_
 #define ALIBABACLOUD_DATAHUB20240620MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateProjectRequest.hpp>
+#include <alibabacloud/models/CreateProjectResponseBody.hpp>
+#include <alibabacloud/models/CreateProjectResponse.hpp>
+#include <alibabacloud/models/CreateTopicRequest.hpp>
+#include <alibabacloud/models/CreateTopicResponseBody.hpp>
+#include <alibabacloud/models/CreateTopicResponse.hpp>
+#include <alibabacloud/models/DeleteProjectRequest.hpp>
+#include <alibabacloud/models/DeleteProjectResponseBody.hpp>
+#include <alibabacloud/models/DeleteProjectResponse.hpp>
+#include <alibabacloud/models/DeleteTopicRequest.hpp>
+#include <alibabacloud/models/DeleteTopicResponseBody.hpp>
+#include <alibabacloud/models/DeleteTopicResponse.hpp>
 #include <alibabacloud/models/GetConnectorRequest.hpp>
 #include <alibabacloud/models/GetConnectorResponseBody.hpp>
 #include <alibabacloud/models/GetConnectorResponse.hpp>
@@ -45,5 +57,11 @@
 #include <alibabacloud/models/PutRecordsShrinkRequest.hpp>
 #include <alibabacloud/models/PutRecordsResponseBody.hpp>
 #include <alibabacloud/models/PutRecordsResponse.hpp>
+#include <alibabacloud/models/UpdateProjectRequest.hpp>
+#include <alibabacloud/models/UpdateProjectResponseBody.hpp>
+#include <alibabacloud/models/UpdateProjectResponse.hpp>
+#include <alibabacloud/models/UpdateTopicRequest.hpp>
+#include <alibabacloud/models/UpdateTopicResponseBody.hpp>
+#include <alibabacloud/models/UpdateTopicResponse.hpp>
 
 #endif
