@@ -112,14 +112,28 @@ namespace Models
 
 
   protected:
+    // The token that is used to access the service group.
     shared_ptr<string> accessToken_ {};
+    // The region where the service group resides.
     shared_ptr<string> clusterId_ {};
+    // The time when the service group was created. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
+    // The public endpoint of the service group.
     shared_ptr<string> internetEndpoint_ {};
+    // The internal endpoint of the service group.
     shared_ptr<string> intranetEndpoint_ {};
+    // The name of the service group.
     shared_ptr<string> name_ {};
+    // The queue service that is included in the service group.
     shared_ptr<string> queueService_ {};
+    // The traffic mode.
+    // 
+    // Valid values:
+    // 
+    // *   auto: The traffic is automatically allocated based on the number of instances.
+    // *   customized: The traffic is allocated based on the custom weight.
     shared_ptr<string> trafficMode_ {};
+    // The time when the service group was updated. The time is displayed in UTC.
     shared_ptr<string> updateTime_ {};
   };
 

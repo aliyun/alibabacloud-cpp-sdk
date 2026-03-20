@@ -315,6 +315,24 @@ namespace Eas20210701
       Models::CreateServiceCronScalerResponse createServiceCronScaler(const string &ClusterId, const string &ServiceName, const Models::CreateServiceCronScalerRequest &request);
 
       /**
+       * @summary 创建连接服务的token
+       *
+       * @param request CreateServiceInstanceTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceInstanceTokenResponse
+       */
+      Models::CreateServiceInstanceTokenResponse createServiceInstanceTokenWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::CreateServiceInstanceTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建连接服务的token
+       *
+       * @param request CreateServiceInstanceTokenRequest
+       * @return CreateServiceInstanceTokenResponse
+       */
+      Models::CreateServiceInstanceTokenResponse createServiceInstanceToken(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::CreateServiceInstanceTokenRequest &request);
+
+      /**
        * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
        *
        * @param request CreateServiceMirrorRequest
@@ -417,7 +435,7 @@ namespace Eas20210701
       Models::DeleteGatewayResponse deleteGateway(const string &ClusterId, const string &GatewayId);
 
       /**
-       * @summary 删除网关内网访问端点
+       * @summary Deletes an internal endpoint of a private gateway.
        *
        * @param request DeleteGatewayIntranetLinkedVpcRequest
        * @param headers map
@@ -427,7 +445,7 @@ namespace Eas20210701
       Models::DeleteGatewayIntranetLinkedVpcResponse deleteGatewayIntranetLinkedVpcWithOptions(const string &ClusterId, const string &GatewayId, const Models::DeleteGatewayIntranetLinkedVpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网关内网访问端点
+       * @summary Deletes an internal endpoint of a private gateway.
        *
        * @param request DeleteGatewayIntranetLinkedVpcRequest
        * @return DeleteGatewayIntranetLinkedVpcResponse

@@ -140,17 +140,79 @@ namespace Models
 
 
   protected:
+    // The maximum number of CPU cores.
     shared_ptr<int32_t> cpuLimit_ {};
+    // The number of CPU cores that you applied for.
     shared_ptr<int32_t> cpuRequest_ {};
+    // The maximum number of GPUs.
     shared_ptr<int32_t> gpuLimit_ {};
+    // The number of GPUs that you applied for.
     shared_ptr<int32_t> gpuRequest_ {};
+    // The maximum memory size.
     shared_ptr<int32_t> memoryLimit_ {};
+    // The memory size that you applied for.
     shared_ptr<int32_t> memoryRquest_ {};
+    // The name of the service instance.
     shared_ptr<string> name_ {};
+    // Indicates whether the instance worker is ready.
     shared_ptr<bool> ready_ {};
+    // The number of times the instance worker restarted.
     shared_ptr<int32_t> restartCount_ {};
+    // The service name.
     shared_ptr<string> serviceName_ {};
+    // The time when the instance worker started.
     shared_ptr<string> startTime_ {};
+    // The instance state.
+    // 
+    // Valid values:
+    // 
+    // *   Terminating
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   Succeeded
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   Unknown
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   Failed
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   Running
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   Pending
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
     shared_ptr<string> status_ {};
   };
 

@@ -120,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the instance.
       shared_ptr<string> labelKey_ {};
+      // The tag value of the instance.
       shared_ptr<string> labelValue_ {};
     };
 
@@ -323,32 +325,62 @@ namespace Models
 
 
   protected:
+    // The system architecture of the instance.
     shared_ptr<string> arch_ {};
+    // Indicates whether auto-renewal is enabled for the instance.
     shared_ptr<bool> autoRenewal_ {};
+    // The billing method of the instance.
     shared_ptr<string> chargeType_ {};
+    // The time when the instance was created.
     shared_ptr<string> createTime_ {};
+    // The time when the instance expires.
     shared_ptr<string> expiredTime_ {};
+    // The number of CPU cores for the instance.
     shared_ptr<int32_t> instanceCpuCount_ {};
+    // The number of GPUs for the instance.
     shared_ptr<int32_t> instanceGpuCount_ {};
+    // The GPU memory size of the instance.
     shared_ptr<string> instanceGpuMemory_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The IP address of the instance.
     shared_ptr<string> instanceIp_ {};
+    // The memory size of the instance.
     shared_ptr<string> instanceMemory_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> instancePhase_ {};
+    // The instance status.
+    // 
+    // Valid values:
+    // 
+    // *   Ready-SchedulingDisabled
+    // *   Ready
+    // *   NotReady
     shared_ptr<string> instanceStatus_ {};
+    // The system disk size of the instance.
     shared_ptr<int32_t> instanceSystemDiskSize_ {};
+    // The IP address of the instance in the VPC.
     shared_ptr<string> instanceTenantIp_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // The number of CPU cores used by the instance.
     shared_ptr<float> instanceUsedCpu_ {};
+    // The number of GPUs used by the instance.
     shared_ptr<float> instanceUsedGpu_ {};
+    // The size of the GPU memory used by the instance.
     shared_ptr<string> instanceUsedGpuMemory_ {};
+    // The size of the memory used by the instance.
     shared_ptr<string> instanceUsedMemory_ {};
+    // The instance tags.
     shared_ptr<vector<ResourceInstance::Labels>> labels_ {};
     shared_ptr<string> lastCordonOperator_ {};
     shared_ptr<string> lastCordonReason_ {};
+    // The region ID of the instance.
     shared_ptr<string> region_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceId_ {};
+    // The ID of the zone to which the instance belongs.
     shared_ptr<string> zone_ {};
   };
 

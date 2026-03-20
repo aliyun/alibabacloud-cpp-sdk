@@ -61,6 +61,9 @@
 #include <alibabacloud/models/CreateServiceCronScalerRequest.hpp>
 #include <alibabacloud/models/CreateServiceCronScalerResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceCronScalerResponse.hpp>
+#include <alibabacloud/models/CreateServiceInstanceTokenRequest.hpp>
+#include <alibabacloud/models/CreateServiceInstanceTokenResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceInstanceTokenResponse.hpp>
 #include <alibabacloud/models/CreateServiceMirrorRequest.hpp>
 #include <alibabacloud/models/CreateServiceMirrorResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceMirrorResponse.hpp>

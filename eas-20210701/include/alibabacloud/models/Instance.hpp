@@ -308,35 +308,70 @@ namespace Models
 
 
   protected:
+    // The current hourly price of the spot instance.
     shared_ptr<float> currentAmount_ {};
     shared_ptr<bool> detached_ {};
+    // The IP address of the instance in the user-created VPC.
     shared_ptr<string> externalIP_ {};
+    // The port number of the instance in the user-created VPC.
     shared_ptr<int32_t> externalInstancePort_ {};
+    // The IP address of the host where the instance resides.
     shared_ptr<string> hostIP_ {};
+    // The name of the host where the instance resides.
     shared_ptr<string> hostName_ {};
+    // The internal IP address of the instance.
     shared_ptr<string> innerIP_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The network port of the instance.
     shared_ptr<int32_t> instancePort_ {};
+    // The instance specification.
     shared_ptr<string> instanceType_ {};
     shared_ptr<bool> isLatest_ {};
     shared_ptr<bool> isReplica_ {};
+    // Indicates whether the instance is a spot instance.
     shared_ptr<bool> isSpot_ {};
+    // Indicates whether the instance is isolated.
     shared_ptr<bool> isolated_ {};
+    // The last state of the instance.
     shared_ptr<vector<Darabonba::Json>> lastState_ {};
+    // The namespace of the instance.
     shared_ptr<string> namespace_ {};
+    // The original hourly price of the spot instance before a discount is used.
     shared_ptr<float> originalAmount_ {};
+    // The number of processes that have started for the instance.
     shared_ptr<int32_t> readyProcesses_ {};
+    // The reason for which the instance is in the current state.
     shared_ptr<string> reason_ {};
     shared_ptr<string> replicaName_ {};
+    // The type of the resource group to which the instance belongs. Valid values: PublicResource and PrivateResource.
     shared_ptr<string> resourceType_ {};
+    // The number of times for which the instance is restarted.
     shared_ptr<int32_t> restartCount_ {};
+    // The service role of the instance. Valid values: Queue, DataLoader, and Standard.
     shared_ptr<string> role_ {};
+    // The time when the instance was started. This parameter is deprecated. StartTime is used instead.
     shared_ptr<string> startAt_ {};
+    // The time when the instance was started.
     shared_ptr<string> startTime_ {};
+    // The current state of the instance.
+    // 
+    // Valid values:
+    // 
+    // *   Terminating
+    // *   Succeeded
+    // *   Unknown
+    // *   Failed
+    // *   Running
+    // *   Pending
     shared_ptr<string> status_ {};
+    // The IP address of the host in the VPC.
     shared_ptr<string> tenantHostIP_ {};
+    // The IP address of the instance in the VPC.
     shared_ptr<string> tenantInstanceIP_ {};
+    // The total number of processes that the instance contains.
     shared_ptr<int32_t> totalProcesses_ {};
+    // The zone to which the instance belongs.
     shared_ptr<string> zone_ {};
   };
 

@@ -170,7 +170,9 @@ namespace Models
 
 
     protected:
+      // The label key.
       shared_ptr<string> labelKey_ {};
+      // The label value.
       shared_ptr<string> labelValue_ {};
     };
 
@@ -607,57 +609,131 @@ namespace Models
 
 
   protected:
+    // The token that is used to access the service.
     shared_ptr<string> accessToken_ {};
+    // The application service configuration.
     shared_ptr<string> appConfig_ {};
+    // The name of the application service specification.
     shared_ptr<string> appSpecName_ {};
+    // The application service type.
     shared_ptr<string> appType_ {};
+    // The application service version.
     shared_ptr<string> appVersion_ {};
     shared_ptr<bool> autoscalerEnabled_ {};
+    // The user ID (UID) of the Alibaba Cloud account that is used to create the service.
     shared_ptr<string> callerUid_ {};
+    // The number of CPU cores that you applied for each instance.
     shared_ptr<int32_t> cpu_ {};
+    // The time when the service was created. The time is displayed in the UTC RFC3339 format.
     shared_ptr<string> createTime_ {};
     shared_ptr<bool> cronscalerEnabled_ {};
+    // The version of the model that is running.
     shared_ptr<int32_t> currentVersion_ {};
+    // The additional information about the service.
     shared_ptr<string> extraData_ {};
     shared_ptr<int32_t> GPUCorePercentage_ {};
     shared_ptr<int32_t> GPUMemory_ {};
+    // The ID of the dedicated gateway for the service. This parameter is available only for services that are associated with dedicated gateways.
     shared_ptr<string> gateway_ {};
+    // The number of GPUs that you applied for each instance.
     shared_ptr<int32_t> gpu_ {};
+    // The data image of the service.
     shared_ptr<string> image_ {};
     shared_ptr<Service::InstanceCountInResource> instanceCountInResource_ {};
+    // The public endpoint of the service. This parameter is returned only in the DescribeService API operation.
     shared_ptr<string> internetEndpoint_ {};
+    // The internal endpoint of the service. This parameter is returned only in the DescribeService API operation.
     shared_ptr<string> intranetEndpoint_ {};
+    // The labels.
     shared_ptr<vector<Service::Labels>> labels_ {};
+    // The latest version of the service.
     shared_ptr<int32_t> latestVersion_ {};
+    // The memory size that you applied for each instance. Unit: MB.
     shared_ptr<int32_t> memory_ {};
+    // The service summary.
     shared_ptr<string> message_ {};
+    // The namespace in which the service resides.
     shared_ptr<string> namespace_ {};
+    // The UID of the Alibaba Cloud account that is used to create the service.
     shared_ptr<string> parentUid_ {};
+    // The number of instances for the pending service.
     shared_ptr<int32_t> pendingInstance_ {};
+    // The quota ID for the service. This parameter is available only for services deployed by using Lingjun resource quotas.
     shared_ptr<string> quotaId_ {};
+    // The reason for which the service is in the current state.
     shared_ptr<string> reason_ {};
+    // The region in which the service resides.
     shared_ptr<string> region_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource group to which the service belongs.
     shared_ptr<string> resource_ {};
+    // The alias of the resource group to which the service belongs.
     shared_ptr<string> resourceAlias_ {};
     shared_ptr<bool> resourceBurstable_ {};
+    // The service role.
     shared_ptr<string> role_ {};
+    // The additional attributes of the service role. This parameter is returned only in the DescribeService API operation.
     shared_ptr<string> roleAttrs_ {};
+    // The number of instances for the running service.
     shared_ptr<int32_t> runningInstance_ {};
+    // The security lock of the service.
+    // 
+    // Valid values:
+    // 
+    // *   all: forbids all operations.
+    // *   dangerous: forbids the operation of deleting or stopping the service.
+    // *   none: forbids no operations.
     shared_ptr<string> safetyLock_ {};
+    // The public endpoint that is used in the asynchronization request of the service. This parameter is returned only in the DescribeService API operation.
     shared_ptr<string> secondaryInternetEndpoint_ {};
+    // The internal endpoint that is used in the asynchronization request of the service. This parameter is returned only in the DescribeService API operation.
     shared_ptr<string> secondaryIntranetEndpoint_ {};
+    // The service configurations.
     shared_ptr<string> serviceConfig_ {};
+    // The group to which the service belongs.
     shared_ptr<string> serviceGroup_ {};
+    // The unique ID of the service.
     shared_ptr<string> serviceId_ {};
+    // The service name.
     shared_ptr<string> serviceName_ {};
+    // The service ID. ServiceUid has the same meaning as ServiceId, and the values of the two parameters are the same.
     shared_ptr<string> serviceUid_ {};
+    // The source from which the service deployment request is initiated.
     shared_ptr<string> source_ {};
+    // The service status.
+    // 
+    // Valid values:
+    // 
+    // *   Creating
+    // *   Deploying
+    // *   Stopped
+    // *   Failed
+    // *   Updating
+    // *   Stopping
+    // *   Waiting
+    // *   HotUpdate
+    // *   Starting
+    // *   DeleteFailed
+    // *   Running
+    // *   Scaling
+    // *   Pending
+    // *   Deleting
     shared_ptr<string> status_ {};
+    // The total number of instances for the service.
     shared_ptr<int32_t> totalInstance_ {};
+    // The traffic state.
+    // 
+    // Valid values:
+    // 
+    // *   standalone: independent traffic.
+    // *   grouping: grouped traffic.
     shared_ptr<string> trafficState_ {};
+    // The time when the service was updated. The time is displayed in the UTC RFC3339 format.
     shared_ptr<string> updateTime_ {};
+    // The weight of the service in canary release.
     shared_ptr<int32_t> weight_ {};
+    // The ID of the workspace to which the service belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

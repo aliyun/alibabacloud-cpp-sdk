@@ -246,28 +246,51 @@ namespace Models
 
 
   protected:
+    // The information about the clusters.
     shared_ptr<string> clusterId_ {};
+    // The total number of CPU cores.
     shared_ptr<int32_t> cpuCount_ {};
     shared_ptr<int32_t> cpuUsed_ {};
+    // The time when the instance was created.
     shared_ptr<string> createTime_ {};
+    // The additional information.
     Darabonba::Json extraData_ {};
     shared_ptr<vector<string>> features_ {};
+    // The total number of GPUs.
     shared_ptr<int32_t> gpuCount_ {};
     shared_ptr<float> gpuUsed_ {};
+    // The total number of instances. It is equal to the number of subscription instances plus the number of pay-as-you-go instances.
     shared_ptr<int32_t> instanceCount_ {};
     shared_ptr<int32_t> instanceMaxAllocatableCPU_ {};
     shared_ptr<float> instanceMaxAllocatableGPU_ {};
     shared_ptr<int32_t> instanceMaxAllocatableMemory_ {};
     shared_ptr<int32_t> memory_ {};
     shared_ptr<int32_t> memoryUsed_ {};
+    // The latest message about the resource group.
     shared_ptr<string> message_ {};
+    // The number of pay-as-you-go instances.
     shared_ptr<int32_t> postPaidInstanceCount_ {};
+    // The number of subscription instances.
     shared_ptr<int32_t> prePaidInstanceCount_ {};
+    // The resource group ID.
     shared_ptr<string> resourceId_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceName_ {};
+    // The type of the resource group. Valid values:
+    // 
+    // *   Dedicated: the dedicated resource group.
+    // *   SelfManaged: the self-managed resource group.
     shared_ptr<string> resourceType_ {};
+    // The status of the resource group.
     shared_ptr<string> status_ {};
+    // The time when the instance was last updated.
     shared_ptr<string> updateTime_ {};
+    // The vendor of the resource group instances.
+    // 
+    // Valid values:
+    // 
+    // *   ECS
+    // *   BareMetal
     shared_ptr<string> vendor_ {};
   };
 

@@ -114,11 +114,29 @@ namespace Models
 
 
     protected:
+      // The backend access ID, which varies based on the value of the EndpointType parameter.
+      // 
+      // *   If you set EndpointType to DefaultGateway, the value of this parameter is default.
+      // *   If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
+      // *   If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
+      // *   If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
       shared_ptr<string> backendId_ {};
+      // The service endpoint type. Valid values:
+      // 
+      // *   DefaultGateway: the shared gateway.
+      // *   PrivateGateway: the dedicated gateway.
+      // *   Nlb: Associate the service with the Network Load Balancer (NLB) instance.
+      // *   Nacos: Associate the service with the Nacos instance.
       shared_ptr<string> endpointType_ {};
+      // The full endpoint.
       shared_ptr<vector<string>> internetEndpoints_ {};
+      // The full endpoint.
       shared_ptr<vector<string>> intranetEndpoints_ {};
+      // The path type. Valid values:
+      // 
+      // *   Group: the path of the service group.
       shared_ptr<string> pathType_ {};
+      // The port number. This parameter takes effect only when you associate the service with an NLB or Nacos instance.
       shared_ptr<int32_t> port_ {};
     };
 

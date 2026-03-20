@@ -980,6 +980,55 @@ CreateServiceCronScalerResponse Client::createServiceCronScaler(const string &Cl
 }
 
 /**
+ * @summary 创建连接服务的token
+ *
+ * @param request CreateServiceInstanceTokenRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceInstanceTokenResponse
+ */
+CreateServiceInstanceTokenResponse Client::createServiceInstanceTokenWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const CreateServiceInstanceTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionType()) {
+    query["ActionType"] = request.getActionType();
+  }
+
+  if (!!request.hasWorkerName()) {
+    query["WorkerName"] = request.getWorkerName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateServiceInstanceToken"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/services/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ServiceName) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceName) , "/token")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceInstanceTokenResponse>();
+}
+
+/**
+ * @summary 创建连接服务的token
+ *
+ * @param request CreateServiceInstanceTokenRequest
+ * @return CreateServiceInstanceTokenResponse
+ */
+CreateServiceInstanceTokenResponse Client::createServiceInstanceToken(const string &ClusterId, const string &ServiceName, const string &InstanceName, const CreateServiceInstanceTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createServiceInstanceTokenWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
+}
+
+/**
  * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
  *
  * @param request CreateServiceMirrorRequest
@@ -1245,7 +1294,7 @@ DeleteGatewayResponse Client::deleteGateway(const string &ClusterId, const strin
 }
 
 /**
- * @summary 删除网关内网访问端点
+ * @summary Deletes an internal endpoint of a private gateway.
  *
  * @param request DeleteGatewayIntranetLinkedVpcRequest
  * @param headers map
@@ -1282,7 +1331,7 @@ DeleteGatewayIntranetLinkedVpcResponse Client::deleteGatewayIntranetLinkedVpcWit
 }
 
 /**
- * @summary 删除网关内网访问端点
+ * @summary Deletes an internal endpoint of a private gateway.
  *
  * @param request DeleteGatewayIntranetLinkedVpcRequest
  * @return DeleteGatewayIntranetLinkedVpcResponse
