@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GPUMemory, GPUMemory_);
       DARABONBA_PTR_TO_JSON(GPUType, GPUType_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
+      DARABONBA_PTR_TO_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_TO_JSON(GmtExpiredTime, gmtExpiredTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(HyperZone, hyperZone_);
@@ -75,6 +76,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GPUMemory, GPUMemory_);
       DARABONBA_PTR_FROM_JSON(GPUType, GPUType_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
+      DARABONBA_PTR_FROM_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_FROM_JSON(GmtExpiredTime, gmtExpiredTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(HyperZone, hyperZone_);
@@ -117,13 +119,13 @@ namespace Models
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
         && this->allocatableCPU_ == nullptr && this->allocatableMemory_ == nullptr && this->ancestorQuotaWorkloadNum_ == nullptr && this->availabilityZone_ == nullptr && this->boundQuotas_ == nullptr
         && this->CPU_ == nullptr && this->creatorId_ == nullptr && this->descendantQuotaWorkloadNum_ == nullptr && this->diskCapacity_ == nullptr && this->diskPL_ == nullptr
-        && this->GPU_ == nullptr && this->GPUMemory_ == nullptr && this->GPUType_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtExpiredTime_ == nullptr
-        && this->gmtModifiedTime_ == nullptr && this->hyperZone_ == nullptr && this->isBound_ == nullptr && this->limitCPU_ == nullptr && this->limitGPU_ == nullptr
-        && this->limitMemory_ == nullptr && this->machineGroupId_ == nullptr && this->memory_ == nullptr && this->nodeName_ == nullptr && this->nodeStatus_ == nullptr
-        && this->nodeType_ == nullptr && this->orderStatus_ == nullptr && this->podNum_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
-        && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr && this->requestMemory_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr
-        && this->selfQuotaWorkloadNum_ == nullptr && this->subNodes_ == nullptr && this->systemReservedCPU_ == nullptr && this->systemReservedMemory_ == nullptr && this->users_ == nullptr
-        && this->workloadNum_ == nullptr; };
+        && this->GPU_ == nullptr && this->GPUMemory_ == nullptr && this->GPUType_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtCreatedTime_ == nullptr
+        && this->gmtExpiredTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->hyperZone_ == nullptr && this->isBound_ == nullptr && this->limitCPU_ == nullptr
+        && this->limitGPU_ == nullptr && this->limitMemory_ == nullptr && this->machineGroupId_ == nullptr && this->memory_ == nullptr && this->nodeName_ == nullptr
+        && this->nodeStatus_ == nullptr && this->nodeType_ == nullptr && this->orderStatus_ == nullptr && this->podNum_ == nullptr && this->reasonCode_ == nullptr
+        && this->reasonMessage_ == nullptr && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr && this->requestMemory_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceGroupName_ == nullptr && this->selfQuotaWorkloadNum_ == nullptr && this->subNodes_ == nullptr && this->systemReservedCPU_ == nullptr && this->systemReservedMemory_ == nullptr
+        && this->users_ == nullptr && this->workloadNum_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -229,6 +231,13 @@ namespace Models
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
     inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline Node& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
+
+
+    // gmtCreatedTime Field Functions 
+    bool hasGmtCreatedTime() const { return this->gmtCreatedTime_ != nullptr;};
+    void deleteGmtCreatedTime() { this->gmtCreatedTime_ = nullptr;};
+    inline string getGmtCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreatedTime_, "") };
+    inline Node& setGmtCreatedTime(string gmtCreatedTime) { DARABONBA_PTR_SET_VALUE(gmtCreatedTime_, gmtCreatedTime) };
 
 
     // gmtExpiredTime Field Functions 
@@ -440,6 +449,7 @@ namespace Models
     shared_ptr<string> GPUMemory_ {};
     shared_ptr<string> GPUType_ {};
     shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtCreatedTime_ {};
     shared_ptr<string> gmtExpiredTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<string> hyperZone_ {};
