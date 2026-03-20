@@ -81,6 +81,10 @@ AddMemoriesResponse Client::addMemoriesWithOptions(const string &workspace, cons
     body["runId"] = request.getRunId();
   }
 
+  if (!!request.hasTimestamp()) {
+    body["timestamp"] = request.getTimestamp();
+  }
+
   if (!!request.hasUserId()) {
     body["userId"] = request.getUserId();
   }

@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Results& obj) { 
         DARABONBA_PTR_TO_JSON(actorId, actorId_);
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
+        DARABONBA_PTR_TO_JSON(appId, appId_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(hash, hash_);
         DARABONBA_PTR_TO_JSON(id, id_);
@@ -53,6 +54,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Results& obj) { 
         DARABONBA_PTR_FROM_JSON(actorId, actorId_);
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
+        DARABONBA_PTR_FROM_JSON(appId, appId_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(hash, hash_);
         DARABONBA_PTR_FROM_JSON(id, id_);
@@ -76,9 +78,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->actorId_ == nullptr
-        && this->agentId_ == nullptr && this->createdAt_ == nullptr && this->hash_ == nullptr && this->id_ == nullptr && this->memory_ == nullptr
-        && this->metadata_ == nullptr && this->role_ == nullptr && this->runId_ == nullptr && this->score_ == nullptr && this->updatedAt_ == nullptr
-        && this->userId_ == nullptr; };
+        && this->agentId_ == nullptr && this->appId_ == nullptr && this->createdAt_ == nullptr && this->hash_ == nullptr && this->id_ == nullptr
+        && this->memory_ == nullptr && this->metadata_ == nullptr && this->role_ == nullptr && this->runId_ == nullptr && this->score_ == nullptr
+        && this->updatedAt_ == nullptr && this->userId_ == nullptr; };
       // actorId Field Functions 
       bool hasActorId() const { return this->actorId_ != nullptr;};
       void deleteActorId() { this->actorId_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
       void deleteAgentId() { this->agentId_ = nullptr;};
       inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
       inline Results& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
+      // appId Field Functions 
+      bool hasAppId() const { return this->appId_ != nullptr;};
+      void deleteAppId() { this->appId_ = nullptr;};
+      inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+      inline Results& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
       // createdAt Field Functions 
@@ -168,6 +177,7 @@ namespace Models
     protected:
       shared_ptr<string> actorId_ {};
       shared_ptr<string> agentId_ {};
+      shared_ptr<string> appId_ {};
       shared_ptr<string> createdAt_ {};
       shared_ptr<string> hash_ {};
       shared_ptr<string> id_ {};

@@ -13,6 +13,8 @@ namespace Models
   class GetMemoryResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetMemoryResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(agentId, agentId_);
+      DARABONBA_PTR_TO_JSON(appId, appId_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(expirationDate, expirationDate_);
       DARABONBA_PTR_TO_JSON(id, id_);
@@ -22,9 +24,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(organization, organization_);
       DARABONBA_PTR_TO_JSON(owner, owner_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(runId, runId_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
+      DARABONBA_PTR_TO_JSON(userId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, GetMemoryResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(agentId, agentId_);
+      DARABONBA_PTR_FROM_JSON(appId, appId_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(expirationDate, expirationDate_);
       DARABONBA_PTR_FROM_JSON(id, id_);
@@ -34,7 +40,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(organization, organization_);
       DARABONBA_PTR_FROM_JSON(owner, owner_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(runId, runId_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
+      DARABONBA_PTR_FROM_JSON(userId, userId_);
     };
     GetMemoryResponseBody() = default ;
     GetMemoryResponseBody(const GetMemoryResponseBody &) = default ;
@@ -47,9 +55,24 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->expirationDate_ == nullptr && this->id_ == nullptr && this->immutable_ == nullptr && this->memory_ == nullptr && this->metadata_ == nullptr
-        && this->organization_ == nullptr && this->owner_ == nullptr && this->requestId_ == nullptr && this->updatedAt_ == nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && this->appId_ == nullptr && this->createdAt_ == nullptr && this->expirationDate_ == nullptr && this->id_ == nullptr && this->immutable_ == nullptr
+        && this->memory_ == nullptr && this->metadata_ == nullptr && this->organization_ == nullptr && this->owner_ == nullptr && this->requestId_ == nullptr
+        && this->runId_ == nullptr && this->updatedAt_ == nullptr && this->userId_ == nullptr; };
+    // agentId Field Functions 
+    bool hasAgentId() const { return this->agentId_ != nullptr;};
+    void deleteAgentId() { this->agentId_ = nullptr;};
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline GetMemoryResponseBody& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
+    // appId Field Functions 
+    bool hasAppId() const { return this->appId_ != nullptr;};
+    void deleteAppId() { this->appId_ = nullptr;};
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline GetMemoryResponseBody& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -113,6 +136,13 @@ namespace Models
     inline GetMemoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // runId Field Functions 
+    bool hasRunId() const { return this->runId_ != nullptr;};
+    void deleteRunId() { this->runId_ = nullptr;};
+    inline string getRunId() const { DARABONBA_PTR_GET_DEFAULT(runId_, "") };
+    inline GetMemoryResponseBody& setRunId(string runId) { DARABONBA_PTR_SET_VALUE(runId_, runId) };
+
+
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -120,7 +150,16 @@ namespace Models
     inline GetMemoryResponseBody& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline GetMemoryResponseBody& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
   protected:
+    shared_ptr<string> agentId_ {};
+    shared_ptr<string> appId_ {};
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> expirationDate_ {};
     shared_ptr<string> id_ {};
@@ -130,7 +169,9 @@ namespace Models
     shared_ptr<string> organization_ {};
     shared_ptr<string> owner_ {};
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> runId_ {};
     shared_ptr<string> updatedAt_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

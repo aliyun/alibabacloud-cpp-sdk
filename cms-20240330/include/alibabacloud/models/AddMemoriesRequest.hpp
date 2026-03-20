@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(messages, messages_);
       DARABONBA_ANY_TO_JSON(metadata, metadata_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
+      DARABONBA_PTR_TO_JSON(timestamp, timestamp_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, AddMemoriesRequest& obj) { 
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(messages, messages_);
       DARABONBA_ANY_FROM_JSON(metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
+      DARABONBA_PTR_FROM_JSON(timestamp, timestamp_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
     };
     AddMemoriesRequest() = default ;
@@ -90,7 +92,7 @@ namespace Models
 
     virtual bool empty() const override { return this->agentId_ == nullptr
         && this->appId_ == nullptr && this->asyncMode_ == nullptr && this->customInstructions_ == nullptr && this->infer_ == nullptr && this->messages_ == nullptr
-        && this->metadata_ == nullptr && this->runId_ == nullptr && this->userId_ == nullptr; };
+        && this->metadata_ == nullptr && this->runId_ == nullptr && this->timestamp_ == nullptr && this->userId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -151,6 +153,13 @@ namespace Models
     inline AddMemoriesRequest& setRunId(string runId) { DARABONBA_PTR_SET_VALUE(runId_, runId) };
 
 
+    // timestamp Field Functions 
+    bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+    void deleteTimestamp() { this->timestamp_ = nullptr;};
+    inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+    inline AddMemoriesRequest& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -167,6 +176,7 @@ namespace Models
     shared_ptr<vector<AddMemoriesRequest::Messages>> messages_ {};
     Darabonba::Json metadata_ {};
     shared_ptr<string> runId_ {};
+    shared_ptr<int64_t> timestamp_ {};
     shared_ptr<string> userId_ {};
   };
 
