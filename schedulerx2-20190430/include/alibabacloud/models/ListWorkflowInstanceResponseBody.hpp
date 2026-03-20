@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTWORKFLOWINSTANCERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTWORKFLOWINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListWorkflowInstanceResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,59 +38,199 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(WfInstanceInfos, wfInstanceInfos_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(WfInstanceInfos, wfInstanceInfos_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class WfInstanceInfos : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const WfInstanceInfos& obj) { 
+          DARABONBA_PTR_TO_JSON(DataTime, dataTime_);
+          DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+          DARABONBA_PTR_TO_JSON(ScheduleTime, scheduleTime_);
+          DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(WfInstanceId, wfInstanceId_);
+          DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
+        };
+        friend void from_json(const Darabonba::Json& j, WfInstanceInfos& obj) { 
+          DARABONBA_PTR_FROM_JSON(DataTime, dataTime_);
+          DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+          DARABONBA_PTR_FROM_JSON(ScheduleTime, scheduleTime_);
+          DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(WfInstanceId, wfInstanceId_);
+          DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
+        };
+        WfInstanceInfos() = default ;
+        WfInstanceInfos(const WfInstanceInfos &) = default ;
+        WfInstanceInfos(WfInstanceInfos &&) = default ;
+        WfInstanceInfos(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~WfInstanceInfos() = default ;
+        WfInstanceInfos& operator=(const WfInstanceInfos &) = default ;
+        WfInstanceInfos& operator=(WfInstanceInfos &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->dataTime_ == nullptr
+        && this->endTime_ == nullptr && this->scheduleTime_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->wfInstanceId_ == nullptr
+        && this->workflowId_ == nullptr; };
+        // dataTime Field Functions 
+        bool hasDataTime() const { return this->dataTime_ != nullptr;};
+        void deleteDataTime() { this->dataTime_ = nullptr;};
+        inline string getDataTime() const { DARABONBA_PTR_GET_DEFAULT(dataTime_, "") };
+        inline WfInstanceInfos& setDataTime(string dataTime) { DARABONBA_PTR_SET_VALUE(dataTime_, dataTime) };
+
+
+        // endTime Field Functions 
+        bool hasEndTime() const { return this->endTime_ != nullptr;};
+        void deleteEndTime() { this->endTime_ = nullptr;};
+        inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+        inline WfInstanceInfos& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+        // scheduleTime Field Functions 
+        bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
+        void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
+        inline string getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
+        inline WfInstanceInfos& setScheduleTime(string scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
+
+
+        // startTime Field Functions 
+        bool hasStartTime() const { return this->startTime_ != nullptr;};
+        void deleteStartTime() { this->startTime_ = nullptr;};
+        inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+        inline WfInstanceInfos& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+        inline WfInstanceInfos& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // wfInstanceId Field Functions 
+        bool hasWfInstanceId() const { return this->wfInstanceId_ != nullptr;};
+        void deleteWfInstanceId() { this->wfInstanceId_ = nullptr;};
+        inline int64_t getWfInstanceId() const { DARABONBA_PTR_GET_DEFAULT(wfInstanceId_, 0L) };
+        inline WfInstanceInfos& setWfInstanceId(int64_t wfInstanceId) { DARABONBA_PTR_SET_VALUE(wfInstanceId_, wfInstanceId) };
+
+
+        // workflowId Field Functions 
+        bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
+        void deleteWorkflowId() { this->workflowId_ = nullptr;};
+        inline int64_t getWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, 0L) };
+        inline WfInstanceInfos& setWorkflowId(int64_t workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
+
+
+      protected:
+        // The data timestamp of the workflow instance.
+        shared_ptr<string> dataTime_ {};
+        // The time when the workflow instance stopped running.
+        shared_ptr<string> endTime_ {};
+        // The time when the workflow instance was scheduled to run.
+        shared_ptr<string> scheduleTime_ {};
+        // The time when the workflow instance started to run.
+        shared_ptr<string> startTime_ {};
+        // The state of the workflow instance. Valid values:
+        // 
+        // *   1: pending
+        // *   2: preparing
+        // *   3: running
+        // *   4: successful
+        // *   5: failed
+        shared_ptr<int32_t> status_ {};
+        // The workflow instance ID.
+        shared_ptr<int64_t> wfInstanceId_ {};
+        // The workflow ID.
+        shared_ptr<int64_t> workflowId_ {};
+      };
+
+      virtual bool empty() const override { return this->wfInstanceInfos_ == nullptr; };
+      // wfInstanceInfos Field Functions 
+      bool hasWfInstanceInfos() const { return this->wfInstanceInfos_ != nullptr;};
+      void deleteWfInstanceInfos() { this->wfInstanceInfos_ = nullptr;};
+      inline const vector<Data::WfInstanceInfos> & getWfInstanceInfos() const { DARABONBA_PTR_GET_CONST(wfInstanceInfos_, vector<Data::WfInstanceInfos>) };
+      inline vector<Data::WfInstanceInfos> getWfInstanceInfos() { DARABONBA_PTR_GET(wfInstanceInfos_, vector<Data::WfInstanceInfos>) };
+      inline Data& setWfInstanceInfos(const vector<Data::WfInstanceInfos> & wfInstanceInfos) { DARABONBA_PTR_SET_VALUE(wfInstanceInfos_, wfInstanceInfos) };
+      inline Data& setWfInstanceInfos(vector<Data::WfInstanceInfos> && wfInstanceInfos) { DARABONBA_PTR_SET_RVALUE(wfInstanceInfos_, wfInstanceInfos) };
+
+
+    protected:
+      // The workflow instances.
+      shared_ptr<vector<Data::WfInstanceInfos>> wfInstanceInfos_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline ListWorkflowInstanceResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ListWorkflowInstanceResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ListWorkflowInstanceResponseBodyData) };
-    inline ListWorkflowInstanceResponseBodyData data() { DARABONBA_PTR_GET(data_, ListWorkflowInstanceResponseBodyData) };
-    inline ListWorkflowInstanceResponseBody& setData(const ListWorkflowInstanceResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListWorkflowInstanceResponseBody& setData(ListWorkflowInstanceResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ListWorkflowInstanceResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListWorkflowInstanceResponseBody::Data) };
+    inline ListWorkflowInstanceResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListWorkflowInstanceResponseBody::Data) };
+    inline ListWorkflowInstanceResponseBody& setData(const ListWorkflowInstanceResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListWorkflowInstanceResponseBody& setData(ListWorkflowInstanceResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListWorkflowInstanceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListWorkflowInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListWorkflowInstanceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The HTTP status code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The information about workflow instances.
-    std::shared_ptr<ListWorkflowInstanceResponseBodyData> data_ = nullptr;
+    shared_ptr<ListWorkflowInstanceResponseBody::Data> data_ {};
     // The returned error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

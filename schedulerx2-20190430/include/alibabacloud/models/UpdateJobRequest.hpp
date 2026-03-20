@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATEJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateJobRequestContactInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -105,304 +104,370 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ContactInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ContactInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Ding, ding_);
+        DARABONBA_PTR_TO_JSON(UserMail, userMail_);
+        DARABONBA_PTR_TO_JSON(UserName, userName_);
+        DARABONBA_PTR_TO_JSON(UserPhone, userPhone_);
+      };
+      friend void from_json(const Darabonba::Json& j, ContactInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ding, ding_);
+        DARABONBA_PTR_FROM_JSON(UserMail, userMail_);
+        DARABONBA_PTR_FROM_JSON(UserName, userName_);
+        DARABONBA_PTR_FROM_JSON(UserPhone, userPhone_);
+      };
+      ContactInfo() = default ;
+      ContactInfo(const ContactInfo &) = default ;
+      ContactInfo(ContactInfo &&) = default ;
+      ContactInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ContactInfo() = default ;
+      ContactInfo& operator=(const ContactInfo &) = default ;
+      ContactInfo& operator=(ContactInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ding_ == nullptr
+        && this->userMail_ == nullptr && this->userName_ == nullptr && this->userPhone_ == nullptr; };
+      // ding Field Functions 
+      bool hasDing() const { return this->ding_ != nullptr;};
+      void deleteDing() { this->ding_ = nullptr;};
+      inline string getDing() const { DARABONBA_PTR_GET_DEFAULT(ding_, "") };
+      inline ContactInfo& setDing(string ding) { DARABONBA_PTR_SET_VALUE(ding_, ding) };
+
+
+      // userMail Field Functions 
+      bool hasUserMail() const { return this->userMail_ != nullptr;};
+      void deleteUserMail() { this->userMail_ = nullptr;};
+      inline string getUserMail() const { DARABONBA_PTR_GET_DEFAULT(userMail_, "") };
+      inline ContactInfo& setUserMail(string userMail) { DARABONBA_PTR_SET_VALUE(userMail_, userMail) };
+
+
+      // userName Field Functions 
+      bool hasUserName() const { return this->userName_ != nullptr;};
+      void deleteUserName() { this->userName_ = nullptr;};
+      inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+      inline ContactInfo& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
+      // userPhone Field Functions 
+      bool hasUserPhone() const { return this->userPhone_ != nullptr;};
+      void deleteUserPhone() { this->userPhone_ = nullptr;};
+      inline string getUserPhone() const { DARABONBA_PTR_GET_DEFAULT(userPhone_, "") };
+      inline ContactInfo& setUserPhone(string userPhone) { DARABONBA_PTR_SET_VALUE(userPhone_, userPhone) };
+
+
+    protected:
+      // The webhook URL of the DingTalk chatbot.[](https://open.dingtalk.com/document/org/application-types)
+      shared_ptr<string> ding_ {};
+      // The email address of the alert contact.
+      shared_ptr<string> userMail_ {};
+      // The name of the alert contact.
+      shared_ptr<string> userName_ {};
+      // The mobile phone number of the alert contact.
+      shared_ptr<string> userPhone_ {};
+    };
+
     virtual bool empty() const override { return this->attemptInterval_ == nullptr
-        && return this->calendar_ == nullptr && return this->className_ == nullptr && return this->consumerSize_ == nullptr && return this->contactInfo_ == nullptr && return this->content_ == nullptr
-        && return this->dataOffset_ == nullptr && return this->description_ == nullptr && return this->dispatcherSize_ == nullptr && return this->executeMode_ == nullptr && return this->failEnable_ == nullptr
-        && return this->failTimes_ == nullptr && return this->groupId_ == nullptr && return this->jobId_ == nullptr && return this->maxAttempt_ == nullptr && return this->maxConcurrency_ == nullptr
-        && return this->missWorkerEnable_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->namespaceSource_ == nullptr && return this->pageSize_ == nullptr
-        && return this->parameters_ == nullptr && return this->priority_ == nullptr && return this->queueSize_ == nullptr && return this->regionId_ == nullptr && return this->sendChannel_ == nullptr
-        && return this->successNoticeEnable_ == nullptr && return this->taskAttemptInterval_ == nullptr && return this->taskDispatchMode_ == nullptr && return this->taskMaxAttempt_ == nullptr && return this->template_ == nullptr
-        && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr && return this->timeout_ == nullptr && return this->timeoutEnable_ == nullptr && return this->timeoutKillEnable_ == nullptr
-        && return this->timezone_ == nullptr && return this->XAttrs_ == nullptr; };
+        && this->calendar_ == nullptr && this->className_ == nullptr && this->consumerSize_ == nullptr && this->contactInfo_ == nullptr && this->content_ == nullptr
+        && this->dataOffset_ == nullptr && this->description_ == nullptr && this->dispatcherSize_ == nullptr && this->executeMode_ == nullptr && this->failEnable_ == nullptr
+        && this->failTimes_ == nullptr && this->groupId_ == nullptr && this->jobId_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr
+        && this->missWorkerEnable_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr && this->pageSize_ == nullptr
+        && this->parameters_ == nullptr && this->priority_ == nullptr && this->queueSize_ == nullptr && this->regionId_ == nullptr && this->sendChannel_ == nullptr
+        && this->successNoticeEnable_ == nullptr && this->taskAttemptInterval_ == nullptr && this->taskDispatchMode_ == nullptr && this->taskMaxAttempt_ == nullptr && this->template_ == nullptr
+        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeout_ == nullptr && this->timeoutEnable_ == nullptr && this->timeoutKillEnable_ == nullptr
+        && this->timezone_ == nullptr && this->XAttrs_ == nullptr; };
     // attemptInterval Field Functions 
     bool hasAttemptInterval() const { return this->attemptInterval_ != nullptr;};
     void deleteAttemptInterval() { this->attemptInterval_ = nullptr;};
-    inline int32_t attemptInterval() const { DARABONBA_PTR_GET_DEFAULT(attemptInterval_, 0) };
+    inline int32_t getAttemptInterval() const { DARABONBA_PTR_GET_DEFAULT(attemptInterval_, 0) };
     inline UpdateJobRequest& setAttemptInterval(int32_t attemptInterval) { DARABONBA_PTR_SET_VALUE(attemptInterval_, attemptInterval) };
 
 
     // calendar Field Functions 
     bool hasCalendar() const { return this->calendar_ != nullptr;};
     void deleteCalendar() { this->calendar_ = nullptr;};
-    inline string calendar() const { DARABONBA_PTR_GET_DEFAULT(calendar_, "") };
+    inline string getCalendar() const { DARABONBA_PTR_GET_DEFAULT(calendar_, "") };
     inline UpdateJobRequest& setCalendar(string calendar) { DARABONBA_PTR_SET_VALUE(calendar_, calendar) };
 
 
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
-    inline string className() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
+    inline string getClassName() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
     inline UpdateJobRequest& setClassName(string className) { DARABONBA_PTR_SET_VALUE(className_, className) };
 
 
     // consumerSize Field Functions 
     bool hasConsumerSize() const { return this->consumerSize_ != nullptr;};
     void deleteConsumerSize() { this->consumerSize_ = nullptr;};
-    inline int32_t consumerSize() const { DARABONBA_PTR_GET_DEFAULT(consumerSize_, 0) };
+    inline int32_t getConsumerSize() const { DARABONBA_PTR_GET_DEFAULT(consumerSize_, 0) };
     inline UpdateJobRequest& setConsumerSize(int32_t consumerSize) { DARABONBA_PTR_SET_VALUE(consumerSize_, consumerSize) };
 
 
     // contactInfo Field Functions 
     bool hasContactInfo() const { return this->contactInfo_ != nullptr;};
     void deleteContactInfo() { this->contactInfo_ = nullptr;};
-    inline const vector<UpdateJobRequestContactInfo> & contactInfo() const { DARABONBA_PTR_GET_CONST(contactInfo_, vector<UpdateJobRequestContactInfo>) };
-    inline vector<UpdateJobRequestContactInfo> contactInfo() { DARABONBA_PTR_GET(contactInfo_, vector<UpdateJobRequestContactInfo>) };
-    inline UpdateJobRequest& setContactInfo(const vector<UpdateJobRequestContactInfo> & contactInfo) { DARABONBA_PTR_SET_VALUE(contactInfo_, contactInfo) };
-    inline UpdateJobRequest& setContactInfo(vector<UpdateJobRequestContactInfo> && contactInfo) { DARABONBA_PTR_SET_RVALUE(contactInfo_, contactInfo) };
+    inline const vector<UpdateJobRequest::ContactInfo> & getContactInfo() const { DARABONBA_PTR_GET_CONST(contactInfo_, vector<UpdateJobRequest::ContactInfo>) };
+    inline vector<UpdateJobRequest::ContactInfo> getContactInfo() { DARABONBA_PTR_GET(contactInfo_, vector<UpdateJobRequest::ContactInfo>) };
+    inline UpdateJobRequest& setContactInfo(const vector<UpdateJobRequest::ContactInfo> & contactInfo) { DARABONBA_PTR_SET_VALUE(contactInfo_, contactInfo) };
+    inline UpdateJobRequest& setContactInfo(vector<UpdateJobRequest::ContactInfo> && contactInfo) { DARABONBA_PTR_SET_RVALUE(contactInfo_, contactInfo) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateJobRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // dataOffset Field Functions 
     bool hasDataOffset() const { return this->dataOffset_ != nullptr;};
     void deleteDataOffset() { this->dataOffset_ = nullptr;};
-    inline int32_t dataOffset() const { DARABONBA_PTR_GET_DEFAULT(dataOffset_, 0) };
+    inline int32_t getDataOffset() const { DARABONBA_PTR_GET_DEFAULT(dataOffset_, 0) };
     inline UpdateJobRequest& setDataOffset(int32_t dataOffset) { DARABONBA_PTR_SET_VALUE(dataOffset_, dataOffset) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dispatcherSize Field Functions 
     bool hasDispatcherSize() const { return this->dispatcherSize_ != nullptr;};
     void deleteDispatcherSize() { this->dispatcherSize_ = nullptr;};
-    inline int32_t dispatcherSize() const { DARABONBA_PTR_GET_DEFAULT(dispatcherSize_, 0) };
+    inline int32_t getDispatcherSize() const { DARABONBA_PTR_GET_DEFAULT(dispatcherSize_, 0) };
     inline UpdateJobRequest& setDispatcherSize(int32_t dispatcherSize) { DARABONBA_PTR_SET_VALUE(dispatcherSize_, dispatcherSize) };
 
 
     // executeMode Field Functions 
     bool hasExecuteMode() const { return this->executeMode_ != nullptr;};
     void deleteExecuteMode() { this->executeMode_ = nullptr;};
-    inline string executeMode() const { DARABONBA_PTR_GET_DEFAULT(executeMode_, "") };
+    inline string getExecuteMode() const { DARABONBA_PTR_GET_DEFAULT(executeMode_, "") };
     inline UpdateJobRequest& setExecuteMode(string executeMode) { DARABONBA_PTR_SET_VALUE(executeMode_, executeMode) };
 
 
     // failEnable Field Functions 
     bool hasFailEnable() const { return this->failEnable_ != nullptr;};
     void deleteFailEnable() { this->failEnable_ = nullptr;};
-    inline bool failEnable() const { DARABONBA_PTR_GET_DEFAULT(failEnable_, false) };
+    inline bool getFailEnable() const { DARABONBA_PTR_GET_DEFAULT(failEnable_, false) };
     inline UpdateJobRequest& setFailEnable(bool failEnable) { DARABONBA_PTR_SET_VALUE(failEnable_, failEnable) };
 
 
     // failTimes Field Functions 
     bool hasFailTimes() const { return this->failTimes_ != nullptr;};
     void deleteFailTimes() { this->failTimes_ = nullptr;};
-    inline int32_t failTimes() const { DARABONBA_PTR_GET_DEFAULT(failTimes_, 0) };
+    inline int32_t getFailTimes() const { DARABONBA_PTR_GET_DEFAULT(failTimes_, 0) };
     inline UpdateJobRequest& setFailTimes(int32_t failTimes) { DARABONBA_PTR_SET_VALUE(failTimes_, failTimes) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline UpdateJobRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateJobRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // maxAttempt Field Functions 
     bool hasMaxAttempt() const { return this->maxAttempt_ != nullptr;};
     void deleteMaxAttempt() { this->maxAttempt_ = nullptr;};
-    inline int32_t maxAttempt() const { DARABONBA_PTR_GET_DEFAULT(maxAttempt_, 0) };
+    inline int32_t getMaxAttempt() const { DARABONBA_PTR_GET_DEFAULT(maxAttempt_, 0) };
     inline UpdateJobRequest& setMaxAttempt(int32_t maxAttempt) { DARABONBA_PTR_SET_VALUE(maxAttempt_, maxAttempt) };
 
 
     // maxConcurrency Field Functions 
     bool hasMaxConcurrency() const { return this->maxConcurrency_ != nullptr;};
     void deleteMaxConcurrency() { this->maxConcurrency_ = nullptr;};
-    inline int32_t maxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
+    inline int32_t getMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
     inline UpdateJobRequest& setMaxConcurrency(int32_t maxConcurrency) { DARABONBA_PTR_SET_VALUE(maxConcurrency_, maxConcurrency) };
 
 
     // missWorkerEnable Field Functions 
     bool hasMissWorkerEnable() const { return this->missWorkerEnable_ != nullptr;};
     void deleteMissWorkerEnable() { this->missWorkerEnable_ = nullptr;};
-    inline bool missWorkerEnable() const { DARABONBA_PTR_GET_DEFAULT(missWorkerEnable_, false) };
+    inline bool getMissWorkerEnable() const { DARABONBA_PTR_GET_DEFAULT(missWorkerEnable_, false) };
     inline UpdateJobRequest& setMissWorkerEnable(bool missWorkerEnable) { DARABONBA_PTR_SET_VALUE(missWorkerEnable_, missWorkerEnable) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateJobRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UpdateJobRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespaceSource Field Functions 
     bool hasNamespaceSource() const { return this->namespaceSource_ != nullptr;};
     void deleteNamespaceSource() { this->namespaceSource_ = nullptr;};
-    inline string namespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
+    inline string getNamespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
     inline UpdateJobRequest& setNamespaceSource(string namespaceSource) { DARABONBA_PTR_SET_VALUE(namespaceSource_, namespaceSource) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline UpdateJobRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
     inline UpdateJobRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline UpdateJobRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // queueSize Field Functions 
     bool hasQueueSize() const { return this->queueSize_ != nullptr;};
     void deleteQueueSize() { this->queueSize_ = nullptr;};
-    inline int32_t queueSize() const { DARABONBA_PTR_GET_DEFAULT(queueSize_, 0) };
+    inline int32_t getQueueSize() const { DARABONBA_PTR_GET_DEFAULT(queueSize_, 0) };
     inline UpdateJobRequest& setQueueSize(int32_t queueSize) { DARABONBA_PTR_SET_VALUE(queueSize_, queueSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateJobRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sendChannel Field Functions 
     bool hasSendChannel() const { return this->sendChannel_ != nullptr;};
     void deleteSendChannel() { this->sendChannel_ = nullptr;};
-    inline string sendChannel() const { DARABONBA_PTR_GET_DEFAULT(sendChannel_, "") };
+    inline string getSendChannel() const { DARABONBA_PTR_GET_DEFAULT(sendChannel_, "") };
     inline UpdateJobRequest& setSendChannel(string sendChannel) { DARABONBA_PTR_SET_VALUE(sendChannel_, sendChannel) };
 
 
     // successNoticeEnable Field Functions 
     bool hasSuccessNoticeEnable() const { return this->successNoticeEnable_ != nullptr;};
     void deleteSuccessNoticeEnable() { this->successNoticeEnable_ = nullptr;};
-    inline bool successNoticeEnable() const { DARABONBA_PTR_GET_DEFAULT(successNoticeEnable_, false) };
+    inline bool getSuccessNoticeEnable() const { DARABONBA_PTR_GET_DEFAULT(successNoticeEnable_, false) };
     inline UpdateJobRequest& setSuccessNoticeEnable(bool successNoticeEnable) { DARABONBA_PTR_SET_VALUE(successNoticeEnable_, successNoticeEnable) };
 
 
     // taskAttemptInterval Field Functions 
     bool hasTaskAttemptInterval() const { return this->taskAttemptInterval_ != nullptr;};
     void deleteTaskAttemptInterval() { this->taskAttemptInterval_ = nullptr;};
-    inline int32_t taskAttemptInterval() const { DARABONBA_PTR_GET_DEFAULT(taskAttemptInterval_, 0) };
+    inline int32_t getTaskAttemptInterval() const { DARABONBA_PTR_GET_DEFAULT(taskAttemptInterval_, 0) };
     inline UpdateJobRequest& setTaskAttemptInterval(int32_t taskAttemptInterval) { DARABONBA_PTR_SET_VALUE(taskAttemptInterval_, taskAttemptInterval) };
 
 
     // taskDispatchMode Field Functions 
     bool hasTaskDispatchMode() const { return this->taskDispatchMode_ != nullptr;};
     void deleteTaskDispatchMode() { this->taskDispatchMode_ = nullptr;};
-    inline string taskDispatchMode() const { DARABONBA_PTR_GET_DEFAULT(taskDispatchMode_, "") };
+    inline string getTaskDispatchMode() const { DARABONBA_PTR_GET_DEFAULT(taskDispatchMode_, "") };
     inline UpdateJobRequest& setTaskDispatchMode(string taskDispatchMode) { DARABONBA_PTR_SET_VALUE(taskDispatchMode_, taskDispatchMode) };
 
 
     // taskMaxAttempt Field Functions 
     bool hasTaskMaxAttempt() const { return this->taskMaxAttempt_ != nullptr;};
     void deleteTaskMaxAttempt() { this->taskMaxAttempt_ = nullptr;};
-    inline int32_t taskMaxAttempt() const { DARABONBA_PTR_GET_DEFAULT(taskMaxAttempt_, 0) };
+    inline int32_t getTaskMaxAttempt() const { DARABONBA_PTR_GET_DEFAULT(taskMaxAttempt_, 0) };
     inline UpdateJobRequest& setTaskMaxAttempt(int32_t taskMaxAttempt) { DARABONBA_PTR_SET_VALUE(taskMaxAttempt_, taskMaxAttempt) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline UpdateJobRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
     // timeExpression Field Functions 
     bool hasTimeExpression() const { return this->timeExpression_ != nullptr;};
     void deleteTimeExpression() { this->timeExpression_ = nullptr;};
-    inline string timeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
+    inline string getTimeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
     inline UpdateJobRequest& setTimeExpression(string timeExpression) { DARABONBA_PTR_SET_VALUE(timeExpression_, timeExpression) };
 
 
     // timeType Field Functions 
     bool hasTimeType() const { return this->timeType_ != nullptr;};
     void deleteTimeType() { this->timeType_ = nullptr;};
-    inline int32_t timeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
+    inline int32_t getTimeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
     inline UpdateJobRequest& setTimeType(int32_t timeType) { DARABONBA_PTR_SET_VALUE(timeType_, timeType) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int64_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
+    inline int64_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
     inline UpdateJobRequest& setTimeout(int64_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
     // timeoutEnable Field Functions 
     bool hasTimeoutEnable() const { return this->timeoutEnable_ != nullptr;};
     void deleteTimeoutEnable() { this->timeoutEnable_ = nullptr;};
-    inline bool timeoutEnable() const { DARABONBA_PTR_GET_DEFAULT(timeoutEnable_, false) };
+    inline bool getTimeoutEnable() const { DARABONBA_PTR_GET_DEFAULT(timeoutEnable_, false) };
     inline UpdateJobRequest& setTimeoutEnable(bool timeoutEnable) { DARABONBA_PTR_SET_VALUE(timeoutEnable_, timeoutEnable) };
 
 
     // timeoutKillEnable Field Functions 
     bool hasTimeoutKillEnable() const { return this->timeoutKillEnable_ != nullptr;};
     void deleteTimeoutKillEnable() { this->timeoutKillEnable_ = nullptr;};
-    inline bool timeoutKillEnable() const { DARABONBA_PTR_GET_DEFAULT(timeoutKillEnable_, false) };
+    inline bool getTimeoutKillEnable() const { DARABONBA_PTR_GET_DEFAULT(timeoutKillEnable_, false) };
     inline UpdateJobRequest& setTimeoutKillEnable(bool timeoutKillEnable) { DARABONBA_PTR_SET_VALUE(timeoutKillEnable_, timeoutKillEnable) };
 
 
     // timezone Field Functions 
     bool hasTimezone() const { return this->timezone_ != nullptr;};
     void deleteTimezone() { this->timezone_ = nullptr;};
-    inline string timezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
+    inline string getTimezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
     inline UpdateJobRequest& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
 
 
     // XAttrs Field Functions 
     bool hasXAttrs() const { return this->XAttrs_ != nullptr;};
     void deleteXAttrs() { this->XAttrs_ = nullptr;};
-    inline string XAttrs() const { DARABONBA_PTR_GET_DEFAULT(XAttrs_, "") };
+    inline string getXAttrs() const { DARABONBA_PTR_GET_DEFAULT(XAttrs_, "") };
     inline UpdateJobRequest& setXAttrs(string XAttrs) { DARABONBA_PTR_SET_VALUE(XAttrs_, XAttrs) };
 
 
   protected:
     // The interval of retries after a job failure. Default value: 30. Unit: seconds.
-    std::shared_ptr<int32_t> attemptInterval_ = nullptr;
+    shared_ptr<int32_t> attemptInterval_ {};
     // If you set TimeType to 1 (cron), you can specify calendar days.
-    std::shared_ptr<string> calendar_ = nullptr;
+    shared_ptr<string> calendar_ {};
     // The full path of the job interface class.
     // 
     // This field is available only when you set the job type to java. In this case, you must enter a full path.
-    std::shared_ptr<string> className_ = nullptr;
+    shared_ptr<string> className_ {};
     // The number of threads that are triggered by a single worker at a time. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<int32_t> consumerSize_ = nullptr;
+    shared_ptr<int32_t> consumerSize_ {};
     // The information about the alert contact.
-    std::shared_ptr<vector<UpdateJobRequestContactInfo>> contactInfo_ = nullptr;
+    shared_ptr<vector<UpdateJobRequest::ContactInfo>> contactInfo_ {};
     // The script content. This parameter is required when you set the job type to python, shell, go, or k8s.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // If you set TimeType to 1 (cron), you can specify a time offset. Unit: seconds.
-    std::shared_ptr<int32_t> dataOffset_ = nullptr;
+    shared_ptr<int32_t> dataOffset_ {};
     // The job description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The number of task distribution threads. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<int32_t> dispatcherSize_ = nullptr;
+    shared_ptr<int32_t> dispatcherSize_ {};
     // The execution mode of the job. Valid values:
     // 
     // *   **Stand-alone operation**: standalone
@@ -410,92 +475,92 @@ namespace Models
     // *   **Visual MapReduce**: parallel
     // *   **MapReduce**: batch
     // *   **Shard run**: shard
-    std::shared_ptr<string> executeMode_ = nullptr;
+    shared_ptr<string> executeMode_ {};
     // Specifies whether to turn on Failure alarm. If the switch is turned on, an alert will be generated upon a failure. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> failEnable_ = nullptr;
+    shared_ptr<bool> failEnable_ {};
     // The number of consecutive failures. An alert will be received if the number of consecutive failures reaches the value of this parameter.
-    std::shared_ptr<int32_t> failTimes_ = nullptr;
+    shared_ptr<int32_t> failTimes_ {};
     // The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
     // The maximum number of retries after a job failure. This parameter is specified based on your business requirements.
-    std::shared_ptr<int32_t> maxAttempt_ = nullptr;
+    shared_ptr<int32_t> maxAttempt_ {};
     // The maximum number of concurrent instances. Default value: 1. The default value indicates that only one instance is allowed to run at a time. When an instance is running, another instance is not triggered even if the scheduled time for running the instance is reached.
-    std::shared_ptr<int32_t> maxConcurrency_ = nullptr;
+    shared_ptr<int32_t> maxConcurrency_ {};
     // Specifies whether to turn on No machine alarm available. If the switch is turned on, an alert will be generated when no machine is available for running the job. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> missWorkerEnable_ = nullptr;
+    shared_ptr<bool> missWorkerEnable_ {};
     // The job name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The namespace source. This parameter is required only for a special third party.
-    std::shared_ptr<string> namespaceSource_ = nullptr;
+    shared_ptr<string> namespaceSource_ {};
     // The number of tasks that can be pulled at a time. Default value: 100. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The user-defined parameters that you can obtain when the job is running.
-    std::shared_ptr<string> parameters_ = nullptr;
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<string> parameters_ {};
+    shared_ptr<int32_t> priority_ {};
     // The maximum number of tasks that can be queued. Default value: 10000. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<int32_t> queueSize_ = nullptr;
+    shared_ptr<int32_t> queueSize_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The method that is used to send alerts. Only Short Message Service (SMS) is supported.
-    std::shared_ptr<string> sendChannel_ = nullptr;
+    shared_ptr<string> sendChannel_ {};
     // Specifies whether to turn on Successful notice. If the switch is turned on, a notice will be sent when a job succeeds.
-    std::shared_ptr<bool> successNoticeEnable_ = nullptr;
+    shared_ptr<bool> successNoticeEnable_ {};
     // The interval of retries after a task failure. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<int32_t> taskAttemptInterval_ = nullptr;
+    shared_ptr<int32_t> taskAttemptInterval_ {};
     // The job mode. Valid values: push and pull. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<string> taskDispatchMode_ = nullptr;
+    shared_ptr<string> taskDispatchMode_ {};
     // The number of retries after a task failure. This parameter is an advanced configuration item of the MapReduce job.
-    std::shared_ptr<int32_t> taskMaxAttempt_ = nullptr;
+    shared_ptr<int32_t> taskMaxAttempt_ {};
     // Custom task template for the k8s task type.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
     // The time expression. Specify the time expression based on the value of TimeType:
     // 
     // *   If you set TimeType to **1** (cron), specify this parameter to a standard CRON expression.
     // *   If you set TimeType to **100** (api), no time expression is required.
     // *   If you set TimeType to **3** (fixed_rate), specify this parameter to a fixed frequency in seconds. For example, if you set this parameter to 30, the system triggers a job every 30 seconds.
     // *   If you set TimeType to **4** (second_delay), specify this parameter to a fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
-    std::shared_ptr<string> timeExpression_ = nullptr;
+    shared_ptr<string> timeExpression_ {};
     // The time type. Valid values:
     // 
     // *   **1**: cron
     // *   **3**: fix_rate
     // *   **4**: second_delay
     // *   **100**: api
-    std::shared_ptr<int32_t> timeType_ = nullptr;
+    shared_ptr<int32_t> timeType_ {};
     // The timeout threshold. Unit: seconds.
-    std::shared_ptr<int64_t> timeout_ = nullptr;
+    shared_ptr<int64_t> timeout_ {};
     // Specifies whether to turn on Timeout alarm. If the switch is turned on, an alert will be generated upon a timeout. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> timeoutEnable_ = nullptr;
+    shared_ptr<bool> timeoutEnable_ {};
     // Specifies whether to turn on Timeout termination. If the switch is turned on, the job will be terminated upon a timeout. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> timeoutKillEnable_ = nullptr;
+    shared_ptr<bool> timeoutKillEnable_ {};
     // Time zone.
-    std::shared_ptr<string> timezone_ = nullptr;
+    shared_ptr<string> timezone_ {};
     // If you set JobType to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
-    std::shared_ptr<string> XAttrs_ = nullptr;
+    shared_ptr<string> XAttrs_ {};
   };
 
   } // namespace Models

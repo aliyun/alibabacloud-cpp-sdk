@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->jobIdList_ == nullptr && return this->namespace_ == nullptr && return this->namespaceSource_ == nullptr && return this->regionId_ == nullptr; };
+        && this->jobIdList_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr && this->regionId_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline BatchDeleteJobsRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // jobIdList Field Functions 
     bool hasJobIdList() const { return this->jobIdList_ != nullptr;};
     void deleteJobIdList() { this->jobIdList_ = nullptr;};
-    inline const vector<int64_t> & jobIdList() const { DARABONBA_PTR_GET_CONST(jobIdList_, vector<int64_t>) };
-    inline vector<int64_t> jobIdList() { DARABONBA_PTR_GET(jobIdList_, vector<int64_t>) };
+    inline const vector<int64_t> & getJobIdList() const { DARABONBA_PTR_GET_CONST(jobIdList_, vector<int64_t>) };
+    inline vector<int64_t> getJobIdList() { DARABONBA_PTR_GET(jobIdList_, vector<int64_t>) };
     inline BatchDeleteJobsRequest& setJobIdList(const vector<int64_t> & jobIdList) { DARABONBA_PTR_SET_VALUE(jobIdList_, jobIdList) };
     inline BatchDeleteJobsRequest& setJobIdList(vector<int64_t> && jobIdList) { DARABONBA_PTR_SET_RVALUE(jobIdList_, jobIdList) };
 
@@ -59,21 +59,21 @@ namespace Models
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline BatchDeleteJobsRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespaceSource Field Functions 
     bool hasNamespaceSource() const { return this->namespaceSource_ != nullptr;};
     void deleteNamespaceSource() { this->namespaceSource_ = nullptr;};
-    inline string namespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
+    inline string getNamespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
     inline BatchDeleteJobsRequest& setNamespaceSource(string namespaceSource) { DARABONBA_PTR_SET_VALUE(namespaceSource_, namespaceSource) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline BatchDeleteJobsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -81,21 +81,21 @@ namespace Models
     // The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The job IDs. Separate multiple job IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> jobIdList_ = nullptr;
+    shared_ptr<vector<int64_t>> jobIdList_ {};
     // The ID of the namespace to which the job belongs. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The source of the namespace. This parameter is required only for a special third party.
-    std::shared_ptr<string> namespaceSource_ = nullptr;
+    shared_ptr<string> namespaceSource_ {};
     // The ID of the region to which the job belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

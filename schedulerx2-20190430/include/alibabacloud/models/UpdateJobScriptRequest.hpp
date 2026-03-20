@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && return this->jobId_ == nullptr && return this->namespace_ == nullptr && return this->namespaceSource_ == nullptr && return this->regionId_ == nullptr && return this->scriptContent_ == nullptr
-        && return this->versionDescription_ == nullptr; };
+        && this->jobId_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr && this->regionId_ == nullptr && this->scriptContent_ == nullptr
+        && this->versionDescription_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline UpdateJobScriptRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateJobScriptRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UpdateJobScriptRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespaceSource Field Functions 
     bool hasNamespaceSource() const { return this->namespaceSource_ != nullptr;};
     void deleteNamespaceSource() { this->namespaceSource_ = nullptr;};
-    inline string namespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
+    inline string getNamespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
     inline UpdateJobScriptRequest& setNamespaceSource(string namespaceSource) { DARABONBA_PTR_SET_VALUE(namespaceSource_, namespaceSource) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateJobScriptRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scriptContent Field Functions 
     bool hasScriptContent() const { return this->scriptContent_ != nullptr;};
     void deleteScriptContent() { this->scriptContent_ = nullptr;};
-    inline string scriptContent() const { DARABONBA_PTR_GET_DEFAULT(scriptContent_, "") };
+    inline string getScriptContent() const { DARABONBA_PTR_GET_DEFAULT(scriptContent_, "") };
     inline UpdateJobScriptRequest& setScriptContent(string scriptContent) { DARABONBA_PTR_SET_VALUE(scriptContent_, scriptContent) };
 
 
     // versionDescription Field Functions 
     bool hasVersionDescription() const { return this->versionDescription_ != nullptr;};
     void deleteVersionDescription() { this->versionDescription_ = nullptr;};
-    inline string versionDescription() const { DARABONBA_PTR_GET_DEFAULT(versionDescription_, "") };
+    inline string getVersionDescription() const { DARABONBA_PTR_GET_DEFAULT(versionDescription_, "") };
     inline UpdateJobScriptRequest& setVersionDescription(string versionDescription) { DARABONBA_PTR_SET_VALUE(versionDescription_, versionDescription) };
 
 
@@ -97,25 +97,25 @@ namespace Models
     // The application ID. You can obtain the application ID on the Applications page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The job ID. You can obtain the ID on the Tasks page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
     // The namespace ID. You can obtain the namespace ID on the Namespaces page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The source of the namespace. This parameter is required only for a special third party.
-    std::shared_ptr<string> namespaceSource_ = nullptr;
+    shared_ptr<string> namespaceSource_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The script content.
-    std::shared_ptr<string> scriptContent_ = nullptr;
+    shared_ptr<string> scriptContent_ {};
     // The description of the script version.
-    std::shared_ptr<string> versionDescription_ = nullptr;
+    shared_ptr<string> versionDescription_ {};
   };
 
   } // namespace Models

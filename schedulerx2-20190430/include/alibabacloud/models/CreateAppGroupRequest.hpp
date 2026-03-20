@@ -60,165 +60,165 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->appVersion_ == nullptr && return this->description_ == nullptr && return this->enableLog_ == nullptr
-        && return this->groupId_ == nullptr && return this->maxJobs_ == nullptr && return this->monitorConfigJson_ == nullptr && return this->monitorContactsJson_ == nullptr && return this->namespace_ == nullptr
-        && return this->namespaceName_ == nullptr && return this->namespaceSource_ == nullptr && return this->notificationPolicyName_ == nullptr && return this->regionId_ == nullptr && return this->scheduleBusyWorkers_ == nullptr; };
+        && this->appName_ == nullptr && this->appType_ == nullptr && this->appVersion_ == nullptr && this->description_ == nullptr && this->enableLog_ == nullptr
+        && this->groupId_ == nullptr && this->maxJobs_ == nullptr && this->monitorConfigJson_ == nullptr && this->monitorContactsJson_ == nullptr && this->namespace_ == nullptr
+        && this->namespaceName_ == nullptr && this->namespaceSource_ == nullptr && this->notificationPolicyName_ == nullptr && this->regionId_ == nullptr && this->scheduleBusyWorkers_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline CreateAppGroupRequest& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateAppGroupRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline int32_t appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, 0) };
+    inline int32_t getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, 0) };
     inline CreateAppGroupRequest& setAppType(int32_t appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};
-    inline int32_t appVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, 0) };
+    inline int32_t getAppVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, 0) };
     inline CreateAppGroupRequest& setAppVersion(int32_t appVersion) { DARABONBA_PTR_SET_VALUE(appVersion_, appVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAppGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enableLog Field Functions 
     bool hasEnableLog() const { return this->enableLog_ != nullptr;};
     void deleteEnableLog() { this->enableLog_ = nullptr;};
-    inline bool enableLog() const { DARABONBA_PTR_GET_DEFAULT(enableLog_, false) };
+    inline bool getEnableLog() const { DARABONBA_PTR_GET_DEFAULT(enableLog_, false) };
     inline CreateAppGroupRequest& setEnableLog(bool enableLog) { DARABONBA_PTR_SET_VALUE(enableLog_, enableLog) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CreateAppGroupRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // maxJobs Field Functions 
     bool hasMaxJobs() const { return this->maxJobs_ != nullptr;};
     void deleteMaxJobs() { this->maxJobs_ = nullptr;};
-    inline int32_t maxJobs() const { DARABONBA_PTR_GET_DEFAULT(maxJobs_, 0) };
+    inline int32_t getMaxJobs() const { DARABONBA_PTR_GET_DEFAULT(maxJobs_, 0) };
     inline CreateAppGroupRequest& setMaxJobs(int32_t maxJobs) { DARABONBA_PTR_SET_VALUE(maxJobs_, maxJobs) };
 
 
     // monitorConfigJson Field Functions 
     bool hasMonitorConfigJson() const { return this->monitorConfigJson_ != nullptr;};
     void deleteMonitorConfigJson() { this->monitorConfigJson_ = nullptr;};
-    inline string monitorConfigJson() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigJson_, "") };
+    inline string getMonitorConfigJson() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigJson_, "") };
     inline CreateAppGroupRequest& setMonitorConfigJson(string monitorConfigJson) { DARABONBA_PTR_SET_VALUE(monitorConfigJson_, monitorConfigJson) };
 
 
     // monitorContactsJson Field Functions 
     bool hasMonitorContactsJson() const { return this->monitorContactsJson_ != nullptr;};
     void deleteMonitorContactsJson() { this->monitorContactsJson_ = nullptr;};
-    inline string monitorContactsJson() const { DARABONBA_PTR_GET_DEFAULT(monitorContactsJson_, "") };
+    inline string getMonitorContactsJson() const { DARABONBA_PTR_GET_DEFAULT(monitorContactsJson_, "") };
     inline CreateAppGroupRequest& setMonitorContactsJson(string monitorContactsJson) { DARABONBA_PTR_SET_VALUE(monitorContactsJson_, monitorContactsJson) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateAppGroupRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline CreateAppGroupRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
     // namespaceSource Field Functions 
     bool hasNamespaceSource() const { return this->namespaceSource_ != nullptr;};
     void deleteNamespaceSource() { this->namespaceSource_ = nullptr;};
-    inline string namespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
+    inline string getNamespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
     inline CreateAppGroupRequest& setNamespaceSource(string namespaceSource) { DARABONBA_PTR_SET_VALUE(namespaceSource_, namespaceSource) };
 
 
     // notificationPolicyName Field Functions 
     bool hasNotificationPolicyName() const { return this->notificationPolicyName_ != nullptr;};
     void deleteNotificationPolicyName() { this->notificationPolicyName_ = nullptr;};
-    inline string notificationPolicyName() const { DARABONBA_PTR_GET_DEFAULT(notificationPolicyName_, "") };
+    inline string getNotificationPolicyName() const { DARABONBA_PTR_GET_DEFAULT(notificationPolicyName_, "") };
     inline CreateAppGroupRequest& setNotificationPolicyName(string notificationPolicyName) { DARABONBA_PTR_SET_VALUE(notificationPolicyName_, notificationPolicyName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateAppGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scheduleBusyWorkers Field Functions 
     bool hasScheduleBusyWorkers() const { return this->scheduleBusyWorkers_ != nullptr;};
     void deleteScheduleBusyWorkers() { this->scheduleBusyWorkers_ = nullptr;};
-    inline bool scheduleBusyWorkers() const { DARABONBA_PTR_GET_DEFAULT(scheduleBusyWorkers_, false) };
+    inline bool getScheduleBusyWorkers() const { DARABONBA_PTR_GET_DEFAULT(scheduleBusyWorkers_, false) };
     inline CreateAppGroupRequest& setScheduleBusyWorkers(bool scheduleBusyWorkers) { DARABONBA_PTR_SET_VALUE(scheduleBusyWorkers_, scheduleBusyWorkers) };
 
 
   protected:
     // The AppKey for the application.
-    std::shared_ptr<string> appKey_ = nullptr;
+    shared_ptr<string> appKey_ {};
     // The name of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The type of application. Valid values:
     // 
     // *   `TRACE`: Application Monitoring
     // *   `EBPF`: Application Monitoring eBPF Edition
-    std::shared_ptr<int32_t> appType_ = nullptr;
+    shared_ptr<int32_t> appType_ {};
     // The application version. 1: Basic version, 2: Professional version.
-    std::shared_ptr<int32_t> appVersion_ = nullptr;
+    shared_ptr<int32_t> appVersion_ {};
     // The description of the application.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to enable logging. Valid values:
     // 
     // *   `true`: enabled
     // *   `false`: disabled
-    std::shared_ptr<bool> enableLog_ = nullptr;
+    shared_ptr<bool> enableLog_ {};
     // The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The maximum number of jobs.
-    std::shared_ptr<int32_t> maxJobs_ = nullptr;
+    shared_ptr<int32_t> maxJobs_ {};
     // The configuration of the alert. The value is a JSON string. For more information about this parameter, see **Additional information about request parameters**.
-    std::shared_ptr<string> monitorConfigJson_ = nullptr;
+    shared_ptr<string> monitorConfigJson_ {};
     // The configuration of alert contacts. The value is a JSON string.
-    std::shared_ptr<string> monitorContactsJson_ = nullptr;
+    shared_ptr<string> monitorContactsJson_ {};
     // The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The name of the namespace.
-    std::shared_ptr<string> namespaceName_ = nullptr;
+    shared_ptr<string> namespaceName_ {};
     // This parameter is not supported. You do not need to specify this parameter.
-    std::shared_ptr<string> namespaceSource_ = nullptr;
-    std::shared_ptr<string> notificationPolicyName_ = nullptr;
+    shared_ptr<string> namespaceSource_ {};
+    shared_ptr<string> notificationPolicyName_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to schedule a busy worker.
-    std::shared_ptr<bool> scheduleBusyWorkers_ = nullptr;
+    shared_ptr<bool> scheduleBusyWorkers_ {};
   };
 
   } // namespace Models

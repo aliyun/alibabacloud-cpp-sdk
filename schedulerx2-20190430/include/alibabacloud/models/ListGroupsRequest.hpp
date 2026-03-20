@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appGroupName_ == nullptr
-        && return this->namespace_ == nullptr && return this->namespaceSource_ == nullptr && return this->regionId_ == nullptr; };
+        && this->namespace_ == nullptr && this->namespaceSource_ == nullptr && this->regionId_ == nullptr; };
     // appGroupName Field Functions 
     bool hasAppGroupName() const { return this->appGroupName_ != nullptr;};
     void deleteAppGroupName() { this->appGroupName_ = nullptr;};
-    inline string appGroupName() const { DARABONBA_PTR_GET_DEFAULT(appGroupName_, "") };
+    inline string getAppGroupName() const { DARABONBA_PTR_GET_DEFAULT(appGroupName_, "") };
     inline ListGroupsRequest& setAppGroupName(string appGroupName) { DARABONBA_PTR_SET_VALUE(appGroupName_, appGroupName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ListGroupsRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespaceSource Field Functions 
     bool hasNamespaceSource() const { return this->namespaceSource_ != nullptr;};
     void deleteNamespaceSource() { this->namespaceSource_ = nullptr;};
-    inline string namespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
+    inline string getNamespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
     inline ListGroupsRequest& setNamespaceSource(string namespaceSource) { DARABONBA_PTR_SET_VALUE(namespaceSource_, namespaceSource) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The name of the application group.
-    std::shared_ptr<string> appGroupName_ = nullptr;
+    shared_ptr<string> appGroupName_ {};
     // The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The source of the namespace. This parameter is required only for a special third party.
-    std::shared_ptr<string> namespaceSource_ = nullptr;
+    shared_ptr<string> namespaceSource_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

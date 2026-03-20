@@ -48,115 +48,115 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->groupId_ == nullptr && return this->maxConcurrency_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->namespaceSource_ == nullptr
-        && return this->regionId_ == nullptr && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr && return this->timezone_ == nullptr; };
+        && this->groupId_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr
+        && this->regionId_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateWorkflowRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CreateWorkflowRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // maxConcurrency Field Functions 
     bool hasMaxConcurrency() const { return this->maxConcurrency_ != nullptr;};
     void deleteMaxConcurrency() { this->maxConcurrency_ = nullptr;};
-    inline int32_t maxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
+    inline int32_t getMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0) };
     inline CreateWorkflowRequest& setMaxConcurrency(int32_t maxConcurrency) { DARABONBA_PTR_SET_VALUE(maxConcurrency_, maxConcurrency) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateWorkflowRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateWorkflowRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // namespaceSource Field Functions 
     bool hasNamespaceSource() const { return this->namespaceSource_ != nullptr;};
     void deleteNamespaceSource() { this->namespaceSource_ = nullptr;};
-    inline string namespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
+    inline string getNamespaceSource() const { DARABONBA_PTR_GET_DEFAULT(namespaceSource_, "") };
     inline CreateWorkflowRequest& setNamespaceSource(string namespaceSource) { DARABONBA_PTR_SET_VALUE(namespaceSource_, namespaceSource) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateWorkflowRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // timeExpression Field Functions 
     bool hasTimeExpression() const { return this->timeExpression_ != nullptr;};
     void deleteTimeExpression() { this->timeExpression_ = nullptr;};
-    inline string timeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
+    inline string getTimeExpression() const { DARABONBA_PTR_GET_DEFAULT(timeExpression_, "") };
     inline CreateWorkflowRequest& setTimeExpression(string timeExpression) { DARABONBA_PTR_SET_VALUE(timeExpression_, timeExpression) };
 
 
     // timeType Field Functions 
     bool hasTimeType() const { return this->timeType_ != nullptr;};
     void deleteTimeType() { this->timeType_ = nullptr;};
-    inline int32_t timeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
+    inline int32_t getTimeType() const { DARABONBA_PTR_GET_DEFAULT(timeType_, 0) };
     inline CreateWorkflowRequest& setTimeType(int32_t timeType) { DARABONBA_PTR_SET_VALUE(timeType_, timeType) };
 
 
     // timezone Field Functions 
     bool hasTimezone() const { return this->timezone_ != nullptr;};
     void deleteTimezone() { this->timezone_ = nullptr;};
-    inline string timezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
+    inline string getTimezone() const { DARABONBA_PTR_GET_DEFAULT(timezone_, "") };
     inline CreateWorkflowRequest& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
 
 
   protected:
     // The description of the workflow.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The application group ID. You can obtain the ID on the Application Management page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The maximum number of workflow instances that can be run at the same time. Default value: 1. The value 1 indicates that only one workflow instance is allowed. In this case, if the triggered workflow instance is still ongoing, no more workflow instances can be triggered even the time to schedule the next workflow arrives.
-    std::shared_ptr<int32_t> maxConcurrency_ = nullptr;
+    shared_ptr<int32_t> maxConcurrency_ {};
     // The name of the workflow.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The source of the namespace. This parameter is required only for a special third party.
-    std::shared_ptr<string> namespaceSource_ = nullptr;
+    shared_ptr<string> namespaceSource_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The time expression. You can set the time expression based on the selected method that is used to specify time.
     // 
     // - If you set the TimeType parameter to cron, you need to enter a standard cron expression. Online verification is supported.
     // - If you set the TimeType parameter to api, no time expression is required.
-    std::shared_ptr<string> timeExpression_ = nullptr;
+    shared_ptr<string> timeExpression_ {};
     // The method that is used to specify the time. Valid values:
     // 
     // - 1: cron
     // - 100: api
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> timeType_ = nullptr;
+    shared_ptr<int32_t> timeType_ {};
     // The time zone.
-    std::shared_ptr<string> timezone_ = nullptr;
+    shared_ptr<string> timezone_ {};
   };
 
   } // namespace Models

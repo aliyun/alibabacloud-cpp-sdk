@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calendarName_ == nullptr
-        && return this->regionId_ == nullptr && return this->year_ == nullptr; };
+        && this->regionId_ == nullptr && this->year_ == nullptr; };
     // calendarName Field Functions 
     bool hasCalendarName() const { return this->calendarName_ != nullptr;};
     void deleteCalendarName() { this->calendarName_ = nullptr;};
-    inline string calendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
+    inline string getCalendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
     inline DeleteSchedulerxCalendarRequest& setCalendarName(string calendarName) { DARABONBA_PTR_SET_VALUE(calendarName_, calendarName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteSchedulerxCalendarRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // year Field Functions 
     bool hasYear() const { return this->year_ != nullptr;};
     void deleteYear() { this->year_ = nullptr;};
-    inline int32_t year() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+    inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
     inline DeleteSchedulerxCalendarRequest& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The calendar name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> calendarName_ = nullptr;
+    shared_ptr<string> calendarName_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The year.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> year_ = nullptr;
+    shared_ptr<int32_t> year_ {};
   };
 
   } // namespace Models

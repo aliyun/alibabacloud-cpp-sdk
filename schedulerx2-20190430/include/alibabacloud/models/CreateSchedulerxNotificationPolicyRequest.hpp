@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelTimeRange_ == nullptr
-        && return this->description_ == nullptr && return this->policyName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->description_ == nullptr && this->policyName_ == nullptr && this->regionId_ == nullptr; };
     // channelTimeRange Field Functions 
     bool hasChannelTimeRange() const { return this->channelTimeRange_ != nullptr;};
     void deleteChannelTimeRange() { this->channelTimeRange_ = nullptr;};
-    inline string channelTimeRange() const { DARABONBA_PTR_GET_DEFAULT(channelTimeRange_, "") };
+    inline string getChannelTimeRange() const { DARABONBA_PTR_GET_DEFAULT(channelTimeRange_, "") };
     inline CreateSchedulerxNotificationPolicyRequest& setChannelTimeRange(string channelTimeRange) { DARABONBA_PTR_SET_VALUE(channelTimeRange_, channelTimeRange) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSchedulerxNotificationPolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreateSchedulerxNotificationPolicyRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateSchedulerxNotificationPolicyRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -71,17 +71,17 @@ namespace Models
     // >  Please see the detailed explanation of this parameter below.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelTimeRange_ = nullptr;
+    shared_ptr<string> channelTimeRange_ {};
     // The description of the notification policy.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the notification policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

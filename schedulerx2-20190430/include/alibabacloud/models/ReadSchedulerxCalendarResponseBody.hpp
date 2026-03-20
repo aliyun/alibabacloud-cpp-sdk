@@ -2,8 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_READSCHEDULERXCALENDARRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_READSCHEDULERXCALENDARRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ReadSchedulerxCalendarResponseBodyAccessDeniedDetail.hpp>
-#include <alibabacloud/models/ReadSchedulerxCalendarResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,67 +40,312 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+        DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+        DARABONBA_PTR_TO_JSON(Records, records_);
+        DARABONBA_PTR_TO_JSON(Total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+        DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+        DARABONBA_PTR_FROM_JSON(Records, records_);
+        DARABONBA_PTR_FROM_JSON(Total, total_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Records : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Records& obj) { 
+          DARABONBA_PTR_TO_JSON(CalendarName, calendarName_);
+          DARABONBA_PTR_TO_JSON(Creator, creator_);
+          DARABONBA_PTR_TO_JSON(MonthDaysContent, monthDaysContent_);
+          DARABONBA_PTR_TO_JSON(SystemCalendar, systemCalendar_);
+          DARABONBA_PTR_TO_JSON(Year, year_);
+        };
+        friend void from_json(const Darabonba::Json& j, Records& obj) { 
+          DARABONBA_PTR_FROM_JSON(CalendarName, calendarName_);
+          DARABONBA_PTR_FROM_JSON(Creator, creator_);
+          DARABONBA_PTR_FROM_JSON(MonthDaysContent, monthDaysContent_);
+          DARABONBA_PTR_FROM_JSON(SystemCalendar, systemCalendar_);
+          DARABONBA_PTR_FROM_JSON(Year, year_);
+        };
+        Records() = default ;
+        Records(const Records &) = default ;
+        Records(Records &&) = default ;
+        Records(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Records() = default ;
+        Records& operator=(const Records &) = default ;
+        Records& operator=(Records &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->calendarName_ == nullptr
+        && this->creator_ == nullptr && this->monthDaysContent_ == nullptr && this->systemCalendar_ == nullptr && this->year_ == nullptr; };
+        // calendarName Field Functions 
+        bool hasCalendarName() const { return this->calendarName_ != nullptr;};
+        void deleteCalendarName() { this->calendarName_ = nullptr;};
+        inline string getCalendarName() const { DARABONBA_PTR_GET_DEFAULT(calendarName_, "") };
+        inline Records& setCalendarName(string calendarName) { DARABONBA_PTR_SET_VALUE(calendarName_, calendarName) };
+
+
+        // creator Field Functions 
+        bool hasCreator() const { return this->creator_ != nullptr;};
+        void deleteCreator() { this->creator_ = nullptr;};
+        inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+        inline Records& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+        // monthDaysContent Field Functions 
+        bool hasMonthDaysContent() const { return this->monthDaysContent_ != nullptr;};
+        void deleteMonthDaysContent() { this->monthDaysContent_ = nullptr;};
+        inline string getMonthDaysContent() const { DARABONBA_PTR_GET_DEFAULT(monthDaysContent_, "") };
+        inline Records& setMonthDaysContent(string monthDaysContent) { DARABONBA_PTR_SET_VALUE(monthDaysContent_, monthDaysContent) };
+
+
+        // systemCalendar Field Functions 
+        bool hasSystemCalendar() const { return this->systemCalendar_ != nullptr;};
+        void deleteSystemCalendar() { this->systemCalendar_ = nullptr;};
+        inline bool getSystemCalendar() const { DARABONBA_PTR_GET_DEFAULT(systemCalendar_, false) };
+        inline Records& setSystemCalendar(bool systemCalendar) { DARABONBA_PTR_SET_VALUE(systemCalendar_, systemCalendar) };
+
+
+        // year Field Functions 
+        bool hasYear() const { return this->year_ != nullptr;};
+        void deleteYear() { this->year_ = nullptr;};
+        inline int32_t getYear() const { DARABONBA_PTR_GET_DEFAULT(year_, 0) };
+        inline Records& setYear(int32_t year) { DARABONBA_PTR_SET_VALUE(year_, year) };
+
+
+      protected:
+        // The calendar name.
+        shared_ptr<string> calendarName_ {};
+        // The creator.
+        shared_ptr<string> creator_ {};
+        // The months and days.
+        shared_ptr<string> monthDaysContent_ {};
+        // Indicates whether it is a system calendar.
+        shared_ptr<bool> systemCalendar_ {};
+        // The year.
+        shared_ptr<int32_t> year_ {};
+      };
+
+      virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->records_ == nullptr && this->total_ == nullptr; };
+      // maxResults Field Functions 
+      bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+      void deleteMaxResults() { this->maxResults_ = nullptr;};
+      inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+      inline Data& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+      // nextToken Field Functions 
+      bool hasNextToken() const { return this->nextToken_ != nullptr;};
+      void deleteNextToken() { this->nextToken_ = nullptr;};
+      inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+      inline Data& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+      // records Field Functions 
+      bool hasRecords() const { return this->records_ != nullptr;};
+      void deleteRecords() { this->records_ = nullptr;};
+      inline const vector<Data::Records> & getRecords() const { DARABONBA_PTR_GET_CONST(records_, vector<Data::Records>) };
+      inline vector<Data::Records> getRecords() { DARABONBA_PTR_GET(records_, vector<Data::Records>) };
+      inline Data& setRecords(const vector<Data::Records> & records) { DARABONBA_PTR_SET_VALUE(records_, records) };
+      inline Data& setRecords(vector<Data::Records> && records) { DARABONBA_PTR_SET_RVALUE(records_, records) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+      inline Data& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      // The maximum number of entries returned.
+      shared_ptr<int32_t> maxResults_ {};
+      // When there is more data to retrieve, the server returns a nextToken. You can use this token in a subsequent request to continue reading from where you left off.
+      shared_ptr<string> nextToken_ {};
+      // *
+      shared_ptr<vector<Data::Records>> records_ {};
+      // The total number of entries.
+      shared_ptr<int64_t> total_ {};
+    };
+
+    class AccessDeniedDetail : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AccessDeniedDetail& obj) { 
+        DARABONBA_PTR_TO_JSON(AuthAction, authAction_);
+        DARABONBA_PTR_TO_JSON(AuthPrincipalDisplayName, authPrincipalDisplayName_);
+        DARABONBA_PTR_TO_JSON(AuthPrincipalOwnerId, authPrincipalOwnerId_);
+        DARABONBA_PTR_TO_JSON(AuthPrincipalType, authPrincipalType_);
+        DARABONBA_PTR_TO_JSON(EncodedDiagnosticMessage, encodedDiagnosticMessage_);
+        DARABONBA_PTR_TO_JSON(NoPermissionType, noPermissionType_);
+        DARABONBA_PTR_TO_JSON(PolicyType, policyType_);
+      };
+      friend void from_json(const Darabonba::Json& j, AccessDeniedDetail& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuthAction, authAction_);
+        DARABONBA_PTR_FROM_JSON(AuthPrincipalDisplayName, authPrincipalDisplayName_);
+        DARABONBA_PTR_FROM_JSON(AuthPrincipalOwnerId, authPrincipalOwnerId_);
+        DARABONBA_PTR_FROM_JSON(AuthPrincipalType, authPrincipalType_);
+        DARABONBA_PTR_FROM_JSON(EncodedDiagnosticMessage, encodedDiagnosticMessage_);
+        DARABONBA_PTR_FROM_JSON(NoPermissionType, noPermissionType_);
+        DARABONBA_PTR_FROM_JSON(PolicyType, policyType_);
+      };
+      AccessDeniedDetail() = default ;
+      AccessDeniedDetail(const AccessDeniedDetail &) = default ;
+      AccessDeniedDetail(AccessDeniedDetail &&) = default ;
+      AccessDeniedDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AccessDeniedDetail() = default ;
+      AccessDeniedDetail& operator=(const AccessDeniedDetail &) = default ;
+      AccessDeniedDetail& operator=(AccessDeniedDetail &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->authAction_ == nullptr
+        && this->authPrincipalDisplayName_ == nullptr && this->authPrincipalOwnerId_ == nullptr && this->authPrincipalType_ == nullptr && this->encodedDiagnosticMessage_ == nullptr && this->noPermissionType_ == nullptr
+        && this->policyType_ == nullptr; };
+      // authAction Field Functions 
+      bool hasAuthAction() const { return this->authAction_ != nullptr;};
+      void deleteAuthAction() { this->authAction_ = nullptr;};
+      inline string getAuthAction() const { DARABONBA_PTR_GET_DEFAULT(authAction_, "") };
+      inline AccessDeniedDetail& setAuthAction(string authAction) { DARABONBA_PTR_SET_VALUE(authAction_, authAction) };
+
+
+      // authPrincipalDisplayName Field Functions 
+      bool hasAuthPrincipalDisplayName() const { return this->authPrincipalDisplayName_ != nullptr;};
+      void deleteAuthPrincipalDisplayName() { this->authPrincipalDisplayName_ = nullptr;};
+      inline string getAuthPrincipalDisplayName() const { DARABONBA_PTR_GET_DEFAULT(authPrincipalDisplayName_, "") };
+      inline AccessDeniedDetail& setAuthPrincipalDisplayName(string authPrincipalDisplayName) { DARABONBA_PTR_SET_VALUE(authPrincipalDisplayName_, authPrincipalDisplayName) };
+
+
+      // authPrincipalOwnerId Field Functions 
+      bool hasAuthPrincipalOwnerId() const { return this->authPrincipalOwnerId_ != nullptr;};
+      void deleteAuthPrincipalOwnerId() { this->authPrincipalOwnerId_ = nullptr;};
+      inline string getAuthPrincipalOwnerId() const { DARABONBA_PTR_GET_DEFAULT(authPrincipalOwnerId_, "") };
+      inline AccessDeniedDetail& setAuthPrincipalOwnerId(string authPrincipalOwnerId) { DARABONBA_PTR_SET_VALUE(authPrincipalOwnerId_, authPrincipalOwnerId) };
+
+
+      // authPrincipalType Field Functions 
+      bool hasAuthPrincipalType() const { return this->authPrincipalType_ != nullptr;};
+      void deleteAuthPrincipalType() { this->authPrincipalType_ = nullptr;};
+      inline string getAuthPrincipalType() const { DARABONBA_PTR_GET_DEFAULT(authPrincipalType_, "") };
+      inline AccessDeniedDetail& setAuthPrincipalType(string authPrincipalType) { DARABONBA_PTR_SET_VALUE(authPrincipalType_, authPrincipalType) };
+
+
+      // encodedDiagnosticMessage Field Functions 
+      bool hasEncodedDiagnosticMessage() const { return this->encodedDiagnosticMessage_ != nullptr;};
+      void deleteEncodedDiagnosticMessage() { this->encodedDiagnosticMessage_ = nullptr;};
+      inline string getEncodedDiagnosticMessage() const { DARABONBA_PTR_GET_DEFAULT(encodedDiagnosticMessage_, "") };
+      inline AccessDeniedDetail& setEncodedDiagnosticMessage(string encodedDiagnosticMessage) { DARABONBA_PTR_SET_VALUE(encodedDiagnosticMessage_, encodedDiagnosticMessage) };
+
+
+      // noPermissionType Field Functions 
+      bool hasNoPermissionType() const { return this->noPermissionType_ != nullptr;};
+      void deleteNoPermissionType() { this->noPermissionType_ = nullptr;};
+      inline string getNoPermissionType() const { DARABONBA_PTR_GET_DEFAULT(noPermissionType_, "") };
+      inline AccessDeniedDetail& setNoPermissionType(string noPermissionType) { DARABONBA_PTR_SET_VALUE(noPermissionType_, noPermissionType) };
+
+
+      // policyType Field Functions 
+      bool hasPolicyType() const { return this->policyType_ != nullptr;};
+      void deletePolicyType() { this->policyType_ = nullptr;};
+      inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+      inline AccessDeniedDetail& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
+
+
+    protected:
+      // The authentication action.
+      shared_ptr<string> authAction_ {};
+      // The principal name.
+      shared_ptr<string> authPrincipalDisplayName_ {};
+      // The account of the principal.
+      shared_ptr<string> authPrincipalOwnerId_ {};
+      // The principal type.
+      shared_ptr<string> authPrincipalType_ {};
+      // The encoded diagnostic message.
+      shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The permission denial type.
+      shared_ptr<string> noPermissionType_ {};
+      // The policy type.
+      shared_ptr<string> policyType_ {};
+    };
+
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->code_ == nullptr && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline const ReadSchedulerxCalendarResponseBodyAccessDeniedDetail & accessDeniedDetail() const { DARABONBA_PTR_GET_CONST(accessDeniedDetail_, ReadSchedulerxCalendarResponseBodyAccessDeniedDetail) };
-    inline ReadSchedulerxCalendarResponseBodyAccessDeniedDetail accessDeniedDetail() { DARABONBA_PTR_GET(accessDeniedDetail_, ReadSchedulerxCalendarResponseBodyAccessDeniedDetail) };
-    inline ReadSchedulerxCalendarResponseBody& setAccessDeniedDetail(const ReadSchedulerxCalendarResponseBodyAccessDeniedDetail & accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
-    inline ReadSchedulerxCalendarResponseBody& setAccessDeniedDetail(ReadSchedulerxCalendarResponseBodyAccessDeniedDetail && accessDeniedDetail) { DARABONBA_PTR_SET_RVALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline const ReadSchedulerxCalendarResponseBody::AccessDeniedDetail & getAccessDeniedDetail() const { DARABONBA_PTR_GET_CONST(accessDeniedDetail_, ReadSchedulerxCalendarResponseBody::AccessDeniedDetail) };
+    inline ReadSchedulerxCalendarResponseBody::AccessDeniedDetail getAccessDeniedDetail() { DARABONBA_PTR_GET(accessDeniedDetail_, ReadSchedulerxCalendarResponseBody::AccessDeniedDetail) };
+    inline ReadSchedulerxCalendarResponseBody& setAccessDeniedDetail(const ReadSchedulerxCalendarResponseBody::AccessDeniedDetail & accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline ReadSchedulerxCalendarResponseBody& setAccessDeniedDetail(ReadSchedulerxCalendarResponseBody::AccessDeniedDetail && accessDeniedDetail) { DARABONBA_PTR_SET_RVALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline ReadSchedulerxCalendarResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ReadSchedulerxCalendarResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ReadSchedulerxCalendarResponseBodyData) };
-    inline ReadSchedulerxCalendarResponseBodyData data() { DARABONBA_PTR_GET(data_, ReadSchedulerxCalendarResponseBodyData) };
-    inline ReadSchedulerxCalendarResponseBody& setData(const ReadSchedulerxCalendarResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ReadSchedulerxCalendarResponseBody& setData(ReadSchedulerxCalendarResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ReadSchedulerxCalendarResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ReadSchedulerxCalendarResponseBody::Data) };
+    inline ReadSchedulerxCalendarResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ReadSchedulerxCalendarResponseBody::Data) };
+    inline ReadSchedulerxCalendarResponseBody& setData(const ReadSchedulerxCalendarResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ReadSchedulerxCalendarResponseBody& setData(ReadSchedulerxCalendarResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ReadSchedulerxCalendarResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ReadSchedulerxCalendarResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ReadSchedulerxCalendarResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The access denial details.
-    std::shared_ptr<ReadSchedulerxCalendarResponseBodyAccessDeniedDetail> accessDeniedDetail_ = nullptr;
+    shared_ptr<ReadSchedulerxCalendarResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The status code.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // *
-    std::shared_ptr<ReadSchedulerxCalendarResponseBodyData> data_ = nullptr;
+    shared_ptr<ReadSchedulerxCalendarResponseBody::Data> data_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The unique request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

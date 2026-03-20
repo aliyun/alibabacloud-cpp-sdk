@@ -56,7 +56,7 @@ namespace Schedulerx220190430
       Models::BatchDeleteJobsResponse batchDeleteJobs(const Models::BatchDeleteJobsRequest &request);
 
       /**
-       * @summary The additional information that is returned.
+       * @summary Deletes multiple routing policies at a time.
        *
        * @param request BatchDeleteRouteStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -65,7 +65,7 @@ namespace Schedulerx220190430
       Models::BatchDeleteRouteStrategyResponse batchDeleteRouteStrategyWithOptions(const Models::BatchDeleteRouteStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The additional information that is returned.
+       * @summary Deletes multiple routing policies at a time.
        *
        * @param request BatchDeleteRouteStrategyRequest
        * @return BatchDeleteRouteStrategyResponse
@@ -262,7 +262,7 @@ namespace Schedulerx220190430
       Models::CreateWorkflowResponse createWorkflow(const Models::CreateWorkflowRequest &request);
 
       /**
-       * @summary The additional information that is returned.
+       * @summary Deletes an application group.
        *
        * @param request DeleteAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -271,7 +271,7 @@ namespace Schedulerx220190430
       Models::DeleteAppGroupResponse deleteAppGroupWithOptions(const Models::DeleteAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The additional information that is returned.
+       * @summary Deletes an application group.
        *
        * @param request DeleteAppGroupRequest
        * @return DeleteAppGroupResponse
@@ -415,7 +415,7 @@ namespace Schedulerx220190430
       Models::DesignateWorkersResponse designateWorkers(const Models::DesignateWorkersRequest &request);
 
       /**
-       * @summary Disables a job.
+       * @summary Disables a specified task.
        *
        * @param request DisableJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -424,7 +424,7 @@ namespace Schedulerx220190430
       Models::DisableJobResponse disableJobWithOptions(const Models::DisableJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a job.
+       * @summary Disables a specified task.
        *
        * @param request DisableJobRequest
        * @return DisableJobResponse
@@ -521,7 +521,7 @@ namespace Schedulerx220190430
       Models::ExecuteWorkflowResponse executeWorkflow(const Models::ExecuteWorkflowRequest &request);
 
       /**
-       * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+       * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
        *
        * @param request GetAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +530,7 @@ namespace Schedulerx220190430
       Models::GetAppGroupResponse getAppGroupWithOptions(const Models::GetAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+       * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
        *
        * @param request GetAppGroupRequest
        * @return GetAppGroupResponse
