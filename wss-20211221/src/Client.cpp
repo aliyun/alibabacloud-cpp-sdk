@@ -47,24 +47,24 @@ CreateMultiOrderResponse Client::createMultiOrderWithOptions(const CreateMultiOr
   CreateMultiOrderShrinkRequest request = CreateMultiOrderShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasProperties()) {
-    request.setPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.properties(), "Properties", "json"));
+    request.setPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProperties(), "Properties", "json"));
   }
 
   json query = {};
   if (!!request.hasOrderItems()) {
-    query["OrderItems"] = request.orderItems();
+    query["OrderItems"] = request.getOrderItems();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasPropertiesShrink()) {
-    query["Properties"] = request.propertiesShrink();
+    query["Properties"] = request.getPropertiesShrink();
   }
 
   if (!!request.hasResellerOwnerUid()) {
-    query["ResellerOwnerUid"] = request.resellerOwnerUid();
+    query["ResellerOwnerUid"] = request.getResellerOwnerUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -139,19 +139,19 @@ DescribeMultiPriceResponse Client::describeMultiPriceWithOptions(const DescribeM
   request.validate();
   json query = {};
   if (!!request.hasOrderItems()) {
-    query["OrderItems"] = request.orderItems();
+    query["OrderItems"] = request.getOrderItems();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasPackageCode()) {
-    query["PackageCode"] = request.packageCode();
+    query["PackageCode"] = request.getPackageCode();
   }
 
   if (!!request.hasResellerOwnerUid()) {
-    query["ResellerOwnerUid"] = request.resellerOwnerUid();
+    query["ResellerOwnerUid"] = request.getResellerOwnerUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -193,35 +193,35 @@ DescribePackageDeductionsResponse Client::describePackageDeductionsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasPackageIds()) {
-    query["PackageIds"] = request.packageIds();
+    query["PackageIds"] = request.getPackageIds();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasResourceTypes()) {
-    query["ResourceTypes"] = request.resourceTypes();
+    query["ResourceTypes"] = request.getResourceTypes();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -263,23 +263,23 @@ ModifyInstancePropertiesResponse Client::modifyInstancePropertiesWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasValue()) {
-    query["Value"] = request.value();
+    query["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

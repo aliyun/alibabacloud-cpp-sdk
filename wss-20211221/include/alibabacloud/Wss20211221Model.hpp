@@ -17,24 +17,5 @@
 #include <alibabacloud/models/ModifyInstancePropertiesRequest.hpp>
 #include <alibabacloud/models/ModifyInstancePropertiesResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstancePropertiesResponse.hpp>
-#include <alibabacloud/models/CreateMultiOrderRequestOrderItemsComponents.hpp>
-#include <alibabacloud/models/CreateMultiOrderRequestOrderItems.hpp>
-#include <alibabacloud/models/CreateMultiOrderShrinkRequestOrderItemsComponents.hpp>
-#include <alibabacloud/models/CreateMultiOrderShrinkRequestOrderItems.hpp>
-#include <alibabacloud/models/DescribeDeliveryAddressResponseBodyAddressesArea.hpp>
-#include <alibabacloud/models/DescribeDeliveryAddressResponseBodyAddressesCity.hpp>
-#include <alibabacloud/models/DescribeDeliveryAddressResponseBodyAddressesProvince.hpp>
-#include <alibabacloud/models/DescribeDeliveryAddressResponseBodyAddressesTown.hpp>
-#include <alibabacloud/models/DescribeDeliveryAddressResponseBodyAddresses.hpp>
-#include <alibabacloud/models/DescribeMultiPriceRequestOrderItemsComponents.hpp>
-#include <alibabacloud/models/DescribeMultiPriceRequestOrderItems.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfoPricePromotions.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfoPrice.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfoRules.hpp>
-#include <alibabacloud/models/DescribeMultiPriceResponseBodyPriceInfo.hpp>
-#include <alibabacloud/models/DescribePackageDeductionsResponseBodyDeductions.hpp>
 
 #endif
