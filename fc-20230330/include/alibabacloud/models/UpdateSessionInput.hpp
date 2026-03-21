@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATESESSIONINPUT_HPP_
 #define ALIBABACLOUD_MODELS_UPDATESESSIONINPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/NASConfig.hpp>
+#include <alibabacloud/models/OSSMountConfig.hpp>
+#include <alibabacloud/models/PolarFsConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,11 +17,17 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSessionInput& obj) { 
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
+      DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateSessionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
+      DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
@@ -34,12 +43,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disableSessionIdReuse_ == nullptr
-        && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+        && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
     // disableSessionIdReuse Field Functions 
     bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
     void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
     inline bool getDisableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
     inline UpdateSessionInput& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
+
+
+    // nasConfig Field Functions 
+    bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
+    void deleteNasConfig() { this->nasConfig_ = nullptr;};
+    inline const NASConfig & getNasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig getNasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline UpdateSessionInput& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
+    inline UpdateSessionInput& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
+
+
+    // ossMountConfig Field Functions 
+    bool hasOssMountConfig() const { return this->ossMountConfig_ != nullptr;};
+    void deleteOssMountConfig() { this->ossMountConfig_ = nullptr;};
+    inline const OSSMountConfig & getOssMountConfig() const { DARABONBA_PTR_GET_CONST(ossMountConfig_, OSSMountConfig) };
+    inline OSSMountConfig getOssMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
+    inline UpdateSessionInput& setOssMountConfig(const OSSMountConfig & ossMountConfig) { DARABONBA_PTR_SET_VALUE(ossMountConfig_, ossMountConfig) };
+    inline UpdateSessionInput& setOssMountConfig(OSSMountConfig && ossMountConfig) { DARABONBA_PTR_SET_RVALUE(ossMountConfig_, ossMountConfig) };
+
+
+    // polarFsConfig Field Functions 
+    bool hasPolarFsConfig() const { return this->polarFsConfig_ != nullptr;};
+    void deletePolarFsConfig() { this->polarFsConfig_ = nullptr;};
+    inline const PolarFsConfig & getPolarFsConfig() const { DARABONBA_PTR_GET_CONST(polarFsConfig_, PolarFsConfig) };
+    inline PolarFsConfig getPolarFsConfig() { DARABONBA_PTR_GET(polarFsConfig_, PolarFsConfig) };
+    inline UpdateSessionInput& setPolarFsConfig(const PolarFsConfig & polarFsConfig) { DARABONBA_PTR_SET_VALUE(polarFsConfig_, polarFsConfig) };
+    inline UpdateSessionInput& setPolarFsConfig(PolarFsConfig && polarFsConfig) { DARABONBA_PTR_SET_RVALUE(polarFsConfig_, polarFsConfig) };
 
 
     // sessionIdleTimeoutInSeconds Field Functions 
@@ -58,6 +94,9 @@ namespace Models
 
   protected:
     shared_ptr<bool> disableSessionIdReuse_ {};
+    shared_ptr<NASConfig> nasConfig_ {};
+    shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    shared_ptr<PolarFsConfig> polarFsConfig_ {};
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
   };
