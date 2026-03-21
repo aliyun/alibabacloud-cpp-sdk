@@ -24,10 +24,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
+      DARABONBA_PTR_TO_JSON(IsLatestVersion, isLatestVersion_);
+      DARABONBA_PTR_TO_JSON(LatestVersion, latestVersion_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(MaintainEndTime, maintainEndTime_);
       DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_TO_JSON(MemApplicationAttribute, memApplicationAttribute_);
+      DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -53,10 +56,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
+      DARABONBA_PTR_FROM_JSON(IsLatestVersion, isLatestVersion_);
+      DARABONBA_PTR_FROM_JSON(LatestVersion, latestVersion_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(MaintainEndTime, maintainEndTime_);
       DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_FROM_JSON(MemApplicationAttribute, memApplicationAttribute_);
+      DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -711,11 +717,11 @@ namespace Models
 
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr && this->DBClusterId_ == nullptr
-        && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->lockMode_ == nullptr
-        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr
-        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr
-        && this->status_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->isLatestVersion_ == nullptr
+        && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr
+        && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr && this->upgradeAvailable_ == nullptr
+        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -790,6 +796,20 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setExpired(bool expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
 
 
+    // isLatestVersion Field Functions 
+    bool hasIsLatestVersion() const { return this->isLatestVersion_ != nullptr;};
+    void deleteIsLatestVersion() { this->isLatestVersion_ = nullptr;};
+    inline bool getIsLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(isLatestVersion_, false) };
+    inline DescribeApplicationAttributeResponseBody& setIsLatestVersion(bool isLatestVersion) { DARABONBA_PTR_SET_VALUE(isLatestVersion_, isLatestVersion) };
+
+
+    // latestVersion Field Functions 
+    bool hasLatestVersion() const { return this->latestVersion_ != nullptr;};
+    void deleteLatestVersion() { this->latestVersion_ = nullptr;};
+    inline string getLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(latestVersion_, "") };
+    inline DescribeApplicationAttributeResponseBody& setLatestVersion(string latestVersion) { DARABONBA_PTR_SET_VALUE(latestVersion_, latestVersion) };
+
+
     // lockMode Field Functions 
     bool hasLockMode() const { return this->lockMode_ != nullptr;};
     void deleteLockMode() { this->lockMode_ = nullptr;};
@@ -818,6 +838,13 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody::MemApplicationAttribute getMemApplicationAttribute() { DARABONBA_PTR_GET(memApplicationAttribute_, DescribeApplicationAttributeResponseBody::MemApplicationAttribute) };
     inline DescribeApplicationAttributeResponseBody& setMemApplicationAttribute(const DescribeApplicationAttributeResponseBody::MemApplicationAttribute & memApplicationAttribute) { DARABONBA_PTR_SET_VALUE(memApplicationAttribute_, memApplicationAttribute) };
     inline DescribeApplicationAttributeResponseBody& setMemApplicationAttribute(DescribeApplicationAttributeResponseBody::MemApplicationAttribute && memApplicationAttribute) { DARABONBA_PTR_SET_RVALUE(memApplicationAttribute_, memApplicationAttribute) };
+
+
+    // minorVersion Field Functions 
+    bool hasMinorVersion() const { return this->minorVersion_ != nullptr;};
+    void deleteMinorVersion() { this->minorVersion_ = nullptr;};
+    inline string getMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(minorVersion_, "") };
+    inline DescribeApplicationAttributeResponseBody& setMinorVersion(string minorVersion) { DARABONBA_PTR_SET_VALUE(minorVersion_, minorVersion) };
 
 
     // payType Field Functions 
@@ -926,10 +953,13 @@ namespace Models
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
     shared_ptr<string> expireTime_ {};
     shared_ptr<bool> expired_ {};
+    shared_ptr<bool> isLatestVersion_ {};
+    shared_ptr<string> latestVersion_ {};
     shared_ptr<string> lockMode_ {};
     shared_ptr<string> maintainEndTime_ {};
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
+    shared_ptr<string> minorVersion_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> polarFSInstanceId_ {};
     shared_ptr<string> regionId_ {};
