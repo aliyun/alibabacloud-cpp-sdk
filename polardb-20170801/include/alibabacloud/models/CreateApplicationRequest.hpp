@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
+      DARABONBA_PTR_TO_JSON(AutoAllocatePublicEip, autoAllocatePublicEip_);
       DARABONBA_PTR_TO_JSON(AutoCreatePolarFs, autoCreatePolarFs_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
+      DARABONBA_PTR_FROM_JSON(AutoAllocatePublicEip, autoAllocatePublicEip_);
       DARABONBA_PTR_FROM_JSON(AutoCreatePolarFs, autoCreatePolarFs_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
@@ -373,12 +375,12 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
-        && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr
-        && this->components_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr
-        && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr
-        && this->modelName_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->autoAllocatePublicEip_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr
+        && this->autoUseCoupon_ == nullptr && this->components_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr
+        && this->endpoints_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr
+        && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr
+        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -398,6 +400,13 @@ namespace Models
     void deleteArchitecture() { this->architecture_ = nullptr;};
     inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
     inline CreateApplicationRequest& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
+
+
+    // autoAllocatePublicEip Field Functions 
+    bool hasAutoAllocatePublicEip() const { return this->autoAllocatePublicEip_ != nullptr;};
+    void deleteAutoAllocatePublicEip() { this->autoAllocatePublicEip_ = nullptr;};
+    inline bool getAutoAllocatePublicEip() const { DARABONBA_PTR_GET_DEFAULT(autoAllocatePublicEip_, false) };
+    inline CreateApplicationRequest& setAutoAllocatePublicEip(bool autoAllocatePublicEip) { DARABONBA_PTR_SET_VALUE(autoAllocatePublicEip_, autoAllocatePublicEip) };
 
 
     // autoCreatePolarFs Field Functions 
@@ -587,6 +596,7 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // This parameter is required.
     shared_ptr<string> architecture_ {};
+    shared_ptr<bool> autoAllocatePublicEip_ {};
     shared_ptr<bool> autoCreatePolarFs_ {};
     shared_ptr<bool> autoRenew_ {};
     shared_ptr<bool> autoUseCoupon_ {};

@@ -1723,6 +1723,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["Architecture"] = request.getArchitecture();
   }
 
+  if (!!request.hasAutoAllocatePublicEip()) {
+    query["AutoAllocatePublicEip"] = request.getAutoAllocatePublicEip();
+  }
+
   if (!!request.hasAutoCreatePolarFs()) {
     query["AutoCreatePolarFs"] = request.getAutoCreatePolarFs();
   }
