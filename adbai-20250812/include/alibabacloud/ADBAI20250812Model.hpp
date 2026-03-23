@@ -10,6 +10,9 @@
 #include <alibabacloud/models/CreateEmbodiedAIPlatformShrinkRequest.hpp>
 #include <alibabacloud/models/CreateEmbodiedAIPlatformResponseBody.hpp>
 #include <alibabacloud/models/CreateEmbodiedAIPlatformResponse.hpp>
+#include <alibabacloud/models/DeleteAgentPlatformRequest.hpp>
+#include <alibabacloud/models/DeleteAgentPlatformResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgentPlatformResponse.hpp>
 #include <alibabacloud/models/DeleteEmbodiedAIPlatformRequest.hpp>
 #include <alibabacloud/models/DeleteEmbodiedAIPlatformResponseBody.hpp>
 #include <alibabacloud/models/DeleteEmbodiedAIPlatformResponse.hpp>

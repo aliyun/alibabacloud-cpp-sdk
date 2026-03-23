@@ -160,6 +160,56 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatform(const CreateEm
 }
 
 /**
+ * @summary 删除指标平台
+ *
+ * @param request DeleteAgentPlatformRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgentPlatformResponse
+ */
+DeleteAgentPlatformResponse Client::deleteAgentPlatformWithOptions(const DeleteAgentPlatformRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgentPlatform"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgentPlatformResponse>();
+}
+
+/**
+ * @summary 删除指标平台
+ *
+ * @param request DeleteAgentPlatformRequest
+ * @return DeleteAgentPlatformResponse
+ */
+DeleteAgentPlatformResponse Client::deleteAgentPlatform(const DeleteAgentPlatformRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgentPlatformWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除具身智能平台
  *
  * @param request DeleteEmbodiedAIPlatformRequest
