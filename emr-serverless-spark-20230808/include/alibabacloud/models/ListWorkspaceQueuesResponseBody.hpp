@@ -45,11 +45,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
         DARABONBA_PTR_TO_JSON(environments, environments_);
+        DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(maxResource, maxResource_);
         DARABONBA_PTR_TO_JSON(minResource, minResource_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
         DARABONBA_PTR_TO_JSON(preheat, preheat_);
         DARABONBA_PTR_TO_JSON(properties, properties_);
+        DARABONBA_PTR_TO_JSON(queueCategory, queueCategory_);
         DARABONBA_PTR_TO_JSON(queueName, queueName_);
         DARABONBA_PTR_TO_JSON(queueScope, queueScope_);
         DARABONBA_PTR_TO_JSON(queueStatus, queueStatus_);
@@ -63,11 +65,13 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
         DARABONBA_PTR_FROM_JSON(environments, environments_);
+        DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(maxResource, maxResource_);
         DARABONBA_PTR_FROM_JSON(minResource, minResource_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
         DARABONBA_PTR_FROM_JSON(preheat, preheat_);
         DARABONBA_PTR_FROM_JSON(properties, properties_);
+        DARABONBA_PTR_FROM_JSON(queueCategory, queueCategory_);
         DARABONBA_PTR_FROM_JSON(queueName, queueName_);
         DARABONBA_PTR_FROM_JSON(queueScope, queueScope_);
         DARABONBA_PTR_FROM_JSON(queueStatus, queueStatus_);
@@ -167,9 +171,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->allowActions_ == nullptr
-        && this->createTime_ == nullptr && this->creator_ == nullptr && this->environments_ == nullptr && this->maxResource_ == nullptr && this->minResource_ == nullptr
-        && this->paymentType_ == nullptr && this->preheat_ == nullptr && this->properties_ == nullptr && this->queueName_ == nullptr && this->queueScope_ == nullptr
-        && this->queueStatus_ == nullptr && this->queueType_ == nullptr && this->regionId_ == nullptr && this->usedResource_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->environments_ == nullptr && this->gpuSpec_ == nullptr && this->maxResource_ == nullptr
+        && this->minResource_ == nullptr && this->paymentType_ == nullptr && this->preheat_ == nullptr && this->properties_ == nullptr && this->queueCategory_ == nullptr
+        && this->queueName_ == nullptr && this->queueScope_ == nullptr && this->queueStatus_ == nullptr && this->queueType_ == nullptr && this->regionId_ == nullptr
+        && this->usedResource_ == nullptr && this->workspaceId_ == nullptr; };
       // allowActions Field Functions 
       bool hasAllowActions() const { return this->allowActions_ != nullptr;};
       void deleteAllowActions() { this->allowActions_ = nullptr;};
@@ -200,6 +205,15 @@ namespace Models
       inline vector<string> getEnvironments() { DARABONBA_PTR_GET(environments_, vector<string>) };
       inline Queues& setEnvironments(const vector<string> & environments) { DARABONBA_PTR_SET_VALUE(environments_, environments) };
       inline Queues& setEnvironments(vector<string> && environments) { DARABONBA_PTR_SET_RVALUE(environments_, environments) };
+
+
+      // gpuSpec Field Functions 
+      bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+      void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+      inline const vector<string> & getGpuSpec() const { DARABONBA_PTR_GET_CONST(gpuSpec_, vector<string>) };
+      inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
+      inline Queues& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
+      inline Queues& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
 
 
       // maxResource Field Functions 
@@ -235,6 +249,13 @@ namespace Models
       void deleteProperties() { this->properties_ = nullptr;};
       inline string getProperties() const { DARABONBA_PTR_GET_DEFAULT(properties_, "") };
       inline Queues& setProperties(string properties) { DARABONBA_PTR_SET_VALUE(properties_, properties) };
+
+
+      // queueCategory Field Functions 
+      bool hasQueueCategory() const { return this->queueCategory_ != nullptr;};
+      void deleteQueueCategory() { this->queueCategory_ = nullptr;};
+      inline string getQueueCategory() const { DARABONBA_PTR_GET_DEFAULT(queueCategory_, "") };
+      inline Queues& setQueueCategory(string queueCategory) { DARABONBA_PTR_SET_VALUE(queueCategory_, queueCategory) };
 
 
       // queueName Field Functions 
@@ -295,6 +316,7 @@ namespace Models
       shared_ptr<string> creator_ {};
       // The environment types of the queue.
       shared_ptr<vector<string>> environments_ {};
+      shared_ptr<vector<string>> gpuSpec_ {};
       // The maximum capacity of resources that can be used in the queue.
       shared_ptr<string> maxResource_ {};
       // The minimum capacity of resources that can be used in the queue.
@@ -307,6 +329,7 @@ namespace Models
       shared_ptr<bool> preheat_ {};
       // The queue label.
       shared_ptr<string> properties_ {};
+      shared_ptr<string> queueCategory_ {};
       // The name of the queue.
       shared_ptr<string> queueName_ {};
       // The queue architecture.

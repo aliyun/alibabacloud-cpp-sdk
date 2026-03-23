@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(duration, duration_);
         DARABONBA_PTR_TO_JSON(endTime, endTime_);
         DARABONBA_PTR_TO_JSON(failReason, failReason_);
+        DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
         DARABONBA_PTR_TO_JSON(paymentStatus, paymentStatus_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(duration, duration_);
         DARABONBA_PTR_FROM_JSON(endTime, endTime_);
         DARABONBA_PTR_FROM_JSON(failReason, failReason_);
+        DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
         DARABONBA_PTR_FROM_JSON(paymentStatus, paymentStatus_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -317,10 +319,10 @@ namespace Models
 
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->createTime_ == nullptr && this->dlfCatalogId_ == nullptr && this->dlfType_ == nullptr
-        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr
-        && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->gpuSpec_ == nullptr && this->paymentDurationUnit_ == nullptr
+        && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr
+        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -382,6 +384,15 @@ namespace Models
       void deleteFailReason() { this->failReason_ = nullptr;};
       inline string getFailReason() const { DARABONBA_PTR_GET_DEFAULT(failReason_, "") };
       inline Workspaces& setFailReason(string failReason) { DARABONBA_PTR_SET_VALUE(failReason_, failReason) };
+
+
+      // gpuSpec Field Functions 
+      bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+      void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+      inline const vector<string> & getGpuSpec() const { DARABONBA_PTR_GET_CONST(gpuSpec_, vector<string>) };
+      inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
+      inline Workspaces& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
+      inline Workspaces& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
 
 
       // paymentDurationUnit Field Functions 
@@ -507,6 +518,7 @@ namespace Models
       shared_ptr<int64_t> endTime_ {};
       // The failure reason.
       shared_ptr<string> failReason_ {};
+      shared_ptr<vector<string>> gpuSpec_ {};
       // The unit of the subscription duration.
       shared_ptr<string> paymentDurationUnit_ {};
       // The status of the payment.

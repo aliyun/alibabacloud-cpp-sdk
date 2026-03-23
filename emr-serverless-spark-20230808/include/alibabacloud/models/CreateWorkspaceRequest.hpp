@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dlfCatalogId, dlfCatalogId_);
       DARABONBA_PTR_TO_JSON(dlfType, dlfType_);
       DARABONBA_PTR_TO_JSON(duration, duration_);
+      DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
       DARABONBA_PTR_TO_JSON(ossBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dlfCatalogId, dlfCatalogId_);
       DARABONBA_PTR_FROM_JSON(dlfType, dlfType_);
       DARABONBA_PTR_FROM_JSON(duration, duration_);
+      DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
       DARABONBA_PTR_FROM_JSON(ossBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -110,9 +112,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ResourceSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cu, cu_);
+        DARABONBA_PTR_TO_JSON(gpu, gpu_);
       };
       friend void from_json(const Darabonba::Json& j, ResourceSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cu, cu_);
+        DARABONBA_PTR_FROM_JSON(gpu, gpu_);
       };
       ResourceSpec() = default ;
       ResourceSpec(const ResourceSpec &) = default ;
@@ -125,7 +129,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->cu_ == nullptr; };
+      virtual bool empty() const override { return this->cu_ == nullptr
+        && this->gpu_ == nullptr; };
       // cu Field Functions 
       bool hasCu() const { return this->cu_ != nullptr;};
       void deleteCu() { this->cu_ = nullptr;};
@@ -133,16 +138,24 @@ namespace Models
       inline ResourceSpec& setCu(string cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
 
 
+      // gpu Field Functions 
+      bool hasGpu() const { return this->gpu_ != nullptr;};
+      void deleteGpu() { this->gpu_ = nullptr;};
+      inline int32_t getGpu() const { DARABONBA_PTR_GET_DEFAULT(gpu_, 0) };
+      inline ResourceSpec& setGpu(int32_t gpu) { DARABONBA_PTR_SET_VALUE(gpu_, gpu) };
+
+
     protected:
       // The maximum resource quota for a workspace.
       shared_ptr<string> cu_ {};
+      shared_ptr<int32_t> gpu_ {};
     };
 
     virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->autoStartSessionCluster_ == nullptr && this->clientToken_ == nullptr && this->dlfCatalogId_ == nullptr
-        && this->dlfType_ == nullptr && this->duration_ == nullptr && this->ossBucket_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentType_ == nullptr
-        && this->ramRoleName_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->tag_ == nullptr
-        && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
+        && this->dlfType_ == nullptr && this->duration_ == nullptr && this->gpuSpec_ == nullptr && this->ossBucket_ == nullptr && this->paymentDurationUnit_ == nullptr
+        && this->paymentType_ == nullptr && this->ramRoleName_ == nullptr && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr
+        && this->tag_ == nullptr && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -197,6 +210,15 @@ namespace Models
     void deleteDuration() { this->duration_ = nullptr;};
     inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
     inline CreateWorkspaceRequest& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+    // gpuSpec Field Functions 
+    bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+    void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+    inline const vector<string> & getGpuSpec() const { DARABONBA_PTR_GET_CONST(gpuSpec_, vector<string>) };
+    inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
+    inline CreateWorkspaceRequest& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
+    inline CreateWorkspaceRequest& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
 
 
     // ossBucket Field Functions 
@@ -290,6 +312,7 @@ namespace Models
     shared_ptr<string> dlfType_ {};
     // The subscription period. This parameter is required only if the paymentType parameter is set to Pre.
     shared_ptr<string> duration_ {};
+    shared_ptr<vector<string>> gpuSpec_ {};
     // The name of the Object Storage Service (OSS) bucket.
     shared_ptr<string> ossBucket_ {};
     // The unit of the subscription duration.

@@ -95,6 +95,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const WorkerSpec& obj) { 
           DARABONBA_PTR_TO_JSON(cpu, cpu_);
+          DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
           DARABONBA_PTR_TO_JSON(groupName, groupName_);
           DARABONBA_PTR_TO_JSON(maxReplica, maxReplica_);
           DARABONBA_PTR_TO_JSON(memory, memory_);
@@ -105,6 +106,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, WorkerSpec& obj) { 
           DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+          DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
           DARABONBA_PTR_FROM_JSON(groupName, groupName_);
           DARABONBA_PTR_FROM_JSON(maxReplica, maxReplica_);
           DARABONBA_PTR_FROM_JSON(memory, memory_);
@@ -125,13 +127,20 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr && this->queueName_ == nullptr
-        && this->replica_ == nullptr && this->workerType_ == nullptr; };
+        && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr
+        && this->queueName_ == nullptr && this->replica_ == nullptr && this->workerType_ == nullptr; };
         // cpu Field Functions 
         bool hasCpu() const { return this->cpu_ != nullptr;};
         void deleteCpu() { this->cpu_ = nullptr;};
         inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
         inline WorkerSpec& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+        // gpuSpec Field Functions 
+        bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+        void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+        inline string getGpuSpec() const { DARABONBA_PTR_GET_DEFAULT(gpuSpec_, "") };
+        inline WorkerSpec& setGpuSpec(string gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
 
 
         // groupName Field Functions 
@@ -185,6 +194,7 @@ namespace Models
 
       protected:
         shared_ptr<string> cpu_ {};
+        shared_ptr<string> gpuSpec_ {};
         shared_ptr<string> groupName_ {};
         shared_ptr<int32_t> maxReplica_ {};
         shared_ptr<string> memory_ {};
@@ -199,6 +209,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const HeadSpec& obj) { 
           DARABONBA_PTR_TO_JSON(cpu, cpu_);
           DARABONBA_PTR_TO_JSON(enableAutoScaling, enableAutoScaling_);
+          DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
           DARABONBA_PTR_TO_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
           DARABONBA_PTR_TO_JSON(memory, memory_);
           DARABONBA_PTR_TO_JSON(queueName, queueName_);
@@ -207,6 +218,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, HeadSpec& obj) { 
           DARABONBA_PTR_FROM_JSON(cpu, cpu_);
           DARABONBA_PTR_FROM_JSON(enableAutoScaling, enableAutoScaling_);
+          DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
           DARABONBA_PTR_FROM_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
           DARABONBA_PTR_FROM_JSON(memory, memory_);
           DARABONBA_PTR_FROM_JSON(queueName, queueName_);
@@ -224,7 +236,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->enableAutoScaling_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr && this->replica_ == nullptr; };
+        && this->enableAutoScaling_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr
+        && this->replica_ == nullptr; };
         // cpu Field Functions 
         bool hasCpu() const { return this->cpu_ != nullptr;};
         void deleteCpu() { this->cpu_ = nullptr;};
@@ -237,6 +250,13 @@ namespace Models
         void deleteEnableAutoScaling() { this->enableAutoScaling_ = nullptr;};
         inline bool getEnableAutoScaling() const { DARABONBA_PTR_GET_DEFAULT(enableAutoScaling_, false) };
         inline HeadSpec& setEnableAutoScaling(bool enableAutoScaling) { DARABONBA_PTR_SET_VALUE(enableAutoScaling_, enableAutoScaling) };
+
+
+        // gpuSpec Field Functions 
+        bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+        void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+        inline string getGpuSpec() const { DARABONBA_PTR_GET_DEFAULT(gpuSpec_, "") };
+        inline HeadSpec& setGpuSpec(string gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
 
 
         // idleTimeoutSeconds Field Functions 
@@ -270,6 +290,7 @@ namespace Models
       protected:
         shared_ptr<string> cpu_ {};
         shared_ptr<bool> enableAutoScaling_ {};
+        shared_ptr<string> gpuSpec_ {};
         shared_ptr<int32_t> idleTimeoutSeconds_ {};
         shared_ptr<string> memory_ {};
         shared_ptr<string> queueName_ {};

@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(log, log_);
         DARABONBA_PTR_TO_JSON(mbSeconds, mbSeconds_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(priority, priority_);
         DARABONBA_PTR_TO_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
         DARABONBA_PTR_TO_JSON(state, state_);
@@ -82,6 +83,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(log, log_);
         DARABONBA_PTR_FROM_JSON(mbSeconds, mbSeconds_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(priority, priority_);
         DARABONBA_PTR_FROM_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
         DARABONBA_PTR_FROM_JSON(state, state_);
@@ -184,9 +186,9 @@ namespace Models
       virtual bool empty() const override { return this->codeType_ == nullptr
         && this->configurationOverrides_ == nullptr && this->creator_ == nullptr && this->cuHours_ == nullptr && this->displayReleaseVersion_ == nullptr && this->endTime_ == nullptr
         && this->executionTimeoutSeconds_ == nullptr && this->fusion_ == nullptr && this->jobDriver_ == nullptr && this->jobRunId_ == nullptr && this->log_ == nullptr
-        && this->mbSeconds_ == nullptr && this->name_ == nullptr && this->releaseVersion_ == nullptr && this->resourceQueueId_ == nullptr && this->state_ == nullptr
-        && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr && this->webUI_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->mbSeconds_ == nullptr && this->name_ == nullptr && this->priority_ == nullptr && this->releaseVersion_ == nullptr && this->resourceQueueId_ == nullptr
+        && this->state_ == nullptr && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr
+        && this->webUI_ == nullptr && this->workspaceId_ == nullptr; };
       // codeType Field Functions 
       bool hasCodeType() const { return this->codeType_ != nullptr;};
       void deleteCodeType() { this->codeType_ = nullptr;};
@@ -282,6 +284,13 @@ namespace Models
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline JobRuns& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline string getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+      inline JobRuns& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
       // releaseVersion Field Functions 
@@ -384,6 +393,7 @@ namespace Models
       shared_ptr<int64_t> mbSeconds_ {};
       // The job name.
       shared_ptr<string> name_ {};
+      shared_ptr<string> priority_ {};
       // The version of Spark on which the jobs run.
       shared_ptr<string> releaseVersion_ {};
       shared_ptr<string> resourceQueueId_ {};

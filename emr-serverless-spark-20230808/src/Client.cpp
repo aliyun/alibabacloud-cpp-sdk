@@ -653,6 +653,10 @@ CreateRayClusterResponse Client::createRayClusterWithOptions(const string &works
     body["networkServiceName"] = request.getNetworkServiceName();
   }
 
+  if (!!request.hasVolumeIds()) {
+    body["volumeIds"] = request.getVolumeIds();
+  }
+
   if (!!request.hasWorkerSpec()) {
     body["workerSpec"] = request.getWorkerSpec();
   }
@@ -899,6 +903,10 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
 
   if (!!request.hasDuration()) {
     body["duration"] = request.getDuration();
+  }
+
+  if (!!request.hasGpuSpec()) {
+    body["gpuSpec"] = request.getGpuSpec();
   }
 
   if (!!request.hasOssBucket()) {
@@ -1193,6 +1201,10 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueueWithOptions(const EditWorks
   json body = {};
   if (!!request.hasEnvironments()) {
     body["environments"] = request.getEnvironments();
+  }
+
+  if (!!request.hasGpuSpec()) {
+    body["gpuSpec"] = request.getGpuSpec();
   }
 
   if (!!request.hasResourceSpec()) {
@@ -2169,6 +2181,10 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplicationsWithOptio
   tmpReq.validate();
   ListKyuubiSparkApplicationsShrinkRequest request = ListKyuubiSparkApplicationsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEndTime()) {
+    request.setEndTimeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEndTime(), "endTime", "json"));
+  }
+
   if (!!tmpReq.hasOrderBy()) {
     request.setOrderByShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrderBy(), "orderBy", "json"));
   }
@@ -2184,6 +2200,14 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplicationsWithOptio
 
   if (!!request.hasApplicationName()) {
     query["applicationName"] = request.getApplicationName();
+  }
+
+  if (!!request.hasEndTimeShrink()) {
+    query["endTime"] = request.getEndTimeShrink();
+  }
+
+  if (!!request.hasLatestSqlStatementStatuses()) {
+    query["latestSqlStatementStatuses"] = request.getLatestSqlStatementStatuses();
   }
 
   if (!!request.hasMaxResults()) {
@@ -2212,6 +2236,10 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplicationsWithOptio
 
   if (!!request.hasStartTimeShrink()) {
     query["startTime"] = request.getStartTimeShrink();
+  }
+
+  if (!!request.hasStates()) {
+    query["states"] = request.getStates();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4012,6 +4040,10 @@ UpdateRayClusterResponse Client::updateRayClusterWithOptions(const string &works
 
   if (!!request.hasNetworkServiceName()) {
     body["networkServiceName"] = request.getNetworkServiceName();
+  }
+
+  if (!!request.hasVolumeIds()) {
+    body["volumeIds"] = request.getVolumeIds();
   }
 
   if (!!request.hasWorkerSpec()) {

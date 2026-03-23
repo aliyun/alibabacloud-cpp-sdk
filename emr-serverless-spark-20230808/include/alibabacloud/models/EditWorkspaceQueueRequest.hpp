@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const EditWorkspaceQueueRequest& obj) { 
       DARABONBA_PTR_TO_JSON(environments, environments_);
+      DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
       DARABONBA_PTR_TO_JSON(resourceSpec, resourceSpec_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       DARABONBA_PTR_TO_JSON(workspaceQueueName, workspaceQueueName_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, EditWorkspaceQueueRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(environments, environments_);
+      DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
       DARABONBA_PTR_FROM_JSON(resourceSpec, resourceSpec_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       DARABONBA_PTR_FROM_JSON(workspaceQueueName, workspaceQueueName_);
@@ -42,10 +44,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ResourceSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cu, cu_);
+        DARABONBA_PTR_TO_JSON(gpu, gpu_);
         DARABONBA_PTR_TO_JSON(maxCu, maxCu_);
       };
       friend void from_json(const Darabonba::Json& j, ResourceSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cu, cu_);
+        DARABONBA_PTR_FROM_JSON(gpu, gpu_);
         DARABONBA_PTR_FROM_JSON(maxCu, maxCu_);
       };
       ResourceSpec() = default ;
@@ -60,12 +64,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cu_ == nullptr
-        && this->maxCu_ == nullptr; };
+        && this->gpu_ == nullptr && this->maxCu_ == nullptr; };
       // cu Field Functions 
       bool hasCu() const { return this->cu_ != nullptr;};
       void deleteCu() { this->cu_ = nullptr;};
       inline int64_t getCu() const { DARABONBA_PTR_GET_DEFAULT(cu_, 0L) };
       inline ResourceSpec& setCu(int64_t cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
+
+
+      // gpu Field Functions 
+      bool hasGpu() const { return this->gpu_ != nullptr;};
+      void deleteGpu() { this->gpu_ = nullptr;};
+      inline int32_t getGpu() const { DARABONBA_PTR_GET_DEFAULT(gpu_, 0) };
+      inline ResourceSpec& setGpu(int32_t gpu) { DARABONBA_PTR_SET_VALUE(gpu_, gpu) };
 
 
       // maxCu Field Functions 
@@ -77,11 +88,12 @@ namespace Models
 
     protected:
       shared_ptr<int64_t> cu_ {};
+      shared_ptr<int32_t> gpu_ {};
       shared_ptr<int64_t> maxCu_ {};
     };
 
     virtual bool empty() const override { return this->environments_ == nullptr
-        && this->resourceSpec_ == nullptr && this->workspaceId_ == nullptr && this->workspaceQueueName_ == nullptr && this->regionId_ == nullptr; };
+        && this->gpuSpec_ == nullptr && this->resourceSpec_ == nullptr && this->workspaceId_ == nullptr && this->workspaceQueueName_ == nullptr && this->regionId_ == nullptr; };
     // environments Field Functions 
     bool hasEnvironments() const { return this->environments_ != nullptr;};
     void deleteEnvironments() { this->environments_ = nullptr;};
@@ -89,6 +101,15 @@ namespace Models
     inline vector<string> getEnvironments() { DARABONBA_PTR_GET(environments_, vector<string>) };
     inline EditWorkspaceQueueRequest& setEnvironments(const vector<string> & environments) { DARABONBA_PTR_SET_VALUE(environments_, environments) };
     inline EditWorkspaceQueueRequest& setEnvironments(vector<string> && environments) { DARABONBA_PTR_SET_RVALUE(environments_, environments) };
+
+
+    // gpuSpec Field Functions 
+    bool hasGpuSpec() const { return this->gpuSpec_ != nullptr;};
+    void deleteGpuSpec() { this->gpuSpec_ = nullptr;};
+    inline const vector<string> & getGpuSpec() const { DARABONBA_PTR_GET_CONST(gpuSpec_, vector<string>) };
+    inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
+    inline EditWorkspaceQueueRequest& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
+    inline EditWorkspaceQueueRequest& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
 
 
     // resourceSpec Field Functions 
@@ -123,6 +144,7 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> environments_ {};
+    shared_ptr<vector<string>> gpuSpec_ {};
     shared_ptr<EditWorkspaceQueueRequest::ResourceSpec> resourceSpec_ {};
     shared_ptr<string> workspaceId_ {};
     shared_ptr<string> workspaceQueueName_ {};

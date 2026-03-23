@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(kyuubiServiceId, kyuubiServiceId_);
         DARABONBA_PTR_TO_JSON(latestSqlStatementStatus, latestSqlStatementStatus_);
         DARABONBA_PTR_TO_JSON(mbSeconds, mbSeconds_);
+        DARABONBA_PTR_TO_JSON(priority, priority_);
         DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
         DARABONBA_PTR_TO_JSON(runLog, runLog_);
         DARABONBA_PTR_TO_JSON(startTime, startTime_);
@@ -68,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(kyuubiServiceId, kyuubiServiceId_);
         DARABONBA_PTR_FROM_JSON(latestSqlStatementStatus, latestSqlStatementStatus_);
         DARABONBA_PTR_FROM_JSON(mbSeconds, mbSeconds_);
+        DARABONBA_PTR_FROM_JSON(priority, priority_);
         DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
         DARABONBA_PTR_FROM_JSON(runLog, runLog_);
         DARABONBA_PTR_FROM_JSON(startTime, startTime_);
@@ -89,8 +91,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->applicationName_ == nullptr && this->cuHours_ == nullptr && this->endTime_ == nullptr && this->exitReason_ == nullptr && this->kyuubiServiceId_ == nullptr
-        && this->latestSqlStatementStatus_ == nullptr && this->mbSeconds_ == nullptr && this->resourceQueueId_ == nullptr && this->runLog_ == nullptr && this->startTime_ == nullptr
-        && this->state_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr && this->webUI_ == nullptr; };
+        && this->latestSqlStatementStatus_ == nullptr && this->mbSeconds_ == nullptr && this->priority_ == nullptr && this->resourceQueueId_ == nullptr && this->runLog_ == nullptr
+        && this->startTime_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->vcoreSeconds_ == nullptr && this->webUI_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -145,6 +147,13 @@ namespace Models
       void deleteMbSeconds() { this->mbSeconds_ = nullptr;};
       inline int64_t getMbSeconds() const { DARABONBA_PTR_GET_DEFAULT(mbSeconds_, 0L) };
       inline Applications& setMbSeconds(int64_t mbSeconds) { DARABONBA_PTR_SET_VALUE(mbSeconds_, mbSeconds) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline string getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
+      inline Applications& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
       // resourceQueueId Field Functions 
@@ -214,6 +223,7 @@ namespace Models
       shared_ptr<string> latestSqlStatementStatus_ {};
       // The total amount of memory allocated to the job multiplied by the running duration (seconds).
       shared_ptr<int64_t> mbSeconds_ {};
+      shared_ptr<string> priority_ {};
       // The name of the resource queue on which the Spark jobs run.
       shared_ptr<string> resourceQueueId_ {};
       shared_ptr<RunLog> runLog_ {};

@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListKyuubiSparkApplicationsShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(applicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(applicationName, applicationName_);
+      DARABONBA_PTR_TO_JSON(endTime, endTimeShrink_);
+      DARABONBA_PTR_TO_JSON(latestSqlStatementStatuses, latestSqlStatementStatuses_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(minDuration, minDuration_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
@@ -22,10 +24,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceQueueId, resourceQueueId_);
       DARABONBA_PTR_TO_JSON(sort, sort_);
       DARABONBA_PTR_TO_JSON(startTime, startTimeShrink_);
+      DARABONBA_PTR_TO_JSON(states, states_);
     };
     friend void from_json(const Darabonba::Json& j, ListKyuubiSparkApplicationsShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(applicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(applicationName, applicationName_);
+      DARABONBA_PTR_FROM_JSON(endTime, endTimeShrink_);
+      DARABONBA_PTR_FROM_JSON(latestSqlStatementStatuses, latestSqlStatementStatuses_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(minDuration, minDuration_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
@@ -33,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceQueueId, resourceQueueId_);
       DARABONBA_PTR_FROM_JSON(sort, sort_);
       DARABONBA_PTR_FROM_JSON(startTime, startTimeShrink_);
+      DARABONBA_PTR_FROM_JSON(states, states_);
     };
     ListKyuubiSparkApplicationsShrinkRequest() = default ;
     ListKyuubiSparkApplicationsShrinkRequest(const ListKyuubiSparkApplicationsShrinkRequest &) = default ;
@@ -46,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->applicationName_ == nullptr && this->maxResults_ == nullptr && this->minDuration_ == nullptr && this->nextToken_ == nullptr && this->orderByShrink_ == nullptr
-        && this->resourceQueueId_ == nullptr && this->sort_ == nullptr && this->startTimeShrink_ == nullptr; };
+        && this->applicationName_ == nullptr && this->endTimeShrink_ == nullptr && this->latestSqlStatementStatuses_ == nullptr && this->maxResults_ == nullptr && this->minDuration_ == nullptr
+        && this->nextToken_ == nullptr && this->orderByShrink_ == nullptr && this->resourceQueueId_ == nullptr && this->sort_ == nullptr && this->startTimeShrink_ == nullptr
+        && this->states_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -60,6 +67,20 @@ namespace Models
     void deleteApplicationName() { this->applicationName_ = nullptr;};
     inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline ListKyuubiSparkApplicationsShrinkRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
+
+
+    // endTimeShrink Field Functions 
+    bool hasEndTimeShrink() const { return this->endTimeShrink_ != nullptr;};
+    void deleteEndTimeShrink() { this->endTimeShrink_ = nullptr;};
+    inline string getEndTimeShrink() const { DARABONBA_PTR_GET_DEFAULT(endTimeShrink_, "") };
+    inline ListKyuubiSparkApplicationsShrinkRequest& setEndTimeShrink(string endTimeShrink) { DARABONBA_PTR_SET_VALUE(endTimeShrink_, endTimeShrink) };
+
+
+    // latestSqlStatementStatuses Field Functions 
+    bool hasLatestSqlStatementStatuses() const { return this->latestSqlStatementStatuses_ != nullptr;};
+    void deleteLatestSqlStatementStatuses() { this->latestSqlStatementStatuses_ = nullptr;};
+    inline string getLatestSqlStatementStatuses() const { DARABONBA_PTR_GET_DEFAULT(latestSqlStatementStatuses_, "") };
+    inline ListKyuubiSparkApplicationsShrinkRequest& setLatestSqlStatementStatuses(string latestSqlStatementStatuses) { DARABONBA_PTR_SET_VALUE(latestSqlStatementStatuses_, latestSqlStatementStatuses) };
 
 
     // maxResults Field Functions 
@@ -111,11 +132,20 @@ namespace Models
     inline ListKyuubiSparkApplicationsShrinkRequest& setStartTimeShrink(string startTimeShrink) { DARABONBA_PTR_SET_VALUE(startTimeShrink_, startTimeShrink) };
 
 
+    // states Field Functions 
+    bool hasStates() const { return this->states_ != nullptr;};
+    void deleteStates() { this->states_ = nullptr;};
+    inline string getStates() const { DARABONBA_PTR_GET_DEFAULT(states_, "") };
+    inline ListKyuubiSparkApplicationsShrinkRequest& setStates(string states) { DARABONBA_PTR_SET_VALUE(states_, states) };
+
+
   protected:
     // The ID of the application that is submitted by using a Kyuubi gateway.
     shared_ptr<string> applicationId_ {};
     // The name of the Spark application that is submitted by using a Kyuubi gateway.
     shared_ptr<string> applicationName_ {};
+    shared_ptr<string> endTimeShrink_ {};
+    shared_ptr<string> latestSqlStatementStatuses_ {};
     // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<int64_t> minDuration_ {};
@@ -126,6 +156,7 @@ namespace Models
     shared_ptr<string> sort_ {};
     // The range of start time.
     shared_ptr<string> startTimeShrink_ {};
+    shared_ptr<string> states_ {};
   };
 
   } // namespace Models
