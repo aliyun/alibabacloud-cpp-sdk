@@ -392,6 +392,66 @@ AddSQLRateLimitingRulesResponse Client::addSQLRateLimitingRules(const AddSQLRate
 }
 
 /**
+ * @summary 应用提示词策略到实例
+ *
+ * @param tmpReq ApplyApplicationPromptsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyApplicationPromptsResponse
+ */
+ApplyApplicationPromptsResponse Client::applyApplicationPromptsWithOptions(const ApplyApplicationPromptsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ApplyApplicationPromptsShrinkRequest request = ApplyApplicationPromptsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDisabledPromptIds()) {
+    request.setDisabledPromptIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDisabledPromptIds(), "DisabledPromptIds", "json"));
+  }
+
+  if (!!tmpReq.hasEnabledPromptIds()) {
+    request.setEnabledPromptIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnabledPromptIds(), "EnabledPromptIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDisabledPromptIdsShrink()) {
+    query["DisabledPromptIds"] = request.getDisabledPromptIdsShrink();
+  }
+
+  if (!!request.hasEnabledPromptIdsShrink()) {
+    query["EnabledPromptIds"] = request.getEnabledPromptIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ApplyApplicationPrompts"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyApplicationPromptsResponse>();
+}
+
+/**
+ * @summary 应用提示词策略到实例
+ *
+ * @param request ApplyApplicationPromptsRequest
+ * @return ApplyApplicationPromptsResponse
+ */
+ApplyApplicationPromptsResponse Client::applyApplicationPrompts(const ApplyApplicationPromptsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return applyApplicationPromptsWithOptions(request, runtime);
+}
+
+/**
  * @summary 挂载PolarFS到PolarDB应用
  *
  * @param request AttachApplicationPolarFSRequest
@@ -1903,6 +1963,60 @@ CreateApplicationEndpointAddressResponse Client::createApplicationEndpointAddres
 CreateApplicationEndpointAddressResponse Client::createApplicationEndpointAddress(const CreateApplicationEndpointAddressRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createApplicationEndpointAddressWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建应用提示词策略
+ *
+ * @param request CreateApplicationPromptRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationPromptResponse
+ */
+CreateApplicationPromptResponse Client::createApplicationPromptWithOptions(const CreateApplicationPromptRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPromptName()) {
+    query["PromptName"] = request.getPromptName();
+  }
+
+  if (!!request.hasPromptType()) {
+    query["PromptType"] = request.getPromptType();
+  }
+
+  if (!!request.hasPromptValue()) {
+    query["PromptValue"] = request.getPromptValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationPrompt"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationPromptResponse>();
+}
+
+/**
+ * @summary 创建应用提示词策略
+ *
+ * @param request CreateApplicationPromptRequest
+ * @return CreateApplicationPromptResponse
+ */
+CreateApplicationPromptResponse Client::createApplicationPrompt(const CreateApplicationPromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationPromptWithOptions(request, runtime);
 }
 
 /**
@@ -4156,6 +4270,52 @@ DeleteApplicationEndpointAddressResponse Client::deleteApplicationEndpointAddres
 }
 
 /**
+ * @summary 删除应用提示词策略
+ *
+ * @param request DeleteApplicationPromptRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApplicationPromptResponse
+ */
+DeleteApplicationPromptResponse Client::deleteApplicationPromptWithOptions(const DeleteApplicationPromptRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPromptId()) {
+    query["PromptId"] = request.getPromptId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteApplicationPrompt"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApplicationPromptResponse>();
+}
+
+/**
+ * @summary 删除应用提示词策略
+ *
+ * @param request DeleteApplicationPromptRequest
+ * @return DeleteApplicationPromptResponse
+ */
+DeleteApplicationPromptResponse Client::deleteApplicationPrompt(const DeleteApplicationPromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApplicationPromptWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the backup sets of a PolarDB cluster.
  *
  * @description Before you call this operation, make sure that the cluster meets the following requirements:
@@ -6397,6 +6557,56 @@ DescribeApplicationParametersResponse Client::describeApplicationParametersWithO
 DescribeApplicationParametersResponse Client::describeApplicationParameters(const DescribeApplicationParametersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeApplicationParametersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询当前应用下所有的应用提示词策略列表
+ *
+ * @param request DescribeApplicationPromptsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationPromptsResponse
+ */
+DescribeApplicationPromptsResponse Client::describeApplicationPromptsWithOptions(const DescribeApplicationPromptsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationPrompts"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationPromptsResponse>();
+}
+
+/**
+ * @summary 查询当前应用下所有的应用提示词策略列表
+ *
+ * @param request DescribeApplicationPromptsRequest
+ * @return DescribeApplicationPromptsResponse
+ */
+DescribeApplicationPromptsResponse Client::describeApplicationPrompts(const DescribeApplicationPromptsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationPromptsWithOptions(request, runtime);
 }
 
 /**
@@ -15265,6 +15475,60 @@ ModifyApplicationParameterResponse Client::modifyApplicationParameterWithOptions
 ModifyApplicationParameterResponse Client::modifyApplicationParameter(const ModifyApplicationParameterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyApplicationParameterWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改应用提示词策略
+ *
+ * @param request ModifyApplicationPromptRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationPromptResponse
+ */
+ModifyApplicationPromptResponse Client::modifyApplicationPromptWithOptions(const ModifyApplicationPromptRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPromptId()) {
+    query["PromptId"] = request.getPromptId();
+  }
+
+  if (!!request.hasPromptName()) {
+    query["PromptName"] = request.getPromptName();
+  }
+
+  if (!!request.hasPromptValue()) {
+    query["PromptValue"] = request.getPromptValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationPrompt"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationPromptResponse>();
+}
+
+/**
+ * @summary 修改应用提示词策略
+ *
+ * @param request ModifyApplicationPromptRequest
+ * @return ModifyApplicationPromptResponse
+ */
+ModifyApplicationPromptResponse Client::modifyApplicationPrompt(const ModifyApplicationPromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationPromptWithOptions(request, runtime);
 }
 
 /**

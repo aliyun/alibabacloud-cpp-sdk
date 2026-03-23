@@ -17,6 +17,10 @@
 #include <alibabacloud/models/AddSQLRateLimitingRulesRequest.hpp>
 #include <alibabacloud/models/AddSQLRateLimitingRulesResponseBody.hpp>
 #include <alibabacloud/models/AddSQLRateLimitingRulesResponse.hpp>
+#include <alibabacloud/models/ApplyApplicationPromptsRequest.hpp>
+#include <alibabacloud/models/ApplyApplicationPromptsShrinkRequest.hpp>
+#include <alibabacloud/models/ApplyApplicationPromptsResponseBody.hpp>
+#include <alibabacloud/models/ApplyApplicationPromptsResponse.hpp>
 #include <alibabacloud/models/AttachApplicationPolarFSRequest.hpp>
 #include <alibabacloud/models/AttachApplicationPolarFSResponseBody.hpp>
 #include <alibabacloud/models/AttachApplicationPolarFSResponse.hpp>
@@ -84,6 +88,9 @@
 #include <alibabacloud/models/CreateApplicationEndpointAddressRequest.hpp>
 #include <alibabacloud/models/CreateApplicationEndpointAddressResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationEndpointAddressResponse.hpp>
+#include <alibabacloud/models/CreateApplicationPromptRequest.hpp>
+#include <alibabacloud/models/CreateApplicationPromptResponseBody.hpp>
+#include <alibabacloud/models/CreateApplicationPromptResponse.hpp>
 #include <alibabacloud/models/CreateBackupRequest.hpp>
 #include <alibabacloud/models/CreateBackupResponseBody.hpp>
 #include <alibabacloud/models/CreateBackupResponse.hpp>
@@ -162,6 +169,9 @@
 #include <alibabacloud/models/DeleteApplicationEndpointAddressRequest.hpp>
 #include <alibabacloud/models/DeleteApplicationEndpointAddressResponseBody.hpp>
 #include <alibabacloud/models/DeleteApplicationEndpointAddressResponse.hpp>
+#include <alibabacloud/models/DeleteApplicationPromptRequest.hpp>
+#include <alibabacloud/models/DeleteApplicationPromptResponseBody.hpp>
+#include <alibabacloud/models/DeleteApplicationPromptResponse.hpp>
 #include <alibabacloud/models/DeleteBackupRequest.hpp>
 #include <alibabacloud/models/DeleteBackupResponseBody.hpp>
 #include <alibabacloud/models/DeleteBackupResponse.hpp>
@@ -265,6 +275,9 @@
 #include <alibabacloud/models/DescribeApplicationParametersShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationParametersResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationParametersResponse.hpp>
+#include <alibabacloud/models/DescribeApplicationPromptsRequest.hpp>
+#include <alibabacloud/models/DescribeApplicationPromptsResponseBody.hpp>
+#include <alibabacloud/models/DescribeApplicationPromptsResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationServerlessConfRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationServerlessConfResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationServerlessConfResponse.hpp>
@@ -649,6 +662,9 @@
 #include <alibabacloud/models/ModifyApplicationParameterShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationParameterResponseBody.hpp>
 #include <alibabacloud/models/ModifyApplicationParameterResponse.hpp>
+#include <alibabacloud/models/ModifyApplicationPromptRequest.hpp>
+#include <alibabacloud/models/ModifyApplicationPromptResponseBody.hpp>
+#include <alibabacloud/models/ModifyApplicationPromptResponse.hpp>
 #include <alibabacloud/models/ModifyApplicationServerlessConfRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationServerlessConfResponseBody.hpp>
 #include <alibabacloud/models/ModifyApplicationServerlessConfResponse.hpp>

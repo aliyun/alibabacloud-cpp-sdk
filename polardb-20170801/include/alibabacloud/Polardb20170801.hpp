@@ -102,6 +102,23 @@ namespace Polardb20170801
       Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
 
       /**
+       * @summary 应用提示词策略到实例
+       *
+       * @param tmpReq ApplyApplicationPromptsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyApplicationPromptsResponse
+       */
+      Models::ApplyApplicationPromptsResponse applyApplicationPromptsWithOptions(const Models::ApplyApplicationPromptsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用提示词策略到实例
+       *
+       * @param request ApplyApplicationPromptsRequest
+       * @return ApplyApplicationPromptsResponse
+       */
+      Models::ApplyApplicationPromptsResponse applyApplicationPrompts(const Models::ApplyApplicationPromptsRequest &request);
+
+      /**
        * @summary 挂载PolarFS到PolarDB应用
        *
        * @param request AttachApplicationPolarFSRequest
@@ -478,6 +495,23 @@ namespace Polardb20170801
        * @return CreateApplicationEndpointAddressResponse
        */
       Models::CreateApplicationEndpointAddressResponse createApplicationEndpointAddress(const Models::CreateApplicationEndpointAddressRequest &request);
+
+      /**
+       * @summary 创建应用提示词策略
+       *
+       * @param request CreateApplicationPromptRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateApplicationPromptResponse
+       */
+      Models::CreateApplicationPromptResponse createApplicationPromptWithOptions(const Models::CreateApplicationPromptRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建应用提示词策略
+       *
+       * @param request CreateApplicationPromptRequest
+       * @return CreateApplicationPromptResponse
+       */
+      Models::CreateApplicationPromptResponse createApplicationPrompt(const Models::CreateApplicationPromptRequest &request);
 
       /**
        * @summary Creates a full snapshot backup for a PolarDB cluster.
@@ -966,6 +1000,23 @@ namespace Polardb20170801
        * @return DeleteApplicationEndpointAddressResponse
        */
       Models::DeleteApplicationEndpointAddressResponse deleteApplicationEndpointAddress(const Models::DeleteApplicationEndpointAddressRequest &request);
+
+      /**
+       * @summary 删除应用提示词策略
+       *
+       * @param request DeleteApplicationPromptRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteApplicationPromptResponse
+       */
+      Models::DeleteApplicationPromptResponse deleteApplicationPromptWithOptions(const Models::DeleteApplicationPromptRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除应用提示词策略
+       *
+       * @param request DeleteApplicationPromptRequest
+       * @return DeleteApplicationPromptResponse
+       */
+      Models::DeleteApplicationPromptResponse deleteApplicationPrompt(const Models::DeleteApplicationPromptRequest &request);
 
       /**
        * @summary Deletes the backup sets of a PolarDB cluster.
@@ -1578,6 +1629,23 @@ namespace Polardb20170801
        * @return DescribeApplicationParametersResponse
        */
       Models::DescribeApplicationParametersResponse describeApplicationParameters(const Models::DescribeApplicationParametersRequest &request);
+
+      /**
+       * @summary 查询当前应用下所有的应用提示词策略列表
+       *
+       * @param request DescribeApplicationPromptsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationPromptsResponse
+       */
+      Models::DescribeApplicationPromptsResponse describeApplicationPromptsWithOptions(const Models::DescribeApplicationPromptsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询当前应用下所有的应用提示词策略列表
+       *
+       * @param request DescribeApplicationPromptsRequest
+       * @return DescribeApplicationPromptsResponse
+       */
+      Models::DescribeApplicationPromptsResponse describeApplicationPrompts(const Models::DescribeApplicationPromptsRequest &request);
 
       /**
        * @summary 获取应用serverless配置
@@ -3852,6 +3920,23 @@ namespace Polardb20170801
        * @return ModifyApplicationParameterResponse
        */
       Models::ModifyApplicationParameterResponse modifyApplicationParameter(const Models::ModifyApplicationParameterRequest &request);
+
+      /**
+       * @summary 修改应用提示词策略
+       *
+       * @param request ModifyApplicationPromptRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyApplicationPromptResponse
+       */
+      Models::ModifyApplicationPromptResponse modifyApplicationPromptWithOptions(const Models::ModifyApplicationPromptRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用提示词策略
+       *
+       * @param request ModifyApplicationPromptRequest
+       * @return ModifyApplicationPromptResponse
+       */
+      Models::ModifyApplicationPromptResponse modifyApplicationPrompt(const Models::ModifyApplicationPromptRequest &request);
 
       /**
        * @summary 修改应用serverless配置
