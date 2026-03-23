@@ -107,6 +107,7 @@ namespace Models
     shared_ptr<int32_t> deleteTag_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
+    // ID
     shared_ptr<int64_t> id_ {};
     shared_ptr<int32_t> messageCount_ {};
     shared_ptr<string> modelIds_ {};

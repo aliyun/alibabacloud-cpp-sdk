@@ -19,28 +19,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(errCode, errCode_);
       DARABONBA_PTR_TO_JSON(errMessage, errMessage_);
       DARABONBA_PTR_TO_JSON(httpStatusCode, httpStatusCode_);
-      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
-      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
-      DARABONBA_PTR_TO_JSON(pageIndex, pageIndex_);
-      DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
-      DARABONBA_PTR_TO_JSON(skip, skip_);
       DARABONBA_PTR_TO_JSON(success, success_);
-      DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryConversationListResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(errCode, errCode_);
       DARABONBA_PTR_FROM_JSON(errMessage, errMessage_);
       DARABONBA_PTR_FROM_JSON(httpStatusCode, httpStatusCode_);
-      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
-      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
-      DARABONBA_PTR_FROM_JSON(pageIndex, pageIndex_);
-      DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
-      DARABONBA_PTR_FROM_JSON(skip, skip_);
       DARABONBA_PTR_FROM_JSON(success, success_);
-      DARABONBA_PTR_FROM_JSON(totalCount, totalCount_);
     };
     ModelRouterQueryConversationListResponseBody() = default ;
     ModelRouterQueryConversationListResponseBody(const ModelRouterQueryConversationListResponseBody &) = default ;
@@ -53,17 +41,99 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(list, list_);
+        DARABONBA_PTR_TO_JSON(maxResult, maxResult_);
+        DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+        DARABONBA_PTR_TO_JSON(page, page_);
+        DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(list, list_);
+        DARABONBA_PTR_FROM_JSON(maxResult, maxResult_);
+        DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+        DARABONBA_PTR_FROM_JSON(page, page_);
+        DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(total, total_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->list_ == nullptr
+        && this->maxResult_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->total_ == nullptr; };
+      // list Field Functions 
+      bool hasList() const { return this->list_ != nullptr;};
+      void deleteList() { this->list_ = nullptr;};
+      inline const vector<ConversationDTO> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<ConversationDTO>) };
+      inline vector<ConversationDTO> getList() { DARABONBA_PTR_GET(list_, vector<ConversationDTO>) };
+      inline Data& setList(const vector<ConversationDTO> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
+      inline Data& setList(vector<ConversationDTO> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
+
+
+      // maxResult Field Functions 
+      bool hasMaxResult() const { return this->maxResult_ != nullptr;};
+      void deleteMaxResult() { this->maxResult_ = nullptr;};
+      inline string getMaxResult() const { DARABONBA_PTR_GET_DEFAULT(maxResult_, "") };
+      inline Data& setMaxResult(string maxResult) { DARABONBA_PTR_SET_VALUE(maxResult_, maxResult) };
+
+
+      // nextToken Field Functions 
+      bool hasNextToken() const { return this->nextToken_ != nullptr;};
+      void deleteNextToken() { this->nextToken_ = nullptr;};
+      inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+      inline Data& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+      // page Field Functions 
+      bool hasPage() const { return this->page_ != nullptr;};
+      void deletePage() { this->page_ = nullptr;};
+      inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+      inline Data& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Data& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+      inline Data& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      shared_ptr<vector<ConversationDTO>> list_ {};
+      shared_ptr<string> maxResult_ {};
+      shared_ptr<string> nextToken_ {};
+      shared_ptr<int32_t> page_ {};
+      shared_ptr<int32_t> pageSize_ {};
+      shared_ptr<int32_t> total_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->skip_ == nullptr && this->success_ == nullptr
-        && this->totalCount_ == nullptr; };
+        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ConversationDTO> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ConversationDTO>) };
-    inline vector<ConversationDTO> getData() { DARABONBA_PTR_GET(data_, vector<ConversationDTO>) };
-    inline ModelRouterQueryConversationListResponseBody& setData(const vector<ConversationDTO> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ModelRouterQueryConversationListResponseBody& setData(vector<ConversationDTO> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ModelRouterQueryConversationListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ModelRouterQueryConversationListResponseBody::Data) };
+    inline ModelRouterQueryConversationListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ModelRouterQueryConversationListResponseBody::Data) };
+    inline ModelRouterQueryConversationListResponseBody& setData(const ModelRouterQueryConversationListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ModelRouterQueryConversationListResponseBody& setData(ModelRouterQueryConversationListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errCode Field Functions 
@@ -87,46 +157,11 @@ namespace Models
     inline ModelRouterQueryConversationListResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
-    // maxResults Field Functions 
-    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
-    void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
-    inline ModelRouterQueryConversationListResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
-
-
-    // nextToken Field Functions 
-    bool hasNextToken() const { return this->nextToken_ != nullptr;};
-    void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
-    inline ModelRouterQueryConversationListResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
-
-
-    // pageIndex Field Functions 
-    bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
-    void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
-    inline ModelRouterQueryConversationListResponseBody& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
-
-
-    // pageSize Field Functions 
-    bool hasPageSize() const { return this->pageSize_ != nullptr;};
-    void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
-    inline ModelRouterQueryConversationListResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
-
-
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModelRouterQueryConversationListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
-
-
-    // skip Field Functions 
-    bool hasSkip() const { return this->skip_ != nullptr;};
-    void deleteSkip() { this->skip_ = nullptr;};
-    inline int32_t getSkip() const { DARABONBA_PTR_GET_DEFAULT(skip_, 0) };
-    inline ModelRouterQueryConversationListResponseBody& setSkip(int32_t skip) { DARABONBA_PTR_SET_VALUE(skip_, skip) };
 
 
     // success Field Functions 
@@ -136,29 +171,13 @@ namespace Models
     inline ModelRouterQueryConversationListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
-    // totalCount Field Functions 
-    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
-    void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
-    inline ModelRouterQueryConversationListResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
-
-
   protected:
-    shared_ptr<vector<ConversationDTO>> data_ {};
+    shared_ptr<ModelRouterQueryConversationListResponseBody::Data> data_ {};
     shared_ptr<string> errCode_ {};
     shared_ptr<string> errMessage_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
-    // maxResults
-    shared_ptr<int32_t> maxResults_ {};
-    // nextToken
-    shared_ptr<string> nextToken_ {};
-    shared_ptr<int32_t> pageIndex_ {};
-    shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> requestId_ {};
-    // skip
-    shared_ptr<int32_t> skip_ {};
     shared_ptr<bool> success_ {};
-    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RequestLogDTO& obj) { 
       DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
+      DARABONBA_PTR_TO_JSON(clientUuid, clientUuid_);
       DARABONBA_PTR_TO_JSON(completionTokens, completionTokens_);
       DARABONBA_PTR_TO_JSON(deleteTag, deleteTag_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(modelCode, modelCode_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(modelName, modelName_);
       DARABONBA_PTR_TO_JSON(promptTokens, promptTokens_);
@@ -28,17 +30,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(requestTime, requestTime_);
       DARABONBA_PTR_TO_JSON(responseBody, responseBody_);
       DARABONBA_PTR_TO_JSON(responseTimeMs, responseTimeMs_);
+      DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(symbol, symbol_);
       DARABONBA_PTR_TO_JSON(totalTokens, totalTokens_);
     };
     friend void from_json(const Darabonba::Json& j, RequestLogDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(clientUuid, clientUuid_);
       DARABONBA_PTR_FROM_JSON(completionTokens, completionTokens_);
       DARABONBA_PTR_FROM_JSON(deleteTag, deleteTag_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(modelCode, modelCode_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(modelName, modelName_);
       DARABONBA_PTR_FROM_JSON(promptTokens, promptTokens_);
@@ -47,7 +53,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(requestTime, requestTime_);
       DARABONBA_PTR_FROM_JSON(responseBody, responseBody_);
       DARABONBA_PTR_FROM_JSON(responseTimeMs, responseTimeMs_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(symbol, symbol_);
       DARABONBA_PTR_FROM_JSON(totalTokens, totalTokens_);
     };
     RequestLogDTO() = default ;
@@ -62,10 +70,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->completionTokens_ == nullptr && this->deleteTag_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr && this->promptTokens_ == nullptr && this->requestBody_ == nullptr
-        && this->requestId_ == nullptr && this->requestTime_ == nullptr && this->responseBody_ == nullptr && this->responseTimeMs_ == nullptr && this->statusCode_ == nullptr
-        && this->totalTokens_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientUuid_ == nullptr && this->completionTokens_ == nullptr && this->deleteTag_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr
+        && this->promptTokens_ == nullptr && this->requestBody_ == nullptr && this->requestId_ == nullptr && this->requestTime_ == nullptr && this->responseBody_ == nullptr
+        && this->responseTimeMs_ == nullptr && this->status_ == nullptr && this->statusCode_ == nullptr && this->symbol_ == nullptr && this->totalTokens_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -78,6 +86,13 @@ namespace Models
     void deleteClientId() { this->clientId_ = nullptr;};
     inline int64_t getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, 0L) };
     inline RequestLogDTO& setClientId(int64_t clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // clientUuid Field Functions 
+    bool hasClientUuid() const { return this->clientUuid_ != nullptr;};
+    void deleteClientUuid() { this->clientUuid_ = nullptr;};
+    inline string getClientUuid() const { DARABONBA_PTR_GET_DEFAULT(clientUuid_, "") };
+    inline RequestLogDTO& setClientUuid(string clientUuid) { DARABONBA_PTR_SET_VALUE(clientUuid_, clientUuid) };
 
 
     // completionTokens Field Functions 
@@ -113,6 +128,13 @@ namespace Models
     void deleteId() { this->id_ = nullptr;};
     inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline RequestLogDTO& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // modelCode Field Functions 
+    bool hasModelCode() const { return this->modelCode_ != nullptr;};
+    void deleteModelCode() { this->modelCode_ = nullptr;};
+    inline string getModelCode() const { DARABONBA_PTR_GET_DEFAULT(modelCode_, "") };
+    inline RequestLogDTO& setModelCode(string modelCode) { DARABONBA_PTR_SET_VALUE(modelCode_, modelCode) };
 
 
     // modelId Field Functions 
@@ -171,11 +193,25 @@ namespace Models
     inline RequestLogDTO& setResponseTimeMs(int32_t responseTimeMs) { DARABONBA_PTR_SET_VALUE(responseTimeMs_, responseTimeMs) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline RequestLogDTO& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
     inline RequestLogDTO& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // symbol Field Functions 
+    bool hasSymbol() const { return this->symbol_ != nullptr;};
+    void deleteSymbol() { this->symbol_ = nullptr;};
+    inline string getSymbol() const { DARABONBA_PTR_GET_DEFAULT(symbol_, "") };
+    inline RequestLogDTO& setSymbol(string symbol) { DARABONBA_PTR_SET_VALUE(symbol_, symbol) };
 
 
     // totalTokens Field Functions 
@@ -188,11 +224,13 @@ namespace Models
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
     shared_ptr<int64_t> clientId_ {};
+    shared_ptr<string> clientUuid_ {};
     shared_ptr<int32_t> completionTokens_ {};
     shared_ptr<int32_t> deleteTag_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
     shared_ptr<int64_t> id_ {};
+    shared_ptr<string> modelCode_ {};
     shared_ptr<int64_t> modelId_ {};
     shared_ptr<string> modelName_ {};
     shared_ptr<int32_t> promptTokens_ {};
@@ -201,7 +239,9 @@ namespace Models
     shared_ptr<string> requestTime_ {};
     shared_ptr<string> responseBody_ {};
     shared_ptr<int32_t> responseTimeMs_ {};
+    shared_ptr<string> status_ {};
     shared_ptr<int32_t> statusCode_ {};
+    shared_ptr<string> symbol_ {};
     shared_ptr<int32_t> totalTokens_ {};
   };
 

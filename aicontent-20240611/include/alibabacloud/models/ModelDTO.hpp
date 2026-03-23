@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(symbol, symbol_);
       DARABONBA_PTR_TO_JSON(tagNames, tagNames_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
+      DARABONBA_PTR_TO_JSON(version, version_);
     };
     friend void from_json(const Darabonba::Json& j, ModelDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyPreview, apiKeyPreview_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(symbol, symbol_);
       DARABONBA_PTR_FROM_JSON(tagNames, tagNames_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
+      DARABONBA_PTR_FROM_JSON(version, version_);
     };
     ModelDTO() = default ;
     ModelDTO(const ModelDTO &) = default ;
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->apiKeyPreview_ == nullptr
         && this->baseUrl_ == nullptr && this->deleteTag_ == nullptr && this->description_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
         && this->id_ == nullptr && this->isCustom_ == nullptr && this->maxInputLength_ == nullptr && this->maxOutputLength_ == nullptr && this->modelCode_ == nullptr
-        && this->modelType_ == nullptr && this->name_ == nullptr && this->symbol_ == nullptr && this->tagNames_ == nullptr && this->tags_ == nullptr; };
+        && this->modelType_ == nullptr && this->name_ == nullptr && this->symbol_ == nullptr && this->tagNames_ == nullptr && this->tags_ == nullptr
+        && this->version_ == nullptr; };
     // apiKeyPreview Field Functions 
     bool hasApiKeyPreview() const { return this->apiKeyPreview_ != nullptr;};
     void deleteApiKeyPreview() { this->apiKeyPreview_ = nullptr;};
@@ -175,13 +178,22 @@ namespace Models
     inline ModelDTO& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+    inline ModelDTO& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     shared_ptr<string> apiKeyPreview_ {};
+    // Base URL
     shared_ptr<string> baseUrl_ {};
     shared_ptr<int32_t> deleteTag_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
+    // ID
     shared_ptr<int64_t> id_ {};
     shared_ptr<bool> isCustom_ {};
     shared_ptr<string> maxInputLength_ {};
@@ -192,6 +204,7 @@ namespace Models
     shared_ptr<string> symbol_ {};
     shared_ptr<string> tagNames_ {};
     shared_ptr<string> tags_ {};
+    shared_ptr<int32_t> version_ {};
   };
 
   } // namespace Models

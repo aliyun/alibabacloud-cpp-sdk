@@ -41,6 +41,60 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SuccessRate : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SuccessRate& obj) { 
+        DARABONBA_PTR_TO_JSON(label, label_);
+        DARABONBA_PTR_TO_JSON(timestamp, timestamp_);
+        DARABONBA_ANY_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, SuccessRate& obj) { 
+        DARABONBA_PTR_FROM_JSON(label, label_);
+        DARABONBA_PTR_FROM_JSON(timestamp, timestamp_);
+        DARABONBA_ANY_FROM_JSON(value, value_);
+      };
+      SuccessRate() = default ;
+      SuccessRate(const SuccessRate &) = default ;
+      SuccessRate(SuccessRate &&) = default ;
+      SuccessRate(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SuccessRate() = default ;
+      SuccessRate& operator=(const SuccessRate &) = default ;
+      SuccessRate& operator=(SuccessRate &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->label_ == nullptr
+        && this->timestamp_ == nullptr && this->value_ == nullptr; };
+      // label Field Functions 
+      bool hasLabel() const { return this->label_ != nullptr;};
+      void deleteLabel() { this->label_ = nullptr;};
+      inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+      inline SuccessRate& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+      // timestamp Field Functions 
+      bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+      void deleteTimestamp() { this->timestamp_ = nullptr;};
+      inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+      inline SuccessRate& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline       const Darabonba::Json & getValue() const { DARABONBA_GET(value_) };
+      Darabonba::Json & getValue() { DARABONBA_GET(value_) };
+      inline SuccessRate& setValue(const Darabonba::Json & value) { DARABONBA_SET_VALUE(value_, value) };
+      inline SuccessRate& setValue(Darabonba::Json && value) { DARABONBA_SET_RVALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> label_ {};
+      shared_ptr<string> timestamp_ {};
+      Darabonba::Json value_ {};
+    };
+
     virtual bool empty() const override { return this->callVolume_ == nullptr
         && this->concurrency_ == nullptr && this->qpm_ == nullptr && this->responseTime_ == nullptr && this->successRate_ == nullptr && this->tpm_ == nullptr; };
     // callVolume Field Functions 
@@ -82,10 +136,10 @@ namespace Models
     // successRate Field Functions 
     bool hasSuccessRate() const { return this->successRate_ != nullptr;};
     void deleteSuccessRate() { this->successRate_ = nullptr;};
-    inline const vector<TimeSeriesPointDTO> & getSuccessRate() const { DARABONBA_PTR_GET_CONST(successRate_, vector<TimeSeriesPointDTO>) };
-    inline vector<TimeSeriesPointDTO> getSuccessRate() { DARABONBA_PTR_GET(successRate_, vector<TimeSeriesPointDTO>) };
-    inline ObservationChartsDTO& setSuccessRate(const vector<TimeSeriesPointDTO> & successRate) { DARABONBA_PTR_SET_VALUE(successRate_, successRate) };
-    inline ObservationChartsDTO& setSuccessRate(vector<TimeSeriesPointDTO> && successRate) { DARABONBA_PTR_SET_RVALUE(successRate_, successRate) };
+    inline const vector<ObservationChartsDTO::SuccessRate> & getSuccessRate() const { DARABONBA_PTR_GET_CONST(successRate_, vector<ObservationChartsDTO::SuccessRate>) };
+    inline vector<ObservationChartsDTO::SuccessRate> getSuccessRate() { DARABONBA_PTR_GET(successRate_, vector<ObservationChartsDTO::SuccessRate>) };
+    inline ObservationChartsDTO& setSuccessRate(const vector<ObservationChartsDTO::SuccessRate> & successRate) { DARABONBA_PTR_SET_VALUE(successRate_, successRate) };
+    inline ObservationChartsDTO& setSuccessRate(vector<ObservationChartsDTO::SuccessRate> && successRate) { DARABONBA_PTR_SET_RVALUE(successRate_, successRate) };
 
 
     // tpm Field Functions 
@@ -102,7 +156,7 @@ namespace Models
     shared_ptr<vector<TimeSeriesPointDTO>> concurrency_ {};
     shared_ptr<vector<TimeSeriesPointDTO>> qpm_ {};
     shared_ptr<vector<TimeSeriesPointDTO>> responseTime_ {};
-    shared_ptr<vector<TimeSeriesPointDTO>> successRate_ {};
+    shared_ptr<vector<ObservationChartsDTO::SuccessRate>> successRate_ {};
     shared_ptr<vector<TimeSeriesPointDTO>> tpm_ {};
   };
 

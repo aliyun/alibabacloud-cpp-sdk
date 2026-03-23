@@ -16,18 +16,22 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ApiKeyDTO& obj) { 
       DARABONBA_PTR_TO_JSON(client, client_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
+      DARABONBA_PTR_TO_JSON(deleteTag, deleteTag_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(key, key_);
       DARABONBA_PTR_TO_JSON(keyPreview, keyPreview_);
       DARABONBA_PTR_TO_JSON(name, name_);
     };
     friend void from_json(const Darabonba::Json& j, ApiKeyDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(client, client_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(deleteTag, deleteTag_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(key, key_);
       DARABONBA_PTR_FROM_JSON(keyPreview, keyPreview_);
       DARABONBA_PTR_FROM_JSON(name, name_);
     };
@@ -43,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->client_ == nullptr
-        && this->clientId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->keyPreview_ == nullptr
-        && this->name_ == nullptr; };
+        && this->clientId_ == nullptr && this->deleteTag_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
+        && this->key_ == nullptr && this->keyPreview_ == nullptr && this->name_ == nullptr; };
     // client Field Functions 
     bool hasClient() const { return this->client_ != nullptr;};
     void deleteClient() { this->client_ = nullptr;};
@@ -59,6 +63,13 @@ namespace Models
     void deleteClientId() { this->clientId_ = nullptr;};
     inline int64_t getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, 0L) };
     inline ApiKeyDTO& setClientId(int64_t clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
+    // deleteTag Field Functions 
+    bool hasDeleteTag() const { return this->deleteTag_ != nullptr;};
+    void deleteDeleteTag() { this->deleteTag_ = nullptr;};
+    inline int32_t getDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(deleteTag_, 0) };
+    inline ApiKeyDTO& setDeleteTag(int32_t deleteTag) { DARABONBA_PTR_SET_VALUE(deleteTag_, deleteTag) };
 
 
     // gmtCreate Field Functions 
@@ -82,6 +93,13 @@ namespace Models
     inline ApiKeyDTO& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // key Field Functions 
+    bool hasKey() const { return this->key_ != nullptr;};
+    void deleteKey() { this->key_ = nullptr;};
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline ApiKeyDTO& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
     // keyPreview Field Functions 
     bool hasKeyPreview() const { return this->keyPreview_ != nullptr;};
     void deleteKeyPreview() { this->keyPreview_ = nullptr;};
@@ -99,9 +117,11 @@ namespace Models
   protected:
     shared_ptr<ClientDTO> client_ {};
     shared_ptr<int64_t> clientId_ {};
+    shared_ptr<int32_t> deleteTag_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
     shared_ptr<int64_t> id_ {};
+    shared_ptr<string> key_ {};
     shared_ptr<string> keyPreview_ {};
     shared_ptr<string> name_ {};
   };
