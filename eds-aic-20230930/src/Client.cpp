@@ -4944,6 +4944,60 @@ RunCommandResponse Client::runCommand(const RunCommandRequest &request) {
 }
 
 /**
+ * @summary 通过eds agent通道下发命令
+ *
+ * @param request RunSyncCommandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunSyncCommandResponse
+ */
+RunSyncCommandResponse Client::runSyncCommandWithOptions(const RunSyncCommandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCommandContent()) {
+    query["CommandContent"] = request.getCommandContent();
+  }
+
+  if (!!request.hasContentEncoding()) {
+    query["ContentEncoding"] = request.getContentEncoding();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasWaitTime()) {
+    query["WaitTime"] = request.getWaitTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RunSyncCommand"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunSyncCommandResponse>();
+}
+
+/**
+ * @summary 通过eds agent通道下发命令
+ *
+ * @param request RunSyncCommandRequest
+ * @return RunSyncCommandResponse
+ */
+RunSyncCommandResponse Client::runSyncCommand(const RunSyncCommandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runSyncCommandWithOptions(request, runtime);
+}
+
+/**
  * @summary Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
  *
  * @description Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.

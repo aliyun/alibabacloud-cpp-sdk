@@ -1485,6 +1485,23 @@ namespace EdsAic20230930
       Models::RunCommandResponse runCommand(const Models::RunCommandRequest &request);
 
       /**
+       * @summary 通过eds agent通道下发命令
+       *
+       * @param request RunSyncCommandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunSyncCommandResponse
+       */
+      Models::RunSyncCommandResponse runSyncCommandWithOptions(const Models::RunSyncCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过eds agent通道下发命令
+       *
+       * @param request RunSyncCommandRequest
+       * @return RunSyncCommandResponse
+       */
+      Models::RunSyncCommandResponse runSyncCommand(const Models::RunSyncCommandRequest &request);
+
+      /**
        * @summary Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
        *
        * @description Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.

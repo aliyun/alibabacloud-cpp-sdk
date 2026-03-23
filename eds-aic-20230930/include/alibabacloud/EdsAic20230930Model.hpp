@@ -246,6 +246,9 @@
 #include <alibabacloud/models/RunCommandRequest.hpp>
 #include <alibabacloud/models/RunCommandResponseBody.hpp>
 #include <alibabacloud/models/RunCommandResponse.hpp>
+#include <alibabacloud/models/RunSyncCommandRequest.hpp>
+#include <alibabacloud/models/RunSyncCommandResponseBody.hpp>
+#include <alibabacloud/models/RunSyncCommandResponse.hpp>
 #include <alibabacloud/models/SendFileRequest.hpp>
 #include <alibabacloud/models/SendFileResponseBody.hpp>
 #include <alibabacloud/models/SendFileResponse.hpp>
