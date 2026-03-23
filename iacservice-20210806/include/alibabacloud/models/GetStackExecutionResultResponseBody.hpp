@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(stackResults, stackResults_);
       DARABONBA_PTR_TO_JSON(triggerId, triggerId_);
+      DARABONBA_PTR_TO_JSON(triggeredStatus, triggeredStatus_);
     };
     friend void from_json(const Darabonba::Json& j, GetStackExecutionResultResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(stackResults, stackResults_);
       DARABONBA_PTR_FROM_JSON(triggerId, triggerId_);
+      DARABONBA_PTR_FROM_JSON(triggeredStatus, triggeredStatus_);
     };
     GetStackExecutionResultResponseBody() = default ;
     GetStackExecutionResultResponseBody(const GetStackExecutionResultResponseBody &) = default ;
@@ -171,7 +173,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->stackResults_ == nullptr && this->triggerId_ == nullptr; };
+        && this->stackResults_ == nullptr && this->triggerId_ == nullptr && this->triggeredStatus_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -195,11 +197,19 @@ namespace Models
     inline GetStackExecutionResultResponseBody& setTriggerId(string triggerId) { DARABONBA_PTR_SET_VALUE(triggerId_, triggerId) };
 
 
+    // triggeredStatus Field Functions 
+    bool hasTriggeredStatus() const { return this->triggeredStatus_ != nullptr;};
+    void deleteTriggeredStatus() { this->triggeredStatus_ = nullptr;};
+    inline string getTriggeredStatus() const { DARABONBA_PTR_GET_DEFAULT(triggeredStatus_, "") };
+    inline GetStackExecutionResultResponseBody& setTriggeredStatus(string triggeredStatus) { DARABONBA_PTR_SET_VALUE(triggeredStatus_, triggeredStatus) };
+
+
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<GetStackExecutionResultResponseBody::StackResults>> stackResults_ {};
     shared_ptr<string> triggerId_ {};
+    shared_ptr<string> triggeredStatus_ {};
   };
 
   } // namespace Models
