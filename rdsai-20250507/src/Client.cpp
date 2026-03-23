@@ -394,7 +394,9 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary 创建边缘函数
+ * @summary Creates an edge function.
+ *
+ * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
  *
  * @param tmpReq CreateEdgeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +465,9 @@ CreateEdgeFunctionResponse Client::createEdgeFunctionWithOptions(const CreateEdg
 }
 
 /**
- * @summary 创建边缘函数
+ * @summary Creates an edge function.
+ *
+ * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
  *
  * @param request CreateEdgeFunctionRequest
  * @return CreateEdgeFunctionResponse
@@ -784,7 +788,9 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
- * @summary 删除边缘函数
+ * @summary Deletes an edge function.
+ *
+ * @description Deletes an edge function.
  *
  * @param request DeleteEdgeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +833,9 @@ DeleteEdgeFunctionResponse Client::deleteEdgeFunctionWithOptions(const DeleteEdg
 }
 
 /**
- * @summary 删除边缘函数
+ * @summary Deletes an edge function.
+ *
+ * @description Deletes an edge function.
  *
  * @param request DeleteEdgeFunctionRequest
  * @return DeleteEdgeFunctionResponse
@@ -1046,7 +1054,9 @@ DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInsta
 }
 
 /**
- * @summary 查询边缘函数列表
+ * @summary Query the list of edge functions or a specified edge function.
+ *
+ * @description Query the list of edge functions or a specified edge function.
  *
  * @param request DescribeEdgeFunctionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1089,7 +1099,9 @@ DescribeEdgeFunctionsResponse Client::describeEdgeFunctionsWithOptions(const Des
 }
 
 /**
- * @summary 查询边缘函数列表
+ * @summary Query the list of edge functions or a specified edge function.
+ *
+ * @description Query the list of edge functions or a specified edge function.
  *
  * @param request DescribeEdgeFunctionsRequest
  * @return DescribeEdgeFunctionsResponse
@@ -2993,7 +3005,9 @@ UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentReque
 }
 
 /**
- * @summary 更新边缘函数
+ * @summary Updates an edge function
+ *
+ * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
  *
  * @param tmpReq UpdateEdgeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3062,7 +3076,9 @@ UpdateEdgeFunctionResponse Client::updateEdgeFunctionWithOptions(const UpdateEdg
 }
 
 /**
- * @summary 更新边缘函数
+ * @summary Updates an edge function
+ *
+ * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
  *
  * @param request UpdateEdgeFunctionRequest
  * @return UpdateEdgeFunctionResponse

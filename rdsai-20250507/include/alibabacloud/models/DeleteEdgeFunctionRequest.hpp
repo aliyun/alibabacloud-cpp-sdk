@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The name of the edge function.
     shared_ptr<string> edgeFunctionName_ {};
+    // The ID of the RDS Supabase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

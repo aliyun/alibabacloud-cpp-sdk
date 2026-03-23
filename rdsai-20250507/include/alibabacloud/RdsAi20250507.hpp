@@ -110,7 +110,9 @@ namespace RdsAi20250507
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
-       * @summary 创建边缘函数
+       * @summary Creates an edge function.
+       *
+       * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
        *
        * @param tmpReq CreateEdgeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,7 +121,9 @@ namespace RdsAi20250507
       Models::CreateEdgeFunctionResponse createEdgeFunctionWithOptions(const Models::CreateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建边缘函数
+       * @summary Creates an edge function.
+       *
+       * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
        *
        * @param request CreateEdgeFunctionRequest
        * @return CreateEdgeFunctionResponse
@@ -226,7 +230,9 @@ namespace RdsAi20250507
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
-       * @summary 删除边缘函数
+       * @summary Deletes an edge function.
+       *
+       * @description Deletes an edge function.
        *
        * @param request DeleteEdgeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -235,7 +241,9 @@ namespace RdsAi20250507
       Models::DeleteEdgeFunctionResponse deleteEdgeFunctionWithOptions(const Models::DeleteEdgeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘函数
+       * @summary Deletes an edge function.
+       *
+       * @description Deletes an edge function.
        *
        * @param request DeleteEdgeFunctionRequest
        * @return DeleteEdgeFunctionResponse
@@ -331,7 +339,9 @@ namespace RdsAi20250507
       Models::DescribeAppInstancesResponse describeAppInstances(const Models::DescribeAppInstancesRequest &request);
 
       /**
-       * @summary 查询边缘函数列表
+       * @summary Query the list of edge functions or a specified edge function.
+       *
+       * @description Query the list of edge functions or a specified edge function.
        *
        * @param request DescribeEdgeFunctionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -340,7 +350,9 @@ namespace RdsAi20250507
       Models::DescribeEdgeFunctionsResponse describeEdgeFunctionsWithOptions(const Models::DescribeEdgeFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询边缘函数列表
+       * @summary Query the list of edge functions or a specified edge function.
+       *
+       * @description Query the list of edge functions or a specified edge function.
        *
        * @param request DescribeEdgeFunctionsRequest
        * @return DescribeEdgeFunctionsResponse
@@ -1054,7 +1066,9 @@ namespace RdsAi20250507
       Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
 
       /**
-       * @summary 更新边缘函数
+       * @summary Updates an edge function
+       *
+       * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
        *
        * @param tmpReq UpdateEdgeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1063,7 +1077,9 @@ namespace RdsAi20250507
       Models::UpdateEdgeFunctionResponse updateEdgeFunctionWithOptions(const Models::UpdateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新边缘函数
+       * @summary Updates an edge function
+       *
+       * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
        *
        * @param request UpdateEdgeFunctionRequest
        * @return UpdateEdgeFunctionResponse

@@ -59,6 +59,7 @@ namespace Models
   protected:
     // fc-xxxx
     shared_ptr<string> edgeFunctionName_ {};
+    // The ID of the RDS Supabase instance.
     shared_ptr<string> instanceName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -45,11 +45,13 @@ namespace Models
     class Code : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Code& obj) { 
+        DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
         DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_TO_JSON(OssObjectName, ossObjectName_);
         DARABONBA_PTR_TO_JSON(OssType, ossType_);
       };
       friend void from_json(const Darabonba::Json& j, Code& obj) { 
+        DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
         DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_FROM_JSON(OssObjectName, ossObjectName_);
         DARABONBA_PTR_FROM_JSON(OssType, ossType_);
@@ -65,8 +67,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->ossBucketName_ == nullptr
-        && this->ossObjectName_ == nullptr && this->ossType_ == nullptr; };
+      virtual bool empty() const override { return this->downloadUrl_ == nullptr
+        && this->ossBucketName_ == nullptr && this->ossObjectName_ == nullptr && this->ossType_ == nullptr; };
+      // downloadUrl Field Functions 
+      bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
+      void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
+      inline string getDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+      inline Code& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
+
+
       // ossBucketName Field Functions 
       bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
       void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
@@ -89,8 +98,12 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> downloadUrl_ {};
+      // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
+      // The OSS path of a code file.
       shared_ptr<string> ossObjectName_ {};
+      // The storage class of the OSS bucket.
       shared_ptr<string> ossType_ {};
     };
 
@@ -153,13 +166,21 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The code parameters.
     shared_ptr<CreateEdgeFunctionRequest::Code> code_ {};
+    // The configuration parameters of the edge function.
     shared_ptr<map<string, int32_t>> customConfig_ {};
+    // The name of the function.
     shared_ptr<string> edgeFunctionName_ {};
+    // The environment variables.
     shared_ptr<map<string, string>> envs_ {};
+    // The ID of the RDS Supabase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

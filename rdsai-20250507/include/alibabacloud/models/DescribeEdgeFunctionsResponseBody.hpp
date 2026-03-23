@@ -145,15 +145,25 @@ namespace Models
 
 
     protected:
+      // The number of vCPUs used by the cluster.
       shared_ptr<string> cpu_ {};
+      // The time when the function was created.
       shared_ptr<string> createdTime_ {};
+      // The edge function name.
       shared_ptr<string> edgeFunctionName_ {};
+      // The URL for accessing the function.
       shared_ptr<string> functionUrl_ {};
+      // The memory size. Unit: MiB.
       shared_ptr<string> memorySize_ {};
+      // The time when the function was last created. The time is displayed in UTC.
       shared_ptr<string> modifiedTime_ {};
+      // The runtime environment for the function, which includes the Linux environment and the Deno version.
       shared_ptr<string> runtime_ {};
+      // The instance status. For more information, see [Instance state table](https://help.aliyun.com/document_detail/2623972.html).
       shared_ptr<string> status_ {};
+      // The public URL for accessing the application.
       shared_ptr<string> urlInternet_ {};
+      // The internal URL for accessing the application.
       shared_ptr<string> urlIntranet_ {};
     };
 
@@ -183,7 +193,9 @@ namespace Models
 
 
   protected:
+    // The list of edge functions.
     shared_ptr<vector<DescribeEdgeFunctionsResponseBody::EdgeFunctions>> edgeFunctions_ {};
+    // The ID of the RDS Supabase instance.
     shared_ptr<string> instanceName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

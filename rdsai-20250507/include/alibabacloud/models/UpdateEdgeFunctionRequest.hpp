@@ -16,7 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateEdgeFunctionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Code, code_);
-      DARABONBA_ANY_TO_JSON(CustomConfig, customConfig_);
+      DARABONBA_PTR_TO_JSON(CustomConfig, customConfig_);
       DARABONBA_PTR_TO_JSON(EdgeFunctionName, edgeFunctionName_);
       DARABONBA_PTR_TO_JSON(Envs, envs_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -25,7 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateEdgeFunctionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
-      DARABONBA_ANY_FROM_JSON(CustomConfig, customConfig_);
+      DARABONBA_PTR_FROM_JSON(CustomConfig, customConfig_);
       DARABONBA_PTR_FROM_JSON(EdgeFunctionName, edgeFunctionName_);
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -45,11 +45,13 @@ namespace Models
     class Code : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Code& obj) { 
+        DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
         DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_TO_JSON(OssObjectName, ossObjectName_);
         DARABONBA_PTR_TO_JSON(OssType, ossType_);
       };
       friend void from_json(const Darabonba::Json& j, Code& obj) { 
+        DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
         DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_FROM_JSON(OssObjectName, ossObjectName_);
         DARABONBA_PTR_FROM_JSON(OssType, ossType_);
@@ -65,8 +67,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->ossBucketName_ == nullptr
-        && this->ossObjectName_ == nullptr && this->ossType_ == nullptr; };
+      virtual bool empty() const override { return this->downloadUrl_ == nullptr
+        && this->ossBucketName_ == nullptr && this->ossObjectName_ == nullptr && this->ossType_ == nullptr; };
+      // downloadUrl Field Functions 
+      bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
+      void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
+      inline string getDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+      inline Code& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
+
+
       // ossBucketName Field Functions 
       bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
       void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
@@ -89,8 +98,12 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> downloadUrl_ {};
+      // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
+      // The path of the code file.
       shared_ptr<string> ossObjectName_ {};
+      // The storage class of the OSS bucket.
       shared_ptr<string> ossType_ {};
     };
 
@@ -116,10 +129,10 @@ namespace Models
     // customConfig Field Functions 
     bool hasCustomConfig() const { return this->customConfig_ != nullptr;};
     void deleteCustomConfig() { this->customConfig_ = nullptr;};
-    inline     const Darabonba::Json & getCustomConfig() const { DARABONBA_GET(customConfig_) };
-    Darabonba::Json & getCustomConfig() { DARABONBA_GET(customConfig_) };
-    inline UpdateEdgeFunctionRequest& setCustomConfig(const Darabonba::Json & customConfig) { DARABONBA_SET_VALUE(customConfig_, customConfig) };
-    inline UpdateEdgeFunctionRequest& setCustomConfig(Darabonba::Json && customConfig) { DARABONBA_SET_RVALUE(customConfig_, customConfig) };
+    inline const map<string, string> & getCustomConfig() const { DARABONBA_PTR_GET_CONST(customConfig_, map<string, string>) };
+    inline map<string, string> getCustomConfig() { DARABONBA_PTR_GET(customConfig_, map<string, string>) };
+    inline UpdateEdgeFunctionRequest& setCustomConfig(const map<string, string> & customConfig) { DARABONBA_PTR_SET_VALUE(customConfig_, customConfig) };
+    inline UpdateEdgeFunctionRequest& setCustomConfig(map<string, string> && customConfig) { DARABONBA_PTR_SET_RVALUE(customConfig_, customConfig) };
 
 
     // edgeFunctionName Field Functions 
@@ -153,14 +166,21 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The error code that is returned if the request failed. For more information, see the "Error codes" section of the topic.
     shared_ptr<UpdateEdgeFunctionRequest::Code> code_ {};
-    Darabonba::Json customConfig_ {};
-    // fc-xxxx。
+    // The configuration parameters of the edge function.
+    shared_ptr<map<string, string>> customConfig_ {};
+    // fc-xxxx
     shared_ptr<string> edgeFunctionName_ {};
+    // The environment variables of the edge function.
     shared_ptr<map<string, string>> envs_ {};
+    // The ID of the RDS Supabase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -94,14 +94,21 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The error code that is returned if the request failed. For more information, see the "Error codes" section of the topic.
     shared_ptr<string> codeShrink_ {};
+    // The configuration parameters of the edge function.
     shared_ptr<string> customConfigShrink_ {};
-    // fc-xxxx。
+    // fc-xxxx
     shared_ptr<string> edgeFunctionName_ {};
+    // The environment variables of the edge function.
     shared_ptr<string> envsShrink_ {};
+    // The ID of the RDS Supabase instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 
