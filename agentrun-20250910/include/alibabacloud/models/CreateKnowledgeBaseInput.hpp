@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(provider, provider_);
       DARABONBA_ANY_TO_JSON(providerSettings, providerSettings_);
       DARABONBA_ANY_TO_JSON(retrieveSettings, retrieveSettings_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateKnowledgeBaseInput& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(provider, provider_);
       DARABONBA_ANY_FROM_JSON(providerSettings, providerSettings_);
       DARABONBA_ANY_FROM_JSON(retrieveSettings, retrieveSettings_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateKnowledgeBaseInput() = default ;
     CreateKnowledgeBaseInput(const CreateKnowledgeBaseInput &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialName_ == nullptr
-        && this->description_ == nullptr && this->knowledgeBaseName_ == nullptr && this->provider_ == nullptr && this->providerSettings_ == nullptr && this->retrieveSettings_ == nullptr; };
+        && this->description_ == nullptr && this->knowledgeBaseName_ == nullptr && this->provider_ == nullptr && this->providerSettings_ == nullptr && this->retrieveSettings_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // credentialName Field Functions 
     bool hasCredentialName() const { return this->credentialName_ != nullptr;};
     void deleteCredentialName() { this->credentialName_ = nullptr;};
@@ -87,6 +90,13 @@ namespace Models
     inline CreateKnowledgeBaseInput& setRetrieveSettings(Darabonba::Json && retrieveSettings) { DARABONBA_SET_RVALUE(retrieveSettings_, retrieveSettings) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateKnowledgeBaseInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> credentialName_ {};
     shared_ptr<string> description_ {};
@@ -97,6 +107,7 @@ namespace Models
     // This parameter is required.
     Darabonba::Json providerSettings_ {};
     Darabonba::Json retrieveSettings_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -2059,6 +2059,14 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
     query["provider"] = request.getProvider();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceIds()) {
+    query["workspaceIds"] = request.getWorkspaceIds();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -2175,6 +2183,14 @@ ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowl
 
   if (!!request.hasProvider()) {
     query["provider"] = request.getProvider();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceIds()) {
+    query["workspaceIds"] = request.getWorkspaceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2571,6 +2587,10 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 
   if (!!request.hasWorkspaceId()) {
     query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceIds()) {
+    query["workspaceIds"] = request.getWorkspaceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

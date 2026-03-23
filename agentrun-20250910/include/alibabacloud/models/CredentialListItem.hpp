@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(relatedResourceCount, relatedResourceCount_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CredentialListItem& obj) { 
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(relatedResourceCount, relatedResourceCount_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CredentialListItem() = default ;
     CredentialListItem(const CredentialListItem &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->credentialAuthType_ == nullptr && this->credentialId_ == nullptr && this->credentialName_ == nullptr && this->credentialSourceType_ == nullptr && this->description_ == nullptr
-        && this->enabled_ == nullptr && this->relatedResourceCount_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->enabled_ == nullptr && this->relatedResourceCount_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     inline CredentialListItem& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CredentialListItem& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> credentialAuthType_ {};
@@ -121,6 +130,7 @@ namespace Models
     shared_ptr<bool> enabled_ {};
     shared_ptr<int32_t> relatedResourceCount_ {};
     shared_ptr<string> updatedAt_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

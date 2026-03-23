@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialSourceType, credentialSourceType_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCredentialInput& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialAuthType, credentialAuthType_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialSourceType, credentialSourceType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateCredentialInput() = default ;
     CreateCredentialInput(const CreateCredentialInput &) = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialAuthType_ == nullptr
         && this->credentialName_ == nullptr && this->credentialPublicConfig_ == nullptr && this->credentialSecret_ == nullptr && this->credentialSourceType_ == nullptr && this->description_ == nullptr
-        && this->enabled_ == nullptr; };
+        && this->enabled_ == nullptr && this->workspaceId_ == nullptr; };
     // credentialAuthType Field Functions 
     bool hasCredentialAuthType() const { return this->credentialAuthType_ != nullptr;};
     void deleteCredentialAuthType() { this->credentialAuthType_ = nullptr;};
@@ -96,6 +98,13 @@ namespace Models
     inline CreateCredentialInput& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateCredentialInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> credentialAuthType_ {};
@@ -107,6 +116,7 @@ namespace Models
     shared_ptr<string> credentialSourceType_ {};
     shared_ptr<string> description_ {};
     shared_ptr<bool> enabled_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

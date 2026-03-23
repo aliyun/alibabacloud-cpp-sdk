@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+      DARABONBA_PTR_TO_JSON(workspaceIds, workspaceIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListCredentialsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialAuthType, credentialAuthType_);
@@ -29,6 +31,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+      DARABONBA_PTR_FROM_JSON(workspaceIds, workspaceIds_);
     };
     ListCredentialsRequest() = default ;
     ListCredentialsRequest(const ListCredentialsRequest &) = default ;
@@ -43,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialAuthType_ == nullptr
         && this->credentialName_ == nullptr && this->credentialSourceType_ == nullptr && this->enabled_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->provider_ == nullptr; };
+        && this->provider_ == nullptr && this->workspaceId_ == nullptr && this->workspaceIds_ == nullptr; };
     // credentialAuthType Field Functions 
     bool hasCredentialAuthType() const { return this->credentialAuthType_ != nullptr;};
     void deleteCredentialAuthType() { this->credentialAuthType_ = nullptr;};
@@ -93,6 +97,20 @@ namespace Models
     inline ListCredentialsRequest& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListCredentialsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+    // workspaceIds Field Functions 
+    bool hasWorkspaceIds() const { return this->workspaceIds_ != nullptr;};
+    void deleteWorkspaceIds() { this->workspaceIds_ = nullptr;};
+    inline string getWorkspaceIds() const { DARABONBA_PTR_GET_DEFAULT(workspaceIds_, "") };
+    inline ListCredentialsRequest& setWorkspaceIds(string workspaceIds) { DARABONBA_PTR_SET_VALUE(workspaceIds_, workspaceIds) };
+
+
   protected:
     // credentialAuthType
     shared_ptr<string> credentialAuthType_ {};
@@ -104,6 +122,8 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> provider_ {};
+    shared_ptr<string> workspaceId_ {};
+    shared_ptr<string> workspaceIds_ {};
   };
 
   } // namespace Models

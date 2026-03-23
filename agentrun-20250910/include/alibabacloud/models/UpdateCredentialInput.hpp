@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialSecret, credentialSecret_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateCredentialInput& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialPublicConfig, credentialPublicConfig_);
       DARABONBA_PTR_FROM_JSON(credentialSecret, credentialSecret_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     UpdateCredentialInput() = default ;
     UpdateCredentialInput(const UpdateCredentialInput &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialPublicConfig_ == nullptr
-        && this->credentialSecret_ == nullptr && this->description_ == nullptr && this->enabled_ == nullptr; };
+        && this->credentialSecret_ == nullptr && this->description_ == nullptr && this->enabled_ == nullptr && this->workspaceId_ == nullptr; };
     // credentialPublicConfig Field Functions 
     bool hasCredentialPublicConfig() const { return this->credentialPublicConfig_ != nullptr;};
     void deleteCredentialPublicConfig() { this->credentialPublicConfig_ = nullptr;};
@@ -68,11 +70,19 @@ namespace Models
     inline UpdateCredentialInput& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline UpdateCredentialInput& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<CredentialPublicConfig> credentialPublicConfig_ {};
     shared_ptr<string> credentialSecret_ {};
     shared_ptr<string> description_ {};
     shared_ptr<bool> enabled_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
