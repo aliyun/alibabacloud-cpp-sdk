@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The internal IP addresses and hostnames of the ECS instance on which a primary ApsaraDB RDS for SQL Server instance and its secondary RDS instance reside. Format: `IP address 1, Hostname 1; IP address 2, Hostname 2`.
     shared_ptr<string> ipHostnameInfos_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

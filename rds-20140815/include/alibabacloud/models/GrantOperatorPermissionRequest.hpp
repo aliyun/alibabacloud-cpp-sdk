@@ -94,21 +94,12 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The expiration time of the permissions. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
     // This parameter is required.
     shared_ptr<string> expiredTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The permissions that you want to grant to the service account. Valid values:
-    // 
-    // *   **Control**: the configuration permissions, which allow you to view and modify configurations of the instance.
-    // *   **Data**: the data permissions, which allow you to view schemas, indexes, and SQL statements of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> privileges_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

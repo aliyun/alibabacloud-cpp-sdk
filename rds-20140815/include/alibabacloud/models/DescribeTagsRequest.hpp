@@ -121,25 +121,16 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
-    // >  If you specify this parameter, all tags that are added to this instance are queried, and other filter conditions becomes invalid.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of resource. Set the value to INSTANCE.
     shared_ptr<string> resourceType_ {};
-    // The tag that you want to query. The value of the parameter consists of TagKey and TagValue. Format: `{"TagKey":"TagValue"}`.
     shared_ptr<string> tags_ {};
-    // The ID of the proxy mode.
     shared_ptr<string> proxyId_ {};
   };
 

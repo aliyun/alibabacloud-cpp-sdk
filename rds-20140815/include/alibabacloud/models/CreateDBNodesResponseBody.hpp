@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the created node. The value is a string. Multiple values are separated by commas (`,`).
     shared_ptr<string> nodeIds_ {};
-    // The ID of the order.
     shared_ptr<int64_t> orderId_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

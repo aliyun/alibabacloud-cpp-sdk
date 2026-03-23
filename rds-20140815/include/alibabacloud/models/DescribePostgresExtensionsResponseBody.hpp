@@ -138,25 +138,14 @@ namespace Models
 
 
     protected:
-      // The category of the extension.
       shared_ptr<string> category_ {};
-      // The purpose of the extension.
       shared_ptr<string> comment_ {};
-      // The default version of the extension.
       shared_ptr<string> defaultVersion_ {};
-      // The current version of the extension.
       shared_ptr<string> installedVersion_ {};
-      // The name of the extension.
       shared_ptr<string> name_ {};
-      // The user of the extension.
       shared_ptr<string> owner_ {};
-      // The priority of the extension.
       shared_ptr<string> priority_ {};
-      // The extensions on which the current extension depends when it is installed.
       shared_ptr<string> requires_ {};
-      // The ID of the Alibaba Cloud account.
-      // 
-      // >  This parameter is returned only for self-developed exclusive extensions. You can view exclusive extensions only within your Alibaba Cloud account.
       shared_ptr<string> uid_ {};
     };
 
@@ -262,40 +251,14 @@ namespace Models
 
 
     protected:
-      // The category of the extension.
-      // 
-      // *   **external_access**
-      // *   **index_support**
-      // *   **information_stat**
-      // *   **geography_space**
-      // *   **vector_engine**
-      // *   **timing_engine**
-      // *   **data_type**
-      // *   **encrypt_secure**
-      // *   **text_process**
-      // *   **operation_maintenance**
-      // *   **self_develop**
       shared_ptr<string> category_ {};
-      // The purpose of the extension.
       shared_ptr<string> comment_ {};
-      // The default version of the extension.
       shared_ptr<string> defaultVersion_ {};
-      // The current version of the extension.
       shared_ptr<string> installedVersion_ {};
-      // The name of the extension.
       shared_ptr<string> name_ {};
-      // The user of the extension.
       shared_ptr<string> owner_ {};
-      // The priority of the extension.
-      // 
-      // *   **0**: The extension is displayed by default.
-      // *   **1**: The extension is preferentially displayed.
       shared_ptr<string> priority_ {};
-      // The extensions on which the current extension depends when it is installed.
       shared_ptr<string> requires_ {};
-      // The ID of the Alibaba Cloud account.
-      // 
-      // >  This parameter is returned only for self-developed exclusive extensions. You can view exclusive extensions only within your Alibaba Cloud account.
       shared_ptr<string> uid_ {};
     };
 
@@ -336,13 +299,9 @@ namespace Models
 
 
   protected:
-    // The list of extensions that are installed on the specified database.
     shared_ptr<vector<DescribePostgresExtensionsResponseBody::InstalledExtensions>> installedExtensions_ {};
-    // The overview of the extension.
     Darabonba::Json overview_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of extensions that are not installed on the specified database.
     shared_ptr<vector<DescribePostgresExtensionsResponseBody::UninstalledExtensions>> uninstalledExtensions_ {};
   };
 

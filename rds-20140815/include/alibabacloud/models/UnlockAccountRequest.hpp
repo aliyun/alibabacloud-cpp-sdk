@@ -75,12 +75,8 @@ namespace Models
 
 
   protected:
-    // The account that you want to unlock. You can unlock a single account at a time.
-    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The replication latency of the read-only instance. Unit: seconds.
     shared_ptr<string> readSQLReplicationTime_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

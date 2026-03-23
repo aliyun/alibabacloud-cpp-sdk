@@ -140,24 +140,56 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
+    // Estimated data space, in GB
     shared_ptr<int32_t> estimatedSize_ {};
+    // The source MySQL host IP address. RDS will access this IP address to retrieve the backup.
+    // 
     // This parameter is required.
     shared_ptr<string> host_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The Password of the source MySQL Account, which must be Base64-encoded.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // Source MySQL port
+    // 
     // This parameter is required.
     shared_ptr<int32_t> port_ {};
+    // The Region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to obtain it.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The source cloud instance ID.
     shared_ptr<string> sourceInstanceId_ {};
+    // Source cloud instance type
     shared_ptr<string> sourcePlatform_ {};
+    // Stream port used for backup transmission
+    // 
     // This parameter is required.
     shared_ptr<int32_t> streamPort_ {};
+    // Source MySQL account, which must have permissions to create backups and set up replication. Refer to the following SQL for granting permissions:  
+    // ```  
+    // -- MySQL 5.7  
+    // mysql> CREATE USER \\"myadmin\\"@\\"%\\" IDENTIFIED BY \\"s3cret\\";  
+    // mysql> GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO  
+    //        \\"myadmin\\"@\\"%\\";  
+    // mysql> FLUSH PRIVILEGES;  
+    // -- MySQL 8.0  
+    // mysql> CREATE USER \\"myadmin\\"@\\"%\\" IDENTIFIED BY \\"Test123!\\";  
+    // mysql> GRANT BACKUP_ADMIN, PROCESS, RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO \\"myadmin\\"@\\"%\\";  
+    // mysql> GRANT SELECT ON performance_schema.log_status TO \\"myadmin\\"@\\"%\\";  
+    // mysql> GRANT SELECT ON performance_schema.keyring_component_status TO myadmin@\\"%\\";  
+    // mysql> GRANT SELECT ON performance_schema.replication_group_members TO myadmin@\\"%\\";  
+    // mysql> FLUSH PRIVILEGES;  
+    // ```
+    // 
     // This parameter is required.
     shared_ptr<string> user_ {};
+    // Installation path of xtrabackup on the source
     shared_ptr<string> xtrabackupPath_ {};
   };
 

@@ -107,6 +107,7 @@ namespace Models
     // > *   For more information about the supported backup types, see [Use the data backup feature](https://help.aliyun.com/document_detail/98818.html).
     // > *   When you perform a snapshot backup on an ApsaraDB RDS for SQL Server instance that uses cloud disks, you must set this parameter to **Snapshot**.
     shared_ptr<string> backupMethod_ {};
+    // When the **BackupStrategy** of an SQL Server instance is set to **db**, the **BackupMethod** is **Physical**, and the **BackupType** is **FullBackup**, you can specify the retention period for the backup set. Valid values are 7 to 730 days or -1 (permanent retention).
     shared_ptr<int64_t> backupRetentionPeriod_ {};
     // The backup policy. Valid values:
     // 

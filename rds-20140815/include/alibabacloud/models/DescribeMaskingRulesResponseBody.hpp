@@ -131,8 +131,11 @@ namespace Models
 
 
         protected:
+          // List of columns
           shared_ptr<vector<string>> columns_ {};
+          // List of databases
           shared_ptr<vector<string>> databases_ {};
+          // Table List
           shared_ptr<vector<string>> tables_ {};
         };
 
@@ -176,10 +179,15 @@ namespace Models
 
 
       protected:
+        // Default encryption or masking algorithm
         shared_ptr<string> defaultAlgo_ {};
+        // Whether the rule is enabled
         shared_ptr<string> enabled_ {};
+        // Rule algorithm. Multiple algorithms can be selected. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, number of encrypted digits}}
         shared_ptr<string> maskingAlgo_ {};
+        // Rule configuration
         shared_ptr<Rules::RuleConfig> ruleConfig_ {};
+        // Rule Name
         shared_ptr<string> ruleName_ {};
       };
 
@@ -194,6 +202,7 @@ namespace Models
 
 
     protected:
+      // List of encryption or desensitization rules
       shared_ptr<vector<Data::Rules>> rules_ {};
     };
 
@@ -216,7 +225,9 @@ namespace Models
 
 
   protected:
+    // Returned data
     shared_ptr<DescribeMaskingRulesResponseBody::Data> data_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

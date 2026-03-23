@@ -103,24 +103,14 @@ namespace Models
 
 
   protected:
-    // The backup set ID. You can call the DescribeBackups operation to query the backup set ID.
-    // 
-    // >  You must specify at least one of **BackupId** and **RestoreTime** parameters.
     shared_ptr<int64_t> backupId_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specified point in time within the backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // > *   The time can be set to a point in time within the last seven days and must be more than 30 minutes earlier than the current time. The default time zone is UTC.
-    // > *   You must specify at least one of the **BackupId** and **RestoreTime** parameters.
     shared_ptr<string> restoreTime_ {};
   };
 

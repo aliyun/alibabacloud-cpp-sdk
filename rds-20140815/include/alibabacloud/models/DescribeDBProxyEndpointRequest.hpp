@@ -103,18 +103,12 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The proxy endpoint that you want to query. You can call the DescribeDBProxy interface to query the proxy endpoint.
     shared_ptr<string> DBProxyConnectString_ {};
-    // The name of the proxy terminal. You can call the DescribeDBProxy interface to query the name of the proxy terminal.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

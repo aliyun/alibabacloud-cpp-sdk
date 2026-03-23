@@ -217,12 +217,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeParameterGroupsResponseBody::ParameterGroups> parameterGroups_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether parameter templates exist in the specified region. Valid values:
-    // *   true
-    // *   false
-    // >Notice: This parameter is deprecated.
     shared_ptr<bool> signalForOptimizeParams_ {};
   };
 

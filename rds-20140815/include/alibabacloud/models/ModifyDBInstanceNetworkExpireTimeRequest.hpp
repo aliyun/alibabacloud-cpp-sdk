@@ -94,19 +94,10 @@ namespace Models
 
 
   protected:
-    // The retention days of the classic network endpoint. Valid values: **1 to 120**. Unit: days.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> classicExpiredDays_ {};
-    // The classic network endpoint whose expiration time you want to extend. Two types of classic network endpoints are supported:
-    // 
-    // *   The internal endpoint of the classic network.
-    // *   The read/write splitting endpoint of the classic network.
-    // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

@@ -66,17 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of the global active database cluster.
-    // 
     // This parameter is required.
     shared_ptr<string> gadInstanceName_ {};
-    // The ID of the instance that serves as the unit node you want to remove. You can call the DescribeGadInstances query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> memberInstanceName_ {};
-    // The region ID of the central node. You can call the DescribeGadInstances operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

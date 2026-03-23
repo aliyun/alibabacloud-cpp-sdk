@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // Instance ID. You can obtain it by invoking DescribeDBInstances.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The status of the vector storage toggle. Valid values:
+    // 
+    // - **ON**: Enabled.
+    // - **OFF**: Disabled.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

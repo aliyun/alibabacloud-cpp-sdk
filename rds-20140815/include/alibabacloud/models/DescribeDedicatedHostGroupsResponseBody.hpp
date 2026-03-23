@@ -419,7 +419,6 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDedicatedHostGroupsResponseBody::DedicatedHostGroups> dedicatedHostGroups_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

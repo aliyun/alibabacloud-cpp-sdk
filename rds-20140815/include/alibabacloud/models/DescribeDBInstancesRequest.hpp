@@ -432,6 +432,7 @@ namespace Models
     // *   **Postpaid**: pay-as-you-go
     // *   **Prepaid**: subscription
     shared_ptr<string> payType_ {};
+    // Reserved parameter. No configuration is required.
     shared_ptr<bool> queryAutoRenewal_ {};
     // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     // 

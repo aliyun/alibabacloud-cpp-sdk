@@ -103,26 +103,10 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The time when the switching takes effect. Valid values:
-    // 
-    // *   **Immediate**: The switching immediately takes effect.
-    // *   **MaintainTime**: The switching takes effect during the maintenance time.
-    // 
-    // Default value: **Immediate**.
     shared_ptr<string> effectiveTime_ {};
-    // Specifies whether to enable forcible switching. Valid values:
-    // 
-    // *   **Yes**
-    // *   **No**
-    // 
-    // Default value: **No**.
     shared_ptr<string> force_ {};
-    // The secondary instance ID. You can call the DescribeDBInstanceHAConfig operation to query the secondary instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};

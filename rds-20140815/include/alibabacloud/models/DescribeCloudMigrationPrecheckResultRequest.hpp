@@ -103,29 +103,16 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The page number. Pages start from page 1. Default value: **1**.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **30** to **100**. Default value: 30.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The private or public IP address that is used to connect to the self-managed PostgreSQL instance.
-    // 
-    // *   If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, enter the private IP address of the ECS instance. For more information about how to obtain the private IP address of an ECS instance, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
-    // *   If the self-managed PostgreSQL instance resides in an on-premises data center, enter the private IP address of the on-premises data center.
     shared_ptr<string> sourceIpAddress_ {};
-    // The port number that is used to connect to the self-managed PostgreSQL instance. You can run the netstat -a | grep PGSQL command to obtain the port number.
     shared_ptr<int64_t> sourcePort_ {};
-    // The task ID. You can obtain the task ID from the response that is returned after you call the CreateCloudMigrationPrecheckTask operation to create the task.
     shared_ptr<int64_t> taskId_ {};
-    // The task name. You can obtain the task name from the response that is returned after you call the CreateCloudMigrationPrecheckTask operation to create the task.
     shared_ptr<string> taskName_ {};
   };
 

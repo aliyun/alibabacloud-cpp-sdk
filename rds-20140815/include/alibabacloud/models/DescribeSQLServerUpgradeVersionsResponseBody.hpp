@@ -198,10 +198,15 @@ namespace Models
 
 
               protected:
+                // 可升级的版本规格的CPU大小
                 shared_ptr<string> CPU_ {};
+                // 可升级的版本规格
                 shared_ptr<string> DBInstanceClass_ {};
+                // 可升级的版本规格的类型
                 shared_ptr<string> DBInstanceClassType_ {};
+                // 组类型
                 shared_ptr<string> group_ {};
+                // 可升级的版本规格的内存大小
                 shared_ptr<string> memory_ {};
               };
 
@@ -245,8 +250,11 @@ namespace Models
 
 
           protected:
+            // 一个列表，描述了每个版本是否可以成为升级目标
             shared_ptr<SQLServerUpgradeVersion::DBInstanceClassItems> DBInstanceClassItems_ {};
+            // 是否支持升级到该版本
             shared_ptr<string> enableUpgrade_ {};
+            // 版本值
             shared_ptr<string> version_ {};
           };
 
@@ -283,7 +291,9 @@ namespace Models
 
 
       protected:
+        // 当前的版本。若传DBInstanceId，则返回实例版本。若未传DBInstanceId，但传了EngineVersion，则返回EngineVersion。
         shared_ptr<string> currentVersion_ {};
+        // 一个列表，显示是否支持升级到目标版本
         shared_ptr<Item::SQLServerUpgradeVersions> SQLServerUpgradeVersions_ {};
       };
 
@@ -321,6 +331,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeSQLServerUpgradeVersionsResponseBody::Items> items_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

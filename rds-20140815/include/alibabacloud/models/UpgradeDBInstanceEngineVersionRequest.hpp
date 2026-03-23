@@ -103,23 +103,10 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The effective time. Valid values:
-    // 
-    // *   **Immediate**: This is the default value.
-    // *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
     shared_ptr<string> effectiveTime_ {};
-    // The major engine version that the new instance runs. Valid values:
-    // 
-    // *   **8.0**
-    // *   **5.7**
-    // *   **5.6**
-    // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<string> ownerAccount_ {};

@@ -121,37 +121,18 @@ namespace Models
 
 
   protected:
-    // The ID of the destination region within which the cross-region backup file is stored. You can call the DescribeCrossRegionBackupDBInstance operation to query the region ID.
     shared_ptr<string> crossBackupRegion_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any non-zero positive integer.
-    // 
-    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
-    // 
-    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

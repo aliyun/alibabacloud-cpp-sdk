@@ -116,7 +116,6 @@ namespace Models
 
   protected:
     shared_ptr<DescribeRegionInfosResponseBody::Regions> regions_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

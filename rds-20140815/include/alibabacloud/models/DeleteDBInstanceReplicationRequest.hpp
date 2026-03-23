@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // 复制通道名称，用于标识需要删除的复制链路
+    // The name of the replication channel, used to identify the replication link.
     shared_ptr<string> channelName_ {};
-    // 目标RDS实例ID，复制链路将从此实例上删除
+    // Instance ID. You can invoke DescribeDBInstances to obtain it.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
     // 阿里云账号ID，用于指定资源的所有者
     shared_ptr<int64_t> ownerId_ {};
-    // 地域ID，表示RDS实例所在的地域
+    // Region ID. You can invoke DescribeRegions to obtain it.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

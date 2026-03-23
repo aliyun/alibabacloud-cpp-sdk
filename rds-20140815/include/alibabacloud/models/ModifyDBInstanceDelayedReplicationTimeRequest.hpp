@@ -75,13 +75,9 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The replication latency of the read-only instance. Unit: seconds.
-    // 
     // This parameter is required.
     shared_ptr<string> readSQLReplicationTime_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

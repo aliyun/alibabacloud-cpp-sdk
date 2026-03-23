@@ -112,27 +112,17 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IP address of the ECS instance and the hostname of the Windows computer. Format: `IP address,Hostname`. Separate multiple entries with semicolon (;).
-    // 
-    // >  For more information about how to query the computer hostname, see [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html).
-    // 
     // This parameter is required.
     shared_ptr<string> securityIpHosts_ {};
     shared_ptr<string> securityToken_ {};
-    // The name of the IP address whitelist.
-    // 
     // This parameter is required.
     shared_ptr<string> whiteListGroupName_ {};
   };

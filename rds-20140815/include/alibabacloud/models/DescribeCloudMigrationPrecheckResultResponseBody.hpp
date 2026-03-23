@@ -168,32 +168,17 @@ namespace Models
 
 
     protected:
-      // The content of the assessment report.
       shared_ptr<string> detail_ {};
-      // The time when the task was created.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the task was modified.
       shared_ptr<string> gmtModified_ {};
-      // The username.
       shared_ptr<string> sourceAccount_ {};
-      // The environment in which the self-managed PostgreSQL instance runs.
-      // 
-      // *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
-      // *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
       shared_ptr<string> sourceCategory_ {};
-      // The private IP address that is used to connect to the self-managed PostgreSQL instance.
       shared_ptr<string> sourceIpAddress_ {};
-      // The password.
       shared_ptr<string> sourcePassword_ {};
-      // The port number that is used to connect to the self-managed PostgreSQL instance.
       shared_ptr<int64_t> sourcePort_ {};
-      // A reserved parameter. The return value of this parameter is empty.
       shared_ptr<string> targetEip_ {};
-      // The instance ID.
       shared_ptr<string> targetInstanceName_ {};
-      // The task ID.
       shared_ptr<int64_t> taskId_ {};
-      // The task name.
       shared_ptr<string> taskName_ {};
     };
 
@@ -237,15 +222,10 @@ namespace Models
 
 
   protected:
-    // The details about the assessment report.
     shared_ptr<vector<DescribeCloudMigrationPrecheckResultResponseBody::Items>> items_ {};
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalSize_ {};
   };
 

@@ -130,29 +130,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
-    // 
-    // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the KMS resource. Only key IDs are supported.
-    // 
     // This parameter is required.
     shared_ptr<string> kmsResourceId_ {};
-    // The ID of the region to which the KMS resource belongs.
     shared_ptr<string> kmsResourceRegionId_ {};
-    // The type of the KMS resource. Only key is supported.
-    // 
     // This parameter is required.
     shared_ptr<string> kmsResourceType_ {};
-    // The ID of the Alibaba Cloud account to which the KMS resource belongs.
-    // 
     // This parameter is required.
     shared_ptr<string> kmsResourceUser_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

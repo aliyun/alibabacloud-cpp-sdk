@@ -494,15 +494,10 @@ namespace Models
 
   protected:
     shared_ptr<DescribeRCDeploymentSetsResponseBody::DeploymentSets> deploymentSets_ {};
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

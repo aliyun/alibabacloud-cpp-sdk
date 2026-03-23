@@ -140,17 +140,32 @@ namespace Models
 
 
   protected:
+    // Account name.
     shared_ptr<string> account_ {};
+    // Milvus version number.
     shared_ptr<string> dbVersion_ {};
+    // Detailed information about the job
     shared_ptr<string> detail_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Source instance category.  
+    // 
+    // - **ECS**: Alibaba Cloud ECS.  
+    // - **other**: Other.
     shared_ptr<string> sourceCategory_ {};
+    // Source IP address for access.
     shared_ptr<string> sourceIp_ {};
+    // Source MySQL port
     shared_ptr<string> sourcePort_ {};
+    // Task Status
     shared_ptr<string> status_ {};
+    // Name of the target disaster recovery instance to switch to.
     shared_ptr<string> targetInstanceName_ {};
+    // Job ID
     shared_ptr<int64_t> taskId_ {};
+    // Task Name.
     shared_ptr<string> taskName_ {};
+    // Task Type, used to query jobs of specific types. Separate multiple types with commas. A maximum of 30 types are supported. The default value is empty, indicating no restriction.
     shared_ptr<string> taskType_ {};
   };
 

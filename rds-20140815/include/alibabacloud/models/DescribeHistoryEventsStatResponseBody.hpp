@@ -70,9 +70,7 @@ namespace Models
 
 
     protected:
-      // The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
       shared_ptr<string> eventCategory_ {};
-      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -95,9 +93,7 @@ namespace Models
 
 
   protected:
-    // The event.
     shared_ptr<vector<DescribeHistoryEventsStatResponseBody::Items>> items_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

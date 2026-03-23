@@ -76,17 +76,10 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the service-linked role.
-    // 
-    // *   **AliyunServiceRoleForRdsPgsqlOnEcs**: the service-linked role for ApsaraDB RDS for PostgreSQL.
-    // *   **AliyunServiceRoleForRDSProxyOnEcs**: the service-linked role for the database proxy feature of ApsaraDB RDS for PostgreSQL.
-    // 
     // This parameter is required.
     shared_ptr<string> serviceLinkedRole_ {};
   };

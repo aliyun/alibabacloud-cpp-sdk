@@ -136,15 +136,10 @@ namespace Models
 
 
       protected:
-        // The primary key of the data table.
         shared_ptr<int32_t> id_ {};
-        // The IP addresses.
         shared_ptr<string> ips_ {};
-        // The ID of the whitelist template.
         shared_ptr<int32_t> templateId_ {};
-        // The name of the whitelist template.
         shared_ptr<string> templateName_ {};
-        // The user ID.
         shared_ptr<int32_t> userId_ {};
       };
 
@@ -203,25 +198,12 @@ namespace Models
 
 
     protected:
-      // The page number.
       shared_ptr<int32_t> currPageNumbers_ {};
-      // Indicates whether the data that meets the conditions is displayed on the next page. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> hasNext_ {};
-      // Indicates whether the data that meets the conditions is displayed on the previous page. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> hasPrev_ {};
-      // The number of entries to return on each page.
       shared_ptr<int32_t> maxRecordsPerPage_ {};
-      // The information about whitelist templates that are returned by page.
       shared_ptr<vector<Data::Templates>> templates_ {};
-      // The total number of pages returned.
       shared_ptr<int32_t> totalPageNumbers_ {};
-      // The total number of entries returned.
       shared_ptr<int32_t> totalRecords_ {};
     };
 
@@ -272,30 +254,11 @@ namespace Models
 
 
   protected:
-    // The response code returned. Valid values:
-    // 
-    // *   **200**: success
-    // *   **400**: client error
-    // *   **401**: identity authentication failed
-    // *   **404**: request page not found
-    // *   **500**: server error
     shared_ptr<string> code_ {};
-    // The data returned.
     shared_ptr<DescribeAllWhitelistTemplateResponseBody::Data> data_ {};
-    // The HTTP status code returned. Valid values:
-    // 
-    // *   **200**: success
-    // *   **400**: client error
-    // *   **500**: server error
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response parameters.
     shared_ptr<string> message_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
     shared_ptr<bool> success_ {};
   };
 

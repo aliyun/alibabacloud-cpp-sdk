@@ -136,8 +136,14 @@ namespace Models
 
 
       protected:
+        // The device information of the disk, such as `/dev/xvdb`.
         shared_ptr<string> device_ {};
+        // The size of the disk. Unit: GiB.
         shared_ptr<string> size_ {};
+        // The property of the disk.
+        // 
+        // - **system**: system disk.
+        // - **data**: data disk.
         shared_ptr<string> type_ {};
       };
 
@@ -269,6 +275,7 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
+      // The mapping between disks and snapshots in the image.
       shared_ptr<vector<Images::DiskDeviceMappings>> diskDeviceMappings_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -281,6 +288,10 @@ namespace Models
       // *   **true**: The image is a public image.
       // *   **false**: The image is not a public image.
       shared_ptr<bool> isPublic_ {};
+      // Indicates whether RDS Custom instances are supported. Valid values:
+      // 
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> isSupportRdsCustom_ {};
       // The display name of the operating system in Chinese.
       shared_ptr<string> OSName_ {};
@@ -291,6 +302,7 @@ namespace Models
       // *   **windows**
       // *   **linux**
       shared_ptr<string> OSType_ {};
+      // Operating system platform.
       shared_ptr<string> platform_ {};
       // The image size. Unit: GiB.
       shared_ptr<int64_t> size_ {};

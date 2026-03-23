@@ -57,14 +57,8 @@ namespace Models
 
 
   protected:
-    // The authorization status. Valid values:
-    // 
-    // *   **1**: authorized
-    // *   **0**: not authorized
     shared_ptr<int32_t> authorizationState_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
     shared_ptr<string> roleArn_ {};
   };
 

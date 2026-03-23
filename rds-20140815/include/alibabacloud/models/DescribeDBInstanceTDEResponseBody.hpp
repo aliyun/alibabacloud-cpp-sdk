@@ -154,20 +154,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstanceTDEResponseBody::Databases> databases_ {};
-    // The ID of the custom key.
     shared_ptr<string> encryptionKey_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The method that is used to generate the key for TDE at the instance level. Valid values:
-    // 
-    // *   **Aliyun_Generate_Key**
-    // *   **Customer_Provided_Key**
-    // *   **Unknown**
     shared_ptr<string> TDEMode_ {};
-    // The TDE status of the instance. Valid values:
-    // 
-    // *   **Enabled**
-    // *   **Disabled**
     shared_ptr<string> TDEStatus_ {};
   };
 

@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The temporary instance ID.
     shared_ptr<string> tempDBInstanceId_ {};
   };
 

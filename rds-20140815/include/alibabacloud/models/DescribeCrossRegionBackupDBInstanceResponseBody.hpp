@@ -295,19 +295,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCrossRegionBackupDBInstanceResponseBody::Items> items_ {};
-    // The total number of items returned for cross-region backup settings.
     shared_ptr<int32_t> itemsNumbers_ {};
-    // The page number. Pages start from page 1.
-    // 
-    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalRecords_ {};
   };
 

@@ -181,9 +181,13 @@ namespace Models
 
 
       protected:
+        // Reserved parameter.
         shared_ptr<string> natIpAddress_ {};
+        // The private IP addresses.
         shared_ptr<vector<string>> privateIpAddress_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The virtual private cloud (VPC) ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -243,9 +247,16 @@ namespace Models
 
 
       protected:
+        // Resource ID.
         shared_ptr<string> resourceId_ {};
+        // Resource type.
+        // 
+        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance  
+        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
         shared_ptr<string> resourceType_ {};
+        // Tag key.
         shared_ptr<string> tagKey_ {};
+        // Tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -305,9 +316,16 @@ namespace Models
 
 
       protected:
+        // Resource ID.
         shared_ptr<string> resourceId_ {};
+        // Resource type.  
+        // 
+        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance  
+        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance
         shared_ptr<string> resourceType_ {};
+        // Tag key.
         shared_ptr<string> tagKey_ {};
+        // Tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -567,14 +585,23 @@ namespace Models
       shared_ptr<bool> autoRenew_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
+      // Number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
+      // Indicates whether the instance can be added to an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster by using the **AttachRCInstances** API operation, enabling efficient management of container applications.  
+      // 
+      // - **1**: Yes  
+      // - **0** (default): No
       shared_ptr<string> createMode_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
+      // The deployment set ID.
       shared_ptr<string> deploymentSetId_ {};
       // The instance description.
       shared_ptr<string> description_ {};
       shared_ptr<string> ecsHostName_ {};
+      // Instance Expiration Time. It is represented in ISO 8601 format using UTC+0 time, with the pattern `yyyy-MM-ddTHH:mm:ssZ`.  
+      // 
+      // > The expiration time displayed in the console is 8 hours later.
       shared_ptr<string> expiredTime_ {};
       // The time when the task was created. The time is displayed in GMT.
       shared_ptr<string> gmtCreated_ {};
@@ -582,21 +609,40 @@ namespace Models
       shared_ptr<string> hostIp_ {};
       // The host name.
       shared_ptr<string> hostName_ {};
+      // Image ID.
       shared_ptr<string> imageId_ {};
+      // Billing method. Valid values:  
+      // * **PrePaid**: subscription  
+      // * **PostPaid**: pay-as-you-go
       shared_ptr<string> instanceChargeType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // Instance name
       shared_ptr<string> instanceName_ {};
+      // Instance Type.  
+      // 
+      // For more information, see [RDS Custom Instance Type List](https://help.aliyun.com/document_detail/2844823.html).
       shared_ptr<string> instanceType_ {};
+      // Instance family.  
+      // 
+      // For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
       shared_ptr<string> instanceTypeFamily_ {};
+      // Memory size, in MiB.
       shared_ptr<int32_t> memory_ {};
+      // File Type. When **rds_vnode** is returned, it indicates that the node is a container node.
       shared_ptr<string> nodeType_ {};
       shared_ptr<string> OSName_ {};
       shared_ptr<string> OSType_ {};
+      // Public IP address of the instance.
       shared_ptr<string> publicIp_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // Spot strategy for pay-as-you-go instances. The return value is as follows:  
+      // 
+      // - **NoSpot**: Normal pay-as-you-go instance.  
+      // - **SpotAsPriceGo**: System automatically bids based on the current market price.
       shared_ptr<string> spotStrategy_ {};
       shared_ptr<string> startTime_ {};
       // The instance status. Valid values:
@@ -610,11 +656,15 @@ namespace Models
       // >  If the value returned for the DescribeRCInstances operation is different from the value that is returned for the **DescribeRCInstanceAttribute** operation, the value returned for the **DescribeRCInstanceAttribute** operation shall prevail.
       shared_ptr<string> status_ {};
       shared_ptr<string> stoppedMode_ {};
+      // The queried instances and tag details.
       shared_ptr<vector<RCInstances::TagResources>> tagResources_ {};
+      // Tag Details.
       shared_ptr<vector<RCInstances::Tags>> tags_ {};
+      // The virtual private cloud (VPC) attributes.
       shared_ptr<RCInstances::VpcAttributes> vpcAttributes_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // Zone ID.
       shared_ptr<string> zoneId_ {};
     };
 

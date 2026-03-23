@@ -389,22 +389,13 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeCrossRegionBackupsResponseBody::Items> items_ {};
-    // The page number. Pages start from page 1.
-    // 
-    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of cross-region data backup files on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};
-    // The total number of entries that are returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

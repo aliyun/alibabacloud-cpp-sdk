@@ -140,40 +140,19 @@ namespace Models
 
 
   protected:
-    // The language of the text within the response. Valid values:
-    // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US**: English
-    // 
-    // > The default value is **en-US**.
     shared_ptr<string> acceptLanguage_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     shared_ptr<string> dbInstanceId_ {};
-    // The database engine of the database.
-    // 
-    // > Only MySQL is supported.
-    // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any non-zero positive integer.
-    // 
-    // > The default value is 1.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID. You can call the DescribeDBInstanceAttribute operation to query the region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

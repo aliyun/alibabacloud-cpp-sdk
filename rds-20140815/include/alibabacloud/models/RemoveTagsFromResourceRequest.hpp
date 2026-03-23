@@ -88,9 +88,7 @@ namespace Models
 
 
     protected:
-      // The TagKey of the first tag that you want to unbind. Each tag consists of a TagKey and a TagValue. You can specify up to five tags in a single request. You cannot specify an empty string as the tag key. You can specify an empty string as the tag value.
       shared_ptr<string> key_ {};
-      // The TagValue of the first tag that you want to unbind. Each tag consists of a TagKey and a TagValue. You can specify up to five tags in a single request. You cannot specify an empty string as the tag key. You can specify an empty string as the tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -178,27 +176,17 @@ namespace Models
 
   protected:
     shared_ptr<vector<RemoveTagsFromResourceRequest::Tag>> tag_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the ListResourceGroups operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // A set of a TagKey and a TagValue that you use to unbind the tag. Format: {"key1":"value1"}.
-    // 
-    // >  You cannot specify an empty string for TagKey. You can specify an empty string for TagValue.
     shared_ptr<string> tags_ {};
-    // The ID of the proxy mode.
     shared_ptr<string> proxyId_ {};
   };
 

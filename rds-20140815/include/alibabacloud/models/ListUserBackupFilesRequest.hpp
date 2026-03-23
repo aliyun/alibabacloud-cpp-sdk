@@ -121,32 +121,16 @@ namespace Models
 
 
   protected:
-    // The ID of the full backup file.
     shared_ptr<string> backupId_ {};
-    // The description of the full backup file.
-    // 
-    // > The system implements a fuzzy match based on the value of this parameter.
     shared_ptr<string> comment_ {};
-    // The URL from which you can download the full backup file that is stored as an object in an Object Storage Service (OSS) bucket. For more information about how to obtain the URL, see [Obtain the access URL after you upload objects](https://help.aliyun.com/document_detail/39607.html).
     shared_ptr<string> ossUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the full backup file. Valid values:
-    // 
-    // *   **Importing**: The full backup file is being imported.
-    // *   **Failed**: The full backup file fails to be imported.
-    // *   **CheckSucccess**: The full backup file passes the check.
-    // *   **BackupSuccess**: The full backup file is imported.
-    // *   **Deleted**: The full backup file is deleted.
     shared_ptr<string> status_ {};
-    // The tag that is added to the full backup file.
     shared_ptr<string> tags_ {};
   };
 

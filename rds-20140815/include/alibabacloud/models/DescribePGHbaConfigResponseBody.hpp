@@ -371,20 +371,11 @@ namespace Models
 
 
   protected:
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<DescribePGHbaConfigResponseBody::DefaultHbaItems> defaultHbaItems_ {};
-    // The time when the previous modification was made to the pg_hba.conf file.
     shared_ptr<string> hbaModifyTime_ {};
-    // The status of the previous modification to the pg_hba.conf file. Valid values:
-    // 
-    // *   **success**
-    // *   **setting**
-    // *   **failed**
     shared_ptr<string> lastModifyStatus_ {};
-    // The reason why the previous modification was made to the pg_hba.conf file.
     shared_ptr<string> modifyStatusReason_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribePGHbaConfigResponseBody::RunningHbaItems> runningHbaItems_ {};
   };

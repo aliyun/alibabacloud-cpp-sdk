@@ -108,8 +108,11 @@ namespace Models
     // *   x86_64
     // *   arm64
     shared_ptr<string> architecture_ {};
+    // Image ID.
     shared_ptr<string> imageId_ {};
+    // Image Name.
     shared_ptr<string> imageName_ {};
+    // Query images that can be used for the specified instance type.
     shared_ptr<string> instanceType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

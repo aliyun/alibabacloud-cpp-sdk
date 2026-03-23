@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The serial number of the task in the rebuild task queue. When the serial number becomes 0, the system starts to rebuild the secondary instance.
     shared_ptr<int32_t> migrationId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID.
     shared_ptr<int32_t> taskId_ {};
   };
 

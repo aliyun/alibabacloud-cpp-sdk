@@ -140,39 +140,19 @@ namespace Models
 
 
   protected:
-    // The ID of the DR instance.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to perform a dry run before the system creates the DR instance. Valid values:
-    // 
-    // *   **true**: performs a dry run but does not create the instance. The system checks the request parameters, request syntax, limits, and available resources.
-    // *   **false** (default): performs a dry run and the actual request. If the request passes the dry run, the instance is directly created.
-    // 
     // This parameter is required.
     shared_ptr<bool> dryRun_ {};
-    // The account of the database that is used for data synchronization.
     shared_ptr<string> replicatorAccount_ {};
-    // The password of the account.
     shared_ptr<string> replicatorPassword_ {};
-    // The endpoint of the source ApsaraDB RDS for PostgreSQL instance or the IP address of the source ApsaraDB RDS for SQL Server instance.
     shared_ptr<string> sourceAddress_ {};
-    // The type of the source instance. Valid values:
-    // 
-    // *   **other**: other instances. **SQL Server instances are not supported.**
-    // *   **aliyunRDS**: an ApsaraDB RDS instance.
     shared_ptr<string> sourceCategory_ {};
-    // The name of the source instance. If you set **SourceCategory** to **aliyunRDS**, this parameter is required.
     shared_ptr<string> sourceInstanceName_ {};
-    // The region ID of the source instance. If you set **SourceCategory** to **aliyunRDS**, this parameter is required.
     shared_ptr<string> sourceInstanceRegionId_ {};
-    // The port of the source instance.
     shared_ptr<int64_t> sourcePort_ {};
-    // The IP address of the DR instance of the ApsaraDB RDS for SQL Server instance.
     shared_ptr<string> targetAddress_ {};
-    // The task ID of the successful dry run.
     shared_ptr<int64_t> taskId_ {};
-    // The task name of the dry run. You can specify a custom task name. If you do not specify this parameter, ApsaraDB RDS automatically generates a task name.
     shared_ptr<string> taskName_ {};
   };
 

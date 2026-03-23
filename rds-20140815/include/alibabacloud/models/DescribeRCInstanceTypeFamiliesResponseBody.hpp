@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The description of the instance family.
         shared_ptr<string> instanceTypeFamilyDesc_ {};
-        // The ID of the instance family.
         shared_ptr<string> instanceTypeFamilyId_ {};
       };
 
@@ -106,7 +104,6 @@ namespace Models
 
 
     protected:
-      // The instance family.
       shared_ptr<vector<InstanceTypeFamilies::InstanceTypeFamily>> instanceTypeFamily_ {};
     };
 
@@ -129,9 +126,7 @@ namespace Models
 
 
   protected:
-    // The instance families.
     shared_ptr<DescribeRCInstanceTypeFamiliesResponseBody::InstanceTypeFamilies> instanceTypeFamilies_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

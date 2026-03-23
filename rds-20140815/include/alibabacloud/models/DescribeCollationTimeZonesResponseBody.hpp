@@ -137,7 +137,6 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCollationTimeZonesResponseBody::CollationTimeZones> collationTimeZones_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

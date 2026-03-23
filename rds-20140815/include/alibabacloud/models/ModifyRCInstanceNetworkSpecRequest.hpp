@@ -66,17 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the RDS Custom instance.
     shared_ptr<string> instanceId_ {};
-    // The maximum outbound public bandwidth. Unit: Mbit/s.
-    // 
-    // Valid values: 0 to 1024. Default value: 0.
     shared_ptr<string> internetMaxBandwidthOut_ {};
-    // The billing method of the bandwidth. Only the **pay-by-traffic** billing method is supported.
-    // 
-    // >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be limited.
     shared_ptr<string> networkChargeType_ {};
-    // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

@@ -112,22 +112,11 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The type of the endpoint. Valid values:
-    // 
-    // *   **Normal**: regular endpoint
-    // *   **ReadWriteSplitting**: read/write splitting endpoint
-    // 
-    // > By default, the system returns both types of endpoints.
     shared_ptr<string> DBInstanceNetRWSplitType_ {};
-    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<int32_t> flag_ {};
-    // The name of the dedicated cluster to which the instance belongs. This parameter takes effect only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
     shared_ptr<string> generalGroupName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

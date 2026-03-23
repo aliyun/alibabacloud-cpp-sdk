@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the O\\&M task. IDs are separated by commas (,).
     shared_ptr<string> ids_ {};
-    // The ID of the region.
     shared_ptr<string> requestId_ {};
   };
 

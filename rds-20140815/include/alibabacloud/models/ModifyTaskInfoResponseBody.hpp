@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The ID of the failed task. This parameter is returned when a task fails.
     shared_ptr<string> errorTaskId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of completed tasks.
     shared_ptr<string> successCount_ {};
   };
 

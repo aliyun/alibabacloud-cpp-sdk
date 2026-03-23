@@ -156,31 +156,13 @@ namespace Models
 
 
       protected:
-        // The ID of the node.
         shared_ptr<string> DBInstanceID_ {};
-        // A JSON array that consists of the details about the Data Transmission Service (DTS) synchronization task.
-        // 
-        // >  Each unit node (secondary node) synchronizes data from the central node (primary node) by using DTS. This parameter contains the synchronization link ID and request ID of DTS.
         shared_ptr<string> dtsInstance_ {};
-        // The database engine that is run by the node.
-        // 
-        // >  The value of this parameter is fixed as **mysql**.
         shared_ptr<string> engine_ {};
-        // The database engine version that is run by the node.
         shared_ptr<string> engineVersion_ {};
-        // The ID of the region where the node resides.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The type of the node. Valid values:
-        // 
-        // *   **CENTRAL**: The node is a central node. Each global active database cluster has only one central node. All unit nodes synchronize data from the central node.
-        // *   **UNIT**: The node is a unit node. Each global active database cluster can have up to 10 unit nodes. All unit nodes synchronize data from the central node.
         shared_ptr<string> role_ {};
-        // The node status. Valid values:
-        // 
-        // *   **activation**: The node is running.
-        // *   **creating**: The node is being created.
         shared_ptr<string> status_ {};
       };
 
@@ -239,25 +221,12 @@ namespace Models
 
 
     protected:
-      // The time when the global active database cluster was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The name of the cluster.
       shared_ptr<string> description_ {};
-      // The information about each node in the cluster.
       shared_ptr<vector<GadInstances::GadInstanceMembers>> gadInstanceMembers_ {};
-      // The ID of the global active database cluster.
       shared_ptr<string> gadInstanceName_ {};
-      // The time when the most recent modification was made to the global active database cluster. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> modificationTime_ {};
-      // The database engine that is run by the global active database cluster.
-      // 
-      // >  The value of this parameter is fixed as **mysql**.
       shared_ptr<string> service_ {};
-      // The status of the cluster. Valid values:
-      // 
-      // *   **activation**: The cluster is running.
-      // *   **creating**: The cluster is being created.
-      // *   **replica_adding**: Nodes are being added to the cluster.
       shared_ptr<string> status_ {};
     };
 
@@ -280,9 +249,7 @@ namespace Models
 
 
   protected:
-    // The details about the global active database cluster.
     shared_ptr<vector<DescribeGadInstancesResponseBody::GadInstances>> gadInstances_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

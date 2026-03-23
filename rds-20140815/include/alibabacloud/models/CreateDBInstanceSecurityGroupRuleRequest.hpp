@@ -112,28 +112,16 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the IDs of instances.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The description of the security group rule.
     shared_ptr<string> description_ {};
-    // The type of the transport layer protocol. Valid values:
-    // 
-    // *   TCP
-    // *   UDP
     shared_ptr<string> ipProtocol_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The range of destination ports over which TCP and UDP traffic is allowed in the security group rule.
-    // 
-    // Valid values: 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-    // 
     // This parameter is required.
     shared_ptr<string> portRange_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The range of source IP addresses. CIDR blocks and IPv4 addresses are supported.
     shared_ptr<string> sourceCidrIp_ {};
   };
 

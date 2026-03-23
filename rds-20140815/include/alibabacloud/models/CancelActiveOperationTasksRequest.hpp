@@ -84,8 +84,6 @@ namespace Models
 
 
   protected:
-    // The IDs of tasks that you want to cancel at a time. Separate multiple IDs with commas (,). We recommend that you configure up to 25 IDs at a time.
-    // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
     shared_ptr<string> ownerAccount_ {};

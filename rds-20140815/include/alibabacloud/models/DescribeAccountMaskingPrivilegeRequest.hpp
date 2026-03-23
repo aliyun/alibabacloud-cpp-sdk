@@ -94,13 +94,18 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // Database name
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerId_ {};
+    // Region ID
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Account name. You can specify a particular account to query.
     shared_ptr<string> userName_ {};
   };
 

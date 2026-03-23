@@ -140,32 +140,17 @@ namespace Models
 
 
   protected:
-    // The number of remaining days for which the instances are available. Valid values: **0 to 180**.
     shared_ptr<int32_t> expirePeriod_ {};
-    // Specifies whether to query instances that have expired. Valid values:
-    // 
-    // *   **True**: queries instances that have expired.
-    // *   **False**: does not query instances that have expired.
     shared_ptr<bool> expired_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any **non-zero** positive integer.
-    // 
-    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **1 to 100**.
-    // 
-    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag that is added to the instance. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: `{"key1":"value1","key2":"value2"...}`.
     shared_ptr<string> tags_ {};
-    // A deprecated parameter. You do not need to configure this parameter.
     shared_ptr<string> proxyId_ {};
   };
 

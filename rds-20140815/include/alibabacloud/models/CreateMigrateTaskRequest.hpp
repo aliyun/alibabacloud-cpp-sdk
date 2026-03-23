@@ -130,61 +130,17 @@ namespace Models
 
 
   protected:
-    // The type of the migration task. Valid values:
-    // 
-    // *   **FULL**: The migration task migrates full backup files.
-    // *   **UPDF**: The migration task migrates incremental or log backup files.
-    // 
     // This parameter is required.
     shared_ptr<string> backupMode_ {};
-    // The consistency check method for the database. Valid values:
-    // 
-    // *   **SyncExecuteDBCheck**: synchronous database check
-    // *   **AsyncExecuteDBCheck**: asynchronous database check
-    // 
-    // Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2)
-    // 
-    // >  This parameter is valid when **IsOnlineDB** is set to **True**.
     shared_ptr<string> checkDBMode_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the destination database.
-    // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
-    // Specifies whether to make the restored database data available for user access. Valid values:
-    // 
-    // *   **True**
-    // *   **False**
-    // 
-    // >  Set the value to **True** for instances that run SQL Server 2008 R2.
-    // 
     // This parameter is required.
     shared_ptr<string> isOnlineDB_ {};
-    // The migration task ID.
-    // 
-    // *   If you set **BackupMode** to **FULL**, the value of this parameter is empty. The full backup mode is compatible with instance that runs SQL Server 2008 R2.
-    // *   If you set **BackupMode** to **UPDF**, the value of this parameter is the ID of the required full migration task.
-    // 
-    // > *   If you set **IsOnlineDB** to **True**, the value of **BackupMode** must be **FULL**.
-    // > *   If you set **IsOnlineDB** to **False**, the value of **BackupMode** must be **UPDF**.
     shared_ptr<string> migrateTaskId_ {};
-    // The shared URL of the backup file in the OSS bucket. The URL must be encoded.
-    // 
-    // If you specify multiple URLs, separate them with vertical bars (|) and then encode them.
-    // 
-    // >  This parameter is required for instances that run SQL Server 2008 R2.
     shared_ptr<string> OSSUrls_ {};
-    // The information about the backup file in the OSS bucket. The values consist of three parts that are separated by colons (:):
-    // 
-    // *   OSS endpoint: oss-ap-southeast-1.aliyuncs.com.
-    // *   Name of the OSS bucket: rdsmssqlsingapore.
-    // *   Key of the backup file in the OSS bucket: autotest_2008R2_TestMigration_FULL.bak.
-    // 
-    // > *   This parameter is optional for instances that run SQL Server 2008 R2.
-    // > *   This parameter is required for instances that run a major engine version later than SQL Server 2008 R2.
     shared_ptr<string> ossObjectPositions_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

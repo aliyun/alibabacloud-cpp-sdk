@@ -93,9 +93,7 @@ namespace Models
 
 
   protected:
-    // The type of reserved keyword returned.
     shared_ptr<string> key_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeInstanceKeywordsResponseBody::Words> words_ {};
   };

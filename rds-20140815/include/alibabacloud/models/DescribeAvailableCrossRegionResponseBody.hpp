@@ -85,7 +85,6 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAvailableCrossRegionResponseBody::Regions> regions_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

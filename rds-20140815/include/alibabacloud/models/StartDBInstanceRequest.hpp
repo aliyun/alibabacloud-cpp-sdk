@@ -186,54 +186,23 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The data migration method of the instance. This parameter is available only for instances that are created in dedicated clusters. Valid values:
-    // 
-    // *   **0** (default): The system preferentially upgrades or downgrades the instance without a migration. If the resources on the host on which the instance resides are insufficient, the system migrates the instance to another suitable host.
-    // *   **1**: The system upgrades or downgrades the instance without a migration. If the upgrade or downgrade is not supported, the system reports an error.
-    // *   **2**: The system migrates the data of the instance from the host on which the instance resides to another host. You must also specify **DedicatedHostGroupId**, **TargetDedicatedHostIdForMaster**, and **TargetDedicatedHostIdForSlave**. If you set DBInstanceTransType to 2, you cannot migrate the data of the instance to the host on which the instance resides. If you migrate the data of the instance to the host on which the instance resides, the migration fails.
     shared_ptr<int32_t> DBInstanceTransType_ {};
-    // The dedicated cluster ID. This parameter is supported if you call this operation to suspend an RDS instance in the dedicated cluster. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The effective time. This parameter is available only for instances that are created in dedicated clusters.
-    // 
-    // *   **Immediate**
-    // *   **MaintainTime**: The change takes effect during the planned maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-    // *   **SpecificTime**: The change takes effect at a specified point in time.
-    // 
-    // Default value: MaintainTime.
     shared_ptr<string> effectiveTime_ {};
-    // The database engine version of the instance. This parameter is available only for instances that are created in dedicated clusters.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The switching time. This parameter is available only for instances that are created in dedicated clusters. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // 
-    // > This parameter must be specified when **EffectiveTime** is set to **Specified**.
     shared_ptr<string> specifiedTime_ {};
-    // The storage capacity of the instance. This parameter is available only for instances that are created in dedicated clusters. Valid values: **5 to 2000**. Unit: GB. If you do not specify this parameter, the storage capacity of the instance remains unchanged.
     shared_ptr<int32_t> storage_ {};
-    // The instance type of the required instance. This parameter is available only for instances that are created in dedicated clusters.
     shared_ptr<string> targetDBInstanceClass_ {};
-    // A deprecated parameter. You do not need to specify this parameter.
     shared_ptr<string> targetDedicatedHostIdForLog_ {};
-    // The ID of the host on which the primary instance is created. This parameter is available only for instances that are created in dedicated clusters.
-    // 
-    // > This parameter must be specified when **DBInstanceTransType** is set to **2**.
     shared_ptr<string> targetDedicatedHostIdForMaster_ {};
-    // The ID of the host on which the secondary instance is created. This parameter is available only for instances that are created in dedicated clusters.
-    // 
-    // > This parameter must be specified when **DBInstanceTransType** is set to **2**.
     shared_ptr<string> targetDedicatedHostIdForSlave_ {};
-    // The vSwitch ID. This parameter is available only for instances that are created in dedicated clusters.
     shared_ptr<string> vSwitchId_ {};
-    // The zone ID. This parameter is available only for instances that are created in dedicated clusters.
     shared_ptr<string> zoneId_ {};
   };
 

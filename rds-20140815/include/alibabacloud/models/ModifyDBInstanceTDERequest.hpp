@@ -149,60 +149,19 @@ namespace Models
 
 
   protected:
-    // The file that contains the certificate.\\
-    // Format:
-    // 
-    // *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the certificate file>` (The file name contains the extension.)
-    // *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the certificate file>` (The file name contains the extension.)
-    // 
-    // > *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
-    // > *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> certificate_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database for which you want to enable TDE. You can specify up to 50 database names in a single request. If you specify multiple database names, separate the database names with commas (,).
-    // 
-    // > This parameter is available and must be specified only when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
     shared_ptr<string> DBName_ {};
-    // The ID of the custom key.
-    // 
-    // > This parameter is available when the instance runs MySQL or PostgreSQL.
     shared_ptr<string> encryptionKey_ {};
-    // Specifies whether to replace the key. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
-    // 
-    // >  This parameter is available for only ApsaraDB RDS for PostgreSQL instances.
     shared_ptr<bool> isRotate_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password of the certificate.
-    // 
-    // > This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
     shared_ptr<string> passWord_ {};
-    // The file that contains the private key of the certificate.\\
-    // Format:
-    // 
-    // *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the file that contains the private key>` (The file name contains the extension.)
-    // *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the file that contains the private key>` (The file name contains the extension.)
-    // 
-    // > *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
-    // > *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> privateKey_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
-    // 
-    // > This parameter is available when the instance runs MySQL or PostgreSQL.
     shared_ptr<string> roleArn_ {};
-    // The status of TDE. Valid values:
-    // 
-    // *   **Enabled**
-    // *   **Disabled**
-    // 
     // This parameter is required.
     shared_ptr<string> TDEStatus_ {};
   };

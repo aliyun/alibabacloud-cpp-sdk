@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The tag value.
       shared_ptr<string> key_ {};
+      // The tag key.
       shared_ptr<string> value_ {};
     };
 
@@ -152,6 +154,7 @@ namespace Models
     // 
     // You can specify a maximum of 100 IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> snapshotIds_ {};
+    // Tag Details.
     shared_ptr<vector<DescribeRCSnapshotsRequest::Tag>> tag_ {};
   };
 

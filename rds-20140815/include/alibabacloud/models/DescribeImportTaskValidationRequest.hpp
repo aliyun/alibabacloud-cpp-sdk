@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Instance ID. You can obtain it by calling DescribeDBInstances.
+    // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Job ID. This is the job ID returned when you invoke the **ValidateImportTask** API to create a precheck for an import job.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
   };

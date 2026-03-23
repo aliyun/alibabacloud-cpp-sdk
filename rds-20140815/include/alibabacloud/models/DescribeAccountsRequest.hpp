@@ -84,17 +84,10 @@ namespace Models
 
 
   protected:
-    // The name of the database account.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
-    // >  This parameter is not supported for RDS instances that run SQL Server 2017 on RDS Cluster Edition.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The page number. Default value: **1**. Pages start from page 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **30 to 200**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

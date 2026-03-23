@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
-    // The name of the task.
     shared_ptr<string> taskName_ {};
   };
 

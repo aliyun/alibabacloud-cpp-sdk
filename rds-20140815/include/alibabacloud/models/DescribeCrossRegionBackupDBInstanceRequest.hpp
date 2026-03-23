@@ -94,17 +94,10 @@ namespace Models
 
 
   protected:
-    // The instance ID. Up to 30 instance IDs are allowed in a single request. If you enter more than one instance ID, separate them with commas (,).
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any non-zero positive integer.
-    // 
-    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

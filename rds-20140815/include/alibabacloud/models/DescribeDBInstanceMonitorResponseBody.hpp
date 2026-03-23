@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The monitoring frequency. Unit: seconds.
     shared_ptr<string> period_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

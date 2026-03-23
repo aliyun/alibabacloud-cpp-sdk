@@ -75,18 +75,12 @@ namespace Models
 
 
   protected:
-    // The endpoint of the instance. The endpoint is specified when you create the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the zone.
-    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

@@ -121,35 +121,18 @@ namespace Models
 
 
   protected:
-    // The code of the instance type.
-    // 
     // This parameter is required.
     shared_ptr<string> classCode_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The commodity code of the instance. Valid values:
-    // 
-    // *   **bards_intl**: The instance is a pay-as-you-go primary instance.
-    // *   **rds_intl**: The instance is a subscription primary instance.
-    // *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
-    // *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
-    // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // The type of the database engine.
-    // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
-    // The database engine version of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

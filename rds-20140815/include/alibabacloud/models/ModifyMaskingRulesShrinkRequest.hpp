@@ -130,17 +130,27 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // Database name
     shared_ptr<string> DBName_ {};
+    // Name of the default encryption or masking algorithm
     shared_ptr<string> defaultAlgo_ {};
+    // Indicates whether the rule is enabled. Valid values: true, false
     shared_ptr<string> enabled_ {};
+    // Rule algorithm. Multiple algorithms can be specified. Masking Algorithm can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, number of encrypted digits}}
     shared_ptr<string> maskingAlgo_ {};
     shared_ptr<string> ownerId_ {};
+    // Region ID
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Rule configuration, in JSON string format
     shared_ptr<string> ruleConfigShrink_ {};
+    // Name of the rule to modify
+    // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
   };

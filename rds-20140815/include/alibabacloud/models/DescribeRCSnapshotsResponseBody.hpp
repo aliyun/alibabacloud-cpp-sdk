@@ -133,7 +133,9 @@ namespace Models
 
 
       protected:
+        // tag key.
         shared_ptr<string> tagKey_ {};
+        // tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -312,6 +314,7 @@ namespace Models
       shared_ptr<string> progress_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The snapshot ID.
       shared_ptr<string> snapshotId_ {};
@@ -342,6 +345,7 @@ namespace Models
       // *   accomplished: The snapshot is created.
       // *   failed: The snapshot fails to be created.
       shared_ptr<string> status_ {};
+      // Tag Details.
       shared_ptr<vector<Snapshots::Tag>> tag_ {};
       // Indicates whether the snapshot is used to create custom images or disks. Valid values:
       // 

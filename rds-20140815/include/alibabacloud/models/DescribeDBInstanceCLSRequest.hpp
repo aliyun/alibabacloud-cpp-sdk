@@ -75,6 +75,8 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

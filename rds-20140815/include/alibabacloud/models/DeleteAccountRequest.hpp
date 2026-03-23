@@ -84,12 +84,8 @@ namespace Models
 
 
   protected:
-    // The name of the account.
-    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

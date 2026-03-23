@@ -149,53 +149,21 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // A deprecated parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The number of database proxies. If you set this parameter to 0, the database proxy feature is disabled for the instance. Valid values: **1** to **16**.
-    // 
-    // >  The capability of the database proxy feature to process requests increases with the number of database proxies that are enabled. You can monitor the load on the instance and specify an appropriate number of database proxies based on the load monitoring data.
-    // 
     // This parameter is required.
     shared_ptr<string> DBProxyInstanceNum_ {};
-    // The database proxy type. Valid values:
-    // 
-    // *   **common**: general-purpose database proxy
-    // *   **exclusive** (default): dedicated database proxy
-    // 
     // This parameter is required.
     shared_ptr<string> DBProxyInstanceType_ {};
-    // List of proxy nodes.
-    // 
-    // > This parameter must be passed when the current proxy instance is deployed in multiple availability zones.
     shared_ptr<string> DBProxyNodesShrink_ {};
-    // The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // >  If the **EffectiveTime** parameter is set to **SpecificTime**, you must specify this parameter.
     shared_ptr<string> effectiveSpecificTime_ {};
-    // The effective time. Valid values:
-    // 
-    // *   **Immediate**: The effective time is immediate.
-    // *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-    // *   **SpecificTime**: The effective time is a specified point in time.
-    // 
-    // Default value: **MaintainTime**.
     shared_ptr<string> effectiveTime_ {};
-    // The list of available zones for migration agents.
-    // 
-    // > Currently, only RDS MySQL cloud disk version agent instance migration is supported.
     shared_ptr<string> migrateAZShrink_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the vSwitch in the destination zone. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/610431.html) operation to query existing vSwitches.
-    // 
-    // >  Only database proxies for ApsaraDB RDS for MySQL instances that use cloud disks can be migrated to different zones.
     shared_ptr<string> vSwitchIds_ {};
   };
 

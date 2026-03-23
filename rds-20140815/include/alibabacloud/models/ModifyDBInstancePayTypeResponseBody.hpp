@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The order ID.
     shared_ptr<int64_t> orderId_ {};
   };
 

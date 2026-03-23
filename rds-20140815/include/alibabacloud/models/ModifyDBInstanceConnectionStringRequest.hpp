@@ -183,7 +183,16 @@ namespace Models
     shared_ptr<string> port_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether to retain the virtual IP address (VIP) when swapping connection addresses.  
+    // 
+    // - **true**: Retains the VIP.  
+    // - **false** (default): Does not retain the VIP.  
+    // 
+    // > This parameter is supported only for RDS PostgreSQL instances.
     shared_ptr<bool> retainVip_ {};
+    // The ID of the target RDS PostgreSQL instance whose connection address you want to swap with the current instance.  
+    // 
+    // > This parameter is supported only for RDS PostgreSQL instances.
     shared_ptr<string> targetDBInstanceId_ {};
   };
 

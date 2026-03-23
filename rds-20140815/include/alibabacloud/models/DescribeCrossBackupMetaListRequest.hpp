@@ -121,28 +121,14 @@ namespace Models
 
 
   protected:
-    // The ID of the cross-region backup file that you want to use. You can call the [DescribeCrossRegionBackups](https://help.aliyun.com/document_detail/121733.html) operation to query the ID of the cross-region backup file.
-    // 
     // This parameter is required.
     shared_ptr<string> backupSetId_ {};
-    // The name of the database that you want to query. The system implements exact match based on the value of this parameter and returns the name of the matched database and the names of the tables in the matched database.
     shared_ptr<string> getDbName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any non-zero positive integer.
-    // 
-    // > This parameter only takes effect when you specify the **PageSize** parameter.
     shared_ptr<string> pageIndex_ {};
-    // The number of entries to return per page. Default value: **1**.
-    // 
-    // > This parameter only takes effect when you specify the **PageIndex** parameter.
     shared_ptr<string> pageSize_ {};
-    // The name of the database that you want to query. The system implements fuzzy match based on the value of this parameter and returns only the name of the matched database.
-    // 
-    // > You can implement fuzzy match and then exact match. For example, you can set the Pattern parameter to test to query the testdb1 and testdb2 databases. Then, you can specify the **GetDbName** parameter to query only the matched database and the tables in the matched database.
     shared_ptr<string> pattern_ {};
-    // The region ID of the instance.
     shared_ptr<string> region_ {};
-    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

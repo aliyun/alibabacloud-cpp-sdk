@@ -103,25 +103,15 @@ namespace Models
 
 
   protected:
-    // The username of the account that is used to log on to the host of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The password of the host account.
-    // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The instance hostname. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
-    // 
     // This parameter is required.
     shared_ptr<string> hostName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionID_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

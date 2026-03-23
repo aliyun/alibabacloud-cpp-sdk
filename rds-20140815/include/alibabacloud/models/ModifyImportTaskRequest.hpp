@@ -75,13 +75,25 @@ namespace Models
 
 
   protected:
+    // Instance ID. You can obtain it by invoking DescribeDBInstances.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Valid values:
+    // 
+    // 
+    // - RETRY_IMPORT: retry import  
+    // - CANCEL: cancel job
+    // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Destination region ID. You can view region IDs by invoking the DescribeRegions API.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Job ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

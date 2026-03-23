@@ -57,14 +57,8 @@ namespace Models
 
 
   protected:
-    // The status of the automatic primary/secondary switchover feature. Valid values:
-    // 
-    // *   **Auto:** The automatic primary/secondary switchover feature is enabled. The system automatically switches your workloads over from the instance to its secondary instance in the event of a fault.
-    // *   **Manual:** The automatic primary/secondary switchover feature is temporarily disabled.
     shared_ptr<string> HAConfig_ {};
-    // The time when the automatic primary/secondary switchover feature is enabled again. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> manualHATime_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

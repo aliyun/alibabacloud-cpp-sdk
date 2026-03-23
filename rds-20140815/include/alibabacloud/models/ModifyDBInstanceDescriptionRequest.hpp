@@ -84,14 +84,8 @@ namespace Models
 
 
   protected:
-    // The name of the instance.
-    // 
-    // > The name must be 2 to 64 characters in length.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceDescription_ {};
-    // The ID of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

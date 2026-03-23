@@ -130,39 +130,18 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time cannot exceed 31 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*Z format. The time must be in UTC.
-    // 
-    // >  If the end date of the query is the same as the start date of the query, you can query the logs that are generated at 08:00 on the start date of the query. You can query the slow logs within a maximum time range of 24 hours.
-    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from 1.
-    // 
-    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The dimension based on which the system sorts the entries to return. Valid values:
-    // 
-    // *   **TotalExecutionCounts**: The system sorts the entries to return based on the number of times that SQL statements are executed.
-    // *   **TotalQueryTimes**: The system sorts the entries to return based on the total execution duration.
-    // *   **TotalLogicalReads**: The system sorts the entries to return based on the total number of logical reads.
-    // *   **TotalPhysicalReads**: The system sorts the entries to return based on the total number of physical reads.
-    // 
-    // > This parameter is supported only for instances that run SQL Server 2008 R2.
     shared_ptr<string> sortKey_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*Z format. The time must be in UTC.
-    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

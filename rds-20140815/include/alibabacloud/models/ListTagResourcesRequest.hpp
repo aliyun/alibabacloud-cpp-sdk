@@ -82,11 +82,7 @@ namespace Models
 
 
     protected:
-      // The tag key. You can query N tag keys at a time. Valid values of N: **1** to **20**. The value cannot be an empty string.
-      // 
-      // >  You must specify at least one of the **ResourceId** and **Key** parameters.
       shared_ptr<string> key_ {};
-      // The tag value that is associated with the specified tag key. You can specify N tag values at a time. Valid values of N: **1** to **20**. The value can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -154,24 +150,15 @@ namespace Models
 
 
   protected:
-    // The token required to obtain more results. This parameter is not required in the first query. If a query does not return all results, you can specify the token returned from the previous query for the next query to obtain more results.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The instance ID. You can specify a maximum of **50** instance IDs.****
-    // 
-    // >  You must specify at least one of the **ResourceId** and **Key** parameters.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **INSTANCE**.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag list.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

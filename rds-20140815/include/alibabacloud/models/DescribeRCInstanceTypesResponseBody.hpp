@@ -125,15 +125,11 @@ namespace Models
 
 
       protected:
-        // The maximum number of CPU cores.
         shared_ptr<int32_t> cpuCoreCount_ {};
         shared_ptr<int64_t> diskQuantity_ {};
-        // The ID of the instance family.
         shared_ptr<string> instanceTypeFamily_ {};
-        // The instance type of the instance.
         shared_ptr<string> instanceTypeId_ {};
         shared_ptr<bool> jumboFrameSupport_ {};
-        // The memory size of the instance type. Unit: GiB.
         shared_ptr<int32_t> memorySize_ {};
       };
 
@@ -148,7 +144,6 @@ namespace Models
 
 
     protected:
-      // The instance types.
       shared_ptr<vector<InstanceTypes::InstanceType>> instanceType_ {};
     };
 
@@ -171,9 +166,7 @@ namespace Models
 
 
   protected:
-    // The information about the instance types.
     shared_ptr<DescribeRCInstanceTypesResponseBody::InstanceTypes> instanceTypes_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

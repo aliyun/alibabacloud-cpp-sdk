@@ -112,29 +112,14 @@ namespace Models
 
 
   protected:
-    // The status of the cross-region backup feature on the instance. Valid values:
-    // 
-    // *   **Disable**
-    // *   **Enable**
     shared_ptr<string> backupEnabled_ {};
-    // The ID of the region in which the cross-region backup files of the instance are stored.
     shared_ptr<string> crossBackupRegion_ {};
-    // The policy that is used to save the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that all cross-region backup files are saved.
     shared_ptr<string> crossBackupType_ {};
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The status of the cross-region log backup feature on the instance. Valid values:
-    // 
-    // *   **Disable**
-    // *   **Enable**
     shared_ptr<string> logBackupEnabled_ {};
-    // The region ID of the source instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The policy that is used to retain the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that the cross-region backup files of the instance are retained based on the specified retention period.
     shared_ptr<int32_t> retentType_ {};
-    // The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
     shared_ptr<int32_t> retention_ {};
   };
 

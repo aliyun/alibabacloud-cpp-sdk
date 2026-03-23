@@ -182,18 +182,12 @@ namespace Models
 
 
   protected:
-    // The instance name.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<DescribeMetaListResponseBody::Items> items_ {};
-    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of pages returned.
     shared_ptr<int32_t> totalPageCount_ {};
-    // The total number of returned entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

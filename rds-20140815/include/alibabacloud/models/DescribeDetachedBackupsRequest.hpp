@@ -130,46 +130,17 @@ namespace Models
 
 
   protected:
-    // The ID of the backup set.
     shared_ptr<string> backupId_ {};
-    // The backup method. Valid values:
-    // 
-    // *   **Automated**
-    // *   **Manual**
     shared_ptr<string> backupMode_ {};
-    // The status of the backup set. Valid values:
-    // 
-    // *   **Success**
-    // *   **Failed**
     shared_ptr<string> backupStatus_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. The end time must be later than the start time.
-    // 
-    // Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The page number. Pages start from page 1.
-    // 
-    // > The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
-    // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
-    // 
-    // > The default value is **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query.
-    // 
-    // Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

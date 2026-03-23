@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the order. This parameter is returned only when the instance runs MySQL.
     shared_ptr<int64_t> orderId_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

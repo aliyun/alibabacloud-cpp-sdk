@@ -117,12 +117,25 @@ namespace Models
 
 
     protected:
+      // Creation Time, formatted as YYYY-MM-DDTHH:mm:ssZ
       shared_ptr<string> createdTime_ {};
+      // Cycle time, with multiple values concatenated by English commas  
+      // * When cycleType is Week, values 1–7 represent Monday–Sunday  
+      // * When cycleType is Month, values 1–28 are allowed
       shared_ptr<string> cycleTime_ {};
+      // Cycle type, either Month or Week
       shared_ptr<string> cycleType_ {};
+      // End time of the O&M time window, in UTC  
+      // Default: 20:00:00Z
       shared_ptr<string> maintainEndTime_ {};
+      // Start time of the O&M time window, in UTC  
+      // Default: 18:00:00Z
       shared_ptr<string> maintainStartTime_ {};
+      // Updated At, formatted as YYYY-MM-DDTHH:mm:ssZ, for example, 2018-05-30T14:30:00Z
       shared_ptr<string> modifiedTime_ {};
+      // Whether it is effective  
+      // * 1: Valid  
+      // * 2: Invalid
       shared_ptr<int32_t> status_ {};
     };
 
@@ -152,8 +165,13 @@ namespace Models
 
 
   protected:
+    // Configuration Information
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
+    // Whether a configuration has been set; for the first access, hasConfig is 0  
+    // * 1: Yes  
+    // * 0: No
     shared_ptr<int32_t> hasConfig_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

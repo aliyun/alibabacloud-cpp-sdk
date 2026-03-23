@@ -94,13 +94,18 @@ namespace Models
 
 
   protected:
+    // Instance Name
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // Database Name
     shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerId_ {};
+    // Region ID
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Rule Name (comma-separated)
     shared_ptr<string> ruleName_ {};
   };
 

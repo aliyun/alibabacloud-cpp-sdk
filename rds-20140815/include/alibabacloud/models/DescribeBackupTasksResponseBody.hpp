@@ -178,7 +178,6 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBackupTasksResponseBody::Items> items_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

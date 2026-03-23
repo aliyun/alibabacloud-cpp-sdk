@@ -222,94 +222,29 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
-    // 
-    // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The name of the instance. The name must be 2 to 256 characters in length. The name can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
-    // 
-    // > : The name cannot start with http:// or https://.
     shared_ptr<string> DBInstanceDescription_ {};
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The type of the network connection to the instance. Valid values:
-    // 
-    // *   **Internet**
-    // *   **Intranet**
     shared_ptr<string> DBInstanceNetType_ {};
-    // The network type of the instance. Valid values:
-    // 
-    // *   **VPC**
-    // *   **Classic**
-    // 
-    // Default value: Classic.
-    // 
-    // >  If the instance uses cloud disks, this parameter is required. Set the value to **VPC**. The **VpcId** and **VSwitchId** parameters must be specified when this parameter is set to **VPC**.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The billing method of the destination instance. Valid values:
-    // 
-    // *   **Postpaid**: pay-as-you-go
-    // *   **Prepaid**: subscription
-    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. Valid values:
-    // 
-    // *   **Year**
-    // *   **Month**
-    // 
-    // >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
     shared_ptr<string> period_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. The value of this parameter can be NULL.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IP address whitelist of the serverless instance. For more information, see [Use a database client or the CLI to connect to an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43185.html). If the IP address whitelist contains more than one entry, separate the entries with commas (,). Each entry must be unique. You can specify up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
-    // 
-    // *   IP addresses, such as 10.10.XX.XX.
-    // *   CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
-    // 
-    // If this parameter is not specified, the default IP address whitelist is used.
     shared_ptr<string> securityIPList_ {};
     shared_ptr<string> securityToken_ {};
-    // The subscription duration of the instance. Valid values:
-    // 
-    // *   If you set **Period** to **Year**, the value of **UsedTime** ranges from **1** to **5**.
-    // *   If you set **Period** to **Month**, the value of **UsedTime** ranges from **1** to **11**.
-    // 
-    // > If you set **PayType** to **Prepaid**, you must specify this parameter.
     shared_ptr<string> usedTime_ {};
-    // The VPC ID of the instance. If you set **InstanceNetworkType** to **VPC**, you must specify this parameter.
-    // 
-    // > : If you specify this parameter, you must also specify **ZoneId**.
     shared_ptr<string> VPCId_ {};
-    // The ID of the vSwitch. The vSwitch must belong to the zone that is specified by **ZoneId**.
-    // 
-    // > 
-    // 
-    // *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-    // 
-    // *   If you specify the ZoneSlaveId1 parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
     shared_ptr<string> vSwitchId_ {};
-    // The zone ID of the primary instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent zone list.
-    // 
-    // > If you specify a virtual private cloud (VPC) and a vSwitch, you must specify this parameter to identify the zone for the vSwitch.
     shared_ptr<string> zoneId_ {};
-    // The zone ID of the secondary instance.
-    // 
-    // >  If the instance does not run RDS Basic Edition, you must specify this parameter.
     shared_ptr<string> zoneIdSlave1_ {};
-    // The zone ID of the logger instance.
-    // 
-    // >  This parameter is available only when the instance runs RDS Enterprise Edition.
     shared_ptr<string> zoneIdSlave2_ {};
   };
 

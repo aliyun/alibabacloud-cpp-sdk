@@ -84,18 +84,9 @@ namespace Models
 
 
   protected:
-    // The dedicated cluster ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The image based on which the hosts in the dedicated clusters are created. Valid values:
-    // 
-    // *   **WindowsWithMssqlStdLicense**: a Windows image that contains the licenses of SQL Server Standard Edition
-    // *   **WindowsWithMssqlEntLisence**: a Windows image that contains the licenses of SQL Server Enterprise Edition
-    // *   **WindowsWithMssqlWebLisence**: a Windows image that contains the licenses of SQL Server Web Edition
-    // *   **AliLinux**: a Linux image
     shared_ptr<string> imageCategory_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

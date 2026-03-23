@@ -48,11 +48,7 @@ namespace Models
 
 
   protected:
-    // The VNC logon address.
-    // 
-    // >  The address returned is valid only for 15 seconds. If you do not use the returned address to establish a connection within 15 seconds, the address expires and you must call the operation again to obtain a new address.
     shared_ptr<string> loginUrl_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

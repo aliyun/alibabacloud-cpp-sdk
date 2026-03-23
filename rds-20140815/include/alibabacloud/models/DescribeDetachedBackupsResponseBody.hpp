@@ -307,13 +307,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDetachedBackupsResponseBody::Items> items_ {};
-    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<string> pageRecordCount_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<string> totalRecordCount_ {};
   };
 

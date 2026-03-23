@@ -112,23 +112,15 @@ namespace Models
 
 
   protected:
-    // The account username.
-    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // Specifies whether to apply the password policy
-    // 
     // This parameter is required.
     shared_ptr<bool> checkPolicy_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
     shared_ptr<string> clientToken_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID. For more information about resource groups, see related documentation.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -215,13 +215,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeSQLLogRecordsResponseBody::Items> items_ {};
-    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of SQL audit log entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

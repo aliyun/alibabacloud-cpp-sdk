@@ -149,47 +149,19 @@ namespace Models
 
 
   protected:
-    // The ID of the backup set from which you want to restore data. You can call the DescribeBackups operation to query the IDs of data backup files.
-    // 
-    // >  This parameter is required when you set the **RestoreType** parameter to **BackupSetID**.
     shared_ptr<int64_t> backupSetID_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database to query. The system implements exact match based on the value of this parameter and returns the name of the matched database and the names of all tables contained in the database.
-    // 
-    // > If you leave this parameter empty, the system returns all databases that are created on the instance.
     shared_ptr<string> getDbName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any non-zero positive integer.**** Default value: **1**.
-    // 
-    // > This parameter only takes effect when you specify the **PageSize** parameter.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries to return on each page. Default value: **1**.
-    // 
-    // > This parameter only takes effect when you specify the **PageIndex** parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the database to query. The system implements fuzzy match based on the value of this parameter and returns only the name of the matched database.
-    // 
-    // > For example, if you set the value to `test`, the system returns `testdb1` and `testdb2`. Then, you can specify the **GetDbName** parameter to query tables in the required database.
     shared_ptr<string> pattern_ {};
-    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The point in time to which you want to restore data. The specified point in time must be earlier than the current time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. You can call the DescribeBackups operation to query the restorable time range.
-    // 
-    // >  This parameter must be specified when the **RestoreType** parameter is set to **RestoreTime**.
     shared_ptr<string> restoreTime_ {};
-    // The restoration method that you want to use. Valid values:
-    // 
-    // *   **BackupSetID**: Data is restored from the backup set. If you use this value, you must also specify the **BackupSetID** parameter.
-    // *   **RestoreTime**: Data is restored to a specific point in time. If you use this value, you must also specify the **RestoreTime** parameter.
-    // 
-    // Default value: **BackupSetID**.
     shared_ptr<string> restoreType_ {};
   };
 

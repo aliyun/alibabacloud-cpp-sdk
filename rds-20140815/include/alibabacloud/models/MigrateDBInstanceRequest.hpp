@@ -140,36 +140,19 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
-    // 
     // This parameter is required.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The time when you want the system to start the migration. Valid values:
-    // 
-    // *   **Immediately**: The system immediately starts the migration. This is the default value.
-    // *   **MaintainTime**: The system starts the migration during the specified maintenance window.
-    // *   **Specified**: The system starts the migration at the specified point in time.
     shared_ptr<string> effectiveTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The point in time when you want the system to start the migration. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // > This parameter must be specified when you set **EffectiveTime** to **Specified**.
     shared_ptr<string> specifiedTime_ {};
-    // The ID of the host to which you want to migrate the primary instance. You can call the DescribeDedicatedHosts operation to query the host ID.
     shared_ptr<string> targetDedicatedHostIdForMaster_ {};
-    // The ID of the host to which you want to migrate the secondary instance. You can call the DescribeDedicatedHosts operation to query the host ID.
     shared_ptr<string> targetDedicatedHostIdForSlave_ {};
-    // The zone ID of the secondary node.
     shared_ptr<string> zoneIdForFollower_ {};
-    // The zone ID of the logger instance.
     shared_ptr<string> zoneIdForLog_ {};
   };
 

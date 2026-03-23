@@ -57,13 +57,8 @@ namespace Models
 
 
   protected:
-    // The instance name.
-    // 
-    // >  The name must be 2 to 255 characters in length and can contain letters, digits, `underscores (_)`, and `hyphens (-)`. It must start with a letter.
     shared_ptr<string> instanceDescription_ {};
-    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

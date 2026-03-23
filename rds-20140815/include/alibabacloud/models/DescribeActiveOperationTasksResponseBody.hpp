@@ -317,72 +317,33 @@ namespace Models
 
 
     protected:
-      // Indicates whether the task can be canceled. The value 1 indicates that the task can be canceled. The value 0 indicates that the task cannot be canceled.
       shared_ptr<string> allowCancel_ {};
-      // Indicates whether the switching time can be changed. The value 1 indicates that the switching time can be changed. The value 0 indicates that the switching time cannot be changed.
       shared_ptr<string> allowChange_ {};
-      // The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
       shared_ptr<string> changeLevel_ {};
-      // The level of the task in English.
       shared_ptr<string> changeLevelEn_ {};
-      // The level of the task in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createdTime_ {};
-      // The current zone.
       shared_ptr<string> currentAVZ_ {};
-      // The type of the database. Valid values: mysql, pgsql, and mssql.
       shared_ptr<string> dbType_ {};
-      // The minor engine version.
       shared_ptr<string> dbVersion_ {};
-      // The deadline of the switching time for the task. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> deadline_ {};
-      // The ID of the task.
       shared_ptr<int32_t> id_ {};
-      // The impact of the task.
       shared_ptr<string> impact_ {};
-      // The impact of the task in English.
       shared_ptr<string> impactEn_ {};
-      // The impact of the task in Chinese.
       shared_ptr<string> impactZh_ {};
-      // The alias and description of the instance.
       shared_ptr<string> insComment_ {};
-      // The instance ID.
       shared_ptr<string> insName_ {};
-      // The time after the modification. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> modifiedTime_ {};
-      // The required preparation period between the task start time and the switching time. The time is displayed in the HH:mm:ss format.
       shared_ptr<string> prepareInterval_ {};
-      // The region ID of the pending task.
       shared_ptr<string> region_ {};
-      // The information about the execution result.
       shared_ptr<string> resultInfo_ {};
-      // The time when the task was executed. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
-      // The task status.
-      // 
-      // *   **3**: pending
-      // *   **4**: being processed
-      // *   **5**: completed
-      // *   **6**: failed
-      // *   **7**: canceled
       shared_ptr<int32_t> status_ {};
-      // The subtasks of the instance.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The switching time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> switchTime_ {};
-      // The task parameters.
       shared_ptr<string> taskParams_ {};
-      // The type of the O\\&M task. Valid values:
-      // 
-      // *   **rds_apsaradb_ha**: primary/secondary switchover
-      // *   **rds_apsaradb_transfer**: instance migration
-      // *   **rds_apsaradb_upgrade**: update of the minor engine version
-      // *   **rds_apsaradb_maxscale**: minor version update of the database proxy
       shared_ptr<string> taskType_ {};
-      // The reason for the task in English.
       shared_ptr<string> taskTypeEn_ {};
-      // The reason for the task in Chinese.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -426,15 +387,10 @@ namespace Models
 
 
   protected:
-    // The details about the O\\&M task.
     shared_ptr<vector<DescribeActiveOperationTasksResponseBody::Items>> items_ {};
-    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 25.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

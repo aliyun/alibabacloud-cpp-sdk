@@ -150,11 +150,18 @@ namespace Models
 
   protected:
     shared_ptr<string> description_ {};
+    // Query by instance host IP address.
     shared_ptr<string> hostIp_ {};
     shared_ptr<string> imageId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Instance ID.
+    // 
+    // This parameter is used to query multiple instances simultaneously. Separate instance IDs with English commas (,), and up to 100 IDs are supported. The input format is: `["instance ID 1","instance ID 2"]`.
+    // 
+    // > When both **InstanceIds** and **instanceId** are provided, the value of **InstanceIds** takes precedence.
     shared_ptr<string> instanceIds_ {};
+    // Instance Name
     shared_ptr<string> instanceName_ {};
     // The page number.
     // 
@@ -168,10 +175,19 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Query by instance public IP address.
     shared_ptr<string> publicIp_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // Instance status. Valid values:  
+    // 
+    // - **Pending**: Creation in progress.  
+    // - **Running**: Running.  
+    // - **Starting**: Starting.  
+    // - **Stopping**: Pausing.  
+    // - **Stopped**: Paused.
     shared_ptr<string> status_ {};
+    // Query by specified tag. The input format is: `{"TagKey":"TagValue"}`.
     shared_ptr<string> tag_ {};
     // The virtual private cloud (VPC) ID.
     shared_ptr<string> vpcId_ {};

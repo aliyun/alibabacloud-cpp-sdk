@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // Instance ID. You can obtain it by calling DescribeDBInstances.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Region ID. You can obtain it by calling DescribeRegions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Job ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

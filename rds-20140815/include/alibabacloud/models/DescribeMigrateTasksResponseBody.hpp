@@ -223,16 +223,11 @@ namespace Models
 
 
   protected:
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<DescribeMigrateTasksResponseBody::Items> items_ {};
-    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // Job details.
     shared_ptr<string> detail_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Job status. The parameter is invalid.
     shared_ptr<string> status_ {};
+    // Indicates whether the request succeeded. The values have the following meanings:
+    // 
+    // - **true**: Succeeded
+    // - **false**: Failed
     shared_ptr<bool> success_ {};
   };
 

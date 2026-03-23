@@ -75,15 +75,10 @@ namespace Models
 
 
   protected:
-    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The response parameters.
     shared_ptr<string> message_ {};
-    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
     shared_ptr<string> taskId_ {};
   };
 

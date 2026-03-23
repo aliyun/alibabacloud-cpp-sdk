@@ -103,31 +103,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
-    // 
-    // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The prefix of the public endpoint.
-    // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
-    // The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceEndpointId_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network type of the endpoint. Only Internet is supported. Set the value to **Public**.
-    // 
     // This parameter is required.
     shared_ptr<string> ipType_ {};
-    // The port number of the public endpoint.
-    // 
     // This parameter is required.
     shared_ptr<string> port_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

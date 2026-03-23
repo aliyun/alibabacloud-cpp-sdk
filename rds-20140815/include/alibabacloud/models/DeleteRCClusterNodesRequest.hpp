@@ -71,15 +71,9 @@ namespace Models
 
 
   protected:
-    // The instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The node information.
     shared_ptr<vector<string>> nodes_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The virtual private cloud (VPC) ID.
-    // 
-    // >  This is a reserved parameter.
     shared_ptr<string> vpcId_ {};
   };
 

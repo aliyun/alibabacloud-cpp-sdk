@@ -140,45 +140,17 @@ namespace Models
 
 
   protected:
-    // The RDS edition of the instance. Valid values:
-    // 
-    // *   **Basic**: RDS Basic Edition
-    // *   **HighAvailability**: RDS High-availability Edition
-    // *   **AlwaysOn**: RDS Cluster Edition
-    // *   **Finance**: RDS Enterprise Edition
     shared_ptr<string> category_ {};
-    // The code of the instance type.
     shared_ptr<string> classCode_ {};
-    // The instance family of the instance.
     shared_ptr<string> classGroup_ {};
-    // The number of CPU cores that are supported by the instance type. Unit: cores.
     shared_ptr<string> cpu_ {};
-    // The storage type of the instance. Valid values:
-    // 
-    // *   **local_ssd**: local SSDs
-    // *   **cloud_ssd**: standard SSDs
-    // *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-    // *   **cloud_essd2**: ESSDs of PL2
-    // *   **cloud_essd3**: ESSD of PL3
     shared_ptr<string> DBInstanceStorageType_ {};
-    // The architecture of the instance.
     shared_ptr<string> instructionSetArch_ {};
-    // The maximum number of connections.
     shared_ptr<string> maxConnections_ {};
-    // The maximum I/O bandwidth that is supported by the instance type. Unit: Mbit/s.
     shared_ptr<string> maxIOMBPS_ {};
-    // The maximum input/output operations per second (IOPS) that is supported by the instance type. Unit: operations per second.
     shared_ptr<string> maxIOPS_ {};
-    // The memory size. Unit: GB.
     shared_ptr<string> memoryClass_ {};
-    // The price.
-    // 
-    // Unit: cents (US dollars).
-    // 
-    // > *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
-    // > *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
     shared_ptr<string> referencePrice_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

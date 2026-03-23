@@ -57,14 +57,8 @@ namespace Models
 
 
   protected:
-    // The database engine. Valid values:
-    // 
-    // *   **mssql**: SQL Server
-    // *   **mysql**: MySQL
     shared_ptr<string> dbType_ {};
-    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -121,42 +121,16 @@ namespace Models
 
 
   protected:
-    // The prefix of the read/write splitting endpoint. The prefix must be unique. It can be up to 30 characters in length and can contain lowercase letters and hyphens (-). It must start with a lowercase letter.
-    // 
-    // > The default prefix consists of the name of the primary instance followed by the letters rw.
     shared_ptr<string> connectionStringPrefix_ {};
-    // The ID of the primary instance. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The method that is used to assign read weights. Valid values:
-    // 
-    // *   **Standard**: The system automatically assigns read weights to the primary and read-only instances based on the specifications of these instances.
-    // *   **Custom**: You must manually assign a read weight to each instance.
-    // 
-    // > You must specify at least one of **MaxDelayTime** and **DistributionType**.
     shared_ptr<string> distributionType_ {};
-    // The latency threshold that is allowed by the read/write splitting link. Unit: seconds. If the latency on a read-only instance exceeds the specified threshold, the system no longer routes read requests to the read-only instance. If you do not specify this parameter, the default value of this parameter is retained.
-    // 
-    // > *   If the primary instance runs SQL Server 2017 on RDS Cluster Edition, the **MaxDelayTime** parameter is not supported.
-    // > *   You must specify at least one of **MaxDelayTime** and **DistributionType**.
     shared_ptr<string> maxDelayTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The port that is associated with the read/write splitting endpoint.
     shared_ptr<string> port_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The read weights of the primary instance and its read-only instances. A read weight must be a multiple of 100 and cannot exceed 10,000.
-    // 
-    // *   For ApsaraDB RDS instances, the value of this parameter is in the following format: `{"<ID of the read-only instance >":<Weight>,"master":<Weight>,"slave":<Weight>}`.
-    // *   For ApsaraDB MyBase instances, the value of this parameter is in the following format: `[{"instanceName":"<ID of the primary instance>","weight":<Weight>,"role":"master"},{"instanceName":"<ID of the primary instance>","weight":<Weight>,"role":"slave"},{"instanceName":"<ID of the read-only instance>","weight":<Weight>,"role":"master"}]`
-    // 
-    // > 
-    // 
-    // *   This parameter must be specified when **DistributionType** is set to **Custom**.
-    // 
-    // *   If **DistributionType** is set to **Standard**, this parameter is invalid.
     shared_ptr<string> weight_ {};
   };
 

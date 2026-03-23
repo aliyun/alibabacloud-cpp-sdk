@@ -48,11 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk that you want to release.
-    // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
   };
 

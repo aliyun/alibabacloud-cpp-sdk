@@ -75,19 +75,11 @@ namespace Models
 
 
   protected:
-    // The node IDs.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The key pair of the node.
     shared_ptr<string> keyPair_ {};
-    // The logon password of the node.
     shared_ptr<string> password_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The virtual private cloud (VPC) ID.
-    // 
-    // > This is a reserved parameter.
     shared_ptr<string> vpcId_ {};
   };
 

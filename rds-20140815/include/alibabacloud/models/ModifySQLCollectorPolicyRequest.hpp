@@ -94,21 +94,13 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The resource group ID. You can call theDescribeDBInstanceAttribute operation to query the most recent region list.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to enable the SQL Explorer (SQL Audit) feature. Valid values:
-    // 
-    // *   **Enable**
-    // *   **Disabled**
-    // 
     // This parameter is required.
     shared_ptr<string> SQLCollectorStatus_ {};
   };

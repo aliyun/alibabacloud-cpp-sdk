@@ -107,18 +107,9 @@ namespace Models
 
     protected:
       shared_ptr<string> clusterId_ {};
-      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The time when the cluster was created.
       shared_ptr<string> createTime_ {};
       shared_ptr<string> profile_ {};
-      // The cluster status. Valid values:
-      // 
-      // *   **Pending**
-      // *   **Running**
-      // *   **Starting**
-      // *   **Stopping**
-      // *   **Stopped**
       shared_ptr<string> status_ {};
       shared_ptr<string> vpcId_ {};
     };
@@ -142,9 +133,7 @@ namespace Models
 
 
   protected:
-    // The information about the clusters.
     shared_ptr<vector<DescribeRCClustersResponseBody::Clusters>> clusters_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

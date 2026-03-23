@@ -60,11 +60,8 @@ namespace Models
 
 
   protected:
-    // The batch operation mode. Set the value to **AllTogether**. In this mode, a success message is returned if all specified instances are started. If an instance fails the verification, none of the specified instances can be started and an error message is returned.
     shared_ptr<string> batchOptimization_ {};
-    // The node IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

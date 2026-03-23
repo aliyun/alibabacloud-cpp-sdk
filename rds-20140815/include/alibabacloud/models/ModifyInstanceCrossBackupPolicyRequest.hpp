@@ -130,38 +130,18 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the cross-region backup feature on the instance. This parameter specifies whether you can back up data and logs. Valid values:
-    // 
-    // *   **0**: disables the feature.
-    // *   **1:** enables the feature.
-    // 
-    // > Before you enable the cross-region backup feature, you must configure the CrossBackupRegion parameter.
     shared_ptr<string> backupEnabled_ {};
-    // The ID of the region in which the cross-region backup files of the instance are stored.
     shared_ptr<string> crossBackupRegion_ {};
-    // The policy that is used to save the cross-region backup files of the instance. Set the value to **1**. The value 1 specifies that all cross-region backup files are saved.
     shared_ptr<string> crossBackupType_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to enable the cross-region log backup feature on the instance. Valid values:
-    // 
-    // *   **0**: disables the feature.
-    // *   **1:** enables the feature.
-    // 
-    // > You can enable the cross-region log backup feature only when the cross-region backup feature is enabled.
     shared_ptr<string> logBackupEnabled_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the source instance. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The policy that is used to retain the cross-region backup files of the instance. Set the value to 1. The value **1** specifies that the cross-region backup files of the instance are retained based on the specified retention period.
     shared_ptr<int32_t> retentType_ {};
-    // The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
     shared_ptr<int32_t> retention_ {};
   };
 

@@ -48,12 +48,6 @@ namespace Models
 
 
   protected:
-    // The language that is used for the return value of the **LocalName** parameter. Valid values:
-    // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US**: English
-    // 
-    // Default value: **en-US**.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

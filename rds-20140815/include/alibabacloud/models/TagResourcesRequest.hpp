@@ -80,11 +80,8 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can create N tag keys at a time. Valid values of N: **1** to **20**. The value of this parameter cannot be an empty string.
-      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can create N tag values at a time. Valid values of N: **1** to **20**. The value of this parameter can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -146,21 +143,14 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The instance ID.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **INSTANCE**.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tags.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 
