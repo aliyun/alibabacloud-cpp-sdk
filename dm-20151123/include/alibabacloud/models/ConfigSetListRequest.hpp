@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query all configuration sets. This parameter is optional.
     shared_ptr<bool> all_ {};
+    // The keyword to search by name.
     shared_ptr<string> keyword_ {};
+    // The page index. The value starts from 1. This parameter is required.
     shared_ptr<string> pageIndex_ {};
+    // The number of entries per page. This parameter is required.
     shared_ptr<string> pageSize_ {};
   };
 

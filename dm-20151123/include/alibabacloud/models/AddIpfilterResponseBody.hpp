@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // ID corresponding to the IP
     shared_ptr<string> ipFilterId_ {};
-    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

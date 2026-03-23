@@ -102,11 +102,8 @@ namespace Models
 
 
       protected:
-        // Update time.
         shared_ptr<string> lastUpdateTime_ {};
-        // Recipient address.
         shared_ptr<string> toAddress_ {};
-        // Update time (in timestamp format).
         shared_ptr<int64_t> utcLastUpdateTime_ {};
       };
 
@@ -163,7 +160,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Total count.
     shared_ptr<int32_t> totalCount_ {};
-    // Records.
     shared_ptr<QueryInvalidAddressResponseBody::Data> data_ {};
   };
 

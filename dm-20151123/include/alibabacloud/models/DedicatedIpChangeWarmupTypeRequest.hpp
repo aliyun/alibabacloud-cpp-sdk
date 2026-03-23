@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Dedicated IP ID
+    // The ID of the dedicated IP address.
     shared_ptr<string> id_ {};
-    // Warmup method
+    // The prefetch method.
     shared_ptr<string> warmupType_ {};
   };
 

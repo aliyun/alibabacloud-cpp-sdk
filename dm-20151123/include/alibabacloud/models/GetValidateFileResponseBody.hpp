@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The download URL of the result file.
     shared_ptr<string> fileUrl_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

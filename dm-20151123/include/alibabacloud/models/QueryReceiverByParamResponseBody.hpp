@@ -150,24 +150,13 @@ namespace Models
 
 
       protected:
-        // Total number of recipient addresses
         shared_ptr<string> count_ {};
-        // Creation time
         shared_ptr<string> createTime_ {};
-        // Description
         shared_ptr<string> desc_ {};
-        // Recipient list ID
         shared_ptr<string> receiverId_ {};
-        // Recipient list alias
         shared_ptr<string> receiversAlias_ {};
-        // Recipient list name
         shared_ptr<string> receiversName_ {};
-        // List status. Values:
-        // 
-        // - 0: Uploading
-        // - 1: Upload completed
         shared_ptr<string> receiversStatus_ {};
-        // UTC formatted creation time
         shared_ptr<int64_t> utcCreateTime_ {};
       };
 
@@ -225,15 +214,14 @@ namespace Models
 
 
   protected:
-    // Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
+    // Used for paging. If more results are available, set this value as the NextStart parameter in your next request.
     shared_ptr<string> nextStart_ {};
-    // Number of items displayed per page.
+    // Number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // Total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Detailed information of the recipient list
     shared_ptr<QueryReceiverByParamResponseBody::Data> data_ {};
   };
 

@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // timestamp
         shared_ptr<string> createTime_ {};
-        // Record ID
         shared_ptr<string> id_ {};
-        // IP address/IP range/IP segment
         shared_ptr<string> ipAddress_ {};
       };
 
@@ -174,7 +171,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Total count
     shared_ptr<int32_t> totalCount_ {};
-    // Data records
     shared_ptr<GetIpfilterListResponseBody::Data> data_ {};
   };
 

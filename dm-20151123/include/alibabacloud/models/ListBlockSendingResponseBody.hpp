@@ -101,10 +101,23 @@ namespace Models
 
 
     protected:
+      // The recipient email address.
       shared_ptr<string> blockEmail_ {};
+      // The time the block was initiated.
       shared_ptr<int32_t> blockTime_ {};
+      // The reason for the block. The value is a bitset. The meaning of each bit is as follows:
+      // 
+      // - 0: The reason is not specified.
+      // 
+      // - 1: The recipient is not interested in the content.
+      // 
+      // - 2: The content is repetitive.
+      // 
+      // - 3: The content is sent too frequently.
       shared_ptr<int32_t> reason_ {};
+      // The time the email was sent.
       shared_ptr<int32_t> sendTime_ {};
+      // The sender email address.
       shared_ptr<string> senderEmail_ {};
     };
 
@@ -141,9 +154,13 @@ namespace Models
 
 
   protected:
+    // A list of data about unsubscribes or spam reports.
     shared_ptr<vector<ListBlockSendingResponseBody::Data>> data_ {};
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. An empty string indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

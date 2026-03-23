@@ -158,19 +158,32 @@ namespace Models
 
 
   protected:
+    // The number of email addresses with the validation result \\`CatchAll\\`.
     shared_ptr<string> catchAllNum_ {};
+    // The time when the task was completed.
     shared_ptr<string> completeTime_ {};
+    // The number of email addresses with the validation result \\`DoNotMail\\`.
     shared_ptr<string> doNotMailNum_ {};
     shared_ptr<string> fileId_ {};
+    // The name of the file that was uploaded when the task was submitted.
     shared_ptr<string> fileName_ {};
+    // The number of email addresses with the validation result \\`Invalid\\`.
     shared_ptr<string> invalidNum_ {};
+    // The progress of the task execution.
     shared_ptr<string> percentage_ {};
+    // The number of email addresses that have been validated.
     shared_ptr<string> processedNum_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The total number of email addresses to validate.
     shared_ptr<string> totalNum_ {};
+    // The number of email addresses with the validation result \\`Unknown\\`.
     shared_ptr<string> unknownNum_ {};
+    // The time when the file was submitted.
     shared_ptr<string> uploadTime_ {};
+    // The number of email addresses with the validation result \\`Valid\\`.
     shared_ptr<string> validNum_ {};
   };
 

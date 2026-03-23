@@ -137,19 +137,12 @@ namespace Models
 
 
       protected:
-        // Creation time
         shared_ptr<string> createTime_ {};
-        // Failure count
         shared_ptr<string> faildCount_ {};
-        // Request count
         shared_ptr<string> requestCount_ {};
-        // Success rate
         shared_ptr<string> succeededPercent_ {};
-        // Success count
         shared_ptr<string> successCount_ {};
-        // Invalid count
         shared_ptr<string> unavailableCount_ {};
-        // Unavailability rate
         shared_ptr<string> unavailablePercent_ {};
       };
 
@@ -193,11 +186,11 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // The total count of data records.
     shared_ptr<int32_t> totalCount_ {};
-    // Data records
+    // Contains the statistical data.
     shared_ptr<SenderStatisticsByTagNameAndBatchIDResponseBody::Data> data_ {};
   };
 

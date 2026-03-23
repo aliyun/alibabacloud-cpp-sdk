@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // IP protection switch, On: 1 Off: 0
     shared_ptr<string> ipProtection_ {};
-    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

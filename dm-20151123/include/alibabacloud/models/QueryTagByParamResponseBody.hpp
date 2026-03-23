@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // Tag description
         shared_ptr<string> tagDescription_ {};
-        // Tag ID
         shared_ptr<string> tagId_ {};
-        // Tag name
         shared_ptr<string> tagName_ {};
       };
 
@@ -174,7 +171,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Total count
     shared_ptr<int32_t> totalCount_ {};
-    // Data records
     shared_ptr<QueryTagByParamResponseBody::Data> data_ {};
   };
 

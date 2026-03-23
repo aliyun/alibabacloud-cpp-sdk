@@ -94,21 +94,20 @@ namespace Models
 
 
   protected:
-    // Keyword, defaults to all information if not specified
+    // Search keyword. Default value: all information.
     shared_ptr<string> keyWord_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Current page number
+    // Page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Number of items per page, default: 10
+    // Number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Delivery result. If not filled, it represents all statuses. Values:
+    // List status. Valid values:
     // 
-    // - 0: Success
-    // - 2: Invalid address
-    // - 3: Spam
-    // - 4: Failure
+    // - 0: uploading
+    // 
+    // - 1: upload complete
     shared_ptr<int32_t> status_ {};
   };
 

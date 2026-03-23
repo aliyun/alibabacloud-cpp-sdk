@@ -127,6 +127,10 @@
 #include <alibabacloud/models/GetIpfilterListRequest.hpp>
 #include <alibabacloud/models/GetIpfilterListResponseBody.hpp>
 #include <alibabacloud/models/GetIpfilterListResponse.hpp>
+#include <alibabacloud/models/GetSendifyAutoLoginURLResponseBody.hpp>
+#include <alibabacloud/models/GetSendifyAutoLoginURLResponse.hpp>
+#include <alibabacloud/models/GetSendifyInfoResponseBody.hpp>
+#include <alibabacloud/models/GetSendifyInfoResponse.hpp>
 #include <alibabacloud/models/GetSuppressionListLevelRequest.hpp>
 #include <alibabacloud/models/GetSuppressionListLevelResponseBody.hpp>
 #include <alibabacloud/models/GetSuppressionListLevelResponse.hpp>
@@ -164,6 +168,8 @@
 #include <alibabacloud/models/ModifyTagRequest.hpp>
 #include <alibabacloud/models/ModifyTagResponseBody.hpp>
 #include <alibabacloud/models/ModifyTagResponse.hpp>
+#include <alibabacloud/models/OpenSendifyTrialServiceResponseBody.hpp>
+#include <alibabacloud/models/OpenSendifyTrialServiceResponse.hpp>
 #include <alibabacloud/models/QueryDomainByParamRequest.hpp>
 #include <alibabacloud/models/QueryDomainByParamResponseBody.hpp>
 #include <alibabacloud/models/QueryDomainByParamResponse.hpp>

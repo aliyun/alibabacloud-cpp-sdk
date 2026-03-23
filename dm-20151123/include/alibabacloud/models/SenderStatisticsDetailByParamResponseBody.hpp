@@ -183,26 +183,17 @@ namespace Models
 
 
       protected:
-        // Sending address
         shared_ptr<string> accountName_ {};
         shared_ptr<string> configSetId_ {};
         shared_ptr<string> configSetName_ {};
-        // Detailed classification of error reasons: - SendOk - SmtpNxBox
-        // etc.
         shared_ptr<string> errorClassification_ {};
         shared_ptr<string> ipPoolId_ {};
         shared_ptr<string> ipPoolName_ {};
-        // Update time
         shared_ptr<string> lastUpdateTime_ {};
-        // Delivery detail information
         shared_ptr<string> message_ {};
-        // Delivery status: 0 Success, 2 Invalid Address, 3 Spam, 4 Other Failures
         shared_ptr<int32_t> status_ {};
-        // Email subject
         shared_ptr<string> subject_ {};
-        // Recipient address
         shared_ptr<string> toAddress_ {};
-        // UTC formatted update time
         shared_ptr<string> utcLastUpdateTime_ {};
       };
 
@@ -246,11 +237,10 @@ namespace Models
 
 
   protected:
-    // Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
+    // Used for paging. If more results are available, set the \\`NextStart\\` parameter in your next request to this return value.
     shared_ptr<string> nextStart_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Detailed records
     shared_ptr<SenderStatisticsDetailByParamResponseBody::Data> data_ {};
   };
 

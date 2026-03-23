@@ -205,34 +205,19 @@ namespace Models
 
 
       protected:
-        // Sending address
         shared_ptr<string> accountName_ {};
-        // Account status, frozen: 1, normal: 0.
         shared_ptr<string> accountStatus_ {};
         shared_ptr<string> configSetId_ {};
         shared_ptr<string> configSetName_ {};
-        // Creation time
         shared_ptr<string> createTime_ {};
-        // Daily quota limit
         shared_ptr<string> dailyCount_ {};
-        // Daily quota
         shared_ptr<string> dailyReqCount_ {};
-        // Domain status, 0 indicates normal, 1 indicates abnormal.
         shared_ptr<string> domainStatus_ {};
-        // Sending address ID
         shared_ptr<string> mailAddressId_ {};
-        // Monthly quota limit
         shared_ptr<string> monthCount_ {};
-        // Monthly quota
         shared_ptr<string> monthReqCount_ {};
-        // Reply address
         shared_ptr<string> replyAddress_ {};
-        // Reply address status
         shared_ptr<string> replyStatus_ {};
-        // Sending address type. Values:
-        // 
-        // - batch: bulk email
-        // - trigger: triggered email
         shared_ptr<string> sendtype_ {};
       };
 
@@ -290,15 +275,14 @@ namespace Models
 
 
   protected:
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // List of sending addresses
     shared_ptr<QueryMailAddressByParamResponseBody::Data> data_ {};
   };
 

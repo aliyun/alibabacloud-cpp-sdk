@@ -174,25 +174,15 @@ namespace Models
 
 
       protected:
-        // Creation time
         shared_ptr<string> createTime_ {};
-        // Click count
         shared_ptr<string> rcptClickCount_ {};
-        // Click rate
         shared_ptr<string> rcptClickRate_ {};
-        // Number of Opens
         shared_ptr<string> rcptOpenCount_ {};
-        // Open rate
         shared_ptr<string> rcptOpenRate_ {};
-        // Unique click count
         shared_ptr<string> rcptUniqueClickCount_ {};
-        // Unique click rate
         shared_ptr<string> rcptUniqueClickRate_ {};
-        // Unique open count
         shared_ptr<string> rcptUniqueOpenCount_ {};
-        // Unique open rate
         shared_ptr<string> rcptUniqueOpenRate_ {};
-        // Total number
         shared_ptr<string> totalNumber_ {};
       };
 
@@ -272,20 +262,20 @@ namespace Models
 
 
   protected:
-    // Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
+    // Used for pagination. Do not set this parameter for the first request. For subsequent requests, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated.)
     shared_ptr<string> offsetCreateTime_ {};
-    // (This field is deprecated)
+    // (This field is deprecated.)
     shared_ptr<string> offsetCreateTimeDesc_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
-    // Number of items per page
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
-    // Total number of items
+    // The total number of matching records.
     shared_ptr<int32_t> total_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
-    // Tracking data records
     shared_ptr<GetTrackListResponseBody::Data> data_ {};
   };
 

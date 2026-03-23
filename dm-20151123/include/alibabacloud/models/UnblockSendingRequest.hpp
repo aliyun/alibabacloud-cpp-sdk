@@ -57,17 +57,19 @@ namespace Models
 
 
   protected:
-    // Blacklisted recipient\\"s email address
+    // The blacklisted recipient address.
     // 
     // This parameter is required.
     shared_ptr<string> blockEmail_ {};
-    // Blacklist type
+    // The blacklist type.
+    // 
     // - UNSUB: Unsubscribe
-    // - REPORT: Report
+    // 
+    // - REPORT: Complaint
     // 
     // This parameter is required.
     shared_ptr<string> blockType_ {};
-    // Sender\\"s email address
+    // The sender address.
     // 
     // This parameter is required.
     shared_ptr<string> senderEmail_ {};

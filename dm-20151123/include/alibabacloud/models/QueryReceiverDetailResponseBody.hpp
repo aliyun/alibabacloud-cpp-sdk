@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // Creation Time
         shared_ptr<string> createTime_ {};
-        // Content
         shared_ptr<string> data_ {};
-        // Recipient address
         shared_ptr<string> email_ {};
-        // Creation time in UTC format
         shared_ptr<int64_t> utcCreateTime_ {};
       };
 
@@ -185,7 +181,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Total count (deprecated field, kept for historical compatibility)
     shared_ptr<int32_t> totalCount_ {};
-    // Detailed information
     shared_ptr<QueryReceiverDetailResponseBody::Data> data_ {};
   };
 

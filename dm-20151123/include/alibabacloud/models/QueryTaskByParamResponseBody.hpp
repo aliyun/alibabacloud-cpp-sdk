@@ -196,29 +196,18 @@ namespace Models
 
 
       protected:
-        // Address type, sending address: 1; random address: 0;
         shared_ptr<string> addressType_ {};
         shared_ptr<string> configSetId_ {};
         shared_ptr<string> configSetName_ {};
-        // Creation time
         shared_ptr<string> createTime_ {};
-        // dedicated IP pool ID.
         shared_ptr<string> ipPoolId_ {};
-        // dedicated IP pool name.
         shared_ptr<string> ipPoolName_ {};
-        // Receiver\\"s name
         shared_ptr<string> receiversName_ {};
-        // Request count
         shared_ptr<string> requestCount_ {};
-        // Tag
         shared_ptr<string> tagName_ {};
-        // Task ID
         shared_ptr<string> taskId_ {};
-        // Task status, sent successfully: 1
         shared_ptr<string> taskStatus_ {};
-        // Template name
         shared_ptr<string> templateName_ {};
-        // Creation time in UTC format
         shared_ptr<int64_t> utcCreateTime_ {};
       };
 
@@ -276,15 +265,14 @@ namespace Models
 
 
   protected:
-    // Current page number
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Returned results
     shared_ptr<QueryTaskByParamResponseBody::Data> data_ {};
   };
 

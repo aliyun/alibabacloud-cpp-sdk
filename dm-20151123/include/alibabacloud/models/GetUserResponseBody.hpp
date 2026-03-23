@@ -59,7 +59,6 @@ namespace Models
 
 
     protected:
-      // Whether EventBridge is enabled
       shared_ptr<bool> enableEventbridge_ {};
     };
 
@@ -82,9 +81,7 @@ namespace Models
 
 
   protected:
-    // Returned Content
     shared_ptr<GetUserResponseBody::Data> data_ {};
-    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

@@ -114,10 +114,11 @@ namespace Models
 
 
       protected:
-        // Instance purchase ID
+        // The ID of the IP address instance.
         shared_ptr<string> id_ {};
-        // IP address
+        // The IP address.
         shared_ptr<string> ip_ {};
+        // The ID of the Availability Zone.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -161,15 +162,15 @@ namespace Models
 
 
     protected:
-      // Creation time
+      // The time when the IP pool was created.
       shared_ptr<string> createTime_ {};
-      // IP pool ID
+      // The ID of the IP pool.
       shared_ptr<string> id_ {};
-      // Number of source IP addresses
+      // The number of source IP addresses in the IP pool.
       shared_ptr<int32_t> ipCount_ {};
-      // List of IPs
+      // A list of IP addresses.
       shared_ptr<vector<IpPools::Ips>> ips_ {};
-      // IP pool name
+      // The name of the IP pool.
       shared_ptr<string> name_ {};
     };
 
@@ -220,17 +221,17 @@ namespace Models
 
 
   protected:
-    // Current page
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // Whether there is a next page
+    // Indicates whether more results are available.
     shared_ptr<bool> hasMore_ {};
-    // List of IP pools
+    // A list of IP pools.
     shared_ptr<vector<DedicatedIpPoolListResponseBody::IpPools>> ipPools_ {};
-    // Page size
+    // The number of entries on the current page.
     shared_ptr<string> pageSize_ {};
-    // Request ID
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of data under the current request conditions
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

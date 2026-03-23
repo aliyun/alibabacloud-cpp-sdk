@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(PoolId, poolId_);
     };
     friend void from_json(const Darabonba::Json& j, DedicatedIpPoolListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(All, all_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(PoolId, poolId_);
     };
     DedicatedIpPoolListRequest() = default ;
     DedicatedIpPoolListRequest(const DedicatedIpPoolListRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && this->keyword_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr; };
+        && this->keyword_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->poolId_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
@@ -65,14 +67,23 @@ namespace Models
     inline DedicatedIpPoolListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // poolId Field Functions 
+    bool hasPoolId() const { return this->poolId_ != nullptr;};
+    void deletePoolId() { this->poolId_ = nullptr;};
+    inline string getPoolId() const { DARABONBA_PTR_GET_DEFAULT(poolId_, "") };
+    inline DedicatedIpPoolListRequest& setPoolId(string poolId) { DARABONBA_PTR_SET_VALUE(poolId_, poolId) };
+
+
   protected:
+    // Specifies whether to return all entries.
     shared_ptr<bool> all_ {};
-    // Search keyword for the name
+    // The keyword to search for IP pools by name.
     shared_ptr<string> keyword_ {};
-    // Page index, starting from 1
+    // The page number to return, starting from 1.
     shared_ptr<int32_t> pageIndex_ {};
-    // Number of items per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> poolId_ {};
   };
 
   } // namespace Models

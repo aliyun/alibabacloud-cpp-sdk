@@ -177,33 +177,16 @@ namespace Models
 
 
       protected:
-        // Track verification
         shared_ptr<string> cnameAuthStatus_ {};
-        // CName verification status, success: 0; failure: 1
         shared_ptr<string> confirmStatus_ {};
-        // Creation time
         shared_ptr<string> createTime_ {};
-        // Domain ID
         shared_ptr<string> domainId_ {};
-        // Domain name
         shared_ptr<string> domainName_ {};
-        // Domain record
         shared_ptr<string> domainRecord_ {};
-        // Domain status.
-        // 
-        // - 0: Available, verified
-        // - 1: Unavailable, verification failed
         shared_ptr<string> domainStatus_ {};
-        // ICP filing status.
-        // 
-        // - 1 indicates filed
-        // - 0 indicates not filed
         shared_ptr<string> icpStatus_ {};
-        // MX authentication status, success: 0, failure: 1.
         shared_ptr<string> mxAuthStatus_ {};
-        // SPF authentication status, success: 0, failure: 1.
         shared_ptr<string> spfAuthStatus_ {};
-        // Creation time in UTC format.
         shared_ptr<int64_t> utcCreateTime_ {};
       };
 
@@ -269,7 +252,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Total count
     shared_ptr<int32_t> totalCount_ {};
-    // List of domains
     shared_ptr<QueryDomainByParamResponseBody::Data> data_ {};
   };
 

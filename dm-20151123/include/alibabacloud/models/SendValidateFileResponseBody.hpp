@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the file. Use this ID to query the results.
     shared_ptr<string> fileId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConfigSetId, configSetId_);
       DARABONBA_PTR_TO_JSON(DedicatedIp, dedicatedIp_);
       DARABONBA_PTR_TO_JSON(DedicatedIpPoolId, dedicatedIpPoolId_);
+      DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Esp, esp_);
       DARABONBA_PTR_TO_JSON(Offset, offset_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConfigSetId, configSetId_);
       DARABONBA_PTR_FROM_JSON(DedicatedIp, dedicatedIp_);
       DARABONBA_PTR_FROM_JSON(DedicatedIpPoolId, dedicatedIpPoolId_);
+      DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Esp, esp_);
       DARABONBA_PTR_FROM_JSON(Offset, offset_);
@@ -62,10 +64,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->configSetId_ == nullptr && this->dedicatedIp_ == nullptr && this->dedicatedIpPoolId_ == nullptr && this->endTime_ == nullptr && this->esp_ == nullptr
-        && this->offset_ == nullptr && this->offsetCreateTime_ == nullptr && this->offsetCreateTimeDesc_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr && this->tagName_ == nullptr
-        && this->total_ == nullptr; };
+        && this->configSetId_ == nullptr && this->dedicatedIp_ == nullptr && this->dedicatedIpPoolId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr
+        && this->esp_ == nullptr && this->offset_ == nullptr && this->offsetCreateTime_ == nullptr && this->offsetCreateTimeDesc_ == nullptr && this->ownerId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr
+        && this->tagName_ == nullptr && this->total_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     void deleteDedicatedIpPoolId() { this->dedicatedIpPoolId_ = nullptr;};
     inline string getDedicatedIpPoolId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIpPoolId_, "") };
     inline GetTrackListRequest& setDedicatedIpPoolId(string dedicatedIpPoolId) { DARABONBA_PTR_SET_VALUE(dedicatedIpPoolId_, dedicatedIpPoolId) };
+
+
+    // domain Field Functions 
+    bool hasDomain() const { return this->domain_ != nullptr;};
+    void deleteDomain() { this->domain_ = nullptr;};
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline GetTrackListRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // endTime Field Functions 
@@ -186,36 +195,57 @@ namespace Models
 
 
   protected:
-    // Sender address.
+    // The sender address.
     // 
-    // > If not filled, it represents all addresses; if TagName is provided, this parameter must not be empty.
+    // > If you omit this parameter, the query returns data for all sender addresses. This parameter is required if you specify the `TagName` parameter.
     shared_ptr<string> accountName_ {};
+    // The ID of the configuration set.
     shared_ptr<string> configSetId_ {};
+    // The dedicated IP address to query.
+    // 
+    // If this parameter is omitted, data for all dedicated IPs is returned.
     shared_ptr<string> dedicatedIp_ {};
+    // The ID of the dedicated IP pool to query.
+    // 
+    // If this parameter is omitted, data for all IP pools is returned.
     shared_ptr<string> dedicatedIpPoolId_ {};
-    // End time, the span between start and end time cannot exceed 7 days. Format: yyyy-MM-dd.
+    shared_ptr<string> domain_ {};
+    // The end date of the query. The duration between the StartTime and EndTime cannot exceed 7 days. The format is `yyyy-MM-dd`.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The Email Service Provider (ESP) to query. Valid values are:
+    // 
+    // - gmail.com
+    // 
+    // - yahoo.com
+    // 
+    // - outlook.com
+    // 
+    // - icloud.com
+    // 
+    // - Others: Any ESP not listed above.
+    // 
+    // If you omit this parameter, the query returns data for all ESPs.
     shared_ptr<string> esp_ {};
-    // For the first query, set to 0; for subsequent queries, fixed at 1. 1 indicates pagination in ascending order by time. (This field is deprecated)
+    // Set this to 0 for the first query. For subsequent queries, set it to 1 to perform a paged query in chronological order. (This field is deprecated)
     shared_ptr<string> offset_ {};
-    // Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
+    // Used for pagination. Do not set this parameter for the first query. For subsequent queries, set this parameter to the `OffsetCreateTime` value returned in the previous response. (This field is deprecated)
     shared_ptr<string> offsetCreateTime_ {};
     // (This field is deprecated)
     shared_ptr<string> offsetCreateTimeDesc_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Page number
+    // The page number to return.
     shared_ptr<string> pageNumber_ {};
-    // Page size
+    // The number of entries to return on each page.
     shared_ptr<string> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Start time, which cannot be earlier than 30 days. Format: yyyy-MM-dd.
+    // The start date of the query. The date must be within the last 30 days. The format is `yyyy-MM-dd`.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // Tag name
+    // The tag name.
     shared_ptr<string> tagName_ {};
     // (This field is deprecated)
     shared_ptr<string> total_ {};

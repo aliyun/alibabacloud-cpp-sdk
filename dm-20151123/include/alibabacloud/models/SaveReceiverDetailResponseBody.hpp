@@ -93,7 +93,6 @@ namespace Models
 
 
       protected:
-        // Recipient address.
         shared_ptr<string> email_ {};
         shared_ptr<string> errMessage_ {};
       };
@@ -145,13 +144,12 @@ namespace Models
 
 
   protected:
-    // List of recipient addresses that failed to upload.
     shared_ptr<SaveReceiverDetailResponseBody::Data> data_ {};
-    // Number of errors.
+    // The number of errors.
     shared_ptr<int32_t> errorCount_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Number of successes.
+    // The number of successful records.
     shared_ptr<int32_t> successCount_ {};
   };
 

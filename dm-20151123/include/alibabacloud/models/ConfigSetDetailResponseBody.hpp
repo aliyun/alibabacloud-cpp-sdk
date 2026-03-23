@@ -94,7 +94,9 @@ namespace Models
 
 
       protected:
+        // The ID of the associated IP pool.
         shared_ptr<string> ipPoolId_ {};
+        // The name of the associated IP pool.
         shared_ptr<string> ipPoolName_ {};
       };
 
@@ -131,9 +133,13 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The ID of the configuration set.
       shared_ptr<string> id_ {};
+      // The associated IP pool.
       shared_ptr<Detail::IpPool> ipPool_ {};
+      // The name of the configuration set.
       shared_ptr<string> name_ {};
     };
 
@@ -156,7 +162,9 @@ namespace Models
 
 
   protected:
+    // The details of the configuration set.
     shared_ptr<ConfigSetDetailResponseBody::Detail> detail_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

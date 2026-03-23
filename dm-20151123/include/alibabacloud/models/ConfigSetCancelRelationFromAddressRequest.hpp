@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The sender address. This parameter is required.
     shared_ptr<string> fromAddress_ {};
+    // The ID of the configuration set. This parameter is required.
     shared_ptr<string> id_ {};
   };
 

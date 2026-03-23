@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the configuration set. This parameter is required.
     shared_ptr<string> id_ {};
   };
 

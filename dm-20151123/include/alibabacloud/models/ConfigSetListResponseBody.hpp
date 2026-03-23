@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The ID of the associated IP pool.
         shared_ptr<string> ipPoolId_ {};
+        // The name of the associated IP pool.
         shared_ptr<string> ipPoolName_ {};
       };
 
@@ -151,10 +153,15 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The list of associated sender addresses.
       shared_ptr<vector<string>> fromAddresses_ {};
+      // The ID of the configuration set.
       shared_ptr<string> id_ {};
+      // The IP pool information.
       shared_ptr<ConfigSets::IpPool> ipPool_ {};
+      // The name of the configuration set.
       shared_ptr<string> name_ {};
     };
 
@@ -205,11 +212,17 @@ namespace Models
 
 
   protected:
+    // The list of configuration sets.
     shared_ptr<vector<ConfigSetListResponseBody::ConfigSets>> configSets_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // Indicates whether a next page of results exists.
     shared_ptr<bool> hasMore_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the request.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

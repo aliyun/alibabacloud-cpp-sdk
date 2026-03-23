@@ -122,17 +122,10 @@ namespace Models
 
 
       protected:
-        // Email address or domain name
         shared_ptr<string> address_ {};
-        // Creation time, timestamp, accurate to the second.
         shared_ptr<int32_t> createTime_ {};
-        // Last bounce hit time, timestamp, accurate to the second.
         shared_ptr<int32_t> lastBounceTime_ {};
-        // Invalid address ID
         shared_ptr<int32_t> suppressionId_ {};
-        // Source of entry, invalid address type
-        // - system
-        // - user
         shared_ptr<string> type_ {};
       };
 
@@ -190,7 +183,6 @@ namespace Models
 
 
   protected:
-    // Returned results.
     shared_ptr<ListUserSuppressionResponseBody::Data> data_ {};
     // Page number
     shared_ptr<int32_t> pageNumber_ {};

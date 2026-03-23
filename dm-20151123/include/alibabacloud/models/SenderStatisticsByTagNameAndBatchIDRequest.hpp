@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
       DARABONBA_PTR_TO_JSON(DedicatedIp, dedicatedIp_);
       DARABONBA_PTR_TO_JSON(DedicatedIpPoolId, dedicatedIpPoolId_);
+      DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Esp, esp_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
       DARABONBA_PTR_FROM_JSON(DedicatedIp, dedicatedIp_);
       DARABONBA_PTR_FROM_JSON(DedicatedIpPoolId, dedicatedIpPoolId_);
+      DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Esp, esp_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->dedicatedIp_ == nullptr && this->dedicatedIpPoolId_ == nullptr && this->endTime_ == nullptr && this->esp_ == nullptr && this->ownerId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr && this->tagName_ == nullptr; };
+        && this->dedicatedIp_ == nullptr && this->dedicatedIpPoolId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr && this->esp_ == nullptr
+        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr && this->tagName_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteDedicatedIpPoolId() { this->dedicatedIpPoolId_ = nullptr;};
     inline string getDedicatedIpPoolId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedIpPoolId_, "") };
     inline SenderStatisticsByTagNameAndBatchIDRequest& setDedicatedIpPoolId(string dedicatedIpPoolId) { DARABONBA_PTR_SET_VALUE(dedicatedIpPoolId_, dedicatedIpPoolId) };
+
+
+    // domain Field Functions 
+    bool hasDomain() const { return this->domain_ != nullptr;};
+    void deleteDomain() { this->domain_ = nullptr;};
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline SenderStatisticsByTagNameAndBatchIDRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // endTime Field Functions 
@@ -121,23 +130,43 @@ namespace Models
 
 
   protected:
-    // Sending address. If not filled, it represents all addresses.
+    // The sender address. If you do not specify this parameter, statistics for all sender addresses are returned.
     shared_ptr<string> accountName_ {};
+    // If you use Dedicated IPs, use this parameter to filter statistics by a specific Dedicated IP.
+    // 
+    // If you do not specify this parameter, statistics for all dedicated IPs that match the other criteria are returned.
     shared_ptr<string> dedicatedIp_ {};
+    // If you use Dedicated IPs, specify the ID of the dedicated IP pool to query.
+    // 
+    // If you do not specify this parameter, statistics for all resources are returned.
     shared_ptr<string> dedicatedIpPoolId_ {};
-    // End time, which cannot exceed 7 days from the start time, in the format yyyy-MM-dd.
+    shared_ptr<string> domain_ {};
+    // The end time for the query. The time range between `StartTime` and `EndTime` cannot exceed 7 days. The format must be `YYYY-MM-DD`.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // If you use Dedicated IPs, use this parameter to filter statistics by a specific Email Service Provider (ESP). Valid values are:
+    // 
+    // - `gmail.com`
+    // 
+    // - `yahoo.com`
+    // 
+    // - `outlook.com`
+    // 
+    // - `icloud.com`
+    // 
+    // - `others` (matches data for all other ESPs)
+    // 
+    // If you do not specify this parameter, statistics for all ESPs are returned.
     shared_ptr<string> esp_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Start time, in the format yyyy-MM-dd.
+    // The start time for the query. The date cannot be more than 30 days in the past. The format must be `YYYY-MM-DD`.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // Email tag. If not filled, it represents all tags.
+    // The email tag. If you do not specify this parameter, statistics for all tags are returned.
     shared_ptr<string> tagName_ {};
   };
 

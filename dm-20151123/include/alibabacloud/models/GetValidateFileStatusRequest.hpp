@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The file ID returned after the task is submitted.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
   };
