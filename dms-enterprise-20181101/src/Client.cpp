@@ -13783,6 +13783,72 @@ ListTablesInCategoryResponse Client::listTablesInCategory(const ListTablesInCate
 }
 
 /**
+ * @summary 查询绑定特定标签的资产列表
+ *
+ * @param request ListTagMetaAssetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagMetaAssetResponse
+ */
+ListTagMetaAssetResponse Client::listTagMetaAssetWithOptions(const ListTagMetaAssetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMetaParentId()) {
+    query["MetaParentId"] = request.getMetaParentId();
+  }
+
+  if (!!request.hasMetaType()) {
+    query["MetaType"] = request.getMetaType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasTagName()) {
+    query["TagName"] = request.getTagName();
+  }
+
+  if (!!request.hasTid()) {
+    query["Tid"] = request.getTid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagMetaAsset"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagMetaAssetResponse>();
+}
+
+/**
+ * @summary 查询绑定特定标签的资产列表
+ *
+ * @param request ListTagMetaAssetRequest
+ * @return ListTagMetaAssetResponse
+ */
+ListTagMetaAssetResponse Client::listTagMetaAsset(const ListTagMetaAssetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagMetaAssetWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of task flows.
  *
  * @param request ListTaskFlowRequest

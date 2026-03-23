@@ -4271,6 +4271,23 @@ namespace DmsEnterprise20181101
       Models::ListTablesInCategoryResponse listTablesInCategory(const Models::ListTablesInCategoryRequest &request);
 
       /**
+       * @summary 查询绑定特定标签的资产列表
+       *
+       * @param request ListTagMetaAssetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagMetaAssetResponse
+       */
+      Models::ListTagMetaAssetResponse listTagMetaAssetWithOptions(const Models::ListTagMetaAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询绑定特定标签的资产列表
+       *
+       * @param request ListTagMetaAssetRequest
+       * @return ListTagMetaAssetResponse
+       */
+      Models::ListTagMetaAssetResponse listTagMetaAsset(const Models::ListTagMetaAssetRequest &request);
+
+      /**
        * @summary Queries a list of task flows.
        *
        * @param request ListTaskFlowRequest

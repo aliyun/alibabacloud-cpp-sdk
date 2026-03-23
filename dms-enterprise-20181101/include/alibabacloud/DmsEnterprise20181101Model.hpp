@@ -742,6 +742,9 @@
 #include <alibabacloud/models/ListTablesInCategoryRequest.hpp>
 #include <alibabacloud/models/ListTablesInCategoryResponseBody.hpp>
 #include <alibabacloud/models/ListTablesInCategoryResponse.hpp>
+#include <alibabacloud/models/ListTagMetaAssetRequest.hpp>
+#include <alibabacloud/models/ListTagMetaAssetResponseBody.hpp>
+#include <alibabacloud/models/ListTagMetaAssetResponse.hpp>
 #include <alibabacloud/models/ListTaskFlowRequest.hpp>
 #include <alibabacloud/models/ListTaskFlowResponseBody.hpp>
 #include <alibabacloud/models/ListTaskFlowResponse.hpp>
