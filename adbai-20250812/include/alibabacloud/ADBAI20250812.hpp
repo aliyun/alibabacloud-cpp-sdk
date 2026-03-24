@@ -140,6 +140,40 @@ namespace ADBAI20250812
       Models::LockEmbodiedAIPlatformResponse lockEmbodiedAIPlatform(const Models::LockEmbodiedAIPlatformRequest &request);
 
       /**
+       * @summary 修改变配指标平台
+       *
+       * @param tmpReq ModifyAgentPlatformRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAgentPlatformResponse
+       */
+      Models::ModifyAgentPlatformResponse modifyAgentPlatformWithOptions(const Models::ModifyAgentPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改变配指标平台
+       *
+       * @param request ModifyAgentPlatformRequest
+       * @return ModifyAgentPlatformResponse
+       */
+      Models::ModifyAgentPlatformResponse modifyAgentPlatform(const Models::ModifyAgentPlatformRequest &request);
+
+      /**
+       * @summary 变配具身智能平台
+       *
+       * @param tmpReq ModifyEmbodiedAIPlatformRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyEmbodiedAIPlatformResponse
+       */
+      Models::ModifyEmbodiedAIPlatformResponse modifyEmbodiedAIPlatformWithOptions(const Models::ModifyEmbodiedAIPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变配具身智能平台
+       *
+       * @param request ModifyEmbodiedAIPlatformRequest
+       * @return ModifyEmbodiedAIPlatformResponse
+       */
+      Models::ModifyEmbodiedAIPlatformResponse modifyEmbodiedAIPlatform(const Models::ModifyEmbodiedAIPlatformRequest &request);
+
+      /**
        * @summary 重置具身智能平台密码
        *
        * @param request ResetEmbodiedAIPlatformPasswordRequest

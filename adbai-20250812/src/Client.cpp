@@ -446,6 +446,130 @@ LockEmbodiedAIPlatformResponse Client::lockEmbodiedAIPlatform(const LockEmbodied
 }
 
 /**
+ * @summary 修改变配指标平台
+ *
+ * @param tmpReq ModifyAgentPlatformRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAgentPlatformResponse
+ */
+ModifyAgentPlatformResponse Client::modifyAgentPlatformWithOptions(const ModifyAgentPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyAgentPlatformShrinkRequest request = ModifyAgentPlatformShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAiPlatformConfig()) {
+    request.setAiPlatformConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAiPlatformConfig(), "AiPlatformConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAiPlatformConfigShrink()) {
+    query["AiPlatformConfig"] = request.getAiPlatformConfigShrink();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAgentPlatform"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAgentPlatformResponse>();
+}
+
+/**
+ * @summary 修改变配指标平台
+ *
+ * @param request ModifyAgentPlatformRequest
+ * @return ModifyAgentPlatformResponse
+ */
+ModifyAgentPlatformResponse Client::modifyAgentPlatform(const ModifyAgentPlatformRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAgentPlatformWithOptions(request, runtime);
+}
+
+/**
+ * @summary 变配具身智能平台
+ *
+ * @param tmpReq ModifyEmbodiedAIPlatformRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyEmbodiedAIPlatformResponse
+ */
+ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatformWithOptions(const ModifyEmbodiedAIPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyEmbodiedAIPlatformShrinkRequest request = ModifyEmbodiedAIPlatformShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRayConfig()) {
+    request.setRayConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRayConfig(), "RayConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPlatformName()) {
+    query["PlatformName"] = request.getPlatformName();
+  }
+
+  if (!!request.hasRayConfigShrink()) {
+    query["RayConfig"] = request.getRayConfigShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasWebserverSpecName()) {
+    query["WebserverSpecName"] = request.getWebserverSpecName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyEmbodiedAIPlatform"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyEmbodiedAIPlatformResponse>();
+}
+
+/**
+ * @summary 变配具身智能平台
+ *
+ * @param request ModifyEmbodiedAIPlatformRequest
+ * @return ModifyEmbodiedAIPlatformResponse
+ */
+ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatform(const ModifyEmbodiedAIPlatformRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyEmbodiedAIPlatformWithOptions(request, runtime);
+}
+
+/**
  * @summary 重置具身智能平台密码
  *
  * @param request ResetEmbodiedAIPlatformPasswordRequest

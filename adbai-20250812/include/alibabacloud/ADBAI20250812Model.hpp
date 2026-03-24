@@ -25,6 +25,14 @@
 #include <alibabacloud/models/LockEmbodiedAIPlatformRequest.hpp>
 #include <alibabacloud/models/LockEmbodiedAIPlatformResponseBody.hpp>
 #include <alibabacloud/models/LockEmbodiedAIPlatformResponse.hpp>
+#include <alibabacloud/models/ModifyAgentPlatformRequest.hpp>
+#include <alibabacloud/models/ModifyAgentPlatformShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyAgentPlatformResponseBody.hpp>
+#include <alibabacloud/models/ModifyAgentPlatformResponse.hpp>
+#include <alibabacloud/models/ModifyEmbodiedAIPlatformRequest.hpp>
+#include <alibabacloud/models/ModifyEmbodiedAIPlatformShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyEmbodiedAIPlatformResponseBody.hpp>
+#include <alibabacloud/models/ModifyEmbodiedAIPlatformResponse.hpp>
 #include <alibabacloud/models/ResetEmbodiedAIPlatformPasswordRequest.hpp>
 #include <alibabacloud/models/ResetEmbodiedAIPlatformPasswordResponseBody.hpp>
 #include <alibabacloud/models/ResetEmbodiedAIPlatformPasswordResponse.hpp>
