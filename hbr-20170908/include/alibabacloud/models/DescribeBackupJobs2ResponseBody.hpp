@@ -111,6 +111,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(StartTime, startTime_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(TableName, tableName_);
+          DARABONBA_PTR_TO_JSON(TriggerMode, triggerMode_);
           DARABONBA_PTR_TO_JSON(UpdatedTime, updatedTime_);
           DARABONBA_PTR_TO_JSON(VaultId, vaultId_);
         };
@@ -160,6 +161,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(TableName, tableName_);
+          DARABONBA_PTR_FROM_JSON(TriggerMode, triggerMode_);
           DARABONBA_PTR_FROM_JSON(UpdatedTime, updatedTime_);
           DARABONBA_PTR_FROM_JSON(VaultId, vaultId_);
         };
@@ -514,8 +516,8 @@ namespace Models
         && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->itemsDone_ == nullptr && this->itemsTotal_ == nullptr && this->jobId_ == nullptr
         && this->jobName_ == nullptr && this->options_ == nullptr && this->otsDetail_ == nullptr && this->paths_ == nullptr && this->planId_ == nullptr
         && this->prefix_ == nullptr && this->progress_ == nullptr && this->report_ == nullptr && this->sourceType_ == nullptr && this->speed_ == nullptr
-        && this->speedLimit_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tableName_ == nullptr && this->updatedTime_ == nullptr
-        && this->vaultId_ == nullptr; };
+        && this->speedLimit_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tableName_ == nullptr && this->triggerMode_ == nullptr
+        && this->updatedTime_ == nullptr && this->vaultId_ == nullptr; };
         // actualBytes Field Functions 
         bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
         void deleteActualBytes() { this->actualBytes_ = nullptr;};
@@ -839,6 +841,13 @@ namespace Models
         inline BackupJob& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
+        // triggerMode Field Functions 
+        bool hasTriggerMode() const { return this->triggerMode_ != nullptr;};
+        void deleteTriggerMode() { this->triggerMode_ = nullptr;};
+        inline string getTriggerMode() const { DARABONBA_PTR_GET_DEFAULT(triggerMode_, "") };
+        inline BackupJob& setTriggerMode(string triggerMode) { DARABONBA_PTR_SET_VALUE(triggerMode_, triggerMode) };
+
+
         // updatedTime Field Functions 
         bool hasUpdatedTime() const { return this->updatedTime_ != nullptr;};
         void deleteUpdatedTime() { this->updatedTime_ = nullptr;};
@@ -899,6 +908,7 @@ namespace Models
         shared_ptr<int64_t> startTime_ {};
         shared_ptr<string> status_ {};
         shared_ptr<string> tableName_ {};
+        shared_ptr<string> triggerMode_ {};
         shared_ptr<int64_t> updatedTime_ {};
         shared_ptr<string> vaultId_ {};
       };
