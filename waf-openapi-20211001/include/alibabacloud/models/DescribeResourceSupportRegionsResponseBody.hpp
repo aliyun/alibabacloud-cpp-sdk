@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Indicates the request ID.
     shared_ptr<string> requestId_ {};
-    // An array of region IDs of the CLB and ECS instances that are added to WAF in cloud native mode.
+    // The list of region IDs supported by transparent proxy mode.
     shared_ptr<vector<string>> supportRegions_ {};
   };
 

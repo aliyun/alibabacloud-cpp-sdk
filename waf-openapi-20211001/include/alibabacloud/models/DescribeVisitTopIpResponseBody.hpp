@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The ordinal number of the area to which the IP address belongs.
+      // The code of the geographical location.
       shared_ptr<string> area_ {};
-      // The total number of requests that are sent from the IP address.
+      // The total number of requests that are initiated from the IP address.
       shared_ptr<int64_t> count_ {};
       // The IP address.
       shared_ptr<string> ip_ {};
-      // The ISP.
+      // The Internet service provider (ISP).
       shared_ptr<string> isp_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The array of the top 10 IP addresses from which requests are sent.
+    // The top 10 IP addresses that initiate the most requests.
     shared_ptr<vector<DescribeVisitTopIpResponseBody::TopIp>> topIp_ {};
   };
 

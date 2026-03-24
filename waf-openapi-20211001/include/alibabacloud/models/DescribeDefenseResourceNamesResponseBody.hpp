@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The names of the protected objects.
     shared_ptr<vector<string>> resources_ {};

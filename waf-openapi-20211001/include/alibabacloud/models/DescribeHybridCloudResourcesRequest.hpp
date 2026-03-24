@@ -103,29 +103,31 @@ namespace Models
 
 
   protected:
-    // The back-to-origin IP address or domain name.
+    // The IP address or domain name of the origin server for back-to-origin.
     shared_ptr<string> backend_ {};
-    // Specifies whether the public cloud disaster recovery feature is enabled for the domain name. Valid values:
+    // Indicates whether public cloud disaster recovery is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> cnameEnabled_ {};
     // The domain name that you want to query.
     shared_ptr<string> domain_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries to return on each page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the WAF instance. Valid values:
     // 
-    // *   **cn-hangzhou:** the Chinese mainland.
-    // *   **ap-southeast-1:** outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

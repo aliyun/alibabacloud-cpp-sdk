@@ -121,11 +121,11 @@ namespace Models
 
 
         protected:
-          // The number of sensitive personal information records that are of the most frequent sensitive data type.
+          // The number of personal information items for the most frequently detected sensitive data type.
           shared_ptr<int64_t> infoCount_ {};
-          // The number of sensitive personal information records that are of the most frequent sensitive data type and are involved in cross-border data transfer.
+          // The number of outbound transfers of personal information for the most frequently detected sensitive data type.
           shared_ptr<int64_t> outboundCount_ {};
-          // The most frequent sensitive data type.
+          // The code of the sensitive data type that is most frequently detected.
           shared_ptr<int64_t> sensitiveCode_ {};
         };
 
@@ -176,11 +176,11 @@ namespace Models
 
 
         protected:
-          // The number of personal information records.
+          // The number of personal information items.
           shared_ptr<int64_t> infoCount_ {};
-          // The number of sensitive personal information records that are involved in cross-border data transfer.
+          // The number of outbound transfers of personal information.
           shared_ptr<int64_t> outboundCount_ {};
-          // The sensitive data type.
+          // The code of the sensitive data type.
           shared_ptr<int64_t> sensitiveCode_ {};
         };
 
@@ -212,14 +212,15 @@ namespace Models
 
 
       protected:
-        // The compliance check results. Valid values:
+        // The result of the compliance detection. Valid values:
         // 
-        // *   **report**: Risks exist in cross-border data transfer.
-        // *   **none**: No risks exist in cross-border data transfer.
+        // - **report**: A risk of outbound data transfer is detected.
+        // 
+        // - **none**: No risk of outbound data transfer is detected.
         shared_ptr<string> detectionResult_ {};
-        // The sensitive information check results by sensitive data type.
+        // The detection results for each sensitive data type.
         shared_ptr<vector<Result::List>> list_ {};
-        // The maximum values in the statistics of sensitive data types.
+        // The statistics for the most frequently detected sensitive data type.
         shared_ptr<Result::Max> max_ {};
       };
 
@@ -234,7 +235,7 @@ namespace Models
 
 
     protected:
-      // The compliance checks.
+      // The compliance detection results for sensitive data.
       shared_ptr<vector<Data::Result>> result_ {};
     };
 
@@ -257,9 +258,9 @@ namespace Models
 
 
   protected:
-    // The compliance check results.
+    // The data returned for the compliance detection results.
     shared_ptr<DescribeSensitiveDetectionResultResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

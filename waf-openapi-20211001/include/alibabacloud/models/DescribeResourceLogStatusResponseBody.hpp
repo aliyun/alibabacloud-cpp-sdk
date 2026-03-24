@@ -70,12 +70,13 @@ namespace Models
 
 
     protected:
-      // The protected object.
+      // The name of the protected object.
       shared_ptr<string> resource_ {};
-      // Indicates whether the log collection feature is enabled for the protected object. Valid values:
+      // Indicates whether log collection is enabled for the protected object. Valid values:
       // 
-      // *   **true:** The log collection feature is enabled.
-      // *   **false:** The log collection feature is disabled.
+      // - **true**: Log collection is enabled.
+      // 
+      // - **false**: Log collection is disabled.
       shared_ptr<bool> status_ {};
     };
 
@@ -100,7 +101,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The log status information of protected objects.
     shared_ptr<vector<DescribeResourceLogStatusResponseBody::Result>> result_ {};
   };
 

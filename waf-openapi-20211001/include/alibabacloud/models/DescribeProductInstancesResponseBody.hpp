@@ -158,11 +158,17 @@ namespace Models
 
 
         protected:
+          // The type of the HTTPS certificate. Valid values:
+          // 
+          // - **default**: Default certificate.
+          // 
+          // - **extension**: Extension certificate.
           shared_ptr<string> appliedType_ {};
-          // The ID of the certificate.
+          // The certificate ID.
           shared_ptr<string> certificateId_ {};
           // The name of the certificate.
           shared_ptr<string> certificateName_ {};
+          // The domain name bound to the certificate.
           shared_ptr<string> domain_ {};
         };
 
@@ -194,12 +200,13 @@ namespace Models
       protected:
         // The information about the certificates.
         shared_ptr<vector<ResourcePorts::Certificates>> certificates_ {};
-        // The port number.
+        // The port.
         shared_ptr<int32_t> port_ {};
         // The protocol type. Valid values:
         // 
-        // *   **http**
-        // *   **https**
+        // - **http**: HTTP protocol.
+        // 
+        // - **https**: HTTPS protocol.
         shared_ptr<string> protocol_ {};
       };
 
@@ -252,8 +259,15 @@ namespace Models
 
 
       protected:
+        // The certificates.
         shared_ptr<vector<string>> certificateIds_ {};
+        // The port of the cloud service added to WAF.
         shared_ptr<int32_t> port_ {};
+        // The protocol type. Valid values:
+        // 
+        // - **http**: HTTP protocol.
+        // 
+        // - **https**: HTTPS protocol.
         shared_ptr<string> protocol_ {};
       };
 
@@ -366,18 +380,31 @@ namespace Models
 
 
     protected:
+      // The ID of the instance added to WAF.
       shared_ptr<string> accessInstanceId_ {};
+      // The port and protocol information of the cloud service added to WAF.
       shared_ptr<vector<ProductInstances::AccessPortAndProtocols>> accessPortAndProtocols_ {};
+      // The list of ports added to WAF.
       shared_ptr<vector<int32_t>> accessPorts_ {};
-      // The ID of the Alibaba Cloud account to which the resource belongs.
+      // The user ID (UID) of the Alibaba Cloud account to which the instance belongs.
       shared_ptr<string> ownerUserId_ {};
+      // The protection status of WAF. Valid values:
+      // 
+      // - **all**: All protected.
+      // 
+      // - **any**: Protected.
+      // 
+      // - **part**: Partially protected.
+      // 
+      // - **non**: Not protected.
       shared_ptr<string> resourceInstanceAccessStatus_ {};
+      // The edition of the instance.
       shared_ptr<string> resourceInstanceEdition_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> resourceInstanceId_ {};
-      // The IP address of the instance that is added to WAF.
+      // The IP address of the instance.
       shared_ptr<string> resourceInstanceIp_ {};
-      // The name of the instance that is added to WAF.
+      // The name of the instance.
       shared_ptr<string> resourceInstanceName_ {};
       // The public IP address of the instance.
       shared_ptr<string> resourceIp_ {};
@@ -385,24 +412,37 @@ namespace Models
       shared_ptr<string> resourceName_ {};
       // The information about the ports.
       shared_ptr<vector<ProductInstances::ResourcePorts>> resourcePorts_ {};
-      // The cloud service to which the instance belongs. Valid values:
+      // The type of the cloud service. Valid values:
       // 
-      // *   **clb4**: Layer 4 CLB.
-      // *   **clb7**: Layer 7 CLB.
-      // *   **ecs**: ECS.
+      // - **clb4**: Layer 4 CLB.
+      // 
+      // - **clb7**: Layer 7 CLB.
+      // 
+      // - **ecs**: ECS.
+      // 
+      // - **nlb**: NLB.
       shared_ptr<string> resourceProduct_ {};
       // The region ID of the instance. Valid values:
       // 
-      // *   **cn-chengdu**: China (Chengdu).
-      // *   **cn-beijing**: China (Beijing).
-      // *   **cn-zhangjiakou**: China (Zhangjiakou).
-      // *   **cn-hangzhou**: China (Hangzhou).
-      // *   **cn-shanghai**: China (Shanghai).
-      // *   **cn-shenzhen**: China (Shenzhen).
-      // *   **cn-qingdao**: China (Qingdao).
-      // *   **cn-hongkong**: China (Hong Kong).
-      // *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
-      // *   **ap-southeast-5**: Indonesia (Jakarta).
+      // - **cn-chengdu**: China (Chengdu).
+      // 
+      // - **cn-beijing**: China (Beijing).
+      // 
+      // - **cn-zhangjiakou**: China (Zhangjiakou).
+      // 
+      // - **cn-hangzhou**: China (Hangzhou).
+      // 
+      // - **cn-shanghai**: China (Shanghai).
+      // 
+      // - **cn-shenzhen**: China (Shenzhen).
+      // 
+      // - **cn-qingdao**: China (Qingdao).
+      // 
+      // - **cn-hongkong**: China (Hong Kong).
+      // 
+      // - **ap-southeast-3**: Malaysia (Kuala Lumpur).
+      // 
+      // - **ap-southeast-5**: Indonesia (Jakarta).
       shared_ptr<string> resourceRegionId_ {};
     };
 

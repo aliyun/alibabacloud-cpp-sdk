@@ -521,10 +521,8 @@ namespace Models
 
 
     protected:
-      // CNAME
       shared_ptr<string> cname_ {};
       shared_ptr<string> domain_ {};
-      // id
       shared_ptr<int64_t> id_ {};
       shared_ptr<Domain::Listen> listen_ {};
       shared_ptr<Domain::Redirect> redirect_ {};

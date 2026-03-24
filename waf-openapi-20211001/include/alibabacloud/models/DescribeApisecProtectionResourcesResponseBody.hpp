@@ -90,13 +90,25 @@ namespace Models
 
 
     protected:
-      // The switch of the API security module.
+      // Indicates whether the API security feature is enabled for the protected object. Valid values:
+      // 
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int64_t> apisecStatus_ {};
-      // The switch of the compliance check feature.
+      // Indicates whether the compliance check feature is enabled. Valid values:
+      // 
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int64_t> reportStatus_ {};
-      // The protected object.
+      // The name of the protected object.
       shared_ptr<string> resource_ {};
-      // The switch of the tracing and auditing feature.
+      // Indicates whether the source tracing feature is enabled. Valid values:
+      // 
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int64_t> traceStatus_ {};
     };
 
@@ -126,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The protected objects.
+    // The list of protected objects.
     shared_ptr<vector<DescribeApisecProtectionResourcesResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

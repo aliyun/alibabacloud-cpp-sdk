@@ -97,16 +97,15 @@ namespace Models
 
 
     protected:
-      // The number of high-risk events.
+      // The number of important events.
       shared_ptr<int64_t> eventHigh_ {};
       // The number of low-risk events.
       shared_ptr<int64_t> eventLow_ {};
       // The number of medium-risk events.
       shared_ptr<int64_t> eventMedium_ {};
-      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-      // >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
+      // The time of the statistics. This is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> timeStamp_ {};
-      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time of the statistics. This is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -131,7 +130,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The trends of attacks.
+    // The list of attack trends.
     shared_ptr<vector<DescribeUserEventTrendResponseBody::Trend>> trend_ {};
   };
 

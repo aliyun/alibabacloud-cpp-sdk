@@ -75,12 +75,35 @@ namespace Models
 
 
   protected:
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the log storage region. If this parameter is not specified, Simple Log Service is enabled in the region where the WAF instance resides.
+    // 
+    // - **cn-hangzhou**: the default region where Simple Log Service is enabled for a WAF instance in the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: the default region where Simple Log Service is enabled for a WAF instance outside the Chinese mainland.
+    // 
+    // > Call [DescribeUserSlsLogRegions](https://help.aliyun.com/document_detail/2712598.html) to query the available log storage regions.
     shared_ptr<string> logRegionId_ {};
+    // Indicates whether Simple Log Service is enabled. Valid values:
+    // 
+    // - **0**: Simple Log Service is disabled.
+    // 
+    // - **1**: Simple Log Service is enabled.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> logStatus_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

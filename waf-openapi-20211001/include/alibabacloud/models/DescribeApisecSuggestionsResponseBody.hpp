@@ -97,33 +97,47 @@ namespace Models
 
 
     protected:
-      // The API.
+      // The request path of the API.
       shared_ptr<string> apiFormat_ {};
-      // The domain name or IP address of the API.
+      // The domain name or IP address associated with the API.
       shared_ptr<string> matchedHost_ {};
-      // The rule ID of the protection suggestion.
+      // The ID of the protection suggestion.
       shared_ptr<string> suggestId_ {};
-      // The rule content of the protection suggestion. The value is a string that consists of multiple parameters in the JSON format. Valid values:
+      // The protection suggestion rule, in JSON format. The JSON string contains the following parameters:
       // 
-      // *   **event_tags**: event type
-      // *   **black_iplist**: IP address blacklist
-      // *   **ip_baseline**: IP address
-      // *   **freq_baseline**: throttling frequency
-      // *   **client_id_baseline**: client information
-      // *   **country_baseline**: country information
-      // *   **province_baseline**: province information
-      // *   **sensitive_type**: sensitive information
+      // - **event_tags**: the event type.
+      // 
+      // - **black_iplist**: the IP address blacklist.
+      // 
+      // - **ip_baseline**: the IP address list.
+      // 
+      // - **freq_baseline**: the frequency limit information.
+      // 
+      // - **client_id_baseline**: the client information.
+      // 
+      // - **country_baseline**: the country information.
+      // 
+      // - **province_baseline**: the region information.
+      // 
+      // - **sensitive_type**: the sensitive information type.
       shared_ptr<string> suggestRule_ {};
-      // The rule type of the protection suggestion. Valid values:
+      // The type of the protection suggestion. Valid values:
       // 
-      // *   **BotRule**: bot management rules
-      // *   **BlackIPRule**: IP address blacklist rules
-      // *   **WhiteIPRule**: IP address whitelist rules
-      // *   **RateLimitRule**: throttling rules
-      // *   **ClientRule**: client rules
-      // *   **GeoRule**: region-related rules
-      // *   **SensitiveRule**: sensitive information rules
-      // *   **UnauthRule**: authentication rules
+      // - **BotRule**: a bot rule.
+      // 
+      // - **BlackIPRule**: an IP address blacklist rule.
+      // 
+      // - **WhiteIPRule**: an IP address whitelist rule.
+      // 
+      // - **RateLimitRule**: a rate limiting rule.
+      // 
+      // - **ClientRule**: a client rule.
+      // 
+      // - **GeoRule**: a region rule.
+      // 
+      // - **SensitiveRule**: a sensitive information rule.
+      // 
+      // - **UnauthRule**: an authentication rule.
       shared_ptr<string> suggestType_ {};
     };
 
@@ -146,7 +160,7 @@ namespace Models
 
 
   protected:
-    // The protection suggestions.
+    // The list of protection suggestions for the API asset.
     shared_ptr<vector<DescribeApisecSuggestionsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

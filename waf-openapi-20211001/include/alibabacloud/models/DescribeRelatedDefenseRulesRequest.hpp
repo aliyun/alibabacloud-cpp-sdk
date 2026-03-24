@@ -103,16 +103,40 @@ namespace Models
 
 
   protected:
+    // The WAF protection scenario. Only the following value is supported:
+    // 
+    // - **address_book**: address book.
+    // 
     // This parameter is required.
     shared_ptr<string> defenseScene_ {};
+    // The type of the protection rule. Only the following value is supported:
+    // 
+    // - **global**: a global rule.
+    // 
     // This parameter is required.
     shared_ptr<string> defenseType_ {};
+    // The ID of the Web Application Firewall (WAF) instance.
+    // 
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to query the next page of results. If more results are available, this parameter is returned.
+    // 
+    // > If this parameter is returned, more results are available. Use the returned NextToken value as a request parameter to retrieve the next page of data. Repeat this process until the **NextToken** parameter is not returned. This indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The ID of the protection rule.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

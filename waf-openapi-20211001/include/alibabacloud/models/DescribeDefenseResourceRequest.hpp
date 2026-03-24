@@ -68,14 +68,15 @@ namespace Models
   protected:
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: The Chinese mainland.
-    // *   **ap-southeast-1**: Outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The name of the protected object that you want to query. Only exact queries are supported.
+    // The name of the protected object that you want to query. The protected object must have been added to WAF.
     // 
     // This parameter is required.
     shared_ptr<string> resource_ {};

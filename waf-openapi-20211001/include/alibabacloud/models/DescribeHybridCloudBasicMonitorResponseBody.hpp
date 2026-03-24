@@ -81,14 +81,21 @@ namespace Models
 
 
     protected:
+      // The status. Valid values:
+      // 
+      // - **normal**: Normal.
+      // 
+      // - \\*\\*\\*\\*: Abnormal.
       shared_ptr<string> levle_ {};
       // The metric. Valid values:
       // 
-      // *   **basic_monitor_cpu_usage**: the CPU.
-      // *   **basic_monitor_memory_usage**: the memory.
-      // *   **basic_monitor_disk_usage**: the disk.
+      // - **basic_monitor_cpu_usage**: CPU.
+      // 
+      // - **basic_monitor_memory_usage**: memory.
+      // 
+      // - **basic_monitor_disk_usage**: disk.
       shared_ptr<string> monitorName_ {};
-      // The resource usage.
+      // The usage percentage.
       shared_ptr<int64_t> useRatio_ {};
     };
 
@@ -118,10 +125,11 @@ namespace Models
 
 
   protected:
-    // The basic metrics.
+    // The list of basic monitoring metrics.
     shared_ptr<vector<DescribeHybridCloudBasicMonitorResponseBody::BasicMonitors>> basicMonitors_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // > This parameter is deprecated. No meaningful data is returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

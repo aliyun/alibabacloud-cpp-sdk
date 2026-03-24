@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The total number of requests that are initiated by using the URL.
+      // The total number of requests for the URL.
       shared_ptr<int64_t> count_ {};
-      // The URL that is used to initiate requests.
+      // The requested URL.
       shared_ptr<string> url_ {};
     };
 
@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The array of the top 10 URLs that are used to initiate requests.
+    // The top 10 URLs that are most frequently accessed.
     shared_ptr<vector<DescribeFlowTopUrlResponseBody::RuleHitsTopUrl>> ruleHitsTopUrl_ {};
   };
 

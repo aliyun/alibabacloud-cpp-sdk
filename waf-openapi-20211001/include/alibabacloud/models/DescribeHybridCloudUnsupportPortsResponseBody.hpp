@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+    // The list of ports for the HTTP protocol. The value is a string. Multiple ports are returned in the **port1,port2,port3** format.
     shared_ptr<string> httpPorts_ {};
-    // The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+    // The list of ports for the HTTPS protocol. The value is a string. Multiple ports are returned in the **port1,port2,port3** format.
     shared_ptr<string> httpsPorts_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -81,23 +81,23 @@ namespace Models
     shared_ptr<string> clusterResourceId_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // **
-    // 
-    // **You can call the **DescribeInstanceInfo[ operation to obtain the ID of the WAF instance.](https://help.aliyun.com/document_detail/140857.html)
+    // > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The status of manual bypass. Valid values:
+    // The status of the manual bypass. Valid values:
     // 
-    // *   **on**: enabled.
-    // *   **off**: disabled. This is the default value.
+    // - **on**: The manual bypass is enabled.
+    // 
+    // - **off** (default): The manual bypass is disabled.
     // 
     // This parameter is required.
     shared_ptr<string> ruleStatus_ {};

@@ -114,36 +114,41 @@ namespace Models
   protected:
     // The ID of the hybrid cloud cluster.
     shared_ptr<int64_t> clusterId_ {};
-    // The type of proxy cluster that is used. Valid values:
+    // The proxy type of the hybrid cloud cluster. Valid values:
     // 
-    // *   **service**: service-based traffic mirroring.
-    // *   **cname**: reverse proxy.
+    // - **service**: SDK-based integration.
+    // 
+    // - **cname**: CNAME-based reverse proxy.
     shared_ptr<string> clusterProxyType_ {};
-    // The name of the node group that you want to query.
+    // The name of the hybrid cloud node group that you want to query.
     shared_ptr<int32_t> groupName_ {};
-    // The type of the node group. Valid values:
+    // The type of the hybrid cloud node group. Valid values:
     // 
-    // *   **protect**
-    // *   **control**
-    // *   **storage**
-    // *   **controlStorage**
+    // - **protect**: protection node group.
+    // 
+    // - **control**: control node group.
+    // 
+    // - **storage**: storage node group.
+    // 
+    // - **controlStorage**: control and storage node group.
     shared_ptr<string> groupType_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: **1**.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region in which the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou:** the Chinese mainland.
-    // *   **ap-southeast-1:** outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the resource group to which the WAF instance belongs.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

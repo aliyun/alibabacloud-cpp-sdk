@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The number of APIs returned.
+      // The number of assets.
       shared_ptr<int64_t> assetNum_ {};
-      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the statistics are collected. This value is a UNIX timestamp in seconds. The time is in UTC.
       shared_ptr<int64_t> timeStamp_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The API statistics.
+    // A list of asset statistics.
     shared_ptr<vector<DescribeUserAssetResponseBody::Assets>> assets_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

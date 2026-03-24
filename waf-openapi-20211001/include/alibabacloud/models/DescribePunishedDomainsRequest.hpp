@@ -78,23 +78,25 @@ namespace Models
 
 
   protected:
-    // The domain names that are added to WAF.
+    // The list of domain names added to WAF.
     shared_ptr<vector<string>> domains_ {};
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The type of punishment. Valid values:
+    // The penalty type. Valid values:
     // 
-    // *   **beian** (default): the filing center.
-    // *   **punishCenter**: the punishment center.
+    // - **beian** (default): ICP filing center.
+    // 
+    // - **punishCenter**: penalty center.
     shared_ptr<string> punishType_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

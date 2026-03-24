@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the new protection template.
+    // The ID of the newly created protection template.
     shared_ptr<int64_t> templateId_ {};
   };
 

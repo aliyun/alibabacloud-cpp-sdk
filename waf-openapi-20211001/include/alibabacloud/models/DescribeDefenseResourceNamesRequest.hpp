@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the paginated results. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **20**.
+    // The number of entries per page. Default value: **20**, which indicates 20 entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: The Chinese mainland.
+    // 
+    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The name of the protected object that you want to query.
     shared_ptr<string> resource_ {};

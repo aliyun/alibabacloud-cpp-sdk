@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The IP address or CIDR block in the address book.
       shared_ptr<string> address_ {};
+      // The most recent modification time of the address. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
+      // The ID of the address book.
       shared_ptr<int64_t> ruleId_ {};
     };
 
@@ -130,10 +133,17 @@ namespace Models
 
 
   protected:
+    // The addresses in the address book.
     shared_ptr<vector<DescribeAddressesResponseBody::AddressList>> addressList_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. If this parameter is returned, more results are available.
+    // 
+    // > Include this value in the **NextToken** parameter of the next request to retrieve additional results. If this parameter is not returned, all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of addresses that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

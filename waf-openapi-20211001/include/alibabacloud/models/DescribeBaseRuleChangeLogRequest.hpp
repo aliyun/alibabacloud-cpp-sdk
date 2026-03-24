@@ -84,12 +84,29 @@ namespace Models
 
 
   protected:
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Set the language property for rule names. Valid values:
+    // 
+    // - **zh**: Chinese rule names.
+    // 
+    // - **en**: English rule names.
     shared_ptr<string> lang_ {};
+    // When performing a paged query, specify the page number to return. The default value is **1**, which means the first page of data is returned.
     shared_ptr<int32_t> pageNumber_ {};
+    // When performing a paged query, specify the number of results per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region to which the WAF instance belongs. Valid values:
+    // 
+    // - **cn-hangzhou**: The Chinese mainland.
+    // 
+    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

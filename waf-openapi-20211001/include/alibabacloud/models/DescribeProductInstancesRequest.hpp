@@ -158,29 +158,39 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF instance.
+    // The Web Application Firewall (WAF) instance ID.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the Alibaba Cloud account to which the resource belongs.
+    // The ID of the Alibaba Cloud account to which the instance belongs.
     shared_ptr<string> ownerUserId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the returned page. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The protection status of WAF. Valid values:
+    // 
+    // - **all**: All protected.
+    // 
+    // - **any**: Protected.
+    // 
+    // - **part**: Partially protected.
+    // 
+    // - **non**: Not protected.
     shared_ptr<string> resourceInstanceAccessStatus_ {};
-    // The ID of the instance.
+    // The instance ID of the cloud service.
     shared_ptr<string> resourceInstanceId_ {};
-    // The IP address of the instance that is added to WAF.
+    // The IP address of the instance added to WAF.
     shared_ptr<string> resourceInstanceIp_ {};
-    // The name of the instance that is added to WAF.
+    // The name of the instance added to WAF.
     shared_ptr<string> resourceInstanceName_ {};
     // The public IP address of the instance.
     shared_ptr<string> resourceIp_ {};
@@ -188,24 +198,37 @@ namespace Models
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The name of the instance.
     shared_ptr<string> resourceName_ {};
-    // The cloud service to which the instance belongs. Valid values:
+    // The type of the cloud service. Valid values:
     // 
-    // *   **clb4**: Layer 4 Classic Load Balancer (CLB).
-    // *   **clb7**: Layer 7 CLB.
-    // *   **ecs**: Elastic Compute Service (ECS).
+    // - **clb4**: Layer 4 CLB.
+    // 
+    // - **clb7**: Layer 7 CLB.
+    // 
+    // - **ecs**: Elastic Compute Service (ECS).
+    // 
+    // - **nlb**: Network Load Balancer (NLB).
     shared_ptr<string> resourceProduct_ {};
     // The region ID of the instance. Valid values:
     // 
-    // *   **cn-chengdu**: China (Chengdu).
-    // *   **cn-beijing**: China (Beijing).
-    // *   **cn-zhangjiakou**: China (Zhangjiakou).
-    // *   **cn-hangzhou**: China (Hangzhou).
-    // *   **cn-shanghai**: China (Shanghai).
-    // *   **cn-shenzhen**: China (Shenzhen).
-    // *   **cn-qingdao**: China (Qingdao).
-    // *   **cn-hongkong**: China (Hong Kong).
-    // *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
-    // *   **ap-southeast-5**: Indonesia (Jakarta).
+    // - **cn-chengdu**: China (Chengdu).
+    // 
+    // - **cn-beijing**: China (Beijing).
+    // 
+    // - **cn-zhangjiakou**: China (Zhangjiakou).
+    // 
+    // - **cn-hangzhou**: China (Hangzhou).
+    // 
+    // - **cn-shanghai**: China (Shanghai).
+    // 
+    // - **cn-shenzhen**: China (Shenzhen).
+    // 
+    // - **cn-qingdao**: China (Qingdao).
+    // 
+    // - **cn-hongkong**: China (Hong Kong).
+    // 
+    // - **ap-southeast-3**: Malaysia (Kuala Lumpur).
+    // 
+    // - **ap-southeast-5**: Indonesia (Jakarta).
     shared_ptr<string> resourceRegionId_ {};
   };
 

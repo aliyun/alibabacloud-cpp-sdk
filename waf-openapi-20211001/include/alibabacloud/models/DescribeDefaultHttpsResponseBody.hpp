@@ -96,26 +96,31 @@ namespace Models
 
 
     protected:
-      // The certificate ID.
+      // The ID of the certificate.
       shared_ptr<string> certId_ {};
-      // The type of the cipher suites. Valid values:
+      // The type of the cipher suite. Valid values:
       // 
-      // *   **1**: all cipher suites.
-      // *   **2**: strong cipher suites.
-      // *   **99**: custom cipher suites.
+      // - **1**: all cipher suites.
+      // 
+      // - **2**: strong cipher suites.
+      // 
+      // - **99**: custom cipher suites.
       shared_ptr<string> cipherSuite_ {};
-      // The custom cipher suite.
+      // The custom cipher suites. This parameter is returned only when CipherSuite is set to 99.
       shared_ptr<string> customCiphers_ {};
       // Indicates whether TLS 1.3 is supported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
-      shared_ptr<bool> enableTLSv3_ {};
-      // The version of the TLS protocol. Valid values:
+      // - **true**: TLS 1.3 is supported.
       // 
-      // *   **tlsv1**
-      // *   **tlsv1.1**
-      // *   **tlsv1.2**
+      // - **false**: TLS 1.3 is not supported.
+      shared_ptr<bool> enableTLSv3_ {};
+      // The minimum TLS version. Valid values:
+      // 
+      // - **tlsv1**
+      // 
+      // - **tlsv1.1**
+      // 
+      // - **tlsv1.2**
       shared_ptr<string> TLSVersion_ {};
     };
 
@@ -138,7 +143,7 @@ namespace Models
 
 
   protected:
-    // The default SSL and TLS settings.
+    // The default SSL/TLS settings.
     shared_ptr<DescribeDefaultHttpsResponseBody::DefaultHttps> defaultHttps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

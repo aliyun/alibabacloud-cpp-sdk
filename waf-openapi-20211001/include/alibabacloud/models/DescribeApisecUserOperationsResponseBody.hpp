@@ -125,51 +125,69 @@ namespace Models
 
 
     protected:
-      // The state before the operation.
+      // The status of the threat detection or security event before the operation was performed.
       // 
-      // Valid values of the risk state:
+      // Valid values for threat detection:
       // 
-      // *   **toBeConfirmed**
-      // *   **confirmed**
-      // *   **toBeFixed**
-      // *   **fixed**
-      // *   **ignored**
+      // - **toBeConfirmed**: to be confirmed.
       // 
-      // Valid values of the event state:
+      // - **confirmed**: confirmed.
       // 
-      // *   **toBeConfirmed**
-      // *   **confirmed**
-      // *   **ignored**
+      // - **toBeFixed**: to be fixed.
+      // 
+      // - **fixed**: fixed.
+      // 
+      // - **ignored**: ignored.
+      // 
+      // Valid values for a security event:
+      // 
+      // - **toBeConfirmed**: to be confirmed.
+      // 
+      // - **confirmed**: confirmed.
+      // 
+      // - **ignored**: ignored.
       shared_ptr<string> fromStatus_ {};
-      // The remarks.
+      // The remarks that the user added to the operation record.
       shared_ptr<string> note_ {};
-      // The object ID of the operation record.
+      // The ID of the threat detection or security event associated with the operation record.
       shared_ptr<string> objectId_ {};
+      // The source of the operation. Valid values:
+      // 
+      // - **system**: the operation was automatically performed by the system.
+      // 
+      // - **custom**: the operation was manually performed by a user.
       shared_ptr<string> operationSource_ {};
-      // The time at which the operation was performed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the operation was performed. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> time_ {};
-      // The state after the operation.
+      // The status of the threat detection or security event after the operation was performed.
       // 
-      // Valid values of the risk state:
+      // Valid values for threat detection:
       // 
-      // *   **toBeConfirmed**
-      // *   **confirmed**
-      // *   **toBeFixed**
-      // *   **fixed**
-      // *   **ignored**
+      // - **toBeConfirmed**: to be confirmed.
       // 
-      // Valid values of the event state:
+      // - **confirmed**: confirmed.
       // 
-      // *   **toBeConfirmed**
-      // *   **confirmed**
-      // *   **ignored**
+      // - **toBeFixed**: to be fixed.
+      // 
+      // - **fixed**: fixed.
+      // 
+      // - **ignored**: ignored.
+      // 
+      // Valid values for a security event:
+      // 
+      // - **toBeConfirmed**: to be confirmed.
+      // 
+      // - **confirmed**: confirmed.
+      // 
+      // - **ignored**: ignored.
       shared_ptr<string> toStatus_ {};
       // The type of the operation record. Valid values:
       // 
-      // *   **abnormal**: risk detection
-      // *   **event**: security event
+      // - **abnormal**: threat detection.
+      // 
+      // - **event**: security event.
       shared_ptr<string> type_ {};
-      // The user ID.
+      // The ID of the user who performed the operation.
       shared_ptr<string> userId_ {};
     };
 
@@ -192,9 +210,9 @@ namespace Models
 
 
   protected:
-    // The operation records.
+    // The user operation records for API security.
     shared_ptr<vector<DescribeApisecUserOperationsResponseBody::Data>> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

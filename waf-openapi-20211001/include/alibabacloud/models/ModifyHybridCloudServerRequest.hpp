@@ -103,36 +103,37 @@ namespace Models
 
 
   protected:
-    // The continent.
+    // The continent where the hybrid cloud node resides.
     // 
     // This parameter is required.
     shared_ptr<string> continents_ {};
-    // The name of the node.
+    // The custom name of the hybrid cloud node.
     // 
     // This parameter is required.
     shared_ptr<string> customName_ {};
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the node.
+    // The ID of the hybrid cloud node.
     // 
     // This parameter is required.
     shared_ptr<string> mid_ {};
-    // The cloud service provider.
+    // The cloud service provider of the hybrid cloud node. Example: aliyun.
     // 
     // This parameter is required.
     shared_ptr<string> operator_ {};
-    // The city.
+    // The region code of the city where the hybrid cloud node resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionCode_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: Outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

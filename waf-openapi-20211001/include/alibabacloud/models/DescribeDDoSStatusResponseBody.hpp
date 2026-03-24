@@ -70,14 +70,15 @@ namespace Models
 
 
     protected:
-      // The type of events that are triggered by DDoS attacks. Valid values:
+      // The name of the event type. Valid values:
       // 
-      // *   defense: traffic scrubbing events.
-      // *   blackhole: blackhole filtering events.
+      // - defense: DDoS traffic scrubbing event.
+      // 
+      // - blackhole: DDoS blackhole filtering event.
       shared_ptr<string> eventType_ {};
-      // Indicates whether DDoS attacks occur on specific domain names. Valid value:
+      // The DDoS status:
       // 
-      // *   **doing**: DDoS attacks occur on specific domain names.
+      // **doing**: Under DDoS attack.
       shared_ptr<string> status_ {};
     };
 
@@ -100,7 +101,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether DDoS attacks occur on specific domain names.
+    // The current DDoS status.
     shared_ptr<vector<DescribeDDoSStatusResponseBody::DDoSStatus>> DDoSStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

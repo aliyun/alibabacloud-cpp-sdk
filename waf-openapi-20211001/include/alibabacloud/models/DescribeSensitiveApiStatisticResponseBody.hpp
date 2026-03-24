@@ -130,11 +130,11 @@ namespace Models
         shared_ptr<string> apiFormat_ {};
         // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // The number of personal information records involved in cross-border data transfer by API.
+        // The number of outbound personal information entries by API.
         shared_ptr<int64_t> infoCount_ {};
-        // The types of sensitive data.
+        // The list of sensitive data types.
         shared_ptr<vector<string>> sensitiveCode_ {};
-        // The number of sensitive personal information records involved in cross-border data transfer by API.
+        // The number of outbound personal sensitive data entries by API.
         shared_ptr<int64_t> sensitiveCount_ {};
       };
 
@@ -171,13 +171,15 @@ namespace Models
 
 
     protected:
-      // The number of personal information records involved in cross-border data transfer by domain name.
+      // The number of outbound personal information entries by domain name.
       shared_ptr<int64_t> infoOutboundCount_ {};
-      // The domain name-related APIs.
+      // The list of statistics about APIs for the domain name.
+      // 
+      // > The statistics by API are returned only when you set the **Type** parameter to **apiFormat**.
       shared_ptr<vector<Data::List>> list_ {};
       // The domain name or IP address.
       shared_ptr<string> matchedHost_ {};
-      // The number of sensitive personal information records involved in cross-border data transfer by domain name.
+      // The number of outbound personal sensitive data entries by domain name.
       shared_ptr<int64_t> sensitiveOutboundCount_ {};
     };
 
@@ -207,11 +209,11 @@ namespace Models
 
 
   protected:
-    // The statistics.
+    // The list of statistics.
     shared_ptr<vector<DescribeSensitiveApiStatisticResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

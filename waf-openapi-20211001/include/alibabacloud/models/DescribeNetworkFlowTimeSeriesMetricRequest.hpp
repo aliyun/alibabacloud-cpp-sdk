@@ -97,11 +97,13 @@ namespace Models
 
 
       protected:
-        // End time of the query range (Unix timestamp, seconds).
+        // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
         // 
         // This parameter is required.
         shared_ptr<int64_t> endDate_ {};
-        // Start time of the query range (Unix timestamp, seconds).
+        // The query period cannot exceed the last 30 days. The start of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+        // 
+        // > ## The start time must be within the last 30 days.
         // 
         // This parameter is required.
         shared_ptr<int64_t> startDate_ {};
@@ -156,15 +158,15 @@ namespace Models
 
 
       protected:
-        // The filter fields. Valid values:
-        // *   matched_host
-        // *   cluster
+        // The field to use for the filter operation. This API operation supports the following values for Key:
         // 
-        // For details, see the **Filter fields (Key)** section below.
+        // - matched_host
+        // 
+        // - cluster
         shared_ptr<string> key_ {};
-        // The filter operator. For details, see the **Filter operators (OpValue)** section below.
+        // The operator.
         shared_ptr<string> opValue_ {};
-        // The filter content.
+        // The filter value.
         Darabonba::Json values_ {};
       };
 
@@ -189,9 +191,9 @@ namespace Models
 
 
     protected:
-      // The list of filter conditions. Each node describes a filter condition.
+      // A list of filter conditions. Each item in the list describes a filter condition.
       shared_ptr<vector<Filter::Conditions>> conditions_ {};
-      // Specifies the date range for the query.
+      // The time range to query.
       // 
       // This parameter is required.
       shared_ptr<Filter::DateRange> dateRange_ {};
@@ -237,30 +239,35 @@ namespace Models
 
 
   protected:
-    // Specifies filtering conditions. Multiple filter parameters use AND logic.
+    // The filter conditions for the query. Multiple filter conditions are combined with a logical AND.
     // 
     // This parameter is required.
     shared_ptr<DescribeNetworkFlowTimeSeriesMetricRequest::Filter> filter_ {};
-    // The Web Application Firewall (WAF) instance ID.
-    // > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to retrieve the WAF instance ID.
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies the data type to be returned. Valid values:
+    // Specifies the type of data to return. Different values for Metric correspond to different data. This API operation supports the following values:
     // 
-    // *   qps: Returns the queries per second (QPS) processed by WAF. This value is calculated using a peak detection method: QPS is measured every 10 seconds, and the highest value within the specified time range is returned.
-    // *   total_requests: Returns the total number of requests processed by WAF.
-    // *   top5_status: Returns the top 5 HTTP status codes returned by the WAF to clients, along with their corresponding time series statistics.
-    // *   top 5_upstream_status: Returns the top 5 HTTP status codes returned by the origin server to clients, along with their corresponding time series data.
+    // - qps: The number of requests that WAF processes per second. A queries per second (QPS) value is calculated every 10 seconds. The peak QPS value within the specified time granularity is returned.
+    // 
+    // - total_requests: The total number of requests processed by WAF.
+    // 
+    // - top5_status: The top five response status codes that WAF returns to the client, and the corresponding time series statistics.
+    // 
+    // - top 5_upstream_status: The top five response status codes that the origin server returns to the client, and the corresponding time series statistics.
     // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
-    // The region ID of WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: The Chinese mainland.
-    // *   **ap-southeast-1**: Outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

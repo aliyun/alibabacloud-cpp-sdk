@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource. ALIYUN::WAF::DEFENSERESOURCE is returned.
+      // The resource type. ALIYUN::WAF::DEFENSERESOURCE is returned.
       shared_ptr<string> resourceType_ {};
-      // The key of tag N that is added to the resource.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of tag N that is added to the resource.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resources.
+    // The resource list.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

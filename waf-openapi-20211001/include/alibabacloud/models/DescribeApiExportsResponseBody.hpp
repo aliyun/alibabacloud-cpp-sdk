@@ -108,29 +108,29 @@ namespace Models
 
 
     protected:
-      // The time when the data export task was created. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the export task was created. This is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> createTime_ {};
-      // The name of the file.
+      // The name of the exported file.
       shared_ptr<string> fileName_ {};
       // The download URL of the exported file.
       shared_ptr<string> fileUrl_ {};
-      // The format of the exported file.
+      // The format of the exported file, such as CSV.
       shared_ptr<string> format_ {};
-      // The status of the data export task. Valid values:
+      // The status of the export task. Valid values:
       // 
-      // * **expired**: The file is expired.
+      // - **expired**: The file has expired.
       // 
-      // * **exporting**: Data is being exported.
+      // - **exporting**: The file is being exported.
       // 
-      // * **completed**: Data is exported.
+      // - **completed**: The export is successful.
       shared_ptr<string> status_ {};
-      // The type of the data export task. Valid values:
+      // The type of the export task. Valid values:
       // 
-      // * **apisec_api**: API tasks
+      // - **apisec_api**: API asset task.
       // 
-      // * **apisec_abnormal**: API risk tasks
+      // - **apisec_abnormal**: API threat task.
       // 
-      // * **apisec_event**: API security event tasks
+      // - **apisec_event**: API security event task.
       shared_ptr<string> type_ {};
     };
 
@@ -160,15 +160,11 @@ namespace Models
 
 
   protected:
-    // The returned data export tasks.
+    // The list of API security export tasks.
     shared_ptr<vector<DescribeApiExportsResponseBody::ApiExports>> apiExports_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the data export task. Valid values:
-    // 
-    // *   **expired**: The file is expired.
-    // *   **exporting**: Data is being exported.
-    // *   **completed**: Data is exported.
+    // The total number of export tasks.
     shared_ptr<int64_t> total_ {};
   };
 

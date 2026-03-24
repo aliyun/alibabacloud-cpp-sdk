@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N that is added to the resource. Valid values of N: 1 to 20.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N that is added to the resource. Valid values of N: 1 to 20.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -124,18 +124,19 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // A pagination token for the next query
     shared_ptr<string> nextToken_ {};
-    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: indicates the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: indicates regions outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource IDs. You can specify up to 50 resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
+    // The resource type. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

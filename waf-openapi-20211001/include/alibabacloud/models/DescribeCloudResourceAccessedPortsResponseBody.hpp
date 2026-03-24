@@ -62,11 +62,11 @@ namespace Models
 
 
   protected:
-    // The HTTP ports.
+    // The HTTP port.
     shared_ptr<vector<int32_t>> http_ {};
-    // The HTTPS ports.
+    // The HTTPS port.
     shared_ptr<vector<int32_t>> https_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

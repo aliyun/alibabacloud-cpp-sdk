@@ -70,11 +70,11 @@ namespace Models
 
 
     protected:
-      // The number of requests that match protection rules.
+      // The number of requests that triggered the rule.
       shared_ptr<int64_t> count_ {};
       // The request URL.
       // 
-      // >  The value is Base64-encoded.
+      // > The value of this parameter is Base64-encoded.
       shared_ptr<string> url_ {};
     };
 
@@ -99,7 +99,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The top 10 URLs that match protection rules.
+    // The top 10 URLs that trigger protection rules.
     shared_ptr<vector<DescribeRuleHitsTopUrlResponseBody::RuleHitsTopUrl>> ruleHitsTopUrl_ {};
   };
 

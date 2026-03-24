@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // An array of back-to-origin IPv4 CIDR blocks.
+      // The list of IPv4 back-to-origin CIDR blocks.
       shared_ptr<vector<string>> IPv4_ {};
-      // An array of back-to-origin IPv6 CIDR blocks.
+      // The list of IPv6 back-to-origin CIDR blocks.
       shared_ptr<vector<string>> IPv6_ {};
     };
 
@@ -99,9 +99,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The back-to-origin CIDR blocks that are used by the protection cluster.
+    // The list of WAF back-to-origin IP CIDR blocks used by the protection cluster.
     shared_ptr<DescribeWafSourceIpSegmentResponseBody::WafSourceIp> wafSourceIp_ {};
   };
 

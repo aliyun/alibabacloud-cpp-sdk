@@ -57,9 +57,16 @@ namespace Models
 
 
   protected:
+    // The ID of the WAF instance.
+    // 
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The ID of the address book.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

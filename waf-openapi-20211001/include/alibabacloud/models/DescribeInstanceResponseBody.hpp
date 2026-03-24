@@ -574,159 +574,187 @@ namespace Models
 
 
     protected:
-      // The maximum number of IP addresses that can be added to the match content of a match condition. For more information, see [Match conditions](https://help.aliyun.com/document_detail/374354.html).
+      // The maximum number of IP addresses that can be added to the match content. For more information about match content, see [Match conditions](https://help.aliyun.com/document_detail/374354.html).
       shared_ptr<int64_t> aclRuleMaxIpCount_ {};
-      // Indicates whether the scan protection module is supported. Valid values:
+      // Indicates whether scan protection is supported. Valid values:
       // 
-      // *   **true:** The scan protection module is supported.
-      // *   **false:** The scan protection module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> antiScan_ {};
-      // The maximum number of scan protection rule templates that can be configured.
+      // The maximum number of scan protection templates that can be configured.
       shared_ptr<int64_t> antiScanTemplateMaxCount_ {};
       // The maximum number of back-to-origin IP addresses that can be configured.
       shared_ptr<int64_t> backendMaxCount_ {};
-      // Indicates whether the basic protection rule module is supported. Valid values:
+      // Indicates whether basic protection rules are supported. Valid values:
       // 
-      // *   **true:** The basic protection rule module is supported.
-      // *   **false:** The basic protection rule module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> baseWafGroup_ {};
-      // The maximum number of protection rules that can be included in a basic protection rule template.
+      // The maximum number of protection rules that can be included in a single basic protection rule template.
       shared_ptr<int64_t> baseWafGroupRuleInTemplateMaxCount_ {};
       // The maximum number of basic protection rule templates that can be configured.
       shared_ptr<int64_t> baseWafGroupRuleTemplateMaxCount_ {};
-      // Indicates whether the bot management module is supported. Valid values:
+      // Indicates whether bot management is supported. Valid values:
       // 
-      // *   **true:** The bot management module is supported.
-      // *   **false:** The bot management module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> bot_ {};
-      // Indicates whether bot management for app protection is supported. Valid values:
+      // Indicates whether scenario-specific bot protection for apps is supported. Valid values:
       // 
-      // *   **true:** Bot management for app protection is supported.
-      // *   **false:** Bot management for app protection is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<string> botApp_ {};
-      // The maximum number of bot management rule templates that can be configured.
+      // The maximum number of bot management protection templates that can be configured.
       shared_ptr<int64_t> botTemplateMaxCount_ {};
-      // Indicates whether bot management for website protection is supported. Valid values:
+      // Indicates whether scenario-specific bot protection for websites is supported. Valid values:
       // 
-      // *   **true:** Bot management for website protection is supported.
-      // *   **false:** Bot management for website protection is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<string> botWeb_ {};
       // The maximum number of CNAMEs that can be added.
       shared_ptr<int64_t> cnameResourceMaxCount_ {};
-      // Indicates whether the custom response module is supported. Valid values:
+      // Indicates whether custom responses are supported. Valid values:
       // 
-      // *   **true:** The custom response module is supported.
-      // *   **false:** The custom response module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> customResponse_ {};
-      // The maximum number of rules that can be included in a custom response rule template.
+      // The maximum number of protection rules that can be included in a single custom response template.
       shared_ptr<int64_t> customResponseRuleInTemplateMaxCount_ {};
-      // The maximum number of custom response rule templates that can be configured.
+      // The maximum number of custom response templates that can be configured.
       shared_ptr<int64_t> customResponseTemplateMaxCount_ {};
-      // Indicates whether the custom rule module is supported. Valid values:
+      // Indicates whether custom rules are supported. Valid values:
       // 
-      // *   **true:** The custom rule module is supported.
-      // *   **false:** The custom rule module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> customRule_ {};
-      // The action that can be included in a custom rule.
+      // The action string for the custom rule.
       shared_ptr<string> customRuleAction_ {};
-      // The match conditions that can be used in a custom rule. For more information, see **Match condition parameters** in the "**Parameters of custom rules (custom_acl)**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
+      // The match condition for the custom rule. For more information, see the description of the **conditions** parameter for **custom_acl** rules in CreateDefenseRule.
       shared_ptr<string> customRuleCondition_ {};
-      // The maximum number of rules that can be included in a custom rule template.
+      // The maximum number of protection rules that can be included in a single custom rule template.
       shared_ptr<int64_t> customRuleInTemplateMaxCount_ {};
-      // The statistical object for rate limiting in a custom rule.
+      // The rate limiting object for the custom rule.
       shared_ptr<string> customRuleRatelimitor_ {};
       // The maximum number of custom rule templates that can be configured.
       shared_ptr<int64_t> customRuleTemplateMaxCount_ {};
-      // The maximum number of protected object groups that can be configured.
+      // The maximum number of protection groups that can be configured.
       shared_ptr<int64_t> defenseGroupMaxCount_ {};
-      // The maximum number of protected objects that can be included in a protected object group.
+      // The maximum number of protected objects that can be included in a protection group.
       shared_ptr<int64_t> defenseObjectInGroupMaxCount_ {};
-      // The maximum number of protected objects to which a protection rule template can be applied.
+      // The maximum number of protected objects that can be associated with a template.
       shared_ptr<int64_t> defenseObjectInTemplateMaxCount_ {};
       // The maximum number of protected objects that can be configured.
       shared_ptr<int64_t> defenseObjectMaxCount_ {};
-      // Indicates whether the data leakage prevention module is supported. Valid values:
+      // Indicates whether data leak prevention is supported. Valid values:
       // 
-      // *   **true:** The data leakage prevention module is supported.
-      // *   **false:** The data leakage prevention module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> dlp_ {};
-      // The maximum number of rules that can be included in a data leakage prevention rule template.
+      // The maximum number of protection rules that can be included in a single data leak prevention template.
       shared_ptr<int64_t> dlpRuleInTemplateMaxCount_ {};
-      // The maximum number of data leakage prevention rule templates that can be configured.
+      // The maximum number of data leak prevention templates that can be configured.
       shared_ptr<int64_t> dlpTemplateMaxCount_ {};
+      // The pay-as-you-go QPS of the subscription instance. For more information, see [WAF 3.0 subscription plans](https://help.aliyun.com/document_detail/441231.html).
+      // 
+      // > This parameter has no meaning for pay-as-you-go instances.
       shared_ptr<int32_t> elasticQps_ {};
       // Indicates whether exclusive IP addresses are supported. Valid values:
       // 
-      // *   **true:** Exclusive IP addresses are supported.
-      // *   **false:** Exclusive IP addresses are not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> exclusiveIp_ {};
+      // The extra QPS of the subscription instance. For more information, see [WAF 3.0 subscription plans](https://help.aliyun.com/document_detail/441231.html).
+      // 
+      // > This parameter has no meaning for pay-as-you-go instances.
       shared_ptr<int32_t> extendQps_ {};
+      // The free queries per second (QPS) of the subscription instance. For more information, see [WAF 3.0 subscription plans](https://help.aliyun.com/document_detail/441231.html).
+      // 
+      // > This parameter has no meaning for pay-as-you-go instances.
       shared_ptr<int32_t> freeQps_ {};
-      // Indicates whether global server load balancing (GSLB) is supported. Valid values:
+      // Indicates whether Global Server Load Balancing (GSLB) is supported. Valid values:
       // 
-      // *   **true:** GSLB is supported.
-      // *   **false:** GSLB is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> gslb_ {};
-      // The HTTP port range that is supported. For more information, see [View supported ports](https://help.aliyun.com/document_detail/385578.html).
+      // The available HTTP ports. For more information, see [Port numbers supported by WAF]().
       shared_ptr<string> httpPorts_ {};
-      // The HTTPS port range that is supported. For more information, see [View supported ports](https://help.aliyun.com/document_detail/385578.html).
+      // The available HTTPS ports. For more information, see [Port numbers supported by WAF]().
       shared_ptr<string> httpsPorts_ {};
-      // Indicates whether the IP address blacklist module is supported. Valid values:
+      // Indicates whether the IP address blacklist is supported. Valid values:
       // 
-      // *   **true:** The IP address blacklist module is supported.
-      // *   **false:** The IP address blacklist module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> ipBlacklist_ {};
-      // The maximum number of IP addresses that can be added to an IP address blacklist rule.
+      // The maximum number of IP addresses that can be added to a blacklist rule.
       shared_ptr<int64_t> ipBlacklistIpInRuleMaxCount_ {};
-      // The maximum number of rules that can be included in an IP address blacklist rule template.
+      // The maximum number of protection rules that can be included in a single blacklist template.
       shared_ptr<int64_t> ipBlacklistRuleInTemplateMaxCount_ {};
-      // The maximum number of IP address blacklist rule templates that can be configured.
+      // The maximum number of blacklist templates that can be configured.
       shared_ptr<int64_t> ipBlacklistTemplateMaxCount_ {};
       // Indicates whether IPv6 is supported. Valid values:
       // 
-      // *   **true:** IPv6 is supported.
-      // *   **false:** IPv6 is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> ipv6_ {};
-      // Indicates whether the log collection feature is supported. Valid values:
+      // Indicates whether Simple Log Service is supported. Valid values:
       // 
-      // *   **true:** The log collection feature is supported.
-      // *   **false:** The log collection feature is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> logService_ {};
-      // Indicates whether major event protection is supported. Valid values:
+      // Indicates whether critical event protection is supported. Valid values:
       // 
-      // *   **true:** Major event protection is supported.
-      // *   **false:** Major event protection is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> majorProtection_ {};
-      // The maximum number of major event protection rule templates that can be configured.
+      // The maximum number of critical event protection templates that can be configured.
       shared_ptr<int64_t> majorProtectionTemplateMaxCount_ {};
+      // The traffic billing protection threshold for the pay-as-you-go instance. For more information, see [Traffic billing protection](https://help.aliyun.com/document_detail/2249021.html) for pay-as-you-go instances.
+      // 
+      // > This parameter has no meaning for subscription instances.
       shared_ptr<int32_t> qpsBillingCap_ {};
-      // Indicates whether the website tamper-proofing module is supported. Valid values:
+      // Indicates whether webpage tamper protection is supported. Valid values:
       // 
-      // *   **true:** The website tamper-proofing module is supported.
-      // *   **false:** The website tamper-proofing module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> tamperproof_ {};
-      // The maximum number of rules that can be included in a website tamper-proofing rule template.
+      // The maximum number of protection rules that can be included in a single webpage tamper protection template.
       shared_ptr<int64_t> tamperproofRuleInTemplateMaxCount_ {};
-      // The maximum number of website tamper-proofing rule templates that can be configured.
+      // The maximum number of webpage tamper protection templates that can be configured.
       shared_ptr<int64_t> tamperproofTemplateMaxCount_ {};
-      // The maximum number of IP addresses or CIDR blocks that can be added to an IP address blacklist in a batch.
+      // The maximum number of IP addresses that can be imported to the IP address blacklist in a single batch.
       shared_ptr<int64_t> vastIpBlacklistInFileMaxCount_ {};
-      // The maximum number of IP addresses or CIDR blocks that can be added to an IP address blacklist on a page.
+      // The maximum number of IP addresses that can be added to the IP address blacklist from the console in a single operation.
       shared_ptr<int64_t> vastIpBlacklistInOperationMaxCount_ {};
-      // The maximum number of IP addresses or CIDR blocks that can be added to an IP address blacklist per Alibaba Cloud account.
+      // The maximum number of IP addresses that can be added to the IP address blacklist for a single user.
       shared_ptr<int64_t> vastIpBlacklistMaxCount_ {};
-      // Indicates whether the whitelist module is supported. Valid values:
+      // Indicates whether the IP address whitelist is supported. Valid values:
       // 
-      // *   **true:** The whitelist module is supported.
-      // *   **false:** The whitelist module is not supported.
+      // - **true**: Supported.
+      // 
+      // - **false**: Not supported.
       shared_ptr<bool> whitelist_ {};
-      // The logical operators that can be used in a whitelist rule. For more information, see **Match condition parameters** in the "**Parameters of whitelist rules (whitelist)**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
+      // The logical operator for the whitelist rule. For more information, see the description of the **conditions** parameter for **whitelist** rules in CreateDefenseRule.
       shared_ptr<string> whitelistLogical_ {};
-      // The match fields that can be used in a whitelist rule. For more information, see **Match condition parameters** in the "**Parameters of whitelist rules (whitelist)**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
+      // The match field for the whitelist rule. For more information, see the description of the **conditions** parameter for **whitelist** rules in CreateDefenseRule.
       shared_ptr<string> whitelistRuleCondition_ {};
-      // The maximum number of rules that can be included in a whitelist rule template.
+      // The maximum number of protection rules that can be included in a single whitelist template.
       shared_ptr<int64_t> whitelistRuleInTemplateMaxCount_ {};
-      // The maximum number of whitelist rule templates that can be configured.
+      // The maximum number of whitelist templates that can be configured.
       shared_ptr<int64_t> whitelistTemplateMaxCount_ {};
     };
 
@@ -813,39 +841,55 @@ namespace Models
 
 
   protected:
-    // The details of the WAF instance.
+    // The details of the instance.
     shared_ptr<DescribeInstanceResponseBody::Details> details_ {};
     // The edition of the WAF instance.
     shared_ptr<string> edition_ {};
-    // The expiration time of the WAF instance.
+    // The expiration time of the instance. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Indicates whether the WAF instance has overdue payments. Valid values:
+    // Indicates whether the instance has an overdue payment:
     // 
-    // *   **0**: The WAF instance does not have overdue payments.
-    // *   **1**: The WAF instance has overdue payments.
+    // - **0**: No.
+    // 
+    // - **1**: Yes.
     shared_ptr<string> inDebt_ {};
     // The ID of the WAF instance.
     shared_ptr<string> instanceId_ {};
-    // The billing method of the WAF instance. Valid values:
+    // The billing method of the instance. Valid values:
     // 
-    // *   **POSTPAY:** The WAF instance uses the pay-as-you-go billing method.
-    // *   **PREPAY:** The WAF instance uses the subscription billing method.
+    // - **POSTPAY**: The instance is a pay-as-you-go instance.
+    // 
+    // - **PREPAY**: The instance is a subscription instance.
     shared_ptr<string> payType_ {};
+    // The processing status of the instance. Valid values:
+    // 
+    // - **commodity_converting**: The instance is being upgraded or downgraded.
+    // 
+    // - **commodity_convert_check_failed**: The check for the instance upgrade or downgrade fails.
+    // 
+    // - **commodity_convert_process_failed**: The instance upgrade or downgrade fails.
+    // 
+    // - **order_create_failed**: The order fails to be created.
+    // 
+    // - **order_pending_payment**: The order is pending payment.
     shared_ptr<string> processStatus_ {};
     // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou:** the Chinese mainland
-    // *   **ap-southeast-1:** outside the Chinese mainland.
-    shared_ptr<string> regionId_ {};
-    // The ID of the request.
-    shared_ptr<string> requestId_ {};
-    // The purchase time of the WAF instance. The time is in the UNIX timestamp format. The time is displayed in UTC. Unit: milliseconds.
-    shared_ptr<int64_t> startTime_ {};
-    // The status of the WAF instance. Valid values:
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // *   **1:** The WAF instance is in a normal state.
-    // *   **2:** The WAF instance has expired.
-    // *   **3:** The WAF instance has been released.
+    // - **ap-southeast-1**: outside the Chinese mainland.
+    shared_ptr<string> regionId_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
+    shared_ptr<int64_t> startTime_ {};
+    // The current status of the instance. Valid values:
+    // 
+    // - **1**: Normal.
+    // 
+    // - **2**: The instance has expired.
+    // 
+    // - **3**: The instance is released.
     shared_ptr<int32_t> status_ {};
   };
 

@@ -103,16 +103,33 @@ namespace Models
 
 
   protected:
+    // The quaternary condition by which to group the rule statistics. This value cannot be the same as the primary, secondary, or tertiary condition.
     shared_ptr<string> fourthKey_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The primary condition by which to group the rule statistics.
+    // 
     // This parameter is required.
     shared_ptr<string> primaryKey_ {};
+    // The region of the WAF instance. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The secondary condition by which to group the rule statistics. This value cannot be the same as the primary condition.
     shared_ptr<string> secondaryKey_ {};
+    // The ID of the protection template.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
+    // The tertiary condition by which to group the rule statistics. This value cannot be the same as the primary or secondary condition.
     shared_ptr<string> thirdKey_ {};
   };
 

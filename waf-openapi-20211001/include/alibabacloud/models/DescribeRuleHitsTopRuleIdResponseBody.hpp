@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The number of requests that match the rule.
+      // The number of times the rule was hit.
       shared_ptr<int64_t> count_ {};
-      // The protected object.
+      // The protected object. This parameter is returned only if IsGroupResource is set to false.
       shared_ptr<string> resource_ {};
       // The ID of the rule.
       shared_ptr<string> ruleId_ {};
@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The array of the IDs of the top 10 rules that are matched by requests.
+    // The IDs of the top 10 rules that were hit most frequently.
     shared_ptr<vector<DescribeRuleHitsTopRuleIdResponseBody::RuleHitsTopRuleId>> ruleHitsTopRuleId_ {};
   };
 

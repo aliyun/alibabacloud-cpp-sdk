@@ -50,8 +50,9 @@ namespace Models
   protected:
     // The region ID of the WAF instance. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: The Chinese mainland.
+    // 
+    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

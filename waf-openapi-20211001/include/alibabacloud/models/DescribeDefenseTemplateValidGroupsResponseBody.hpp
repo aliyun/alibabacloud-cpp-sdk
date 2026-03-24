@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The names of the protected object groups.
+    // A list of protected object group names.
     shared_ptr<vector<string>> groups_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

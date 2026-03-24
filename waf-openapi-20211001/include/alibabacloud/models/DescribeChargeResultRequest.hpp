@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The ID of the billing module.
       shared_ptr<string> moduleCode_ {};
+      // The usage amount of the billing module.
       shared_ptr<int64_t> usage_ {};
     };
 
@@ -120,12 +122,31 @@ namespace Models
 
 
   protected:
+    // The billing cycle for the WAF instance. Valid values:
+    // 
+    // - **Year**: yearly billing cycle.
+    // 
+    // - **Month**: monthly billing cycle.
+    // 
+    // - **Day**: daily billing cycle.
     shared_ptr<string> chargeCycle_ {};
+    // The billing modules to calculate.
+    // 
     // This parameter is required.
     shared_ptr<vector<DescribeChargeResultRequest::ChargeModules>> chargeModules_ {};
+    // The billing method of the WAF instance. Valid value:
+    // 
+    // - **POSTPAY**: pay-as-you-go.
+    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

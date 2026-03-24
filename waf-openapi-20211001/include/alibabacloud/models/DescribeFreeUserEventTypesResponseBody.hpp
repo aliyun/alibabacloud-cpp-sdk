@@ -72,7 +72,7 @@ namespace Models
     protected:
       // The number of security events.
       shared_ptr<string> eventNum_ {};
-      // The type of the security event.
+      // The security event type.
       shared_ptr<string> eventType_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The types of security events on which basic detection is performed.
+    // The list of security event types detected by the basic detection feature.
     shared_ptr<vector<DescribeFreeUserEventTypesResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -88,25 +88,32 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+    // 
+    // > This parameter is available only in hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to query information about hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The IDs of the security events.
+    // A list of API security event IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> eventIds_ {};
-    shared_ptr<string> eventScope_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The dimension of the security event. Valid values:
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // - **ip**: IP address dimension.
+    // 
+    // - **account**: account dimension.
+    shared_ptr<string> eventScope_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // *   **cn-hangzhou**: the Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // 阿里云资源组ID。
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

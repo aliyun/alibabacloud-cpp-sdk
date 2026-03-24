@@ -172,33 +172,37 @@ namespace Models
   protected:
     // The status of the tracking cookie.
     // 
-    // *   **0**: disabled
-    // *   **1**: enabled. This is the default value.
+    // - **0**: Disabled.
+    // 
+    // - **1 (default)**: Enabled.
     shared_ptr<int32_t> acwCookieStatus_ {};
     // The status of the secure attribute of the tracking cookie.
     // 
-    // *   **0**: disabled. This is the default value.
-    // *   **1**: enabled.
+    // - **0 (default)**: Disabled.
+    // 
+    // - **1**: Enabled.
     shared_ptr<int32_t> acwSecureStatus_ {};
     // The status of the secure attribute of the slider CAPTCHA cookie.
     // 
-    // *   **0**: disabled. This is the default value.
-    // *   **1**: enabled.
+    // - **0 (default)**: Disabled.
+    // 
+    // - **1**: Enabled.
     shared_ptr<int32_t> acwV3SecureStatus_ {};
     // The custom header fields.
     // 
-    // >  The first IP address in the specified custom header field is used as the originating IP address of the client to prevent X-Forwarded-For forgery. If you specify multiple header fields, WAF reads the values of the header fields in sequence until the originating IP address is obtained. If the originating IP address cannot be obtained, the first IP address in the X-Forwarded-For header is used as the originating IP address of the client.
+    // > The first IP address in the specified header field is used as the client source IP address to prevent X-Forwarded-For (XFF) spoofing. If multiple headers are specified, they are tried in sequence to obtain the source IP address. If the first header does not contain an IP address, the system tries the second header, and so on. If no IP address is found in any of the specified headers, the system uses the first IP address in the X-Forwarded-For header.
     shared_ptr<vector<string>> customHeaders_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: The Chinese mainland.
+    // 
+    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The name of the protected object.
     // 
@@ -206,12 +210,13 @@ namespace Models
     shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The response header.
+    // The response header parameters.
     shared_ptr<vector<ModifyDefenseResourceXffRequest::ResponseHeaders>> responseHeaders_ {};
     // Specifies whether a Layer 7 proxy is deployed in front of WAF. Layer 7 proxies include Anti-DDoS Proxy and Alibaba Cloud CDN. Valid values:
     // 
-    // *   **0**: No Layer 7 proxies are deployed. This is the default value.
-    // *   **1**: A Layer 7 proxy is deployed.
+    // - **0 (default)**: No.
+    // 
+    // - **1**: Yes.
     // 
     // This parameter is required.
     shared_ptr<int32_t> xffStatus_ {};

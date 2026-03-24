@@ -69,11 +69,20 @@ namespace Models
 
 
   protected:
+    // The addresses to add to the address book.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> addressList_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the WAF instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The ID of the address book.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };

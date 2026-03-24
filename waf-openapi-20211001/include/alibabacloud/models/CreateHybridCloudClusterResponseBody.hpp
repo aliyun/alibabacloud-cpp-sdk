@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The ID of the hybrid cloud cluster.
     shared_ptr<int64_t> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

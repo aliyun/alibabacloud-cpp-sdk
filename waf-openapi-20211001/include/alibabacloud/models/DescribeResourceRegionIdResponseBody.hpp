@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode.
+    // The region IDs of cloud service resources that can be added to WAF by using the SDK.
     shared_ptr<vector<string>> resourceRegionIds_ {};
   };
 

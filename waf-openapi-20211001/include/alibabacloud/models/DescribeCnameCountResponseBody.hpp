@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The number of domain names that are added to WAF in CNAME record mode.
+      // The number of domain names that are added in CNAME mode.
       shared_ptr<int64_t> cname_ {};
-      // The number of domain names that are added to WAF in hybrid cloud reverse proxy mode.
+      // The number of domain names that are added in hybrid cloud mode.
       shared_ptr<int64_t> hybridCloudCname_ {};
-      // The total number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+      // The total number of domain names.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The information about the number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+    // The number of CNAME records that are added.
     shared_ptr<DescribeCnameCountResponseBody::CnameCount> cnameCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

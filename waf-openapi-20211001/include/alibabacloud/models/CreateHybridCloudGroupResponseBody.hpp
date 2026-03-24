@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the node group.
+    // The ID of the created node group.
     shared_ptr<int64_t> data_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

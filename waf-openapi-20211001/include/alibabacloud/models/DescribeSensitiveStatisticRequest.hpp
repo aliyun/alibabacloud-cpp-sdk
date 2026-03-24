@@ -113,13 +113,14 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
-    shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-    shared_ptr<int64_t> endTime_ {};
-    // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > This parameter applies only to hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain information about hybrid cloud clusters.
+    shared_ptr<string> clusterId_ {};
+    // The end of the time range to query. The value is a UNIX timestamp in seconds. The time is in UTC.
+    shared_ptr<int64_t> endTime_ {};
+    // The ID of the Web Application Firewall (WAF) instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of your WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -127,21 +128,25 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland
+    // - **cn-hangzhou**: Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+    // The start of the time range to query. The value is a UNIX timestamp in seconds. The time is in UTC.
     shared_ptr<int64_t> startTime_ {};
-    // The type of the statistics. Valid values:
+    // The statistic type. Valid values:
     // 
-    // *   **ip**: IP address
-    // *   **host**: domain name
-    // *   **sensitive_code**: sensitive data type
-    // *   **api**: sensitive data-related API
+    // - **ip**: statistics by IP address.
+    // 
+    // - **host**: statistics by domain name.
+    // 
+    // - **sensitive_code**: statistics by sensitive data type.
+    // 
+    // - **api**: statistics by API.
     shared_ptr<string> statisticType_ {};
   };
 

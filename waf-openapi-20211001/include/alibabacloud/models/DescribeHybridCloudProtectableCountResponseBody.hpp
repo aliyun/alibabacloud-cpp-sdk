@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of protection nodes that can be added to the hybrid cloud cluster.
+    // The number of protectable nodes that can be added to the cluster.
     shared_ptr<int32_t> protectableCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

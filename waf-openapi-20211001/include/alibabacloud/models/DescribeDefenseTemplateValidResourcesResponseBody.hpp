@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The names of the protected objects that are valid for the protection template.
     shared_ptr<vector<string>> resources_ {};
+    // The total number of protected objects that match the query criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

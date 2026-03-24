@@ -149,7 +149,7 @@ namespace Models
 
 
       protected:
-        // The key of the custom header field.
+        // The custom request header field.
         shared_ptr<string> key_ {};
         // The value of the custom header field.
         shared_ptr<string> value_ {};
@@ -202,8 +202,15 @@ namespace Models
 
 
       protected:
+        // The port of the origin server.
         shared_ptr<int32_t> backendPort_ {};
+        // The WAF listening port.
         shared_ptr<int32_t> listenPort_ {};
+        // The protocol of the listening port. Valid values:
+        // 
+        // - **http**: HTTP.
+        // 
+        // - **https**: HTTPS.
         shared_ptr<string> protocol_ {};
       };
 
@@ -404,87 +411,135 @@ namespace Models
 
 
     protected:
+      // The custom port mappings for back-to-origin.
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
-      // The IP addresses or domain names of the origin server. You cannot specify both IP addresses and domain names. If you specify domain names, the domain names can be resolved only to IPv4 addresses.
+      // The IP addresses or domain names of the origin server. You can specify only one type of address. If you specify a domain name, only IPv4 is supported. IPv6 is not supported.
       // 
-      // *   If you specify IP addresses, specify the value in the **["ip1","ip2",...]** format. You can enter up to 20 IP addresses.
-      // *   If you specify domain names, specify the value in the **["domain"]** format. You can enter up to 20 domain names.
+      // - IP addresses: The format is [**"ip1","ip2",...**]. You can specify up to 20 IP addresses.
+      // 
+      // - Domain names: The format is [**"domain"**]. You can specify up to 20 domain names.
       shared_ptr<vector<string>> backends_ {};
-      // The secondary IP addresses or domain names of the origin server.
+      // The IP addresses or domain names of the backup origin server.
       shared_ptr<vector<string>> backupBackends_ {};
-      // Specifies whether to enable the public cloud disaster recovery feature. Valid values:
+      // Indicates whether public cloud disaster recovery is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: Public cloud disaster recovery is enabled.
+      // 
+      // - **false** (default): Public cloud disaster recovery is disabled.
       shared_ptr<bool> cnameEnabled_ {};
-      // The timeout period of connections. Unit: seconds. Valid values: 1 to 3600.
+      // The connection timeout period. Unit: seconds. Valid values: 1 to 3600. Default value: 5.
       shared_ptr<int32_t> connectTimeout_ {};
-      // Specifies whether to enable force redirect from HTTPS to HTTP for back-to-origin requests. This parameter is available only if you specify **HttpsPorts**. Valid values:
+      // Indicates whether forced HTTP back-to-origin is enabled. This parameter is available only when you specify **HttpsPorts**. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Forced HTTP back-to-origin is enabled.
+      // 
+      // - **false**: Forced HTTP back-to-origin is disabled.
       shared_ptr<bool> focusHttpBackend_ {};
+      // Indicates whether HTTP/2 is enabled for back-to-origin requests. Valid values:
+      // 
+      // - **true**: HTTP/2 is enabled for back-to-origin requests.
+      // 
+      // - **false**: HTTP/2 is disabled for back-to-origin requests.
       shared_ptr<bool> http2Origin_ {};
+      // The maximum number of concurrent HTTP/2 back-to-origin requests. Valid values: 1 to 512. Default value: 2.
       shared_ptr<int32_t> http2OriginMaxConcurrency_ {};
-      // Specifies whether to enable the persistent connection feature. Valid values:
+      // Indicates whether persistent connections are enabled. Valid values:
       // 
-      // *   **true** (default)
-      // *   **false**
+      // - **true** (default): Persistent connections are enabled.
+      // 
+      // - **false**: Persistent connections are disabled.
       shared_ptr<bool> keepalive_ {};
-      // The number of reused persistent connections. Valid values: 60 to 1000.
+      // The number of requests that can be reused in a persistent connection. Valid values: 60 to 1000. Default value: 1000.
       // 
-      // >  This parameter specifies the number of persistent connections that can be reused after you enable the persistent connection feature.
+      // > This parameter is available only when you enable persistent connections.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period of idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+      // The idle timeout for a persistent connection. Unit: seconds. Valid values: 1 to 60. Default value: 15.
       // 
-      // >  This parameter specifies the period of time after which an idle persistent connection is closed.
+      // > This parameter specifies the amount of time that an idle persistent connection can remain open.
       shared_ptr<int32_t> keepaliveTimeout_ {};
-      // The load balancing algorithm that you want to use to forward requests to the origin server. Valid values:
+      // The load balancing algorithm for back-to-origin requests. Valid values:
       // 
-      // *   **iphash**
-      // *   **roundRobin**
-      // *   **leastTime**: This value is available only if you set **ProtectionResource** to **gslb**.
+      // - **iphash**: the IP hash algorithm.
+      // 
+      // - **roundRobin**: the round-robin algorithm.
+      // 
+      // - **leastTime**: the least time algorithm. This value is available only when you set **ProtectionResource** to **gslb**.
       // 
       // This parameter is required.
       shared_ptr<string> loadbalance_ {};
+      // The maximum size of a request body. Unit: GB. Valid values: 2 to 10. Default value: 2.
+      // 
+      // > This parameter is supported only by the WAF Ultimate edition.
       shared_ptr<int32_t> maxBodySize_ {};
+      // Indicates whether the Proxy Protocol is enabled to preserve client IP addresses.
+      // 
+      // - **true**: The Proxy Protocol is enabled. If you select this option, you can view the client IP address on the origin server.
+      // 
+      // - **false**: The Proxy Protocol is disabled.
       shared_ptr<bool> proxyProtocol_ {};
-      // The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
+      // The read timeout period. Unit: seconds. Valid values: 1 to 3600. Default value: 120.
       shared_ptr<int32_t> readTimeout_ {};
-      // The custom header fields, which are key-value pairs. The fields are used to mark requests that pass through WAF.
+      // The custom header fields and their values for traffic marking.
       // 
-      // When a request passes through WAF, WAF automatically adds the custom header fields to the request to mark the request. This way, the backend service can identify requests that are processed by WAF.
+      // WAF adds these fields and values to the request headers when traffic passes through WAF. This helps backend services identify and collect statistics on WAF-processed traffic.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
-      // Specifies whether WAF retries if WAF fails to forward requests to the origin server. Valid values:
+      // Indicates whether forwarding requests to the origin server are retried when the requests fail. Valid values:
       // 
-      // *   **true** (default)
-      // *   **false**
+      // - **true** (default): Requests are retried.
+      // 
+      // - **false**: Requests are not retried.
       shared_ptr<bool> retry_ {};
-      // The forwarding rules for the hybrid cloud mode. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+      // The forwarding rules for a hybrid cloud deployment. This parameter is a string that contains a JSON array. Each element in the array is a struct that contains the following fields:
       // 
-      // *   **rs**: the back-to-origin IP addresses or CNAMEs. Data type: array.
-      // *   **location**: the name of the protection node. Data type: string.
-      // *   **locationId**: the ID of the protection node. Data type: long.
+      // - **rs**: an array of strings. The back-to-origin IP addresses or CNAMEs.
+      // 
+      // - **backupRs**: an array of strings. The backup back-to-origin IP addresses or CNAMEs. This field is required. If you do not want to specify backup addresses, set it to [].
+      // 
+      // - **location**: a string. The name of the protection node.
+      // 
+      // - **locationId**: a long integer. The ID of the protection node.
       shared_ptr<string> routingRules_ {};
-      // Specifies whether to enable the Server Name Indication (SNI) feature for back-to-origin requests. This parameter is available only if you specify **HttpsPorts**. Valid values:
+      // Indicates whether back-to-origin Server Name Indication (SNI) is enabled. This parameter is available only when you specify **HttpsPorts**. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: Back-to-origin SNI is enabled.
+      // 
+      // - **false** (default): Back-to-origin SNI is disabled.
       shared_ptr<bool> sniEnabled_ {};
-      // The custom value of the SNI field. If you do not specify this parameter, the value of the **Host** header field is automatically used. In most cases, you do not need to specify a custom value for the SNI field. However, if you want WAF to use an SNI field whose value is different from the value of the Host header field in back-to-origin requests, you can specify a custom value for the SNI field.
+      // The value of the custom SNI field. If you do not set this parameter, the value of the **Host** field from the request header is used by default. You typically do not need to set this parameter unless your business requires a custom SNI value for back-to-origin requests.
       // 
-      // >  This parameter is required only if you set **SniEnabled** to true.
+      // > This parameter is available only when you set **SniEnabled** to true.
       shared_ptr<string> sniHost_ {};
-      shared_ptr<bool> WLProxyClientIp_ {};
-      shared_ptr<bool> webServerType_ {};
-      // The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
-      shared_ptr<int32_t> writeTimeout_ {};
-      shared_ptr<bool> XClientIp_ {};
-      shared_ptr<bool> XTrueIp_ {};
-      // Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
+      // Indicates whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
       // 
-      // *   **true** (default)
-      // *   **false**
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> WLProxyClientIp_ {};
+      // Indicates whether WAF is allowed to overwrite the Web-Server-Type header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> webServerType_ {};
+      // The write timeout period. Unit: seconds. Valid values: 1 to 3600. Default value: 120.
+      shared_ptr<int32_t> writeTimeout_ {};
+      // Indicates whether WAF is allowed to overwrite the X-Client-IP header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> XClientIp_ {};
+      // Indicates whether WAF is allowed to overwrite the X-True-IP header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> XTrueIp_ {};
+      // Indicates whether the X-Forwarded-Proto header is used to pass the protocol used by WAF to the origin server. Valid values:
+      // 
+      // - **true** (default): The WAF protocol is passed.
+      // 
+      // - **false**: The WAF protocol is not passed.
       shared_ptr<bool> xffProto_ {};
     };
 
@@ -699,77 +754,101 @@ namespace Models
 
 
     protected:
-      // The ID of the certificate that you want to add.
+      // The ID of the certificate.
       shared_ptr<string> certId_ {};
-      // The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+      // The type of the cipher suite. This parameter is available only when **HttpsPorts** is not empty, which indicates that the domain uses HTTPS. Valid values:
       // 
-      // *   **1**: all cipher suites.
-      // *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
-      // *   **99**: custom cipher suites.
+      // - **1**: all cipher suites.
+      // 
+      // - **2**: strong cipher suites. You can select this value only when you set **TLSVersion** to **tlsv1.2**.
+      // 
+      // - **99**: custom cipher suites.
       shared_ptr<int32_t> cipherSuite_ {};
-      // The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+      // The custom cipher suites. This parameter is available only when you set **CipherSuite** to **99**.
       shared_ptr<vector<string>> customCiphers_ {};
-      // Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
+      // Indicates whether TLS 1.3 is supported. This parameter is available only when **HttpsPorts** is not empty, which indicates that the domain uses HTTPS. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: TLS 1.3 is supported.
+      // 
+      // - **false**: TLS 1.3 is not supported.
       shared_ptr<bool> enableTLSv3_ {};
-      // Specifies whether to enable the exclusive IP address feature. This parameter is available only if you set **IPv6Enabled** to false and **ProtectionResource** to **share**. Valid values:
+      // Indicates whether an exclusive IP address is enabled. This parameter is available only when you set **IPv6Enabled** to false and **ProtectionResource** to **share**. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: An exclusive IP address is enabled.
+      // 
+      // - **false** (default): An exclusive IP address is disabled.
       shared_ptr<bool> exclusiveIp_ {};
-      // Specifies whether to enable force redirect from HTTP to HTTPS for received requests. This parameter is available only if you specify **HttpsPorts** and leave **HttpPorts** empty. Valid values:
+      // Indicates whether forced HTTPS redirection is enabled. This parameter is available only when the domain uses HTTPS but not HTTP. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Forced HTTPS redirection is enabled.
+      // 
+      // - **false**: Forced HTTPS redirection is disabled.
       shared_ptr<bool> focusHttps_ {};
+      // Indicates whether subdomains are included in the HTTP Strict Transport Security (HSTS) policy. Valid values:
+      // 
+      // - **true**: Subdomains are included.
+      // 
+      // - **false**: Subdomains are not included.
       shared_ptr<bool> hstsIncludeSubDomain_ {};
+      // The time-to-live (TTL) of the HSTS policy. Unit: seconds.
       shared_ptr<int64_t> hstsMaxAge_ {};
+      // Indicates whether HSTS preload is enabled. Default value: false. Valid values:
+      // 
+      // - true: HSTS preload is enabled.
+      // 
+      // - false: HSTS preload is disabled.
       shared_ptr<bool> hstsPreload_ {};
-      // Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
+      // Indicates whether HTTP/2 is enabled. This parameter is available only when **HttpsPorts** is not empty, which indicates that the domain uses HTTPS. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: HTTP/2 is enabled.
+      // 
+      // - **false** (default): HTTP/2 is disabled.
       shared_ptr<bool> http2Enabled_ {};
-      // The HTTP listener ports. Specify the value in the [**port1,port2,...**] format.
+      // The HTTP listening ports. The format is [**port1,port2,...**].
       shared_ptr<vector<int32_t>> httpPorts_ {};
-      // The HTTPS listener ports. Specify the value in the [**port1,port2,...**] format.
+      // The HTTPS listening ports. The format is [**port1,port2,...**].
       shared_ptr<vector<int32_t>> httpsPorts_ {};
-      // Specifies whether to enable IPv6 protection. Valid values:
+      // Indicates whether IPv6 is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**: IPv6 is enabled.
+      // 
+      // - **false** (default): IPv6 is disabled.
       shared_ptr<bool> IPv6Enabled_ {};
       // The type of the protection resource. Valid values:
       // 
-      // *   **share** (default): a shared cluster.
-      // *   **gslb**: shared cluster-based intelligent load balancing.
+      // - **share** (default): a shared cluster.
+      // 
+      // - **gslb**: a shared cluster with global server load balancing.
       shared_ptr<string> protectionResource_ {};
-      // Specifies whether to allow access only from SM certificate-based clients. This parameter is available only if you set SM2Enabled to true.
+      // Indicates whether access is allowed only from SM clients. This parameter is available only when SM2Enabled is set to true. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Only SM clients can access the website.
+      // 
+      // - false: Both SM and non-SM clients can access the website.
       shared_ptr<bool> SM2AccessOnly_ {};
-      // The ID of the SM certificate that you want to add. This parameter is available only if you set SM2Enabled to true.
+      // The ID of the SM certificate. This parameter is required only when SM2Enabled is set to true.
       shared_ptr<string> SM2CertId_ {};
-      // Specifies whether to add an SM certificate.
+      // Indicates whether SM certificates are enabled.
       shared_ptr<bool> SM2Enabled_ {};
-      // The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+      // The TLS version. This parameter is available only when **HttpsPorts** is not empty, which indicates that the domain uses HTTPS. Valid values:
       // 
-      // *   **tlsv1**
-      // *   **tlsv1.1**
-      // *   **tlsv1.2**
+      // - **tlsv1**
+      // 
+      // - **tlsv1.1**
+      // 
+      // - **tlsv1.2**
       shared_ptr<string> TLSVersion_ {};
-      // The method that is used to obtain the originating IP address of a client. Valid values:
+      // The method that WAF uses to obtain the real IP address of a client. Valid values:
       // 
-      // *   **0** (default): Client traffic is not filtered by a Layer 7 proxy before the traffic reaches WAF.
-      // *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
-      // *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
+      // - **0** (default): WAF obtains the client IP address from the TCP connection. This option is suitable if no Layer 7 proxies are deployed in front of WAF.
+      // 
+      // - **1**: WAF obtains the client IP address from the first value of the X-Forwarded-For (XFF) header.
+      // 
+      // - **2**: WAF obtains the client IP address from a custom header field.
       shared_ptr<int32_t> xffHeaderMode_ {};
-      // The custom header fields that are used to obtain the originating IP address of a client. Specify the value in the **["header1","header2",...]** format.
+      // The custom header fields that are used to obtain the client IP address. The format is [**"header1","header2",...**].
       // 
-      // >  This parameter is required only if you set **XffHeaderMode** to 2.
+      // > This parameter is required only when you set **XffHeaderMode** to 2.
       shared_ptr<vector<string>> xffHeaders_ {};
     };
 
@@ -830,31 +909,35 @@ namespace Models
 
 
   protected:
-    // The mode in which you want to add the domain name to WAF. Set the value to share.
+    // The access mode of the WAF instance. Valid values:
     // 
-    // *   **share:** adds the domain name to WAF in CNAME record mode. This is the default value.
+    // - **share** (default): onboarding by using a CNAME record.
+    // 
+    // - **hybrid_cloud_cname**: onboarding by using a hybrid cloud CNAME record.
     shared_ptr<string> accessType_ {};
-    // The domain name whose access configurations you want to modify.
+    // The domain name whose configurations you want to modify.
     shared_ptr<string> domain_ {};
+    // The ID of the domain name.
     shared_ptr<string> domainId_ {};
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configurations.
+    // The listening settings.
     // 
     // This parameter is required.
     shared_ptr<ModifyDomainRequest::Listen> listen_ {};
-    // The forwarding configurations.
+    // The forwarding settings.
     // 
     // This parameter is required.
     shared_ptr<ModifyDomainRequest::Redirect> redirect_ {};
     // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou:** the Chinese mainland.
-    // *   **ap-southeast-1:** outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

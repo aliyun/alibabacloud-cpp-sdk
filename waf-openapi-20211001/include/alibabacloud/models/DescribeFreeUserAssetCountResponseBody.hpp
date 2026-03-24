@@ -80,9 +80,9 @@ namespace Models
     protected:
       // The number of active APIs.
       shared_ptr<int64_t> assetActive_ {};
-      // The total number of APIs.
+      // The total number of API assets.
       shared_ptr<int64_t> assetCount_ {};
-      // The number of deactivated APIs.
+      // The number of inactive APIs.
       shared_ptr<int64_t> assetOffline_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The asset statistics provided by basic detection.
+    // The statistics information about assets detected by the basic API security feature.
     shared_ptr<DescribeFreeUserAssetCountResponseBody::Asset> asset_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

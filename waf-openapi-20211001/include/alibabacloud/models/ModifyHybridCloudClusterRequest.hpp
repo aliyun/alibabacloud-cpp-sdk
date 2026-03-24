@@ -186,48 +186,83 @@ namespace Models
 
 
   protected:
+    // The network access mode of the hybrid cloud cluster. Valid values:
+    // 
+    // - **internet**: access over the Internet.
+    // 
+    // - **vpc**: access over a leased line through a virtual private cloud (VPC).
+    // 
     // This parameter is required.
     shared_ptr<string> accessMode_ {};
+    // The region in which the leased line resides. This parameter is required when AccessMode is set to vpc. Valid values:
+    // 
+    // - **cn-hangzhou**: Hangzhou.
+    // 
+    // - **cn-beijing**: Beijing.
+    // 
+    // - **cn-shanghai**: Shanghai.
     shared_ptr<string> accessRegion_ {};
-    // The name of the cluster.
+    // The name of the hybrid cloud cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The HTTP ports that are supported. Set this parameter to a string. Specify multiple ports in the **port1,port2,port3** format.
+    // The list of HTTP ports supported by the hybrid cloud cluster. Separate multiple ports with commas (,). Format: **port1,port2,port3**.
     // 
     // This parameter is required.
     shared_ptr<string> httpPorts_ {};
-    // The HTTPS ports that are supported. Set this parameter to a string. Specify multiple ports in the **port1,port2,port3** format.
+    // The list of HTTPS ports supported by the hybrid cloud cluster. Separate multiple ports with commas (,). Format: **port1,port2,port3**.
     // 
     // This parameter is required.
     shared_ptr<string> httpsPorts_ {};
-    // The ID of the cluster.
+    // The ID of the hybrid cloud cluster.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The log fields that are excluded from the response.
     shared_ptr<string> logFieldsNotReturned_ {};
-    // The number of protection nodes that can be added to the cluster.
+    // The maximum number of protection nodes that can be added to the hybrid cloud cluster.
     // 
     // This parameter is required.
     shared_ptr<int32_t> protectionServerCount_ {};
-    shared_ptr<string> proxyStatus_ {};
-    shared_ptr<string> proxyType_ {};
-    // The region ID of the WAF instance. Valid values:
+    // Indicates whether the proxy gateway is enabled. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **on**: The proxy gateway is enabled.
+    // 
+    // - **off**: The proxy gateway is disabled.
+    shared_ptr<string> proxyStatus_ {};
+    // The type of the hybrid cloud cluster. Valid values:
+    // 
+    // - **cname**: a reverse proxy cluster.
+    // 
+    // - **service**: a service cluster.
+    shared_ptr<string> proxyType_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The remarks about the cluster.
+    // The remarks of the hybrid cloud cluster.
     shared_ptr<string> remark_ {};
+    // The ID of the Alibaba Cloud resource group to which the WAF instance belongs.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The rule configuration in JSON format. This includes settings such as the circuit breaker, request body length limit, and timeout.
     shared_ptr<string> ruleConfig_ {};
+    // Indicates whether the rule is enabled. Valid values:
+    // 
+    // - **on**: The rule is enabled.
+    // 
+    // - **off**: The rule is disabled.
     shared_ptr<string> ruleStatus_ {};
+    // The rule type. Valid values:
+    // 
+    // - **bypass**: WAF bypasses security checks.
     shared_ptr<string> ruleType_ {};
   };
 

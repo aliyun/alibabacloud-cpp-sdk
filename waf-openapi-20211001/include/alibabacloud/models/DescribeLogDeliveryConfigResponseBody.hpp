@@ -78,16 +78,17 @@ namespace Models
 
 
     protected:
-      // The content of the log delivery configuration. The value is a JSON string that contains multiple parameters.
+      // The details of the log delivery configuration, in JSON format.
       // 
-      // >  This parameter is the same as the **DeliveryDetail** parameter of the **CreateLogDeliveryConfig** operation. For more information, see **Parameter description for log delivery configuration** of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
+      // > This parameter is the same as the **DeliveryDetail** parameter of the **CreateLogDeliveryConfig** operation. For more information, see [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~).
       shared_ptr<string> deliveryDetail_ {};
       // The name of the log delivery configuration.
       shared_ptr<string> deliveryName_ {};
       // The type of the log delivery configuration. Valid values:
       // 
-      // *   **syslog**: Logs are delivered to a syslog service.
-      // *   **kafka**: Logs are delivered to a Kafka service.
+      // - **syslog**: The logs are delivered to a syslog service.
+      // 
+      // - **kafka**: The logs are delivered to a Kafka service.
       shared_ptr<string> deliveryType_ {};
     };
 
@@ -110,9 +111,9 @@ namespace Models
 
 
   protected:
-    // The information about the log delivery configuration.
+    // The log delivery configuration.
     shared_ptr<DescribeLogDeliveryConfigResponseBody::DeliveryConfig> deliveryConfig_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

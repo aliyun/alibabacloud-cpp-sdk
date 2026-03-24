@@ -107,26 +107,36 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
-    shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-    shared_ptr<int64_t> endTime_ {};
-    shared_ptr<string> eventScope_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > This parameter applies only to hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain information about hybrid cloud clusters.
+    shared_ptr<string> clusterId_ {};
+    // The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
+    shared_ptr<int64_t> endTime_ {};
+    // The dimension of the security event. Valid values:
+    // 
+    // - **ip** (default): IP security events.
+    // 
+    // - **account**: account security events.
+    shared_ptr<string> eventScope_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
+    // A list of security event statuses.
+    // 
+    // > By default, statistics are collected for security events in the **toBeConfirmed**, **confirmed**, and **actioned** states.
     shared_ptr<vector<string>> userStatusList_ {};
   };
 

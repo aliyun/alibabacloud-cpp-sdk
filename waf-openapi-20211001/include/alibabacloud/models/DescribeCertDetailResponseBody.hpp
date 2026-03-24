@@ -118,13 +118,13 @@ namespace Models
 
 
     protected:
-      // The time when the certificate expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the certificate expires. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The time when the certificate was issued. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the certificate was issued. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
-      // The ID of the certificate.
+      // The certificate ID.
       shared_ptr<string> certIdentifier_ {};
-      // The name of the certificate.
+      // The certificate name.
       shared_ptr<string> certName_ {};
       // The primary domain name, which is a common name.
       shared_ptr<string> commonName_ {};
@@ -155,7 +155,7 @@ namespace Models
   protected:
     // The details of the certificate.
     shared_ptr<DescribeCertDetailResponseBody::CertDetail> certDetail_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

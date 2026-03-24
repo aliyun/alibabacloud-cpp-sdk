@@ -69,11 +69,20 @@ namespace Models
 
 
   protected:
+    // The list of addresses to delete.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> addressList_ {};
+    // The ID of the Web Application Firewall (WAF) instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The ID of the address book.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
   };
