@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_LINGMOU20250527MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/BroadcastAudio.hpp>
+#include <alibabacloud/models/BroadcastScene.hpp>
+#include <alibabacloud/models/BroadcastSceneTemplate.hpp>
 #include <alibabacloud/models/TemplateVariable.hpp>
 #include <alibabacloud/models/BroadcastTemplate.hpp>
 #include <alibabacloud/models/BroadcastVideo.hpp>
@@ -14,6 +16,9 @@
 #include <alibabacloud/models/ConfirmTrainPicAvatarRequest.hpp>
 #include <alibabacloud/models/ConfirmTrainPicAvatarResponseBody.hpp>
 #include <alibabacloud/models/ConfirmTrainPicAvatarResponse.hpp>
+#include <alibabacloud/models/CopyBroadcastSceneFromTemplateRequest.hpp>
+#include <alibabacloud/models/CopyBroadcastSceneFromTemplateResponseBody.hpp>
+#include <alibabacloud/models/CopyBroadcastSceneFromTemplateResponse.hpp>
 #include <alibabacloud/models/CreateBackgroundPicRequest.hpp>
 #include <alibabacloud/models/CreateBackgroundPicResponseBody.hpp>
 #include <alibabacloud/models/CreateBackgroundPicResponse.hpp>
@@ -67,6 +72,9 @@
 #include <alibabacloud/models/ListPrivateTTSVoicesCustomRequest.hpp>
 #include <alibabacloud/models/ListPrivateTTSVoicesCustomResponseBody.hpp>
 #include <alibabacloud/models/ListPrivateTTSVoicesCustomResponse.hpp>
+#include <alibabacloud/models/ListPublicBroadcastSceneTemplatesRequest.hpp>
+#include <alibabacloud/models/ListPublicBroadcastSceneTemplatesResponseBody.hpp>
+#include <alibabacloud/models/ListPublicBroadcastSceneTemplatesResponse.hpp>
 #include <alibabacloud/models/ListTemplateMaterialRequest.hpp>
 #include <alibabacloud/models/ListTemplateMaterialResponseBody.hpp>
 #include <alibabacloud/models/ListTemplateMaterialResponse.hpp>

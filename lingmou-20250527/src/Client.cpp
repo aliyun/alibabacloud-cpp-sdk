@@ -137,6 +137,59 @@ ConfirmTrainPicAvatarResponse Client::confirmTrainPicAvatar(const ConfirmTrainPi
 }
 
 /**
+ * @summary 复制播报方案（从模版）
+ *
+ * @param request CopyBroadcastSceneFromTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CopyBroadcastSceneFromTemplateResponse
+ */
+CopyBroadcastSceneFromTemplateResponse Client::copyBroadcastSceneFromTemplateWithOptions(const CopyBroadcastSceneFromTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasRatio()) {
+    body["ratio"] = request.getRatio();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CopyBroadcastSceneFromTemplate"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/template/scene/copyByTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CopyBroadcastSceneFromTemplateResponse>();
+}
+
+/**
+ * @summary 复制播报方案（从模版）
+ *
+ * @param request CopyBroadcastSceneFromTemplateRequest
+ * @return CopyBroadcastSceneFromTemplateResponse
+ */
+CopyBroadcastSceneFromTemplateResponse Client::copyBroadcastSceneFromTemplate(const CopyBroadcastSceneFromTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return copyBroadcastSceneFromTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建背景素材
  *
  * @param request CreateBackgroundPicRequest
@@ -1039,6 +1092,67 @@ ListPrivateTTSVoicesCustomResponse Client::listPrivateTTSVoicesCustom(const List
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listPrivateTTSVoicesCustomWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列举播报方案模板（公共的播报方案模板）
+ *
+ * @param request ListPublicBroadcastSceneTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPublicBroadcastSceneTemplatesResponse
+ */
+ListPublicBroadcastSceneTemplatesResponse Client::listPublicBroadcastSceneTemplatesWithOptions(const ListPublicBroadcastSceneTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.getSize();
+  }
+
+  if (!!request.hasTags()) {
+    query["tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPublicBroadcastSceneTemplates"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/template/scene/listPublic")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPublicBroadcastSceneTemplatesResponse>();
+}
+
+/**
+ * @summary 列举播报方案模板（公共的播报方案模板）
+ *
+ * @param request ListPublicBroadcastSceneTemplatesRequest
+ * @return ListPublicBroadcastSceneTemplatesResponse
+ */
+ListPublicBroadcastSceneTemplatesResponse Client::listPublicBroadcastSceneTemplates(const ListPublicBroadcastSceneTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPublicBroadcastSceneTemplatesWithOptions(request, headers, runtime);
 }
 
 /**

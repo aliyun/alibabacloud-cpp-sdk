@@ -57,6 +57,24 @@ namespace LingMou20250527
       Models::ConfirmTrainPicAvatarResponse confirmTrainPicAvatar(const Models::ConfirmTrainPicAvatarRequest &request);
 
       /**
+       * @summary 复制播报方案（从模版）
+       *
+       * @param request CopyBroadcastSceneFromTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CopyBroadcastSceneFromTemplateResponse
+       */
+      Models::CopyBroadcastSceneFromTemplateResponse copyBroadcastSceneFromTemplateWithOptions(const Models::CopyBroadcastSceneFromTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 复制播报方案（从模版）
+       *
+       * @param request CopyBroadcastSceneFromTemplateRequest
+       * @return CopyBroadcastSceneFromTemplateResponse
+       */
+      Models::CopyBroadcastSceneFromTemplateResponse copyBroadcastSceneFromTemplate(const Models::CopyBroadcastSceneFromTemplateRequest &request);
+
+      /**
        * @summary 创建背景素材
        *
        * @param request CreateBackgroundPicRequest
@@ -361,6 +379,24 @@ namespace LingMou20250527
        * @return ListPrivateTTSVoicesCustomResponse
        */
       Models::ListPrivateTTSVoicesCustomResponse listPrivateTTSVoicesCustom(const Models::ListPrivateTTSVoicesCustomRequest &request);
+
+      /**
+       * @summary 列举播报方案模板（公共的播报方案模板）
+       *
+       * @param request ListPublicBroadcastSceneTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPublicBroadcastSceneTemplatesResponse
+       */
+      Models::ListPublicBroadcastSceneTemplatesResponse listPublicBroadcastSceneTemplatesWithOptions(const Models::ListPublicBroadcastSceneTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举播报方案模板（公共的播报方案模板）
+       *
+       * @param request ListPublicBroadcastSceneTemplatesRequest
+       * @return ListPublicBroadcastSceneTemplatesResponse
+       */
+      Models::ListPublicBroadcastSceneTemplatesResponse listPublicBroadcastSceneTemplates(const Models::ListPublicBroadcastSceneTemplatesRequest &request);
 
       /**
        * @summary 查询底板素材
