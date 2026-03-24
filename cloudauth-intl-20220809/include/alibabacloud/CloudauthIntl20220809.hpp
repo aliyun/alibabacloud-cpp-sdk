@@ -637,7 +637,7 @@ namespace CloudauthIntl20220809
       Models::Mobile3MetaVerifyIntlResponse mobile3MetaVerifyIntl(const Models::Mobile3MetaVerifyIntlRequest &request);
 
       /**
-       * @summary 修改人脸库
+       * @summary Modify Face Group
        *
        * @param request ModifyFaceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,7 +646,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceGroupResponse modifyFaceGroupWithOptions(const Models::ModifyFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改人脸库
+       * @summary Modify Face Group
        *
        * @param request ModifyFaceGroupRequest
        * @return ModifyFaceGroupResponse
@@ -654,7 +654,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceGroupResponse modifyFaceGroup(const Models::ModifyFaceGroupRequest &request);
 
       /**
-       * @summary 新增人脸
+       * @summary Add New Face
        *
        * @param request ModifyFaceRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -663,7 +663,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceRecordResponse modifyFaceRecordWithOptions(const Models::ModifyFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增人脸
+       * @summary Add New Face
        *
        * @param request ModifyFaceRecordRequest
        * @return ModifyFaceRecordResponse
@@ -671,7 +671,7 @@ namespace CloudauthIntl20220809
       Models::ModifyFaceRecordResponse modifyFaceRecord(const Models::ModifyFaceRecordRequest &request);
 
       /**
-       * @summary 查询人脸库
+       * @summary Query Face Group
        *
        * @param request QueryFaceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -680,7 +680,7 @@ namespace CloudauthIntl20220809
       Models::QueryFaceGroupResponse queryFaceGroupWithOptions(const Models::QueryFaceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询人脸库
+       * @summary Query Face Group
        *
        * @param request QueryFaceGroupRequest
        * @return QueryFaceGroupResponse

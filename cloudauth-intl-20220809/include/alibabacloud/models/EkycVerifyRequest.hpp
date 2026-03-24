@@ -178,9 +178,15 @@ namespace Models
     shared_ptr<string> docNo_ {};
     // The certificate type, which is uniquely identified by an 8-digit number. For more information, see [Certificate types](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#Hu5TG).
     shared_ptr<string> docType_ {};
+    // The Base64 encoding of the portrait image.
+    // 
+    // > If you use this method to pass the certificate image, check the image size. Do not pass an oversized image.
     shared_ptr<string> facePictureBase64_ {};
     // The URL of the portrait image. The URL must be an HTTP or HTTPS link accessible over the Internet.
     shared_ptr<string> facePictureUrl_ {};
+    // The Base64 encoding of the certificate image.
+    // 
+    // > If you use this method to pass the certificate image, check the image size. Do not pass an oversized image.
     shared_ptr<string> idOcrPictureBase64_ {};
     // The URL of the certificate image. The URL must be an HTTP or HTTPS link accessible over the Internet.
     shared_ptr<string> idOcrPictureUrl_ {};

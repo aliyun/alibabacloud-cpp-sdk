@@ -88,11 +88,17 @@ namespace Models
     shared_ptr<string> facePictureQualityCheck_ {};
     // A custom unique business ID used for troubleshooting. It can be a combination of up to 32 letters and digits. Make sure that the ID is unique.
     shared_ptr<string> merchantBizId_ {};
+    // The Base64 encoding of the portrait photo.
+    // 
+    // > If you use this method to pass the image, check the image size. Do not pass an oversized image.
     shared_ptr<string> sourceFacePicture_ {};
     // The URL of the portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
     // 
     // > You must specify either SourceFacePicture or SourceFacePictureUrl.
     shared_ptr<string> sourceFacePictureUrl_ {};
+    // The Base64 encoding of the base photo.
+    // 
+    // > If you use this method to pass the image, check the image size. Do not pass an oversized image.
     shared_ptr<string> targetFacePicture_ {};
     // The URL of the base portrait photo. The URL must be an HTTP or HTTPS link accessible over the Internet.
     // 

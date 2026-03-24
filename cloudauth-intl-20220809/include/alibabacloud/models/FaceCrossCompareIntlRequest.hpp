@@ -147,12 +147,15 @@ namespace Models
     shared_ptr<string> productCode_ {};
     // Custom business scenario ID
     shared_ptr<string> sceneCode_ {};
+    // Base64 encoded portrait photo.
     shared_ptr<string> sourceAFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     shared_ptr<string> sourceAFacePictureUrl_ {};
+    // Base64 encoded portrait photo.
     shared_ptr<string> sourceBFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     shared_ptr<string> sourceBFacePictureUrl_ {};
+    // Base64 encoded portrait photo.
     shared_ptr<string> sourceCFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     shared_ptr<string> sourceCFacePictureUrl_ {};

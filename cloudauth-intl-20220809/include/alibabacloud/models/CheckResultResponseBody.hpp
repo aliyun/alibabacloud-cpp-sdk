@@ -145,10 +145,15 @@ namespace Models
       shared_ptr<string> extFaceInfo_ {};
       // ID information.
       shared_ptr<string> extIdInfo_ {};
-      // Extended information
+      // Extended information, in JSON string format.
       shared_ptr<string> extInfo_ {};
       // Risk information.
       shared_ptr<string> extRiskInfo_ {};
+      // Detailed verification results from the data source (example using Indonesian data sources):
+      // - **govId, fullName, dob**: A comparison score of 1.0 indicates complete consistency with the official data source; less than 1.0 indicates inconsistency. 
+      // - **selfiePhoto**: A comparison score greater than 0.8 indicates consistency with the official data source; less than or equal to 0.8 indicates inconsistency. 
+      // - **liveness**: A score higher than 0.95 indicates a risk of liveness detection. 
+      // - **imgManipulationScore**: A score higher than 0.95 indicates a risk of image manipulation.
       shared_ptr<string> extSourceInfo_ {};
       // Whether the authentication is passed.
       // 

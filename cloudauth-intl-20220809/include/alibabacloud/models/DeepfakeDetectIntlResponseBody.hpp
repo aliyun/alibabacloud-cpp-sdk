@@ -42,11 +42,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Result, result_);
         DARABONBA_PTR_TO_JSON(RiskScore, riskScore_);
         DARABONBA_PTR_TO_JSON(RiskTag, riskTag_);
+        DARABONBA_PTR_TO_JSON(TransactionId, transactionId_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
         DARABONBA_PTR_FROM_JSON(Result, result_);
         DARABONBA_PTR_FROM_JSON(RiskScore, riskScore_);
         DARABONBA_PTR_FROM_JSON(RiskTag, riskTag_);
+        DARABONBA_PTR_FROM_JSON(TransactionId, transactionId_);
       };
       ResultObject() = default ;
       ResultObject(const ResultObject &) = default ;
@@ -60,7 +62,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->result_ == nullptr
-        && this->riskScore_ == nullptr && this->riskTag_ == nullptr; };
+        && this->riskScore_ == nullptr && this->riskTag_ == nullptr && this->transactionId_ == nullptr; };
       // result Field Functions 
       bool hasResult() const { return this->result_ != nullptr;};
       void deleteResult() { this->result_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
       inline ResultObject& setRiskTag(string riskTag) { DARABONBA_PTR_SET_VALUE(riskTag_, riskTag) };
 
 
+      // transactionId Field Functions 
+      bool hasTransactionId() const { return this->transactionId_ != nullptr;};
+      void deleteTransactionId() { this->transactionId_ = nullptr;};
+      inline string getTransactionId() const { DARABONBA_PTR_GET_DEFAULT(transactionId_, "") };
+      inline ResultObject& setTransactionId(string transactionId) { DARABONBA_PTR_SET_VALUE(transactionId_, transactionId) };
+
+
     protected:
       // Risk result:
       // 
@@ -102,6 +111,7 @@ namespace Models
       // - **SuspectAIGCFace**  Suspected generated face  
       // - **SuspectRemake**  Suspected rephotographed face
       shared_ptr<string> riskTag_ {};
+      shared_ptr<string> transactionId_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

@@ -109,6 +109,7 @@ namespace Models
     // 
     // - **F**: Forbidden
     shared_ptr<string> crop_ {};
+    // The Base64-encoded image. If you use this parameter to pass the facial image, check the image size. Do not pass an oversized image.
     shared_ptr<string> facePictureBase64_ {};
     // The URL of the portrait image. The URL must be an HTTP or HTTPS link accessible over the Internet.
     shared_ptr<string> facePictureUrl_ {};
