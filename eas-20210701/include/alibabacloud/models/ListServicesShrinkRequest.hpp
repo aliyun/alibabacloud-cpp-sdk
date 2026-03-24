@@ -13,6 +13,7 @@ namespace Models
   class ListServicesShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListServicesShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(AutoscalerEnabled, autoscalerEnabled_);
       DARABONBA_PTR_TO_JSON(CallerUid, callerUid_);
       DARABONBA_PTR_TO_JSON(CronscalerEnabled, cronscalerEnabled_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListServicesShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(AutoscalerEnabled, autoscalerEnabled_);
       DARABONBA_PTR_FROM_JSON(CallerUid, callerUid_);
       DARABONBA_PTR_FROM_JSON(CronscalerEnabled, cronscalerEnabled_);
@@ -79,12 +81,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoscalerEnabled_ == nullptr
-        && this->callerUid_ == nullptr && this->cronscalerEnabled_ == nullptr && this->filter_ == nullptr && this->gateway_ == nullptr && this->groupName_ == nullptr
-        && this->includeNoWorkspace_ == nullptr && this->labelShrink_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->parentServiceUid_ == nullptr && this->quotaId_ == nullptr && this->resourceAliasName_ == nullptr && this->resourceBurstable_ == nullptr && this->resourceId_ == nullptr
-        && this->resourceName_ == nullptr && this->resourceType_ == nullptr && this->role_ == nullptr && this->serviceName_ == nullptr && this->serviceStatus_ == nullptr
-        && this->serviceType_ == nullptr && this->serviceUid_ == nullptr && this->sort_ == nullptr && this->trafficState_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && this->autoscalerEnabled_ == nullptr && this->callerUid_ == nullptr && this->cronscalerEnabled_ == nullptr && this->filter_ == nullptr && this->gateway_ == nullptr
+        && this->groupName_ == nullptr && this->includeNoWorkspace_ == nullptr && this->labelShrink_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->parentServiceUid_ == nullptr && this->quotaId_ == nullptr && this->resourceAliasName_ == nullptr && this->resourceBurstable_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr && this->role_ == nullptr && this->serviceName_ == nullptr
+        && this->serviceStatus_ == nullptr && this->serviceType_ == nullptr && this->serviceUid_ == nullptr && this->sort_ == nullptr && this->trafficState_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // accessibility Field Functions 
+    bool hasAccessibility() const { return this->accessibility_ != nullptr;};
+    void deleteAccessibility() { this->accessibility_ = nullptr;};
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline ListServicesShrinkRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
     // autoscalerEnabled Field Functions 
     bool hasAutoscalerEnabled() const { return this->autoscalerEnabled_ != nullptr;};
     void deleteAutoscalerEnabled() { this->autoscalerEnabled_ = nullptr;};
@@ -268,6 +278,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessibility_ {};
     shared_ptr<bool> autoscalerEnabled_ {};
     shared_ptr<string> callerUid_ {};
     shared_ptr<bool> cronscalerEnabled_ {};

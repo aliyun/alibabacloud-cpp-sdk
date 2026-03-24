@@ -1491,6 +1491,24 @@ namespace Eas20210701
       Models::RestartServiceResponse restartService(const string &ClusterId, const string &ServiceName);
 
       /**
+       * @summary 伸缩服务
+       *
+       * @param request ScaleServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ScaleServiceResponse
+       */
+      Models::ScaleServiceResponse scaleServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::ScaleServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 伸缩服务
+       *
+       * @param request ScaleServiceRequest
+       * @return ScaleServiceResponse
+       */
+      Models::ScaleServiceResponse scaleService(const string &ClusterId, const string &ServiceName, const Models::ScaleServiceRequest &request);
+
+      /**
        * @summary Starts a stress testing task.
        *
        * @param headers map

@@ -3976,6 +3976,10 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
   }
 
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasAutoscalerEnabled()) {
     query["AutoscalerEnabled"] = request.getAutoscalerEnabled();
   }
@@ -4383,6 +4387,55 @@ RestartServiceResponse Client::restartService(const string &ClusterId, const str
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+}
+
+/**
+ * @summary 伸缩服务
+ *
+ * @param request ScaleServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ScaleServiceResponse
+ */
+ScaleServiceResponse Client::scaleServiceWithOptions(const string &ClusterId, const string &ServiceName, const ScaleServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstance()) {
+    body["Instance"] = request.getInstance();
+  }
+
+  if (!!request.hasInstancesToDelete()) {
+    body["InstancesToDelete"] = request.getInstancesToDelete();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ScaleService"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/services/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ServiceName) , "/scale")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ScaleServiceResponse>();
+}
+
+/**
+ * @summary 伸缩服务
+ *
+ * @param request ScaleServiceRequest
+ * @return ScaleServiceResponse
+ */
+ScaleServiceResponse Client::scaleService(const string &ClusterId, const string &ServiceName, const ScaleServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return scaleServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**

@@ -241,6 +241,9 @@
 #include <alibabacloud/models/ReleaseServiceResponse.hpp>
 #include <alibabacloud/models/RestartServiceResponseBody.hpp>
 #include <alibabacloud/models/RestartServiceResponse.hpp>
+#include <alibabacloud/models/ScaleServiceRequest.hpp>
+#include <alibabacloud/models/ScaleServiceResponseBody.hpp>
+#include <alibabacloud/models/ScaleServiceResponse.hpp>
 #include <alibabacloud/models/StartBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/StartBenchmarkTaskResponse.hpp>
 #include <alibabacloud/models/StartServiceResponseBody.hpp>
