@@ -35,34 +35,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->bizType_ == nullptr && return this->dataIdList_ == nullptr; };
+        && this->bizType_ == nullptr && this->dataIdList_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline CreatePublishTaskRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreatePublishTaskRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // dataIdList Field Functions 
     bool hasDataIdList() const { return this->dataIdList_ != nullptr;};
     void deleteDataIdList() { this->dataIdList_ = nullptr;};
-    inline const vector<string> & dataIdList() const { DARABONBA_PTR_GET_CONST(dataIdList_, vector<string>) };
-    inline vector<string> dataIdList() { DARABONBA_PTR_GET(dataIdList_, vector<string>) };
+    inline const vector<string> & getDataIdList() const { DARABONBA_PTR_GET_CONST(dataIdList_, vector<string>) };
+    inline vector<string> getDataIdList() { DARABONBA_PTR_GET(dataIdList_, vector<string>) };
     inline CreatePublishTaskRequest& setDataIdList(const vector<string> & dataIdList) { DARABONBA_PTR_SET_VALUE(dataIdList_, dataIdList) };
     inline CreatePublishTaskRequest& setDataIdList(vector<string> && dataIdList) { DARABONBA_PTR_SET_RVALUE(dataIdList_, dataIdList) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<vector<string>> dataIdList_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> bizType_ {};
+    shared_ptr<vector<string>> dataIdList_ {};
   };
 
   } // namespace Models

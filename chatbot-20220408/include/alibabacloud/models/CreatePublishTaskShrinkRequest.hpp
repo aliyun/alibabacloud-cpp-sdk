@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->bizType_ == nullptr && return this->dataIdListShrink_ == nullptr; };
+        && this->bizType_ == nullptr && this->dataIdListShrink_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline CreatePublishTaskShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreatePublishTaskShrinkRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // dataIdListShrink Field Functions 
     bool hasDataIdListShrink() const { return this->dataIdListShrink_ != nullptr;};
     void deleteDataIdListShrink() { this->dataIdListShrink_ = nullptr;};
-    inline string dataIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(dataIdListShrink_, "") };
+    inline string getDataIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(dataIdListShrink_, "") };
     inline CreatePublishTaskShrinkRequest& setDataIdListShrink(string dataIdListShrink) { DARABONBA_PTR_SET_VALUE(dataIdListShrink_, dataIdListShrink) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<string> dataIdListShrink_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> dataIdListShrink_ {};
   };
 
   } // namespace Models

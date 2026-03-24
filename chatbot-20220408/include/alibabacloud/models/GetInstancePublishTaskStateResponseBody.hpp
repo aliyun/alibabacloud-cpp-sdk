@@ -49,13 +49,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizTypeList_ == nullptr
-        && return this->createTime_ == nullptr && return this->error_ == nullptr && return this->errors_ == nullptr && return this->id_ == nullptr && return this->modifyTime_ == nullptr
-        && return this->requestId_ == nullptr && return this->response_ == nullptr && return this->status_ == nullptr && return this->warnings_ == nullptr; };
+        && this->createTime_ == nullptr && this->error_ == nullptr && this->errors_ == nullptr && this->id_ == nullptr && this->modifyTime_ == nullptr
+        && this->requestId_ == nullptr && this->response_ == nullptr && this->status_ == nullptr && this->warnings_ == nullptr; };
     // bizTypeList Field Functions 
     bool hasBizTypeList() const { return this->bizTypeList_ != nullptr;};
     void deleteBizTypeList() { this->bizTypeList_ = nullptr;};
-    inline const vector<string> & bizTypeList() const { DARABONBA_PTR_GET_CONST(bizTypeList_, vector<string>) };
-    inline vector<string> bizTypeList() { DARABONBA_PTR_GET(bizTypeList_, vector<string>) };
+    inline const vector<string> & getBizTypeList() const { DARABONBA_PTR_GET_CONST(bizTypeList_, vector<string>) };
+    inline vector<string> getBizTypeList() { DARABONBA_PTR_GET(bizTypeList_, vector<string>) };
     inline GetInstancePublishTaskStateResponseBody& setBizTypeList(const vector<string> & bizTypeList) { DARABONBA_PTR_SET_VALUE(bizTypeList_, bizTypeList) };
     inline GetInstancePublishTaskStateResponseBody& setBizTypeList(vector<string> && bizTypeList) { DARABONBA_PTR_SET_RVALUE(bizTypeList_, bizTypeList) };
 
@@ -63,81 +63,81 @@ namespace Models
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetInstancePublishTaskStateResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // error Field Functions 
     bool hasError() const { return this->error_ != nullptr;};
     void deleteError() { this->error_ = nullptr;};
-    inline string error() const { DARABONBA_PTR_GET_DEFAULT(error_, "") };
+    inline string getError() const { DARABONBA_PTR_GET_DEFAULT(error_, "") };
     inline GetInstancePublishTaskStateResponseBody& setError(string error) { DARABONBA_PTR_SET_VALUE(error_, error) };
 
 
     // errors Field Functions 
     bool hasErrors() const { return this->errors_ != nullptr;};
     void deleteErrors() { this->errors_ = nullptr;};
-    inline     const Darabonba::Json & errors() const { DARABONBA_GET(errors_) };
-    Darabonba::Json & errors() { DARABONBA_GET(errors_) };
+    inline     const Darabonba::Json & getErrors() const { DARABONBA_GET(errors_) };
+    Darabonba::Json & getErrors() { DARABONBA_GET(errors_) };
     inline GetInstancePublishTaskStateResponseBody& setErrors(const Darabonba::Json & errors) { DARABONBA_SET_VALUE(errors_, errors) };
-    inline GetInstancePublishTaskStateResponseBody& setErrors(Darabonba::Json & errors) { DARABONBA_SET_RVALUE(errors_, errors) };
+    inline GetInstancePublishTaskStateResponseBody& setErrors(Darabonba::Json && errors) { DARABONBA_SET_RVALUE(errors_, errors) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetInstancePublishTaskStateResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline GetInstancePublishTaskStateResponseBody& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstancePublishTaskStateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // response Field Functions 
     bool hasResponse() const { return this->response_ != nullptr;};
     void deleteResponse() { this->response_ = nullptr;};
-    inline string response() const { DARABONBA_PTR_GET_DEFAULT(response_, "") };
+    inline string getResponse() const { DARABONBA_PTR_GET_DEFAULT(response_, "") };
     inline GetInstancePublishTaskStateResponseBody& setResponse(string response) { DARABONBA_PTR_SET_VALUE(response_, response) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetInstancePublishTaskStateResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // warnings Field Functions 
     bool hasWarnings() const { return this->warnings_ != nullptr;};
     void deleteWarnings() { this->warnings_ = nullptr;};
-    inline     const Darabonba::Json & warnings() const { DARABONBA_GET(warnings_) };
-    Darabonba::Json & warnings() { DARABONBA_GET(warnings_) };
+    inline     const Darabonba::Json & getWarnings() const { DARABONBA_GET(warnings_) };
+    Darabonba::Json & getWarnings() { DARABONBA_GET(warnings_) };
     inline GetInstancePublishTaskStateResponseBody& setWarnings(const Darabonba::Json & warnings) { DARABONBA_SET_VALUE(warnings_, warnings) };
-    inline GetInstancePublishTaskStateResponseBody& setWarnings(Darabonba::Json & warnings) { DARABONBA_SET_RVALUE(warnings_, warnings) };
+    inline GetInstancePublishTaskStateResponseBody& setWarnings(Darabonba::Json && warnings) { DARABONBA_SET_RVALUE(warnings_, warnings) };
 
 
   protected:
-    std::shared_ptr<vector<string>> bizTypeList_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> error_ = nullptr;
-    Darabonba::Json errors_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> response_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    Darabonba::Json warnings_ = nullptr;
+    shared_ptr<vector<string>> bizTypeList_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> error_ {};
+    Darabonba::Json errors_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> response_ {};
+    shared_ptr<string> status_ {};
+    Darabonba::Json warnings_ {};
   };
 
   } // namespace Models

@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->robotInstanceId_ == nullptr && return this->sessionId_ == nullptr; };
+        && this->robotInstanceId_ == nullptr && this->sessionId_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline ListTongyiConversationLogsRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // robotInstanceId Field Functions 
     bool hasRobotInstanceId() const { return this->robotInstanceId_ != nullptr;};
     void deleteRobotInstanceId() { this->robotInstanceId_ = nullptr;};
-    inline string robotInstanceId() const { DARABONBA_PTR_GET_DEFAULT(robotInstanceId_, "") };
+    inline string getRobotInstanceId() const { DARABONBA_PTR_GET_DEFAULT(robotInstanceId_, "") };
     inline ListTongyiConversationLogsRequest& setRobotInstanceId(string robotInstanceId) { DARABONBA_PTR_SET_VALUE(robotInstanceId_, robotInstanceId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline ListTongyiConversationLogsRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> robotInstanceId_ = nullptr;
+    shared_ptr<string> robotInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

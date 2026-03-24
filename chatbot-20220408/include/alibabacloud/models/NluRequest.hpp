@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->instanceId_ == nullptr && return this->utterance_ == nullptr; };
+        && this->instanceId_ == nullptr && this->utterance_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline NluRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline NluRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // utterance Field Functions 
     bool hasUtterance() const { return this->utterance_ != nullptr;};
     void deleteUtterance() { this->utterance_ = nullptr;};
-    inline string utterance() const { DARABONBA_PTR_GET_DEFAULT(utterance_, "") };
+    inline string getUtterance() const { DARABONBA_PTR_GET_DEFAULT(utterance_, "") };
     inline NluRequest& setUtterance(string utterance) { DARABONBA_PTR_SET_VALUE(utterance_, utterance) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> utterance_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> utterance_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->feedback_ == nullptr
-        && return this->messageId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->messageId_ == nullptr && this->requestId_ == nullptr; };
     // feedback Field Functions 
     bool hasFeedback() const { return this->feedback_ != nullptr;};
     void deleteFeedback() { this->feedback_ = nullptr;};
-    inline string feedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
+    inline string getFeedback() const { DARABONBA_PTR_GET_DEFAULT(feedback_, "") };
     inline FeedbackResponseBody& setFeedback(string feedback) { DARABONBA_PTR_SET_VALUE(feedback_, feedback) };
 
 
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline FeedbackResponseBody& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline FeedbackResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> feedback_ = nullptr;
-    std::shared_ptr<string> messageId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> feedback_ {};
+    shared_ptr<string> messageId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

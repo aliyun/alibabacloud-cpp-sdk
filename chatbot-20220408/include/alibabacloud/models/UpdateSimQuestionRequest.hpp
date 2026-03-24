@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->simQuestionId_ == nullptr && return this->title_ == nullptr; };
+        && this->simQuestionId_ == nullptr && this->title_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline UpdateSimQuestionRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // simQuestionId Field Functions 
     bool hasSimQuestionId() const { return this->simQuestionId_ != nullptr;};
     void deleteSimQuestionId() { this->simQuestionId_ = nullptr;};
-    inline int64_t simQuestionId() const { DARABONBA_PTR_GET_DEFAULT(simQuestionId_, 0L) };
+    inline int64_t getSimQuestionId() const { DARABONBA_PTR_GET_DEFAULT(simQuestionId_, 0L) };
     inline UpdateSimQuestionRequest& setSimQuestionId(int64_t simQuestionId) { DARABONBA_PTR_SET_VALUE(simQuestionId_, simQuestionId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateSimQuestionRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> simQuestionId_ = nullptr;
+    shared_ptr<int64_t> simQuestionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

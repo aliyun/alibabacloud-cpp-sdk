@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->name_ == nullptr && return this->perspectiveId_ == nullptr; };
+        && this->name_ == nullptr && this->perspectiveId_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline UpdatePerspectiveRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdatePerspectiveRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // perspectiveId Field Functions 
     bool hasPerspectiveId() const { return this->perspectiveId_ != nullptr;};
     void deletePerspectiveId() { this->perspectiveId_ = nullptr;};
-    inline string perspectiveId() const { DARABONBA_PTR_GET_DEFAULT(perspectiveId_, "") };
+    inline string getPerspectiveId() const { DARABONBA_PTR_GET_DEFAULT(perspectiveId_, "") };
     inline UpdatePerspectiveRequest& setPerspectiveId(string perspectiveId) { DARABONBA_PTR_SET_VALUE(perspectiveId_, perspectiveId) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> perspectiveId_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> perspectiveId_ {};
   };
 
   } // namespace Models

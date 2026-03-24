@@ -33,12 +33,12 @@ namespace Models
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline QueryPerspectivesRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
   };
 
   } // namespace Models

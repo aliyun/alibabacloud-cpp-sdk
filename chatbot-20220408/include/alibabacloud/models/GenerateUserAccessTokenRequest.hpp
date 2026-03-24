@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->email_ == nullptr && return this->expireTime_ == nullptr && return this->extraInfo_ == nullptr && return this->foreignId_ == nullptr && return this->nick_ == nullptr
-        && return this->telephone_ == nullptr; };
+        && this->email_ == nullptr && this->expireTime_ == nullptr && this->extraInfo_ == nullptr && this->foreignId_ == nullptr && this->nick_ == nullptr
+        && this->telephone_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline GenerateUserAccessTokenRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline GenerateUserAccessTokenRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
-    inline int32_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
+    inline int32_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
     inline GenerateUserAccessTokenRequest& setExpireTime(int32_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // extraInfo Field Functions 
     bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
     void deleteExtraInfo() { this->extraInfo_ = nullptr;};
-    inline string extraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
+    inline string getExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
     inline GenerateUserAccessTokenRequest& setExtraInfo(string extraInfo) { DARABONBA_PTR_SET_VALUE(extraInfo_, extraInfo) };
 
 
     // foreignId Field Functions 
     bool hasForeignId() const { return this->foreignId_ != nullptr;};
     void deleteForeignId() { this->foreignId_ = nullptr;};
-    inline string foreignId() const { DARABONBA_PTR_GET_DEFAULT(foreignId_, "") };
+    inline string getForeignId() const { DARABONBA_PTR_GET_DEFAULT(foreignId_, "") };
     inline GenerateUserAccessTokenRequest& setForeignId(string foreignId) { DARABONBA_PTR_SET_VALUE(foreignId_, foreignId) };
 
 
     // nick Field Functions 
     bool hasNick() const { return this->nick_ != nullptr;};
     void deleteNick() { this->nick_ = nullptr;};
-    inline string nick() const { DARABONBA_PTR_GET_DEFAULT(nick_, "") };
+    inline string getNick() const { DARABONBA_PTR_GET_DEFAULT(nick_, "") };
     inline GenerateUserAccessTokenRequest& setNick(string nick) { DARABONBA_PTR_SET_VALUE(nick_, nick) };
 
 
     // telephone Field Functions 
     bool hasTelephone() const { return this->telephone_ != nullptr;};
     void deleteTelephone() { this->telephone_ = nullptr;};
-    inline string telephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
+    inline string getTelephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
     inline GenerateUserAccessTokenRequest& setTelephone(string telephone) { DARABONBA_PTR_SET_VALUE(telephone_, telephone) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> email_ = nullptr;
-    std::shared_ptr<int32_t> expireTime_ = nullptr;
-    std::shared_ptr<string> extraInfo_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> email_ {};
+    shared_ptr<int32_t> expireTime_ {};
+    shared_ptr<string> extraInfo_ {};
     // This parameter is required.
-    std::shared_ptr<string> foreignId_ = nullptr;
+    shared_ptr<string> foreignId_ {};
     // This parameter is required.
-    std::shared_ptr<string> nick_ = nullptr;
-    std::shared_ptr<string> telephone_ = nullptr;
+    shared_ptr<string> nick_ {};
+    shared_ptr<string> telephone_ {};
   };
 
   } // namespace Models

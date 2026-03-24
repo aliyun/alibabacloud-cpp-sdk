@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->solutionId_ == nullptr; };
+        && this->solutionId_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline DeleteSolutionRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
-    inline int64_t solutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, 0L) };
+    inline int64_t getSolutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, 0L) };
     inline DeleteSolutionRequest& setSolutionId(int64_t solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> solutionId_ = nullptr;
+    shared_ptr<int64_t> solutionId_ {};
   };
 
   } // namespace Models

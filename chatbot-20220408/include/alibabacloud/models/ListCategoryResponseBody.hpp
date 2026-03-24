@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTCATEGORYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListCategoryResponseBodyCategories.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,27 +32,99 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Categories : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Categories& obj) { 
+        DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
+        DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ParentCategoryId, parentCategoryId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Categories& obj) { 
+        DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
+        DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ParentCategoryId, parentCategoryId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      Categories() = default ;
+      Categories(const Categories &) = default ;
+      Categories(Categories &&) = default ;
+      Categories(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Categories() = default ;
+      Categories& operator=(const Categories &) = default ;
+      Categories& operator=(Categories &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->bizCode_ == nullptr
+        && this->categoryId_ == nullptr && this->name_ == nullptr && this->parentCategoryId_ == nullptr && this->status_ == nullptr; };
+      // bizCode Field Functions 
+      bool hasBizCode() const { return this->bizCode_ != nullptr;};
+      void deleteBizCode() { this->bizCode_ = nullptr;};
+      inline string getBizCode() const { DARABONBA_PTR_GET_DEFAULT(bizCode_, "") };
+      inline Categories& setBizCode(string bizCode) { DARABONBA_PTR_SET_VALUE(bizCode_, bizCode) };
+
+
+      // categoryId Field Functions 
+      bool hasCategoryId() const { return this->categoryId_ != nullptr;};
+      void deleteCategoryId() { this->categoryId_ = nullptr;};
+      inline int64_t getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
+      inline Categories& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Categories& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // parentCategoryId Field Functions 
+      bool hasParentCategoryId() const { return this->parentCategoryId_ != nullptr;};
+      void deleteParentCategoryId() { this->parentCategoryId_ = nullptr;};
+      inline int64_t getParentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, 0L) };
+      inline Categories& setParentCategoryId(int64_t parentCategoryId) { DARABONBA_PTR_SET_VALUE(parentCategoryId_, parentCategoryId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+      inline Categories& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<string> bizCode_ {};
+      shared_ptr<int64_t> categoryId_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<int64_t> parentCategoryId_ {};
+      shared_ptr<int32_t> status_ {};
+    };
+
     virtual bool empty() const override { return this->categories_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};
-    inline const vector<ListCategoryResponseBodyCategories> & categories() const { DARABONBA_PTR_GET_CONST(categories_, vector<ListCategoryResponseBodyCategories>) };
-    inline vector<ListCategoryResponseBodyCategories> categories() { DARABONBA_PTR_GET(categories_, vector<ListCategoryResponseBodyCategories>) };
-    inline ListCategoryResponseBody& setCategories(const vector<ListCategoryResponseBodyCategories> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
-    inline ListCategoryResponseBody& setCategories(vector<ListCategoryResponseBodyCategories> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
+    inline const vector<ListCategoryResponseBody::Categories> & getCategories() const { DARABONBA_PTR_GET_CONST(categories_, vector<ListCategoryResponseBody::Categories>) };
+    inline vector<ListCategoryResponseBody::Categories> getCategories() { DARABONBA_PTR_GET(categories_, vector<ListCategoryResponseBody::Categories>) };
+    inline ListCategoryResponseBody& setCategories(const vector<ListCategoryResponseBody::Categories> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
+    inline ListCategoryResponseBody& setCategories(vector<ListCategoryResponseBody::Categories> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListCategoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<ListCategoryResponseBodyCategories>> categories_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<ListCategoryResponseBody::Categories>> categories_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

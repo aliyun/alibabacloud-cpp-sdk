@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abilityType_ == nullptr
-        && return this->agentKey_ == nullptr && return this->categoryIds_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->agentKey_ == nullptr && this->categoryIds_ == nullptr && this->instanceId_ == nullptr; };
     // abilityType Field Functions 
     bool hasAbilityType() const { return this->abilityType_ != nullptr;};
     void deleteAbilityType() { this->abilityType_ = nullptr;};
-    inline string abilityType() const { DARABONBA_PTR_GET_DEFAULT(abilityType_, "") };
+    inline string getAbilityType() const { DARABONBA_PTR_GET_DEFAULT(abilityType_, "") };
     inline LinkInstanceCategoryRequest& setAbilityType(string abilityType) { DARABONBA_PTR_SET_VALUE(abilityType_, abilityType) };
 
 
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline LinkInstanceCategoryRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // categoryIds Field Functions 
     bool hasCategoryIds() const { return this->categoryIds_ != nullptr;};
     void deleteCategoryIds() { this->categoryIds_ = nullptr;};
-    inline string categoryIds() const { DARABONBA_PTR_GET_DEFAULT(categoryIds_, "") };
+    inline string getCategoryIds() const { DARABONBA_PTR_GET_DEFAULT(categoryIds_, "") };
     inline LinkInstanceCategoryRequest& setCategoryIds(string categoryIds) { DARABONBA_PTR_SET_VALUE(categoryIds_, categoryIds) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline LinkInstanceCategoryRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> abilityType_ = nullptr;
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> categoryIds_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> abilityType_ {};
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> categoryIds_ {};
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

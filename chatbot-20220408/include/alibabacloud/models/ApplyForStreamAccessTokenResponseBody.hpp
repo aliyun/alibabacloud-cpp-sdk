@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && return this->channelId_ == nullptr && return this->requestId_ == nullptr && return this->streamSecret_ == nullptr; };
+        && this->channelId_ == nullptr && this->requestId_ == nullptr && this->streamSecret_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
-    inline string accessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
+    inline string getAccessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
     inline ApplyForStreamAccessTokenResponseBody& setAccessToken(string accessToken) { DARABONBA_PTR_SET_VALUE(accessToken_, accessToken) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline ApplyForStreamAccessTokenResponseBody& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ApplyForStreamAccessTokenResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // streamSecret Field Functions 
     bool hasStreamSecret() const { return this->streamSecret_ != nullptr;};
     void deleteStreamSecret() { this->streamSecret_ = nullptr;};
-    inline string streamSecret() const { DARABONBA_PTR_GET_DEFAULT(streamSecret_, "") };
+    inline string getStreamSecret() const { DARABONBA_PTR_GET_DEFAULT(streamSecret_, "") };
     inline ApplyForStreamAccessTokenResponseBody& setStreamSecret(string streamSecret) { DARABONBA_PTR_SET_VALUE(streamSecret_, streamSecret) };
 
 
   protected:
-    std::shared_ptr<string> accessToken_ = nullptr;
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> accessToken_ {};
+    shared_ptr<string> channelId_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> streamSecret_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> streamSecret_ {};
   };
 
   } // namespace Models

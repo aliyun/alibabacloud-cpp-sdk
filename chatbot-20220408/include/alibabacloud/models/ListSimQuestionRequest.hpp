@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->knowledgeId_ == nullptr; };
+        && this->knowledgeId_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline ListSimQuestionRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // knowledgeId Field Functions 
     bool hasKnowledgeId() const { return this->knowledgeId_ != nullptr;};
     void deleteKnowledgeId() { this->knowledgeId_ = nullptr;};
-    inline int64_t knowledgeId() const { DARABONBA_PTR_GET_DEFAULT(knowledgeId_, 0L) };
+    inline int64_t getKnowledgeId() const { DARABONBA_PTR_GET_DEFAULT(knowledgeId_, 0L) };
     inline ListSimQuestionRequest& setKnowledgeId(int64_t knowledgeId) { DARABONBA_PTR_SET_VALUE(knowledgeId_, knowledgeId) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> knowledgeId_ = nullptr;
+    shared_ptr<int64_t> knowledgeId_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSAASINFORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListSaasInfoResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,36 +34,108 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(EnName, enName_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ServiceUrl, serviceUrl_);
+        DARABONBA_PTR_TO_JSON(Url, url_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(EnName, enName_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ServiceUrl, serviceUrl_);
+        DARABONBA_PTR_FROM_JSON(Url, url_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->code_ == nullptr
+        && this->enName_ == nullptr && this->name_ == nullptr && this->serviceUrl_ == nullptr && this->url_ == nullptr; };
+      // code Field Functions 
+      bool hasCode() const { return this->code_ != nullptr;};
+      void deleteCode() { this->code_ = nullptr;};
+      inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+      inline Data& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // enName Field Functions 
+      bool hasEnName() const { return this->enName_ != nullptr;};
+      void deleteEnName() { this->enName_ = nullptr;};
+      inline string getEnName() const { DARABONBA_PTR_GET_DEFAULT(enName_, "") };
+      inline Data& setEnName(string enName) { DARABONBA_PTR_SET_VALUE(enName_, enName) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // serviceUrl Field Functions 
+      bool hasServiceUrl() const { return this->serviceUrl_ != nullptr;};
+      void deleteServiceUrl() { this->serviceUrl_ = nullptr;};
+      inline string getServiceUrl() const { DARABONBA_PTR_GET_DEFAULT(serviceUrl_, "") };
+      inline Data& setServiceUrl(string serviceUrl) { DARABONBA_PTR_SET_VALUE(serviceUrl_, serviceUrl) };
+
+
+      // url Field Functions 
+      bool hasUrl() const { return this->url_ != nullptr;};
+      void deleteUrl() { this->url_ = nullptr;};
+      inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+      inline Data& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+    protected:
+      shared_ptr<string> code_ {};
+      shared_ptr<string> enName_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> serviceUrl_ {};
+      shared_ptr<string> url_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr && return this->saasToken_ == nullptr; };
+        && this->requestId_ == nullptr && this->saasToken_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListSaasInfoResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListSaasInfoResponseBodyData>) };
-    inline vector<ListSaasInfoResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListSaasInfoResponseBodyData>) };
-    inline ListSaasInfoResponseBody& setData(const vector<ListSaasInfoResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListSaasInfoResponseBody& setData(vector<ListSaasInfoResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListSaasInfoResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListSaasInfoResponseBody::Data>) };
+    inline vector<ListSaasInfoResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListSaasInfoResponseBody::Data>) };
+    inline ListSaasInfoResponseBody& setData(const vector<ListSaasInfoResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListSaasInfoResponseBody& setData(vector<ListSaasInfoResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListSaasInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // saasToken Field Functions 
     bool hasSaasToken() const { return this->saasToken_ != nullptr;};
     void deleteSaasToken() { this->saasToken_ = nullptr;};
-    inline string saasToken() const { DARABONBA_PTR_GET_DEFAULT(saasToken_, "") };
+    inline string getSaasToken() const { DARABONBA_PTR_GET_DEFAULT(saasToken_, "") };
     inline ListSaasInfoResponseBody& setSaasToken(string saasToken) { DARABONBA_PTR_SET_VALUE(saasToken_, saasToken) };
 
 
   protected:
-    std::shared_ptr<vector<ListSaasInfoResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<ListSaasInfoResponseBody::Data>> data_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> saasToken_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> saasToken_ {};
   };
 
   } // namespace Models

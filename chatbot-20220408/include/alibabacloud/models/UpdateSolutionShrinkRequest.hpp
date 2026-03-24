@@ -41,33 +41,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->content_ == nullptr && return this->contentType_ == nullptr && return this->perspectiveCodes_ == nullptr && return this->solutionId_ == nullptr && return this->tagIdListShrink_ == nullptr; };
+        && this->content_ == nullptr && this->contentType_ == nullptr && this->perspectiveCodes_ == nullptr && this->solutionId_ == nullptr && this->tagIdListShrink_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline UpdateSolutionShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateSolutionShrinkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
-    inline int32_t contentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, 0) };
+    inline int32_t getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, 0) };
     inline UpdateSolutionShrinkRequest& setContentType(int32_t contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
 
 
     // perspectiveCodes Field Functions 
     bool hasPerspectiveCodes() const { return this->perspectiveCodes_ != nullptr;};
     void deletePerspectiveCodes() { this->perspectiveCodes_ = nullptr;};
-    inline const vector<string> & perspectiveCodes() const { DARABONBA_PTR_GET_CONST(perspectiveCodes_, vector<string>) };
-    inline vector<string> perspectiveCodes() { DARABONBA_PTR_GET(perspectiveCodes_, vector<string>) };
+    inline const vector<string> & getPerspectiveCodes() const { DARABONBA_PTR_GET_CONST(perspectiveCodes_, vector<string>) };
+    inline vector<string> getPerspectiveCodes() { DARABONBA_PTR_GET(perspectiveCodes_, vector<string>) };
     inline UpdateSolutionShrinkRequest& setPerspectiveCodes(const vector<string> & perspectiveCodes) { DARABONBA_PTR_SET_VALUE(perspectiveCodes_, perspectiveCodes) };
     inline UpdateSolutionShrinkRequest& setPerspectiveCodes(vector<string> && perspectiveCodes) { DARABONBA_PTR_SET_RVALUE(perspectiveCodes_, perspectiveCodes) };
 
@@ -75,27 +75,27 @@ namespace Models
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
-    inline int64_t solutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, 0L) };
+    inline int64_t getSolutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, 0L) };
     inline UpdateSolutionShrinkRequest& setSolutionId(int64_t solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
     // tagIdListShrink Field Functions 
     bool hasTagIdListShrink() const { return this->tagIdListShrink_ != nullptr;};
     void deleteTagIdListShrink() { this->tagIdListShrink_ = nullptr;};
-    inline string tagIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(tagIdListShrink_, "") };
+    inline string getTagIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(tagIdListShrink_, "") };
     inline UpdateSolutionShrinkRequest& setTagIdListShrink(string tagIdListShrink) { DARABONBA_PTR_SET_VALUE(tagIdListShrink_, tagIdListShrink) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<int32_t> contentType_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<int32_t> contentType_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> perspectiveCodes_ = nullptr;
+    shared_ptr<vector<string>> perspectiveCodes_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> solutionId_ = nullptr;
-    std::shared_ptr<string> tagIdListShrink_ = nullptr;
+    shared_ptr<int64_t> solutionId_ {};
+    shared_ptr<string> tagIdListShrink_ {};
   };
 
   } // namespace Models

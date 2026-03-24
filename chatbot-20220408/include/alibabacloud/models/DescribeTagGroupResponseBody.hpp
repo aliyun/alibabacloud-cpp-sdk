@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->createUserId_ == nullptr && return this->createUserName_ == nullptr && return this->defaultTagId_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr
-        && return this->modifyTime_ == nullptr && return this->modifyUserId_ == nullptr && return this->modifyUserName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->createUserId_ == nullptr && this->createUserName_ == nullptr && this->defaultTagId_ == nullptr && this->groupName_ == nullptr && this->id_ == nullptr
+        && this->modifyTime_ == nullptr && this->modifyUserId_ == nullptr && this->modifyUserName_ == nullptr && this->requestId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribeTagGroupResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // createUserId Field Functions 
     bool hasCreateUserId() const { return this->createUserId_ != nullptr;};
     void deleteCreateUserId() { this->createUserId_ = nullptr;};
-    inline int64_t createUserId() const { DARABONBA_PTR_GET_DEFAULT(createUserId_, 0L) };
+    inline int64_t getCreateUserId() const { DARABONBA_PTR_GET_DEFAULT(createUserId_, 0L) };
     inline DescribeTagGroupResponseBody& setCreateUserId(int64_t createUserId) { DARABONBA_PTR_SET_VALUE(createUserId_, createUserId) };
 
 
     // createUserName Field Functions 
     bool hasCreateUserName() const { return this->createUserName_ != nullptr;};
     void deleteCreateUserName() { this->createUserName_ = nullptr;};
-    inline string createUserName() const { DARABONBA_PTR_GET_DEFAULT(createUserName_, "") };
+    inline string getCreateUserName() const { DARABONBA_PTR_GET_DEFAULT(createUserName_, "") };
     inline DescribeTagGroupResponseBody& setCreateUserName(string createUserName) { DARABONBA_PTR_SET_VALUE(createUserName_, createUserName) };
 
 
     // defaultTagId Field Functions 
     bool hasDefaultTagId() const { return this->defaultTagId_ != nullptr;};
     void deleteDefaultTagId() { this->defaultTagId_ = nullptr;};
-    inline int64_t defaultTagId() const { DARABONBA_PTR_GET_DEFAULT(defaultTagId_, 0L) };
+    inline int64_t getDefaultTagId() const { DARABONBA_PTR_GET_DEFAULT(defaultTagId_, 0L) };
     inline DescribeTagGroupResponseBody& setDefaultTagId(int64_t defaultTagId) { DARABONBA_PTR_SET_VALUE(defaultTagId_, defaultTagId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline DescribeTagGroupResponseBody& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline DescribeTagGroupResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline DescribeTagGroupResponseBody& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // modifyUserId Field Functions 
     bool hasModifyUserId() const { return this->modifyUserId_ != nullptr;};
     void deleteModifyUserId() { this->modifyUserId_ = nullptr;};
-    inline int64_t modifyUserId() const { DARABONBA_PTR_GET_DEFAULT(modifyUserId_, 0L) };
+    inline int64_t getModifyUserId() const { DARABONBA_PTR_GET_DEFAULT(modifyUserId_, 0L) };
     inline DescribeTagGroupResponseBody& setModifyUserId(int64_t modifyUserId) { DARABONBA_PTR_SET_VALUE(modifyUserId_, modifyUserId) };
 
 
     // modifyUserName Field Functions 
     bool hasModifyUserName() const { return this->modifyUserName_ != nullptr;};
     void deleteModifyUserName() { this->modifyUserName_ = nullptr;};
-    inline string modifyUserName() const { DARABONBA_PTR_GET_DEFAULT(modifyUserName_, "") };
+    inline string getModifyUserName() const { DARABONBA_PTR_GET_DEFAULT(modifyUserName_, "") };
     inline DescribeTagGroupResponseBody& setModifyUserName(string modifyUserName) { DARABONBA_PTR_SET_VALUE(modifyUserName_, modifyUserName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeTagGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<int64_t> createUserId_ = nullptr;
-    std::shared_ptr<string> createUserName_ = nullptr;
-    std::shared_ptr<int64_t> defaultTagId_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<int64_t> modifyUserId_ = nullptr;
-    std::shared_ptr<string> modifyUserName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> createTime_ {};
+    shared_ptr<int64_t> createUserId_ {};
+    shared_ptr<string> createUserName_ {};
+    shared_ptr<int64_t> defaultTagId_ {};
+    shared_ptr<string> groupName_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<int64_t> modifyUserId_ {};
+    shared_ptr<string> modifyUserName_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

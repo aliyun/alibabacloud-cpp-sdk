@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSIMQUESTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListSimQuestionResponseBodySimQuestions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,27 +32,89 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SimQuestions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SimQuestions& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
+        DARABONBA_PTR_TO_JSON(SimQuestionId, simQuestionId_);
+        DARABONBA_PTR_TO_JSON(Title, title_);
+      };
+      friend void from_json(const Darabonba::Json& j, SimQuestions& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
+        DARABONBA_PTR_FROM_JSON(SimQuestionId, simQuestionId_);
+        DARABONBA_PTR_FROM_JSON(Title, title_);
+      };
+      SimQuestions() = default ;
+      SimQuestions(const SimQuestions &) = default ;
+      SimQuestions(SimQuestions &&) = default ;
+      SimQuestions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SimQuestions() = default ;
+      SimQuestions& operator=(const SimQuestions &) = default ;
+      SimQuestions& operator=(SimQuestions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->modifyTime_ == nullptr && this->simQuestionId_ == nullptr && this->title_ == nullptr; };
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline SimQuestions& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // modifyTime Field Functions 
+      bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
+      void deleteModifyTime() { this->modifyTime_ = nullptr;};
+      inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+      inline SimQuestions& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
+
+
+      // simQuestionId Field Functions 
+      bool hasSimQuestionId() const { return this->simQuestionId_ != nullptr;};
+      void deleteSimQuestionId() { this->simQuestionId_ = nullptr;};
+      inline int64_t getSimQuestionId() const { DARABONBA_PTR_GET_DEFAULT(simQuestionId_, 0L) };
+      inline SimQuestions& setSimQuestionId(int64_t simQuestionId) { DARABONBA_PTR_SET_VALUE(simQuestionId_, simQuestionId) };
+
+
+      // title Field Functions 
+      bool hasTitle() const { return this->title_ != nullptr;};
+      void deleteTitle() { this->title_ = nullptr;};
+      inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+      inline SimQuestions& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+    protected:
+      shared_ptr<string> createTime_ {};
+      shared_ptr<string> modifyTime_ {};
+      shared_ptr<int64_t> simQuestionId_ {};
+      shared_ptr<string> title_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->simQuestions_ == nullptr; };
+        && this->simQuestions_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListSimQuestionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // simQuestions Field Functions 
     bool hasSimQuestions() const { return this->simQuestions_ != nullptr;};
     void deleteSimQuestions() { this->simQuestions_ = nullptr;};
-    inline const vector<ListSimQuestionResponseBodySimQuestions> & simQuestions() const { DARABONBA_PTR_GET_CONST(simQuestions_, vector<ListSimQuestionResponseBodySimQuestions>) };
-    inline vector<ListSimQuestionResponseBodySimQuestions> simQuestions() { DARABONBA_PTR_GET(simQuestions_, vector<ListSimQuestionResponseBodySimQuestions>) };
-    inline ListSimQuestionResponseBody& setSimQuestions(const vector<ListSimQuestionResponseBodySimQuestions> & simQuestions) { DARABONBA_PTR_SET_VALUE(simQuestions_, simQuestions) };
-    inline ListSimQuestionResponseBody& setSimQuestions(vector<ListSimQuestionResponseBodySimQuestions> && simQuestions) { DARABONBA_PTR_SET_RVALUE(simQuestions_, simQuestions) };
+    inline const vector<ListSimQuestionResponseBody::SimQuestions> & getSimQuestions() const { DARABONBA_PTR_GET_CONST(simQuestions_, vector<ListSimQuestionResponseBody::SimQuestions>) };
+    inline vector<ListSimQuestionResponseBody::SimQuestions> getSimQuestions() { DARABONBA_PTR_GET(simQuestions_, vector<ListSimQuestionResponseBody::SimQuestions>) };
+    inline ListSimQuestionResponseBody& setSimQuestions(const vector<ListSimQuestionResponseBody::SimQuestions> & simQuestions) { DARABONBA_PTR_SET_VALUE(simQuestions_, simQuestions) };
+    inline ListSimQuestionResponseBody& setSimQuestions(vector<ListSimQuestionResponseBody::SimQuestions> && simQuestions) { DARABONBA_PTR_SET_RVALUE(simQuestions_, simQuestions) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<ListSimQuestionResponseBodySimQuestions>> simQuestions_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<ListSimQuestionResponseBody::SimQuestions>> simQuestions_ {};
   };
 
   } // namespace Models

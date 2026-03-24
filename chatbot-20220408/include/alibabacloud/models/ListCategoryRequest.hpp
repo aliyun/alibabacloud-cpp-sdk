@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->knowledgeType_ == nullptr && return this->parentCategoryId_ == nullptr; };
+        && this->knowledgeType_ == nullptr && this->parentCategoryId_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline ListCategoryRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // knowledgeType Field Functions 
     bool hasKnowledgeType() const { return this->knowledgeType_ != nullptr;};
     void deleteKnowledgeType() { this->knowledgeType_ = nullptr;};
-    inline int32_t knowledgeType() const { DARABONBA_PTR_GET_DEFAULT(knowledgeType_, 0) };
+    inline int32_t getKnowledgeType() const { DARABONBA_PTR_GET_DEFAULT(knowledgeType_, 0) };
     inline ListCategoryRequest& setKnowledgeType(int32_t knowledgeType) { DARABONBA_PTR_SET_VALUE(knowledgeType_, knowledgeType) };
 
 
     // parentCategoryId Field Functions 
     bool hasParentCategoryId() const { return this->parentCategoryId_ != nullptr;};
     void deleteParentCategoryId() { this->parentCategoryId_ = nullptr;};
-    inline int64_t parentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, 0L) };
+    inline int64_t getParentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, 0L) };
     inline ListCategoryRequest& setParentCategoryId(int64_t parentCategoryId) { DARABONBA_PTR_SET_VALUE(parentCategoryId_, parentCategoryId) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<int32_t> knowledgeType_ = nullptr;
-    std::shared_ptr<int64_t> parentCategoryId_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<int32_t> knowledgeType_ {};
+    shared_ptr<int64_t> parentCategoryId_ {};
   };
 
   } // namespace Models

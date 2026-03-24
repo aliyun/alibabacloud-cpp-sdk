@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cancelResult_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // cancelResult Field Functions 
     bool hasCancelResult() const { return this->cancelResult_ != nullptr;};
     void deleteCancelResult() { this->cancelResult_ = nullptr;};
-    inline bool cancelResult() const { DARABONBA_PTR_GET_DEFAULT(cancelResult_, false) };
+    inline bool getCancelResult() const { DARABONBA_PTR_GET_DEFAULT(cancelResult_, false) };
     inline CancelChatResponseBody& setCancelResult(bool cancelResult) { DARABONBA_PTR_SET_VALUE(cancelResult_, cancelResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CancelChatResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> cancelResult_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> cancelResult_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

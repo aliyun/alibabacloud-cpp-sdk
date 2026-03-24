@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->introduction_ == nullptr && return this->languageCode_ == nullptr && return this->name_ == nullptr && return this->robotType_ == nullptr; };
+        && this->introduction_ == nullptr && this->languageCode_ == nullptr && this->name_ == nullptr && this->robotType_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline CreateInstanceRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // introduction Field Functions 
     bool hasIntroduction() const { return this->introduction_ != nullptr;};
     void deleteIntroduction() { this->introduction_ = nullptr;};
-    inline string introduction() const { DARABONBA_PTR_GET_DEFAULT(introduction_, "") };
+    inline string getIntroduction() const { DARABONBA_PTR_GET_DEFAULT(introduction_, "") };
     inline CreateInstanceRequest& setIntroduction(string introduction) { DARABONBA_PTR_SET_VALUE(introduction_, introduction) };
 
 
     // languageCode Field Functions 
     bool hasLanguageCode() const { return this->languageCode_ != nullptr;};
     void deleteLanguageCode() { this->languageCode_ = nullptr;};
-    inline string languageCode() const { DARABONBA_PTR_GET_DEFAULT(languageCode_, "") };
+    inline string getLanguageCode() const { DARABONBA_PTR_GET_DEFAULT(languageCode_, "") };
     inline CreateInstanceRequest& setLanguageCode(string languageCode) { DARABONBA_PTR_SET_VALUE(languageCode_, languageCode) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateInstanceRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // robotType Field Functions 
     bool hasRobotType() const { return this->robotType_ != nullptr;};
     void deleteRobotType() { this->robotType_ = nullptr;};
-    inline string robotType() const { DARABONBA_PTR_GET_DEFAULT(robotType_, "") };
+    inline string getRobotType() const { DARABONBA_PTR_GET_DEFAULT(robotType_, "") };
     inline CreateInstanceRequest& setRobotType(string robotType) { DARABONBA_PTR_SET_VALUE(robotType_, robotType) };
 
 
   protected:
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> introduction_ = nullptr;
-    std::shared_ptr<string> languageCode_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> robotType_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> introduction_ {};
+    shared_ptr<string> languageCode_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> robotType_ {};
   };
 
   } // namespace Models

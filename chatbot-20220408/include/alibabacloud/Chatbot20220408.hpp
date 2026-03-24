@@ -21,7 +21,7 @@ namespace Chatbot20220408
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 申请流式网关AccessToken
+       * @summary Apply for Streaming Gateway AccessToken
        *
        * @param request ApplyForStreamAccessTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Chatbot20220408
       Models::ApplyForStreamAccessTokenResponse applyForStreamAccessTokenWithOptions(const Models::ApplyForStreamAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请流式网关AccessToken
+       * @summary Apply for Streaming Gateway AccessToken
        *
        * @param request ApplyForStreamAccessTokenRequest
        * @return ApplyForStreamAccessTokenResponse
@@ -106,7 +106,7 @@ namespace Chatbot20220408
       Models::CancelInstancePublishTaskResponse cancelInstancePublishTask(const Models::CancelInstancePublishTaskRequest &request);
 
       /**
-       * @summary 取消发布任务
+       * @summary Cancel Publishing Task
        *
        * @param request CancelPublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Chatbot20220408
       Models::CancelPublishTaskResponse cancelPublishTaskWithOptions(const Models::CancelPublishTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消发布任务
+       * @summary Cancel Publishing Task
        *
        * @param request CancelPublishTaskRequest
        * @return CancelPublishTaskResponse
@@ -157,7 +157,7 @@ namespace Chatbot20220408
       Models::ContinueInstancePublishTaskResponse continueInstancePublishTask(const Models::ContinueInstancePublishTaskRequest &request);
 
       /**
-       * @summary 新增类目
+       * @summary Create Category
        *
        * @param request CreateCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Chatbot20220408
       Models::CreateCategoryResponse createCategoryWithOptions(const Models::CreateCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增类目
+       * @summary Create Category
        *
        * @param request CreateCategoryRequest
        * @return CreateCategoryResponse
@@ -174,7 +174,7 @@ namespace Chatbot20220408
       Models::CreateCategoryResponse createCategory(const Models::CreateCategoryRequest &request);
 
       /**
-       * @summary 新建FAQ关联问
+       * @summary Create FAQ Connection Question
        *
        * @param request CreateConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace Chatbot20220408
       Models::CreateConnQuestionResponse createConnQuestionWithOptions(const Models::CreateConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建FAQ关联问
+       * @summary Create FAQ Connection Question
        *
        * @param request CreateConnQuestionRequest
        * @return CreateConnQuestionResponse
@@ -225,7 +225,7 @@ namespace Chatbot20220408
       Models::CreateDSEntityValueResponse createDSEntityValue(const Models::CreateDSEntityValueRequest &request);
 
       /**
-       * @summary 创建文档
+       * @summary Create Document
        *
        * @param tmpReq CreateDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +234,7 @@ namespace Chatbot20220408
       Models::CreateDocResponse createDocWithOptions(const Models::CreateDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建文档
+       * @summary Create Document
        *
        * @param request CreateDocRequest
        * @return CreateDocResponse
@@ -242,7 +242,7 @@ namespace Chatbot20220408
       Models::CreateDocResponse createDoc(const Models::CreateDocRequest &request);
 
       /**
-       * @summary 新建FAQ
+       * @summary New FAQ
        *
        * @param tmpReq CreateFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace Chatbot20220408
       Models::CreateFaqResponse createFaqWithOptions(const Models::CreateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建FAQ
+       * @summary New FAQ
        *
        * @param request CreateFaqRequest
        * @return CreateFaqResponse
@@ -344,7 +344,7 @@ namespace Chatbot20220408
       Models::CreatePerspectiveResponse createPerspective(const Models::CreatePerspectiveRequest &request);
 
       /**
-       * @summary 创建发布任务
+       * @summary Create Publishing Task
        *
        * @param tmpReq CreatePublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ namespace Chatbot20220408
       Models::CreatePublishTaskResponse createPublishTaskWithOptions(const Models::CreatePublishTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建发布任务
+       * @summary Create Publishing Task
        *
        * @param request CreatePublishTaskRequest
        * @return CreatePublishTaskResponse
@@ -361,7 +361,7 @@ namespace Chatbot20220408
       Models::CreatePublishTaskResponse createPublishTask(const Models::CreatePublishTaskRequest &request);
 
       /**
-       * @summary 新建FAQ相似问
+       * @summary Create FAQ Similar Question
        *
        * @param request CreateSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace Chatbot20220408
       Models::CreateSimQuestionResponse createSimQuestionWithOptions(const Models::CreateSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建FAQ相似问
+       * @summary Create FAQ Similar Question
        *
        * @param request CreateSimQuestionRequest
        * @return CreateSimQuestionResponse
@@ -378,7 +378,7 @@ namespace Chatbot20220408
       Models::CreateSimQuestionResponse createSimQuestion(const Models::CreateSimQuestionRequest &request);
 
       /**
-       * @summary 新建FAQ答案
+       * @summary Create New FAQ Answer
        *
        * @param tmpReq CreateSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +387,7 @@ namespace Chatbot20220408
       Models::CreateSolutionResponse createSolutionWithOptions(const Models::CreateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建FAQ答案
+       * @summary Create New FAQ Answer
        *
        * @param request CreateSolutionRequest
        * @return CreateSolutionResponse
@@ -446,7 +446,7 @@ namespace Chatbot20220408
       Models::CreateUserSayResponse createUserSay(const Models::CreateUserSayRequest &request);
 
       /**
-       * @summary 删除类目
+       * @summary Delete Category
        *
        * @param request DeleteCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +455,7 @@ namespace Chatbot20220408
       Models::DeleteCategoryResponse deleteCategoryWithOptions(const Models::DeleteCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除类目
+       * @summary Delete Category
        *
        * @param request DeleteCategoryRequest
        * @return DeleteCategoryResponse
@@ -463,7 +463,7 @@ namespace Chatbot20220408
       Models::DeleteCategoryResponse deleteCategory(const Models::DeleteCategoryRequest &request);
 
       /**
-       * @summary 删除FAQ关联问
+       * @summary Delete FAQ Connection Question
        *
        * @param request DeleteConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +472,7 @@ namespace Chatbot20220408
       Models::DeleteConnQuestionResponse deleteConnQuestionWithOptions(const Models::DeleteConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除FAQ关联问
+       * @summary Delete FAQ Connection Question
        *
        * @param request DeleteConnQuestionRequest
        * @return DeleteConnQuestionResponse
@@ -514,7 +514,7 @@ namespace Chatbot20220408
       Models::DeleteDSEntityValueResponse deleteDSEntityValue(const Models::DeleteDSEntityValueRequest &request);
 
       /**
-       * @summary 文档删除
+       * @summary Document Deletion
        *
        * @param request DeleteDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ namespace Chatbot20220408
       Models::DeleteDocResponse deleteDocWithOptions(const Models::DeleteDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档删除
+       * @summary Document Deletion
        *
        * @param request DeleteDocRequest
        * @return DeleteDocResponse
@@ -531,7 +531,7 @@ namespace Chatbot20220408
       Models::DeleteDocResponse deleteDoc(const Models::DeleteDocRequest &request);
 
       /**
-       * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+       * @summary Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
        *
        * @param request DeleteFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +540,7 @@ namespace Chatbot20220408
       Models::DeleteFaqResponse deleteFaqWithOptions(const Models::DeleteFaqRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+       * @summary Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
        *
        * @param request DeleteFaqRequest
        * @return DeleteFaqResponse
@@ -616,7 +616,7 @@ namespace Chatbot20220408
       Models::DeletePerspectiveResponse deletePerspective(const Models::DeletePerspectiveRequest &request);
 
       /**
-       * @summary 删除FAQ相似问
+       * @summary Delete FAQ Similar Question
        *
        * @param request DeleteSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +625,7 @@ namespace Chatbot20220408
       Models::DeleteSimQuestionResponse deleteSimQuestionWithOptions(const Models::DeleteSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除FAQ相似问
+       * @summary Delete FAQ Similar Question
        *
        * @param request DeleteSimQuestionRequest
        * @return DeleteSimQuestionResponse
@@ -633,7 +633,7 @@ namespace Chatbot20220408
       Models::DeleteSimQuestionResponse deleteSimQuestion(const Models::DeleteSimQuestionRequest &request);
 
       /**
-       * @summary 删除FAQ答案
+       * @summary Delete FAQ Solution
        *
        * @param request DeleteSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +642,7 @@ namespace Chatbot20220408
       Models::DeleteSolutionResponse deleteSolutionWithOptions(const Models::DeleteSolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除FAQ答案
+       * @summary Delete FAQ Solution
        *
        * @param request DeleteSolutionRequest
        * @return DeleteSolutionResponse
@@ -701,7 +701,7 @@ namespace Chatbot20220408
       Models::DeleteUserSayResponse deleteUserSay(const Models::DeleteUserSayRequest &request);
 
       /**
-       * @summary 查看单个类目信息
+       * @summary View Single Category Information
        *
        * @param request DescribeCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +710,7 @@ namespace Chatbot20220408
       Models::DescribeCategoryResponse describeCategoryWithOptions(const Models::DescribeCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看单个类目信息
+       * @summary View Single Category Information
        *
        * @param request DescribeCategoryRequest
        * @return DescribeCategoryResponse
@@ -735,7 +735,7 @@ namespace Chatbot20220408
       Models::DescribeDSEntityResponse describeDSEntity(const Models::DescribeDSEntityRequest &request);
 
       /**
-       * @summary 文档详情
+       * @summary Document Details
        *
        * @param request DescribeDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +744,7 @@ namespace Chatbot20220408
       Models::DescribeDocResponse describeDocWithOptions(const Models::DescribeDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档详情
+       * @summary Document Details
        *
        * @param request DescribeDocRequest
        * @return DescribeDocResponse
@@ -752,7 +752,7 @@ namespace Chatbot20220408
       Models::DescribeDocResponse describeDoc(const Models::DescribeDocRequest &request);
 
       /**
-       * @summary 知识详情
+       * @summary Knowledge Details
        *
        * @param request DescribeFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +761,7 @@ namespace Chatbot20220408
       Models::DescribeFaqResponse describeFaqWithOptions(const Models::DescribeFaqRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 知识详情
+       * @summary Knowledge Details
        *
        * @param request DescribeFaqRequest
        * @return DescribeFaqResponse
@@ -956,7 +956,7 @@ namespace Chatbot20220408
       Models::GetInstancePublishTaskStateResponse getInstancePublishTaskState(const Models::GetInstancePublishTaskStateRequest &request);
 
       /**
-       * @summary 查询发布进度
+       * @summary Query Publishing Progress
        *
        * @param request GetPublishTaskStateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +965,7 @@ namespace Chatbot20220408
       Models::GetPublishTaskStateResponse getPublishTaskStateWithOptions(const Models::GetPublishTaskStateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询发布进度
+       * @summary Query Publishing Progress
        *
        * @param request GetPublishTaskStateRequest
        * @return GetPublishTaskStateResponse
@@ -1024,7 +1024,7 @@ namespace Chatbot20220408
       Models::ListAgentResponse listAgent(const Models::ListAgentRequest &request);
 
       /**
-       * @summary 类目列表
+       * @summary Category List
        *
        * @param request ListCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1033,7 @@ namespace Chatbot20220408
       Models::ListCategoryResponse listCategoryWithOptions(const Models::ListCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 类目列表
+       * @summary Category List
        *
        * @param request ListCategoryRequest
        * @return ListCategoryResponse
@@ -1041,7 +1041,7 @@ namespace Chatbot20220408
       Models::ListCategoryResponse listCategory(const Models::ListCategoryRequest &request);
 
       /**
-       * @summary 查询FAQ关联问列表
+       * @summary Query FAQ Connection Questions List
        *
        * @param request ListConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1050,7 @@ namespace Chatbot20220408
       Models::ListConnQuestionResponse listConnQuestionWithOptions(const Models::ListConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询FAQ关联问列表
+       * @summary Query FAQ Connection Questions List
        *
        * @param request ListConnQuestionRequest
        * @return ListConnQuestionResponse
@@ -1177,7 +1177,7 @@ namespace Chatbot20220408
       Models::ListSaasPermissionGroupInfosResponse listSaasPermissionGroupInfos(const Models::ListSaasPermissionGroupInfosRequest &request);
 
       /**
-       * @summary FAQ相似问列表
+       * @summary FAQ Similar Questions List
        *
        * @param request ListSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1186,7 @@ namespace Chatbot20220408
       Models::ListSimQuestionResponse listSimQuestionWithOptions(const Models::ListSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary FAQ相似问列表
+       * @summary FAQ Similar Questions List
        *
        * @param request ListSimQuestionRequest
        * @return ListSimQuestionResponse
@@ -1194,7 +1194,7 @@ namespace Chatbot20220408
       Models::ListSimQuestionResponse listSimQuestion(const Models::ListSimQuestionRequest &request);
 
       /**
-       * @summary FAQ答案列表
+       * @summary FAQ Solution List
        *
        * @param request ListSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1203,7 @@ namespace Chatbot20220408
       Models::ListSolutionResponse listSolutionWithOptions(const Models::ListSolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary FAQ答案列表
+       * @summary FAQ Solution List
        *
        * @param request ListSolutionRequest
        * @return ListSolutionResponse
@@ -1330,7 +1330,7 @@ namespace Chatbot20220408
       Models::QueryPerspectivesResponse queryPerspectives(const Models::QueryPerspectivesRequest &request);
 
       /**
-       * @summary 文档重试
+       * @summary Document Retry
        *
        * @param request RetryDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1339,7 @@ namespace Chatbot20220408
       Models::RetryDocResponse retryDocWithOptions(const Models::RetryDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档重试
+       * @summary Document Retry
        *
        * @param request RetryDocRequest
        * @return RetryDocResponse
@@ -1347,7 +1347,7 @@ namespace Chatbot20220408
       Models::RetryDocResponse retryDoc(const Models::RetryDocRequest &request);
 
       /**
-       * @summary 文档搜索
+       * @summary Document Search
        *
        * @param tmpReq SearchDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1356,7 +1356,7 @@ namespace Chatbot20220408
       Models::SearchDocResponse searchDocWithOptions(const Models::SearchDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档搜索
+       * @summary Document Search
        *
        * @param request SearchDocRequest
        * @return SearchDocResponse
@@ -1364,7 +1364,7 @@ namespace Chatbot20220408
       Models::SearchDocResponse searchDoc(const Models::SearchDocRequest &request);
 
       /**
-       * @summary 知识搜索
+       * @summary Knowledge Search
        *
        * @param tmpReq SearchFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1373,7 @@ namespace Chatbot20220408
       Models::SearchFaqResponse searchFaqWithOptions(const Models::SearchFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 知识搜索
+       * @summary Knowledge Search
        *
        * @param request SearchFaqRequest
        * @return SearchFaqResponse
@@ -1398,7 +1398,7 @@ namespace Chatbot20220408
       Models::TongyiChatDebugInfoResponse tongyiChatDebugInfo(const Models::TongyiChatDebugInfoRequest &request);
 
       /**
-       * @summary 编辑类目
+       * @summary Edit Category
        *
        * @param request UpdateCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1407,7 @@ namespace Chatbot20220408
       Models::UpdateCategoryResponse updateCategoryWithOptions(const Models::UpdateCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑类目
+       * @summary Edit Category
        *
        * @param request UpdateCategoryRequest
        * @return UpdateCategoryResponse
@@ -1415,7 +1415,7 @@ namespace Chatbot20220408
       Models::UpdateCategoryResponse updateCategory(const Models::UpdateCategoryRequest &request);
 
       /**
-       * @summary 更新FAQ关联问
+       * @summary Update FAQ Connection Question
        *
        * @param request UpdateConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1424,7 +1424,7 @@ namespace Chatbot20220408
       Models::UpdateConnQuestionResponse updateConnQuestionWithOptions(const Models::UpdateConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新FAQ关联问
+       * @summary Update FAQ Connection Question
        *
        * @param request UpdateConnQuestionRequest
        * @return UpdateConnQuestionResponse
@@ -1466,7 +1466,7 @@ namespace Chatbot20220408
       Models::UpdateDSEntityValueResponse updateDSEntityValue(const Models::UpdateDSEntityValueRequest &request);
 
       /**
-       * @summary 文档变更
+       * @summary Document Update
        *
        * @param tmpReq UpdateDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1475,7 +1475,7 @@ namespace Chatbot20220408
       Models::UpdateDocResponse updateDocWithOptions(const Models::UpdateDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档变更
+       * @summary Document Update
        *
        * @param request UpdateDocRequest
        * @return UpdateDocResponse
@@ -1483,7 +1483,7 @@ namespace Chatbot20220408
       Models::UpdateDocResponse updateDoc(const Models::UpdateDocRequest &request);
 
       /**
-       * @summary 更新FAQ
+       * @summary Update FAQ
        *
        * @param tmpReq UpdateFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1492,7 +1492,7 @@ namespace Chatbot20220408
       Models::UpdateFaqResponse updateFaqWithOptions(const Models::UpdateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新FAQ
+       * @summary Update FAQ
        *
        * @param request UpdateFaqRequest
        * @return UpdateFaqResponse
@@ -1568,7 +1568,7 @@ namespace Chatbot20220408
       Models::UpdatePerspectiveResponse updatePerspective(const Models::UpdatePerspectiveRequest &request);
 
       /**
-       * @summary 更新FAQ相似问
+       * @summary Update FAQ Similar Questions
        *
        * @param request UpdateSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1577,7 +1577,7 @@ namespace Chatbot20220408
       Models::UpdateSimQuestionResponse updateSimQuestionWithOptions(const Models::UpdateSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新FAQ相似问
+       * @summary Update FAQ Similar Questions
        *
        * @param request UpdateSimQuestionRequest
        * @return UpdateSimQuestionResponse
@@ -1585,7 +1585,7 @@ namespace Chatbot20220408
       Models::UpdateSimQuestionResponse updateSimQuestion(const Models::UpdateSimQuestionRequest &request);
 
       /**
-       * @summary 更新FAQ答案
+       * @summary Update FAQ Answer
        *
        * @param tmpReq UpdateSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1594,7 +1594,7 @@ namespace Chatbot20220408
       Models::UpdateSolutionResponse updateSolutionWithOptions(const Models::UpdateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新FAQ答案
+       * @summary Update FAQ Answer
        *
        * @param request UpdateSolutionRequest
        * @return UpdateSolutionResponse
