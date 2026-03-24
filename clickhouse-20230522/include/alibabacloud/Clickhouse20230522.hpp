@@ -174,7 +174,7 @@ namespace Clickhouse20230522
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary 修改备份策略
+       * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DeleteBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace Clickhouse20230522
       Models::DeleteBackupPolicyResponse deleteBackupPolicyWithOptions(const Models::DeleteBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改备份策略
+       * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DeleteBackupPolicyRequest
        * @return DeleteBackupPolicyResponse
@@ -208,7 +208,7 @@ namespace Clickhouse20230522
       Models::DeleteDBResponse deleteDB(const Models::DeleteDBRequest &request);
 
       /**
-       * @summary Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace Clickhouse20230522
       Models::DeleteDBInstanceResponse deleteDBInstanceWithOptions(const Models::DeleteDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
@@ -293,7 +293,7 @@ namespace Clickhouse20230522
       Models::DescribeAccountsResponse describeAccounts(const Models::DescribeAccountsRequest &request);
 
       /**
-       * @summary 创建备份策略
+       * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DescribeBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupPolicyResponse describeBackupPolicyWithOptions(const Models::DescribeBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建备份策略
+       * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DescribeBackupPolicyRequest
        * @return DescribeBackupPolicyResponse
@@ -310,7 +310,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupPolicyResponse describeBackupPolicy(const Models::DescribeBackupPolicyRequest &request);
 
       /**
-       * @summary 查询备份集
+       * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DescribeBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupsResponse describeBackupsWithOptions(const Models::DescribeBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询备份集
+       * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request DescribeBackupsRequest
        * @return DescribeBackupsResponse
@@ -444,6 +444,22 @@ namespace Clickhouse20230522
        * @return DescribeProcessListResponse
        */
       Models::DescribeProcessListResponse describeProcessList(const Models::DescribeProcessListRequest &request);
+
+      /**
+       * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+       *
+       * @param request DescribeRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+       *
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegions();
 
       /**
        * @summary Queries the whitelist of an ApsaraDB for ClickHouse cluster.
@@ -633,7 +649,7 @@ namespace Clickhouse20230522
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
-       * @summary 修改备份策略
+       * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +658,7 @@ namespace Clickhouse20230522
       Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改备份策略
+       * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse

@@ -674,7 +674,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
- * @summary 修改备份策略
+ * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DeleteBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -709,7 +709,7 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicyWithOptions(const DeleteBac
 }
 
 /**
- * @summary 修改备份策略
+ * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DeleteBackupPolicyRequest
  * @return DeleteBackupPolicyResponse
@@ -770,7 +770,7 @@ DeleteDBResponse Client::deleteDB(const DeleteDBRequest &request) {
 }
 
 /**
- * @summary Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DeleteDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -805,7 +805,7 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 }
 
 /**
- * @summary Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DeleteDBInstanceRequest
  * @return DeleteDBInstanceResponse
@@ -1032,7 +1032,7 @@ DescribeAccountsResponse Client::describeAccounts(const DescribeAccountsRequest 
 }
 
 /**
- * @summary 创建备份策略
+ * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1067,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
- * @summary 创建备份策略
+ * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
@@ -1078,7 +1078,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary 查询备份集
+ * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1133,7 +1133,7 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary 查询备份集
+ * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -1515,6 +1515,39 @@ DescribeProcessListResponse Client::describeProcessListWithOptions(const Describ
 DescribeProcessListResponse Client::describeProcessList(const DescribeProcessListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeProcessListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+ *
+ * @param request DescribeRegionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegionsWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeRegions"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
+}
+
+/**
+ * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+ *
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegions() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRegionsWithOptions(runtime);
 }
 
 /**
@@ -2110,7 +2143,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary 修改备份策略
+ * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2157,7 +2190,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary 修改备份策略
+ * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse

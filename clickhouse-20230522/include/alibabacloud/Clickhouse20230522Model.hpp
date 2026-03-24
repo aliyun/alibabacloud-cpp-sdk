@@ -79,6 +79,8 @@
 #include <alibabacloud/models/DescribeProcessListRequest.hpp>
 #include <alibabacloud/models/DescribeProcessListResponseBody.hpp>
 #include <alibabacloud/models/DescribeProcessListResponse.hpp>
+#include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeRegionsResponse.hpp>
 #include <alibabacloud/models/DescribeSecurityIPListRequest.hpp>
 #include <alibabacloud/models/DescribeSecurityIPListResponseBody.hpp>
 #include <alibabacloud/models/DescribeSecurityIPListResponse.hpp>
