@@ -112,7 +112,9 @@ namespace Models
 
 
     protected:
+      // 搜索条件名称
       shared_ptr<string> name_ {};
+      // 搜索条件过滤值
       shared_ptr<string> value_ {};
     };
 
@@ -339,6 +341,7 @@ namespace Models
     shared_ptr<string> scaNamePattern_ {};
     // The version of the middleware, database, or web service.
     shared_ptr<string> scaVersion_ {};
+    // 搜索条件列表
     shared_ptr<vector<DescribePropertyScaDetailRequest::SearchCriteriaList>> searchCriteriaList_ {};
     // The search keyword. You must specify this parameter based on the value of the **SearchItem** parameter.
     // 

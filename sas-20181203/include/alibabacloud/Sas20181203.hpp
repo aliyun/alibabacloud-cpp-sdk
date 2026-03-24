@@ -7115,6 +7115,22 @@ namespace Sas20181203
       Models::DescribeSuspiciousOverallConfigResponse describeSuspiciousOverallConfig(const Models::DescribeSuspiciousOverallConfigRequest &request);
 
       /**
+       * @summary Query Alarm Security Event Statistics
+       *
+       * @param request DescribeSuspiciousSecurityEventyStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSuspiciousSecurityEventyStatisticsResponse
+       */
+      Models::DescribeSuspiciousSecurityEventyStatisticsResponse describeSuspiciousSecurityEventyStatisticsWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Alarm Security Event Statistics
+       *
+       * @return DescribeSuspiciousSecurityEventyStatisticsResponse
+       */
+      Models::DescribeSuspiciousSecurityEventyStatisticsResponse describeSuspiciousSecurityEventyStatistics();
+
+      /**
        * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
        *
        * @param request DescribeSuspiciousUUIDConfigRequest
@@ -8686,6 +8702,40 @@ namespace Sas20181203
       Models::GetAssetsPropertyItemResponse getAssetsPropertyItem(const Models::GetAssetsPropertyItemRequest &request);
 
       /**
+       * @summary Get Attack Analysis Dashboard Information
+       *
+       * @param request GetAttackEventDashboardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAttackEventDashboardResponse
+       */
+      Models::GetAttackEventDashboardResponse getAttackEventDashboardWithOptions(const Models::GetAttackEventDashboardRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Attack Analysis Dashboard Information
+       *
+       * @param request GetAttackEventDashboardRequest
+       * @return GetAttackEventDashboardResponse
+       */
+      Models::GetAttackEventDashboardResponse getAttackEventDashboard(const Models::GetAttackEventDashboardRequest &request);
+
+      /**
+       * @summary Get Attack Analysis Event Details
+       *
+       * @param request GetAttackEventDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAttackEventDetailResponse
+       */
+      Models::GetAttackEventDetailResponse getAttackEventDetailWithOptions(const Models::GetAttackEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Attack Analysis Event Details
+       *
+       * @param request GetAttackEventDetailRequest
+       * @return GetAttackEventDetailResponse
+       */
+      Models::GetAttackEventDetailResponse getAttackEventDetail(const Models::GetAttackEventDetailRequest &request);
+
+      /**
        * @summary Query Attack Path Event Details.
        *
        * @param request GetAttackPathEventDetailRequest
@@ -9123,6 +9173,23 @@ namespace Sas20181203
        * @return GetClusterCheckItemWarningStatisticsResponse
        */
       Models::GetClusterCheckItemWarningStatisticsResponse getClusterCheckItemWarningStatistics(const Models::GetClusterCheckItemWarningStatisticsRequest &request);
+
+      /**
+       * @summary Query the number of cluster inspection item risks
+       *
+       * @param request GetClusterCheckSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetClusterCheckSummaryResponse
+       */
+      Models::GetClusterCheckSummaryResponse getClusterCheckSummaryWithOptions(const Models::GetClusterCheckSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the number of cluster inspection item risks
+       *
+       * @param request GetClusterCheckSummaryRequest
+       * @return GetClusterCheckSummaryResponse
+       */
+      Models::GetClusterCheckSummaryResponse getClusterCheckSummary(const Models::GetClusterCheckSummaryRequest &request);
 
       /**
        * @summary Queries the overall information about cluster defense rules that are configured for the container firewall feature.
@@ -10376,6 +10443,23 @@ namespace Sas20181203
       Models::GetUserLangResponse getUserLang();
 
       /**
+       * @summary Get Valid Resource Package Instances
+       *
+       * @param request GetValidDeductInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetValidDeductInstancesResponse
+       */
+      Models::GetValidDeductInstancesResponse getValidDeductInstancesWithOptions(const Models::GetValidDeductInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Valid Resource Package Instances
+       *
+       * @param request GetValidDeductInstancesRequest
+       * @return GetValidDeductInstancesResponse
+       */
+      Models::GetValidDeductInstancesResponse getValidDeductInstances(const Models::GetValidDeductInstancesRequest &request);
+
+      /**
        * @summary Queries the configurations of a periodic virus scan task.
        *
        * @param request GetVirusScanConfigRequest
@@ -10949,6 +11033,23 @@ namespace Sas20181203
       Models::ListAssetSelectionTargetResponse listAssetSelectionTarget(const Models::ListAssetSelectionTargetRequest &request);
 
       /**
+       * @summary Get Attack Analysis Event List
+       *
+       * @param request ListAttackEventInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAttackEventInfoResponse
+       */
+      Models::ListAttackEventInfoResponse listAttackEventInfoWithOptions(const Models::ListAttackEventInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Attack Analysis Event List
+       *
+       * @param request ListAttackEventInfoRequest
+       * @return ListAttackEventInfoResponse
+       */
+      Models::ListAttackEventInfoResponse listAttackEventInfo(const Models::ListAttackEventInfoRequest &request);
+
+      /**
        * @summary Query Attack Path Events.
        *
        * @param request ListAttackPathEventRequest
@@ -11375,6 +11476,23 @@ namespace Sas20181203
        * @return ListCloudVendorRegionsResponse
        */
       Models::ListCloudVendorRegionsResponse listCloudVendorRegions(const Models::ListCloudVendorRegionsRequest &request);
+
+      /**
+       * @summary Query Cluster Check Item Scan Results
+       *
+       * @param request ListClusterCheckResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListClusterCheckResultResponse
+       */
+      Models::ListClusterCheckResultResponse listClusterCheckResultWithOptions(const Models::ListClusterCheckResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Cluster Check Item Scan Results
+       *
+       * @param request ListClusterCheckResultRequest
+       * @return ListClusterCheckResultResponse
+       */
+      Models::ListClusterCheckResultResponse listClusterCheckResult(const Models::ListClusterCheckResultRequest &request);
 
       /**
        * @summary Queries the protection status of the container firewall.
@@ -11951,6 +12069,23 @@ namespace Sas20181203
        * @return ListK8sAccessInfoResponse
        */
       Models::ListK8sAccessInfoResponse listK8sAccessInfo(const Models::ListK8sAccessInfoRequest &request);
+
+      /**
+       * @summary Get KSPM Asset List
+       *
+       * @param request ListKspmInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKspmInstancesResponse
+       */
+      Models::ListKspmInstancesResponse listKspmInstancesWithOptions(const Models::ListKspmInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get KSPM Asset List
+       *
+       * @param request ListKspmInstancesRequest
+       * @return ListKspmInstancesResponse
+       */
+      Models::ListKspmInstancesResponse listKspmInstances(const Models::ListKspmInstancesRequest &request);
 
       /**
        * @summary Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.

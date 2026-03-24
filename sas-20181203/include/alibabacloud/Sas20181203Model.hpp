@@ -1205,6 +1205,8 @@
 #include <alibabacloud/models/DescribeSuspiciousOverallConfigRequest.hpp>
 #include <alibabacloud/models/DescribeSuspiciousOverallConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeSuspiciousOverallConfigResponse.hpp>
+#include <alibabacloud/models/DescribeSuspiciousSecurityEventyStatisticsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSuspiciousSecurityEventyStatisticsResponse.hpp>
 #include <alibabacloud/models/DescribeSuspiciousUUIDConfigRequest.hpp>
 #include <alibabacloud/models/DescribeSuspiciousUUIDConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeSuspiciousUUIDConfigResponse.hpp>
@@ -1461,6 +1463,12 @@
 #include <alibabacloud/models/GetAssetsPropertyItemRequest.hpp>
 #include <alibabacloud/models/GetAssetsPropertyItemResponseBody.hpp>
 #include <alibabacloud/models/GetAssetsPropertyItemResponse.hpp>
+#include <alibabacloud/models/GetAttackEventDashboardRequest.hpp>
+#include <alibabacloud/models/GetAttackEventDashboardResponseBody.hpp>
+#include <alibabacloud/models/GetAttackEventDashboardResponse.hpp>
+#include <alibabacloud/models/GetAttackEventDetailRequest.hpp>
+#include <alibabacloud/models/GetAttackEventDetailResponseBody.hpp>
+#include <alibabacloud/models/GetAttackEventDetailResponse.hpp>
 #include <alibabacloud/models/GetAttackPathEventDetailRequest.hpp>
 #include <alibabacloud/models/GetAttackPathEventDetailResponseBody.hpp>
 #include <alibabacloud/models/GetAttackPathEventDetailResponse.hpp>
@@ -1532,6 +1540,9 @@
 #include <alibabacloud/models/GetClusterCheckItemWarningStatisticsRequest.hpp>
 #include <alibabacloud/models/GetClusterCheckItemWarningStatisticsResponseBody.hpp>
 #include <alibabacloud/models/GetClusterCheckItemWarningStatisticsResponse.hpp>
+#include <alibabacloud/models/GetClusterCheckSummaryRequest.hpp>
+#include <alibabacloud/models/GetClusterCheckSummaryResponseBody.hpp>
+#include <alibabacloud/models/GetClusterCheckSummaryResponse.hpp>
 #include <alibabacloud/models/GetClusterRuleSummaryRequest.hpp>
 #include <alibabacloud/models/GetClusterRuleSummaryResponseBody.hpp>
 #include <alibabacloud/models/GetClusterRuleSummaryResponse.hpp>
@@ -1740,6 +1751,9 @@
 #include <alibabacloud/models/GetTenantCheckAvailableResponse.hpp>
 #include <alibabacloud/models/GetUserLangResponseBody.hpp>
 #include <alibabacloud/models/GetUserLangResponse.hpp>
+#include <alibabacloud/models/GetValidDeductInstancesRequest.hpp>
+#include <alibabacloud/models/GetValidDeductInstancesResponseBody.hpp>
+#include <alibabacloud/models/GetValidDeductInstancesResponse.hpp>
 #include <alibabacloud/models/GetVirusScanConfigRequest.hpp>
 #include <alibabacloud/models/GetVirusScanConfigResponseBody.hpp>
 #include <alibabacloud/models/GetVirusScanConfigResponse.hpp>
@@ -1837,6 +1851,9 @@
 #include <alibabacloud/models/ListAssetSelectionTargetRequest.hpp>
 #include <alibabacloud/models/ListAssetSelectionTargetResponseBody.hpp>
 #include <alibabacloud/models/ListAssetSelectionTargetResponse.hpp>
+#include <alibabacloud/models/ListAttackEventInfoRequest.hpp>
+#include <alibabacloud/models/ListAttackEventInfoResponseBody.hpp>
+#include <alibabacloud/models/ListAttackEventInfoResponse.hpp>
 #include <alibabacloud/models/ListAttackPathEventRequest.hpp>
 #include <alibabacloud/models/ListAttackPathEventResponseBody.hpp>
 #include <alibabacloud/models/ListAttackPathEventResponse.hpp>
@@ -1912,6 +1929,9 @@
 #include <alibabacloud/models/ListCloudVendorRegionsRequest.hpp>
 #include <alibabacloud/models/ListCloudVendorRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListCloudVendorRegionsResponse.hpp>
+#include <alibabacloud/models/ListClusterCheckResultRequest.hpp>
+#include <alibabacloud/models/ListClusterCheckResultResponseBody.hpp>
+#include <alibabacloud/models/ListClusterCheckResultResponse.hpp>
 #include <alibabacloud/models/ListClusterCnnfStatusDetailRequest.hpp>
 #include <alibabacloud/models/ListClusterCnnfStatusDetailResponseBody.hpp>
 #include <alibabacloud/models/ListClusterCnnfStatusDetailResponse.hpp>
@@ -2010,6 +2030,9 @@
 #include <alibabacloud/models/ListK8sAccessInfoRequest.hpp>
 #include <alibabacloud/models/ListK8sAccessInfoResponseBody.hpp>
 #include <alibabacloud/models/ListK8sAccessInfoResponse.hpp>
+#include <alibabacloud/models/ListKspmInstancesRequest.hpp>
+#include <alibabacloud/models/ListKspmInstancesResponseBody.hpp>
+#include <alibabacloud/models/ListKspmInstancesResponse.hpp>
 #include <alibabacloud/models/ListLogShipperRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListLogShipperRegionsResponse.hpp>
 #include <alibabacloud/models/ListMachineAppsRequest.hpp>

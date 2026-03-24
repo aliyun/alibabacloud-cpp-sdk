@@ -37,6 +37,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Strategy& obj) { 
         DARABONBA_PTR_TO_JSON(BaselineItem, baselineItem_);
         DARABONBA_PTR_TO_JSON(BaselineItemList, baselineItemList_);
+        DARABONBA_PTR_TO_JSON(ImageVulClean, imageVulClean_);
         DARABONBA_PTR_TO_JSON(SelectedItemCount, selectedItemCount_);
         DARABONBA_PTR_TO_JSON(StrategyId, strategyId_);
         DARABONBA_PTR_TO_JSON(StrategyName, strategyName_);
@@ -46,6 +47,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Strategy& obj) { 
         DARABONBA_PTR_FROM_JSON(BaselineItem, baselineItem_);
         DARABONBA_PTR_FROM_JSON(BaselineItemList, baselineItemList_);
+        DARABONBA_PTR_FROM_JSON(ImageVulClean, imageVulClean_);
         DARABONBA_PTR_FROM_JSON(SelectedItemCount, selectedItemCount_);
         DARABONBA_PTR_FROM_JSON(StrategyId, strategyId_);
         DARABONBA_PTR_FROM_JSON(StrategyName, strategyName_);
@@ -119,8 +121,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->baselineItem_ == nullptr
-        && this->baselineItemList_ == nullptr && this->selectedItemCount_ == nullptr && this->strategyId_ == nullptr && this->strategyName_ == nullptr && this->totalItemCount_ == nullptr
-        && this->type_ == nullptr; };
+        && this->baselineItemList_ == nullptr && this->imageVulClean_ == nullptr && this->selectedItemCount_ == nullptr && this->strategyId_ == nullptr && this->strategyName_ == nullptr
+        && this->totalItemCount_ == nullptr && this->type_ == nullptr; };
       // baselineItem Field Functions 
       bool hasBaselineItem() const { return this->baselineItem_ != nullptr;};
       void deleteBaselineItem() { this->baselineItem_ = nullptr;};
@@ -135,6 +137,13 @@ namespace Models
       inline vector<Strategy::BaselineItemList> getBaselineItemList() { DARABONBA_PTR_GET(baselineItemList_, vector<Strategy::BaselineItemList>) };
       inline Strategy& setBaselineItemList(const vector<Strategy::BaselineItemList> & baselineItemList) { DARABONBA_PTR_SET_VALUE(baselineItemList_, baselineItemList) };
       inline Strategy& setBaselineItemList(vector<Strategy::BaselineItemList> && baselineItemList) { DARABONBA_PTR_SET_RVALUE(baselineItemList_, baselineItemList) };
+
+
+      // imageVulClean Field Functions 
+      bool hasImageVulClean() const { return this->imageVulClean_ != nullptr;};
+      void deleteImageVulClean() { this->imageVulClean_ = nullptr;};
+      inline int32_t getImageVulClean() const { DARABONBA_PTR_GET_DEFAULT(imageVulClean_, 0) };
+      inline Strategy& setImageVulClean(int32_t imageVulClean) { DARABONBA_PTR_SET_VALUE(imageVulClean_, imageVulClean) };
 
 
       // selectedItemCount Field Functions 
@@ -177,6 +186,7 @@ namespace Models
       shared_ptr<string> baselineItem_ {};
       // An array that contains the baselines.
       shared_ptr<vector<Strategy::BaselineItemList>> baselineItemList_ {};
+      shared_ptr<int32_t> imageVulClean_ {};
       // The number of selected baseline check items.
       shared_ptr<int32_t> selectedItemCount_ {};
       // The ID of the baseline check policy.

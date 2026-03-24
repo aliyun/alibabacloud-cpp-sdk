@@ -121,6 +121,9 @@ namespace Models
     shared_ptr<int32_t> status_ {};
     // The username of the sub-account of the cloud service provider to which the AccessKey pair belongs.
     shared_ptr<string> subAccountName_ {};
+    // Cloud asset vendor. Values:
+    //  - **Tencent**: Tencent Cloud 
+    // - **AWS**: Amazon Web Services
     shared_ptr<string> vendor_ {};
     // The name of the AccessKey pair.
     shared_ptr<string> vendorAuthAlias_ {};

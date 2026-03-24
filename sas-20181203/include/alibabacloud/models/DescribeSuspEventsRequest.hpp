@@ -411,6 +411,7 @@ namespace Models
     // *   **N**: unhandled
     // *   **Y**: handled
     shared_ptr<string> dealed_ {};
+    // Source of discovery (invalid field)
     shared_ptr<string> detectSource_ {};
     // The subtype of the alert event. Separate multiple subtypes with commas (,).
     shared_ptr<string> eventNames_ {};

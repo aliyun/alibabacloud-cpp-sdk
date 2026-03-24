@@ -229,6 +229,7 @@ namespace Models
 
 
       protected:
+        // 检查项展示名称
         shared_ptr<string> checkShowName_ {};
         // The number of the CPU cores used by the host instance.
         shared_ptr<int32_t> cores_ {};
@@ -321,6 +322,7 @@ namespace Models
         // *   **MICROSOFT**: Microsoft Azure.
         // *   **AWS**: AWS.
         shared_ptr<int32_t> vendor_ {};
+        // 厂商名称
         shared_ptr<string> vendorShowName_ {};
         // The ID of the VPC to which the host instance belongs.
         shared_ptr<string> vpcInstanceId_ {};

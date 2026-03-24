@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ClientVersion, clientVersion_);
         DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_TO_JSON(ErrorFile, errorFile_);
+        DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(ItemsDone, itemsDone_);
         DARABONBA_PTR_TO_JSON(ItemsTotal, itemsTotal_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ClientVersion, clientVersion_);
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_FROM_JSON(ErrorFile, errorFile_);
+        DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(ItemsDone, itemsDone_);
         DARABONBA_PTR_FROM_JSON(ItemsTotal, itemsTotal_);
@@ -101,10 +103,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->actualBytes_ == nullptr
         && this->actualItems_ == nullptr && this->bytesDone_ == nullptr && this->bytesTotal_ == nullptr && this->clientId_ == nullptr && this->clientVersion_ == nullptr
-        && this->createdTime_ == nullptr && this->errorFile_ == nullptr && this->instanceId_ == nullptr && this->itemsDone_ == nullptr && this->itemsTotal_ == nullptr
-        && this->jobId_ == nullptr && this->parentSnapshotHash_ == nullptr && this->path_ == nullptr && this->paths_ == nullptr && this->planId_ == nullptr
-        && this->regionId_ == nullptr && this->retention_ == nullptr && this->snapshotHash_ == nullptr && this->snapshotId_ == nullptr && this->sourceType_ == nullptr
-        && this->status_ == nullptr && this->uuid_ == nullptr && this->vaultId_ == nullptr; };
+        && this->createdTime_ == nullptr && this->errorFile_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->itemsDone_ == nullptr
+        && this->itemsTotal_ == nullptr && this->jobId_ == nullptr && this->parentSnapshotHash_ == nullptr && this->path_ == nullptr && this->paths_ == nullptr
+        && this->planId_ == nullptr && this->regionId_ == nullptr && this->retention_ == nullptr && this->snapshotHash_ == nullptr && this->snapshotId_ == nullptr
+        && this->sourceType_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr && this->vaultId_ == nullptr; };
       // actualBytes Field Functions 
       bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
       void deleteActualBytes() { this->actualBytes_ = nullptr;};
@@ -159,6 +161,13 @@ namespace Models
       void deleteErrorFile() { this->errorFile_ = nullptr;};
       inline string getErrorFile() const { DARABONBA_PTR_GET_DEFAULT(errorFile_, "") };
       inline Snapshots& setErrorFile(string errorFile) { DARABONBA_PTR_SET_VALUE(errorFile_, errorFile) };
+
+
+      // expireTime Field Functions 
+      bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+      void deleteExpireTime() { this->expireTime_ = nullptr;};
+      inline int64_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
+      inline Snapshots& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
       // instanceId Field Functions 
@@ -294,6 +303,8 @@ namespace Models
       shared_ptr<int64_t> createdTime_ {};
       // The file that records the information about backup failures, including the information about partially completed backup tasks.
       shared_ptr<string> errorFile_ {};
+      // Snapshot expiration timestamp. Unit: milliseconds.
+      shared_ptr<int64_t> expireTime_ {};
       // The ID of the ECS instance.
       shared_ptr<string> instanceId_ {};
       // The number of backup objects.

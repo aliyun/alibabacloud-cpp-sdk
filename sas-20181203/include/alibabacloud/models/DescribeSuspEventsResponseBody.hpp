@@ -800,6 +800,7 @@ namespace Models
       shared_ptr<string> desc_ {};
       // The details of the alert event.
       shared_ptr<vector<SuspEvents::Details>> details_ {};
+      // Source of discovery (invalid field)
       shared_ptr<string> detectSource_ {};
       // Indicates whether the alert event can be detected by cloud sandbox. Valid values:
       // 

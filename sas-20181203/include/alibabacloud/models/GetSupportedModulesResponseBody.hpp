@@ -107,6 +107,9 @@ namespace Models
         // *   **SIEM**: CloudSiem
         // *   **TRIAL**: log audit
         shared_ptr<string> module_ {};
+        // Module authorization switch indicator. Values: 
+        // - **true**: Enabled
+        //  - **false**: Not enabled
         shared_ptr<bool> moduleAuth_ {};
         // The display name of the module.
         shared_ptr<string> moduleDisp_ {};

@@ -412,11 +412,13 @@ namespace Models
 
 
     protected:
+      // Agent
       shared_ptr<string> agent_ {};
       // Container name.
       shared_ptr<string> containerName_ {};
       // The timestamp of the latest asset fingerprint scan, in milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
+      // Asset description.
       shared_ptr<string> description_ {};
       // Web site domain. 
       // > Only returned when **Biz** is **web_server**.
@@ -428,6 +430,7 @@ namespace Models
       // Kernel module file path.
       // > Returned only when **Biz** is **lkm**.
       shared_ptr<string> filepath_ {};
+      // 镜像Digest
       shared_ptr<string> imageDigest_ {};
       // Image name.
       shared_ptr<string> imageName_ {};
@@ -446,6 +449,7 @@ namespace Models
       // Web site process listening protocol. 
       // >Only returned when **Biz** is **web_server**.
       shared_ptr<string> listenProtocol_ {};
+      // MCP name.
       shared_ptr<string> mcpName_ {};
       // AI tool name
       shared_ptr<string> middlewareName_ {};
@@ -474,7 +478,9 @@ namespace Models
       shared_ptr<int64_t> processStarted_ {};
       // The ID of the region where the instance is located.
       shared_ptr<string> regionId_ {};
+      // 镜像的RepoName
       shared_ptr<string> repoName_ {};
+      // 镜像Repo命名空间
       shared_ptr<string> repoNamespace_ {};
       // Web site type.
       // > Returned only when **Biz** is **web_server**.
@@ -482,8 +488,11 @@ namespace Models
       // Kernel module size.
       // > Returned only when **Biz** is **lkm**.
       shared_ptr<int32_t> size_ {};
+      // Skill name
       shared_ptr<string> skillsName_ {};
+      // 标签
       shared_ptr<string> tag_ {};
+      // Transmission name.
       shared_ptr<string> transportName_ {};
       // Number of dependencies for the kernel module.
       // > Returned only when **Biz** is **lkm**.

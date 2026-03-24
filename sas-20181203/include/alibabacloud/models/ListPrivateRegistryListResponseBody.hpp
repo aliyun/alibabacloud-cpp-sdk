@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NetType, netType_);
         DARABONBA_PTR_TO_JSON(Password, password_);
         DARABONBA_PTR_TO_JSON(PersistenceDay, persistenceDay_);
+        DARABONBA_PTR_TO_JSON(Port, port_);
         DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RegistryHostIp, registryHostIp_);
@@ -62,6 +63,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NetType, netType_);
         DARABONBA_PTR_FROM_JSON(Password, password_);
         DARABONBA_PTR_FROM_JSON(PersistenceDay, persistenceDay_);
+        DARABONBA_PTR_FROM_JSON(Port, port_);
         DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RegistryHostIp, registryHostIp_);
@@ -87,9 +89,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->domainName_ == nullptr && this->id_ == nullptr && this->jenkinsEnv_ == nullptr && this->netType_ == nullptr && this->password_ == nullptr
-        && this->persistenceDay_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->registryHostIp_ == nullptr && this->registryName_ == nullptr
-        && this->registryType_ == nullptr && this->registryVersion_ == nullptr && this->token_ == nullptr && this->transPerHour_ == nullptr && this->userName_ == nullptr
-        && this->vpcId_ == nullptr && this->whiteList_ == nullptr; };
+        && this->persistenceDay_ == nullptr && this->port_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->registryHostIp_ == nullptr
+        && this->registryName_ == nullptr && this->registryType_ == nullptr && this->registryVersion_ == nullptr && this->token_ == nullptr && this->transPerHour_ == nullptr
+        && this->userName_ == nullptr && this->vpcId_ == nullptr && this->whiteList_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
       void deletePersistenceDay() { this->persistenceDay_ = nullptr;};
       inline int64_t getPersistenceDay() const { DARABONBA_PTR_GET_DEFAULT(persistenceDay_, 0L) };
       inline ImageRegistryInfos& setPersistenceDay(int64_t persistenceDay) { DARABONBA_PTR_SET_VALUE(persistenceDay_, persistenceDay) };
+
+
+      // port Field Functions 
+      bool hasPort() const { return this->port_ != nullptr;};
+      void deletePort() { this->port_ = nullptr;};
+      inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+      inline ImageRegistryInfos& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
       // protocolType Field Functions 
@@ -234,6 +243,7 @@ namespace Models
       shared_ptr<string> password_ {};
       // The number of days during which assets can be retained.
       shared_ptr<int64_t> persistenceDay_ {};
+      shared_ptr<int32_t> port_ {};
       // The type of the protocol. Valid values:
       // 
       // *   **1**: HTTP

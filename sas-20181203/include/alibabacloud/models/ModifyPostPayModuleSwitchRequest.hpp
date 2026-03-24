@@ -180,6 +180,7 @@ namespace Models
       // - **0**: Off
       // - **1**: On
       shared_ptr<int32_t> agentless_ {};
+      // AI Digitization
       shared_ptr<int32_t> aiDigital_ {};
       // Anti-Ransomware Module. Values:
       // - **0**: Off

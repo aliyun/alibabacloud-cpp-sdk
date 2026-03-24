@@ -71,6 +71,7 @@ namespace Models
 
 
   protected:
+    // 语言参数
     shared_ptr<string> lang_ {};
     // The type of the statistics. Valid values:
     // 

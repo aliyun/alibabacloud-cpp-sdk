@@ -102,7 +102,9 @@ namespace Models
 
 
     protected:
+      // 组件名称
       shared_ptr<string> entityName_ {};
+      // 组件版本
       shared_ptr<string> entityVersion_ {};
     };
 
@@ -313,6 +315,7 @@ namespace Models
     // 
     // > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the IDs of VPCs.
     shared_ptr<string> vpcInstanceIds_ {};
+    // 漏洞组件信息列表
     shared_ptr<vector<ExportVulRequest::VulEntityList>> vulEntityList_ {};
   };
 

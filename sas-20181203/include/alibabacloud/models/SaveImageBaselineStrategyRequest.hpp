@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SaveImageBaselineStrategyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BaselineItemList, baselineItemList_);
+      DARABONBA_PTR_TO_JSON(ImageVulClean, imageVulClean_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(StrategyId, strategyId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SaveImageBaselineStrategyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BaselineItemList, baselineItemList_);
+      DARABONBA_PTR_FROM_JSON(ImageVulClean, imageVulClean_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(StrategyId, strategyId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baselineItemList_ == nullptr
-        && this->lang_ == nullptr && this->source_ == nullptr && this->strategyId_ == nullptr && this->strategyName_ == nullptr; };
+        && this->imageVulClean_ == nullptr && this->lang_ == nullptr && this->source_ == nullptr && this->strategyId_ == nullptr && this->strategyName_ == nullptr; };
     // baselineItemList Field Functions 
     bool hasBaselineItemList() const { return this->baselineItemList_ != nullptr;};
     void deleteBaselineItemList() { this->baselineItemList_ = nullptr;};
     inline string getBaselineItemList() const { DARABONBA_PTR_GET_DEFAULT(baselineItemList_, "") };
     inline SaveImageBaselineStrategyRequest& setBaselineItemList(string baselineItemList) { DARABONBA_PTR_SET_VALUE(baselineItemList_, baselineItemList) };
+
+
+    // imageVulClean Field Functions 
+    bool hasImageVulClean() const { return this->imageVulClean_ != nullptr;};
+    void deleteImageVulClean() { this->imageVulClean_ = nullptr;};
+    inline int32_t getImageVulClean() const { DARABONBA_PTR_GET_DEFAULT(imageVulClean_, 0) };
+    inline SaveImageBaselineStrategyRequest& setImageVulClean(int32_t imageVulClean) { DARABONBA_PTR_SET_VALUE(imageVulClean_, imageVulClean) };
 
 
     // lang Field Functions 
@@ -81,6 +90,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> baselineItemList_ {};
+    shared_ptr<int32_t> imageVulClean_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese

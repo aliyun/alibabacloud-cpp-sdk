@@ -22459,6 +22459,39 @@ DescribeSuspiciousOverallConfigResponse Client::describeSuspiciousOverallConfig(
 }
 
 /**
+ * @summary Query Alarm Security Event Statistics
+ *
+ * @param request DescribeSuspiciousSecurityEventyStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSuspiciousSecurityEventyStatisticsResponse
+ */
+DescribeSuspiciousSecurityEventyStatisticsResponse Client::describeSuspiciousSecurityEventyStatisticsWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeSuspiciousSecurityEventyStatistics"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSuspiciousSecurityEventyStatisticsResponse>();
+}
+
+/**
+ * @summary Query Alarm Security Event Statistics
+ *
+ * @return DescribeSuspiciousSecurityEventyStatisticsResponse
+ */
+DescribeSuspiciousSecurityEventyStatisticsResponse Client::describeSuspiciousSecurityEventyStatistics() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSuspiciousSecurityEventyStatisticsWithOptions(runtime);
+}
+
+/**
  * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
  *
  * @param request DescribeSuspiciousUUIDConfigRequest
@@ -27321,6 +27354,102 @@ GetAssetsPropertyItemResponse Client::getAssetsPropertyItem(const GetAssetsPrope
 }
 
 /**
+ * @summary Get Attack Analysis Dashboard Information
+ *
+ * @param request GetAttackEventDashboardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAttackEventDashboardResponse
+ */
+GetAttackEventDashboardResponse Client::getAttackEventDashboardWithOptions(const GetAttackEventDashboardRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAttackEventDashboard"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAttackEventDashboardResponse>();
+}
+
+/**
+ * @summary Get Attack Analysis Dashboard Information
+ *
+ * @param request GetAttackEventDashboardRequest
+ * @return GetAttackEventDashboardResponse
+ */
+GetAttackEventDashboardResponse Client::getAttackEventDashboard(const GetAttackEventDashboardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAttackEventDashboardWithOptions(request, runtime);
+}
+
+/**
+ * @summary Get Attack Analysis Event Details
+ *
+ * @param request GetAttackEventDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAttackEventDetailResponse
+ */
+GetAttackEventDetailResponse Client::getAttackEventDetailWithOptions(const GetAttackEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAttackEventDetail"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAttackEventDetailResponse>();
+}
+
+/**
+ * @summary Get Attack Analysis Event Details
+ *
+ * @param request GetAttackEventDetailRequest
+ * @return GetAttackEventDetailResponse
+ */
+GetAttackEventDetailResponse Client::getAttackEventDetail(const GetAttackEventDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAttackEventDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Attack Path Event Details.
  *
  * @param request GetAttackPathEventDetailRequest
@@ -28475,6 +28604,48 @@ GetClusterCheckItemWarningStatisticsResponse Client::getClusterCheckItemWarningS
 GetClusterCheckItemWarningStatisticsResponse Client::getClusterCheckItemWarningStatistics(const GetClusterCheckItemWarningStatisticsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getClusterCheckItemWarningStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the number of cluster inspection item risks
+ *
+ * @param request GetClusterCheckSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetClusterCheckSummaryResponse
+ */
+GetClusterCheckSummaryResponse Client::getClusterCheckSummaryWithOptions(const GetClusterCheckSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetClusterCheckSummary"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetClusterCheckSummaryResponse>();
+}
+
+/**
+ * @summary Query the number of cluster inspection item risks
+ *
+ * @param request GetClusterCheckSummaryRequest
+ * @return GetClusterCheckSummaryResponse
+ */
+GetClusterCheckSummaryResponse Client::getClusterCheckSummary(const GetClusterCheckSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getClusterCheckSummaryWithOptions(request, runtime);
 }
 
 /**
@@ -31725,6 +31896,56 @@ GetUserLangResponse Client::getUserLang() {
 }
 
 /**
+ * @summary Get Valid Resource Package Instances
+ *
+ * @param request GetValidDeductInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetValidDeductInstancesResponse
+ */
+GetValidDeductInstancesResponse Client::getValidDeductInstancesWithOptions(const GetValidDeductInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModules()) {
+    query["Modules"] = request.getModules();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetValidDeductInstances"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetValidDeductInstancesResponse>();
+}
+
+/**
+ * @summary Get Valid Resource Package Instances
+ *
+ * @param request GetValidDeductInstancesRequest
+ * @return GetValidDeductInstancesResponse
+ */
+GetValidDeductInstancesResponse Client::getValidDeductInstances(const GetValidDeductInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getValidDeductInstancesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the configurations of a periodic virus scan task.
  *
  * @param request GetVirusScanConfigRequest
@@ -33527,6 +33748,80 @@ ListAssetSelectionTargetResponse Client::listAssetSelectionTarget(const ListAsse
 }
 
 /**
+ * @summary Get Attack Analysis Event List
+ *
+ * @param request ListAttackEventInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAttackEventInfoResponse
+ */
+ListAttackEventInfoResponse Client::listAttackEventInfoWithOptions(const ListAttackEventInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAttackInstance()) {
+    query["AttackInstance"] = request.getAttackInstance();
+  }
+
+  if (!!request.hasAttackType()) {
+    query["AttackType"] = request.getAttackType();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDstPort()) {
+    query["DstPort"] = request.getDstPort();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSrcIp()) {
+    query["SrcIp"] = request.getSrcIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAttackEventInfo"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAttackEventInfoResponse>();
+}
+
+/**
+ * @summary Get Attack Analysis Event List
+ *
+ * @param request ListAttackEventInfoRequest
+ * @return ListAttackEventInfoResponse
+ */
+ListAttackEventInfoResponse Client::listAttackEventInfo(const ListAttackEventInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAttackEventInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Attack Path Events.
  *
  * @param request ListAttackPathEventRequest
@@ -34999,6 +35294,76 @@ ListCloudVendorRegionsResponse Client::listCloudVendorRegionsWithOptions(const L
 ListCloudVendorRegionsResponse Client::listCloudVendorRegions(const ListCloudVendorRegionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCloudVendorRegionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Cluster Check Item Scan Results
+ *
+ * @param request ListClusterCheckResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListClusterCheckResultResponse
+ */
+ListClusterCheckResultResponse Client::listClusterCheckResultWithOptions(const ListClusterCheckResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCheckKey()) {
+    query["CheckKey"] = request.getCheckKey();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRiskLevels()) {
+    query["RiskLevels"] = request.getRiskLevels();
+  }
+
+  if (!!request.hasSortType()) {
+    query["SortType"] = request.getSortType();
+  }
+
+  if (!!request.hasStatuses()) {
+    query["Statuses"] = request.getStatuses();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListClusterCheckResult"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListClusterCheckResultResponse>();
+}
+
+/**
+ * @summary Query Cluster Check Item Scan Results
+ *
+ * @param request ListClusterCheckResultRequest
+ * @return ListClusterCheckResultResponse
+ */
+ListClusterCheckResultResponse Client::listClusterCheckResult(const ListClusterCheckResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listClusterCheckResultWithOptions(request, runtime);
 }
 
 /**
@@ -36824,6 +37189,68 @@ ListK8sAccessInfoResponse Client::listK8sAccessInfoWithOptions(const ListK8sAcce
 ListK8sAccessInfoResponse Client::listK8sAccessInfo(const ListK8sAccessInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listK8sAccessInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Get KSPM Asset List
+ *
+ * @param request ListKspmInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKspmInstancesResponse
+ */
+ListKspmInstancesResponse Client::listKspmInstancesWithOptions(const ListKspmInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudAssetTypes()) {
+    query["CloudAssetTypes"] = request.getCloudAssetTypes();
+  }
+
+  if (!!request.hasCriteria()) {
+    query["Criteria"] = request.getCriteria();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasLogicalExp()) {
+    query["LogicalExp"] = request.getLogicalExp();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKspmInstances"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKspmInstancesResponse>();
+}
+
+/**
+ * @summary Get KSPM Asset List
+ *
+ * @param request ListKspmInstancesRequest
+ * @return ListKspmInstancesResponse
+ */
+ListKspmInstancesResponse Client::listKspmInstances(const ListKspmInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKspmInstancesWithOptions(request, runtime);
 }
 
 /**
@@ -40976,6 +41403,19 @@ ModifyImageFixCycleConfigResponse Client::modifyImageFixCycleConfig(const Modify
  */
 ModifyImageRegistryResponse Client::modifyImageRegistryWithOptions(const ModifyImageRegistryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegistryHostIp()) {
+    query["RegistryHostIp"] = request.getRegistryHostIp();
+  }
+
   json body = {};
   if (!!request.hasId()) {
     body["Id"] = request.getId();
@@ -40994,8 +41434,9 @@ ModifyImageRegistryResponse Client::modifyImageRegistryWithOptions(const ModifyI
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ModifyImageRegistry"},
     {"version" , "2018-12-03"},
@@ -45863,6 +46304,10 @@ SaveImageBaselineStrategyResponse Client::saveImageBaselineStrategyWithOptions(c
   json query = {};
   if (!!request.hasBaselineItemList()) {
     query["BaselineItemList"] = request.getBaselineItemList();
+  }
+
+  if (!!request.hasImageVulClean()) {
+    query["ImageVulClean"] = request.getImageVulClean();
   }
 
   if (!!request.hasLang()) {
