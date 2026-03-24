@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The name of the Simple Log Service project.
       shared_ptr<string> project_ {};
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -105,7 +107,9 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> attributes_ {};
+    // The title of the session.
     shared_ptr<string> title_ {};
+    // The properties of the session.
     shared_ptr<CreateThreadRequest::Variables> variables_ {};
   };
 

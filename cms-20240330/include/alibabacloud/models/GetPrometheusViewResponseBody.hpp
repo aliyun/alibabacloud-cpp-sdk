@@ -141,9 +141,9 @@ namespace Models
 
 
       protected:
-        // PagerDuty integration key.
+        // The integration key for PagerDuty.
         shared_ptr<string> key_ {};
-        // Tag value.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -194,11 +194,11 @@ namespace Models
 
 
       protected:
-        // Instance ID.
+        // The instance ID.
         shared_ptr<string> prometheusInstanceId_ {};
-        // Region ID
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // User ID.
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -405,59 +405,59 @@ namespace Models
 
 
     protected:
-      // Password-free read policy (supports IP segments and VpcId).
+      // The password-free read policy. It supports IP address segments and VPC IDs.
       shared_ptr<string> authFreeReadPolicy_ {};
-      // authToken string.
+      // The authToken string.
       shared_ptr<string> authToken_ {};
-      // Instance creation time, using UTC+0 time, format is yyyy-MM-ddTHH:mmZ.
+      // The time when the instance was created. The time is in UTC and follows the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
-      // Whether to enable password-free read.
+      // Indicates whether password-free read is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
-      // Whether to enable authToken.
+      // Indicates whether authToken is enabled.
       shared_ptr<bool> enableAuthToken_ {};
-      // Observability dashboard URL.
+      // The URL of the observability dashboard.
       shared_ptr<string> folderUrl_ {};
-      // Bound managed Grafana instance ID.
+      // The ID of the attached managed Grafana instance.
       shared_ptr<string> grafanaInstanceId_ {};
-      // Bound managed Grafana instance name.
+      // The name of the attached managed Grafana instance.
       shared_ptr<string> grafanaInstanceName_ {};
-      // Public HTTP address.
+      // The HTTP API endpoint for the Internet.
       shared_ptr<string> httpApiInterUrl_ {};
-      // Private HTTP address.
+      // The HTTP API endpoint for the internal network.
       shared_ptr<string> httpApiIntraUrl_ {};
-      // Instance type, fixed value prom-view.
+      // The instance type. The value is fixed to prom-view.
       shared_ptr<string> instanceType_ {};
-      // Payment type. Currently, the fixed value is FREE (free).
+      // The billing method. The value is fixed to FREE.
       shared_ptr<string> paymentType_ {};
-      // Product that the prom instance belongs to.
+      // The product to which the Prometheus instance belongs.
       shared_ptr<string> product_ {};
-      // Prometheus instance list.
+      // A list of Prometheus instances.
       shared_ptr<vector<PrometheusView::PrometheusInstances>> prometheusInstances_ {};
-      // Prometheus view ID.
+      // The ID of the Prometheus view.
       shared_ptr<string> prometheusViewId_ {};
-      // Prometheus view name.
+      // The name of the Prometheus view.
       shared_ptr<string> prometheusViewName_ {};
-      // Region ID
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Remote read public URL.
+      // The remote read URL for the Internet.
       shared_ptr<string> remoteReadInterUrl_ {};
-      // Remote read intranet URL.
+      // The remote read URL for the internal network.
       shared_ptr<string> remoteReadIntraUrl_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Fixed value: PrometheusView
+      // The value is fixed to PrometheusView.
       shared_ptr<string> resourceType_ {};
-      // Backend data storage status
+      // The status of the backend data storage.
       shared_ptr<string> status_ {};
-      // Supported authentication types.
+      // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};
-      // Instance tag keys.
+      // The tags of the instance.
       shared_ptr<vector<PrometheusView::Tags>> tags_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // Version.
+      // The version.
       shared_ptr<string> version_ {};
-      // Workspace to which the environment belongs
+      // The workspace to which the environment belongs.
       shared_ptr<string> workspace_ {};
     };
 
@@ -480,9 +480,9 @@ namespace Models
 
 
   protected:
-    // View instance.
+    // The view instance.
     shared_ptr<GetPrometheusViewResponseBody::PrometheusView> prometheusView_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

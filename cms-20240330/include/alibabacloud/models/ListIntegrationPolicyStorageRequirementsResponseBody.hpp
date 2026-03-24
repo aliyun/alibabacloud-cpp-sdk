@@ -164,23 +164,23 @@ namespace Models
 
 
       protected:
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Internal URL
+        // The internal URL.
         shared_ptr<string> interUrl_ {};
-        // External URL
+        // The internal URL.
         shared_ptr<string> intraUrl_ {};
-        // 存储需求名称
+        // The name of the storage requirement.
         shared_ptr<string> name_ {};
-        // 存储需求项目
+        // The project for the storage requirement.
         shared_ptr<string> project_ {};
-        // Prom\\"s metric center
+        // The metric store of Prometheus.
         shared_ptr<string> promMetricStore_ {};
-        // Region
+        // The region.
         shared_ptr<string> region_ {};
-        // Instance storage type
+        // The storage type of the instance.
         shared_ptr<string> storageType_ {};
-        // Workspace.
+        // The workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -308,27 +308,27 @@ namespace Models
 
 
       protected:
-        // Instance ID, which can be specified if you need to pinpoint to the instance level. It depends on the data in EntityStore.
+        // The instance ID. Specify this parameter to query data at the instance level. This parameter depends on data in EntityStore.
         shared_ptr<string> entityId_ {};
-        // Prom Instance ID.
+        // The ID of the Prometheus instance.
         shared_ptr<string> instance_ {};
-        // Prom instance name
+        // The name of the Prometheus instance.
         shared_ptr<string> instanceName_ {};
-        // Optional parameter, determined based on the current environment type
+        // Optional. The project is determined based on the current environment type.
         shared_ptr<string> project_ {};
-        // Region
+        // The region.
         shared_ptr<string> region_ {};
-        // Storage sharing scope: Environment | Region | Workspace | Custom
+        // The scope of storage sharing. Valid values: Environment, Region, Workspace, and Custom.
         shared_ptr<string> shareScope_ {};
-        // Instance storage type
+        // The storage type of the instance.
         shared_ptr<string> storageType_ {};
-        // Tags to be applied to the target storage (injected as system tags)
+        // The tags that need to be added to the destination storage. The tags are injected as system tags.
         shared_ptr<map<string, string>> systemTags_ {};
-        // Tags to be applied to the target storage (injected as regular tags)
+        // The tags that need to be added to the destination storage. The tags are injected as common tags.
         shared_ptr<map<string, string>> tags_ {};
-        // User ID
+        // The user ID.
         shared_ptr<string> userId_ {};
-        // Workspace
+        // The workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -392,13 +392,13 @@ namespace Models
 
 
       protected:
-        // Annotations
+        // The annotations.
         shared_ptr<map<string, string>> annotations_ {};
-        // Resource labels
+        // The resource labels.
         shared_ptr<map<string, string>> labels_ {};
-        // Resource name
+        // The resource name.
         shared_ptr<string> name_ {};
-        // Namespace
+        // The namespace.
         shared_ptr<string> namespace_ {};
       };
 
@@ -455,17 +455,17 @@ namespace Models
 
 
     protected:
-      // Collection of AddonReleases.
+      // A collection of AddonRelease names.
       shared_ptr<vector<string>> addonReleaseNames_ {};
-      // API Version
+      // The version number.
       shared_ptr<string> apiVersion_ {};
-      // Resource kind
+      // The kind of the resource.
       shared_ptr<string> kind_ {};
-      // Metadata
+      // The metadata.
       shared_ptr<StorageRequirements::Metadata> metadata_ {};
-      // Resource spec
+      // The spec of the resource.
       shared_ptr<StorageRequirements::Spec> spec_ {};
-      // Storage requirement status
+      // The status of the storage requirement.
       shared_ptr<StorageRequirements::Status> status_ {};
     };
 
@@ -488,9 +488,9 @@ namespace Models
 
 
   protected:
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // List of storage requirements
+    // The list of storage requirements.
     shared_ptr<vector<ListIntegrationPolicyStorageRequirementsResponseBody::StorageRequirements>> storageRequirements_ {};
   };
 

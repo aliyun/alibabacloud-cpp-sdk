@@ -89,7 +89,9 @@ namespace Models
 
 
     protected:
+      // Simple Log Service Logstore name.
       shared_ptr<string> logstore_ {};
+      // Simple Log Service Project name.
       shared_ptr<string> project_ {};
     };
 
@@ -180,18 +182,31 @@ namespace Models
 
 
   protected:
+    // Creation time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // Custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
+    // Description.
     shared_ptr<string> description_ {};
+    // Supported values: Episodic, Summary, and Fact.
     shared_ptr<vector<string>> extractionStrategies_ {};
+    // Memory store name.
     shared_ptr<string> memoryStoreName_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Short-term memory storage.
     shared_ptr<GetMemoryStoreResponseBody::ShortTermStorage> shortTermStorage_ {};
+    // Short-term memory retention time, in seconds.
     shared_ptr<int32_t> shortTermTtl_ {};
+    // Update time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
+    // Workspace name.
     shared_ptr<string> workspace_ {};
   };
 

@@ -21,7 +21,7 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加记忆
+       * @summary Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
        *
        * @param request AddMemoriesRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Cms20240330
       Models::AddMemoriesResponse addMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::AddMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加记忆
+       * @summary Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
        *
        * @param request AddMemoriesRequest
        * @return AddMemoriesResponse
@@ -39,7 +39,7 @@ namespace Cms20240330
       Models::AddMemoriesResponse addMemories(const string &workspace, const string &memoryStoreName, const Models::AddMemoriesRequest &request);
 
       /**
-       * @summary 修改资源所属资源组
+       * @summary Changes the resource group of a resource.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace Cms20240330
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改资源所属资源组
+       * @summary Changes the resource group of a resource.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -57,9 +57,9 @@ namespace Cms20240330
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Install the access component, representing a single access attempt
+       * @summary Installs an add-on.
        *
-       * @description Used to create a site monitoring task
+       * @description Creates a release for an add-on.
        *
        * @param request CreateAddonReleaseRequest
        * @param headers map
@@ -69,9 +69,9 @@ namespace Cms20240330
       Models::CreateAddonReleaseResponse createAddonReleaseWithOptions(const string &policyId, const Models::CreateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Install the access component, representing a single access attempt
+       * @summary Installs an add-on.
        *
-       * @description Used to create a site monitoring task
+       * @description Creates a release for an add-on.
        *
        * @param request CreateAddonReleaseRequest
        * @return CreateAddonReleaseResponse
@@ -79,7 +79,7 @@ namespace Cms20240330
       Models::CreateAddonReleaseResponse createAddonRelease(const string &policyId, const Models::CreateAddonReleaseRequest &request);
 
       /**
-       * @summary Create Aggregation Task Group
+       * @summary Creates an aggregation task group.
        *
        * @param request CreateAggTaskGroupRequest
        * @param headers map
@@ -89,7 +89,7 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroupWithOptions(const string &instanceId, const Models::CreateAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Aggregation Task Group
+       * @summary Creates an aggregation task group.
        *
        * @param request CreateAggTaskGroupRequest
        * @return CreateAggTaskGroupResponse
@@ -97,7 +97,9 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
 
       /**
-       * @summary 创建Webhook
+       * @summary Create a webhook
+       *
+       * @description Creates an alert webhook to use as a notification recipient.
        *
        * @param request CreateAlertWebhookRequest
        * @param headers map
@@ -107,7 +109,9 @@ namespace Cms20240330
       Models::CreateAlertWebhookResponse createAlertWebhookWithOptions(const Models::CreateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Webhook
+       * @summary Create a webhook
+       *
+       * @description Creates an alert webhook to use as a notification recipient.
        *
        * @param request CreateAlertWebhookRequest
        * @return CreateAlertWebhookResponse
@@ -115,7 +119,7 @@ namespace Cms20240330
       Models::CreateAlertWebhookResponse createAlertWebhook(const Models::CreateAlertWebhookRequest &request);
 
       /**
-       * @summary 创建业务链路
+       * @summary Creates a business trace.
        *
        * @param request CreateBizTraceRequest
        * @param headers map
@@ -125,7 +129,7 @@ namespace Cms20240330
       Models::CreateBizTraceResponse createBizTraceWithOptions(const Models::CreateBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建业务链路
+       * @summary Creates a business trace.
        *
        * @param request CreateBizTraceRequest
        * @return CreateBizTraceResponse
@@ -133,7 +137,9 @@ namespace Cms20240330
       Models::CreateBizTraceResponse createBizTrace(const Models::CreateBizTraceRequest &request);
 
       /**
-       * @summary 创建对话
+       * @summary Create a chat session.
+       *
+       * @description Start a session.
        *
        * @param request CreateChatRequest
        * @param headers map
@@ -143,7 +149,9 @@ namespace Cms20240330
       FutureGenerator<Models::CreateChatResponse> createChatWithSSE(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建对话
+       * @summary Create a chat session.
+       *
+       * @description Start a session.
        *
        * @param request CreateChatRequest
        * @param headers map
@@ -153,7 +161,9 @@ namespace Cms20240330
       Models::CreateChatResponse createChatWithOptions(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建对话
+       * @summary Create a chat session.
+       *
+       * @description Start a session.
        *
        * @param request CreateChatRequest
        * @return CreateChatResponse
@@ -161,7 +171,7 @@ namespace Cms20240330
       Models::CreateChatResponse createChat(const Models::CreateChatRequest &request);
 
       /**
-       * @summary 创建云资源中心
+       * @summary Creates a cloud resource.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,14 +180,16 @@ namespace Cms20240330
       Models::CreateCloudResourceResponse createCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建云资源中心
+       * @summary Creates a cloud resource.
        *
        * @return CreateCloudResourceResponse
        */
       Models::CreateCloudResourceResponse createCloudResource();
 
       /**
-       * @summary 创建DigitalEmployee
+       * @summary Creates a digital employee.
+       *
+       * @description Creates a digital employee.
        *
        * @param request CreateDigitalEmployeeRequest
        * @param headers map
@@ -187,7 +199,9 @@ namespace Cms20240330
       Models::CreateDigitalEmployeeResponse createDigitalEmployeeWithOptions(const Models::CreateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建DigitalEmployee
+       * @summary Creates a digital employee.
+       *
+       * @description Creates a digital employee.
        *
        * @param request CreateDigitalEmployeeRequest
        * @return CreateDigitalEmployeeResponse
@@ -195,7 +209,9 @@ namespace Cms20240330
       Models::CreateDigitalEmployeeResponse createDigitalEmployee(const Models::CreateDigitalEmployeeRequest &request);
 
       /**
-       * @summary 创建技能
+       * @summary Creates a skill.
+       *
+       * @description Creates a skill.
        *
        * @param request CreateDigitalEmployeeSkillRequest
        * @param headers map
@@ -205,7 +221,9 @@ namespace Cms20240330
       Models::CreateDigitalEmployeeSkillResponse createDigitalEmployeeSkillWithOptions(const string &name, const Models::CreateDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建技能
+       * @summary Creates a skill.
+       *
+       * @description Creates a skill.
        *
        * @param request CreateDigitalEmployeeSkillRequest
        * @return CreateDigitalEmployeeSkillResponse
@@ -213,7 +231,7 @@ namespace Cms20240330
       Models::CreateDigitalEmployeeSkillResponse createDigitalEmployeeSkill(const string &name, const Models::CreateDigitalEmployeeSkillRequest &request);
 
       /**
-       * @summary Create storage related to EntityStore
+       * @summary Creates storage for an EntityStore.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -222,16 +240,16 @@ namespace Cms20240330
       Models::CreateEntityStoreResponse createEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create storage related to EntityStore
+       * @summary Creates storage for an EntityStore.
        *
        * @return CreateEntityStoreResponse
        */
       Models::CreateEntityStoreResponse createEntityStore(const string &workspaceName);
 
       /**
-       * @summary Create Access Center Policy
+       * @summary Creates an Integration Center policy.
        *
-       * @description This interface is used to support users in creating event integration.
+       * @description This operation creates an event integration.
        *
        * @param request CreateIntegrationPolicyRequest
        * @param headers map
@@ -241,9 +259,9 @@ namespace Cms20240330
       Models::CreateIntegrationPolicyResponse createIntegrationPolicyWithOptions(const Models::CreateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Access Center Policy
+       * @summary Creates an Integration Center policy.
        *
-       * @description This interface is used to support users in creating event integration.
+       * @description This operation creates an event integration.
        *
        * @param request CreateIntegrationPolicyRequest
        * @return CreateIntegrationPolicyResponse
@@ -251,7 +269,7 @@ namespace Cms20240330
       Models::CreateIntegrationPolicyResponse createIntegrationPolicy(const Models::CreateIntegrationPolicyRequest &request);
 
       /**
-       * @summary 创建记忆库
+       * @summary Creates a Memory Store.
        *
        * @param request CreateMemoryStoreRequest
        * @param headers map
@@ -261,7 +279,7 @@ namespace Cms20240330
       Models::CreateMemoryStoreResponse createMemoryStoreWithOptions(const string &workspace, const Models::CreateMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建记忆库
+       * @summary Creates a Memory Store.
        *
        * @param request CreateMemoryStoreRequest
        * @return CreateMemoryStoreResponse
@@ -269,7 +287,7 @@ namespace Cms20240330
       Models::CreateMemoryStoreResponse createMemoryStore(const string &workspace, const Models::CreateMemoryStoreRequest &request);
 
       /**
-       * @summary Create a Prometheus monitoring instance
+       * @summary Creates a Prometheus instance for monitoring.
        *
        * @param request CreatePrometheusInstanceRequest
        * @param headers map
@@ -279,7 +297,7 @@ namespace Cms20240330
       Models::CreatePrometheusInstanceResponse createPrometheusInstanceWithOptions(const Models::CreatePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a Prometheus monitoring instance
+       * @summary Creates a Prometheus instance for monitoring.
        *
        * @param request CreatePrometheusInstanceRequest
        * @return CreatePrometheusInstanceResponse
@@ -287,9 +305,9 @@ namespace Cms20240330
       Models::CreatePrometheusInstanceResponse createPrometheusInstance(const Models::CreatePrometheusInstanceRequest &request);
 
       /**
-       * @summary Create Prometheus View
+       * @summary Creates a Prometheus view.
        *
-       * @description Used to create a site monitoring task
+       * @description 用于创建一个站点监控任务
        *
        * @param request CreatePrometheusViewRequest
        * @param headers map
@@ -299,9 +317,9 @@ namespace Cms20240330
       Models::CreatePrometheusViewResponse createPrometheusViewWithOptions(const Models::CreatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Prometheus View
+       * @summary Creates a Prometheus view.
        *
-       * @description Used to create a site monitoring task
+       * @description 用于创建一个站点监控任务
        *
        * @param request CreatePrometheusViewRequest
        * @return CreatePrometheusViewResponse
@@ -309,9 +327,9 @@ namespace Cms20240330
       Models::CreatePrometheusViewResponse createPrometheusView(const Models::CreatePrometheusViewRequest &request);
 
       /**
-       * @summary Create Prometheus Monitoring Instance
+       * @summary Creates a virtual instance for Prometheus monitoring.
        *
-       * @description Create a Prometheus monitoring virtual instance.
+       * @description Creates a virtual instance for Prometheus monitoring.
        *
        * @param request CreatePrometheusVirtualInstanceRequest
        * @param headers map
@@ -321,9 +339,9 @@ namespace Cms20240330
       Models::CreatePrometheusVirtualInstanceResponse createPrometheusVirtualInstanceWithOptions(const Models::CreatePrometheusVirtualInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Prometheus Monitoring Instance
+       * @summary Creates a virtual instance for Prometheus monitoring.
        *
-       * @description Create a Prometheus monitoring virtual instance.
+       * @description Creates a virtual instance for Prometheus monitoring.
        *
        * @param request CreatePrometheusVirtualInstanceRequest
        * @return CreatePrometheusVirtualInstanceResponse
@@ -331,7 +349,7 @@ namespace Cms20240330
       Models::CreatePrometheusVirtualInstanceResponse createPrometheusVirtualInstance(const Models::CreatePrometheusVirtualInstanceRequest &request);
 
       /**
-       * @summary Create Service
+       * @summary Creates a service for application observability.
        *
        * @param request CreateServiceRequest
        * @param headers map
@@ -341,7 +359,7 @@ namespace Cms20240330
       Models::CreateServiceResponse createServiceWithOptions(const string &workspace, const Models::CreateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Service
+       * @summary Creates a service for application observability.
        *
        * @param request CreateServiceRequest
        * @return CreateServiceResponse
@@ -349,7 +367,7 @@ namespace Cms20240330
       Models::CreateServiceResponse createService(const string &workspace, const Models::CreateServiceRequest &request);
 
       /**
-       * @summary 创建应用可观测实例
+       * @summary Sets up application observability and prepares the required resources for integration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -358,14 +376,16 @@ namespace Cms20240330
       Models::CreateServiceObservabilityResponse createServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用可观测实例
+       * @summary Sets up application observability and prepares the required resources for integration.
        *
        * @return CreateServiceObservabilityResponse
        */
       Models::CreateServiceObservabilityResponse createServiceObservability(const string &workspace, const string &type);
 
       /**
-       * @summary 创建会话
+       * @summary Creates a session.
+       *
+       * @description Creates a session.
        *
        * @param request CreateThreadRequest
        * @param headers map
@@ -375,7 +395,9 @@ namespace Cms20240330
       Models::CreateThreadResponse createThreadWithOptions(const string &name, const Models::CreateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建会话
+       * @summary Creates a session.
+       *
+       * @description Creates a session.
        *
        * @param request CreateThreadRequest
        * @return CreateThreadResponse
@@ -383,7 +405,7 @@ namespace Cms20240330
       Models::CreateThreadResponse createThread(const string &name, const Models::CreateThreadRequest &request);
 
       /**
-       * @summary Create Ticket
+       * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
        *
        * @param request CreateTicketRequest
        * @param headers map
@@ -393,7 +415,7 @@ namespace Cms20240330
       Models::CreateTicketResponse createTicketWithOptions(const Models::CreateTicketRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Ticket
+       * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
        *
        * @param request CreateTicketRequest
        * @return CreateTicketResponse
@@ -401,9 +423,9 @@ namespace Cms20240330
       Models::CreateTicketResponse createTicket(const Models::CreateTicketRequest &request);
 
       /**
-       * @summary Create Umodel configuration
+       * @summary Creates a Umodel configuration.
        *
-       * @description Create Umodel configuration in the specified workspace
+       * @description Creates a Umodel configuration in a specified workspace.
        *
        * @param request CreateUmodelRequest
        * @param headers map
@@ -413,9 +435,9 @@ namespace Cms20240330
       Models::CreateUmodelResponse createUmodelWithOptions(const string &workspace, const Models::CreateUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Umodel configuration
+       * @summary Creates a Umodel configuration.
        *
-       * @description Create Umodel configuration in the specified workspace
+       * @description Creates a Umodel configuration in a specified workspace.
        *
        * @param request CreateUmodelRequest
        * @return CreateUmodelResponse
@@ -423,7 +445,7 @@ namespace Cms20240330
       Models::CreateUmodelResponse createUmodel(const string &workspace, const Models::CreateUmodelRequest &request);
 
       /**
-       * @summary Delete addon release information
+       * @summary Deletes add-on release information.
        *
        * @param request DeleteAddonReleaseRequest
        * @param headers map
@@ -433,7 +455,7 @@ namespace Cms20240330
       Models::DeleteAddonReleaseResponse deleteAddonReleaseWithOptions(const string &policyId, const Models::DeleteAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete addon release information
+       * @summary Deletes add-on release information.
        *
        * @param request DeleteAddonReleaseRequest
        * @return DeleteAddonReleaseResponse
@@ -441,7 +463,7 @@ namespace Cms20240330
       Models::DeleteAddonReleaseResponse deleteAddonRelease(const string &policyId, const Models::DeleteAddonReleaseRequest &request);
 
       /**
-       * @summary Delete Aggregation Task Group
+       * @summary Deletes an aggregation task group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -450,14 +472,14 @@ namespace Cms20240330
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Aggregation Task Group
+       * @summary Deletes an aggregation task group.
        *
        * @return DeleteAggTaskGroupResponse
        */
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId);
 
       /**
-       * @summary 删除Webhook
+       * @summary Deletes one or more alert webhooks.
        *
        * @param tmpReq DeleteAlertWebhooksRequest
        * @param headers map
@@ -467,7 +489,7 @@ namespace Cms20240330
       Models::DeleteAlertWebhooksResponse deleteAlertWebhooksWithOptions(const Models::DeleteAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Webhook
+       * @summary Deletes one or more alert webhooks.
        *
        * @param request DeleteAlertWebhooksRequest
        * @return DeleteAlertWebhooksResponse
@@ -475,7 +497,7 @@ namespace Cms20240330
       Models::DeleteAlertWebhooksResponse deleteAlertWebhooks(const Models::DeleteAlertWebhooksRequest &request);
 
       /**
-       * @summary 删除业务链路
+       * @summary Deletes a business trace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -484,14 +506,14 @@ namespace Cms20240330
       Models::DeleteBizTraceResponse deleteBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除业务链路
+       * @summary Deletes a business trace.
        *
        * @return DeleteBizTraceResponse
        */
       Models::DeleteBizTraceResponse deleteBizTrace(const string &bizTraceId);
 
       /**
-       * @summary 删除云资源中心
+       * @summary Deletes a cloud resource.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -500,14 +522,16 @@ namespace Cms20240330
       Models::DeleteCloudResourceResponse deleteCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除云资源中心
+       * @summary Deletes a cloud resource.
        *
        * @return DeleteCloudResourceResponse
        */
       Models::DeleteCloudResourceResponse deleteCloudResource();
 
       /**
-       * @summary 删除DigitalEmployee
+       * @summary Deletes a digital employee.
+       *
+       * @description Deletes a digital employee.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -516,14 +540,18 @@ namespace Cms20240330
       Models::DeleteDigitalEmployeeResponse deleteDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除DigitalEmployee
+       * @summary Deletes a digital employee.
+       *
+       * @description Deletes a digital employee.
        *
        * @return DeleteDigitalEmployeeResponse
        */
       Models::DeleteDigitalEmployeeResponse deleteDigitalEmployee(const string &name);
 
       /**
-       * @summary 删除技能
+       * @summary Delete a skill.
+       *
+       * @description Delete a skill.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -532,14 +560,16 @@ namespace Cms20240330
       Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除技能
+       * @summary Delete a skill.
+       *
+       * @description Delete a skill.
        *
        * @return DeleteDigitalEmployeeSkillResponse
        */
       Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkill(const string &name, const string &skillName);
 
       /**
-       * @summary Delete EntityStore related storage
+       * @summary Deletes an EntityStore.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -548,14 +578,14 @@ namespace Cms20240330
       Models::DeleteEntityStoreResponse deleteEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete EntityStore related storage
+       * @summary Deletes an EntityStore.
        *
        * @return DeleteEntityStoreResponse
        */
       Models::DeleteEntityStoreResponse deleteEntityStore(const string &workspaceName);
 
       /**
-       * @summary Delete Access Center Policy
+       * @summary Deletes an Integration Center policy.
        *
        * @param request DeleteIntegrationPolicyRequest
        * @param headers map
@@ -565,7 +595,7 @@ namespace Cms20240330
       Models::DeleteIntegrationPolicyResponse deleteIntegrationPolicyWithOptions(const string &policyId, const Models::DeleteIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Access Center Policy
+       * @summary Deletes an Integration Center policy.
        *
        * @param request DeleteIntegrationPolicyRequest
        * @return DeleteIntegrationPolicyResponse
@@ -573,7 +603,7 @@ namespace Cms20240330
       Models::DeleteIntegrationPolicyResponse deleteIntegrationPolicy(const string &policyId, const Models::DeleteIntegrationPolicyRequest &request);
 
       /**
-       * @summary 批量删除记忆
+       * @summary Deletes memories based on filter properties. You must set at least one filter property. If no filter properties are set, a validation error is returned.
        *
        * @param request DeleteMemoriesRequest
        * @param headers map
@@ -583,7 +613,7 @@ namespace Cms20240330
       Models::DeleteMemoriesResponse deleteMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除记忆
+       * @summary Deletes memories based on filter properties. You must set at least one filter property. If no filter properties are set, a validation error is returned.
        *
        * @param request DeleteMemoriesRequest
        * @return DeleteMemoriesResponse
@@ -591,7 +621,7 @@ namespace Cms20240330
       Models::DeleteMemoriesResponse deleteMemories(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoriesRequest &request);
 
       /**
-       * @summary 删除记忆
+       * @summary Deletes a memory.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -600,14 +630,14 @@ namespace Cms20240330
       Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除记忆
+       * @summary Deletes a memory.
        *
        * @return DeleteMemoryResponse
        */
       Models::DeleteMemoryResponse deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId);
 
       /**
-       * @summary 删除记忆库
+       * @summary Deletes a Memory Store.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,16 +646,16 @@ namespace Cms20240330
       Models::DeleteMemoryStoreResponse deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除记忆库
+       * @summary Deletes a Memory Store.
        *
        * @return DeleteMemoryStoreResponse
        */
       Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspace, const string &memoryStoreName);
 
       /**
-       * @summary Delete prom instance
+       * @summary Deletes a Prometheus instance.
        *
-       * @description Delete a Prometheus instance.
+       * @description Deletes a Prometheus instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -634,18 +664,18 @@ namespace Cms20240330
       Models::DeletePrometheusInstanceResponse deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete prom instance
+       * @summary Deletes a Prometheus instance.
        *
-       * @description Delete a Prometheus instance.
+       * @description Deletes a Prometheus instance.
        *
        * @return DeletePrometheusInstanceResponse
        */
       Models::DeletePrometheusInstanceResponse deletePrometheusInstance(const string &prometheusInstanceId);
 
       /**
-       * @summary Delete prometheus view instance
+       * @summary Deletes a Prometheus view instance.
        *
-       * @description Delete prometheus view instance.
+       * @description Deletes a Prometheus view instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -654,16 +684,16 @@ namespace Cms20240330
       Models::DeletePrometheusViewResponse deletePrometheusViewWithOptions(const string &prometheusViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete prometheus view instance
+       * @summary Deletes a Prometheus view instance.
        *
-       * @description Delete prometheus view instance.
+       * @description Deletes a Prometheus view instance.
        *
        * @return DeletePrometheusViewResponse
        */
       Models::DeletePrometheusViewResponse deletePrometheusView(const string &prometheusViewId);
 
       /**
-       * @summary Delete Service
+       * @summary Deletes an Application Monitoring service.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -672,14 +702,16 @@ namespace Cms20240330
       Models::DeleteServiceResponse deleteServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Service
+       * @summary Deletes an Application Monitoring service.
        *
        * @return DeleteServiceResponse
        */
       Models::DeleteServiceResponse deleteService(const string &workspace, const string &serviceId);
 
       /**
-       * @summary 删除会话
+       * @summary Deletes a session.
+       *
+       * @description Deletes a session.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -688,16 +720,18 @@ namespace Cms20240330
       Models::DeleteThreadResponse deleteThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除会话
+       * @summary Deletes a session.
+       *
+       * @description Deletes a session.
        *
        * @return DeleteThreadResponse
        */
       Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId);
 
       /**
-       * @summary Delete Umodel configuration information
+       * @summary Deletes a Umodel configuration.
        *
-       * @description Delete the Umodel under the specified workspace
+       * @description Deletes a Umodel from a specified workspace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -706,16 +740,16 @@ namespace Cms20240330
       Models::DeleteUmodelResponse deleteUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Umodel configuration information
+       * @summary Deletes a Umodel configuration.
        *
-       * @description Delete the Umodel under the specified workspace
+       * @description Deletes a Umodel from a specified workspace.
        *
        * @return DeleteUmodelResponse
        */
       Models::DeleteUmodelResponse deleteUmodel(const string &workspace);
 
       /**
-       * @summary 删除Umodel配置信息
+       * @summary Deletes a public Umodel schema reference.
        *
        * @param request DeleteUmodelCommonSchemaRefRequest
        * @param headers map
@@ -725,7 +759,7 @@ namespace Cms20240330
       Models::DeleteUmodelCommonSchemaRefResponse deleteUmodelCommonSchemaRefWithOptions(const string &workspace, const Models::DeleteUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Umodel配置信息
+       * @summary Deletes a public Umodel schema reference.
        *
        * @param request DeleteUmodelCommonSchemaRefRequest
        * @return DeleteUmodelCommonSchemaRefResponse
@@ -733,9 +767,9 @@ namespace Cms20240330
       Models::DeleteUmodelCommonSchemaRefResponse deleteUmodelCommonSchemaRef(const string &workspace, const Models::DeleteUmodelCommonSchemaRefRequest &request);
 
       /**
-       * @summary Delete Umodel Elements
+       * @summary Deletes Umodel elements.
        *
-       * @description Delete the Umodel Data under a specified workspace
+       * @description Deletes Umodel data from a specified workspace.
        *
        * @param request DeleteUmodelDataRequest
        * @param headers map
@@ -745,9 +779,9 @@ namespace Cms20240330
       Models::DeleteUmodelDataResponse deleteUmodelDataWithOptions(const string &workspace, const Models::DeleteUmodelDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Umodel Elements
+       * @summary Deletes Umodel elements.
        *
-       * @description Delete the Umodel Data under a specified workspace
+       * @description Deletes Umodel data from a specified workspace.
        *
        * @param request DeleteUmodelDataRequest
        * @return DeleteUmodelDataResponse
@@ -755,7 +789,7 @@ namespace Cms20240330
       Models::DeleteUmodelDataResponse deleteUmodelData(const string &workspace, const Models::DeleteUmodelDataRequest &request);
 
       /**
-       * @summary Delete Workspace
+       * @summary Deletes a workspace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -764,14 +798,14 @@ namespace Cms20240330
       Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Workspace
+       * @summary Deletes a workspace.
        *
        * @return DeleteWorkspaceResponse
        */
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName);
 
       /**
-       * @summary 查询地域信息列表
+       * @summary Retrieves a list of regions.
        *
        * @param request DescribeRegionsRequest
        * @param headers map
@@ -781,7 +815,7 @@ namespace Cms20240330
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询地域信息列表
+       * @summary Retrieves a list of regions.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -789,7 +823,9 @@ namespace Cms20240330
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary 插件详情(Addon)
+       * @summary Retrieves the details of an add-on.
+       *
+       * @description Retrieves the details of an add-on.
        *
        * @param request GetAddonRequest
        * @param headers map
@@ -799,7 +835,9 @@ namespace Cms20240330
       Models::GetAddonResponse getAddonWithOptions(const string &addonName, const Models::GetAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 插件详情(Addon)
+       * @summary Retrieves the details of an add-on.
+       *
+       * @description Retrieves the details of an add-on.
        *
        * @param request GetAddonRequest
        * @return GetAddonResponse
@@ -807,7 +845,9 @@ namespace Cms20240330
       Models::GetAddonResponse getAddon(const string &addonName, const Models::GetAddonRequest &request);
 
       /**
-       * @summary 插件schema详情(Addon)
+       * @summary Details of an add-on schema.
+       *
+       * @description This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
        *
        * @param request GetAddonCodeTemplateRequest
        * @param headers map
@@ -817,7 +857,9 @@ namespace Cms20240330
       Models::GetAddonCodeTemplateResponse getAddonCodeTemplateWithOptions(const string &addonName, const Models::GetAddonCodeTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 插件schema详情(Addon)
+       * @summary Details of an add-on schema.
+       *
+       * @description This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
        *
        * @param request GetAddonCodeTemplateRequest
        * @return GetAddonCodeTemplateResponse
@@ -825,7 +867,7 @@ namespace Cms20240330
       Models::GetAddonCodeTemplateResponse getAddonCodeTemplate(const string &addonName, const Models::GetAddonCodeTemplateRequest &request);
 
       /**
-       * @summary Check addon release (view connection status)
+       * @summary Queries the details and accessed state of an add-on release.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -834,14 +876,16 @@ namespace Cms20240330
       Models::GetAddonReleaseResponse getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Check addon release (view connection status)
+       * @summary Queries the details and accessed state of an add-on release.
        *
        * @return GetAddonReleaseResponse
        */
       Models::GetAddonReleaseResponse getAddonRelease(const string &releaseName, const string &policyId);
 
       /**
-       * @summary 插件schema详情(Addon)
+       * @summary The details of an add-on schema.
+       *
+       * @description Retrieves the schema of an add-on.
        *
        * @param request GetAddonSchemaRequest
        * @param headers map
@@ -851,7 +895,9 @@ namespace Cms20240330
       Models::GetAddonSchemaResponse getAddonSchemaWithOptions(const string &addonName, const Models::GetAddonSchemaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 插件schema详情(Addon)
+       * @summary The details of an add-on schema.
+       *
+       * @description Retrieves the schema of an add-on.
        *
        * @param request GetAddonSchemaRequest
        * @return GetAddonSchemaResponse
@@ -859,7 +905,7 @@ namespace Cms20240330
       Models::GetAddonSchemaResponse getAddonSchema(const string &addonName, const Models::GetAddonSchemaRequest &request);
 
       /**
-       * @summary Describes the aggregation task group
+       * @summary Queries the details of an aggregation task group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -868,14 +914,14 @@ namespace Cms20240330
       Models::GetAggTaskGroupResponse getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes the aggregation task group
+       * @summary Queries the details of an aggregation task group.
        *
        * @return GetAggTaskGroupResponse
        */
       Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId);
 
       /**
-       * @summary 查询业务链路
+       * @summary Queries a business trace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -884,14 +930,14 @@ namespace Cms20240330
       Models::GetBizTraceResponse getBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询业务链路
+       * @summary Queries a business trace.
        *
        * @return GetBizTraceResponse
        */
       Models::GetBizTraceResponse getBizTrace(const string &bizTraceId);
 
       /**
-       * @summary 查询云资源中心
+       * @summary Retrieves information about cloud resources.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -900,14 +946,14 @@ namespace Cms20240330
       Models::GetCloudResourceResponse getCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云资源中心
+       * @summary Retrieves information about cloud resources.
        *
        * @return GetCloudResourceResponse
        */
       Models::GetCloudResourceResponse getCloudResource();
 
       /**
-       * @summary 查询云资源中心数据
+       * @summary Queries data from the Cloud Resource Center.
        *
        * @param request GetCloudResourceDataRequest
        * @param headers map
@@ -917,7 +963,7 @@ namespace Cms20240330
       Models::GetCloudResourceDataResponse getCloudResourceDataWithOptions(const Models::GetCloudResourceDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云资源中心数据
+       * @summary Queries data from the Cloud Resource Center.
        *
        * @param request GetCloudResourceDataRequest
        * @return GetCloudResourceDataResponse
@@ -925,7 +971,9 @@ namespace Cms20240330
       Models::GetCloudResourceDataResponse getCloudResourceData(const Models::GetCloudResourceDataRequest &request);
 
       /**
-       * @summary 获取云监控开通状态
+       * @summary Checks whether a Prometheus service or product is activated.
+       *
+       * @description The product and service request parameters cannot be specified in the same request.
        *
        * @param request GetCmsServiceRequest
        * @param headers map
@@ -935,7 +983,9 @@ namespace Cms20240330
       Models::GetCmsServiceResponse getCmsServiceWithOptions(const Models::GetCmsServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取云监控开通状态
+       * @summary Checks whether a Prometheus service or product is activated.
+       *
+       * @description The product and service request parameters cannot be specified in the same request.
        *
        * @param request GetCmsServiceRequest
        * @return GetCmsServiceResponse
@@ -943,7 +993,9 @@ namespace Cms20240330
       Models::GetCmsServiceResponse getCmsService(const Models::GetCmsServiceRequest &request);
 
       /**
-       * @summary 查询 DigitalEmployee
+       * @summary Retrieves information about a digital employee.
+       *
+       * @description Retrieves information about a digital employee.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -952,14 +1004,18 @@ namespace Cms20240330
       Models::GetDigitalEmployeeResponse getDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 DigitalEmployee
+       * @summary Retrieves information about a digital employee.
+       *
+       * @description Retrieves information about a digital employee.
        *
        * @return GetDigitalEmployeeResponse
        */
       Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name);
 
       /**
-       * @summary 获取技能详情
+       * @summary Retrieves skill details
+       *
+       * @description Retrieves a skill
        *
        * @param request GetDigitalEmployeeSkillRequest
        * @param headers map
@@ -969,7 +1025,9 @@ namespace Cms20240330
       Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取技能详情
+       * @summary Retrieves skill details
+       *
+       * @description Retrieves a skill
        *
        * @param request GetDigitalEmployeeSkillRequest
        * @return GetDigitalEmployeeSkillResponse
@@ -977,7 +1035,7 @@ namespace Cms20240330
       Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkill(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request);
 
       /**
-       * @summary Get EntityStore related storage information
+       * @summary Retrieves the storage information of an EntityStore.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -986,14 +1044,14 @@ namespace Cms20240330
       Models::GetEntityStoreResponse getEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get EntityStore related storage information
+       * @summary Retrieves the storage information of an EntityStore.
        *
        * @return GetEntityStoreResponse
        */
       Models::GetEntityStoreResponse getEntityStore(const string &workspaceName);
 
       /**
-       * @summary Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
+       * @summary Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
        *
        * @param request GetEntityStoreDataRequest
        * @param headers GetEntityStoreDataHeaders
@@ -1003,7 +1061,7 @@ namespace Cms20240330
       Models::GetEntityStoreDataResponse getEntityStoreDataWithOptions(const string &workspace, const Models::GetEntityStoreDataRequest &request, const Models::GetEntityStoreDataHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
+       * @summary Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
        *
        * @param request GetEntityStoreDataRequest
        * @return GetEntityStoreDataResponse
@@ -1011,7 +1069,7 @@ namespace Cms20240330
       Models::GetEntityStoreDataResponse getEntityStoreData(const string &workspace, const Models::GetEntityStoreDataRequest &request);
 
       /**
-       * @summary Query the list of access center policies
+       * @summary Retrieves the details of an Integration Center policy.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1020,14 +1078,16 @@ namespace Cms20240330
       Models::GetIntegrationPolicyResponse getIntegrationPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of access center policies
+       * @summary Retrieves the details of an Integration Center policy.
        *
        * @return GetIntegrationPolicyResponse
        */
       Models::GetIntegrationPolicyResponse getIntegrationPolicy(const string &policyId);
 
       /**
-       * @summary 查询接入中心在CS的版本
+       * @summary Queries the Integration Center version for a container cluster.
+       *
+       * @description This operation is not available in the API Explorer.
        *
        * @param request GetIntegrationVersionForCSRequest
        * @param headers map
@@ -1037,7 +1097,9 @@ namespace Cms20240330
       Models::GetIntegrationVersionForCSResponse getIntegrationVersionForCSWithOptions(const Models::GetIntegrationVersionForCSRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询接入中心在CS的版本
+       * @summary Queries the Integration Center version for a container cluster.
+       *
+       * @description This operation is not available in the API Explorer.
        *
        * @param request GetIntegrationVersionForCSRequest
        * @return GetIntegrationVersionForCSResponse
@@ -1045,7 +1107,7 @@ namespace Cms20240330
       Models::GetIntegrationVersionForCSResponse getIntegrationVersionForCS(const Models::GetIntegrationVersionForCSRequest &request);
 
       /**
-       * @summary 查询全部记忆
+       * @summary Retrieves all memories.
        *
        * @param request GetMemoriesRequest
        * @param headers map
@@ -1055,7 +1117,7 @@ namespace Cms20240330
       Models::GetMemoriesResponse getMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::GetMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询全部记忆
+       * @summary Retrieves all memories.
        *
        * @param request GetMemoriesRequest
        * @return GetMemoriesResponse
@@ -1063,7 +1125,7 @@ namespace Cms20240330
       Models::GetMemoriesResponse getMemories(const string &workspace, const string &memoryStoreName, const Models::GetMemoriesRequest &request);
 
       /**
-       * @summary 查询记忆
+       * @summary Retrieves a single memory.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1072,14 +1134,14 @@ namespace Cms20240330
       Models::GetMemoryResponse getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询记忆
+       * @summary Retrieves a single memory.
        *
        * @return GetMemoryResponse
        */
       Models::GetMemoryResponse getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId);
 
       /**
-       * @summary 查询记忆历史记录
+       * @summary Retrieve memory history.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1088,14 +1150,14 @@ namespace Cms20240330
       Models::GetMemoryHistoryResponse getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询记忆历史记录
+       * @summary Retrieve memory history.
        *
        * @return GetMemoryHistoryResponse
        */
       Models::GetMemoryHistoryResponse getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId);
 
       /**
-       * @summary 查询记忆库
+       * @summary Query a memory store.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1104,16 +1166,16 @@ namespace Cms20240330
       Models::GetMemoryStoreResponse getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询记忆库
+       * @summary Query a memory store.
        *
        * @return GetMemoryStoreResponse
        */
       Models::GetMemoryStoreResponse getMemoryStore(const string &workspace, const string &memoryStoreName);
 
       /**
-       * @summary Query the instance in a specified environment
+       * @summary Queries the details of a specified Prometheus instance.
        *
-       * @description Retrieve details of a Prometheus instance.
+       * @description Retrieves the details of a Prometheus instance.
        *
        * @param request GetPrometheusInstanceRequest
        * @param headers map
@@ -1123,9 +1185,9 @@ namespace Cms20240330
       Models::GetPrometheusInstanceResponse getPrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the instance in a specified environment
+       * @summary Queries the details of a specified Prometheus instance.
        *
-       * @description Retrieve details of a Prometheus instance.
+       * @description Retrieves the details of a Prometheus instance.
        *
        * @param request GetPrometheusInstanceRequest
        * @return GetPrometheusInstanceResponse
@@ -1133,7 +1195,7 @@ namespace Cms20240330
       Models::GetPrometheusInstanceResponse getPrometheusInstance(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request);
 
       /**
-       * @summary 查询指定环境实例
+       * @summary Retrieves the user settings for Prometheus.
        *
        * @param request GetPrometheusUserSettingRequest
        * @param headers map
@@ -1143,7 +1205,7 @@ namespace Cms20240330
       Models::GetPrometheusUserSettingResponse getPrometheusUserSettingWithOptions(const Models::GetPrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定环境实例
+       * @summary Retrieves the user settings for Prometheus.
        *
        * @param request GetPrometheusUserSettingRequest
        * @return GetPrometheusUserSettingResponse
@@ -1151,9 +1213,9 @@ namespace Cms20240330
       Models::GetPrometheusUserSettingResponse getPrometheusUserSetting(const Models::GetPrometheusUserSettingRequest &request);
 
       /**
-       * @summary Query a specified Prometheus view instance
+       * @summary Retrieves the details of a specified Prometheus view instance.
        *
-       * @description Query a specified Prometheus view instance.
+       * @description Retrieves the details of a specified Prometheus view instance.
        *
        * @param request GetPrometheusViewRequest
        * @param headers map
@@ -1163,9 +1225,9 @@ namespace Cms20240330
       Models::GetPrometheusViewResponse getPrometheusViewWithOptions(const string &prometheusViewId, const Models::GetPrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query a specified Prometheus view instance
+       * @summary Retrieves the details of a specified Prometheus view instance.
        *
-       * @description Query a specified Prometheus view instance.
+       * @description Retrieves the details of a specified Prometheus view instance.
        *
        * @param request GetPrometheusViewRequest
        * @return GetPrometheusViewResponse
@@ -1173,7 +1235,7 @@ namespace Cms20240330
       Models::GetPrometheusViewResponse getPrometheusView(const string &prometheusViewId, const Models::GetPrometheusViewRequest &request);
 
       /**
-       * @summary Query Service
+       * @summary Retrieves the details of an Application Monitoring service.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1182,14 +1244,14 @@ namespace Cms20240330
       Models::GetServiceResponse getServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Service
+       * @summary Retrieves the details of an Application Monitoring service.
        *
        * @return GetServiceResponse
        */
       Models::GetServiceResponse getService(const string &workspace, const string &serviceId);
 
       /**
-       * @summary Get Application Observability Instance
+       * @summary Retrieves an application observability instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1198,14 +1260,16 @@ namespace Cms20240330
       Models::GetServiceObservabilityResponse getServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Application Observability Instance
+       * @summary Retrieves an application observability instance.
        *
        * @return GetServiceObservabilityResponse
        */
       Models::GetServiceObservabilityResponse getServiceObservability(const string &workspace, const string &type);
 
       /**
-       * @summary 获取会话
+       * @summary Retrieves a session.
+       *
+       * @description Retrieves a session.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1214,14 +1278,18 @@ namespace Cms20240330
       Models::GetThreadResponse getThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取会话
+       * @summary Retrieves a session.
+       *
+       * @description Retrieves a session.
        *
        * @return GetThreadResponse
        */
       Models::GetThreadResponse getThread(const string &name, const string &threadId);
 
       /**
-       * @summary 获取会话数据
+       * @summary Retrieves session data.
+       *
+       * @description Retrieves session data.
        *
        * @param request GetThreadDataRequest
        * @param headers map
@@ -1231,7 +1299,9 @@ namespace Cms20240330
       Models::GetThreadDataResponse getThreadDataWithOptions(const string &name, const string &threadId, const Models::GetThreadDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取会话数据
+       * @summary Retrieves session data.
+       *
+       * @description Retrieves session data.
        *
        * @param request GetThreadDataRequest
        * @return GetThreadDataResponse
@@ -1239,9 +1309,9 @@ namespace Cms20240330
       Models::GetThreadDataResponse getThreadData(const string &name, const string &threadId, const Models::GetThreadDataRequest &request);
 
       /**
-       * @summary Get Umodel configuration information
+       * @summary Retrieves the configuration of a Umodel.
        *
-       * @description Get Umodel configuration information
+       * @description Retrieves the configuration of a Umodel.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1250,16 +1320,16 @@ namespace Cms20240330
       Models::GetUmodelResponse getUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Umodel configuration information
+       * @summary Retrieves the configuration of a Umodel.
        *
-       * @description Get Umodel configuration information
+       * @description Retrieves the configuration of a Umodel.
        *
        * @return GetUmodelResponse
        */
       Models::GetUmodelResponse getUmodel(const string &workspace);
 
       /**
-       * @summary 获取Umodel配置信息
+       * @summary Retrieves the referenced common Umodel schema.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1268,16 +1338,16 @@ namespace Cms20240330
       Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRefWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Umodel配置信息
+       * @summary Retrieves the referenced common Umodel schema.
        *
        * @return GetUmodelCommonSchemaRefResponse
        */
       Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRef(const string &workspace);
 
       /**
-       * @summary Retrieve associated Umodel graph data
+       * @summary Retrieves graph data associated with a Umodel.
        *
-       * @description Find Umodel
+       * @description This operation retrieves the graph data associated with a Umodel.
        *
        * @param request GetUmodelDataRequest
        * @param headers map
@@ -1287,9 +1357,9 @@ namespace Cms20240330
       Models::GetUmodelDataResponse getUmodelDataWithOptions(const string &workspace, const Models::GetUmodelDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve associated Umodel graph data
+       * @summary Retrieves graph data associated with a Umodel.
        *
-       * @description Find Umodel
+       * @description This operation retrieves the graph data associated with a Umodel.
        *
        * @param request GetUmodelDataRequest
        * @return GetUmodelDataResponse
@@ -1297,7 +1367,7 @@ namespace Cms20240330
       Models::GetUmodelDataResponse getUmodelData(const string &workspace, const Models::GetUmodelDataRequest &request);
 
       /**
-       * @summary Get Workspace
+       * @summary Retrieves a workspace.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1306,16 +1376,16 @@ namespace Cms20240330
       Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Workspace
+       * @summary Retrieves a workspace.
        *
        * @return GetWorkspaceResponse
        */
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceName);
 
       /**
-       * @summary List of addon releases
+       * @summary Retrieves the releases for an add-on.
        *
-       * @description Query the list of access configurations
+       * @description This operation retrieves a list of releases for an add-on.
        *
        * @param request ListAddonReleasesRequest
        * @param headers map
@@ -1325,9 +1395,9 @@ namespace Cms20240330
       Models::ListAddonReleasesResponse listAddonReleasesWithOptions(const string &policyId, const Models::ListAddonReleasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List of addon releases
+       * @summary Retrieves the releases for an add-on.
        *
-       * @description Query the list of access configurations
+       * @description This operation retrieves a list of releases for an add-on.
        *
        * @param request ListAddonReleasesRequest
        * @return ListAddonReleasesResponse
@@ -1335,7 +1405,9 @@ namespace Cms20240330
       Models::ListAddonReleasesResponse listAddonReleases(const string &policyId, const Models::ListAddonReleasesRequest &request);
 
       /**
-       * @summary 新版接入中心产品列表(分组)
+       * @summary Lists the products in the new Integration Center by group.
+       *
+       * @description Creates a site monitoring job.
        *
        * @param request ListAddonsRequest
        * @param headers map
@@ -1345,7 +1417,9 @@ namespace Cms20240330
       Models::ListAddonsResponse listAddonsWithOptions(const Models::ListAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新版接入中心产品列表(分组)
+       * @summary Lists the products in the new Integration Center by group.
+       *
+       * @description Creates a site monitoring job.
        *
        * @param request ListAddonsRequest
        * @return ListAddonsResponse
@@ -1353,7 +1427,7 @@ namespace Cms20240330
       Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
 
       /**
-       * @summary List Aggregation Task Groups
+       * @summary Queries a list of aggregation task groups.
        *
        * @param tmpReq ListAggTaskGroupsRequest
        * @param headers map
@@ -1363,7 +1437,7 @@ namespace Cms20240330
       Models::ListAggTaskGroupsResponse listAggTaskGroupsWithOptions(const string &instanceId, const Models::ListAggTaskGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List Aggregation Task Groups
+       * @summary Queries a list of aggregation task groups.
        *
        * @param request ListAggTaskGroupsRequest
        * @return ListAggTaskGroupsResponse
@@ -1371,7 +1445,7 @@ namespace Cms20240330
       Models::ListAggTaskGroupsResponse listAggTaskGroups(const string &instanceId, const Models::ListAggTaskGroupsRequest &request);
 
       /**
-       * @summary Query Alert Actions
+       * @summary Queries alert action integrations.
        *
        * @param tmpReq ListAlertActionsRequest
        * @param headers map
@@ -1381,7 +1455,7 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActionsWithOptions(const Models::ListAlertActionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Alert Actions
+       * @summary Queries alert action integrations.
        *
        * @param request ListAlertActionsRequest
        * @return ListAlertActionsResponse
@@ -1389,7 +1463,7 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
-       * @summary 查询Webhook
+       * @summary Query webhooks
        *
        * @param tmpReq ListAlertWebhooksRequest
        * @param headers map
@@ -1399,7 +1473,7 @@ namespace Cms20240330
       Models::ListAlertWebhooksResponse listAlertWebhooksWithOptions(const Models::ListAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Webhook
+       * @summary Query webhooks
        *
        * @param request ListAlertWebhooksRequest
        * @return ListAlertWebhooksResponse
@@ -1407,7 +1481,7 @@ namespace Cms20240330
       Models::ListAlertWebhooksResponse listAlertWebhooks(const Models::ListAlertWebhooksRequest &request);
 
       /**
-       * @summary 业务链路列表
+       * @summary Lists business traces.
        *
        * @param request ListBizTracesRequest
        * @param headers map
@@ -1417,7 +1491,7 @@ namespace Cms20240330
       Models::ListBizTracesResponse listBizTracesWithOptions(const Models::ListBizTracesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 业务链路列表
+       * @summary Lists business traces.
        *
        * @param request ListBizTracesRequest
        * @return ListBizTracesResponse
@@ -1425,7 +1499,9 @@ namespace Cms20240330
       Models::ListBizTracesResponse listBizTraces(const Models::ListBizTracesRequest &request);
 
       /**
-       * @summary 列出技能版本
+       * @summary Lists skill versions.
+       *
+       * @description Lists historical versions of a skill.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1434,14 +1510,18 @@ namespace Cms20240330
       Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出技能版本
+       * @summary Lists skill versions.
+       *
+       * @description Lists historical versions of a skill.
        *
        * @return ListDigitalEmployeeSkillVersionsResponse
        */
       Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersions(const string &name, const string &skillName);
 
       /**
-       * @summary 列出技能
+       * @summary List the skills.
+       *
+       * @description Lists digital employee skills.
        *
        * @param request ListDigitalEmployeeSkillsRequest
        * @param headers map
@@ -1451,7 +1531,9 @@ namespace Cms20240330
       Models::ListDigitalEmployeeSkillsResponse listDigitalEmployeeSkillsWithOptions(const string &name, const Models::ListDigitalEmployeeSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出技能
+       * @summary List the skills.
+       *
+       * @description Lists digital employee skills.
        *
        * @param request ListDigitalEmployeeSkillsRequest
        * @return ListDigitalEmployeeSkillsResponse
@@ -1459,7 +1541,9 @@ namespace Cms20240330
       Models::ListDigitalEmployeeSkillsResponse listDigitalEmployeeSkills(const string &name, const Models::ListDigitalEmployeeSkillsRequest &request);
 
       /**
-       * @summary 列出资源DigitalEmployee
+       * @summary Lists digital employees.
+       *
+       * @description Lists digital employees.
        *
        * @param tmpReq ListDigitalEmployeesRequest
        * @param headers map
@@ -1469,7 +1553,9 @@ namespace Cms20240330
       Models::ListDigitalEmployeesResponse listDigitalEmployeesWithOptions(const Models::ListDigitalEmployeesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出资源DigitalEmployee
+       * @summary Lists digital employees.
+       *
+       * @description Lists digital employees.
        *
        * @param request ListDigitalEmployeesRequest
        * @return ListDigitalEmployeesResponse
@@ -1477,9 +1563,9 @@ namespace Cms20240330
       Models::ListDigitalEmployeesResponse listDigitalEmployees(const Models::ListDigitalEmployeesRequest &request);
 
       /**
-       * @summary Query Access Center Policy List Information
+       * @summary Queries a list of policies in the Integration Center.
        *
-       * @description Query integration list
+       * @description Queries a list of integrations.
        *
        * @param tmpReq ListIntegrationPoliciesRequest
        * @param headers map
@@ -1489,9 +1575,9 @@ namespace Cms20240330
       Models::ListIntegrationPoliciesResponse listIntegrationPoliciesWithOptions(const Models::ListIntegrationPoliciesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Access Center Policy List Information
+       * @summary Queries a list of policies in the Integration Center.
        *
-       * @description Query integration list
+       * @description Queries a list of integrations.
        *
        * @param request ListIntegrationPoliciesRequest
        * @return ListIntegrationPoliciesResponse
@@ -1499,7 +1585,9 @@ namespace Cms20240330
       Models::ListIntegrationPoliciesResponse listIntegrationPolicies(const Models::ListIntegrationPoliciesRequest &request);
 
       /**
-       * @summary 策略addon列表
+       * @summary Lists the add-ons that are installed for a specified policy.
+       *
+       * @description Lists the add-ons that are installed for a specified policy.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1508,14 +1596,16 @@ namespace Cms20240330
       Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddonsWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 策略addon列表
+       * @summary Lists the add-ons that are installed for a specified policy.
+       *
+       * @description Lists the add-ons that are installed for a specified policy.
        *
        * @return ListIntegrationPolicyAddonsResponse
        */
       Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddons(const string &policyId);
 
       /**
-       * @summary 获取接入中心策略的存储要求信息
+       * @summary Queries information about collectors for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyCollectorsRequest
        * @param headers map
@@ -1525,7 +1615,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCollectorsResponse listIntegrationPolicyCollectorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyCollectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取接入中心策略的存储要求信息
+       * @summary Queries information about collectors for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyCollectorsRequest
        * @return ListIntegrationPolicyCollectorsResponse
@@ -1533,7 +1623,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCollectorsResponse listIntegrationPolicyCollectors(const string &policyId, const Models::ListIntegrationPolicyCollectorsRequest &request);
 
       /**
-       * @summary Get storage requirement information for the access center policy
+       * @summary Lists the custom service discovery rules for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
        * @param headers map
@@ -1543,7 +1633,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRulesWithOptions(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get storage requirement information for the access center policy
+       * @summary Lists the custom service discovery rules for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
        * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -1551,9 +1641,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRules(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request);
 
       /**
-       * @summary Policy Dashboard List
+       * @summary Queries a list of integration policy dashboards.
        *
-       * @description This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of how to query a list of integration policy dashboards.
        *
        * @param request ListIntegrationPolicyDashboardsRequest
        * @param headers map
@@ -1563,9 +1653,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyDashboardsResponse listIntegrationPolicyDashboardsWithOptions(const string &policyId, const Models::ListIntegrationPolicyDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Policy Dashboard List
+       * @summary Queries a list of integration policy dashboards.
        *
-       * @description This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of how to query a list of integration policy dashboards.
        *
        * @param request ListIntegrationPolicyDashboardsRequest
        * @return ListIntegrationPolicyDashboardsResponse
@@ -1573,9 +1663,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyDashboardsResponse listIntegrationPolicyDashboards(const string &policyId, const Models::ListIntegrationPolicyDashboardsRequest &request);
 
       /**
-       * @summary Get PodMonitor Resources of Access Center Policy
+       * @summary Lists the PodMonitor resources for an Integration Center policy.
        *
-       * @description This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyPodMonitorsRequest
        * @param headers map
@@ -1585,9 +1675,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get PodMonitor Resources of Access Center Policy
+       * @summary Lists the PodMonitor resources for an Integration Center policy.
        *
-       * @description This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyPodMonitorsRequest
        * @return ListIntegrationPolicyPodMonitorsResponse
@@ -1595,7 +1685,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitors(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request);
 
       /**
-       * @summary 获取接入中心策略的存储要求信息
+       * @summary Retrieves the ServiceMonitor information for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyServiceMonitorsRequest
        * @param headers map
@@ -1605,7 +1695,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyServiceMonitorsResponse listIntegrationPolicyServiceMonitorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyServiceMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取接入中心策略的存储要求信息
+       * @summary Retrieves the ServiceMonitor information for an Integration Center policy.
        *
        * @param request ListIntegrationPolicyServiceMonitorsRequest
        * @return ListIntegrationPolicyServiceMonitorsResponse
@@ -1613,11 +1703,10 @@ namespace Cms20240330
       Models::ListIntegrationPolicyServiceMonitorsResponse listIntegrationPolicyServiceMonitors(const string &policyId, const Models::ListIntegrationPolicyServiceMonitorsRequest &request);
 
       /**
-       * @summary Get Storage Requirements Information for Access Center Policy
+       * @summary Lists the storage requirements for an Integration Center policy.
        *
-       * @description During the effective period of the policy, all alarms within the application group will no longer send notifications.
-       *  
-       * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+       * @description When a policy is active, alert notifications are not sent for alerts that occur in the application group.
+       * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
        *
        * @param request ListIntegrationPolicyStorageRequirementsRequest
        * @param headers map
@@ -1627,11 +1716,10 @@ namespace Cms20240330
       Models::ListIntegrationPolicyStorageRequirementsResponse listIntegrationPolicyStorageRequirementsWithOptions(const string &policyId, const Models::ListIntegrationPolicyStorageRequirementsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Storage Requirements Information for Access Center Policy
+       * @summary Lists the storage requirements for an Integration Center policy.
        *
-       * @description During the effective period of the policy, all alarms within the application group will no longer send notifications.
-       *  
-       * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+       * @description When a policy is active, alert notifications are not sent for alerts that occur in the application group.
+       * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
        *
        * @param request ListIntegrationPolicyStorageRequirementsRequest
        * @return ListIntegrationPolicyStorageRequirementsResponse
@@ -1639,7 +1727,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyStorageRequirementsResponse listIntegrationPolicyStorageRequirements(const string &policyId, const Models::ListIntegrationPolicyStorageRequirementsRequest &request);
 
       /**
-       * @summary 查询记忆库列表
+       * @summary Retrieves a list of memory stores.
        *
        * @param request ListMemoryStoresRequest
        * @param headers map
@@ -1649,7 +1737,7 @@ namespace Cms20240330
       Models::ListMemoryStoresResponse listMemoryStoresWithOptions(const string &workspace, const Models::ListMemoryStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询记忆库列表
+       * @summary Retrieves a list of memory stores.
        *
        * @param request ListMemoryStoresRequest
        * @return ListMemoryStoresResponse
@@ -1657,9 +1745,9 @@ namespace Cms20240330
       Models::ListMemoryStoresResponse listMemoryStores(const string &workspace, const Models::ListMemoryStoresRequest &request);
 
       /**
-       * @summary Get Prometheus Instance Dashboard List
+       * @summary Retrieves a list of dashboards for a Prometheus instance.
        *
-       * @description Get the list of Prometheus instance dashboards.
+       * @description Retrieves a list of dashboards for a Prometheus instance.
        *
        * @param request ListPrometheusDashboardsRequest
        * @param headers map
@@ -1669,9 +1757,9 @@ namespace Cms20240330
       Models::ListPrometheusDashboardsResponse listPrometheusDashboardsWithOptions(const string &prometheusInstanceId, const Models::ListPrometheusDashboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Prometheus Instance Dashboard List
+       * @summary Retrieves a list of dashboards for a Prometheus instance.
        *
-       * @description Get the list of Prometheus instance dashboards.
+       * @description Retrieves a list of dashboards for a Prometheus instance.
        *
        * @param request ListPrometheusDashboardsRequest
        * @return ListPrometheusDashboardsResponse
@@ -1679,9 +1767,9 @@ namespace Cms20240330
       Models::ListPrometheusDashboardsResponse listPrometheusDashboards(const string &prometheusInstanceId, const Models::ListPrometheusDashboardsRequest &request);
 
       /**
-       * @summary Get the list of Prometheus instance information
+       * @summary Lists Prometheus instances.
        *
-       * @description Get the list of Prometheus instances.
+       * @description Lists Prometheus instances.
        *
        * @param tmpReq ListPrometheusInstancesRequest
        * @param headers map
@@ -1691,9 +1779,9 @@ namespace Cms20240330
       Models::ListPrometheusInstancesResponse listPrometheusInstancesWithOptions(const Models::ListPrometheusInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the list of Prometheus instance information
+       * @summary Lists Prometheus instances.
        *
-       * @description Get the list of Prometheus instances.
+       * @description Lists Prometheus instances.
        *
        * @param request ListPrometheusInstancesRequest
        * @return ListPrometheusInstancesResponse
@@ -1701,9 +1789,9 @@ namespace Cms20240330
       Models::ListPrometheusInstancesResponse listPrometheusInstances(const Models::ListPrometheusInstancesRequest &request);
 
       /**
-       * @summary Retrieve a list of Prometheus view instance information
+       * @summary Lists the Prometheus view instances.
        *
-       * @description Retrieve a list of Prometheus view instance information.
+       * @description Lists the Prometheus view instances.
        *
        * @param tmpReq ListPrometheusViewsRequest
        * @param headers map
@@ -1713,9 +1801,9 @@ namespace Cms20240330
       Models::ListPrometheusViewsResponse listPrometheusViewsWithOptions(const Models::ListPrometheusViewsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a list of Prometheus view instance information
+       * @summary Lists the Prometheus view instances.
        *
-       * @description Retrieve a list of Prometheus view instance information.
+       * @description Lists the Prometheus view instances.
        *
        * @param request ListPrometheusViewsRequest
        * @return ListPrometheusViewsResponse
@@ -1745,7 +1833,7 @@ namespace Cms20240330
       Models::ListPrometheusVirtualInstancesResponse listPrometheusVirtualInstances(const Models::ListPrometheusVirtualInstancesRequest &request);
 
       /**
-       * @summary List Resource Services
+       * @summary Queries a list of application observability services.
        *
        * @param tmpReq ListServicesRequest
        * @param headers map
@@ -1755,7 +1843,7 @@ namespace Cms20240330
       Models::ListServicesResponse listServicesWithOptions(const string &workspace, const Models::ListServicesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List Resource Services
+       * @summary Queries a list of application observability services.
        *
        * @param request ListServicesRequest
        * @return ListServicesResponse
@@ -1763,7 +1851,7 @@ namespace Cms20240330
       Models::ListServicesResponse listServices(const string &workspace, const Models::ListServicesRequest &request);
 
       /**
-       * @summary 查标签接口
+       * @summary Queries the tags attached to resources.
        *
        * @param tmpReq ListTagResourcesRequest
        * @param headers map
@@ -1773,7 +1861,7 @@ namespace Cms20240330
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查标签接口
+       * @summary Queries the tags attached to resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1781,7 +1869,9 @@ namespace Cms20240330
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 列出会话
+       * @summary Lists sessions.
+       *
+       * @description This operation lists sessions.
        *
        * @param tmpReq ListThreadsRequest
        * @param headers map
@@ -1791,7 +1881,9 @@ namespace Cms20240330
       Models::ListThreadsResponse listThreadsWithOptions(const string &name, const Models::ListThreadsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出会话
+       * @summary Lists sessions.
+       *
+       * @description This operation lists sessions.
        *
        * @param request ListThreadsRequest
        * @return ListThreadsResponse
@@ -1799,7 +1891,7 @@ namespace Cms20240330
       Models::ListThreadsResponse listThreads(const string &name, const Models::ListThreadsRequest &request);
 
       /**
-       * @summary Get Workspace List
+       * @summary Retrieves a list of workspaces.
        *
        * @param tmpReq ListWorkspacesRequest
        * @param headers map
@@ -1809,7 +1901,7 @@ namespace Cms20240330
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Workspace List
+       * @summary Retrieves a list of workspaces.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -1817,7 +1909,7 @@ namespace Cms20240330
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
-       * @summary Create Workspace
+       * @summary Creates a workspace.
        *
        * @param request PutWorkspaceRequest
        * @param headers map
@@ -1827,7 +1919,7 @@ namespace Cms20240330
       Models::PutWorkspaceResponse putWorkspaceWithOptions(const string &workspaceName, const Models::PutWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Workspace
+       * @summary Creates a workspace.
        *
        * @param request PutWorkspaceRequest
        * @return PutWorkspaceResponse
@@ -1835,7 +1927,7 @@ namespace Cms20240330
       Models::PutWorkspaceResponse putWorkspace(const string &workspaceName, const Models::PutWorkspaceRequest &request);
 
       /**
-       * @summary 搜索记忆
+       * @summary Search memories using query conditions and filters.
        *
        * @param request SearchMemoriesRequest
        * @param headers map
@@ -1845,7 +1937,7 @@ namespace Cms20240330
       Models::SearchMemoriesResponse searchMemoriesWithOptions(const string &workspace, const string &memoryStoreName, const Models::SearchMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索记忆
+       * @summary Search memories using query conditions and filters.
        *
        * @param request SearchMemoriesRequest
        * @return SearchMemoriesResponse
@@ -1853,7 +1945,7 @@ namespace Cms20240330
       Models::SearchMemoriesResponse searchMemories(const string &workspace, const string &memoryStoreName, const Models::SearchMemoriesRequest &request);
 
       /**
-       * @summary 打标签接口
+       * @summary Adds tags to one or more resources.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -1863,7 +1955,7 @@ namespace Cms20240330
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 打标签接口
+       * @summary Adds tags to one or more resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -1871,7 +1963,7 @@ namespace Cms20240330
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 删标签接口
+       * @summary Deletes a tag
        *
        * @param tmpReq UntagResourcesRequest
        * @param headers map
@@ -1881,7 +1973,7 @@ namespace Cms20240330
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删标签接口
+       * @summary Deletes a tag
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -1889,7 +1981,7 @@ namespace Cms20240330
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Upgrade Access Component
+       * @summary Upgrades an add-on component.
        *
        * @param request UpdateAddonReleaseRequest
        * @param headers map
@@ -1899,7 +1991,7 @@ namespace Cms20240330
       Models::UpdateAddonReleaseResponse updateAddonReleaseWithOptions(const string &releaseName, const string &policyId, const Models::UpdateAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrade Access Component
+       * @summary Upgrades an add-on component.
        *
        * @param request UpdateAddonReleaseRequest
        * @return UpdateAddonReleaseResponse
@@ -1907,7 +1999,7 @@ namespace Cms20240330
       Models::UpdateAddonReleaseResponse updateAddonRelease(const string &releaseName, const string &policyId, const Models::UpdateAddonReleaseRequest &request);
 
       /**
-       * @summary Apply Aggregation Task Group
+       * @summary Updates an aggregation task group.
        *
        * @param request UpdateAggTaskGroupRequest
        * @param headers map
@@ -1917,7 +2009,7 @@ namespace Cms20240330
       Models::UpdateAggTaskGroupResponse updateAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Apply Aggregation Task Group
+       * @summary Updates an aggregation task group.
        *
        * @param request UpdateAggTaskGroupRequest
        * @return UpdateAggTaskGroupResponse
@@ -1925,7 +2017,7 @@ namespace Cms20240330
       Models::UpdateAggTaskGroupResponse updateAggTaskGroup(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupRequest &request);
 
       /**
-       * @summary Update Aggregation Task Group Status
+       * @summary Updates the status of an aggregation task group.
        *
        * @param request UpdateAggTaskGroupStatusRequest
        * @param headers map
@@ -1935,7 +2027,7 @@ namespace Cms20240330
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatusWithOptions(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Aggregation Task Group Status
+       * @summary Updates the status of an aggregation task group.
        *
        * @param request UpdateAggTaskGroupStatusRequest
        * @return UpdateAggTaskGroupStatusResponse
@@ -1943,7 +2035,7 @@ namespace Cms20240330
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
 
       /**
-       * @summary 修改已存在的告警 Webhook 通知配置。
+       * @summary Updates a webhook.
        *
        * @param request UpdateAlertWebhookRequest
        * @param headers map
@@ -1953,7 +2045,7 @@ namespace Cms20240330
       Models::UpdateAlertWebhookResponse updateAlertWebhookWithOptions(const string &webhookId, const Models::UpdateAlertWebhookRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改已存在的告警 Webhook 通知配置。
+       * @summary Updates a webhook.
        *
        * @param request UpdateAlertWebhookRequest
        * @return UpdateAlertWebhookResponse
@@ -1961,7 +2053,7 @@ namespace Cms20240330
       Models::UpdateAlertWebhookResponse updateAlertWebhook(const string &webhookId, const Models::UpdateAlertWebhookRequest &request);
 
       /**
-       * @summary 修改业务链路
+       * @summary Modifies a business trace.
        *
        * @param request UpdateBizTraceRequest
        * @param headers map
@@ -1971,7 +2063,7 @@ namespace Cms20240330
       Models::UpdateBizTraceResponse updateBizTraceWithOptions(const string &bizTraceId, const Models::UpdateBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改业务链路
+       * @summary Modifies a business trace.
        *
        * @param request UpdateBizTraceRequest
        * @return UpdateBizTraceResponse
@@ -1979,7 +2071,9 @@ namespace Cms20240330
       Models::UpdateBizTraceResponse updateBizTrace(const string &bizTraceId, const Models::UpdateBizTraceRequest &request);
 
       /**
-       * @summary 更新UpdateDigitalEmployee
+       * @summary Updates a digital employee.
+       *
+       * @description Updates a digital employee.
        *
        * @param request UpdateDigitalEmployeeRequest
        * @param headers map
@@ -1989,7 +2083,9 @@ namespace Cms20240330
       Models::UpdateDigitalEmployeeResponse updateDigitalEmployeeWithOptions(const string &name, const Models::UpdateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新UpdateDigitalEmployee
+       * @summary Updates a digital employee.
+       *
+       * @description Updates a digital employee.
        *
        * @param request UpdateDigitalEmployeeRequest
        * @return UpdateDigitalEmployeeResponse
@@ -1997,7 +2093,9 @@ namespace Cms20240330
       Models::UpdateDigitalEmployeeResponse updateDigitalEmployee(const string &name, const Models::UpdateDigitalEmployeeRequest &request);
 
       /**
-       * @summary 更新技能
+       * @summary Updates a skill.
+       *
+       * @description Updates a skill.
        *
        * @param request UpdateDigitalEmployeeSkillRequest
        * @param headers map
@@ -2007,7 +2105,9 @@ namespace Cms20240330
       Models::UpdateDigitalEmployeeSkillResponse updateDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const Models::UpdateDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新技能
+       * @summary Updates a skill.
+       *
+       * @description Updates a skill.
        *
        * @param request UpdateDigitalEmployeeSkillRequest
        * @return UpdateDigitalEmployeeSkillResponse
@@ -2015,7 +2115,7 @@ namespace Cms20240330
       Models::UpdateDigitalEmployeeSkillResponse updateDigitalEmployeeSkill(const string &name, const string &skillName, const Models::UpdateDigitalEmployeeSkillRequest &request);
 
       /**
-       * @summary Update the specified policy
+       * @summary Updates the specified policy.
        *
        * @param request UpdateIntegrationPolicyRequest
        * @param headers map
@@ -2025,7 +2125,7 @@ namespace Cms20240330
       Models::UpdateIntegrationPolicyResponse updateIntegrationPolicyWithOptions(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the specified policy
+       * @summary Updates the specified policy.
        *
        * @param request UpdateIntegrationPolicyRequest
        * @return UpdateIntegrationPolicyResponse
@@ -2033,7 +2133,7 @@ namespace Cms20240330
       Models::UpdateIntegrationPolicyResponse updateIntegrationPolicy(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request);
 
       /**
-       * @summary 修改记忆
+       * @summary Updates a specific Memory.
        *
        * @param request UpdateMemoryRequest
        * @param headers map
@@ -2043,7 +2143,7 @@ namespace Cms20240330
       Models::UpdateMemoryResponse updateMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改记忆
+       * @summary Updates a specific Memory.
        *
        * @param request UpdateMemoryRequest
        * @return UpdateMemoryResponse
@@ -2051,7 +2151,7 @@ namespace Cms20240330
       Models::UpdateMemoryResponse updateMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::UpdateMemoryRequest &request);
 
       /**
-       * @summary 修改记忆库配置
+       * @summary Modify a memory store.
        *
        * @param request UpdateMemoryStoreRequest
        * @param headers map
@@ -2061,7 +2161,7 @@ namespace Cms20240330
       Models::UpdateMemoryStoreResponse updateMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改记忆库配置
+       * @summary Modify a memory store.
        *
        * @param request UpdateMemoryStoreRequest
        * @return UpdateMemoryStoreResponse
@@ -2069,7 +2169,7 @@ namespace Cms20240330
       Models::UpdateMemoryStoreResponse updateMemoryStore(const string &workspace, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request);
 
       /**
-       * @summary 修改已存在的告警通知策略
+       * @summary Updates a notification policy.
        *
        * @param request UpdateNotifyStrategyRequest
        * @param headers map
@@ -2079,7 +2179,7 @@ namespace Cms20240330
       Models::UpdateNotifyStrategyResponse updateNotifyStrategyWithOptions(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改已存在的告警通知策略
+       * @summary Updates a notification policy.
        *
        * @param request UpdateNotifyStrategyRequest
        * @return UpdateNotifyStrategyResponse
@@ -2087,9 +2187,9 @@ namespace Cms20240330
       Models::UpdateNotifyStrategyResponse updateNotifyStrategy(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request);
 
       /**
-       * @summary Update Prometheus instance information
+       * @summary Updates the information of a Prometheus instance.
        *
-       * @description Update Prometheus instance information.
+       * @description This topic describes how to update a Prometheus instance.
        *
        * @param request UpdatePrometheusInstanceRequest
        * @param headers map
@@ -2099,9 +2199,9 @@ namespace Cms20240330
       Models::UpdatePrometheusInstanceResponse updatePrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::UpdatePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Prometheus instance information
+       * @summary Updates the information of a Prometheus instance.
        *
-       * @description Update Prometheus instance information.
+       * @description This topic describes how to update a Prometheus instance.
        *
        * @param request UpdatePrometheusInstanceRequest
        * @return UpdatePrometheusInstanceResponse
@@ -2109,7 +2209,7 @@ namespace Cms20240330
       Models::UpdatePrometheusInstanceResponse updatePrometheusInstance(const string &prometheusInstanceId, const Models::UpdatePrometheusInstanceRequest &request);
 
       /**
-       * @summary 更新Prom实例信息
+       * @summary Updates the user settings for Prometheus. Note: If you set `settingKey` to `financeUsageRegion`, Prometheus usage data is sent to Simple Log Service (SLS) in the specified region. Historical usage data will no longer be available in the Prometheus console.
        *
        * @param request UpdatePrometheusUserSettingRequest
        * @param headers map
@@ -2119,7 +2219,7 @@ namespace Cms20240330
       Models::UpdatePrometheusUserSettingResponse updatePrometheusUserSettingWithOptions(const string &settingKey, const Models::UpdatePrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Prom实例信息
+       * @summary Updates the user settings for Prometheus. Note: If you set `settingKey` to `financeUsageRegion`, Prometheus usage data is sent to Simple Log Service (SLS) in the specified region. Historical usage data will no longer be available in the Prometheus console.
        *
        * @param request UpdatePrometheusUserSettingRequest
        * @return UpdatePrometheusUserSettingResponse
@@ -2127,9 +2227,9 @@ namespace Cms20240330
       Models::UpdatePrometheusUserSettingResponse updatePrometheusUserSetting(const string &settingKey, const Models::UpdatePrometheusUserSettingRequest &request);
 
       /**
-       * @summary Update Prometheus view instance information
+       * @summary Updates the information about a Prometheus view instance.
        *
-       * @description Update Prometheus view instance information.
+       * @description Updates the information about a Prometheus view instance.
        *
        * @param request UpdatePrometheusViewRequest
        * @param headers map
@@ -2139,9 +2239,9 @@ namespace Cms20240330
       Models::UpdatePrometheusViewResponse updatePrometheusViewWithOptions(const string &prometheusViewId, const Models::UpdatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Prometheus view instance information
+       * @summary Updates the information about a Prometheus view instance.
        *
-       * @description Update Prometheus view instance information.
+       * @description Updates the information about a Prometheus view instance.
        *
        * @param request UpdatePrometheusViewRequest
        * @return UpdatePrometheusViewResponse
@@ -2149,7 +2249,7 @@ namespace Cms20240330
       Models::UpdatePrometheusViewResponse updatePrometheusView(const string &prometheusViewId, const Models::UpdatePrometheusViewRequest &request);
 
       /**
-       * @summary Update Service
+       * @summary Updates an application observability service.
        *
        * @param request UpdateServiceRequest
        * @param headers map
@@ -2159,7 +2259,7 @@ namespace Cms20240330
       Models::UpdateServiceResponse updateServiceWithOptions(const string &workspace, const string &serviceId, const Models::UpdateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Service
+       * @summary Updates an application observability service.
        *
        * @param request UpdateServiceRequest
        * @return UpdateServiceResponse
@@ -2167,7 +2267,7 @@ namespace Cms20240330
       Models::UpdateServiceResponse updateService(const string &workspace, const string &serviceId, const Models::UpdateServiceRequest &request);
 
       /**
-       * @summary 更新一个已存在的订阅配置
+       * @summary Updates a subscription.
        *
        * @param request UpdateSubscriptionRequest
        * @param headers map
@@ -2177,7 +2277,7 @@ namespace Cms20240330
       Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const string &subscriptionId, const Models::UpdateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新一个已存在的订阅配置
+       * @summary Updates a subscription.
        *
        * @param request UpdateSubscriptionRequest
        * @return UpdateSubscriptionResponse
@@ -2185,7 +2285,9 @@ namespace Cms20240330
       Models::UpdateSubscriptionResponse updateSubscription(const string &subscriptionId, const Models::UpdateSubscriptionRequest &request);
 
       /**
-       * @summary 更新会话
+       * @summary Updates a session.
+       *
+       * @description Updates a session.
        *
        * @param request UpdateThreadRequest
        * @param headers map
@@ -2195,7 +2297,9 @@ namespace Cms20240330
       Models::UpdateThreadResponse updateThreadWithOptions(const string &name, const string &threadId, const Models::UpdateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新会话
+       * @summary Updates a session.
+       *
+       * @description Updates a session.
        *
        * @param request UpdateThreadRequest
        * @return UpdateThreadResponse
@@ -2203,9 +2307,9 @@ namespace Cms20240330
       Models::UpdateThreadResponse updateThread(const string &name, const string &threadId, const Models::UpdateThreadRequest &request);
 
       /**
-       * @summary Update Umodel configuration information
+       * @summary Updates the configuration of a Umodel.
        *
-       * @description Update Umodel configuration information
+       * @description Updates the configuration of a Umodel.
        *
        * @param request UpdateUmodelRequest
        * @param headers map
@@ -2215,9 +2319,9 @@ namespace Cms20240330
       Models::UpdateUmodelResponse updateUmodelWithOptions(const string &workspace, const Models::UpdateUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Umodel configuration information
+       * @summary Updates the configuration of a Umodel.
        *
-       * @description Update Umodel configuration information
+       * @description Updates the configuration of a Umodel.
        *
        * @param request UpdateUmodelRequest
        * @return UpdateUmodelResponse
@@ -2225,7 +2329,7 @@ namespace Cms20240330
       Models::UpdateUmodelResponse updateUmodel(const string &workspace, const Models::UpdateUmodelRequest &request);
 
       /**
-       * @summary 更新Umodel配置信息
+       * @summary Upserts a common Umodel schema reference.
        *
        * @param request UpsertUmodelCommonSchemaRefRequest
        * @param headers map
@@ -2235,7 +2339,7 @@ namespace Cms20240330
       Models::UpsertUmodelCommonSchemaRefResponse upsertUmodelCommonSchemaRefWithOptions(const string &workspace, const Models::UpsertUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Umodel配置信息
+       * @summary Upserts a common Umodel schema reference.
        *
        * @param request UpsertUmodelCommonSchemaRefRequest
        * @return UpsertUmodelCommonSchemaRefResponse
@@ -2243,7 +2347,7 @@ namespace Cms20240330
       Models::UpsertUmodelCommonSchemaRefResponse upsertUmodelCommonSchemaRef(const string &workspace, const Models::UpsertUmodelCommonSchemaRefRequest &request);
 
       /**
-       * @summary Write Umodel Elements
+       * @summary Inserts or updates Umodel elements.
        *
        * @param request UpsertUmodelDataRequest
        * @param headers map
@@ -2253,7 +2357,7 @@ namespace Cms20240330
       Models::UpsertUmodelDataResponse upsertUmodelDataWithOptions(const string &workspace, const Models::UpsertUmodelDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Write Umodel Elements
+       * @summary Inserts or updates Umodel elements.
        *
        * @param request UpsertUmodelDataRequest
        * @return UpsertUmodelDataResponse

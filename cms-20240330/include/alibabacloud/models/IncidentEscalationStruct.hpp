@@ -107,21 +107,21 @@ namespace Models
 
 
   protected:
-    // Creation time.
+    // 创建时间
     shared_ptr<int64_t> createTime_ {};
-    // Description.
+    // 描述。
     shared_ptr<string> description_ {};
-    // Event Escalation ID.
+    // 事件升级ID
     shared_ptr<string> incidentEscalationId_ {};
-    // Modification time.
+    // 修改时间
     shared_ptr<int64_t> modifyTime_ {};
-    // Name.
+    // 名称。
     shared_ptr<string> name_ {};
-    // Region ID.
+    // 地域 ID
     shared_ptr<string> regionId_ {};
-    // Phase.
+    // 阶段。
     shared_ptr<vector<IncidentEscalationStageStruct>> stage_ {};
-    // Workspace.
+    // 工作空间
     shared_ptr<string> workspace_ {};
   };
 

@@ -212,18 +212,31 @@ namespace Models
 
 
       protected:
+        // A list of invoked agents.
         shared_ptr<vector<Darabonba::Json>> agents_ {};
+        // Information about the generated artifacts.
         shared_ptr<vector<Darabonba::Json>> artifacts_ {};
+        // The execution ID.
         shared_ptr<string> callId_ {};
+        // The message content.
         shared_ptr<vector<Darabonba::Json>> contents_ {};
+        // The details of the message.
         shared_ptr<string> detail_ {};
+        // A list of events.
         shared_ptr<vector<Darabonba::Json>> events_ {};
+        // The execution ID of the parent level.
         shared_ptr<string> parentCallId_ {};
+        // The role that sent the message.
         shared_ptr<string> role_ {};
+        // The sequence number of the message.
         shared_ptr<int32_t> seq_ {};
+        // The timestamp in nanoseconds.
         shared_ptr<string> timestamp_ {};
+        // A list of tools that were used.
         shared_ptr<vector<Darabonba::Json>> tools_ {};
+        // The type of the message.
         shared_ptr<string> type_ {};
+        // The version of the message data.
         shared_ptr<string> version_ {};
       };
 
@@ -253,8 +266,11 @@ namespace Models
 
 
     protected:
+      // A list of messages in the session.
       shared_ptr<vector<Data::Messages>> messages_ {};
+      // The ID of the current message request. This is the first request ID in the root data.
       shared_ptr<string> requestId_ {};
+      // The ID of the current message request. This is the first trace ID in the root data.
       shared_ptr<string> traceId_ {};
     };
 
@@ -305,12 +321,17 @@ namespace Models
 
 
   protected:
+    // The message data.
     shared_ptr<vector<GetThreadDataResponseBody::Data>> data_ {};
+    // The name of the digital employee.
     shared_ptr<string> digitalEmployeeName_ {};
+    // The maximum number of results.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The session ID.
     shared_ptr<string> threadId_ {};
   };
 

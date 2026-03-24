@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // Tag `key` value.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // Tag `value` value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // Fee package type, CS_Pro/CS_Basic/empty.
+    // The type of the paid plan. Valid values: CS_Pro, CS_Basic, and empty.
     shared_ptr<string> feePackage_ {};
-    // Rule name, minimum 3 characters, maximum 63 characters, must start with a letter.
+    // The name of the rule. The name must be 3 to 63 characters in length and start with a letter.
     shared_ptr<string> policyName_ {};
-    // Resource group ID of the instance.
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // Resource tags.
+    // The tags of the resource.
     shared_ptr<vector<UpdateIntegrationPolicyRequest::Tags>> tags_ {};
   };
 

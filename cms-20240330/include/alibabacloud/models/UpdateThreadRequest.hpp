@@ -61,7 +61,9 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> attributes_ {};
+    // The status of the session.
     shared_ptr<string> status_ {};
+    // The title of the session.
     shared_ptr<string> title_ {};
   };
 

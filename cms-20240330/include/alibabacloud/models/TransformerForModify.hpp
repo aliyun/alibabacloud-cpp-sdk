@@ -91,17 +91,17 @@ namespace Models
 
 
   protected:
-    // Transformation operation.
+    // 转换操作
     shared_ptr<vector<TransformAction>> actions_ {};
-    // Description.
+    // 描述
     shared_ptr<string> description_ {};
-    // Filter Setting.
+    // 筛选条件
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Exit after matching processing.
+    // 匹配处理后退出
     shared_ptr<bool> quitAfterMatch_ {};
-    // Sort order.
+    // 排序数
     shared_ptr<int32_t> sortId_ {};
-    // Name.
+    // 名称
     // 
     // This parameter is required.
     shared_ptr<string> transformerName_ {};

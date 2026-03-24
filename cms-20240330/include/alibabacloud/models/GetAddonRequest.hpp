@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: zh and en. Default value: zh.
     shared_ptr<string> aliyunLang_ {};
+    // The version number of the add-on.
     shared_ptr<string> version_ {};
   };
 

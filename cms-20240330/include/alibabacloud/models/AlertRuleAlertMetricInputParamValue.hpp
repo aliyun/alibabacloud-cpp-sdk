@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // 预定义指标参数名
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // 预定义指标参数值
+    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

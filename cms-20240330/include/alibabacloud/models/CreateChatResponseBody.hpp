@@ -183,18 +183,31 @@ namespace Models
 
 
     protected:
+      // Agents list
       shared_ptr<vector<Darabonba::Json>> agents_ {};
+      // Artifacts information
       shared_ptr<vector<Darabonba::Json>> artifacts_ {};
+      // Call ID of the current node
       shared_ptr<string> callId_ {};
+      // Messages contents array
       shared_ptr<vector<Darabonba::Json>> contents_ {};
+      // Detailed information, such as tool progress description
       shared_ptr<string> detail_ {};
+      // Events list
       shared_ptr<vector<Darabonba::Json>> events_ {};
+      // Call ID of the parent node
       shared_ptr<string> parentCallId_ {};
+      // Message role
       shared_ptr<string> role_ {};
+      // Event sequence number. This number increments to preserve event order.
       shared_ptr<int32_t> seq_ {};
+      // UNIX timestamp (seconds)
       shared_ptr<string> timestamp_ {};
+      // Tools calls array
       shared_ptr<vector<Darabonba::Json>> tools_ {};
+      // Special event type, such as done, error, or heartbeat
       shared_ptr<string> type_ {};
+      // Message version number
       shared_ptr<string> version_ {};
     };
 
@@ -224,8 +237,11 @@ namespace Models
 
 
   protected:
+    // Messages list
     shared_ptr<vector<CreateChatResponseBody::Messages>> messages_ {};
+    // Unique identifier for the request
     shared_ptr<string> requestId_ {};
+    // Global identifier for the request trace
     shared_ptr<string> traceId_ {};
   };
 

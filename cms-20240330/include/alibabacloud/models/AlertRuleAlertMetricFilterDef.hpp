@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // Display Name (Chinese).
+      // 显示名称中文
       shared_ptr<string> displayNameCn_ {};
-      // Display Name (English).
+      // 显示名称英文
       shared_ptr<string> displayNameEn_ {};
-      // Matching value.
+      // 匹配值。
       shared_ptr<string> value_ {};
     };
 
@@ -161,21 +161,21 @@ namespace Models
 
 
   protected:
-    // Dimension in APM metrics.
+    // APM指标中为维度
     shared_ptr<string> dim_ {};
-    // When true, the filter item will not appear in the GROUP BY clause of the PromQL.
+    // 为true是，过滤项不出现在promQL的group by中
     shared_ptr<bool> dimDisabled_ {};
-    // Display Name (Chinese).
+    // 显示名称中文
     shared_ptr<string> displayNameCn_ {};
-    // Display Name (English).
+    // 显示名称英文
     shared_ptr<string> displayNameEn_ {};
-    // Whether to hide. If hidden, it will not be displayed in the frontend UI, but its value can still be included when rendering the PromQL. A typical example is the "pid" filter condition in APM scenarios, which is generally not exposed through configurable UI elements but instead presented as a separate application search list in the frontend.
+    // 是否隐藏。 如果隐藏则在前端交互中不显示，但在渲染promQL时可将该过滤条件的值上传上来。  典型的例子是APM场景中的pid这个过滤条件，一般不会通过配置化的方式进行显示，而是前端显为独立的应用搜索列表。
     shared_ptr<bool> hidden_ {};
-    // When true, the filter item will not appear in the label filter of the PromQL.
+    // 为true时，过滤项不出现在promQL的label filter中
     shared_ptr<bool> labelDisabled_ {};
-    // Filter Condition Operator.
+    // 过滤条件操作符
     shared_ptr<string> opt_ {};
-    // List of supported options.
+    // 支持的选项的列表
     shared_ptr<vector<AlertRuleAlertMetricFilterDef::SupportedOpts>> supportedOpts_ {};
   };
 

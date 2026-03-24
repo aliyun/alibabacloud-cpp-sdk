@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the digital employee.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

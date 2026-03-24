@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Day of the week.
+    // 每周的星期几
     shared_ptr<vector<int32_t>> dayOfWeek_ {};
-    // End time, in HH:mm format.
+    // 结束时间，格式HH:mm
     shared_ptr<string> endTime_ {};
-    // Default time zone is Beijing Time: +0800.
+    // 默认北京时间： +0800
     shared_ptr<string> gmtOffset_ {};
-    // Start time, in HH:mm format.
+    // 开始时间，格式HH:mm
     shared_ptr<string> startTime_ {};
   };
 

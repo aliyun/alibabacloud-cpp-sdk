@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // Contact ID.
+      // 联系人ID。
       shared_ptr<string> contactId_ {};
-      // Name.
+      // 名称。
       shared_ptr<string> name_ {};
     };
 
@@ -155,15 +155,15 @@ namespace Models
 
 
     protected:
-      // Description.
+      // 描述。
       shared_ptr<string> description_ {};
-      // Event Escalation ID.
+      // 事件升级ID。
       shared_ptr<string> incidentEscalationId_ {};
-      // Name.
+      // 名称。
       shared_ptr<string> name_ {};
-      // Escalation phase index.
+      // 升级阶段索引。
       shared_ptr<string> stageIndex_ {};
-      // Title.
+      // 标题。
       shared_ptr<string> title_ {};
     };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
     protected:
-      // Channel.
+      // 通道。
       shared_ptr<string> channel_ {};
-      // Contact ID (masked).
+      // 联系人 ID（脱敏）
       shared_ptr<string> contactMask_ {};
     };
 
@@ -249,9 +249,9 @@ namespace Models
 
 
     protected:
-      // Acknowledgement level.
+      // 确认级别。
       shared_ptr<string> breakLevel_ {};
-      // Verification time.
+      // 验证时间。
       shared_ptr<int64_t> verifyTime_ {};
     };
 
@@ -330,23 +330,23 @@ namespace Models
 
 
   protected:
-    // Acknowledgement Information Structure.
+    // 确认信息结构体。
     shared_ptr<IncidentMemberStruct::Acknowledge> acknowledge_ {};
-    // Contact ID.
+    // 联系人ID。
     shared_ptr<string> contactId_ {};
-    // Contact list.
+    // 联系人列表。
     shared_ptr<vector<IncidentMemberStruct::Contacts>> contacts_ {};
-    // Escalation phase information.
+    // 升级阶段信息。
     shared_ptr<IncidentMemberStruct::Escalation> escalation_ {};
-    // Incident ID.
+    // 事件ID。
     shared_ptr<string> incidentId_ {};
-    // Event Member ID.
+    // 事件成员ID。
     shared_ptr<string> incidentMemberId_ {};
-    // Schedule group.
+    // 调度组。
     shared_ptr<IncidentMemberStruct::ScheduleGroup> scheduleGroup_ {};
-    // Time.
+    // 时间。
     shared_ptr<int64_t> time_ {};
-    // User ID.
+    // 用户ID。
     shared_ptr<int64_t> userId_ {};
   };
 

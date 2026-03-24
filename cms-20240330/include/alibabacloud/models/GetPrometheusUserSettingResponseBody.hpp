@@ -51,8 +51,9 @@ namespace Models
 
 
   protected:
+    // The details of the user settings for Prometheus.
     shared_ptr<map<string, string>> prometheusUserSetting_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

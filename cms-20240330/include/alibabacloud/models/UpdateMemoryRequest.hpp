@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The metadata of the Memory.
     Darabonba::Json metadata_ {};
+    // The new text for the Memory.
     shared_ptr<string> text_ {};
   };
 

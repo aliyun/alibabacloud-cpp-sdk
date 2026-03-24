@@ -113,13 +113,13 @@ namespace Models
 
 
     protected:
-      // Effective days (Monday to Sunday).
+      // 生效天(周一到周日)
       shared_ptr<vector<int32_t>> dayInWeek_ {};
-      // End time (in minutes).
+      // 结束时间(分钟数)
       shared_ptr<int32_t> endTimeInMinute_ {};
-      // Start time (in minutes).
+      // 开始时间(分钟数)
       shared_ptr<int32_t> startTimeInMinute_ {};
-      // Time Zone.
+      // 时区
       shared_ptr<string> timeZone_ {};
     };
 
@@ -223,31 +223,31 @@ namespace Models
 
 
   protected:
-    // Creation time.
+    // 创建时间
     shared_ptr<string> createTime_ {};
-    // Description.
+    // 描述
     shared_ptr<string> description_ {};
-    // Effective time range.
+    // 生效时间范围
     shared_ptr<MaintainWindowForView::EffectTimeRange> effectTimeRange_ {};
-    // Crontab expression.
+    // Crontab 表达式
     shared_ptr<string> effective_ {};
-    // Whether enabled.
+    // 是否启用
     shared_ptr<bool> enable_ {};
-    // Effective end time.
+    // 生效结束时间
     shared_ptr<string> endTime_ {};
-    // Filtering conditions.
+    // 筛选条件
     shared_ptr<FilterSetting> filterSetting_ {};
     // UUID
     shared_ptr<string> maintainWindowId_ {};
-    // Name.
+    // 名称
     // 
     // This parameter is required.
     shared_ptr<string> maintainWindowName_ {};
-    // Effective start time.
+    // 生效开始时间
     shared_ptr<string> startTime_ {};
-    // Update time.
+    // 更新时间
     shared_ptr<string> updateTime_ {};
-    // User ID.
+    // 用户id
     shared_ptr<string> userId_ {};
     // workspace
     shared_ptr<string> workspace_ {};

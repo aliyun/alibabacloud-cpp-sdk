@@ -136,13 +136,13 @@ namespace Models
 
 
       protected:
-        // Data format, effective when the request method is POST.
+        // The data format. This parameter is valid only when the request method is POST.
         shared_ptr<string> contentType_ {};
-        // Request headers.
+        // The request headers.
         shared_ptr<map<string, string>> headers_ {};
-        // Webhook request method.
+        // The request method of the webhook.
         shared_ptr<string> method_ {};
-        // The URL address for the alarm callback.
+        // The callback URL for alerts.
         shared_ptr<string> url_ {};
       };
 
@@ -193,11 +193,11 @@ namespace Models
 
 
       protected:
-        // Logstore name of the Log Service.
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logstore_ {};
-        // Log Service project name.
+        // The name of the Simple Log Service project.
         shared_ptr<string> project_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -239,9 +239,9 @@ namespace Models
 
 
       protected:
-        // Integration key for PagerDuty.
+        // The integration key of PagerDuty.
         shared_ptr<string> key_ {};
-        // Integration webhook for PagerDuty. Supports V1 and V2 versions.
+        // The integration webhook of PagerDuty. Versions 1 and 2 are supported.
         shared_ptr<string> url_ {};
       };
 
@@ -292,14 +292,15 @@ namespace Models
 
 
       protected:
-        // Resource type of the Lightweight Message Queue (formerly MNS).
+        // The resource type of Simple Message Queue (formerly MNS).
         shared_ptr<string> mnsType_ {};
-        // Resource name.
+        // The name of the resource.
         // 
-        // - If the resource type is queue, the resource name is the queue name.
-        // - If the resource type is topic, the resource name is the topic name.
+        // - If the resource type is \\`queue\\`, this parameter specifies the queue name.
+        // 
+        // - If the resource type is \\`topic\\`, this parameter specifies the topic name.
         shared_ptr<string> name_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -350,11 +351,11 @@ namespace Models
 
 
       protected:
-        // Function name in the Function Compute service.
+        // The function name of the Function Compute service.
         shared_ptr<string> function_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // Function Compute service name.
+        // The service name of Function Compute.
         shared_ptr<string> service_ {};
       };
 
@@ -405,11 +406,11 @@ namespace Models
 
 
       protected:
-        // Function name of the Function Compute service.
+        // The function name of the Function Compute service.
         shared_ptr<string> function_ {};
-        // Version or alias of the function.
+        // The version or alias of the function.
         shared_ptr<string> qualifier_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -460,11 +461,11 @@ namespace Models
 
 
       protected:
-        // Elastic scaling group ID.
+        // The ID of the Auto Scaling group.
         shared_ptr<string> essGroupId_ {};
-        // Elastic scaling rule ID.
+        // The ID of the scaling rule.
         shared_ptr<string> essRuleId_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -524,13 +525,13 @@ namespace Models
 
 
       protected:
-        // Event source.
+        // The event provider.
         shared_ptr<string> ebSource_ {};
-        // Event bus name.
+        // The name of the event bus.
         shared_ptr<string> eventBusName_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // Subject.
+        // The subject.
         shared_ptr<string> subject_ {};
       };
 
@@ -631,27 +632,27 @@ namespace Models
 
 
     protected:
-      // Unique identifier for the action integration.
+      // The unique ID of the alert action integration.
       shared_ptr<string> alertActionId_ {};
-      // Alert action name.
+      // The name of the alert action integration.
       shared_ptr<string> alertActionName_ {};
-      // Event Bridge parameters.
+      // Specifies the event bus.
       shared_ptr<AlertActions::EbParam> ebParam_ {};
-      // Elastic scaling parameters.
+      // The parameters of Auto Scaling.
       shared_ptr<AlertActions::EssParam> essParam_ {};
-      // Function Compute 3.0 parameters.
+      // The parameters of Function Compute 3.0.
       shared_ptr<AlertActions::Fc3Param> fc3Param_ {};
-      // Function Compute parameters.
+      // The parameters of Function Compute.
       shared_ptr<AlertActions::FcParam> fcParam_ {};
-      // Lightweight Message Queue (formerly MNS) parameters.
+      // The parameters of Simple Message Queue (formerly MNS).
       shared_ptr<AlertActions::MnsParam> mnsParam_ {};
-      // PagerDuty parameters
+      // The PagerDuty parameters.
       shared_ptr<AlertActions::PagerDutyParam> pagerDutyParam_ {};
-      // Log Service parameters.
+      // The parameters of Simple Log Service.
       shared_ptr<AlertActions::SlsParam> slsParam_ {};
-      // Action integration type.
+      // The type of the alert action integration.
       shared_ptr<string> type_ {};
-      // Webhook parameters
+      // The webhook parameters.
       shared_ptr<AlertActions::WebhookParam> webhookParam_ {};
     };
 
@@ -695,15 +696,15 @@ namespace Models
 
 
   protected:
-    // List of alert action configurations.
+    // The list of alert action integration configurations.
     shared_ptr<vector<ListAlertActionsResponseBody::AlertActions>> alertActions_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

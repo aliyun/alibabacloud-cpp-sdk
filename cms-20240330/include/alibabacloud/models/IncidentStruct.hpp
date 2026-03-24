@@ -131,25 +131,25 @@ namespace Models
 
 
   protected:
-    // Content.
+    // 事件内容。
     shared_ptr<string> content_ {};
-    // List of escalation policies.
+    // 升级策略列表。
     shared_ptr<vector<IncidentEscalationStruct>> escalations_ {};
-    // Incident ID.
+    // 事件唯一 ID。
     shared_ptr<string> incidentId_ {};
-    // Associated incident contingency plan.
+    // 关联的事件预案。
     shared_ptr<IncidentPlanStruct> incidentPlan_ {};
-    // Associated resource details.
+    // 关联的资源详情。
     shared_ptr<IncidentResourceDetail> resource_ {};
-    // Incident severity level.
+    // 事件严重等级。
     shared_ptr<string> severity_ {};
-    // Status.
+    // 当前状态。
     shared_ptr<string> status_ {};
-    // Time.
+    // 时间戳
     shared_ptr<int64_t> time_ {};
-    // Title.
+    // 事件标题。
     shared_ptr<string> title_ {};
-    // User ID.
+    // 用户 ID。
     shared_ptr<string> userId_ {};
   };
 

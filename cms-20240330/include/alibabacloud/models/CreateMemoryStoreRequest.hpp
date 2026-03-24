@@ -81,11 +81,18 @@ namespace Models
 
 
   protected:
+    // A list of custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
+    // The description of the Memory Store.
     shared_ptr<string> description_ {};
+    // The extraction strategies to use. Valid values: `Episodic`, `Summary`, and `Fact`.
     shared_ptr<vector<string>> extractionStrategies_ {};
+    // The name of the Memory Store.
+    // 
     // This parameter is required.
     shared_ptr<string> memoryStoreName_ {};
+    // The time-to-live (TTL) for short-term memory.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> shortTermTtl_ {};
   };

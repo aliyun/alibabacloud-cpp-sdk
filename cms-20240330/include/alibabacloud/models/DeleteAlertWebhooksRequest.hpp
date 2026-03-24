@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Unique webhook identifiers.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> webhookIds_ {};
   };

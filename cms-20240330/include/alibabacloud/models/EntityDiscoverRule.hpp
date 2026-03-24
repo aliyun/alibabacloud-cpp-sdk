@@ -95,8 +95,11 @@ namespace Models
 
 
     protected:
+      // 操作。
       shared_ptr<string> op_ {};
+      // Tag的Key。
       shared_ptr<string> tagKey_ {};
+      // Tag的值集合。
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -149,8 +152,11 @@ namespace Models
 
 
     protected:
+      // 操作。
       shared_ptr<string> op_ {};
+      // 标签的Key。
       shared_ptr<string> tagKey_ {};
+      // 标签的值集合。
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -192,7 +198,9 @@ namespace Models
 
 
     protected:
+      // IP的CIDR。
       shared_ptr<string> ipCIDR_ {};
+      // IP字段的Key。
       shared_ptr<string> ipFieldKey_ {};
     };
 
@@ -245,8 +253,11 @@ namespace Models
 
 
     protected:
+      // 属性的Key。
       shared_ptr<string> fieldKey_ {};
+      // 属性的值集合。
       shared_ptr<vector<string>> fieldValues_ {};
+      // 操作。
       shared_ptr<string> op_ {};
     };
 
@@ -299,8 +310,11 @@ namespace Models
 
 
     protected:
+      // 操作。
       shared_ptr<string> op_ {};
+      // 注解的Key。
       shared_ptr<string> tagKey_ {};
+      // 注解的值集合。
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -387,14 +401,23 @@ namespace Models
 
 
   protected:
+    // 注解匹配集合。
     shared_ptr<vector<EntityDiscoverRule::Annotations>> annotations_ {};
+    // 实体类型集合。
     shared_ptr<vector<string>> entityTypes_ {};
+    // 属性匹配规则。
     shared_ptr<vector<EntityDiscoverRule::FieldRules>> fieldRules_ {};
+    // 实例ID集合。
     shared_ptr<vector<string>> instanceIds_ {};
+    // IP匹配规则集合。
     shared_ptr<vector<EntityDiscoverRule::IpMatchRule>> ipMatchRule_ {};
+    // 标签匹配集合。
     shared_ptr<vector<EntityDiscoverRule::Labels>> labels_ {};
+    // 地域ID集合。
     shared_ptr<vector<string>> regionIds_ {};
+    // 资源组ID。
     shared_ptr<string> resourceGroupId_ {};
+    // 通过Tag进行服务发现。
     shared_ptr<vector<EntityDiscoverRule::Tags>> tags_ {};
   };
 

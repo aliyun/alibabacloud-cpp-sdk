@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // Content type
         shared_ptr<string> type_ {};
+        // Value of the content
         shared_ptr<string> value_ {};
       };
 
@@ -140,9 +142,13 @@ namespace Models
 
 
     protected:
+      // Text or multimodal array
       shared_ptr<vector<Messages::Contents>> contents_ {};
+      // Unique identifier for the message
       shared_ptr<string> messageId_ {};
+      // Role of the message
       shared_ptr<string> role_ {};
+      // Tools calls list
       shared_ptr<vector<Darabonba::Json>> tools_ {};
     };
 
@@ -188,10 +194,15 @@ namespace Models
 
 
   protected:
+    // Action type: create (default), reconnect, or stop
     shared_ptr<string> action_ {};
+    // Digital employee name
     shared_ptr<string> digitalEmployeeName_ {};
+    // Messages list
     shared_ptr<vector<CreateChatRequest::Messages>> messages_ {};
+    // Session thread ID
     shared_ptr<string> threadId_ {};
+    // Variables list
     Darabonba::Json variables_ {};
   };
 

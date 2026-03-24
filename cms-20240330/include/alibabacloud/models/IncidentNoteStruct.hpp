@@ -97,13 +97,13 @@ namespace Models
 
 
     protected:
-      // Contact.
+      // 联系人。
       shared_ptr<string> contact_ {};
-      // Contact ID.
+      // 联系人id。
       shared_ptr<string> contactId_ {};
-      // Name.
+      // 名称。
       shared_ptr<string> name_ {};
-      // User ID.
+      // 用户ID。
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -162,19 +162,19 @@ namespace Models
 
 
   protected:
-    // Content.
+    // 内容。
     shared_ptr<string> content_ {};
-    // Content format.
+    // 内容格式。
     shared_ptr<string> format_ {};
-    // Incident ID.
+    // 事件ID。
     shared_ptr<string> incidentId_ {};
-    // Note ID.
+    // 记录ID。
     shared_ptr<string> noteId_ {};
-    // Operator.
+    // 操作符。
     shared_ptr<IncidentNoteStruct::Operator> operator_ {};
-    // Time.
+    // 时间。
     shared_ptr<int64_t> time_ {};
-    // Type.
+    // 类型。
     shared_ptr<string> type_ {};
   };
 

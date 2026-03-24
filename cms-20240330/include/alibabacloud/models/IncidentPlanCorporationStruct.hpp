@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Channel name.
+    // 通道名
     shared_ptr<string> channel_ {};
-    // Robot ID.
+    // 机器人唯一ID。
     shared_ptr<string> robotId_ {};
   };
 

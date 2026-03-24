@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Dimension of the filter condition.
+    // 过滤条件的维度
     // 
     // This parameter is required.
     shared_ptr<string> dim_ {};
-    // Filter Condition Operator.
+    // 过滤条件操作符
     // 
     // This parameter is required.
     shared_ptr<string> opt_ {};
-    // Filter Condition Value.
+    // 过滤条件值
     shared_ptr<string> value_ {};
   };
 

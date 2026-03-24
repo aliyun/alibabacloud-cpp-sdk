@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // 标签过滤器
     shared_ptr<map<string, string>> labels_ {};
+    // 多个标签之间的关系操作符
     shared_ptr<string> opt_ {};
   };
 

@@ -146,9 +146,9 @@ namespace Models
 
 
       protected:
-        // Number of ready sub-Releases.
+        // The number of ready sub-releases.
         shared_ptr<int32_t> ready_ {};
-        // Number of sub-Releases.
+        // The total number of sub-releases.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -217,15 +217,15 @@ namespace Models
 
 
       protected:
-        // First transition time.
+        // The time of the first transition.
         shared_ptr<string> firstTransitionTime_ {};
-        // Last transition time.
+        // The time of the last transition.
         shared_ptr<string> lastTransitionTime_ {};
-        // Details.
+        // The details.
         shared_ptr<string> message_ {};
-        // Phase status.
+        // The status of the phase.
         shared_ptr<string> status_ {};
-        // Phase type.
+        // The type of the phase.
         shared_ptr<string> type_ {};
       };
 
@@ -439,61 +439,61 @@ namespace Models
 
 
     protected:
-      // Addon name.
+      // The name of the add-on.
       shared_ptr<string> addonName_ {};
-      // Number of alert rules.
+      // The number of alert rules.
       shared_ptr<int64_t> alertRuleCount_ {};
-      // API version.
+      // The API version.
       shared_ptr<string> apiVersion_ {};
-      // Installation phase information.
+      // Information about the installation phase.
       shared_ptr<vector<Releases::Conditions>> conditions_ {};
-      // Component configuration information.
+      // The configuration of the component.
       shared_ptr<string> config_ {};
-      // Access time.
+      // The integration time.
       shared_ptr<string> createTime_ {};
-      // Number of dashboards.
+      // The number of dashboards.
       shared_ptr<int64_t> dashboardCount_ {};
-      // Entity details.
+      // The entity details.
       shared_ptr<EntityGroupBase> entityRules_ {};
-      // Environment type.
+      // The environment type.
       shared_ptr<string> envType_ {};
-      // Environment ID.
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // Number of plugins.
+      // The number of plug-ins.
       shared_ptr<int64_t> exporterCount_ {};
-      // Whether there is a configuration.
+      // Indicates whether a configuration exists.
       shared_ptr<bool> haveConfig_ {};
-      // Access user ID.
+      // The ID of the user who performed the integration.
       shared_ptr<string> installUserId_ {};
-      // Language.
+      // The language.
       shared_ptr<string> language_ {};
-      // Whether it is a managed component.
+      // Indicates whether the component is managed.
       shared_ptr<bool> managed_ {};
-      // Starting version number for the remaining list.
+      // The token that marks the start of the next page of results.
       shared_ptr<string> nextVersion_ {};
-      // Parent AddonReleaseId.
+      // The ID of the parent AddonRelease.
       shared_ptr<string> parentAddonReleaseId_ {};
-      // Policy ID.
+      // The policy ID.
       shared_ptr<string> policyId_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Release ID.
+      // The release ID.
       shared_ptr<string> releaseId_ {};
-      // Release name.
+      // The release name.
       shared_ptr<string> releaseName_ {};
-      // Component scenario.
+      // The component scenario.
       shared_ptr<string> scene_ {};
-      // Status.
+      // The status.
       shared_ptr<string> status_ {};
-      // Sub-AddonRelease statistics.
+      // Statistics of the sub-AddonRelease.
       shared_ptr<Releases::SubAddonRelease> subAddonRelease_ {};
-      // Update time.
+      // The time of the last update.
       shared_ptr<string> updateTime_ {};
-      // Owner user ID.
+      // The ID of the owner.
       shared_ptr<string> userId_ {};
-      // Component version.
+      // The version of the component.
       shared_ptr<string> version_ {};
-      // Workspace.
+      // The workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -523,11 +523,11 @@ namespace Models
 
 
   protected:
-    // Set of add-on component information.
+    // The information about the integrated components.
     shared_ptr<vector<ListAddonReleasesResponseBody::Releases>> releases_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Number of components.
+    // The total number of components.
     shared_ptr<int64_t> total_ {};
   };
 

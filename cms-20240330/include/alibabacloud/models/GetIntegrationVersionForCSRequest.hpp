@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The type of the cluster. Valid values: acs.ack.cluster and acs.asi.cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterType_ {};
   };

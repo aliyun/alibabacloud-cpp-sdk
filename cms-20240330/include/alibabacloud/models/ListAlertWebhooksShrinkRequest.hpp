@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(webhookIds, webhookIdsShrink_);
+      DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, ListAlertWebhooksShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(webhookIds, webhookIdsShrink_);
+      DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
     ListAlertWebhooksShrinkRequest() = default ;
     ListAlertWebhooksShrinkRequest(const ListAlertWebhooksShrinkRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->webhookIdsShrink_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->webhookIdsShrink_ == nullptr && this->workspace_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -65,11 +67,23 @@ namespace Models
     inline ListAlertWebhooksShrinkRequest& setWebhookIdsShrink(string webhookIdsShrink) { DARABONBA_PTR_SET_VALUE(webhookIdsShrink_, webhookIdsShrink) };
 
 
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline ListAlertWebhooksShrinkRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
   protected:
+    // The name of the webhook.
     shared_ptr<string> name_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The unique ID of the webhook.
     shared_ptr<string> webhookIdsShrink_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

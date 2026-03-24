@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // Tag key.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // Tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -139,11 +139,11 @@ namespace Models
 
 
     protected:
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> prometheusInstanceId_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -225,32 +225,33 @@ namespace Models
 
 
   protected:
-    // Not enabled yet
+    // This parameter is not in use.
     shared_ptr<string> authFreeReadPolicy_ {};
-    // Whether to support password-free read
+    // Specifies whether to enable password-free read access.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Whether to support authToken
+    // Specifies whether to enable an authentication token.
     shared_ptr<bool> enableAuthToken_ {};
-    // List of Prometheus instances.
+    // The list of Prometheus instances.
     // 
     // This parameter is required.
     shared_ptr<vector<CreatePrometheusViewRequest::PrometheusInstances>> prometheusInstances_ {};
-    // Prometheus view name.
+    // The name of the Prometheus view.
     // 
     // This parameter is required.
     shared_ptr<string> prometheusViewName_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Not enabled yet.
+    // This parameter is not in use.
     shared_ptr<string> status_ {};
-    // The operation to be performed.
+    // Specifies the operation to execute.
     shared_ptr<vector<CreatePrometheusViewRequest::Tags>> tags_ {};
-    // - V1: Old version
-    // - V2: New version
+    // - V1: The old version.
+    // 
+    // - V2: The new version.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};
-    // Default value: default-cms-{userId}-{regionId}
+    // The default value is default-cms-{userId}-{regionId}.
     shared_ptr<string> workspace_ {};
   };
 

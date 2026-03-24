@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(url, url_);
         DARABONBA_PTR_TO_JSON(webhookId, webhookId_);
+        DARABONBA_PTR_TO_JSON(workspace, workspace_);
       };
       friend void from_json(const Darabonba::Json& j, Webhooks& obj) { 
         DARABONBA_PTR_FROM_JSON(contentType, contentType_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(url, url_);
         DARABONBA_PTR_FROM_JSON(webhookId, webhookId_);
+        DARABONBA_PTR_FROM_JSON(workspace, workspace_);
       };
       Webhooks() = default ;
       Webhooks(const Webhooks &) = default ;
@@ -71,7 +73,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->contentType_ == nullptr
         && this->headers_ == nullptr && this->lang_ == nullptr && this->method_ == nullptr && this->name_ == nullptr && this->url_ == nullptr
-        && this->webhookId_ == nullptr; };
+        && this->webhookId_ == nullptr && this->workspace_ == nullptr; };
       // contentType Field Functions 
       bool hasContentType() const { return this->contentType_ != nullptr;};
       void deleteContentType() { this->contentType_ = nullptr;};
@@ -123,15 +125,41 @@ namespace Models
       inline Webhooks& setWebhookId(string webhookId) { DARABONBA_PTR_SET_VALUE(webhookId_, webhookId) };
 
 
+      // workspace Field Functions 
+      bool hasWorkspace() const { return this->workspace_ != nullptr;};
+      void deleteWorkspace() { this->workspace_ = nullptr;};
+      inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+      inline Webhooks& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
     protected:
+      // The content type of the data. Valid values:
+      // 
+      // - JSON
+      // 
+      // - FORM
       shared_ptr<string> contentType_ {};
-      // headers
+      // The headers.
       Darabonba::Json headers_ {};
+      // The language. Valid values:
+      // 
+      // - zh_CN
+      // 
+      // - en_US
       shared_ptr<string> lang_ {};
+      // The request method. Valid values:
+      // 
+      // - GET
+      // 
+      // - POST
       shared_ptr<string> method_ {};
+      // The name of the webhook.
       shared_ptr<string> name_ {};
+      // The URL of the alert callback.
       shared_ptr<string> url_ {};
+      // The unique ID of the webhook.
       shared_ptr<string> webhookId_ {};
+      shared_ptr<string> workspace_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr
@@ -174,11 +202,15 @@ namespace Models
 
 
   protected:
+    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
-    // webhooks
+    // The webhooks.
     shared_ptr<vector<ListAlertWebhooksResponseBody::Webhooks>> webhooks_ {};
   };
 

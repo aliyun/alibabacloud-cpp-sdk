@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<vector<string>>> data_ {};
+    // The list of column headers.
     shared_ptr<vector<string>> header_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

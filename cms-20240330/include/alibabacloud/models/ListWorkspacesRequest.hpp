@@ -78,19 +78,15 @@ namespace Models
 
 
   protected:
-    // Page size
-    // Default value:
-    // 	50
-    // Maximum value:
-    // 	50
+    // The number of entries to return on each page. Default value: 50. Maximum value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // Pagination Token
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Region
+    // The region.
     shared_ptr<string> region_ {};
-    // Workspace name, fuzzy search
+    // The name of the workspace. This parameter supports fuzzy search.
     shared_ptr<string> workspaceName_ {};
-    // Workspace name, exact match
+    // The names of the workspaces. This parameter supports exact search.
     shared_ptr<vector<string>> workspaceNameList_ {};
   };
 

@@ -73,13 +73,13 @@ namespace Models
 
 
   protected:
-    // List of user-provided filter conditions. The supported parameters and filter conditions for the metric can be queried via ListAlertMetrics.
+    // 用户输入的过滤条件列表。指标所支持的参数列表、过滤条件列表可通过ListAlertMetrics进行查询。
     shared_ptr<vector<AlertRuleAlertMetricInputFilterValue>> filterValues_ {};
-    // Key of the metric group selected by the user.
+    // 用户所选指标组的key
     shared_ptr<string> groupId_ {};
-    // Key of the predefined metric selected by the user.
+    // 用户所选预定义指标的key
     shared_ptr<string> metricId_ {};
-    // List of input parameters. The metric\\"s supported parameters and filter conditions can be queried via ListAlertMetrics.
+    // 输入的参数列表。  指标所支持的参数列表、过滤条件列表可通过ListAlertMetrics进行查询。
     shared_ptr<vector<AlertRuleAlertMetricInputParamValue>> paramValues_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The agent ID of the application.
     shared_ptr<string> agentId_ {};
+    // The application ID.
     shared_ptr<string> appId_ {};
+    // The run ID.
     shared_ptr<string> runId_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

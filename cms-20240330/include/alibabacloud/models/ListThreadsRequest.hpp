@@ -76,8 +76,12 @@ namespace Models
 
 
     protected:
+      // The filter key. Supported values are title, workspace, and project.
+      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
+      // The set value.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -122,10 +126,15 @@ namespace Models
 
 
   protected:
+    // The filter conditions for the query. If you do not specify this parameter, all threads in the instance are queried.
     shared_ptr<vector<ListThreadsRequest::Filter>> filter_ {};
+    // The maximum number of results to return. The maximum value is 200.
     shared_ptr<int64_t> maxResults_ {};
+    // The paging token.
     shared_ptr<string> nextToken_ {};
+    // The session status.
     shared_ptr<string> status_ {};
+    // The session ID.
     shared_ptr<string> threadId_ {};
   };
 

@@ -177,33 +177,31 @@ namespace Models
 
 
     protected:
-      // Instance creation time, using UTC+0 time, formatted as yyyy-MM-ddTHH:mmZ
+      // The time when the instance was created. The time is in UTC and in the \\`yyyy-MM-ddTHH:mmZ\\` format.
       shared_ptr<string> createTime_ {};
-      // Instance type:
-      // prom-view: new version aggregated view
-      // global-view: old version aggregated view
+      // The instance type. Valid values are \\`prom-view\\` for a new-version aggregation view and \\`global-view\\` for an old-version aggregation view.
       shared_ptr<string> instanceType_ {};
-      // Payment type. Currently, the fixed value is FREE (free).
+      // The billing method. The value is fixed to \\`FREE\\`.
       shared_ptr<string> paymentType_ {};
-      // Product that the prom instance belongs to (arms or cms).
+      // The product to which the Prometheus instance belongs. Valid values: \\`arms\\` and \\`cms\\`.
       shared_ptr<string> product_ {};
-      // Number of Prometheus instances in the view.
+      // The number of Prometheus instances in the view.
       shared_ptr<int32_t> prometheusInstanceCount_ {};
-      // Prometheus view ID.
+      // The Prometheus view ID.
       shared_ptr<string> prometheusViewId_ {};
-      // Prometheus view name.
+      // The name of the Prometheus view.
       shared_ptr<string> prometheusViewName_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Fixed value: PrometheusView.
+      // The resource type. The value is fixed to \\`PrometheusView\\`.
       shared_ptr<string> resourceType_ {};
-      // Backend data storage status.
+      // The status of the backend data storage.
       shared_ptr<string> status_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // Version.
+      // The version.
       shared_ptr<string> version_ {};
-      // Workspace that the prom instance belongs to.
+      // The workspace to which the Prometheus instance belongs.
       shared_ptr<string> workspace_ {};
     };
 
@@ -247,15 +245,15 @@ namespace Models
 
 
   protected:
-    // Maximum number of records to return.
+    // The maximum number of records returned.
     shared_ptr<int32_t> maxResults_ {};
-    // Token for the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // List of Prometheus view instances.
+    // The list of Prometheus view instances.
     shared_ptr<vector<ListPrometheusViewsResponseBody::PrometheusViews>> prometheusViews_ {};
-    // ID of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of instances
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

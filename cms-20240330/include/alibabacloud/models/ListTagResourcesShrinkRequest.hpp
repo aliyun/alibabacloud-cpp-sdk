@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return. The maximum value is 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
+    // A list of resource IDs.
     shared_ptr<string> resourceIdShrink_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The tags. These are used as filter conditions for the query.
+    // 
+    // You can specify up to 20 tags.
     shared_ptr<string> tagShrink_ {};
   };
 

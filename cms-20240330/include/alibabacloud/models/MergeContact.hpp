@@ -142,17 +142,29 @@ namespace Models
 
 
   protected:
+    // 邮箱地址。
     shared_ptr<string> email_ {};
+    // 邮箱是否已验证。
     shared_ptr<bool> emailVerify_ {};
+    // 扩展字段，用于存储额外信息。
     Darabonba::Json extend_ {};
+    // 创建时间。
     shared_ptr<string> gmtCreate_ {};
+    // 最后修改时间。
     shared_ptr<string> gmtModified_ {};
+    // 联系人唯一标识符。
     shared_ptr<string> identifier_ {};
+    // 语言偏好。
     shared_ptr<string> lang_ {};
+    // 联系人姓名。
     shared_ptr<string> name_ {};
+    // 手机号码。
     shared_ptr<string> phone_ {};
+    // 手机号码国家区号。
     shared_ptr<string> phoneCode_ {};
+    // 手机号码是否已验证。
     shared_ptr<bool> phoneVerify_ {};
+    // 联系人来源系统。
     shared_ptr<string> source_ {};
   };
 

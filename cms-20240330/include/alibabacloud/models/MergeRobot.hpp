@@ -119,11 +119,17 @@ namespace Models
 
 
     protected:
+      // 卡片模板。
       shared_ptr<string> cardTemplate_ {};
+      // 是否启用每日值班报告。
       shared_ptr<bool> dailyNoc_ {};
+      // 每日值班报告时间。
       shared_ptr<string> dailyNocTime_ {};
+      // 钉钉签名密钥。
       shared_ptr<string> dingSignKey_ {};
+      // 是否启用出站请求。
       shared_ptr<bool> enableOutgoing_ {};
+      // 认证令牌。
       shared_ptr<string> token_ {};
     };
 
@@ -196,14 +202,23 @@ namespace Models
 
 
   protected:
+    // 创建时间。
     shared_ptr<string> createTime_ {};
+    // 扩展字段。
     shared_ptr<MergeRobot::Extend> extend_ {};
+    // 最后修改时间。
     shared_ptr<string> gmtModified_ {};
+    // 机器人唯一标识符。
     shared_ptr<string> identifier_ {};
+    // 语言偏好。
     shared_ptr<string> lang_ {};
+    // 机器人名称。
     shared_ptr<string> name_ {};
+    // 机器人来源系统。
     shared_ptr<string> source_ {};
+    // 机器人类型。
     shared_ptr<string> type_ {};
+    // Webhook 地址。
     shared_ptr<string> webhook_ {};
   };
 

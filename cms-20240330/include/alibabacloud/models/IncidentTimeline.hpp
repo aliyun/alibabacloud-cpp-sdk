@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Subtype.
+    // 子类型。
     shared_ptr<string> childType_ {};
-    // Content.
+    // 内容。
     shared_ptr<string> content_ {};
-    // Incident ID.
+    // 所属事件 ID。
     shared_ptr<string> incidentId_ {};
-    // Timeline node unique ID.
+    // 时间线节点唯一 ID。
     shared_ptr<string> incidentTimelineId_ {};
-    // Time.
+    // 时间戳。
     shared_ptr<int64_t> time_ {};
-    // Parent timeline ID.
+    // 所属时间线 ID。
     shared_ptr<string> timelineId_ {};
-    // Title.
+    // 时间线标题。
     shared_ptr<string> title_ {};
-    // Type.
+    // 类型。
     shared_ptr<string> type_ {};
-    // User ID.
+    // 用户 ID。
     shared_ptr<string> userId_ {};
   };
 

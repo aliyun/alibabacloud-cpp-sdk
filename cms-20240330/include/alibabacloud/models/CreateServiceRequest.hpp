@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The `key` of the tag.
       shared_ptr<string> key_ {};
+      // The `value` of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -157,25 +159,27 @@ namespace Models
 
 
   protected:
-    // Extended attributes.
+    // The extended properties.
     shared_ptr<string> attributes_ {};
-    // Service description, only valid when `serviceType=RUM`.
+    // The service description. This parameter is valid only when serviceType is set to RUM.
     shared_ptr<string> description_ {};
-    // Display name, only valid when `serviceType=RUM`.
+    // The display name. This parameter is valid only when serviceType is set to RUM.
     shared_ptr<string> displayName_ {};
-    // Application ID, generally not required to be specified.
+    // The application ID. You do not typically need to specify this parameter.
     shared_ptr<string> pid_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Service name
+    // The service name.
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
-    // Service status, not required for service creation.
+    // The service status. Do not specify this parameter when you create a service.
     shared_ptr<string> serviceStatus_ {};
-    // Service type
+    // The service type.
     // 
     // This parameter is required.
     shared_ptr<string> serviceType_ {};
+    // An array of tags.
     shared_ptr<vector<CreateServiceRequest::Tags>> tags_ {};
   };
 

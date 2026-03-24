@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Historical version number
     shared_ptr<string> version_ {};
   };
 

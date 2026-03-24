@@ -122,9 +122,13 @@ namespace Models
 
 
       protected:
+        // The properties of the knowledge base.
         shared_ptr<string> attributes_ {};
+        // The ID of the Bailian index.
         shared_ptr<string> indexId_ {};
+        // The region of the Bailian knowledge base.
         shared_ptr<string> region_ {};
+        // The ID of the Bailian workspace.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -149,7 +153,9 @@ namespace Models
 
 
     protected:
+      // The list of Bailian knowledge bases.
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
+      // The list of Standard Operating Procedure (SOP) knowledge bases.
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
@@ -217,15 +223,25 @@ namespace Models
 
 
   protected:
+    // The default rule.
     shared_ptr<string> defaultRule_ {};
+    // The description of the digital employee.
     shared_ptr<string> description_ {};
+    // The display name of the digital employee.
     shared_ptr<string> displayName_ {};
+    // The list of knowledge bases.
     shared_ptr<CreateDigitalEmployeeRequest::Knowledges> knowledges_ {};
+    // The name of the digital employee.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the RAM role.
+    // 
     // This parameter is required.
     shared_ptr<string> roleArn_ {};
+    // The tags.
     shared_ptr<vector<Tag>> tags_ {};
   };
 

@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // Event ID.
       shared_ptr<string> eventId_ {};
+      // Details.
       shared_ptr<string> message_ {};
+      // Processing status.
       shared_ptr<string> status_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Request results.
     shared_ptr<vector<AddMemoriesResponseBody::Results>> results_ {};
   };
 

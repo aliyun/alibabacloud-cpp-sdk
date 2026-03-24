@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // 字段
       shared_ptr<string> field_ {};
+      // 比较符
       shared_ptr<string> op_ {};
+      // 值
       shared_ptr<string> value_ {};
     };
 
@@ -112,8 +115,11 @@ namespace Models
 
 
   protected:
+    // 订阅条件
     shared_ptr<vector<FilterSetting::Conditions>> conditions_ {};
+    // 表达式
     shared_ptr<string> expression_ {};
+    // 条件间关系
     shared_ptr<string> relation_ {};
   };
 

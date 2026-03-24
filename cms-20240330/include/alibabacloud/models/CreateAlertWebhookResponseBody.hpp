@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique ID of the webhook.
     shared_ptr<string> alertWebhookId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

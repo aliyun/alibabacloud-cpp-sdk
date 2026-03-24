@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(url, url_);
       DARABONBA_PTR_TO_JSON(webhookId, webhookId_);
+      DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAlertWebhookRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(url, url_);
       DARABONBA_PTR_FROM_JSON(webhookId, webhookId_);
+      DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
     CreateAlertWebhookRequest() = default ;
     CreateAlertWebhookRequest(const CreateAlertWebhookRequest &) = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentType_ == nullptr
         && this->headers_ == nullptr && this->lang_ == nullptr && this->method_ == nullptr && this->name_ == nullptr && this->url_ == nullptr
-        && this->webhookId_ == nullptr; };
+        && this->webhookId_ == nullptr && this->workspace_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
@@ -96,17 +98,45 @@ namespace Models
     inline CreateAlertWebhookRequest& setWebhookId(string webhookId) { DARABONBA_PTR_SET_VALUE(webhookId_, webhookId) };
 
 
+    // workspace Field Functions 
+    bool hasWorkspace() const { return this->workspace_ != nullptr;};
+    void deleteWorkspace() { this->workspace_ = nullptr;};
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline CreateAlertWebhookRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
   protected:
+    // The content type. Valid values:
+    // 
+    // - JSON (default)
+    // 
+    // - FORM
     shared_ptr<string> contentType_ {};
-    // headers
+    // The headers.
     shared_ptr<map<string, string>> headers_ {};
+    // The language. Valid values:
+    // 
+    // - zh_CN
+    // 
+    // - en_US
     shared_ptr<string> lang_ {};
+    // The request method. Valid values:
+    // 
+    // - GET
+    // 
+    // - POST
     shared_ptr<string> method_ {};
+    // The name of the webhook.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The URL for the alert callback.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
+    // The unique ID of the webhook.
     shared_ptr<string> webhookId_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

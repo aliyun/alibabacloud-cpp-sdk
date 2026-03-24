@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(groupType, groupType_);
       DARABONBA_PTR_TO_JSON(labelFilters, labelFilters_);
+      DARABONBA_PTR_TO_JSON(markTags, markTags_);
       DARABONBA_PTR_TO_JSON(metric, metric_);
       DARABONBA_PTR_TO_JSON(metricSet, metricSet_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(groupType, groupType_);
       DARABONBA_PTR_FROM_JSON(labelFilters, labelFilters_);
+      DARABONBA_PTR_FROM_JSON(markTags, markTags_);
       DARABONBA_PTR_FROM_JSON(metric, metric_);
       DARABONBA_PTR_FROM_JSON(metricSet, metricSet_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
@@ -152,16 +154,8 @@ namespace Models
 
 
       protected:
-        // Dimension in APM metrics.
         shared_ptr<string> dim_ {};
-        // Filter operation types:
-        // 
-        // - eq: equals.
-        // - neq: not equals.
-        // - match: regular expression match.
-        // - nmatch: regular expression not match.
         shared_ptr<string> type_ {};
-        // The corresponding value for the filter operation.
         shared_ptr<string> value_ {};
       };
 
@@ -236,38 +230,62 @@ namespace Models
 
 
     protected:
-      // Applicable query type: APM_MULTI_QUERY.
-      // ID of the APM predefined metric.
       shared_ptr<string> apmAlertMetricId_ {};
-      // Applicable query type: ARMS_MULTI_QUERY.
-      // Dimension filter configuration for APM metrics. Must be used in conjunction with apmAlertMetricId.
       shared_ptr<vector<Queries::ApmFilters>> apmFilters_ {};
-      // Applicable query type: ARMS_MULTI_QUERY.
-      // List of aggregation dimensions for the query, i.e., the dimensions by which the metric is aggregated.
       shared_ptr<vector<string>> apmGroupBy_ {};
-      // Applicable query type: ARMS_MULTI_QUERY.
-      // Alert (data) duration.
       shared_ptr<int64_t> duration_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // Time offset end time (relative).
-      // If start and end are specified, do not specify window.
+      // 时间偏移结束时间(相对)，如果指定了start、end，则不指定window。
       shared_ptr<int64_t> end_ {};
-      // Applicable query types: APM_MULTI_QUERY, SLS_MULTI_QUERY.
-      // Query expression.
-      // 
-      // - For APM_MULTI_QUERY, this field is optional and contains the PromQL generated for predefined metrics (used for data preview).
-      // - For SLS_MULTI_QUERY, this field contains the SQL query statement.
+      // 查询表达式
       shared_ptr<string> expr_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // SLS query time offset start time (relative).
-      // If start and end are specified, do not specify window. For example: start=15, timeUnit=minute, which means 15 minutes ago.
+      // sls查询的时间偏移开始时间(相对)，如果指定了start、end，则不指定window。  例如：start=15， timeUnit=minute，表示15分钟前
       shared_ptr<int64_t> start_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // Time units for the start, end, and window parameters: day/hour/minute/second.
+      // start和end、window的时间单位： day/hour/minute/second
       shared_ptr<string> timeUnit_ {};
-      // Applicable query type: SLS_MULTI_QUERY.
-      // Exact-hour time query interval. If window is specified, start and end should not be specified.
+      // 整点时间查询区间。  如果指定了window则不指定start、end
       shared_ptr<int64_t> window_ {};
+    };
+
+    class MarkTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const MarkTags& obj) { 
+        DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, MarkTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      MarkTags() = default ;
+      MarkTags(const MarkTags &) = default ;
+      MarkTags(MarkTags &&) = default ;
+      MarkTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~MarkTags() = default ;
+      MarkTags& operator=(const MarkTags &) = default ;
+      MarkTags& operator=(MarkTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline MarkTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline MarkTags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
     };
 
     class LabelFilters : public Darabonba::Model {
@@ -392,11 +410,8 @@ namespace Models
 
 
       protected:
-        // 字段
         shared_ptr<string> field_ {};
-        // 比较运算符。
         shared_ptr<string> operator_ {};
-        // 匹配的值。
         shared_ptr<string> value_ {};
       };
 
@@ -426,11 +441,8 @@ namespace Models
 
 
     protected:
-      // 资源类型域。
       shared_ptr<string> domain_ {};
-      // 过滤条件列表，用于进一步筛选资源。
       shared_ptr<vector<EntityFilter::Filters>> filters_ {};
-      // 资源类型。
       shared_ptr<string> type_ {};
     };
 
@@ -479,8 +491,8 @@ namespace Models
     virtual bool empty() const override { return this->checkAfterDataComplete_ == nullptr
         && this->dimensions_ == nullptr && this->domain_ == nullptr && this->duration_ == nullptr && this->entityFields_ == nullptr && this->entityFilter_ == nullptr
         && this->expr_ == nullptr && this->firstJoin_ == nullptr && this->groupFieldList_ == nullptr && this->groupId_ == nullptr && this->groupType_ == nullptr
-        && this->labelFilters_ == nullptr && this->metric_ == nullptr && this->metricSet_ == nullptr && this->namespace_ == nullptr && this->queries_ == nullptr
-        && this->relationType_ == nullptr && this->secondJoin_ == nullptr && this->serviceIds_ == nullptr && this->type_ == nullptr; };
+        && this->labelFilters_ == nullptr && this->markTags_ == nullptr && this->metric_ == nullptr && this->metricSet_ == nullptr && this->namespace_ == nullptr
+        && this->queries_ == nullptr && this->relationType_ == nullptr && this->secondJoin_ == nullptr && this->serviceIds_ == nullptr && this->type_ == nullptr; };
     // checkAfterDataComplete Field Functions 
     bool hasCheckAfterDataComplete() const { return this->checkAfterDataComplete_ != nullptr;};
     void deleteCheckAfterDataComplete() { this->checkAfterDataComplete_ = nullptr;};
@@ -577,6 +589,15 @@ namespace Models
     inline AlertRuleQuery& setLabelFilters(vector<AlertRuleQuery::LabelFilters> && labelFilters) { DARABONBA_PTR_SET_RVALUE(labelFilters_, labelFilters) };
 
 
+    // markTags Field Functions 
+    bool hasMarkTags() const { return this->markTags_ != nullptr;};
+    void deleteMarkTags() { this->markTags_ = nullptr;};
+    inline const vector<AlertRuleQuery::MarkTags> & getMarkTags() const { DARABONBA_PTR_GET_CONST(markTags_, vector<AlertRuleQuery::MarkTags>) };
+    inline vector<AlertRuleQuery::MarkTags> getMarkTags() { DARABONBA_PTR_GET(markTags_, vector<AlertRuleQuery::MarkTags>) };
+    inline AlertRuleQuery& setMarkTags(const vector<AlertRuleQuery::MarkTags> & markTags) { DARABONBA_PTR_SET_VALUE(markTags_, markTags) };
+    inline AlertRuleQuery& setMarkTags(vector<AlertRuleQuery::MarkTags> && markTags) { DARABONBA_PTR_SET_RVALUE(markTags_, markTags) };
+
+
     // metric Field Functions 
     bool hasMetric() const { return this->metric_ != nullptr;};
     void deleteMetric() { this->metric_ = nullptr;};
@@ -640,80 +661,27 @@ namespace Models
 
 
   protected:
-    // Applicable query type: PROMQL_QUERY.
-    // Whether to perform alert evaluation only after data completeness is ensured.
     shared_ptr<bool> checkAfterDataComplete_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // List of filtering dimensions for the resource.
     shared_ptr<vector<map<string, string>>> dimensions_ {};
-    // 资源所属的领域。
     shared_ptr<string> domain_ {};
-    // Applicable query type: PROMQL_QUERY.
-    // Duration of alert data, in seconds.
     shared_ptr<int64_t> duration_ {};
     shared_ptr<vector<AlertRuleQuery::EntityFields>> entityFields_ {};
-    // 资源过滤器，用于筛选目标资源。
     shared_ptr<AlertRuleQuery::EntityFilter> entityFilter_ {};
-    // Applicable query type: PROMQL_QUERY.
-    // Query expression (PromQL).
     shared_ptr<string> expr_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // Configuration for the set join operation between the results of subquery 1 (queries[0]) and subquery 2 (queries[1]).
     shared_ptr<AlertRuleSlsQueryJoin> firstJoin_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // List of grouping field names.
     shared_ptr<vector<string>> groupFieldList_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // Associated application group ID, valid only when relationType = GROUP.
     shared_ptr<string> groupId_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // Grouping type, with the following possible values:
-    // 
-    // - none: No grouping.
-    // - label: Automatic label grouping.
-    // - custom: Custom label grouping.
     shared_ptr<string> groupType_ {};
     shared_ptr<vector<AlertRuleQuery::LabelFilters>> labelFilters_ {};
-    // 指标名。
+    shared_ptr<vector<AlertRuleQuery::MarkTags>> markTags_ {};
     shared_ptr<string> metric_ {};
-    // 监控指标集合。
     shared_ptr<string> metricSet_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // Namespace of the metric.
     shared_ptr<string> namespace_ {};
-    // Applicable query types: SLS_MULTI_QUERY, APM_MULTI_QUERY.
-    // List of subqueries.
-    // 
-    // For the SLS_MULTI_QUERY type, the list can contain up to three subqueries, and the number and order of subqueries must match the sub-datasource configurations in datasource.dsList.
     shared_ptr<vector<AlertRuleQuery::Queries>> queries_ {};
-    // Applicable query type: CMS_BASIC_QUERY.
-    // Resource scope for the rule query, with the following allowed values:
-    // - USER: All resources under the user\\"s UID.
-    // - GROUP: Application group.
-    // - INSTANCE: Specified list of instances.
     shared_ptr<string> relationType_ {};
-    // Applicable query type: SLS_MULTI_QUERY.
-    // Configuration for the set join operation between the results of subquery 2 (queries[2]) and subquery 3 (queries[3]).
     shared_ptr<AlertRuleSlsQueryJoin> secondJoin_ {};
-    // Service ID list.
     shared_ptr<vector<string>> serviceIds_ {};
-    // Query type.
-    // 
-    // Valid values:
-    // 
-    // - PROMQL_QUERY: PromQL query
-    // - SLS_MULTI_QUERY: SLS query
-    // - APM_MULTI_QUERY: APM query
-    // - CMS_BASIC_QUERY: Basic CloudMonitor query
-    // 
-    // The valid fields within the query object vary depending on the query type. Refer to the "Applicable query type" description in each field\\"s documentation for details.
-    // 
-    // The query type must match the data source type, with the following correspondences:
-    // 
-    // - Prometheus data source (PROMETHEUS_DS): PROMQL_QUERY
-    // - APM data source (APM_DS): APM_MULTI_QUERY
-    // - SLS data source (SLS_MULTI_DS): SLS_MULTI_QUERY
-    // - Basic CloudMonitor data source (CMS_BASIC_DS): CMS_BASIC_QUERY.
+    // 查询类型
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -164,17 +164,29 @@ namespace Models
 
 
     protected:
+      // Actor ID
       shared_ptr<string> actorId_ {};
+      // Application agent ID
       shared_ptr<string> agentId_ {};
+      // Creation time
       shared_ptr<string> createdAt_ {};
+      // Memory hash value
       shared_ptr<string> hash_ {};
+      // Memory ID
       shared_ptr<string> id_ {};
+      // Memory content
       shared_ptr<string> memory_ {};
+      // Metadata
       shared_ptr<string> metadata_ {};
+      // Message sender role
       shared_ptr<string> role_ {};
+      // Run ID
       shared_ptr<string> runId_ {};
+      // Similarity score
       shared_ptr<double> score_ {};
+      // Last update time
       shared_ptr<string> updatedAt_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -225,8 +237,11 @@ namespace Models
 
 
     protected:
+      // Destination
       shared_ptr<string> destination_ {};
+      // Relationship
       shared_ptr<string> relationship_ {};
+      // Source
       shared_ptr<string> source_ {};
     };
 
@@ -258,8 +273,11 @@ namespace Models
 
 
   protected:
+    // Relations
     shared_ptr<vector<SearchMemoriesResponseBody::Relations>> relations_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Return values
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
   };
 

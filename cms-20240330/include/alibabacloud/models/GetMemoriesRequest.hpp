@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Agent ID of the application
     shared_ptr<string> agentId_ {};
+    // Application ID
     shared_ptr<string> appId_ {};
+    // Page number
     shared_ptr<int32_t> page_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Run ID
     shared_ptr<string> runId_ {};
+    // User ID
     shared_ptr<string> userId_ {};
   };
 

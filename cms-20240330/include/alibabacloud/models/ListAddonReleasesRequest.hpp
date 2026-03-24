@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Addon component name.
+    // The name of the add-on component.
     shared_ptr<string> addonName_ {};
-    // Parent AddonReleaseId.
+    // The ID of the parent AddonRelease.
     shared_ptr<string> parentAddonReleaseId_ {};
   };
 
