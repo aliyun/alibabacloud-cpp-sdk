@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->property_ == nullptr; };
+        && this->property_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline ModifyCdnDomainSchdmByPropertyRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // property Field Functions 
     bool hasProperty() const { return this->property_ != nullptr;};
     void deleteProperty() { this->property_ = nullptr;};
-    inline string property() const { DARABONBA_PTR_GET_DEFAULT(property_, "") };
+    inline string getProperty() const { DARABONBA_PTR_GET_DEFAULT(property_, "") };
     inline ModifyCdnDomainSchdmByPropertyRequest& setProperty(string property) { DARABONBA_PTR_SET_VALUE(property_, property) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The accelerated domain name for which you want to change the acceleration region. You can specify only one domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The information about the acceleration region. {"coverage":"overseas"}
     // 
     // Valid values for coverage:
@@ -61,7 +61,7 @@ namespace Models
     // *   **global**: global
     // 
     // This parameter is required.
-    std::shared_ptr<string> property_ = nullptr;
+    shared_ptr<string> property_ {};
   };
 
   } // namespace Models

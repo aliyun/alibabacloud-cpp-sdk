@@ -40,66 +40,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configId_ == nullptr
-        && return this->domainName_ == nullptr && return this->key_ == nullptr && return this->ownerId_ == nullptr && return this->securityToken_ == nullptr && return this->value_ == nullptr; };
+        && this->domainName_ == nullptr && this->key_ == nullptr && this->ownerId_ == nullptr && this->securityToken_ == nullptr && this->value_ == nullptr; };
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline int64_t configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
     inline SetReqHeaderConfigRequest& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SetReqHeaderConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline SetReqHeaderConfigRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline SetReqHeaderConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline SetReqHeaderConfigRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline SetReqHeaderConfigRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
     // The ID of the configuration.
-    std::shared_ptr<int64_t> configId_ = nullptr;
+    shared_ptr<int64_t> configId_ {};
     // The accelerated domain name. Separate multiple domain names with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The name of the custom header.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> key_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> securityToken_ {};
     // The value of the custom header.
     // 
     // This parameter is required.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

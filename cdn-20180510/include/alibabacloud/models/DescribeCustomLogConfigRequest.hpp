@@ -33,7 +33,7 @@ namespace Models
     // configId Field Functions 
     bool hasConfigId() const { return this->configId_ != nullptr;};
     void deleteConfigId() { this->configId_ = nullptr;};
-    inline string configId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+    inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
     inline DescribeCustomLogConfigRequest& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the custom configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configId_ = nullptr;
+    shared_ptr<string> configId_ {};
   };
 
   } // namespace Models

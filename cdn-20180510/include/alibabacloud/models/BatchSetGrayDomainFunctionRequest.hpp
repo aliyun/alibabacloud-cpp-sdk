@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configs_ == nullptr
-        && return this->domainNames_ == nullptr; };
+        && this->domainNames_ == nullptr; };
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
-    inline string configs() const { DARABONBA_PTR_GET_DEFAULT(configs_, "") };
+    inline string getConfigs() const { DARABONBA_PTR_GET_DEFAULT(configs_, "") };
     inline BatchSetGrayDomainFunctionRequest& setConfigs(string configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
 
 
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
-    inline string domainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
+    inline string getDomainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
     inline BatchSetGrayDomainFunctionRequest& setDomainNames(string domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> configs_ = nullptr;
+    shared_ptr<string> configs_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainNames_ = nullptr;
+    shared_ptr<string> domainNames_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipAddrList_ == nullptr
-        && return this->language_ == nullptr; };
+        && this->language_ == nullptr; };
     // ipAddrList Field Functions 
     bool hasIpAddrList() const { return this->ipAddrList_ != nullptr;};
     void deleteIpAddrList() { this->ipAddrList_ = nullptr;};
-    inline string ipAddrList() const { DARABONBA_PTR_GET_DEFAULT(ipAddrList_, "") };
+    inline string getIpAddrList() const { DARABONBA_PTR_GET_DEFAULT(ipAddrList_, "") };
     inline BatchDescribeCdnIpInfoRequest& setIpAddrList(string ipAddrList) { DARABONBA_PTR_SET_VALUE(ipAddrList_, ipAddrList) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline BatchDescribeCdnIpInfoRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
@@ -54,12 +54,12 @@ namespace Models
     // >*   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\\*\\*\\*\\*:ffff.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipAddrList_ = nullptr;
+    shared_ptr<string> ipAddrList_ {};
     // The language of the query results. Valid values:
     // 
     // *   **zh** (default): Simplified Chinese.
     // *   **en**: English.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
   };
 
   } // namespace Models

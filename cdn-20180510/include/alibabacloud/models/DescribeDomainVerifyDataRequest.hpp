@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->globalResourcePlan_ == nullptr; };
+        && this->globalResourcePlan_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeDomainVerifyDataRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // globalResourcePlan Field Functions 
     bool hasGlobalResourcePlan() const { return this->globalResourcePlan_ != nullptr;};
     void deleteGlobalResourcePlan() { this->globalResourcePlan_ = nullptr;};
-    inline string globalResourcePlan() const { DARABONBA_PTR_GET_DEFAULT(globalResourcePlan_, "") };
+    inline string getGlobalResourcePlan() const { DARABONBA_PTR_GET_DEFAULT(globalResourcePlan_, "") };
     inline DescribeDomainVerifyDataRequest& setGlobalResourcePlan(string globalResourcePlan) { DARABONBA_PTR_SET_VALUE(globalResourcePlan_, globalResourcePlan) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The accelerated domain name. You can specify only one domain name in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // Specifies whether to enable the global resource plan.
     // 
     // Valid values:
@@ -71,7 +71,7 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> globalResourcePlan_ = nullptr;
+    shared_ptr<string> globalResourcePlan_ {};
   };
 
   } // namespace Models

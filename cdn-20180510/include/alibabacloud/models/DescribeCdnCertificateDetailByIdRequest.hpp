@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certId_ == nullptr
-        && return this->certRegion_ == nullptr && return this->ownerId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->certRegion_ == nullptr && this->ownerId_ == nullptr && this->securityToken_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
-    inline string certId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
+    inline string getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
     inline DescribeCdnCertificateDetailByIdRequest& setCertId(string certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
 
 
     // certRegion Field Functions 
     bool hasCertRegion() const { return this->certRegion_ != nullptr;};
     void deleteCertRegion() { this->certRegion_ = nullptr;};
-    inline string certRegion() const { DARABONBA_PTR_GET_DEFAULT(certRegion_, "") };
+    inline string getCertRegion() const { DARABONBA_PTR_GET_DEFAULT(certRegion_, "") };
     inline DescribeCdnCertificateDetailByIdRequest& setCertRegion(string certRegion) { DARABONBA_PTR_SET_VALUE(certRegion_, certRegion) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeCdnCertificateDetailByIdRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeCdnCertificateDetailByIdRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
@@ -69,16 +69,16 @@ namespace Models
     // The ID of the certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> certId_ = nullptr;
+    shared_ptr<string> certId_ {};
     // The region of the certificate. Valid values:
     // 
     // *   **ap-southeast-1**: Singapore
     // *   **cn-hangzhou**: China (Hangzhou)
     // 
     // Default value: **cn-hangzhou**
-    std::shared_ptr<string> certRegion_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> certRegion_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

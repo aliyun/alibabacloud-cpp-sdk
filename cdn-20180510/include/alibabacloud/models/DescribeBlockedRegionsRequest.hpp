@@ -33,7 +33,7 @@ namespace Models
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline DescribeBlockedRegionsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   **jp**: Japanese
     // 
     // This parameter is required.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
   };
 
   } // namespace Models

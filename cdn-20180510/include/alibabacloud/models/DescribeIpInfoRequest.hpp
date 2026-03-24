@@ -33,7 +33,7 @@ namespace Models
     // IP Field Functions 
     bool hasIP() const { return this->IP_ != nullptr;};
     void deleteIP() { this->IP_ = nullptr;};
-    inline string IP() const { DARABONBA_PTR_GET_DEFAULT(IP_, "") };
+    inline string getIP() const { DARABONBA_PTR_GET_DEFAULT(IP_, "") };
     inline DescribeIpInfoRequest& setIP(string IP) { DARABONBA_PTR_SET_VALUE(IP_, IP) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IP address. You can specify only one IP address.
     // 
     // This parameter is required.
-    std::shared_ptr<string> IP_ = nullptr;
+    shared_ptr<string> IP_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheTag_ == nullptr
-        && return this->domainName_ == nullptr && return this->force_ == nullptr; };
+        && this->domainName_ == nullptr && this->force_ == nullptr; };
     // cacheTag Field Functions 
     bool hasCacheTag() const { return this->cacheTag_ != nullptr;};
     void deleteCacheTag() { this->cacheTag_ = nullptr;};
-    inline string cacheTag() const { DARABONBA_PTR_GET_DEFAULT(cacheTag_, "") };
+    inline string getCacheTag() const { DARABONBA_PTR_GET_DEFAULT(cacheTag_, "") };
     inline RefreshObjectCacheByCacheTagRequest& setCacheTag(string cacheTag) { DARABONBA_PTR_SET_VALUE(cacheTag_, cacheTag) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline RefreshObjectCacheByCacheTagRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline RefreshObjectCacheByCacheTagRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // The tags of Cache. If multiple tags are returned, the tags are separated by commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> cacheTag_ = nullptr;
+    shared_ptr<string> cacheTag_ {};
     // The accelerated domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // Specifies whether to purge all resources that you submit if the requested content is one of the resources that you submit to purge. Default value: false.
     // 
     // *   **true**: The nearest POP fetches all resources from the origin server, delivers them to the client, and updates the cache with the new version.
     // *   **false**: The nearest POP checks the Last-Modified parameter of the resource on the origin server. If the parameter value is the same as that of the cached resource, the POP serves the cached resource. If the parameter value is not the same as that of the cached resource, the POP fetches the latest version from the origin server, delivers it to the client, and updates the cache with the new version.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

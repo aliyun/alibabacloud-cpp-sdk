@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pushTaskId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // pushTaskId Field Functions 
     bool hasPushTaskId() const { return this->pushTaskId_ != nullptr;};
     void deletePushTaskId() { this->pushTaskId_ = nullptr;};
-    inline string pushTaskId() const { DARABONBA_PTR_GET_DEFAULT(pushTaskId_, "") };
+    inline string getPushTaskId() const { DARABONBA_PTR_GET_DEFAULT(pushTaskId_, "") };
     inline PushObjectCacheResponseBody& setPushTaskId(string pushTaskId) { DARABONBA_PTR_SET_VALUE(pushTaskId_, pushTaskId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PushObjectCacheResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   If the tasks are set for the same accelerated domain name, submitted within the same second, and prefetch content from URLs instead of directories, the tasks IDs are merged into the same task ID (RushTaskId).
     // *   If the number of tasks that are set for the same accelerated domain name, submitted within the same second, and prefetch content from URLs instead of directories exceeds 500, every 500 task IDs are merged into the same task ID (RushTaskId).
-    std::shared_ptr<string> pushTaskId_ = nullptr;
+    shared_ptr<string> pushTaskId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cycle_ == nullptr
-        && return this->domainName_ == nullptr && return this->endTime_ == nullptr && return this->startTime_ == nullptr && return this->timePoint_ == nullptr; };
+        && this->domainName_ == nullptr && this->endTime_ == nullptr && this->startTime_ == nullptr && this->timePoint_ == nullptr; };
     // cycle Field Functions 
     bool hasCycle() const { return this->cycle_ != nullptr;};
     void deleteCycle() { this->cycle_ = nullptr;};
-    inline string cycle() const { DARABONBA_PTR_GET_DEFAULT(cycle_, "") };
+    inline string getCycle() const { DARABONBA_PTR_GET_DEFAULT(cycle_, "") };
     inline DescribeDomainMax95BpsDataRequest& setCycle(string cycle) { DARABONBA_PTR_SET_VALUE(cycle_, cycle) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeDomainMax95BpsDataRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeDomainMax95BpsDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeDomainMax95BpsDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // timePoint Field Functions 
     bool hasTimePoint() const { return this->timePoint_ != nullptr;};
     void deleteTimePoint() { this->timePoint_ = nullptr;};
-    inline string timePoint() const { DARABONBA_PTR_GET_DEFAULT(timePoint_, "") };
+    inline string getTimePoint() const { DARABONBA_PTR_GET_DEFAULT(timePoint_, "") };
     inline DescribeDomainMax95BpsDataRequest& setTimePoint(string timePoint) { DARABONBA_PTR_SET_VALUE(timePoint_, timePoint) };
 
 
@@ -79,25 +79,25 @@ namespace Models
     // 
     // *   **day**: queries the 95th percentile bandwidth data by day.
     // *   **month**: queries the 95th percentile bandwidth data by month.
-    std::shared_ptr<string> cycle_ = nullptr;
+    shared_ptr<string> cycle_ {};
     // The accelerated domain name. If you do not specify a domain name, data of all domain names is queried.
     // 
     // > You cannot specify multiple domain names in a DescribeDomainMax95BpsData request.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The end of the time range to query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // > The end time must be later than the start time.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The beginning of the time range to query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The beginning of the time range to query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    std::shared_ptr<string> timePoint_ = nullptr;
+    shared_ptr<string> timePoint_ {};
   };
 
   } // namespace Models

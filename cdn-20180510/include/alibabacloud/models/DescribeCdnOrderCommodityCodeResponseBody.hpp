@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderCommodityCode_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // orderCommodityCode Field Functions 
     bool hasOrderCommodityCode() const { return this->orderCommodityCode_ != nullptr;};
     void deleteOrderCommodityCode() { this->orderCommodityCode_ = nullptr;};
-    inline string orderCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(orderCommodityCode_, "") };
+    inline string getOrderCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(orderCommodityCode_, "") };
     inline DescribeCdnOrderCommodityCodeResponseBody& setOrderCommodityCode(string orderCommodityCode) { DARABONBA_PTR_SET_VALUE(orderCommodityCode_, orderCommodityCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCdnOrderCommodityCodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The commodity code that includes the organization unit.
-    std::shared_ptr<string> orderCommodityCode_ = nullptr;
+    shared_ptr<string> orderCommodityCode_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

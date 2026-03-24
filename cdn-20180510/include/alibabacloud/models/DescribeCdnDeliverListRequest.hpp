@@ -33,13 +33,13 @@ namespace Models
     // deliverId Field Functions 
     bool hasDeliverId() const { return this->deliverId_ != nullptr;};
     void deleteDeliverId() { this->deliverId_ = nullptr;};
-    inline int64_t deliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, 0L) };
+    inline int64_t getDeliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, 0L) };
     inline DescribeCdnDeliverListRequest& setDeliverId(int64_t deliverId) { DARABONBA_PTR_SET_VALUE(deliverId_, deliverId) };
 
 
   protected:
     // The ID of the tracking task that you want to query. If you do not specify an ID, all tracking tasks are queried.
-    std::shared_ptr<int64_t> deliverId_ = nullptr;
+    shared_ptr<int64_t> deliverId_ {};
   };
 
   } // namespace Models

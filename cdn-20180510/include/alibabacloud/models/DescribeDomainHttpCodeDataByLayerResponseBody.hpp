@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDOMAINHTTPCODEDATABYLAYERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDOMAINHTTPCODEDATABYLAYERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,38 +34,122 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class HttpCodeDataInterval : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const HttpCodeDataInterval& obj) { 
+        DARABONBA_PTR_TO_JSON(DataModule, dataModule_);
+      };
+      friend void from_json(const Darabonba::Json& j, HttpCodeDataInterval& obj) { 
+        DARABONBA_PTR_FROM_JSON(DataModule, dataModule_);
+      };
+      HttpCodeDataInterval() = default ;
+      HttpCodeDataInterval(const HttpCodeDataInterval &) = default ;
+      HttpCodeDataInterval(HttpCodeDataInterval &&) = default ;
+      HttpCodeDataInterval(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~HttpCodeDataInterval() = default ;
+      HttpCodeDataInterval& operator=(const HttpCodeDataInterval &) = default ;
+      HttpCodeDataInterval& operator=(HttpCodeDataInterval &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DataModule : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataModule& obj) { 
+          DARABONBA_PTR_TO_JSON(TimeStamp, timeStamp_);
+          DARABONBA_PTR_TO_JSON(TotalValue, totalValue_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataModule& obj) { 
+          DARABONBA_PTR_FROM_JSON(TimeStamp, timeStamp_);
+          DARABONBA_PTR_FROM_JSON(TotalValue, totalValue_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        DataModule() = default ;
+        DataModule(const DataModule &) = default ;
+        DataModule(DataModule &&) = default ;
+        DataModule(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataModule() = default ;
+        DataModule& operator=(const DataModule &) = default ;
+        DataModule& operator=(DataModule &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->timeStamp_ == nullptr
+        && this->totalValue_ == nullptr && this->value_ == nullptr; };
+        // timeStamp Field Functions 
+        bool hasTimeStamp() const { return this->timeStamp_ != nullptr;};
+        void deleteTimeStamp() { this->timeStamp_ = nullptr;};
+        inline string getTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(timeStamp_, "") };
+        inline DataModule& setTimeStamp(string timeStamp) { DARABONBA_PTR_SET_VALUE(timeStamp_, timeStamp) };
+
+
+        // totalValue Field Functions 
+        bool hasTotalValue() const { return this->totalValue_ != nullptr;};
+        void deleteTotalValue() { this->totalValue_ = nullptr;};
+        inline string getTotalValue() const { DARABONBA_PTR_GET_DEFAULT(totalValue_, "") };
+        inline DataModule& setTotalValue(string totalValue) { DARABONBA_PTR_SET_VALUE(totalValue_, totalValue) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline DataModule& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> timeStamp_ {};
+        shared_ptr<string> totalValue_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->dataModule_ == nullptr; };
+      // dataModule Field Functions 
+      bool hasDataModule() const { return this->dataModule_ != nullptr;};
+      void deleteDataModule() { this->dataModule_ = nullptr;};
+      inline const vector<HttpCodeDataInterval::DataModule> & getDataModule() const { DARABONBA_PTR_GET_CONST(dataModule_, vector<HttpCodeDataInterval::DataModule>) };
+      inline vector<HttpCodeDataInterval::DataModule> getDataModule() { DARABONBA_PTR_GET(dataModule_, vector<HttpCodeDataInterval::DataModule>) };
+      inline HttpCodeDataInterval& setDataModule(const vector<HttpCodeDataInterval::DataModule> & dataModule) { DARABONBA_PTR_SET_VALUE(dataModule_, dataModule) };
+      inline HttpCodeDataInterval& setDataModule(vector<HttpCodeDataInterval::DataModule> && dataModule) { DARABONBA_PTR_SET_RVALUE(dataModule_, dataModule) };
+
+
+    protected:
+      shared_ptr<vector<HttpCodeDataInterval::DataModule>> dataModule_ {};
+    };
+
     virtual bool empty() const override { return this->dataInterval_ == nullptr
-        && return this->httpCodeDataInterval_ == nullptr && return this->requestId_ == nullptr; };
+        && this->httpCodeDataInterval_ == nullptr && this->requestId_ == nullptr; };
     // dataInterval Field Functions 
     bool hasDataInterval() const { return this->dataInterval_ != nullptr;};
     void deleteDataInterval() { this->dataInterval_ = nullptr;};
-    inline string dataInterval() const { DARABONBA_PTR_GET_DEFAULT(dataInterval_, "") };
+    inline string getDataInterval() const { DARABONBA_PTR_GET_DEFAULT(dataInterval_, "") };
     inline DescribeDomainHttpCodeDataByLayerResponseBody& setDataInterval(string dataInterval) { DARABONBA_PTR_SET_VALUE(dataInterval_, dataInterval) };
 
 
     // httpCodeDataInterval Field Functions 
     bool hasHttpCodeDataInterval() const { return this->httpCodeDataInterval_ != nullptr;};
     void deleteHttpCodeDataInterval() { this->httpCodeDataInterval_ = nullptr;};
-    inline const DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval & httpCodeDataInterval() const { DARABONBA_PTR_GET_CONST(httpCodeDataInterval_, DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval) };
-    inline DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval httpCodeDataInterval() { DARABONBA_PTR_GET(httpCodeDataInterval_, DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval) };
-    inline DescribeDomainHttpCodeDataByLayerResponseBody& setHttpCodeDataInterval(const DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval & httpCodeDataInterval) { DARABONBA_PTR_SET_VALUE(httpCodeDataInterval_, httpCodeDataInterval) };
-    inline DescribeDomainHttpCodeDataByLayerResponseBody& setHttpCodeDataInterval(DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval && httpCodeDataInterval) { DARABONBA_PTR_SET_RVALUE(httpCodeDataInterval_, httpCodeDataInterval) };
+    inline const DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval & getHttpCodeDataInterval() const { DARABONBA_PTR_GET_CONST(httpCodeDataInterval_, DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval) };
+    inline DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval getHttpCodeDataInterval() { DARABONBA_PTR_GET(httpCodeDataInterval_, DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval) };
+    inline DescribeDomainHttpCodeDataByLayerResponseBody& setHttpCodeDataInterval(const DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval & httpCodeDataInterval) { DARABONBA_PTR_SET_VALUE(httpCodeDataInterval_, httpCodeDataInterval) };
+    inline DescribeDomainHttpCodeDataByLayerResponseBody& setHttpCodeDataInterval(DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval && httpCodeDataInterval) { DARABONBA_PTR_SET_RVALUE(httpCodeDataInterval_, httpCodeDataInterval) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainHttpCodeDataByLayerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The time interval between the data entries returned. Unit: seconds.
-    std::shared_ptr<string> dataInterval_ = nullptr;
-    // The statistics of HTTP status codes returned at each time interval.
-    std::shared_ptr<DescribeDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval> httpCodeDataInterval_ = nullptr;
+    shared_ptr<string> dataInterval_ {};
+    shared_ptr<DescribeDomainHttpCodeDataByLayerResponseBody::HttpCodeDataInterval> httpCodeDataInterval_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

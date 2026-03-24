@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->remark_ == nullptr
-        && return this->requestId_ == nullptr && return this->sample_ == nullptr && return this->tag_ == nullptr; };
+        && this->requestId_ == nullptr && this->sample_ == nullptr && this->tag_ == nullptr; };
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribeCustomLogConfigResponseBody& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCustomLogConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sample Field Functions 
     bool hasSample() const { return this->sample_ != nullptr;};
     void deleteSample() { this->sample_ = nullptr;};
-    inline string sample() const { DARABONBA_PTR_GET_DEFAULT(sample_, "") };
+    inline string getSample() const { DARABONBA_PTR_GET_DEFAULT(sample_, "") };
     inline DescribeCustomLogConfigResponseBody& setSample(string sample) { DARABONBA_PTR_SET_VALUE(sample_, sample) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline DescribeCustomLogConfigResponseBody& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
   protected:
     // The format of the log configuration.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The sample.
-    std::shared_ptr<string> sample_ = nullptr;
+    shared_ptr<string> sample_ {};
     // The tag information about the log configuration.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
   };
 
   } // namespace Models

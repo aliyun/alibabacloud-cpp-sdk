@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdnIp_ == nullptr
-        && return this->ISP_ == nullptr && return this->ispEname_ == nullptr && return this->region_ == nullptr && return this->regionEname_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ISP_ == nullptr && this->ispEname_ == nullptr && this->region_ == nullptr && this->regionEname_ == nullptr && this->requestId_ == nullptr; };
     // cdnIp Field Functions 
     bool hasCdnIp() const { return this->cdnIp_ != nullptr;};
     void deleteCdnIp() { this->cdnIp_ = nullptr;};
-    inline string cdnIp() const { DARABONBA_PTR_GET_DEFAULT(cdnIp_, "") };
+    inline string getCdnIp() const { DARABONBA_PTR_GET_DEFAULT(cdnIp_, "") };
     inline DescribeIpInfoResponseBody& setCdnIp(string cdnIp) { DARABONBA_PTR_SET_VALUE(cdnIp_, cdnIp) };
 
 
     // ISP Field Functions 
     bool hasISP() const { return this->ISP_ != nullptr;};
     void deleteISP() { this->ISP_ = nullptr;};
-    inline string ISP() const { DARABONBA_PTR_GET_DEFAULT(ISP_, "") };
+    inline string getISP() const { DARABONBA_PTR_GET_DEFAULT(ISP_, "") };
     inline DescribeIpInfoResponseBody& setISP(string ISP) { DARABONBA_PTR_SET_VALUE(ISP_, ISP) };
 
 
     // ispEname Field Functions 
     bool hasIspEname() const { return this->ispEname_ != nullptr;};
     void deleteIspEname() { this->ispEname_ = nullptr;};
-    inline string ispEname() const { DARABONBA_PTR_GET_DEFAULT(ispEname_, "") };
+    inline string getIspEname() const { DARABONBA_PTR_GET_DEFAULT(ispEname_, "") };
     inline DescribeIpInfoResponseBody& setIspEname(string ispEname) { DARABONBA_PTR_SET_VALUE(ispEname_, ispEname) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeIpInfoResponseBody& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // regionEname Field Functions 
     bool hasRegionEname() const { return this->regionEname_ != nullptr;};
     void deleteRegionEname() { this->regionEname_ = nullptr;};
-    inline string regionEname() const { DARABONBA_PTR_GET_DEFAULT(regionEname_, "") };
+    inline string getRegionEname() const { DARABONBA_PTR_GET_DEFAULT(regionEname_, "") };
     inline DescribeIpInfoResponseBody& setRegionEname(string regionEname) { DARABONBA_PTR_SET_VALUE(regionEname_, regionEname) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeIpInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -87,17 +87,17 @@ namespace Models
     // Indicates whether the IP address belongs to an Alibaba Cloud CDN POP.
     // *   **True**:Yes.
     // *   **False**:No.
-    std::shared_ptr<string> cdnIp_ = nullptr;
+    shared_ptr<string> cdnIp_ {};
     // The name of the ISP in Chinese.
-    std::shared_ptr<string> ISP_ = nullptr;
+    shared_ptr<string> ISP_ {};
     // The name of the ISP.
-    std::shared_ptr<string> ispEname_ = nullptr;
+    shared_ptr<string> ispEname_ {};
     // The name of the region in Chinese.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The name of the region.
-    std::shared_ptr<string> regionEname_ = nullptr;
+    shared_ptr<string> regionEname_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

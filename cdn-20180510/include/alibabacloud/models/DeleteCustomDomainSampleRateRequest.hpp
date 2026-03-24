@@ -33,13 +33,13 @@ namespace Models
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
-    inline string domainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
+    inline string getDomainNames() const { DARABONBA_PTR_GET_DEFAULT(domainNames_, "") };
     inline DeleteCustomDomainSampleRateRequest& setDomainNames(string domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> domainNames_ = nullptr;
+    shared_ptr<string> domainNames_ {};
   };
 
   } // namespace Models

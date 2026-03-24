@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->functions_ == nullptr; };
+        && this->functions_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SetCdnDomainStagingConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // functions Field Functions 
     bool hasFunctions() const { return this->functions_ != nullptr;};
     void deleteFunctions() { this->functions_ = nullptr;};
-    inline string functions() const { DARABONBA_PTR_GET_DEFAULT(functions_, "") };
+    inline string getFunctions() const { DARABONBA_PTR_GET_DEFAULT(functions_, "") };
     inline SetCdnDomainStagingConfigRequest& setFunctions(string functions) { DARABONBA_PTR_SET_VALUE(functions_, functions) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The accelerated domain name. You can specify only one domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The features that you want to configure. Format:
     // 
     // > *   **functionName**: The name of the feature. Separate multiple values with commas (,). For more information, see [A list of features](https://help.aliyun.com/document_detail/388460.html).
@@ -75,7 +75,7 @@ namespace Models
     //         ]
     // 
     // This parameter is required.
-    std::shared_ptr<string> functions_ = nullptr;
+    shared_ptr<string> functions_ {};
   };
 
   } // namespace Models

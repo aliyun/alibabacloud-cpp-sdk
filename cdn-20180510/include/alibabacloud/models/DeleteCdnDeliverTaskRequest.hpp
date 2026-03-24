@@ -33,7 +33,7 @@ namespace Models
     // deliverId Field Functions 
     bool hasDeliverId() const { return this->deliverId_ != nullptr;};
     void deleteDeliverId() { this->deliverId_ = nullptr;};
-    inline int64_t deliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, 0L) };
+    inline int64_t getDeliverId() const { DARABONBA_PTR_GET_DEFAULT(deliverId_, 0L) };
     inline DeleteCdnDeliverTaskRequest& setDeliverId(int64_t deliverId) { DARABONBA_PTR_SET_VALUE(deliverId_, deliverId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the tracking task that you want to delete. You can call the [DescribeCdnDeliverList](https://help.aliyun.com/document_detail/270877.html) operation to query task IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> deliverId_ = nullptr;
+    shared_ptr<int64_t> deliverId_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // ips Field Functions 
     bool hasIps() const { return this->ips_ != nullptr;};
     void deleteIps() { this->ips_ = nullptr;};
-    inline string ips() const { DARABONBA_PTR_GET_DEFAULT(ips_, "") };
+    inline string getIps() const { DARABONBA_PTR_GET_DEFAULT(ips_, "") };
     inline DescribeIpStatusRequest& setIps(string ips) { DARABONBA_PTR_SET_VALUE(ips_, ips) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IP addresses that you want to query. Separate IP addresses with underscores (_), such as Ips=ip1_ip2.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ips_ = nullptr;
+    shared_ptr<string> ips_ {};
   };
 
   } // namespace Models

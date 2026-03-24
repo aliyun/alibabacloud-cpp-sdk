@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->secFuncType_ == nullptr; };
+        && this->secFuncType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeCdnSecFuncInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // secFuncType Field Functions 
     bool hasSecFuncType() const { return this->secFuncType_ != nullptr;};
     void deleteSecFuncType() { this->secFuncType_ = nullptr;};
-    inline string secFuncType() const { DARABONBA_PTR_GET_DEFAULT(secFuncType_, "") };
+    inline string getSecFuncType() const { DARABONBA_PTR_GET_DEFAULT(secFuncType_, "") };
     inline DescribeCdnSecFuncInfoRequest& setSecFuncType(string secFuncType) { DARABONBA_PTR_SET_VALUE(secFuncType_, secFuncType) };
 
 
@@ -54,14 +54,14 @@ namespace Models
     // *   zh: Chinese
     // 
     // This parameter is required.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The type of the security feature. Valid values:
     // 
     // *   CipherSuiteGroupCustomize: custom cipher suite.
     // *   CipherSuiteGroupStrict: dustom cipher suite.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secFuncType_ = nullptr;
+    shared_ptr<string> secFuncType_ {};
   };
 
   } // namespace Models

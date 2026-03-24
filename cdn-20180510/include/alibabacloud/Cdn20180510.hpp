@@ -899,7 +899,7 @@ namespace Cdn20180510
       Models::DescribeCdnDomainLogsResponse describeCdnDomainLogs(const Models::DescribeCdnDomainLogsRequest &request);
 
       /**
-       * @summary 查询离线日志下载地址
+       * @summary Queries the address where you can download offline logs of a specific domain name.
        *
        * @param request DescribeCdnDomainLogsExTtlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -908,7 +908,7 @@ namespace Cdn20180510
       Models::DescribeCdnDomainLogsExTtlResponse describeCdnDomainLogsExTtlWithOptions(const Models::DescribeCdnDomainLogsExTtlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询离线日志下载地址
+       * @summary Queries the address where you can download offline logs of a specific domain name.
        *
        * @param request DescribeCdnDomainLogsExTtlRequest
        * @return DescribeCdnDomainLogsExTtlResponse
@@ -2856,7 +2856,7 @@ namespace Cdn20180510
       Models::DescribeDomainUvDataResponse describeDomainUvData(const Models::DescribeDomainUvDataRequest &request);
 
       /**
-       * @summary Queries the verification content of a domain name, including the host record and record value.
+       * @summary Queries the verification content of an accelerated domain name based on whether the global resource plan is enabled.
        *
        * @description You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
        *
@@ -2867,7 +2867,7 @@ namespace Cdn20180510
       Models::DescribeDomainVerifyDataResponse describeDomainVerifyDataWithOptions(const Models::DescribeDomainVerifyDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the verification content of a domain name, including the host record and record value.
+       * @summary Queries the verification content of an accelerated domain name based on whether the global resource plan is enabled.
        *
        * @description You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
        *
@@ -3470,7 +3470,7 @@ namespace Cdn20180510
       Models::EnableRealtimeLogDeliveryResponse enableRealtimeLogDelivery(const Models::EnableRealtimeLogDeliveryRequest &request);
 
       /**
-       * @summary 按域名、functionName查询灰度配置信息，返回的信息中包含当前的灰度状态、灰度进度
+       * @summary Queries the canary release configurations, such as canary release status and progress, by domain name and function name.
        *
        * @param request GetGrayDomainFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3479,7 +3479,7 @@ namespace Cdn20180510
       Models::GetGrayDomainFunctionResponse getGrayDomainFunctionWithOptions(const Models::GetGrayDomainFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按域名、functionName查询灰度配置信息，返回的信息中包含当前的灰度状态、灰度进度
+       * @summary Queries the canary release configurations, such as canary release status and progress, by domain name and function name.
        *
        * @param request GetGrayDomainFunctionRequest
        * @return GetGrayDomainFunctionResponse
@@ -3768,7 +3768,7 @@ namespace Cdn20180510
       Models::OpenCdnServiceResponse openCdnService(const Models::OpenCdnServiceRequest &request);
 
       /**
-       * @summary 发布灰度配置到线上，支持多种模式，如全网发布、指定方式(灰度发布)，回滚
+       * @summary Publishes the canary release configurations. Multiple publish modes are supported, such as publish to the production environment, custom (such as canary release), and rollback.
        *
        * @param request PublishGrayDomainConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3777,7 +3777,7 @@ namespace Cdn20180510
       Models::PublishGrayDomainConfigResponse publishGrayDomainConfigWithOptions(const Models::PublishGrayDomainConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布灰度配置到线上，支持多种模式，如全网发布、指定方式(灰度发布)，回滚
+       * @summary Publishes the canary release configurations. Multiple publish modes are supported, such as publish to the production environment, custom (such as canary release), and rollback.
        *
        * @param request PublishGrayDomainConfigRequest
        * @return PublishGrayDomainConfigResponse
@@ -3864,7 +3864,7 @@ namespace Cdn20180510
       Models::RefreshObjectCacheByCacheTagResponse refreshObjectCacheByCacheTag(const Models::RefreshObjectCacheByCacheTagRequest &request);
 
       /**
-       * @summary Refreshes files on Alibaba Cloud CDN points of presence (POPs). After files are refreshed, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN forwards the requests to the origin server. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns the content to the clients. Alibaba Cloud CDN allows you to refresh content from multiple URLs at the same time.
+       * @summary Purges files on POPs. After files are purged, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN redirects the requests to the origin server where the content is stored. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns it to the clients. Alibaba Cloud CDN allows you to purge content from multiple URLs at a time.
        *
        * @description *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
        * *   You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to refresh content and call the [PushObjectCache](https://help.aliyun.com/document_detail/91161.html) operation to prefetch content.
@@ -3887,7 +3887,7 @@ namespace Cdn20180510
       Models::RefreshObjectCachesResponse refreshObjectCachesWithOptions(const Models::RefreshObjectCachesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Refreshes files on Alibaba Cloud CDN points of presence (POPs). After files are refreshed, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN forwards the requests to the origin server. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns the content to the clients. Alibaba Cloud CDN allows you to refresh content from multiple URLs at the same time.
+       * @summary Purges files on POPs. After files are purged, the original file content immediately becomes invalid. If clients request the original file content, Alibaba Cloud CDN redirects the requests to the origin server where the content is stored. Then, Alibaba Cloud CDN caches the latest content to the POPs and returns it to the clients. Alibaba Cloud CDN allows you to purge content from multiple URLs at a time.
        *
        * @description *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
        * *   You can call the [RefreshObjectCaches](https://help.aliyun.com/document_detail/91164.html) operation to refresh content and call the [PushObjectCache](https://help.aliyun.com/document_detail/91161.html) operation to prefetch content.
@@ -4016,7 +4016,7 @@ namespace Cdn20180510
       Models::SetCdnDomainStagingConfigResponse setCdnDomainStagingConfig(const Models::SetCdnDomainStagingConfigRequest &request);
 
       /**
-       * @summary Blocks or unblocks IP addresses from accessing domain names.
+       * @summary Blocks or unblocks IP addresses. This setting applies to all domain names in your account.
        *
        * @description > 
        * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
@@ -4029,7 +4029,7 @@ namespace Cdn20180510
       Models::SetCdnFullDomainsBlockIPResponse setCdnFullDomainsBlockIPWithOptions(const Models::SetCdnFullDomainsBlockIPRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Blocks or unblocks IP addresses from accessing domain names.
+       * @summary Blocks or unblocks IP addresses. This setting applies to all domain names in your account.
        *
        * @description > 
        * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).

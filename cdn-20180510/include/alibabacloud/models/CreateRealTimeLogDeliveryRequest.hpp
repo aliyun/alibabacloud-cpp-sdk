@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->logstore_ == nullptr && return this->project_ == nullptr && return this->region_ == nullptr; };
+        && this->logstore_ == nullptr && this->project_ == nullptr && this->region_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline CreateRealTimeLogDeliveryRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // logstore Field Functions 
     bool hasLogstore() const { return this->logstore_ != nullptr;};
     void deleteLogstore() { this->logstore_ = nullptr;};
-    inline string logstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
+    inline string getLogstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
     inline CreateRealTimeLogDeliveryRequest& setLogstore(string logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
 
 
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline string project() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
     inline CreateRealTimeLogDeliveryRequest& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline CreateRealTimeLogDeliveryRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The accelerated domain name for which you want to configure real-time log delivery.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The name of the Logstore where log entries are stored.
     // 
     // This parameter is required.
-    std::shared_ptr<string> logstore_ = nullptr;
+    shared_ptr<string> logstore_ {};
     // The name of the Log Service project that is used for real-time log delivery.
     // 
     // This parameter is required.
-    std::shared_ptr<string> project_ = nullptr;
+    shared_ptr<string> project_ {};
     // The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models
