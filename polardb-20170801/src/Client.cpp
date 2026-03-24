@@ -1871,6 +1871,14 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasTargetVersion()) {
+    query["TargetVersion"] = request.getTargetVersion();
+  }
+
   if (!!request.hasUsedTime()) {
     query["UsedTime"] = request.getUsedTime();
   }
@@ -5511,6 +5519,72 @@ DeleteParameterGroupResponse Client::deleteParameterGroupWithOptions(const Delet
 DeleteParameterGroupResponse Client::deleteParameterGroup(const DeleteParameterGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarFs文件
+ *
+ * @description ## 请求说明
+ * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+ * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+ * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+ *
+ * @param tmpReq DeletePolarFsObjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarFsObjectsResponse
+ */
+DeletePolarFsObjectsResponse Client::deletePolarFsObjectsWithOptions(const DeletePolarFsObjectsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeletePolarFsObjectsShrinkRequest request = DeletePolarFsObjectsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasObjectsToDelete()) {
+    request.setObjectsToDeleteShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getObjectsToDelete(), "ObjectsToDelete", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasObjectsToDeleteShrink()) {
+    query["ObjectsToDelete"] = request.getObjectsToDeleteShrink();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarFsObjects"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarFsObjectsResponse>();
+}
+
+/**
+ * @summary 删除PolarFs文件
+ *
+ * @description ## 请求说明
+ * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+ * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+ * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+ *
+ * @param request DeletePolarFsObjectsRequest
+ * @return DeletePolarFsObjectsResponse
+ */
+DeletePolarFsObjectsResponse Client::deletePolarFsObjects(const DeletePolarFsObjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarFsObjectsWithOptions(request, runtime);
 }
 
 /**

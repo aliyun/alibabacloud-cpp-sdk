@@ -1359,6 +1359,33 @@ namespace Polardb20170801
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
 
       /**
+       * @summary 删除PolarFs文件
+       *
+       * @description ## 请求说明
+       * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+       * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+       * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+       *
+       * @param tmpReq DeletePolarFsObjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarFsObjectsResponse
+       */
+      Models::DeletePolarFsObjectsResponse deletePolarFsObjectsWithOptions(const Models::DeletePolarFsObjectsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarFs文件
+       *
+       * @description ## 请求说明
+       * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+       * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+       * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+       *
+       * @param request DeletePolarFsObjectsRequest
+       * @return DeletePolarFsObjectsResponse
+       */
+      Models::DeletePolarFsObjectsResponse deletePolarFsObjects(const Models::DeletePolarFsObjectsRequest &request);
+
+      /**
        * @summary 删除PolarFs Quota规则
        *
        * @param request DeletePolarFsQuotaRequest

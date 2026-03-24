@@ -226,6 +226,10 @@
 #include <alibabacloud/models/DeleteParameterGroupRequest.hpp>
 #include <alibabacloud/models/DeleteParameterGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteParameterGroupResponse.hpp>
+#include <alibabacloud/models/DeletePolarFsObjectsRequest.hpp>
+#include <alibabacloud/models/DeletePolarFsObjectsShrinkRequest.hpp>
+#include <alibabacloud/models/DeletePolarFsObjectsResponseBody.hpp>
+#include <alibabacloud/models/DeletePolarFsObjectsResponse.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaRequest.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaResponseBody.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaResponse.hpp>
