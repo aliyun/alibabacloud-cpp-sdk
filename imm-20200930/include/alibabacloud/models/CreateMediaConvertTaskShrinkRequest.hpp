@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(Sources, sourcesShrink_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
+      DARABONBA_PTR_TO_JSON(TargetGroups, targetGroupsShrink_);
       DARABONBA_PTR_TO_JSON(Targets, targetsShrink_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(Sources, sourcesShrink_);
       DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
+      DARABONBA_PTR_FROM_JSON(TargetGroups, targetGroupsShrink_);
       DARABONBA_PTR_FROM_JSON(Targets, targetsShrink_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alignmentIndex_ == nullptr
         && this->credentialConfigShrink_ == nullptr && this->notificationShrink_ == nullptr && this->projectName_ == nullptr && this->sourcesShrink_ == nullptr && this->tagsShrink_ == nullptr
-        && this->targetsShrink_ == nullptr && this->userData_ == nullptr; };
+        && this->targetGroupsShrink_ == nullptr && this->targetsShrink_ == nullptr && this->userData_ == nullptr; };
     // alignmentIndex Field Functions 
     bool hasAlignmentIndex() const { return this->alignmentIndex_ != nullptr;};
     void deleteAlignmentIndex() { this->alignmentIndex_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline CreateMediaConvertTaskShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
+    // targetGroupsShrink Field Functions 
+    bool hasTargetGroupsShrink() const { return this->targetGroupsShrink_ != nullptr;};
+    void deleteTargetGroupsShrink() { this->targetGroupsShrink_ = nullptr;};
+    inline string getTargetGroupsShrink() const { DARABONBA_PTR_GET_DEFAULT(targetGroupsShrink_, "") };
+    inline CreateMediaConvertTaskShrinkRequest& setTargetGroupsShrink(string targetGroupsShrink) { DARABONBA_PTR_SET_VALUE(targetGroupsShrink_, targetGroupsShrink) };
+
+
     // targetsShrink Field Functions 
     bool hasTargetsShrink() const { return this->targetsShrink_ != nullptr;};
     void deleteTargetsShrink() { this->targetsShrink_ = nullptr;};
@@ -121,9 +130,8 @@ namespace Models
     shared_ptr<string> sourcesShrink_ {};
     // Custom tags used for searching and filtering asynchronous tasks.
     shared_ptr<string> tagsShrink_ {};
+    shared_ptr<string> targetGroupsShrink_ {};
     // List of media processing tasks, supporting multiple task configurations.
-    // 
-    // This parameter is required.
     shared_ptr<string> targetsShrink_ {};
     // User-defined information that will be returned in asynchronous message notifications, used for convenient association and processing within your system. The maximum length is 2048 bytes.
     shared_ptr<string> userData_ {};

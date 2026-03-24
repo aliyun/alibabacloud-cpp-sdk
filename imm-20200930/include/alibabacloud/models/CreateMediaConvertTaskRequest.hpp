@@ -2,11 +2,11 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEMEDIACONVERTTASKREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEMEDIACONVERTTASKREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/TargetAudio.hpp>
 #include <alibabacloud/models/TargetImage.hpp>
 #include <alibabacloud/models/TargetSubtitle.hpp>
 #include <alibabacloud/models/TargetVideo.hpp>
-#include <vector>
 #include <alibabacloud/models/CredentialConfig.hpp>
 #include <alibabacloud/models/Notification.hpp>
 using namespace std;
@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(Sources, sources_);
       DARABONBA_ANY_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TargetGroups, targetGroups_);
       DARABONBA_PTR_TO_JSON(Targets, targets_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(Sources, sources_);
       DARABONBA_ANY_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TargetGroups, targetGroups_);
       DARABONBA_PTR_FROM_JSON(Targets, targets_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
@@ -53,8 +55,10 @@ namespace Models
     class Targets : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Targets& obj) { 
+        DARABONBA_PTR_TO_JSON(AttachedPicture, attachedPicture_);
         DARABONBA_PTR_TO_JSON(Audio, audio_);
         DARABONBA_PTR_TO_JSON(Container, container_);
+        DARABONBA_PTR_TO_JSON(Data, data_);
         DARABONBA_PTR_TO_JSON(Image, image_);
         DARABONBA_PTR_TO_JSON(Segment, segment_);
         DARABONBA_PTR_TO_JSON(Speed, speed_);
@@ -64,8 +68,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Video, video_);
       };
       friend void from_json(const Darabonba::Json& j, Targets& obj) { 
+        DARABONBA_PTR_FROM_JSON(AttachedPicture, attachedPicture_);
         DARABONBA_PTR_FROM_JSON(Audio, audio_);
         DARABONBA_PTR_FROM_JSON(Container, container_);
+        DARABONBA_PTR_FROM_JSON(Data, data_);
         DARABONBA_PTR_FROM_JSON(Image, image_);
         DARABONBA_PTR_FROM_JSON(Segment, segment_);
         DARABONBA_PTR_FROM_JSON(Speed, speed_);
@@ -142,9 +148,84 @@ namespace Models
         shared_ptr<int32_t> startNumber_ {};
       };
 
-      virtual bool empty() const override { return this->audio_ == nullptr
-        && this->container_ == nullptr && this->image_ == nullptr && this->segment_ == nullptr && this->speed_ == nullptr && this->stripMetadata_ == nullptr
-        && this->subtitle_ == nullptr && this->URI_ == nullptr && this->video_ == nullptr; };
+      class Data : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Data& obj) { 
+          DARABONBA_PTR_TO_JSON(Stream, stream_);
+        };
+        friend void from_json(const Darabonba::Json& j, Data& obj) { 
+          DARABONBA_PTR_FROM_JSON(Stream, stream_);
+        };
+        Data() = default ;
+        Data(const Data &) = default ;
+        Data(Data &&) = default ;
+        Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Data() = default ;
+        Data& operator=(const Data &) = default ;
+        Data& operator=(Data &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->stream_ == nullptr; };
+        // stream Field Functions 
+        bool hasStream() const { return this->stream_ != nullptr;};
+        void deleteStream() { this->stream_ = nullptr;};
+        inline const vector<int32_t> & getStream() const { DARABONBA_PTR_GET_CONST(stream_, vector<int32_t>) };
+        inline vector<int32_t> getStream() { DARABONBA_PTR_GET(stream_, vector<int32_t>) };
+        inline Data& setStream(const vector<int32_t> & stream) { DARABONBA_PTR_SET_VALUE(stream_, stream) };
+        inline Data& setStream(vector<int32_t> && stream) { DARABONBA_PTR_SET_RVALUE(stream_, stream) };
+
+
+      protected:
+        shared_ptr<vector<int32_t>> stream_ {};
+      };
+
+      class AttachedPicture : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AttachedPicture& obj) { 
+          DARABONBA_PTR_TO_JSON(Stream, stream_);
+        };
+        friend void from_json(const Darabonba::Json& j, AttachedPicture& obj) { 
+          DARABONBA_PTR_FROM_JSON(Stream, stream_);
+        };
+        AttachedPicture() = default ;
+        AttachedPicture(const AttachedPicture &) = default ;
+        AttachedPicture(AttachedPicture &&) = default ;
+        AttachedPicture(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AttachedPicture() = default ;
+        AttachedPicture& operator=(const AttachedPicture &) = default ;
+        AttachedPicture& operator=(AttachedPicture &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->stream_ == nullptr; };
+        // stream Field Functions 
+        bool hasStream() const { return this->stream_ != nullptr;};
+        void deleteStream() { this->stream_ = nullptr;};
+        inline const vector<int32_t> & getStream() const { DARABONBA_PTR_GET_CONST(stream_, vector<int32_t>) };
+        inline vector<int32_t> getStream() { DARABONBA_PTR_GET(stream_, vector<int32_t>) };
+        inline AttachedPicture& setStream(const vector<int32_t> & stream) { DARABONBA_PTR_SET_VALUE(stream_, stream) };
+        inline AttachedPicture& setStream(vector<int32_t> && stream) { DARABONBA_PTR_SET_RVALUE(stream_, stream) };
+
+
+      protected:
+        shared_ptr<vector<int32_t>> stream_ {};
+      };
+
+      virtual bool empty() const override { return this->attachedPicture_ == nullptr
+        && this->audio_ == nullptr && this->container_ == nullptr && this->data_ == nullptr && this->image_ == nullptr && this->segment_ == nullptr
+        && this->speed_ == nullptr && this->stripMetadata_ == nullptr && this->subtitle_ == nullptr && this->URI_ == nullptr && this->video_ == nullptr; };
+      // attachedPicture Field Functions 
+      bool hasAttachedPicture() const { return this->attachedPicture_ != nullptr;};
+      void deleteAttachedPicture() { this->attachedPicture_ = nullptr;};
+      inline const Targets::AttachedPicture & getAttachedPicture() const { DARABONBA_PTR_GET_CONST(attachedPicture_, Targets::AttachedPicture) };
+      inline Targets::AttachedPicture getAttachedPicture() { DARABONBA_PTR_GET(attachedPicture_, Targets::AttachedPicture) };
+      inline Targets& setAttachedPicture(const Targets::AttachedPicture & attachedPicture) { DARABONBA_PTR_SET_VALUE(attachedPicture_, attachedPicture) };
+      inline Targets& setAttachedPicture(Targets::AttachedPicture && attachedPicture) { DARABONBA_PTR_SET_RVALUE(attachedPicture_, attachedPicture) };
+
+
       // audio Field Functions 
       bool hasAudio() const { return this->audio_ != nullptr;};
       void deleteAudio() { this->audio_ = nullptr;};
@@ -159,6 +240,15 @@ namespace Models
       void deleteContainer() { this->container_ = nullptr;};
       inline string getContainer() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
       inline Targets& setContainer(string container) { DARABONBA_PTR_SET_VALUE(container_, container) };
+
+
+      // data Field Functions 
+      bool hasData() const { return this->data_ != nullptr;};
+      void deleteData() { this->data_ = nullptr;};
+      inline const Targets::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, Targets::Data) };
+      inline Targets::Data getData() { DARABONBA_PTR_GET(data_, Targets::Data) };
+      inline Targets& setData(const Targets::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+      inline Targets& setData(Targets::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
       // image Field Functions 
@@ -219,6 +309,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<Targets::AttachedPicture> attachedPicture_ {};
       // Audio processing parameter configuration.
       // >Notice: If Audio is null, the first audio stream (if present) will be directly copied to the output file.</notice>
       shared_ptr<TargetAudio> audio_ {};
@@ -227,6 +318,7 @@ namespace Models
       // - Audio containers: mp3, aac, flac, oga, ac3, opus
       // >Notice: Both Container and URI parameters need to be set. If only subtitle extraction, frame capture, sprite image capture, or media-to-gif conversion is performed, both Container and URI should be set to null, making the Segment, Video, Audio, and Speed parameters meaningless.</notice>
       shared_ptr<string> container_ {};
+      shared_ptr<Targets::Data> data_ {};
       // Configuration for frame capture, sprite image capture, and media to animated image conversion.
       shared_ptr<TargetImage> image_ {};
       // Media segment settings, no segmentation by default.
@@ -250,6 +342,213 @@ namespace Models
       // Video processing parameter configuration.
       // >Notice: If Video is null, the first video stream (if present) will be directly copied to the output file.</notice>
       shared_ptr<TargetVideo> video_ {};
+    };
+
+    class TargetGroups : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TargetGroups& obj) { 
+        DARABONBA_PTR_TO_JSON(Targets, targets_);
+        DARABONBA_PTR_TO_JSON(URI, URI_);
+      };
+      friend void from_json(const Darabonba::Json& j, TargetGroups& obj) { 
+        DARABONBA_PTR_FROM_JSON(Targets, targets_);
+        DARABONBA_PTR_FROM_JSON(URI, URI_);
+      };
+      TargetGroups() = default ;
+      TargetGroups(const TargetGroups &) = default ;
+      TargetGroups(TargetGroups &&) = default ;
+      TargetGroups(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TargetGroups() = default ;
+      TargetGroups& operator=(const TargetGroups &) = default ;
+      TargetGroups& operator=(TargetGroups &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Targets : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Targets& obj) { 
+          DARABONBA_PTR_TO_JSON(Audio, audio_);
+          DARABONBA_PTR_TO_JSON(Container, container_);
+          DARABONBA_PTR_TO_JSON(Segment, segment_);
+          DARABONBA_PTR_TO_JSON(Speed, speed_);
+          DARABONBA_PTR_TO_JSON(StripMetadata, stripMetadata_);
+          DARABONBA_PTR_TO_JSON(Subtitle, subtitle_);
+          DARABONBA_PTR_TO_JSON(URI, URI_);
+          DARABONBA_PTR_TO_JSON(Video, video_);
+        };
+        friend void from_json(const Darabonba::Json& j, Targets& obj) { 
+          DARABONBA_PTR_FROM_JSON(Audio, audio_);
+          DARABONBA_PTR_FROM_JSON(Container, container_);
+          DARABONBA_PTR_FROM_JSON(Segment, segment_);
+          DARABONBA_PTR_FROM_JSON(Speed, speed_);
+          DARABONBA_PTR_FROM_JSON(StripMetadata, stripMetadata_);
+          DARABONBA_PTR_FROM_JSON(Subtitle, subtitle_);
+          DARABONBA_PTR_FROM_JSON(URI, URI_);
+          DARABONBA_PTR_FROM_JSON(Video, video_);
+        };
+        Targets() = default ;
+        Targets(const Targets &) = default ;
+        Targets(Targets &&) = default ;
+        Targets(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Targets() = default ;
+        Targets& operator=(const Targets &) = default ;
+        Targets& operator=(Targets &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Segment : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Segment& obj) { 
+            DARABONBA_PTR_TO_JSON(Duration, duration_);
+            DARABONBA_PTR_TO_JSON(Format, format_);
+            DARABONBA_PTR_TO_JSON(StartNumber, startNumber_);
+          };
+          friend void from_json(const Darabonba::Json& j, Segment& obj) { 
+            DARABONBA_PTR_FROM_JSON(Duration, duration_);
+            DARABONBA_PTR_FROM_JSON(Format, format_);
+            DARABONBA_PTR_FROM_JSON(StartNumber, startNumber_);
+          };
+          Segment() = default ;
+          Segment(const Segment &) = default ;
+          Segment(Segment &&) = default ;
+          Segment(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Segment() = default ;
+          Segment& operator=(const Segment &) = default ;
+          Segment& operator=(Segment &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->duration_ == nullptr
+        && this->format_ == nullptr && this->startNumber_ == nullptr; };
+          // duration Field Functions 
+          bool hasDuration() const { return this->duration_ != nullptr;};
+          void deleteDuration() { this->duration_ = nullptr;};
+          inline double getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0.0) };
+          inline Segment& setDuration(double duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+          // format Field Functions 
+          bool hasFormat() const { return this->format_ != nullptr;};
+          void deleteFormat() { this->format_ = nullptr;};
+          inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+          inline Segment& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
+
+
+          // startNumber Field Functions 
+          bool hasStartNumber() const { return this->startNumber_ != nullptr;};
+          void deleteStartNumber() { this->startNumber_ = nullptr;};
+          inline int32_t getStartNumber() const { DARABONBA_PTR_GET_DEFAULT(startNumber_, 0) };
+          inline Segment& setStartNumber(int32_t startNumber) { DARABONBA_PTR_SET_VALUE(startNumber_, startNumber) };
+
+
+        protected:
+          shared_ptr<double> duration_ {};
+          shared_ptr<string> format_ {};
+          shared_ptr<int32_t> startNumber_ {};
+        };
+
+        virtual bool empty() const override { return this->audio_ == nullptr
+        && this->container_ == nullptr && this->segment_ == nullptr && this->speed_ == nullptr && this->stripMetadata_ == nullptr && this->subtitle_ == nullptr
+        && this->URI_ == nullptr && this->video_ == nullptr; };
+        // audio Field Functions 
+        bool hasAudio() const { return this->audio_ != nullptr;};
+        void deleteAudio() { this->audio_ = nullptr;};
+        inline const TargetAudio & getAudio() const { DARABONBA_PTR_GET_CONST(audio_, TargetAudio) };
+        inline TargetAudio getAudio() { DARABONBA_PTR_GET(audio_, TargetAudio) };
+        inline Targets& setAudio(const TargetAudio & audio) { DARABONBA_PTR_SET_VALUE(audio_, audio) };
+        inline Targets& setAudio(TargetAudio && audio) { DARABONBA_PTR_SET_RVALUE(audio_, audio) };
+
+
+        // container Field Functions 
+        bool hasContainer() const { return this->container_ != nullptr;};
+        void deleteContainer() { this->container_ = nullptr;};
+        inline string getContainer() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
+        inline Targets& setContainer(string container) { DARABONBA_PTR_SET_VALUE(container_, container) };
+
+
+        // segment Field Functions 
+        bool hasSegment() const { return this->segment_ != nullptr;};
+        void deleteSegment() { this->segment_ = nullptr;};
+        inline const Targets::Segment & getSegment() const { DARABONBA_PTR_GET_CONST(segment_, Targets::Segment) };
+        inline Targets::Segment getSegment() { DARABONBA_PTR_GET(segment_, Targets::Segment) };
+        inline Targets& setSegment(const Targets::Segment & segment) { DARABONBA_PTR_SET_VALUE(segment_, segment) };
+        inline Targets& setSegment(Targets::Segment && segment) { DARABONBA_PTR_SET_RVALUE(segment_, segment) };
+
+
+        // speed Field Functions 
+        bool hasSpeed() const { return this->speed_ != nullptr;};
+        void deleteSpeed() { this->speed_ = nullptr;};
+        inline float getSpeed() const { DARABONBA_PTR_GET_DEFAULT(speed_, 0.0) };
+        inline Targets& setSpeed(float speed) { DARABONBA_PTR_SET_VALUE(speed_, speed) };
+
+
+        // stripMetadata Field Functions 
+        bool hasStripMetadata() const { return this->stripMetadata_ != nullptr;};
+        void deleteStripMetadata() { this->stripMetadata_ = nullptr;};
+        inline bool getStripMetadata() const { DARABONBA_PTR_GET_DEFAULT(stripMetadata_, false) };
+        inline Targets& setStripMetadata(bool stripMetadata) { DARABONBA_PTR_SET_VALUE(stripMetadata_, stripMetadata) };
+
+
+        // subtitle Field Functions 
+        bool hasSubtitle() const { return this->subtitle_ != nullptr;};
+        void deleteSubtitle() { this->subtitle_ = nullptr;};
+        inline const TargetSubtitle & getSubtitle() const { DARABONBA_PTR_GET_CONST(subtitle_, TargetSubtitle) };
+        inline TargetSubtitle getSubtitle() { DARABONBA_PTR_GET(subtitle_, TargetSubtitle) };
+        inline Targets& setSubtitle(const TargetSubtitle & subtitle) { DARABONBA_PTR_SET_VALUE(subtitle_, subtitle) };
+        inline Targets& setSubtitle(TargetSubtitle && subtitle) { DARABONBA_PTR_SET_RVALUE(subtitle_, subtitle) };
+
+
+        // URI Field Functions 
+        bool hasURI() const { return this->URI_ != nullptr;};
+        void deleteURI() { this->URI_ = nullptr;};
+        inline string getURI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
+        inline Targets& setURI(string URI) { DARABONBA_PTR_SET_VALUE(URI_, URI) };
+
+
+        // video Field Functions 
+        bool hasVideo() const { return this->video_ != nullptr;};
+        void deleteVideo() { this->video_ = nullptr;};
+        inline const TargetVideo & getVideo() const { DARABONBA_PTR_GET_CONST(video_, TargetVideo) };
+        inline TargetVideo getVideo() { DARABONBA_PTR_GET(video_, TargetVideo) };
+        inline Targets& setVideo(const TargetVideo & video) { DARABONBA_PTR_SET_VALUE(video_, video) };
+        inline Targets& setVideo(TargetVideo && video) { DARABONBA_PTR_SET_RVALUE(video_, video) };
+
+
+      protected:
+        shared_ptr<TargetAudio> audio_ {};
+        shared_ptr<string> container_ {};
+        shared_ptr<Targets::Segment> segment_ {};
+        shared_ptr<float> speed_ {};
+        shared_ptr<bool> stripMetadata_ {};
+        shared_ptr<TargetSubtitle> subtitle_ {};
+        shared_ptr<string> URI_ {};
+        shared_ptr<TargetVideo> video_ {};
+      };
+
+      virtual bool empty() const override { return this->targets_ == nullptr
+        && this->URI_ == nullptr; };
+      // targets Field Functions 
+      bool hasTargets() const { return this->targets_ != nullptr;};
+      void deleteTargets() { this->targets_ = nullptr;};
+      inline const vector<TargetGroups::Targets> & getTargets() const { DARABONBA_PTR_GET_CONST(targets_, vector<TargetGroups::Targets>) };
+      inline vector<TargetGroups::Targets> getTargets() { DARABONBA_PTR_GET(targets_, vector<TargetGroups::Targets>) };
+      inline TargetGroups& setTargets(const vector<TargetGroups::Targets> & targets) { DARABONBA_PTR_SET_VALUE(targets_, targets) };
+      inline TargetGroups& setTargets(vector<TargetGroups::Targets> && targets) { DARABONBA_PTR_SET_RVALUE(targets_, targets) };
+
+
+      // URI Field Functions 
+      bool hasURI() const { return this->URI_ != nullptr;};
+      void deleteURI() { this->URI_ = nullptr;};
+      inline string getURI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
+      inline TargetGroups& setURI(string URI) { DARABONBA_PTR_SET_VALUE(URI_, URI) };
+
+
+    protected:
+      shared_ptr<vector<TargetGroups::Targets>> targets_ {};
+      shared_ptr<string> URI_ {};
     };
 
     class Sources : public Darabonba::Model {
@@ -437,7 +736,7 @@ namespace Models
 
     virtual bool empty() const override { return this->alignmentIndex_ == nullptr
         && this->credentialConfig_ == nullptr && this->notification_ == nullptr && this->projectName_ == nullptr && this->sources_ == nullptr && this->tags_ == nullptr
-        && this->targets_ == nullptr && this->userData_ == nullptr; };
+        && this->targetGroups_ == nullptr && this->targets_ == nullptr && this->userData_ == nullptr; };
     // alignmentIndex Field Functions 
     bool hasAlignmentIndex() const { return this->alignmentIndex_ != nullptr;};
     void deleteAlignmentIndex() { this->alignmentIndex_ = nullptr;};
@@ -488,6 +787,15 @@ namespace Models
     inline CreateMediaConvertTaskRequest& setTags(Darabonba::Json && tags) { DARABONBA_SET_RVALUE(tags_, tags) };
 
 
+    // targetGroups Field Functions 
+    bool hasTargetGroups() const { return this->targetGroups_ != nullptr;};
+    void deleteTargetGroups() { this->targetGroups_ = nullptr;};
+    inline const vector<CreateMediaConvertTaskRequest::TargetGroups> & getTargetGroups() const { DARABONBA_PTR_GET_CONST(targetGroups_, vector<CreateMediaConvertTaskRequest::TargetGroups>) };
+    inline vector<CreateMediaConvertTaskRequest::TargetGroups> getTargetGroups() { DARABONBA_PTR_GET(targetGroups_, vector<CreateMediaConvertTaskRequest::TargetGroups>) };
+    inline CreateMediaConvertTaskRequest& setTargetGroups(const vector<CreateMediaConvertTaskRequest::TargetGroups> & targetGroups) { DARABONBA_PTR_SET_VALUE(targetGroups_, targetGroups) };
+    inline CreateMediaConvertTaskRequest& setTargetGroups(vector<CreateMediaConvertTaskRequest::TargetGroups> && targetGroups) { DARABONBA_PTR_SET_RVALUE(targetGroups_, targetGroups) };
+
+
     // targets Field Functions 
     bool hasTargets() const { return this->targets_ != nullptr;};
     void deleteTargets() { this->targets_ = nullptr;};
@@ -523,9 +831,8 @@ namespace Models
     shared_ptr<vector<CreateMediaConvertTaskRequest::Sources>> sources_ {};
     // Custom tags used for searching and filtering asynchronous tasks.
     Darabonba::Json tags_ {};
+    shared_ptr<vector<CreateMediaConvertTaskRequest::TargetGroups>> targetGroups_ {};
     // List of media processing tasks, supporting multiple task configurations.
-    // 
-    // This parameter is required.
     shared_ptr<vector<CreateMediaConvertTaskRequest::Targets>> targets_ {};
     // User-defined information that will be returned in asynchronous message notifications, used for convenient association and processing within your system. The maximum length is 2048 bytes.
     shared_ptr<string> userData_ {};

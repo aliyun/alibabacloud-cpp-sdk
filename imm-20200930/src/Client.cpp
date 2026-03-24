@@ -2596,6 +2596,10 @@ CreateMediaConvertTaskResponse Client::createMediaConvertTaskWithOptions(const C
     request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
+  if (!!tmpReq.hasTargetGroups()) {
+    request.setTargetGroupsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetGroups(), "TargetGroups", "json"));
+  }
+
   if (!!tmpReq.hasTargets()) {
     request.setTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargets(), "Targets", "json"));
   }
@@ -2623,6 +2627,10 @@ CreateMediaConvertTaskResponse Client::createMediaConvertTaskWithOptions(const C
 
   if (!!request.hasTagsShrink()) {
     query["Tags"] = request.getTagsShrink();
+  }
+
+  if (!!request.hasTargetGroupsShrink()) {
+    query["TargetGroups"] = request.getTargetGroupsShrink();
   }
 
   if (!!request.hasTargetsShrink()) {
