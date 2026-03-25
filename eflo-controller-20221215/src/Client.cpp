@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Approves an O\\&M operation.
+ * @summary Approves an O\\\\\\&M operation.
  *
  * @param request ApproveOperationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +71,7 @@ ApproveOperationResponse Client::approveOperationWithOptions(const ApproveOperat
 }
 
 /**
- * @summary Approves an O\\&M operation.
+ * @summary Approves an O\\\\\\&M operation.
  *
  * @param request ApproveOperationRequest
  * @return ApproveOperationResponse
@@ -854,7 +854,7 @@ DeleteNodeResponse Client::deleteNode(const DeleteNodeRequest &request) {
 }
 
 /**
- * @summary 删除节点分组
+ * @summary Delete Node Group
  *
  * @param request DeleteNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -889,7 +889,7 @@ DeleteNodeGroupResponse Client::deleteNodeGroupWithOptions(const DeleteNodeGroup
 }
 
 /**
- * @summary 删除节点分组
+ * @summary Delete Node Group
  *
  * @param request DeleteNodeGroupRequest
  * @return DeleteNodeGroupResponse
@@ -1078,7 +1078,7 @@ DescribeHyperNodeResponse Client::describeHyperNode(const DescribeHyperNodeReque
 }
 
 /**
- * @summary Queries the execution list and status of O\\&M Assistant commands.
+ * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
  *
  * @param request DescribeInvocationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1121,7 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @summary Queries the execution list and status of O\\&M Assistant commands.
+ * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
  *
  * @param request DescribeInvocationsRequest
  * @return DescribeInvocationsResponse
@@ -1258,7 +1258,7 @@ DescribeNodeGroupResponse Client::describeNodeGroup(const DescribeNodeGroupReque
 }
 
 /**
- * @summary 创建Web Terminal会话
+ * @summary 查询节点规格详情
  *
  * @param request DescribeNodeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1289,7 +1289,7 @@ DescribeNodeTypeResponse Client::describeNodeTypeWithOptions(const DescribeNodeT
 }
 
 /**
- * @summary 创建Web Terminal会话
+ * @summary 查询节点规格详情
  *
  * @param request DescribeNodeTypeRequest
  * @return DescribeNodeTypeResponse
@@ -1342,7 +1342,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the files that are sent by an O\\&M assistant and the status of the files.
+ * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
  *
  * @param request DescribeSendFileResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1377,7 +1377,7 @@ DescribeSendFileResultsResponse Client::describeSendFileResultsWithOptions(const
 }
 
 /**
- * @summary Queries the files that are sent by an O\\&M assistant and the status of the files.
+ * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
  *
  * @param request DescribeSendFileResultsRequest
  * @return DescribeSendFileResultsResponse
@@ -2983,7 +2983,7 @@ ShrinkClusterResponse Client::shrinkCluster(const ShrinkClusterRequest &request)
 }
 
 /**
- * @summary Stops the O\\&M assistant command execution.
+ * @summary Stops the O\\\\\\&M assistant command execution.
  *
  * @param tmpReq StopInvocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3024,7 +3024,7 @@ StopInvocationResponse Client::stopInvocationWithOptions(const StopInvocationReq
 }
 
 /**
- * @summary Stops the O\\&M assistant command execution.
+ * @summary Stops the O\\\\\\&M assistant command execution.
  *
  * @param request StopInvocationRequest
  * @return StopInvocationResponse

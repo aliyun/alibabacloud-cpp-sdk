@@ -21,7 +21,7 @@ namespace EfloController20221215
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Approves an O\\&M operation.
+       * @summary Approves an O\\\\\\&M operation.
        *
        * @param request ApproveOperationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace EfloController20221215
       Models::ApproveOperationResponse approveOperationWithOptions(const Models::ApproveOperationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Approves an O\\&M operation.
+       * @summary Approves an O\\\\\\&M operation.
        *
        * @param request ApproveOperationRequest
        * @return ApproveOperationResponse
@@ -267,7 +267,7 @@ namespace EfloController20221215
       Models::DeleteNodeResponse deleteNode(const Models::DeleteNodeRequest &request);
 
       /**
-       * @summary 删除节点分组
+       * @summary Delete Node Group
        *
        * @param request DeleteNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -276,7 +276,7 @@ namespace EfloController20221215
       Models::DeleteNodeGroupResponse deleteNodeGroupWithOptions(const Models::DeleteNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除节点分组
+       * @summary Delete Node Group
        *
        * @param request DeleteNodeGroupRequest
        * @return DeleteNodeGroupResponse
@@ -356,7 +356,7 @@ namespace EfloController20221215
       Models::DescribeHyperNodeResponse describeHyperNode(const Models::DescribeHyperNodeRequest &request);
 
       /**
-       * @summary Queries the execution list and status of O\\&M Assistant commands.
+       * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
        *
        * @param request DescribeInvocationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +365,7 @@ namespace EfloController20221215
       Models::DescribeInvocationsResponse describeInvocationsWithOptions(const Models::DescribeInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution list and status of O\\&M Assistant commands.
+       * @summary Queries the execution list and status of O\\\\\\&M Assistant commands.
        *
        * @param request DescribeInvocationsRequest
        * @return DescribeInvocationsResponse
@@ -424,7 +424,7 @@ namespace EfloController20221215
       Models::DescribeNodeGroupResponse describeNodeGroup(const Models::DescribeNodeGroupRequest &request);
 
       /**
-       * @summary 创建Web Terminal会话
+       * @summary 查询节点规格详情
        *
        * @param request DescribeNodeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -433,7 +433,7 @@ namespace EfloController20221215
       Models::DescribeNodeTypeResponse describeNodeTypeWithOptions(const Models::DescribeNodeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Web Terminal会话
+       * @summary 查询节点规格详情
        *
        * @param request DescribeNodeTypeRequest
        * @return DescribeNodeTypeResponse
@@ -458,7 +458,7 @@ namespace EfloController20221215
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the files that are sent by an O\\&M assistant and the status of the files.
+       * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
        *
        * @param request DescribeSendFileResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -467,7 +467,7 @@ namespace EfloController20221215
       Models::DescribeSendFileResultsResponse describeSendFileResultsWithOptions(const Models::DescribeSendFileResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the files that are sent by an O\\&M assistant and the status of the files.
+       * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
        *
        * @param request DescribeSendFileResultsRequest
        * @return DescribeSendFileResultsResponse
@@ -920,7 +920,7 @@ namespace EfloController20221215
       Models::ShrinkClusterResponse shrinkCluster(const Models::ShrinkClusterRequest &request);
 
       /**
-       * @summary Stops the O\\&M assistant command execution.
+       * @summary Stops the O\\\\\\&M assistant command execution.
        *
        * @param tmpReq StopInvocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -929,7 +929,7 @@ namespace EfloController20221215
       Models::StopInvocationResponse stopInvocationWithOptions(const Models::StopInvocationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops the O\\&M assistant command execution.
+       * @summary Stops the O\\\\\\&M assistant command execution.
        *
        * @param request StopInvocationRequest
        * @return StopInvocationResponse

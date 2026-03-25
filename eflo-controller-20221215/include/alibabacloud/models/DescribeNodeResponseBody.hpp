@@ -79,13 +79,17 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Networks& obj) { 
         DARABONBA_PTR_TO_JSON(BondName, bondName_);
         DARABONBA_PTR_TO_JSON(Ip, ip_);
+        DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
         DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
+        DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_TO_JSON(VpdId, vpdId_);
       };
       friend void from_json(const Darabonba::Json& j, Networks& obj) { 
         DARABONBA_PTR_FROM_JSON(BondName, bondName_);
         DARABONBA_PTR_FROM_JSON(Ip, ip_);
+        DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
         DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
+        DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_FROM_JSON(VpdId, vpdId_);
       };
       Networks() = default ;
@@ -100,7 +104,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bondName_ == nullptr
-        && this->ip_ == nullptr && this->subnetId_ == nullptr && this->vpdId_ == nullptr; };
+        && this->ip_ == nullptr && this->securityGroupId_ == nullptr && this->subnetId_ == nullptr && this->vSwitchId_ == nullptr && this->vpdId_ == nullptr; };
       // bondName Field Functions 
       bool hasBondName() const { return this->bondName_ != nullptr;};
       void deleteBondName() { this->bondName_ = nullptr;};
@@ -115,11 +119,25 @@ namespace Models
       inline Networks& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
+      // securityGroupId Field Functions 
+      bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+      void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+      inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+      inline Networks& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
       // subnetId Field Functions 
       bool hasSubnetId() const { return this->subnetId_ != nullptr;};
       void deleteSubnetId() { this->subnetId_ = nullptr;};
       inline string getSubnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
       inline Networks& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
+
+
+      // vSwitchId Field Functions 
+      bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+      void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+      inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+      inline Networks& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
       // vpdId Field Functions 
@@ -134,8 +152,10 @@ namespace Models
       shared_ptr<string> bondName_ {};
       // The IP address of the node.
       shared_ptr<string> ip_ {};
+      shared_ptr<string> securityGroupId_ {};
       // The subnet ID.
       shared_ptr<string> subnetId_ {};
+      shared_ptr<string> vSwitchId_ {};
       // The ID of the cluster network.
       shared_ptr<string> vpdId_ {};
     };

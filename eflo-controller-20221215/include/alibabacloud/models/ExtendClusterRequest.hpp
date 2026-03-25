@@ -92,6 +92,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Hostname, hostname_);
           DARABONBA_PTR_TO_JSON(LoginPassword, loginPassword_);
           DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+          DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
           DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         };
@@ -100,6 +101,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
           DARABONBA_PTR_FROM_JSON(LoginPassword, loginPassword_);
           DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+          DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
           DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         };
@@ -201,7 +203,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->dataDisk_ == nullptr
-        && this->hostname_ == nullptr && this->loginPassword_ == nullptr && this->nodeId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->hostname_ == nullptr && this->loginPassword_ == nullptr && this->nodeId_ == nullptr && this->securityGroupId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr; };
         // dataDisk Field Functions 
         bool hasDataDisk() const { return this->dataDisk_ != nullptr;};
         void deleteDataDisk() { this->dataDisk_ = nullptr;};
@@ -232,6 +235,13 @@ namespace Models
         inline Nodes& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
+        // securityGroupId Field Functions 
+        bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+        void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+        inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+        inline Nodes& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
         // vSwitchId Field Functions 
         bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
         void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -255,6 +265,7 @@ namespace Models
         shared_ptr<string> loginPassword_ {};
         // Node ID
         shared_ptr<string> nodeId_ {};
+        shared_ptr<string> securityGroupId_ {};
         // VSwitch ID
         shared_ptr<string> vSwitchId_ {};
         // VPC ID
@@ -312,6 +323,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Hostname, hostname_);
           DARABONBA_PTR_TO_JSON(HyperNodeId, hyperNodeId_);
           DARABONBA_PTR_TO_JSON(LoginPassword, loginPassword_);
+          DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
           DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         };
@@ -320,6 +332,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
           DARABONBA_PTR_FROM_JSON(HyperNodeId, hyperNodeId_);
           DARABONBA_PTR_FROM_JSON(LoginPassword, loginPassword_);
+          DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
           DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         };
@@ -417,7 +430,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->dataDisk_ == nullptr
-        && this->hostname_ == nullptr && this->hyperNodeId_ == nullptr && this->loginPassword_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->hostname_ == nullptr && this->hyperNodeId_ == nullptr && this->loginPassword_ == nullptr && this->securityGroupId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr; };
         // dataDisk Field Functions 
         bool hasDataDisk() const { return this->dataDisk_ != nullptr;};
         void deleteDataDisk() { this->dataDisk_ = nullptr;};
@@ -448,6 +462,13 @@ namespace Models
         inline HyperNodes& setLoginPassword(string loginPassword) { DARABONBA_PTR_SET_VALUE(loginPassword_, loginPassword) };
 
 
+        // securityGroupId Field Functions 
+        bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+        void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+        inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+        inline HyperNodes& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
         // vSwitchId Field Functions 
         bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
         void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -467,6 +488,7 @@ namespace Models
         shared_ptr<string> hostname_ {};
         shared_ptr<string> hyperNodeId_ {};
         shared_ptr<string> loginPassword_ {};
+        shared_ptr<string> securityGroupId_ {};
         shared_ptr<string> vSwitchId_ {};
         shared_ptr<string> vpcId_ {};
       };
