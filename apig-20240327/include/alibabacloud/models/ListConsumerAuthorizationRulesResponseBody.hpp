@@ -209,18 +209,31 @@ namespace Models
 
 
       protected:
+        // The API information.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
+        // The ID of the consumer authorization rule.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
+        // The consumer ID.
         shared_ptr<string> consumerId_ {};
+        // The creation timestamp.
         shared_ptr<int64_t> createTimestamp_ {};
+        // The deployment status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
+        // The environment information.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
+        // The expiry mode. Valid values: LongTerm and ShortTerm.
         shared_ptr<string> expireMode_ {};
+        // The rule status.
         shared_ptr<string> expireStatus_ {};
+        // The time when the rule expires.
         shared_ptr<int64_t> expireTimestamp_ {};
+        // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
+        // The resource type.
         shared_ptr<string> resourceType_ {};
+        // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -257,9 +270,13 @@ namespace Models
 
 
     protected:
+      // The list of consumer authorization information.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number.
       shared_ptr<string> totalSize_ {};
     };
 
@@ -296,8 +313,11 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListConsumerAuthorizationRulesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

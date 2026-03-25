@@ -335,7 +335,7 @@ namespace APIG20240327
       Models::CreatePolicyAttachmentResponse createPolicyAttachment(const Models::CreatePolicyAttachmentRequest &request);
 
       /**
-       * @summary 创建密钥
+       * @summary Generates a key.
        *
        * @param request CreateSecretRequest
        * @param headers map
@@ -345,7 +345,7 @@ namespace APIG20240327
       Models::CreateSecretResponse createSecretWithOptions(const Models::CreateSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建密钥
+       * @summary Generates a key.
        *
        * @param request CreateSecretRequest
        * @return CreateSecretResponse
@@ -625,7 +625,7 @@ namespace APIG20240327
       Models::DeletePolicyAttachmentResponse deletePolicyAttachment(const string &policyAttachmentId);
 
       /**
-       * @summary 删除密钥
+       * @summary Deletes a key value.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -634,7 +634,7 @@ namespace APIG20240327
       Models::DeleteSecretResponse deleteSecretWithOptions(const string &secretId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除密钥
+       * @summary Deletes a key value.
        *
        * @return DeleteSecretResponse
        */
@@ -979,7 +979,9 @@ namespace APIG20240327
       Models::GetResourceOverviewResponse getResourceOverview(const Models::GetResourceOverviewRequest &request);
 
       /**
-       * @summary 查询密钥
+       * @summary Obtains the key.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -988,14 +990,16 @@ namespace APIG20240327
       Models::GetSecretResponse getSecretWithOptions(const string &secretId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询密钥
+       * @summary Obtains the key.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @return GetSecretResponse
        */
       Models::GetSecretResponse getSecret(const string &secretId);
 
       /**
-       * @summary 查询密钥值
+       * @summary Gets the key value.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1004,7 +1008,7 @@ namespace APIG20240327
       Models::GetSecretValueResponse getSecretValueWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询密钥值
+       * @summary Gets the key value.
        *
        * @return GetSecretValueResponse
        */
@@ -1097,7 +1101,7 @@ namespace APIG20240327
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
-       * @summary 查询消费者授权规则列表
+       * @summary Obtains a list of consumer authentication rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
        * @param headers map
@@ -1107,7 +1111,7 @@ namespace APIG20240327
       Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRulesWithOptions(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者授权规则列表
+       * @summary Obtains a list of consumer authentication rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
        * @return ListConsumerAuthorizationRulesResponse
@@ -1301,7 +1305,9 @@ namespace APIG20240327
       Models::ListPluginAttachmentsResponse listPluginAttachments(const Models::ListPluginAttachmentsRequest &request);
 
       /**
-       * @summary ListPluginClasses
+       * @summary Obtains a plugin.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param request ListPluginClassesRequest
        * @param headers map
@@ -1311,7 +1317,9 @@ namespace APIG20240327
       Models::ListPluginClassesResponse listPluginClassesWithOptions(const Models::ListPluginClassesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListPluginClasses
+       * @summary Obtains a plugin.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param request ListPluginClassesRequest
        * @return ListPluginClassesResponse
@@ -1373,7 +1381,9 @@ namespace APIG20240327
       Models::ListPolicyClassesResponse listPolicyClasses(const Models::ListPolicyClassesRequest &request);
 
       /**
-       * @summary 查询密钥的引用详情
+       * @summary Lists key references.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param request ListSecretReferencesRequest
        * @param headers map
@@ -1383,7 +1393,9 @@ namespace APIG20240327
       Models::ListSecretReferencesResponse listSecretReferencesWithOptions(const string &secretId, const Models::ListSecretReferencesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询密钥的引用详情
+       * @summary Lists key references.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param request ListSecretReferencesRequest
        * @return ListSecretReferencesResponse
@@ -1825,7 +1837,9 @@ namespace APIG20240327
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
 
       /**
-       * @summary 更新消费者
+       * @summary Updates the key.
+       *
+       * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
        *
        * @param request UpdateSecretRequest
        * @param headers map
@@ -1835,7 +1849,9 @@ namespace APIG20240327
       Models::UpdateSecretResponse updateSecretWithOptions(const string &secretId, const Models::UpdateSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新消费者
+       * @summary Updates the key.
+       *
+       * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
        *
        * @param request UpdateSecretRequest
        * @return UpdateSecretResponse

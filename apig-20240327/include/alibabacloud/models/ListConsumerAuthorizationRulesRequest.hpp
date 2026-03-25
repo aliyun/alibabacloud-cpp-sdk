@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // API name for fuzzy search.
     shared_ptr<string> apiNameLike_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned on each page. If you do not specify this parameter, the default value is 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

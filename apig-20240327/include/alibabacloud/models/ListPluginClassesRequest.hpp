@@ -130,16 +130,35 @@ namespace Models
 
 
   protected:
+    // The alias keyword for a fuzzy search.
     shared_ptr<string> aliasLike_ {};
+    // The traffic direction. Valid values: 
+    // 
+    // *   OutBound
+    // *   InBound
+    // *   Both
     shared_ptr<string> direction_ {};
+    // Specifies whether to exclude built-in plugins.
     shared_ptr<bool> excludeBuiltinAiProxy_ {};
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
+    // The instance type. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
+    // Indicates whether the plugin is installed.
     shared_ptr<bool> installed_ {};
+    // The plugin name for a fuzzy search.
     shared_ptr<string> nameLike_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The plugin source. Valid values: 
+    // 
+    // *   HigressOfficial
+    // *   HigressCommunity
+    // *   Custom
     shared_ptr<string> source_ {};
+    // The type of the plugin.
     shared_ptr<string> type_ {};
   };
 

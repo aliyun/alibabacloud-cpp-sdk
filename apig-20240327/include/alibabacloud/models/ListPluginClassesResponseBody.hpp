@@ -181,16 +181,27 @@ namespace Models
 
 
       protected:
+        // The alias of the plugin.
         shared_ptr<string> alias_ {};
+        // The description of the plugin.
         shared_ptr<string> description_ {};
+        // Indicates whether the plugin is installed.
         shared_ptr<bool> installed_ {};
+        // The plugin name.
         shared_ptr<string> name_ {};
+        // The plugin type ID.
         shared_ptr<string> pluginClassId_ {};
+        // The plugin ID.
         shared_ptr<string> pluginId_ {};
+        // The publishing status.
         shared_ptr<string> publishStatus_ {};
+        // The source of the plugin.
         shared_ptr<string> source_ {};
+        // The minimum version of the gateway supported by the plugin.
         shared_ptr<string> supportedMinGatewayVersion_ {};
+        // The type of the plugin.
         shared_ptr<string> type_ {};
+        // The version.
         shared_ptr<string> version_ {};
       };
 
@@ -227,9 +238,13 @@ namespace Models
 
 
     protected:
+      // The plugin details.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -266,9 +281,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response parameters.
     shared_ptr<ListPluginClassesResponseBody::Data> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The ID of the request
     shared_ptr<string> requestId_ {};
   };
 

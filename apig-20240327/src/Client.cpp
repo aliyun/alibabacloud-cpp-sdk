@@ -1210,7 +1210,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachment(const CreatePolicy
 }
 
 /**
- * @summary 创建密钥
+ * @summary Generates a key.
  *
  * @param request CreateSecretRequest
  * @param headers map
@@ -1263,7 +1263,7 @@ CreateSecretResponse Client::createSecretWithOptions(const CreateSecretRequest &
 }
 
 /**
- * @summary 创建密钥
+ * @summary Generates a key.
  *
  * @param request CreateSecretRequest
  * @return CreateSecretResponse
@@ -1933,7 +1933,7 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
 }
 
 /**
- * @summary 删除密钥
+ * @summary Deletes a key value.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1958,7 +1958,7 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const string &secretId, con
 }
 
 /**
- * @summary 删除密钥
+ * @summary Deletes a key value.
  *
  * @return DeleteSecretResponse
  */
@@ -2792,7 +2792,9 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
 }
 
 /**
- * @summary 查询密钥
+ * @summary Obtains the key.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2817,7 +2819,9 @@ GetSecretResponse Client::getSecretWithOptions(const string &secretId, const map
 }
 
 /**
- * @summary 查询密钥
+ * @summary Obtains the key.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @return GetSecretResponse
  */
@@ -2828,7 +2832,7 @@ GetSecretResponse Client::getSecret(const string &secretId) {
 }
 
 /**
- * @summary 查询密钥值
+ * @summary Gets the key value.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2857,7 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const string &name, con
 }
 
 /**
- * @summary 查询密钥值
+ * @summary Gets the key value.
  *
  * @return GetSecretValueResponse
  */
@@ -3123,7 +3127,7 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
 }
 
 /**
- * @summary 查询消费者授权规则列表
+ * @summary Obtains a list of consumer authentication rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @param headers map
@@ -3164,7 +3168,7 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRulesWit
 }
 
 /**
- * @summary 查询消费者授权规则列表
+ * @summary Obtains a list of consumer authentication rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @return ListConsumerAuthorizationRulesResponse
@@ -3939,7 +3943,9 @@ ListPluginAttachmentsResponse Client::listPluginAttachments(const ListPluginAtta
 }
 
 /**
- * @summary ListPluginClasses
+ * @summary Obtains a plugin.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param request ListPluginClassesRequest
  * @param headers map
@@ -4012,7 +4018,9 @@ ListPluginClassesResponse Client::listPluginClassesWithOptions(const ListPluginC
 }
 
 /**
- * @summary ListPluginClasses
+ * @summary Obtains a plugin.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param request ListPluginClassesRequest
  * @return ListPluginClassesResponse
@@ -4239,7 +4247,9 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
- * @summary 查询密钥的引用详情
+ * @summary Lists key references.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param request ListSecretReferencesRequest
  * @param headers map
@@ -4276,7 +4286,9 @@ ListSecretReferencesResponse Client::listSecretReferencesWithOptions(const strin
 }
 
 /**
- * @summary 查询密钥的引用详情
+ * @summary Lists key references.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param request ListSecretReferencesRequest
  * @return ListSecretReferencesResponse
@@ -5679,7 +5691,9 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
- * @summary 更新消费者
+ * @summary Updates the key.
+ *
+ * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
  *
  * @param request UpdateSecretRequest
  * @param headers map
@@ -5712,7 +5726,9 @@ UpdateSecretResponse Client::updateSecretWithOptions(const string &secretId, con
 }
 
 /**
- * @summary 更新消费者
+ * @summary Updates the key.
+ *
+ * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
  *
  * @param request UpdateSecretRequest
  * @return UpdateSecretResponse

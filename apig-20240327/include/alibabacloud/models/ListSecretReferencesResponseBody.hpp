@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // The HTTP API ID.
           shared_ptr<string> httpApiId_ {};
+          // The route name.
           shared_ptr<string> name_ {};
+          // The route ID.
           shared_ptr<string> routeId_ {};
         };
 
@@ -180,7 +183,9 @@ namespace Models
 
 
         protected:
+          // The consumer ID.
           shared_ptr<string> consumerId_ {};
+          // The consumer name.
           shared_ptr<string> name_ {};
         };
 
@@ -222,7 +227,9 @@ namespace Models
 
 
         protected:
+          // The service name.
           shared_ptr<string> name_ {};
+          // The service ID.
           shared_ptr<string> serviceId_ {};
         };
 
@@ -273,8 +280,11 @@ namespace Models
 
 
         protected:
+          // The plug-in name.
           shared_ptr<string> name_ {};
+          // The plug-in type ID.
           shared_ptr<string> pluginClassId_ {};
+          // The plug-in ID.
           shared_ptr<string> pluginId_ {};
         };
 
@@ -331,11 +341,17 @@ namespace Models
 
 
       protected:
+        // The information about the plug-in that references the current key.
         shared_ptr<Items::PluginConfig> pluginConfig_ {};
+        // The service information that references the current key.
         shared_ptr<Items::ServiceConfig> serviceConfig_ {};
+        // The consumer information that references the current key.
         shared_ptr<Items::ConsumerConfig> consumerConfig_ {};
+        // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
+        // MCP service information that references the current key.
         shared_ptr<Items::McpServerConfig> mcpServerConfig_ {};
+        // The type of resource.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -372,9 +388,13 @@ namespace Models
 
 
     protected:
+      // The list of reference details.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -411,8 +431,11 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListSecretReferencesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

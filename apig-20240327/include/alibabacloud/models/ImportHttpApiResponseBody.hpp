@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(existHttpApiInfo, existHttpApiInfo_);
           DARABONBA_PTR_TO_JSON(failureComponents, failureComponents_);
           DARABONBA_PTR_TO_JSON(failureOperations, failureOperations_);
+          DARABONBA_PTR_TO_JSON(mcpToolsDefinition, mcpToolsDefinition_);
           DARABONBA_PTR_TO_JSON(successComponents, successComponents_);
           DARABONBA_PTR_TO_JSON(successOperations, successOperations_);
           DARABONBA_PTR_TO_JSON(warningMessages, warningMessages_);
@@ -76,6 +77,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(existHttpApiInfo, existHttpApiInfo_);
           DARABONBA_PTR_FROM_JSON(failureComponents, failureComponents_);
           DARABONBA_PTR_FROM_JSON(failureOperations, failureOperations_);
+          DARABONBA_PTR_FROM_JSON(mcpToolsDefinition, mcpToolsDefinition_);
           DARABONBA_PTR_FROM_JSON(successComponents, successComponents_);
           DARABONBA_PTR_FROM_JSON(successOperations, successOperations_);
           DARABONBA_PTR_FROM_JSON(warningMessages, warningMessages_);
@@ -307,8 +309,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->errorMessages_ == nullptr
-        && this->existHttpApiInfo_ == nullptr && this->failureComponents_ == nullptr && this->failureOperations_ == nullptr && this->successComponents_ == nullptr && this->successOperations_ == nullptr
-        && this->warningMessages_ == nullptr; };
+        && this->existHttpApiInfo_ == nullptr && this->failureComponents_ == nullptr && this->failureOperations_ == nullptr && this->mcpToolsDefinition_ == nullptr && this->successComponents_ == nullptr
+        && this->successOperations_ == nullptr && this->warningMessages_ == nullptr; };
         // errorMessages Field Functions 
         bool hasErrorMessages() const { return this->errorMessages_ != nullptr;};
         void deleteErrorMessages() { this->errorMessages_ = nullptr;};
@@ -343,6 +345,13 @@ namespace Models
         inline vector<DryRunInfo::FailureOperations> getFailureOperations() { DARABONBA_PTR_GET(failureOperations_, vector<DryRunInfo::FailureOperations>) };
         inline DryRunInfo& setFailureOperations(const vector<DryRunInfo::FailureOperations> & failureOperations) { DARABONBA_PTR_SET_VALUE(failureOperations_, failureOperations) };
         inline DryRunInfo& setFailureOperations(vector<DryRunInfo::FailureOperations> && failureOperations) { DARABONBA_PTR_SET_RVALUE(failureOperations_, failureOperations) };
+
+
+        // mcpToolsDefinition Field Functions 
+        bool hasMcpToolsDefinition() const { return this->mcpToolsDefinition_ != nullptr;};
+        void deleteMcpToolsDefinition() { this->mcpToolsDefinition_ = nullptr;};
+        inline string getMcpToolsDefinition() const { DARABONBA_PTR_GET_DEFAULT(mcpToolsDefinition_, "") };
+        inline DryRunInfo& setMcpToolsDefinition(string mcpToolsDefinition) { DARABONBA_PTR_SET_VALUE(mcpToolsDefinition_, mcpToolsDefinition) };
 
 
         // successComponents Field Functions 
@@ -381,6 +390,7 @@ namespace Models
         shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
         // The operations that fail the dry run.
         shared_ptr<vector<DryRunInfo::FailureOperations>> failureOperations_ {};
+        shared_ptr<string> mcpToolsDefinition_ {};
         // The data structs that pass the dry run.
         shared_ptr<vector<DryRunInfo::SuccessComponents>> successComponents_ {};
         // The operations that pass the dry run.
