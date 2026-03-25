@@ -2426,6 +2426,10 @@ ListDataIngestionsResponse Client::listDataIngestionsWithOptions(const ListDataI
     request.setDataIngestionTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataIngestionTemplateIds(), "DataIngestionTemplateIds", "simple"));
   }
 
+  if (!!tmpReq.hasNormalizationSchemaIds()) {
+    request.setNormalizationSchemaIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNormalizationSchemaIds(), "NormalizationSchemaIds", "simple"));
+  }
+
   json body = {};
   if (!!request.hasDataIngestionIdsShrink()) {
     body["DataIngestionIds"] = request.getDataIngestionIdsShrink();
@@ -2441,6 +2445,10 @@ ListDataIngestionsResponse Client::listDataIngestionsWithOptions(const ListDataI
 
   if (!!request.hasLang()) {
     body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasNormalizationSchemaIdsShrink()) {
+    body["NormalizationSchemaIds"] = request.getNormalizationSchemaIdsShrink();
   }
 
   if (!!request.hasProductId()) {

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataIngestionStatus, dataIngestionStatus_);
       DARABONBA_PTR_TO_JSON(DataIngestionTemplateIds, dataIngestionTemplateIdsShrink_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(NormalizationSchemaIds, normalizationSchemaIdsShrink_);
       DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataIngestionStatus, dataIngestionStatus_);
       DARABONBA_PTR_FROM_JSON(DataIngestionTemplateIds, dataIngestionTemplateIdsShrink_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(NormalizationSchemaIds, normalizationSchemaIdsShrink_);
       DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataIngestionIdsShrink_ == nullptr
-        && this->dataIngestionStatus_ == nullptr && this->dataIngestionTemplateIdsShrink_ == nullptr && this->lang_ == nullptr && this->productId_ == nullptr && this->regionId_ == nullptr
-        && this->roleFor_ == nullptr; };
+        && this->dataIngestionStatus_ == nullptr && this->dataIngestionTemplateIdsShrink_ == nullptr && this->lang_ == nullptr && this->normalizationSchemaIdsShrink_ == nullptr && this->productId_ == nullptr
+        && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // dataIngestionIdsShrink Field Functions 
     bool hasDataIngestionIdsShrink() const { return this->dataIngestionIdsShrink_ != nullptr;};
     void deleteDataIngestionIdsShrink() { this->dataIngestionIdsShrink_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     inline ListDataIngestionsShrinkRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
+    // normalizationSchemaIdsShrink Field Functions 
+    bool hasNormalizationSchemaIdsShrink() const { return this->normalizationSchemaIdsShrink_ != nullptr;};
+    void deleteNormalizationSchemaIdsShrink() { this->normalizationSchemaIdsShrink_ = nullptr;};
+    inline string getNormalizationSchemaIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(normalizationSchemaIdsShrink_, "") };
+    inline ListDataIngestionsShrinkRequest& setNormalizationSchemaIdsShrink(string normalizationSchemaIdsShrink) { DARABONBA_PTR_SET_VALUE(normalizationSchemaIdsShrink_, normalizationSchemaIdsShrink) };
+
+
     // productId Field Functions 
     bool hasProductId() const { return this->productId_ != nullptr;};
     void deleteProductId() { this->productId_ = nullptr;};
@@ -98,6 +107,7 @@ namespace Models
     shared_ptr<string> dataIngestionStatus_ {};
     shared_ptr<string> dataIngestionTemplateIdsShrink_ {};
     shared_ptr<string> lang_ {};
+    shared_ptr<string> normalizationSchemaIdsShrink_ {};
     shared_ptr<string> productId_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> roleFor_ {};
