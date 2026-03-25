@@ -860,6 +860,64 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const 
 }
 
 /**
+ * @summary 编辑插件配置
+ *
+ * @param request EditPluginConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EditPluginConfigResponse
+ */
+EditPluginConfigResponse Client::editPluginConfigWithOptions(const EditPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPluginConfig()) {
+    query["PluginConfig"] = request.getPluginConfig();
+  }
+
+  if (!!request.hasPluginDesc()) {
+    query["PluginDesc"] = request.getPluginDesc();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginName()) {
+    query["PluginName"] = request.getPluginName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EditPluginConfig"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EditPluginConfigResponse>();
+}
+
+/**
+ * @summary 编辑插件配置
+ *
+ * @param request EditPluginConfigRequest
+ * @return EditPluginConfigResponse
+ */
+EditPluginConfigResponse Client::editPluginConfig(const EditPluginConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return editPluginConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 导出素材文件
  *
  * @param tmpReq ExportMaterialFileRequest

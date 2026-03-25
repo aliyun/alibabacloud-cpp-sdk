@@ -276,6 +276,23 @@ namespace WebsiteBuild20250429
       Models::DispatchConsoleAPIForPartnerResponse dispatchConsoleAPIForPartner(const Models::DispatchConsoleAPIForPartnerRequest &request);
 
       /**
+       * @summary 编辑插件配置
+       *
+       * @param request EditPluginConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EditPluginConfigResponse
+       */
+      Models::EditPluginConfigResponse editPluginConfigWithOptions(const Models::EditPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 编辑插件配置
+       *
+       * @param request EditPluginConfigRequest
+       * @return EditPluginConfigResponse
+       */
+      Models::EditPluginConfigResponse editPluginConfig(const Models::EditPluginConfigRequest &request);
+
+      /**
        * @summary 导出素材文件
        *
        * @param tmpReq ExportMaterialFileRequest

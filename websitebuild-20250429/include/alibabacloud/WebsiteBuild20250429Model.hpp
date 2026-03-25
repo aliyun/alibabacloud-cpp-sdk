@@ -72,6 +72,9 @@
 #include <alibabacloud/models/DispatchConsoleAPIForPartnerRequest.hpp>
 #include <alibabacloud/models/DispatchConsoleAPIForPartnerResponseBody.hpp>
 #include <alibabacloud/models/DispatchConsoleAPIForPartnerResponse.hpp>
+#include <alibabacloud/models/EditPluginConfigRequest.hpp>
+#include <alibabacloud/models/EditPluginConfigResponseBody.hpp>
+#include <alibabacloud/models/EditPluginConfigResponse.hpp>
 #include <alibabacloud/models/ExportMaterialFileRequest.hpp>
 #include <alibabacloud/models/ExportMaterialFileShrinkRequest.hpp>
 #include <alibabacloud/models/ExportMaterialFileResponseBody.hpp>
