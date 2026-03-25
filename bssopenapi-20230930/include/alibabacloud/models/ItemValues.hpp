@@ -13,8 +13,10 @@ namespace Models
   class ItemValues : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ItemValues& obj) { 
+      (void)j; (void)obj; 
     };
     friend void from_json(const Darabonba::Json& j, ItemValues& obj) { 
+      (void)j; (void)obj; 
     };
     ItemValues() = default ;
     ItemValues(const ItemValues &) = default ;

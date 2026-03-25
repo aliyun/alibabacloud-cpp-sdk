@@ -174,7 +174,7 @@ namespace BssOpenApi20230930
       Models::CreateInvoiceResponse createInvoice(const Models::CreateInvoiceRequest &request);
 
       /**
-       * @summary 创建账单订阅
+       * @summary Create a bill report subscription.
        *
        * @param request CreateReportDefinitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace BssOpenApi20230930
       Models::CreateReportDefinitionResponse createReportDefinitionWithOptions(const Models::CreateReportDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建账单订阅
+       * @summary Create a bill report subscription.
        *
        * @param request CreateReportDefinitionRequest
        * @return CreateReportDefinitionResponse

@@ -646,7 +646,7 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
 }
 
 /**
- * @summary 创建账单订阅
+ * @summary Create a bill report subscription.
  *
  * @param request CreateReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +727,7 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 }
 
 /**
- * @summary 创建账单订阅
+ * @summary Create a bill report subscription.
  *
  * @param request CreateReportDefinitionRequest
  * @return CreateReportDefinitionResponse
@@ -970,7 +970,63 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
     request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasCouponId()) {
+    query["CouponId"] = request.getCouponId();
+  }
+
+  if (!!request.hasCouponNo()) {
+    query["CouponNo"] = request.getCouponNo();
+  }
+
+  if (!!request.hasCouponType()) {
+    query["CouponType"] = request.getCouponType();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasEffectiveEndTime()) {
+    query["EffectiveEndTime"] = request.getEffectiveEndTime();
+  }
+
+  if (!!request.hasEffectiveStartTime()) {
+    query["EffectiveStartTime"] = request.getEffectiveStartTime();
+  }
+
+  if (!!request.hasExpireEndDate()) {
+    query["ExpireEndDate"] = request.getExpireEndDate();
+  }
+
+  if (!!request.hasExpireStartDate()) {
+    query["ExpireStartDate"] = request.getExpireStartDate();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -979,7 +1035,7 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -1014,7 +1070,31 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
     request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
 
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasCouponId()) {
+    query["CouponId"] = request.getCouponId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1023,7 +1103,7 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
