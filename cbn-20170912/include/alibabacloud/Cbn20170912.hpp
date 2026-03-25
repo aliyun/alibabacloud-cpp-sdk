@@ -787,7 +787,7 @@ namespace Cbn20170912
       Models::CreateTransitRouterRouteTableResponse createTransitRouterRouteTable(const Models::CreateTransitRouterRouteTableRequest &request);
 
       /**
-       * @summary Connects the virtual border routers (VBRs) among which you want to establish network communication to the transit router in the region. Then, the transit router can exchange data between the VBR and CEN instance over private connections.
+       * @summary Connects a virtual border router (VBR) to an Enterprise Edition transit router.
        *
        * @description *   For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](https://help.aliyun.com/document_detail/181681.html)
        * *   You can use the following methods to create a VBR connection on an Enterprise Edition transit router:
@@ -807,7 +807,7 @@ namespace Cbn20170912
       Models::CreateTransitRouterVbrAttachmentResponse createTransitRouterVbrAttachmentWithOptions(const Models::CreateTransitRouterVbrAttachmentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Connects the virtual border routers (VBRs) among which you want to establish network communication to the transit router in the region. Then, the transit router can exchange data between the VBR and CEN instance over private connections.
+       * @summary Connects a virtual border router (VBR) to an Enterprise Edition transit router.
        *
        * @description *   For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](https://help.aliyun.com/document_detail/181681.html)
        * *   You can use the following methods to create a VBR connection on an Enterprise Edition transit router:
@@ -968,6 +968,8 @@ namespace Cbn20170912
       Models::DeleteCenResponse deleteCen(const Models::DeleteCenRequest &request);
 
       /**
+       * @summary Deletes a bandwidth plan.
+       *
        * @param request DeleteCenBandwidthPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCenBandwidthPackageResponse
@@ -975,6 +977,8 @@ namespace Cbn20170912
       Models::DeleteCenBandwidthPackageResponse deleteCenBandwidthPackageWithOptions(const Models::DeleteCenBandwidthPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a bandwidth plan.
+       *
        * @param request DeleteCenBandwidthPackageRequest
        * @return DeleteCenBandwidthPackageResponse
        */
@@ -1927,7 +1931,7 @@ namespace Cbn20170912
       Models::DescribePublishedRouteEntriesResponse describePublishedRouteEntries(const Models::DescribePublishedRouteEntriesRequest &request);
 
       /**
-       * @summary Queries overlapping routes.
+       * @summary Queries conflicting routes on a network instance.
        *
        * @param request DescribeRouteConflictRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1936,7 +1940,7 @@ namespace Cbn20170912
       Models::DescribeRouteConflictResponse describeRouteConflictWithOptions(const Models::DescribeRouteConflictRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries overlapping routes.
+       * @summary Queries conflicting routes on a network instance.
        *
        * @param request DescribeRouteConflictRequest
        * @return DescribeRouteConflictResponse
@@ -1944,7 +1948,7 @@ namespace Cbn20170912
       Models::DescribeRouteConflictResponse describeRouteConflict(const Models::DescribeRouteConflictRequest &request);
 
       /**
-       * @summary Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
+       * @summary Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
        *
        * @param request DescribeRouteServicesInCenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +1957,7 @@ namespace Cbn20170912
       Models::DescribeRouteServicesInCenResponse describeRouteServicesInCenWithOptions(const Models::DescribeRouteServicesInCenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
+       * @summary Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
        *
        * @param request DescribeRouteServicesInCenRequest
        * @return DescribeRouteServicesInCenResponse
@@ -2513,6 +2517,8 @@ namespace Cbn20170912
       Models::ListTransitRouterMulticastDomainAssociationsResponse listTransitRouterMulticastDomainAssociations(const Models::ListTransitRouterMulticastDomainAssociationsRequest &request);
 
       /**
+       * @summary Queries the information about vSwitches that are associated with a multicast domain after the virtual private cloud (VPC) of the vSwitches is connected to an Enterprise Edition transit router.
+       *
        * @param request ListTransitRouterMulticastDomainVSwitchesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTransitRouterMulticastDomainVSwitchesResponse
@@ -2520,6 +2526,8 @@ namespace Cbn20170912
       Models::ListTransitRouterMulticastDomainVSwitchesResponse listTransitRouterMulticastDomainVSwitchesWithOptions(const Models::ListTransitRouterMulticastDomainVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about vSwitches that are associated with a multicast domain after the virtual private cloud (VPC) of the vSwitches is connected to an Enterprise Edition transit router.
+       *
        * @param request ListTransitRouterMulticastDomainVSwitchesRequest
        * @return ListTransitRouterMulticastDomainVSwitchesResponse
        */
@@ -3441,7 +3449,7 @@ namespace Cbn20170912
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 进行云企业网预付费带宽包临时升配
+       * @summary Temporarily upgrades a subscription bandwidth plan of Cloud Enterprise Network (CEN).
        *
        * @param request TempUpgradeCenBandwidthPackageSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3450,7 +3458,7 @@ namespace Cbn20170912
       Models::TempUpgradeCenBandwidthPackageSpecResponse tempUpgradeCenBandwidthPackageSpecWithOptions(const Models::TempUpgradeCenBandwidthPackageSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进行云企业网预付费带宽包临时升配
+       * @summary Temporarily upgrades a subscription bandwidth plan of Cloud Enterprise Network (CEN).
        *
        * @param request TempUpgradeCenBandwidthPackageSpecRequest
        * @return TempUpgradeCenBandwidthPackageSpecResponse
@@ -3479,7 +3487,7 @@ namespace Cbn20170912
       Models::UnassociateCenBandwidthPackageResponse unassociateCenBandwidthPackage(const Models::UnassociateCenBandwidthPackageRequest &request);
 
       /**
-       * @summary 删除PrivateZone
+       * @summary Disables access to PrivateZone.
        *
        * @param request UnroutePrivateZoneInCenToVpcRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3488,7 +3496,7 @@ namespace Cbn20170912
       Models::UnroutePrivateZoneInCenToVpcResponse unroutePrivateZoneInCenToVpcWithOptions(const Models::UnroutePrivateZoneInCenToVpcRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除PrivateZone
+       * @summary Disables access to PrivateZone.
        *
        * @param request UnroutePrivateZoneInCenToVpcRequest
        * @return UnroutePrivateZoneInCenToVpcResponse
@@ -3496,7 +3504,7 @@ namespace Cbn20170912
       Models::UnroutePrivateZoneInCenToVpcResponse unroutePrivateZoneInCenToVpc(const Models::UnroutePrivateZoneInCenToVpcRequest &request);
 
       /**
-       * @summary The ID of the request.
+       * @summary Remove tags from resources.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3505,7 +3513,7 @@ namespace Cbn20170912
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the request.
+       * @summary Remove tags from resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

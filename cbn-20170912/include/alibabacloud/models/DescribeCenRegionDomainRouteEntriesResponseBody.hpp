@@ -188,9 +188,7 @@ namespace Models
 
 
           protected:
-            // The ID of the region where the routing policy is applied.
             shared_ptr<string> regionId_ {};
-            // The ID of the routing policy.
             shared_ptr<string> routeMapId_ {};
           };
 
@@ -265,9 +263,7 @@ namespace Models
 
 
           protected:
-            // The ID of the region where the routing policy is applied.
             shared_ptr<string> regionId_ {};
-            // The ID of the routing policy.
             shared_ptr<string> routeMapId_ {};
           };
 
@@ -415,48 +411,17 @@ namespace Models
 
 
       protected:
-        // The AS paths of the route.
         shared_ptr<CenRouteEntry::AsPaths> asPaths_ {};
-        // The routing policy that the routes match in the outbound direction.
         shared_ptr<CenRouteEntry::CenOutRouteMapRecords> cenOutRouteMapRecords_ {};
-        // The routing policy that the routes match in the inbound direction.
         shared_ptr<CenRouteEntry::CenRouteMapRecords> cenRouteMapRecords_ {};
-        // The communities of the route.
         shared_ptr<CenRouteEntry::Communities> communities_ {};
-        // The destination CIDR block of the route.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The ID of the instance specified as the next hop in the route.
         shared_ptr<string> nextHopInstanceId_ {};
-        // The ID of the region to which the network instance specified as the next hop in the route belongs.
         shared_ptr<string> nextHopRegionId_ {};
-        // The type of the instance specified as the next hop in the route. Valid values:
-        // 
-        // *   **VPC**: virtual private cloud (VPC)
-        // *   **VBR**: virtual border router (VBR)
-        // *   **CCN**: Cloud Connect Network (CCN) instance
-        // *   **local_service**: system route. No next hop is specified.
         shared_ptr<string> nextHopType_ {};
-        // The route priority.
-        // 
-        // A smaller value indicates a higher priority.
         shared_ptr<int32_t> preference_ {};
-        // The route status. Valid values:
-        // 
-        // *   **Active**: available
-        // *   **Candidate**: standby
-        // *   **Rejected**: rejected
-        // *   **Prohibited**: prohibited
         shared_ptr<string> status_ {};
-        // Indicates whether the route can be advertised to other regions. Valid values:
-        // 
-        // *   **Active**: The route can be advertised to other regions.
-        // *   **Prohibited**: The route cannot be advertised to other regions.
         shared_ptr<string> toOtherRegionStatus_ {};
-        // The route type. Valid values:
-        // 
-        // *   **CEN**: route that is advertised through CEN
-        // *   **Custom**: custom route
-        // *   **System**: system route
         shared_ptr<string> type_ {};
       };
 
@@ -514,7 +479,6 @@ namespace Models
 
 
   protected:
-    // A list of route entries.
     shared_ptr<DescribeCenRegionDomainRouteEntriesResponseBody::CenRouteEntries> cenRouteEntries_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

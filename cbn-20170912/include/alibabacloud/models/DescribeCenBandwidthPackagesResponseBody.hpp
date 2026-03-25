@@ -175,9 +175,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -270,13 +268,9 @@ namespace Models
 
 
           protected:
-            // The maximum bandwidth value for the inter-region connection.
             shared_ptr<string> bandwidthLimit_ {};
-            // The connected regions.
             shared_ptr<string> geographicSpanId_ {};
-            // The ID of the local region.
             shared_ptr<string> localRegionId_ {};
-            // The ID of the peer region.
             shared_ptr<string> oppositeRegionId_ {};
           };
 
@@ -494,77 +488,27 @@ namespace Models
 
 
       protected:
-        // The maximum bandwidth of the bandwidth plan.
         shared_ptr<int64_t> bandwidth_ {};
-        // The billing method of the bandwidth plan.
         shared_ptr<string> bandwidthPackageChargeType_ {};
-        // The status of the bandwidth plan. Valid values:
-        // 
-        // *   **Normal**: running as expected.
-        // *   **FinancialLocked**: locked due to overdue payments.
-        // *   **SecurityLocked**: locked due to security reasons
         shared_ptr<string> businessStatus_ {};
-        // The ID of the bandwidth plan.
         shared_ptr<string> cenBandwidthPackageId_ {};
-        // A list of CEN instances that are associated with the bandwidth plan.
         shared_ptr<CenBandwidthPackage::CenIds> cenIds_ {};
-        // The time when the bandwidth plan was created. The time is displayed in the ISO8601 standard in the YYYY-MM-DDThh:mmZ format.
         shared_ptr<string> creationTime_ {};
-        // The description of the bandwidth plan.
         shared_ptr<string> description_ {};
-        // The time when the bandwidth plan expires.
         shared_ptr<string> expiredTime_ {};
-        // The ID of the area that you want to query. Valid values:
-        // 
-        // *   **china**: Chinese mainland.
-        // *   **asia-pacific**: Asia Pacific
-        // *   **europe**: Europe
-        // *   **north-america**: North America
         shared_ptr<string> geographicRegionAId_ {};
-        // The ID of the other area connected by the bandwidth plan. Valid values:
-        // 
-        // *   **china**: Chinese mainland.
-        // *   **asia-pacific**: Asia Pacific
-        // *   **europe**: Europe
-        // *   **north-america**: North America
         shared_ptr<string> geographicRegionBId_ {};
-        // The ID of the connected area.
         shared_ptr<string> geographicSpanId_ {};
-        // Indicates whether renewal data is included.
-        // 
-        // *   **true**
-        // *   **false**
-        // 
-        // >  This parameter returns **true** only when the **IncludeReservationData** parameter is set to **true** and a pending order exists.
         shared_ptr<string> hasReservationData_ {};
-        // Indicates whether the bandwidth plan supports cross-border communication.
-        // 
-        // *   **false**
-        // *   **true**
         shared_ptr<bool> isCrossBorder_ {};
-        // The name of the bandwidth plan.
         shared_ptr<string> name_ {};
-        // The details about the connected regions.
         shared_ptr<CenBandwidthPackage::OrginInterRegionBandwidthLimits> orginInterRegionBandwidthLimits_ {};
-        // The expiration time of the temporary upgrade.
         shared_ptr<string> reservationActiveTime_ {};
-        // The bandwidth value to which the bandwidth plan is restored when the temporary upgrade ends.
         shared_ptr<string> reservationBandwidth_ {};
-        // The new billing method.
         shared_ptr<string> reservationInternetChargeType_ {};
-        // The renewal method.
-        // 
-        // *   **TEMP_UPGRADE**: temporary upgrade
-        // *   **UPGRADE**: upgrade
         shared_ptr<string> reservationOrderType_ {};
-        // The ID of the resource group to which the ACL belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // Indicates whether the bandwidth plan is associated with a CEN instance.
-        // 
-        // *   **Idle**
-        // *   **InUse**
         shared_ptr<string> status_ {};
-        // The tags of the bandwidth plan.
         shared_ptr<CenBandwidthPackage::Tags> tags_ {};
       };
 
@@ -622,7 +566,6 @@ namespace Models
 
 
   protected:
-    // The details about the bandwidth plan.
     shared_ptr<DescribeCenBandwidthPackagesResponseBody::CenBandwidthPackages> cenBandwidthPackages_ {};
     // The number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

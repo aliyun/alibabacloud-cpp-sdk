@@ -165,16 +165,7 @@ namespace Models
 
 
         protected:
-          // The IPv6 CIDR block of the VPC.
           shared_ptr<string> ipv6CidrBlock_ {};
-          // The type of the IPv6 CIDR block of the VPC. Valid values:
-          // 
-          // *   BGP (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
-          // *   ChinaMobile: China Mobile (single line)
-          // *   ChinaUnicom: China Unicom (single line)
-          // *   ChinaTelecom: China Telecom (single line)
-          // 
-          // >  If you are on the whitelist of single-line bandwidth, you can set this parameter to ChinaTelecom, ChinaUnicom, or ChinaMobile.
           shared_ptr<string> ipv6Isp_ {};
         };
 
@@ -231,9 +222,7 @@ namespace Models
       shared_ptr<string> cidrBlock_ {};
       // The IPv6 CIDR block of the VPC.
       shared_ptr<string> ipv6CidrBlock_ {};
-      // The IPv6 CIDR blocks of the VPC.
       shared_ptr<ChildInstanceAttributes::Ipv6CidrBlocks> ipv6CidrBlocks_ {};
-      // The information about the VPC secondary CIDR block.
       shared_ptr<ChildInstanceAttributes::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
     };
 

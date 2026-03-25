@@ -150,30 +150,13 @@ namespace Models
 
 
       protected:
-        // The ID of the CEN instance.
         shared_ptr<string> cenId_ {};
-        // The time when the network instance was attached to the CEN instance.
-        // 
-        // The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
         shared_ptr<string> childInstanceAttachTime_ {};
-        // The ID of the network instance.
         shared_ptr<string> childInstanceId_ {};
-        // The ID of the Alibaba Cloud account to which the network instance belongs.
         shared_ptr<int64_t> childInstanceOwnerId_ {};
-        // The ID of the region where the network instance is deployed.
         shared_ptr<string> childInstanceRegionId_ {};
-        // The type of the network instance. Valid values:
-        // 
-        // *   **VPC**: VPC
-        // *   **VBR**: VBR
-        // *   **CCN**: CCN instance
         shared_ptr<string> childInstanceType_ {};
         shared_ptr<string> managedService_ {};
-        // The status of the network instance. Valid values:
-        // 
-        // *   **Attaching**: The network instance is being created on the transit router.
-        // *   **Attached**: The network instance has been created on the transit router.
-        // *   **Detaching**: The network instance is being deleted from the transit router.
         shared_ptr<string> status_ {};
       };
 
@@ -231,7 +214,6 @@ namespace Models
 
 
   protected:
-    // The information about the network instances.
     shared_ptr<DescribeCenAttachedChildInstancesResponseBody::ChildInstances> childInstances_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

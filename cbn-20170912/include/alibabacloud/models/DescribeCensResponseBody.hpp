@@ -151,9 +151,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -282,36 +280,15 @@ namespace Models
 
 
       protected:
-        // The IDs of the bandwidth plans that are associated with the CEN instance.
         shared_ptr<Cen::CenBandwidthPackageIds> cenBandwidthPackageIds_ {};
-        // The CEN instance ID.
         shared_ptr<string> cenId_ {};
-        // The time when the CEN instance was created.
-        // 
-        // The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the CEN instance.
         shared_ptr<string> description_ {};
-        // Indicates whether IPv6 is enabled for the CEN instance.
-        // 
-        // *   **ENABLE**
-        // *   **DISABLED**
         shared_ptr<string> ipv6Level_ {};
-        // The CEN instance name.
         shared_ptr<string> name_ {};
-        // The level of CIDR block overlapping.
-        // 
-        // **REDUCED**: Overlapped CIDR blocks are allowed. This value specifies that CIDR blocks can overlap but CIDR blocks cannot be duplicates.
         shared_ptr<string> protectionLevel_ {};
-        // The ID of the resource group to which the CEN instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The status of the CEN instance.
-        // 
-        // *   **Creating**
-        // *   **Active**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
-        // The IDs of the tags that are added to the CEN instance.
         shared_ptr<Cen::Tags> tags_ {};
       };
 
@@ -369,7 +346,6 @@ namespace Models
 
 
   protected:
-    // The information about the CEN instance.
     shared_ptr<DescribeCensResponseBody::Cens> cens_ {};
     // The number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

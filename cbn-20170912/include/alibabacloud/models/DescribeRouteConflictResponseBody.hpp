@@ -122,22 +122,10 @@ namespace Models
 
 
       protected:
-        // The destination CIDR block of the overlapping route.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The ID of the peer network instance on which the overlapping routes are found.
         shared_ptr<string> instanceId_ {};
-        // The type of the peer network instance on which the overlapping routes are found.
-        // 
-        // *   **VPC**: VPC
-        // *   **VBR**: VBR
-        // *   **CCN**: CCN instance
         shared_ptr<string> instanceType_ {};
-        // The region ID of the peer network instance on which the overlapping routes are found is deployed.
         shared_ptr<string> regionId_ {};
-        // The cause of the route error. Valid values:
-        // 
-        // *   **conflict**: The routes have the same destination CIDR block.
-        // *   **overflow**: The number of routes in the route table configured on another network instance has reached the upper limit.
         shared_ptr<string> status_ {};
       };
 
@@ -201,7 +189,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // A list of overlapping routes.
     shared_ptr<DescribeRouteConflictResponseBody::RouteConflicts> routeConflicts_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

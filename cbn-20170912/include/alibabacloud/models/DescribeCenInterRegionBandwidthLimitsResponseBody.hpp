@@ -150,29 +150,13 @@ namespace Models
 
 
       protected:
-        // The maximum bandwidth of the inter-region connection. Unit: Mbit/s.
         shared_ptr<int64_t> bandwidthLimit_ {};
-        // The ID of the bandwidth plan.
         shared_ptr<string> bandwidthPackageId_ {};
-        // The bandwidth allocation method. Valid values:
-        // 
-        // *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
-        // *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
         shared_ptr<string> bandwidthType_ {};
-        // The CEN instance ID.
         shared_ptr<string> cenId_ {};
-        // The IDs of the local and peer regions.
         shared_ptr<string> geographicSpanId_ {};
-        // The ID of the local region.
-        // 
-        // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
         shared_ptr<string> localRegionId_ {};
-        // The ID of the peer region.
         shared_ptr<string> oppositeRegionId_ {};
-        // The bandwidth status of the inter-region connection. Valid values:
-        // 
-        // *   **Active**
-        // *   **Modifying**
         shared_ptr<string> status_ {};
       };
 
@@ -230,7 +214,6 @@ namespace Models
 
 
   protected:
-    // A list of inter-region connections.
     shared_ptr<DescribeCenInterRegionBandwidthLimitsResponseBody::CenInterRegionBandwidthLimits> cenInterRegionBandwidthLimits_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

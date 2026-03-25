@@ -185,25 +185,13 @@ namespace Models
 
 
       protected:
-        // The ID of the region where the cloud service is accessed.
         shared_ptr<string> accessRegionId_ {};
-        // The ID of the CEN instance.
         shared_ptr<string> cenId_ {};
-        // The service addresses of the cloud service.
         shared_ptr<RouteServiceEntry::Cidrs> cidrs_ {};
-        // The description of the cloud service.
         shared_ptr<string> description_ {};
-        // The service address of the cloud service.
         shared_ptr<string> host_ {};
-        // The region ID of the cloud service.
         shared_ptr<string> hostRegionId_ {};
-        // The ID of the VPC associated with the cloud service.
         shared_ptr<string> hostVpcId_ {};
-        // The status of the cloud service. Valid values:
-        // 
-        // *   **Creating**
-        // *   **Active**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
       };
 
@@ -267,7 +255,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the cloud services.
     shared_ptr<DescribeRouteServicesInCenResponseBody::RouteServiceEntries> routeServiceEntries_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

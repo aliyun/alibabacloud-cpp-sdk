@@ -117,17 +117,9 @@ namespace Models
 
 
       protected:
-        // The ID of the region where PrivateZone is accessed.
         shared_ptr<string> accessRegionId_ {};
-        // The ID of the region where PrivateZone is deployed.
         shared_ptr<string> hostRegionId_ {};
-        // The ID of the VPC that is associated with PrivateZone.
         shared_ptr<string> hostVpcId_ {};
-        // The status of PrivateZone. Valid values:
-        // 
-        // *   **Creating**: being created
-        // *   **Active**: available
-        // *   **Deleting**: being deleted
         shared_ptr<string> status_ {};
       };
 
@@ -208,7 +200,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The IP address of the DNS server used by PrivateZone.
     shared_ptr<string> privateZoneDnsServers_ {};
-    // The detailed configuration of PrivateZone.
     shared_ptr<DescribeCenPrivateZoneRoutesResponseBody::PrivateZoneInfos> privateZoneInfos_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -163,9 +163,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -295,44 +293,20 @@ namespace Models
 
 
       protected:
-        // The ID of the Cloud Enterprise Network (CEN) instance.
         shared_ptr<string> cenId_ {};
-        // The time when the flow log was created.
-        // 
-        // The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the flow log.
         shared_ptr<string> description_ {};
-        // The ID of the flow log.
         shared_ptr<string> flowLogId_ {};
-        // The name of the flow log.
         shared_ptr<string> flowLogName_ {};
-        // The flow log version.
-        // 
-        // Flow logs are automatically created in the latest version, which is **3**.
         shared_ptr<string> flowLogVersion_ {};
-        // The time window for collecting log data. Unit: seconds. Valid values: **60** or **600** Default value: **600**.
         shared_ptr<int64_t> interval_ {};
-        // The string that defines the format of the flow log. Format:
-        // 
-        // `${Field 1}${Field 2}${Field 3}`
         shared_ptr<string> logFormatString_ {};
-        // The Logstore that stores the captured traffic data.
         shared_ptr<string> logStoreName_ {};
-        // The name of the project that stores the captured traffic data.
         shared_ptr<string> projectName_ {};
-        // The region ID of the flow log.
         shared_ptr<string> regionId_ {};
-        // The status of the flow log. Valid values:
-        // 
-        // *   **Active**: The flow log is enabled.
-        // *   **Inactive**: The flow log is disabled.
         shared_ptr<string> status_ {};
-        // The tags.
         shared_ptr<FlowLog::Tags> tags_ {};
-        // The ID of the network instance connection
         shared_ptr<string> transitRouterAttachmentId_ {};
-        // The ID of the transit router.
         shared_ptr<string> transitRouterId_ {};
       };
 
@@ -397,7 +371,6 @@ namespace Models
 
 
   protected:
-    // The information about the flow log.
     shared_ptr<DescribeFlowlogsResponseBody::FlowLogs> flowLogs_ {};
     // The page number of the returned page.
     shared_ptr<string> pageNumber_ {};

@@ -861,133 +861,37 @@ namespace Models
 
 
       protected:
-        // The match method that is used to match routes based on the AS path.
-        // 
-        // *   **Include**: fuzzy match. A route is a match if the AS path of the route overlaps with the AS path specified in the match condition.
-        // *   **Complete**: exact match. A route is a match only if the AS path of the route is the same as an AS path specified in the match condition.
         shared_ptr<string> asPathMatchMode_ {};
-        // The CEN instance ID.
         shared_ptr<string> cenId_ {};
-        // The region ID of the routing policy.
         shared_ptr<string> cenRegionId_ {};
-        // The match method that is used to evaluate routes based on the prefix. Valid values:
-        // 
-        // *   **Include**: fuzzy match. A route is a match if the route prefix is included in the match conditions.
-        // 
-        // For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is applied, the route whose prefix is 10.10.1.0/24 meets the match condition.
-        // 
-        // *   **Complete**: exact match. A route is a match only if the route prefix is the same as the prefix specified in the match condition.
-        // 
-        // For example, if you set the match condition to 10.10.0.0/16 and exact match is enabled, a route is a match only if the prefix is 10.10.0.0/16.
         shared_ptr<string> cidrMatchMode_ {};
-        // The match method that is used to match routes against the community.
-        // 
-        // *   **Include**: fuzzy match. A route is a match if the community of the route overlaps with the community specified in the match condition.
-        // *   **Complete**: exact match. A route meets the match condition only if the community of the route is the same as the community specified in the match condition.
         shared_ptr<string> communityMatchMode_ {};
-        // The action that is performed on the community of the route.
-        // 
-        // *   **Additive**: adds the community to the route.
-        // *   **Replace**: replaces the original community of the route.
-        // 
-        // This parameter specifies the action to be performed when a route meets the match condition.
         shared_ptr<string> communityOperateMode_ {};
-        // The description of the routing policy.
         shared_ptr<string> description_ {};
-        // The types of destination network instances to which the routes belong.
-        // 
-        // *   **VPC**
-        // *   **VBR**
-        // *   **CCN**
-        // *   **VPN**
-        // 
-        // >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the type of the destination route tables is the same as that of the network instance in the current region.
         shared_ptr<RouteMap::DestinationChildInstanceTypes> destinationChildInstanceTypes_ {};
-        // The prefix list against which routes are matched.
-        // 
-        // IPv4 and IPv6 addresses are supported.
         shared_ptr<RouteMap::DestinationCidrBlocks> destinationCidrBlocks_ {};
-        // The IDs of the destination network instances to which the routes point.
-        // 
-        // >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the ID the destination instance is the same as that of the network instance in the current region.
         shared_ptr<RouteMap::DestinationInstanceIds> destinationInstanceIds_ {};
-        // Indicates whether the destination network instance IDs are excluded.
-        // 
-        // *   **false** (default): A route is a match if its destination network instance ID is in the list specified by **DestinationInstanceIds.N**.
-        // *   **true**: A route is a match if its destination network instance ID is not in the list specified by **DestinationInstanceIds.N**.
         shared_ptr<bool> destinationInstanceIdsReverseMatch_ {};
-        // The IDs of the destination regions for the routing policy.
         shared_ptr<RouteMap::DestinationRegionIds> destinationRegionIds_ {};
-        // The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
-        // 
-        // >  The destination route tables take effect only if the routing policy is applied to the egress gateway direction, and the destination route table IDs are in the current region.
         shared_ptr<RouteMap::DestinationRouteTableIds> destinationRouteTableIds_ {};
-        // The action performed on a route that meets the match conditions.
-        // 
-        // *   **Permit**: the route is permitted.
-        // *   **Deny**: the route is denied.
         shared_ptr<string> mapResult_ {};
-        // The type of IP address to be matched against the match condition. Valid values:
-        // 
-        // *   **IPv4**: IPv4 addresses
-        // *   **IPv6**: IPv6 addresses
-        // *   If no value is returned, both IPv4 and IPv6 addresses are matched against the match condition.
         shared_ptr<string> matchAddressType_ {};
-        // The AS paths against which routes are matched.
         shared_ptr<RouteMap::MatchAsns> matchAsns_ {};
-        // The community set against which routes are matched.
         shared_ptr<RouteMap::MatchCommunitySet> matchCommunitySet_ {};
-        // The priority of the routing policy that you want to associate with the current one.
         shared_ptr<int32_t> nextPriority_ {};
-        // The community set on which actions are performed.
         shared_ptr<RouteMap::OperateCommunitySet> operateCommunitySet_ {};
-        // The new priority of the route.
-        // 
-        // A smaller value indicates a higher priority.
-        // 
-        // This parameter indicates the action to be performed when a route meets the match condition.
         shared_ptr<int32_t> preference_ {};
-        // The AS paths that are prepended by using an action statement when regional gateways receive or advertise routes.
-        // 
-        // This parameter indicates the action to be performed when a route meets the match condition.
         shared_ptr<RouteMap::PrependAsPath> prependAsPath_ {};
-        // The priority of the routing policy. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The routing policy ID.
         shared_ptr<string> routeMapId_ {};
-        // The type of route that is compared. Valid values:
-        // 
-        // *   **System**: system routes that are automatically generated by the system.
-        // *   **Custom**: custom routes that are manually added.
-        // *   **BGP**: routes that are advertised over BGP.
         shared_ptr<RouteMap::RouteTypes> routeTypes_ {};
-        // The types of source network instances to which the routes belong.
-        // 
-        // *   **VPC**
-        // *   **VBR**
-        // *   **CCN**
-        // *   **VPN**
         shared_ptr<RouteMap::SourceChildInstanceTypes> sourceChildInstanceTypes_ {};
-        // The IDs of the source network instances to which the routes belong.
         shared_ptr<RouteMap::SourceInstanceIds> sourceInstanceIds_ {};
-        // Indicates whether the source network instance IDs are excluded.
-        // 
-        // *   **false** (default): A route is a match if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
-        // *   **true**: A route is match if its source network instance ID is not in the list specified by **SourceInstanceIds.N**.
         shared_ptr<bool> sourceInstanceIdsReverseMatch_ {};
-        // The IDs of the source regions to which the routes belong.
         shared_ptr<RouteMap::SourceRegionIds> sourceRegionIds_ {};
-        // The IDs of the source route tables to which the routes belong.
         shared_ptr<RouteMap::SourceRouteTableIds> sourceRouteTableIds_ {};
-        // The status of the routing policy. Valid values:
-        // 
-        // *   **Creating**
-        // *   **Active**
-        // *   **Deleting**
         shared_ptr<string> status_ {};
-        // The route table ID of the transit router with which the routing policy is associated.
         shared_ptr<string> transitRouterRouteTableId_ {};
-        // The direction in which the routing policy is applied.
         shared_ptr<string> transmitDirection_ {};
       };
 
@@ -1051,7 +955,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the routing policy.
     shared_ptr<DescribeCenRouteMapsResponseBody::RouteMaps> routeMaps_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

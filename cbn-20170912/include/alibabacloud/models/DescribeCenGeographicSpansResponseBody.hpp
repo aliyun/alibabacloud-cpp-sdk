@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the pair of connected areas.
         shared_ptr<string> geographicSpanId_ {};
-        // The ID of the local area.
         shared_ptr<string> localGeoRegionId_ {};
-        // The ID of the peer area.
         shared_ptr<string> oppositeGeoRegionId_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // A list of areas.
     shared_ptr<DescribeCenGeographicSpansResponseBody::GeographicSpanModels> geographicSpanModels_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

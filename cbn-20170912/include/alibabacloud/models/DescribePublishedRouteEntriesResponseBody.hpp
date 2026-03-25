@@ -174,22 +174,10 @@ namespace Models
 
 
           protected:
-            // The destination CIDR block of the conflicting route.
             shared_ptr<string> destinationCidrBlock_ {};
-            // The ID of the peer network instance on which conflicting routes are found.
             shared_ptr<string> instanceId_ {};
-            // The type of the peer network instance on which the conflicting routes are found. Valid values:
-            // 
-            // *   **VPC**: VPC
-            // *   **VBR**: VBR
-            // *   **CCN**: CCN instance
             shared_ptr<string> instanceType_ {};
-            // The ID of the region where the peer network instance on which the conflicting routes are found is deployed.
             shared_ptr<string> regionId_ {};
-            // The cause of the route confliction. Valid values:
-            // 
-            // *   **conflict**: The routes have the same destination CIDR block.
-            // *   **overflow**: The number of routes in the route table configured on another network instance has reached the upper limit.
             shared_ptr<string> status_ {};
           };
 
@@ -269,53 +257,13 @@ namespace Models
 
 
       protected:
-        // The ID of the route table configured on the network instance.
         shared_ptr<string> childInstanceRouteTableId_ {};
-        // A list of conflicting routes.
         shared_ptr<PublishedRouteEntry::Conflicts> conflicts_ {};
-        // The destination CIDR block of the route.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The ID of the instance specified as the next hop in the route.
         shared_ptr<string> nextHopId_ {};
-        // The type of the instance specified as the next hop in the route.
-        // 
-        // *   **Instance**: ECS instance
-        // *   **HaVip**: high-availability virtual IP address (HAVIP).
-        // *   **RouterInterface**: router interface.
-        // *   **NetworkInterface**: elastic network interface (ENI).
-        // *   **VpnGateway**: VPN gateway.
-        // *   **IPv6Gateway**: IPv6 gateway.
-        // *   **NatGateway**: NAT gateway.
-        // *   **Attachment**: network instance connection
-        // *   **service**: cloud service
-        // *   **VBR**: VBR
-        // *   **CCN**: CCN instance
-        // *   **VPC**: VPC
-        // *   **local**: system route. No next hop is specified.
-        // *   **TR**: transit router
-        // *   **BlackHole**: blackhole route. No next hop is specified.
-        // *   **EcRouterInterface**: router interface for Express Connect
-        // *   **HealthCheck**: health check
-        // *   **AS**: access gateway for CCN
-        // *   **classicLink**: classic network-type instance
-        // *   **GatewayEndpoint**: gateway endpoint
-        // *   **CPE**: data center connected to the VBR
         shared_ptr<string> nextHopType_ {};
-        // Indicates whether the route is allowed to be advertised to or withdrawn from the CEN instance. Valid values:
-        // 
-        // *   **true**: The route is allowed to be advertised to or withdrawn from the CEN instance.
-        // *   **false**: The route is not allowed to be advertised to or withdrawn from the CEN instance.
         shared_ptr<bool> operationalMode_ {};
-        // Indicates whether the route is advertised to the CEN instance. Valid values:
-        // 
-        // *   **Published**: The route is advertised to the CEN instance.
-        // *   **NonPublished**: The route is not advertised to the CEN instance.
         shared_ptr<string> publishStatus_ {};
-        // The type of the route. Valid values:
-        // 
-        // *   **CEN**: route that is advertised through CEN
-        // *   **System**: system route
-        // *   **Custom**: custom route
         shared_ptr<string> routeType_ {};
       };
 
@@ -377,7 +325,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // A list of routes.
     shared_ptr<DescribePublishedRouteEntriesResponseBody::PublishedRouteEntries> publishedRouteEntries_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

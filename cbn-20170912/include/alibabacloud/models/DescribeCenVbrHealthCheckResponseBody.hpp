@@ -159,31 +159,14 @@ namespace Models
 
 
       protected:
-        // The ID of the CEN instance.
         shared_ptr<string> cenId_ {};
-        // The description.
         shared_ptr<string> description_ {};
-        // The time interval at which probe packets are sent during the health check. Unit: seconds.
         shared_ptr<int32_t> healthCheckInterval_ {};
-        // Indicates whether probing is enabled. Valid values:
-        // 
-        // *   **true**: Probing is enabled.
-        // 
-        //         If you enable probing, the system does not switch to another route if the detected route is not reachable.
-        // 
-        // *   **false**: Probing is disabled.
-        // 
-        //           If probing is disabled and a redundant route is specified, the system switches to the redundant route when the detected route is not reachable.
         shared_ptr<bool> healthCheckOnly_ {};
-        // The source IP address of the health check.
         shared_ptr<string> healthCheckSourceIp_ {};
-        // The destination IP address of the health check.
         shared_ptr<string> healthCheckTargetIp_ {};
-        // The number of probe packets that are sent during the health check.
         shared_ptr<int32_t> healthyThreshold_ {};
-        // The VBR ID.
         shared_ptr<string> vbrInstanceId_ {};
-        // The ID of the region where the VBR is deployed.
         shared_ptr<string> vbrInstanceRegionId_ {};
       };
 
@@ -249,7 +232,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The health check configuration of the VBR.
     shared_ptr<DescribeCenVbrHealthCheckResponseBody::VbrHealthChecks> vbrHealthChecks_ {};
   };
 

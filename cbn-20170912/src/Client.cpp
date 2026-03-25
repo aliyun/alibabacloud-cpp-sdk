@@ -2612,7 +2612,7 @@ CreateTransitRouterRouteTableResponse Client::createTransitRouterRouteTable(cons
 }
 
 /**
- * @summary Connects the virtual border routers (VBRs) among which you want to establish network communication to the transit router in the region. Then, the transit router can exchange data between the VBR and CEN instance over private connections.
+ * @summary Connects a virtual border router (VBR) to an Enterprise Edition transit router.
  *
  * @description *   For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](https://help.aliyun.com/document_detail/181681.html)
  * *   You can use the following methods to create a VBR connection on an Enterprise Edition transit router:
@@ -2710,7 +2710,7 @@ CreateTransitRouterVbrAttachmentResponse Client::createTransitRouterVbrAttachmen
 }
 
 /**
- * @summary Connects the virtual border routers (VBRs) among which you want to establish network communication to the transit router in the region. Then, the transit router can exchange data between the VBR and CEN instance over private connections.
+ * @summary Connects a virtual border router (VBR) to an Enterprise Edition transit router.
  *
  * @description *   For more information about the regions and zones that support Enterprise Edition transit routers, see [What is CEN?](https://help.aliyun.com/document_detail/181681.html)
  * *   You can use the following methods to create a VBR connection on an Enterprise Edition transit router:
@@ -3156,6 +3156,8 @@ DeleteCenResponse Client::deleteCen(const DeleteCenRequest &request) {
 }
 
 /**
+ * @summary Deletes a bandwidth plan.
+ *
  * @param request DeleteCenBandwidthPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteCenBandwidthPackageResponse
@@ -3201,6 +3203,8 @@ DeleteCenBandwidthPackageResponse Client::deleteCenBandwidthPackageWithOptions(c
 }
 
 /**
+ * @summary Deletes a bandwidth plan.
+ *
  * @param request DeleteCenBandwidthPackageRequest
  * @return DeleteCenBandwidthPackageResponse
  */
@@ -6440,7 +6444,7 @@ DescribePublishedRouteEntriesResponse Client::describePublishedRouteEntries(cons
 }
 
 /**
- * @summary Queries overlapping routes.
+ * @summary Queries conflicting routes on a network instance.
  *
  * @param request DescribeRouteConflictRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6511,7 +6515,7 @@ DescribeRouteConflictResponse Client::describeRouteConflictWithOptions(const Des
 }
 
 /**
- * @summary Queries overlapping routes.
+ * @summary Queries conflicting routes on a network instance.
  *
  * @param request DescribeRouteConflictRequest
  * @return DescribeRouteConflictResponse
@@ -6522,7 +6526,7 @@ DescribeRouteConflictResponse Client::describeRouteConflict(const DescribeRouteC
 }
 
 /**
- * @summary Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
+ * @summary Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
  *
  * @param request DescribeRouteServicesInCenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6593,7 +6597,7 @@ DescribeRouteServicesInCenResponse Client::describeRouteServicesInCenWithOptions
 }
 
 /**
- * @summary Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
+ * @summary Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
  *
  * @param request DescribeRouteServicesInCenRequest
  * @return DescribeRouteServicesInCenResponse
@@ -8510,6 +8514,8 @@ ListTransitRouterMulticastDomainAssociationsResponse Client::listTransitRouterMu
 }
 
 /**
+ * @summary Queries the information about vSwitches that are associated with a multicast domain after the virtual private cloud (VPC) of the vSwitches is connected to an Enterprise Edition transit router.
+ *
  * @param request ListTransitRouterMulticastDomainVSwitchesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTransitRouterMulticastDomainVSwitchesResponse
@@ -8571,6 +8577,8 @@ ListTransitRouterMulticastDomainVSwitchesResponse Client::listTransitRouterMulti
 }
 
 /**
+ * @summary Queries the information about vSwitches that are associated with a multicast domain after the virtual private cloud (VPC) of the vSwitches is connected to an Enterprise Edition transit router.
+ *
  * @param request ListTransitRouterMulticastDomainVSwitchesRequest
  * @return ListTransitRouterMulticastDomainVSwitchesResponse
  */
@@ -11792,7 +11800,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 进行云企业网预付费带宽包临时升配
+ * @summary Temporarily upgrades a subscription bandwidth plan of Cloud Enterprise Network (CEN).
  *
  * @param request TempUpgradeCenBandwidthPackageSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11847,7 +11855,7 @@ TempUpgradeCenBandwidthPackageSpecResponse Client::tempUpgradeCenBandwidthPackag
 }
 
 /**
- * @summary 进行云企业网预付费带宽包临时升配
+ * @summary Temporarily upgrades a subscription bandwidth plan of Cloud Enterprise Network (CEN).
  *
  * @param request TempUpgradeCenBandwidthPackageSpecRequest
  * @return TempUpgradeCenBandwidthPackageSpecResponse
@@ -11924,7 +11932,7 @@ UnassociateCenBandwidthPackageResponse Client::unassociateCenBandwidthPackage(co
 }
 
 /**
- * @summary 删除PrivateZone
+ * @summary Disables access to PrivateZone.
  *
  * @param request UnroutePrivateZoneInCenToVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11975,7 +11983,7 @@ UnroutePrivateZoneInCenToVpcResponse Client::unroutePrivateZoneInCenToVpcWithOpt
 }
 
 /**
- * @summary 删除PrivateZone
+ * @summary Disables access to PrivateZone.
  *
  * @param request UnroutePrivateZoneInCenToVpcRequest
  * @return UnroutePrivateZoneInCenToVpcResponse
@@ -11986,7 +11994,7 @@ UnroutePrivateZoneInCenToVpcResponse Client::unroutePrivateZoneInCenToVpc(const 
 }
 
 /**
- * @summary The ID of the request.
+ * @summary Remove tags from resources.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12049,7 +12057,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary The ID of the request.
+ * @summary Remove tags from resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -12408,6 +12416,10 @@ UpdateTransitRouterEcrAttachmentAttributeResponse Client::updateTransitRouterEcr
     query["DryRun"] = request.getDryRun();
   }
 
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.getOwnerAccount();
   }
@@ -12747,6 +12759,10 @@ UpdateTransitRouterVbrAttachmentAttributeResponse Client::updateTransitRouterVbr
     query["DryRun"] = request.getDryRun();
   }
 
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.getOwnerAccount();
   }
@@ -12837,6 +12853,10 @@ UpdateTransitRouterVpcAttachmentAttributeResponse Client::updateTransitRouterVpc
 
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -13007,6 +13027,10 @@ UpdateTransitRouterVpnAttachmentAttributeResponse Client::updateTransitRouterVpn
 
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOwnerAccount()) {

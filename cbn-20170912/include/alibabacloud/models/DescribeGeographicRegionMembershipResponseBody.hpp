@@ -85,9 +85,6 @@ namespace Models
 
 
       protected:
-        // The ID of the region.
-        // 
-        // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
         shared_ptr<string> regionId_ {};
       };
 
@@ -149,7 +146,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of regions.
     shared_ptr<DescribeGeographicRegionMembershipResponseBody::RegionIds> regionIds_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

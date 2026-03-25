@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPublishRouteEnabled, autoPublishRouteEnabled_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPublishRouteEnabled, autoPublishRouteEnabled_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -51,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPublishRouteEnabled_ == nullptr
-        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterAttachmentName_ == nullptr && this->transitRouterVPCAttachmentOptions_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterAttachmentName_ == nullptr
+        && this->transitRouterVPCAttachmentOptions_ == nullptr; };
     // autoPublishRouteEnabled Field Functions 
     bool hasAutoPublishRouteEnabled() const { return this->autoPublishRouteEnabled_ != nullptr;};
     void deleteAutoPublishRouteEnabled() { this->autoPublishRouteEnabled_ = nullptr;};
@@ -72,6 +75,13 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline UpdateTransitRouterVpcAttachmentAttributeRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // orderType Field Functions 
+    bool hasOrderType() const { return this->orderType_ != nullptr;};
+    void deleteOrderType() { this->orderType_ = nullptr;};
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline UpdateTransitRouterVpcAttachmentAttributeRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // ownerAccount Field Functions 
@@ -149,6 +159,7 @@ namespace Models
     // *   **false** (default): performs a dry run and sends the request.
     // *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
     shared_ptr<bool> dryRun_ {};
+    shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -109,33 +109,9 @@ namespace Models
 
 
       protected:
-        // The ID of the CEN instance.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource. Valid values:
-        // 
-        // **Cen**: CEN instance
-        // 
-        // **BandwidthPackage**: bandwidth plan
-        // 
-        // **TransitRouter**: transit router
-        // 
-        // **TransitRouterVpcAttachment**: virtual private cloud (VPC) connection
-        // 
-        // **TransitRouterVbrAttachment**: virtual border router (VBR) connection
-        // 
-        // **TransitRouterPeerAttachment**: inter-region connection
-        // 
-        // **TransitRouterVpnAttachment**: VPN connection
-        // 
-        // **TransitRouterRouteTable**: route table
-        // 
-        // **Flowlog**: flow log
-        // 
-        // **TransitRouterMulticastDomain**: multicast domain
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -186,7 +162,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // A list of resources and tags.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

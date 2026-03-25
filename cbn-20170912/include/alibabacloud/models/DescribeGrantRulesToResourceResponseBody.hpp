@@ -44,12 +44,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CenId, cenId_);
         DARABONBA_PTR_TO_JSON(CenOwnerId, cenOwnerId_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(EffectiveOrderType, effectiveOrderType_);
         DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       };
       friend void from_json(const Darabonba::Json& j, GrantRules& obj) { 
         DARABONBA_PTR_FROM_JSON(CenId, cenId_);
         DARABONBA_PTR_FROM_JSON(CenOwnerId, cenOwnerId_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(EffectiveOrderType, effectiveOrderType_);
         DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       };
       GrantRules() = default ;
@@ -64,7 +66,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cenId_ == nullptr
-        && this->cenOwnerId_ == nullptr && this->createTime_ == nullptr && this->orderType_ == nullptr; };
+        && this->cenOwnerId_ == nullptr && this->createTime_ == nullptr && this->effectiveOrderType_ == nullptr && this->orderType_ == nullptr; };
       // cenId Field Functions 
       bool hasCenId() const { return this->cenId_ != nullptr;};
       void deleteCenId() { this->cenId_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
       inline GrantRules& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+      // effectiveOrderType Field Functions 
+      bool hasEffectiveOrderType() const { return this->effectiveOrderType_ != nullptr;};
+      void deleteEffectiveOrderType() { this->effectiveOrderType_ = nullptr;};
+      inline string getEffectiveOrderType() const { DARABONBA_PTR_GET_DEFAULT(effectiveOrderType_, "") };
+      inline GrantRules& setEffectiveOrderType(string effectiveOrderType) { DARABONBA_PTR_SET_VALUE(effectiveOrderType_, effectiveOrderType) };
+
+
       // orderType Field Functions 
       bool hasOrderType() const { return this->orderType_ != nullptr;};
       void deleteOrderType() { this->orderType_ = nullptr;};
@@ -100,6 +109,7 @@ namespace Models
       shared_ptr<int64_t> cenOwnerId_ {};
       // The timestamp when the permissions were granted. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
+      shared_ptr<string> effectiveOrderType_ {};
       // The entity that pays the fees of the network instance. Valid values: Valid values:
       // 
       // *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.

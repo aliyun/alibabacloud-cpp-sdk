@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ChildInstanceRegionId, childInstanceRegionId_);
           DARABONBA_PTR_TO_JSON(ChildInstanceType, childInstanceType_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(EffectiveOrderType, effectiveOrderType_);
           DARABONBA_PTR_TO_JSON(OrderType, orderType_);
         };
         friend void from_json(const Darabonba::Json& j, GrantRule& obj) { 
@@ -77,6 +78,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ChildInstanceRegionId, childInstanceRegionId_);
           DARABONBA_PTR_FROM_JSON(ChildInstanceType, childInstanceType_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(EffectiveOrderType, effectiveOrderType_);
           DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
         };
         GrantRule() = default ;
@@ -92,7 +94,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cenId_ == nullptr
         && this->cenOwnerId_ == nullptr && this->childInstanceId_ == nullptr && this->childInstanceOwnerId_ == nullptr && this->childInstanceRegionId_ == nullptr && this->childInstanceType_ == nullptr
-        && this->createTime_ == nullptr && this->orderType_ == nullptr; };
+        && this->createTime_ == nullptr && this->effectiveOrderType_ == nullptr && this->orderType_ == nullptr; };
         // cenId Field Functions 
         bool hasCenId() const { return this->cenId_ != nullptr;};
         void deleteCenId() { this->cenId_ = nullptr;};
@@ -142,6 +144,13 @@ namespace Models
         inline GrantRule& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+        // effectiveOrderType Field Functions 
+        bool hasEffectiveOrderType() const { return this->effectiveOrderType_ != nullptr;};
+        void deleteEffectiveOrderType() { this->effectiveOrderType_ = nullptr;};
+        inline string getEffectiveOrderType() const { DARABONBA_PTR_GET_DEFAULT(effectiveOrderType_, "") };
+        inline GrantRule& setEffectiveOrderType(string effectiveOrderType) { DARABONBA_PTR_SET_VALUE(effectiveOrderType_, effectiveOrderType) };
+
+
         // orderType Field Functions 
         bool hasOrderType() const { return this->orderType_ != nullptr;};
         void deleteOrderType() { this->orderType_ = nullptr;};
@@ -150,31 +159,14 @@ namespace Models
 
 
       protected:
-        // The ID of the CEN instance.
         shared_ptr<string> cenId_ {};
-        // The ID of the Alibaba Cloud account to which the CEN instance belongs.
         shared_ptr<int64_t> cenOwnerId_ {};
-        // The ID of the network instance.
         shared_ptr<string> childInstanceId_ {};
-        // The ID of the Alibaba Cloud account to which the network instance belongs.
         shared_ptr<int64_t> childInstanceOwnerId_ {};
-        // The region ID of the network instance.
         shared_ptr<string> childInstanceRegionId_ {};
-        // The type of the network instance. Valid values:
-        // 
-        // *   **VPC**: VPC
-        // *   **VBR**: VBR
-        // *   **CCN**: CCN instance
-        // *   **VPN**: IPsec-VPN connection
         shared_ptr<string> childInstanceType_ {};
-        // The time when the permissions were granted to the CEN instance.
-        // 
-        // The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<int64_t> createTime_ {};
-        // The entity that pays the fees of the network instance. Valid values:
-        // 
-        // *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
-        // *   **PayByResourceOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the network instance belongs.
+        shared_ptr<string> effectiveOrderType_ {};
         shared_ptr<string> orderType_ {};
       };
 
@@ -232,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The permissions that are granted to the CEN instance.
     shared_ptr<DescribeGrantRulesToCenResponseBody::GrantRules> grantRules_ {};
     // *   If no value is specified for **MaxResults**, query results are returned in one batch. The value of **MaxResults** indicates the total number of entries.
     // *   If a value is specified for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** in the response indicates the number of entries in the current batch.

@@ -184,23 +184,10 @@ namespace Models
 
 
           protected:
-            // The destination CIDR block of the overlapping route.
             shared_ptr<string> destinationCidrBlock_ {};
-            // The ID of the peer network instance on which the overlapping routes are found.
             shared_ptr<string> instanceId_ {};
-            // The type of the peer network instance on which the overlapping routes are found. Valid values:
-            // 
-            // *   **VPC**: VPC
-            // *   **VBR**: VBR
-            // *   **CCN**: CCN instance
-            // *   **ECR**: ECR
             shared_ptr<string> instanceType_ {};
-            // The region ID of the peer network instance on which the overlapping routes are found.
             shared_ptr<string> regionId_ {};
-            // The cause of the route error. Valid values:
-            // 
-            // *   **conflict**: The routes have the same destination CIDR block.
-            // *   **overflow**: The number of routes in the route table configured on another network instance has reached the upper limit.
             shared_ptr<string> status_ {};
           };
 
@@ -308,9 +295,7 @@ namespace Models
 
 
           protected:
-            // The region ID of the routing policy.
             shared_ptr<string> regionId_ {};
-            // The routing policy ID.
             shared_ptr<string> routeMapId_ {};
           };
 
@@ -465,69 +450,18 @@ namespace Models
 
 
       protected:
-        // The AS paths of the routes.
         shared_ptr<CenRouteEntry::AsPaths> asPaths_ {};
-        // The routing policy that the routes match.
         shared_ptr<CenRouteEntry::CenRouteMapRecords> cenRouteMapRecords_ {};
-        // The community attributes of the route entries.
         shared_ptr<CenRouteEntry::Communities> communities_ {};
-        // A list of overlapping routes.
         shared_ptr<CenRouteEntry::Conflicts> conflicts_ {};
-        // The destination CIDR block of the route.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The ID of the instance specified as the next hop in the route.
         shared_ptr<string> nextHopInstanceId_ {};
-        // The region ID of the instance specified as the next hop in the route.
         shared_ptr<string> nextHopRegionId_ {};
-        // The type of the instance specified as the next hop in the route. Valid values:
-        // 
-        // *   **Instance**: an ECS instance
-        // *   **HaVip**: an HAVIP
-        // *   **RouterInterface**: a router interface
-        // *   **NetworkInterface**: an ENI
-        // *   **VpnGateway**: a VPN gateway
-        // *   **IPv6Gateway**: an IPv6 gateway
-        // *   **Ipv4Gateway**: an IPv4 gateway
-        // *   **NatGateway**: a NAT gateway
-        // *   **Attachment**: a network instance connection
-        // *   **service**: a cloud service
-        // *   **VBR**: a VBR
-        // *   **CCN**: a CCN instance
-        // *   **VPC**: a VPC
-        // *   **local**: a system route (no next hop is specified)
-        // *   **TR**: a transit router
-        // *   **BlackHole**: a blackhole route (no next hop is specified)
-        // *   **EcRouterInterface**: a router interface for Express Connect
-        // *   **HealthCheck**: a health check
-        // *   **AS**: an access gateway for CCN
-        // *   **classic**: a classic network-type instance
-        // *   **GatewayEndpoint**: a gateway endpoint
-        // *   **CPE**: a data center connected to a VBR
         shared_ptr<string> nextHopType_ {};
-        // Indicates whether the route is allowed to be advertised to or withdrawn from the CEN instance. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> operationalMode_ {};
-        // Indicates whether the route is advertised to the CEN instance. Valid values:
-        // 
-        // *   **Published**
-        // *   **NonPublished**
         shared_ptr<string> publishStatus_ {};
-        // The route table ID.
         shared_ptr<string> routeTableId_ {};
-        // The route status. Valid values:
-        // 
-        // *   **Active**: available routes
-        // *   **Candidate**: standby routes
-        // *   **Rejected**: rejected routes
-        // *   **Prohibited**: prohibited routes
         shared_ptr<string> status_ {};
-        // The route type. Valid values:
-        // 
-        // *   **CEN**: route that is advertised through CEN
-        // *   **System**: system route
-        // *   **Custom**: custom route
         shared_ptr<string> type_ {};
       };
 
@@ -585,7 +519,6 @@ namespace Models
 
 
   protected:
-    // The information about the route.
     shared_ptr<DescribeCenChildInstanceRouteEntriesResponseBody::CenRouteEntries> cenRouteEntries_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
