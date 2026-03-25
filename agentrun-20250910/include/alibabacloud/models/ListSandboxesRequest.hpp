@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListSandboxesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(sandboxId, sandboxId_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(templateType, templateType_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListSandboxesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(sandboxId, sandboxId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(templateType, templateType_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->status_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr; };
+        && this->nextToken_ == nullptr && this->sandboxId_ == nullptr && this->status_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSandboxesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // sandboxId Field Functions 
+    bool hasSandboxId() const { return this->sandboxId_ != nullptr;};
+    void deleteSandboxId() { this->sandboxId_ = nullptr;};
+    inline string getSandboxId() const { DARABONBA_PTR_GET_DEFAULT(sandboxId_, "") };
+    inline ListSandboxesRequest& setSandboxId(string sandboxId) { DARABONBA_PTR_SET_VALUE(sandboxId_, sandboxId) };
 
 
     // status Field Functions 
@@ -78,6 +87,7 @@ namespace Models
     // 当前页码，从1开始计数
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> sandboxId_ {};
     shared_ptr<string> status_ {};
     // 按模板名称过滤
     shared_ptr<string> templateName_ {};

@@ -2508,6 +2508,10 @@ ListSandboxesResponse Client::listSandboxesWithOptions(const ListSandboxesReques
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasSandboxId()) {
+    query["sandboxId"] = request.getSandboxId();
+  }
+
   if (!!request.hasStatus()) {
     query["status"] = request.getStatus();
   }
