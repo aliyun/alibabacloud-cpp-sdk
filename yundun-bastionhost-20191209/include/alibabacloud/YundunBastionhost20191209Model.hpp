@@ -224,6 +224,10 @@
 #include <alibabacloud/models/GetUserGroupRequest.hpp>
 #include <alibabacloud/models/GetUserGroupResponseBody.hpp>
 #include <alibabacloud/models/GetUserGroupResponse.hpp>
+#include <alibabacloud/models/ImportKMSSecretsForHostRequest.hpp>
+#include <alibabacloud/models/ImportKMSSecretsForHostShrinkRequest.hpp>
+#include <alibabacloud/models/ImportKMSSecretsForHostResponseBody.hpp>
+#include <alibabacloud/models/ImportKMSSecretsForHostResponse.hpp>
 #include <alibabacloud/models/ListApproveCommandsRequest.hpp>
 #include <alibabacloud/models/ListApproveCommandsResponseBody.hpp>
 #include <alibabacloud/models/ListApproveCommandsResponse.hpp>
@@ -284,6 +288,9 @@
 #include <alibabacloud/models/ListHostsForUserGroupRequest.hpp>
 #include <alibabacloud/models/ListHostsForUserGroupResponseBody.hpp>
 #include <alibabacloud/models/ListHostsForUserGroupResponse.hpp>
+#include <alibabacloud/models/ListImportableKMSSecretsForHostRequest.hpp>
+#include <alibabacloud/models/ListImportableKMSSecretsForHostResponseBody.hpp>
+#include <alibabacloud/models/ListImportableKMSSecretsForHostResponse.hpp>
 #include <alibabacloud/models/ListInstanceRdMembersRequest.hpp>
 #include <alibabacloud/models/ListInstanceRdMembersResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceRdMembersResponse.hpp>
