@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContainPort, containPort_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(GroupType, groupType_);
+      DARABONBA_PTR_TO_JSON(GroupUuid, groupUuid_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Query, query_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ContainPort, containPort_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
+      DARABONBA_PTR_FROM_JSON(GroupUuid, groupUuid_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containPort_ == nullptr
-        && this->currentPage_ == nullptr && this->groupType_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr; };
+        && this->currentPage_ == nullptr && this->groupType_ == nullptr && this->groupUuid_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr
+        && this->query_ == nullptr; };
     // containPort Field Functions 
     bool hasContainPort() const { return this->containPort_ != nullptr;};
     void deleteContainPort() { this->containPort_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteGroupType() { this->groupType_ = nullptr;};
     inline string getGroupType() const { DARABONBA_PTR_GET_DEFAULT(groupType_, "") };
     inline DescribeAddressBookRequest& setGroupType(string groupType) { DARABONBA_PTR_SET_VALUE(groupType_, groupType) };
+
+
+    // groupUuid Field Functions 
+    bool hasGroupUuid() const { return this->groupUuid_ != nullptr;};
+    void deleteGroupUuid() { this->groupUuid_ = nullptr;};
+    inline string getGroupUuid() const { DARABONBA_PTR_GET_DEFAULT(groupUuid_, "") };
+    inline DescribeAddressBookRequest& setGroupUuid(string groupUuid) { DARABONBA_PTR_SET_VALUE(groupUuid_, groupUuid) };
 
 
     // lang Field Functions 
@@ -101,6 +111,7 @@ namespace Models
     // *   **ipv6**: IPv6 address book
     // >  If you do not specify a type, the domain address books and ECS tag-based address books are queried.
     shared_ptr<string> groupType_ {};
+    shared_ptr<string> groupUuid_ {};
     // The language of the content within the request. Valid values:
     // 
     // *   **zh** (default): Chinese

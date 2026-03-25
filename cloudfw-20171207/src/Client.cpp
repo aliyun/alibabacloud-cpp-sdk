@@ -4050,6 +4050,10 @@ DescribeAddressBookResponse Client::describeAddressBookWithOptions(const Describ
     query["GroupType"] = request.getGroupType();
   }
 
+  if (!!request.hasGroupUuid()) {
+    query["GroupUuid"] = request.getGroupUuid();
+  }
+
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
   }
