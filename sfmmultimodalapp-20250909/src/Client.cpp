@@ -135,8 +135,16 @@ CreateMemoryResponse Client::createMemoryWithOptions(const CreateMemoryRequest &
     query["AppId"] = request.getAppId();
   }
 
+  if (!!request.hasAutoUpdate()) {
+    query["AutoUpdate"] = request.getAutoUpdate();
+  }
+
   if (!!request.hasContent()) {
     query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasExpirationTime()) {
+    query["ExpirationTime"] = request.getExpirationTime();
   }
 
   if (!!request.hasMessagesJson()) {
@@ -149,6 +157,10 @@ CreateMemoryResponse Client::createMemoryWithOptions(const CreateMemoryRequest &
 
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasPrompt()) {
+    query["Prompt"] = request.getPrompt();
   }
 
   if (!!request.hasUserDefinedId()) {

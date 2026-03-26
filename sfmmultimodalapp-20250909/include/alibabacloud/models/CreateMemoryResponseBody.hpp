@@ -65,11 +65,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Content, content_);
           DARABONBA_PTR_TO_JSON(Event, event_);
           DARABONBA_PTR_TO_JSON(MemoryNodeId, memoryNodeId_);
+          DARABONBA_PTR_TO_JSON(OldContent, oldContent_);
         };
         friend void from_json(const Darabonba::Json& j, MemoryNodes& obj) { 
           DARABONBA_PTR_FROM_JSON(Content, content_);
           DARABONBA_PTR_FROM_JSON(Event, event_);
           DARABONBA_PTR_FROM_JSON(MemoryNodeId, memoryNodeId_);
+          DARABONBA_PTR_FROM_JSON(OldContent, oldContent_);
         };
         MemoryNodes() = default ;
         MemoryNodes(const MemoryNodes &) = default ;
@@ -83,7 +85,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->content_ == nullptr
-        && this->event_ == nullptr && this->memoryNodeId_ == nullptr; };
+        && this->event_ == nullptr && this->memoryNodeId_ == nullptr && this->oldContent_ == nullptr; };
         // content Field Functions 
         bool hasContent() const { return this->content_ != nullptr;};
         void deleteContent() { this->content_ = nullptr;};
@@ -105,10 +107,18 @@ namespace Models
         inline MemoryNodes& setMemoryNodeId(string memoryNodeId) { DARABONBA_PTR_SET_VALUE(memoryNodeId_, memoryNodeId) };
 
 
+        // oldContent Field Functions 
+        bool hasOldContent() const { return this->oldContent_ != nullptr;};
+        void deleteOldContent() { this->oldContent_ = nullptr;};
+        inline string getOldContent() const { DARABONBA_PTR_GET_DEFAULT(oldContent_, "") };
+        inline MemoryNodes& setOldContent(string oldContent) { DARABONBA_PTR_SET_VALUE(oldContent_, oldContent) };
+
+
       protected:
         shared_ptr<string> content_ {};
         shared_ptr<string> event_ {};
         shared_ptr<string> memoryNodeId_ {};
+        shared_ptr<string> oldContent_ {};
       };
 
       virtual bool empty() const override { return this->memoryNodes_ == nullptr; };

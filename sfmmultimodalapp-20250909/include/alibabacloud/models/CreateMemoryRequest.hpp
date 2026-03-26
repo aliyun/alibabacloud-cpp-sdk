@@ -15,19 +15,25 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateMemoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(AutoUpdate, autoUpdate_);
       DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(ExpirationTime, expirationTime_);
       DARABONBA_PTR_TO_JSON(MessagesJson, messagesJson_);
       DARABONBA_PTR_TO_JSON(MetaData, metaData_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+      DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(UserDefinedId, userDefinedId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMemoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(AutoUpdate, autoUpdate_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(ExpirationTime, expirationTime_);
       DARABONBA_PTR_FROM_JSON(MessagesJson, messagesJson_);
       DARABONBA_PTR_FROM_JSON(MetaData, metaData_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+      DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(UserDefinedId, userDefinedId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -43,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->content_ == nullptr && this->messagesJson_ == nullptr && this->metaData_ == nullptr && this->projectId_ == nullptr && this->userDefinedId_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->autoUpdate_ == nullptr && this->content_ == nullptr && this->expirationTime_ == nullptr && this->messagesJson_ == nullptr && this->metaData_ == nullptr
+        && this->projectId_ == nullptr && this->prompt_ == nullptr && this->userDefinedId_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -52,11 +58,25 @@ namespace Models
     inline CreateMemoryRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
+    // autoUpdate Field Functions 
+    bool hasAutoUpdate() const { return this->autoUpdate_ != nullptr;};
+    void deleteAutoUpdate() { this->autoUpdate_ = nullptr;};
+    inline bool getAutoUpdate() const { DARABONBA_PTR_GET_DEFAULT(autoUpdate_, false) };
+    inline CreateMemoryRequest& setAutoUpdate(bool autoUpdate) { DARABONBA_PTR_SET_VALUE(autoUpdate_, autoUpdate) };
+
+
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
     inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateMemoryRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // expirationTime Field Functions 
+    bool hasExpirationTime() const { return this->expirationTime_ != nullptr;};
+    void deleteExpirationTime() { this->expirationTime_ = nullptr;};
+    inline int32_t getExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, 0) };
+    inline CreateMemoryRequest& setExpirationTime(int32_t expirationTime) { DARABONBA_PTR_SET_VALUE(expirationTime_, expirationTime) };
 
 
     // messagesJson Field Functions 
@@ -82,6 +102,13 @@ namespace Models
     inline CreateMemoryRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
+    // prompt Field Functions 
+    bool hasPrompt() const { return this->prompt_ != nullptr;};
+    void deletePrompt() { this->prompt_ = nullptr;};
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline CreateMemoryRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
+
+
     // userDefinedId Field Functions 
     bool hasUserDefinedId() const { return this->userDefinedId_ != nullptr;};
     void deleteUserDefinedId() { this->userDefinedId_ = nullptr;};
@@ -99,10 +126,13 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    shared_ptr<bool> autoUpdate_ {};
     shared_ptr<string> content_ {};
+    shared_ptr<int32_t> expirationTime_ {};
     shared_ptr<string> messagesJson_ {};
     shared_ptr<map<string, string>> metaData_ {};
     shared_ptr<string> projectId_ {};
+    shared_ptr<string> prompt_ {};
     // This parameter is required.
     shared_ptr<string> userDefinedId_ {};
     // This parameter is required.
