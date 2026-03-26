@@ -8743,7 +8743,11 @@ GetMediaMarksResponse Client::getMediaMarks(const GetMediaMarksRequest &request)
  */
 GetMediaProducingJobResponse Client::getMediaProducingJobWithOptions(const GetMediaProducingJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8752,7 +8756,7 @@ GetMediaProducingJobResponse Client::getMediaProducingJobWithOptions(const GetMe
     {"version" , "2020-11-09"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -15191,6 +15195,48 @@ ResumeMediaConnectFlowOutputResponse Client::resumeMediaConnectFlowOutput(const 
 }
 
 /**
+ * @summary 故事板任务恢复继续执行任务
+ *
+ * @param request ResumeYikeStoryboardJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeYikeStoryboardJobResponse
+ */
+ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJobWithOptions(const ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeYikeStoryboardJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeYikeStoryboardJobResponse>();
+}
+
+/**
+ * @summary 故事板任务恢复继续执行任务
+ *
+ * @param request ResumeYikeStoryboardJobRequest
+ * @return ResumeYikeStoryboardJobResponse
+ */
+ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJob(const ResumeYikeStoryboardJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resumeYikeStoryboardJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries online editing projects by creation time and status.
  *
  * @param request SearchEditingProjectRequest
@@ -20236,6 +20282,10 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
     query["AspectRatio"] = request.getAspectRatio();
   }
 
+  if (!!request.hasExecMode()) {
+    query["ExecMode"] = request.getExecMode();
+  }
+
   if (!!request.hasModelParams()) {
     query["ModelParams"] = request.getModelParams();
   }
@@ -20250,6 +20300,10 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
 
   if (!!request.hasShotPromptMode()) {
     query["ShotPromptMode"] = request.getShotPromptMode();
+  }
+
+  if (!!request.hasSkipFailureShot()) {
+    query["SkipFailureShot"] = request.getSkipFailureShot();
   }
 
   if (!!request.hasTitle()) {

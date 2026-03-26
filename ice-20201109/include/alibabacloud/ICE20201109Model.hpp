@@ -892,6 +892,9 @@
 #include <alibabacloud/models/ResumeMediaConnectFlowOutputRequest.hpp>
 #include <alibabacloud/models/ResumeMediaConnectFlowOutputResponseBody.hpp>
 #include <alibabacloud/models/ResumeMediaConnectFlowOutputResponse.hpp>
+#include <alibabacloud/models/ResumeYikeStoryboardJobRequest.hpp>
+#include <alibabacloud/models/ResumeYikeStoryboardJobResponseBody.hpp>
+#include <alibabacloud/models/ResumeYikeStoryboardJobResponse.hpp>
 #include <alibabacloud/models/SearchEditingProjectRequest.hpp>
 #include <alibabacloud/models/SearchEditingProjectResponseBody.hpp>
 #include <alibabacloud/models/SearchEditingProjectResponse.hpp>

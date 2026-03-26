@@ -5401,6 +5401,23 @@ namespace ICE20201109
       Models::ResumeMediaConnectFlowOutputResponse resumeMediaConnectFlowOutput(const Models::ResumeMediaConnectFlowOutputRequest &request);
 
       /**
+       * @summary 故事板任务恢复继续执行任务
+       *
+       * @param request ResumeYikeStoryboardJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeYikeStoryboardJobResponse
+       */
+      Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJobWithOptions(const Models::ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 故事板任务恢复继续执行任务
+       *
+       * @param request ResumeYikeStoryboardJobRequest
+       * @return ResumeYikeStoryboardJobResponse
+       */
+      Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJob(const Models::ResumeYikeStoryboardJobRequest &request);
+
+      /**
        * @summary Queries online editing projects by creation time and status.
        *
        * @param request SearchEditingProjectRequest
