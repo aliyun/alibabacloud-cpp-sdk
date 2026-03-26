@@ -236,6 +236,59 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
+ * @summary 业务空间列表
+ *
+ * @param request ListWorkspacesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["workspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaces"},
+    {"version" , "2026-03-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/workspaces")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspacesResponse>();
+}
+
+/**
+ * @summary 业务空间列表
+ *
+ * @param request ListWorkspacesRequest
+ * @return ListWorkspacesResponse
+ */
+ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkspacesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 编辑apiKey的描述
  *
  * @param request UpdateApiKeyRequest

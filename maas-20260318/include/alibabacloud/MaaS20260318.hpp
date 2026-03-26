@@ -93,6 +93,24 @@ namespace MaaS20260318
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
+       * @summary 业务空间列表
+       *
+       * @param request ListWorkspacesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkspacesResponse
+       */
+      Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 业务空间列表
+       *
+       * @param request ListWorkspacesRequest
+       * @return ListWorkspacesResponse
+       */
+      Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
+
+      /**
        * @summary 编辑apiKey的描述
        *
        * @param request UpdateApiKeyRequest

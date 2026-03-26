@@ -14,6 +14,9 @@
 #include <alibabacloud/models/ListApiKeysRequest.hpp>
 #include <alibabacloud/models/ListApiKeysResponseBody.hpp>
 #include <alibabacloud/models/ListApiKeysResponse.hpp>
+#include <alibabacloud/models/ListWorkspacesRequest.hpp>
+#include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspacesResponse.hpp>
 #include <alibabacloud/models/UpdateApiKeyRequest.hpp>
 #include <alibabacloud/models/UpdateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/UpdateApiKeyResponse.hpp>
