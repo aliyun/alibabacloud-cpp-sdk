@@ -2933,6 +2933,23 @@ namespace Cbn20170912
       Models::ModifyFlowLogAttributeResponse modifyFlowLogAttribute(const Models::ModifyFlowLogAttributeRequest &request);
 
       /**
+       * @summary 编辑跨账号授权记录
+       *
+       * @param request ModifyGrantInstanceToTransitRouterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyGrantInstanceToTransitRouterResponse
+       */
+      Models::ModifyGrantInstanceToTransitRouterResponse modifyGrantInstanceToTransitRouterWithOptions(const Models::ModifyGrantInstanceToTransitRouterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 编辑跨账号授权记录
+       *
+       * @param request ModifyGrantInstanceToTransitRouterRequest
+       * @return ModifyGrantInstanceToTransitRouterResponse
+       */
+      Models::ModifyGrantInstanceToTransitRouterResponse modifyGrantInstanceToTransitRouter(const Models::ModifyGrantInstanceToTransitRouterRequest &request);
+
+      /**
        * @summary Modifies the name and description of a traffic classification rule.
        *
        * @param request ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest

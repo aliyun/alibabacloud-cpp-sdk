@@ -10244,6 +10244,78 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttribute(const ModifyFlowLo
 }
 
 /**
+ * @summary 编辑跨账号授权记录
+ *
+ * @param request ModifyGrantInstanceToTransitRouterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyGrantInstanceToTransitRouterResponse
+ */
+ModifyGrantInstanceToTransitRouterResponse Client::modifyGrantInstanceToTransitRouterWithOptions(const ModifyGrantInstanceToTransitRouterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCenId()) {
+    query["CenId"] = request.getCenId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyGrantInstanceToTransitRouter"},
+    {"version" , "2017-09-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyGrantInstanceToTransitRouterResponse>();
+}
+
+/**
+ * @summary 编辑跨账号授权记录
+ *
+ * @param request ModifyGrantInstanceToTransitRouterRequest
+ * @return ModifyGrantInstanceToTransitRouterResponse
+ */
+ModifyGrantInstanceToTransitRouterResponse Client::modifyGrantInstanceToTransitRouter(const ModifyGrantInstanceToTransitRouterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyGrantInstanceToTransitRouterWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the name and description of a traffic classification rule.
  *
  * @param request ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest

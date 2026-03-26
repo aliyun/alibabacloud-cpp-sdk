@@ -347,6 +347,9 @@
 #include <alibabacloud/models/ModifyFlowLogAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyFlowLogAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyFlowLogAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyGrantInstanceToTransitRouterRequest.hpp>
+#include <alibabacloud/models/ModifyGrantInstanceToTransitRouterResponseBody.hpp>
+#include <alibabacloud/models/ModifyGrantInstanceToTransitRouterResponse.hpp>
 #include <alibabacloud/models/ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyTrafficMatchRuleToTrafficMarkingPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse.hpp>
