@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->storageRegion_ == nullptr; };
+        && this->storageRegion_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetGlobalEventsStorageRegionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // storageRegion Field Functions 
     bool hasStorageRegion() const { return this->storageRegion_ != nullptr;};
     void deleteStorageRegion() { this->storageRegion_ = nullptr;};
-    inline string storageRegion() const { DARABONBA_PTR_GET_DEFAULT(storageRegion_, "") };
+    inline string getStorageRegion() const { DARABONBA_PTR_GET_DEFAULT(storageRegion_, "") };
     inline GetGlobalEventsStorageRegionResponseBody& setStorageRegion(string storageRegion) { DARABONBA_PTR_SET_VALUE(storageRegion_, storageRegion) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The region where global events are stored.
     // 
     // Valid values:
@@ -77,7 +77,7 @@ namespace Models
     //     the China (Hangzhou) region
     // 
     //     <!-- -->
-    std::shared_ptr<string> storageRegion_ = nullptr;
+    shared_ptr<string> storageRegion_ {};
   };
 
   } // namespace Models

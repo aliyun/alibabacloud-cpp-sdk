@@ -33,7 +33,7 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int32_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0) };
+    inline int32_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0) };
     inline DeleteDeliveryHistoryJobRequest& setJobId(int32_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // You can call the [ListDeliveryHistoryJobs](https://help.aliyun.com/document_detail/188101.html) operation to query task IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> jobId_ = nullptr;
+    shared_ptr<int32_t> jobId_ {};
   };
 
   } // namespace Models

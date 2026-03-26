@@ -33,12 +33,12 @@ namespace Models
     // searchCode Field Functions 
     bool hasSearchCode() const { return this->searchCode_ != nullptr;};
     void deleteSearchCode() { this->searchCode_ = nullptr;};
-    inline string searchCode() const { DARABONBA_PTR_GET_DEFAULT(searchCode_, "") };
+    inline string getSearchCode() const { DARABONBA_PTR_GET_DEFAULT(searchCode_, "") };
     inline DescribeScenesRequest& setSearchCode(string searchCode) { DARABONBA_PTR_SET_VALUE(searchCode_, searchCode) };
 
 
   protected:
-    std::shared_ptr<string> searchCode_ = nullptr;
+    shared_ptr<string> searchCode_ {};
   };
 
   } // namespace Models

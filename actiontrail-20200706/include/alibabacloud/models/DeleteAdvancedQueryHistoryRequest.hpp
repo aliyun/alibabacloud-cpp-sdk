@@ -33,13 +33,13 @@ namespace Models
     // queryId Field Functions 
     bool hasQueryId() const { return this->queryId_ != nullptr;};
     void deleteQueryId() { this->queryId_ = nullptr;};
-    inline string queryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+    inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
     inline DeleteAdvancedQueryHistoryRequest& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> queryId_ = nullptr;
+    shared_ptr<string> queryId_ {};
   };
 
   } // namespace Models

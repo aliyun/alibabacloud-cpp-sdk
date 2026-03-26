@@ -33,13 +33,13 @@ namespace Models
     // trailName Field Functions 
     bool hasTrailName() const { return this->trailName_ != nullptr;};
     void deleteTrailName() { this->trailName_ = nullptr;};
-    inline string trailName() const { DARABONBA_PTR_GET_DEFAULT(trailName_, "") };
+    inline string getTrailName() const { DARABONBA_PTR_GET_DEFAULT(trailName_, "") };
     inline GetDataEventSelectorRequest& setTrailName(string trailName) { DARABONBA_PTR_SET_VALUE(trailName_, trailName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> trailName_ = nullptr;
+    shared_ptr<string> trailName_ {};
   };
 
   } // namespace Models

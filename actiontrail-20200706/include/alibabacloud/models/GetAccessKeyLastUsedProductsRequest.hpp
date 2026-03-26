@@ -33,7 +33,7 @@ namespace Models
     // accessKey Field Functions 
     bool hasAccessKey() const { return this->accessKey_ != nullptr;};
     void deleteAccessKey() { this->accessKey_ = nullptr;};
-    inline string accessKey() const { DARABONBA_PTR_GET_DEFAULT(accessKey_, "") };
+    inline string getAccessKey() const { DARABONBA_PTR_GET_DEFAULT(accessKey_, "") };
     inline GetAccessKeyLastUsedProductsRequest& setAccessKey(string accessKey) { DARABONBA_PTR_SET_VALUE(accessKey_, accessKey) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The AccessKey ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessKey_ = nullptr;
+    shared_ptr<string> accessKey_ {};
   };
 
   } // namespace Models

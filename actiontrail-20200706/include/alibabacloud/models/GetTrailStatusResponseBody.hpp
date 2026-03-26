@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isLogging_ == nullptr
-        && return this->latestDeliveryError_ == nullptr && return this->latestDeliveryLogServiceError_ == nullptr && return this->latestDeliveryLogServiceTime_ == nullptr && return this->latestDeliveryTime_ == nullptr && return this->ossBucketStatus_ == nullptr
-        && return this->requestId_ == nullptr && return this->slsLogStoreStatus_ == nullptr && return this->startLoggingTime_ == nullptr && return this->stopLoggingTime_ == nullptr; };
+        && this->latestDeliveryError_ == nullptr && this->latestDeliveryLogServiceError_ == nullptr && this->latestDeliveryLogServiceTime_ == nullptr && this->latestDeliveryTime_ == nullptr && this->ossBucketStatus_ == nullptr
+        && this->requestId_ == nullptr && this->slsLogStoreStatus_ == nullptr && this->startLoggingTime_ == nullptr && this->stopLoggingTime_ == nullptr; };
     // isLogging Field Functions 
     bool hasIsLogging() const { return this->isLogging_ != nullptr;};
     void deleteIsLogging() { this->isLogging_ = nullptr;};
-    inline bool isLogging() const { DARABONBA_PTR_GET_DEFAULT(isLogging_, false) };
+    inline bool getIsLogging() const { DARABONBA_PTR_GET_DEFAULT(isLogging_, false) };
     inline GetTrailStatusResponseBody& setIsLogging(bool isLogging) { DARABONBA_PTR_SET_VALUE(isLogging_, isLogging) };
 
 
     // latestDeliveryError Field Functions 
     bool hasLatestDeliveryError() const { return this->latestDeliveryError_ != nullptr;};
     void deleteLatestDeliveryError() { this->latestDeliveryError_ = nullptr;};
-    inline string latestDeliveryError() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryError_, "") };
+    inline string getLatestDeliveryError() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryError_, "") };
     inline GetTrailStatusResponseBody& setLatestDeliveryError(string latestDeliveryError) { DARABONBA_PTR_SET_VALUE(latestDeliveryError_, latestDeliveryError) };
 
 
     // latestDeliveryLogServiceError Field Functions 
     bool hasLatestDeliveryLogServiceError() const { return this->latestDeliveryLogServiceError_ != nullptr;};
     void deleteLatestDeliveryLogServiceError() { this->latestDeliveryLogServiceError_ = nullptr;};
-    inline string latestDeliveryLogServiceError() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryLogServiceError_, "") };
+    inline string getLatestDeliveryLogServiceError() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryLogServiceError_, "") };
     inline GetTrailStatusResponseBody& setLatestDeliveryLogServiceError(string latestDeliveryLogServiceError) { DARABONBA_PTR_SET_VALUE(latestDeliveryLogServiceError_, latestDeliveryLogServiceError) };
 
 
     // latestDeliveryLogServiceTime Field Functions 
     bool hasLatestDeliveryLogServiceTime() const { return this->latestDeliveryLogServiceTime_ != nullptr;};
     void deleteLatestDeliveryLogServiceTime() { this->latestDeliveryLogServiceTime_ = nullptr;};
-    inline string latestDeliveryLogServiceTime() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryLogServiceTime_, "") };
+    inline string getLatestDeliveryLogServiceTime() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryLogServiceTime_, "") };
     inline GetTrailStatusResponseBody& setLatestDeliveryLogServiceTime(string latestDeliveryLogServiceTime) { DARABONBA_PTR_SET_VALUE(latestDeliveryLogServiceTime_, latestDeliveryLogServiceTime) };
 
 
     // latestDeliveryTime Field Functions 
     bool hasLatestDeliveryTime() const { return this->latestDeliveryTime_ != nullptr;};
     void deleteLatestDeliveryTime() { this->latestDeliveryTime_ = nullptr;};
-    inline string latestDeliveryTime() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryTime_, "") };
+    inline string getLatestDeliveryTime() const { DARABONBA_PTR_GET_DEFAULT(latestDeliveryTime_, "") };
     inline GetTrailStatusResponseBody& setLatestDeliveryTime(string latestDeliveryTime) { DARABONBA_PTR_SET_VALUE(latestDeliveryTime_, latestDeliveryTime) };
 
 
     // ossBucketStatus Field Functions 
     bool hasOssBucketStatus() const { return this->ossBucketStatus_ != nullptr;};
     void deleteOssBucketStatus() { this->ossBucketStatus_ = nullptr;};
-    inline bool ossBucketStatus() const { DARABONBA_PTR_GET_DEFAULT(ossBucketStatus_, false) };
+    inline bool getOssBucketStatus() const { DARABONBA_PTR_GET_DEFAULT(ossBucketStatus_, false) };
     inline GetTrailStatusResponseBody& setOssBucketStatus(bool ossBucketStatus) { DARABONBA_PTR_SET_VALUE(ossBucketStatus_, ossBucketStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTrailStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // slsLogStoreStatus Field Functions 
     bool hasSlsLogStoreStatus() const { return this->slsLogStoreStatus_ != nullptr;};
     void deleteSlsLogStoreStatus() { this->slsLogStoreStatus_ = nullptr;};
-    inline bool slsLogStoreStatus() const { DARABONBA_PTR_GET_DEFAULT(slsLogStoreStatus_, false) };
+    inline bool getSlsLogStoreStatus() const { DARABONBA_PTR_GET_DEFAULT(slsLogStoreStatus_, false) };
     inline GetTrailStatusResponseBody& setSlsLogStoreStatus(bool slsLogStoreStatus) { DARABONBA_PTR_SET_VALUE(slsLogStoreStatus_, slsLogStoreStatus) };
 
 
     // startLoggingTime Field Functions 
     bool hasStartLoggingTime() const { return this->startLoggingTime_ != nullptr;};
     void deleteStartLoggingTime() { this->startLoggingTime_ = nullptr;};
-    inline string startLoggingTime() const { DARABONBA_PTR_GET_DEFAULT(startLoggingTime_, "") };
+    inline string getStartLoggingTime() const { DARABONBA_PTR_GET_DEFAULT(startLoggingTime_, "") };
     inline GetTrailStatusResponseBody& setStartLoggingTime(string startLoggingTime) { DARABONBA_PTR_SET_VALUE(startLoggingTime_, startLoggingTime) };
 
 
     // stopLoggingTime Field Functions 
     bool hasStopLoggingTime() const { return this->stopLoggingTime_ != nullptr;};
     void deleteStopLoggingTime() { this->stopLoggingTime_ = nullptr;};
-    inline string stopLoggingTime() const { DARABONBA_PTR_GET_DEFAULT(stopLoggingTime_, "") };
+    inline string getStopLoggingTime() const { DARABONBA_PTR_GET_DEFAULT(stopLoggingTime_, "") };
     inline GetTrailStatusResponseBody& setStopLoggingTime(string stopLoggingTime) { DARABONBA_PTR_SET_VALUE(stopLoggingTime_, stopLoggingTime) };
 
 
@@ -125,31 +125,31 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> isLogging_ = nullptr;
+    shared_ptr<bool> isLogging_ {};
     // The log of the last failed delivery.
-    std::shared_ptr<string> latestDeliveryError_ = nullptr;
+    shared_ptr<string> latestDeliveryError_ {};
     // The log of the last failed delivery to Log Service.
-    std::shared_ptr<string> latestDeliveryLogServiceError_ = nullptr;
+    shared_ptr<string> latestDeliveryLogServiceError_ {};
     // The most recent time when an event was delivered to Log Service.
-    std::shared_ptr<string> latestDeliveryLogServiceTime_ = nullptr;
+    shared_ptr<string> latestDeliveryLogServiceTime_ {};
     // The most recent time when an event was delivered by the trail.
-    std::shared_ptr<string> latestDeliveryTime_ = nullptr;
+    shared_ptr<string> latestDeliveryTime_ {};
     // Indicates whether the destination Object Storage Service (OSS) bucket is available. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> ossBucketStatus_ = nullptr;
+    shared_ptr<bool> ossBucketStatus_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the destination Log Service Logstore is available. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> slsLogStoreStatus_ = nullptr;
+    shared_ptr<bool> slsLogStoreStatus_ {};
     // The time when logging was last enabled for the trail.
-    std::shared_ptr<string> startLoggingTime_ = nullptr;
+    shared_ptr<string> startLoggingTime_ {};
     // The time when logging was last disabled for the trail.
-    std::shared_ptr<string> stopLoggingTime_ = nullptr;
+    shared_ptr<string> stopLoggingTime_ {};
   };
 
   } // namespace Models

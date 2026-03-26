@@ -52,126 +52,126 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKeyId_ == nullptr
-        && return this->accountId_ == nullptr && return this->accountType_ == nullptr && return this->detail_ == nullptr && return this->ownerId_ == nullptr && return this->requestId_ == nullptr
-        && return this->serviceName_ == nullptr && return this->serviceNameCn_ == nullptr && return this->serviceNameEn_ == nullptr && return this->source_ == nullptr && return this->usedTimestamp_ == nullptr
-        && return this->userName_ == nullptr; };
+        && this->accountId_ == nullptr && this->accountType_ == nullptr && this->detail_ == nullptr && this->ownerId_ == nullptr && this->requestId_ == nullptr
+        && this->serviceName_ == nullptr && this->serviceNameCn_ == nullptr && this->serviceNameEn_ == nullptr && this->source_ == nullptr && this->usedTimestamp_ == nullptr
+        && this->userName_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
-    inline string accessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
+    inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
 
 
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
-    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
 
 
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
-    inline string detail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // serviceNameCn Field Functions 
     bool hasServiceNameCn() const { return this->serviceNameCn_ != nullptr;};
     void deleteServiceNameCn() { this->serviceNameCn_ = nullptr;};
-    inline string serviceNameCn() const { DARABONBA_PTR_GET_DEFAULT(serviceNameCn_, "") };
+    inline string getServiceNameCn() const { DARABONBA_PTR_GET_DEFAULT(serviceNameCn_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setServiceNameCn(string serviceNameCn) { DARABONBA_PTR_SET_VALUE(serviceNameCn_, serviceNameCn) };
 
 
     // serviceNameEn Field Functions 
     bool hasServiceNameEn() const { return this->serviceNameEn_ != nullptr;};
     void deleteServiceNameEn() { this->serviceNameEn_ = nullptr;};
-    inline string serviceNameEn() const { DARABONBA_PTR_GET_DEFAULT(serviceNameEn_, "") };
+    inline string getServiceNameEn() const { DARABONBA_PTR_GET_DEFAULT(serviceNameEn_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setServiceNameEn(string serviceNameEn) { DARABONBA_PTR_SET_VALUE(serviceNameEn_, serviceNameEn) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // usedTimestamp Field Functions 
     bool hasUsedTimestamp() const { return this->usedTimestamp_ != nullptr;};
     void deleteUsedTimestamp() { this->usedTimestamp_ = nullptr;};
-    inline int64_t usedTimestamp() const { DARABONBA_PTR_GET_DEFAULT(usedTimestamp_, 0L) };
+    inline int64_t getUsedTimestamp() const { DARABONBA_PTR_GET_DEFAULT(usedTimestamp_, 0L) };
     inline GetAccessKeyLastUsedInfoResponseBody& setUsedTimestamp(int64_t usedTimestamp) { DARABONBA_PTR_SET_VALUE(usedTimestamp_, usedTimestamp) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline GetAccessKeyLastUsedInfoResponseBody& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
     // The AccessKey ID.
-    std::shared_ptr<string> accessKeyId_ = nullptr;
+    shared_ptr<string> accessKeyId_ {};
     // The ID of the Alibaba Cloud account.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
     // The type of the account to which the AccessKey pair belongs.
-    std::shared_ptr<string> accountType_ = nullptr;
+    shared_ptr<string> accountType_ {};
     // The details about the event.
-    std::shared_ptr<string> detail_ = nullptr;
+    shared_ptr<string> detail_ {};
     // The ID of the account to which the AccessKey pair belongs.
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> ownerId_ {};
     // The ID of the request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The Alibaba Cloud service that was last accessed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
     // The Chinese name of the Alibaba Cloud service that was last accessed.
-    std::shared_ptr<string> serviceNameCn_ = nullptr;
+    shared_ptr<string> serviceNameCn_ {};
     // The English name of the Alibaba Cloud service that was last accessed.
-    std::shared_ptr<string> serviceNameEn_ = nullptr;
+    shared_ptr<string> serviceNameEn_ {};
     // The event source.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The timestamp when the AccessKey pair was last called.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> usedTimestamp_ = nullptr;
+    shared_ptr<int64_t> usedTimestamp_ {};
     // The name of the account to which the AccessKey pair belongs.
     // 
     // If the value of the AccountType parameter is root-account, the value of the UserName parameter is root. If the value of the AccountType parameter is ram-user, the value of the UserName parameter is the name of a RAM user.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataEventSelectors_ == nullptr
-        && return this->requestId_ == nullptr && return this->trailArn_ == nullptr; };
+        && this->requestId_ == nullptr && this->trailArn_ == nullptr; };
     // dataEventSelectors Field Functions 
     bool hasDataEventSelectors() const { return this->dataEventSelectors_ != nullptr;};
     void deleteDataEventSelectors() { this->dataEventSelectors_ = nullptr;};
-    inline string dataEventSelectors() const { DARABONBA_PTR_GET_DEFAULT(dataEventSelectors_, "") };
+    inline string getDataEventSelectors() const { DARABONBA_PTR_GET_DEFAULT(dataEventSelectors_, "") };
     inline PutDataEventSelectorResponseBody& setDataEventSelectors(string dataEventSelectors) { DARABONBA_PTR_SET_VALUE(dataEventSelectors_, dataEventSelectors) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PutDataEventSelectorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // trailArn Field Functions 
     bool hasTrailArn() const { return this->trailArn_ != nullptr;};
     void deleteTrailArn() { this->trailArn_ = nullptr;};
-    inline string trailArn() const { DARABONBA_PTR_GET_DEFAULT(trailArn_, "") };
+    inline string getTrailArn() const { DARABONBA_PTR_GET_DEFAULT(trailArn_, "") };
     inline PutDataEventSelectorResponseBody& setTrailArn(string trailArn) { DARABONBA_PTR_SET_VALUE(trailArn_, trailArn) };
 
 
   protected:
-    std::shared_ptr<string> dataEventSelectors_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> trailArn_ = nullptr;
+    shared_ptr<string> dataEventSelectors_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> trailArn_ {};
   };
 
   } // namespace Models

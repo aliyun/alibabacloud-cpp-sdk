@@ -80,11 +80,11 @@ CreateAdvancedQueryHistoryResponse Client::createAdvancedQueryHistoryWithOptions
   request.validate();
   json query = {};
   if (!!request.hasQuerySql()) {
-    query["QuerySql"] = request.querySql();
+    query["QuerySql"] = request.getQuerySql();
   }
 
   if (!!request.hasSimpleQuery()) {
-    query["SimpleQuery"] = request.simpleQuery();
+    query["SimpleQuery"] = request.getSimpleQuery();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -126,15 +126,15 @@ CreateAdvancedQueryTemplateResponse Client::createAdvancedQueryTemplateWithOptio
   request.validate();
   json query = {};
   if (!!request.hasSimpleQuery()) {
-    query["SimpleQuery"] = request.simpleQuery();
+    query["SimpleQuery"] = request.getSimpleQuery();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTemplateSql()) {
-    query["TemplateSql"] = request.templateSql();
+    query["TemplateSql"] = request.getTemplateSql();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -181,11 +181,11 @@ CreateDeliveryHistoryJobResponse Client::createDeliveryHistoryJobWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasTrailName()) {
-    query["TrailName"] = request.trailName();
+    query["TrailName"] = request.getTrailName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -249,47 +249,47 @@ CreateTrailResponse Client::createTrailWithOptions(const CreateTrailRequest &req
   request.validate();
   json query = {};
   if (!!request.hasEventRW()) {
-    query["EventRW"] = request.eventRW();
+    query["EventRW"] = request.getEventRW();
   }
 
   if (!!request.hasIsOrganizationTrail()) {
-    query["IsOrganizationTrail"] = request.isOrganizationTrail();
+    query["IsOrganizationTrail"] = request.getIsOrganizationTrail();
   }
 
   if (!!request.hasMaxComputeProjectArn()) {
-    query["MaxComputeProjectArn"] = request.maxComputeProjectArn();
+    query["MaxComputeProjectArn"] = request.getMaxComputeProjectArn();
   }
 
   if (!!request.hasMaxComputeWriteRoleArn()) {
-    query["MaxComputeWriteRoleArn"] = request.maxComputeWriteRoleArn();
+    query["MaxComputeWriteRoleArn"] = request.getMaxComputeWriteRoleArn();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOssBucketName()) {
-    query["OssBucketName"] = request.ossBucketName();
+    query["OssBucketName"] = request.getOssBucketName();
   }
 
   if (!!request.hasOssKeyPrefix()) {
-    query["OssKeyPrefix"] = request.ossKeyPrefix();
+    query["OssKeyPrefix"] = request.getOssKeyPrefix();
   }
 
   if (!!request.hasOssWriteRoleArn()) {
-    query["OssWriteRoleArn"] = request.ossWriteRoleArn();
+    query["OssWriteRoleArn"] = request.getOssWriteRoleArn();
   }
 
   if (!!request.hasSlsProjectArn()) {
-    query["SlsProjectArn"] = request.slsProjectArn();
+    query["SlsProjectArn"] = request.getSlsProjectArn();
   }
 
   if (!!request.hasSlsWriteRoleArn()) {
-    query["SlsWriteRoleArn"] = request.slsWriteRoleArn();
+    query["SlsWriteRoleArn"] = request.getSlsWriteRoleArn();
   }
 
   if (!!request.hasTrailRegion()) {
-    query["TrailRegion"] = request.trailRegion();
+    query["TrailRegion"] = request.getTrailRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -348,7 +348,7 @@ DeleteAdvancedQueryHistoryResponse Client::deleteAdvancedQueryHistoryWithOptions
   request.validate();
   json query = {};
   if (!!request.hasQueryId()) {
-    query["QueryId"] = request.queryId();
+    query["QueryId"] = request.getQueryId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -390,7 +390,7 @@ DeleteAdvancedQueryTemplateResponse Client::deleteAdvancedQueryTemplateWithOptio
   request.validate();
   json query = {};
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -432,7 +432,7 @@ DeleteDataEventSelectorResponse Client::deleteDataEventSelectorWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasTrailName()) {
-    query["TrailName"] = request.trailName();
+    query["TrailName"] = request.getTrailName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -476,7 +476,7 @@ DeleteDeliveryHistoryJobResponse Client::deleteDeliveryHistoryJobWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -522,7 +522,7 @@ DeleteTrailResponse Client::deleteTrailWithOptions(const DeleteTrailRequest &req
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -599,15 +599,15 @@ DescribeAdvancedQueryTemplateResponse Client::describeAdvancedQueryTemplateWithO
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -651,7 +651,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -695,11 +695,11 @@ DescribeResourceLifeCycleEventsResponse Client::describeResourceLifeCycleEventsW
   request.validate();
   json query = {};
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -741,7 +741,7 @@ DescribeScenesResponse Client::describeScenesWithOptions(const DescribeScenesReq
   request.validate();
   json query = {};
   if (!!request.hasSearchCode()) {
-    query["SearchCode"] = request.searchCode();
+    query["SearchCode"] = request.getSearchCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -783,15 +783,15 @@ DescribeSearchTemplatesResponse Client::describeSearchTemplatesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -835,15 +835,15 @@ DescribeTrailsResponse Client::describeTrailsWithOptions(const DescribeTrailsReq
   request.validate();
   json query = {};
   if (!!request.hasIncludeOrganizationTrail()) {
-    query["IncludeOrganizationTrail"] = request.includeOrganizationTrail();
+    query["IncludeOrganizationTrail"] = request.getIncludeOrganizationTrail();
   }
 
   if (!!request.hasIncludeShadowTrails()) {
-    query["IncludeShadowTrails"] = request.includeShadowTrails();
+    query["IncludeShadowTrails"] = request.getIncludeShadowTrails();
   }
 
   if (!!request.hasNameList()) {
-    query["NameList"] = request.nameList();
+    query["NameList"] = request.getNameList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -887,11 +887,11 @@ DescribeUserAlertCountResponse Client::describeUserAlertCountWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -933,11 +933,11 @@ DescribeUserLogCountResponse Client::describeUserLogCountWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -969,6 +969,48 @@ DescribeUserLogCountResponse Client::describeUserLogCount(const DescribeUserLogC
 }
 
 /**
+ * @summary 关闭insight
+ *
+ * @param request DisableInsightRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableInsightResponse
+ */
+DisableInsightResponse Client::disableInsightWithOptions(const DisableInsightRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInsightType()) {
+    query["InsightType"] = request.getInsightType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableInsight"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableInsightResponse>();
+}
+
+/**
+ * @summary 关闭insight
+ *
+ * @param request DisableInsightRequest
+ * @return DisableInsightResponse
+ */
+DisableInsightResponse Client::disableInsight(const DisableInsightRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableInsightWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables the Insights feature
  *
  * @param request EnableInsightRequest
@@ -979,7 +1021,7 @@ EnableInsightResponse Client::enableInsightWithOptions(const EnableInsightReques
   request.validate();
   json query = {};
   if (!!request.hasInsightType()) {
-    query["InsightType"] = request.insightType();
+    query["InsightType"] = request.getInsightType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1023,19 +1065,19 @@ GetAccessKeyLastUsedEventsResponse Client::getAccessKeyLastUsedEventsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAccessKey()) {
-    query["AccessKey"] = request.accessKey();
+    query["AccessKey"] = request.getAccessKey();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1081,7 +1123,7 @@ GetAccessKeyLastUsedInfoResponse Client::getAccessKeyLastUsedInfoWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAccessKey()) {
-    query["AccessKey"] = request.accessKey();
+    query["AccessKey"] = request.getAccessKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1127,19 +1169,19 @@ GetAccessKeyLastUsedIpsResponse Client::getAccessKeyLastUsedIpsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAccessKey()) {
-    query["AccessKey"] = request.accessKey();
+    query["AccessKey"] = request.getAccessKey();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1185,7 +1227,7 @@ GetAccessKeyLastUsedProductsResponse Client::getAccessKeyLastUsedProductsWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAccessKey()) {
-    query["AccessKey"] = request.accessKey();
+    query["AccessKey"] = request.getAccessKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1231,19 +1273,19 @@ GetAccessKeyLastUsedResourcesResponse Client::getAccessKeyLastUsedResourcesWithO
   request.validate();
   json query = {};
   if (!!request.hasAccessKey()) {
-    query["AccessKey"] = request.accessKey();
+    query["AccessKey"] = request.getAccessKey();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1287,7 +1329,7 @@ GetAdvancedQueryTemplateResponse Client::getAdvancedQueryTemplateWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1329,7 +1371,7 @@ GetDataEventSelectorResponse Client::getDataEventSelectorWithOptions(const GetDa
   request.validate();
   json query = {};
   if (!!request.hasTrailName()) {
-    query["TrailName"] = request.trailName();
+    query["TrailName"] = request.getTrailName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1373,7 +1415,7 @@ GetDeliveryHistoryJobResponse Client::getDeliveryHistoryJobWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1479,6 +1521,131 @@ GetGovernanceMetricsResponse Client::getGovernanceMetrics() {
 }
 
 /**
+ * @summary 获取跟踪insights配置
+ *
+ * @param request GetInsightSelectorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInsightSelectorsResponse
+ */
+GetInsightSelectorsResponse Client::getInsightSelectorsWithOptions(const GetInsightSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTrailName()) {
+    query["TrailName"] = request.getTrailName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInsightSelectors"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInsightSelectorsResponse>();
+}
+
+/**
+ * @summary 获取跟踪insights配置
+ *
+ * @param request GetInsightSelectorsRequest
+ * @return GetInsightSelectorsResponse
+ */
+GetInsightSelectorsResponse Client::getInsightSelectors(const GetInsightSelectorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInsightSelectorsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取查询账号开启insight的类型
+ *
+ * @param request GetInsightTypesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInsightTypesResponse
+ */
+GetInsightTypesResponse Client::getInsightTypesWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetInsightTypes"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInsightTypesResponse>();
+}
+
+/**
+ * @summary 获取查询账号开启insight的类型
+ *
+ * @return GetInsightTypesResponse
+ */
+GetInsightTypesResponse Client::getInsightTypes() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInsightTypesWithOptions(runtime);
+}
+
+/**
+ * @summary 得到当前账号的insights事件数量
+ *
+ * @param request GetInsightsEventsCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInsightsEventsCountResponse
+ */
+GetInsightsEventsCountResponse Client::getInsightsEventsCountWithOptions(const GetInsightsEventsCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDate()) {
+    query["Date"] = request.getDate();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInsightsEventsCount"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInsightsEventsCountResponse>();
+}
+
+/**
+ * @summary 得到当前账号的insights事件数量
+ *
+ * @param request GetInsightsEventsCountRequest
+ * @return GetInsightsEventsCountResponse
+ */
+GetInsightsEventsCountResponse Client::getInsightsEventsCount(const GetInsightsEventsCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInsightsEventsCountWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the status of a trail.
  *
  * @description This topic describes how to query the status of a sample single-account trail named `trail-test`.
@@ -1491,11 +1658,11 @@ GetTrailStatusResponse Client::getTrailStatusWithOptions(const GetTrailStatusReq
   request.validate();
   json query = {};
   if (!!request.hasIsOrganizationTrail()) {
-    query["IsOrganizationTrail"] = request.isOrganizationTrail();
+    query["IsOrganizationTrail"] = request.getIsOrganizationTrail();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1539,11 +1706,11 @@ ListDataEventSelectorsResponse Client::listDataEventSelectorsWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1585,11 +1752,11 @@ ListDataEventServicesResponse Client::listDataEventServicesWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1633,11 +1800,11 @@ ListDeliveryHistoryJobsResponse Client::listDeliveryHistoryJobsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1684,27 +1851,27 @@ LookupEventsResponse Client::lookupEventsWithOptions(const LookupEventsRequest &
   request.validate();
   json query = {};
   if (!!request.hasDirection()) {
-    query["Direction"] = request.direction();
+    query["Direction"] = request.getDirection();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasLookupAttribute()) {
-    query["LookupAttribute"] = request.lookupAttribute();
+    query["LookupAttribute"] = request.getLookupAttribute();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1739,6 +1906,64 @@ LookupEventsResponse Client::lookupEvents(const LookupEventsRequest &request) {
 }
 
 /**
+ * @summary 查询Insight事件
+ *
+ * @param request LookupInsightEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LookupInsightEventsResponse
+ */
+LookupInsightEventsResponse Client::lookupInsightEventsWithOptions(const LookupInsightEventsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasLookupAttribute()) {
+    query["LookupAttribute"] = request.getLookupAttribute();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LookupInsightEvents"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LookupInsightEventsResponse>();
+}
+
+/**
+ * @summary 查询Insight事件
+ *
+ * @param request LookupInsightEventsRequest
+ * @return LookupInsightEventsResponse
+ */
+LookupInsightEventsResponse Client::lookupInsightEvents(const LookupInsightEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return lookupInsightEventsWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建事件选择器
  *
  * @param request PutDataEventSelectorRequest
@@ -1749,19 +1974,19 @@ PutDataEventSelectorResponse Client::putDataEventSelectorWithOptions(const PutDa
   request.validate();
   json query = {};
   if (!!request.hasEventSelectors()) {
-    query["EventSelectors"] = request.eventSelectors();
+    query["EventSelectors"] = request.getEventSelectors();
   }
 
   if (!!request.hasIsTrailAllRegion()) {
-    query["IsTrailAllRegion"] = request.isTrailAllRegion();
+    query["IsTrailAllRegion"] = request.getIsTrailAllRegion();
   }
 
   if (!!request.hasTrailName()) {
-    query["TrailName"] = request.trailName();
+    query["TrailName"] = request.getTrailName();
   }
 
   if (!!request.hasTrailRegionIds()) {
-    query["TrailRegionIds"] = request.trailRegionIds();
+    query["TrailRegionIds"] = request.getTrailRegionIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1793,6 +2018,52 @@ PutDataEventSelectorResponse Client::putDataEventSelector(const PutDataEventSele
 }
 
 /**
+ * @summary 修改跟踪insights功能
+ *
+ * @param request PutInsightSelectorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PutInsightSelectorsResponse
+ */
+PutInsightSelectorsResponse Client::putInsightSelectorsWithOptions(const PutInsightSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInsightSelectors()) {
+    query["InsightSelectors"] = request.getInsightSelectors();
+  }
+
+  if (!!request.hasTrailName()) {
+    query["TrailName"] = request.getTrailName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PutInsightSelectors"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PutInsightSelectorsResponse>();
+}
+
+/**
+ * @summary 修改跟踪insights功能
+ *
+ * @param request PutInsightSelectorsRequest
+ * @return PutInsightSelectorsResponse
+ */
+PutInsightSelectorsResponse Client::putInsightSelectors(const PutInsightSelectorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return putInsightSelectorsWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.
  *
  * @description This topic describes how to enable logging for a sample trail named `trail-test`.
@@ -1805,7 +2076,7 @@ StartLoggingResponse Client::startLoggingWithOptions(const StartLoggingRequest &
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1891,19 +2162,19 @@ UpdateAdvancedQueryTemplateResponse Client::updateAdvancedQueryTemplateWithOptio
   request.validate();
   json query = {};
   if (!!request.hasSimpleQuery()) {
-    query["SimpleQuery"] = request.simpleQuery();
+    query["SimpleQuery"] = request.getSimpleQuery();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTemplateSql()) {
-    query["TemplateSql"] = request.templateSql();
+    query["TemplateSql"] = request.getTemplateSql();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1949,7 +2220,7 @@ UpdateGlobalEventsStorageRegionResponse Client::updateGlobalEventsStorageRegionW
   request.validate();
   json query = {};
   if (!!request.hasStorageRegion()) {
-    query["StorageRegion"] = request.storageRegion();
+    query["StorageRegion"] = request.getStorageRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1997,43 +2268,43 @@ UpdateTrailResponse Client::updateTrailWithOptions(const UpdateTrailRequest &req
   request.validate();
   json query = {};
   if (!!request.hasEventRW()) {
-    query["EventRW"] = request.eventRW();
+    query["EventRW"] = request.getEventRW();
   }
 
   if (!!request.hasMaxComputeProjectArn()) {
-    query["MaxComputeProjectArn"] = request.maxComputeProjectArn();
+    query["MaxComputeProjectArn"] = request.getMaxComputeProjectArn();
   }
 
   if (!!request.hasMaxComputeWriteRoleArn()) {
-    query["MaxComputeWriteRoleArn"] = request.maxComputeWriteRoleArn();
+    query["MaxComputeWriteRoleArn"] = request.getMaxComputeWriteRoleArn();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOssBucketName()) {
-    query["OssBucketName"] = request.ossBucketName();
+    query["OssBucketName"] = request.getOssBucketName();
   }
 
   if (!!request.hasOssKeyPrefix()) {
-    query["OssKeyPrefix"] = request.ossKeyPrefix();
+    query["OssKeyPrefix"] = request.getOssKeyPrefix();
   }
 
   if (!!request.hasOssWriteRoleArn()) {
-    query["OssWriteRoleArn"] = request.ossWriteRoleArn();
+    query["OssWriteRoleArn"] = request.getOssWriteRoleArn();
   }
 
   if (!!request.hasSlsProjectArn()) {
-    query["SlsProjectArn"] = request.slsProjectArn();
+    query["SlsProjectArn"] = request.getSlsProjectArn();
   }
 
   if (!!request.hasSlsWriteRoleArn()) {
-    query["SlsWriteRoleArn"] = request.slsWriteRoleArn();
+    query["SlsWriteRoleArn"] = request.getSlsWriteRoleArn();
   }
 
   if (!!request.hasTrailRegion()) {
-    query["TrailRegion"] = request.trailRegion();
+    query["TrailRegion"] = request.getTrailRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

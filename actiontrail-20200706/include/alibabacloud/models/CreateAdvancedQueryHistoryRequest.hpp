@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->querySql_ == nullptr
-        && return this->simpleQuery_ == nullptr; };
+        && this->simpleQuery_ == nullptr; };
     // querySql Field Functions 
     bool hasQuerySql() const { return this->querySql_ != nullptr;};
     void deleteQuerySql() { this->querySql_ = nullptr;};
-    inline string querySql() const { DARABONBA_PTR_GET_DEFAULT(querySql_, "") };
+    inline string getQuerySql() const { DARABONBA_PTR_GET_DEFAULT(querySql_, "") };
     inline CreateAdvancedQueryHistoryRequest& setQuerySql(string querySql) { DARABONBA_PTR_SET_VALUE(querySql_, querySql) };
 
 
     // simpleQuery Field Functions 
     bool hasSimpleQuery() const { return this->simpleQuery_ != nullptr;};
     void deleteSimpleQuery() { this->simpleQuery_ = nullptr;};
-    inline bool simpleQuery() const { DARABONBA_PTR_GET_DEFAULT(simpleQuery_, false) };
+    inline bool getSimpleQuery() const { DARABONBA_PTR_GET_DEFAULT(simpleQuery_, false) };
     inline CreateAdvancedQueryHistoryRequest& setSimpleQuery(bool simpleQuery) { DARABONBA_PTR_SET_VALUE(simpleQuery_, simpleQuery) };
 
 
   protected:
-    std::shared_ptr<string> querySql_ = nullptr;
+    shared_ptr<string> querySql_ {};
     // This parameter is required.
-    std::shared_ptr<bool> simpleQuery_ = nullptr;
+    shared_ptr<bool> simpleQuery_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isOrganizationTrail_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // isOrganizationTrail Field Functions 
     bool hasIsOrganizationTrail() const { return this->isOrganizationTrail_ != nullptr;};
     void deleteIsOrganizationTrail() { this->isOrganizationTrail_ = nullptr;};
-    inline bool isOrganizationTrail() const { DARABONBA_PTR_GET_DEFAULT(isOrganizationTrail_, false) };
+    inline bool getIsOrganizationTrail() const { DARABONBA_PTR_GET_DEFAULT(isOrganizationTrail_, false) };
     inline GetTrailStatusRequest& setIsOrganizationTrail(bool isOrganizationTrail) { DARABONBA_PTR_SET_VALUE(isOrganizationTrail_, isOrganizationTrail) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetTrailStatusRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -52,7 +52,7 @@ namespace Models
     // 
     // *   true: Query the status of a multi-account trail.
     // *   false: Query the status of a single-account trail. It is the default value.
-    std::shared_ptr<bool> isOrganizationTrail_ = nullptr;
+    shared_ptr<bool> isOrganizationTrail_ {};
     // The name of the trail.
     // 
     // The name must be 6 to 36 characters in length. The name must start with a lowercase letter and can contain lowercase letters, digits, hyphens (-), and underscores (_).
@@ -60,7 +60,7 @@ namespace Models
     // > The name must be unique within your Alibaba Cloud account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

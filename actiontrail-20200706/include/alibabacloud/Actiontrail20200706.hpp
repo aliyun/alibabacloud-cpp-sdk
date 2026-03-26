@@ -386,6 +386,23 @@ namespace Actiontrail20200706
       Models::DescribeUserLogCountResponse describeUserLogCount(const Models::DescribeUserLogCountRequest &request);
 
       /**
+       * @summary 关闭insight
+       *
+       * @param request DisableInsightRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableInsightResponse
+       */
+      Models::DisableInsightResponse disableInsightWithOptions(const Models::DisableInsightRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭insight
+       *
+       * @param request DisableInsightRequest
+       * @return DisableInsightResponse
+       */
+      Models::DisableInsightResponse disableInsight(const Models::DisableInsightRequest &request);
+
+      /**
        * @summary Enables the Insights feature
        *
        * @param request EnableInsightRequest
@@ -601,6 +618,56 @@ namespace Actiontrail20200706
       Models::GetGovernanceMetricsResponse getGovernanceMetrics();
 
       /**
+       * @summary 获取跟踪insights配置
+       *
+       * @param request GetInsightSelectorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInsightSelectorsResponse
+       */
+      Models::GetInsightSelectorsResponse getInsightSelectorsWithOptions(const Models::GetInsightSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取跟踪insights配置
+       *
+       * @param request GetInsightSelectorsRequest
+       * @return GetInsightSelectorsResponse
+       */
+      Models::GetInsightSelectorsResponse getInsightSelectors(const Models::GetInsightSelectorsRequest &request);
+
+      /**
+       * @summary 获取查询账号开启insight的类型
+       *
+       * @param request GetInsightTypesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInsightTypesResponse
+       */
+      Models::GetInsightTypesResponse getInsightTypesWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取查询账号开启insight的类型
+       *
+       * @return GetInsightTypesResponse
+       */
+      Models::GetInsightTypesResponse getInsightTypes();
+
+      /**
+       * @summary 得到当前账号的insights事件数量
+       *
+       * @param request GetInsightsEventsCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInsightsEventsCountResponse
+       */
+      Models::GetInsightsEventsCountResponse getInsightsEventsCountWithOptions(const Models::GetInsightsEventsCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 得到当前账号的insights事件数量
+       *
+       * @param request GetInsightsEventsCountRequest
+       * @return GetInsightsEventsCountResponse
+       */
+      Models::GetInsightsEventsCountResponse getInsightsEventsCount(const Models::GetInsightsEventsCountRequest &request);
+
+      /**
        * @summary Queries the status of a trail.
        *
        * @description This topic describes how to query the status of a sample single-account trail named `trail-test`.
@@ -700,6 +767,23 @@ namespace Actiontrail20200706
       Models::LookupEventsResponse lookupEvents(const Models::LookupEventsRequest &request);
 
       /**
+       * @summary 查询Insight事件
+       *
+       * @param request LookupInsightEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LookupInsightEventsResponse
+       */
+      Models::LookupInsightEventsResponse lookupInsightEventsWithOptions(const Models::LookupInsightEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Insight事件
+       *
+       * @param request LookupInsightEventsRequest
+       * @return LookupInsightEventsResponse
+       */
+      Models::LookupInsightEventsResponse lookupInsightEvents(const Models::LookupInsightEventsRequest &request);
+
+      /**
        * @summary 创建事件选择器
        *
        * @param request PutDataEventSelectorRequest
@@ -715,6 +799,23 @@ namespace Actiontrail20200706
        * @return PutDataEventSelectorResponse
        */
       Models::PutDataEventSelectorResponse putDataEventSelector(const Models::PutDataEventSelectorRequest &request);
+
+      /**
+       * @summary 修改跟踪insights功能
+       *
+       * @param request PutInsightSelectorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PutInsightSelectorsResponse
+       */
+      Models::PutInsightSelectorsResponse putInsightSelectorsWithOptions(const Models::PutInsightSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改跟踪insights功能
+       *
+       * @param request PutInsightSelectorsRequest
+       * @return PutInsightSelectorsResponse
+       */
+      Models::PutInsightSelectorsResponse putInsightSelectors(const Models::PutInsightSelectorsRequest &request);
 
       /**
        * @summary Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.

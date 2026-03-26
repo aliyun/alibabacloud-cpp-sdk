@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->includeOrganizationTrail_ == nullptr
-        && return this->includeShadowTrails_ == nullptr && return this->nameList_ == nullptr; };
+        && this->includeShadowTrails_ == nullptr && this->nameList_ == nullptr; };
     // includeOrganizationTrail Field Functions 
     bool hasIncludeOrganizationTrail() const { return this->includeOrganizationTrail_ != nullptr;};
     void deleteIncludeOrganizationTrail() { this->includeOrganizationTrail_ = nullptr;};
-    inline bool includeOrganizationTrail() const { DARABONBA_PTR_GET_DEFAULT(includeOrganizationTrail_, false) };
+    inline bool getIncludeOrganizationTrail() const { DARABONBA_PTR_GET_DEFAULT(includeOrganizationTrail_, false) };
     inline DescribeTrailsRequest& setIncludeOrganizationTrail(bool includeOrganizationTrail) { DARABONBA_PTR_SET_VALUE(includeOrganizationTrail_, includeOrganizationTrail) };
 
 
     // includeShadowTrails Field Functions 
     bool hasIncludeShadowTrails() const { return this->includeShadowTrails_ != nullptr;};
     void deleteIncludeShadowTrails() { this->includeShadowTrails_ = nullptr;};
-    inline bool includeShadowTrails() const { DARABONBA_PTR_GET_DEFAULT(includeShadowTrails_, false) };
+    inline bool getIncludeShadowTrails() const { DARABONBA_PTR_GET_DEFAULT(includeShadowTrails_, false) };
     inline DescribeTrailsRequest& setIncludeShadowTrails(bool includeShadowTrails) { DARABONBA_PTR_SET_VALUE(includeShadowTrails_, includeShadowTrails) };
 
 
     // nameList Field Functions 
     bool hasNameList() const { return this->nameList_ != nullptr;};
     void deleteNameList() { this->nameList_ = nullptr;};
-    inline string nameList() const { DARABONBA_PTR_GET_DEFAULT(nameList_, "") };
+    inline string getNameList() const { DARABONBA_PTR_GET_DEFAULT(nameList_, "") };
     inline DescribeTrailsRequest& setNameList(string nameList) { DARABONBA_PTR_SET_VALUE(nameList_, nameList) };
 
 
@@ -61,14 +61,14 @@ namespace Models
     // 
     // *   true
     // *   false (default)
-    std::shared_ptr<bool> includeOrganizationTrail_ = nullptr;
+    shared_ptr<bool> includeOrganizationTrail_ {};
     // Specifies whether to return the information about shadow trails. Valid values:
     // 
     // *   false: Do not return the information about shadow trails. It is the default value.
     // *   true: Return the information about shadow trails.
-    std::shared_ptr<bool> includeShadowTrails_ = nullptr;
+    shared_ptr<bool> includeShadowTrails_ {};
     // The names of the trails whose information you want to query. Separate multiple trail names with commas (,).
-    std::shared_ptr<string> nameList_ = nullptr;
+    shared_ptr<string> nameList_ {};
   };
 
   } // namespace Models

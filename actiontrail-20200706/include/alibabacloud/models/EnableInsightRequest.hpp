@@ -33,7 +33,7 @@ namespace Models
     // insightType Field Functions 
     bool hasInsightType() const { return this->insightType_ != nullptr;};
     void deleteInsightType() { this->insightType_ = nullptr;};
-    inline string insightType() const { DARABONBA_PTR_GET_DEFAULT(insightType_, "") };
+    inline string getInsightType() const { DARABONBA_PTR_GET_DEFAULT(insightType_, "") };
     inline EnableInsightRequest& setInsightType(string insightType) { DARABONBA_PTR_SET_VALUE(insightType_, insightType) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   IpInsight: Insights event on IP address
     // *   ApiCallRateInsight: Insights event on API call rate
     // *   ApiErrorRateInsight: Insights event on API error rate
-    std::shared_ptr<string> insightType_ = nullptr;
+    shared_ptr<string> insightType_ {};
   };
 
   } // namespace Models

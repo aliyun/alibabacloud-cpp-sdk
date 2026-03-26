@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->simpleQuery_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateName_ == nullptr && return this->templateSql_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->templateSql_ == nullptr; };
     // simpleQuery Field Functions 
     bool hasSimpleQuery() const { return this->simpleQuery_ != nullptr;};
     void deleteSimpleQuery() { this->simpleQuery_ = nullptr;};
-    inline bool simpleQuery() const { DARABONBA_PTR_GET_DEFAULT(simpleQuery_, false) };
+    inline bool getSimpleQuery() const { DARABONBA_PTR_GET_DEFAULT(simpleQuery_, false) };
     inline UpdateAdvancedQueryTemplateRequest& setSimpleQuery(bool simpleQuery) { DARABONBA_PTR_SET_VALUE(simpleQuery_, simpleQuery) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline UpdateAdvancedQueryTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline UpdateAdvancedQueryTemplateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // templateSql Field Functions 
     bool hasTemplateSql() const { return this->templateSql_ != nullptr;};
     void deleteTemplateSql() { this->templateSql_ = nullptr;};
-    inline string templateSql() const { DARABONBA_PTR_GET_DEFAULT(templateSql_, "") };
+    inline string getTemplateSql() const { DARABONBA_PTR_GET_DEFAULT(templateSql_, "") };
     inline UpdateAdvancedQueryTemplateRequest& setTemplateSql(string templateSql) { DARABONBA_PTR_SET_VALUE(templateSql_, templateSql) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> simpleQuery_ = nullptr;
+    shared_ptr<bool> simpleQuery_ {};
     // This parameter is required.
-    std::shared_ptr<string> templateId_ = nullptr;
-    std::shared_ptr<string> templateName_ = nullptr;
-    std::shared_ptr<string> templateSql_ = nullptr;
+    shared_ptr<string> templateId_ {};
+    shared_ptr<string> templateName_ {};
+    shared_ptr<string> templateSql_ {};
   };
 
   } // namespace Models

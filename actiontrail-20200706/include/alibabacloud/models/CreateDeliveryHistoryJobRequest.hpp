@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->trailName_ == nullptr; };
+        && this->trailName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateDeliveryHistoryJobRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // trailName Field Functions 
     bool hasTrailName() const { return this->trailName_ != nullptr;};
     void deleteTrailName() { this->trailName_ = nullptr;};
-    inline string trailName() const { DARABONBA_PTR_GET_DEFAULT(trailName_, "") };
+    inline string getTrailName() const { DARABONBA_PTR_GET_DEFAULT(trailName_, "") };
     inline CreateDeliveryHistoryJobRequest& setTrailName(string trailName) { DARABONBA_PTR_SET_VALUE(trailName_, trailName) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // The token can contain only ASCII characters and can be up to 64 characters in length.
     // 
     // For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The name of the trail for which you want to create a historical event delivery task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> trailName_ = nullptr;
+    shared_ptr<string> trailName_ {};
   };
 
   } // namespace Models

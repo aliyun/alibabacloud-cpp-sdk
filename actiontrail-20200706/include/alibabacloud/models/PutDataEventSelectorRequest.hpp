@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventSelectors_ == nullptr
-        && return this->isTrailAllRegion_ == nullptr && return this->trailName_ == nullptr && return this->trailRegionIds_ == nullptr; };
+        && this->isTrailAllRegion_ == nullptr && this->trailName_ == nullptr && this->trailRegionIds_ == nullptr; };
     // eventSelectors Field Functions 
     bool hasEventSelectors() const { return this->eventSelectors_ != nullptr;};
     void deleteEventSelectors() { this->eventSelectors_ = nullptr;};
-    inline string eventSelectors() const { DARABONBA_PTR_GET_DEFAULT(eventSelectors_, "") };
+    inline string getEventSelectors() const { DARABONBA_PTR_GET_DEFAULT(eventSelectors_, "") };
     inline PutDataEventSelectorRequest& setEventSelectors(string eventSelectors) { DARABONBA_PTR_SET_VALUE(eventSelectors_, eventSelectors) };
 
 
     // isTrailAllRegion Field Functions 
     bool hasIsTrailAllRegion() const { return this->isTrailAllRegion_ != nullptr;};
     void deleteIsTrailAllRegion() { this->isTrailAllRegion_ = nullptr;};
-    inline bool isTrailAllRegion() const { DARABONBA_PTR_GET_DEFAULT(isTrailAllRegion_, false) };
+    inline bool getIsTrailAllRegion() const { DARABONBA_PTR_GET_DEFAULT(isTrailAllRegion_, false) };
     inline PutDataEventSelectorRequest& setIsTrailAllRegion(bool isTrailAllRegion) { DARABONBA_PTR_SET_VALUE(isTrailAllRegion_, isTrailAllRegion) };
 
 
     // trailName Field Functions 
     bool hasTrailName() const { return this->trailName_ != nullptr;};
     void deleteTrailName() { this->trailName_ = nullptr;};
-    inline string trailName() const { DARABONBA_PTR_GET_DEFAULT(trailName_, "") };
+    inline string getTrailName() const { DARABONBA_PTR_GET_DEFAULT(trailName_, "") };
     inline PutDataEventSelectorRequest& setTrailName(string trailName) { DARABONBA_PTR_SET_VALUE(trailName_, trailName) };
 
 
     // trailRegionIds Field Functions 
     bool hasTrailRegionIds() const { return this->trailRegionIds_ != nullptr;};
     void deleteTrailRegionIds() { this->trailRegionIds_ = nullptr;};
-    inline string trailRegionIds() const { DARABONBA_PTR_GET_DEFAULT(trailRegionIds_, "") };
+    inline string getTrailRegionIds() const { DARABONBA_PTR_GET_DEFAULT(trailRegionIds_, "") };
     inline PutDataEventSelectorRequest& setTrailRegionIds(string trailRegionIds) { DARABONBA_PTR_SET_VALUE(trailRegionIds_, trailRegionIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eventSelectors_ = nullptr;
-    std::shared_ptr<bool> isTrailAllRegion_ = nullptr;
+    shared_ptr<string> eventSelectors_ {};
+    shared_ptr<bool> isTrailAllRegion_ {};
     // This parameter is required.
-    std::shared_ptr<string> trailName_ = nullptr;
-    std::shared_ptr<string> trailRegionIds_ = nullptr;
+    shared_ptr<string> trailName_ {};
+    shared_ptr<string> trailRegionIds_ {};
   };
 
   } // namespace Models

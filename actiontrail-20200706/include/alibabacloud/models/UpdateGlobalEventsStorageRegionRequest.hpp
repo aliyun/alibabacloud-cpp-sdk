@@ -33,7 +33,7 @@ namespace Models
     // storageRegion Field Functions 
     bool hasStorageRegion() const { return this->storageRegion_ != nullptr;};
     void deleteStorageRegion() { this->storageRegion_ = nullptr;};
-    inline string storageRegion() const { DARABONBA_PTR_GET_DEFAULT(storageRegion_, "") };
+    inline string getStorageRegion() const { DARABONBA_PTR_GET_DEFAULT(storageRegion_, "") };
     inline UpdateGlobalEventsStorageRegionRequest& setStorageRegion(string storageRegion) { DARABONBA_PTR_SET_VALUE(storageRegion_, storageRegion) };
 
 
@@ -67,7 +67,7 @@ namespace Models
     //     <!-- -->
     // 
     // This parameter is required.
-    std::shared_ptr<string> storageRegion_ = nullptr;
+    shared_ptr<string> storageRegion_ {};
   };
 
   } // namespace Models
