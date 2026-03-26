@@ -4,6 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -62,7 +63,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
     {"action" , "CreateApiKey"},
     {"version" , "2026-03-18"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/apiKey/createApiKey")},
+    {"pathname" , DARA_STRING_TEMPLATE("/maas/apikeys")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -87,27 +88,19 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 /**
  * @summary 删除apiKey
  *
- * @param request DeleteApiKeyRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteApiKeyResponse
  */
-DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const DeleteApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasApiKeyId()) {
-    query["apiKeyId"] = request.getApiKeyId();
-  }
-
+DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
+    {"headers" , headers}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteApiKey"},
     {"version" , "2026-03-18"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/apiKey/deleteApiKey")},
+    {"pathname" , DARA_STRING_TEMPLATE("/maas/apikeys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -120,39 +113,30 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const DeleteApiKeyRequest &
 /**
  * @summary 删除apiKey
  *
- * @param request DeleteApiKeyRequest
  * @return DeleteApiKeyResponse
  */
-DeleteApiKeyResponse Client::deleteApiKey(const DeleteApiKeyRequest &request) {
+DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteApiKeyWithOptions(request, headers, runtime);
+  return deleteApiKeyWithOptions(apiKeyId, headers, runtime);
 }
 
 /**
  * @summary 查询ApiKey详情
  *
- * @param request GetApiKeyRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetApiKeyResponse
  */
-GetApiKeyResponse Client::getApiKeyWithOptions(const GetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasApiKeyId()) {
-    query["apiKeyId"] = request.getApiKeyId();
-  }
-
+GetApiKeyResponse Client::getApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
+    {"headers" , headers}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetApiKey"},
     {"version" , "2026-03-18"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/apiKey/getApiKey")},
+    {"pathname" , DARA_STRING_TEMPLATE("/maas/apikeys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -165,13 +149,12 @@ GetApiKeyResponse Client::getApiKeyWithOptions(const GetApiKeyRequest &request, 
 /**
  * @summary 查询ApiKey详情
  *
- * @param request GetApiKeyRequest
  * @return GetApiKeyResponse
  */
-GetApiKeyResponse Client::getApiKey(const GetApiKeyRequest &request) {
+GetApiKeyResponse Client::getApiKey(const string &apiKeyId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getApiKeyWithOptions(request, headers, runtime);
+  return getApiKeyWithOptions(apiKeyId, headers, runtime);
 }
 
 /**
@@ -213,7 +196,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
     {"action" , "ListApiKeys"},
     {"version" , "2026-03-18"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/apiKeys")},
+    {"pathname" , DARA_STRING_TEMPLATE("/maas/apikeys")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -266,7 +249,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
     {"action" , "ListWorkspaces"},
     {"version" , "2026-03-18"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/workspaces")},
+    {"pathname" , DARA_STRING_TEMPLATE("/maas/workspaces")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -296,13 +279,9 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateApiKeyResponse
  */
-UpdateApiKeyResponse Client::updateApiKeyWithOptions(const UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyId, const UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiKeyId()) {
-    query["apiKeyId"] = request.getApiKeyId();
-  }
-
   if (!!request.hasDescription()) {
     query["description"] = request.getDescription();
   }
@@ -315,7 +294,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const UpdateApiKeyRequest &
     {"action" , "UpdateApiKey"},
     {"version" , "2026-03-18"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/bailianControl/apiKey/updateApiKey")},
+    {"pathname" , DARA_STRING_TEMPLATE("/maas/apikeys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -331,10 +310,10 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const UpdateApiKeyRequest &
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse
  */
-UpdateApiKeyResponse Client::updateApiKey(const UpdateApiKeyRequest &request) {
+UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyId, const UpdateApiKeyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return updateApiKeyWithOptions(request, headers, runtime);
+  return updateApiKeyWithOptions(apiKeyId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace MaaS20260318

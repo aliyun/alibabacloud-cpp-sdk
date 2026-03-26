@@ -41,38 +41,34 @@ namespace MaaS20260318
       /**
        * @summary 删除apiKey
        *
-       * @param request DeleteApiKeyRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteApiKeyResponse
        */
-      Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const Models::DeleteApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除apiKey
        *
-       * @param request DeleteApiKeyRequest
        * @return DeleteApiKeyResponse
        */
-      Models::DeleteApiKeyResponse deleteApiKey(const Models::DeleteApiKeyRequest &request);
+      Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyId);
 
       /**
        * @summary 查询ApiKey详情
        *
-       * @param request GetApiKeyRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetApiKeyResponse
        */
-      Models::GetApiKeyResponse getApiKeyWithOptions(const Models::GetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetApiKeyResponse getApiKeyWithOptions(const string &apiKeyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询ApiKey详情
        *
-       * @param request GetApiKeyRequest
        * @return GetApiKeyResponse
        */
-      Models::GetApiKeyResponse getApiKey(const Models::GetApiKeyRequest &request);
+      Models::GetApiKeyResponse getApiKey(const string &apiKeyId);
 
       /**
        * @summary 获取ApiKey列表
@@ -118,7 +114,7 @@ namespace MaaS20260318
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateApiKeyResponse
        */
-      Models::UpdateApiKeyResponse updateApiKeyWithOptions(const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyId, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 编辑apiKey的描述
@@ -126,7 +122,7 @@ namespace MaaS20260318
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse
        */
-      Models::UpdateApiKeyResponse updateApiKey(const Models::UpdateApiKeyRequest &request);
+      Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyId, const Models::UpdateApiKeyRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace MaaS20260318

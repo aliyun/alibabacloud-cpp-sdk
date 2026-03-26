@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<string> description_ {};
-    // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };
 

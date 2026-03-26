@@ -5,10 +5,8 @@
 #include <alibabacloud/models/CreateApiKeyRequest.hpp>
 #include <alibabacloud/models/CreateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/CreateApiKeyResponse.hpp>
-#include <alibabacloud/models/DeleteApiKeyRequest.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponse.hpp>
-#include <alibabacloud/models/GetApiKeyRequest.hpp>
 #include <alibabacloud/models/GetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/GetApiKeyResponse.hpp>
 #include <alibabacloud/models/ListApiKeysRequest.hpp>

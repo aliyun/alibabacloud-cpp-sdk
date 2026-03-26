@@ -13,11 +13,9 @@ namespace Models
   class UpdateApiKeyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateApiKeyRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(description, description_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateApiKeyRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(description, description_);
     };
     UpdateApiKeyRequest() = default ;
@@ -31,15 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->description_ == nullptr; };
-    // apiKeyId Field Functions 
-    bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
-    void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
-    inline int64_t getApiKeyId() const { DARABONBA_PTR_GET_DEFAULT(apiKeyId_, 0L) };
-    inline UpdateApiKeyRequest& setApiKeyId(int64_t apiKeyId) { DARABONBA_PTR_SET_VALUE(apiKeyId_, apiKeyId) };
-
-
+    virtual bool empty() const override { return this->description_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -48,10 +38,6 @@ namespace Models
 
 
   protected:
-    // API Key ID。
-    // 
-    // This parameter is required.
-    shared_ptr<int64_t> apiKeyId_ {};
     shared_ptr<string> description_ {};
   };
 
