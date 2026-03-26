@@ -308,6 +308,8 @@ AddFeedbackResponse Client::addFeedback(const AddFeedbackRequest &request) {
 }
 
 /**
+ * @summary 技能组添加号码
+ *
  * @param request AddNumbersToSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddNumbersToSkillGroupResponse
@@ -349,6 +351,8 @@ AddNumbersToSkillGroupResponse Client::addNumbersToSkillGroupWithOptions(const A
 }
 
 /**
+ * @summary 技能组添加号码
+ *
  * @param request AddNumbersToSkillGroupRequest
  * @return AddNumbersToSkillGroupResponse
  */
@@ -358,6 +362,8 @@ AddNumbersToSkillGroupResponse Client::addNumbersToSkillGroup(const AddNumbersTo
 }
 
 /**
+ * @summary 增加个人号码
+ *
  * @param request AddPersonalNumbersToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddPersonalNumbersToUserResponse
@@ -395,6 +401,8 @@ AddPersonalNumbersToUserResponse Client::addPersonalNumbersToUserWithOptions(con
 }
 
 /**
+ * @summary 增加个人号码
+ *
  * @param request AddPersonalNumbersToUserRequest
  * @return AddPersonalNumbersToUserResponse
  */
@@ -404,6 +412,8 @@ AddPersonalNumbersToUserResponse Client::addPersonalNumbersToUser(const AddPerso
 }
 
 /**
+ * @summary 技能组添加号码
+ *
  * @param request AddPhoneNumberToSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddPhoneNumberToSkillGroupsResponse
@@ -441,6 +451,8 @@ AddPhoneNumberToSkillGroupsResponse Client::addPhoneNumberToSkillGroupsWithOptio
 }
 
 /**
+ * @summary 技能组添加号码
+ *
  * @param request AddPhoneNumberToSkillGroupsRequest
  * @return AddPhoneNumberToSkillGroupsResponse
  */
@@ -450,6 +462,8 @@ AddPhoneNumberToSkillGroupsResponse Client::addPhoneNumberToSkillGroups(const Ad
 }
 
 /**
+ * @summary 添加号码
+ *
  * @param request AddPhoneNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddPhoneNumbersResponse
@@ -495,6 +509,8 @@ AddPhoneNumbersResponse Client::addPhoneNumbersWithOptions(const AddPhoneNumbers
 }
 
 /**
+ * @summary 添加号码
+ *
  * @param request AddPhoneNumbersRequest
  * @return AddPhoneNumbersResponse
  */
@@ -560,6 +576,8 @@ AddSchemaPropertyResponse Client::addSchemaProperty(const AddSchemaPropertyReque
 }
 
 /**
+ * @summary 技能组添加用户
+ *
  * @param request AddSkillGroupsToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddSkillGroupsToUserResponse
@@ -597,6 +615,8 @@ AddSkillGroupsToUserResponse Client::addSkillGroupsToUserWithOptions(const AddSk
 }
 
 /**
+ * @summary 技能组添加用户
+ *
  * @param request AddSkillGroupsToUserRequest
  * @return AddSkillGroupsToUserResponse
  */
@@ -664,6 +684,8 @@ AddTicketTaskResponse Client::addTicketTask(const AddTicketTaskRequest &request)
 }
 
 /**
+ * @summary 技能组添加用户
+ *
  * @param request AddUsersToSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddUsersToSkillGroupResponse
@@ -701,6 +723,8 @@ AddUsersToSkillGroupResponse Client::addUsersToSkillGroupWithOptions(const AddUs
 }
 
 /**
+ * @summary 技能组添加用户
+ *
  * @param request AddUsersToSkillGroupRequest
  * @return AddUsersToSkillGroupResponse
  */
@@ -710,6 +734,8 @@ AddUsersToSkillGroupResponse Client::addUsersToSkillGroup(const AddUsersToSkillG
 }
 
 /**
+ * @summary 分析对话
+ *
  * @param request AnalyzeConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AnalyzeConversationResponse
@@ -751,6 +777,8 @@ AnalyzeConversationResponse Client::analyzeConversationWithOptions(const Analyze
 }
 
 /**
+ * @summary 分析对话
+ *
  * @param request AnalyzeConversationRequest
  * @return AnalyzeConversationResponse
  */
@@ -760,6 +788,8 @@ AnalyzeConversationResponse Client::analyzeConversation(const AnalyzeConversatio
 }
 
 /**
+ * @summary 接电话
+ *
  * @param request AnswerCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AnswerCallResponse
@@ -801,6 +831,8 @@ AnswerCallResponse Client::answerCallWithOptions(const AnswerCallRequest &reques
 }
 
 /**
+ * @summary 接电话
+ *
  * @param request AnswerCallRequest
  * @return AnswerCallResponse
  */
@@ -870,6 +902,8 @@ AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
 /**
  * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
  *
+ * @summary 导入坐席
+ *
  * @param request AssignUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AssignUsersResponse
@@ -917,6 +951,8 @@ AssignUsersResponse Client::assignUsersWithOptions(const AssignUsersRequest &req
 /**
  * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
  *
+ * @summary 导入坐席
+ *
  * @param request AssignUsersRequest
  * @return AssignUsersResponse
  */
@@ -926,6 +962,8 @@ AssignUsersResponse Client::assignUsers(const AssignUsersRequest &request) {
 }
 
 /**
+ * @summary BargeInCall
+ *
  * @param request BargeInCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BargeInCallResponse
@@ -975,6 +1013,8 @@ BargeInCallResponse Client::bargeInCallWithOptions(const BargeInCallRequest &req
 }
 
 /**
+ * @summary BargeInCall
+ *
  * @param request BargeInCallRequest
  * @return BargeInCallResponse
  */
@@ -984,6 +1024,8 @@ BargeInCallResponse Client::bargeInCall(const BargeInCallRequest &request) {
 }
 
 /**
+ * @summary 盲转
+ *
  * @param request BlindTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BlindTransferResponse
@@ -1077,6 +1119,8 @@ BlindTransferResponse Client::blindTransferWithOptions(const BlindTransferReques
 }
 
 /**
+ * @summary 盲转
+ *
  * @param request BlindTransferRequest
  * @return BlindTransferResponse
  */
@@ -1086,6 +1130,8 @@ BlindTransferResponse Client::blindTransfer(const BlindTransferRequest &request)
 }
 
 /**
+ * @summary BridgeRtcCall
+ *
  * @param request BridgeRtcCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BridgeRtcCallResponse
@@ -1147,6 +1193,8 @@ BridgeRtcCallResponse Client::bridgeRtcCallWithOptions(const BridgeRtcCallReques
 }
 
 /**
+ * @summary BridgeRtcCall
+ *
  * @param request BridgeRtcCallRequest
  * @return BridgeRtcCallResponse
  */
@@ -1156,6 +1204,8 @@ BridgeRtcCallResponse Client::bridgeRtcCall(const BridgeRtcCallRequest &request)
 }
 
 /**
+ * @summary 关注转-取消
+ *
  * @param request CancelAttendedTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CancelAttendedTransferResponse
@@ -1197,6 +1247,8 @@ CancelAttendedTransferResponse Client::cancelAttendedTransferWithOptions(const C
 }
 
 /**
+ * @summary 关注转-取消
+ *
  * @param request CancelAttendedTransferRequest
  * @return CancelAttendedTransferResponse
  */
@@ -1206,6 +1258,8 @@ CancelAttendedTransferResponse Client::cancelAttendedTransfer(const CancelAttend
 }
 
 /**
+ * @summary 修改隐身状态(等同于仅外呼场景)
+ *
  * @param request ChangeVisibilityRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChangeVisibilityResponse
@@ -1243,6 +1297,8 @@ ChangeVisibilityResponse Client::changeVisibilityWithOptions(const ChangeVisibil
 }
 
 /**
+ * @summary 修改隐身状态(等同于仅外呼场景)
+ *
  * @param request ChangeVisibilityRequest
  * @return ChangeVisibilityResponse
  */
@@ -1252,6 +1308,8 @@ ChangeVisibilityResponse Client::changeVisibility(const ChangeVisibilityRequest 
 }
 
 /**
+ * @summary 修改坐席工作模式
+ *
  * @param request ChangeWorkModeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChangeWorkModeResponse
@@ -1301,12 +1359,76 @@ ChangeWorkModeResponse Client::changeWorkModeWithOptions(const ChangeWorkModeReq
 }
 
 /**
+ * @summary 修改坐席工作模式
+ *
  * @param request ChangeWorkModeRequest
  * @return ChangeWorkModeResponse
  */
 ChangeWorkModeResponse Client::changeWorkMode(const ChangeWorkModeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return changeWorkModeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 认领电话
+ *
+ * @param request ClaimCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClaimCallResponse
+ */
+ClaimCallResponse Client::claimCallWithOptions(const ClaimCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCandidateUserListJson()) {
+    query["CandidateUserListJson"] = request.getCandidateUserListJson();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasSkillGroupId()) {
+    query["SkillGroupId"] = request.getSkillGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClaimCall"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClaimCallResponse>();
+}
+
+/**
+ * @summary 认领电话
+ *
+ * @param request ClaimCallRequest
+ * @return ClaimCallResponse
+ */
+ClaimCallResponse Client::claimCall(const ClaimCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return claimCallWithOptions(request, runtime);
 }
 
 /**
@@ -1356,6 +1478,8 @@ ClaimChatResponse Client::claimChat(const ClaimChatRequest &request) {
 }
 
 /**
+ * @summary 辅导
+ *
  * @param request CoachCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CoachCallResponse
@@ -1405,6 +1529,8 @@ CoachCallResponse Client::coachCallWithOptions(const CoachCallRequest &request, 
 }
 
 /**
+ * @summary 辅导
+ *
  * @param request CoachCallRequest
  * @return CoachCallResponse
  */
@@ -1414,6 +1540,8 @@ CoachCallResponse Client::coachCall(const CoachCallRequest &request) {
 }
 
 /**
+ * @summary 提交ivr流程
+ *
  * @param request CommitContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CommitContactFlowResponse
@@ -1459,6 +1587,8 @@ CommitContactFlowResponse Client::commitContactFlowWithOptions(const CommitConta
 }
 
 /**
+ * @summary 提交ivr流程
+ *
  * @param request CommitContactFlowRequest
  * @return CommitContactFlowResponse
  */
@@ -1468,6 +1598,8 @@ CommitContactFlowResponse Client::commitContactFlow(const CommitContactFlowReque
 }
 
 /**
+ * @summary 关注转-完成
+ *
  * @param request CompleteAttendedTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CompleteAttendedTransferResponse
@@ -1509,6 +1641,8 @@ CompleteAttendedTransferResponse Client::completeAttendedTransferWithOptions(con
 }
 
 /**
+ * @summary 关注转-完成
+ *
  * @param request CompleteAttendedTransferRequest
  * @return CompleteAttendedTransferResponse
  */
@@ -1518,6 +1652,8 @@ CompleteAttendedTransferResponse Client::completeAttendedTransfer(const Complete
 }
 
 /**
+ * @summary 创建媒体文件
+ *
  * @param request CreateAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAudioFileResponse
@@ -1563,6 +1699,8 @@ CreateAudioFileResponse Client::createAudioFileWithOptions(const CreateAudioFile
 }
 
 /**
+ * @summary 创建媒体文件
+ *
  * @param request CreateAudioFileRequest
  * @return CreateAudioFileResponse
  */
@@ -1572,6 +1710,8 @@ CreateAudioFileResponse Client::createAudioFile(const CreateAudioFileRequest &re
 }
 
 /**
+ * @summary 创建会话小结
+ *
  * @param request CreateCallSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateCallSummaryResponse
@@ -1613,6 +1753,8 @@ CreateCallSummaryResponse Client::createCallSummaryWithOptions(const CreateCallS
 }
 
 /**
+ * @summary 创建会话小结
+ *
  * @param request CreateCallSummaryRequest
  * @return CreateCallSummaryResponse
  */
@@ -1838,6 +1980,8 @@ CreateChatMediaUrlResponse Client::createChatMediaUrl(const CreateChatMediaUrlRe
 }
 
 /**
+ * @summary 创建ivr流程
+ *
  * @param request CreateContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateContactFlowResponse
@@ -1883,6 +2027,8 @@ CreateContactFlowResponse Client::createContactFlowWithOptions(const CreateConta
 }
 
 /**
+ * @summary 创建ivr流程
+ *
  * @param request CreateContactFlowRequest
  * @return CreateContactFlowResponse
  */
@@ -2060,6 +2206,8 @@ CreateSchemaResponse Client::createSchema(const CreateSchemaRequest &request) {
 }
 
 /**
+ * @summary 创建技能组
+ *
  * @param request CreateSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateSkillGroupResponse
@@ -2105,6 +2253,8 @@ CreateSkillGroupResponse Client::createSkillGroupWithOptions(const CreateSkillGr
 }
 
 /**
+ * @summary 创建技能组
+ *
  * @param request CreateSkillGroupRequest
  * @return CreateSkillGroupResponse
  */
@@ -2266,6 +2416,8 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
+ * @summary 删除语音文件
+ *
  * @param request DeleteAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAudioFileResponse
@@ -2299,6 +2451,8 @@ DeleteAudioFileResponse Client::deleteAudioFileWithOptions(const DeleteAudioFile
 }
 
 /**
+ * @summary 删除语音文件
+ *
  * @param request DeleteAudioFileRequest
  * @return DeleteAudioFileResponse
  */
@@ -2354,7 +2508,7 @@ DeleteCallTagResponse Client::deleteCallTag(const DeleteCallTagRequest &request)
 }
 
 /**
- * @summary -
+ * @summary 删除ivr流程
  *
  * @param request DeleteContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2393,7 +2547,7 @@ DeleteContactFlowResponse Client::deleteContactFlowWithOptions(const DeleteConta
 }
 
 /**
- * @summary -
+ * @summary 删除ivr流程
  *
  * @param request DeleteContactFlowRequest
  * @return DeleteContactFlowResponse
@@ -2690,6 +2844,8 @@ DeleteSchemaPropertyResponse Client::deleteSchemaProperty(const DeleteSchemaProp
 }
 
 /**
+ * @summary 删除技能组
+ *
  * @param request DeleteSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteSkillGroupResponse
@@ -2727,6 +2883,8 @@ DeleteSkillGroupResponse Client::deleteSkillGroupWithOptions(const DeleteSkillGr
 }
 
 /**
+ * @summary 删除技能组
+ *
  * @param request DeleteSkillGroupRequest
  * @return DeleteSkillGroupResponse
  */
@@ -2912,6 +3070,8 @@ DisableTicketTemplateResponse Client::disableTicketTemplate(const DisableTicketT
 }
 
 /**
+ * @summary 废弃当前IVR流程
+ *
  * @param request DiscardEditingContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DiscardEditingContactFlowResponse
@@ -2949,6 +3109,8 @@ DiscardEditingContactFlowResponse Client::discardEditingContactFlowWithOptions(c
 }
 
 /**
+ * @summary 废弃当前IVR流程
+ *
  * @param request DiscardEditingContactFlowRequest
  * @return DiscardEditingContactFlowResponse
  */
@@ -3050,6 +3212,8 @@ EnableTicketTemplateResponse Client::enableTicketTemplate(const EnableTicketTemp
 }
 
 /**
+ * @summary 结束会议
+ *
  * @param request EndConferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EndConferenceResponse
@@ -3087,6 +3251,8 @@ EndConferenceResponse Client::endConferenceWithOptions(const EndConferenceReques
 }
 
 /**
+ * @summary 结束会议
+ *
  * @param request EndConferenceRequest
  * @return EndConferenceResponse
  */
@@ -3288,7 +3454,7 @@ FinishTicketTaskResponse Client::finishTicketTask(const FinishTicketTaskRequest 
 }
 
 /**
- * @summary GetAccessChannelOfStaging
+ * @summary 获取指定Chat渠道配置
  *
  * @param request GetAccessChannelOfStagingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3315,7 +3481,7 @@ GetAccessChannelOfStagingResponse Client::getAccessChannelOfStagingWithOptions(c
 }
 
 /**
- * @summary GetAccessChannelOfStaging
+ * @summary 获取指定Chat渠道配置
  *
  * @param request GetAccessChannelOfStagingRequest
  * @return GetAccessChannelOfStagingResponse
@@ -3372,6 +3538,8 @@ GetAudioFileResponse Client::getAudioFile(const GetAudioFileRequest &request) {
 }
 
 /**
+ * @summary 获取录音文件下载链接
+ *
  * @param request GetAudioFileDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAudioFileDownloadUrlResponse
@@ -3405,6 +3573,8 @@ GetAudioFileDownloadUrlResponse Client::getAudioFileDownloadUrlWithOptions(const
 }
 
 /**
+ * @summary 获取录音文件下载链接
+ *
  * @param request GetAudioFileDownloadUrlRequest
  * @return GetAudioFileDownloadUrlResponse
  */
@@ -3414,6 +3584,8 @@ GetAudioFileDownloadUrlResponse Client::getAudioFileDownloadUrl(const GetAudioFi
 }
 
 /**
+ * @summary 获取录音文件上传参数
+ *
  * @param request GetAudioFileUploadParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAudioFileUploadParametersResponse
@@ -3447,6 +3619,8 @@ GetAudioFileUploadParametersResponse Client::getAudioFileUploadParametersWithOpt
 }
 
 /**
+ * @summary 获取录音文件上传参数
+ *
  * @param request GetAudioFileUploadParametersRequest
  * @return GetAudioFileUploadParametersResponse
  */
@@ -3548,6 +3722,8 @@ GetCampaignResponse Client::getCampaign(const GetCampaignRequest &request) {
 }
 
 /**
+ * @summary 获取预测试外呼号码配置文件上传链接
+ *
  * @param request GetCaseFileUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCaseFileUploadUrlResponse
@@ -3581,6 +3757,8 @@ GetCaseFileUploadUrlResponse Client::getCaseFileUploadUrlWithOptions(const GetCa
 }
 
 /**
+ * @summary 获取预测试外呼号码配置文件上传链接
+ *
  * @param request GetCaseFileUploadUrlRequest
  * @return GetCaseFileUploadUrlResponse
  */
@@ -3674,6 +3852,8 @@ GetChatRoutingProfileResponse Client::getChatRoutingProfile(const GetChatRouting
 }
 
 /**
+ * @summary 获取ivr流程信息
+ *
  * @param request GetContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetContactFlowResponse
@@ -3711,6 +3891,8 @@ GetContactFlowResponse Client::getContactFlowWithOptions(const GetContactFlowReq
 }
 
 /**
+ * @summary 获取ivr流程信息
+ *
  * @param request GetContactFlowRequest
  * @return GetContactFlowResponse
  */
@@ -3770,6 +3952,8 @@ GetConversationDetailResponse Client::getConversationDetail(const GetConversatio
 }
 
 /**
+ * @summary 获取DataChannel通道的Token信息
+ *
  * @param request GetDataChannelCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDataChannelCredentialsResponse
@@ -3803,6 +3987,8 @@ GetDataChannelCredentialsResponse Client::getDataChannelCredentialsWithOptions(c
 }
 
 /**
+ * @summary 获取DataChannel通道的Token信息
+ *
  * @param request GetDataChannelCredentialsRequest
  * @return GetDataChannelCredentialsResponse
  */
@@ -3950,6 +4136,8 @@ GetEarlyMediaRecordingResponse Client::getEarlyMediaRecording(const GetEarlyMedi
 }
 
 /**
+ * @summary 统计呼入号码信息
+ *
  * @param request GetHistoricalCallerReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHistoricalCallerReportResponse
@@ -3991,6 +4179,8 @@ GetHistoricalCallerReportResponse Client::getHistoricalCallerReportWithOptions(c
 }
 
 /**
+ * @summary 统计呼入号码信息
+ *
  * @param request GetHistoricalCallerReportRequest
  * @return GetHistoricalCallerReportResponse
  */
@@ -4038,6 +4228,8 @@ GetHistoricalCampaignReportResponse Client::getHistoricalCampaignReport(const Ge
 }
 
 /**
+ * @summary 统计实例呼叫数据
+ *
  * @param request GetHistoricalInstanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetHistoricalInstanceReportResponse
@@ -4079,6 +4271,8 @@ GetHistoricalInstanceReportResponse Client::getHistoricalInstanceReportWithOptio
 }
 
 /**
+ * @summary 统计实例呼叫数据
+ *
  * @param request GetHistoricalInstanceReportRequest
  * @return GetHistoricalInstanceReportResponse
  */
@@ -4130,6 +4324,8 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
+ * @summary 统计实例呼叫信息
+ *
  * @param request GetInstanceTrendingReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceTrendingReportResponse
@@ -4171,6 +4367,8 @@ GetInstanceTrendingReportResponse Client::getInstanceTrendingReportWithOptions(c
 }
 
 /**
+ * @summary 统计实例呼叫信息
+ *
  * @param request GetInstanceTrendingReportRequest
  * @return GetInstanceTrendingReportResponse
  */
@@ -4226,6 +4424,8 @@ GetIvrTrackingSummaryResponse Client::getIvrTrackingSummary(const GetIvrTracking
 }
 
 /**
+ * @summary 获取登录信息
+ *
  * @param request GetLoginDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLoginDetailsResponse
@@ -4263,6 +4463,8 @@ GetLoginDetailsResponse Client::getLoginDetailsWithOptions(const GetLoginDetails
 }
 
 /**
+ * @summary 获取登录信息
+ *
  * @param request GetLoginDetailsRequest
  * @return GetLoginDetailsResponse
  */
@@ -4272,6 +4474,8 @@ GetLoginDetailsResponse Client::getLoginDetails(const GetLoginDetailsRequest &re
 }
 
 /**
+ * @summary 获取通话对应的录音, 用于播放和下载
+ *
  * @param request GetMonoRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMonoRecordingResponse
@@ -4309,6 +4513,8 @@ GetMonoRecordingResponse Client::getMonoRecordingWithOptions(const GetMonoRecord
 }
 
 /**
+ * @summary 获取通话对应的录音, 用于播放和下载
+ *
  * @param request GetMonoRecordingRequest
  * @return GetMonoRecordingResponse
  */
@@ -4318,6 +4524,8 @@ GetMonoRecordingResponse Client::getMonoRecording(const GetMonoRecordingRequest 
 }
 
 /**
+ * @summary 获取通话对应的录音, 用于分轨或者质检
+ *
  * @param request GetMultiChannelRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMultiChannelRecordingResponse
@@ -4351,6 +4559,8 @@ GetMultiChannelRecordingResponse Client::getMultiChannelRecordingWithOptions(con
 }
 
 /**
+ * @summary 获取通话对应的录音, 用于分轨或者质检
+ *
  * @param request GetMultiChannelRecordingRequest
  * @return GetMultiChannelRecordingResponse
  */
@@ -4360,6 +4570,8 @@ GetMultiChannelRecordingResponse Client::getMultiChannelRecording(const GetMulti
 }
 
 /**
+ * @summary 查询号码归属地
+ *
  * @param request GetNumberLocationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetNumberLocationResponse
@@ -4393,6 +4605,8 @@ GetNumberLocationResponse Client::getNumberLocationWithOptions(const GetNumberLo
 }
 
 /**
+ * @summary 查询号码归属地
+ *
  * @param request GetNumberLocationRequest
  * @return GetNumberLocationResponse
  */
@@ -4440,6 +4654,8 @@ GetRealtimeCampaignStatsResponse Client::getRealtimeCampaignStats(const GetRealt
 }
 
 /**
+ * @summary 实时查询实例状态信息
+ *
  * @param request GetRealtimeInstanceStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRealtimeInstanceStatesResponse
@@ -4473,6 +4689,8 @@ GetRealtimeInstanceStatesResponse Client::getRealtimeInstanceStatesWithOptions(c
 }
 
 /**
+ * @summary 实时查询实例状态信息
+ *
  * @param request GetRealtimeInstanceStatesRequest
  * @return GetRealtimeInstanceStatesResponse
  */
@@ -4736,6 +4954,8 @@ GetTicketSummaryReportResponse Client::getTicketSummaryReport(const GetTicketSum
 }
 
 /**
+ * @summary 获取工单模版
+ *
  * @param request GetTicketTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTicketTemplateResponse
@@ -4773,6 +4993,8 @@ GetTicketTemplateResponse Client::getTicketTemplateWithOptions(const GetTicketTe
 }
 
 /**
+ * @summary 获取工单模版
+ *
  * @param request GetTicketTemplateRequest
  * @return GetTicketTemplateResponse
  */
@@ -4782,6 +5004,8 @@ GetTicketTemplateResponse Client::getTicketTemplate(const GetTicketTemplateReque
 }
 
 /**
+ * @summary 获取TURN服务的临时用户名和密码
+ *
  * @param request GetTurnCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTurnCredentialsResponse
@@ -4815,6 +5039,8 @@ GetTurnCredentialsResponse Client::getTurnCredentialsWithOptions(const GetTurnCr
 }
 
 /**
+ * @summary 获取TURN服务的临时用户名和密码
+ *
  * @param request GetTurnCredentialsRequest
  * @return GetTurnCredentialsResponse
  */
@@ -4824,6 +5050,8 @@ GetTurnCredentialsResponse Client::getTurnCredentials(const GetTurnCredentialsRe
 }
 
 /**
+ * @summary 获取可用的TURN服务器列表
+ *
  * @param request GetTurnServerListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTurnServerListResponse
@@ -4853,6 +5081,8 @@ GetTurnServerListResponse Client::getTurnServerListWithOptions(const GetTurnServ
 }
 
 /**
+ * @summary 获取可用的TURN服务器列表
+ *
  * @param request GetTurnServerListRequest
  * @return GetTurnServerListResponse
  */
@@ -4900,6 +5130,8 @@ GetUploadAudioDataParamsResponse Client::getUploadAudioDataParams(const GetUploa
 }
 
 /**
+ * @summary 查询坐席
+ *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUserResponse
@@ -4937,6 +5169,8 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
+ * @summary 查询坐席
+ *
  * @param request GetUserRequest
  * @return GetUserResponse
  */
@@ -5034,6 +5268,8 @@ GetVisitorLoginDetailsResponse Client::getVisitorLoginDetails(const GetVisitorLo
 }
 
 /**
+ * @summary 获取语音邮箱录音, 用于播放和下载
+ *
  * @param request GetVoicemailRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetVoicemailRecordingResponse
@@ -5067,6 +5303,8 @@ GetVoicemailRecordingResponse Client::getVoicemailRecordingWithOptions(const Get
 }
 
 /**
+ * @summary 获取语音邮箱录音, 用于播放和下载
+ *
  * @param request GetVoicemailRecordingRequest
  * @return GetVoicemailRecordingResponse
  */
@@ -5076,6 +5314,8 @@ GetVoicemailRecordingResponse Client::getVoicemailRecording(const GetVoicemailRe
 }
 
 /**
+ * @summary 保持通话
+ *
  * @param request HoldCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return HoldCallResponse
@@ -5125,6 +5365,8 @@ HoldCallResponse Client::holdCallWithOptions(const HoldCallRequest &request, con
 }
 
 /**
+ * @summary 保持通话
+ *
  * @param request HoldCallRequest
  * @return HoldCallResponse
  */
@@ -5438,6 +5680,8 @@ ImportDocumentsResponse Client::importDocuments(const ImportDocumentsRequest &re
 }
 
 /**
+ * @summary 导入ram用户
+ *
  * @param request ImportRamUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ImportRamUsersResponse
@@ -5483,6 +5727,8 @@ ImportRamUsersResponse Client::importRamUsersWithOptions(const ImportRamUsersReq
 }
 
 /**
+ * @summary 导入ram用户
+ *
  * @param request ImportRamUsersRequest
  * @return ImportRamUsersResponse
  */
@@ -5492,6 +5738,8 @@ ImportRamUsersResponse Client::importRamUsers(const ImportRamUsersRequest &reque
 }
 
 /**
+ * @summary 关注转-发起
+ *
  * @param request InitiateAttendedTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return InitiateAttendedTransferResponse
@@ -5577,6 +5825,8 @@ InitiateAttendedTransferResponse Client::initiateAttendedTransferWithOptions(con
 }
 
 /**
+ * @summary 关注转-发起
+ *
  * @param request InitiateAttendedTransferRequest
  * @return InitiateAttendedTransferResponse
  */
@@ -5586,6 +5836,8 @@ InitiateAttendedTransferResponse Client::initiateAttendedTransfer(const Initiate
 }
 
 /**
+ * @summary 打断通话
+ *
  * @param request InterceptCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return InterceptCallResponse
@@ -5635,6 +5887,8 @@ InterceptCallResponse Client::interceptCallWithOptions(const InterceptCallReques
 }
 
 /**
+ * @summary 打断通话
+ *
  * @param request InterceptCallRequest
  * @return InterceptCallResponse
  */
@@ -5644,6 +5898,8 @@ InterceptCallResponse Client::interceptCall(const InterceptCallRequest &request)
 }
 
 /**
+ * @summary 发起IVR认证流程
+ *
  * @param request LaunchAuthenticationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return LaunchAuthenticationResponse
@@ -5693,6 +5949,8 @@ LaunchAuthenticationResponse Client::launchAuthenticationWithOptions(const Launc
 }
 
 /**
+ * @summary 发起IVR认证流程
+ *
  * @param request LaunchAuthenticationRequest
  * @return LaunchAuthenticationResponse
  */
@@ -5702,6 +5960,8 @@ LaunchAuthenticationResponse Client::launchAuthentication(const LaunchAuthentica
 }
 
 /**
+ * @summary 发起话后满意度调查IVR流程
+ *
  * @param request LaunchSurveyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return LaunchSurveyResponse
@@ -5767,6 +6027,8 @@ LaunchSurveyResponse Client::launchSurveyWithOptions(const LaunchSurveyRequest &
 }
 
 /**
+ * @summary 发起话后满意度调查IVR流程
+ *
  * @param request LaunchSurveyRequest
  * @return LaunchSurveyResponse
  */
@@ -5776,6 +6038,8 @@ LaunchSurveyResponse Client::launchSurvey(const LaunchSurveyRequest &request) {
 }
 
 /**
+ * @summary 获取坐席状态记录列表
+ *
  * @param request ListAgentStateLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAgentStateLogsResponse
@@ -5817,6 +6081,8 @@ ListAgentStateLogsResponse Client::listAgentStateLogsWithOptions(const ListAgent
 }
 
 /**
+ * @summary 获取坐席状态记录列表
+ *
  * @param request ListAgentStateLogsRequest
  * @return ListAgentStateLogsResponse
  */
@@ -6080,6 +6346,8 @@ ListBlacklistCallTaggingsResponse Client::listBlacklistCallTaggings(const ListBl
 }
 
 /**
+ * @summary 坐席工作台坐席调用转接使用
+ *
  * @param request ListBriefSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListBriefSkillGroupsResponse
@@ -6125,6 +6393,8 @@ ListBriefSkillGroupsResponse Client::listBriefSkillGroupsWithOptions(const ListB
 }
 
 /**
+ * @summary 坐席工作台坐席调用转接使用
+ *
  * @param request ListBriefSkillGroupsRequest
  * @return ListBriefSkillGroupsResponse
  */
@@ -6134,6 +6404,8 @@ ListBriefSkillGroupsResponse Client::listBriefSkillGroups(const ListBriefSkillGr
 }
 
 /**
+ * @summary 获取通话详情
+ *
  * @param request ListCallDetailRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCallDetailRecordsResponse
@@ -6243,6 +6515,8 @@ ListCallDetailRecordsResponse Client::listCallDetailRecordsWithOptions(const Lis
 }
 
 /**
+ * @summary 获取通话详情
+ *
  * @param request ListCallDetailRecordsRequest
  * @return ListCallDetailRecordsResponse
  */
@@ -6758,6 +7032,8 @@ ListCommonTicketFieldsResponse Client::listCommonTicketFields(const ListCommonTi
 }
 
 /**
+ * @summary 列表查询系统配置
+ *
  * @param request ListConfigItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListConfigItemsResponse
@@ -6795,6 +7071,8 @@ ListConfigItemsResponse Client::listConfigItemsWithOptions(const ListConfigItems
 }
 
 /**
+ * @summary 列表查询系统配置
+ *
  * @param request ListConfigItemsRequest
  * @return ListConfigItemsResponse
  */
@@ -6804,7 +7082,7 @@ ListConfigItemsResponse Client::listConfigItems(const ListConfigItemsRequest &re
 }
 
 /**
- * @summary -
+ * @summary 列表查询ivr流程
  *
  * @param request ListContactFlowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6859,7 +7137,7 @@ ListContactFlowsResponse Client::listContactFlowsWithOptions(const ListContactFl
 }
 
 /**
- * @summary -
+ * @summary 列表查询ivr流程
  *
  * @param request ListContactFlowsRequest
  * @return ListContactFlowsResponse
@@ -6932,6 +7210,8 @@ ListCustomCallTaggingResponse Client::listCustomCallTagging(const ListCustomCall
 }
 
 /**
+ * @summary 列表查询可用设备
+ *
  * @param request ListDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDevicesResponse
@@ -6965,6 +7245,8 @@ ListDevicesResponse Client::listDevicesWithOptions(const ListDevicesRequest &req
 }
 
 /**
+ * @summary 列表查询可用设备
+ *
  * @param request ListDevicesRequest
  * @return ListDevicesResponse
  */
@@ -7368,6 +7650,8 @@ ListGroupChatMessagesResponse Client::listGroupChatMessages(const ListGroupChatM
 }
 
 /**
+ * @summary 列表查询历史作息报告
+ *
  * @param request ListHistoricalAgentReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListHistoricalAgentReportResponse
@@ -7427,6 +7711,8 @@ ListHistoricalAgentReportResponse Client::listHistoricalAgentReportWithOptions(c
 }
 
 /**
+ * @summary 列表查询历史作息报告
+ *
  * @param request ListHistoricalAgentReportRequest
  * @return ListHistoricalAgentReportResponse
  */
@@ -7576,6 +7862,8 @@ ListHistoricalSkillGroupReportResponse Client::listHistoricalSkillGroupReport(co
 }
 
 /**
+ * @summary 查询实例列表
+ *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInstancesResponse
@@ -7609,6 +7897,8 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
+ * @summary 查询实例列表
+ *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
  */
@@ -7618,6 +7908,8 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
+ * @summary 查询实例列表
+ *
  * @param request ListInstancesOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInstancesOfUserResponse
@@ -7651,6 +7943,8 @@ ListInstancesOfUserResponse Client::listInstancesOfUserWithOptions(const ListIns
 }
 
 /**
+ * @summary 查询实例列表
+ *
  * @param request ListInstancesOfUserRequest
  * @return ListInstancesOfUserResponse
  */
@@ -7660,6 +7954,8 @@ ListInstancesOfUserResponse Client::listInstancesOfUser(const ListInstancesOfUse
 }
 
 /**
+ * @summary 查询坐席报表
+ *
  * @param request ListIntervalAgentReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIntervalAgentReportResponse
@@ -7709,6 +8005,8 @@ ListIntervalAgentReportResponse Client::listIntervalAgentReportWithOptions(const
 }
 
 /**
+ * @summary 查询坐席报表
+ *
  * @param request ListIntervalAgentReportRequest
  * @return ListIntervalAgentReportResponse
  */
@@ -7756,6 +8054,8 @@ ListIntervalAgentSkillGroupReportResponse Client::listIntervalAgentSkillGroupRep
 }
 
 /**
+ * @summary 查询实例报表
+ *
  * @param request ListIntervalInstanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIntervalInstanceReportResponse
@@ -7797,6 +8097,8 @@ ListIntervalInstanceReportResponse Client::listIntervalInstanceReportWithOptions
 }
 
 /**
+ * @summary 查询实例报表
+ *
  * @param request ListIntervalInstanceReportRequest
  * @return ListIntervalInstanceReportResponse
  */
@@ -7806,6 +8108,8 @@ ListIntervalInstanceReportResponse Client::listIntervalInstanceReport(const List
 }
 
 /**
+ * @summary 查询技能组报表
+ *
  * @param request ListIntervalSkillGroupReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIntervalSkillGroupReportResponse
@@ -7855,6 +8159,8 @@ ListIntervalSkillGroupReportResponse Client::listIntervalSkillGroupReportWithOpt
 }
 
 /**
+ * @summary 查询技能组报表
+ *
  * @param request ListIntervalSkillGroupReportRequest
  * @return ListIntervalSkillGroupReportResponse
  */
@@ -7864,6 +8170,8 @@ ListIntervalSkillGroupReportResponse Client::listIntervalSkillGroupReport(const 
 }
 
 /**
+ * @summary 查询ivr轨迹
+ *
  * @param request ListIvrTrackingDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIvrTrackingDetailsResponse
@@ -7905,6 +8213,8 @@ ListIvrTrackingDetailsResponse Client::listIvrTrackingDetailsWithOptions(const L
 }
 
 /**
+ * @summary 查询ivr轨迹
+ *
  * @param request ListIvrTrackingDetailsRequest
  * @return ListIvrTrackingDetailsResponse
  */
@@ -8378,6 +8688,8 @@ ListOutboundNumbersOfUserResponse Client::listOutboundNumbersOfUser(const ListOu
 }
 
 /**
+ * @summary 获取个人外呼号码列表
+ *
  * @param request ListPersonalNumbersOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPersonalNumbersOfUserResponse
@@ -8427,6 +8739,8 @@ ListPersonalNumbersOfUserResponse Client::listPersonalNumbersOfUserWithOptions(c
 }
 
 /**
+ * @summary 获取个人外呼号码列表
+ *
  * @param request ListPersonalNumbersOfUserRequest
  * @return ListPersonalNumbersOfUserResponse
  */
@@ -8498,6 +8812,8 @@ ListPhoneNumbersResponse Client::listPhoneNumbers(const ListPhoneNumbersRequest 
 }
 
 /**
+ * @summary 查询技能组绑定的号码
+ *
  * @param request ListPhoneNumbersOfSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPhoneNumbersOfSkillGroupResponse
@@ -8551,6 +8867,8 @@ ListPhoneNumbersOfSkillGroupResponse Client::listPhoneNumbersOfSkillGroupWithOpt
 }
 
 /**
+ * @summary 查询技能组绑定的号码
+ *
  * @param request ListPhoneNumbersOfSkillGroupRequest
  * @return ListPhoneNumbersOfSkillGroupResponse
  */
@@ -8560,6 +8878,8 @@ ListPhoneNumbersOfSkillGroupResponse Client::listPhoneNumbersOfSkillGroup(const 
 }
 
 /**
+ * @summary 查询用户权限
+ *
  * @param request ListPrivilegesOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPrivilegesOfUserResponse
@@ -8589,6 +8909,8 @@ ListPrivilegesOfUserResponse Client::listPrivilegesOfUserWithOptions(const ListP
 }
 
 /**
+ * @summary 查询用户权限
+ *
  * @param request ListPrivilegesOfUserRequest
  * @return ListPrivilegesOfUserResponse
  */
@@ -8598,6 +8920,8 @@ ListPrivilegesOfUserResponse Client::listPrivilegesOfUser(const ListPrivilegesOf
 }
 
 /**
+ * @summary 列表查询ram用户
+ *
  * @param request ListRamUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRamUsersResponse
@@ -8639,6 +8963,8 @@ ListRamUsersResponse Client::listRamUsersWithOptions(const ListRamUsersRequest &
 }
 
 /**
+ * @summary 列表查询ram用户
+ *
  * @param request ListRamUsersRequest
  * @return ListRamUsersResponse
  */
@@ -8648,6 +8974,8 @@ ListRamUsersResponse Client::listRamUsers(const ListRamUsersRequest &request) {
 }
 
 /**
+ * @summary 列表查询坐席状态
+ *
  * @param request ListRealtimeAgentStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRealtimeAgentStatesResponse
@@ -8723,6 +9051,8 @@ ListRealtimeAgentStatesResponse Client::listRealtimeAgentStatesWithOptions(const
 }
 
 /**
+ * @summary 列表查询坐席状态
+ *
  * @param request ListRealtimeAgentStatesRequest
  * @return ListRealtimeAgentStatesResponse
  */
@@ -8732,6 +9062,8 @@ ListRealtimeAgentStatesResponse Client::listRealtimeAgentStates(const ListRealti
 }
 
 /**
+ * @summary 列表查询技能组状态报表
+ *
  * @param request ListRealtimeSkillGroupStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRealtimeSkillGroupStatesResponse
@@ -8779,6 +9111,8 @@ ListRealtimeSkillGroupStatesResponse Client::listRealtimeSkillGroupStatesWithOpt
 }
 
 /**
+ * @summary 列表查询技能组状态报表
+ *
  * @param request ListRealtimeSkillGroupStatesRequest
  * @return ListRealtimeSkillGroupStatesResponse
  */
@@ -8788,6 +9122,8 @@ ListRealtimeSkillGroupStatesResponse Client::listRealtimeSkillGroupStates(const 
 }
 
 /**
+ * @summary 列表查询历史通话记录
+ *
  * @param request ListRecentCallDetailRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRecentCallDetailRecordsResponse
@@ -8839,6 +9175,8 @@ ListRecentCallDetailRecordsResponse Client::listRecentCallDetailRecordsWithOptio
 }
 
 /**
+ * @summary 列表查询历史通话记录
+ *
  * @param request ListRecentCallDetailRecordsRequest
  * @return ListRecentCallDetailRecordsResponse
  */
@@ -8848,6 +9186,8 @@ ListRecentCallDetailRecordsResponse Client::listRecentCallDetailRecords(const Li
 }
 
 /**
+ * @summary 列表查询角色
+ *
  * @param request ListRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRolesResponse
@@ -8877,6 +9217,8 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
 }
 
 /**
+ * @summary 列表查询角色
+ *
  * @param request ListRolesRequest
  * @return ListRolesResponse
  */
@@ -8970,6 +9312,8 @@ ListSkillGroupSummaryReportsSinceMidnightResponse Client::listSkillGroupSummaryR
 }
 
 /**
+ * @summary 查询技能组列表
+ *
  * @param request ListSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSkillGroupsResponse
@@ -9015,6 +9359,8 @@ ListSkillGroupsResponse Client::listSkillGroupsWithOptions(const ListSkillGroups
 }
 
 /**
+ * @summary 查询技能组列表
+ *
  * @param request ListSkillGroupsRequest
  * @return ListSkillGroupsResponse
  */
@@ -9024,6 +9370,8 @@ ListSkillGroupsResponse Client::listSkillGroups(const ListSkillGroupsRequest &re
 }
 
 /**
+ * @summary 查询用户技能组级别
+ *
  * @param request ListSkillLevelsOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSkillLevelsOfUserResponse
@@ -9073,6 +9421,8 @@ ListSkillLevelsOfUserResponse Client::listSkillLevelsOfUserWithOptions(const Lis
 }
 
 /**
+ * @summary 查询用户技能组级别
+ *
  * @param request ListSkillLevelsOfUserRequest
  * @return ListSkillLevelsOfUserResponse
  */
@@ -9380,6 +9730,8 @@ ListUnassignedNumbersResponse Client::listUnassignedNumbers(const ListUnassigned
 }
 
 /**
+ * @summary 查询技能组级别列表
+ *
  * @param request ListUserLevelsOfSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUserLevelsOfSkillGroupResponse
@@ -9429,6 +9781,8 @@ ListUserLevelsOfSkillGroupResponse Client::listUserLevelsOfSkillGroupWithOptions
 }
 
 /**
+ * @summary 查询技能组级别列表
+ *
  * @param request ListUserLevelsOfSkillGroupRequest
  * @return ListUserLevelsOfSkillGroupResponse
  */
@@ -9438,6 +9792,8 @@ ListUserLevelsOfSkillGroupResponse Client::listUserLevelsOfSkillGroup(const List
 }
 
 /**
+ * @summary 查询用户列表
+ *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUsersResponse
@@ -9483,6 +9839,8 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
+ * @summary 查询用户列表
+ *
  * @param request ListUsersRequest
  * @return ListUsersResponse
  */
@@ -9752,6 +10110,8 @@ MakeCallResponse Client::makeCall(const MakeCallRequest &request) {
 }
 
 /**
+ * @summary 修改媒体文件
+ *
  * @param request ModifyAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAudioFileResponse
@@ -9801,6 +10161,8 @@ ModifyAudioFileResponse Client::modifyAudioFileWithOptions(const ModifyAudioFile
 }
 
 /**
+ * @summary 修改媒体文件
+ *
  * @param request ModifyAudioFileRequest
  * @return ModifyAudioFileResponse
  */
@@ -9966,6 +10328,8 @@ ModifyInstanceResponse Client::modifyInstance(const ModifyInstanceRequest &reque
 }
 
 /**
+ * @summary 修改电话号码
+ *
  * @param request ModifyPhoneNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyPhoneNumberResponse
@@ -10007,6 +10371,8 @@ ModifyPhoneNumberResponse Client::modifyPhoneNumberWithOptions(const ModifyPhone
 }
 
 /**
+ * @summary 修改电话号码
+ *
  * @param request ModifyPhoneNumberRequest
  * @return ModifyPhoneNumberResponse
  */
@@ -10016,6 +10382,8 @@ ModifyPhoneNumberResponse Client::modifyPhoneNumber(const ModifyPhoneNumberReque
 }
 
 /**
+ * @summary 修改技能组
+ *
  * @param request ModifySkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifySkillGroupResponse
@@ -10057,6 +10425,8 @@ ModifySkillGroupResponse Client::modifySkillGroupWithOptions(const ModifySkillGr
 }
 
 /**
+ * @summary 修改技能组
+ *
  * @param request ModifySkillGroupRequest
  * @return ModifySkillGroupResponse
  */
@@ -10066,6 +10436,8 @@ ModifySkillGroupResponse Client::modifySkillGroup(const ModifySkillGroupRequest 
 }
 
 /**
+ * @summary 修改坐席技能组
+ *
  * @param request ModifySkillLevelsOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifySkillLevelsOfUserResponse
@@ -10103,6 +10475,8 @@ ModifySkillLevelsOfUserResponse Client::modifySkillLevelsOfUserWithOptions(const
 }
 
 /**
+ * @summary 修改坐席技能组
+ *
  * @param request ModifySkillLevelsOfUserRequest
  * @return ModifySkillLevelsOfUserResponse
  */
@@ -10112,6 +10486,8 @@ ModifySkillLevelsOfUserResponse Client::modifySkillLevelsOfUser(const ModifySkil
 }
 
 /**
+ * @summary 修改坐席
+ *
  * @param request ModifyUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyUserResponse
@@ -10177,6 +10553,8 @@ ModifyUserResponse Client::modifyUserWithOptions(const ModifyUserRequest &reques
 }
 
 /**
+ * @summary 修改坐席
+ *
  * @param request ModifyUserRequest
  * @return ModifyUserResponse
  */
@@ -10186,6 +10564,8 @@ ModifyUserResponse Client::modifyUser(const ModifyUserRequest &request) {
 }
 
 /**
+ * @summary 修改坐席技能组级别
+ *
  * @param request ModifyUserLevelsOfSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyUserLevelsOfSkillGroupResponse
@@ -10223,6 +10603,8 @@ ModifyUserLevelsOfSkillGroupResponse Client::modifyUserLevelsOfSkillGroupWithOpt
 }
 
 /**
+ * @summary 修改坐席技能组级别
+ *
  * @param request ModifyUserLevelsOfSkillGroupRequest
  * @return ModifyUserLevelsOfSkillGroupResponse
  */
@@ -10232,6 +10614,8 @@ ModifyUserLevelsOfSkillGroupResponse Client::modifyUserLevelsOfSkillGroup(const 
 }
 
 /**
+ * @summary 通话监听
+ *
  * @param request MonitorCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return MonitorCallResponse
@@ -10277,6 +10661,8 @@ MonitorCallResponse Client::monitorCallWithOptions(const MonitorCallRequest &req
 }
 
 /**
+ * @summary 通话监听
+ *
  * @param request MonitorCallRequest
  * @return MonitorCallResponse
  */
@@ -10286,6 +10672,8 @@ MonitorCallResponse Client::monitorCall(const MonitorCallRequest &request) {
 }
 
 /**
+ * @summary 静音
+ *
  * @param request MuteCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return MuteCallResponse
@@ -10331,6 +10719,8 @@ MuteCallResponse Client::muteCallWithOptions(const MuteCallRequest &request, con
 }
 
 /**
+ * @summary 静音
+ *
  * @param request MuteCallRequest
  * @return MuteCallResponse
  */
@@ -10386,6 +10776,8 @@ PauseCampaignResponse Client::pauseCampaign(const PauseCampaignRequest &request)
 }
 
 /**
+ * @summary 选择外呼号码
+ *
  * @param request PickOutboundNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PickOutboundNumbersResponse
@@ -10427,6 +10819,8 @@ PickOutboundNumbersResponse Client::pickOutboundNumbersWithOptions(const PickOut
 }
 
 /**
+ * @summary 选择外呼号码
+ *
  * @param request PickOutboundNumbersRequest
  * @return PickOutboundNumbersResponse
  */
@@ -10436,6 +10830,8 @@ PickOutboundNumbersResponse Client::pickOutboundNumbers(const PickOutboundNumber
 }
 
 /**
+ * @summary 轮询座席状态
+ *
  * @param request PollUserStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PollUserStatusResponse
@@ -10473,6 +10869,8 @@ PollUserStatusResponse Client::pollUserStatusWithOptions(const PollUserStatusReq
 }
 
 /**
+ * @summary 轮询座席状态
+ *
  * @param request PollUserStatusRequest
  * @return PollUserStatusResponse
  */
@@ -10594,6 +10992,8 @@ ProcessCustomIMCallbackResponse Client::processCustomIMCallback(const ProcessCus
 }
 
 /**
+ * @summary 发布ivr流程
+ *
  * @param request PublishContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PublishContactFlowResponse
@@ -10631,6 +11031,8 @@ PublishContactFlowResponse Client::publishContactFlowWithOptions(const PublishCo
 }
 
 /**
+ * @summary 发布ivr流程
+ *
  * @param request PublishContactFlowRequest
  * @return PublishContactFlowResponse
  */
@@ -10640,6 +11042,8 @@ PublishContactFlowResponse Client::publishContactFlow(const PublishContactFlowRe
 }
 
 /**
+ * @summary 就绪/示闲
+ *
  * @param request ReadyForServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReadyForServiceResponse
@@ -10681,6 +11085,8 @@ ReadyForServiceResponse Client::readyForServiceWithOptions(const ReadyForService
 }
 
 /**
+ * @summary 就绪/示闲
+ *
  * @param request ReadyForServiceRequest
  * @return ReadyForServiceResponse
  */
@@ -10690,6 +11096,8 @@ ReadyForServiceResponse Client::readyForService(const ReadyForServiceRequest &re
 }
 
 /**
+ * @summary 重拨
+ *
  * @param request RedialCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RedialCallResponse
@@ -10747,6 +11155,8 @@ RedialCallResponse Client::redialCallWithOptions(const RedialCallRequest &reques
 }
 
 /**
+ * @summary 重拨
+ *
  * @param request RedialCallRequest
  * @return RedialCallResponse
  */
@@ -10756,6 +11166,8 @@ RedialCallResponse Client::redialCall(const RedialCallRequest &request) {
 }
 
 /**
+ * @summary 注册设备
+ *
  * @param request RegisterDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RegisterDeviceResponse
@@ -10797,6 +11209,8 @@ RegisterDeviceResponse Client::registerDeviceWithOptions(const RegisterDeviceReq
 }
 
 /**
+ * @summary 注册设备
+ *
  * @param request RegisterDeviceRequest
  * @return RegisterDeviceResponse
  */
@@ -10806,6 +11220,8 @@ RegisterDeviceResponse Client::registerDevice(const RegisterDeviceRequest &reque
 }
 
 /**
+ * @summary 注册设备
+ *
  * @param request RegisterDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RegisterDevicesResponse
@@ -10847,6 +11263,8 @@ RegisterDevicesResponse Client::registerDevicesWithOptions(const RegisterDevices
 }
 
 /**
+ * @summary 注册设备
+ *
  * @param request RegisterDevicesRequest
  * @return RegisterDevicesResponse
  */
@@ -10944,6 +11362,8 @@ RejectTicketResponse Client::rejectTicket(const RejectTicketRequest &request) {
 }
 
 /**
+ * @summary 释放对话
+ *
  * @param request ReleaseCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReleaseCallResponse
@@ -10989,6 +11409,8 @@ ReleaseCallResponse Client::releaseCallWithOptions(const ReleaseCallRequest &req
 }
 
 /**
+ * @summary 释放对话
+ *
  * @param request ReleaseCallRequest
  * @return ReleaseCallResponse
  */
@@ -11148,6 +11570,8 @@ RemoveDoNotCallNumbersResponse Client::removeDoNotCallNumbers(const RemoveDoNotC
 }
 
 /**
+ * @summary 移除个人号码
+ *
  * @param request RemovePersonalNumbersFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemovePersonalNumbersFromUserResponse
@@ -11185,6 +11609,8 @@ RemovePersonalNumbersFromUserResponse Client::removePersonalNumbersFromUserWithO
 }
 
 /**
+ * @summary 移除个人号码
+ *
  * @param request RemovePersonalNumbersFromUserRequest
  * @return RemovePersonalNumbersFromUserResponse
  */
@@ -11194,6 +11620,8 @@ RemovePersonalNumbersFromUserResponse Client::removePersonalNumbersFromUser(cons
 }
 
 /**
+ * @summary 移除技能组下的电话号码
+ *
  * @param request RemovePhoneNumberFromSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemovePhoneNumberFromSkillGroupsResponse
@@ -11231,6 +11659,8 @@ RemovePhoneNumberFromSkillGroupsResponse Client::removePhoneNumberFromSkillGroup
 }
 
 /**
+ * @summary 移除技能组下的电话号码
+ *
  * @param request RemovePhoneNumberFromSkillGroupsRequest
  * @return RemovePhoneNumberFromSkillGroupsResponse
  */
@@ -11240,6 +11670,8 @@ RemovePhoneNumberFromSkillGroupsResponse Client::removePhoneNumberFromSkillGroup
 }
 
 /**
+ * @summary 移除电话号码
+ *
  * @param request RemovePhoneNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemovePhoneNumbersResponse
@@ -11277,6 +11709,8 @@ RemovePhoneNumbersResponse Client::removePhoneNumbersWithOptions(const RemovePho
 }
 
 /**
+ * @summary 移除电话号码
+ *
  * @param request RemovePhoneNumbersRequest
  * @return RemovePhoneNumbersResponse
  */
@@ -11286,6 +11720,8 @@ RemovePhoneNumbersResponse Client::removePhoneNumbers(const RemovePhoneNumbersRe
 }
 
 /**
+ * @summary 移除技能组下的电话号码
+ *
  * @param request RemovePhoneNumbersFromSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemovePhoneNumbersFromSkillGroupResponse
@@ -11323,6 +11759,8 @@ RemovePhoneNumbersFromSkillGroupResponse Client::removePhoneNumbersFromSkillGrou
 }
 
 /**
+ * @summary 移除技能组下的电话号码
+ *
  * @param request RemovePhoneNumbersFromSkillGroupRequest
  * @return RemovePhoneNumbersFromSkillGroupResponse
  */
@@ -11332,6 +11770,8 @@ RemovePhoneNumbersFromSkillGroupResponse Client::removePhoneNumbersFromSkillGrou
 }
 
 /**
+ * @summary 移除多个技能组下的坐席
+ *
  * @param request RemoveSkillGroupsFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveSkillGroupsFromUserResponse
@@ -11369,6 +11809,8 @@ RemoveSkillGroupsFromUserResponse Client::removeSkillGroupsFromUserWithOptions(c
 }
 
 /**
+ * @summary 移除多个技能组下的坐席
+ *
  * @param request RemoveSkillGroupsFromUserRequest
  * @return RemoveSkillGroupsFromUserResponse
  */
@@ -11378,6 +11820,8 @@ RemoveSkillGroupsFromUserResponse Client::removeSkillGroupsFromUser(const Remove
 }
 
 /**
+ * @summary 移除坐席
+ *
  * @param request RemoveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveUsersResponse
@@ -11423,6 +11867,8 @@ RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &req
 }
 
 /**
+ * @summary 移除坐席
+ *
  * @param request RemoveUsersRequest
  * @return RemoveUsersResponse
  */
@@ -11432,6 +11878,8 @@ RemoveUsersResponse Client::removeUsers(const RemoveUsersRequest &request) {
 }
 
 /**
+ * @summary 移除坐席下的技能组
+ *
  * @param request RemoveUsersFromSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveUsersFromSkillGroupResponse
@@ -11469,6 +11917,8 @@ RemoveUsersFromSkillGroupResponse Client::removeUsersFromSkillGroupWithOptions(c
 }
 
 /**
+ * @summary 移除坐席下的技能组
+ *
  * @param request RemoveUsersFromSkillGroupRequest
  * @return RemoveUsersFromSkillGroupResponse
  */
@@ -11478,6 +11928,8 @@ RemoveUsersFromSkillGroupResponse Client::removeUsersFromSkillGroup(const Remove
 }
 
 /**
+ * @summary 重置坐席状态
+ *
  * @param request ResetAgentStateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ResetAgentStateResponse
@@ -11515,6 +11967,8 @@ ResetAgentStateResponse Client::resetAgentStateWithOptions(const ResetAgentState
 }
 
 /**
+ * @summary 重置坐席状态
+ *
  * @param request ResetAgentStateRequest
  * @return ResetAgentStateResponse
  */
@@ -11524,6 +11978,8 @@ ResetAgentStateResponse Client::resetAgentState(const ResetAgentStateRequest &re
 }
 
 /**
+ * @summary 重置坐席密码
+ *
  * @param request ResetUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ResetUserPasswordResponse
@@ -11561,6 +12017,8 @@ ResetUserPasswordResponse Client::resetUserPasswordWithOptions(const ResetUserPa
 }
 
 /**
+ * @summary 重置坐席密码
+ *
  * @param request ResetUserPasswordRequest
  * @return ResetUserPasswordResponse
  */
@@ -11708,6 +12166,8 @@ ResumeCampaignResponse Client::resumeCampaign(const ResumeCampaignRequest &reque
 }
 
 /**
+ * @summary 取回
+ *
  * @param request RetrieveCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RetrieveCallResponse
@@ -11753,6 +12213,8 @@ RetrieveCallResponse Client::retrieveCallWithOptions(const RetrieveCallRequest &
 }
 
 /**
+ * @summary 取回
+ *
  * @param request RetrieveCallRequest
  * @return RetrieveCallResponse
  */
@@ -11816,6 +12278,8 @@ SaveDocumentResponse Client::saveDocument(const SaveDocumentRequest &request) {
 }
 
 /**
+ * @summary 客服侧数据收集
+ *
  * @param request SaveRTCStatsV2Request
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveRTCStatsV2Response
@@ -11865,6 +12329,8 @@ SaveRTCStatsV2Response Client::saveRTCStatsV2WithOptions(const SaveRTCStatsV2Req
 }
 
 /**
+ * @summary 客服侧数据收集
+ *
  * @param request SaveRTCStatsV2Request
  * @return SaveRTCStatsV2Response
  */
@@ -11874,6 +12340,8 @@ SaveRTCStatsV2Response Client::saveRTCStatsV2(const SaveRTCStatsV2Request &reque
 }
 
 /**
+ * @summary 保存终端埋点日志
+ *
  * @param request SaveTerminalLogRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveTerminalLogResponse
@@ -11935,6 +12403,8 @@ SaveTerminalLogResponse Client::saveTerminalLogWithOptions(const SaveTerminalLog
 }
 
 /**
+ * @summary 保存终端埋点日志
+ *
  * @param request SaveTerminalLogRequest
  * @return SaveTerminalLogResponse
  */
@@ -11944,6 +12414,8 @@ SaveTerminalLogResponse Client::saveTerminalLog(const SaveTerminalLogRequest &re
 }
 
 /**
+ * @summary 客服侧数据收集
+ *
  * @param request SaveWebRTCStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveWebRTCStatsResponse
@@ -11993,6 +12465,8 @@ SaveWebRTCStatsResponse Client::saveWebRTCStatsWithOptions(const SaveWebRTCStats
 }
 
 /**
+ * @summary 客服侧数据收集
+ *
  * @param request SaveWebRTCStatsRequest
  * @return SaveWebRTCStatsResponse
  */
@@ -12002,6 +12476,8 @@ SaveWebRTCStatsResponse Client::saveWebRTCStats(const SaveWebRTCStatsRequest &re
 }
 
 /**
+ * @summary 客服侧数据收集
+ *
  * @param request SaveWebRtcInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveWebRtcInfoResponse
@@ -12047,6 +12523,8 @@ SaveWebRtcInfoResponse Client::saveWebRtcInfoWithOptions(const SaveWebRtcInfoReq
 }
 
 /**
+ * @summary 客服侧数据收集
+ *
  * @param request SaveWebRtcInfoRequest
  * @return SaveWebRtcInfoResponse
  */
@@ -12056,6 +12534,8 @@ SaveWebRtcInfoResponse Client::saveWebRtcInfo(const SaveWebRtcInfoRequest &reque
 }
 
 /**
+ * @summary 在接通的电话上发送DTMF信号
+ *
  * @param request SendDtmfSignalingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SendDtmfSignalingResponse
@@ -12105,6 +12585,8 @@ SendDtmfSignalingResponse Client::sendDtmfSignalingWithOptions(const SendDtmfSig
 }
 
 /**
+ * @summary 在接通的电话上发送DTMF信号
+ *
  * @param request SendDtmfSignalingRequest
  * @return SendDtmfSignalingResponse
  */
@@ -12172,6 +12654,8 @@ SendNotificationResponse Client::sendNotification(const SendNotificationRequest 
 }
 
 /**
+ * @summary 上线
+ *
  * @param request SignInGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SignInGroupResponse
@@ -12221,6 +12705,8 @@ SignInGroupResponse Client::signInGroupWithOptions(const SignInGroupRequest &req
 }
 
 /**
+ * @summary 上线
+ *
  * @param request SignInGroupRequest
  * @return SignInGroupResponse
  */
@@ -12230,6 +12716,8 @@ SignInGroupResponse Client::signInGroup(const SignInGroupRequest &request) {
 }
 
 /**
+ * @summary 下线
+ *
  * @param request SignOutGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SignOutGroupResponse
@@ -12267,6 +12755,8 @@ SignOutGroupResponse Client::signOutGroupWithOptions(const SignOutGroupRequest &
 }
 
 /**
+ * @summary 下线
+ *
  * @param request SignOutGroupRequest
  * @return SignOutGroupResponse
  */
@@ -12276,6 +12766,8 @@ SignOutGroupResponse Client::signOutGroup(const SignOutGroupRequest &request) {
 }
 
 /**
+ * @summary 双呼
+ *
  * @param request StartBack2BackCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartBack2BackCallResponse
@@ -12329,6 +12821,8 @@ StartBack2BackCallResponse Client::startBack2BackCallWithOptions(const StartBack
 }
 
 /**
+ * @summary 双呼
+ *
  * @param request StartBack2BackCallRequest
  * @return StartBack2BackCallResponse
  */
@@ -12394,6 +12888,8 @@ StartChatResponse Client::startChat(const StartChatRequest &request) {
 }
 
 /**
+ * @summary 开始会议
+ *
  * @param request StartConferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartConferenceResponse
@@ -12439,6 +12935,8 @@ StartConferenceResponse Client::startConferenceWithOptions(const StartConference
 }
 
 /**
+ * @summary 开始会议
+ *
  * @param request StartConferenceRequest
  * @return StartConferenceResponse
  */
@@ -12448,6 +12946,8 @@ StartConferenceResponse Client::startConference(const StartConferenceRequest &re
 }
 
 /**
+ * @summary 编辑ivr流程
+ *
  * @param request StartEditContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartEditContactFlowResponse
@@ -12481,6 +12981,8 @@ StartEditContactFlowResponse Client::startEditContactFlowWithOptions(const Start
 }
 
 /**
+ * @summary 编辑ivr流程
+ *
  * @param request StartEditContactFlowRequest
  * @return StartEditContactFlowResponse
  */
@@ -12490,6 +12992,8 @@ StartEditContactFlowResponse Client::startEditContactFlow(const StartEditContact
 }
 
 /**
+ * @summary 开始预测试外呼
+ *
  * @param request StartPredictiveCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartPredictiveCallResponse
@@ -12551,6 +13055,8 @@ StartPredictiveCallResponse Client::startPredictiveCallWithOptions(const StartPr
 }
 
 /**
+ * @summary 开始预测试外呼
+ *
  * @param request StartPredictiveCallRequest
  * @return StartPredictiveCallResponse
  */
@@ -12660,6 +13166,8 @@ SubmitCampaignResponse Client::submitCampaign(const SubmitCampaignRequest &reque
 }
 
 /**
+ * @summary 切换关注/咨询转到会议
+ *
  * @param request SwitchToConferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SwitchToConferenceResponse
@@ -12701,6 +13209,8 @@ SwitchToConferenceResponse Client::switchToConferenceWithOptions(const SwitchToC
 }
 
 /**
+ * @summary 切换关注/咨询转到会议
+ *
  * @param request SwitchToConferenceRequest
  * @return SwitchToConferenceResponse
  */
@@ -12710,6 +13220,8 @@ SwitchToConferenceResponse Client::switchToConference(const SwitchToConferenceRe
 }
 
 /**
+ * @summary 小休
+ *
  * @param request TakeBreakRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TakeBreakResponse
@@ -12751,6 +13263,8 @@ TakeBreakResponse Client::takeBreakWithOptions(const TakeBreakRequest &request, 
 }
 
 /**
+ * @summary 小休
+ *
  * @param request TakeBreakRequest
  * @return TakeBreakResponse
  */
@@ -12860,6 +13374,8 @@ TransferTicketTaskResponse Client::transferTicketTask(const TransferTicketTaskRe
 }
 
 /**
+ * @summary 取消静音
+ *
  * @param request UnmuteCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnmuteCallResponse
@@ -12905,6 +13421,8 @@ UnmuteCallResponse Client::unmuteCallWithOptions(const UnmuteCallRequest &reques
 }
 
 /**
+ * @summary 取消静音
+ *
  * @param request UnmuteCallRequest
  * @return UnmuteCallResponse
  */
@@ -12960,6 +13478,8 @@ UnregisterDeviceResponse Client::unregisterDevice(const UnregisterDeviceRequest 
 }
 
 /**
+ * @summary 更新会话小结
+ *
  * @param request UpdateCallSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateCallSummaryResponse
@@ -12997,6 +13517,8 @@ UpdateCallSummaryResponse Client::updateCallSummaryWithOptions(const UpdateCallS
 }
 
 /**
+ * @summary 更新会话小结
+ *
  * @param request UpdateCallSummaryRequest
  * @return UpdateCallSummaryResponse
  */
@@ -13006,7 +13528,7 @@ UpdateCallSummaryResponse Client::updateCallSummary(const UpdateCallSummaryReque
 }
 
 /**
- * @summary Update campaign
+ * @summary 更新预测试外呼活动
  *
  * @param request UpdateCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13065,7 +13587,7 @@ UpdateCampaignResponse Client::updateCampaignWithOptions(const UpdateCampaignReq
 }
 
 /**
- * @summary Update campaign
+ * @summary 更新预测试外呼活动
  *
  * @param request UpdateCampaignRequest
  * @return UpdateCampaignResponse
@@ -13118,6 +13640,8 @@ UpdateChatRoutingProfileResponse Client::updateChatRoutingProfile(const UpdateCh
 }
 
 /**
+ * @summary 更新系统配置
+ *
  * @param request UpdateConfigItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateConfigItemsResponse
@@ -13159,6 +13683,8 @@ UpdateConfigItemsResponse Client::updateConfigItemsWithOptions(const UpdateConfi
 }
 
 /**
+ * @summary 更新系统配置
+ *
  * @param request UpdateConfigItemsRequest
  * @return UpdateConfigItemsResponse
  */

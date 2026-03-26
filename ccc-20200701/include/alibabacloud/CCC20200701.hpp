@@ -98,6 +98,8 @@ namespace CCC20200701
       Models::AddFeedbackResponse addFeedback(const Models::AddFeedbackRequest &request);
 
       /**
+       * @summary 技能组添加号码
+       *
        * @param request AddNumbersToSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddNumbersToSkillGroupResponse
@@ -105,12 +107,16 @@ namespace CCC20200701
       Models::AddNumbersToSkillGroupResponse addNumbersToSkillGroupWithOptions(const Models::AddNumbersToSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 技能组添加号码
+       *
        * @param request AddNumbersToSkillGroupRequest
        * @return AddNumbersToSkillGroupResponse
        */
       Models::AddNumbersToSkillGroupResponse addNumbersToSkillGroup(const Models::AddNumbersToSkillGroupRequest &request);
 
       /**
+       * @summary 增加个人号码
+       *
        * @param request AddPersonalNumbersToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddPersonalNumbersToUserResponse
@@ -118,12 +124,16 @@ namespace CCC20200701
       Models::AddPersonalNumbersToUserResponse addPersonalNumbersToUserWithOptions(const Models::AddPersonalNumbersToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 增加个人号码
+       *
        * @param request AddPersonalNumbersToUserRequest
        * @return AddPersonalNumbersToUserResponse
        */
       Models::AddPersonalNumbersToUserResponse addPersonalNumbersToUser(const Models::AddPersonalNumbersToUserRequest &request);
 
       /**
+       * @summary 技能组添加号码
+       *
        * @param request AddPhoneNumberToSkillGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddPhoneNumberToSkillGroupsResponse
@@ -131,12 +141,16 @@ namespace CCC20200701
       Models::AddPhoneNumberToSkillGroupsResponse addPhoneNumberToSkillGroupsWithOptions(const Models::AddPhoneNumberToSkillGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 技能组添加号码
+       *
        * @param request AddPhoneNumberToSkillGroupsRequest
        * @return AddPhoneNumberToSkillGroupsResponse
        */
       Models::AddPhoneNumberToSkillGroupsResponse addPhoneNumberToSkillGroups(const Models::AddPhoneNumberToSkillGroupsRequest &request);
 
       /**
+       * @summary 添加号码
+       *
        * @param request AddPhoneNumbersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddPhoneNumbersResponse
@@ -144,6 +158,8 @@ namespace CCC20200701
       Models::AddPhoneNumbersResponse addPhoneNumbersWithOptions(const Models::AddPhoneNumbersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 添加号码
+       *
        * @param request AddPhoneNumbersRequest
        * @return AddPhoneNumbersResponse
        */
@@ -163,6 +179,8 @@ namespace CCC20200701
       Models::AddSchemaPropertyResponse addSchemaProperty(const Models::AddSchemaPropertyRequest &request);
 
       /**
+       * @summary 技能组添加用户
+       *
        * @param request AddSkillGroupsToUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddSkillGroupsToUserResponse
@@ -170,6 +188,8 @@ namespace CCC20200701
       Models::AddSkillGroupsToUserResponse addSkillGroupsToUserWithOptions(const Models::AddSkillGroupsToUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 技能组添加用户
+       *
        * @param request AddSkillGroupsToUserRequest
        * @return AddSkillGroupsToUserResponse
        */
@@ -189,6 +209,8 @@ namespace CCC20200701
       Models::AddTicketTaskResponse addTicketTask(const Models::AddTicketTaskRequest &request);
 
       /**
+       * @summary 技能组添加用户
+       *
        * @param request AddUsersToSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddUsersToSkillGroupResponse
@@ -196,12 +218,16 @@ namespace CCC20200701
       Models::AddUsersToSkillGroupResponse addUsersToSkillGroupWithOptions(const Models::AddUsersToSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 技能组添加用户
+       *
        * @param request AddUsersToSkillGroupRequest
        * @return AddUsersToSkillGroupResponse
        */
       Models::AddUsersToSkillGroupResponse addUsersToSkillGroup(const Models::AddUsersToSkillGroupRequest &request);
 
       /**
+       * @summary 分析对话
+       *
        * @param request AnalyzeConversationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AnalyzeConversationResponse
@@ -209,12 +235,16 @@ namespace CCC20200701
       Models::AnalyzeConversationResponse analyzeConversationWithOptions(const Models::AnalyzeConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 分析对话
+       *
        * @param request AnalyzeConversationRequest
        * @return AnalyzeConversationResponse
        */
       Models::AnalyzeConversationResponse analyzeConversation(const Models::AnalyzeConversationRequest &request);
 
       /**
+       * @summary 接电话
+       *
        * @param request AnswerCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AnswerCallResponse
@@ -222,6 +252,8 @@ namespace CCC20200701
       Models::AnswerCallResponse answerCallWithOptions(const Models::AnswerCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 接电话
+       *
        * @param request AnswerCallRequest
        * @return AnswerCallResponse
        */
@@ -247,6 +279,8 @@ namespace CCC20200701
       /**
        * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
        *
+       * @summary 导入坐席
+       *
        * @param request AssignUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AssignUsersResponse
@@ -256,12 +290,16 @@ namespace CCC20200701
       /**
        * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
        *
+       * @summary 导入坐席
+       *
        * @param request AssignUsersRequest
        * @return AssignUsersResponse
        */
       Models::AssignUsersResponse assignUsers(const Models::AssignUsersRequest &request);
 
       /**
+       * @summary BargeInCall
+       *
        * @param request BargeInCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return BargeInCallResponse
@@ -269,12 +307,16 @@ namespace CCC20200701
       Models::BargeInCallResponse bargeInCallWithOptions(const Models::BargeInCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary BargeInCall
+       *
        * @param request BargeInCallRequest
        * @return BargeInCallResponse
        */
       Models::BargeInCallResponse bargeInCall(const Models::BargeInCallRequest &request);
 
       /**
+       * @summary 盲转
+       *
        * @param request BlindTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return BlindTransferResponse
@@ -282,12 +324,16 @@ namespace CCC20200701
       Models::BlindTransferResponse blindTransferWithOptions(const Models::BlindTransferRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 盲转
+       *
        * @param request BlindTransferRequest
        * @return BlindTransferResponse
        */
       Models::BlindTransferResponse blindTransfer(const Models::BlindTransferRequest &request);
 
       /**
+       * @summary BridgeRtcCall
+       *
        * @param request BridgeRtcCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return BridgeRtcCallResponse
@@ -295,12 +341,16 @@ namespace CCC20200701
       Models::BridgeRtcCallResponse bridgeRtcCallWithOptions(const Models::BridgeRtcCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary BridgeRtcCall
+       *
        * @param request BridgeRtcCallRequest
        * @return BridgeRtcCallResponse
        */
       Models::BridgeRtcCallResponse bridgeRtcCall(const Models::BridgeRtcCallRequest &request);
 
       /**
+       * @summary 关注转-取消
+       *
        * @param request CancelAttendedTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CancelAttendedTransferResponse
@@ -308,12 +358,16 @@ namespace CCC20200701
       Models::CancelAttendedTransferResponse cancelAttendedTransferWithOptions(const Models::CancelAttendedTransferRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 关注转-取消
+       *
        * @param request CancelAttendedTransferRequest
        * @return CancelAttendedTransferResponse
        */
       Models::CancelAttendedTransferResponse cancelAttendedTransfer(const Models::CancelAttendedTransferRequest &request);
 
       /**
+       * @summary 修改隐身状态(等同于仅外呼场景)
+       *
        * @param request ChangeVisibilityRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ChangeVisibilityResponse
@@ -321,12 +375,16 @@ namespace CCC20200701
       Models::ChangeVisibilityResponse changeVisibilityWithOptions(const Models::ChangeVisibilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改隐身状态(等同于仅外呼场景)
+       *
        * @param request ChangeVisibilityRequest
        * @return ChangeVisibilityResponse
        */
       Models::ChangeVisibilityResponse changeVisibility(const Models::ChangeVisibilityRequest &request);
 
       /**
+       * @summary 修改坐席工作模式
+       *
        * @param request ChangeWorkModeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ChangeWorkModeResponse
@@ -334,10 +392,29 @@ namespace CCC20200701
       Models::ChangeWorkModeResponse changeWorkModeWithOptions(const Models::ChangeWorkModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改坐席工作模式
+       *
        * @param request ChangeWorkModeRequest
        * @return ChangeWorkModeResponse
        */
       Models::ChangeWorkModeResponse changeWorkMode(const Models::ChangeWorkModeRequest &request);
+
+      /**
+       * @summary 认领电话
+       *
+       * @param request ClaimCallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClaimCallResponse
+       */
+      Models::ClaimCallResponse claimCallWithOptions(const Models::ClaimCallRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 认领电话
+       *
+       * @param request ClaimCallRequest
+       * @return ClaimCallResponse
+       */
+      Models::ClaimCallResponse claimCall(const Models::ClaimCallRequest &request);
 
       /**
        * @param request ClaimChatRequest
@@ -353,6 +430,8 @@ namespace CCC20200701
       Models::ClaimChatResponse claimChat(const Models::ClaimChatRequest &request);
 
       /**
+       * @summary 辅导
+       *
        * @param request CoachCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CoachCallResponse
@@ -360,12 +439,16 @@ namespace CCC20200701
       Models::CoachCallResponse coachCallWithOptions(const Models::CoachCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 辅导
+       *
        * @param request CoachCallRequest
        * @return CoachCallResponse
        */
       Models::CoachCallResponse coachCall(const Models::CoachCallRequest &request);
 
       /**
+       * @summary 提交ivr流程
+       *
        * @param request CommitContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CommitContactFlowResponse
@@ -373,12 +456,16 @@ namespace CCC20200701
       Models::CommitContactFlowResponse commitContactFlowWithOptions(const Models::CommitContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 提交ivr流程
+       *
        * @param request CommitContactFlowRequest
        * @return CommitContactFlowResponse
        */
       Models::CommitContactFlowResponse commitContactFlow(const Models::CommitContactFlowRequest &request);
 
       /**
+       * @summary 关注转-完成
+       *
        * @param request CompleteAttendedTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CompleteAttendedTransferResponse
@@ -386,12 +473,16 @@ namespace CCC20200701
       Models::CompleteAttendedTransferResponse completeAttendedTransferWithOptions(const Models::CompleteAttendedTransferRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 关注转-完成
+       *
        * @param request CompleteAttendedTransferRequest
        * @return CompleteAttendedTransferResponse
        */
       Models::CompleteAttendedTransferResponse completeAttendedTransfer(const Models::CompleteAttendedTransferRequest &request);
 
       /**
+       * @summary 创建媒体文件
+       *
        * @param request CreateAudioFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAudioFileResponse
@@ -399,12 +490,16 @@ namespace CCC20200701
       Models::CreateAudioFileResponse createAudioFileWithOptions(const Models::CreateAudioFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建媒体文件
+       *
        * @param request CreateAudioFileRequest
        * @return CreateAudioFileResponse
        */
       Models::CreateAudioFileResponse createAudioFile(const Models::CreateAudioFileRequest &request);
 
       /**
+       * @summary 创建会话小结
+       *
        * @param request CreateCallSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateCallSummaryResponse
@@ -412,6 +507,8 @@ namespace CCC20200701
       Models::CreateCallSummaryResponse createCallSummaryWithOptions(const Models::CreateCallSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建会话小结
+       *
        * @param request CreateCallSummaryRequest
        * @return CreateCallSummaryResponse
        */
@@ -465,6 +562,8 @@ namespace CCC20200701
       Models::CreateChatMediaUrlResponse createChatMediaUrl(const Models::CreateChatMediaUrlRequest &request);
 
       /**
+       * @summary 创建ivr流程
+       *
        * @param request CreateContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateContactFlowResponse
@@ -472,6 +571,8 @@ namespace CCC20200701
       Models::CreateContactFlowResponse createContactFlowWithOptions(const Models::CreateContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建ivr流程
+       *
        * @param request CreateContactFlowRequest
        * @return CreateContactFlowResponse
        */
@@ -529,6 +630,8 @@ namespace CCC20200701
       Models::CreateSchemaResponse createSchema(const Models::CreateSchemaRequest &request);
 
       /**
+       * @summary 创建技能组
+       *
        * @param request CreateSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSkillGroupResponse
@@ -536,6 +639,8 @@ namespace CCC20200701
       Models::CreateSkillGroupResponse createSkillGroupWithOptions(const Models::CreateSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建技能组
+       *
        * @param request CreateSkillGroupRequest
        * @return CreateSkillGroupResponse
        */
@@ -572,6 +677,8 @@ namespace CCC20200701
       Models::CreateUserResponse createUser(const Models::CreateUserRequest &request);
 
       /**
+       * @summary 删除语音文件
+       *
        * @param request DeleteAudioFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAudioFileResponse
@@ -579,6 +686,8 @@ namespace CCC20200701
       Models::DeleteAudioFileResponse deleteAudioFileWithOptions(const Models::DeleteAudioFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除语音文件
+       *
        * @param request DeleteAudioFileRequest
        * @return DeleteAudioFileResponse
        */
@@ -602,7 +711,7 @@ namespace CCC20200701
       Models::DeleteCallTagResponse deleteCallTag(const Models::DeleteCallTagRequest &request);
 
       /**
-       * @summary -
+       * @summary 删除ivr流程
        *
        * @param request DeleteContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -611,7 +720,7 @@ namespace CCC20200701
       Models::DeleteContactFlowResponse deleteContactFlowWithOptions(const Models::DeleteContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary -
+       * @summary 删除ivr流程
        *
        * @param request DeleteContactFlowRequest
        * @return DeleteContactFlowResponse
@@ -701,6 +810,8 @@ namespace CCC20200701
       Models::DeleteSchemaPropertyResponse deleteSchemaProperty(const Models::DeleteSchemaPropertyRequest &request);
 
       /**
+       * @summary 删除技能组
+       *
        * @param request DeleteSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteSkillGroupResponse
@@ -708,6 +819,8 @@ namespace CCC20200701
       Models::DeleteSkillGroupResponse deleteSkillGroupWithOptions(const Models::DeleteSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除技能组
+       *
        * @param request DeleteSkillGroupRequest
        * @return DeleteSkillGroupResponse
        */
@@ -766,6 +879,8 @@ namespace CCC20200701
       Models::DisableTicketTemplateResponse disableTicketTemplate(const Models::DisableTicketTemplateRequest &request);
 
       /**
+       * @summary 废弃当前IVR流程
+       *
        * @param request DiscardEditingContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DiscardEditingContactFlowResponse
@@ -773,6 +888,8 @@ namespace CCC20200701
       Models::DiscardEditingContactFlowResponse discardEditingContactFlowWithOptions(const Models::DiscardEditingContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 废弃当前IVR流程
+       *
        * @param request DiscardEditingContactFlowRequest
        * @return DiscardEditingContactFlowResponse
        */
@@ -805,6 +922,8 @@ namespace CCC20200701
       Models::EnableTicketTemplateResponse enableTicketTemplate(const Models::EnableTicketTemplateRequest &request);
 
       /**
+       * @summary 结束会议
+       *
        * @param request EndConferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EndConferenceResponse
@@ -812,6 +931,8 @@ namespace CCC20200701
       Models::EndConferenceResponse endConferenceWithOptions(const Models::EndConferenceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 结束会议
+       *
        * @param request EndConferenceRequest
        * @return EndConferenceResponse
        */
@@ -882,7 +1003,7 @@ namespace CCC20200701
       Models::FinishTicketTaskResponse finishTicketTask(const Models::FinishTicketTaskRequest &request);
 
       /**
-       * @summary GetAccessChannelOfStaging
+       * @summary 获取指定Chat渠道配置
        *
        * @param request GetAccessChannelOfStagingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -891,7 +1012,7 @@ namespace CCC20200701
       Models::GetAccessChannelOfStagingResponse getAccessChannelOfStagingWithOptions(const Models::GetAccessChannelOfStagingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetAccessChannelOfStaging
+       * @summary 获取指定Chat渠道配置
        *
        * @param request GetAccessChannelOfStagingRequest
        * @return GetAccessChannelOfStagingResponse
@@ -916,6 +1037,8 @@ namespace CCC20200701
       Models::GetAudioFileResponse getAudioFile(const Models::GetAudioFileRequest &request);
 
       /**
+       * @summary 获取录音文件下载链接
+       *
        * @param request GetAudioFileDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAudioFileDownloadUrlResponse
@@ -923,12 +1046,16 @@ namespace CCC20200701
       Models::GetAudioFileDownloadUrlResponse getAudioFileDownloadUrlWithOptions(const Models::GetAudioFileDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取录音文件下载链接
+       *
        * @param request GetAudioFileDownloadUrlRequest
        * @return GetAudioFileDownloadUrlResponse
        */
       Models::GetAudioFileDownloadUrlResponse getAudioFileDownloadUrl(const Models::GetAudioFileDownloadUrlRequest &request);
 
       /**
+       * @summary 获取录音文件上传参数
+       *
        * @param request GetAudioFileUploadParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAudioFileUploadParametersResponse
@@ -936,6 +1063,8 @@ namespace CCC20200701
       Models::GetAudioFileUploadParametersResponse getAudioFileUploadParametersWithOptions(const Models::GetAudioFileUploadParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取录音文件上传参数
+       *
        * @param request GetAudioFileUploadParametersRequest
        * @return GetAudioFileUploadParametersResponse
        */
@@ -976,6 +1105,8 @@ namespace CCC20200701
       Models::GetCampaignResponse getCampaign(const Models::GetCampaignRequest &request);
 
       /**
+       * @summary 获取预测试外呼号码配置文件上传链接
+       *
        * @param request GetCaseFileUploadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCaseFileUploadUrlResponse
@@ -983,6 +1114,8 @@ namespace CCC20200701
       Models::GetCaseFileUploadUrlResponse getCaseFileUploadUrlWithOptions(const Models::GetCaseFileUploadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取预测试外呼号码配置文件上传链接
+       *
        * @param request GetCaseFileUploadUrlRequest
        * @return GetCaseFileUploadUrlResponse
        */
@@ -1015,6 +1148,8 @@ namespace CCC20200701
       Models::GetChatRoutingProfileResponse getChatRoutingProfile(const Models::GetChatRoutingProfileRequest &request);
 
       /**
+       * @summary 获取ivr流程信息
+       *
        * @param request GetContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetContactFlowResponse
@@ -1022,6 +1157,8 @@ namespace CCC20200701
       Models::GetContactFlowResponse getContactFlowWithOptions(const Models::GetContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取ivr流程信息
+       *
        * @param request GetContactFlowRequest
        * @return GetContactFlowResponse
        */
@@ -1045,6 +1182,8 @@ namespace CCC20200701
       Models::GetConversationDetailResponse getConversationDetail(const Models::GetConversationDetailRequest &request);
 
       /**
+       * @summary 获取DataChannel通道的Token信息
+       *
        * @param request GetDataChannelCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDataChannelCredentialsResponse
@@ -1052,6 +1191,8 @@ namespace CCC20200701
       Models::GetDataChannelCredentialsResponse getDataChannelCredentialsWithOptions(const Models::GetDataChannelCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取DataChannel通道的Token信息
+       *
        * @param request GetDataChannelCredentialsRequest
        * @return GetDataChannelCredentialsResponse
        */
@@ -1105,6 +1246,8 @@ namespace CCC20200701
       Models::GetEarlyMediaRecordingResponse getEarlyMediaRecording(const Models::GetEarlyMediaRecordingRequest &request);
 
       /**
+       * @summary 统计呼入号码信息
+       *
        * @param request GetHistoricalCallerReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetHistoricalCallerReportResponse
@@ -1112,6 +1255,8 @@ namespace CCC20200701
       Models::GetHistoricalCallerReportResponse getHistoricalCallerReportWithOptions(const Models::GetHistoricalCallerReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 统计呼入号码信息
+       *
        * @param request GetHistoricalCallerReportRequest
        * @return GetHistoricalCallerReportResponse
        */
@@ -1135,6 +1280,8 @@ namespace CCC20200701
       Models::GetHistoricalCampaignReportResponse getHistoricalCampaignReport(const Models::GetHistoricalCampaignReportRequest &request);
 
       /**
+       * @summary 统计实例呼叫数据
+       *
        * @param request GetHistoricalInstanceReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetHistoricalInstanceReportResponse
@@ -1142,6 +1289,8 @@ namespace CCC20200701
       Models::GetHistoricalInstanceReportResponse getHistoricalInstanceReportWithOptions(const Models::GetHistoricalInstanceReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 统计实例呼叫数据
+       *
        * @param request GetHistoricalInstanceReportRequest
        * @return GetHistoricalInstanceReportResponse
        */
@@ -1165,6 +1314,8 @@ namespace CCC20200701
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
+       * @summary 统计实例呼叫信息
+       *
        * @param request GetInstanceTrendingReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceTrendingReportResponse
@@ -1172,6 +1323,8 @@ namespace CCC20200701
       Models::GetInstanceTrendingReportResponse getInstanceTrendingReportWithOptions(const Models::GetInstanceTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 统计实例呼叫信息
+       *
        * @param request GetInstanceTrendingReportRequest
        * @return GetInstanceTrendingReportResponse
        */
@@ -1195,6 +1348,8 @@ namespace CCC20200701
       Models::GetIvrTrackingSummaryResponse getIvrTrackingSummary(const Models::GetIvrTrackingSummaryRequest &request);
 
       /**
+       * @summary 获取登录信息
+       *
        * @param request GetLoginDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetLoginDetailsResponse
@@ -1202,12 +1357,16 @@ namespace CCC20200701
       Models::GetLoginDetailsResponse getLoginDetailsWithOptions(const Models::GetLoginDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取登录信息
+       *
        * @param request GetLoginDetailsRequest
        * @return GetLoginDetailsResponse
        */
       Models::GetLoginDetailsResponse getLoginDetails(const Models::GetLoginDetailsRequest &request);
 
       /**
+       * @summary 获取通话对应的录音, 用于播放和下载
+       *
        * @param request GetMonoRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMonoRecordingResponse
@@ -1215,12 +1374,16 @@ namespace CCC20200701
       Models::GetMonoRecordingResponse getMonoRecordingWithOptions(const Models::GetMonoRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取通话对应的录音, 用于播放和下载
+       *
        * @param request GetMonoRecordingRequest
        * @return GetMonoRecordingResponse
        */
       Models::GetMonoRecordingResponse getMonoRecording(const Models::GetMonoRecordingRequest &request);
 
       /**
+       * @summary 获取通话对应的录音, 用于分轨或者质检
+       *
        * @param request GetMultiChannelRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMultiChannelRecordingResponse
@@ -1228,12 +1391,16 @@ namespace CCC20200701
       Models::GetMultiChannelRecordingResponse getMultiChannelRecordingWithOptions(const Models::GetMultiChannelRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取通话对应的录音, 用于分轨或者质检
+       *
        * @param request GetMultiChannelRecordingRequest
        * @return GetMultiChannelRecordingResponse
        */
       Models::GetMultiChannelRecordingResponse getMultiChannelRecording(const Models::GetMultiChannelRecordingRequest &request);
 
       /**
+       * @summary 查询号码归属地
+       *
        * @param request GetNumberLocationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetNumberLocationResponse
@@ -1241,6 +1408,8 @@ namespace CCC20200701
       Models::GetNumberLocationResponse getNumberLocationWithOptions(const Models::GetNumberLocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询号码归属地
+       *
        * @param request GetNumberLocationRequest
        * @return GetNumberLocationResponse
        */
@@ -1264,6 +1433,8 @@ namespace CCC20200701
       Models::GetRealtimeCampaignStatsResponse getRealtimeCampaignStats(const Models::GetRealtimeCampaignStatsRequest &request);
 
       /**
+       * @summary 实时查询实例状态信息
+       *
        * @param request GetRealtimeInstanceStatesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRealtimeInstanceStatesResponse
@@ -1271,6 +1442,8 @@ namespace CCC20200701
       Models::GetRealtimeInstanceStatesResponse getRealtimeInstanceStatesWithOptions(const Models::GetRealtimeInstanceStatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 实时查询实例状态信息
+       *
        * @param request GetRealtimeInstanceStatesRequest
        * @return GetRealtimeInstanceStatesResponse
        */
@@ -1346,6 +1519,8 @@ namespace CCC20200701
       Models::GetTicketSummaryReportResponse getTicketSummaryReport(const Models::GetTicketSummaryReportRequest &request);
 
       /**
+       * @summary 获取工单模版
+       *
        * @param request GetTicketTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTicketTemplateResponse
@@ -1353,12 +1528,16 @@ namespace CCC20200701
       Models::GetTicketTemplateResponse getTicketTemplateWithOptions(const Models::GetTicketTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取工单模版
+       *
        * @param request GetTicketTemplateRequest
        * @return GetTicketTemplateResponse
        */
       Models::GetTicketTemplateResponse getTicketTemplate(const Models::GetTicketTemplateRequest &request);
 
       /**
+       * @summary 获取TURN服务的临时用户名和密码
+       *
        * @param request GetTurnCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTurnCredentialsResponse
@@ -1366,12 +1545,16 @@ namespace CCC20200701
       Models::GetTurnCredentialsResponse getTurnCredentialsWithOptions(const Models::GetTurnCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取TURN服务的临时用户名和密码
+       *
        * @param request GetTurnCredentialsRequest
        * @return GetTurnCredentialsResponse
        */
       Models::GetTurnCredentialsResponse getTurnCredentials(const Models::GetTurnCredentialsRequest &request);
 
       /**
+       * @summary 获取可用的TURN服务器列表
+       *
        * @param request GetTurnServerListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTurnServerListResponse
@@ -1379,6 +1562,8 @@ namespace CCC20200701
       Models::GetTurnServerListResponse getTurnServerListWithOptions(const Models::GetTurnServerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取可用的TURN服务器列表
+       *
        * @param request GetTurnServerListRequest
        * @return GetTurnServerListResponse
        */
@@ -1402,6 +1587,8 @@ namespace CCC20200701
       Models::GetUploadAudioDataParamsResponse getUploadAudioDataParams(const Models::GetUploadAudioDataParamsRequest &request);
 
       /**
+       * @summary 查询坐席
+       *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUserResponse
@@ -1409,6 +1596,8 @@ namespace CCC20200701
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询坐席
+       *
        * @param request GetUserRequest
        * @return GetUserResponse
        */
@@ -1445,6 +1634,8 @@ namespace CCC20200701
       Models::GetVisitorLoginDetailsResponse getVisitorLoginDetails(const Models::GetVisitorLoginDetailsRequest &request);
 
       /**
+       * @summary 获取语音邮箱录音, 用于播放和下载
+       *
        * @param request GetVoicemailRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetVoicemailRecordingResponse
@@ -1452,12 +1643,16 @@ namespace CCC20200701
       Models::GetVoicemailRecordingResponse getVoicemailRecordingWithOptions(const Models::GetVoicemailRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取语音邮箱录音, 用于播放和下载
+       *
        * @param request GetVoicemailRecordingRequest
        * @return GetVoicemailRecordingResponse
        */
       Models::GetVoicemailRecordingResponse getVoicemailRecording(const Models::GetVoicemailRecordingRequest &request);
 
       /**
+       * @summary 保持通话
+       *
        * @param request HoldCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return HoldCallResponse
@@ -1465,6 +1660,8 @@ namespace CCC20200701
       Models::HoldCallResponse holdCallWithOptions(const Models::HoldCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 保持通话
+       *
        * @param request HoldCallRequest
        * @return HoldCallResponse
        */
@@ -1565,6 +1762,8 @@ namespace CCC20200701
       Models::ImportDocumentsResponse importDocuments(const Models::ImportDocumentsRequest &request);
 
       /**
+       * @summary 导入ram用户
+       *
        * @param request ImportRamUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ImportRamUsersResponse
@@ -1572,12 +1771,16 @@ namespace CCC20200701
       Models::ImportRamUsersResponse importRamUsersWithOptions(const Models::ImportRamUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 导入ram用户
+       *
        * @param request ImportRamUsersRequest
        * @return ImportRamUsersResponse
        */
       Models::ImportRamUsersResponse importRamUsers(const Models::ImportRamUsersRequest &request);
 
       /**
+       * @summary 关注转-发起
+       *
        * @param request InitiateAttendedTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return InitiateAttendedTransferResponse
@@ -1585,12 +1788,16 @@ namespace CCC20200701
       Models::InitiateAttendedTransferResponse initiateAttendedTransferWithOptions(const Models::InitiateAttendedTransferRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 关注转-发起
+       *
        * @param request InitiateAttendedTransferRequest
        * @return InitiateAttendedTransferResponse
        */
       Models::InitiateAttendedTransferResponse initiateAttendedTransfer(const Models::InitiateAttendedTransferRequest &request);
 
       /**
+       * @summary 打断通话
+       *
        * @param request InterceptCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return InterceptCallResponse
@@ -1598,12 +1805,16 @@ namespace CCC20200701
       Models::InterceptCallResponse interceptCallWithOptions(const Models::InterceptCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 打断通话
+       *
        * @param request InterceptCallRequest
        * @return InterceptCallResponse
        */
       Models::InterceptCallResponse interceptCall(const Models::InterceptCallRequest &request);
 
       /**
+       * @summary 发起IVR认证流程
+       *
        * @param request LaunchAuthenticationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return LaunchAuthenticationResponse
@@ -1611,12 +1822,16 @@ namespace CCC20200701
       Models::LaunchAuthenticationResponse launchAuthenticationWithOptions(const Models::LaunchAuthenticationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 发起IVR认证流程
+       *
        * @param request LaunchAuthenticationRequest
        * @return LaunchAuthenticationResponse
        */
       Models::LaunchAuthenticationResponse launchAuthentication(const Models::LaunchAuthenticationRequest &request);
 
       /**
+       * @summary 发起话后满意度调查IVR流程
+       *
        * @param request LaunchSurveyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return LaunchSurveyResponse
@@ -1624,12 +1839,16 @@ namespace CCC20200701
       Models::LaunchSurveyResponse launchSurveyWithOptions(const Models::LaunchSurveyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 发起话后满意度调查IVR流程
+       *
        * @param request LaunchSurveyRequest
        * @return LaunchSurveyResponse
        */
       Models::LaunchSurveyResponse launchSurvey(const Models::LaunchSurveyRequest &request);
 
       /**
+       * @summary 获取坐席状态记录列表
+       *
        * @param request ListAgentStateLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAgentStateLogsResponse
@@ -1637,6 +1856,8 @@ namespace CCC20200701
       Models::ListAgentStateLogsResponse listAgentStateLogsWithOptions(const Models::ListAgentStateLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取坐席状态记录列表
+       *
        * @param request ListAgentStateLogsRequest
        * @return ListAgentStateLogsResponse
        */
@@ -1736,6 +1957,8 @@ namespace CCC20200701
       Models::ListBlacklistCallTaggingsResponse listBlacklistCallTaggings(const Models::ListBlacklistCallTaggingsRequest &request);
 
       /**
+       * @summary 坐席工作台坐席调用转接使用
+       *
        * @param request ListBriefSkillGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListBriefSkillGroupsResponse
@@ -1743,12 +1966,16 @@ namespace CCC20200701
       Models::ListBriefSkillGroupsResponse listBriefSkillGroupsWithOptions(const Models::ListBriefSkillGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 坐席工作台坐席调用转接使用
+       *
        * @param request ListBriefSkillGroupsRequest
        * @return ListBriefSkillGroupsResponse
        */
       Models::ListBriefSkillGroupsResponse listBriefSkillGroups(const Models::ListBriefSkillGroupsRequest &request);
 
       /**
+       * @summary 获取通话详情
+       *
        * @param request ListCallDetailRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCallDetailRecordsResponse
@@ -1756,6 +1983,8 @@ namespace CCC20200701
       Models::ListCallDetailRecordsResponse listCallDetailRecordsWithOptions(const Models::ListCallDetailRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取通话详情
+       *
        * @param request ListCallDetailRecordsRequest
        * @return ListCallDetailRecordsResponse
        */
@@ -1886,6 +2115,8 @@ namespace CCC20200701
       Models::ListCommonTicketFieldsResponse listCommonTicketFields(const Models::ListCommonTicketFieldsRequest &request);
 
       /**
+       * @summary 列表查询系统配置
+       *
        * @param request ListConfigItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListConfigItemsResponse
@@ -1893,13 +2124,15 @@ namespace CCC20200701
       Models::ListConfigItemsResponse listConfigItemsWithOptions(const Models::ListConfigItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询系统配置
+       *
        * @param request ListConfigItemsRequest
        * @return ListConfigItemsResponse
        */
       Models::ListConfigItemsResponse listConfigItems(const Models::ListConfigItemsRequest &request);
 
       /**
-       * @summary -
+       * @summary 列表查询ivr流程
        *
        * @param request ListContactFlowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1908,7 +2141,7 @@ namespace CCC20200701
       Models::ListContactFlowsResponse listContactFlowsWithOptions(const Models::ListContactFlowsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary -
+       * @summary 列表查询ivr流程
        *
        * @param request ListContactFlowsRequest
        * @return ListContactFlowsResponse
@@ -1937,6 +2170,8 @@ namespace CCC20200701
       Models::ListCustomCallTaggingResponse listCustomCallTagging(const Models::ListCustomCallTaggingRequest &request);
 
       /**
+       * @summary 列表查询可用设备
+       *
        * @param request ListDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDevicesResponse
@@ -1944,6 +2179,8 @@ namespace CCC20200701
       Models::ListDevicesResponse listDevicesWithOptions(const Models::ListDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询可用设备
+       *
        * @param request ListDevicesRequest
        * @return ListDevicesResponse
        */
@@ -2057,6 +2294,8 @@ namespace CCC20200701
       Models::ListGroupChatMessagesResponse listGroupChatMessages(const Models::ListGroupChatMessagesRequest &request);
 
       /**
+       * @summary 列表查询历史作息报告
+       *
        * @param request ListHistoricalAgentReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListHistoricalAgentReportResponse
@@ -2064,6 +2303,8 @@ namespace CCC20200701
       Models::ListHistoricalAgentReportResponse listHistoricalAgentReportWithOptions(const Models::ListHistoricalAgentReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询历史作息报告
+       *
        * @param request ListHistoricalAgentReportRequest
        * @return ListHistoricalAgentReportResponse
        */
@@ -2104,6 +2345,8 @@ namespace CCC20200701
       Models::ListHistoricalSkillGroupReportResponse listHistoricalSkillGroupReport(const Models::ListHistoricalSkillGroupReportRequest &request);
 
       /**
+       * @summary 查询实例列表
+       *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListInstancesResponse
@@ -2111,12 +2354,16 @@ namespace CCC20200701
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例列表
+       *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
        */
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
+       * @summary 查询实例列表
+       *
        * @param request ListInstancesOfUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListInstancesOfUserResponse
@@ -2124,12 +2371,16 @@ namespace CCC20200701
       Models::ListInstancesOfUserResponse listInstancesOfUserWithOptions(const Models::ListInstancesOfUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例列表
+       *
        * @param request ListInstancesOfUserRequest
        * @return ListInstancesOfUserResponse
        */
       Models::ListInstancesOfUserResponse listInstancesOfUser(const Models::ListInstancesOfUserRequest &request);
 
       /**
+       * @summary 查询坐席报表
+       *
        * @param request ListIntervalAgentReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIntervalAgentReportResponse
@@ -2137,6 +2388,8 @@ namespace CCC20200701
       Models::ListIntervalAgentReportResponse listIntervalAgentReportWithOptions(const Models::ListIntervalAgentReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询坐席报表
+       *
        * @param request ListIntervalAgentReportRequest
        * @return ListIntervalAgentReportResponse
        */
@@ -2160,6 +2413,8 @@ namespace CCC20200701
       Models::ListIntervalAgentSkillGroupReportResponse listIntervalAgentSkillGroupReport(const Models::ListIntervalAgentSkillGroupReportRequest &request);
 
       /**
+       * @summary 查询实例报表
+       *
        * @param request ListIntervalInstanceReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIntervalInstanceReportResponse
@@ -2167,12 +2422,16 @@ namespace CCC20200701
       Models::ListIntervalInstanceReportResponse listIntervalInstanceReportWithOptions(const Models::ListIntervalInstanceReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例报表
+       *
        * @param request ListIntervalInstanceReportRequest
        * @return ListIntervalInstanceReportResponse
        */
       Models::ListIntervalInstanceReportResponse listIntervalInstanceReport(const Models::ListIntervalInstanceReportRequest &request);
 
       /**
+       * @summary 查询技能组报表
+       *
        * @param request ListIntervalSkillGroupReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIntervalSkillGroupReportResponse
@@ -2180,12 +2439,16 @@ namespace CCC20200701
       Models::ListIntervalSkillGroupReportResponse listIntervalSkillGroupReportWithOptions(const Models::ListIntervalSkillGroupReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询技能组报表
+       *
        * @param request ListIntervalSkillGroupReportRequest
        * @return ListIntervalSkillGroupReportResponse
        */
       Models::ListIntervalSkillGroupReportResponse listIntervalSkillGroupReport(const Models::ListIntervalSkillGroupReportRequest &request);
 
       /**
+       * @summary 查询ivr轨迹
+       *
        * @param request ListIvrTrackingDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIvrTrackingDetailsResponse
@@ -2193,6 +2456,8 @@ namespace CCC20200701
       Models::ListIvrTrackingDetailsResponse listIvrTrackingDetailsWithOptions(const Models::ListIvrTrackingDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询ivr轨迹
+       *
        * @param request ListIvrTrackingDetailsRequest
        * @return ListIvrTrackingDetailsResponse
        */
@@ -2343,6 +2608,8 @@ namespace CCC20200701
       Models::ListOutboundNumbersOfUserResponse listOutboundNumbersOfUser(const Models::ListOutboundNumbersOfUserRequest &request);
 
       /**
+       * @summary 获取个人外呼号码列表
+       *
        * @param request ListPersonalNumbersOfUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPersonalNumbersOfUserResponse
@@ -2350,6 +2617,8 @@ namespace CCC20200701
       Models::ListPersonalNumbersOfUserResponse listPersonalNumbersOfUserWithOptions(const Models::ListPersonalNumbersOfUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取个人外呼号码列表
+       *
        * @param request ListPersonalNumbersOfUserRequest
        * @return ListPersonalNumbersOfUserResponse
        */
@@ -2373,6 +2642,8 @@ namespace CCC20200701
       Models::ListPhoneNumbersResponse listPhoneNumbers(const Models::ListPhoneNumbersRequest &request);
 
       /**
+       * @summary 查询技能组绑定的号码
+       *
        * @param request ListPhoneNumbersOfSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPhoneNumbersOfSkillGroupResponse
@@ -2380,12 +2651,16 @@ namespace CCC20200701
       Models::ListPhoneNumbersOfSkillGroupResponse listPhoneNumbersOfSkillGroupWithOptions(const Models::ListPhoneNumbersOfSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询技能组绑定的号码
+       *
        * @param request ListPhoneNumbersOfSkillGroupRequest
        * @return ListPhoneNumbersOfSkillGroupResponse
        */
       Models::ListPhoneNumbersOfSkillGroupResponse listPhoneNumbersOfSkillGroup(const Models::ListPhoneNumbersOfSkillGroupRequest &request);
 
       /**
+       * @summary 查询用户权限
+       *
        * @param request ListPrivilegesOfUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPrivilegesOfUserResponse
@@ -2393,12 +2668,16 @@ namespace CCC20200701
       Models::ListPrivilegesOfUserResponse listPrivilegesOfUserWithOptions(const Models::ListPrivilegesOfUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询用户权限
+       *
        * @param request ListPrivilegesOfUserRequest
        * @return ListPrivilegesOfUserResponse
        */
       Models::ListPrivilegesOfUserResponse listPrivilegesOfUser(const Models::ListPrivilegesOfUserRequest &request);
 
       /**
+       * @summary 列表查询ram用户
+       *
        * @param request ListRamUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRamUsersResponse
@@ -2406,12 +2685,16 @@ namespace CCC20200701
       Models::ListRamUsersResponse listRamUsersWithOptions(const Models::ListRamUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询ram用户
+       *
        * @param request ListRamUsersRequest
        * @return ListRamUsersResponse
        */
       Models::ListRamUsersResponse listRamUsers(const Models::ListRamUsersRequest &request);
 
       /**
+       * @summary 列表查询坐席状态
+       *
        * @param request ListRealtimeAgentStatesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRealtimeAgentStatesResponse
@@ -2419,12 +2702,16 @@ namespace CCC20200701
       Models::ListRealtimeAgentStatesResponse listRealtimeAgentStatesWithOptions(const Models::ListRealtimeAgentStatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询坐席状态
+       *
        * @param request ListRealtimeAgentStatesRequest
        * @return ListRealtimeAgentStatesResponse
        */
       Models::ListRealtimeAgentStatesResponse listRealtimeAgentStates(const Models::ListRealtimeAgentStatesRequest &request);
 
       /**
+       * @summary 列表查询技能组状态报表
+       *
        * @param request ListRealtimeSkillGroupStatesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRealtimeSkillGroupStatesResponse
@@ -2432,12 +2719,16 @@ namespace CCC20200701
       Models::ListRealtimeSkillGroupStatesResponse listRealtimeSkillGroupStatesWithOptions(const Models::ListRealtimeSkillGroupStatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询技能组状态报表
+       *
        * @param request ListRealtimeSkillGroupStatesRequest
        * @return ListRealtimeSkillGroupStatesResponse
        */
       Models::ListRealtimeSkillGroupStatesResponse listRealtimeSkillGroupStates(const Models::ListRealtimeSkillGroupStatesRequest &request);
 
       /**
+       * @summary 列表查询历史通话记录
+       *
        * @param request ListRecentCallDetailRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRecentCallDetailRecordsResponse
@@ -2445,12 +2736,16 @@ namespace CCC20200701
       Models::ListRecentCallDetailRecordsResponse listRecentCallDetailRecordsWithOptions(const Models::ListRecentCallDetailRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询历史通话记录
+       *
        * @param request ListRecentCallDetailRecordsRequest
        * @return ListRecentCallDetailRecordsResponse
        */
       Models::ListRecentCallDetailRecordsResponse listRecentCallDetailRecords(const Models::ListRecentCallDetailRecordsRequest &request);
 
       /**
+       * @summary 列表查询角色
+       *
        * @param request ListRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRolesResponse
@@ -2458,6 +2753,8 @@ namespace CCC20200701
       Models::ListRolesResponse listRolesWithOptions(const Models::ListRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 列表查询角色
+       *
        * @param request ListRolesRequest
        * @return ListRolesResponse
        */
@@ -2506,6 +2803,8 @@ namespace CCC20200701
       Models::ListSkillGroupSummaryReportsSinceMidnightResponse listSkillGroupSummaryReportsSinceMidnight(const Models::ListSkillGroupSummaryReportsSinceMidnightRequest &request);
 
       /**
+       * @summary 查询技能组列表
+       *
        * @param request ListSkillGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSkillGroupsResponse
@@ -2513,12 +2812,16 @@ namespace CCC20200701
       Models::ListSkillGroupsResponse listSkillGroupsWithOptions(const Models::ListSkillGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询技能组列表
+       *
        * @param request ListSkillGroupsRequest
        * @return ListSkillGroupsResponse
        */
       Models::ListSkillGroupsResponse listSkillGroups(const Models::ListSkillGroupsRequest &request);
 
       /**
+       * @summary 查询用户技能组级别
+       *
        * @param request ListSkillLevelsOfUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSkillLevelsOfUserResponse
@@ -2526,6 +2829,8 @@ namespace CCC20200701
       Models::ListSkillLevelsOfUserResponse listSkillLevelsOfUserWithOptions(const Models::ListSkillLevelsOfUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询用户技能组级别
+       *
        * @param request ListSkillLevelsOfUserRequest
        * @return ListSkillLevelsOfUserResponse
        */
@@ -2605,6 +2910,8 @@ namespace CCC20200701
       Models::ListUnassignedNumbersResponse listUnassignedNumbers(const Models::ListUnassignedNumbersRequest &request);
 
       /**
+       * @summary 查询技能组级别列表
+       *
        * @param request ListUserLevelsOfSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListUserLevelsOfSkillGroupResponse
@@ -2612,12 +2919,16 @@ namespace CCC20200701
       Models::ListUserLevelsOfSkillGroupResponse listUserLevelsOfSkillGroupWithOptions(const Models::ListUserLevelsOfSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询技能组级别列表
+       *
        * @param request ListUserLevelsOfSkillGroupRequest
        * @return ListUserLevelsOfSkillGroupResponse
        */
       Models::ListUserLevelsOfSkillGroupResponse listUserLevelsOfSkillGroup(const Models::ListUserLevelsOfSkillGroupRequest &request);
 
       /**
+       * @summary 查询用户列表
+       *
        * @param request ListUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListUsersResponse
@@ -2625,6 +2936,8 @@ namespace CCC20200701
       Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询用户列表
+       *
        * @param request ListUsersRequest
        * @return ListUsersResponse
        */
@@ -2691,6 +3004,8 @@ namespace CCC20200701
       Models::MakeCallResponse makeCall(const Models::MakeCallRequest &request);
 
       /**
+       * @summary 修改媒体文件
+       *
        * @param request ModifyAudioFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAudioFileResponse
@@ -2698,6 +3013,8 @@ namespace CCC20200701
       Models::ModifyAudioFileResponse modifyAudioFileWithOptions(const Models::ModifyAudioFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改媒体文件
+       *
        * @param request ModifyAudioFileRequest
        * @return ModifyAudioFileResponse
        */
@@ -2751,6 +3068,8 @@ namespace CCC20200701
       Models::ModifyInstanceResponse modifyInstance(const Models::ModifyInstanceRequest &request);
 
       /**
+       * @summary 修改电话号码
+       *
        * @param request ModifyPhoneNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyPhoneNumberResponse
@@ -2758,12 +3077,16 @@ namespace CCC20200701
       Models::ModifyPhoneNumberResponse modifyPhoneNumberWithOptions(const Models::ModifyPhoneNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改电话号码
+       *
        * @param request ModifyPhoneNumberRequest
        * @return ModifyPhoneNumberResponse
        */
       Models::ModifyPhoneNumberResponse modifyPhoneNumber(const Models::ModifyPhoneNumberRequest &request);
 
       /**
+       * @summary 修改技能组
+       *
        * @param request ModifySkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifySkillGroupResponse
@@ -2771,12 +3094,16 @@ namespace CCC20200701
       Models::ModifySkillGroupResponse modifySkillGroupWithOptions(const Models::ModifySkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改技能组
+       *
        * @param request ModifySkillGroupRequest
        * @return ModifySkillGroupResponse
        */
       Models::ModifySkillGroupResponse modifySkillGroup(const Models::ModifySkillGroupRequest &request);
 
       /**
+       * @summary 修改坐席技能组
+       *
        * @param request ModifySkillLevelsOfUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifySkillLevelsOfUserResponse
@@ -2784,12 +3111,16 @@ namespace CCC20200701
       Models::ModifySkillLevelsOfUserResponse modifySkillLevelsOfUserWithOptions(const Models::ModifySkillLevelsOfUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改坐席技能组
+       *
        * @param request ModifySkillLevelsOfUserRequest
        * @return ModifySkillLevelsOfUserResponse
        */
       Models::ModifySkillLevelsOfUserResponse modifySkillLevelsOfUser(const Models::ModifySkillLevelsOfUserRequest &request);
 
       /**
+       * @summary 修改坐席
+       *
        * @param request ModifyUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyUserResponse
@@ -2797,12 +3128,16 @@ namespace CCC20200701
       Models::ModifyUserResponse modifyUserWithOptions(const Models::ModifyUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改坐席
+       *
        * @param request ModifyUserRequest
        * @return ModifyUserResponse
        */
       Models::ModifyUserResponse modifyUser(const Models::ModifyUserRequest &request);
 
       /**
+       * @summary 修改坐席技能组级别
+       *
        * @param request ModifyUserLevelsOfSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyUserLevelsOfSkillGroupResponse
@@ -2810,12 +3145,16 @@ namespace CCC20200701
       Models::ModifyUserLevelsOfSkillGroupResponse modifyUserLevelsOfSkillGroupWithOptions(const Models::ModifyUserLevelsOfSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改坐席技能组级别
+       *
        * @param request ModifyUserLevelsOfSkillGroupRequest
        * @return ModifyUserLevelsOfSkillGroupResponse
        */
       Models::ModifyUserLevelsOfSkillGroupResponse modifyUserLevelsOfSkillGroup(const Models::ModifyUserLevelsOfSkillGroupRequest &request);
 
       /**
+       * @summary 通话监听
+       *
        * @param request MonitorCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return MonitorCallResponse
@@ -2823,12 +3162,16 @@ namespace CCC20200701
       Models::MonitorCallResponse monitorCallWithOptions(const Models::MonitorCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 通话监听
+       *
        * @param request MonitorCallRequest
        * @return MonitorCallResponse
        */
       Models::MonitorCallResponse monitorCall(const Models::MonitorCallRequest &request);
 
       /**
+       * @summary 静音
+       *
        * @param request MuteCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return MuteCallResponse
@@ -2836,6 +3179,8 @@ namespace CCC20200701
       Models::MuteCallResponse muteCallWithOptions(const Models::MuteCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 静音
+       *
        * @param request MuteCallRequest
        * @return MuteCallResponse
        */
@@ -2859,6 +3204,8 @@ namespace CCC20200701
       Models::PauseCampaignResponse pauseCampaign(const Models::PauseCampaignRequest &request);
 
       /**
+       * @summary 选择外呼号码
+       *
        * @param request PickOutboundNumbersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PickOutboundNumbersResponse
@@ -2866,12 +3213,16 @@ namespace CCC20200701
       Models::PickOutboundNumbersResponse pickOutboundNumbersWithOptions(const Models::PickOutboundNumbersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 选择外呼号码
+       *
        * @param request PickOutboundNumbersRequest
        * @return PickOutboundNumbersResponse
        */
       Models::PickOutboundNumbersResponse pickOutboundNumbers(const Models::PickOutboundNumbersRequest &request);
 
       /**
+       * @summary 轮询座席状态
+       *
        * @param request PollUserStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PollUserStatusResponse
@@ -2879,6 +3230,8 @@ namespace CCC20200701
       Models::PollUserStatusResponse pollUserStatusWithOptions(const Models::PollUserStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 轮询座席状态
+       *
        * @param request PollUserStatusRequest
        * @return PollUserStatusResponse
        */
@@ -2915,6 +3268,8 @@ namespace CCC20200701
       Models::ProcessCustomIMCallbackResponse processCustomIMCallback(const Models::ProcessCustomIMCallbackRequest &request);
 
       /**
+       * @summary 发布ivr流程
+       *
        * @param request PublishContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PublishContactFlowResponse
@@ -2922,12 +3277,16 @@ namespace CCC20200701
       Models::PublishContactFlowResponse publishContactFlowWithOptions(const Models::PublishContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 发布ivr流程
+       *
        * @param request PublishContactFlowRequest
        * @return PublishContactFlowResponse
        */
       Models::PublishContactFlowResponse publishContactFlow(const Models::PublishContactFlowRequest &request);
 
       /**
+       * @summary 就绪/示闲
+       *
        * @param request ReadyForServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ReadyForServiceResponse
@@ -2935,12 +3294,16 @@ namespace CCC20200701
       Models::ReadyForServiceResponse readyForServiceWithOptions(const Models::ReadyForServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 就绪/示闲
+       *
        * @param request ReadyForServiceRequest
        * @return ReadyForServiceResponse
        */
       Models::ReadyForServiceResponse readyForService(const Models::ReadyForServiceRequest &request);
 
       /**
+       * @summary 重拨
+       *
        * @param request RedialCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RedialCallResponse
@@ -2948,12 +3311,16 @@ namespace CCC20200701
       Models::RedialCallResponse redialCallWithOptions(const Models::RedialCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 重拨
+       *
        * @param request RedialCallRequest
        * @return RedialCallResponse
        */
       Models::RedialCallResponse redialCall(const Models::RedialCallRequest &request);
 
       /**
+       * @summary 注册设备
+       *
        * @param request RegisterDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RegisterDeviceResponse
@@ -2961,12 +3328,16 @@ namespace CCC20200701
       Models::RegisterDeviceResponse registerDeviceWithOptions(const Models::RegisterDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 注册设备
+       *
        * @param request RegisterDeviceRequest
        * @return RegisterDeviceResponse
        */
       Models::RegisterDeviceResponse registerDevice(const Models::RegisterDeviceRequest &request);
 
       /**
+       * @summary 注册设备
+       *
        * @param request RegisterDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RegisterDevicesResponse
@@ -2974,6 +3345,8 @@ namespace CCC20200701
       Models::RegisterDevicesResponse registerDevicesWithOptions(const Models::RegisterDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 注册设备
+       *
        * @param request RegisterDevicesRequest
        * @return RegisterDevicesResponse
        */
@@ -3006,6 +3379,8 @@ namespace CCC20200701
       Models::RejectTicketResponse rejectTicket(const Models::RejectTicketRequest &request);
 
       /**
+       * @summary 释放对话
+       *
        * @param request ReleaseCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ReleaseCallResponse
@@ -3013,6 +3388,8 @@ namespace CCC20200701
       Models::ReleaseCallResponse releaseCallWithOptions(const Models::ReleaseCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 释放对话
+       *
        * @param request ReleaseCallRequest
        * @return ReleaseCallResponse
        */
@@ -3066,6 +3443,8 @@ namespace CCC20200701
       Models::RemoveDoNotCallNumbersResponse removeDoNotCallNumbers(const Models::RemoveDoNotCallNumbersRequest &request);
 
       /**
+       * @summary 移除个人号码
+       *
        * @param request RemovePersonalNumbersFromUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemovePersonalNumbersFromUserResponse
@@ -3073,12 +3452,16 @@ namespace CCC20200701
       Models::RemovePersonalNumbersFromUserResponse removePersonalNumbersFromUserWithOptions(const Models::RemovePersonalNumbersFromUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除个人号码
+       *
        * @param request RemovePersonalNumbersFromUserRequest
        * @return RemovePersonalNumbersFromUserResponse
        */
       Models::RemovePersonalNumbersFromUserResponse removePersonalNumbersFromUser(const Models::RemovePersonalNumbersFromUserRequest &request);
 
       /**
+       * @summary 移除技能组下的电话号码
+       *
        * @param request RemovePhoneNumberFromSkillGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemovePhoneNumberFromSkillGroupsResponse
@@ -3086,12 +3469,16 @@ namespace CCC20200701
       Models::RemovePhoneNumberFromSkillGroupsResponse removePhoneNumberFromSkillGroupsWithOptions(const Models::RemovePhoneNumberFromSkillGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除技能组下的电话号码
+       *
        * @param request RemovePhoneNumberFromSkillGroupsRequest
        * @return RemovePhoneNumberFromSkillGroupsResponse
        */
       Models::RemovePhoneNumberFromSkillGroupsResponse removePhoneNumberFromSkillGroups(const Models::RemovePhoneNumberFromSkillGroupsRequest &request);
 
       /**
+       * @summary 移除电话号码
+       *
        * @param request RemovePhoneNumbersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemovePhoneNumbersResponse
@@ -3099,12 +3486,16 @@ namespace CCC20200701
       Models::RemovePhoneNumbersResponse removePhoneNumbersWithOptions(const Models::RemovePhoneNumbersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除电话号码
+       *
        * @param request RemovePhoneNumbersRequest
        * @return RemovePhoneNumbersResponse
        */
       Models::RemovePhoneNumbersResponse removePhoneNumbers(const Models::RemovePhoneNumbersRequest &request);
 
       /**
+       * @summary 移除技能组下的电话号码
+       *
        * @param request RemovePhoneNumbersFromSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemovePhoneNumbersFromSkillGroupResponse
@@ -3112,12 +3503,16 @@ namespace CCC20200701
       Models::RemovePhoneNumbersFromSkillGroupResponse removePhoneNumbersFromSkillGroupWithOptions(const Models::RemovePhoneNumbersFromSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除技能组下的电话号码
+       *
        * @param request RemovePhoneNumbersFromSkillGroupRequest
        * @return RemovePhoneNumbersFromSkillGroupResponse
        */
       Models::RemovePhoneNumbersFromSkillGroupResponse removePhoneNumbersFromSkillGroup(const Models::RemovePhoneNumbersFromSkillGroupRequest &request);
 
       /**
+       * @summary 移除多个技能组下的坐席
+       *
        * @param request RemoveSkillGroupsFromUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveSkillGroupsFromUserResponse
@@ -3125,12 +3520,16 @@ namespace CCC20200701
       Models::RemoveSkillGroupsFromUserResponse removeSkillGroupsFromUserWithOptions(const Models::RemoveSkillGroupsFromUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除多个技能组下的坐席
+       *
        * @param request RemoveSkillGroupsFromUserRequest
        * @return RemoveSkillGroupsFromUserResponse
        */
       Models::RemoveSkillGroupsFromUserResponse removeSkillGroupsFromUser(const Models::RemoveSkillGroupsFromUserRequest &request);
 
       /**
+       * @summary 移除坐席
+       *
        * @param request RemoveUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveUsersResponse
@@ -3138,12 +3537,16 @@ namespace CCC20200701
       Models::RemoveUsersResponse removeUsersWithOptions(const Models::RemoveUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除坐席
+       *
        * @param request RemoveUsersRequest
        * @return RemoveUsersResponse
        */
       Models::RemoveUsersResponse removeUsers(const Models::RemoveUsersRequest &request);
 
       /**
+       * @summary 移除坐席下的技能组
+       *
        * @param request RemoveUsersFromSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveUsersFromSkillGroupResponse
@@ -3151,12 +3554,16 @@ namespace CCC20200701
       Models::RemoveUsersFromSkillGroupResponse removeUsersFromSkillGroupWithOptions(const Models::RemoveUsersFromSkillGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 移除坐席下的技能组
+       *
        * @param request RemoveUsersFromSkillGroupRequest
        * @return RemoveUsersFromSkillGroupResponse
        */
       Models::RemoveUsersFromSkillGroupResponse removeUsersFromSkillGroup(const Models::RemoveUsersFromSkillGroupRequest &request);
 
       /**
+       * @summary 重置坐席状态
+       *
        * @param request ResetAgentStateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ResetAgentStateResponse
@@ -3164,12 +3571,16 @@ namespace CCC20200701
       Models::ResetAgentStateResponse resetAgentStateWithOptions(const Models::ResetAgentStateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 重置坐席状态
+       *
        * @param request ResetAgentStateRequest
        * @return ResetAgentStateResponse
        */
       Models::ResetAgentStateResponse resetAgentState(const Models::ResetAgentStateRequest &request);
 
       /**
+       * @summary 重置坐席密码
+       *
        * @param request ResetUserPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ResetUserPasswordResponse
@@ -3177,6 +3588,8 @@ namespace CCC20200701
       Models::ResetUserPasswordResponse resetUserPasswordWithOptions(const Models::ResetUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 重置坐席密码
+       *
        * @param request ResetUserPasswordRequest
        * @return ResetUserPasswordResponse
        */
@@ -3230,6 +3643,8 @@ namespace CCC20200701
       Models::ResumeCampaignResponse resumeCampaign(const Models::ResumeCampaignRequest &request);
 
       /**
+       * @summary 取回
+       *
        * @param request RetrieveCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RetrieveCallResponse
@@ -3237,6 +3652,8 @@ namespace CCC20200701
       Models::RetrieveCallResponse retrieveCallWithOptions(const Models::RetrieveCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 取回
+       *
        * @param request RetrieveCallRequest
        * @return RetrieveCallResponse
        */
@@ -3256,6 +3673,8 @@ namespace CCC20200701
       Models::SaveDocumentResponse saveDocument(const Models::SaveDocumentRequest &request);
 
       /**
+       * @summary 客服侧数据收集
+       *
        * @param request SaveRTCStatsV2Request
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveRTCStatsV2Response
@@ -3263,12 +3682,16 @@ namespace CCC20200701
       Models::SaveRTCStatsV2Response saveRTCStatsV2WithOptions(const Models::SaveRTCStatsV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 客服侧数据收集
+       *
        * @param request SaveRTCStatsV2Request
        * @return SaveRTCStatsV2Response
        */
       Models::SaveRTCStatsV2Response saveRTCStatsV2(const Models::SaveRTCStatsV2Request &request);
 
       /**
+       * @summary 保存终端埋点日志
+       *
        * @param request SaveTerminalLogRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveTerminalLogResponse
@@ -3276,12 +3699,16 @@ namespace CCC20200701
       Models::SaveTerminalLogResponse saveTerminalLogWithOptions(const Models::SaveTerminalLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 保存终端埋点日志
+       *
        * @param request SaveTerminalLogRequest
        * @return SaveTerminalLogResponse
        */
       Models::SaveTerminalLogResponse saveTerminalLog(const Models::SaveTerminalLogRequest &request);
 
       /**
+       * @summary 客服侧数据收集
+       *
        * @param request SaveWebRTCStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveWebRTCStatsResponse
@@ -3289,12 +3716,16 @@ namespace CCC20200701
       Models::SaveWebRTCStatsResponse saveWebRTCStatsWithOptions(const Models::SaveWebRTCStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 客服侧数据收集
+       *
        * @param request SaveWebRTCStatsRequest
        * @return SaveWebRTCStatsResponse
        */
       Models::SaveWebRTCStatsResponse saveWebRTCStats(const Models::SaveWebRTCStatsRequest &request);
 
       /**
+       * @summary 客服侧数据收集
+       *
        * @param request SaveWebRtcInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveWebRtcInfoResponse
@@ -3302,12 +3733,16 @@ namespace CCC20200701
       Models::SaveWebRtcInfoResponse saveWebRtcInfoWithOptions(const Models::SaveWebRtcInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 客服侧数据收集
+       *
        * @param request SaveWebRtcInfoRequest
        * @return SaveWebRtcInfoResponse
        */
       Models::SaveWebRtcInfoResponse saveWebRtcInfo(const Models::SaveWebRtcInfoRequest &request);
 
       /**
+       * @summary 在接通的电话上发送DTMF信号
+       *
        * @param request SendDtmfSignalingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SendDtmfSignalingResponse
@@ -3315,6 +3750,8 @@ namespace CCC20200701
       Models::SendDtmfSignalingResponse sendDtmfSignalingWithOptions(const Models::SendDtmfSignalingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 在接通的电话上发送DTMF信号
+       *
        * @param request SendDtmfSignalingRequest
        * @return SendDtmfSignalingResponse
        */
@@ -3338,6 +3775,8 @@ namespace CCC20200701
       Models::SendNotificationResponse sendNotification(const Models::SendNotificationRequest &request);
 
       /**
+       * @summary 上线
+       *
        * @param request SignInGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SignInGroupResponse
@@ -3345,12 +3784,16 @@ namespace CCC20200701
       Models::SignInGroupResponse signInGroupWithOptions(const Models::SignInGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 上线
+       *
        * @param request SignInGroupRequest
        * @return SignInGroupResponse
        */
       Models::SignInGroupResponse signInGroup(const Models::SignInGroupRequest &request);
 
       /**
+       * @summary 下线
+       *
        * @param request SignOutGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SignOutGroupResponse
@@ -3358,12 +3801,16 @@ namespace CCC20200701
       Models::SignOutGroupResponse signOutGroupWithOptions(const Models::SignOutGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 下线
+       *
        * @param request SignOutGroupRequest
        * @return SignOutGroupResponse
        */
       Models::SignOutGroupResponse signOutGroup(const Models::SignOutGroupRequest &request);
 
       /**
+       * @summary 双呼
+       *
        * @param request StartBack2BackCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartBack2BackCallResponse
@@ -3371,6 +3818,8 @@ namespace CCC20200701
       Models::StartBack2BackCallResponse startBack2BackCallWithOptions(const Models::StartBack2BackCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 双呼
+       *
        * @param request StartBack2BackCallRequest
        * @return StartBack2BackCallResponse
        */
@@ -3390,6 +3839,8 @@ namespace CCC20200701
       Models::StartChatResponse startChat(const Models::StartChatRequest &request);
 
       /**
+       * @summary 开始会议
+       *
        * @param request StartConferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartConferenceResponse
@@ -3397,12 +3848,16 @@ namespace CCC20200701
       Models::StartConferenceResponse startConferenceWithOptions(const Models::StartConferenceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 开始会议
+       *
        * @param request StartConferenceRequest
        * @return StartConferenceResponse
        */
       Models::StartConferenceResponse startConference(const Models::StartConferenceRequest &request);
 
       /**
+       * @summary 编辑ivr流程
+       *
        * @param request StartEditContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartEditContactFlowResponse
@@ -3410,12 +3865,16 @@ namespace CCC20200701
       Models::StartEditContactFlowResponse startEditContactFlowWithOptions(const Models::StartEditContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 编辑ivr流程
+       *
        * @param request StartEditContactFlowRequest
        * @return StartEditContactFlowResponse
        */
       Models::StartEditContactFlowResponse startEditContactFlow(const Models::StartEditContactFlowRequest &request);
 
       /**
+       * @summary 开始预测试外呼
+       *
        * @param request StartPredictiveCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartPredictiveCallResponse
@@ -3423,6 +3882,8 @@ namespace CCC20200701
       Models::StartPredictiveCallResponse startPredictiveCallWithOptions(const Models::StartPredictiveCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 开始预测试外呼
+       *
        * @param request StartPredictiveCallRequest
        * @return StartPredictiveCallResponse
        */
@@ -3463,6 +3924,8 @@ namespace CCC20200701
       Models::SubmitCampaignResponse submitCampaign(const Models::SubmitCampaignRequest &request);
 
       /**
+       * @summary 切换关注/咨询转到会议
+       *
        * @param request SwitchToConferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SwitchToConferenceResponse
@@ -3470,12 +3933,16 @@ namespace CCC20200701
       Models::SwitchToConferenceResponse switchToConferenceWithOptions(const Models::SwitchToConferenceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 切换关注/咨询转到会议
+       *
        * @param request SwitchToConferenceRequest
        * @return SwitchToConferenceResponse
        */
       Models::SwitchToConferenceResponse switchToConference(const Models::SwitchToConferenceRequest &request);
 
       /**
+       * @summary 小休
+       *
        * @param request TakeBreakRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TakeBreakResponse
@@ -3483,6 +3950,8 @@ namespace CCC20200701
       Models::TakeBreakResponse takeBreakWithOptions(const Models::TakeBreakRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 小休
+       *
        * @param request TakeBreakRequest
        * @return TakeBreakResponse
        */
@@ -3515,6 +3984,8 @@ namespace CCC20200701
       Models::TransferTicketTaskResponse transferTicketTask(const Models::TransferTicketTaskRequest &request);
 
       /**
+       * @summary 取消静音
+       *
        * @param request UnmuteCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UnmuteCallResponse
@@ -3522,6 +3993,8 @@ namespace CCC20200701
       Models::UnmuteCallResponse unmuteCallWithOptions(const Models::UnmuteCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 取消静音
+       *
        * @param request UnmuteCallRequest
        * @return UnmuteCallResponse
        */
@@ -3545,6 +4018,8 @@ namespace CCC20200701
       Models::UnregisterDeviceResponse unregisterDevice(const Models::UnregisterDeviceRequest &request);
 
       /**
+       * @summary 更新会话小结
+       *
        * @param request UpdateCallSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateCallSummaryResponse
@@ -3552,13 +4027,15 @@ namespace CCC20200701
       Models::UpdateCallSummaryResponse updateCallSummaryWithOptions(const Models::UpdateCallSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 更新会话小结
+       *
        * @param request UpdateCallSummaryRequest
        * @return UpdateCallSummaryResponse
        */
       Models::UpdateCallSummaryResponse updateCallSummary(const Models::UpdateCallSummaryRequest &request);
 
       /**
-       * @summary Update campaign
+       * @summary 更新预测试外呼活动
        *
        * @param request UpdateCampaignRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3567,7 +4044,7 @@ namespace CCC20200701
       Models::UpdateCampaignResponse updateCampaignWithOptions(const Models::UpdateCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update campaign
+       * @summary 更新预测试外呼活动
        *
        * @param request UpdateCampaignRequest
        * @return UpdateCampaignResponse
@@ -3588,6 +4065,8 @@ namespace CCC20200701
       Models::UpdateChatRoutingProfileResponse updateChatRoutingProfile(const Models::UpdateChatRoutingProfileRequest &request);
 
       /**
+       * @summary 更新系统配置
+       *
        * @param request UpdateConfigItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateConfigItemsResponse
@@ -3595,6 +4074,8 @@ namespace CCC20200701
       Models::UpdateConfigItemsResponse updateConfigItemsWithOptions(const Models::UpdateConfigItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 更新系统配置
+       *
        * @param request UpdateConfigItemsRequest
        * @return UpdateConfigItemsResponse
        */
