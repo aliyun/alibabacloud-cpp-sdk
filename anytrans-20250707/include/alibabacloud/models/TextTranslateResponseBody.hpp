@@ -42,10 +42,12 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(detectedLang, detectedLang_);
         DARABONBA_PTR_TO_JSON(translation, translation_);
         DARABONBA_PTR_TO_JSON(usage, usage_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(detectedLang, detectedLang_);
         DARABONBA_PTR_FROM_JSON(translation, translation_);
         DARABONBA_PTR_FROM_JSON(usage, usage_);
       };
@@ -112,8 +114,15 @@ namespace Models
         shared_ptr<int64_t> totalTokens_ {};
       };
 
-      virtual bool empty() const override { return this->translation_ == nullptr
-        && this->usage_ == nullptr; };
+      virtual bool empty() const override { return this->detectedLang_ == nullptr
+        && this->translation_ == nullptr && this->usage_ == nullptr; };
+      // detectedLang Field Functions 
+      bool hasDetectedLang() const { return this->detectedLang_ != nullptr;};
+      void deleteDetectedLang() { this->detectedLang_ = nullptr;};
+      inline string getDetectedLang() const { DARABONBA_PTR_GET_DEFAULT(detectedLang_, "") };
+      inline Data& setDetectedLang(string detectedLang) { DARABONBA_PTR_SET_VALUE(detectedLang_, detectedLang) };
+
+
       // translation Field Functions 
       bool hasTranslation() const { return this->translation_ != nullptr;};
       void deleteTranslation() { this->translation_ = nullptr;};
@@ -131,6 +140,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> detectedLang_ {};
       shared_ptr<string> translation_ {};
       shared_ptr<Data::Usage> usage_ {};
     };

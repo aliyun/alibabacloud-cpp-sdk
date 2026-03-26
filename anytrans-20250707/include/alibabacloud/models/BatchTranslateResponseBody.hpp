@@ -63,6 +63,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const TranslationList& obj) { 
           DARABONBA_PTR_TO_JSON(code, code_);
+          DARABONBA_PTR_TO_JSON(detectedLang, detectedLang_);
           DARABONBA_PTR_TO_JSON(index, index_);
           DARABONBA_PTR_TO_JSON(message, message_);
           DARABONBA_PTR_TO_JSON(translation, translation_);
@@ -70,6 +71,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, TranslationList& obj) { 
           DARABONBA_PTR_FROM_JSON(code, code_);
+          DARABONBA_PTR_FROM_JSON(detectedLang, detectedLang_);
           DARABONBA_PTR_FROM_JSON(index, index_);
           DARABONBA_PTR_FROM_JSON(message, message_);
           DARABONBA_PTR_FROM_JSON(translation, translation_);
@@ -139,12 +141,19 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->code_ == nullptr
-        && this->index_ == nullptr && this->message_ == nullptr && this->translation_ == nullptr && this->usage_ == nullptr; };
+        && this->detectedLang_ == nullptr && this->index_ == nullptr && this->message_ == nullptr && this->translation_ == nullptr && this->usage_ == nullptr; };
         // code Field Functions 
         bool hasCode() const { return this->code_ != nullptr;};
         void deleteCode() { this->code_ = nullptr;};
         inline int64_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
         inline TranslationList& setCode(int64_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+        // detectedLang Field Functions 
+        bool hasDetectedLang() const { return this->detectedLang_ != nullptr;};
+        void deleteDetectedLang() { this->detectedLang_ = nullptr;};
+        inline string getDetectedLang() const { DARABONBA_PTR_GET_DEFAULT(detectedLang_, "") };
+        inline TranslationList& setDetectedLang(string detectedLang) { DARABONBA_PTR_SET_VALUE(detectedLang_, detectedLang) };
 
 
         // index Field Functions 
@@ -179,6 +188,7 @@ namespace Models
 
       protected:
         shared_ptr<int64_t> code_ {};
+        shared_ptr<string> detectedLang_ {};
         shared_ptr<string> index_ {};
         shared_ptr<string> message_ {};
         shared_ptr<string> translation_ {};
