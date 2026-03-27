@@ -94,12 +94,50 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The creation time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The schema ID. For more information, see [Concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html).
+    // 
+    // The format is `${EntityType}:${Instance ID or escaped URL}:${Catalog name}:${Database name}`. Use empty strings as placeholders for levels that do not exist.
+    // 
+    // >  For the MaxCompute type, the instance ID level is represented by an empty string. The database name is the name of the MaxCompute project, which has enabled the schema feature.
+    // 
+    // Examples of common ID formats
+    // 
+    // `maxcompute-project:::project_name` (For MaxCompute projects schema enabled)
+    // 
+    // `holo-schema:instance_id::database_name:schema_name`
+    // 
+    // > \\
+    // `instance_id`: The Hologres instance ID\\
+    // . `database_name`: The database name\\
+    // . `project_name`: The MaxCompute project name\\
+    // . `schema_name`: The schema name.
     shared_ptr<string> id_ {};
+    // The modification time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The parent entity ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+    // 
+    // The format: `${EntityType}:${Instance ID or escaped URL}:${Catalog name}:${Database name}`. Use empty strings as placeholders for levels that do not exist.
+    // 
+    // >  For the MaxCompute type, the instance ID level is represented by an empty string. The database name is the name of the MaxCompute project with schema enabled.
+    // 
+    // Examples of common ParentMetaEntityId formats
+    // 
+    // `maxcompute-project:::project_name` (For MaxCompute projects with schema enabled)
+    // 
+    // `holo-database:instance_id::database_name`
+    // 
+    // > \\
+    // `instance_id`: The Hologres instance ID\\
+    // . `database_name`: The database name\\
+    // . `project_name`: The MaxCompute project name.
     shared_ptr<string> parentMetaEntityId_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

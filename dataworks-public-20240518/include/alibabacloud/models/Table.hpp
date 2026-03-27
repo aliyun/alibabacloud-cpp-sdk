@@ -135,12 +135,19 @@ namespace Models
 
 
     protected:
+      // Specifies whether the table is a compressed table. Valid values: true and false.
       shared_ptr<bool> compressed_ {};
+      // The input format.
       shared_ptr<string> inputFormat_ {};
+      // The storage location of the table.
       shared_ptr<string> location_ {};
+      // The output format.
       shared_ptr<string> outputFormat_ {};
+      // The table owner.
       shared_ptr<string> owner_ {};
+      // The information about parameters.
       shared_ptr<map<string, string>> parameters_ {};
+      // The implementation class of SerDe.
       shared_ptr<string> serializationLibrary_ {};
     };
 
@@ -209,7 +216,9 @@ namespace Models
 
 
       protected:
+        // The ancestor task ID.
         shared_ptr<int64_t> id_ {};
+        // The ancestor task name.
         shared_ptr<string> name_ {};
       };
 
@@ -251,7 +260,9 @@ namespace Models
 
 
       protected:
+        // The tag key. You cannot leave this parameter empty.
         shared_ptr<string> key_ {};
+        // The tag value. You can leave this parameter empty.
         shared_ptr<string> value_ {};
       };
 
@@ -320,10 +331,18 @@ namespace Models
 
 
       protected:
+        // The type of the environment. Valid values:
+        // 
+        // *   Prod
+        // *   Dev
         shared_ptr<string> envType_ {};
+        // The number of times the table is added to favorites.
         shared_ptr<int64_t> favorCount_ {};
+        // The DataWorks workspace ID.
         shared_ptr<int64_t> projectId_ {};
+        // The number of times the table is read.
         shared_ptr<int64_t> readCount_ {};
+        // The number of times the table is viewed.
         shared_ptr<int64_t> viewCount_ {};
       };
 
@@ -373,10 +392,15 @@ namespace Models
 
 
     protected:
+      // The categories.
       shared_ptr<vector<vector<BusinessMetadata::Categories>>> categories_ {};
+      // The extended information. Only MaxCompute tables supports this parameter.
       shared_ptr<BusinessMetadata::Extension> extension_ {};
+      // The usage notes.
       shared_ptr<string> readme_ {};
+      // The tags.
       shared_ptr<vector<BusinessMetadata::Tags>> tags_ {};
+      // The ancestor tasks.
       shared_ptr<vector<BusinessMetadata::UpstreamTasks>> upstreamTasks_ {};
     };
 
@@ -460,15 +484,81 @@ namespace Models
 
 
   protected:
+    // The information about the business metadata that is related to DataWorks, including the usage notes, tags, categories, ancestor tasks, and extended information.
     shared_ptr<Table::BusinessMetadata> businessMetadata_ {};
+    // The comments.
     shared_ptr<string> comment_ {};
+    // The creation time. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The table ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+    // 
+    // The common format of this parameter is `${Entity type}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}:${Schema name}:${Table name}`. If a level does not exist, specify an empty string as a placeholder.
+    // 
+    // >  For MaxCompute and DLF tables, specify an empty string at the Instance ID level as a placeholder. For MaxCompute tables, specify a MaxCompute project name at the Database name level. If the three-layer model is enabled for your MaxCompute project, you must specify a schema name at the Schema name level. Otherwise, you can specify an empty string at the Schema name level as a placeholder.
+    // 
+    // >  For StarRocks tables, specify a catalog name at the Catalog identifier level. For DLF tables, specify a catalog ID at the Catalog identifier level. Other types of tables do not support the Catalog identifier level, and you can specify an empty string as a placeholder.
+    // 
+    // You can configure this parameter in one of the following formats based on your table type:
+    // 
+    // `maxcompute-table:::project_name:[schema_name]:table_name`
+    // 
+    // `dlf-table::catalog_id:database_name::table_name`
+    // 
+    // `hms-table:instance_id::database_name::table_name`
+    // 
+    // `holo-table:instance_id::database_name:schema_name:table_name`
+    // 
+    // `mysql-table:(instance_id|encoded_jdbc_url)::database_name::table_name`
+    // 
+    // > \\
+    // `instance_id`: the ID of an instance. If the related data source is added to DataWorks in Alibaba Cloud instance mode, you must configure this parameter.\\
+    // `encoded_jdbc_url`: the JDBC connection string that is URL-encoded. If the related data source is added to DataWorks in connection string mode, you must configure this parameter.\\
+    // `catalog_id`: the ID of a DLF catalog.\\
+    // `project_name`: the name of a MaxCompute project.\\
+    // `database_name`: the name of a database.\\
+    // `schema_name`: the name of a schema. For a MaxCompute table, this parameter is required only if the three-layer model is enabled for the MaxCompute project to which the table belongs. If the schema feature is not enabled for the MaxCompute project, specify an empty string for this parameter as a placeholder.\\
+    // `table_name`: the name of a table.
     shared_ptr<string> id_ {};
+    // The modification time. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
+    // The table name.
     shared_ptr<string> name_ {};
+    // The ID of a parent metadata entity. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+    // 
+    // *   For data source types that support schemas, such as `MaxCompute, Hologres, PostgreSQL, SQL Server, HybridDB for PostgreSQL, and Oracle`, the `ParentMetaEntityId` parameter specifies the schema of the database to which the table belongs. In this case, the common format of this parameter is `${Entity type}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}:${Schema name}`. If a level does not exist, leave the level empty. For a MaxCompute data table, you must make sure that the three-layer model is enabled for the MaxCompute project to which the table belongs.
+    // *   For other data source types that do not support schemas, the `ParentMetaEntityId` parameter specifies the database to which the table belongs. In this case, the common format of this parameter is `${Entity type}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}`. If a level does not exist, leave the level empty.
+    // 
+    // >  For MaxCompute and DLF tables, specify an empty string at the Instance ID level as a placeholder. For MaxCompute tables, specify a MaxCompute project name at the Database name level.
+    // 
+    // >  For StarRocks tables, specify a catalog name at the Catalog identifier level. For DLF tables, specify a catalog ID at the Catalog identifier level. Other types of tables do not support the Catalog identifier level, and you can specify an empty string as a placeholder.
+    // 
+    // You can configure this parameter in one of the following formats based on your table type:
+    // 
+    // `maxcompute-project:::project_name`
+    // 
+    // `maxcompute-schema:::project_name:schema_name` (Three-layer model enabled for the MaxCompute project)
+    // 
+    // `dlf-database::catalog_id:database_name`
+    // 
+    // `hms-database:instance_id::database_name`
+    // 
+    // `holo-schema:instance_id::database_name:schema_name`
+    // 
+    // `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
+    // 
+    // > \\
+    // `instance_id`: the ID of an instance. If the related data source is added to DataWorks in Alibaba Cloud instance mode, you must configure this parameter.\\
+    // `encoded_jdbc_url`: the JDBC connection string that is URL-encoded. If the related data source is added to DataWorks in connection string mode, you must configure this parameter.\\
+    // `catalog_id`: the ID of a DLF catalog.\\
+    // `project_name`: the name of a MaxCompute project.\\
+    // `database_name`: the name of a database.\\
+    // `schema_name`: the name of a schema.
     shared_ptr<string> parentMetaEntityId_ {};
+    // The partition keys. If the table is a non-partitioned table, leave this parameter empty.
     shared_ptr<vector<string>> partitionKeys_ {};
+    // The table type. The value of this parameter is related to the type of metadata crawler.
     shared_ptr<string> tableType_ {};
+    // The technical metadata.
     shared_ptr<Table::TechnicalMetadata> technicalMetadata_ {};
   };
 

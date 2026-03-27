@@ -90,9 +90,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether the entity type is optional.
+      // 
+      // For example, whether the schema level of the MaxCompute crawler type is optional depends on whether the three-layer model is enabled for a MaxCompute project.
       shared_ptr<bool> optional_ {};
+      // The subtype of the parent entity. If the subtype does not exist, null is returned.
       shared_ptr<string> parentSubType_ {};
+      // The identifier of the entity subtype. Valid values: `catalog, database, schema, table, and column`.
       shared_ptr<string> subType_ {};
+      // The identifier of the entity type. The value of this parameter varies based on the type of the metadata crawler. Configure this parameter in the `${Crawler type}-${Subtype}` format.
       shared_ptr<string> type_ {};
     };
 
@@ -122,8 +128,26 @@ namespace Models
 
 
   protected:
+    // The display name of the metadata crawler.
     shared_ptr<string> displayName_ {};
+    // The supported entity types. The entity types are sorted based on the declaration order.
     shared_ptr<vector<CrawlerType::SupportedEntityTypes>> supportedEntityTypes_ {};
+    // The identifier of the metadata crawler type. Valid values:
+    // 
+    // *   `maxcompute`
+    // *   `dlf`
+    // *   `hms`: This type of crawler can be used to collect metadata from E-MapReduce (EMR) and CDH Hive clusters.
+    // *   `holo`
+    // *   `mysql`
+    // *   `oracle`
+    // *   `postgresql`
+    // *   `sqlserver`
+    // *   `analyticdb_for_mysql`
+    // *   `ads`
+    // *   `hybriddb_for_postgresql`
+    // *   `ots`
+    // *   `clickhouse`
+    // *   `starrocks`: This type of crawler can be used to query metadata entities only in internal catalogs.
     shared_ptr<string> type_ {};
   };
 

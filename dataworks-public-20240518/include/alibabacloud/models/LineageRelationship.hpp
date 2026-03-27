@@ -83,10 +83,15 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The destination entity.
     shared_ptr<LineageEntity> dstEntity_ {};
+    // The ID.
     shared_ptr<string> id_ {};
+    // The source entity.
     shared_ptr<LineageEntity> srcEntity_ {};
+    // The task.
     shared_ptr<LineageTask> task_ {};
   };
 

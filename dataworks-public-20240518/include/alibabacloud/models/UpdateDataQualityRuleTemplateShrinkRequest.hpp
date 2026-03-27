@@ -94,6 +94,10 @@ namespace Models
     shared_ptr<string> directoryPath_ {};
     // The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
     shared_ptr<string> name_ {};
+    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // 
+    // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The sampling settings.

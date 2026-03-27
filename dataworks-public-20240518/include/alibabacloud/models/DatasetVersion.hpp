@@ -147,17 +147,41 @@ namespace Models
 
 
   protected:
+    // The dataset version description.
     shared_ptr<string> comment_ {};
+    // Creation time (milliseconds)
     shared_ptr<int64_t> createTime_ {};
+    // The creator ID.
     shared_ptr<string> creatorId_ {};
+    // The corresponding dataset ID.
     shared_ptr<string> datasetId_ {};
+    // The dataset version ID.
     shared_ptr<string> id_ {};
+    // The storage import configuration for the dataset; required configuration varies by storage type.
+    // 
+    // **NAS**
+    // 
+    // Refer to the return values from the file storage API DescribeFileSystems.
+    // 
+    // ```JSON
+    // {
+    // "fileSystemId": "3b6XXX89c9", // The file system ID.
+    // "fileSystemStorageType":  "Performance" // The file system storage type.
+    // "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
+    // }
+    // ```
     shared_ptr<map<string, string>> importInfo_ {};
+    // The PAI dataset label.
     shared_ptr<vector<DatasetLabel>> labels_ {};
+    // Modification time (milliseconds)
     shared_ptr<int64_t> modifyTime_ {};
+    // The mount path. Defaults to /mnt/data.
     shared_ptr<string> mountPath_ {};
+    // Storage type (read-only); consistent with the corresponding property of the parent dataset.
     shared_ptr<string> storageType_ {};
+    // URL
     shared_ptr<string> url_ {};
+    // The dataset version number.
     shared_ptr<int32_t> versionNumber_ {};
   };
 

@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DestinationDataSourceSettings, destinationDataSourceSettingsShrink_);
       DARABONBA_PTR_TO_JSON(DestinationDataSourceType, destinationDataSourceType_);
+      DARABONBA_PTR_TO_JSON(FileSpec, fileSpec_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(JobSettings, jobSettingsShrink_);
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
       DARABONBA_PTR_TO_JSON(MigrationType, migrationType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ResourceSettings, resourceSettingsShrink_);
       DARABONBA_PTR_TO_JSON(SourceDataSourceSettings, sourceDataSourceSettingsShrink_);
@@ -32,11 +34,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DestinationDataSourceSettings, destinationDataSourceSettingsShrink_);
       DARABONBA_PTR_FROM_JSON(DestinationDataSourceType, destinationDataSourceType_);
+      DARABONBA_PTR_FROM_JSON(FileSpec, fileSpec_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
       DARABONBA_PTR_FROM_JSON(JobSettings, jobSettingsShrink_);
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
       DARABONBA_PTR_FROM_JSON(MigrationType, migrationType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ResourceSettings, resourceSettingsShrink_);
       DARABONBA_PTR_FROM_JSON(SourceDataSourceSettings, sourceDataSourceSettingsShrink_);
@@ -56,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->destinationDataSourceSettingsShrink_ == nullptr && this->destinationDataSourceType_ == nullptr && this->jobName_ == nullptr && this->jobSettingsShrink_ == nullptr && this->jobType_ == nullptr
-        && this->migrationType_ == nullptr && this->name_ == nullptr && this->projectId_ == nullptr && this->resourceSettingsShrink_ == nullptr && this->sourceDataSourceSettingsShrink_ == nullptr
-        && this->sourceDataSourceType_ == nullptr && this->tableMappingsShrink_ == nullptr && this->transformationRulesShrink_ == nullptr; };
+        && this->destinationDataSourceSettingsShrink_ == nullptr && this->destinationDataSourceType_ == nullptr && this->fileSpec_ == nullptr && this->jobName_ == nullptr && this->jobSettingsShrink_ == nullptr
+        && this->jobType_ == nullptr && this->migrationType_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr && this->projectId_ == nullptr
+        && this->resourceSettingsShrink_ == nullptr && this->sourceDataSourceSettingsShrink_ == nullptr && this->sourceDataSourceType_ == nullptr && this->tableMappingsShrink_ == nullptr && this->transformationRulesShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -78,6 +82,13 @@ namespace Models
     void deleteDestinationDataSourceType() { this->destinationDataSourceType_ = nullptr;};
     inline string getDestinationDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(destinationDataSourceType_, "") };
     inline CreateDIJobShrinkRequest& setDestinationDataSourceType(string destinationDataSourceType) { DARABONBA_PTR_SET_VALUE(destinationDataSourceType_, destinationDataSourceType) };
+
+
+    // fileSpec Field Functions 
+    bool hasFileSpec() const { return this->fileSpec_ != nullptr;};
+    void deleteFileSpec() { this->fileSpec_ = nullptr;};
+    inline string getFileSpec() const { DARABONBA_PTR_GET_DEFAULT(fileSpec_, "") };
+    inline CreateDIJobShrinkRequest& setFileSpec(string fileSpec) { DARABONBA_PTR_SET_VALUE(fileSpec_, fileSpec) };
 
 
     // jobName Field Functions 
@@ -113,6 +124,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateDIJobShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // owner Field Functions 
+    bool hasOwner() const { return this->owner_ != nullptr;};
+    void deleteOwner() { this->owner_ = nullptr;};
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline CreateDIJobShrinkRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // projectId Field Functions 
@@ -158,15 +176,16 @@ namespace Models
 
 
   protected:
+    // The task description.
     shared_ptr<string> description_ {};
-    // This parameter is required.
+    // The list of destination data source settings.
     shared_ptr<string> destinationDataSourceSettingsShrink_ {};
     // The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB for MySQL, Kafka, and Hive.
-    // 
-    // This parameter is required.
     shared_ptr<string> destinationDataSourceType_ {};
+    shared_ptr<string> fileSpec_ {};
     // This parameter is deprecated and is replaced by the Name parameter.
     shared_ptr<string> jobName_ {};
+    // The task-level settings, including DDL handling policies, column data type mapping between source and destination, and runtime parameters.
     shared_ptr<string> jobSettingsShrink_ {};
     // The type of the synchronization task. Valid values:
     // 
@@ -181,25 +200,28 @@ namespace Models
     // *   Full
     // *   OfflineIncremental
     // *   FullAndOfflineIncremental
-    // 
-    // This parameter is required.
     shared_ptr<string> migrationType_ {};
     // The name of the synchronization task.
     shared_ptr<string> name_ {};
+    // The task owner.
+    shared_ptr<string> owner_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
     // 
     // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
     shared_ptr<int64_t> projectId_ {};
-    // This parameter is required.
+    // The resource settings.
     shared_ptr<string> resourceSettingsShrink_ {};
-    // This parameter is required.
+    // The list of source data source settings.
     shared_ptr<string> sourceDataSourceSettingsShrink_ {};
     // The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, Redshift, Hive, SQL Server, Doris, and ClickHouse.
-    // 
-    // This parameter is required.
     shared_ptr<string> sourceDataSourceType_ {};
-    // This parameter is required.
+    // The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
+    // 
+    // >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
     shared_ptr<string> tableMappingsShrink_ {};
+    // The list of synchronization object transformation rule definitions.
+    // 
+    // >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
     shared_ptr<string> transformationRulesShrink_ {};
   };
 

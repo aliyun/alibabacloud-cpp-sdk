@@ -44,7 +44,7 @@ namespace DataworksPublic20240518
       Models::AbolishPipelineRunResponse abolishPipelineRun(const Models::AbolishPipelineRunRequest &request);
 
       /**
-       * @summary 从集合中移除实体对象
+       * @summary Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request AddEntityIntoMetaCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -53,7 +53,7 @@ namespace DataworksPublic20240518
       Models::AddEntityIntoMetaCollectionResponse addEntityIntoMetaCollectionWithOptions(const Models::AddEntityIntoMetaCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从集合中移除实体对象
+       * @summary Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request AddEntityIntoMetaCollectionRequest
        * @return AddEntityIntoMetaCollectionResponse
@@ -86,6 +86,8 @@ namespace DataworksPublic20240518
       Models::AssociateProjectToResourceGroupResponse associateProjectToResourceGroup(const Models::AssociateProjectToResourceGroupRequest &request);
 
       /**
+       * @deprecated OpenAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Associates monitoring rules with a data quality monitoring task.
        *
        * @param tmpReq AttachDataQualityRulesToEvaluationTaskRequest
@@ -95,6 +97,8 @@ namespace DataworksPublic20240518
       Models::AttachDataQualityRulesToEvaluationTaskResponse attachDataQualityRulesToEvaluationTaskWithOptions(const Models::AttachDataQualityRulesToEvaluationTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Associates monitoring rules with a data quality monitoring task.
        *
        * @param request AttachDataQualityRulesToEvaluationTaskRequest
@@ -166,6 +170,8 @@ namespace DataworksPublic20240518
       Models::CreateAlertRuleResponse createAlertRule(const Models::CreateAlertRuleRequest &request);
 
       /**
+       * @summary Creates a workflow in DataStudio.
+       *
        * @param request CreateBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateBusinessResponse
@@ -173,6 +179,8 @@ namespace DataworksPublic20240518
       Models::CreateBusinessResponse createBusinessWithOptions(const Models::CreateBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a workflow in DataStudio.
+       *
        * @param request CreateBusinessRequest
        * @return CreateBusinessResponse
        */
@@ -196,7 +204,7 @@ namespace DataworksPublic20240518
       Models::CreateComponentResponse createComponent(const Models::CreateComponentRequest &request);
 
       /**
-       * @summary 验证用
+       * @summary Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
        *
        * @param request CreateComputeResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -205,7 +213,7 @@ namespace DataworksPublic20240518
       Models::CreateComputeResourceResponse createComputeResourceWithOptions(const Models::CreateComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证用
+       * @summary Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
        *
        * @param request CreateComputeResourceRequest
        * @return CreateComputeResourceResponse
@@ -295,6 +303,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityAlertRuleResponse createDataQualityAlertRule(const Models::CreateDataQualityAlertRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a monitor in DataWorks Data Quality.
        *
        * @description This API operation is supported in all DataWorks editions.
@@ -306,6 +316,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityEvaluationTaskResponse createDataQualityEvaluationTaskWithOptions(const Models::CreateDataQualityEvaluationTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a monitor in DataWorks Data Quality.
        *
        * @description This API operation is supported in all DataWorks editions.
@@ -316,6 +328,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityEvaluationTaskResponse createDataQualityEvaluationTask(const Models::CreateDataQualityEvaluationTaskRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead.
+       *
        * @summary Creates a monitor instance.
        *
        * @param tmpReq CreateDataQualityEvaluationTaskInstanceRequest
@@ -325,6 +339,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityEvaluationTaskInstanceResponse createDataQualityEvaluationTaskInstanceWithOptions(const Models::CreateDataQualityEvaluationTaskInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead.
+       *
        * @summary Creates a monitor instance.
        *
        * @param request CreateDataQualityEvaluationTaskInstanceRequest
@@ -333,6 +349,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityEvaluationTaskInstanceResponse createDataQualityEvaluationTaskInstance(const Models::CreateDataQualityEvaluationTaskInstanceRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a data quality monitoring rule.
        *
        * @param tmpReq CreateDataQualityRuleRequest
@@ -342,6 +360,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityRuleResponse createDataQualityRuleWithOptions(const Models::CreateDataQualityRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a data quality monitoring rule.
        *
        * @param request CreateDataQualityRuleRequest
@@ -350,6 +370,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityRuleResponse createDataQualityRule(const Models::CreateDataQualityRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead.
+       *
        * @summary Creates a data quality monitoring rule template.
        *
        * @param tmpReq CreateDataQualityRuleTemplateRequest
@@ -359,6 +381,8 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityRuleTemplateResponse createDataQualityRuleTemplateWithOptions(const Models::CreateDataQualityRuleTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead.
+       *
        * @summary Creates a data quality monitoring rule template.
        *
        * @param request CreateDataQualityRuleTemplateRequest
@@ -514,6 +538,8 @@ namespace DataworksPublic20240518
       Models::CreateDatasetVersionResponse createDatasetVersion(const Models::CreateDatasetVersionRequest &request);
 
       /**
+       * @summary Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+       *
        * @param request CreateFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateFileResponse
@@ -521,12 +547,16 @@ namespace DataworksPublic20240518
       Models::CreateFileResponse createFileWithOptions(const Models::CreateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+       *
        * @param request CreateFileRequest
        * @return CreateFileResponse
        */
       Models::CreateFileResponse createFile(const Models::CreateFileRequest &request);
 
       /**
+       * @summary Creates a folder.
+       *
        * @param request CreateFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateFolderResponse
@@ -534,6 +564,8 @@ namespace DataworksPublic20240518
       Models::CreateFolderResponse createFolderWithOptions(const Models::CreateFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a folder.
+       *
        * @param request CreateFolderRequest
        * @return CreateFolderResponse
        */
@@ -582,7 +614,7 @@ namespace DataworksPublic20240518
       Models::CreateIdentifyCredentialResponse createIdentifyCredential(const Models::CreateIdentifyCredentialRequest &request);
 
       /**
-       * @summary Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+       * @summary Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
        *
        * @param tmpReq CreateLineageRelationshipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +623,7 @@ namespace DataworksPublic20240518
       Models::CreateLineageRelationshipResponse createLineageRelationshipWithOptions(const Models::CreateLineageRelationshipRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+       * @summary Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
        *
        * @param request CreateLineageRelationshipRequest
        * @return CreateLineageRelationshipResponse
@@ -719,7 +751,7 @@ namespace DataworksPublic20240518
       Models::CreateProjectMemberResponse createProjectMember(const Models::CreateProjectMemberRequest &request);
 
       /**
-       * @summary >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+       * @summary \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
        *
        * @description Private
        *
@@ -730,7 +762,7 @@ namespace DataworksPublic20240518
       Models::CreateResourceResponse createResourceWithOptions(const Models::CreateResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+       * @summary \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
        *
        * @description Private
        *
@@ -805,6 +837,8 @@ namespace DataworksPublic20240518
       Models::CreateRouteResponse createRoute(const Models::CreateRouteRequest &request);
 
       /**
+       * @summary Creates a file for a function in DataStudio.
+       *
        * @param request CreateUdfFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateUdfFileResponse
@@ -812,6 +846,8 @@ namespace DataworksPublic20240518
       Models::CreateUdfFileResponse createUdfFileWithOptions(const Models::CreateUdfFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a file for a function in DataStudio.
+       *
        * @param request CreateUdfFileRequest
        * @return CreateUdfFileResponse
        */
@@ -873,6 +909,8 @@ namespace DataworksPublic20240518
       Models::DeleteAlertRuleResponse deleteAlertRule(const Models::DeleteAlertRuleRequest &request);
 
       /**
+       * @summary Deletes a workflow.
+       *
        * @param request DeleteBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteBusinessResponse
@@ -880,6 +918,8 @@ namespace DataworksPublic20240518
       Models::DeleteBusinessResponse deleteBusinessWithOptions(const Models::DeleteBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a workflow.
+       *
        * @param request DeleteBusinessRequest
        * @return DeleteBusinessResponse
        */
@@ -930,7 +970,7 @@ namespace DataworksPublic20240518
       Models::DeleteComponentResponse deleteComponent(const Models::DeleteComponentRequest &request);
 
       /**
-       * @summary 验证用
+       * @summary Deletes the specified computing resource based on the computing resource ID.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
        * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
@@ -943,7 +983,7 @@ namespace DataworksPublic20240518
       Models::DeleteComputeResourceResponse deleteComputeResourceWithOptions(const Models::DeleteComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证用
+       * @summary Deletes the specified computing resource based on the computing resource ID.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
        * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
@@ -1035,6 +1075,8 @@ namespace DataworksPublic20240518
       Models::DeleteDataQualityAlertRuleResponse deleteDataQualityAlertRule(const Models::DeleteDataQualityAlertRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+       *
        * @summary Deletes a data quality monitoring task.
        *
        * @param request DeleteDataQualityEvaluationTaskRequest
@@ -1044,6 +1086,8 @@ namespace DataworksPublic20240518
       Models::DeleteDataQualityEvaluationTaskResponse deleteDataQualityEvaluationTaskWithOptions(const Models::DeleteDataQualityEvaluationTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+       *
        * @summary Deletes a data quality monitoring task.
        *
        * @param request DeleteDataQualityEvaluationTaskRequest
@@ -1069,6 +1113,8 @@ namespace DataworksPublic20240518
       Models::DeleteDataQualityRuleResponse deleteDataQualityRule(const Models::DeleteDataQualityRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead.
+       *
        * @summary Deletes a data quality monitoring rule template.
        *
        * @param request DeleteDataQualityRuleTemplateRequest
@@ -1078,6 +1124,8 @@ namespace DataworksPublic20240518
       Models::DeleteDataQualityRuleTemplateResponse deleteDataQualityRuleTemplateWithOptions(const Models::DeleteDataQualityRuleTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead.
+       *
        * @summary Deletes a data quality monitoring rule template.
        *
        * @param request DeleteDataQualityRuleTemplateRequest
@@ -1218,6 +1266,8 @@ namespace DataworksPublic20240518
       Models::DeleteDatasetVersionResponse deleteDatasetVersion(const Models::DeleteDatasetVersionRequest &request);
 
       /**
+       * @summary Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+       *
        * @param request DeleteFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteFileResponse
@@ -1225,6 +1275,8 @@ namespace DataworksPublic20240518
       Models::DeleteFileResponse deleteFileWithOptions(const Models::DeleteFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+       *
        * @param request DeleteFileRequest
        * @return DeleteFileResponse
        */
@@ -1265,7 +1317,7 @@ namespace DataworksPublic20240518
       Models::DeleteFunctionResponse deleteFunction(const Models::DeleteFunctionRequest &request);
 
       /**
-       * @summary 删除血缘关系
+       * @summary Deletes a lineage in Data Map.
        *
        * @param request DeleteLineageRelationshipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1274,7 +1326,7 @@ namespace DataworksPublic20240518
       Models::DeleteLineageRelationshipResponse deleteLineageRelationshipWithOptions(const Models::DeleteLineageRelationshipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除血缘关系
+       * @summary Deletes a lineage in Data Map.
        *
        * @param request DeleteLineageRelationshipRequest
        * @return DeleteLineageRelationshipResponse
@@ -1282,7 +1334,7 @@ namespace DataworksPublic20240518
       Models::DeleteLineageRelationshipResponse deleteLineageRelationship(const Models::DeleteLineageRelationshipRequest &request);
 
       /**
-       * @summary 删除集合
+       * @summary Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request DeleteMetaCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1291,7 +1343,7 @@ namespace DataworksPublic20240518
       Models::DeleteMetaCollectionResponse deleteMetaCollectionWithOptions(const Models::DeleteMetaCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除集合
+       * @summary Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request DeleteMetaCollectionRequest
        * @return DeleteMetaCollectionResponse
@@ -1524,6 +1576,8 @@ namespace DataworksPublic20240518
       Models::DeployFileResponse deployFile(const Models::DeployFileRequest &request);
 
       /**
+       * @deprecated OpenAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Disassociates monitoring rules from a data quality monitoring task.
        *
        * @param tmpReq DetachDataQualityRulesFromEvaluationTaskRequest
@@ -1533,6 +1587,8 @@ namespace DataworksPublic20240518
       Models::DetachDataQualityRulesFromEvaluationTaskResponse detachDataQualityRulesFromEvaluationTaskWithOptions(const Models::DetachDataQualityRulesFromEvaluationTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Disassociates monitoring rules from a data quality monitoring task.
        *
        * @param request DetachDataQualityRulesFromEvaluationTaskRequest
@@ -1566,6 +1622,8 @@ namespace DataworksPublic20240518
       Models::DissociateProjectFromResourceGroupResponse dissociateProjectFromResourceGroup(const Models::DissociateProjectFromResourceGroupRequest &request);
 
       /**
+       * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+       *
        * @param request EstablishRelationTableToBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EstablishRelationTableToBusinessResponse
@@ -1573,6 +1631,8 @@ namespace DataworksPublic20240518
       Models::EstablishRelationTableToBusinessResponse establishRelationTableToBusinessWithOptions(const Models::EstablishRelationTableToBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+       *
        * @param request EstablishRelationTableToBusinessRequest
        * @return EstablishRelationTableToBusinessResponse
        */
@@ -1640,6 +1700,8 @@ namespace DataworksPublic20240518
       Models::GetAlertRuleResponse getAlertRule(const Models::GetAlertRuleRequest &request);
 
       /**
+       * @summary Queries the information about a workflow.
+       *
        * @param request GetBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBusinessResponse
@@ -1647,13 +1709,15 @@ namespace DataworksPublic20240518
       Models::GetBusinessResponse getBusinessWithOptions(const Models::GetBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about a workflow.
+       *
        * @param request GetBusinessRequest
        * @return GetBusinessResponse
        */
       Models::GetBusinessResponse getBusiness(const Models::GetBusinessRequest &request);
 
       /**
-       * @summary 获取数据目录详情
+       * @summary Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
        *
        * @param request GetCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1662,7 +1726,7 @@ namespace DataworksPublic20240518
       Models::GetCatalogResponse getCatalogWithOptions(const Models::GetCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据目录详情
+       * @summary Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
        *
        * @param request GetCatalogRequest
        * @return GetCatalogResponse
@@ -1670,7 +1734,7 @@ namespace DataworksPublic20240518
       Models::GetCatalogResponse getCatalog(const Models::GetCatalogRequest &request);
 
       /**
-       * @summary Queries a certificate file.
+       * @summary View certificate details.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
        * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
@@ -1682,7 +1746,7 @@ namespace DataworksPublic20240518
       Models::GetCertificateResponse getCertificateWithOptions(const Models::GetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a certificate file.
+       * @summary View certificate details.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
        * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
@@ -1693,7 +1757,7 @@ namespace DataworksPublic20240518
       Models::GetCertificateResponse getCertificate(const Models::GetCertificateRequest &request);
 
       /**
-       * @summary 获取字段详情
+       * @summary Queries the information about a specific field of a table in Data Map.
        *
        * @param request GetColumnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1702,7 +1766,7 @@ namespace DataworksPublic20240518
       Models::GetColumnResponse getColumnWithOptions(const Models::GetColumnRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取字段详情
+       * @summary Queries the information about a specific field of a table in Data Map.
        *
        * @param request GetColumnRequest
        * @return GetColumnResponse
@@ -1731,7 +1795,7 @@ namespace DataworksPublic20240518
       Models::GetComponentResponse getComponent(const Models::GetComponentRequest &request);
 
       /**
-       * @summary 验证用
+       * @summary Queries the specified computing resource based on the computing resource ID.
        *
        * @param request GetComputeResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1740,7 +1804,7 @@ namespace DataworksPublic20240518
       Models::GetComputeResourceResponse getComputeResourceWithOptions(const Models::GetComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证用
+       * @summary Queries the specified computing resource based on the computing resource ID.
        *
        * @param request GetComputeResourceRequest
        * @return GetComputeResourceResponse
@@ -1832,6 +1896,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityAlertRuleResponse getDataQualityAlertRule(const Models::GetDataQualityAlertRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Queries the details of a monitor.
        *
        * @param request GetDataQualityEvaluationTaskRequest
@@ -1841,6 +1907,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityEvaluationTaskResponse getDataQualityEvaluationTaskWithOptions(const Models::GetDataQualityEvaluationTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Queries the details of a monitor.
        *
        * @param request GetDataQualityEvaluationTaskRequest
@@ -1849,6 +1917,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityEvaluationTaskResponse getDataQualityEvaluationTask(const Models::GetDataQualityEvaluationTaskRequest &request);
 
       /**
+       * @deprecated OpenAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead.
+       *
        * @summary Queries the details of a monitor instance.
        *
        * @param request GetDataQualityEvaluationTaskInstanceRequest
@@ -1858,6 +1928,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityEvaluationTaskInstanceResponse getDataQualityEvaluationTaskInstanceWithOptions(const Models::GetDataQualityEvaluationTaskInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead.
+       *
        * @summary Queries the details of a monitor instance.
        *
        * @param request GetDataQualityEvaluationTaskInstanceRequest
@@ -1866,6 +1938,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityEvaluationTaskInstanceResponse getDataQualityEvaluationTaskInstance(const Models::GetDataQualityEvaluationTaskInstanceRequest &request);
 
       /**
+       * @deprecated OpenAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
        * @summary Queries the information about a data quality monitoring rule.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -1877,6 +1951,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityRuleResponse getDataQualityRuleWithOptions(const Models::GetDataQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
        * @summary Queries the information about a data quality monitoring rule.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -1887,6 +1963,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityRuleResponse getDataQualityRule(const Models::GetDataQualityRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead.
+       *
        * @summary Queries the information about a data quality monitoring rule template.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -1898,6 +1976,8 @@ namespace DataworksPublic20240518
       Models::GetDataQualityRuleTemplateResponse getDataQualityRuleTemplateWithOptions(const Models::GetDataQualityRuleTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead.
+       *
        * @summary Queries the information about a data quality monitoring rule template.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -2017,7 +2097,7 @@ namespace DataworksPublic20240518
       Models::GetDataSourceResponse getDataSource(const Models::GetDataSourceRequest &request);
 
       /**
-       * @summary 获取数据库详情
+       * @summary Queries the information about a specific database in Data Map.
        *
        * @param request GetDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2026,7 +2106,7 @@ namespace DataworksPublic20240518
       Models::GetDatabaseResponse getDatabaseWithOptions(const Models::GetDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据库详情
+       * @summary Queries the information about a specific database in Data Map.
        *
        * @param request GetDatabaseRequest
        * @return GetDatabaseResponse
@@ -2034,7 +2114,7 @@ namespace DataworksPublic20240518
       Models::GetDatabaseResponse getDatabase(const Models::GetDatabaseRequest &request);
 
       /**
-       * @summary 获取数据集详情
+       * @summary Gets the details of a dataset.
        *
        * @param request GetDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2043,7 +2123,7 @@ namespace DataworksPublic20240518
       Models::GetDatasetResponse getDatasetWithOptions(const Models::GetDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据集详情
+       * @summary Gets the details of a dataset.
        *
        * @param request GetDatasetRequest
        * @return GetDatasetResponse
@@ -2068,6 +2148,8 @@ namespace DataworksPublic20240518
       Models::GetDatasetVersionResponse getDatasetVersion(const Models::GetDatasetVersionRequest &request);
 
       /**
+       * @summary Queries the information about a deployment package.
+       *
        * @param request GetDeploymentPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDeploymentPackageResponse
@@ -2075,6 +2157,8 @@ namespace DataworksPublic20240518
       Models::GetDeploymentPackageResponse getDeploymentPackageWithOptions(const Models::GetDeploymentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about a deployment package.
+       *
        * @param request GetDeploymentPackageRequest
        * @return GetDeploymentPackageResponse
        */
@@ -2115,6 +2199,8 @@ namespace DataworksPublic20240518
       Models::GetFileVersionResponse getFileVersion(const Models::GetFileVersionRequest &request);
 
       /**
+       * @summary Queries the information about a folder.
+       *
        * @param request GetFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetFolderResponse
@@ -2122,6 +2208,8 @@ namespace DataworksPublic20240518
       Models::GetFolderResponse getFolderWithOptions(const Models::GetFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about a folder.
+       *
        * @param request GetFolderRequest
        * @return GetFolderResponse
        */
@@ -2179,7 +2267,7 @@ namespace DataworksPublic20240518
       Models::GetJobStatusResponse getJobStatus(const Models::GetJobStatusRequest &request);
 
       /**
-       * @summary 获取血缘关系详情
+       * @summary Queries the information about a lineage in Data Map.
        *
        * @param request GetLineageRelationshipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2188,7 +2276,7 @@ namespace DataworksPublic20240518
       Models::GetLineageRelationshipResponse getLineageRelationshipWithOptions(const Models::GetLineageRelationshipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取血缘关系详情
+       * @summary Queries the information about a lineage in Data Map.
        *
        * @param request GetLineageRelationshipRequest
        * @return GetLineageRelationshipResponse
@@ -2453,7 +2541,7 @@ namespace DataworksPublic20240518
       Models::GetSchemaResponse getSchema(const Models::GetSchemaRequest &request);
 
       /**
-       * @summary 获取表详情
+       * @summary Queries the information about a specific table in Data Map.
        *
        * @param request GetTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2462,7 +2550,7 @@ namespace DataworksPublic20240518
       Models::GetTableResponse getTableWithOptions(const Models::GetTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表详情
+       * @summary Queries the information about a specific table in Data Map.
        *
        * @param request GetTableRequest
        * @return GetTableResponse
@@ -2670,6 +2758,8 @@ namespace DataworksPublic20240518
       Models::ListAlertRulesResponse listAlertRules(const Models::ListAlertRulesRequest &request);
 
       /**
+       * @summary Queries a list of workflows.
+       *
        * @param request ListBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListBusinessResponse
@@ -2677,13 +2767,15 @@ namespace DataworksPublic20240518
       Models::ListBusinessResponse listBusinessWithOptions(const Models::ListBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of workflows.
+       *
        * @param request ListBusinessRequest
        * @return ListBusinessResponse
        */
       Models::ListBusinessResponse listBusiness(const Models::ListBusinessRequest &request);
 
       /**
-       * @summary 查询数据目录列表
+       * @summary Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
        *
        * @param tmpReq ListCatalogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2692,7 +2784,7 @@ namespace DataworksPublic20240518
       Models::ListCatalogsResponse listCatalogsWithOptions(const Models::ListCatalogsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据目录列表
+       * @summary Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
        *
        * @param request ListCatalogsRequest
        * @return ListCatalogsResponse
@@ -2723,7 +2815,7 @@ namespace DataworksPublic20240518
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
-       * @summary 查询字段列表
+       * @summary Queries a list of fields in a data table in Data Map.
        *
        * @param request ListColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2732,7 +2824,7 @@ namespace DataworksPublic20240518
       Models::ListColumnsResponse listColumnsWithOptions(const Models::ListColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询字段列表
+       * @summary Queries a list of fields in a data table in Data Map.
        *
        * @param request ListColumnsRequest
        * @return ListColumnsResponse
@@ -2761,7 +2853,7 @@ namespace DataworksPublic20240518
       Models::ListComponentsResponse listComponents(const Models::ListComponentsRequest &request);
 
       /**
-       * @summary 验证用
+       * @summary Queries the list of computing resources that meet the specified business information.
        *
        * @param tmpReq ListComputeResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2770,7 +2862,7 @@ namespace DataworksPublic20240518
       Models::ListComputeResourcesResponse listComputeResourcesWithOptions(const Models::ListComputeResourcesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证用
+       * @summary Queries the list of computing resources that meet the specified business information.
        *
        * @param request ListComputeResourcesRequest
        * @return ListComputeResourcesResponse
@@ -2778,7 +2870,7 @@ namespace DataworksPublic20240518
       Models::ListComputeResourcesResponse listComputeResources(const Models::ListComputeResourcesRequest &request);
 
       /**
-       * @summary 查询元数据采集器类型列表
+       * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
        *
        * @param request ListCrawlerTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2787,7 +2879,7 @@ namespace DataworksPublic20240518
       Models::ListCrawlerTypesResponse listCrawlerTypesWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询元数据采集器类型列表
+       * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
        *
        * @return ListCrawlerTypesResponse
        */
@@ -2958,6 +3050,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityAlertRulesResponse listDataQualityAlertRules(const Models::ListDataQualityAlertRulesRequest &request);
 
       /**
+       * @deprecated OpenAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
        * @summary Queries a list of instances generated by a data quality monitoring task by page.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -2969,6 +3063,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityEvaluationTaskInstancesResponse listDataQualityEvaluationTaskInstancesWithOptions(const Models::ListDataQualityEvaluationTaskInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
        * @summary Queries a list of instances generated by a data quality monitoring task by page.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -2979,6 +3075,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityEvaluationTaskInstancesResponse listDataQualityEvaluationTaskInstances(const Models::ListDataQualityEvaluationTaskInstancesRequest &request);
 
       /**
+       * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+       *
        * @summary Queries a list of data quality monitoring tasks by page.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -2990,6 +3088,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityEvaluationTasksResponse listDataQualityEvaluationTasksWithOptions(const Models::ListDataQualityEvaluationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+       *
        * @summary Queries a list of data quality monitoring tasks by page.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -3000,6 +3100,10 @@ namespace DataworksPublic20240518
       Models::ListDataQualityEvaluationTasksResponse listDataQualityEvaluationTasks(const Models::ListDataQualityEvaluationTasksRequest &request);
 
       /**
+       * @deprecated OpenAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
+       * @summary 查询数据质量规则校验结果列表
+       *
        * @description This API operation is available for all DataWorks editions.
        *
        * @param request ListDataQualityResultsRequest
@@ -3009,6 +3113,10 @@ namespace DataworksPublic20240518
       Models::ListDataQualityResultsResponse listDataQualityResultsWithOptions(const Models::ListDataQualityResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
+       * @summary 查询数据质量规则校验结果列表
+       *
        * @description This API operation is available for all DataWorks editions.
        *
        * @param request ListDataQualityResultsRequest
@@ -3017,6 +3125,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityResultsResponse listDataQualityResults(const Models::ListDataQualityResultsRequest &request);
 
       /**
+       * @deprecated OpenAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead.
+       *
        * @summary Queries a list of data quality monitoring rule templates.
        *
        * @param request ListDataQualityRuleTemplatesRequest
@@ -3026,6 +3136,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityRuleTemplatesResponse listDataQualityRuleTemplatesWithOptions(const Models::ListDataQualityRuleTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead.
+       *
        * @summary Queries a list of data quality monitoring rule templates.
        *
        * @param request ListDataQualityRuleTemplatesRequest
@@ -3034,6 +3146,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityRuleTemplatesResponse listDataQualityRuleTemplates(const Models::ListDataQualityRuleTemplatesRequest &request);
 
       /**
+       * @deprecated OpenAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+       *
        * @summary Queries a list of data quality monitoring rules by page.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -3045,6 +3159,8 @@ namespace DataworksPublic20240518
       Models::ListDataQualityRulesResponse listDataQualityRulesWithOptions(const Models::ListDataQualityRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+       *
        * @summary Queries a list of data quality monitoring rules by page.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -3168,7 +3284,7 @@ namespace DataworksPublic20240518
       Models::ListDataSourcesResponse listDataSources(const Models::ListDataSourcesRequest &request);
 
       /**
-       * @summary 查询数据库列表
+       * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
        *
        * @param request ListDatabasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3177,7 +3293,7 @@ namespace DataworksPublic20240518
       Models::ListDatabasesResponse listDatabasesWithOptions(const Models::ListDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据库列表
+       * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
        *
        * @param request ListDatabasesRequest
        * @return ListDatabasesResponse
@@ -3308,6 +3424,8 @@ namespace DataworksPublic20240518
       Models::ListEntitiesInMetaCollectionResponse listEntitiesInMetaCollection(const Models::ListEntitiesInMetaCollectionRequest &request);
 
       /**
+       * @summary Queries a list of file versions.
+       *
        * @param request ListFileVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListFileVersionsResponse
@@ -3315,12 +3433,16 @@ namespace DataworksPublic20240518
       Models::ListFileVersionsResponse listFileVersionsWithOptions(const Models::ListFileVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of file versions.
+       *
        * @param request ListFileVersionsRequest
        * @return ListFileVersionsResponse
        */
       Models::ListFileVersionsResponse listFileVersions(const Models::ListFileVersionsRequest &request);
 
       /**
+       * @summary Queries a list of files.
+       *
        * @param request ListFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListFilesResponse
@@ -3328,12 +3450,16 @@ namespace DataworksPublic20240518
       Models::ListFilesResponse listFilesWithOptions(const Models::ListFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of files.
+       *
        * @param request ListFilesRequest
        * @return ListFilesResponse
        */
       Models::ListFilesResponse listFiles(const Models::ListFilesRequest &request);
 
       /**
+       * @summary Queries a list of folders.
+       *
        * @param request ListFoldersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListFoldersResponse
@@ -3341,6 +3467,8 @@ namespace DataworksPublic20240518
       Models::ListFoldersResponse listFoldersWithOptions(const Models::ListFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of folders.
+       *
        * @param request ListFoldersRequest
        * @return ListFoldersResponse
        */
@@ -3364,7 +3492,7 @@ namespace DataworksPublic20240518
       Models::ListFunctionsResponse listFunctions(const Models::ListFunctionsRequest &request);
 
       /**
-       * @summary 查询血缘关系
+       * @summary Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
        *
        * @param request ListLineageRelationshipsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3373,7 +3501,7 @@ namespace DataworksPublic20240518
       Models::ListLineageRelationshipsResponse listLineageRelationshipsWithOptions(const Models::ListLineageRelationshipsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询血缘关系
+       * @summary Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
        *
        * @param request ListLineageRelationshipsRequest
        * @return ListLineageRelationshipsResponse
@@ -3381,7 +3509,7 @@ namespace DataworksPublic20240518
       Models::ListLineageRelationshipsResponse listLineageRelationships(const Models::ListLineageRelationshipsRequest &request);
 
       /**
-       * @summary 查询实体血缘
+       * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
        *
        * @param request ListLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3390,7 +3518,7 @@ namespace DataworksPublic20240518
       Models::ListLineagesResponse listLineagesWithOptions(const Models::ListLineagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实体血缘
+       * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
        *
        * @param request ListLineagesRequest
        * @return ListLineagesResponse
@@ -3470,7 +3598,7 @@ namespace DataworksPublic20240518
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary 查询数据表的分区列表
+       * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
        *
        * @param request ListPartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3479,7 +3607,7 @@ namespace DataworksPublic20240518
       Models::ListPartitionsResponse listPartitionsWithOptions(const Models::ListPartitionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据表的分区列表
+       * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
        *
        * @param request ListPartitionsRequest
        * @return ListPartitionsResponse
@@ -3580,7 +3708,7 @@ namespace DataworksPublic20240518
       Models::ListProjectsResponse listProjects(const Models::ListProjectsRequest &request);
 
       /**
-       * @summary Query the list of workspaces with which a resource group is associated
+       * @summary Gets the list of workspaces bound to a resource group.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
        * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
@@ -3592,7 +3720,7 @@ namespace DataworksPublic20240518
       Models::ListResourceGroupAssociateProjectsResponse listResourceGroupAssociateProjectsWithOptions(const Models::ListResourceGroupAssociateProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of workspaces with which a resource group is associated
+       * @summary Gets the list of workspaces bound to a resource group.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
        * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
@@ -3603,7 +3731,7 @@ namespace DataworksPublic20240518
       Models::ListResourceGroupAssociateProjectsResponse listResourceGroupAssociateProjects(const Models::ListResourceGroupAssociateProjectsRequest &request);
 
       /**
-       * @summary 获取指定资源组的监控指标数据
+       * @summary Queries the metric data of a resource group.
        *
        * @param request ListResourceGroupMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3612,7 +3740,7 @@ namespace DataworksPublic20240518
       Models::ListResourceGroupMetricDataResponse listResourceGroupMetricDataWithOptions(const Models::ListResourceGroupMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定资源组的监控指标数据
+       * @summary Queries the metric data of a resource group.
        *
        * @param request ListResourceGroupMetricDataRequest
        * @return ListResourceGroupMetricDataResponse
@@ -3975,7 +4103,7 @@ namespace DataworksPublic20240518
       Models::PreviewDatasetVersionResponse previewDatasetVersion(const Models::PreviewDatasetVersionRequest &request);
 
       /**
-       * @summary 从集合中移除实体对象
+       * @summary Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request RemoveEntityFromMetaCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3984,7 +4112,7 @@ namespace DataworksPublic20240518
       Models::RemoveEntityFromMetaCollectionResponse removeEntityFromMetaCollectionWithOptions(const Models::RemoveEntityFromMetaCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从集合中移除实体对象
+       * @summary Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request RemoveEntityFromMetaCollectionRequest
        * @return RemoveEntityFromMetaCollectionResponse
@@ -4287,6 +4415,8 @@ namespace DataworksPublic20240518
       Models::StopWorkflowInstancesResponse stopWorkflowInstances(const Models::StopWorkflowInstancesRequest &request);
 
       /**
+       * @summary Commits a file to the development environment of the scheduling system to generate a task.
+       *
        * @param request SubmitFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitFileResponse
@@ -4294,6 +4424,8 @@ namespace DataworksPublic20240518
       Models::SubmitFileResponse submitFileWithOptions(const Models::SubmitFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Commits a file to the development environment of the scheduling system to generate a task.
+       *
        * @param request SubmitFileRequest
        * @return SubmitFileResponse
        */
@@ -4441,7 +4573,7 @@ namespace DataworksPublic20240518
       Models::UpdateBusinessResponse updateBusiness(const Models::UpdateBusinessRequest &request);
 
       /**
-       * @summary 更新字段业务元数据
+       * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
        *
        * @param request UpdateColumnBusinessMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4450,7 +4582,7 @@ namespace DataworksPublic20240518
       Models::UpdateColumnBusinessMetadataResponse updateColumnBusinessMetadataWithOptions(const Models::UpdateColumnBusinessMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新字段业务元数据
+       * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
        *
        * @param request UpdateColumnBusinessMetadataRequest
        * @return UpdateColumnBusinessMetadataResponse
@@ -4479,7 +4611,7 @@ namespace DataworksPublic20240518
       Models::UpdateComponentResponse updateComponent(const Models::UpdateComponentRequest &request);
 
       /**
-       * @summary 验证用
+       * @summary Modifies the specified computing resource based on the computing resource ID.
        *
        * @param request UpdateComputeResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4488,7 +4620,7 @@ namespace DataworksPublic20240518
       Models::UpdateComputeResourceResponse updateComputeResourceWithOptions(const Models::UpdateComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证用
+       * @summary Modifies the specified computing resource based on the computing resource ID.
        *
        * @param request UpdateComputeResourceRequest
        * @return UpdateComputeResourceResponse
@@ -4576,6 +4708,8 @@ namespace DataworksPublic20240518
       Models::UpdateDataQualityAlertRuleResponse updateDataQualityAlertRule(const Models::UpdateDataQualityAlertRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Updates a monitor.
        *
        * @description This API operation is supported in all DataWorks editions.
@@ -4587,6 +4721,8 @@ namespace DataworksPublic20240518
       Models::UpdateDataQualityEvaluationTaskResponse updateDataQualityEvaluationTaskWithOptions(const Models::UpdateDataQualityEvaluationTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Updates a monitor.
        *
        * @description This API operation is supported in all DataWorks editions.
@@ -4597,6 +4733,8 @@ namespace DataworksPublic20240518
       Models::UpdateDataQualityEvaluationTaskResponse updateDataQualityEvaluationTask(const Models::UpdateDataQualityEvaluationTaskRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Updates a data quality monitoring rule.
        *
        * @param tmpReq UpdateDataQualityRuleRequest
@@ -4606,6 +4744,8 @@ namespace DataworksPublic20240518
       Models::UpdateDataQualityRuleResponse updateDataQualityRuleWithOptions(const Models::UpdateDataQualityRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Updates a data quality monitoring rule.
        *
        * @param request UpdateDataQualityRuleRequest
@@ -4614,6 +4754,8 @@ namespace DataworksPublic20240518
       Models::UpdateDataQualityRuleResponse updateDataQualityRule(const Models::UpdateDataQualityRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead.
+       *
        * @summary Updates a data quality monitoring rule template.
        *
        * @param tmpReq UpdateDataQualityRuleTemplateRequest
@@ -4623,6 +4765,8 @@ namespace DataworksPublic20240518
       Models::UpdateDataQualityRuleTemplateResponse updateDataQualityRuleTemplateWithOptions(const Models::UpdateDataQualityRuleTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead.
+       *
        * @summary Updates a data quality monitoring rule template.
        *
        * @param request UpdateDataQualityRuleTemplateRequest
@@ -4732,6 +4876,8 @@ namespace DataworksPublic20240518
       Models::UpdateDatasetVersionResponse updateDatasetVersion(const Models::UpdateDatasetVersionRequest &request);
 
       /**
+       * @summary Updates a file.
+       *
        * @param request UpdateFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateFileResponse
@@ -4739,6 +4885,8 @@ namespace DataworksPublic20240518
       Models::UpdateFileResponse updateFileWithOptions(const Models::UpdateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates a file.
+       *
        * @param request UpdateFileRequest
        * @return UpdateFileResponse
        */
@@ -4775,7 +4923,7 @@ namespace DataworksPublic20240518
       Models::UpdateFunctionResponse updateFunction(const Models::UpdateFunctionRequest &request);
 
       /**
-       * @summary 回调扩展点消息的检查结果
+       * @summary Recalls the check result of the message of an extension point event.
        *
        * @param request UpdateIDEEventResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4784,7 +4932,7 @@ namespace DataworksPublic20240518
       Models::UpdateIDEEventResultResponse updateIDEEventResultWithOptions(const Models::UpdateIDEEventResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 回调扩展点消息的检查结果
+       * @summary Recalls the check result of the message of an extension point event.
        *
        * @param request UpdateIDEEventResultRequest
        * @return UpdateIDEEventResultResponse
@@ -4959,6 +5107,8 @@ namespace DataworksPublic20240518
       Models::UpdateTaskInstancesResponse updateTaskInstances(const Models::UpdateTaskInstancesRequest &request);
 
       /**
+       * @summary Updates the file information about a function.
+       *
        * @param request UpdateUdfFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateUdfFileResponse
@@ -4966,6 +5116,8 @@ namespace DataworksPublic20240518
       Models::UpdateUdfFileResponse updateUdfFileWithOptions(const Models::UpdateUdfFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the file information about a function.
+       *
        * @param request UpdateUdfFileRequest
        * @return UpdateUdfFileResponse
        */

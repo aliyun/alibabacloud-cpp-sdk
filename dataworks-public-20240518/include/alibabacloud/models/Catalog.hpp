@@ -94,12 +94,35 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The creation time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The catalog ID. Currently, only the DLF and StarRocks types are supported. For details, see [description of concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
+    // 
+    // *   For the DLF type, the format is `dlf-catalog::catalog_id`.
+    // *   For the starrocks type, the format is `starrocks-catalog:(instance_id|encoded_jdbc_url):catalog_name`.
+    // 
+    // > \\
+    // `catalog_id`: The the DLF catalog ID.\\
+    // `instance_id`: The instance ID, required if the data source is registered in instance mode.\\
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string, required if the data source is registered using a connection string.\\
+    // `catalog_name`: The StarRocks catalog name.
     shared_ptr<string> id_ {};
+    // The modification time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
+    // The catalog name.
     shared_ptr<string> name_ {};
+    // The parent entity ID.
+    // 
+    // *   For the DLF type, the format of `ParentMetaEntityId` is `dlf`.
+    // *   For the StarRocks type, the format of `ParentMetaEntityId` is `starrocks:(instance_id|encoded_jdbc_url)`.
+    // 
+    // > \\
+    // `instance_id`: The instance ID, required when the data source is registered in instance mode.\\
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string, required if the data source is registered via a connection string.
     shared_ptr<string> parentMetaEntityId_ {};
+    // The catalog type. The value of this parameter varies based on the type of the metadata crawler.
     shared_ptr<string> type_ {};
   };
 

@@ -137,9 +137,23 @@ namespace Models
 
 
       protected:
+        // The type of the database to which the table belongs. Valid values:
+        // 
+        // *   maxcompute
+        // *   emr
+        // *   cdh
+        // *   hologres
+        // *   analyticdb_for_postgresql
+        // *   analyticdb_for_mysql
+        // *   starrocks
         shared_ptr<string> databaseType_ {};
+        // The configuration of the partitioned table.
         shared_ptr<string> partitionSpec_ {};
+        // The ID of the table in Data Map.
         shared_ptr<string> tableGuid_ {};
+        // The type of the monitored object. Valid values:
+        // 
+        // *   Table
         shared_ptr<string> type_ {};
       };
 
@@ -199,9 +213,29 @@ namespace Models
 
 
       protected:
+        // The metrics used for sampling. Valid values:
+        // 
+        // *   Count: the number of rows in the table.
+        // *   Min: the minimum value of the field.
+        // *   Max: the maximum value of the field.
+        // *   Avg: the average value of the field.
+        // *   DistinctCount: the number of unique values of the field after deduplication.
+        // *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+        // *   DuplicatedCount: the number of duplicated values of the field.
+        // *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+        // *   TableSize: the table size.
+        // *   NullValueCount: the number of rows in which the field value is null.
+        // *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+        // *   GroupCount: the field value and the number of rows for each field value.
+        // *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+        // *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+        // *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
         shared_ptr<string> metric_ {};
+        // The parameters required for sampling.
         shared_ptr<string> metricParameters_ {};
+        // The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
         shared_ptr<string> samplingFilter_ {};
+        // The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
         shared_ptr<string> settingConfig_ {};
       };
 
@@ -243,7 +277,9 @@ namespace Models
 
 
       protected:
+        // The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
         shared_ptr<string> errorDataFilter_ {};
+        // The type of the operation.
         shared_ptr<string> type_ {};
       };
 
@@ -331,7 +367,16 @@ namespace Models
 
 
           protected:
+            // The comparison operator. Valid values:
+            // 
+            // *   \\>
+            // *   \\>=
+            // *   <
+            // *   <=
+            // *   !=
+            // *   \\=
             shared_ptr<string> operator_ {};
+            // The threshold value.
             shared_ptr<string> value_ {};
           };
 
@@ -373,7 +418,16 @@ namespace Models
 
 
           protected:
+            // The comparison operator. Valid values:
+            // 
+            // *   \\>
+            // *   \\>=
+            // *   <
+            // *   <=
+            // *   !=
+            // *   \\=
             shared_ptr<string> operator_ {};
+            // The threshold value.
             shared_ptr<string> value_ {};
           };
 
@@ -415,7 +469,16 @@ namespace Models
 
 
           protected:
+            // The comparison operator. Valid values:
+            // 
+            // *   \\>
+            // *   \\>=
+            // *   <
+            // *   <=
+            // *   !=
+            // *   \\=
             shared_ptr<string> operator_ {};
+            // The threshold value.
             shared_ptr<string> value_ {};
           };
 
@@ -449,8 +512,11 @@ namespace Models
 
 
         protected:
+          // The threshold settings for critical alerts.
           shared_ptr<Thresholds::Critical> critical_ {};
+          // The expected threshold setting.
           shared_ptr<Thresholds::Expected> expected_ {};
+          // The threshold settings for normal alerts.
           shared_ptr<Thresholds::Warned> warned_ {};
         };
 
@@ -480,8 +546,18 @@ namespace Models
 
 
       protected:
+        // The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
         shared_ptr<string> referencedSamplesFilter_ {};
+        // The threshold settings.
         shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
+        // The threshold calculation method. Valid values:
+        // 
+        // *   Fixed
+        // *   Fluctation
+        // *   FluctationDiscreate
+        // *   Auto
+        // *   Average
+        // *   Variance
         shared_ptr<string> type_ {};
       };
 
@@ -582,17 +658,29 @@ namespace Models
 
 
     protected:
+      // The check settings for sample data.
       shared_ptr<Rule::CheckingConfig> checkingConfig_ {};
+      // The description of the rule. The description can be up to 500 characters in length.
       shared_ptr<string> description_ {};
+      // Indicates whether the rule is enabled.
       shared_ptr<bool> enabled_ {};
+      // The operations that you can perform after the rule-based check fails.
       shared_ptr<vector<Rule::ErrorHandlers>> errorHandlers_ {};
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
+      // The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
       shared_ptr<string> name_ {};
+      // The DataWorks workspace ID.
       shared_ptr<int64_t> projectId_ {};
+      // The sampling settings.
       shared_ptr<Rule::SamplingConfig> samplingConfig_ {};
+      // The strength of the rule.
       shared_ptr<string> severity_ {};
+      // The monitored object of the rule.
       shared_ptr<Rule::Target> target_ {};
+      // The template used by the rule.
       shared_ptr<string> templateCode_ {};
+      // The DataWorks tenant ID.
       shared_ptr<int64_t> tenantId_ {};
     };
 
@@ -643,8 +731,11 @@ namespace Models
 
 
     protected:
+      // The value that is used for comparison with the threshold.
       shared_ptr<string> checkedValue_ {};
+      // The value that is calculated based on sample data. The value serves as a baseline value during the calculation of the value of the CheckedValue parameter.
       shared_ptr<string> referencedValue_ {};
+      // The comparison result between the value specified by the CheckedValue parameter and the threshold.
       shared_ptr<string> status_ {};
     };
 
@@ -697,11 +788,17 @@ namespace Models
 
 
   protected:
+    // The information about the data quality check.
     shared_ptr<vector<DataQualityResult::Details>> details_ {};
+    // The ID of the check result.
     shared_ptr<int64_t> id_ {};
+    // The snapshot of the rule configuration when the check starts.
     shared_ptr<DataQualityResult::Rule> rule_ {};
+    // The sample values used for the check.
     shared_ptr<string> sample_ {};
+    // The status of the check result.
     shared_ptr<string> status_ {};
+    // The ID of the instance generated by the check.
     shared_ptr<int64_t> taskInstanceId_ {};
   };
 

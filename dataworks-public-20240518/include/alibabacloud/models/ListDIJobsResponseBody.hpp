@@ -66,6 +66,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(JobName, jobName_);
           DARABONBA_PTR_TO_JSON(JobStatus, jobStatus_);
           DARABONBA_PTR_TO_JSON(MigrationType, migrationType_);
+          DARABONBA_PTR_TO_JSON(Owner, owner_);
           DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
           DARABONBA_PTR_TO_JSON(SourceDataSourceType, sourceDataSourceType_);
         };
@@ -76,6 +77,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(JobName, jobName_);
           DARABONBA_PTR_FROM_JSON(JobStatus, jobStatus_);
           DARABONBA_PTR_FROM_JSON(MigrationType, migrationType_);
+          DARABONBA_PTR_FROM_JSON(Owner, owner_);
           DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
           DARABONBA_PTR_FROM_JSON(SourceDataSourceType, sourceDataSourceType_);
         };
@@ -92,7 +94,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->DIJobId_ == nullptr
         && this->destinationDataSourceType_ == nullptr && this->id_ == nullptr && this->jobName_ == nullptr && this->jobStatus_ == nullptr && this->migrationType_ == nullptr
-        && this->projectId_ == nullptr && this->sourceDataSourceType_ == nullptr; };
+        && this->owner_ == nullptr && this->projectId_ == nullptr && this->sourceDataSourceType_ == nullptr; };
         // DIJobId Field Functions 
         bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
         void deleteDIJobId() { this->DIJobId_ = nullptr;};
@@ -135,6 +137,13 @@ namespace Models
         inline DIJobs& setMigrationType(string migrationType) { DARABONBA_PTR_SET_VALUE(migrationType_, migrationType) };
 
 
+        // owner Field Functions 
+        bool hasOwner() const { return this->owner_ != nullptr;};
+        void deleteOwner() { this->owner_ = nullptr;};
+        inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+        inline DIJobs& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
+
+
         // projectId Field Functions 
         bool hasProjectId() const { return this->projectId_ != nullptr;};
         void deleteProjectId() { this->projectId_ = nullptr;};
@@ -175,6 +184,7 @@ namespace Models
         // *   OfflineIncremental: batch incremental synchronization
         // *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
         shared_ptr<string> migrationType_ {};
+        shared_ptr<string> owner_ {};
         // The ID of the DataWorks workspace to which the synchronization task belongs.
         shared_ptr<int64_t> projectId_ {};
         // The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation returns synchronization tasks that use all types of sources.

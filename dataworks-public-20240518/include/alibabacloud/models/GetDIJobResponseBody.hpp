@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(JobStatus, jobStatus_);
         DARABONBA_PTR_TO_JSON(JobType, jobType_);
         DARABONBA_PTR_TO_JSON(MigrationType, migrationType_);
+        DARABONBA_PTR_TO_JSON(Owner, owner_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(ResourceSettings, resourceSettings_);
         DARABONBA_PTR_TO_JSON(SourceDataSourceSettings, sourceDataSourceSettings_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(JobStatus, jobStatus_);
         DARABONBA_PTR_FROM_JSON(JobType, jobType_);
         DARABONBA_PTR_FROM_JSON(MigrationType, migrationType_);
+        DARABONBA_PTR_FROM_JSON(Owner, owner_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(ResourceSettings, resourceSettings_);
         DARABONBA_PTR_FROM_JSON(SourceDataSourceSettings, sourceDataSourceSettings_);
@@ -1006,8 +1008,9 @@ namespace Models
 
       virtual bool empty() const override { return this->DIJobId_ == nullptr
         && this->description_ == nullptr && this->destinationDataSourceSettings_ == nullptr && this->destinationDataSourceType_ == nullptr && this->id_ == nullptr && this->jobName_ == nullptr
-        && this->jobSettings_ == nullptr && this->jobStatus_ == nullptr && this->jobType_ == nullptr && this->migrationType_ == nullptr && this->projectId_ == nullptr
-        && this->resourceSettings_ == nullptr && this->sourceDataSourceSettings_ == nullptr && this->sourceDataSourceType_ == nullptr && this->tableMappings_ == nullptr && this->transformationRules_ == nullptr; };
+        && this->jobSettings_ == nullptr && this->jobStatus_ == nullptr && this->jobType_ == nullptr && this->migrationType_ == nullptr && this->owner_ == nullptr
+        && this->projectId_ == nullptr && this->resourceSettings_ == nullptr && this->sourceDataSourceSettings_ == nullptr && this->sourceDataSourceType_ == nullptr && this->tableMappings_ == nullptr
+        && this->transformationRules_ == nullptr; };
       // DIJobId Field Functions 
       bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
       void deleteDIJobId() { this->DIJobId_ = nullptr;};
@@ -1080,6 +1083,13 @@ namespace Models
       void deleteMigrationType() { this->migrationType_ = nullptr;};
       inline string getMigrationType() const { DARABONBA_PTR_GET_DEFAULT(migrationType_, "") };
       inline PagingInfo& setMigrationType(string migrationType) { DARABONBA_PTR_SET_VALUE(migrationType_, migrationType) };
+
+
+      // owner Field Functions 
+      bool hasOwner() const { return this->owner_ != nullptr;};
+      void deleteOwner() { this->owner_ = nullptr;};
+      inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+      inline PagingInfo& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
       // projectId Field Functions 
@@ -1165,6 +1175,7 @@ namespace Models
       // *   OfflineIncremental: batch incremental synchronization of data in an entire database
       // *   FullAndOfflineIncremental: full synchronization and batch incremental synchronization of data in an entire database
       shared_ptr<string> migrationType_ {};
+      shared_ptr<string> owner_ {};
       // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
       // 
       // This parameter indicates the DataWorks workspace to which the API operation is applied.

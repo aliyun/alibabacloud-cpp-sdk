@@ -135,6 +135,8 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
     shared_ptr<string> name_ {};
+    // The DataWorks workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The sampling settings.

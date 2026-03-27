@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The creation time. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The storage size of the partition. Unit: bytes.
     shared_ptr<int64_t> dataSize_ {};
+    // The modification time. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
+    // The partition name.
     shared_ptr<string> name_ {};
+    // The number of records in the partition.
     shared_ptr<int64_t> recordCount_ {};
+    // The ID of the table to which the partition belongs. You can configure this parameter by referring to the `Table` topic.
     shared_ptr<string> tableId_ {};
   };
 

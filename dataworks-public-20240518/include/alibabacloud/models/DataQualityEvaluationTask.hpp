@@ -90,7 +90,11 @@ namespace Models
 
 
     protected:
+      // The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
       shared_ptr<vector<int64_t>> taskIds_ {};
+      // The trigger condition of the task. Valid values:
+      // 
+      // *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
       shared_ptr<string> type_ {};
     };
 
@@ -150,9 +154,23 @@ namespace Models
 
 
     protected:
+      // The type of the database to which the table belongs. Valid values:
+      // 
+      // *   maxcompute
+      // *   emr
+      // *   cdh
+      // *   hologres
+      // *   analyticdb_for_postgresql
+      // *   analyticdb_for_mysql
+      // *   starrocks
       shared_ptr<string> databaseType_ {};
+      // The configuration of the partitioned table.
       shared_ptr<string> partitionSpec_ {};
+      // The ID of the table in Data Map.
       shared_ptr<string> tableGuid_ {};
+      // The type of the monitored object. Valid values:
+      // 
+      // *   Table
       shared_ptr<string> type_ {};
     };
 
@@ -247,8 +265,11 @@ namespace Models
 
 
         protected:
+          // The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
           shared_ptr<string> extension_ {};
+          // The type of the alert recipient.
           shared_ptr<string> receiverType_ {};
+          // The alert recipients.
           shared_ptr<vector<string>> receiverValues_ {};
         };
 
@@ -282,6 +303,7 @@ namespace Models
 
 
         protected:
+          // The alert notification method.
           shared_ptr<vector<string>> channels_ {};
         };
 
@@ -306,7 +328,9 @@ namespace Models
 
 
       protected:
+        // The alert notification methods.
         shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
+        // The alert recipients.
         shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
       };
 
@@ -329,7 +353,9 @@ namespace Models
 
 
     protected:
+      // The trigger condition of the alert notification.
       shared_ptr<string> condition_ {};
+      // The configurations for alert notifications.
       shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
     };
 
@@ -371,7 +397,11 @@ namespace Models
 
 
     protected:
+      // The trigger configuration of the callback event.
       shared_ptr<string> condition_ {};
+      // The type of the callback event. Valid values:
+      // 
+      // *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
       shared_ptr<string> type_ {};
     };
 
@@ -464,16 +494,27 @@ namespace Models
 
 
   protected:
+    // The ID of the data source that is used for task running.
     shared_ptr<int64_t> dataSourceId_ {};
+    // The description of the task. The description can be up to 65,535 characters in length.
     shared_ptr<string> description_ {};
+    // The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
     shared_ptr<vector<DataQualityEvaluationTask::Hooks>> hooks_ {};
+    // The ID of the data quality monitoring task.
     shared_ptr<int64_t> id_ {};
+    // The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
     shared_ptr<string> name_ {};
+    // The configurations for alert notifications.
     shared_ptr<vector<DataQualityEvaluationTask::Notifications>> notifications_ {};
+    // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
+    // The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
     shared_ptr<string> runtimeConf_ {};
+    // The monitored object of the task.
     shared_ptr<DataQualityEvaluationTask::Target> target_ {};
+    // The DataWorks tenant ID.
     shared_ptr<int64_t> tenantId_ {};
+    // The trigger configuration of the task.
     shared_ptr<DataQualityEvaluationTask::Trigger> trigger_ {};
   };
 

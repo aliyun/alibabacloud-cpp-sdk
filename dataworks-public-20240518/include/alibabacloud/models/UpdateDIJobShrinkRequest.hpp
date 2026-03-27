@@ -15,8 +15,10 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateDIJobShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DIJobId, DIJobId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(FileSpec, fileSpec_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(JobSettings, jobSettingsShrink_);
+      DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ResourceSettings, resourceSettingsShrink_);
       DARABONBA_PTR_TO_JSON(TableMappings, tableMappingsShrink_);
@@ -25,8 +27,10 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateDIJobShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DIJobId, DIJobId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(FileSpec, fileSpec_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(JobSettings, jobSettingsShrink_);
+      DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ResourceSettings, resourceSettingsShrink_);
       DARABONBA_PTR_FROM_JSON(TableMappings, tableMappingsShrink_);
@@ -44,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DIJobId_ == nullptr
-        && this->description_ == nullptr && this->id_ == nullptr && this->jobSettingsShrink_ == nullptr && this->projectId_ == nullptr && this->resourceSettingsShrink_ == nullptr
-        && this->tableMappingsShrink_ == nullptr && this->transformationRulesShrink_ == nullptr; };
+        && this->description_ == nullptr && this->fileSpec_ == nullptr && this->id_ == nullptr && this->jobSettingsShrink_ == nullptr && this->owner_ == nullptr
+        && this->projectId_ == nullptr && this->resourceSettingsShrink_ == nullptr && this->tableMappingsShrink_ == nullptr && this->transformationRulesShrink_ == nullptr; };
     // DIJobId Field Functions 
     bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
     void deleteDIJobId() { this->DIJobId_ = nullptr;};
@@ -60,6 +64,13 @@ namespace Models
     inline UpdateDIJobShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // fileSpec Field Functions 
+    bool hasFileSpec() const { return this->fileSpec_ != nullptr;};
+    void deleteFileSpec() { this->fileSpec_ = nullptr;};
+    inline string getFileSpec() const { DARABONBA_PTR_GET_DEFAULT(fileSpec_, "") };
+    inline UpdateDIJobShrinkRequest& setFileSpec(string fileSpec) { DARABONBA_PTR_SET_VALUE(fileSpec_, fileSpec) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -72,6 +83,13 @@ namespace Models
     void deleteJobSettingsShrink() { this->jobSettingsShrink_ = nullptr;};
     inline string getJobSettingsShrink() const { DARABONBA_PTR_GET_DEFAULT(jobSettingsShrink_, "") };
     inline UpdateDIJobShrinkRequest& setJobSettingsShrink(string jobSettingsShrink) { DARABONBA_PTR_SET_VALUE(jobSettingsShrink_, jobSettingsShrink) };
+
+
+    // owner Field Functions 
+    bool hasOwner() const { return this->owner_ != nullptr;};
+    void deleteOwner() { this->owner_ = nullptr;};
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline UpdateDIJobShrinkRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // projectId Field Functions 
@@ -105,14 +123,26 @@ namespace Models
   protected:
     // This parameter is deprecated. Use the Id parameter instead.
     shared_ptr<int64_t> DIJobId_ {};
+    // The task description.
     shared_ptr<string> description_ {};
+    shared_ptr<string> fileSpec_ {};
     // The ID of the synchronization task.
     shared_ptr<int64_t> id_ {};
+    // The task-level settings, including DDL handling policies, column data type mapping between source and destination, and runtime parameters.
     shared_ptr<string> jobSettingsShrink_ {};
+    // The task owner.
+    shared_ptr<string> owner_ {};
     // The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
     shared_ptr<int64_t> projectId_ {};
+    // The resource settings.
     shared_ptr<string> resourceSettingsShrink_ {};
+    // The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
+    // 
+    // >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
     shared_ptr<string> tableMappingsShrink_ {};
+    // The list of synchronization object transformation rule definitions.
+    // 
+    // >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
     shared_ptr<string> transformationRulesShrink_ {};
   };
 

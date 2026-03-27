@@ -156,18 +156,50 @@ namespace Models
 
 
   protected:
+    // The description of the dataset. The length cannot exceed 1024 characters.
     shared_ptr<string> comment_ {};
+    // The creation time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The ID of the creator.
     shared_ptr<string> creatorId_ {};
+    // The data type. Valid values:
+    // 
+    // *   COMMON
+    // *   PIC
+    // *   TEXT
+    // *   TABLE
+    // *   VIDEO
+    // *   AUDIO
+    // *   INDEX
     shared_ptr<string> dataType_ {};
+    // The dataset ID.
     shared_ptr<string> id_ {};
+    // Dataset tags. Supported only for PAI datasets.
     shared_ptr<vector<DatasetLabel>> labels_ {};
+    // The latest dataset version object.
     shared_ptr<DatasetVersion> latestVersion_ {};
+    // The modification time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
+    // The dataset name. It must be a non-empty string and cannot exceed 128 characters.
     shared_ptr<string> name_ {};
+    // The source of the dataset. Currently supported sources:
+    // 
+    // *   DataWorks
+    // *   PAI
     shared_ptr<string> origin_ {};
+    // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
+    // Instructions for using the dataset. Markdown rich text is supported.
     shared_ptr<string> readme_ {};
+    // The storage type. Valid values:
+    // 
+    // *   OSS: Object Storage Service
+    // *   NAS: General-purpose NAS file systems
+    // *   EXTREM_NAS: Extreme NAS file systems
+    // *   DLF_LANCE: Data Lake Formation
+    // *   CPFS: Cloud Paralleled File System
+    // *   BMCPFS: CPFS for Lingjun
+    // *   MAXCOMPUTE: MaxCompute table
     shared_ptr<string> storageType_ {};
   };
 

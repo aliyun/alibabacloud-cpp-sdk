@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Dataset label keys
     shared_ptr<string> key_ {};
+    // Dataset label values
     shared_ptr<string> value_ {};
   };
 

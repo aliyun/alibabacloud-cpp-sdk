@@ -10,15 +10,15 @@
 #include <darabonba/http/Form.hpp>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::DataworksPublic20240518::Models;
@@ -111,9 +111,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
-  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
-  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
-  Darabonba::Exception _lastException;
+  std::exception_ptr _lastExceptionPtr;
   int _retriesAttempted = 0;
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
@@ -133,29 +131,27 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
       request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
       shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-      _lastResponse  = response_;
 
       json respMap = nullptr;
       string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
       if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap["Error"]);
+        json err = json(respMap.value("Error", Darabonba::Json()));
         throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err["Code"])},
-          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
+          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
           {"data" , json({
             {"httpCode" , response_->getStatusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
+            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
           })}
         }));
       }
@@ -163,18 +159,17 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
       return Darabonba::Core::merge(respMap
       );
-    } catch (const Darabonba::Exception& ex) {
+    } catch (const Darabonba::DaraException& ex) {
+      _lastExceptionPtr = std::current_exception();
       _context = Darabonba::Policy::RetryPolicyContext(json({
         {"retriesAttempted" , _retriesAttempted},
-        {"lastRequest" , _lastRequest},
-        {"lastResponse" , _lastResponse},
         {"exception" , ex},
       }));
       continue;
     }
   }
 
-  throw *_context.getException();
+  std::rethrow_exception(_lastExceptionPtr);
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -240,7 +235,7 @@ AbolishPipelineRunResponse Client::abolishPipelineRun(const AbolishPipelineRunRe
 }
 
 /**
- * @summary 从集合中移除实体对象
+ * @summary Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request AddEntityIntoMetaCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -279,7 +274,7 @@ AddEntityIntoMetaCollectionResponse Client::addEntityIntoMetaCollectionWithOptio
 }
 
 /**
- * @summary 从集合中移除实体对象
+ * @summary Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request AddEntityIntoMetaCollectionRequest
  * @return AddEntityIntoMetaCollectionResponse
@@ -344,6 +339,8 @@ AssociateProjectToResourceGroupResponse Client::associateProjectToResourceGroup(
 }
 
 /**
+ * @deprecated OpenAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Associates monitoring rules with a data quality monitoring task.
  *
  * @param tmpReq AttachDataQualityRulesToEvaluationTaskRequest
@@ -389,6 +386,8 @@ AttachDataQualityRulesToEvaluationTaskResponse Client::attachDataQualityRulesToE
 }
 
 /**
+ * @deprecated OpenAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Associates monitoring rules with a data quality monitoring task.
  *
  * @param request AttachDataQualityRulesToEvaluationTaskRequest
@@ -578,6 +577,8 @@ CreateAlertRuleResponse Client::createAlertRule(const CreateAlertRuleRequest &re
 }
 
 /**
+ * @summary Creates a workflow in DataStudio.
+ *
  * @param request CreateBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateBusinessResponse
@@ -627,6 +628,8 @@ CreateBusinessResponse Client::createBusinessWithOptions(const CreateBusinessReq
 }
 
 /**
+ * @summary Creates a workflow in DataStudio.
+ *
  * @param request CreateBusinessRequest
  * @return CreateBusinessResponse
  */
@@ -686,7 +689,7 @@ CreateComponentResponse Client::createComponent(const CreateComponentRequest &re
 }
 
 /**
- * @summary 验证用
+ * @summary Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
  *
  * @param request CreateComputeResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -737,7 +740,7 @@ CreateComputeResourceResponse Client::createComputeResourceWithOptions(const Cre
 }
 
 /**
- * @summary 验证用
+ * @summary Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
  *
  * @param request CreateComputeResourceRequest
  * @return CreateComputeResourceResponse
@@ -854,6 +857,10 @@ CreateDIJobResponse Client::createDIJobWithOptions(const CreateDIJobRequest &tmp
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasOwner()) {
+    query["Owner"] = request.getOwner();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -869,6 +876,10 @@ CreateDIJobResponse Client::createDIJobWithOptions(const CreateDIJobRequest &tmp
 
   if (!!request.hasDestinationDataSourceSettingsShrink()) {
     body["DestinationDataSourceSettings"] = request.getDestinationDataSourceSettingsShrink();
+  }
+
+  if (!!request.hasFileSpec()) {
+    body["FileSpec"] = request.getFileSpec();
   }
 
   if (!!request.hasJobSettingsShrink()) {
@@ -1064,6 +1075,8 @@ CreateDataQualityAlertRuleResponse Client::createDataQualityAlertRule(const Crea
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+ *
  * @summary Creates a monitor in DataWorks Data Quality.
  *
  * @description This API operation is supported in all DataWorks editions.
@@ -1155,6 +1168,8 @@ CreateDataQualityEvaluationTaskResponse Client::createDataQualityEvaluationTaskW
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+ *
  * @summary Creates a monitor in DataWorks Data Quality.
  *
  * @description This API operation is supported in all DataWorks editions.
@@ -1168,6 +1183,8 @@ CreateDataQualityEvaluationTaskResponse Client::createDataQualityEvaluationTask(
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead.
+ *
  * @summary Creates a monitor instance.
  *
  * @param tmpReq CreateDataQualityEvaluationTaskInstanceRequest
@@ -1217,6 +1234,8 @@ CreateDataQualityEvaluationTaskInstanceResponse Client::createDataQualityEvaluat
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead.
+ *
  * @summary Creates a monitor instance.
  *
  * @param request CreateDataQualityEvaluationTaskInstanceRequest
@@ -1228,6 +1247,8 @@ CreateDataQualityEvaluationTaskInstanceResponse Client::createDataQualityEvaluat
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+ *
  * @summary Creates a data quality monitoring rule.
  *
  * @param tmpReq CreateDataQualityRuleRequest
@@ -1313,6 +1334,8 @@ CreateDataQualityRuleResponse Client::createDataQualityRuleWithOptions(const Cre
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+ *
  * @summary Creates a data quality monitoring rule.
  *
  * @param request CreateDataQualityRuleRequest
@@ -1324,6 +1347,8 @@ CreateDataQualityRuleResponse Client::createDataQualityRule(const CreateDataQual
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead.
+ *
  * @summary Creates a data quality monitoring rule template.
  *
  * @param tmpReq CreateDataQualityRuleTemplateRequest
@@ -1385,6 +1410,8 @@ CreateDataQualityRuleTemplateResponse Client::createDataQualityRuleTemplateWithO
 }
 
 /**
+ * @deprecated OpenAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead.
+ *
  * @summary Creates a data quality monitoring rule template.
  *
  * @param request CreateDataQualityRuleTemplateRequest
@@ -1894,6 +1921,8 @@ CreateDatasetVersionResponse Client::createDatasetVersion(const CreateDatasetVer
 }
 
 /**
+ * @summary Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+ *
  * @param request CreateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateFileResponse
@@ -2055,6 +2084,8 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
 }
 
 /**
+ * @summary Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+ *
  * @param request CreateFileRequest
  * @return CreateFileResponse
  */
@@ -2064,6 +2095,8 @@ CreateFileResponse Client::createFile(const CreateFileRequest &request) {
 }
 
 /**
+ * @summary Creates a folder.
+ *
  * @param request CreateFolderRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateFolderResponse
@@ -2101,6 +2134,8 @@ CreateFolderResponse Client::createFolderWithOptions(const CreateFolderRequest &
 }
 
 /**
+ * @summary Creates a folder.
+ *
  * @param request CreateFolderRequest
  * @return CreateFolderResponse
  */
@@ -2212,7 +2247,7 @@ CreateIdentifyCredentialResponse Client::createIdentifyCredential(const CreateId
 }
 
 /**
- * @summary Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+ * @summary Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
  *
  * @param tmpReq CreateLineageRelationshipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2265,7 +2300,7 @@ CreateLineageRelationshipResponse Client::createLineageRelationshipWithOptions(c
 }
 
 /**
- * @summary Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+ * @summary Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
  *
  * @param request CreateLineageRelationshipRequest
  * @return CreateLineageRelationshipResponse
@@ -2648,7 +2683,7 @@ CreateProjectMemberResponse Client::createProjectMember(const CreateProjectMembe
 }
 
 /**
- * @summary >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+ * @summary \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
  *
  * @description Private
  *
@@ -2689,7 +2724,7 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
 }
 
 /**
- * @summary >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+ * @summary \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
  *
  * @description Private
  *
@@ -3112,6 +3147,8 @@ CreateRouteResponse Client::createRoute(const CreateRouteRequest &request) {
 }
 
 /**
+ * @summary Creates a file for a function in DataStudio.
+ *
  * @param request CreateUdfFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateUdfFileResponse
@@ -3189,6 +3226,8 @@ CreateUdfFileResponse Client::createUdfFileWithOptions(const CreateUdfFileReques
 }
 
 /**
+ * @summary Creates a file for a function in DataStudio.
+ *
  * @param request CreateUdfFileRequest
  * @return CreateUdfFileResponse
  */
@@ -3394,6 +3433,8 @@ DeleteAlertRuleResponse Client::deleteAlertRule(const DeleteAlertRuleRequest &re
 }
 
 /**
+ * @summary Deletes a workflow.
+ *
  * @param request DeleteBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteBusinessResponse
@@ -3431,6 +3472,8 @@ DeleteBusinessResponse Client::deleteBusinessWithOptions(const DeleteBusinessReq
 }
 
 /**
+ * @summary Deletes a workflow.
+ *
  * @param request DeleteBusinessRequest
  * @return DeleteBusinessResponse
  */
@@ -3542,7 +3585,7 @@ DeleteComponentResponse Client::deleteComponent(const DeleteComponentRequest &re
 }
 
 /**
- * @summary 验证用
+ * @summary Deletes the specified computing resource based on the computing resource ID.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
  * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
@@ -3581,7 +3624,7 @@ DeleteComputeResourceResponse Client::deleteComputeResourceWithOptions(const Del
 }
 
 /**
- * @summary 验证用
+ * @summary Deletes the specified computing resource based on the computing resource ID.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
  * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
@@ -3778,6 +3821,8 @@ DeleteDataQualityAlertRuleResponse Client::deleteDataQualityAlertRule(const Dele
 }
 
 /**
+ * @deprecated OpenAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+ *
  * @summary Deletes a data quality monitoring task.
  *
  * @param request DeleteDataQualityEvaluationTaskRequest
@@ -3813,6 +3858,8 @@ DeleteDataQualityEvaluationTaskResponse Client::deleteDataQualityEvaluationTaskW
 }
 
 /**
+ * @deprecated OpenAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+ *
  * @summary Deletes a data quality monitoring task.
  *
  * @param request DeleteDataQualityEvaluationTaskRequest
@@ -3870,6 +3917,8 @@ DeleteDataQualityRuleResponse Client::deleteDataQualityRule(const DeleteDataQual
 }
 
 /**
+ * @deprecated OpenAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead.
+ *
  * @summary Deletes a data quality monitoring rule template.
  *
  * @param request DeleteDataQualityRuleTemplateRequest
@@ -3905,6 +3954,8 @@ DeleteDataQualityRuleTemplateResponse Client::deleteDataQualityRuleTemplateWithO
 }
 
 /**
+ * @deprecated OpenAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead.
+ *
  * @summary Deletes a data quality monitoring rule template.
  *
  * @param request DeleteDataQualityRuleTemplateRequest
@@ -4198,6 +4249,8 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersion(const DeleteDatasetVer
 }
 
 /**
+ * @summary Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+ *
  * @param request DeleteFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteFileResponse
@@ -4235,6 +4288,8 @@ DeleteFileResponse Client::deleteFileWithOptions(const DeleteFileRequest &reques
 }
 
 /**
+ * @summary Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+ *
  * @param request DeleteFileRequest
  * @return DeleteFileResponse
  */
@@ -4340,7 +4395,7 @@ DeleteFunctionResponse Client::deleteFunction(const DeleteFunctionRequest &reque
 }
 
 /**
- * @summary 删除血缘关系
+ * @summary Deletes a lineage in Data Map.
  *
  * @param request DeleteLineageRelationshipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4371,7 +4426,7 @@ DeleteLineageRelationshipResponse Client::deleteLineageRelationshipWithOptions(c
 }
 
 /**
- * @summary 删除血缘关系
+ * @summary Deletes a lineage in Data Map.
  *
  * @param request DeleteLineageRelationshipRequest
  * @return DeleteLineageRelationshipResponse
@@ -4382,7 +4437,7 @@ DeleteLineageRelationshipResponse Client::deleteLineageRelationship(const Delete
 }
 
 /**
- * @summary 删除集合
+ * @summary Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request DeleteMetaCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4413,7 +4468,7 @@ DeleteMetaCollectionResponse Client::deleteMetaCollectionWithOptions(const Delet
 }
 
 /**
- * @summary 删除集合
+ * @summary Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request DeleteMetaCollectionRequest
  * @return DeleteMetaCollectionResponse
@@ -4970,6 +5025,8 @@ DeployFileResponse Client::deployFile(const DeployFileRequest &request) {
 }
 
 /**
+ * @deprecated OpenAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Disassociates monitoring rules from a data quality monitoring task.
  *
  * @param tmpReq DetachDataQualityRulesFromEvaluationTaskRequest
@@ -5015,6 +5072,8 @@ DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesF
 }
 
 /**
+ * @deprecated OpenAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Disassociates monitoring rules from a data quality monitoring task.
  *
  * @param request DetachDataQualityRulesFromEvaluationTaskRequest
@@ -5080,6 +5139,8 @@ DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResource
 }
 
 /**
+ * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+ *
  * @param request EstablishRelationTableToBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EstablishRelationTableToBusinessResponse
@@ -5125,6 +5186,8 @@ EstablishRelationTableToBusinessResponse Client::establishRelationTableToBusines
 }
 
 /**
+ * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+ *
  * @param request EstablishRelationTableToBusinessRequest
  * @return EstablishRelationTableToBusinessResponse
  */
@@ -5302,6 +5365,8 @@ GetAlertRuleResponse Client::getAlertRule(const GetAlertRuleRequest &request) {
 }
 
 /**
+ * @summary Queries the information about a workflow.
+ *
  * @param request GetBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBusinessResponse
@@ -5339,6 +5404,8 @@ GetBusinessResponse Client::getBusinessWithOptions(const GetBusinessRequest &req
 }
 
 /**
+ * @summary Queries the information about a workflow.
+ *
  * @param request GetBusinessRequest
  * @return GetBusinessResponse
  */
@@ -5348,7 +5415,7 @@ GetBusinessResponse Client::getBusiness(const GetBusinessRequest &request) {
 }
 
 /**
- * @summary 获取数据目录详情
+ * @summary Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
  *
  * @param request GetCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5375,7 +5442,7 @@ GetCatalogResponse Client::getCatalogWithOptions(const GetCatalogRequest &reques
 }
 
 /**
- * @summary 获取数据目录详情
+ * @summary Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
  *
  * @param request GetCatalogRequest
  * @return GetCatalogResponse
@@ -5386,7 +5453,7 @@ GetCatalogResponse Client::getCatalog(const GetCatalogRequest &request) {
 }
 
 /**
- * @summary Queries a certificate file.
+ * @summary View certificate details.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
  * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
@@ -5416,7 +5483,7 @@ GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateReq
 }
 
 /**
- * @summary Queries a certificate file.
+ * @summary View certificate details.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
  * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
@@ -5430,7 +5497,7 @@ GetCertificateResponse Client::getCertificate(const GetCertificateRequest &reque
 }
 
 /**
- * @summary 获取字段详情
+ * @summary Queries the information about a specific field of a table in Data Map.
  *
  * @param request GetColumnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5457,7 +5524,7 @@ GetColumnResponse Client::getColumnWithOptions(const GetColumnRequest &request, 
 }
 
 /**
- * @summary 获取字段详情
+ * @summary Queries the information about a specific field of a table in Data Map.
  *
  * @param request GetColumnRequest
  * @return GetColumnResponse
@@ -5518,7 +5585,7 @@ GetComponentResponse Client::getComponent(const GetComponentRequest &request) {
 }
 
 /**
- * @summary 验证用
+ * @summary Queries the specified computing resource based on the computing resource ID.
  *
  * @param request GetComputeResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5553,7 +5620,7 @@ GetComputeResourceResponse Client::getComputeResourceWithOptions(const GetComput
 }
 
 /**
- * @summary 验证用
+ * @summary Queries the specified computing resource based on the computing resource ID.
  *
  * @param request GetComputeResourceRequest
  * @return GetComputeResourceResponse
@@ -5736,6 +5803,8 @@ GetDataQualityAlertRuleResponse Client::getDataQualityAlertRule(const GetDataQua
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+ *
  * @summary Queries the details of a monitor.
  *
  * @param request GetDataQualityEvaluationTaskRequest
@@ -5763,6 +5832,8 @@ GetDataQualityEvaluationTaskResponse Client::getDataQualityEvaluationTaskWithOpt
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+ *
  * @summary Queries the details of a monitor.
  *
  * @param request GetDataQualityEvaluationTaskRequest
@@ -5774,6 +5845,8 @@ GetDataQualityEvaluationTaskResponse Client::getDataQualityEvaluationTask(const 
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead.
+ *
  * @summary Queries the details of a monitor instance.
  *
  * @param request GetDataQualityEvaluationTaskInstanceRequest
@@ -5801,6 +5874,8 @@ GetDataQualityEvaluationTaskInstanceResponse Client::getDataQualityEvaluationTas
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead.
+ *
  * @summary Queries the details of a monitor instance.
  *
  * @param request GetDataQualityEvaluationTaskInstanceRequest
@@ -5812,6 +5887,8 @@ GetDataQualityEvaluationTaskInstanceResponse Client::getDataQualityEvaluationTas
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+ *
  * @summary Queries the information about a data quality monitoring rule.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -5841,6 +5918,8 @@ GetDataQualityRuleResponse Client::getDataQualityRuleWithOptions(const GetDataQu
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+ *
  * @summary Queries the information about a data quality monitoring rule.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -5854,6 +5933,8 @@ GetDataQualityRuleResponse Client::getDataQualityRule(const GetDataQualityRuleRe
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead.
+ *
  * @summary Queries the information about a data quality monitoring rule template.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -5883,6 +5964,8 @@ GetDataQualityRuleTemplateResponse Client::getDataQualityRuleTemplateWithOptions
 }
 
 /**
+ * @deprecated OpenAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead.
+ *
  * @summary Queries the information about a data quality monitoring rule template.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -6130,7 +6213,7 @@ GetDataSourceResponse Client::getDataSource(const GetDataSourceRequest &request)
 }
 
 /**
- * @summary 获取数据库详情
+ * @summary Queries the information about a specific database in Data Map.
  *
  * @param request GetDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6157,7 +6240,7 @@ GetDatabaseResponse Client::getDatabaseWithOptions(const GetDatabaseRequest &req
 }
 
 /**
- * @summary 获取数据库详情
+ * @summary Queries the information about a specific database in Data Map.
  *
  * @param request GetDatabaseRequest
  * @return GetDatabaseResponse
@@ -6168,7 +6251,7 @@ GetDatabaseResponse Client::getDatabase(const GetDatabaseRequest &request) {
 }
 
 /**
- * @summary 获取数据集详情
+ * @summary Gets the details of a dataset.
  *
  * @param request GetDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6199,7 +6282,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
 }
 
 /**
- * @summary 获取数据集详情
+ * @summary Gets the details of a dataset.
  *
  * @param request GetDatasetRequest
  * @return GetDatasetResponse
@@ -6252,6 +6335,8 @@ GetDatasetVersionResponse Client::getDatasetVersion(const GetDatasetVersionReque
 }
 
 /**
+ * @summary Queries the information about a deployment package.
+ *
  * @param request GetDeploymentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDeploymentPackageResponse
@@ -6289,6 +6374,8 @@ GetDeploymentPackageResponse Client::getDeploymentPackageWithOptions(const GetDe
 }
 
 /**
+ * @summary Queries the information about a deployment package.
+ *
  * @param request GetDeploymentPackageRequest
  * @return GetDeploymentPackageResponse
  */
@@ -6406,6 +6493,8 @@ GetFileVersionResponse Client::getFileVersion(const GetFileVersionRequest &reque
 }
 
 /**
+ * @summary Queries the information about a folder.
+ *
  * @param request GetFolderRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFolderResponse
@@ -6447,6 +6536,8 @@ GetFolderResponse Client::getFolderWithOptions(const GetFolderRequest &request, 
 }
 
 /**
+ * @summary Queries the information about a folder.
+ *
  * @param request GetFolderRequest
  * @return GetFolderResponse
  */
@@ -6578,7 +6669,7 @@ GetJobStatusResponse Client::getJobStatus(const GetJobStatusRequest &request) {
 }
 
 /**
- * @summary 获取血缘关系详情
+ * @summary Queries the information about a lineage in Data Map.
  *
  * @param request GetLineageRelationshipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6605,7 +6696,7 @@ GetLineageRelationshipResponse Client::getLineageRelationshipWithOptions(const G
 }
 
 /**
- * @summary 获取血缘关系详情
+ * @summary Queries the information about a lineage in Data Map.
  *
  * @param request GetLineageRelationshipRequest
  * @return GetLineageRelationshipResponse
@@ -7166,7 +7257,7 @@ GetSchemaResponse Client::getSchema(const GetSchemaRequest &request) {
 }
 
 /**
- * @summary 获取表详情
+ * @summary Queries the information about a specific table in Data Map.
  *
  * @param request GetTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7193,7 +7284,7 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 }
 
 /**
- * @summary 获取表详情
+ * @summary Queries the information about a specific table in Data Map.
  *
  * @param request GetTableRequest
  * @return GetTableResponse
@@ -7778,6 +7869,8 @@ ListAlertRulesResponse Client::listAlertRules(const ListAlertRulesRequest &reque
 }
 
 /**
+ * @summary Queries a list of workflows.
+ *
  * @param request ListBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListBusinessResponse
@@ -7823,6 +7916,8 @@ ListBusinessResponse Client::listBusinessWithOptions(const ListBusinessRequest &
 }
 
 /**
+ * @summary Queries a list of workflows.
+ *
  * @param request ListBusinessRequest
  * @return ListBusinessResponse
  */
@@ -7832,7 +7927,7 @@ ListBusinessResponse Client::listBusiness(const ListBusinessRequest &request) {
 }
 
 /**
- * @summary 查询数据目录列表
+ * @summary Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
  *
  * @param tmpReq ListCatalogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7865,7 +7960,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
 }
 
 /**
- * @summary 查询数据目录列表
+ * @summary Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
  *
  * @param request ListCatalogsRequest
  * @return ListCatalogsResponse
@@ -7920,7 +8015,7 @@ ListCertificatesResponse Client::listCertificates(const ListCertificatesRequest 
 }
 
 /**
- * @summary 查询字段列表
+ * @summary Queries a list of fields in a data table in Data Map.
  *
  * @param request ListColumnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7947,7 +8042,7 @@ ListColumnsResponse Client::listColumnsWithOptions(const ListColumnsRequest &req
 }
 
 /**
- * @summary 查询字段列表
+ * @summary Queries a list of fields in a data table in Data Map.
  *
  * @param request ListColumnsRequest
  * @return ListColumnsResponse
@@ -8016,7 +8111,7 @@ ListComponentsResponse Client::listComponents(const ListComponentsRequest &reque
 }
 
 /**
- * @summary 验证用
+ * @summary Queries the list of computing resources that meet the specified business information.
  *
  * @param tmpReq ListComputeResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8081,7 +8176,7 @@ ListComputeResourcesResponse Client::listComputeResourcesWithOptions(const ListC
 }
 
 /**
- * @summary 验证用
+ * @summary Queries the list of computing resources that meet the specified business information.
  *
  * @param request ListComputeResourcesRequest
  * @return ListComputeResourcesResponse
@@ -8092,7 +8187,7 @@ ListComputeResourcesResponse Client::listComputeResources(const ListComputeResou
 }
 
 /**
- * @summary 查询元数据采集器类型列表
+ * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
  *
  * @param request ListCrawlerTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8115,7 +8210,7 @@ ListCrawlerTypesResponse Client::listCrawlerTypesWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary 查询元数据采集器类型列表
+ * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
  *
  * @return ListCrawlerTypesResponse
  */
@@ -8493,6 +8588,8 @@ ListDataQualityAlertRulesResponse Client::listDataQualityAlertRules(const ListDa
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+ *
  * @summary Queries a list of instances generated by a data quality monitoring task by page.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -8522,6 +8619,8 @@ ListDataQualityEvaluationTaskInstancesResponse Client::listDataQualityEvaluation
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+ *
  * @summary Queries a list of instances generated by a data quality monitoring task by page.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -8535,6 +8634,8 @@ ListDataQualityEvaluationTaskInstancesResponse Client::listDataQualityEvaluation
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+ *
  * @summary Queries a list of data quality monitoring tasks by page.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -8564,6 +8665,8 @@ ListDataQualityEvaluationTasksResponse Client::listDataQualityEvaluationTasksWit
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+ *
  * @summary Queries a list of data quality monitoring tasks by page.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -8577,6 +8680,10 @@ ListDataQualityEvaluationTasksResponse Client::listDataQualityEvaluationTasks(co
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+ *
+ * @summary 查询数据质量规则校验结果列表
+ *
  * @description This API operation is available for all DataWorks editions.
  *
  * @param request ListDataQualityResultsRequest
@@ -8604,6 +8711,10 @@ ListDataQualityResultsResponse Client::listDataQualityResultsWithOptions(const L
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+ *
+ * @summary 查询数据质量规则校验结果列表
+ *
  * @description This API operation is available for all DataWorks editions.
  *
  * @param request ListDataQualityResultsRequest
@@ -8615,6 +8726,8 @@ ListDataQualityResultsResponse Client::listDataQualityResults(const ListDataQual
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead.
+ *
  * @summary Queries a list of data quality monitoring rule templates.
  *
  * @param request ListDataQualityRuleTemplatesRequest
@@ -8642,6 +8755,8 @@ ListDataQualityRuleTemplatesResponse Client::listDataQualityRuleTemplatesWithOpt
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead.
+ *
  * @summary Queries a list of data quality monitoring rule templates.
  *
  * @param request ListDataQualityRuleTemplatesRequest
@@ -8653,6 +8768,8 @@ ListDataQualityRuleTemplatesResponse Client::listDataQualityRuleTemplates(const 
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+ *
  * @summary Queries a list of data quality monitoring rules by page.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -8682,6 +8799,8 @@ ListDataQualityRulesResponse Client::listDataQualityRulesWithOptions(const ListD
 }
 
 /**
+ * @deprecated OpenAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
+ *
  * @summary Queries a list of data quality monitoring rules by page.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -9005,7 +9124,7 @@ ListDataSourcesResponse Client::listDataSources(const ListDataSourcesRequest &re
 }
 
 /**
- * @summary 查询数据库列表
+ * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
  *
  * @param request ListDatabasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9032,7 +9151,7 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const ListDatabasesReques
 }
 
 /**
- * @summary 查询数据库列表
+ * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
  *
  * @param request ListDatabasesRequest
  * @return ListDatabasesResponse
@@ -9481,6 +9600,8 @@ ListEntitiesInMetaCollectionResponse Client::listEntitiesInMetaCollection(const 
 }
 
 /**
+ * @summary Queries a list of file versions.
+ *
  * @param request ListFileVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFileVersionsResponse
@@ -9526,6 +9647,8 @@ ListFileVersionsResponse Client::listFileVersionsWithOptions(const ListFileVersi
 }
 
 /**
+ * @summary Queries a list of file versions.
+ *
  * @param request ListFileVersionsRequest
  * @return ListFileVersionsResponse
  */
@@ -9535,6 +9658,8 @@ ListFileVersionsResponse Client::listFileVersions(const ListFileVersionsRequest 
 }
 
 /**
+ * @summary Queries a list of files.
+ *
  * @param request ListFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFilesResponse
@@ -9624,6 +9749,8 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &request, 
 }
 
 /**
+ * @summary Queries a list of files.
+ *
  * @param request ListFilesRequest
  * @return ListFilesResponse
  */
@@ -9633,6 +9760,8 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
+ * @summary Queries a list of folders.
+ *
  * @param request ListFoldersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFoldersResponse
@@ -9678,6 +9807,8 @@ ListFoldersResponse Client::listFoldersWithOptions(const ListFoldersRequest &req
 }
 
 /**
+ * @summary Queries a list of folders.
+ *
  * @param request ListFoldersRequest
  * @return ListFoldersResponse
  */
@@ -9725,7 +9856,7 @@ ListFunctionsResponse Client::listFunctions(const ListFunctionsRequest &request)
 }
 
 /**
- * @summary 查询血缘关系
+ * @summary Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
  *
  * @param request ListLineageRelationshipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9752,7 +9883,7 @@ ListLineageRelationshipsResponse Client::listLineageRelationshipsWithOptions(con
 }
 
 /**
- * @summary 查询血缘关系
+ * @summary Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
  *
  * @param request ListLineageRelationshipsRequest
  * @return ListLineageRelationshipsResponse
@@ -9763,7 +9894,7 @@ ListLineageRelationshipsResponse Client::listLineageRelationships(const ListLine
 }
 
 /**
- * @summary 查询实体血缘
+ * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
  *
  * @param request ListLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9790,7 +9921,7 @@ ListLineagesResponse Client::listLineagesWithOptions(const ListLineagesRequest &
 }
 
 /**
- * @summary 查询实体血缘
+ * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
  *
  * @param request ListLineagesRequest
  * @return ListLineagesResponse
@@ -9957,7 +10088,7 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary 查询数据表的分区列表
+ * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
  *
  * @param request ListPartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9984,7 +10115,7 @@ ListPartitionsResponse Client::listPartitionsWithOptions(const ListPartitionsReq
 }
 
 /**
- * @summary 查询数据表的分区列表
+ * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
  *
  * @param request ListPartitionsRequest
  * @return ListPartitionsResponse
@@ -10311,7 +10442,7 @@ ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
 }
 
 /**
- * @summary Query the list of workspaces with which a resource group is associated
+ * @summary Gets the list of workspaces bound to a resource group.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
  * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
@@ -10345,7 +10476,7 @@ ListResourceGroupAssociateProjectsResponse Client::listResourceGroupAssociatePro
 }
 
 /**
- * @summary Query the list of workspaces with which a resource group is associated
+ * @summary Gets the list of workspaces bound to a resource group.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
  * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
@@ -10359,7 +10490,7 @@ ListResourceGroupAssociateProjectsResponse Client::listResourceGroupAssociatePro
 }
 
 /**
- * @summary 获取指定资源组的监控指标数据
+ * @summary Queries the metric data of a resource group.
  *
  * @param request ListResourceGroupMetricDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10414,7 +10545,7 @@ ListResourceGroupMetricDataResponse Client::listResourceGroupMetricDataWithOptio
 }
 
 /**
- * @summary 获取指定资源组的监控指标数据
+ * @summary Queries the metric data of a resource group.
  *
  * @param request ListResourceGroupMetricDataRequest
  * @return ListResourceGroupMetricDataResponse
@@ -11525,7 +11656,7 @@ PreviewDatasetVersionResponse Client::previewDatasetVersion(const PreviewDataset
 }
 
 /**
- * @summary 从集合中移除实体对象
+ * @summary Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request RemoveEntityFromMetaCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11560,7 +11691,7 @@ RemoveEntityFromMetaCollectionResponse Client::removeEntityFromMetaCollectionWit
 }
 
 /**
- * @summary 从集合中移除实体对象
+ * @summary Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request RemoveEntityFromMetaCollectionRequest
  * @return RemoveEntityFromMetaCollectionResponse
@@ -12411,6 +12542,8 @@ StopWorkflowInstancesResponse Client::stopWorkflowInstances(const StopWorkflowIn
 }
 
 /**
+ * @summary Commits a file to the development environment of the scheduling system to generate a task.
+ *
  * @param request SubmitFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitFileResponse
@@ -12456,6 +12589,8 @@ SubmitFileResponse Client::submitFileWithOptions(const SubmitFileRequest &reques
 }
 
 /**
+ * @summary Commits a file to the development environment of the scheduling system to generate a task.
+ *
  * @param request SubmitFileRequest
  * @return SubmitFileResponse
  */
@@ -12915,7 +13050,7 @@ UpdateBusinessResponse Client::updateBusiness(const UpdateBusinessRequest &reque
 }
 
 /**
- * @summary 更新字段业务元数据
+ * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
  *
  * @param request UpdateColumnBusinessMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12950,7 +13085,7 @@ UpdateColumnBusinessMetadataResponse Client::updateColumnBusinessMetadataWithOpt
 }
 
 /**
- * @summary 更新字段业务元数据
+ * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
  *
  * @param request UpdateColumnBusinessMetadataRequest
  * @return UpdateColumnBusinessMetadataResponse
@@ -13017,7 +13152,7 @@ UpdateComponentResponse Client::updateComponent(const UpdateComponentRequest &re
 }
 
 /**
- * @summary 验证用
+ * @summary Modifies the specified computing resource based on the computing resource ID.
  *
  * @param request UpdateComputeResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13064,7 +13199,7 @@ UpdateComputeResourceResponse Client::updateComputeResourceWithOptions(const Upd
 }
 
 /**
- * @summary 验证用
+ * @summary Modifies the specified computing resource based on the computing resource ID.
  *
  * @param request UpdateComputeResourceRequest
  * @return UpdateComputeResourceResponse
@@ -13160,6 +13295,10 @@ UpdateDIJobResponse Client::updateDIJobWithOptions(const UpdateDIJobRequest &tmp
     query["Id"] = request.getId();
   }
 
+  if (!!request.hasOwner()) {
+    query["Owner"] = request.getOwner();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -13167,6 +13306,10 @@ UpdateDIJobResponse Client::updateDIJobWithOptions(const UpdateDIJobRequest &tmp
   json body = {};
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFileSpec()) {
+    body["FileSpec"] = request.getFileSpec();
   }
 
   if (!!request.hasJobSettingsShrink()) {
@@ -13357,6 +13500,8 @@ UpdateDataQualityAlertRuleResponse Client::updateDataQualityAlertRule(const Upda
 }
 
 /**
+ * @deprecated OpenAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Updates a monitor.
  *
  * @description This API operation is supported in all DataWorks editions.
@@ -13452,6 +13597,8 @@ UpdateDataQualityEvaluationTaskResponse Client::updateDataQualityEvaluationTaskW
 }
 
 /**
+ * @deprecated OpenAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Updates a monitor.
  *
  * @description This API operation is supported in all DataWorks editions.
@@ -13465,6 +13612,8 @@ UpdateDataQualityEvaluationTaskResponse Client::updateDataQualityEvaluationTask(
 }
 
 /**
+ * @deprecated OpenAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Updates a data quality monitoring rule.
  *
  * @param tmpReq UpdateDataQualityRuleRequest
@@ -13548,6 +13697,8 @@ UpdateDataQualityRuleResponse Client::updateDataQualityRuleWithOptions(const Upd
 }
 
 /**
+ * @deprecated OpenAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+ *
  * @summary Updates a data quality monitoring rule.
  *
  * @param request UpdateDataQualityRuleRequest
@@ -13559,6 +13710,8 @@ UpdateDataQualityRuleResponse Client::updateDataQualityRule(const UpdateDataQual
 }
 
 /**
+ * @deprecated OpenAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead.
+ *
  * @summary Updates a data quality monitoring rule template.
  *
  * @param tmpReq UpdateDataQualityRuleTemplateRequest
@@ -13622,6 +13775,8 @@ UpdateDataQualityRuleTemplateResponse Client::updateDataQualityRuleTemplateWithO
 }
 
 /**
+ * @deprecated OpenAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead.
+ *
  * @summary Updates a data quality monitoring rule template.
  *
  * @param request UpdateDataQualityRuleTemplateRequest
@@ -13967,6 +14122,8 @@ UpdateDatasetVersionResponse Client::updateDatasetVersion(const UpdateDatasetVer
 }
 
 /**
+ * @summary Updates a file.
+ *
  * @param request UpdateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateFileResponse
@@ -14124,6 +14281,8 @@ UpdateFileResponse Client::updateFileWithOptions(const UpdateFileRequest &reques
 }
 
 /**
+ * @summary Updates a file.
+ *
  * @param request UpdateFileRequest
  * @return UpdateFileResponse
  */
@@ -14233,7 +14392,7 @@ UpdateFunctionResponse Client::updateFunction(const UpdateFunctionRequest &reque
 }
 
 /**
- * @summary 回调扩展点消息的检查结果
+ * @summary Recalls the check result of the message of an extension point event.
  *
  * @param request UpdateIDEEventResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14276,7 +14435,7 @@ UpdateIDEEventResultResponse Client::updateIDEEventResultWithOptions(const Updat
 }
 
 /**
- * @summary 回调扩展点消息的检查结果
+ * @summary Recalls the check result of the message of an extension point event.
  *
  * @param request UpdateIDEEventResultRequest
  * @return UpdateIDEEventResultResponse
@@ -14961,6 +15120,8 @@ UpdateTaskInstancesResponse Client::updateTaskInstances(const UpdateTaskInstance
 }
 
 /**
+ * @summary Updates the file information about a function.
+ *
  * @param request UpdateUdfFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateUdfFileResponse
@@ -15034,6 +15195,8 @@ UpdateUdfFileResponse Client::updateUdfFileWithOptions(const UpdateUdfFileReques
 }
 
 /**
+ * @summary Updates the file information about a function.
+ *
  * @param request UpdateUdfFileRequest
  * @return UpdateUdfFileResponse
  */
