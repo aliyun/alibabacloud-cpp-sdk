@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DisplayNameStartsWith, displayNameStartsWith_);
       DARABONBA_PTR_TO_JSON(Email, email_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OrganizationalUnitId, organizationalUnitId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -33,6 +35,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DisplayNameStartsWith, displayNameStartsWith_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OrganizationalUnitId, organizationalUnitId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -57,9 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->displayNameStartsWith_ == nullptr
-        && this->email_ == nullptr && this->instanceId_ == nullptr && this->organizationalUnitId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->phoneNumber_ == nullptr && this->phoneRegion_ == nullptr && this->status_ == nullptr && this->userExternalId_ == nullptr && this->userIds_ == nullptr
-        && this->userSourceId_ == nullptr && this->userSourceType_ == nullptr && this->usernameStartsWith_ == nullptr; };
+        && this->email_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->organizationalUnitId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->phoneNumber_ == nullptr && this->phoneRegion_ == nullptr && this->status_ == nullptr
+        && this->userExternalId_ == nullptr && this->userIds_ == nullptr && this->userSourceId_ == nullptr && this->userSourceType_ == nullptr && this->usernameStartsWith_ == nullptr; };
     // displayNameStartsWith Field Functions 
     bool hasDisplayNameStartsWith() const { return this->displayNameStartsWith_ != nullptr;};
     void deleteDisplayNameStartsWith() { this->displayNameStartsWith_ = nullptr;};
@@ -79,6 +83,20 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListUsersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListUsersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListUsersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // organizationalUnitId Field Functions 
@@ -169,6 +187,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // The ID of the organizational unit.
     shared_ptr<string> organizationalUnitId_ {};
     // The number of the page to return. Default value: 1.

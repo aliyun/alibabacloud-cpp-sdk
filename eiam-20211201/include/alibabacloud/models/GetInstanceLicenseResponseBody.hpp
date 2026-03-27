@@ -36,6 +36,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const License& obj) { 
         DARABONBA_PTR_TO_JSON(Edition, edition_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(InstanceLicenseDetail, instanceLicenseDetail_);
         DARABONBA_PTR_TO_JSON(LicenseChargeType, licenseChargeType_);
         DARABONBA_PTR_TO_JSON(LicenseConfigJson, licenseConfigJson_);
         DARABONBA_PTR_TO_JSON(LicenseCreateTime, licenseCreateTime_);
@@ -49,6 +50,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, License& obj) { 
         DARABONBA_PTR_FROM_JSON(Edition, edition_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(InstanceLicenseDetail, instanceLicenseDetail_);
         DARABONBA_PTR_FROM_JSON(LicenseChargeType, licenseChargeType_);
         DARABONBA_PTR_FROM_JSON(LicenseConfigJson, licenseConfigJson_);
         DARABONBA_PTR_FROM_JSON(LicenseCreateTime, licenseCreateTime_);
@@ -70,9 +72,82 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class InstanceLicenseDetail : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InstanceLicenseDetail& obj) { 
+          DARABONBA_PTR_TO_JSON(ConditionalAccessPolicyLicenseStatus, conditionalAccessPolicyLicenseStatus_);
+          DARABONBA_PTR_TO_JSON(M2mApplicationLicenseStatus, m2mApplicationLicenseStatus_);
+          DARABONBA_PTR_TO_JSON(M2mApplicationQuota, m2mApplicationQuota_);
+          DARABONBA_PTR_TO_JSON(NetworkAccessEndpointQuota, networkAccessEndpointQuota_);
+          DARABONBA_PTR_TO_JSON(UserQuota, userQuota_);
+        };
+        friend void from_json(const Darabonba::Json& j, InstanceLicenseDetail& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConditionalAccessPolicyLicenseStatus, conditionalAccessPolicyLicenseStatus_);
+          DARABONBA_PTR_FROM_JSON(M2mApplicationLicenseStatus, m2mApplicationLicenseStatus_);
+          DARABONBA_PTR_FROM_JSON(M2mApplicationQuota, m2mApplicationQuota_);
+          DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointQuota, networkAccessEndpointQuota_);
+          DARABONBA_PTR_FROM_JSON(UserQuota, userQuota_);
+        };
+        InstanceLicenseDetail() = default ;
+        InstanceLicenseDetail(const InstanceLicenseDetail &) = default ;
+        InstanceLicenseDetail(InstanceLicenseDetail &&) = default ;
+        InstanceLicenseDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InstanceLicenseDetail() = default ;
+        InstanceLicenseDetail& operator=(const InstanceLicenseDetail &) = default ;
+        InstanceLicenseDetail& operator=(InstanceLicenseDetail &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->conditionalAccessPolicyLicenseStatus_ == nullptr
+        && this->m2mApplicationLicenseStatus_ == nullptr && this->m2mApplicationQuota_ == nullptr && this->networkAccessEndpointQuota_ == nullptr && this->userQuota_ == nullptr; };
+        // conditionalAccessPolicyLicenseStatus Field Functions 
+        bool hasConditionalAccessPolicyLicenseStatus() const { return this->conditionalAccessPolicyLicenseStatus_ != nullptr;};
+        void deleteConditionalAccessPolicyLicenseStatus() { this->conditionalAccessPolicyLicenseStatus_ = nullptr;};
+        inline string getConditionalAccessPolicyLicenseStatus() const { DARABONBA_PTR_GET_DEFAULT(conditionalAccessPolicyLicenseStatus_, "") };
+        inline InstanceLicenseDetail& setConditionalAccessPolicyLicenseStatus(string conditionalAccessPolicyLicenseStatus) { DARABONBA_PTR_SET_VALUE(conditionalAccessPolicyLicenseStatus_, conditionalAccessPolicyLicenseStatus) };
+
+
+        // m2mApplicationLicenseStatus Field Functions 
+        bool hasM2mApplicationLicenseStatus() const { return this->m2mApplicationLicenseStatus_ != nullptr;};
+        void deleteM2mApplicationLicenseStatus() { this->m2mApplicationLicenseStatus_ = nullptr;};
+        inline string getM2mApplicationLicenseStatus() const { DARABONBA_PTR_GET_DEFAULT(m2mApplicationLicenseStatus_, "") };
+        inline InstanceLicenseDetail& setM2mApplicationLicenseStatus(string m2mApplicationLicenseStatus) { DARABONBA_PTR_SET_VALUE(m2mApplicationLicenseStatus_, m2mApplicationLicenseStatus) };
+
+
+        // m2mApplicationQuota Field Functions 
+        bool hasM2mApplicationQuota() const { return this->m2mApplicationQuota_ != nullptr;};
+        void deleteM2mApplicationQuota() { this->m2mApplicationQuota_ = nullptr;};
+        inline int64_t getM2mApplicationQuota() const { DARABONBA_PTR_GET_DEFAULT(m2mApplicationQuota_, 0L) };
+        inline InstanceLicenseDetail& setM2mApplicationQuota(int64_t m2mApplicationQuota) { DARABONBA_PTR_SET_VALUE(m2mApplicationQuota_, m2mApplicationQuota) };
+
+
+        // networkAccessEndpointQuota Field Functions 
+        bool hasNetworkAccessEndpointQuota() const { return this->networkAccessEndpointQuota_ != nullptr;};
+        void deleteNetworkAccessEndpointQuota() { this->networkAccessEndpointQuota_ = nullptr;};
+        inline int64_t getNetworkAccessEndpointQuota() const { DARABONBA_PTR_GET_DEFAULT(networkAccessEndpointQuota_, 0L) };
+        inline InstanceLicenseDetail& setNetworkAccessEndpointQuota(int64_t networkAccessEndpointQuota) { DARABONBA_PTR_SET_VALUE(networkAccessEndpointQuota_, networkAccessEndpointQuota) };
+
+
+        // userQuota Field Functions 
+        bool hasUserQuota() const { return this->userQuota_ != nullptr;};
+        void deleteUserQuota() { this->userQuota_ = nullptr;};
+        inline int64_t getUserQuota() const { DARABONBA_PTR_GET_DEFAULT(userQuota_, 0L) };
+        inline InstanceLicenseDetail& setUserQuota(int64_t userQuota) { DARABONBA_PTR_SET_VALUE(userQuota_, userQuota) };
+
+
+      protected:
+        shared_ptr<string> conditionalAccessPolicyLicenseStatus_ {};
+        shared_ptr<string> m2mApplicationLicenseStatus_ {};
+        shared_ptr<int64_t> m2mApplicationQuota_ {};
+        shared_ptr<int64_t> networkAccessEndpointQuota_ {};
+        shared_ptr<int64_t> userQuota_ {};
+      };
+
       virtual bool empty() const override { return this->edition_ == nullptr
-        && this->endTime_ == nullptr && this->licenseChargeType_ == nullptr && this->licenseConfigJson_ == nullptr && this->licenseCreateTime_ == nullptr && this->licenseId_ == nullptr
-        && this->licenseStatus_ == nullptr && this->purchaseChannel_ == nullptr && this->purchaseInstanceId_ == nullptr && this->startTime_ == nullptr && this->userQuota_ == nullptr; };
+        && this->endTime_ == nullptr && this->instanceLicenseDetail_ == nullptr && this->licenseChargeType_ == nullptr && this->licenseConfigJson_ == nullptr && this->licenseCreateTime_ == nullptr
+        && this->licenseId_ == nullptr && this->licenseStatus_ == nullptr && this->purchaseChannel_ == nullptr && this->purchaseInstanceId_ == nullptr && this->startTime_ == nullptr
+        && this->userQuota_ == nullptr; };
       // edition Field Functions 
       bool hasEdition() const { return this->edition_ != nullptr;};
       void deleteEdition() { this->edition_ = nullptr;};
@@ -85,6 +160,15 @@ namespace Models
       void deleteEndTime() { this->endTime_ = nullptr;};
       inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
       inline License& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // instanceLicenseDetail Field Functions 
+      bool hasInstanceLicenseDetail() const { return this->instanceLicenseDetail_ != nullptr;};
+      void deleteInstanceLicenseDetail() { this->instanceLicenseDetail_ = nullptr;};
+      inline const License::InstanceLicenseDetail & getInstanceLicenseDetail() const { DARABONBA_PTR_GET_CONST(instanceLicenseDetail_, License::InstanceLicenseDetail) };
+      inline License::InstanceLicenseDetail getInstanceLicenseDetail() { DARABONBA_PTR_GET(instanceLicenseDetail_, License::InstanceLicenseDetail) };
+      inline License& setInstanceLicenseDetail(const License::InstanceLicenseDetail & instanceLicenseDetail) { DARABONBA_PTR_SET_VALUE(instanceLicenseDetail_, instanceLicenseDetail) };
+      inline License& setInstanceLicenseDetail(License::InstanceLicenseDetail && instanceLicenseDetail) { DARABONBA_PTR_SET_RVALUE(instanceLicenseDetail_, instanceLicenseDetail) };
 
 
       // licenseChargeType Field Functions 
@@ -155,6 +239,7 @@ namespace Models
       shared_ptr<string> edition_ {};
       // End date of the validity period of the License, timestamp
       shared_ptr<int64_t> endTime_ {};
+      shared_ptr<License::InstanceLicenseDetail> instanceLicenseDetail_ {};
       // Payment type of the License
       shared_ptr<string> licenseChargeType_ {};
       // Detailed configuration JSON string of the License

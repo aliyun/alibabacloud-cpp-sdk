@@ -12902,6 +12902,14 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
   if (!!request.hasOrganizationalUnitId()) {
     query["OrganizationalUnitId"] = request.getOrganizationalUnitId();
   }
