@@ -17,7 +17,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_TO_JSON(Columns, columnsShrink_);
       DARABONBA_PTR_TO_JSON(CreateIndexType, createIndexType_);
-      DARABONBA_PTR_TO_JSON(DataSource, dataSourceShrink_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DocumentIds, documentIdsShrink_);
       DARABONBA_PTR_TO_JSON(EmbeddingModelName, embeddingModelName_);
@@ -40,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_TO_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_TO_JSON(knowledgeScene, knowledgeScene_);
+      DARABONBA_PTR_TO_JSON(knowledgeType, knowledgeType_);
       DARABONBA_PTR_TO_JSON(metaExtractColumns, metaExtractColumnsShrink_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialType, pipelineCommercialType_);
@@ -51,7 +51,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_FROM_JSON(Columns, columnsShrink_);
       DARABONBA_PTR_FROM_JSON(CreateIndexType, createIndexType_);
-      DARABONBA_PTR_FROM_JSON(DataSource, dataSourceShrink_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DocumentIds, documentIdsShrink_);
       DARABONBA_PTR_FROM_JSON(EmbeddingModelName, embeddingModelName_);
@@ -74,6 +73,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_FROM_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_FROM_JSON(knowledgeScene, knowledgeScene_);
+      DARABONBA_PTR_FROM_JSON(knowledgeType, knowledgeType_);
       DARABONBA_PTR_FROM_JSON(metaExtractColumns, metaExtractColumnsShrink_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialType, pipelineCommercialType_);
@@ -92,12 +92,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryIdsShrink_ == nullptr
-        && this->chunkSize_ == nullptr && this->columnsShrink_ == nullptr && this->createIndexType_ == nullptr && this->dataSourceShrink_ == nullptr && this->description_ == nullptr
-        && this->documentIdsShrink_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr
-        && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr
-        && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIdsShrink_ == nullptr && this->channelType_ == nullptr
-        && this->chunkMode_ == nullptr && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr
-        && this->knowledgeScene_ == nullptr && this->metaExtractColumnsShrink_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr
+        && this->chunkSize_ == nullptr && this->columnsShrink_ == nullptr && this->createIndexType_ == nullptr && this->description_ == nullptr && this->documentIdsShrink_ == nullptr
+        && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->rerankMinScore_ == nullptr
+        && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr
+        && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIdsShrink_ == nullptr && this->channelType_ == nullptr && this->chunkMode_ == nullptr
+        && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->knowledgeScene_ == nullptr
+        && this->knowledgeType_ == nullptr && this->metaExtractColumnsShrink_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr
         && this->table_ == nullptr; };
     // categoryIdsShrink Field Functions 
     bool hasCategoryIdsShrink() const { return this->categoryIdsShrink_ != nullptr;};
@@ -125,13 +125,6 @@ namespace Models
     void deleteCreateIndexType() { this->createIndexType_ = nullptr;};
     inline string getCreateIndexType() const { DARABONBA_PTR_GET_DEFAULT(createIndexType_, "") };
     inline CreateIndexShrinkRequest& setCreateIndexType(string createIndexType) { DARABONBA_PTR_SET_VALUE(createIndexType_, createIndexType) };
-
-
-    // dataSourceShrink Field Functions 
-    bool hasDataSourceShrink() const { return this->dataSourceShrink_ != nullptr;};
-    void deleteDataSourceShrink() { this->dataSourceShrink_ = nullptr;};
-    inline string getDataSourceShrink() const { DARABONBA_PTR_GET_DEFAULT(dataSourceShrink_, "") };
-    inline CreateIndexShrinkRequest& setDataSourceShrink(string dataSourceShrink) { DARABONBA_PTR_SET_VALUE(dataSourceShrink_, dataSourceShrink) };
 
 
     // description Field Functions 
@@ -288,6 +281,13 @@ namespace Models
     inline CreateIndexShrinkRequest& setKnowledgeScene(string knowledgeScene) { DARABONBA_PTR_SET_VALUE(knowledgeScene_, knowledgeScene) };
 
 
+    // knowledgeType Field Functions 
+    bool hasKnowledgeType() const { return this->knowledgeType_ != nullptr;};
+    void deleteKnowledgeType() { this->knowledgeType_ = nullptr;};
+    inline string getKnowledgeType() const { DARABONBA_PTR_GET_DEFAULT(knowledgeType_, "") };
+    inline CreateIndexShrinkRequest& setKnowledgeType(string knowledgeType) { DARABONBA_PTR_SET_VALUE(knowledgeType_, knowledgeType) };
+
+
     // metaExtractColumnsShrink Field Functions 
     bool hasMetaExtractColumnsShrink() const { return this->metaExtractColumnsShrink_ != nullptr;};
     void deleteMetaExtractColumnsShrink() { this->metaExtractColumnsShrink_ = nullptr;};
@@ -336,8 +336,6 @@ namespace Models
     shared_ptr<string> columnsShrink_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> createIndexType_ {};
-    // >  This parameter is not available. Do not specify this parameter.
-    shared_ptr<string> dataSourceShrink_ {};
     // The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
     shared_ptr<string> description_ {};
     // The files to imported to the knowledge base. Specify the file IDs to import (up to 10,000 files). To add more files later, call **SubmitIndexAddDocumentsJob**.
@@ -432,6 +430,7 @@ namespace Models
     // Default value: false.
     shared_ptr<bool> enableHeaders_ {};
     shared_ptr<string> knowledgeScene_ {};
+    shared_ptr<string> knowledgeType_ {};
     // The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
     shared_ptr<string> metaExtractColumnsShrink_ {};
     shared_ptr<int32_t> pipelineCommercialCu_ {};

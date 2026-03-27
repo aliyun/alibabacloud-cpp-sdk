@@ -18,7 +18,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_TO_JSON(Columns, columns_);
       DARABONBA_PTR_TO_JSON(CreateIndexType, createIndexType_);
-      DARABONBA_PTR_TO_JSON(DataSource, dataSource_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DocumentIds, documentIds_);
       DARABONBA_PTR_TO_JSON(EmbeddingModelName, embeddingModelName_);
@@ -41,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_TO_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_TO_JSON(knowledgeScene, knowledgeScene_);
+      DARABONBA_PTR_TO_JSON(knowledgeType, knowledgeType_);
       DARABONBA_PTR_TO_JSON(metaExtractColumns, metaExtractColumns_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_TO_JSON(pipelineCommercialType, pipelineCommercialType_);
@@ -52,7 +52,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_FROM_JSON(Columns, columns_);
       DARABONBA_PTR_FROM_JSON(CreateIndexType, createIndexType_);
-      DARABONBA_PTR_FROM_JSON(DataSource, dataSource_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DocumentIds, documentIds_);
       DARABONBA_PTR_FROM_JSON(EmbeddingModelName, embeddingModelName_);
@@ -75,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(datasourceCode, datasourceCode_);
       DARABONBA_PTR_FROM_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_FROM_JSON(knowledgeScene, knowledgeScene_);
+      DARABONBA_PTR_FROM_JSON(knowledgeType, knowledgeType_);
       DARABONBA_PTR_FROM_JSON(metaExtractColumns, metaExtractColumns_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialCu, pipelineCommercialCu_);
       DARABONBA_PTR_FROM_JSON(pipelineCommercialType, pipelineCommercialType_);
@@ -204,139 +204,6 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    class DataSource : public Darabonba::Model {
-    public:
-      friend void to_json(Darabonba::Json& j, const DataSource& obj) { 
-        DARABONBA_PTR_TO_JSON(CredentialId, credentialId_);
-        DARABONBA_PTR_TO_JSON(CredentialKey, credentialKey_);
-        DARABONBA_PTR_TO_JSON(Database, database_);
-        DARABONBA_PTR_TO_JSON(Endpoint, endpoint_);
-        DARABONBA_PTR_TO_JSON(IsPrivateLink, isPrivateLink_);
-        DARABONBA_PTR_TO_JSON(Region, region_);
-        DARABONBA_PTR_TO_JSON(SubPath, subPath_);
-        DARABONBA_PTR_TO_JSON(SubType, subType_);
-        DARABONBA_PTR_TO_JSON(Table, table_);
-        DARABONBA_PTR_TO_JSON(Type, type_);
-      };
-      friend void from_json(const Darabonba::Json& j, DataSource& obj) { 
-        DARABONBA_PTR_FROM_JSON(CredentialId, credentialId_);
-        DARABONBA_PTR_FROM_JSON(CredentialKey, credentialKey_);
-        DARABONBA_PTR_FROM_JSON(Database, database_);
-        DARABONBA_PTR_FROM_JSON(Endpoint, endpoint_);
-        DARABONBA_PTR_FROM_JSON(IsPrivateLink, isPrivateLink_);
-        DARABONBA_PTR_FROM_JSON(Region, region_);
-        DARABONBA_PTR_FROM_JSON(SubPath, subPath_);
-        DARABONBA_PTR_FROM_JSON(SubType, subType_);
-        DARABONBA_PTR_FROM_JSON(Table, table_);
-        DARABONBA_PTR_FROM_JSON(Type, type_);
-      };
-      DataSource() = default ;
-      DataSource(const DataSource &) = default ;
-      DataSource(DataSource &&) = default ;
-      DataSource(const Darabonba::Json & obj) { from_json(obj, *this); };
-      virtual ~DataSource() = default ;
-      DataSource& operator=(const DataSource &) = default ;
-      DataSource& operator=(DataSource &&) = default ;
-      virtual void validate() const override {
-      };
-      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->credentialId_ == nullptr
-        && this->credentialKey_ == nullptr && this->database_ == nullptr && this->endpoint_ == nullptr && this->isPrivateLink_ == nullptr && this->region_ == nullptr
-        && this->subPath_ == nullptr && this->subType_ == nullptr && this->table_ == nullptr && this->type_ == nullptr; };
-      // credentialId Field Functions 
-      bool hasCredentialId() const { return this->credentialId_ != nullptr;};
-      void deleteCredentialId() { this->credentialId_ = nullptr;};
-      inline string getCredentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
-      inline DataSource& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
-
-
-      // credentialKey Field Functions 
-      bool hasCredentialKey() const { return this->credentialKey_ != nullptr;};
-      void deleteCredentialKey() { this->credentialKey_ = nullptr;};
-      inline string getCredentialKey() const { DARABONBA_PTR_GET_DEFAULT(credentialKey_, "") };
-      inline DataSource& setCredentialKey(string credentialKey) { DARABONBA_PTR_SET_VALUE(credentialKey_, credentialKey) };
-
-
-      // database Field Functions 
-      bool hasDatabase() const { return this->database_ != nullptr;};
-      void deleteDatabase() { this->database_ = nullptr;};
-      inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
-      inline DataSource& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
-
-
-      // endpoint Field Functions 
-      bool hasEndpoint() const { return this->endpoint_ != nullptr;};
-      void deleteEndpoint() { this->endpoint_ = nullptr;};
-      inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
-      inline DataSource& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
-
-
-      // isPrivateLink Field Functions 
-      bool hasIsPrivateLink() const { return this->isPrivateLink_ != nullptr;};
-      void deleteIsPrivateLink() { this->isPrivateLink_ = nullptr;};
-      inline bool getIsPrivateLink() const { DARABONBA_PTR_GET_DEFAULT(isPrivateLink_, false) };
-      inline DataSource& setIsPrivateLink(bool isPrivateLink) { DARABONBA_PTR_SET_VALUE(isPrivateLink_, isPrivateLink) };
-
-
-      // region Field Functions 
-      bool hasRegion() const { return this->region_ != nullptr;};
-      void deleteRegion() { this->region_ = nullptr;};
-      inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
-      inline DataSource& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
-
-
-      // subPath Field Functions 
-      bool hasSubPath() const { return this->subPath_ != nullptr;};
-      void deleteSubPath() { this->subPath_ = nullptr;};
-      inline string getSubPath() const { DARABONBA_PTR_GET_DEFAULT(subPath_, "") };
-      inline DataSource& setSubPath(string subPath) { DARABONBA_PTR_SET_VALUE(subPath_, subPath) };
-
-
-      // subType Field Functions 
-      bool hasSubType() const { return this->subType_ != nullptr;};
-      void deleteSubType() { this->subType_ = nullptr;};
-      inline string getSubType() const { DARABONBA_PTR_GET_DEFAULT(subType_, "") };
-      inline DataSource& setSubType(string subType) { DARABONBA_PTR_SET_VALUE(subType_, subType) };
-
-
-      // table Field Functions 
-      bool hasTable() const { return this->table_ != nullptr;};
-      void deleteTable() { this->table_ = nullptr;};
-      inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
-      inline DataSource& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
-
-
-      // type Field Functions 
-      bool hasType() const { return this->type_ != nullptr;};
-      void deleteType() { this->type_ = nullptr;};
-      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-      inline DataSource& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
-
-
-    protected:
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> credentialId_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> credentialKey_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> database_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> endpoint_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<bool> isPrivateLink_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> region_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> subPath_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> subType_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> table_ {};
-      // >  This parameter is not available. Do not specify this parameter.
-      shared_ptr<string> type_ {};
-    };
-
     class Columns : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Columns& obj) { 
@@ -415,12 +282,12 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->categoryIds_ == nullptr
-        && this->chunkSize_ == nullptr && this->columns_ == nullptr && this->createIndexType_ == nullptr && this->dataSource_ == nullptr && this->description_ == nullptr
-        && this->documentIds_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr
-        && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr
-        && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIds_ == nullptr && this->channelType_ == nullptr
-        && this->chunkMode_ == nullptr && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr
-        && this->knowledgeScene_ == nullptr && this->metaExtractColumns_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr
+        && this->chunkSize_ == nullptr && this->columns_ == nullptr && this->createIndexType_ == nullptr && this->description_ == nullptr && this->documentIds_ == nullptr
+        && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->rerankMinScore_ == nullptr
+        && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr
+        && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIds_ == nullptr && this->channelType_ == nullptr && this->chunkMode_ == nullptr
+        && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->knowledgeScene_ == nullptr
+        && this->knowledgeType_ == nullptr && this->metaExtractColumns_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr
         && this->table_ == nullptr; };
     // categoryIds Field Functions 
     bool hasCategoryIds() const { return this->categoryIds_ != nullptr;};
@@ -452,15 +319,6 @@ namespace Models
     void deleteCreateIndexType() { this->createIndexType_ = nullptr;};
     inline string getCreateIndexType() const { DARABONBA_PTR_GET_DEFAULT(createIndexType_, "") };
     inline CreateIndexRequest& setCreateIndexType(string createIndexType) { DARABONBA_PTR_SET_VALUE(createIndexType_, createIndexType) };
-
-
-    // dataSource Field Functions 
-    bool hasDataSource() const { return this->dataSource_ != nullptr;};
-    void deleteDataSource() { this->dataSource_ = nullptr;};
-    inline const CreateIndexRequest::DataSource & getDataSource() const { DARABONBA_PTR_GET_CONST(dataSource_, CreateIndexRequest::DataSource) };
-    inline CreateIndexRequest::DataSource getDataSource() { DARABONBA_PTR_GET(dataSource_, CreateIndexRequest::DataSource) };
-    inline CreateIndexRequest& setDataSource(const CreateIndexRequest::DataSource & dataSource) { DARABONBA_PTR_SET_VALUE(dataSource_, dataSource) };
-    inline CreateIndexRequest& setDataSource(CreateIndexRequest::DataSource && dataSource) { DARABONBA_PTR_SET_RVALUE(dataSource_, dataSource) };
 
 
     // description Field Functions 
@@ -621,6 +479,13 @@ namespace Models
     inline CreateIndexRequest& setKnowledgeScene(string knowledgeScene) { DARABONBA_PTR_SET_VALUE(knowledgeScene_, knowledgeScene) };
 
 
+    // knowledgeType Field Functions 
+    bool hasKnowledgeType() const { return this->knowledgeType_ != nullptr;};
+    void deleteKnowledgeType() { this->knowledgeType_ = nullptr;};
+    inline string getKnowledgeType() const { DARABONBA_PTR_GET_DEFAULT(knowledgeType_, "") };
+    inline CreateIndexRequest& setKnowledgeType(string knowledgeType) { DARABONBA_PTR_SET_VALUE(knowledgeType_, knowledgeType) };
+
+
     // metaExtractColumns Field Functions 
     bool hasMetaExtractColumns() const { return this->metaExtractColumns_ != nullptr;};
     void deleteMetaExtractColumns() { this->metaExtractColumns_ = nullptr;};
@@ -671,8 +536,6 @@ namespace Models
     shared_ptr<vector<CreateIndexRequest::Columns>> columns_ {};
     // > This parameter is not available. Do not specify this parameter.
     shared_ptr<string> createIndexType_ {};
-    // >  This parameter is not available. Do not specify this parameter.
-    shared_ptr<CreateIndexRequest::DataSource> dataSource_ {};
     // The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
     shared_ptr<string> description_ {};
     // The files to imported to the knowledge base. Specify the file IDs to import (up to 10,000 files). To add more files later, call **SubmitIndexAddDocumentsJob**.
@@ -767,6 +630,7 @@ namespace Models
     // Default value: false.
     shared_ptr<bool> enableHeaders_ {};
     shared_ptr<string> knowledgeScene_ {};
+    shared_ptr<string> knowledgeType_ {};
     // The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
     shared_ptr<vector<CreateIndexRequest::MetaExtractColumns>> metaExtractColumns_ {};
     shared_ptr<int32_t> pipelineCommercialCu_ {};

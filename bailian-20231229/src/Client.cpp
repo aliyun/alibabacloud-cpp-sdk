@@ -550,10 +550,6 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     request.setColumnsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getColumns(), "Columns", "json"));
   }
 
-  if (!!tmpReq.hasDataSource()) {
-    request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSource(), "DataSource", "json"));
-  }
-
   if (!!tmpReq.hasDocumentIds()) {
     request.setDocumentIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocumentIds(), "DocumentIds", "json"));
   }
@@ -581,10 +577,6 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
 
   if (!!request.hasCreateIndexType()) {
     query["CreateIndexType"] = request.getCreateIndexType();
-  }
-
-  if (!!request.hasDataSourceShrink()) {
-    query["DataSource"] = request.getDataSourceShrink();
   }
 
   if (!!request.hasDescription()) {
@@ -673,6 +665,10 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
 
   if (!!request.hasKnowledgeScene()) {
     query["knowledgeScene"] = request.getKnowledgeScene();
+  }
+
+  if (!!request.hasKnowledgeType()) {
+    query["knowledgeType"] = request.getKnowledgeType();
   }
 
   if (!!request.hasMetaExtractColumnsShrink()) {
