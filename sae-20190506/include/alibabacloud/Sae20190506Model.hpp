@@ -357,6 +357,9 @@
 #include <alibabacloud/models/DescribeSwimmingLaneRequest.hpp>
 #include <alibabacloud/models/DescribeSwimmingLaneResponseBody.hpp>
 #include <alibabacloud/models/DescribeSwimmingLaneResponse.hpp>
+#include <alibabacloud/models/DescribeVSwitchesRequest.hpp>
+#include <alibabacloud/models/DescribeVSwitchesResponseBody.hpp>
+#include <alibabacloud/models/DescribeVSwitchesResponse.hpp>
 #include <alibabacloud/models/DescribeWebApplicationRequest.hpp>
 #include <alibabacloud/models/DescribeWebApplicationResponse.hpp>
 #include <alibabacloud/models/DescribeWebApplicationResourceStaticsRequest.hpp>

@@ -4468,6 +4468,55 @@ DescribeSwimmingLaneResponse Client::describeSwimmingLane(const DescribeSwimming
 }
 
 /**
+ * @param request DescribeVSwitchesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVSwitchesResponse
+ */
+DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSwitchesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVSwitchName()) {
+    query["VSwitchName"] = request.getVSwitchName();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVSwitches"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v1/sam/vpc/vSwitchs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVSwitchesResponse>();
+}
+
+/**
+ * @param request DescribeVSwitchesRequest
+ * @return DescribeVSwitchesResponse
+ */
+DescribeVSwitchesResponse Client::describeVSwitches(const DescribeVSwitchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeVSwitchesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Query web applications.
  *
  * @description Call the DescribeWebApplication operation to query web applications.

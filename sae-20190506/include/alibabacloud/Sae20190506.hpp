@@ -1241,6 +1241,20 @@ namespace Sae20190506
       Models::DescribeSwimmingLaneResponse describeSwimmingLane(const Models::DescribeSwimmingLaneRequest &request);
 
       /**
+       * @param request DescribeVSwitchesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVSwitchesResponse
+       */
+      Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeVSwitchesRequest
+       * @return DescribeVSwitchesResponse
+       */
+      Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
+
+      /**
        * @summary Query web applications.
        *
        * @description Call the DescribeWebApplication operation to query web applications.
