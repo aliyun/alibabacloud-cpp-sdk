@@ -16571,6 +16571,60 @@ SearchTableResponse Client::searchTable(const SearchTableRequest &request) {
 }
 
 /**
+ * @summary 根据用户提供的问题，智能搜索获取表知识
+ *
+ * @description 根据用户提供的问题，智能搜索获取表知识
+ *
+ * @param request SearchTableKnowledgeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchTableKnowledgeResponse
+ */
+SearchTableKnowledgeResponse Client::searchTableKnowledgeWithOptions(const SearchTableKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbId()) {
+    query["DbId"] = request.getDbId();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchTableKnowledge"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchTableKnowledgeResponse>();
+}
+
+/**
+ * @summary 根据用户提供的问题，智能搜索获取表知识
+ *
+ * @description 根据用户提供的问题，智能搜索获取表知识
+ *
+ * @param request SearchTableKnowledgeRequest
+ * @return SearchTableKnowledgeResponse
+ */
+SearchTableKnowledgeResponse Client::searchTableKnowledge(const SearchTableKnowledgeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchTableKnowledgeWithOptions(request, runtime);
+}
+
+/**
  * @summary Configures the owner of an instance, a database, or a table.
  *
  * @param request SetOwnersRequest

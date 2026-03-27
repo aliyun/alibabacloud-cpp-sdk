@@ -879,6 +879,9 @@
 #include <alibabacloud/models/SearchTableRequest.hpp>
 #include <alibabacloud/models/SearchTableResponseBody.hpp>
 #include <alibabacloud/models/SearchTableResponse.hpp>
+#include <alibabacloud/models/SearchTableKnowledgeRequest.hpp>
+#include <alibabacloud/models/SearchTableKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/SearchTableKnowledgeResponse.hpp>
 #include <alibabacloud/models/SetOwnersRequest.hpp>
 #include <alibabacloud/models/SetOwnersResponseBody.hpp>
 #include <alibabacloud/models/SetOwnersResponse.hpp>

@@ -5086,6 +5086,27 @@ namespace DmsEnterprise20181101
       Models::SearchTableResponse searchTable(const Models::SearchTableRequest &request);
 
       /**
+       * @summary 根据用户提供的问题，智能搜索获取表知识
+       *
+       * @description 根据用户提供的问题，智能搜索获取表知识
+       *
+       * @param request SearchTableKnowledgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchTableKnowledgeResponse
+       */
+      Models::SearchTableKnowledgeResponse searchTableKnowledgeWithOptions(const Models::SearchTableKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据用户提供的问题，智能搜索获取表知识
+       *
+       * @description 根据用户提供的问题，智能搜索获取表知识
+       *
+       * @param request SearchTableKnowledgeRequest
+       * @return SearchTableKnowledgeResponse
+       */
+      Models::SearchTableKnowledgeResponse searchTableKnowledge(const Models::SearchTableKnowledgeRequest &request);
+
+      /**
        * @summary Configures the owner of an instance, a database, or a table.
        *
        * @param request SetOwnersRequest
