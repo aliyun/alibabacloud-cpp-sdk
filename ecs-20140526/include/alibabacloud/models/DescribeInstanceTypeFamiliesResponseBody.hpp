@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The series of the instance family.
         shared_ptr<string> generation_ {};
-        // The ID of the instance family.
         shared_ptr<string> instanceTypeFamilyId_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The instance families.
     shared_ptr<DescribeInstanceTypeFamiliesResponseBody::InstanceTypeFamilies> instanceTypeFamilies_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The error code that is returned for the operation on the ECS instance. The value 200 indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
         shared_ptr<string> code_ {};
-        // The status of the ECS instance after the operation is called.
         shared_ptr<string> currentStatus_ {};
-        // The ID of the ECS instance.
         shared_ptr<string> instanceId_ {};
-        // The error message that is returned for the operation on the ECS instance. The value success indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
         shared_ptr<string> message_ {};
-        // The status of the ECS instance before the operation is called.
         shared_ptr<string> previousStatus_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The information about the ECS instance, such as the status of each instance before and after the operation is called and the operation results.
     shared_ptr<StartInstancesResponseBody::InstanceResponses> instanceResponses_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

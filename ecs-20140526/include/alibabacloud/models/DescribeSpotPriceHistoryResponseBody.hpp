@@ -139,23 +139,12 @@ namespace Models
 
 
       protected:
-        // The instance type of the spot instance.
         shared_ptr<string> instanceType_ {};
-        // Details about the price history of the spot instance.
         shared_ptr<string> ioOptimized_ {};
-        // Queries the price history of a spot instance within the last 30 days.
         shared_ptr<string> networkType_ {};
-        // The price for a pay-as-you-go instance that has the same configuration as the specified spot instance.
         shared_ptr<float> originPrice_ {};
-        // The price for a pay-as-you-go instance that has the same configurations as the spot instance.
         shared_ptr<float> spotPrice_ {};
-        // The currency unit of the price.
-        // 
-        // Alibaba Cloud China site (aliyun.com): CNY.
-        // 
-        // Alibaba Cloud International site (alibabacloud.com): USD.
         shared_ptr<string> timestamp_ {};
-        // The ID of the request.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -212,7 +201,6 @@ namespace Models
     shared_ptr<int32_t> nextOffset_ {};
     // The instance type of the spot instance.
     shared_ptr<string> requestId_ {};
-    // The zone ID of the spot instance.
     shared_ptr<DescribeSpotPriceHistoryResponseBody::SpotPrices> spotPrices_ {};
   };
 

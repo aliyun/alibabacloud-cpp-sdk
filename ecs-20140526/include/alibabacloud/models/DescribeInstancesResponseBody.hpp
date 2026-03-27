@@ -303,13 +303,9 @@ namespace Models
 
 
         protected:
-          // The NAT IP address of the instance. The NAT IP address is used by ECS instances in different VPCs for communication.
           shared_ptr<string> natIpAddress_ {};
-          // The private IP addresses of the instance.
           shared_ptr<VpcAttributes::PrivateIpAddress> privateIpAddress_ {};
-          // The ID of the vSwitch to which the instance is connected.
           shared_ptr<string> vSwitchId_ {};
-          // The ID of the VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -370,9 +366,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the instance.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -554,41 +548,10 @@ namespace Models
 
 
         protected:
-          // Indicates whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // Default value: false.
           shared_ptr<bool> enableInstanceIdDnsAAAARecord_ {};
-          // Indicates whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // Default value: false.
           shared_ptr<bool> enableInstanceIdDnsARecord_ {};
-          // Indicates whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // Default value: false.
           shared_ptr<bool> enableIpDnsARecord_ {};
-          // Indicates whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // Default value: false.
           shared_ptr<bool> enableIpDnsPtrRecord_ {};
-          // The type of hostname. Valid values:
-          // 
-          // *   Custom: custom hostname
-          // *   IpBased: IP address-based hostname
-          // *   InstanceIdBased: instance ID-based hostname
-          // 
-          // Default value: Custom.
           shared_ptr<string> hostnameType_ {};
         };
 
@@ -649,15 +612,7 @@ namespace Models
 
 
           protected:
-            // The message returned when the instance was locked.
             shared_ptr<string> lockMsg_ {};
-            // The reason why the instance was locked. Valid values:
-            // 
-            // *   financial: The instance was locked due to overdue payments.
-            // *   security: The instance was locked due to security reasons.
-            // *   recycling: The spot instance was locked and pending release.
-            // *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
-            // *   refunded: The instance was locked because a refund was made for the instance.
             shared_ptr<string> lockReason_ {};
           };
 
@@ -793,16 +748,8 @@ namespace Models
 
 
               protected:
-                // Indicates whether the IP address is the primary private IP address. Valid values:
-                // 
-                // *   true
-                // *   false
                 shared_ptr<bool> primary_ {};
-                // The private domain name of the instance.
-                // 
-                // >  This parameter has a value in a specific format only if `HostnameType` is set to `IpBased` or `InstanceIdBased`.
                 shared_ptr<string> privateDnsName_ {};
-                // The private IP address of the ENI.
                 shared_ptr<string> privateIpAddress_ {};
               };
 
@@ -867,7 +814,6 @@ namespace Models
 
 
               protected:
-                // The IPv6 address of the ENI.
                 shared_ptr<string> ipv6Address_ {};
               };
 
@@ -932,7 +878,6 @@ namespace Models
 
 
               protected:
-                // The IPv6 prefix of the ENI.
                 shared_ptr<string> ipv6Prefix_ {};
               };
 
@@ -997,7 +942,6 @@ namespace Models
 
 
               protected:
-                // The IPv4 prefix of the ENI.
                 shared_ptr<string> ipv4Prefix_ {};
               };
 
@@ -1083,24 +1027,13 @@ namespace Models
 
 
           protected:
-            // The IPv4 prefixes of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
             shared_ptr<NetworkInterface::Ipv4PrefixSets> ipv4PrefixSets_ {};
-            // The IPv6 prefixes of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
             shared_ptr<NetworkInterface::Ipv6PrefixSets> ipv6PrefixSets_ {};
-            // The IPv6 addresses of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
             shared_ptr<NetworkInterface::Ipv6Sets> ipv6Sets_ {};
-            // The MAC address of the ENI.
             shared_ptr<string> macAddress_ {};
-            // The ID of the ENI.
             shared_ptr<string> networkInterfaceId_ {};
-            // The primary private IP address of the ENI.
             shared_ptr<string> primaryIpAddress_ {};
-            // The private IP addresses of the ENI.
             shared_ptr<NetworkInterface::PrivateIpSets> privateIpSets_ {};
-            // The type of the ENI. Valid values:
-            // 
-            // *   Primary
-            // *   Secondary
             shared_ptr<string> type_ {};
           };
 
@@ -1165,17 +1098,8 @@ namespace Models
 
 
         protected:
-          // Indicates whether the access channel is enabled for instance metadata. Valid values:
-          // 
-          // *   enabled
-          // *   disabled
           shared_ptr<string> httpEndpoint_ {};
-          // >  This parameter is not publicly available.
           shared_ptr<int32_t> httpPutResponseHopLimit_ {};
-          // Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
-          // 
-          // *   optional: The security hardening mode (IMDSv2) is not forcefully used.
-          // *   required: The security hardening mode (IMDSv2) is forcefully used.
           shared_ptr<string> httpTokens_ {};
         };
 
@@ -1250,17 +1174,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether the operating system supports access to disks over the NVMe protocol. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // >  This parameter is returned only if you specify CURRENT_OS_NVME_SUPPORTED in AdditionalAttributes in the request.
           shared_ptr<bool> currentOSNVMeSupported_ {};
-          // Indicates whether the instance that uses the image supports logons of the ecs-user user. Valid values:
-          // 
-          // *   true
-          // *   false
           shared_ptr<bool> loginAsNonRoot_ {};
         };
 
@@ -1292,7 +1206,6 @@ namespace Models
 
 
         protected:
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<bool> configured_ {};
         };
 
@@ -1361,18 +1274,10 @@ namespace Models
 
 
         protected:
-          // The ID of the EIP.
           shared_ptr<string> allocationId_ {};
-          // The maximum public bandwidth of the EIP. Unit: Mbit/s.
           shared_ptr<int32_t> bandwidth_ {};
-          // The metering method of the EIP. Valid values:
-          // 
-          // *   PayByBandwidth
-          // *   PayByTraffic
           shared_ptr<string> internetChargeType_ {};
-          // The EIP.
           shared_ptr<string> ipAddress_ {};
-          // Indicates whether the EIP can be disassociated.
           shared_ptr<bool> isSupportUnassociate_ {};
         };
 
@@ -1414,9 +1319,7 @@ namespace Models
 
 
         protected:
-          // The ID of the capacity reservation.
           shared_ptr<string> capacityReservationId_ {};
-          // The preference of the capacity reservation.
           shared_ptr<string> capacityReservationPreference_ {};
         };
 
@@ -1458,15 +1361,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether the instance on the dedicated host is associated with the dedicated host. Valid values:
-          // 
-          // *   default: The instance is not associated with the dedicated host. When the instance is restarted from economical mode, the instance may be automatically deployed on another dedicated host in the automatic deployment resource pool.
-          // *   host: The instance is associated with the dedicated host. When the instance is restarted from economical mode, the instance is still deployed on the original dedicated host.
           shared_ptr<string> affinity_ {};
-          // Indicates whether the instance is hosted on a dedicated host. Valid values:
-          // 
-          // *   default: The instance is not hosted on a dedicated host.
-          // *   host: The instance is hosted on a dedicated host.
           shared_ptr<string> tenancy_ {};
         };
 
@@ -1517,11 +1412,8 @@ namespace Models
 
 
         protected:
-          // The ID of the dedicated host cluster.
           shared_ptr<string> dedicatedHostClusterId_ {};
-          // The ID of the dedicated host.
           shared_ptr<string> dedicatedHostId_ {};
-          // The name of the dedicated host.
           shared_ptr<string> dedicatedHostName_ {};
         };
 
@@ -1609,18 +1501,11 @@ namespace Models
 
 
         protected:
-          // The number of physical CPU cores.
           shared_ptr<int32_t> coreCount_ {};
           shared_ptr<bool> enableVISST_ {};
           shared_ptr<bool> enableVRDT_ {};
-          // >  This parameter is deprecated.
           shared_ptr<string> numa_ {};
-          // The number of threads per CPU core.
           shared_ptr<int32_t> threadsPerCore_ {};
-          // The CPU topology type of the instance. Valid values:
-          // 
-          // *   ContinuousCoreToHTMapping: Hyper-Threading (HT) continuous CPU topology
-          // *   DiscreteCoreToHTMapping: HT discrete CPU topology
           shared_ptr<string> topologyType_ {};
           shared_ptr<string> turboMode_ {};
         };
@@ -1684,7 +1569,6 @@ namespace Models
 
 
         protected:
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<bool> enableHighDensityMode_ {};
         };
 
@@ -2218,191 +2102,73 @@ namespace Models
 
 
       protected:
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<Instance::AdditionalInfo> additionalInfo_ {};
-        // The automatic release time of the pay-as-you-go instance.
         shared_ptr<string> autoReleaseTime_ {};
         shared_ptr<Instance::ClockOptions> clockOptions_ {};
-        // The ID of the cluster to which the instance belongs.
-        // 
-        // >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
         shared_ptr<string> clusterId_ {};
-        // The number of vCPUs.
         shared_ptr<int32_t> cpu_ {};
-        // Details about the CPU options.
         shared_ptr<Instance::CpuOptions> cpuOptions_ {};
-        // The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
         shared_ptr<string> creationTime_ {};
-        // The performance mode of the burstable instance. Valid values:
-        // 
-        // *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-        // *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
         shared_ptr<string> creditSpecification_ {};
-        // The information about the dedicated host. The value is an array that consists of DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName.
         shared_ptr<Instance::DedicatedHostAttribute> dedicatedHostAttribute_ {};
-        // The attributes of the instance on the dedicated host.
         shared_ptr<Instance::DedicatedInstanceAttribute> dedicatedInstanceAttribute_ {};
-        // Indicates whether release protection is enabled for the instance. This parameter determines whether you can use the ECS console or call the DeleteInstance operation to release the instance. Valid values:
-        // 
-        // *   true: Release protection is enabled for the instance.
-        // *   false: Release protection is disabled for the instance.
-        // 
-        // >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
         shared_ptr<bool> deletionProtection_ {};
-        // The number of the deployment set group to which the instance belongs in a deployment set.
         shared_ptr<int32_t> deploymentSetGroupNo_ {};
-        // The ID of the deployment set to which the instance belongs.
         shared_ptr<string> deploymentSetId_ {};
-        // The description of the instance.
         shared_ptr<string> description_ {};
-        // Indicates whether data disks can be attached to the instance. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> deviceAvailable_ {};
-        // Details about the capacity reservation associated with the instance.
         shared_ptr<Instance::EcsCapacityReservationAttr> ecsCapacityReservationAttr_ {};
-        // Details about the EIP associated with the instance.
         shared_ptr<Instance::EipAddress> eipAddress_ {};
         shared_ptr<bool> enableNVS_ {};
-        // The expiration time of the instance. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
         shared_ptr<string> expiredTime_ {};
-        // The number of GPUs for the instance type.
         shared_ptr<int32_t> GPUAmount_ {};
-        // The category of GPUs for the instance type.
         shared_ptr<string> GPUSpec_ {};
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<Instance::HibernationOptions> hibernationOptions_ {};
-        // The hostname of the instance.
         shared_ptr<string> hostName_ {};
-        // The ID of the HPC cluster to which the instance belongs.
         shared_ptr<string> hpcClusterId_ {};
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<string> ISP_ {};
-        // The image ID of the instance.
         shared_ptr<string> imageId_ {};
-        // The image options.
         shared_ptr<Instance::ImageOptions> imageOptions_ {};
-        // The internal IP addresses of the instance located in the classic network.
         shared_ptr<Instance::InnerIpAddress> innerIpAddress_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   PrePaid: subscription
-        // *   PostPaid: pay-as-you-go
         shared_ptr<string> instanceChargeType_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   classic
-        // *   vpc
         shared_ptr<string> instanceNetworkType_ {};
-        // The instance type of the instance.
         shared_ptr<string> instanceType_ {};
-        // The instance family of the instance.
         shared_ptr<string> instanceTypeFamily_ {};
-        // The billing method for network usage. Valid values:
-        // 
-        // *   PayByBandwidth: pay-by-bandwidth
-        // *   PayByTraffic: pay-by-traffic
         shared_ptr<string> internetChargeType_ {};
-        // The maximum inbound public bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> internetMaxBandwidthIn_ {};
-        // The maximum outbound public bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-        // Indicates whether the instance is an I/O optimized instance. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> ioOptimized_ {};
-        // The name of the key pair.
         shared_ptr<string> keyPairName_ {};
-        // The number of local disks attached to the instance.
         shared_ptr<int32_t> localStorageAmount_ {};
-        // The capacity of local disks attached to the instance. Unit: GiB.
         shared_ptr<int64_t> localStorageCapacity_ {};
-        // The memory size. Unit: MiB.
         shared_ptr<int32_t> memory_ {};
-        // Details about the metadata options.
         shared_ptr<Instance::MetadataOptions> metadataOptions_ {};
-        // The ENIs attached to the instance.
         shared_ptr<Instance::NetworkInterfaces> networkInterfaces_ {};
-        // The name of the operating system of the instance.
         shared_ptr<string> OSName_ {};
-        // The English name of the operating system of the instance.
         shared_ptr<string> OSNameEn_ {};
-        // The type of the operating system of the instance. Valid values:
-        // 
-        // *   windows: Windows operating systems
-        // *   linux: Linux operating systems
         shared_ptr<string> OSType_ {};
-        // The reasons why the instance was locked.
         shared_ptr<Instance::OperationLocks> operationLocks_ {};
-        // The private domain name options of the instance.
-        // 
-        // For information about the resolution of ECS private domain names, see [ECS private DNS resolution](https://help.aliyun.com/document_detail/2844797.html).
-        // 
-        // >  This parameter is returned only when the `AdditionalAttributes` parameter contains `PRIVATE_DNS_OPTIONS` in the request.
         shared_ptr<Instance::PrivateDnsNameOptions> privateDnsNameOptions_ {};
-        // The public IP addresses of the instance.
         shared_ptr<Instance::PublicIpAddress> publicIpAddress_ {};
-        // The RDMA IP addresses of the instance in the HPC cluster.
         shared_ptr<Instance::RdmaIpAddress> rdmaIpAddress_ {};
-        // Indicates whether the instance can be recycled.
         shared_ptr<bool> recyclable_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // >  The parameter is removed.
         shared_ptr<string> saleCycle_ {};
-        // The IDs of the security groups to which the instance belongs.
         shared_ptr<Instance::SecurityGroupIds> securityGroupIds_ {};
-        // The serial number of the instance.
         shared_ptr<string> serialNumber_ {};
-        // The protection period of the spot instance. Unit: hours. Valid values:
-        // 
-        // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-        // *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-        // 
-        // Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
-        // 
-        // >  This parameter is returned when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
         shared_ptr<int32_t> spotDuration_ {};
-        // The interruption mode of the spot instance when the system initiates a spot instance interruption operation. Valid values:
-        // 
-        // *   Terminate: releases the spot instance.
-        // *   Stop: stops the instance in economical mode.
         shared_ptr<string> spotInterruptionBehavior_ {};
-        // The maximum hourly price of the instance. The value can be accurate to three decimal places. This parameter is valid when SpotStrategy is set to SpotWithPriceLimit.
         shared_ptr<float> spotPriceLimit_ {};
-        // The bidding policy for the pay-as-you-go instance. Valid values:
-        // 
-        // *   NoSpot: The instance is a regular pay-as-you-go instance.
-        // *   SpotWithPriceLimit: The instance is a spot instance with a user-defined maximum hourly price.
-        // *   SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
         shared_ptr<string> spotStrategy_ {};
-        // The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
         shared_ptr<string> startTime_ {};
-        // The status of the instance.
         shared_ptr<string> status_ {};
-        // Indicates whether the instance continues to be billed after it is stopped. Valid values:
-        // 
-        // *   KeepCharging: The instance is stopped in standard mode. Billing for the instance continues after the instance is stopped, and resources are retained for the instance.
-        // *   StopCharging: The instance is stopped in economical mode. Billing for some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. The instance may be unable to restart if some required resources are out of stock in the current region.
-        // *   Not-applicable: The instance does not support economical mode.
         shared_ptr<string> stoppedMode_ {};
-        // The tags of the instance.
         shared_ptr<Instance::Tags> tags_ {};
-        // The virtual LAN (VLAN) ID of the instance.
-        // 
-        // >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
         shared_ptr<string> vlanId_ {};
-        // The VPC attributes of the instance.
         shared_ptr<Instance::VpcAttributes> vpcAttributes_ {};
-        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -2467,7 +2233,6 @@ namespace Models
 
 
   protected:
-    // Details about the queried instances.
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};

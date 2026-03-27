@@ -358,57 +358,31 @@ namespace Models
 
 
       protected:
-        // The time when the security group rule was created. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The description of the security group.
         shared_ptr<string> description_ {};
-        // The destination CIDR block for outbound access control.
         shared_ptr<string> destCidrIp_ {};
-        // The ID of the destination security group for outbound access control.
         shared_ptr<string> destGroupId_ {};
-        // The name of the destination security group.
         shared_ptr<string> destGroupName_ {};
-        // The ID of the Alibaba Cloud account to which the destination security group belongs.
         shared_ptr<string> destGroupOwnerAccount_ {};
-        // The ID of the destination prefix list for outbound access control.
         shared_ptr<string> destPrefixListId_ {};
-        // The name of the destination prefix list.
         shared_ptr<string> destPrefixListName_ {};
-        // The direction in which the security group rule is applied.
         shared_ptr<string> direction_ {};
-        // The transport layer protocol.
         shared_ptr<string> ipProtocol_ {};
-        // The destination IPv6 CIDR block.
         shared_ptr<string> ipv6DestCidrIp_ {};
-        // The source IPv6 CIDR block.
         shared_ptr<string> ipv6SourceCidrIp_ {};
-        // The network type.
         shared_ptr<string> nicType_ {};
-        // The access control policy.
         shared_ptr<string> policy_ {};
-        // The port range.
         shared_ptr<string> portRange_ {};
-        // The ID of the port list.
         shared_ptr<string> portRangeListId_ {};
-        // The name of the port list.
         shared_ptr<string> portRangeListName_ {};
-        // The priority of the rule.
         shared_ptr<string> priority_ {};
-        // The ID of the security group rule.
         shared_ptr<string> securityGroupRuleId_ {};
-        // The source CIDR block for inbound access control.
         shared_ptr<string> sourceCidrIp_ {};
-        // The source security group for inbound access control.
         shared_ptr<string> sourceGroupId_ {};
-        // The name of the source security group.
         shared_ptr<string> sourceGroupName_ {};
-        // The ID of the Alibaba Cloud account to which the source security group belongs.
         shared_ptr<string> sourceGroupOwnerAccount_ {};
-        // The source port range.
         shared_ptr<string> sourcePortRange_ {};
-        // The ID of the source prefix list for inbound access control.
         shared_ptr<string> sourcePrefixListId_ {};
-        // The name of the source prefix list.
         shared_ptr<string> sourcePrefixListName_ {};
       };
 
@@ -513,7 +487,6 @@ namespace Models
     shared_ptr<string> innerAccessPolicy_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. If the return value of this parameter is empty when you specify `MaxResults` and `NextToken` for a paged query, no more results are to be returned.
     shared_ptr<string> nextToken_ {};
-    // Details about the security group rules.
     shared_ptr<DescribeSecurityGroupAttributeResponseBody::Permissions> permissions_ {};
     // The ID of the region.
     shared_ptr<string> regionId_ {};

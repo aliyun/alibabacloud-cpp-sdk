@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The tag of the image creation task.
             shared_ptr<string> tagKey_ {};
-            // The tags of the image creation task.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -238,36 +236,14 @@ namespace Models
 
 
       protected:
-        // Details of the image creation tasks.
         shared_ptr<string> creationTime_ {};
-        // The data returned.
         shared_ptr<string> executionId_ {};
-        // The ID of the resource group.
         shared_ptr<string> imageId_ {};
-        // Details of the image creation task.
         shared_ptr<string> imagePipelineId_ {};
-        // The last modification time of the image creation task.
         shared_ptr<string> message_ {};
-        // The ID of the image template.
         shared_ptr<string> modifiedTime_ {};
-        // The status of the image creation task. Valid values:
-        // 
-        // *   PREPARING: Resources, such as intermediate instances, are being created.
-        // *   REPAIRING: The source image is being repaired.
-        // *   BUILDING: The user-defined commands are being run and an image is being created.
-        // *   TESTING: The user-defined test commands are being run.
-        // *   DISTRIBUTING: The created image is being copied and shared.
-        // *   RELEASING: The temporary resources generated during the image creation process are being released.
-        // *   SUCCESS The image creation task is completed.
-        // *   PARTITION_SUCCESS: The image creation task is partially completed. The image is created, but exceptions may occur when the image was copied or shared or when temporary resources were released.
-        // *   FAILED: The image creation task fails.
-        // *   TEST_FAILED: The image is created, but the test fails.
-        // *   CANCELLING: The image creation task is being canceled.
-        // *   CANCELLED: The image creation task is canceled.
         shared_ptr<string> resourceGroupId_ {};
-        // The time when the image creation task was created.
         shared_ptr<string> status_ {};
-        // The ID of the image.
         shared_ptr<ImagePipelineExecutionSet::Tags> tags_ {};
       };
 
@@ -325,7 +301,6 @@ namespace Models
 
 
   protected:
-    // The total number of returned image components.
     shared_ptr<DescribeImagePipelineExecutionsResponseBody::ImagePipelineExecution> imagePipelineExecution_ {};
     // The request ID.
     shared_ptr<int32_t> maxResults_ {};

@@ -163,9 +163,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the file sending task.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the file sending task.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -295,69 +293,13 @@ namespace Models
 
 
           protected:
-            // The creation time of the file sending task.
             shared_ptr<string> creationTime_ {};
-            // The error code returned when the file failed to be sent to the instance. Valid values:
-            // 
-            // *   Null: The file is sent to the instance.
-            // *   InstanceNotExists: The instance does not exist or has been released.
-            // *   InstanceReleased: The instance is released while the file is being sent.
-            // *   InstanceNotRunning: The instance is not running when the file sending task is being created.
-            // *   AccountNotExists: The specified account does not exist.
-            // *   ClientNotRunning: Cloud Assistant Agent is not running.
-            // *   ClientNotResponse: Cloud Assistant Agent does not respond.
-            // *   ClientIsUpgrading: Cloud Assistant Agent is being upgraded.
-            // *   ClientNeedUpgrade: Cloud Assistant Agent needs to be upgraded.
-            // *   DeliveryTimeout: The file sending task timed out.
-            // *   FileCreateFail: The file failed to be created.
-            // *   FileAlreadyExists: A file with the same name exists in the specified directory.
-            // *   FileContentInvalid: The file content is invalid.
-            // *   FileNameInvalid: The file name is invalid.
-            // *   FilePathInvalid: The specified directory is invalid.
-            // *   FileAuthorityInvalid: The specified permissions on the file are invalid.
-            // *   UserGroupNotExists: The specified user group does not exist.
             shared_ptr<string> errorCode_ {};
-            // The error message returned when the file failed to be sent or the file sending task failed to be executed. Valid values:
-            // 
-            // *   Null: The file is sent to the instance.
-            // *   the specified instance does not exists
-            // *   the specified instance has been released
-            // *   the instance is not running when create task
-            // *   the specified account does not exists
-            // *   the aliyun service is not running on the instance
-            // *   the aliyun service in the instance does not response
-            // *   the aliyun service in the instance is upgrading now
-            // *   the aliyun service in the instance need upgrade
-            // *   the command delivery has been timeout
-            // *   the file creation is failed due to unknown error
-            // *   the authority of file is invalid
-            // *   File content is empty
-            // *   the content of file is invalid
-            // *   File already exists
-            // *   File name is invalid
-            // *   File path is invalid
-            // *   Owner not exists
-            // *   Group not exists
-            // *   Mode is invalid
             shared_ptr<string> errorInfo_ {};
-            // The time when the file sending task was completed.
             shared_ptr<string> finishTime_ {};
-            // The ID of the instance.
             shared_ptr<string> instanceId_ {};
-            // The status of the file sending task. Valid values:
-            // 
-            // *   Pending: The file is being verified or sent.
-            // *   Invalid: The file is invalid.
-            // *   Running: The file is being sent to the instance.
-            // *   Aborted: The file failed to be sent to the instance.
-            // *   Success: The file is sent.
-            // *   Failed: The file failed to be created on the instance.
-            // *   Error: An error occurred and interrupted the file sending task.
-            // *   Timeout: The file sending task timed out.
             shared_ptr<string> invocationStatus_ {};
-            // The time when the file sending task started to be executed on the instance.
             shared_ptr<string> startTime_ {};
-            // The time when the task status was last updated.
             shared_ptr<string> updateTime_ {};
           };
 
@@ -489,54 +431,20 @@ namespace Models
 
 
       protected:
-        // The content of the file.
         shared_ptr<string> content_ {};
-        // The type of the file content. Valid values:
-        // 
-        // *   PlainText: The file content is not encoded.
-        // *   Base64: The file content is encoded in Base64.
         shared_ptr<string> contentType_ {};
-        // The time when the file sending task was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the file.
         shared_ptr<string> description_ {};
-        // The group of the file.
         shared_ptr<string> fileGroup_ {};
-        // The permissions on the file.
         shared_ptr<string> fileMode_ {};
-        // The owner of the file.
         shared_ptr<string> fileOwner_ {};
-        // The overall sending status of the file. The overall sending status of the file varies based on the sending status of the file on all destination instances. Valid values:
-        // 
-        // *   Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
-        // 
-        // *   Running: The file is being sent to the instances. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
-        // 
-        // *   Success: If the sending state of the file on all instances is Success, the overall sending state of the file is Success.
-        // 
-        // *   If the sending state of the file on all instances is Failed, the overall sending state of the file is Failed. If the sending state of the file on one or more instances is one of the following values, the overall sending state of the file is Failed:
-        // 
-        //     *   Invalid: The file is invalid.
-        //     *   Aborted: The file failed to be sent to the instances.
-        //     *   Failed: The file failed to be created on the instances.
-        //     *   Timeout: The file sending task timed out.
-        //     *   Error: An error occurred and interrupted the file sending task.
-        // 
-        // *   PartialFailed: The file sending task was completed on some instances but failed on other instances. If the sending state of the file is Success on some instances and is Failed on other instances, the overall sending state of the file is PartialFailed.
         shared_ptr<string> invocationStatus_ {};
-        // The ID of the file sending task.
         shared_ptr<string> invokeId_ {};
-        // The destination instances.
         shared_ptr<Invocation::InvokeInstances> invokeInstances_ {};
-        // The name of the file.
         shared_ptr<string> name_ {};
-        // Indicates whether a file in the destination directory is overwritten if the file has the same name as the sent file.
         shared_ptr<string> overwrite_ {};
-        // The tags of the file sending task.
         shared_ptr<Invocation::Tags> tags_ {};
-        // The destination directory.
         shared_ptr<string> targetDir_ {};
-        // The number of the destination instances.
         shared_ptr<int32_t> vmCount_ {};
       };
 
@@ -601,7 +509,6 @@ namespace Models
 
 
   protected:
-    // The file sending records.
     shared_ptr<DescribeSendFileResultsResponseBody::Invocations> invocations_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

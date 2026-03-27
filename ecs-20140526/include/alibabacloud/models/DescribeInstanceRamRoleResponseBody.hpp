@@ -93,9 +93,7 @@ namespace Models
 
 
       protected:
-        // The ID of the instance
         shared_ptr<string> instanceId_ {};
-        // The name of the instance RAM role.
         shared_ptr<string> ramRoleName_ {};
       };
 
@@ -146,7 +144,6 @@ namespace Models
 
 
   protected:
-    // The IDs of the ECS instances and the names of the corresponding instance RAM roles.
     shared_ptr<DescribeInstanceRamRoleResponseBody::InstanceRamRoleSets> instanceRamRoleSets_ {};
     // The region ID of the ECS instances.
     shared_ptr<string> regionId_ {};

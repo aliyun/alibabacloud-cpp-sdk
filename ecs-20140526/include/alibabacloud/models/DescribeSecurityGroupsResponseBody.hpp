@@ -163,9 +163,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> tagKey_ {};
-            // The value of the tag.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -288,44 +286,19 @@ namespace Models
 
 
       protected:
-        // The number of private IP addresses that can be added to the security group. For more information, see the "Security group capacity" section in [Basic security groups and advanced security groups](~~605897#section-kj9-e46-6v5~~).
-        // 
-        // If you set IsQueryEcsCount to True, the return value of AvailableInstanceAmount is valid.
-        // 
-        // >  This parameter is deprecated. The returned quantity is provided only for reference. The actual quantity may differ from the returned quantity.
         shared_ptr<int32_t> availableInstanceAmount_ {};
-        // The time when the security group was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the security group.
         shared_ptr<string> description_ {};
-        // The number of private IP addresses that are contained in the security group. For more information, see the "Security group capacity" section in [Basic security groups and advanced security groups](~~605897#section-kj9-e46-6v5~~).
-        // 
-        // If you set IsQueryEcsCount to True, the return value of EcsCount is valid.
-        // 
-        // >  This parameter is deprecated. The returned quantity is provided only for reference. The actual quantity may differ from the returned quantity.
         shared_ptr<int32_t> ecsCount_ {};
-        // The number of rules that reference security groups in the security group.
         shared_ptr<int32_t> groupToGroupRuleCount_ {};
-        // The ID of the resource group to which the security group belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The number of rules in the security group.
         shared_ptr<int32_t> ruleCount_ {};
-        // The ID of the security group.
         shared_ptr<string> securityGroupId_ {};
-        // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
-        // The type of the security group. Valid values:
-        // 
-        // *   normal: basic security group
-        // *   enterprise: advanced security group
         shared_ptr<string> securityGroupType_ {};
-        // The ID of the distributor to which the security group belongs.
         shared_ptr<int64_t> serviceID_ {};
-        // Indicates whether the user of the security group is an Alibaba Cloud service or a distributor.
         shared_ptr<bool> serviceManaged_ {};
-        // The tags of the security group.
         shared_ptr<SecurityGroup::Tags> tags_ {};
-        // The ID of the VPC to which the security group belongs.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -412,7 +385,6 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the security groups.
     shared_ptr<DescribeSecurityGroupsResponseBody::SecurityGroups> securityGroups_ {};
     // The total number of security groups returned. If `MaxResults` and `NextToken` are specified in the request, the value of this parameter is not returned.
     shared_ptr<int32_t> totalCount_ {};

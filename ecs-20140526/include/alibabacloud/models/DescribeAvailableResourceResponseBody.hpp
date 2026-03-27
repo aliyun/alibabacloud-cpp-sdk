@@ -313,12 +313,6 @@ namespace Models
         shared_ptr<AvailableZone::AvailableResources> availableResources_ {};
         shared_ptr<string> regionId_ {};
         shared_ptr<string> status_ {};
-        // The resource status based on the stock level in the zone. Valid value:
-        // 
-        // *   WithStock: The resources are available and can be continuously replenished.
-        // *   ClosedWithStock: Inventory is available, but resources will not be replenished. The ability to guarantee the supply of inventory is low. We recommend selecting a product specification in the WithStock state.
-        // *   WithoutStock: The resource is out of stock and will be replenished. We recommend using other resources that are in stock.
-        // *   ClosedWithoutStock: The resource is out of stock and will no longer be replenished. We recommend using other resources that are in stock.
         shared_ptr<string> statusCategory_ {};
         shared_ptr<string> zoneId_ {};
       };
@@ -356,7 +350,6 @@ namespace Models
 
 
   protected:
-    // The information about the availability of resources in the zones.
     shared_ptr<DescribeAvailableResourceResponseBody::AvailableZones> availableZones_ {};
     shared_ptr<string> requestId_ {};
   };

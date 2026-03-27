@@ -152,9 +152,7 @@ namespace Models
 
 
         protected:
-          // The tag key of the custom image.
           shared_ptr<string> tagKey_ {};
-          // The tag value of the custom image.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -275,21 +273,12 @@ namespace Models
 
 
         protected:
-          // The device name of the disk. Example: /dev/xvdb.
-          // 
-          // >  This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
           shared_ptr<string> device_ {};
-          // The image format.
           shared_ptr<string> format_ {};
-          // The OSS bucket that contains the imported image file.
           shared_ptr<string> importOSSBucket_ {};
-          // The OSS object to which the imported image belongs.
           shared_ptr<string> importOSSObject_ {};
-          // The size of the disk. Unit: GiB.
           shared_ptr<string> size_ {};
-          // The snapshot ID.
           shared_ptr<string> snapshotId_ {};
-          // The image type.
           shared_ptr<string> type_ {};
         };
 
@@ -488,7 +477,6 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The description of the volume.
       shared_ptr<string> description_ {};
-      // The mappings between the disk and the snapshot in the image.
       shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
       // The name of the image family.
       shared_ptr<string> imageFamily_ {};
@@ -537,7 +525,6 @@ namespace Models
       // *   Creating
       // *   CreateFailed
       shared_ptr<string> status_ {};
-      // The tags of the image.
       shared_ptr<Image::Tags> tags_ {};
       // Indicates whether the image has been used to create ECS instances. Valid values:
       // 

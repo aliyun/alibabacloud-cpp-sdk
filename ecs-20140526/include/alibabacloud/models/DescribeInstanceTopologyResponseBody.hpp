@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The ID of the host where the ECS instance resides. This parameter is encrypted and cannot match the ID of the ECS instance. However, if the values of this parameter for different ECS instances are the same, the ECS instances reside on the same host.
         shared_ptr<string> hostId_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -130,7 +128,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the topology.
     shared_ptr<DescribeInstanceTopologyResponseBody::Topologys> topologys_ {};
   };
 

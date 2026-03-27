@@ -155,9 +155,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> tagKey_ {};
-            // The value of the tag.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -241,17 +239,8 @@ namespace Models
 
 
           protected:
-            // The default value of the parameter.
             shared_ptr<string> defaultValue_ {};
-            // The name of the parameter.
             shared_ptr<string> name_ {};
-            // The type of the parameter.
-            // 
-            // Valid values:
-            // 
-            // *   String
-            // *   Number
-            // *   Boolean
             shared_ptr<string> type_ {};
           };
 
@@ -362,32 +351,17 @@ namespace Models
 
 
       protected:
-        // The type of the image component.
         shared_ptr<string> componentType_ {};
-        // The version number of the image component.
         shared_ptr<string> componentVersion_ {};
-        // The content of the image component.
         shared_ptr<string> content_ {};
-        // The time when the image component was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the image component.
         shared_ptr<string> description_ {};
-        // The ID of the image component.
         shared_ptr<string> imageComponentId_ {};
-        // The name of the image component.
         shared_ptr<string> name_ {};
-        // The type of the image component. Valid values:
-        // 
-        // *   SELF: the custom component that you created.
-        // *   ALIYUN: the system component provided by Alibaba Cloud.
         shared_ptr<string> owner_ {};
-        // The parameters contained in the image component.
         shared_ptr<ImageComponentSet::Parameters> parameters_ {};
-        // The ID of the resource group to which the image component belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The type of the operating system supported by the image component.
         shared_ptr<string> systemType_ {};
-        // The tags of the image component.
         shared_ptr<ImageComponentSet::Tags> tags_ {};
       };
 
@@ -445,7 +419,6 @@ namespace Models
 
 
   protected:
-    // The information about the image components.
     shared_ptr<DescribeImageComponentsResponseBody::ImageComponent> imageComponent_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};

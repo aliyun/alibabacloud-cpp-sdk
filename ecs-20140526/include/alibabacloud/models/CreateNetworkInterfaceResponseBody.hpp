@@ -129,9 +129,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -239,9 +237,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the private IP address is the primary private IP address.
         shared_ptr<bool> primary_ {};
-        // The private IP address of the instance.
         shared_ptr<string> privateIpAddress_ {};
       };
 
@@ -306,7 +302,6 @@ namespace Models
 
 
       protected:
-        // The IPv6 address assigned to the ENI.
         shared_ptr<string> ipv6Address_ {};
       };
 
@@ -371,7 +366,6 @@ namespace Models
 
 
       protected:
-        // The IPv6 prefix assigned to the ENI.
         shared_ptr<string> ipv6Prefix_ {};
       };
 
@@ -436,7 +430,6 @@ namespace Models
 
 
       protected:
-        // The IPv4 prefix assigned to the ENI.
         shared_ptr<string> ipv4Prefix_ {};
       };
 
@@ -629,11 +622,8 @@ namespace Models
   protected:
     // The description of the ENI.
     shared_ptr<string> description_ {};
-    // The IPv4 prefixes assigned to the ENI.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
-    // The IPv6 prefixes assigned to the ENI.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
-    // The IPv6 addresses assigned to the ENI.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6Sets> ipv6Sets_ {};
     // The media access control (MAC) address of the ENI.
     shared_ptr<string> macAddress_ {};
@@ -645,13 +635,11 @@ namespace Models
     shared_ptr<string> ownerId_ {};
     // The private IP address of the ENI.
     shared_ptr<string> privateIpAddress_ {};
-    // The private IP addresses.
     shared_ptr<CreateNetworkInterfaceResponseBody::PrivateIpSets> privateIpSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the ENI belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The IDs of the security groups to which the ENI belongs.
     shared_ptr<CreateNetworkInterfaceResponseBody::SecurityGroupIds> securityGroupIds_ {};
     // The ID of the distributor to which the ENI belongs.
     shared_ptr<int64_t> serviceID_ {};
@@ -661,7 +649,6 @@ namespace Models
     shared_ptr<bool> sourceDestCheck_ {};
     // The state of the ENI.
     shared_ptr<string> status_ {};
-    // The tags of the ENI.
     shared_ptr<CreateNetworkInterfaceResponseBody::Tags> tags_ {};
     // The type of the ENI.
     shared_ptr<string> type_ {};

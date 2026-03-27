@@ -411,7 +411,6 @@ namespace Models
 
 
           protected:
-            // The index of the network card.
             shared_ptr<int32_t> networkCardIndex_ {};
           };
 
@@ -476,11 +475,8 @@ namespace Models
 
 
         protected:
-          // >  This parameter is not publicly available.
           shared_ptr<bool> rssSupport_ {};
-          // >  This parameter is not publicly available.
           shared_ptr<bool> sriovSupport_ {};
-          // >  This parameter is not publicly available.
           shared_ptr<int32_t> vfQueueNumberPerEni_ {};
         };
 
@@ -584,17 +580,10 @@ namespace Models
 
 
         protected:
-          // The number of CPU cores.
           shared_ptr<int32_t> core_ {};
-          // The CPU option step size.
           shared_ptr<int32_t> coreFactor_ {};
-          // Indicates whether HT can be enabled or disabled.
           shared_ptr<bool> hyperThreadingAdjustable_ {};
-          // The CPU topology types of the instance type.
           shared_ptr<CpuOptions::SupportedTopologyTypes> supportedTopologyTypes_ {};
-          // The number of threads per CPU core.
-          // 
-          // >  `If the value of CpuOptions.ThreadPerCore is 1, Hyper-Threading (HT) is disabled.`
           shared_ptr<int32_t> threadsPerCore_ {};
         };
 
@@ -626,10 +615,6 @@ namespace Models
 
 
         protected:
-          // Whether PTP is supported. Possible values:
-          // 
-          // *   supported
-          // *   unsupported
           shared_ptr<string> ptpSupport_ {};
         };
 
@@ -690,9 +675,7 @@ namespace Models
 
 
           protected:
-            // The name of the attribute.
             shared_ptr<string> name_ {};
-            // The attribute value.
             shared_ptr<string> value_ {};
           };
 
@@ -1050,138 +1033,50 @@ namespace Models
 
 
       protected:
-        // The list of specification attributes.
         shared_ptr<InstanceType::Attributes> attributes_ {};
-        // The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
         shared_ptr<int32_t> baselineCredit_ {};
-        // The clock supported by the specification.
         shared_ptr<InstanceType::Clock> clock_ {};
-        // The CPU architecture. Valid values:
-        // 
-        // *   X86
-        // *   ARM
         shared_ptr<string> cpuArchitecture_ {};
-        // The number of vCPUs.
         shared_ptr<int32_t> cpuCoreCount_ {};
-        // The CPU options.
         shared_ptr<InstanceType::CpuOptions> cpuOptions_ {};
-        // The CPU base frequency. Unit: GHz.
         shared_ptr<float> cpuSpeedFrequency_ {};
-        // The CPU turbo frequency. Unit: GHz.
         shared_ptr<float> cpuTurboFrequency_ {};
-        // The maximum number of cloud disks per instance.
         shared_ptr<int32_t> diskQuantity_ {};
-        // >  This parameter is not publicly available.
         shared_ptr<InstanceType::EnhancedNetwork> enhancedNetwork_ {};
-        // The maximum number of IPv6 addresses per ENI.
         shared_ptr<int32_t> eniIpv6AddressQuantity_ {};
-        // The maximum number of IPv4 addresses per ENI.
         shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
-        // The maximum number of ENIs per instance.
         shared_ptr<int32_t> eniQuantity_ {};
-        // The maximum number of ENIs, including primary, secondary, and trunk ENIs.
-        // 
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<int32_t> eniTotalQuantity_ {};
-        // Indicates whether trunk ENIs are supported.
-        // 
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<bool> eniTrunkSupported_ {};
-        // The number of ERIs.
-        // 
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<int32_t> eriQuantity_ {};
-        // The number of GPUs.
         shared_ptr<int32_t> GPUAmount_ {};
-        // The amount of GPU memory per GPU. Unit: GiB
         shared_ptr<float> GPUMemorySize_ {};
-        // The GPU model.
         shared_ptr<string> GPUSpec_ {};
-        // The initial vCPU credits per t5 or t6 burstable instance.
         shared_ptr<int32_t> initialCredit_ {};
-        // The maximum inbound internal bandwidth. Unit: Kbit/s.
         shared_ptr<int32_t> instanceBandwidthRx_ {};
-        // The maximum outbound internal bandwidth. Unit: Kbit/s.
         shared_ptr<int32_t> instanceBandwidthTx_ {};
-        // The category of the instance type. Valid values:
-        // 
-        // *   General-purpose
-        // *   Compute-optimized
-        // *   Memory-optimized
-        // *   Big data
-        // *   Local SSDs
-        // *   High Clock Speed
-        // *   Enhanced
-        // *   Shared
-        // *   Compute-optimized with GPU
-        // *   Visual Compute-optimized
-        // *   Heterogeneous Service
-        // *   Compute-optimized with FPGA
-        // *   Compute-optimized with NPU
-        // *   ECS Bare Metal
-        // *   Super Computing Cluster
-        // *   High Performance Compute
         shared_ptr<string> instanceCategory_ {};
-        // The level of the instance family. Valid values:
-        // 
-        // *   EntryLevel: entry level (shared).
-        // *   EnterpriseLevel: enterprise level.
-        // *   CreditEntryLevel: credit-based entry level. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html).
         shared_ptr<string> instanceFamilyLevel_ {};
-        // The inbound packet forwarding rate over the internal network. Unit: pps.
         shared_ptr<int64_t> instancePpsRx_ {};
-        // The outbound packet forwarding rate over the internal network. Unit: pps.
         shared_ptr<int64_t> instancePpsTx_ {};
-        // The instance family.
         shared_ptr<string> instanceTypeFamily_ {};
-        // The ID of the instance type.
         shared_ptr<string> instanceTypeId_ {};
-        // Indicates whether jumbo frames are supported.
         shared_ptr<bool> jumboFrameSupport_ {};
-        // The number of local disks per instance.
         shared_ptr<int32_t> localStorageAmount_ {};
-        // The capacity of each local disk. Unit: GiB
         shared_ptr<int64_t> localStorageCapacity_ {};
-        // The category of local disks. For more information, see [Local disks](https://help.aliyun.com/document_detail/63138.html). Valid values:
-        // 
-        // *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances
-        // *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances
         shared_ptr<string> localStorageCategory_ {};
-        // The maximum number of queues per ENI, including primary and secondary ENIs.
         shared_ptr<int32_t> maximumQueueNumberPerEni_ {};
-        // The memory size. Unit: GiB
         shared_ptr<float> memorySize_ {};
-        // The maximum number of network cards that the instance type supports.
         shared_ptr<int32_t> networkCardQuantity_ {};
-        // The information about the network cards.
         shared_ptr<InstanceType::NetworkCards> networkCards_ {};
-        // Indicates whether to allow network traffic transmitted over virtual private clouds (VPCs) to be encrypted. Valid values:
-        // 
-        // *   true
-        // *   false
-        // 
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<bool> networkEncryptionSupport_ {};
         shared_ptr<InstanceType::NetworkInfo> networkInfo_ {};
-        // Indicates whether cloud disks can be attached by using the NVMe protocol. Valid values:
-        // 
-        // *   required: Cloud disks can be attached by using the NVMe protocol.
-        // *   unsupported: Cloud disks cannot be attached by using the NVMe protocol.
         shared_ptr<string> nvmeSupport_ {};
-        // The CPU model.
         shared_ptr<string> physicalProcessorModel_ {};
-        // The default number of queues per primary ENI.
         shared_ptr<int32_t> primaryEniQueueNumber_ {};
-        // The maximum number of QPs per instance, which varies based on the instance type.
-        // 
-        // *   For enterprise-level CPU-based instance types, the value of `QueuePairNumber` is the maximum number of QPs per instance.
-        // *   For GPU-accelerated instance types, the maximum number of QPs per instance is calculated by using the following formula: Value of `QueuePairNumber` × Value of NetworkCardQuantity.
         shared_ptr<int32_t> queuePairNumber_ {};
-        // The default number of queues per secondary ENI.
         shared_ptr<int32_t> secondaryEniQueueNumber_ {};
-        // The boot modes supported by the instance type.
         shared_ptr<InstanceType::SupportedBootModes> supportedBootModes_ {};
-        // The maximum number of queues on ENIs that the instance type supports.
         shared_ptr<int32_t> totalEniQueueQuantity_ {};
       };
 
@@ -1225,7 +1120,6 @@ namespace Models
 
 
   protected:
-    // Details about the instance types.
     shared_ptr<DescribeInstanceTypesResponseBody::InstanceTypes> instanceTypes_ {};
     // The query token returned in this call.
     shared_ptr<string> nextToken_ {};

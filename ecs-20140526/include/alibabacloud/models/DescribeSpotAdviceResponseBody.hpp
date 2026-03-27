@@ -149,20 +149,9 @@ namespace Models
 
 
           protected:
-            // The percentage of the average spot instance price relative to the pay-as-you-go instance price in the previous 30 days. Unit: %. Valid values: 1 to 100.
-            // 
-            // You can calculate the average spot instance price based on the return value. For example, if the pay-as-you-go instance price is 1 and the return value of this parameter is 20, the average spot instance price in the previous 30 days is 0.2.
             shared_ptr<int32_t> averageSpotDiscount_ {};
-            // The instance type.
             shared_ptr<string> instanceType_ {};
-            // The release rate range of spot instances in the previous 30 days, which corresponds to the `InterruptionRate` value. Valid values:
-            // 
-            // *   0-3%
-            // *   3-5%
-            // *   5-10%
-            // *   10-100%
             shared_ptr<string> interruptRateDesc_ {};
-            // The average release rate of spot instances in the previous 30 days. Unit: %.
             shared_ptr<float> interruptionRate_ {};
           };
 
@@ -199,9 +188,7 @@ namespace Models
 
 
       protected:
-        // Details about spot instances in the previous 30 days, including the release rate of spot instances and percentages of average spot instance prices relative to pay-as-you-go instance prices.
         shared_ptr<AvailableSpotZone::AvailableSpotResources> availableSpotResources_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -245,9 +232,6 @@ namespace Models
 
 
   protected:
-    // Details about spot instances in the zones of the specified region.
-    // 
-    // >  The return values are sorted based on the historical percentages of average spot instance prices relative to pay-as-you-go instance prices for instance types.
     shared_ptr<DescribeSpotAdviceResponseBody::AvailableSpotZones> availableSpotZones_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -131,22 +131,11 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
         shared_ptr<int64_t> accountId_ {};
-        // The ID of ENI N.
         shared_ptr<string> networkInterfaceId_ {};
-        // The ID of the ENI permission.
         shared_ptr<string> networkInterfacePermissionId_ {};
-        // The ENI permission.
         shared_ptr<string> permission_ {};
-        // The status of the ENI permission. Valid values:
-        // 
-        // *   Pending: The permission is being granted.
-        // *   Granted: The permission is granted.
-        // *   Revoking: The permission is being revoked.
-        // *   Revoked: The permission is revoked.
         shared_ptr<string> permissionState_ {};
-        // The name of the Alibaba Cloud service.
         shared_ptr<string> serviceName_ {};
       };
 
@@ -204,7 +193,6 @@ namespace Models
 
 
   protected:
-    // Details about the ENI permissions.
     shared_ptr<DescribeNetworkInterfacePermissionsResponseBody::NetworkInterfacePermissions> networkInterfacePermissions_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

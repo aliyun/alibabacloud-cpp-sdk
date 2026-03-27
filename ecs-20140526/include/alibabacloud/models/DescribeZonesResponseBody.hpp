@@ -467,19 +467,12 @@ namespace Models
 
 
           protected:
-            // The categories of data disks that can be created.
             shared_ptr<ResourcesInfo::DataDiskCategories> dataDiskCategories_ {};
-            // The supported generations of instance families.
             shared_ptr<ResourcesInfo::InstanceGenerations> instanceGenerations_ {};
-            // The supported instance families.
             shared_ptr<ResourcesInfo::InstanceTypeFamilies> instanceTypeFamilies_ {};
-            // The supported instance types.
             shared_ptr<ResourcesInfo::InstanceTypes> instanceTypes_ {};
-            // Indicates whether the instance is I/O optimized.
             shared_ptr<bool> ioOptimized_ {};
-            // The supported network types.
             shared_ptr<ResourcesInfo::NetworkTypes> networkTypes_ {};
-            // The categories of system disks that can be created.
             shared_ptr<ResourcesInfo::SystemDiskCategories> systemDiskCategories_ {};
           };
 
@@ -717,39 +710,15 @@ namespace Models
 
 
       protected:
-        // The supported dedicated host types.
         shared_ptr<Zone::AvailableDedicatedHostTypes> availableDedicatedHostTypes_ {};
-        // The categories of cloud disks that can be created. Valid values:
-        // 
-        // *   cloud: basic disk
-        // *   cloud_ssd: standard SSD
-        // *   cloud_efficiency: ultra disk
-        // *   cloud_essd: ESSD
         shared_ptr<Zone::AvailableDiskCategories> availableDiskCategories_ {};
-        // The supported instance types.
         shared_ptr<Zone::AvailableInstanceTypes> availableInstanceTypes_ {};
-        // The types of resources that can be created. Valid values:
-        // 
-        // *   VSwitch: vSwitch
-        // *   IoOptimized: I/O optimized instance
-        // *   Instance: instance
-        // *   DedicatedHost: dedicated host
-        // *   disk: cloud disk
         shared_ptr<Zone::AvailableResourceCreation> availableResourceCreation_ {};
-        // Details about the resources that can be created in the zone.
         shared_ptr<Zone::AvailableResources> availableResources_ {};
-        // The supported Shared Block Storage device categories.
         shared_ptr<Zone::AvailableVolumeCategories> availableVolumeCategories_ {};
-        // The supported generations of dedicated hosts.
         shared_ptr<Zone::DedicatedHostGenerations> dedicatedHostGenerations_ {};
-        // The name of the zone in the local language.
         shared_ptr<string> localName_ {};
-        // The ID of the zone.
         shared_ptr<string> zoneId_ {};
-        // The type of the zone. Valid values:
-        // 
-        // *   AvailabilityZone: zone for the Alibaba Cloud public cloud
-        // *   CloudBoxZone: zone for CloudBox
         shared_ptr<string> zoneType_ {};
       };
 
@@ -788,7 +757,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the zones and their supported resources.
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };
 

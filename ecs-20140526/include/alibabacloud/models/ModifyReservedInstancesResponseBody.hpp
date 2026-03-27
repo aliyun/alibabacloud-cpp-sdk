@@ -86,7 +86,6 @@ namespace Models
   protected:
     // Details about the reserved instance.
     shared_ptr<string> requestId_ {};
-    // The IDs of the reserved instances.
     shared_ptr<ModifyReservedInstancesResponseBody::ReservedInstanceIdSets> reservedInstanceIdSets_ {};
   };
 

@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The error code returned for the instance. A return value of 200 indicates that the operation is successful. For more information, see the "Error codes" section of this topic.
         shared_ptr<string> code_ {};
-        // The current state of the instance.
         shared_ptr<string> currentStatus_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The error message that is returned for the operation on the instance. The return value Success indicates that the operation is successful. For more information, see the "Error codes" section of this topic.
         shared_ptr<string> message_ {};
-        // The state of the instance before the operation is called.
         shared_ptr<string> previousStatus_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // Details about instance-specific responses, which contain the status of each instance before and after the operation is called and the results of the operation.
     shared_ptr<RebootInstancesResponseBody::InstanceResponses> instanceResponses_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

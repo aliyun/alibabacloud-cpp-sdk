@@ -91,7 +91,6 @@ namespace Models
 
 
       protected:
-        // The shared group.
         shared_ptr<string> group_ {};
       };
 
@@ -166,9 +165,7 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account.
         shared_ptr<string> aliyunId_ {};
-        // The time when the image was shared. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> sharedTime_ {};
       };
 
@@ -250,7 +247,6 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud accounts.
     shared_ptr<DescribeImageSharePermissionResponseBody::Accounts> accounts_ {};
     // The ID of the custom image.
     shared_ptr<string> imageId_ {};
@@ -262,7 +258,6 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The shared groups.
     shared_ptr<DescribeImageSharePermissionResponseBody::ShareGroups> shareGroups_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

@@ -199,9 +199,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the dedicated host.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the dedicated host.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -365,10 +363,6 @@ namespace Models
 
 
           protected:
-            // The reason why the dedicated host was locked. Valid values:
-            // 
-            // *   financial: The dedicated host was locked due to overdue payments.
-            // *   security: The dedicated host was locked due to security reasons.
             shared_ptr<string> lockReason_ {};
           };
 
@@ -424,9 +418,7 @@ namespace Models
 
 
         protected:
-          // The timeout period of the UDP session that is established between Server Load Balancer (SLB) and the dedicated host. Unit: seconds. Only 60 is returned.
           shared_ptr<int32_t> slbUdpTimeout_ {};
-          // The timeout period of the UDP session that is established between a user and an Alibaba Cloud service on the dedicated host. Unit: seconds. Only 60 is returned.
           shared_ptr<int32_t> udpTimeout_ {};
         };
 
@@ -505,13 +497,9 @@ namespace Models
 
 
           protected:
-            // The ID of the ECS instance.
             shared_ptr<string> instanceId_ {};
-            // The ID of the ECS instance owner.
             shared_ptr<int64_t> instanceOwnerId_ {};
-            // The instance type of the ECS instance that was created on the dedicated host.
             shared_ptr<string> instanceType_ {};
-            // The ID of the socket to which the ECS instance belongs.
             shared_ptr<string> socketId_ {};
           };
 
@@ -557,7 +545,6 @@ namespace Models
 
 
         protected:
-          // This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
           shared_ptr<string> serialNumber_ {};
         };
 
@@ -684,15 +671,10 @@ namespace Models
 
 
             protected:
-              // The amount of available memory. Unit: GiB.
               shared_ptr<float> availableMemory_ {};
-              // The number of available vCPUs.
               shared_ptr<int32_t> availableVcpu_ {};
-              // The socket ID.
               shared_ptr<int32_t> socketId_ {};
-              // The total amount of memory. Unit: GiB.
               shared_ptr<float> totalMemory_ {};
-              // The total number of vCPUs.
               shared_ptr<int32_t> totalVcpu_ {};
             };
 
@@ -871,25 +853,15 @@ namespace Models
 
         protected:
           shared_ptr<Capacity::AvailableInstanceTypes> availableInstanceTypes_ {};
-          // The amount of available space on the local disks. Unit: GiB
           shared_ptr<int32_t> availableLocalStorage_ {};
-          // The amount of available memory. Unit: GiB.
           shared_ptr<float> availableMemory_ {};
-          // The number of available vCPUs.
           shared_ptr<int32_t> availableVcpus_ {};
-          // The number of available vGPUs.
           shared_ptr<int32_t> availableVgpus_ {};
-          // The category of local disks.
           shared_ptr<string> localStorageCategory_ {};
-          // The socket capacities.
           shared_ptr<Capacity::SocketCapacities> socketCapacities_ {};
-          // The total capacity of local disks. Unit: GiB.
           shared_ptr<int32_t> totalLocalStorage_ {};
-          // The total amount of memory. Unit: GiB.
           shared_ptr<float> totalMemory_ {};
-          // The total number of vCPUs.
           shared_ptr<int32_t> totalVcpus_ {};
-          // The total number of vGPUs.
           shared_ptr<int32_t> totalVgpus_ {};
         };
 
@@ -1185,86 +1157,37 @@ namespace Models
 
       protected:
         shared_ptr<DedicatedHost::SchedulerOptions> schedulerOptions_ {};
-        // The policy used to migrate the ECS instances deployed on the dedicated host when the dedicated host fails. Valid values:
-        // 
-        // *   Migrate: The instances are migrated to another physical machine. Instances that are not in the Stopped state when the dedicated host fails are restarted.
-        // *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical machine and then restarted.
-        // 
-        // If the dedicated host has cloud disks attached, the default value is Migrate. If the dedicated host has local disks attached, the default value is Stop.
         shared_ptr<string> actionOnMaintenance_ {};
-        // Indicates whether the dedicated host is added to the resource pool for automatic deployment. Valid values:
-        // 
-        // *   on: The dedicated host is added to the resource pool for automatic deployment.
-        // *   off: The dedicated host is not added to the resource pool for automatic deployment.
-        // 
-        // For information about automatic deployment, see the "Automatic deployment" section in [Functions and features](https://help.aliyun.com/document_detail/118938.html).
         shared_ptr<string> autoPlacement_ {};
-        // The automatic release time of the dedicated host. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> autoReleaseTime_ {};
-        // The performance specifications of the dedicated host.
         shared_ptr<DedicatedHost::Capacity> capacity_ {};
-        // The billing method of the dedicated host.
         shared_ptr<string> chargeType_ {};
-        // The number of physical cores per CPU.
         shared_ptr<int32_t> cores_ {};
-        // The CPU overcommit ratio. Valid values: 1 to 5.
         shared_ptr<float> cpuOverCommitRatio_ {};
-        // The time when the dedicated host was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The ID of the dedicated host cluster to which the dedicated host belongs.
         shared_ptr<string> dedicatedHostClusterId_ {};
-        // The ID of the dedicated host.
         shared_ptr<string> dedicatedHostId_ {};
-        // The name of the dedicated host.
         shared_ptr<string> dedicatedHostName_ {};
-        // The ID of the dedicated host owner.
         shared_ptr<int64_t> dedicatedHostOwnerId_ {};
-        // The type of the dedicated host.
         shared_ptr<string> dedicatedHostType_ {};
-        // The description of the dedicated host.
         shared_ptr<string> description_ {};
-        // The expiration time of the subscription dedicated host. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
         shared_ptr<string> expiredTime_ {};
-        // The GPU model.
         shared_ptr<string> GPUSpec_ {};
-        // This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
         shared_ptr<DedicatedHost::HostDetailInfo> hostDetailInfo_ {};
-        // The ECS instances that were created on the dedicated host.
         shared_ptr<DedicatedHost::Instances> instances_ {};
-        // The machine code of the dedicated host.
         shared_ptr<string> machineId_ {};
-        // The network attributes of the dedicated host.
         shared_ptr<DedicatedHost::NetworkAttributes> networkAttributes_ {};
-        // The reasons why the resources of the dedicated host were locked.
         shared_ptr<DedicatedHost::OperationLocks> operationLocks_ {};
-        // The number of physical GPUs.
         shared_ptr<int32_t> physicalGpus_ {};
-        // The region ID of the dedicated host.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the dedicated host belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The unit of the subscription duration. Valid values:
-        // 
-        // *   Month
-        // *   Year
         shared_ptr<string> saleCycle_ {};
-        // The number of physical CPUs.
         shared_ptr<int32_t> sockets_ {};
-        // The status of the dedicated host. Valid values:
-        // 
-        // *   Available: The dedicated host is running as expected.
-        // *   UnderAssessment: The dedicated host is available but has potential risks that may cause the ECS instances on the dedicated host to fail.
-        // *   PermanentFailure: The dedicated host has permanent failures and is unavailable.
         shared_ptr<string> status_ {};
-        // The custom ECS instance families that are supported by the dedicated host.
         shared_ptr<DedicatedHost::SupportedCustomInstanceTypeFamilies> supportedCustomInstanceTypeFamilies_ {};
-        // The ECS instance families that are supported by the dedicated host.
         shared_ptr<DedicatedHost::SupportedInstanceTypeFamilies> supportedInstanceTypeFamilies_ {};
-        // The ECS instance types that are supported by the dedicated host.
         shared_ptr<DedicatedHost::SupportedInstanceTypesList> supportedInstanceTypesList_ {};
-        // The tags of the dedicated host.
         shared_ptr<DedicatedHost::Tags> tags_ {};
-        // The zone ID of the dedicated host.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -1329,7 +1252,6 @@ namespace Models
 
 
   protected:
-    // Details about the DDH.
     shared_ptr<DescribeDedicatedHostsResponseBody::DedicatedHosts> dedicatedHosts_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. If the return value of this parameter is empty when you specify MaxResults and NextToken for a paged query, no more results are to be returned.
     shared_ptr<string> nextToken_ {};

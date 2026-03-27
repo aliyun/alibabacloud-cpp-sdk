@@ -125,30 +125,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-renewal is enabled. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> autoRenewEnabled_ {};
-        // Indicates whether the dedicated host is automatically renewed if a subscription ECS instance it hosts, after being automatically renewed, has a new expiration time that is later than that of the dedicated host. Valid values:
-        // 
-        // *   AutoRenewWithEcs: The dedicated host is automatically renewed along with the ECS instance.
-        // *   StopRenewWithEcs: The dedicated host is not automatically renewed along with the ECS instance.
         shared_ptr<string> autoRenewWithEcs_ {};
-        // The ID of the dedicated host.
         shared_ptr<string> dedicatedHostId_ {};
-        // The auto-renewal period.
         shared_ptr<int32_t> duration_ {};
-        // The unit of the auto-renewal duration. Valid values:
-        // 
-        // *   Week
-        // *   Month
         shared_ptr<string> periodUnit_ {};
-        // Indicates whether the subscription dedicated host is automatically renewed. Valid values:
-        // 
-        // *   AutoRenewal: The dedicated host is automatically renewed.
-        // *   Normal: The dedicated host is not automatically renewed, but renewal notifications are sent.
-        // *   NotRenewal: The dedicated host is not automatically renewed, and no expiration notification is sent. Alibaba Cloud sends only a non-renewal notice three days before the host expires. If the renewal status of a dedicated host is NotRenewal, you can change the value to Normal and then call [RenewDedicatedHosts](https://help.aliyun.com/document_detail/93287.html) to manually renew the dedicated host, or directly change the value to AutoRenewal.
         shared_ptr<string> renewalStatus_ {};
       };
 
@@ -185,7 +166,6 @@ namespace Models
 
 
   protected:
-    // The array that consists of dedicated host auto-renewal attributes.
     shared_ptr<DescribeDedicatedHostAutoRenewResponseBody::DedicatedHostRenewAttributes> dedicatedHostRenewAttributes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

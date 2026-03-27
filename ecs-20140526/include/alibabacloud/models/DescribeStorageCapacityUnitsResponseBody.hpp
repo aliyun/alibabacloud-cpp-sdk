@@ -153,9 +153,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N.
             shared_ptr<string> tagKey_ {};
-            // The value of tag N.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -256,35 +254,16 @@ namespace Models
 
 
       protected:
-        // Indicates the allocation state of the SCU when the AllocationType parameter is set to Shared. Valid values:
-        // 
-        // *   allocated: The SCU is allocated to other accounts.
-        // *   BeAllocated: The SCU is allocated from another account.
         shared_ptr<string> allocationStatus_ {};
-        // The capacity of the SCU.
         shared_ptr<int32_t> capacity_ {};
-        // The time when the SCU was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the SCU.
         shared_ptr<string> description_ {};
-        // The time when the SCU expires.
         shared_ptr<string> expiredTime_ {};
-        // The name of the SCU.
         shared_ptr<string> name_ {};
-        // The region ID of the SCU.
         shared_ptr<string> regionId_ {};
-        // The time when the SCU took effect.
         shared_ptr<string> startTime_ {};
-        // The status of the SCU. Valid values:
-        // 
-        // *   Creating: The SCUs are being created.
-        // *   Active: The SCUs are in effect.
-        // *   Expired: The SCUs have expired.
-        // *   Pending: The SCUs have not taken effect.
         shared_ptr<string> status_ {};
-        // The ID of the SCU.
         shared_ptr<string> storageCapacityUnitId_ {};
-        // The tag key-value pairs of the SCU.
         shared_ptr<StorageCapacityUnit::Tags> tags_ {};
       };
 
@@ -348,7 +327,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the SCUs.
     shared_ptr<DescribeStorageCapacityUnitsResponseBody::StorageCapacityUnits> storageCapacityUnits_ {};
     // The total number of SCUs.
     shared_ptr<int32_t> totalCount_ {};

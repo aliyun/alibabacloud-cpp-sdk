@@ -129,9 +129,7 @@ namespace Models
 
 
           protected:
-            // The ID of the Alibaba Cloud account to which the security group whose rules reference the specified security group belongs.
             shared_ptr<string> aliUid_ {};
-            // The ID of the security group whose rules reference the specified security group.
             shared_ptr<string> securityGroupId_ {};
           };
 
@@ -168,9 +166,7 @@ namespace Models
 
 
       protected:
-        // Details about the security groups whose rules reference the specified security group.
         shared_ptr<SecurityGroupReference::ReferencingSecurityGroups> referencingSecurityGroups_ {};
-        // The ID of the specified security group.
         shared_ptr<string> securityGroupId_ {};
       };
 
@@ -209,7 +205,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the references to the specified security groups.
     shared_ptr<DescribeSecurityGroupReferencesResponseBody::SecurityGroupReferences> securityGroupReferences_ {};
   };
 

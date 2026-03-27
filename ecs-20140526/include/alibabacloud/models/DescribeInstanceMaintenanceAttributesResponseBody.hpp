@@ -139,9 +139,7 @@ namespace Models
 
 
           protected:
-            // The end time of the maintenance window.
             shared_ptr<string> endTime_ {};
-            // The start time of the maintenance window.
             shared_ptr<string> startTime_ {};
           };
 
@@ -241,15 +239,8 @@ namespace Models
 
 
         protected:
-          // The default maintenance action.
           shared_ptr<string> defaultValue_ {};
-          // The supported maintenance actions.
           shared_ptr<ActionOnMaintenance::SupportedValues> supportedValues_ {};
-          // The current maintenance action. Valid values:
-          // 
-          // *   Stop: stops the instance.
-          // *   AutoRecover: automatically recovers the instance.
-          // *   AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
           shared_ptr<string> value_ {};
         };
 
@@ -288,13 +279,9 @@ namespace Models
 
 
       protected:
-        // The attributes of the maintenance action of the instance.
         shared_ptr<MaintenanceAttribute::ActionOnMaintenance> actionOnMaintenance_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The maintenance windows.
         shared_ptr<MaintenanceAttribute::MaintenanceWindows> maintenanceWindows_ {};
-        // Indicates whether an event notification was sent before maintenance.
         shared_ptr<bool> notifyOnMaintenance_ {};
       };
 
@@ -352,7 +339,6 @@ namespace Models
 
 
   protected:
-    // The maintenance attributes.
     shared_ptr<DescribeInstanceMaintenanceAttributesResponseBody::MaintenanceAttributes> maintenanceAttributes_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

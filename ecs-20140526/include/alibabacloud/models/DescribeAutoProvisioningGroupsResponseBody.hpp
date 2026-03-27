@@ -172,20 +172,9 @@ namespace Models
 
 
         protected:
-          // The type of supplemental instances. When the sum of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` values is less than the `TotalTargetCapacity` value, the auto provisioning group creates instances of the specified billing method to meet the target capacity. Valid values:
-          // 
-          // *   PayAsYouGo: pay-as-you-go instances.
-          // *   Spot: spot instances.
           shared_ptr<string> defaultTargetCapacityType_ {};
-          // The target capacity of pay-as-you-go instances that the auto provisioning group provisions.
           shared_ptr<float> payAsYouGoTargetCapacity_ {};
-          // The target capacity of spot instances that the auto provisioning group provisions.
           shared_ptr<float> spotTargetCapacity_ {};
-          // The target capacity of the auto provisioning group. The capacity consists of the following parts:
-          // 
-          // *   PayAsYouGoTargetCapacity
-          // *   SpotTargetCapacity
-          // *   The supplemental capacity besides instance capacities specified by PayAsYouGoTargetCapacity and SpotTargetCapacity.
           shared_ptr<float> totalTargetCapacity_ {};
         };
 
@@ -246,13 +235,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N that is added to the auto provisioning group.
-            // 
-            // Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
             shared_ptr<string> tagKey_ {};
-            // The value of tag N that is added to the auto provisioning group.
-            // 
-            // Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -317,19 +300,8 @@ namespace Models
 
 
         protected:
-          // The policy for creating spot instances. Valid values:
-          // 
-          // *   lowest-price: cost optimization policy. This policy indicates that the lowest-priced instance type is used to create instances.
-          // *   diversified: balanced distribution policy. This policy indicates that instances are created evenly across multiple zones specified in the extended configuration.
           shared_ptr<string> allocationStrategy_ {};
-          // The action to be performed after the excess spot instances are stopped. Valid values:
-          // 
-          // *   stop: retains the excess spot instances in the stopped state.
-          // *   terminate: releases the excess spot instances.
           shared_ptr<string> instanceInterruptionBehavior_ {};
-          // The number of instances that the auto provisioning group creates by selecting the instance type of the lowest price.
-          // 
-          // >  This parameter is set when the auto provisioning group is created, and cannot be modified.
           shared_ptr<int32_t> instancePoolsToUseCount_ {};
         };
 
@@ -361,12 +333,6 @@ namespace Models
 
 
         protected:
-          // The policy for creating pay-as-you-go instances. Valid values:
-          // 
-          // *   lowest-price: cost optimization policy. This policy indicates that lowest-cost instance types are used to create instances.
-          // *   prioritized: priority-based policy. This policy indicates that instances are created based on the priority specified by the LaunchTemplateConfig.N.Priority parameter.
-          // 
-          // >  The LaunchTemplateConfig.N.Priority parameter is set when the auto provisioning group is created, and cannot be modified.
           shared_ptr<string> allocationStrategy_ {};
         };
 
@@ -454,15 +420,10 @@ namespace Models
 
 
           protected:
-            // The instance type that is specified in the extended configuration.
             shared_ptr<string> instanceType_ {};
-            // The maximum price of the instance type specified in the extended configuration.
             shared_ptr<float> maxPrice_ {};
-            // The priority of the instance type specified in the extended configuration. A value of 0 indicates the highest priority.
             shared_ptr<float> priority_ {};
-            // The ID of the vSwitch specified in the extended configuration.
             shared_ptr<string> vSwitchId_ {};
-            // The weight of the instance type specified in the extended configuration.
             shared_ptr<float> weightedCapacity_ {};
           };
 
@@ -643,74 +604,26 @@ namespace Models
 
 
       protected:
-        // The ID of the auto provisioning group.
         shared_ptr<string> autoProvisioningGroupId_ {};
-        // The name of the auto provisioning group.
         shared_ptr<string> autoProvisioningGroupName_ {};
-        // The delivery type of the auto provisioning group. Valid values:
-        // 
-        // *   request: one-time delivery. When the auto provisioning group is started, it delivers instances only once. If the instances fail to be delivered, the auto provisioning group does not retry the delivery.
-        // *   maintain: continuous delivery. When the auto provisioning group is started, it attempts to deliver instances that meet the target capacity and monitors the real-time capacity. If the target capacity of the auto provisioning group is not reached, the auto provisioning group continues to create instances until the target capacity is reached.
         shared_ptr<string> autoProvisioningGroupType_ {};
-        // The time when the auto provisioning group was created.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether to release the scaled-in instances when the real-time capacity of the auto provisioning group exceeds the target capacity and the group is triggered to scale in. Valid values:
-        // 
-        // *   termination: releases the scaled-in instances.
-        // *   no-termination: only removes the scaled-in instances from the auto provisioning group but does not release the instances.
         shared_ptr<string> excessCapacityTerminationPolicy_ {};
-        // Details about the extended configurations.
         shared_ptr<AutoProvisioningGroup::LaunchTemplateConfigs> launchTemplateConfigs_ {};
-        // The ID of the launch template associated with the auto provisioning group.
         shared_ptr<string> launchTemplateId_ {};
-        // The version of the launch template associated with the auto provisioning group.
         shared_ptr<string> launchTemplateVersion_ {};
-        // The maximum price of spot  instances in the auto provisioning group.
-        // 
-        // >  When both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the smaller one of the two parameter values is used.
-        // 
-        // The LaunchTemplateConfig.N.Priority parameter is set when the auto provisioning group is created, and cannot be modified.
         shared_ptr<float> maxSpotPrice_ {};
-        // The policies related to pay-as-you-go instances.
         shared_ptr<AutoProvisioningGroup::PayAsYouGoOptions> payAsYouGoOptions_ {};
-        // The region ID of the auto provisioning group.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group to which the auto provisioning group belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The policy related to spot instances.
         shared_ptr<AutoProvisioningGroup::SpotOptions> spotOptions_ {};
-        // The overall status of instance scheduling in the auto provisioning group. Valid values:
-        // 
-        // *   fulfilled: Scheduling was complete and the instances were delivered.
-        // *   pending-fulfillment: The instances were being created.
-        // *   pending-termination: The instances were being removed.
-        // *   error: An exception occurred during scheduling and the instances were not delivered.
         shared_ptr<string> state_ {};
-        // The status of the auto provisioning group. Valid values:
-        // 
-        // *   submitted: The auto provisioning group was created but did not execute scheduling tasks.
-        // *   active: The auto provisioning group was executing scheduling tasks.
-        // *   deleted: The auto provisioning group was deleted.
-        // *   delete-running: The auto provisioning group was being deleted.
-        // *   modifying: The auto provisioning group was being modified.
         shared_ptr<string> status_ {};
-        // The tags that are added to the auto provisioning group.
         shared_ptr<AutoProvisioningGroup::Tags> tags_ {};
-        // The settings of the target capacity of the auto provisioning group.
         shared_ptr<AutoProvisioningGroup::TargetCapacitySpecification> targetCapacitySpecification_ {};
-        // Indicates whether to release instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
-        // 
-        // *   true: releases the instances.
-        // *   false: only removes the instances from the auto provisioning group but does not release the instances.
         shared_ptr<bool> terminateInstances_ {};
-        // Indicates whether to release instances in the auto provisioning group when the group expires. Valid values:
-        // 
-        // *   true: releases the instances.
-        // *   false: only removes the instances from the auto provisioning group but does not release the instances.
         shared_ptr<bool> terminateInstancesWithExpiration_ {};
-        // The time at which the auto provisioning group is started. The provisioning group is effective until the point in time specified by `ValidUntil`.
         shared_ptr<string> validFrom_ {};
-        // The time at which the auto provisioning group expires. The period of time between this point in time and the point in time specified by the `ValidFrom` parameter is the validity period of the auto provisioning group.
         shared_ptr<string> validUntil_ {};
       };
 
@@ -768,7 +681,6 @@ namespace Models
 
 
   protected:
-    // Details about the auto provisioning groups.
     shared_ptr<DescribeAutoProvisioningGroupsResponseBody::AutoProvisioningGroups> autoProvisioningGroups_ {};
     // The number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // The operation status code that is returned. 200 indicates that the operation is successful.
         shared_ptr<string> code_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The result of the operation. For example, if the value of `Code` is 200, the value of `Message` is `successful`.
         shared_ptr<string> message_ {};
-        // Indicates whether the operation is successful.
         shared_ptr<string> success_ {};
       };
 
@@ -183,7 +179,6 @@ namespace Models
     shared_ptr<string> keyPairName_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result set of the unbind operation.
     shared_ptr<DetachKeyPairResponseBody::Results> results_ {};
     // The total number of instances from which you want to unbind the SSH key pair.
     shared_ptr<string> totalCount_ {};

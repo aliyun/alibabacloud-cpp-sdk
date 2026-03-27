@@ -258,9 +258,7 @@ namespace Models
 
 
             protected:
-              // The key of the tag to add to the instance.
               shared_ptr<string> key_ {};
-              // The value of the tag to add to the instance.
               shared_ptr<string> value_ {};
             };
 
@@ -498,33 +496,14 @@ namespace Models
 
 
             protected:
-              // Indicates whether to retain the ENI when the associated instance is released. Valid values:
-              // 
-              // *   true
-              // *   false
               shared_ptr<bool> deleteOnRelease_ {};
-              // The description of the secondary ENI.
               shared_ptr<string> description_ {};
-              // The instance type of the instance.
               shared_ptr<string> instanceType_ {};
-              // The name of the secondary ENI.
               shared_ptr<string> networkInterfaceName_ {};
-              // The communication mode of the primary ENI. Valid values:
-              // 
-              // *   Standard: uses the TCP communication mode.
-              // *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
               shared_ptr<string> networkInterfaceTrafficMode_ {};
-              // The primary private IP address of the secondary ENI.
               shared_ptr<string> primaryIpAddress_ {};
-              // The ID of the security group to which to assign the secondary ENI. The security group and the ENI must belong to the same VPC.
-              // 
-              // >  SecurityGroupId and SecurityGroupIds are mutually exclusive in the response.
               shared_ptr<string> securityGroupId_ {};
-              // The IDs of the security groups to which to assign the secondary ENI.
-              // 
-              // >  SecurityGroupId and SecurityGroupIds are mutually exclusive in the response.
               shared_ptr<NetworkInterface::SecurityGroupIds> securityGroupIds_ {};
-              // The ID of the vSwitch to which to connect the ENI.
               shared_ptr<string> vSwitchId_ {};
             };
 
@@ -570,10 +549,6 @@ namespace Models
 
 
           protected:
-            // Specifies whether the instance that uses the image supports logons of the ecs-user user. Valid values:
-            // 
-            // - true
-            // - false
             shared_ptr<bool> loginAsNonRoot_ {};
           };
 
@@ -735,48 +710,18 @@ namespace Models
 
 
             protected:
-              // The ID of the automatic snapshot policy.
               shared_ptr<string> autoSnapshotPolicyId_ {};
-              // Indicates whether the performance burst feature is enabled. Valid values:
-              // 
-              // *   true
-              // *   false
               shared_ptr<bool> burstingEnabled_ {};
-              // The category of the data disk.
               shared_ptr<string> category_ {};
-              // Indicates whether to release the data disk when the instance is released.
               shared_ptr<bool> deleteWithInstance_ {};
-              // The description of the data disk.
               shared_ptr<string> description_ {};
-              // The mount point of the data disk. The mount points are named based on the number of data disks:
-              // 
-              // *   1st to 25th data disks: /dev/xvd`[b-z]`.
-              // *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
-              // 
-              // >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
               shared_ptr<string> device_ {};
-              // The name of the data disk.
               shared_ptr<string> diskName_ {};
-              // Indicates whether the data disk is encrypted.
               shared_ptr<string> encrypted_ {};
-              // The ID of the KMS key used for the data disk.
               shared_ptr<string> KMSKeyId_ {};
-              // The performance level of the ESSD to use as a data disk. This parameter is returned only when the value of `Category` is cloud_essd. Valid values:
-              // 
-              // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-              // *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-              // *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-              // *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
               shared_ptr<string> performanceLevel_ {};
-              // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
-              // 
-              // Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
-              // 
-              // >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
               shared_ptr<int64_t> provisionedIops_ {};
-              // The size of the data disk.
               shared_ptr<int32_t> size_ {};
-              // The ID of the snapshot to use to create the data disk.
               shared_ptr<string> snapshotId_ {};
             };
 
@@ -1286,155 +1231,50 @@ namespace Models
 
         protected:
           shared_ptr<LaunchTemplateData::SystemDisk> systemDisk_ {};
-          // The automatic release time of the instance.
           shared_ptr<string> autoReleaseTime_ {};
-          // Indicates whether auto-renewal is enabled for the instance. This parameter is valid only if `InstanceChargeType` is set to `PrePaid`. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // Default value: false.
           shared_ptr<bool> autoRenew_ {};
-          // The auto-renewal period of the instance. Valid values:
-          // 
-          // Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
-          // 
-          // Default value: 1.
           shared_ptr<int32_t> autoRenewPeriod_ {};
-          // The performance mode of the burstable instance. Valid values:
-          // 
-          // *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-          // *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
           shared_ptr<string> creditSpecification_ {};
-          // Details about the data disks.
           shared_ptr<LaunchTemplateData::DataDisks> dataDisks_ {};
-          // Indicates whether release protection is enabled for the instance. This parameter indicates whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
-          // 
-          // *   true
-          // *   false
-          // 
-          // Default value: false.
-          // 
-          // >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
           shared_ptr<bool> deletionProtection_ {};
-          // The ID of the deployment set.
           shared_ptr<string> deploymentSetId_ {};
-          // The description of the system disk.
           shared_ptr<string> description_ {};
-          // Indicates whether the operating system configuration of the instance is enabled.
           shared_ptr<bool> enableVmOsConfig_ {};
-          // The hostname of the instance.
           shared_ptr<string> hostName_ {};
-          // Indicates whether the access channel is enabled for instance metadata. Valid values:
-          // 
-          // *   enabled
-          // *   disabled
-          // 
-          // Default value: enabled.
-          // 
-          // >  For information about instance metadata, see [Obtain information about an ECS instance, such as instance attributes, by using instance metadata](https://help.aliyun.com/document_detail/108460.html).
           shared_ptr<string> httpEndpoint_ {};
-          // >  This parameter is not publicly available.
           shared_ptr<int32_t> httpPutResponseHopLimit_ {};
-          // Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
-          // 
-          // *   optional: The security hardening mode (IMDSv2) is not forcefully used.
-          // *   required: The security hardening mode (IMDSv2) is forcefully used. After you set this parameter to required, you cannot access instance metadata in normal mode.
-          // 
-          // Default value: optional.
-          // 
-          // >  For more information about the modes of accessing instance metadata, see [Obtain information about an ECS instance, such as instance attributes, by using instance metadata](https://help.aliyun.com/document_detail/108460.html).
           shared_ptr<string> httpTokens_ {};
-          // The ID of the image.
           shared_ptr<string> imageId_ {};
-          // Details about the image options.
           shared_ptr<LaunchTemplateData::ImageOptions> imageOptions_ {};
-          // The source of the image. Valid values:
-          // 
-          // *   system: public image provided by Alibaba Cloud
-          // *   self: custom image that you created
-          // *   others: shared image from another Alibaba Cloud account
-          // *   marketplace: Alibaba Cloud Marketplace image
           shared_ptr<string> imageOwnerAlias_ {};
-          // The billing method of the instance. Valid values:
-          // 
-          // *   PrePaid: subscription
-          // *   PostPaid: pay-as-you-go
           shared_ptr<string> instanceChargeType_ {};
-          // The name of the instance.
           shared_ptr<string> instanceName_ {};
-          // The instance type of the instance.
           shared_ptr<string> instanceType_ {};
-          // The billing method for network usage.
           shared_ptr<string> internetChargeType_ {};
-          // The maximum inbound public bandwidth.
           shared_ptr<int32_t> internetMaxBandwidthIn_ {};
-          // The maximum outbound public bandwidth.
           shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-          // Indicates whether the instance is I/O optimized.
           shared_ptr<string> ioOptimized_ {};
-          // The number of IPv6 addresses to assign to the instance.
           shared_ptr<int32_t> ipv6AddressCount_ {};
-          // The name of the key pair.
           shared_ptr<string> keyPairName_ {};
-          // Details about the secondary elastic network interfaces (ENIs).
           shared_ptr<LaunchTemplateData::NetworkInterfaces> networkInterfaces_ {};
-          // The network type. Valid values:
-          // 
-          // *   classic: classic network
-          // *   vpc: VPC
           shared_ptr<string> networkType_ {};
-          // Indicates whether the username and password preset in the image are used.
           shared_ptr<bool> passwordInherit_ {};
-          // The subscription duration of the instance.
           shared_ptr<int32_t> period_ {};
-          // The unit of the subscription period. Valid values:
-          // 
-          // Month (default)
           shared_ptr<string> periodUnit_ {};
-          // The private IP address to assign to the instance.
           shared_ptr<string> privateIpAddress_ {};
-          // The name of the instance Resource Access Management (RAM) role.
           shared_ptr<string> ramRoleName_ {};
-          // The ID of the resource group to which the launch template belongs.
           shared_ptr<string> resourceGroupId_ {};
-          // Indicates whether Security Hardening is enabled.
           shared_ptr<string> securityEnhancementStrategy_ {};
-          // The ID of the security group to which to assign the instance.
-          // 
-          // >  `SecurityGroupId` and `SecurityGroupIds` are mutually exclusive in the response.
           shared_ptr<string> securityGroupId_ {};
-          // The IDs of the security groups to which to assign the instance.
-          // 
-          // >  `SecurityGroupId` and `SecurityGroupIds` are mutually exclusive in the response.
           shared_ptr<LaunchTemplateData::SecurityGroupIds> securityGroupIds_ {};
           shared_ptr<LaunchTemplateData::SecurityOptions> securityOptions_ {};
-          // The protection period of the spot instance. Unit: hours. Valid values:
-          // 
-          // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-          // *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-          // 
-          // Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
-          // 
-          // >  This parameter is returned when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
           shared_ptr<int32_t> spotDuration_ {};
-          // The maximum hourly price of the spot instance.
           shared_ptr<float> spotPriceLimit_ {};
-          // The bidding policy for the pay-as-you-go instance. Valid values:
-          // 
-          // *   NoSpot: The instance is a regular pay-as-you-go instance.
-          // *   SpotWithPriceLimit: The instance is a spot instance with a user-defined maximum hourly price.
-          // *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
           shared_ptr<string> spotStrategy_ {};
-          // The tags to add to the instance.
           shared_ptr<LaunchTemplateData::Tags> tags_ {};
-          // The user data of the instance, which is Base64-encoded.
           shared_ptr<string> userData_ {};
-          // The ID of the vSwitch to which to connect the instance.
           shared_ptr<string> vSwitchId_ {};
-          // The ID of the virtual private cloud (VPC).
           shared_ptr<string> vpcId_ {};
-          // The zone ID of the instance.
           shared_ptr<string> zoneId_ {};
         };
 
@@ -1507,23 +1347,14 @@ namespace Models
 
 
       protected:
-        // The time when the launch template version was created.
         shared_ptr<string> createTime_ {};
-        // The ID of the Alibaba Cloud account that created the launch template.
         shared_ptr<string> createdBy_ {};
-        // Indicates whether the launch template version is the default version.
         shared_ptr<bool> defaultVersion_ {};
-        // The configurations of the launch template.
         shared_ptr<LaunchTemplateVersionSet::LaunchTemplateData> launchTemplateData_ {};
-        // The ID of the launch template.
         shared_ptr<string> launchTemplateId_ {};
-        // The name of the launch template.
         shared_ptr<string> launchTemplateName_ {};
-        // The time when the launch template version was modified.
         shared_ptr<string> modifiedTime_ {};
-        // The description of the launch template version.
         shared_ptr<string> versionDescription_ {};
-        // The number of the launch template version.
         shared_ptr<int64_t> versionNumber_ {};
       };
 
@@ -1581,7 +1412,6 @@ namespace Models
 
 
   protected:
-    // Details about the launch template versions.
     shared_ptr<DescribeLaunchTemplateVersionsResponseBody::LaunchTemplateVersionSets> launchTemplateVersionSets_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

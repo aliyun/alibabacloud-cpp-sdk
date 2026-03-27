@@ -155,9 +155,7 @@ namespace Models
 
 
           protected:
-            // The name of the related item.
             shared_ptr<string> name_ {};
-            // The value of the related item.
             shared_ptr<string> value_ {};
           };
 
@@ -208,13 +206,9 @@ namespace Models
 
 
       protected:
-        // The error code.
         shared_ptr<string> errorCode_ {};
-        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The status of the operation.
         shared_ptr<string> operationStatus_ {};
-        // The type of resource information.
         shared_ptr<OperationProgress::RelatedItemSet> relatedItemSet_ {};
       };
 
@@ -336,7 +330,6 @@ namespace Models
     shared_ptr<int32_t> failedCount_ {};
     // The time when the task was completed.
     shared_ptr<string> finishedTime_ {};
-    // The return data of the task.
     shared_ptr<DescribeTaskAttributeResponseBody::OperationProgressSet> operationProgressSet_ {};
     // The region ID of the task.
     shared_ptr<string> regionId_ {};

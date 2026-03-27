@@ -97,7 +97,6 @@ namespace Models
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IDs of the reserved instances.
     shared_ptr<PurchaseReservedInstancesOfferingResponseBody::ReservedInstanceIdSets> reservedInstanceIdSets_ {};
   };
 

@@ -181,31 +181,11 @@ namespace Models
 
 
           protected:
-            // The reason why the connection was closed. This parameter is returned only when the `Status` value is `Disconnected`, `Terminated`, or `Failed`. Valid values:
-            // 
-            // *   InstanceNotExists: The specified instance did not exist or was released.
-            // *   InstanceNotRunning: The specified instance was not running.
-            // *   DeliveryTimeout: The connection timed out.
-            // *   AgentNeedUpgrade: Cloud Assistant Agent required an upgrade.
-            // *   AgentNotOnline: Cloud Assistant Agent was not connected to the Cloud Assistant server.
-            // *   MessageFormatInvalid: The message format was invalid.
-            // *   AgentSocketClosed: The connection was closed as expected.
-            // *   ClientClosed: Session Manager Client closed the connection.
             shared_ptr<string> closedReason_ {};
-            // The time when the connection was closed.
             shared_ptr<string> endTime_ {};
-            // Cause of the connection failure. This parameter is returned only when the Status parameter is Failed.
             shared_ptr<string> failedDetail_ {};
-            // The instance ID.
             shared_ptr<string> instanceId_ {};
-            // The time when the connection started to be established.
             shared_ptr<string> startTime_ {};
-            // The state of the session. Valid values:
-            // 
-            // *   Connecting: The connection is being established.
-            // *   Connected: The connection is established.
-            // *   Terminated: The session is terminated.
-            // *   Failed: The connection failed.
             shared_ptr<string> status_ {};
           };
 
@@ -292,31 +272,14 @@ namespace Models
 
 
       protected:
-        // The IP address of the client used to establish connections.
         shared_ptr<string> clientIP_ {};
-        // The information of the connections.
         shared_ptr<Session::Connections> connections_ {};
-        // The time when the session was created.
         shared_ptr<string> creationTime_ {};
-        // The principal type. Valid values:
-        // 
-        // *   Account: an Alibaba Cloud account
-        // *   RAMUser: a RAM user
-        // *   AssumedRoleUser: a RAM role
         shared_ptr<string> identityType_ {};
-        // The port number of the instance, which is used for data forwarding. If no port number was specified for data forwarding when the session was created, this parameter is empty.
         shared_ptr<int32_t> portNumber_ {};
-        // The ID of the principal. Valid values based on the `IdentityType` value:
-        // 
-        // *   If the requester uses an Alibaba Cloud account to call the operation, the ID of the Alibaba Cloud account is returned.
-        // *   If the requester uses a Resource Access Management (RAM) user to call the operation, the ID of the RAM user is returned.
-        // *   If the requester uses a RAM role to call the operation, the ID of the principal that actually calls the operation is returned.
         shared_ptr<string> principalId_ {};
-        // The session ID.
         shared_ptr<string> sessionId_ {};
-        // The address of the service that was accessed in a virtual private cloud (VPC) from the instance.
         shared_ptr<string> targetServer_ {};
-        // The username used to establish connections.
         shared_ptr<string> username_ {};
       };
 
@@ -364,7 +327,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the sessions.
     shared_ptr<DescribeTerminalSessionsResponseBody::Sessions> sessions_ {};
   };
 

@@ -141,14 +141,7 @@ namespace Models
 
 
           protected:
-            // The execution details of instance creation performed by the single scheduling task.
             shared_ptr<string> detail_ {};
-            // The execution status of instance creation performed by the single scheduling task. Valid values:
-            // 
-            // *   Successful: Instances are created.
-            // *   Failed: Instances failed to be created.
-            // *   InProgress: Instances are being created.
-            // *   Warning: Some instances are created.
             shared_ptr<string> status_ {};
           };
 
@@ -206,19 +199,10 @@ namespace Models
 
 
       protected:
-        // An array consisting of ActivityDetail data.
         shared_ptr<AutoProvisioningGroupHistory::ActivityDetails> activityDetails_ {};
-        // The execution time of the last instance creation performed by the single scheduling task.
         shared_ptr<string> lastEventTime_ {};
-        // The start time of executing the single scheduling task.
         shared_ptr<string> startTime_ {};
-        // The execution status of the single scheduling task. Valid values:
-        // 
-        // *   prepare: The scheduling task is being executed.
-        // *   success: The scheduling task is executed.
-        // *   failed: The scheduling task failed to be executed.
         shared_ptr<string> status_ {};
-        // The ID of the scheduling task.
         shared_ptr<string> taskId_ {};
       };
 
@@ -276,7 +260,6 @@ namespace Models
 
 
   protected:
-    // An array consisting of AutoProvisioningGroupHistory data.
     shared_ptr<DescribeAutoProvisioningGroupHistoryResponseBody::AutoProvisioningGroupHistories> autoProvisioningGroupHistories_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -189,41 +189,17 @@ namespace Models
 
 
       protected:
-        // The type of the snapshot chain. Valid values:
-        // 
-        // *   standard: standard snapshot chain.
-        // *   archive: archive snapshot chain.
-        // *   flash: instant access snapshot chain.
         shared_ptr<string> category_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the instant access feature is enabled. Valid values:
-        // 
-        // *   true: The instant access feature is enabled. The feature can be enabled only for Enterprise SSDs (ESSDs).
-        // *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
-        // 
-        // >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
         shared_ptr<bool> instantAccess_ {};
-        // The region ID of the source disk.
         shared_ptr<string> regionId_ {};
-        // The ID of the snapshot chain.
         shared_ptr<string> snapshotLinkId_ {};
-        // The ID of the source disk. This parameter is retained even if the source disk is deleted.
         shared_ptr<string> sourceDiskId_ {};
-        // The name of the source disk.
         shared_ptr<string> sourceDiskName_ {};
-        // The capacity of the source disk. Unit: GiB.
         shared_ptr<int32_t> sourceDiskSize_ {};
-        // The type of the source disk. Valid values:
-        // 
-        // *   system: system disk
-        // *   data: data disk
         shared_ptr<string> sourceDiskType_ {};
-        // The total number of snapshots.
         shared_ptr<int32_t> totalCount_ {};
-        // The total size of all snapshots in the snapshot chain. Unit: byte.
         shared_ptr<int64_t> totalSize_ {};
       };
 
@@ -296,7 +272,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the snapshot chains.
     shared_ptr<DescribeSnapshotLinksResponseBody::SnapshotLinks> snapshotLinks_ {};
     // The total number of snapshot chains.
     // 

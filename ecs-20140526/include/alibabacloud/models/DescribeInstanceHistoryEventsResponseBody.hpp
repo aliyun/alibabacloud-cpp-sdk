@@ -266,27 +266,10 @@ namespace Models
 
 
             protected:
-              // The time when the disk was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
               shared_ptr<string> creationTime_ {};
-              // The category of the disk. Valid values:
-              // 
-              // *   cloud: basic disk
-              // *   cloud_efficiency: ultra disk
-              // *   cloud_ssd: standard SSD
-              // *   cloud_essd: Enterprise SSD (ESSD)
-              // *   local_ssd_pro: I/O-intensive local disk
-              // *   local_hdd_pro: throughput-intensive local disk
-              // *   ephemeral: retired local disk
-              // *   ephemeral_ssd: retired local SSD
               shared_ptr<string> deviceCategory_ {};
-              // The size of the disk. Unit: GiB.
               shared_ptr<string> deviceSize_ {};
-              // The type of the disk. Valid values:
-              // 
-              // *   system: system disk
-              // *   data: data disk
               shared_ptr<string> deviceType_ {};
-              // The time when the disk was released. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
               shared_ptr<string> releaseTime_ {};
             };
 
@@ -425,41 +408,21 @@ namespace Models
 
 
         protected:
-          // Indicates whether the event can be handled.
           shared_ptr<string> canAccept_ {};
-          // The code of the security violation.
           shared_ptr<string> code_ {};
-          // The device name of the local disk.
           shared_ptr<string> device_ {};
-          // The ID of the local disk.
           shared_ptr<string> diskId_ {};
-          // The ID of the host.
           shared_ptr<string> hostId_ {};
-          // The type of the host. Valid values:
-          // 
-          // *   ddh: dedicated host
-          // *   managehost: physical machine in a smart hosting pool
           shared_ptr<string> hostType_ {};
-          // The inactive disks that were released and whose data must be cleared.
           shared_ptr<ExtendedAttribute::InactiveDisks> inactiveDisks_ {};
           shared_ptr<string> metricName_ {};
           shared_ptr<string> metricValue_ {};
-          // The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
           shared_ptr<ExtendedAttribute::MigrationOptions> migrationOptions_ {};
-          // The online repair policy for the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.
           shared_ptr<string> onlineRepairPolicy_ {};
-          // The illegal domain name.
           shared_ptr<string> punishDomain_ {};
-          // The type of the penalty.
           shared_ptr<string> punishType_ {};
-          // The illegal URL.
           shared_ptr<string> punishUrl_ {};
-          // The rack number of the cloud box.
           shared_ptr<string> rack_ {};
-          // The response result of the event. Valid values:
-          // 
-          // *   true: The event was handled.
-          // *   false: The event failed to be handled.
           shared_ptr<string> responseResult_ {};
         };
 
@@ -501,9 +464,7 @@ namespace Models
 
 
         protected:
-          // The code of the system event type.
           shared_ptr<int32_t> code_ {};
-          // The name of the system event type.
           shared_ptr<string> name_ {};
         };
 
@@ -545,9 +506,7 @@ namespace Models
 
 
         protected:
-          // The state code of the system event.
           shared_ptr<int32_t> code_ {};
-          // The state name of the system event.
           shared_ptr<string> name_ {};
         };
 
@@ -646,33 +605,17 @@ namespace Models
 
 
       protected:
-        // The lifecycle status of the system event.
         shared_ptr<InstanceSystemEventType::EventCycleStatus> eventCycleStatus_ {};
-        // The time when the system event ended. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> eventFinishTime_ {};
-        // The ID of the system event.
         shared_ptr<string> eventId_ {};
-        // The time when the system event was published. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> eventPublishTime_ {};
-        // The type of the system event.
         shared_ptr<InstanceSystemEventType::EventType> eventType_ {};
-        // The extended attribute of the system event.
         shared_ptr<InstanceSystemEventType::ExtendedAttribute> extendedAttribute_ {};
-        // The impact level of the system event.
         shared_ptr<string> impactLevel_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The scheduled start time of the system event. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> notBefore_ {};
-        // The reason why the system event occurred.
         shared_ptr<string> reason_ {};
-        // The reason code category for the system event.
         shared_ptr<string> reasonCode_ {};
-        // The type of the resource. Valid values:
-        // 
-        // *   instance: ECS instance
-        // *   ddh: dedicated host
-        // *   managehost: physical machine in a smart hosting pool
         shared_ptr<string> resourceType_ {};
       };
 
@@ -737,7 +680,6 @@ namespace Models
 
 
   protected:
-    // Details about the instance system events.
     shared_ptr<DescribeInstanceHistoryEventsResponseBody::InstanceSystemEventSet> instanceSystemEventSet_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     // 

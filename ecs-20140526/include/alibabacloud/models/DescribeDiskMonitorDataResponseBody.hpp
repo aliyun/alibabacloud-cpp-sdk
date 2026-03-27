@@ -164,25 +164,15 @@ namespace Models
 
 
       protected:
-        // The read bandwidth of the disk. Unit: byte/s.
         shared_ptr<int32_t> BPSRead_ {};
-        // The total read and write bandwidth of the disk. Unit: byte/s.
         shared_ptr<int32_t> BPSTotal_ {};
-        // The write bandwidth of the disk. Unit: byte/s.
         shared_ptr<int32_t> BPSWrite_ {};
-        // The ID of the disk.
         shared_ptr<string> diskId_ {};
-        // The number of read I/O operations per second on the disk.
         shared_ptr<int32_t> IOPSRead_ {};
-        // The total number of read and write I/O operations per second on the disk.
         shared_ptr<int32_t> IOPSTotal_ {};
-        // The number of write I/O operations per second on the disk.
         shared_ptr<int32_t> IOPSWrite_ {};
-        // The read latency of the disk. Unit: microseconds.
         shared_ptr<int32_t> latencyRead_ {};
-        // The write latency of the disk. Unit: microseconds.
         shared_ptr<int32_t> latencyWrite_ {};
-        // The timestamp of the monitoring data. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -226,7 +216,6 @@ namespace Models
 
 
   protected:
-    // The monitoring data of the disk.
     shared_ptr<DescribeDiskMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

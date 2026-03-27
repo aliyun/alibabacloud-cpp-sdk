@@ -104,15 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The ID of the private pool. If the value of `PrivatePoolOptionsMatchCriteria` is `Open`, the value of PrivatePoolOptionsId is the ID of the private pool that is automatically matched to the instance.
         shared_ptr<string> privatePoolOptionsId_ {};
-        // The match mode of the private pool. Valid values:
-        // 
-        // *   Open: open private pool. Instances automatically match an open private pool.
-        // *   Target: specified private pool. Instances match a specified private pool.
-        // *   None: no private pool. Instances do not use private pools.
         shared_ptr<string> privatePoolOptionsMatchCriteria_ {};
       };
 
@@ -170,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The information about the association between private pools and instances.
     shared_ptr<DescribeInstanceAttachmentAttributesResponseBody::Instances> instances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

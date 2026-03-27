@@ -95,7 +95,6 @@ namespace Models
   protected:
     // The ID of the renewal order.
     shared_ptr<string> orderId_ {};
-    // The IDs of the elasticity assurances.
     shared_ptr<RenewElasticityAssurancesResponseBody::PrivatePoolOptionsIdSet> privatePoolOptionsIdSet_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

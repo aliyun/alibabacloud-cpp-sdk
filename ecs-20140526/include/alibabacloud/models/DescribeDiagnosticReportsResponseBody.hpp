@@ -167,17 +167,9 @@ namespace Models
 
 
           protected:
-            // The ID of the diagnosed issue, which is the unique identifier of the issue.
             shared_ptr<string> issueId_ {};
-            // The category of the diagnostic metric.
             shared_ptr<string> metricCategory_ {};
-            // The ID of the diagnostic metric.
             shared_ptr<string> metricId_ {};
-            // The severity level of the diagnostic metric. Valid values:
-            // 
-            // *   Info: Diagnostic information was recorded and may be related to exceptions.
-            // *   Warn: Diagnostic information was recorded and may indicate exceptions.
-            // *   Critical: Critical exceptions were detected.
             shared_ptr<string> severity_ {};
           };
 
@@ -278,33 +270,16 @@ namespace Models
 
 
       protected:
-        // The time when the diagnostic report was created.
         shared_ptr<string> creationTime_ {};
-        // The end of the time range during which data was queried. The value is the EndTime value that was passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
         shared_ptr<string> endTime_ {};
-        // The time when the diagnostic was complete.
         shared_ptr<string> finishedTime_ {};
-        // The diagnosed issues.
         shared_ptr<Report::Issues> issues_ {};
-        // The ID of the diagnostic metric set.
         shared_ptr<string> metricSetId_ {};
-        // The ID of the diagnostic report.
         shared_ptr<string> reportId_ {};
-        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource.
         shared_ptr<string> resourceType_ {};
-        // The severity level of the diagnostic report. Valid values:
-        // 
-        // *   Unknown: The diagnostic did not start, failed to run, or unexpectedly exited without a diagnosis.
-        // *   Normal: No exceptions were detected.
-        // *   Info: Diagnostic information was recorded and may be related to exceptions.
-        // *   Warn: Diagnostic information was recorded and may indicate exceptions.
-        // *   Critical: Critical exceptions were detected.
         shared_ptr<string> severity_ {};
-        // The beginning of the time range during which data was queried. The value is the StartTime value that was passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
         shared_ptr<string> startTime_ {};
-        // The status of the diagnostic report.
         shared_ptr<string> status_ {};
       };
 
@@ -350,7 +325,6 @@ namespace Models
   protected:
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The diagnostic reports.
     shared_ptr<DescribeDiagnosticReportsResponseBody::Reports> reports_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

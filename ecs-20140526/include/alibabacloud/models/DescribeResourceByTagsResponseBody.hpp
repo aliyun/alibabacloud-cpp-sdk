@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -172,7 +169,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the resources to which the tags are bound.
     shared_ptr<DescribeResourceByTagsResponseBody::Resources> resources_ {};
     // The total number of resources returned.
     shared_ptr<int32_t> totalCount_ {};

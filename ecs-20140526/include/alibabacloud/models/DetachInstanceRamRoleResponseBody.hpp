@@ -141,9 +141,7 @@ namespace Models
 
 
           protected:
-            // The ID of the ECS instance.
             shared_ptr<string> instanceId_ {};
-            // The name of the instance RAM role.
             shared_ptr<string> ramRoleName_ {};
           };
 
@@ -201,15 +199,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether the instance RAM role was detached. If 200 is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
         shared_ptr<string> code_ {};
-        // The ID of the ECS instance from which you attempted to detach the instance RAM role.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance RAM role and the ID of the ECS instance.
         shared_ptr<DetachInstanceRamRoleResult::InstanceRamRoleSets> instanceRamRoleSets_ {};
-        // Indicates whether the instance RAM role was detached. If success is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
         shared_ptr<string> message_ {};
-        // Indicates whether the instance RAM role was detached.
         shared_ptr<bool> success_ {};
       };
 
@@ -267,7 +260,6 @@ namespace Models
 
 
   protected:
-    // The results of the instance RAM role detachment, which include the names of the instance RAM roles and the IDs of the ECS instances from which you attempted to detach the instance RAM roles.
     shared_ptr<DetachInstanceRamRoleResponseBody::DetachInstanceRamRoleResults> detachInstanceRamRoleResults_ {};
     // The number of ECS instances from which instance RAM roles failed to be detached.
     shared_ptr<int32_t> failCount_ {};

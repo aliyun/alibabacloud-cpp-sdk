@@ -149,11 +149,9 @@ namespace Models
 
 
     protected:
-      // Details about the assigned IPv4 prefixes.
       shared_ptr<AssignedPrivateIpAddressesSet::Ipv4PrefixSet> ipv4PrefixSet_ {};
       // The ENI ID.
       shared_ptr<string> networkInterfaceId_ {};
-      // The secondary private IP addresses that are assigned to the ENI.
       shared_ptr<AssignedPrivateIpAddressesSet::PrivateIpSet> privateIpSet_ {};
     };
 

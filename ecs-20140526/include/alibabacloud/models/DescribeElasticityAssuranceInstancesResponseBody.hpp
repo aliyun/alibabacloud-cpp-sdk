@@ -85,7 +85,6 @@ namespace Models
 
 
       protected:
-        // The instance ID
         shared_ptr<string> instanceId_ {};
       };
 
@@ -143,7 +142,6 @@ namespace Models
 
 
   protected:
-    // Details about the instances that match and use the elasticity assurance.
     shared_ptr<DescribeElasticityAssuranceInstancesResponseBody::ElasticityAssuranceItem> elasticityAssuranceItem_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};

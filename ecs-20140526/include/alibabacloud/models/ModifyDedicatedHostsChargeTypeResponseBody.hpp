@@ -100,15 +100,8 @@ namespace Models
 
 
       protected:
-        // The unit of currency for the bill.
-        // 
-        // Alibaba Cloud China site (aliyun.com): CNY
-        // 
-        // Alibaba Cloud International site (alibabacloud.com): USD
         shared_ptr<string> currency_ {};
-        // The charged amount.
         shared_ptr<string> fee_ {};
-        // The IDs of the dedicated hosts.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -152,7 +145,6 @@ namespace Models
 
 
   protected:
-    // Details about the charges for the order.
     shared_ptr<ModifyDedicatedHostsChargeTypeResponseBody::FeeOfInstances> feeOfInstances_ {};
     // The ID of the order. This is returned only when the payment method is changed to subscription.
     shared_ptr<string> orderId_ {};

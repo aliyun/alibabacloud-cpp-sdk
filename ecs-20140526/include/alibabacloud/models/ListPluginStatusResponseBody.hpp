@@ -164,23 +164,10 @@ namespace Models
 
 
           protected:
-            // The first time when Cloud Assistant reported the state of the plug-in.
             shared_ptr<string> firstHeartbeatTime_ {};
-            // The last time when Cloud Assistant reported the state of the plug-in.
             shared_ptr<string> lastHeartbeatTime_ {};
-            // The name of the plug-in.
             shared_ptr<string> pluginName_ {};
-            // The state of the Cloud Assistant plug-in. Valid values:
-            // 
-            // *   NotInstalled: The plug-in is not installed.
-            // *   Installed: The one-time plug-in is installed.
-            // *   Running: The long-running plug-in is running.
-            // *   Stopped: The long-running plug-in is not running.
-            // *   Crashed: The plug-in is abnormal.
-            // *   Removed: The plug-in is uninstalled.
-            // *   Unknown: The state of the plug-in is unknown.
             shared_ptr<string> pluginStatus_ {};
-            // The version of the plug-in.
             shared_ptr<string> pluginVersion_ {};
           };
 
@@ -217,9 +204,7 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The queried Cloud Assistant plug-ins.
         shared_ptr<InstancePluginStatus::PluginStatusSet> pluginStatusSet_ {};
       };
 
@@ -284,7 +269,6 @@ namespace Models
 
 
   protected:
-    // The states of Cloud Assistant plug-ins on the instances.
     shared_ptr<ListPluginStatusResponseBody::InstancePluginStatusSet> instancePluginStatusSet_ {};
     // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

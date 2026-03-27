@@ -93,7 +93,6 @@ namespace Models
 
 
   protected:
-    // A list of dedicated host IDs.
     shared_ptr<AllocateDedicatedHostsResponseBody::DedicatedHostIdSets> dedicatedHostIdSets_ {};
     // The ID of the order.
     // 

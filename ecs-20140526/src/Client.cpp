@@ -73,7 +73,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary dubbo
+ * @summary Accepts the default operation for a system event in the Inquiring state and authorizes the system to perform the operation.
  *
  * @param request AcceptInquiredSystemEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ AcceptInquiredSystemEventResponse Client::acceptInquiredSystemEventWithOptions(c
 }
 
 /**
- * @summary dubbo
+ * @summary Accepts the default operation for a system event in the Inquiring state and authorizes the system to perform the operation.
  *
  * @param request AcceptInquiredSystemEventRequest
  * @return AcceptInquiredSystemEventResponse
@@ -597,7 +597,7 @@ AllocateEipAddressResponse Client::allocateEipAddress(const AllocateEipAddressRe
 }
 
 /**
- * @summary Assigns a static public IP address (also called system-assigned public IP address or auto-assigned public IP address) to an Elastic Compute Service (ECS) instance.
+ * @summary Assigns a static public IP address to an Elastic Compute Service (ECS) instance. We recommend using ModifyInstanceNetworkSpec to assign public IP addresses.
  *
  * @description ### [](#)Precautions
  * *   The ECS instance to which you want to assign a static public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
@@ -662,7 +662,7 @@ AllocatePublicIpAddressResponse Client::allocatePublicIpAddressWithOptions(const
 }
 
 /**
- * @summary Assigns a static public IP address (also called system-assigned public IP address or auto-assigned public IP address) to an Elastic Compute Service (ECS) instance.
+ * @summary Assigns a static public IP address to an Elastic Compute Service (ECS) instance. We recommend using ModifyInstanceNetworkSpec to assign public IP addresses.
  *
  * @description ### [](#)Precautions
  * *   The ECS instance to which you want to assign a static public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
@@ -2025,7 +2025,7 @@ AuthorizeSecurityGroupEgressResponse Client::authorizeSecurityGroupEgress(const 
 }
 
 /**
- * @summary Disables automatic snapshot policies for one or more disks.
+ * @summary Disables an automatic snapshot policy for one or more cloud disks.
  *
  * @param request CancelAutoSnapshotPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2076,7 +2076,7 @@ CancelAutoSnapshotPolicyResponse Client::cancelAutoSnapshotPolicyWithOptions(con
 }
 
 /**
- * @summary Disables automatic snapshot policies for one or more disks.
+ * @summary Disables an automatic snapshot policy for one or more cloud disks.
  *
  * @param request CancelAutoSnapshotPolicyRequest
  * @return CancelAutoSnapshotPolicyResponse
@@ -3636,6 +3636,10 @@ CreateDeploymentSetResponse Client::createDeploymentSetWithOptions(const CreateD
 
   if (!!request.hasStrategy()) {
     query["Strategy"] = request.getStrategy();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9181,7 +9185,7 @@ DeleteNatGatewayResponse Client::deleteNatGateway(const DeleteNatGatewayRequest 
 }
 
 /**
- * @summary Deletes an elastic network interface (ENI) in a region. DeleteNetworkInterface is an asynchronous operation.
+ * @summary Deletes an ENI.
  *
  * @description Take note of the following items:
  * *   The ENI to be deleted must be in the Available state.
@@ -9249,7 +9253,7 @@ DeleteNetworkInterfaceResponse Client::deleteNetworkInterfaceWithOptions(const D
 }
 
 /**
- * @summary Deletes an elastic network interface (ENI) in a region. DeleteNetworkInterface is an asynchronous operation.
+ * @summary Deletes an ENI.
  *
  * @description Take note of the following items:
  * *   The ENI to be deleted must be in the Available state.
@@ -9417,7 +9421,7 @@ DeletePhysicalConnectionResponse Client::deletePhysicalConnection(const DeletePh
 }
 
 /**
- * @summary 删除运维窗口
+ * @summary Delete O\\\\\\&M window
  *
  * @param request DeletePlanMaintenanceWindowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9452,7 +9456,7 @@ DeletePlanMaintenanceWindowResponse Client::deletePlanMaintenanceWindowWithOptio
 }
 
 /**
- * @summary 删除运维窗口
+ * @summary Delete O\\\\\\&M window
  *
  * @param request DeletePlanMaintenanceWindowRequest
  * @return DeletePlanMaintenanceWindowResponse
@@ -10939,7 +10943,7 @@ DescribeAutoSnapshotPolicyExResponse Client::describeAutoSnapshotPolicyEx(const 
 }
 
 /**
- * @summary 查询可用资源
+ * @summary Query the inventory status of resources in a specified zone. This API is primarily used to confirm whether the target resources (such as instance types or system disk types) have sufficient inventory in a specific zone before creating an instance (RunInstances) or modifying an instance specification (ModifyInstanceSpec).
  *
  * @param request DescribeAvailableResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11046,7 +11050,7 @@ DescribeAvailableResourceResponse Client::describeAvailableResourceWithOptions(c
 }
 
 /**
- * @summary 查询可用资源
+ * @summary Query the inventory status of resources in a specified zone. This API is primarily used to confirm whether the target resources (such as instance types or system disk types) have sufficient inventory in a specific zone before creating an instance (RunInstances) or modifying an instance specification (ModifyInstanceSpec).
  *
  * @param request DescribeAvailableResourceRequest
  * @return DescribeAvailableResourceResponse
@@ -11135,8 +11139,6 @@ DescribeBandwidthLimitationResponse Client::describeBandwidthLimitation(const De
 }
 
 /**
- * @deprecated OpenAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead.
- *
  * @summary DescribeBandwidthPackages
  *
  * @param request DescribeBandwidthPackagesRequest
@@ -11200,8 +11202,6 @@ DescribeBandwidthPackagesResponse Client::describeBandwidthPackagesWithOptions(c
 }
 
 /**
- * @deprecated OpenAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead.
- *
  * @summary DescribeBandwidthPackages
  *
  * @param request DescribeBandwidthPackagesRequest
@@ -12284,6 +12284,10 @@ DescribeDeploymentSetsResponse Client::describeDeploymentSetsWithOptions(const D
 
   if (!!request.hasStrategy()) {
     query["Strategy"] = request.getStrategy();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13701,7 +13705,7 @@ DescribeHaVipsResponse Client::describeHaVips(const DescribeHaVipsRequest &reque
 }
 
 /**
- * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\*\\*token\\*\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence]\\(~~25693~~).
+ * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\\\*\\\\*token\\\\*\\\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see \\[How to ensure idempotence]\\\\(~~25693~~).
  *
  * @param request DescribeHpcClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13768,7 +13772,7 @@ DescribeHpcClustersResponse Client::describeHpcClustersWithOptions(const Describ
 }
 
 /**
- * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\*\\*token\\*\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence]\\(~~25693~~).
+ * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\\\*\\\\*token\\\\*\\\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see \\[How to ensure idempotence]\\\\(~~25693~~).
  *
  * @param request DescribeHpcClustersRequest
  * @return DescribeHpcClustersResponse
@@ -16016,20 +16020,20 @@ DescribeInstancesFullStatusResponse Client::describeInstancesFullStatus(const De
 
 /**
  * @summary The execution status of the command. Valid values:
- * *   Running:
- *     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
- *     *   One-time task: If the command is being run on instances, the execution state is Running.
- * *   Finished:
- *     *   Scheduled task: The execution state can never be Finished.
- *     *   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
- * *   Failed:
- *     *   Scheduled task: The execution state can never be Failed.
- *     *   One-time task: The execution failed on all instances.
- * *   PartialFailed:
- *     *   Scheduled task: The execution state can never be PartialFailed.
- *     *   One-time task: The execution failed on some instances.
- * *   Stopped: The task was stopped.
- * *   Stopping: The task is being stopped.
+ * \\*   Running:
+ *     \\*   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
+ *     \\*   One-time task: If the command is being run on instances, the execution state is Running.
+ * \\*   Finished:
+ *     \\*   Scheduled task: The execution state can never be Finished.
+ *     \\*   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
+ * \\*   Failed:
+ *     \\*   Scheduled task: The execution state can never be Failed.
+ *     \\*   One-time task: The execution failed on all instances.
+ * \\*   PartialFailed:
+ *     \\*   Scheduled task: The execution state can never be PartialFailed.
+ *     \\*   One-time task: The execution failed on some instances.
+ * \\*   Stopped: The task was stopped.
+ * \\*   Stopping: The task is being stopped.
  *
  * @description DescribeInvocationResults
  *
@@ -16131,20 +16135,20 @@ DescribeInvocationResultsResponse Client::describeInvocationResultsWithOptions(c
 
 /**
  * @summary The execution status of the command. Valid values:
- * *   Running:
- *     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
- *     *   One-time task: If the command is being run on instances, the execution state is Running.
- * *   Finished:
- *     *   Scheduled task: The execution state can never be Finished.
- *     *   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
- * *   Failed:
- *     *   Scheduled task: The execution state can never be Failed.
- *     *   One-time task: The execution failed on all instances.
- * *   PartialFailed:
- *     *   Scheduled task: The execution state can never be PartialFailed.
- *     *   One-time task: The execution failed on some instances.
- * *   Stopped: The task was stopped.
- * *   Stopping: The task is being stopped.
+ * \\*   Running:
+ *     \\*   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
+ *     \\*   One-time task: If the command is being run on instances, the execution state is Running.
+ * \\*   Finished:
+ *     \\*   Scheduled task: The execution state can never be Finished.
+ *     \\*   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
+ * \\*   Failed:
+ *     \\*   Scheduled task: The execution state can never be Failed.
+ *     \\*   One-time task: The execution failed on all instances.
+ * \\*   PartialFailed:
+ *     \\*   Scheduled task: The execution state can never be PartialFailed.
+ *     \\*   One-time task: The execution failed on some instances.
+ * \\*   Stopped: The task was stopped.
+ * \\*   Stopping: The task is being stopped.
  *
  * @description DescribeInvocationResults
  *
@@ -16157,7 +16161,7 @@ DescribeInvocationResultsResponse Client::describeInvocationResults(const Descri
 }
 
 /**
- * @summary The command type.
+ * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
  *
  * @description DescribeInvocations
  *
@@ -16274,7 +16278,7 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @summary The command type.
+ * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
  *
  * @description DescribeInvocations
  *
@@ -21699,7 +21703,7 @@ DetachKeyPairResponse Client::detachKeyPair(const DetachKeyPairRequest &request)
 }
 
 /**
- * @summary Detach an elastic network interface (ENI) from an Elastic Compute Service (ECS) instance.
+ * @summary Detaches an ENI from an ECS instance.
  *
  * @description Take note of the following items:
  * *   You cannot detach the primary ENI of an instance.
@@ -21772,7 +21776,7 @@ DetachNetworkInterfaceResponse Client::detachNetworkInterfaceWithOptions(const D
 }
 
 /**
- * @summary Detach an elastic network interface (ENI) from an Elastic Compute Service (ECS) instance.
+ * @summary Detaches an ENI from an ECS instance.
  *
  * @description Take note of the following items:
  * *   You cannot detach the primary ENI of an instance.
@@ -22077,7 +22081,7 @@ EnableDiskEncryptionByDefaultResponse Client::enableDiskEncryptionByDefault(cons
 }
 
 /**
- * @summary 启用或修改弹性网卡QoS限速设置
+ * @summary Enable or modify Elastic Network Interface (ENI) QoS rate limit settings
  *
  * @param request EnableNetworkInterfaceQoSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22136,7 +22140,7 @@ EnableNetworkInterfaceQoSResponse Client::enableNetworkInterfaceQoSWithOptions(c
 }
 
 /**
- * @summary 启用或修改弹性网卡QoS限速设置
+ * @summary Enable or modify Elastic Network Interface (ENI) QoS rate limit settings
  *
  * @param request EnableNetworkInterfaceQoSRequest
  * @return EnableNetworkInterfaceQoSResponse
@@ -22971,7 +22975,7 @@ ImportImageResponse Client::importImage(const ImportImageRequest &request) {
 }
 
 /**
- * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
+ * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely store the private key.
  *
  * @description Take note of the following items:
  * *   A maximum of 500 key pairs can be created in each region.
@@ -23046,7 +23050,7 @@ ImportKeyPairResponse Client::importKeyPairWithOptions(const ImportKeyPairReques
 }
 
 /**
- * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
+ * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely store the private key.
  *
  * @description Take note of the following items:
  * *   A maximum of 500 key pairs can be created in each region.
@@ -23073,7 +23077,7 @@ ImportKeyPairResponse Client::importKeyPair(const ImportKeyPairRequest &request)
 }
 
 /**
- * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After you install Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
+ * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After installing Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
  *
  * @description ## [](#)Usage notes
  * After you call the InstallCloudAssistant operation to install Cloud Assistant Agent on an ECS instance, call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to restart the instance to make the installation take effect.
@@ -23131,7 +23135,7 @@ InstallCloudAssistantResponse Client::installCloudAssistantWithOptions(const Ins
 }
 
 /**
- * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After you install Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
+ * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After installing Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
  *
  * @description ## [](#)Usage notes
  * After you call the InstallCloudAssistant operation to install Cloud Assistant Agent on an ECS instance, call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to restart the instance to make the installation take effect.
@@ -24233,6 +24237,10 @@ ModifyCloudAssistantSettingsResponse Client::modifyCloudAssistantSettingsWithOpt
     request.setOssDeliveryConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOssDeliveryConfig(), "OssDeliveryConfig", "json"));
   }
 
+  if (!!tmpReq.hasResourceUsageConfig()) {
+    request.setResourceUsageConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceUsageConfig(), "ResourceUsageConfig", "json"));
+  }
+
   if (!!tmpReq.hasSessionManagerConfig()) {
     request.setSessionManagerConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSessionManagerConfig(), "SessionManagerConfig", "json"));
   }
@@ -24268,6 +24276,10 @@ ModifyCloudAssistantSettingsResponse Client::modifyCloudAssistantSettingsWithOpt
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasResourceUsageConfigShrink()) {
+    query["ResourceUsageConfig"] = request.getResourceUsageConfigShrink();
   }
 
   if (!!request.hasSessionManagerConfigShrink()) {
@@ -34217,8 +34229,8 @@ StopInstancesResponse Client::stopInstances(const StopInstancesRequest &request)
 }
 
 /**
- * @summary \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
- * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+ * @summary \\\\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+ * \\\\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
  *
  * @description ## [](#)Usage notes
  * *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
@@ -34281,8 +34293,8 @@ StopInvocationResponse Client::stopInvocationWithOptions(const StopInvocationReq
 }
 
 /**
- * @summary \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
- * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+ * @summary \\\\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+ * \\\\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
  *
  * @description ## [](#)Usage notes
  * *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
@@ -34605,7 +34617,7 @@ UnassignIpv6AddressesResponse Client::unassignIpv6Addresses(const UnassignIpv6Ad
 }
 
 /**
- * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+ * @summary Unassigns one or more secondary private IP addresses from an ENI.
  *
  * @description ## [](#)Usage notes
  * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.
@@ -34672,7 +34684,7 @@ UnassignPrivateIpAddressesResponse Client::unassignPrivateIpAddressesWithOptions
 }
 
 /**
- * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+ * @summary Unassigns one or more secondary private IP addresses from an ENI.
  *
  * @description ## [](#)Usage notes
  * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.

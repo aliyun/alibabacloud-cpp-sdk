@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The type of the resource.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -139,7 +137,6 @@ namespace Models
   protected:
     // The query token that is returned in this call. If the return value is empty, no more data is returned.
     shared_ptr<string> nextToken_ {};
-    // Details about the resources that are associated with the prefix list.
     shared_ptr<DescribePrefixListAssociationsResponseBody::PrefixListAssociations> prefixListAssociations_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

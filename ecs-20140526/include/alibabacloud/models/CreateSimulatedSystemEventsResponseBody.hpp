@@ -84,7 +84,6 @@ namespace Models
 
 
   protected:
-    // The IDs of the simulated events.
     shared_ptr<CreateSimulatedSystemEventsResponseBody::EventIdSet> eventIdSet_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

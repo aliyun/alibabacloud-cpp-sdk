@@ -147,9 +147,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the snapshot-consistent group.
             shared_ptr<string> key_ {};
-            // The tag value of the snapshot-consistent group.
             shared_ptr<string> value_ {};
           };
 
@@ -276,9 +274,7 @@ namespace Models
 
 
               protected:
-                // The tag key of the snapshot. The default values of Key and Value contain snapshot source information.
                 shared_ptr<string> key_ {};
-                // The tag value of the snapshot. The default values of Key and Value contain snapshot source information.
                 shared_ptr<string> value_ {};
               };
 
@@ -358,34 +354,13 @@ namespace Models
 
 
           protected:
-            // Indicates whether the snapshot can be shared and be used to create or roll back a disk. Valid values:
-            // 
-            // *   true
-            // *   false
             shared_ptr<bool> available_ {};
-            // Indicates whether the instant access feature is enabled. Valid values:
-            // 
-            // *   true: The instant access feature is enabled. By default, the instant access feature is enabled for ESSDs.
-            // *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
-            // 
-            // >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
             shared_ptr<bool> instantAccess_ {};
-            // The validity period of the instant access feature. When the validity period ends, the instant access snapshot is automatically released.
-            // 
-            // >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
             shared_ptr<int32_t> instantAccessRetentionDays_ {};
-            // The progress of the snapshot creation task. Unit: percent (%).
             shared_ptr<string> progress_ {};
-            // The ID of the snapshot.
             shared_ptr<string> snapshotId_ {};
-            // The ID of the source disk. This parameter is retained even after the source disk of the snapshot is released.
             shared_ptr<string> sourceDiskId_ {};
-            // The type of the source disk. Valid values:
-            // 
-            // *   system: system disk
-            // *   data: data disk
             shared_ptr<string> sourceDiskType_ {};
-            // The tags of the snapshot. The default values contain snapshot source information.
             shared_ptr<Snapshot::Tags> tags_ {};
           };
 
@@ -481,29 +456,15 @@ namespace Models
 
 
       protected:
-        // The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the snapshot-consistent group.
         shared_ptr<string> description_ {};
-        // The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all disk snapshots in the snapshot-consistent group belong to the same instance. If disk snapshots in the snapshot-consistent group belong to different instances, you can check the response parameters that start with `Snapshots.Snapshot.Tags.` to determine the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
         shared_ptr<string> instanceId_ {};
-        // The name of the snapshot-consistent group.
         shared_ptr<string> name_ {};
-        // >  This parameter is not publicly available.
         shared_ptr<string> progressStatus_ {};
-        // The ID of the resource group to which the snapshot-consistent group belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the snapshot-consistent group.
         shared_ptr<string> snapshotGroupId_ {};
-        // The information about the snapshots in the snapshot-consistent group.
         shared_ptr<SnapshotGroup::Snapshots> snapshots_ {};
-        // The state of the snapshot-consistent group. Valid values:
-        // 
-        // *   progressing: The snapshot-consistent group was being created.
-        // *   accomplished: The snapshot-consistent group was created.
-        // *   failed: The snapshot-consistent group failed to be created.
         shared_ptr<string> status_ {};
-        // The tags of the snapshot-consistent group.
         shared_ptr<SnapshotGroup::Tags> tags_ {};
       };
 
@@ -553,7 +514,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the snapshot-consistent groups.
     shared_ptr<DescribeSnapshotGroupsResponseBody::SnapshotGroups> snapshotGroups_ {};
   };
 

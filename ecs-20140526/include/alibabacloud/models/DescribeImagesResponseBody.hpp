@@ -199,9 +199,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the image.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the image.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -295,19 +293,9 @@ namespace Models
         protected:
           shared_ptr<string> cpuOnlineDowngrade_ {};
           shared_ptr<string> cpuOnlineUpgrade_ {};
-          // The image metadata access mode. Valid values:
-          // 
-          // *   v1: You cannot set the image metadata access mode to security hardening when you create instances from the image.
-          // *   v2: You can set the image metadata access mode to security hardening when you create instances from the image.
-          // 
-          // [Overview of instance metadata](https://help.aliyun.com/document_detail/108460.html).
           shared_ptr<string> imdsSupport_ {};
           shared_ptr<string> memoryOnlineDowngrade_ {};
           shared_ptr<string> memoryOnlineUpgrade_ {};
-          // Indicates whether the image supports the Non-Volatile Memory Express (NVMe) protocol. Valid values:
-          // 
-          // *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
-          // *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
           shared_ptr<string> nvmeSupport_ {};
         };
 
@@ -441,25 +429,15 @@ namespace Models
 
 
           protected:
-            // The device name of the disk. Example: /dev/xvdb.
             shared_ptr<string> device_ {};
-            // >  This parameter is in invitational preview.
             shared_ptr<bool> encrypted_ {};
-            // The format of the image.
             shared_ptr<string> format_ {};
-            // The Object Storage Service (OSS) bucket that contains the imported image file.
             shared_ptr<string> importOSSBucket_ {};
-            // The OSS object that corresponds to the imported image file.
             shared_ptr<string> importOSSObject_ {};
-            // The progress of the image copy task.
             shared_ptr<string> progress_ {};
-            // The remaining time of the image copy task. Unit: seconds.
             shared_ptr<int32_t> remainTime_ {};
-            // The size of the disk. Unit: GiB.
             shared_ptr<string> size_ {};
-            // The ID of the snapshot.
             shared_ptr<string> snapshotId_ {};
-            // The type of the image.
             shared_ptr<string> type_ {};
           };
 
@@ -573,18 +551,9 @@ namespace Models
 
 
             protected:
-              // The name of the check item.
               shared_ptr<string> name_ {};
-              // The risk that the check item may have.
               shared_ptr<string> riskCode_ {};
-              // The severity of the risk that the check item of the imported custom image has. If the check item is at risk, this parameter is returned. If the check item is not at risk, this parameter is not returned.
-              // 
-              // Valid values:
-              // 
-              // *   High: The check item is a high-risk item that may affect the startup of the instance. We recommend that you handle the risk.
-              // *   Medium: The check item is a medium-risk item that may affect the startup performance or configurations of the instance. We recommend that you handle the risk.
               shared_ptr<string> riskLevel_ {};
-              // The result of the check item.
               shared_ptr<string> value_ {};
             };
 
@@ -621,12 +590,7 @@ namespace Models
 
 
         protected:
-          // The check items.
           shared_ptr<DetectionOptions::Items> items_ {};
-          // The state of the image check task. Valid values:
-          // 
-          // *   Processing
-          // *   Finished
           shared_ptr<string> status_ {};
         };
 
@@ -878,104 +842,38 @@ namespace Models
 
 
       protected:
-        // The architecture of the image. Valid values:
-        // 
-        // *   i386
-        // *   x86_64
-        // *   arm64
         shared_ptr<string> architecture_ {};
-        // The boot mode of the image. Valid values:
-        // 
-        // *   BIOS: Basic Input/Output System (BIOS)
-        // *   UEFI: Unified Extensible Firmware Interface (UEFI)
-        // *   UEFI-Preferred: BIOS and UEFI
-        // 
-        // For information about the image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
         shared_ptr<string> bootMode_ {};
-        // The time when the image was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the image.
         shared_ptr<string> description_ {};
-        // Details about the check performed on the image.
         shared_ptr<Image::DetectionOptions> detectionOptions_ {};
-        // The mappings between disks and snapshots in the image.
         shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
-        // The feature attributes of the image.
         shared_ptr<Image::Features> features_ {};
-        // The name of the image family.
         shared_ptr<string> imageFamily_ {};
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The source of the image. Valid values:
-        // 
-        // *   system: a public image provided by Alibaba Cloud
-        // *   self: a custom image that you created
-        // *   others: a shared image from another Alibaba Cloud account or a community image published by another Alibaba Cloud account
-        // *   marketplace: an Alibaba Cloud Marketplace image
         shared_ptr<string> imageOwnerAlias_ {};
-        // The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only if you query shared images or community images.
         shared_ptr<int64_t> imageOwnerId_ {};
-        // The version of the image.
         shared_ptr<string> imageVersion_ {};
-        // Indicates whether the image is a copy of another image.
         shared_ptr<bool> isCopied_ {};
-        // Indicates whether the image is publicly available. Publicly available images include public images provided by Alibaba Cloud and custom images published as community images. Valid values:
-        // 
-        // *   true: The image is publicly available.
-        // *   false: The image is publicly unavailable.
         shared_ptr<bool> isPublic_ {};
-        // Indicates whether the custom image was shared to other Alibaba Cloud accounts.
         shared_ptr<string> isSelfShared_ {};
-        // Indicates whether you accepted the Terms of Service of the image service that corresponds to the product code.
         shared_ptr<bool> isSubscribed_ {};
-        // Indicates whether the image supports cloud-init.
         shared_ptr<bool> isSupportCloudinit_ {};
-        // Indicates whether the image can be used on I/O optimized instances.
         shared_ptr<bool> isSupportIoOptimized_ {};
         shared_ptr<string> licenseType_ {};
-        // Indicates whether the image supports logons of non-root users. Valid values:
-        // 
-        // *   true: The image supports logons of non-root users.
-        // *   false: The image does not support logons of non-root users.
         shared_ptr<bool> loginAsNonRootSupported_ {};
-        // The display name of the operating system in Chinese.
         shared_ptr<string> OSName_ {};
-        // The display name of the operating system in English.
         shared_ptr<string> OSNameEn_ {};
-        // The type of the operating system. Valid values:
-        // 
-        // *   windows
-        // *   linux
         shared_ptr<string> OSType_ {};
-        // The operating system platform.
         shared_ptr<string> platform_ {};
-        // The Alibaba Cloud Marketplace product code of the image.
         shared_ptr<string> productCode_ {};
-        // The creation progress of the image. Unit: percent (%).
         shared_ptr<string> progress_ {};
-        // The ID of the resource group to which the image belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The size of the image. Unit: GiB.
-        // 
-        // >  If the image contains data disk snapshots, this parameter indicates only the size of the system disk snapshot contained in the image.
         shared_ptr<int32_t> size_ {};
-        // The state of the image. Valid values:
-        // 
-        // *   UnAvailable: The image is unavailable.
-        // *   Available: The image is available.
-        // *   Creating: The image is being created.
-        // *   CreateFailed: The image failed to be created.
         shared_ptr<string> status_ {};
-        // The name of the supplier that published the community image.
         shared_ptr<string> supplierName_ {};
-        // The tags of the image.
         shared_ptr<Image::Tags> tags_ {};
-        // Indicates whether the image was used to create ECS instances. Valid values:
-        // 
-        // *   instance: The image was used to create one or more ECS instances.
-        // *   none: The image was not used to create ECS instances.
         shared_ptr<string> usage_ {};
       };
 
@@ -1040,7 +938,6 @@ namespace Models
 
 
   protected:
-    // The information of the images.
     shared_ptr<DescribeImagesResponseBody::Images> images_ {};
     // The page number returned.
     shared_ptr<int32_t> pageNumber_ {};

@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The ID of the launch template.
         shared_ptr<string> launchTemplateId_ {};
-        // The version number of the launch template.
         shared_ptr<int64_t> launchTemplateVersionNumber_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The deleted launch template versions.
     shared_ptr<DeleteLaunchTemplateVersionResponseBody::LaunchTemplateVersions> launchTemplateVersions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

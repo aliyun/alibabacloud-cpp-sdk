@@ -169,9 +169,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> tagKey_ {};
-            // The value of the tag.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -264,21 +262,9 @@ namespace Models
 
 
           protected:
-            // The time when the time-segmented assurance ends.
             shared_ptr<int32_t> endHour_ {};
-            // The type of the recurrence rule. Valid values:
-            // 
-            // *   Daily
-            // *   Weekly
-            // *   Monthly
             shared_ptr<string> recurrenceType_ {};
-            // The recurrence value of the time-segmented assurance. Valid values:
-            // 
-            // *   If you set `RecurrenceType` to `Daily`, you can set RecurrenceValue to only one value. Valid values: 1 to 31. The time-segmented assurance is performed every few days.
-            // *   If you set `RecurrenceType` to `Weekly`, you can set RecurrenceValue to one or more values. Separate the values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6. For example, `1,2` indicates that the time-segmented assurance is performed on Monday and Tuesday of every week.
-            // *   If you set `RecurrenceType` to `Monthly`, you can set RecurrenceValue to two values in the `A-B` format. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates that the time-segmented assurance is performed from the 1st to the 5th of each month.
             shared_ptr<string> recurrenceValue_ {};
-            // The time when the time-segmented assurance takes effect.
             shared_ptr<int32_t> startHour_ {};
           };
 
@@ -410,11 +396,8 @@ namespace Models
 
 
               protected:
-                // >  This parameter is not publicly available.
                 shared_ptr<string> accountId_ {};
-                // >  This parameter is not publicly available.
                 shared_ptr<string> serviceName_ {};
-                // >  This parameter is not publicly available.
                 shared_ptr<int32_t> usedAmount_ {};
               };
 
@@ -479,17 +462,11 @@ namespace Models
 
 
           protected:
-            // >  This parameter is not publicly available.
             shared_ptr<int32_t> availableAmount_ {};
-            // >  This parameter is not publicly available.
             shared_ptr<AllocatedResource::ElasticityAssuranceUsages> elasticityAssuranceUsages_ {};
-            // The instance type.
             shared_ptr<string> instanceType_ {};
-            // The total number of instances for which capacity of an instance type is reserved.
             shared_ptr<int32_t> totalAmount_ {};
-            // The number of instances that have used the elasticity assurance.
             shared_ptr<int32_t> usedAmount_ {};
-            // The zone ID.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -652,57 +629,24 @@ namespace Models
 
 
       protected:
-        // Details of the allocated resources.
         shared_ptr<ElasticityAssuranceItem::AllocatedResources> allocatedResources_ {};
-        // The description of the elasticity assurance.
         shared_ptr<string> description_ {};
-        // >  This parameter is not publicly available.
         shared_ptr<string> elasticityAssuranceOwnerId_ {};
-        // The time when the elasticity assurance expires.
         shared_ptr<string> endTime_ {};
-        // The billing method of the instance. The value can be only PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
         shared_ptr<string> instanceChargeType_ {};
-        // > This parameter is not publicly available.
         shared_ptr<string> latestStartTime_ {};
-        // The type of the elasticity assurance. Valid values:
-        // 
-        // *   ElasticityAssurance: the general-purpose elasticity assurance.
-        // *   TimeDivisionElasticityAssurance: the time-segmented assurance of the elasticity assurance.
         shared_ptr<string> packageType_ {};
-        // The ID of the elasticity assurance.
         shared_ptr<string> privatePoolOptionsId_ {};
-        // The type of the private pool associated with the elasticity assurance. Valid values:
-        // 
-        // *   Open: open private pool
-        // *   Target: specific private pool
         shared_ptr<string> privatePoolOptionsMatchCriteria_ {};
-        // The name of the elasticity assurance.
         shared_ptr<string> privatePoolOptionsName_ {};
-        // The recurrence rules of the time-segmented assurances.
         shared_ptr<ElasticityAssuranceItem::RecurrenceRules> recurrenceRules_ {};
-        // The region ID of the elasticity assurance.
         shared_ptr<string> regionId_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The time when the elasticity assurance takes effect.
         shared_ptr<string> startTime_ {};
-        // Indicates when the elasticity assurance takes effect. Valid values:
-        // 
-        // *   Now: The elasticity assurance takes effect immediately after it is created.
-        // *   Later: The elasticity assurance takes effect at a specified time.
         shared_ptr<string> startTimeType_ {};
-        // The status of the elasticity assurance. Valid values:
-        // 
-        // *   Preparing
-        // *   Prepared
-        // *   Active
-        // *   Released
         shared_ptr<string> status_ {};
-        // The tags of the elasticity assurance.
         shared_ptr<ElasticityAssuranceItem::Tags> tags_ {};
-        // The total number of times that the elasticity assurance is applied.
         shared_ptr<string> totalAssuranceTimes_ {};
-        // > This parameter is not publicly available.
         shared_ptr<int32_t> usedAssuranceTimes_ {};
       };
 
@@ -760,7 +704,6 @@ namespace Models
 
 
   protected:
-    // Details about the elasticity assurances.
     shared_ptr<DescribeElasticityAssurancesResponseBody::ElasticityAssuranceSet> elasticityAssuranceSet_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};

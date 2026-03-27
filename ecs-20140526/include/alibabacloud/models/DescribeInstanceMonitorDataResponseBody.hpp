@@ -227,39 +227,22 @@ namespace Models
 
 
       protected:
-        // The read bandwidth of the cloud disks (system disk and data disks). Unit: Byte/s.
         shared_ptr<int32_t> BPSRead_ {};
-        // The write bandwidth of the cloud disks (system disk and data disks). Unit: Byte/s.
         shared_ptr<int32_t> BPSWrite_ {};
-        // The vCPU utilization of the instance. Unit: percent (%).
         shared_ptr<int32_t> CPU_ {};
-        // The overdrawn CPU credits of the burstable instance.
         shared_ptr<float> CPUAdvanceCreditBalance_ {};
-        // The total number of CPU credits of the burstable instance.
         shared_ptr<float> CPUCreditBalance_ {};
-        // The number of CPU credits consumed by the burstable instance.
         shared_ptr<float> CPUCreditUsage_ {};
-        // The unpaid overdrawn CPU credits.
         shared_ptr<float> CPUNotpaidSurplusCreditUsage_ {};
-        // The number of read I/O operations per second on the cloud disks (system disk and data disks).
         shared_ptr<int32_t> IOPSRead_ {};
-        // The number of write I/O operations per second on the cloud disks (system disk and data disks).
         shared_ptr<int32_t> IOPSWrite_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The public bandwidth of the instance. Unit: Kbit/s.
         shared_ptr<int32_t> internetBandwidth_ {};
-        // The Internet traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
         shared_ptr<int32_t> internetRX_ {};
-        // The Internet traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
         shared_ptr<int32_t> internetTX_ {};
-        // The internal bandwidth of the instance. Unit: Kbit/s.
         shared_ptr<int32_t> intranetBandwidth_ {};
-        // The internal data traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
         shared_ptr<int32_t> intranetRX_ {};
-        // The internal data traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
         shared_ptr<int32_t> intranetTX_ {};
-        // The timestamp of the monitoring data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -296,7 +279,6 @@ namespace Models
 
 
   protected:
-    // The monitoring data of the instance.
     shared_ptr<DescribeInstanceMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -191,9 +191,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the snapshot.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the snapshot.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -424,100 +422,34 @@ namespace Models
 
 
       protected:
-        // Indicates whether the snapshot can be shared and be used to create or roll back a cloud disk. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> available_ {};
-        // The category of the snapshot. Valid values:
-        // 
-        // *   Standard: standard snapshot.
-        // *   Flash: local snapshot. This value will be deprecated. The local snapshot feature is replaced by the instant access feature.
-        // *   archive: archive snapshot.
         shared_ptr<string> category_ {};
-        // The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the snapshot.
         shared_ptr<string> description_ {};
-        // Indicates whether the snapshot was encrypted. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> encrypted_ {};
-        // Indicates whether the instant access feature is enabled. Valid values:
-        // 
-        // *   true: The instant access feature is enabled. By default, the instant access feature is enabled for Enterprise SSDs (ESSDs) and ESSD Entry disks.
-        // *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
-        // 
-        // >  This parameter is deprecated. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
         shared_ptr<bool> instantAccess_ {};
-        // Indicates the validity period of the instant access feature. When the validity period ends, the instant access feature is automatically disabled.
-        // 
-        // By default, the value of this parameter is the same as the value of `RetentionDays`.
-        // 
-        // >  This parameter is deprecated. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
         shared_ptr<int32_t> instantAccessRetentionDays_ {};
-        // The ID of the KMS key used for the data disk.
         shared_ptr<string> KMSKeyId_ {};
-        // The time when the snapshot was last modified. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> lastModifiedTime_ {};
-        // The product code of the Alibaba Cloud Marketplace image.
         shared_ptr<string> productCode_ {};
-        // The progress of the snapshot creation task. Unit: percent (%).
         shared_ptr<string> progress_ {};
-        // The region ID of the snapshot.
         shared_ptr<string> regionId_ {};
-        // The amount of remaining time required to create the snapshot. Unit: seconds.
         shared_ptr<int32_t> remainTime_ {};
-        // The ID of the resource group to which the snapshot belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The retention period of the automatic snapshot. Unit: days.
         shared_ptr<int32_t> retentionDays_ {};
-        // The ID of the snapshot.
         shared_ptr<string> snapshotId_ {};
-        // The ID of the snapshot chain that is associated with the snapshot.
         shared_ptr<string> snapshotLinkId_ {};
-        // The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
         shared_ptr<string> snapshotName_ {};
-        // The serial number of the snapshot.
         shared_ptr<string> snapshotSN_ {};
-        // The type of the snapshot. Valid values:
-        // 
-        // *   auto or timer: automatic snapshot
-        // *   user: manual snapshot
-        // *   all: all snapshot types
         shared_ptr<string> snapshotType_ {};
-        // The ID of the source disk. This parameter is retained even after the source disk is released.
         shared_ptr<string> sourceDiskId_ {};
-        // The capacity of the source disk. Unit: GiB.
         shared_ptr<string> sourceDiskSize_ {};
-        // The type of the source disk. Valid values:
-        // 
-        // *   system
-        // *   data
         shared_ptr<string> sourceDiskType_ {};
-        // The region ID of the source snapshot.
         shared_ptr<string> sourceRegionId_ {};
-        // The ID of the source snapshot.
         shared_ptr<string> sourceSnapshotId_ {};
-        // The category of the source disk.
-        // 
-        // >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
         shared_ptr<string> sourceStorageType_ {};
-        // The status of the snapshot. Valid values:
-        // 
-        // *   progressing: The snapshot is being created.
-        // *   accomplished: The snapshot is created.
-        // *   failed: The snapshot failed to be created.
         shared_ptr<string> status_ {};
-        // The tags of the snapshot.
         shared_ptr<Snapshot::Tags> tags_ {};
-        // Indicates whether the snapshot was used to create images or cloud disks. Valid values:
-        // 
-        // *   image: The snapshot was used to create custom images.
-        // *   disk: The snapshot was used to create cloud disks.
-        // *   image_disk: The snapshot was used to create custom images and data disks.
-        // *   none: The snapshot was not used to create custom images or cloud disks.
         shared_ptr<string> usage_ {};
       };
 
@@ -590,7 +522,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the snapshots.
     shared_ptr<DescribeSnapshotsResponseBody::Snapshots> snapshots_ {};
     // The total number of snapshots.
     // 

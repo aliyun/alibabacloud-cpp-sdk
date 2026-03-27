@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(ResourceUsageConfig, resourceUsageConfigShrink_);
       DARABONBA_PTR_TO_JSON(SessionManagerConfig, sessionManagerConfigShrink_);
       DARABONBA_PTR_TO_JSON(SettingType, settingType_);
       DARABONBA_PTR_TO_JSON(SlsDeliveryConfig, slsDeliveryConfigShrink_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(ResourceUsageConfig, resourceUsageConfigShrink_);
       DARABONBA_PTR_FROM_JSON(SessionManagerConfig, sessionManagerConfigShrink_);
       DARABONBA_PTR_FROM_JSON(SettingType, settingType_);
       DARABONBA_PTR_FROM_JSON(SlsDeliveryConfig, slsDeliveryConfigShrink_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentUpgradeConfigShrink_ == nullptr
         && this->ossDeliveryConfigShrink_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->sessionManagerConfigShrink_ == nullptr && this->settingType_ == nullptr && this->slsDeliveryConfigShrink_ == nullptr; };
+        && this->resourceOwnerId_ == nullptr && this->resourceUsageConfigShrink_ == nullptr && this->sessionManagerConfigShrink_ == nullptr && this->settingType_ == nullptr && this->slsDeliveryConfigShrink_ == nullptr; };
     // agentUpgradeConfigShrink Field Functions 
     bool hasAgentUpgradeConfigShrink() const { return this->agentUpgradeConfigShrink_ != nullptr;};
     void deleteAgentUpgradeConfigShrink() { this->agentUpgradeConfigShrink_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline ModifyCloudAssistantSettingsShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // resourceUsageConfigShrink Field Functions 
+    bool hasResourceUsageConfigShrink() const { return this->resourceUsageConfigShrink_ != nullptr;};
+    void deleteResourceUsageConfigShrink() { this->resourceUsageConfigShrink_ = nullptr;};
+    inline string getResourceUsageConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceUsageConfigShrink_, "") };
+    inline ModifyCloudAssistantSettingsShrinkRequest& setResourceUsageConfigShrink(string resourceUsageConfigShrink) { DARABONBA_PTR_SET_VALUE(resourceUsageConfigShrink_, resourceUsageConfigShrink) };
+
+
     // sessionManagerConfigShrink Field Functions 
     bool hasSessionManagerConfigShrink() const { return this->sessionManagerConfigShrink_ != nullptr;};
     void deleteSessionManagerConfigShrink() { this->sessionManagerConfigShrink_ = nullptr;};
@@ -133,6 +142,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> resourceUsageConfigShrink_ {};
     // Cloud Assistant Session Manager configuration.
     shared_ptr<string> sessionManagerConfigShrink_ {};
     // The Cloud Assistant feature. Set SettingType to one of the following valid values:

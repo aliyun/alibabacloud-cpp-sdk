@@ -124,9 +124,7 @@ namespace Models
 
 
         protected:
-          // The code of the lifecycle status of the EBS device.
           shared_ptr<int32_t> code_ {};
-          // The name of the lifecycle status of the EBS device.
           shared_ptr<string> name_ {};
         };
 
@@ -168,9 +166,7 @@ namespace Models
 
 
         protected:
-          // The code of the health status of the EBS device.
           shared_ptr<int32_t> code_ {};
-          // The name of the health status of the EBS device.
           shared_ptr<string> name_ {};
         };
 
@@ -258,14 +254,7 @@ namespace Models
 
 
             protected:
-              // The code of the event type.
               shared_ptr<int32_t> code_ {};
-              // The name of the event type. Valid values:
-              // 
-              // *   Degraded: The performance of the EBS device is degraded.
-              // *   SeverelyDegraded: The performance of the EBS device is severely degraded.
-              // *   Stalled: The performance of the EBS device is severely affected.
-              // *   ErrorDetected: The local disk is damaged.
               shared_ptr<string> name_ {};
             };
 
@@ -309,15 +298,10 @@ namespace Models
 
 
           protected:
-            // The time when the event ended.
             shared_ptr<string> eventEndTime_ {};
-            // The ID of the event.
             shared_ptr<string> eventId_ {};
-            // The time when the event occurred.
             shared_ptr<string> eventTime_ {};
-            // The type of the event.
             shared_ptr<DiskEventType::EventType> eventType_ {};
-            // The impact level of the event.
             shared_ptr<string> impactLevel_ {};
           };
 
@@ -386,21 +370,11 @@ namespace Models
 
 
       protected:
-        // The name of the EBS device that is attached to an instance. Example: /dev/xvdb.
-        // 
-        // This parameter has a value only when the value of `Status` is `In_use`.
-        // 
-        // > This parameter will be deprecated in the future. To ensure future compatibility, we recommend that you do not use this parameter.
         shared_ptr<string> device_ {};
-        // The events about the EBS device.
         shared_ptr<DiskFullStatusType::DiskEventSet> diskEventSet_ {};
-        // The EBS device ID.
         shared_ptr<string> diskId_ {};
-        // The health status of the EBS device.
         shared_ptr<DiskFullStatusType::HealthStatus> healthStatus_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The lifecycle status of the EBS device.
         shared_ptr<DiskFullStatusType::Status> status_ {};
       };
 
@@ -458,7 +432,6 @@ namespace Models
 
 
   protected:
-    // The collection of full status information of the EBS devices.
     shared_ptr<DescribeDisksFullStatusResponseBody::DiskFullStatusSet> diskFullStatusSet_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

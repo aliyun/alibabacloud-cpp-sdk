@@ -120,9 +120,7 @@ namespace Models
 
 
         protected:
-          // The code of the instance lifecycle state.
           shared_ptr<int32_t> code_ {};
-          // The name of the instance lifecycle state.
           shared_ptr<string> name_ {};
         };
 
@@ -285,27 +283,10 @@ namespace Models
 
 
                 protected:
-                  // The time when the disk was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
                   shared_ptr<string> creationTime_ {};
-                  // The category of the disk. Valid values:
-                  // 
-                  // *   cloud: basic disk
-                  // *   cloud_efficiency: ultra disk
-                  // *   cloud_ssd: standard SSD
-                  // *   cloud_essd: Enterprise SSD (ESSD)
-                  // *   local_ssd_pro: I/O-intensive local disk
-                  // *   local_hdd_pro: throughput-intensive local disk
-                  // *   ephemeral: retired local disk
-                  // *   ephemeral_ssd: retired local SSD
                   shared_ptr<string> deviceCategory_ {};
-                  // The size of the disk. Unit: GiB.
                   shared_ptr<string> deviceSize_ {};
-                  // The type of the disk. Valid values:
-                  // 
-                  // *   system
-                  // *   data
                   shared_ptr<string> deviceType_ {};
-                  // The time when the disk was released. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
                   shared_ptr<string> releaseTime_ {};
                 };
 
@@ -349,11 +330,8 @@ namespace Models
 
 
             protected:
-              // The device name of the local disk.
               shared_ptr<string> device_ {};
-              // The ID of the local disk.
               shared_ptr<string> diskId_ {};
-              // The inactive disks that have been released and must be cleared.
               shared_ptr<ExtendedAttribute::InactiveDisks> inactiveDisks_ {};
             };
 
@@ -395,9 +373,7 @@ namespace Models
 
 
             protected:
-              // The code of the system event type.
               shared_ptr<int32_t> code_ {};
-              // The name of the system event type.
               shared_ptr<string> name_ {};
             };
 
@@ -439,9 +415,7 @@ namespace Models
 
 
             protected:
-              // The code of the system event state.
               shared_ptr<int32_t> code_ {};
-              // The name of the system event state.
               shared_ptr<string> name_ {};
             };
 
@@ -511,39 +485,13 @@ namespace Models
 
 
           protected:
-            // The state of the system event.
             shared_ptr<ScheduledSystemEventType::EventCycleStatus> eventCycleStatus_ {};
-            // The system event ID.
             shared_ptr<string> eventId_ {};
-            // The time when the system event was published. The time is displayed in UTC.
             shared_ptr<string> eventPublishTime_ {};
-            // The type of the system event.
             shared_ptr<ScheduledSystemEventType::EventType> eventType_ {};
-            // The extended attributes of system events generated for instances that have local disks attached.
-            // 
-            // The return values vary based on the system event type.
-            // 
-            // If the system event type is not one of the following types, this parameter is empty:
-            // 
-            // *   SystemMaintenance.StopAndRepair
-            // *   SystemMaintenance.CleanInactiveDisks
-            // *   SecurityPunish.Locked
-            // *   SecurityPunish.WebsiteBanned
-            // *   SystemUpgrade.Migrate
-            // *   SystemMaintenance.RebootAndIsolateErrorDisk
-            // *   SystemMaintenance.RebootAndReInitErrorDisk
-            // *   SystemMaintenance.ReInitErrorDisk
-            // *   SystemMaintenance.IsolateErrorDisk
             shared_ptr<ScheduledSystemEventType::ExtendedAttribute> extendedAttribute_ {};
-            // The impact level of the system event.
-            // 
-            // >  If the user is not in a whitelist, this parameter is empty.
             shared_ptr<string> impactLevel_ {};
-            // The scheduled time at which to execute the O\\&M task related to the system event. The time is displayed in UTC.
             shared_ptr<string> notBefore_ {};
-            // The reason why the system event was scheduled.
-            // 
-            // >  If the exception cause is not detected, this parameter is empty.
             shared_ptr<string> reason_ {};
           };
 
@@ -599,9 +547,7 @@ namespace Models
 
 
         protected:
-          // The code of the health state.
           shared_ptr<int32_t> code_ {};
-          // The name of the health state.
           shared_ptr<string> name_ {};
         };
 
@@ -642,13 +588,9 @@ namespace Models
 
 
       protected:
-        // The health state of the instance.
         shared_ptr<InstanceFullStatusType::HealthStatus> healthStatus_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The system events that are in the Scheduled or Inquiring state.
         shared_ptr<InstanceFullStatusType::ScheduledSystemEventSet> scheduledSystemEventSet_ {};
-        // The lifecycle state of the instance.
         shared_ptr<InstanceFullStatusType::Status> status_ {};
       };
 
@@ -706,9 +648,6 @@ namespace Models
 
 
   protected:
-    // The queried instances.
-    // 
-    // >  If no instances exist, this parameter is empty.
     shared_ptr<DescribeInstancesFullStatusResponseBody::InstanceFullStatusSet> instanceFullStatusSet_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

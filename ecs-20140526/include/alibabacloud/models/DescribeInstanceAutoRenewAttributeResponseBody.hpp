@@ -131,20 +131,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-renewal is enabled.
         shared_ptr<bool> autoRenewEnabled_ {};
-        // The auto-renewal duration.
         shared_ptr<int32_t> duration_ {};
         shared_ptr<bool> enableExpectedRenewDay_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The unit of the auto-renewal duration.
         shared_ptr<string> periodUnit_ {};
-        // The auto-renewal state of the instance. Valid values:
-        // 
-        // *   AutoRenewal: Auto-renewal is enabled for the instance.
-        // *   Normal: Auto-renewal is disabled for the instance.
-        // *   NotRenewal: The instance is not to be renewed. The system sends no more expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](https://help.aliyun.com/document_detail/52843.html) operation to change its auto-renewal status to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
         shared_ptr<string> renewalStatus_ {};
       };
 
@@ -202,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The renewal attributes of instances.
     shared_ptr<DescribeInstanceAutoRenewAttributeResponseBody::InstanceRenewAttributes> instanceRenewAttributes_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

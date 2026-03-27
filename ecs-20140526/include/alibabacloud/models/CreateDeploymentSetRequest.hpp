@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Strategy, strategy_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDeploymentSetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     CreateDeploymentSetRequest() = default ;
     CreateDeploymentSetRequest(const CreateDeploymentSetRequest &) = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->clientToken_ == nullptr
         && this->deploymentSetName_ == nullptr && this->description_ == nullptr && this->domain_ == nullptr && this->granularity_ == nullptr && this->groupCount_ == nullptr
         && this->onUnableToRedeployFailedInstance_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->strategy_ == nullptr; };
+        && this->resourceOwnerId_ == nullptr && this->strategy_ == nullptr && this->type_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
     inline CreateDeploymentSetRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline CreateDeploymentSetRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     // The description of the deployment set. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> clientToken_ {};
@@ -189,6 +198,7 @@ namespace Models
     // 
     // Default value: Availability.
     shared_ptr<string> strategy_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

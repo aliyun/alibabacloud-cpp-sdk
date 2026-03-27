@@ -278,35 +278,20 @@ namespace Models
 
 
       protected:
-        // The number of cores per physical CPU.
         shared_ptr<int32_t> cores_ {};
-        // The supported CPU overcommit ratio range.
         shared_ptr<string> cpuOverCommitRatioRange_ {};
-        // The dedicated host type.
         shared_ptr<string> dedicatedHostType_ {};
-        // The GPU model.
         shared_ptr<string> GPUSpec_ {};
-        // The number of local disks on a dedicated host.
         shared_ptr<int32_t> localStorageAmount_ {};
-        // The capacity of a local disk. Unit: GiB.
         shared_ptr<int64_t> localStorageCapacity_ {};
-        // The category of local disks.
         shared_ptr<string> localStorageCategory_ {};
-        // The memory size. Unit: GiB.
         shared_ptr<float> memorySize_ {};
-        // The number of physical GPUs.
         shared_ptr<int32_t> physicalGpus_ {};
-        // The number of physical CPUs.
         shared_ptr<int32_t> sockets_ {};
-        // Indicates whether the CPU overcommit ratio settings are supported.
         shared_ptr<bool> supportCpuOverCommitRatio_ {};
-        // The ECS instance families supported by the dedicated host type.
         shared_ptr<DedicatedHostType::SupportedInstanceTypeFamilies> supportedInstanceTypeFamilies_ {};
-        // The ECS instance types supported by the dedicated host type.
         shared_ptr<DedicatedHostType::SupportedInstanceTypesList> supportedInstanceTypesList_ {};
-        // The total number of vCPUs.
         shared_ptr<int32_t> totalVcpus_ {};
-        // The total number of vGPUs.
         shared_ptr<int32_t> totalVgpus_ {};
       };
 
@@ -343,7 +328,6 @@ namespace Models
 
 
   protected:
-    // Details about the dedicated host types.
     shared_ptr<DescribeDedicatedHostTypesResponseBody::DedicatedHostTypes> dedicatedHostTypes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

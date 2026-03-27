@@ -171,9 +171,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the command.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the command.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -352,22 +350,11 @@ namespace Models
 
 
           protected:
-            // The default value of the custom parameter.
             shared_ptr<string> defaultValue_ {};
-            // The description of the custom parameter.
             shared_ptr<string> description_ {};
-            // The name of the custom parameter.
             shared_ptr<string> parameterName_ {};
-            // The regular expression of the custom parameter.
             shared_ptr<string> patternRegex_ {};
-            // The valid values of the custom parameter of the enumeration type.
             shared_ptr<ParameterDefinition::PossibleValues> possibleValues_ {};
-            // Indicates whether the custom parameter is required. Valid values:
-            // 
-            // *   true
-            // *   false
-            // 
-            // Default value: false.
             shared_ptr<bool> required_ {};
           };
 
@@ -530,46 +517,24 @@ namespace Models
 
 
       protected:
-        // The category of the common command.
         shared_ptr<string> category_ {};
-        // The content of the command, which is Base64-encoded.
-        // 
-        // *   If ContentEncoding is set to PlainText in the request, the original command content is returned.
-        // *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command content is returned.
         shared_ptr<string> commandContent_ {};
-        // The command ID.
         shared_ptr<string> commandId_ {};
-        // The time when the command was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the command.
         shared_ptr<string> description_ {};
-        // Indicates whether the custom parameter feature is enabled for the command.
         shared_ptr<bool> enableParameter_ {};
-        // The number of tasks created by using the command.
         shared_ptr<int32_t> invokeTimes_ {};
-        // Indicates whether the common command is of the latest version. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
         shared_ptr<bool> latest_ {};
-        // The launcher for script execution. The value cannot exceed 1 KB in length.
         shared_ptr<string> launcher_ {};
-        // The name of the command.
         shared_ptr<string> name_ {};
-        // The custom parameters of the command.
         shared_ptr<Command::ParameterDefinitions> parameterDefinitions_ {};
-        // The custom parameter names that are parsed from the command content specified when the command was created. If the custom parameter feature is disabled, an empty list is returned.
         shared_ptr<Command::ParameterNames> parameterNames_ {};
-        // The provider of the common command.
         shared_ptr<string> provider_ {};
-        // The ID of the resource group to which the command belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags of the command.
         shared_ptr<Command::Tags> tags_ {};
-        // The timeout period. Unit: seconds.
         shared_ptr<int64_t> timeout_ {};
-        // The type of the command.
         shared_ptr<string> type_ {};
-        // The version of the common command. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
         shared_ptr<int32_t> version_ {};
-        // The execution path of the command.
         shared_ptr<string> workingDir_ {};
       };
 
@@ -634,7 +599,6 @@ namespace Models
 
 
   protected:
-    // The queried commands.
     shared_ptr<DescribeCommandsResponseBody::Commands> commands_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

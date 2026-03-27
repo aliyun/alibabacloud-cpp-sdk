@@ -21,7 +21,7 @@ namespace Ecs20140526
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary dubbo
+       * @summary Accepts the default operation for a system event in the Inquiring state and authorizes the system to perform the operation.
        *
        * @param request AcceptInquiredSystemEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Ecs20140526
       Models::AcceptInquiredSystemEventResponse acceptInquiredSystemEventWithOptions(const Models::AcceptInquiredSystemEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary dubbo
+       * @summary Accepts the default operation for a system event in the Inquiring state and authorizes the system to perform the operation.
        *
        * @param request AcceptInquiredSystemEventRequest
        * @return AcceptInquiredSystemEventResponse
@@ -167,7 +167,7 @@ namespace Ecs20140526
       Models::AllocateEipAddressResponse allocateEipAddress(const Models::AllocateEipAddressRequest &request);
 
       /**
-       * @summary Assigns a static public IP address (also called system-assigned public IP address or auto-assigned public IP address) to an Elastic Compute Service (ECS) instance.
+       * @summary Assigns a static public IP address to an Elastic Compute Service (ECS) instance. We recommend using ModifyInstanceNetworkSpec to assign public IP addresses.
        *
        * @description ### [](#)Precautions
        * *   The ECS instance to which you want to assign a static public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
@@ -186,7 +186,7 @@ namespace Ecs20140526
       Models::AllocatePublicIpAddressResponse allocatePublicIpAddressWithOptions(const Models::AllocatePublicIpAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Assigns a static public IP address (also called system-assigned public IP address or auto-assigned public IP address) to an Elastic Compute Service (ECS) instance.
+       * @summary Assigns a static public IP address to an Elastic Compute Service (ECS) instance. We recommend using ModifyInstanceNetworkSpec to assign public IP addresses.
        *
        * @description ### [](#)Precautions
        * *   The ECS instance to which you want to assign a static public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
@@ -726,7 +726,7 @@ namespace Ecs20140526
       Models::AuthorizeSecurityGroupEgressResponse authorizeSecurityGroupEgress(const Models::AuthorizeSecurityGroupEgressRequest &request);
 
       /**
-       * @summary Disables automatic snapshot policies for one or more disks.
+       * @summary Disables an automatic snapshot policy for one or more cloud disks.
        *
        * @param request CancelAutoSnapshotPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -735,7 +735,7 @@ namespace Ecs20140526
       Models::CancelAutoSnapshotPolicyResponse cancelAutoSnapshotPolicyWithOptions(const Models::CancelAutoSnapshotPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables automatic snapshot policies for one or more disks.
+       * @summary Disables an automatic snapshot policy for one or more cloud disks.
        *
        * @param request CancelAutoSnapshotPolicyRequest
        * @return CancelAutoSnapshotPolicyResponse
@@ -2578,7 +2578,7 @@ namespace Ecs20140526
       Models::DeleteNatGatewayResponse deleteNatGateway(const Models::DeleteNatGatewayRequest &request);
 
       /**
-       * @summary Deletes an elastic network interface (ENI) in a region. DeleteNetworkInterface is an asynchronous operation.
+       * @summary Deletes an ENI.
        *
        * @description Take note of the following items:
        * *   The ENI to be deleted must be in the Available state.
@@ -2600,7 +2600,7 @@ namespace Ecs20140526
       Models::DeleteNetworkInterfaceResponse deleteNetworkInterfaceWithOptions(const Models::DeleteNetworkInterfaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an elastic network interface (ENI) in a region. DeleteNetworkInterface is an asynchronous operation.
+       * @summary Deletes an ENI.
        *
        * @description Take note of the following items:
        * *   The ENI to be deleted must be in the Available state.
@@ -2663,7 +2663,7 @@ namespace Ecs20140526
       Models::DeletePhysicalConnectionResponse deletePhysicalConnection(const Models::DeletePhysicalConnectionRequest &request);
 
       /**
-       * @summary 删除运维窗口
+       * @summary Delete O\\\\\\&M window
        *
        * @param request DeletePlanMaintenanceWindowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2672,7 +2672,7 @@ namespace Ecs20140526
       Models::DeletePlanMaintenanceWindowResponse deletePlanMaintenanceWindowWithOptions(const Models::DeletePlanMaintenanceWindowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除运维窗口
+       * @summary Delete O\\\\\\&M window
        *
        * @param request DeletePlanMaintenanceWindowRequest
        * @return DeletePlanMaintenanceWindowResponse
@@ -3088,7 +3088,7 @@ namespace Ecs20140526
       Models::DescribeAutoSnapshotPolicyExResponse describeAutoSnapshotPolicyEx(const Models::DescribeAutoSnapshotPolicyExRequest &request);
 
       /**
-       * @summary 查询可用资源
+       * @summary Query the inventory status of resources in a specified zone. This API is primarily used to confirm whether the target resources (such as instance types or system disk types) have sufficient inventory in a specific zone before creating an instance (RunInstances) or modifying an instance specification (ModifyInstanceSpec).
        *
        * @param request DescribeAvailableResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3097,7 +3097,7 @@ namespace Ecs20140526
       Models::DescribeAvailableResourceResponse describeAvailableResourceWithOptions(const Models::DescribeAvailableResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询可用资源
+       * @summary Query the inventory status of resources in a specified zone. This API is primarily used to confirm whether the target resources (such as instance types or system disk types) have sufficient inventory in a specific zone before creating an instance (RunInstances) or modifying an instance specification (ModifyInstanceSpec).
        *
        * @param request DescribeAvailableResourceRequest
        * @return DescribeAvailableResourceResponse
@@ -3122,8 +3122,6 @@ namespace Ecs20140526
       Models::DescribeBandwidthLimitationResponse describeBandwidthLimitation(const Models::DescribeBandwidthLimitationRequest &request);
 
       /**
-       * @deprecated OpenAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead.
-       *
        * @summary DescribeBandwidthPackages
        *
        * @param request DescribeBandwidthPackagesRequest
@@ -3133,8 +3131,6 @@ namespace Ecs20140526
       Models::DescribeBandwidthPackagesResponse describeBandwidthPackagesWithOptions(const Models::DescribeBandwidthPackagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead.
-       *
        * @summary DescribeBandwidthPackages
        *
        * @param request DescribeBandwidthPackagesRequest
@@ -3781,7 +3777,7 @@ namespace Ecs20140526
       Models::DescribeHaVipsResponse describeHaVips(const Models::DescribeHaVipsRequest &request);
 
       /**
-       * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\*\\*token\\*\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence]\\(~~25693~~).
+       * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\\\*\\\\*token\\\\*\\\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see \\[How to ensure idempotence]\\\\(~~25693~~).
        *
        * @param request DescribeHpcClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3790,7 +3786,7 @@ namespace Ecs20140526
       Models::DescribeHpcClustersResponse describeHpcClustersWithOptions(const Models::DescribeHpcClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\*\\*token\\*\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence]\\(~~25693~~).
+       * @summary The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The \\\\*\\\\*token\\\\*\\\\* can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see \\[How to ensure idempotence]\\\\(~~25693~~).
        *
        * @param request DescribeHpcClustersRequest
        * @return DescribeHpcClustersResponse
@@ -4369,20 +4365,20 @@ namespace Ecs20140526
 
       /**
        * @summary The execution status of the command. Valid values:
-       * *   Running:
-       *     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
-       *     *   One-time task: If the command is being run on instances, the execution state is Running.
-       * *   Finished:
-       *     *   Scheduled task: The execution state can never be Finished.
-       *     *   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
-       * *   Failed:
-       *     *   Scheduled task: The execution state can never be Failed.
-       *     *   One-time task: The execution failed on all instances.
-       * *   PartialFailed:
-       *     *   Scheduled task: The execution state can never be PartialFailed.
-       *     *   One-time task: The execution failed on some instances.
-       * *   Stopped: The task was stopped.
-       * *   Stopping: The task is being stopped.
+       * \\*   Running:
+       *     \\*   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
+       *     \\*   One-time task: If the command is being run on instances, the execution state is Running.
+       * \\*   Finished:
+       *     \\*   Scheduled task: The execution state can never be Finished.
+       *     \\*   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
+       * \\*   Failed:
+       *     \\*   Scheduled task: The execution state can never be Failed.
+       *     \\*   One-time task: The execution failed on all instances.
+       * \\*   PartialFailed:
+       *     \\*   Scheduled task: The execution state can never be PartialFailed.
+       *     \\*   One-time task: The execution failed on some instances.
+       * \\*   Stopped: The task was stopped.
+       * \\*   Stopping: The task is being stopped.
        *
        * @description DescribeInvocationResults
        *
@@ -4394,20 +4390,20 @@ namespace Ecs20140526
 
       /**
        * @summary The execution status of the command. Valid values:
-       * *   Running:
-       *     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
-       *     *   One-time task: If the command is being run on instances, the execution state is Running.
-       * *   Finished:
-       *     *   Scheduled task: The execution state can never be Finished.
-       *     *   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
-       * *   Failed:
-       *     *   Scheduled task: The execution state can never be Failed.
-       *     *   One-time task: The execution failed on all instances.
-       * *   PartialFailed:
-       *     *   Scheduled task: The execution state can never be PartialFailed.
-       *     *   One-time task: The execution failed on some instances.
-       * *   Stopped: The task was stopped.
-       * *   Stopping: The task is being stopped.
+       * \\*   Running:
+       *     \\*   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
+       *     \\*   One-time task: If the command is being run on instances, the execution state is Running.
+       * \\*   Finished:
+       *     \\*   Scheduled task: The execution state can never be Finished.
+       *     \\*   One-time task: The execution was complete on all instances, or the execution was stopped on some instances and was complete on the other instances.
+       * \\*   Failed:
+       *     \\*   Scheduled task: The execution state can never be Failed.
+       *     \\*   One-time task: The execution failed on all instances.
+       * \\*   PartialFailed:
+       *     \\*   Scheduled task: The execution state can never be PartialFailed.
+       *     \\*   One-time task: The execution failed on some instances.
+       * \\*   Stopped: The task was stopped.
+       * \\*   Stopping: The task is being stopped.
        *
        * @description DescribeInvocationResults
        *
@@ -4417,7 +4413,7 @@ namespace Ecs20140526
       Models::DescribeInvocationResultsResponse describeInvocationResults(const Models::DescribeInvocationResultsRequest &request);
 
       /**
-       * @summary The command type.
+       * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
        *
        * @description DescribeInvocations
        *
@@ -4428,7 +4424,7 @@ namespace Ecs20140526
       Models::DescribeInvocationsResponse describeInvocationsWithOptions(const Models::DescribeInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The command type.
+       * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
        *
        * @description DescribeInvocations
        *
@@ -5830,7 +5826,7 @@ namespace Ecs20140526
       Models::DetachKeyPairResponse detachKeyPair(const Models::DetachKeyPairRequest &request);
 
       /**
-       * @summary Detach an elastic network interface (ENI) from an Elastic Compute Service (ECS) instance.
+       * @summary Detaches an ENI from an ECS instance.
        *
        * @description Take note of the following items:
        * *   You cannot detach the primary ENI of an instance.
@@ -5849,7 +5845,7 @@ namespace Ecs20140526
       Models::DetachNetworkInterfaceResponse detachNetworkInterfaceWithOptions(const Models::DetachNetworkInterfaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detach an elastic network interface (ENI) from an Elastic Compute Service (ECS) instance.
+       * @summary Detaches an ENI from an ECS instance.
        *
        * @description Take note of the following items:
        * *   You cannot detach the primary ENI of an instance.
@@ -5979,7 +5975,7 @@ namespace Ecs20140526
       Models::EnableDiskEncryptionByDefaultResponse enableDiskEncryptionByDefault(const Models::EnableDiskEncryptionByDefaultRequest &request);
 
       /**
-       * @summary 启用或修改弹性网卡QoS限速设置
+       * @summary Enable or modify Elastic Network Interface (ENI) QoS rate limit settings
        *
        * @param request EnableNetworkInterfaceQoSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5988,7 +5984,7 @@ namespace Ecs20140526
       Models::EnableNetworkInterfaceQoSResponse enableNetworkInterfaceQoSWithOptions(const Models::EnableNetworkInterfaceQoSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用或修改弹性网卡QoS限速设置
+       * @summary Enable or modify Elastic Network Interface (ENI) QoS rate limit settings
        *
        * @param request EnableNetworkInterfaceQoSRequest
        * @return EnableNetworkInterfaceQoSResponse
@@ -6405,7 +6401,7 @@ namespace Ecs20140526
       Models::ImportImageResponse importImage(const Models::ImportImageRequest &request);
 
       /**
-       * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
+       * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely store the private key.
        *
        * @description Take note of the following items:
        * *   A maximum of 500 key pairs can be created in each region.
@@ -6430,7 +6426,7 @@ namespace Ecs20140526
       Models::ImportKeyPairResponse importKeyPairWithOptions(const Models::ImportKeyPairRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
+       * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely store the private key.
        *
        * @description Take note of the following items:
        * *   A maximum of 500 key pairs can be created in each region.
@@ -6454,7 +6450,7 @@ namespace Ecs20140526
       Models::ImportKeyPairResponse importKeyPair(const Models::ImportKeyPairRequest &request);
 
       /**
-       * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After you install Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
+       * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After installing Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
        *
        * @description ## [](#)Usage notes
        * After you call the InstallCloudAssistant operation to install Cloud Assistant Agent on an ECS instance, call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to restart the instance to make the installation take effect.
@@ -6466,7 +6462,7 @@ namespace Ecs20140526
       Models::InstallCloudAssistantResponse installCloudAssistantWithOptions(const Models::InstallCloudAssistantRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After you install Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
+       * @summary Installs Cloud Assistant Agent on Elastic Compute Service (ECS) instances. After installing Cloud Assistant Agent on ECS instances, restart the instances for the installation to take effect.
        *
        * @description ## [](#)Usage notes
        * After you call the InstallCloudAssistant operation to install Cloud Assistant Agent on an ECS instance, call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to restart the instance to make the installation take effect.
@@ -9875,8 +9871,8 @@ namespace Ecs20140526
       Models::StopInstancesResponse stopInstances(const Models::StopInstancesRequest &request);
 
       /**
-       * @summary \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
-       * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+       * @summary \\\\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+       * \\\\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
        *
        * @description ## [](#)Usage notes
        * *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
@@ -9889,8 +9885,8 @@ namespace Ecs20140526
       Models::StopInvocationResponse stopInvocationWithOptions(const Models::StopInvocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary \\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
-       * \\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
+       * @summary \\\\*   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
+       * \\\\*   If you stop the process of a scheduled invocation command, the executions that have started are not interrupted. However, the execution does not start in the next period.
        *
        * @description ## [](#)Usage notes
        * *   If you stop the process of a command that runs only once, the executions that have started are not interrupted. The executions that have not started are canceled.
@@ -9994,7 +9990,7 @@ namespace Ecs20140526
       Models::UnassignIpv6AddressesResponse unassignIpv6Addresses(const Models::UnassignIpv6AddressesRequest &request);
 
       /**
-       * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+       * @summary Unassigns one or more secondary private IP addresses from an ENI.
        *
        * @description ## [](#)Usage notes
        * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.
@@ -10007,7 +10003,7 @@ namespace Ecs20140526
       Models::UnassignPrivateIpAddressesResponse unassignPrivateIpAddressesWithOptions(const Models::UnassignPrivateIpAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+       * @summary Unassigns one or more secondary private IP addresses from an ENI.
        *
        * @description ## [](#)Usage notes
        * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.

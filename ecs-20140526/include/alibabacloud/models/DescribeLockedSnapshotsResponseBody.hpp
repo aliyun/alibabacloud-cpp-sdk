@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LockDuration, lockDuration_);
         DARABONBA_PTR_TO_JSON(LockDurationStartTime, lockDurationStartTime_);
         DARABONBA_PTR_TO_JSON(LockExpiredTime, lockExpiredTime_);
+        DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
         DARABONBA_PTR_TO_JSON(LockStatus, lockStatus_);
         DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LockDuration, lockDuration_);
         DARABONBA_PTR_FROM_JSON(LockDurationStartTime, lockDurationStartTime_);
         DARABONBA_PTR_FROM_JSON(LockExpiredTime, lockExpiredTime_);
+        DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
         DARABONBA_PTR_FROM_JSON(LockStatus, lockStatus_);
         DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
       };
@@ -69,7 +71,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->coolOffPeriod_ == nullptr
         && this->coolOffPeriodExpiredTime_ == nullptr && this->lockCreationTime_ == nullptr && this->lockDuration_ == nullptr && this->lockDurationStartTime_ == nullptr && this->lockExpiredTime_ == nullptr
-        && this->lockStatus_ == nullptr && this->snapshotId_ == nullptr; };
+        && this->lockMode_ == nullptr && this->lockStatus_ == nullptr && this->snapshotId_ == nullptr; };
       // coolOffPeriod Field Functions 
       bool hasCoolOffPeriod() const { return this->coolOffPeriod_ != nullptr;};
       void deleteCoolOffPeriod() { this->coolOffPeriod_ = nullptr;};
@@ -112,6 +114,13 @@ namespace Models
       inline LockedSnapshotsInfo& setLockExpiredTime(string lockExpiredTime) { DARABONBA_PTR_SET_VALUE(lockExpiredTime_, lockExpiredTime) };
 
 
+      // lockMode Field Functions 
+      bool hasLockMode() const { return this->lockMode_ != nullptr;};
+      void deleteLockMode() { this->lockMode_ = nullptr;};
+      inline string getLockMode() const { DARABONBA_PTR_GET_DEFAULT(lockMode_, "") };
+      inline LockedSnapshotsInfo& setLockMode(string lockMode) { DARABONBA_PTR_SET_VALUE(lockMode_, lockMode) };
+
+
       // lockStatus Field Functions 
       bool hasLockStatus() const { return this->lockStatus_ != nullptr;};
       void deleteLockStatus() { this->lockStatus_ = nullptr;};
@@ -139,6 +148,7 @@ namespace Models
       shared_ptr<string> lockDurationStartTime_ {};
       // The time when the lock expires. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in the yyyy-MM-ddTHH:mm:ssZ format (in UTC).
       shared_ptr<string> lockExpiredTime_ {};
+      shared_ptr<string> lockMode_ {};
       // The lock status. Valid values:
       // 
       // *   compliance-cooloff: The snapshot is locked in compliance mode but is still in a cooling-off period. Snapshots cannot be deleted. However, users with the corresponding RAM permissions can unlock snapshots, extend or shorten the cooling-off period, and extend or shorten the lock duration.

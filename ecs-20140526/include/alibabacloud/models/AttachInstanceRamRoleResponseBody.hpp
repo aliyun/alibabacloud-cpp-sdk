@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the instance RAM role was attached. If the instance RAM role was attached, 200 is returned. If the instance RAM role failed to be attached, any other value is returned. For more information, see the "Error codes" section.
         shared_ptr<string> code_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the instance RAM role was attached. If the instance RAM role was attached, success is returned. If the instance RAM role failed to be attached, any other value is returned. For more information, see the "Error codes" section.
         shared_ptr<string> message_ {};
-        // Indicates whether the instance RAM role was attached.
         shared_ptr<bool> success_ {};
       };
 
@@ -177,7 +173,6 @@ namespace Models
 
 
   protected:
-    // Details about the results of attaching the instance RAM role.
     shared_ptr<AttachInstanceRamRoleResponseBody::AttachInstanceRamRoleResults> attachInstanceRamRoleResults_ {};
     // The number of instances to which the instance RAM role failed to be attached.
     shared_ptr<int32_t> failCount_ {};

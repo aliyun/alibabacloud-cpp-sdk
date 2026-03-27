@@ -107,20 +107,9 @@ namespace Models
 
 
       protected:
-        // The auto-renewal period. Valid values: Valid values: 1, 2, 3, 6, 12, 24, and 36.
         shared_ptr<int32_t> period_ {};
-        // The unit of the auto-renewal period. Valid values:
-        // 
-        // *   Month (default)
-        // *   Year
         shared_ptr<string> periodUnit_ {};
-        // The ID of the elasticity assurance.
         shared_ptr<string> privatePoolOptionsId_ {};
-        // Indicates whether auto-renewal is enabled for the elasticity assurance. Valid values:
-        // 
-        // *   AutoRenewal: Auto-renewal is enabled for the elasticity assurance.
-        // *   Normal: Auto-renewal is disabled for the elasticity assurance.
-        // *   NotRenewal: The elasticity assurance is not renewed.
         shared_ptr<string> renewalStatus_ {};
       };
 
@@ -157,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The auto-renewal attribute of the elasticity assurances.
     shared_ptr<DescribeElasticityAssuranceAutoRenewAttributeResponseBody::ElasticityAssuranceRenewAttributes> elasticityAssuranceRenewAttributes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

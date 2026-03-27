@@ -169,9 +169,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -303,11 +301,8 @@ namespace Models
 
 
               protected:
-                // The ID of the Alibaba Cloud account.
                 shared_ptr<string> accountId_ {};
-                // The name of the Alibaba Cloud service.
                 shared_ptr<string> serviceName_ {};
-                // The number of instances that are used by the Alibaba Cloud account or service.
                 shared_ptr<int32_t> usedAmount_ {};
               };
 
@@ -372,17 +367,11 @@ namespace Models
 
 
           protected:
-            // The number of available instances.
             shared_ptr<int32_t> availableAmount_ {};
-            // Details of instance usage.
             shared_ptr<AllocatedResource::CapacityReservationUsages> capacityReservationUsages_ {};
-            // The instance type of the instances.
             shared_ptr<string> instanceType_ {};
-            // The total number of instances for which the capacity of an instance type is reserved.
             shared_ptr<int32_t> totalAmount_ {};
-            // The number of instances that have used the capacity reservation.
             shared_ptr<int32_t> usedAmount_ {};
-            // The zone ID.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -543,64 +532,24 @@ namespace Models
 
 
       protected:
-        // Details of the allocated resources.
         shared_ptr<CapacityReservationItem::AllocatedResources> allocatedResources_ {};
-        // The ID of the capacity reservation owner.
         shared_ptr<string> capacityReservationOwnerId_ {};
-        // The description of the capacity reservation.
         shared_ptr<string> description_ {};
-        // The time when the capacity reservation expires.
         shared_ptr<string> endTime_ {};
-        // The release mode of the capacity reservation. Valid values:
-        // 
-        // *   Limited: The capacity reservation is automatically released at a specified time.
-        // *   Unlimited: The capacity reservation is manually released. You can release the capacity reservation anytime.
         shared_ptr<string> endTimeType_ {};
-        // The billing method of the instances created by using the capacity reservation. Valid values:
-        // 
-        // *   PostPaid: pay-as-you-go.
-        // *   PrePaid: subscription.
         shared_ptr<string> instanceChargeType_ {};
-        // The operating system type of the instances created by using the capacity reservation. Valid values:
-        // 
-        // *   windows
-        // *   linux
         shared_ptr<string> platform_ {};
-        // The ID of the capacity reservation.
         shared_ptr<string> privatePoolOptionsId_ {};
-        // The type of the private pool generated after the capacity reservation takes effect. Valid values:
-        // 
-        // *   Open: open private pool. If you use the capacity reservation to create Elastic Compute Service (ECS) instances, the open private pool that is associated with the capacity reservation is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the instances.
-        // *   Target: targeted private pool. If you use the capacity reservation to create ECS instances, the targeted private pool that is associated with the capacity reservation is automatically matched. If no capacity is available in the private pool, the instances fail to be created.
         shared_ptr<string> privatePoolOptionsMatchCriteria_ {};
-        // The name of the capacity reservation.
         shared_ptr<string> privatePoolOptionsName_ {};
-        // The region ID of the capacity reservation.
         shared_ptr<string> regionId_ {};
-        // The ID of the reserved instance used with the capacity reservation.
         shared_ptr<string> reservedInstanceId_ {};
-        // The ID of the resource group to which the capacity reservation belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the savings plan used with the capacity reservation.
         shared_ptr<string> savingPlanId_ {};
-        // The time when the capacity reservation takes effect.
         shared_ptr<string> startTime_ {};
-        // The mode in which the capacity reservation takes effect. Valid values:
-        // 
-        // *   Now: The capacity reservation takes effect immediately after it is created.
-        // *   Later: The capacity reservation takes effect at a specified time.
         shared_ptr<string> startTimeType_ {};
-        // The status of the capacity reservation. Valid values:
-        // 
-        // *   Pending: The capacity reservation is being initialized.
-        // *   Preparing: The capacity reservation is being prepared.
-        // *   Prepared: The capacity reservation is to take effect.
-        // *   Active: The capacity reservation is in effect.
-        // *   Released: The capacity reservation has been released manually or automatically when it expired.
         shared_ptr<string> status_ {};
-        // The tags that are added to the capacity reservation.
         shared_ptr<CapacityReservationItem::Tags> tags_ {};
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<string> timeSlot_ {};
       };
 
@@ -658,7 +607,6 @@ namespace Models
 
 
   protected:
-    // Details of the capacity reservations.
     shared_ptr<DescribeCapacityReservationsResponseBody::CapacityReservationSet> capacityReservationSet_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};

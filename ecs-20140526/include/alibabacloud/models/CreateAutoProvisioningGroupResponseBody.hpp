@@ -172,23 +172,12 @@ namespace Models
 
 
       protected:
-        // The number of created instances.
         shared_ptr<int32_t> amount_ {};
-        // The error code returned when the instance cannot be created.
         shared_ptr<string> errorCode_ {};
-        // The error message returned when the instance cannot be created.
         shared_ptr<string> errorMsg_ {};
-        // The IDs of created instances.
         shared_ptr<LaunchResult::InstanceIds> instanceIds_ {};
-        // The instance type of the instance.
         shared_ptr<string> instanceType_ {};
-        // The bidding policy for the pay-as-you-go instance. Valid values:
-        // 
-        // *   NoSpot: The instance is a regular pay-as-you-go instance.
-        // *   SpotWithPriceLimit: The instance is a spot instance for which you specify the maximum hourly price.
-        // *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is used as the bid price.
         shared_ptr<string> spotStrategy_ {};
-        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -234,7 +223,6 @@ namespace Models
   protected:
     // The ID of the auto provisioning group.
     shared_ptr<string> autoProvisioningGroupId_ {};
-    // The instances created by the auto provisioning group. The values of the parameters in this array are returned only when AutoProvisioningGroupType is set to `instant`.
     shared_ptr<CreateAutoProvisioningGroupResponseBody::LaunchResults> launchResults_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

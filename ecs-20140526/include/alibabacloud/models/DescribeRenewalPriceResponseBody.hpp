@@ -110,9 +110,7 @@ namespace Models
 
 
         protected:
-          // The description of the promotion rule.
           shared_ptr<string> description_ {};
-          // The ID of the promotion rule.
           shared_ptr<int64_t> ruleId_ {};
         };
 
@@ -260,9 +258,7 @@ namespace Models
 
 
               protected:
-                // The description of the pricing rule.
                 shared_ptr<string> description_ {};
-                // The ID of the pricing rule.
                 shared_ptr<int64_t> ruleId_ {};
               };
 
@@ -320,15 +316,10 @@ namespace Models
 
 
           protected:
-            // The discount.
             shared_ptr<float> discountPrice_ {};
-            // The original price.
             shared_ptr<float> originalPrice_ {};
-            // The name of the resource that corresponds to the price.
             shared_ptr<string> resource_ {};
-            // The pricing rules.
             shared_ptr<DetailInfo::SubRules> subRules_ {};
-            // The transaction price.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -392,7 +383,6 @@ namespace Models
         // 
         // Alibaba Cloud International site (alibabacloud.com): USD.
         shared_ptr<string> currency_ {};
-        // Details about the resource prices.
         shared_ptr<Price::DetailInfos> detailInfos_ {};
         // The discount.
         shared_ptr<float> discountPrice_ {};
@@ -425,7 +415,6 @@ namespace Models
     protected:
       // The price.
       shared_ptr<PriceInfo::Price> price_ {};
-      // The information about the promotion rules.
       shared_ptr<PriceInfo::Rules> rules_ {};
     };
 

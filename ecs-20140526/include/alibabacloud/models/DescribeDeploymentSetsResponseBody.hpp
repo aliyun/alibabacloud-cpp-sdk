@@ -75,6 +75,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(InstanceAmount, instanceAmount_);
           DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
           DARABONBA_PTR_TO_JSON(Strategy, strategy_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, DeploymentSet& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
@@ -90,6 +91,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(InstanceAmount, instanceAmount_);
           DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
           DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
         };
         DeploymentSet() = default ;
         DeploymentSet(const DeploymentSet &) = default ;
@@ -201,11 +203,8 @@ namespace Models
 
 
           protected:
-            // The number of ECS instances that can be added to the deployment set within the zone.
             shared_ptr<int32_t> availableAmount_ {};
-            // The number of ECS instances that reside in the zone in the deployment set.
             shared_ptr<int32_t> usedAmount_ {};
-            // The ID of the zone. Only the zone IDs of existing ECS instances in the deployment set are returned.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -226,7 +225,7 @@ namespace Models
         virtual bool empty() const override { return this->accountId_ == nullptr
         && this->capacities_ == nullptr && this->creationTime_ == nullptr && this->deploymentSetDescription_ == nullptr && this->deploymentSetId_ == nullptr && this->deploymentSetName_ == nullptr
         && this->deploymentStrategy_ == nullptr && this->domain_ == nullptr && this->granularity_ == nullptr && this->groupCount_ == nullptr && this->instanceAmount_ == nullptr
-        && this->instanceIds_ == nullptr && this->strategy_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->strategy_ == nullptr && this->type_ == nullptr; };
         // accountId Field Functions 
         bool hasAccountId() const { return this->accountId_ != nullptr;};
         void deleteAccountId() { this->accountId_ = nullptr;};
@@ -322,34 +321,28 @@ namespace Models
         inline DeploymentSet& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline DeploymentSet& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       protected:
         shared_ptr<int64_t> accountId_ {};
-        // Details of the capacities of the deployment set. This parameter is valid only when the deployment set contains ECS instances. The value contains information about the capacities of the deployment set in different zones.
         shared_ptr<DeploymentSet::Capacities> capacities_ {};
-        // The time when the deployment set was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the deployment set.
         shared_ptr<string> deploymentSetDescription_ {};
-        // The ID of the deployment set.
         shared_ptr<string> deploymentSetId_ {};
-        // The name of the deployment set.
         shared_ptr<string> deploymentSetName_ {};
-        // The deployment strategy. The return value of this parameter is the value of the `Strategy` request parameter.
         shared_ptr<string> deploymentStrategy_ {};
-        // The deployment domain.
         shared_ptr<string> domain_ {};
-        // The deployment granularity.
         shared_ptr<string> granularity_ {};
-        // The number of deployment set groups in the deployment set.
-        // 
-        // >  This parameter is valid only when the Strategy request parameter is set to AvailabilityGroup.
         shared_ptr<int32_t> groupCount_ {};
-        // The number of instances in the deployment set.
         shared_ptr<int32_t> instanceAmount_ {};
-        // The IDs of the Elastic Compute Service (ECS) instances in the deployment set.
         shared_ptr<DeploymentSet::InstanceIds> instanceIds_ {};
-        // The deployment strategy.
         shared_ptr<string> strategy_ {};
+        shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->deploymentSet_ == nullptr; };
@@ -413,7 +406,6 @@ namespace Models
 
 
   protected:
-    // Details about the deployment sets.
     shared_ptr<DescribeDeploymentSetsResponseBody::DeploymentSets> deploymentSets_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

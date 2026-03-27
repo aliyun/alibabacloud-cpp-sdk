@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // The name of the OSS storage plan.
         shared_ptr<string> displayName_ {};
-        // The time when the OSS storage plan expires. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The maximum storage capacity offered by the OSS storage plan.
         shared_ptr<int64_t> initCapacity_ {};
-        // The time when the OSS storage plan was purchased. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
       };
 
@@ -183,7 +179,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the OSS storage plans.
     shared_ptr<DescribeSnapshotPackageResponseBody::SnapshotPackages> snapshotPackages_ {};
     // The total number of OSS storage plans.
     shared_ptr<int32_t> totalCount_ {};

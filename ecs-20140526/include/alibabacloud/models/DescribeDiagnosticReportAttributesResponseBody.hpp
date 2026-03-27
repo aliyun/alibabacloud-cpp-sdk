@@ -193,19 +193,11 @@ namespace Models
 
 
           protected:
-            // The additional data about the diagnosed issue. The value is a JSON string.
             shared_ptr<string> additional_ {};
-            // The ID of the diagnosed issue, which is the unique identifier of the issue.
             shared_ptr<string> issueId_ {};
-            // The time when the diagnosed issue occurred.
             shared_ptr<string> occurrenceTime_ {};
             shared_ptr<string> repairStatus_ {};
             shared_ptr<bool> repairable_ {};
-            // The severity level of the diagnosed issue. Valid values:
-            // 
-            // *   Info: Diagnostic information was recorded and may be related to exceptions.
-            // *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
-            // *   Critical: Critical exceptions were detected.
             shared_ptr<string> severity_ {};
           };
 
@@ -263,26 +255,10 @@ namespace Models
 
 
       protected:
-        // The diagnosed issues.
         shared_ptr<MetricResult::Issues> issues_ {};
-        // The category of the diagnostic metric.
         shared_ptr<string> metricCategory_ {};
-        // The ID of the diagnostic metric.
         shared_ptr<string> metricId_ {};
-        // The severity level of the diagnostic metric. Valid values:
-        // 
-        // *   Unknown: The diagnostic has not started, failed to run, or exited unexpectedly without a diagnosis.
-        // *   Normal: No exceptions were detected.
-        // *   Info: Diagnostic information was recorded and may be related to exceptions.
-        // *   NotSupport: The version of the guest operating system does support diagnosing the metric.
-        // *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
-        // *   Critical: Critical exceptions were detected.
         shared_ptr<string> severity_ {};
-        // The state of the diagnostic metric. Valid values:
-        // 
-        // *   InProgress.
-        // *   Finished.
-        // *   Failed.
         shared_ptr<string> status_ {};
       };
 
@@ -406,7 +382,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The time when the diagnostic report was complete.
     shared_ptr<string> finishedTime_ {};
-    // The results of all diagnostic metrics in the diagnostic metric set.
     shared_ptr<DescribeDiagnosticReportAttributesResponseBody::MetricResults> metricResults_ {};
     // The ID of the diagnostic metric set.
     shared_ptr<string> metricSetId_ {};

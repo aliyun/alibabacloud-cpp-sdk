@@ -88,15 +88,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // RAM用户的虚拟账号ID。
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // 资源主账号的账号名称。
     shared_ptr<string> resourceOwnerAccount_ {};
-    // 资源主账号的ID，亦即UID。
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the VPC to which the instance is connected.
     // 

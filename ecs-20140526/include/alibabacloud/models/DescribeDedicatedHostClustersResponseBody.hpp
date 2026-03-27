@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -297,17 +295,8 @@ namespace Models
 
 
             protected:
-              // The available capacity of the local disk. Unit: GiB
               shared_ptr<int32_t> availableDisk_ {};
-              // The category of data disks. Valid values:
-              // 
-              // *   cloud: basic disk
-              // *   cloud_efficiency: ultra disk
-              // *   cloud_ssd: standard SSD
-              // *   ephemeral_ssd: local SSD
-              // *   cloud_essd: Enterprise SSD (ESSD)
               shared_ptr<string> dataDiskCategory_ {};
-              // The total capacity of the local disk. Unit: GiB
               shared_ptr<int32_t> totalDisk_ {};
             };
 
@@ -382,9 +371,7 @@ namespace Models
 
 
             protected:
-              // The available capacity of the ECS instance type.
               shared_ptr<int32_t> availableInstanceCapacity_ {};
-              // The ECS instance type.
               shared_ptr<string> instanceType_ {};
             };
 
@@ -451,17 +438,11 @@ namespace Models
 
 
         protected:
-          // The available capacity of ECS instances in the host group.
           shared_ptr<DedicatedHostClusterCapacity::AvailableInstanceTypes> availableInstanceTypes_ {};
-          // The size of available memory. Unit: GiB
           shared_ptr<int32_t> availableMemory_ {};
-          // The number of available vCPUs.
           shared_ptr<int32_t> availableVcpus_ {};
-          // The local storage capacity.
           shared_ptr<DedicatedHostClusterCapacity::LocalStorageCapacities> localStorageCapacities_ {};
-          // The total memory size. Unit: GiB
           shared_ptr<int32_t> totalMemory_ {};
-          // The total number of vCPUs.
           shared_ptr<int32_t> totalVcpus_ {};
         };
 
@@ -538,23 +519,14 @@ namespace Models
 
 
       protected:
-        // The capacity of the host group.
         shared_ptr<DedicatedHostCluster::DedicatedHostClusterCapacity> dedicatedHostClusterCapacity_ {};
-        // The ID of the host group.
         shared_ptr<string> dedicatedHostClusterId_ {};
-        // The name of the host group.
         shared_ptr<string> dedicatedHostClusterName_ {};
-        // The IDs of dedicated hosts in the host group.
         shared_ptr<DedicatedHostCluster::DedicatedHostIds> dedicatedHostIds_ {};
-        // The description of the host group.
         shared_ptr<string> description_ {};
-        // The region ID of the host group.
         shared_ptr<string> regionId_ {};
-        // The resource group ID of the host group.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags of the host group.
         shared_ptr<DedicatedHostCluster::Tags> tags_ {};
-        // The zone ID of the host group.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -612,7 +584,6 @@ namespace Models
 
 
   protected:
-    // An array consisting of host group information.
     shared_ptr<DescribeDedicatedHostClustersResponseBody::DedicatedHostClusters> dedicatedHostClusters_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

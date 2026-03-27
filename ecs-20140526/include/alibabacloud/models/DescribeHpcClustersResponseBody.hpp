@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The description of the HPC cluster.
         shared_ptr<string> description_ {};
-        // The description of the HPC cluster.
         shared_ptr<string> hpcClusterId_ {};
-        // The name of the HPC cluster.
         shared_ptr<string> name_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The name of the HPC cluster.
     shared_ptr<DescribeHpcClustersResponseBody::HpcClusters> hpcClusters_ {};
     // Details about the HPC clusters. The value is an array that consists of the information of each HPC cluster.
     shared_ptr<int32_t> pageNumber_ {};

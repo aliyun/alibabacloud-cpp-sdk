@@ -210,29 +210,17 @@ namespace Models
 
 
         protected:
-          // The number of dedicated hosts to which the tag is added.
           shared_ptr<int32_t> ddh_ {};
-          // The number of disks to which the tag is added.
           shared_ptr<int32_t> disk_ {};
-          // The number of ENIs to which the tag is added.
           shared_ptr<int32_t> eni_ {};
-          // The number of images to which the tag is added.
           shared_ptr<int32_t> image_ {};
-          // The number of instances to which the tag is added.
           shared_ptr<int32_t> instance_ {};
-          // The number of key pairs to which the tag is added.
           shared_ptr<int32_t> keyPair_ {};
-          // The number of launch templates to which the tag is added.
           shared_ptr<int32_t> launchTemplate_ {};
-          // The number of reserved instances to which the tag is added.
           shared_ptr<int32_t> reservedInstance_ {};
-          // The number of security groups to which the tag is added.
           shared_ptr<int32_t> securitygroup_ {};
-          // The number of snapshots to which the tag is added.
           shared_ptr<int32_t> snapshot_ {};
-          // The number of automatic snapshot policies to which the tag is added.
           shared_ptr<int32_t> snapshotPolicy_ {};
-          // The number of storage volumes to which the tag is added.
           shared_ptr<int32_t> volume_ {};
         };
 
@@ -262,11 +250,8 @@ namespace Models
 
 
       protected:
-        // The number of resource types.
         shared_ptr<Tag::ResourceTypeCount> resourceTypeCount_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -330,7 +315,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The tags that match all filter conditions.
     shared_ptr<DescribeTagsResponseBody::Tags> tags_ {};
     // The total number of tags.
     shared_ptr<int32_t> totalCount_ {};

@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The total size of snapshots. Unit: bytes.
         shared_ptr<int64_t> size_ {};
-        // The timestamp that corresponds to a snapshot size.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The monitoring data of snapshot sizes.
     shared_ptr<DescribeSnapshotMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

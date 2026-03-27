@@ -191,7 +191,6 @@ namespace Models
     protected:
       // The NAT IP address of the instance. It is used by ECS instances in different VPCs for communication.
       shared_ptr<string> natIpAddress_ {};
-      // The private IP address of the instance.
       shared_ptr<VpcAttributes::PrivateIpAddress> privateIpAddress_ {};
       // The ID of the vSwitch to which the instance is connected.
       shared_ptr<string> vSwitchId_ {};
@@ -312,13 +311,6 @@ namespace Models
 
 
       protected:
-        // The reason why the instance was locked. Valid values:
-        // 
-        // *   financial: The instance was locked due to overdue payments.
-        // *   security: The instance was locked due to security reasons.
-        // *   recycling: The spot instance was locked and pending release.
-        // *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
-        // *   refunded: The instance was locked because a refund is made for the instance.
         shared_ptr<string> lockReason_ {};
       };
 
@@ -850,7 +842,6 @@ namespace Models
     shared_ptr<string> hostName_ {};
     // The ID of the image that the instance is running.
     shared_ptr<string> imageId_ {};
-    // The internal IP address of the instance located in the classic network.
     shared_ptr<DescribeInstanceAttributeResponseBody::InnerIpAddress> innerIpAddress_ {};
     // The billing method of the instance. Valid values:
     // 
@@ -890,21 +881,12 @@ namespace Models
     // 
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<DescribeInstanceAttributeResponseBody::NetworkOptions> networkOptions_ {};
-    // The reason why the instance was locked. Valid values:
-    // 
-    // *   financial: The dedicated host was locked due to overdue payments.
-    // *   security: The instance was locked due to security reasons.
-    // *   recycling: The spot instance was locked and pending release.
-    // *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
-    // *   refunded: The instance was locked because a refund was made for the instance.
     shared_ptr<DescribeInstanceAttributeResponseBody::OperationLocks> operationLocks_ {};
-    // The public IP address of the instance.
     shared_ptr<DescribeInstanceAttributeResponseBody::PublicIpAddress> publicIpAddress_ {};
     // The ID of the region in which the instance resides.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IDs of the security groups to which the instance belongs.
     shared_ptr<DescribeInstanceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
     // The serial number of the instance.
     shared_ptr<string> serialNumber_ {};

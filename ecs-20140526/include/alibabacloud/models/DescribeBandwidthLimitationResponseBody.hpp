@@ -107,16 +107,9 @@ namespace Models
 
 
       protected:
-        // The billing method for network usage. Valid values:
-        // 
-        // *   PayByBandwidth
-        // *   PayByTraffic
         shared_ptr<string> internetChargeType_ {};
-        // The maximum public bandwidth.
         shared_ptr<int32_t> max_ {};
-        // The minimum public bandwidth.
         shared_ptr<int32_t> min_ {};
-        // The unit of the public bandwidth.
         shared_ptr<string> unit_ {};
       };
 
@@ -153,7 +146,6 @@ namespace Models
 
 
   protected:
-    // Details about the maximum public bandwidth.
     shared_ptr<DescribeBandwidthLimitationResponseBody::Bandwidths> bandwidths_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

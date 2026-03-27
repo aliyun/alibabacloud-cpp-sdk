@@ -133,9 +133,7 @@ namespace Models
 
 
           protected:
-            // The name of the resource.
             shared_ptr<string> name_ {};
-            // The ID of the resource.
             shared_ptr<string> value_ {};
           };
 
@@ -186,17 +184,9 @@ namespace Models
 
 
       protected:
-        // The error code. This parameter is empty when the operation is successful.
-        // 
-        // For information about error codes and error messages, visit the [API error center](https://error-center.aliyun.com/status/product/Ecs).
         shared_ptr<string> errorCode_ {};
-        // The error message. This parameter is empty when the operation is successful.
-        // 
-        // For information about error codes and error messages, visit the [API error center](https://error-center.aliyun.com/status/product/Ecs).
         shared_ptr<string> errorMsg_ {};
-        // Indicates whether the operation was successful. If the operation was successful, a value of Success is returned. If the operation failed, an error code and an error message are returned.
         shared_ptr<string> operationStatus_ {};
-        // Details about the resources.
         shared_ptr<OperationProgress::RelatedItemSet> relatedItemSet_ {};
       };
 
@@ -233,7 +223,6 @@ namespace Models
 
 
   protected:
-    // Details about the delete operation.
     shared_ptr<DeleteSnapshotGroupResponseBody::OperationProgressSet> operationProgressSet_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -212,9 +212,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> tagKey_ {};
-            // The value of the tag.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -389,10 +387,6 @@ namespace Models
 
           protected:
             shared_ptr<string> imdsSupport_ {};
-            // Indicates whether the image supports the NVMe protocol. Valid values:
-            // 
-            // *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
-            // *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
             shared_ptr<string> nvmeSupport_ {};
           };
 
@@ -471,24 +465,9 @@ namespace Models
 
 
             protected:
-              // The size of disk N in the custom image after the image is imported.
-              // 
-              // You can use this parameter to specify the sizes of the system disk and data disks in the custom image. When you specify the size of the system disk, make sure that the specified size is greater than or equal to the size of the source image file. Unit: GiB. Valid values:
-              // 
-              // *   When N is set to 1, this parameter indicates the size of the system disk in the custom image. Valid values: 1 to 2048.
-              // *   When N is set to an integer in the range of 2 to 17, this parameter indicates the size of a data disk in the custom image. Valid values: 1 to 2048.
-              // 
-              // After the image file is uploaded to an OSS bucket, you can view the size of the image file in the OSS bucket.
               shared_ptr<int32_t> diskImageSize_ {};
-              // The format of the image. Valid values:
-              // 
-              // *   RAW
-              // *   VHD
-              // *   QCOW2
               shared_ptr<string> format_ {};
-              // The Object Storage Service (OSS) bucket where the image file is stored.
               shared_ptr<string> OSSBucket_ {};
-              // The name (key) of the object that the image file is stored as in the OSS bucket.
               shared_ptr<string> OSSObject_ {};
             };
 
@@ -608,68 +587,16 @@ namespace Models
 
 
         protected:
-          // The operating system architecture. Valid values:
-          // 
-          // *   x86_64
-          // *   arm64
           shared_ptr<string> architecture_ {};
-          // The boot mode of the image. Valid values:
-          // 
-          // *   BIOS: BIOS mode
-          // *   UEFI: Unified Extensible Firmware Interface (UEFI) mode
           shared_ptr<string> bootMode_ {};
           shared_ptr<string> description_ {};
-          // The information of disks from which the custom images are created.
-          // 
-          // *   When the value of N is 1, a custom image is created from the system disk.
-          // *   When the value of N is an integer in the range of 2 to 17, a custom image is created from a data disk.
           shared_ptr<ImportImageOptions::DiskDeviceMappings> diskDeviceMappings_ {};
-          // The attributes of the custom image.
           shared_ptr<ImportImageOptions::Features> features_ {};
           shared_ptr<string> imageName_ {};
           shared_ptr<ImportImageOptions::ImportImageTags> importImageTags_ {};
-          // The type of the license to use to activate the operating system after the image is imported. Valid values:
-          // 
-          // *   Auto: ECS detects the operating system of the image and allocates a license to the operating system In this mode, the system first checks whether a license allocated by an official Alibaba Cloud channel is specified in the `Platform`. If a license allocated by an official Alibaba Cloud channel is specified, the system allocates the license to the imported image. If no such license is specified, the Bring Your Own License (BYOL) mode is used.
-          // *   Aliyun: The license allocated through an official Alibaba Cloud channel is used for the operating system distribution specified by `Platform`.
-          // *   BYOL: The license that comes with the source operating system is used. When you use the BYOL license, make sure that your license key is supported by Alibaba Cloud.
           shared_ptr<string> licenseType_ {};
-          // The operating system type. Valid values:
-          // 
-          // *   windows: Windows operating systems
-          // *   linux: Linux operating systems
           shared_ptr<string> OSType_ {};
-          // The version of the operating system. Valid values:
-          // 
-          // *   Aliyun
-          // *   Anolis
-          // *   CentOS
-          // *   Ubuntu
-          // *   CoreOS
-          // *   SUSE
-          // *   Debian
-          // *   OpenSUSE
-          // *   FreeBSD
-          // *   RedHat
-          // *   Kylin
-          // *   UOS
-          // *   Fedora
-          // *   Fedora CoreOS
-          // *   CentOS Stream
-          // *   AlmaLinux
-          // *   Rocky Linux
-          // *   Gentoo
-          // *   Customized Linux
-          // *   Others Linux
-          // *   Windows Server 2022
-          // *   Windows Server 2019
-          // *   Windows Server 2016
-          // *   Windows Server 2012
-          // *   Windows Server 2008
-          // *   Windows Server 2003
-          // *   Other Windows
           shared_ptr<string> platform_ {};
-          // >  This parameter is in invitational preview.
           shared_ptr<bool> retainImportedImage_ {};
           shared_ptr<string> retentionStrategy_ {};
           shared_ptr<string> roleName_ {};
@@ -759,9 +686,7 @@ namespace Models
 
 
             protected:
-              // The tag key of the image.
               shared_ptr<string> tagKey_ {};
-              // The tag value of the image.
               shared_ptr<string> tagValue_ {};
             };
 
@@ -807,11 +732,6 @@ namespace Models
 
 
           protected:
-            // Indicates whether the image supports the NVMe protocol. Valid values:
-            // 
-            // *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
-            // *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
-            // *   auto: The system automatically checks whether the image supports the NVMe protocol. The system automatically checks whether the NVMe driver is installed on your image before the image is built. If you install or uninstall the NVMe driver during the image building task, the check result may be incorrect. We recommend that you set the value to supported or unsupported based on the image building content.
             shared_ptr<string> nvmeSupport_ {};
           };
 
@@ -857,15 +777,10 @@ namespace Models
 
 
         protected:
-          // The description of the image.
           shared_ptr<string> description_ {};
-          // The image family.
           shared_ptr<string> imageFamily_ {};
-          // The feature attributes of the image.
           shared_ptr<ImageOptions::ImageFeatures> imageFeatures_ {};
-          // The prefix of the image name.
           shared_ptr<string> imageName_ {};
-          // The tags of the image.
           shared_ptr<ImageOptions::ImageTags> imageTags_ {};
         };
 
@@ -907,16 +822,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether to disable the feature that automatically adds a suffix to the name of the image created based on the image template. Valid value:
-          // 
-          // *   disable
           shared_ptr<string> imageNameSuffix_ {};
-          // Indicates whether to retain Cloud Assistant. During the image building process, the system automatically installs Cloud Assistant in the intermediate instance to run commands. You can choose whether to retain Cloud Assistant in the new image created based on the image template. Valid values:
-          // 
-          // *   true: retains Cloud Assistant.
-          // *   false: does not retain Cloud Assistant.
-          // 
-          // >  This parameter does not affect Cloud Assistant that comes with your image.
           shared_ptr<bool> retainCloudAssistant_ {};
         };
 
@@ -1140,69 +1046,29 @@ namespace Models
 
 
       protected:
-        // The IDs of Alibaba Cloud accounts to which to share the image that will be created based on the image template.
         shared_ptr<ImagePipelineSet::AddAccounts> addAccounts_ {};
-        // The advanced settings.
         shared_ptr<ImagePipelineSet::AdvancedOptions> advancedOptions_ {};
-        // The source image.
-        // 
-        // *   When `BaseImageType` is set to IMAGE, the value of this parameter is the ID of a custom image.
-        // *   When `BaseImageType` is set to IMAGE_FAMILY, the value of this parameter is the name of an image family.
         shared_ptr<string> baseImage_ {};
-        // The type of the source image. Valid values:
-        // 
-        // *   IMAGE: custom image
-        // *   IMAGE_FAMILY: image family
         shared_ptr<string> baseImageType_ {};
-        // The content of the image template.
         shared_ptr<string> buildContent_ {};
-        // The time when the image template was created.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether to release the intermediate instance when the image fails to be created.
         shared_ptr<bool> deleteInstanceOnFailure_ {};
-        // The description of the image template.
         shared_ptr<string> description_ {};
-        // The family of the image created based on the image template.
-        // 
-        // >  This parameter is no longer used. We recommend that you use ImageOptions.ImageFamily.
         shared_ptr<string> imageFamily_ {};
-        // The name prefix of the image created based on the image template.
-        // 
-        // >  This parameter is no longer used. We recommend that you use ImageOptions.ImageName.
         shared_ptr<string> imageName_ {};
-        // The attributes of the image created based on the image template.
         shared_ptr<ImagePipelineSet::ImageOptions> imageOptions_ {};
-        // The ID of the image template.
         shared_ptr<string> imagePipelineId_ {};
-        // The attributes and settings of the imported image.
         shared_ptr<ImagePipelineSet::ImportImageOptions> importImageOptions_ {};
-        // The instance type.
         shared_ptr<string> instanceType_ {};
-        // The size of the outbound public bandwidth for the intermediate instance. Unit: Mbit/s.
         shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-        // The name of the image template.
         shared_ptr<string> name_ {};
-        // Indicates whether the image created based on the image template supports the Non-Volatile Memory Express (NVMe) protocol.
-        // 
-        // >  This parameter is no longer used. We recommend that you use ImageOptions.ImageFeatures.NvmeSupport.
         shared_ptr<string> nvmeSupport_ {};
-        // The repair mode of the image template.
-        // 
-        // Valid values:
-        // 
-        // *   Standard: the standard mode
         shared_ptr<string> repairMode_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The system disk size of the intermediate instance. Unit: GiB
         shared_ptr<int32_t> systemDiskSize_ {};
-        // The tags of the image template.
         shared_ptr<ImagePipelineSet::Tags> tags_ {};
-        // The content of the image test template.
         shared_ptr<string> testContent_ {};
-        // The IDs of regions to which to distribute the image that will be created based on the image template.
         shared_ptr<ImagePipelineSet::ToRegionIds> toRegionIds_ {};
-        // The ID of the vSwitch in the virtual private cloud (VPC).
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -1260,7 +1126,6 @@ namespace Models
 
 
   protected:
-    // Details of the image templates.
     shared_ptr<DescribeImagePipelinesResponseBody::ImagePipeline> imagePipeline_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};

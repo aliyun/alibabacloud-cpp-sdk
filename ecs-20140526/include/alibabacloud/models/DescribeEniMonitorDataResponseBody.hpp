@@ -146,21 +146,13 @@ namespace Models
 
 
       protected:
-        // The number of received packets that were dropped by the secondary ENI over the internal network.
         shared_ptr<string> dropPacketRx_ {};
-        // The number of sent packets that were dropped by the secondary ENI over the internal network.
         shared_ptr<string> dropPacketTx_ {};
-        // The ID of the secondary ENI.
         shared_ptr<string> eniId_ {};
-        // The average rate at which the secondary ENI received data over the internal network. Unit: Kbit/s.
         shared_ptr<string> intranetRx_ {};
-        // The average rate at which the secondary ENI sent data over the internal network. Unit: Kbit/s.
         shared_ptr<string> intranetTx_ {};
-        // The number of packets received by the secondary ENI over the internal network.
         shared_ptr<string> packetRx_ {};
-        // The number of packets sent by the secondary ENI over the internal network.
         shared_ptr<string> packetTx_ {};
-        // The timestamp of the monitoring data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -204,7 +196,6 @@ namespace Models
 
 
   protected:
-    // The monitoring data of the secondary ENI.
     shared_ptr<DescribeEniMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

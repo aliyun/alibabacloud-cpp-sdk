@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The tag value of the launch template.
             shared_ptr<string> tagKey_ {};
-            // The tag key of the launch template.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -238,29 +236,14 @@ namespace Models
 
 
       protected:
-        // The time when the launch template was created.
-        // 
-        // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The ID of the Alibaba Cloud account that created the launch template.
         shared_ptr<string> createdBy_ {};
-        // The default version number of the launch template.
         shared_ptr<int64_t> defaultVersionNumber_ {};
-        // The latest version number of the launch template.
         shared_ptr<int64_t> latestVersionNumber_ {};
-        // The ID of the launch template.
         shared_ptr<string> launchTemplateId_ {};
-        // The name of the launch template.
         shared_ptr<string> launchTemplateName_ {};
-        // The time when a version was added to or deleted from the launch template.
-        // 
-        // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The ID of the resource group to which the launch template belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags of the launch template.
-        // 
-        // >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
         shared_ptr<LaunchTemplateSet::Tags> tags_ {};
       };
 
@@ -318,7 +301,6 @@ namespace Models
 
 
   protected:
-    // The queried launch templates.
     shared_ptr<DescribeLaunchTemplatesResponseBody::LaunchTemplateSets> launchTemplateSets_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

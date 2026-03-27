@@ -137,9 +137,7 @@ namespace Models
 
 
   protected:
-    // The IPv6 prefixes of the ENI.
     shared_ptr<AssignIpv6AddressesResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
-    // The IPv6 addresses assigned to the ENI.
     shared_ptr<AssignIpv6AddressesResponseBody::Ipv6Sets> ipv6Sets_ {};
     // The ENI ID.
     shared_ptr<string> networkInterfaceId_ {};

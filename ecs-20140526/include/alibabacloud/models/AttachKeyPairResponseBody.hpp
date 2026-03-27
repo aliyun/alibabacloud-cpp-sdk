@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // The operation status code returned. 200 indicates that the operation was successful.
         shared_ptr<string> code_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The operation information returned. When the value of Code is 200, the value of Message is successful.
         shared_ptr<string> message_ {};
-        // Indicates whether the request was successful.
         shared_ptr<string> success_ {};
       };
 
@@ -183,7 +179,6 @@ namespace Models
     shared_ptr<string> keyPairName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that contains the results of the operation.
     shared_ptr<AttachKeyPairResponseBody::Results> results_ {};
     // The total number of instances to which the SSH key pair is bound.
     shared_ptr<string> totalCount_ {};

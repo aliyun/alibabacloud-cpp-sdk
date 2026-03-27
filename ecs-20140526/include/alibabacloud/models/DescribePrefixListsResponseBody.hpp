@@ -145,11 +145,7 @@ namespace Models
 
 
           protected:
-            // The tag value. A prefix list can have 1 to 20 tags. The tag value can be an empty string.
-            // 
-            // The tag value can be up to 128 characters in length and cannot contain `http:// or https://`.
             shared_ptr<string> tagKey_ {};
-            // The tag key. A prefix list can have 1 to 20 tags. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -236,26 +232,14 @@ namespace Models
 
 
       protected:
-        // The IP address family of the prefix list. Valid values:
-        // 
-        // *   IPv4
-        // *   IPv6
         shared_ptr<string> addressFamily_ {};
-        // The number of associated resources.
         shared_ptr<int32_t> associationCount_ {};
-        // The time when the prefix list was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the prefix list.
         shared_ptr<string> description_ {};
-        // The maximum number of entries that the prefix list can contain.
         shared_ptr<int32_t> maxEntries_ {};
-        // The ID of the prefix list.
         shared_ptr<string> prefixListId_ {};
-        // The name of the prefix list.
         shared_ptr<string> prefixListName_ {};
-        // The ID of the resource group to which the prefix list belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags of the prefix list.
         shared_ptr<PrefixList::Tags> tags_ {};
       };
 
@@ -301,7 +285,6 @@ namespace Models
   protected:
     // The query token that is returned in this call. If the return value is empty, no more data is returned.
     shared_ptr<string> nextToken_ {};
-    // Details about the prefix lists.
     shared_ptr<DescribePrefixListsResponseBody::PrefixLists> prefixLists_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

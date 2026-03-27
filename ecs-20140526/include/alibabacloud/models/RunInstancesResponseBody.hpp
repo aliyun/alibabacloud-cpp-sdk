@@ -102,7 +102,6 @@ namespace Models
 
 
   protected:
-    // The instance IDs.
     shared_ptr<RunInstancesResponseBody::InstanceIdSets> instanceIdSets_ {};
     // The ID of the order. This parameter is returned only when `InstanceChargeType` is set to PrePaid.
     shared_ptr<string> orderId_ {};

@@ -130,7 +130,9 @@ namespace Models
 
 
   protected:
-    // The attributes of the security group. Valid value: snapshotPolicyIds: queries information about snapshot policies associated with a security group.
+    // The attributes of the security group. Valid value:
+    // 
+    // *   snapshotPolicyIds: queries information about snapshot policies associated with a security group.
     shared_ptr<string> attribute_ {};
     // The direction in which the security group rule is applied. Valid values:
     // 

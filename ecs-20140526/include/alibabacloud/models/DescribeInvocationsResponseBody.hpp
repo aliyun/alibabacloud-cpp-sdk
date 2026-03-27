@@ -179,12 +179,7 @@ namespace Models
 
 
           protected:
-            // The command content.
-            // 
-            // *   If ContentEncoding is set to PlainText in the request, the original command content is returned.
-            // *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command content is returned.
             shared_ptr<string> tagKey_ {};
-            // The execution path of the command.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -415,77 +410,24 @@ namespace Models
 
 
           protected:
-            // The command description.
             shared_ptr<string> creationTime_ {};
-            // The value of tag N of the command. You can specify up to 20 tag values for the command. The tag value can be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
             shared_ptr<int32_t> dropped_ {};
-            // The instances on which the command was run.
             shared_ptr<string> errorCode_ {};
-            // A pagination token. It can be used in the next request to retrieve a new page of results.
             shared_ptr<string> errorInfo_ {};
-            // The total number of the commands.
             shared_ptr<int64_t> exitCode_ {};
-            // The custom parameters in the command.
             shared_ptr<string> finishTime_ {};
-            // The number of entries returned on each page.
             shared_ptr<string> instanceId_ {};
-            // The page number of the returned page.
             shared_ptr<string> instanceInvokeStatus_ {};
-            // The key of tag N of the command. You can specify up to 20 tag keys for the command. The tag key cannot be an empty string.
-            // 
-            // If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
-            // 
-            // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
             shared_ptr<string> invocationStatus_ {};
             shared_ptr<string> ossOutputErrorCode_ {};
             shared_ptr<string> ossOutputErrorInfo_ {};
-            // The overall execution status of the command task. The value of this parameter depends on the execution status of the command task on all the involved instances. Valid values:
-            // 
-            // *   Pending: The command is being verified or sent. When the execution state on at least one instance is Pending, the overall execution state is Pending.
-            // 
-            // *   Scheduled: The command that is set to run on a schedule was sent and waiting to be run. When the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
-            // 
-            // *   Running: The command is being run on the instances. When the execution state on at least one instance is Running, the overall execution state is Running.
-            // 
-            // *   Success: When the execution state on at least one instance is Success and the execution state on the other instances is Stopped or Success, the overall execution state is Success.
-            // 
-            //     *   One-time task: The execution was complete, and the exit code was 0.
-            //     *   Scheduled task: The last execution was complete, the exit code was 0, and the specified period ended.
-            // 
-            // *   Failed: When the execution state on all instances is Stopped or Failed, the overall execution state is Failed. When the execution state on an instance is one of the following values, Failed is returned as the overall execution state:
-            // 
-            //     *   Invalid: The command is invalid.
-            //     *   Aborted: The command failed to be sent.
-            //     *   Failed: The execution was complete, but the exit code was not 0.
-            //     *   Timeout: The execution timed out.
-            //     *   Error: An error occurred while the command was being run.
-            // 
-            // *   Stopping: The command task is being stopped. When the execution state on at least one instance is Stopping, the overall execution state is Stopping.
-            // 
-            // *   Stopped: The task was stopped. When the execution state on all instances is Stopped, the overall execution state is Stopped. When the execution state on an instance is one of the following values, Stopped is returned as the overall execution state:
-            // 
-            //     *   Cancelled: The task was canceled.
-            //     *   Terminated: The task was terminated.
-            // 
-            // *   PartialFailed: The execution was complete on some instances and failed on other instances. When the execution state is Success on some instances and is Failed or Stopped on the other instances, the overall execution state is PartialFailed.
-            // 
-            // >  `InvokeStatus` in the response functions similarly to this parameter. We recommend that you check the value of this parameter.
             shared_ptr<string> ossOutputStatus_ {};
-            // Command to execute the Output OSS delivery configuration.
             shared_ptr<string> ossOutputUri_ {};
-            // Indicates whether the command is to be automatically run.
             shared_ptr<string> output_ {};
-            // The time when the command task was created.
             shared_ptr<int32_t> repeats_ {};
-            // Details about the command executions.
             shared_ptr<string> startTime_ {};
-            // The execution states of the command.
             shared_ptr<string> stopTime_ {};
-            // The request ID.
             shared_ptr<bool> timed_ {};
-            // The maximum timeout period for the command execution. Unit: seconds.
-            // 
-            // When a command cannot be run, the command execution times out. When a command execution times out, Cloud Assistant Agent forcefully terminates the command process by canceling the process ID (PID) of the command.
             shared_ptr<string> updateTime_ {};
           };
 
@@ -675,154 +617,28 @@ namespace Models
 
 
       protected:
-        // The size of the Output text that was truncated and discarded because the Output value exceeded 24 KB in size.
         shared_ptr<string> commandContent_ {};
-        // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
         shared_ptr<string> commandDescription_ {};
-        // The time when the command process ended.
         shared_ptr<string> commandId_ {};
-        // The command output.
-        // 
-        // *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
-        // *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command output is returned.
         shared_ptr<string> commandName_ {};
-        // The execution status of the command on a single instance.
-        // 
-        // >  We recommend that you ignore this parameter and check the value of `InvocationStatus` in the response to obtain the execution status.
         shared_ptr<string> commandType_ {};
-        // The error message returned when the command failed to be sent or run. Valid values:
-        // 
-        // *   If this parameter is empty, the command was run as expected.
-        // *   The security group rules denied access to the aliyun service.
-        // *   The specified instance does not exist.
-        // *   The specified instance was released during task execution.
-        // *   The specified instance was not running during task execution.
-        // *   The OS type of the instance does not support the specified command type.
-        // *   The specified account does not exist.
-        // *   The specified directory does not exist.
-        // *   The cron expression is invalid.
-        // *   The aliyun service is not running on the instance.
-        // *   The aliyun service in the instance does not response.
-        // *   The aliyun service in the instance is upgrading during task execution.
-        // *   The aliyun service in the instance need to be upgraded to at least version to support the feature. indicates the earliest version that supports the feature. indicates the name of the feature.
-        // *   The command delivery has been timeout.
-        // *   The command execution has been timeout.
-        // *   The command execution got an exception.
-        // *   The command execution exit code is not zero.
-        // *   The specified instance was released during task execution.
         shared_ptr<string> containerId_ {};
-        // The time when the command started to be run on the instance.
         shared_ptr<string> containerName_ {};
-        // The number of times that the command was run on the instance.
-        // 
-        // *   If the command is set to run only once, the value is 0 or 1.
-        // *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
         shared_ptr<string> creationTime_ {};
-        // The command execution Output delivers the object URI to OSS. This field is an empty string when the delivery fails or is in progress.
         shared_ptr<string> frequency_ {};
-        // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
         shared_ptr<string> invocationStatus_ {};
-        // The time when the command task was created.
         shared_ptr<string> invokeId_ {};
-        // The tags that are added to the command.
         shared_ptr<Invocation::InvokeInstances> invokeInstances_ {};
-        // Indicates whether the command is to be automatically run.
         shared_ptr<string> invokeStatus_ {};
-        // The output delivery status of the command execution. Valid values:
-        // 
-        // *   InProgress: The delivery is in progress.
-        // *   Finished: The delivery is complete.
-        // *   Failed: The delivery failed.
         shared_ptr<string> launcher_ {};
-        // Specifies whether to return the command outputs in the response.
-        // 
-        // *   true: The command outputs are returned. When this parameter is set to true, you must specify `InvokeId`, `InstanceId`, or both.
-        // *   false: The command outputs are not returned.
-        // 
-        // Default value: false
         shared_ptr<string> ossOutputDelivery_ {};
-        // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
         shared_ptr<string> parameters_ {};
-        // The instance ID.
         shared_ptr<string> repeatMode_ {};
-        // The error code for the failure to send or run the command. Valid values:
-        // 
-        // *   If this parameter is empty, the command is run normally.
-        // *   InstanceNotExists: The specified instance did not exist or was released.
-        // *   InstanceReleased: The instance is released during command execution.
-        // *   InstanceNotRunning: The instance was not running when the command started to be run.
-        // *   CommandNotApplicable: The command was inapplicable to the specified instance.
-        // *   AccountNotExists: The username specified to run the command did not exist.
-        // *   DirectoryNotExists: The specified directory did not exist.
-        // *   BadCronExpression: The specified cron expression for the execution schedule was invalid.
-        // *   ClientNotRunning: Cloud Assistant Agent was not running.
-        // *   ClientNotResponse: Cloud Assistant Agent does not respond.
-        // *   ClientIsUpgrading: Cloud Assistant Agent is being upgraded.
-        // *   ClientNeedUpgrade: Cloud Assistant Agent needed to be upgraded.
-        // *   DeliveryTimeout: The request to send the command timed out.
-        // *   ExecutionTimeout: The execution timed out.
-        // *   ExecutionException: An exception occurred while the command was being executed.
-        // *   ExecutionInterrupted: The command task was interrupted.
-        // *   ExitCodeNonzero: The execution was complete, but the exit code was not 0.
-        // *   SecurityGroupRuleDenied: Access to Cloud Assistant was denied by security group rules.
-        // *   TaskConcurrencyLimit: The number of concurrent tasks exceeds the maximum limit.
         shared_ptr<Invocation::Tags> tags_ {};
-        // The time when the execution status was updated.
         shared_ptr<string> terminationMode_ {};
-        // The maximum number of entries per page.
-        // 
-        // Valid values: 1 to 50.
-        // 
-        // Default value: 10.
         shared_ptr<bool> timed_ {};
-        // The execution mode of the command. If you specify both this parameter and `InstanceId`, this parameter does not take effect. Valid values:
-        // 
-        // *   Once: The command is immediately run.
-        // *   Period: The command is run on a schedule.
-        // *   NextRebootOnly: The command is run the next time the instances start.
-        // *   EveryReboot: The command is run every time the instances start.
-        // 
-        // This parameter is empty by default, which indicates that commands run in all modes are queried.
         shared_ptr<int64_t> timeout_ {};
-        // The exit code of the execution. Valid values:
-        // 
-        // *   For Linux instances, the value is the exit code of the shell process.
-        // *   For Windows instances, the value is the exit code of the batch or PowerShell process.
         shared_ptr<string> username_ {};
-        // The execution status on a single instance. Valid values:
-        // 
-        // *   Pending: The command is being verified or sent.
-        // 
-        // *   Invalid: The specified command type or parameter is invalid.
-        // 
-        // *   Aborted: The command failed to be sent to the instance. To send a command to an instance, make sure that the instance is in the Running state and the command can be sent to the instance within 1 minute.
-        // 
-        // *   Running: The command is being run on the instance.
-        // 
-        // *   Success:
-        // 
-        //     *   One-time task: The execution was complete, and the exit code was 0.
-        //     *   Scheduled task: The last execution was complete, the exit code was 0, and the specified period ended.
-        // 
-        // *   Failed:
-        // 
-        //     *   One-time task: The execution was complete, but the exit code was not 0.
-        //     *   Scheduled task: The last execution was complete, but the exit code was not 0. The specified period is about to end.
-        // 
-        // *   Error: The execution cannot proceed due to an exception.
-        // 
-        // *   Timeout: The execution timed out.
-        // 
-        // *   Cancelled: The execution was canceled before it started.
-        // 
-        // *   Stopping: The command task is being stopped.
-        // 
-        // *   Terminated: The execution was terminated before completion.
-        // 
-        // *   Scheduled:
-        // 
-        //     *   One-time task: The execution state can never be Scheduled.
-        //     *   Scheduled task: The command is waiting to be run.
         shared_ptr<string> workingDir_ {};
       };
 
@@ -887,7 +703,6 @@ namespace Models
 
 
   protected:
-    // The ID of instance N. When you specify this parameter, the system queries all the execution records of all the commands that run on the instance.
     shared_ptr<DescribeInvocationsResponseBody::Invocations> invocations_ {};
     // The overall execution status of the command task. The value of this parameter depends on the execution states of the command task on all involved instances. Valid values:
     // 

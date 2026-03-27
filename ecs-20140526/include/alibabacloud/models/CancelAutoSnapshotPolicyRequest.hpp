@@ -84,11 +84,8 @@ namespace Models
 
 
   protected:
-    // RAM用户的虚拟账号ID。
     shared_ptr<int64_t> ownerId_ {};
-    // 资源主账号的账号名称。
     shared_ptr<string> resourceOwnerAccount_ {};
-    // 资源主账号的ID，亦即UID。
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> autoSnapshotPolicyId_ {};
     // The IDs of the disks for which you want to disable the automatic snapshot policy. To disable the automatic snapshot policy for multiple disks, you can set this parameter to a JSON array that consists of multiple disk IDs, such as ["dxxxxxxxxx", "dyyyyyyyyy", … "dzzzzzzzzz"]. Separate the disk IDs with commas (,).

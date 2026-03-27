@@ -180,9 +180,7 @@ namespace Models
 
 
           protected:
-            // The details of the network types of the instance type.
             shared_ptr<Zone::NetworkTypes> networkTypes_ {};
-            // The ID of the zone in which the instance type is available.
             shared_ptr<string> zoneNo_ {};
           };
 
@@ -274,17 +272,11 @@ namespace Models
 
 
         protected:
-          // The number of vCPUs of the instance type.
           shared_ptr<int32_t> cores_ {};
-          // The generation of the instance family.
           shared_ptr<string> generation_ {};
-          // The name of the instance type.
           shared_ptr<string> instanceType_ {};
-          // The instance family.
           shared_ptr<string> instanceTypeFamily_ {};
-          // The memory size of the instance type. Unit: MB.
           shared_ptr<int32_t> memory_ {};
-          // Indicates whether the instance type supports I/O optimization.
           shared_ptr<string> supportIoOptimized_ {};
         };
 
@@ -366,25 +358,15 @@ namespace Models
 
 
       protected:
-        // The commodity code of the instance type.
         shared_ptr<string> commodityCode_ {};
-        // The billing method of the instances.
         shared_ptr<string> instanceChargeType_ {};
-        // The details of the instance type.
         shared_ptr<RecommendInstanceType::InstanceType> instanceType_ {};
-        // The network type of the ECS instances.
         shared_ptr<string> networkType_ {};
-        // The priority based on which the system sorts the instance types.
         shared_ptr<int32_t> priority_ {};
-        // The ID of the region in which the instance type is available.
         shared_ptr<string> regionId_ {};
-        // The scenario in which the instance type is recommended.
         shared_ptr<string> scene_ {};
-        // The bidding policy for the spot instances.
         shared_ptr<string> spotStrategy_ {};
-        // The ID of the zone in which the instance type is available.
         shared_ptr<string> zoneId_ {};
-        // The details of the zones in which the instance type is available.
         shared_ptr<RecommendInstanceType::Zones> zones_ {};
       };
 
@@ -421,7 +403,6 @@ namespace Models
 
 
   protected:
-    // The details of the recommended instance types.
     shared_ptr<DescribeRecommendInstanceTypeResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The ID of the automatic snapshot policy.
         shared_ptr<string> autoSnapshotPolicyId_ {};
-        // The ID of the cloud disk.
         shared_ptr<string> diskId_ {};
       };
 
@@ -137,7 +135,6 @@ namespace Models
 
 
   protected:
-    // The association of automatic snapshot policies.
     shared_ptr<DescribeAutoSnapshotPolicyAssociationsResponseBody::AutoSnapshotPolicyAssociations> autoSnapshotPolicyAssociations_ {};
     // The returned pagination token which can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

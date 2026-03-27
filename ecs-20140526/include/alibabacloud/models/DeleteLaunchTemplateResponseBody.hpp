@@ -97,7 +97,6 @@ namespace Models
     // 
     // You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
     shared_ptr<string> launchTemplateId_ {};
-    // The versions of the deleted launch template.
     shared_ptr<DeleteLaunchTemplateResponseBody::LaunchTemplateVersionNumbers> launchTemplateVersionNumbers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -85,7 +85,6 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -143,7 +142,6 @@ namespace Models
 
 
   protected:
-    // Details about the instances that match the capacity reservation.
     shared_ptr<DescribeCapacityReservationInstancesResponseBody::CapacityReservationItem> capacityReservationItem_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};

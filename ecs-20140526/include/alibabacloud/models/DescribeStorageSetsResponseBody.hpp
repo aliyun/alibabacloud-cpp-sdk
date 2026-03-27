@@ -236,21 +236,14 @@ namespace Models
 
 
       protected:
-        // The time when the storage set was created.
         shared_ptr<string> creationTime_ {};
-        // The description of the storage set.
         shared_ptr<string> description_ {};
-        // The ID of the region to which the storage set belongs.
         shared_ptr<string> regionId_ {};
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the storage set.
         shared_ptr<string> storageSetId_ {};
-        // The name of the storage set.
         shared_ptr<string> storageSetName_ {};
-        // The maximum number of partitions supported by the storage set.
         shared_ptr<int32_t> storageSetPartitionNumber_ {};
         shared_ptr<StorageSet::Tags> tags_ {};
-        // The ID of the zone to which the storage set belongs.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -314,7 +307,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the storage sets. The value of this parameter is an array that consists of StorageSet data.
     shared_ptr<DescribeStorageSetsResponseBody::StorageSets> storageSets_ {};
     // The total number of storage sets.
     shared_ptr<int32_t> totalCount_ {};

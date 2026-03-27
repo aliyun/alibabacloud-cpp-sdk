@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The error code returned for the instance. A return value of 200 indicates that the operation was successful. For more information, see the "Error codes" section of this topic.
         shared_ptr<string> code_ {};
-        // The current status of the instance.
         shared_ptr<string> currentStatus_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The error message returned for the instance. The return value `success` indicates that the operation is successful. For more information, see the "Error codes" section of this topic.
         shared_ptr<string> message_ {};
-        // The status of the instance before the operation was called.
         shared_ptr<string> previousStatus_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The instance-specific responses, which contain the status of each instance before and after the operation was called and the results of the operation.
     shared_ptr<StopInstancesResponseBody::InstanceResponses> instanceResponses_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

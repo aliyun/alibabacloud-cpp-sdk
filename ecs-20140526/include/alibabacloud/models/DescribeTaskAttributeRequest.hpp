@@ -75,15 +75,12 @@ namespace Models
 
 
   protected:
-    // RAM用户的虚拟账号ID。
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // 资源主账号的账号名称。
     shared_ptr<string> resourceOwnerAccount_ {};
-    // 资源主账号的ID，亦即UID。
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the task. You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the list of task IDs.
     // 

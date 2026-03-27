@@ -191,9 +191,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -326,9 +324,7 @@ namespace Models
 
 
             protected:
-              // >  This parameter is in invitational preview and is not publicly available.
               shared_ptr<string> allocationId_ {};
-              // The EIP.
               shared_ptr<string> publicIpAddress_ {};
             };
 
@@ -365,18 +361,9 @@ namespace Models
 
 
           protected:
-            // The elastic IP address (EIP) that is associated with the private IP address.
             shared_ptr<PrivateIpSet::AssociatedPublicIp> associatedPublicIp_ {};
-            // Indicates whether the private IP address is the primary private IP address. Valid values:
-            // 
-            // *   true: The IP address is the primary private IP address.
-            // *   false: The IP address is a secondary private IP address.
             shared_ptr<bool> primary_ {};
-            // The private domain name of the ECS instance.
-            // 
-            // >  A private domain name can be returned in a specific format only when `HostnameType` is set to `IP` or `InstanceId`.
             shared_ptr<string> privateDnsName_ {};
-            // The private IP address of the ENI.
             shared_ptr<string> privateIpAddress_ {};
           };
 
@@ -441,7 +428,6 @@ namespace Models
 
 
           protected:
-            // The IPv6 address of the ENI.
             shared_ptr<string> ipv6Address_ {};
           };
 
@@ -506,7 +492,6 @@ namespace Models
 
 
           protected:
-            // The IPv6 prefix of the ENI.
             shared_ptr<string> ipv6Prefix_ {};
           };
 
@@ -571,7 +556,6 @@ namespace Models
 
 
           protected:
-            // The IPv4 prefix of the ENI.
             shared_ptr<string> ipv4Prefix_ {};
           };
 
@@ -645,16 +629,9 @@ namespace Models
 
 
         protected:
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<int32_t> deviceIndex_ {};
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> instanceId_ {};
-          // The index of the network card.
-          // 
-          // *   If the ENI is in the Available state or if no network card index was specified when the ENI was attached, this parameter is empty.
-          // *   If the ENI is in the InUse state and a network card index was specified when the ENI was attached, the specified network card index is returned as the value of this parameter.
           shared_ptr<int32_t> networkCardIndex_ {};
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> trunkNetworkInterfaceId_ {};
         };
 
@@ -696,9 +673,7 @@ namespace Models
 
 
         protected:
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> allocationId_ {};
-          // The EIP.
           shared_ptr<string> publicIpAddress_ {};
         };
 
@@ -929,85 +904,34 @@ namespace Models
 
 
       protected:
-        // The EIPs that are associated with the secondary private IP addresses of the ENI.
         shared_ptr<NetworkInterfaceSet::AssociatedPublicIp> associatedPublicIp_ {};
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<NetworkInterfaceSet::Attachment> attachment_ {};
-        // The time when the security group was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether to retain the ENI when the associated instance is released. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> deleteOnRelease_ {};
-        // The description of the ENI.
         shared_ptr<string> description_ {};
-        // The ID of the Elastic Compute Service (ECS) instance to which the ENI is attached.
-        // 
-        // >  If the ENI is managed by other Alibaba Cloud services, no instance ID is returned.
         shared_ptr<string> instanceId_ {};
-        // The IPv4 prefixes of the ENI.
         shared_ptr<NetworkInterfaceSet::Ipv4PrefixSets> ipv4PrefixSets_ {};
-        // The IPv6 prefixes of the ENI.
         shared_ptr<NetworkInterfaceSet::Ipv6PrefixSets> ipv6PrefixSets_ {};
-        // The IPv6 addresses of the ENI.
         shared_ptr<NetworkInterfaceSet::Ipv6Sets> ipv6Sets_ {};
-        // The MAC address of the ENI.
         shared_ptr<string> macAddress_ {};
-        // The ID of the ENI.
         shared_ptr<string> networkInterfaceId_ {};
-        // The name of the ENI.
         shared_ptr<string> networkInterfaceName_ {};
-        // The communication mode of the ENI. Valid values:
-        // 
-        // *   Standard: The TCP communication mode is used.
-        // *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
-        // 
-        // >  This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
         shared_ptr<string> networkInterfaceTrafficMode_ {};
-        // The ID of the account to which the ENI belongs.
         shared_ptr<string> ownerId_ {};
-        // The primary private IP address of the ENI.
         shared_ptr<string> privateIpAddress_ {};
-        // Details about the private IP addresses of the ENI.
         shared_ptr<NetworkInterfaceSet::PrivateIpSets> privateIpSets_ {};
-        // The number of queues supported by the ENI.
-        // 
-        // *   If the ENI is a secondary ENI in the InUse state and the number of queues supported by the ENI has never been modified, the default number of queues per secondary ENI that the instance type supports is returned.
-        // *   If the ENI is a secondary ENI and the number of queues supported by the ENI has been modified, the new number of queues is returned.
-        // *   If the ENI is a secondary ENI in the Available state and the number of queues supported by the ENI has never been modified, an empty value is returned.
-        // *   If the ENI is a primary ENI, the default number of queues per primary ENI that the instance type supports is returned.
         shared_ptr<int32_t> queueNumber_ {};
-        // >  This parameter is in invitational preview and is not publicly available.
         shared_ptr<int32_t> queuePairNumber_ {};
-        // The ID of the resource group to which the ENI belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The security groups to which the ENI belongs.
         shared_ptr<NetworkInterfaceSet::SecurityGroupIds> securityGroupIds_ {};
-        // The ID of the distributor to which the ENI belongs.
         shared_ptr<int64_t> serviceID_ {};
-        // Indicates whether the user of the ENI is an Alibaba Cloud service or a distributor.
         shared_ptr<bool> serviceManaged_ {};
-        // Indicates whether the source and destination IP address check feature is enabled. To improve network security, enable this feature. Valid values:
-        // 
-        // *   true
-        // *   false
-        // 
-        // Default value: false.
-        // 
-        // >  Before you use this parameter, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
         shared_ptr<bool> sourceDestCheck_ {};
-        // The state of the ENI.
         shared_ptr<string> status_ {};
-        // The tags of the ENI.
         shared_ptr<NetworkInterfaceSet::Tags> tags_ {};
-        // The type of the ENI.
         shared_ptr<string> type_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the VPC to which the ENI belongs.
         shared_ptr<string> vpcId_ {};
-        // The zone ID of the ENI.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -1072,7 +996,6 @@ namespace Models
 
 
   protected:
-    // Details of the ENIs.
     shared_ptr<DescribeNetworkInterfacesResponseBody::NetworkInterfaceSets> networkInterfaceSets_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

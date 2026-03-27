@@ -187,35 +187,17 @@ namespace Models
 
 
       protected:
-        // The number of vCPU cores of the instance.
         shared_ptr<int32_t> CPU_ {};
-        // The time when the instance was created.
         shared_ptr<string> creationTime_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The ECS instance type.
         shared_ptr<string> instanceType_ {};
-        // Indicates whether the instance is an I/O optimized instance.
         shared_ptr<bool> ioOptimized_ {};
-        // Indicates whether the instance is a spot instance.
         shared_ptr<bool> isSpot_ {};
-        // The memory capacity of the instance. Unit: MiB.
         shared_ptr<int32_t> memory_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   vpc: Virtual Private Cloud (VPC)
-        // *   classic: classic network
         shared_ptr<string> networkType_ {};
-        // The operating system type of the instance. Valid values:
-        // 
-        // *   windows
-        // *   linux
         shared_ptr<string> osType_ {};
-        // The region ID of the container group.
         shared_ptr<string> regionId_ {};
-        // The status of the instance.
         shared_ptr<string> status_ {};
-        // The ID of the zone to which the instance belongs.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -273,7 +255,6 @@ namespace Models
 
 
   protected:
-    // The information about the instances in the auto provisioning group.
     shared_ptr<DescribeAutoProvisioningGroupInstancesResponseBody::Instances> instances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

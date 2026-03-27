@@ -107,18 +107,9 @@ namespace Models
 
 
       protected:
-        // The auto-renewal duration.
         shared_ptr<int32_t> duration_ {};
-        // The unit of the auto-renewal duration.
-        // 
-        // Valid values: Year and Month.
         shared_ptr<string> periodUnit_ {};
-        // The auto-renewal status of the reserved instance. Valid values:
-        // 
-        // *   AutoRenewal: automatically renews the reserved instance.
-        // *   Normal: manually renews the reserved instances.
         shared_ptr<string> renewalStatus_ {};
-        // The ID of the reserved instance.
         shared_ptr<string> reservedInstanceId_ {};
       };
 
@@ -157,7 +148,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the auto-renewal settings of the reserved instances.
     shared_ptr<DescribeReservedInstanceAutoRenewAttributeResponseBody::ReservedInstanceRenewAttributes> reservedInstanceRenewAttributes_ {};
   };
 

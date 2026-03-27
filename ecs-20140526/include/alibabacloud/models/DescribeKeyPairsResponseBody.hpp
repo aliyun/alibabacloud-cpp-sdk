@@ -143,9 +143,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the key pair.
             shared_ptr<string> tagKey_ {};
-            // The tag value of the key pair.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -210,17 +208,11 @@ namespace Models
 
 
       protected:
-        // The time when the key pair was created.
         shared_ptr<string> creationTime_ {};
-        // The fingerprint of the key pair.
         shared_ptr<string> keyPairFingerPrint_ {};
-        // The name of the key pair.
         shared_ptr<string> keyPairName_ {};
-        // The content of the public key.
         shared_ptr<string> publicKey_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags of the key pair.
         shared_ptr<KeyPair::Tags> tags_ {};
       };
 
@@ -278,7 +270,6 @@ namespace Models
 
 
   protected:
-    // The information of the key pairs.
     shared_ptr<DescribeKeyPairsResponseBody::KeyPairs> keyPairs_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

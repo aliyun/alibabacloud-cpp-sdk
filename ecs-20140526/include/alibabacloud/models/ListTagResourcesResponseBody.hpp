@@ -109,33 +109,9 @@ namespace Models
 
 
       protected:
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The resource type. Valid values:
-        // 
-        // *   instance: ECS instance
-        // *   disk: disk
-        // *   snapshot: snapshot
-        // *   image: image
-        // *   securitygroup: security group
-        // *   volume: storage volume
-        // *   eni: ENI
-        // *   ddh: dedicated host
-        // *   ddhcluster: dedicated host cluster
-        // *   keypair: SSH key pair
-        // *   launchtemplate: launch template
-        // *   reservedinstance: reserved instance
-        // *   snapshotpolicy: automatic snapshot policy
-        // *   elasticityassurance: elasticity assurance
-        // *   capacityreservation: capacity reservation
-        // *   command: Cloud Assistant command
-        // *   invocation: Cloud Assistant command execution result
-        // *   activation: activation code for a Cloud Assistant managed instance
-        // *   managedinstance: Cloud Assistant managed instance
         shared_ptr<string> resourceType_ {};
-        // The tag key of the resource.
         shared_ptr<string> tagKey_ {};
-        // The tag value of the resource.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -183,7 +159,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the resource and its tags, including the resource ID, the resource type, and the keys and values of the tags.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

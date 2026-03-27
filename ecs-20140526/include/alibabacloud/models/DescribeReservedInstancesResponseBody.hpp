@@ -167,9 +167,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -234,7 +232,6 @@ namespace Models
 
 
           protected:
-            // The reason why the instance is locked.
             shared_ptr<string> lockReason_ {};
           };
 
@@ -388,47 +385,23 @@ namespace Models
 
 
       protected:
-        // Indicates the sharing status of the reserved instance when the AllocationType parameter is set to Shared. Valid values:
-        // 
-        // *   allocated: The reserved instance is allocated to another account.
-        // *   beAllocated: The reserved instance is allocated by another account.
         shared_ptr<string> allocationStatus_ {};
-        // The creation time.
         shared_ptr<string> creationTime_ {};
-        // The description.
         shared_ptr<string> description_ {};
-        // The expiration time.
         shared_ptr<string> expiredTime_ {};
-        // The number of pay-as-you-go instances that are of the same instance type as the reserved instance and can be matched to the reserved instance.
         shared_ptr<int32_t> instanceAmount_ {};
-        // The instance type of the pay-as-you-go instances that can be matched to the reserved instance.
         shared_ptr<string> instanceType_ {};
-        // The payment option.
         shared_ptr<string> offeringType_ {};
-        // Details about the lock status of the reserved instance.
         shared_ptr<ReservedInstance::OperationLocks> operationLocks_ {};
-        // The operating system of the image used by the instance. Valid values:
-        // 
-        // *   Windows
-        // *   Linux
         shared_ptr<string> platform_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The reserved instance ID.
         shared_ptr<string> reservedInstanceId_ {};
-        // The name.
         shared_ptr<string> reservedInstanceName_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The scope.
         shared_ptr<string> scope_ {};
-        // The effective time.
         shared_ptr<string> startTime_ {};
-        // The status.
         shared_ptr<string> status_ {};
-        // The tags of the reserved instance.
         shared_ptr<ReservedInstance::Tags> tags_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -492,7 +465,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the reserved instances.
     shared_ptr<DescribeReservedInstancesResponseBody::ReservedInstances> reservedInstances_ {};
     // The total number of reserved instances.
     shared_ptr<int32_t> totalCount_ {};

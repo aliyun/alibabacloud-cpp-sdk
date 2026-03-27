@@ -213,28 +213,11 @@ namespace Models
 
 
               protected:
-                // The maximum disk capacity.
-                // 
-                // This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
                 shared_ptr<int32_t> max_ {};
-                // The minimum disk capacity.
-                // 
-                // This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
                 shared_ptr<int32_t> min_ {};
-                // The state of the resource. Valid values:
-                // 
-                // *   Available
-                // *   SoldOut
                 shared_ptr<string> status_ {};
-                // The category of the resource based on stock status. Valid values:
-                // 
-                // *   WithStock: resources that are in sufficient stock
-                // *   ClosedWithStock: resources that are in insufficient stock
-                // *   WithoutStock: resources that are out of stock
                 shared_ptr<string> statusCategory_ {};
-                // The unit of the disk capacity. This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
                 shared_ptr<string> unit_ {};
-                // The resource type.
                 shared_ptr<string> value_ {};
               };
 
@@ -349,9 +332,6 @@ namespace Models
 
 
                   protected:
-                    // The condition name. Valid value:
-                    // 
-                    // DiskCategory, which indicates a disk category change.
                     shared_ptr<string> key_ {};
                   };
 
@@ -424,32 +404,12 @@ namespace Models
 
 
               protected:
-                // The conditions.
                 shared_ptr<ConditionSupportedResource::Conditions> conditions_ {};
-                // The maximum disk capacity.
-                // 
-                // This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
                 shared_ptr<int32_t> max_ {};
-                // The minimum disk capacity.
-                // 
-                // This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
                 shared_ptr<int32_t> min_ {};
-                // The stock state of the resource. Valid values:
-                // 
-                // *   Available
-                // *   SoldOut
                 shared_ptr<string> status_ {};
-                // The category of the resource based on stock status. Valid values:
-                // 
-                // *   WithStock: resources that are in sufficient stock
-                // *   ClosedWithStock: resources that are in insufficient stock
-                // *   WithoutStock: resources that are out of stock
                 shared_ptr<string> statusCategory_ {};
-                // The unit of the disk capacity.
-                // 
-                // This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
                 shared_ptr<string> unit_ {};
-                // The resource type.
                 shared_ptr<string> value_ {};
               };
 
@@ -495,14 +455,8 @@ namespace Models
 
 
           protected:
-            // The resource types that resources can be changed to after the resources meet specified conditions. If the conditions are met, you can change the current resource to a resource in the list.
             shared_ptr<AvailableResource::ConditionSupportedResources> conditionSupportedResources_ {};
-            // The information about the supported resources.
             shared_ptr<AvailableResource::SupportedResources> supportedResources_ {};
-            // The resource type. Valid values:
-            // 
-            // *   InstanceType
-            // *   SystemDisk
             shared_ptr<string> type_ {};
           };
 
@@ -560,22 +514,10 @@ namespace Models
 
 
       protected:
-        // The resources that are available in the zone.
         shared_ptr<AvailableZone::AvailableResources> availableResources_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The state of the resource. Valid values:
-        // 
-        // *   Available
-        // *   SoldOut
         shared_ptr<string> status_ {};
-        // The category of the resource based on stock status. Valid values:
-        // 
-        // *   WithStock: resources that are in sufficient stock
-        // *   ClosedWithStock: resources that are in insufficient stock
-        // *   WithoutStock: resources that are out of stock
         shared_ptr<string> statusCategory_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -612,7 +554,6 @@ namespace Models
 
 
   protected:
-    // The information about the queried zones.
     shared_ptr<DescribeResourcesModificationResponseBody::AvailableZones> availableZones_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

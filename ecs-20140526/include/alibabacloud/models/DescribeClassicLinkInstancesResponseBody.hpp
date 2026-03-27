@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -155,7 +153,6 @@ namespace Models
 
 
   protected:
-    // The details of the ClassicLink connections between the instances reside in the classic network and VPCs.
     shared_ptr<DescribeClassicLinkInstancesResponseBody::Links> links_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

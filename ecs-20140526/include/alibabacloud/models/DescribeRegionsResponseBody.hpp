@@ -107,16 +107,9 @@ namespace Models
 
 
       protected:
-        // The name of the region.
         shared_ptr<string> localName_ {};
-        // The endpoint of the region.
         shared_ptr<string> regionEndpoint_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
-        // Indicates whether clusters are sold out. 
-        // Valid values:
-        // - available
-        // - soldOut
         shared_ptr<string> status_ {};
       };
 
@@ -153,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The information of the regions.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -150,21 +150,13 @@ namespace Models
 
 
       protected:
-        // The category of the disk or Shared Block Storage device.
         shared_ptr<string> category_ {};
-        // The time when the disk or Shared Block Storage device was created.
         shared_ptr<string> creationTime_ {};
-        // The ID of the disk or Shared Block Storage device.
         shared_ptr<string> diskId_ {};
-        // The name of the disk or Shared Block Storage device.
         shared_ptr<string> diskName_ {};
-        // The region to which the disk or Shared Block Storage device belongs.
         shared_ptr<string> regionId_ {};
-        // The ID of the storage set.
         shared_ptr<string> storageSetId_ {};
-        // The number of partitions in the storage set.
         shared_ptr<int32_t> storageSetPartitionNumber_ {};
-        // The zone to which the disk or Shared Block Storage device belongs.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -222,7 +214,6 @@ namespace Models
 
 
   protected:
-    // Details about the disks or Shared Block Storage devices in the storage set.
     shared_ptr<DescribeStorageSetDetailsResponseBody::Disks> disks_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

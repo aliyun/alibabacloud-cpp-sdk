@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentUpgradeConfig, agentUpgradeConfig_);
       DARABONBA_PTR_TO_JSON(OssDeliveryConfigs, ossDeliveryConfigs_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(ResourceUsageConfig, resourceUsageConfig_);
       DARABONBA_PTR_TO_JSON(SessionManagerConfig, sessionManagerConfig_);
       DARABONBA_PTR_TO_JSON(SlsDeliveryConfigs, slsDeliveryConfigs_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentUpgradeConfig, agentUpgradeConfig_);
       DARABONBA_PTR_FROM_JSON(OssDeliveryConfigs, ossDeliveryConfigs_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(ResourceUsageConfig, resourceUsageConfig_);
       DARABONBA_PTR_FROM_JSON(SessionManagerConfig, sessionManagerConfig_);
       DARABONBA_PTR_FROM_JSON(SlsDeliveryConfigs, slsDeliveryConfigs_);
     };
@@ -113,16 +115,9 @@ namespace Models
 
 
       protected:
-        // The type of items to be delivered. Valid values:
-        // 
-        // *   SessionManager: session records.
-        // *   Invocation: task execution records.
         shared_ptr<string> deliveryType_ {};
-        // Indicates whether to deliver the specified items to Simple Log Service.
         shared_ptr<bool> enabled_ {};
-        // The name of the Logstore.
         shared_ptr<string> logstoreName_ {};
-        // The name of the Simple Log Service project.
         shared_ptr<string> projectName_ {};
       };
 
@@ -177,6 +172,88 @@ namespace Models
       // 
       // *   The feature applies to all regions.
       shared_ptr<bool> sessionManagerEnabled_ {};
+    };
+
+    class ResourceUsageConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceUsageConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(CpuLimit, cpuLimit_);
+        DARABONBA_PTR_TO_JSON(KeepScriptFile, keepScriptFile_);
+        DARABONBA_PTR_TO_JSON(LogFileCountLimit, logFileCountLimit_);
+        DARABONBA_PTR_TO_JSON(LogSizeLimit, logSizeLimit_);
+        DARABONBA_PTR_TO_JSON(MemoryLimit, memoryLimit_);
+        DARABONBA_PTR_TO_JSON(OverloadLimit, overloadLimit_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceUsageConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(CpuLimit, cpuLimit_);
+        DARABONBA_PTR_FROM_JSON(KeepScriptFile, keepScriptFile_);
+        DARABONBA_PTR_FROM_JSON(LogFileCountLimit, logFileCountLimit_);
+        DARABONBA_PTR_FROM_JSON(LogSizeLimit, logSizeLimit_);
+        DARABONBA_PTR_FROM_JSON(MemoryLimit, memoryLimit_);
+        DARABONBA_PTR_FROM_JSON(OverloadLimit, overloadLimit_);
+      };
+      ResourceUsageConfig() = default ;
+      ResourceUsageConfig(const ResourceUsageConfig &) = default ;
+      ResourceUsageConfig(ResourceUsageConfig &&) = default ;
+      ResourceUsageConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceUsageConfig() = default ;
+      ResourceUsageConfig& operator=(const ResourceUsageConfig &) = default ;
+      ResourceUsageConfig& operator=(ResourceUsageConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cpuLimit_ == nullptr
+        && this->keepScriptFile_ == nullptr && this->logFileCountLimit_ == nullptr && this->logSizeLimit_ == nullptr && this->memoryLimit_ == nullptr && this->overloadLimit_ == nullptr; };
+      // cpuLimit Field Functions 
+      bool hasCpuLimit() const { return this->cpuLimit_ != nullptr;};
+      void deleteCpuLimit() { this->cpuLimit_ = nullptr;};
+      inline int32_t getCpuLimit() const { DARABONBA_PTR_GET_DEFAULT(cpuLimit_, 0) };
+      inline ResourceUsageConfig& setCpuLimit(int32_t cpuLimit) { DARABONBA_PTR_SET_VALUE(cpuLimit_, cpuLimit) };
+
+
+      // keepScriptFile Field Functions 
+      bool hasKeepScriptFile() const { return this->keepScriptFile_ != nullptr;};
+      void deleteKeepScriptFile() { this->keepScriptFile_ = nullptr;};
+      inline bool getKeepScriptFile() const { DARABONBA_PTR_GET_DEFAULT(keepScriptFile_, false) };
+      inline ResourceUsageConfig& setKeepScriptFile(bool keepScriptFile) { DARABONBA_PTR_SET_VALUE(keepScriptFile_, keepScriptFile) };
+
+
+      // logFileCountLimit Field Functions 
+      bool hasLogFileCountLimit() const { return this->logFileCountLimit_ != nullptr;};
+      void deleteLogFileCountLimit() { this->logFileCountLimit_ = nullptr;};
+      inline int32_t getLogFileCountLimit() const { DARABONBA_PTR_GET_DEFAULT(logFileCountLimit_, 0) };
+      inline ResourceUsageConfig& setLogFileCountLimit(int32_t logFileCountLimit) { DARABONBA_PTR_SET_VALUE(logFileCountLimit_, logFileCountLimit) };
+
+
+      // logSizeLimit Field Functions 
+      bool hasLogSizeLimit() const { return this->logSizeLimit_ != nullptr;};
+      void deleteLogSizeLimit() { this->logSizeLimit_ = nullptr;};
+      inline string getLogSizeLimit() const { DARABONBA_PTR_GET_DEFAULT(logSizeLimit_, "") };
+      inline ResourceUsageConfig& setLogSizeLimit(string logSizeLimit) { DARABONBA_PTR_SET_VALUE(logSizeLimit_, logSizeLimit) };
+
+
+      // memoryLimit Field Functions 
+      bool hasMemoryLimit() const { return this->memoryLimit_ != nullptr;};
+      void deleteMemoryLimit() { this->memoryLimit_ = nullptr;};
+      inline string getMemoryLimit() const { DARABONBA_PTR_GET_DEFAULT(memoryLimit_, "") };
+      inline ResourceUsageConfig& setMemoryLimit(string memoryLimit) { DARABONBA_PTR_SET_VALUE(memoryLimit_, memoryLimit) };
+
+
+      // overloadLimit Field Functions 
+      bool hasOverloadLimit() const { return this->overloadLimit_ != nullptr;};
+      void deleteOverloadLimit() { this->overloadLimit_ = nullptr;};
+      inline int32_t getOverloadLimit() const { DARABONBA_PTR_GET_DEFAULT(overloadLimit_, 0) };
+      inline ResourceUsageConfig& setOverloadLimit(int32_t overloadLimit) { DARABONBA_PTR_SET_VALUE(overloadLimit_, overloadLimit) };
+
+
+    protected:
+      shared_ptr<int32_t> cpuLimit_ {};
+      shared_ptr<bool> keepScriptFile_ {};
+      shared_ptr<int32_t> logFileCountLimit_ {};
+      shared_ptr<string> logSizeLimit_ {};
+      shared_ptr<string> memoryLimit_ {};
+      shared_ptr<int32_t> overloadLimit_ {};
     };
 
     class OssDeliveryConfigs : public Darabonba::Model {
@@ -282,29 +359,12 @@ namespace Models
 
 
       protected:
-        // The name of the OSS bucket.
         shared_ptr<string> bucketName_ {};
-        // The type of items to be delivered. Valid values:
-        // 
-        // *   SessionManager: session records.
-        // *   Invocation: task execution records.
         shared_ptr<string> deliveryType_ {};
-        // Indicates whether to deliver the specified items to OSS.
         shared_ptr<bool> enabled_ {};
-        // The OSS encryption algorithm. Valid values:
-        // 
-        // *   AES256
-        // *   SM4
         shared_ptr<string> encryptionAlgorithm_ {};
-        // The ID of the customer master key (CMK) when EncryptionType is set to KMS.
         shared_ptr<string> encryptionKeyId_ {};
-        // The OSS encryption method. Valid values:
-        // 
-        // *   Inherit: the encryption method used by the specified bucket.
-        // *   OssManaged: server-side encryption by using OSS-managed keys (SSE-OSS).
-        // *   KMS: server-side encryption with Key Management Service (SSE-KMS).
         shared_ptr<string> encryptionType_ {};
-        // The prefix of the OSS bucket directory.
         shared_ptr<string> prefix_ {};
       };
 
@@ -326,11 +386,15 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const AgentUpgradeConfig& obj) { 
         DARABONBA_PTR_TO_JSON(AllowedUpgradeWindows, allowedUpgradeWindows_);
+        DARABONBA_PTR_TO_JSON(BootstrapUpgrade, bootstrapUpgrade_);
+        DARABONBA_PTR_TO_JSON(DisableUpgrade, disableUpgrade_);
         DARABONBA_PTR_TO_JSON(Enabled, enabled_);
         DARABONBA_PTR_TO_JSON(TimeZone, timeZone_);
       };
       friend void from_json(const Darabonba::Json& j, AgentUpgradeConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(AllowedUpgradeWindows, allowedUpgradeWindows_);
+        DARABONBA_PTR_FROM_JSON(BootstrapUpgrade, bootstrapUpgrade_);
+        DARABONBA_PTR_FROM_JSON(DisableUpgrade, disableUpgrade_);
         DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
         DARABONBA_PTR_FROM_JSON(TimeZone, timeZone_);
       };
@@ -379,7 +443,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->allowedUpgradeWindows_ == nullptr
-        && this->enabled_ == nullptr && this->timeZone_ == nullptr; };
+        && this->bootstrapUpgrade_ == nullptr && this->disableUpgrade_ == nullptr && this->enabled_ == nullptr && this->timeZone_ == nullptr; };
       // allowedUpgradeWindows Field Functions 
       bool hasAllowedUpgradeWindows() const { return this->allowedUpgradeWindows_ != nullptr;};
       void deleteAllowedUpgradeWindows() { this->allowedUpgradeWindows_ = nullptr;};
@@ -387,6 +451,20 @@ namespace Models
       inline AgentUpgradeConfig::AllowedUpgradeWindows getAllowedUpgradeWindows() { DARABONBA_PTR_GET(allowedUpgradeWindows_, AgentUpgradeConfig::AllowedUpgradeWindows) };
       inline AgentUpgradeConfig& setAllowedUpgradeWindows(const AgentUpgradeConfig::AllowedUpgradeWindows & allowedUpgradeWindows) { DARABONBA_PTR_SET_VALUE(allowedUpgradeWindows_, allowedUpgradeWindows) };
       inline AgentUpgradeConfig& setAllowedUpgradeWindows(AgentUpgradeConfig::AllowedUpgradeWindows && allowedUpgradeWindows) { DARABONBA_PTR_SET_RVALUE(allowedUpgradeWindows_, allowedUpgradeWindows) };
+
+
+      // bootstrapUpgrade Field Functions 
+      bool hasBootstrapUpgrade() const { return this->bootstrapUpgrade_ != nullptr;};
+      void deleteBootstrapUpgrade() { this->bootstrapUpgrade_ = nullptr;};
+      inline bool getBootstrapUpgrade() const { DARABONBA_PTR_GET_DEFAULT(bootstrapUpgrade_, false) };
+      inline AgentUpgradeConfig& setBootstrapUpgrade(bool bootstrapUpgrade) { DARABONBA_PTR_SET_VALUE(bootstrapUpgrade_, bootstrapUpgrade) };
+
+
+      // disableUpgrade Field Functions 
+      bool hasDisableUpgrade() const { return this->disableUpgrade_ != nullptr;};
+      void deleteDisableUpgrade() { this->disableUpgrade_ = nullptr;};
+      inline bool getDisableUpgrade() const { DARABONBA_PTR_GET_DEFAULT(disableUpgrade_, false) };
+      inline AgentUpgradeConfig& setDisableUpgrade(bool disableUpgrade) { DARABONBA_PTR_SET_VALUE(disableUpgrade_, disableUpgrade) };
 
 
       // enabled Field Functions 
@@ -404,8 +482,9 @@ namespace Models
 
 
     protected:
-      // The time windows during which Cloud Assistant Agent can be upgraded.
       shared_ptr<AgentUpgradeConfig::AllowedUpgradeWindows> allowedUpgradeWindows_ {};
+      shared_ptr<bool> bootstrapUpgrade_ {};
+      shared_ptr<bool> disableUpgrade_ {};
       // Indicates whether custom upgrade is enabled for Cloud Assistant Agent. If the value is false or empty, an upgrade attempt is performed for Cloud Assistant Agent every 30 minutes.
       shared_ptr<bool> enabled_ {};
       // The time zone of the time windows.
@@ -413,7 +492,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->agentUpgradeConfig_ == nullptr
-        && this->ossDeliveryConfigs_ == nullptr && this->requestId_ == nullptr && this->sessionManagerConfig_ == nullptr && this->slsDeliveryConfigs_ == nullptr; };
+        && this->ossDeliveryConfigs_ == nullptr && this->requestId_ == nullptr && this->resourceUsageConfig_ == nullptr && this->sessionManagerConfig_ == nullptr && this->slsDeliveryConfigs_ == nullptr; };
     // agentUpgradeConfig Field Functions 
     bool hasAgentUpgradeConfig() const { return this->agentUpgradeConfig_ != nullptr;};
     void deleteAgentUpgradeConfig() { this->agentUpgradeConfig_ = nullptr;};
@@ -439,6 +518,15 @@ namespace Models
     inline DescribeCloudAssistantSettingsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // resourceUsageConfig Field Functions 
+    bool hasResourceUsageConfig() const { return this->resourceUsageConfig_ != nullptr;};
+    void deleteResourceUsageConfig() { this->resourceUsageConfig_ = nullptr;};
+    inline const DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig & getResourceUsageConfig() const { DARABONBA_PTR_GET_CONST(resourceUsageConfig_, DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig) };
+    inline DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig getResourceUsageConfig() { DARABONBA_PTR_GET(resourceUsageConfig_, DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig) };
+    inline DescribeCloudAssistantSettingsResponseBody& setResourceUsageConfig(const DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig & resourceUsageConfig) { DARABONBA_PTR_SET_VALUE(resourceUsageConfig_, resourceUsageConfig) };
+    inline DescribeCloudAssistantSettingsResponseBody& setResourceUsageConfig(DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig && resourceUsageConfig) { DARABONBA_PTR_SET_RVALUE(resourceUsageConfig_, resourceUsageConfig) };
+
+
     // sessionManagerConfig Field Functions 
     bool hasSessionManagerConfig() const { return this->sessionManagerConfig_ != nullptr;};
     void deleteSessionManagerConfig() { this->sessionManagerConfig_ = nullptr;};
@@ -460,13 +548,12 @@ namespace Models
   protected:
     // The configurations for upgrading Cloud Assistant Agent.
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::AgentUpgradeConfig> agentUpgradeConfig_ {};
-    // The configurations for delivering items to Object Storage Service (OSS).
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::OssDeliveryConfigs> ossDeliveryConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig> resourceUsageConfig_ {};
     // Cloud Assistant Session Manager configuration.
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::SessionManagerConfig> sessionManagerConfig_ {};
-    // The configurations for delivering items to Simple Log Service.
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::SlsDeliveryConfigs> slsDeliveryConfigs_ {};
   };
 

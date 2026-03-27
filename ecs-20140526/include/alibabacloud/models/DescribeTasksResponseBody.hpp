@@ -143,19 +143,12 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
         shared_ptr<string> creationTime_ {};
-        // The time when the task ended.
         shared_ptr<string> finishedTime_ {};
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // Indicates whether the task can be canceled.
         shared_ptr<string> supportCancel_ {};
-        // The name of the operation that generates the task.
         shared_ptr<string> taskAction_ {};
-        // The task ID.
         shared_ptr<string> taskId_ {};
-        // The task status.
         shared_ptr<string> taskStatus_ {};
       };
 
@@ -228,7 +221,6 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about the tasks.
     shared_ptr<DescribeTasksResponseBody::TaskSet> taskSet_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

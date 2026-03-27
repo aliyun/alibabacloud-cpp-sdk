@@ -95,15 +95,7 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The status of the instance. Valid values:
-        // 
-        // *   Pending: The instance is being created.
-        // *   Running: The instance is running.
-        // *   Starting: The instance is being started.
-        // *   Stopping: The instance is being stopped.
-        // *   Stopped: The instance is stopped.
         shared_ptr<string> status_ {};
       };
 
@@ -161,7 +153,6 @@ namespace Models
 
 
   protected:
-    // The IDs and status of the ECS instances.
     shared_ptr<DescribeInstanceStatusResponseBody::InstanceStatuses> instanceStatuses_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -159,9 +159,7 @@ namespace Models
 
 
       protected:
-        // The tag key of the ENI.
         shared_ptr<string> tagKey_ {};
-        // The tag value of the ENI.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -470,9 +468,7 @@ namespace Models
 
 
         protected:
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> allocationId_ {};
-          // The EIP.
           shared_ptr<string> publicIpAddress_ {};
         };
 
@@ -502,14 +498,8 @@ namespace Models
 
 
       protected:
-        // The EIP that is associated with the secondary private IP address of the ENI.
         shared_ptr<PrivateIpSet::AssociatedPublicIp> associatedPublicIp_ {};
-        // Indicates whether the IP address is the primary private IP address. Valid values:
-        // 
-        // *   true: The IP address is the primary private IP address.
-        // *   false: The IP address is a secondary private IP address.
         shared_ptr<bool> primary_ {};
-        // The private IP address of the ENI.
         shared_ptr<string> privateIpAddress_ {};
       };
 
@@ -629,7 +619,6 @@ namespace Models
 
 
       protected:
-        // The IPv6 address of the ENI.
         shared_ptr<string> ipv6Address_ {};
       };
 
@@ -694,7 +683,6 @@ namespace Models
 
 
       protected:
-        // The IPv6 prefix of the ENI.
         shared_ptr<string> ipv6Prefix_ {};
       };
 
@@ -759,7 +747,6 @@ namespace Models
 
 
       protected:
-        // The IPv4 prefix of the ENI.
         shared_ptr<string> ipv4Prefix_ {};
       };
 
@@ -987,11 +974,8 @@ namespace Models
 
 
         protected:
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> bondNetworkInterfaceId_ {};
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> slaveNetworkInterfaceId_ {};
-          // >  This parameter is in invitational preview and is not publicly available.
           shared_ptr<string> workState_ {};
         };
 
@@ -1030,7 +1014,6 @@ namespace Models
     protected:
       // >  This parameter is in invitational preview and unavailable for general users.
       shared_ptr<string> bondMode_ {};
-      // >  This parameter is in invitational preview and unavailable for general users.
       shared_ptr<BondInterfaceSpecification::SlaveInterfaceSpecification> slaveInterfaceSpecification_ {};
     };
 
@@ -1138,7 +1121,6 @@ namespace Models
       shared_ptr<int32_t> deviceIndex_ {};
       // >  This parameter is in invitational preview and unavailable for general users.
       shared_ptr<string> instanceId_ {};
-      // >  This parameter is in invitational preview and unavailable for general users.
       shared_ptr<Attachment::MemberNetworkInterfaceIds> memberNetworkInterfaceIds_ {};
       // The index of the network interface controller (NIC).
       // 
@@ -1517,11 +1499,8 @@ namespace Models
     // 
     // >  If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
     shared_ptr<string> instanceId_ {};
-    // The IPv4 prefixes of the ENI.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
-    // The IPv6 prefixes of the ENI.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
-    // The IPv6 addresses of the ENI.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6Sets> ipv6Sets_ {};
     // The media access control (MAC) address of the ENI.
     shared_ptr<string> macAddress_ {};
@@ -1542,7 +1521,6 @@ namespace Models
     shared_ptr<string> ownerId_ {};
     // The private IP address of the ENI.
     shared_ptr<string> privateIpAddress_ {};
-    // The private IP addresses of the ENI.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::PrivateIpSets> privateIpSets_ {};
     // QoS Speed Limit Settings
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::QoSConfig> qoSConfig_ {};
@@ -1570,7 +1548,6 @@ namespace Models
     // 
     // >  ENIs in the default resource group are displayed in the response regardless of how this parameter is set.
     shared_ptr<string> resourceGroupId_ {};
-    // The IDs of the security groups to which the ENI belongs.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
     // The ID of the distributor to which the ENI belongs.
     shared_ptr<int64_t> serviceID_ {};
@@ -1590,7 +1567,6 @@ namespace Models
     // 
     // This parameter is empty by default, which indicates that all states are queried.
     shared_ptr<string> status_ {};
-    // The tags of the ENI.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Tags> tags_ {};
     // >  This parameter is in invitational preview and is not publicly available.
     shared_ptr<string> tcpOptionAddressEnabled_ {};

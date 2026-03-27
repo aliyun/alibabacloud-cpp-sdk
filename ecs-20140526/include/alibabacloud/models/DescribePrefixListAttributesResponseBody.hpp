@@ -101,9 +101,7 @@ namespace Models
 
 
       protected:
-        // The CIDR block in entry N.
         shared_ptr<string> cidr_ {};
-        // The description in entry N.
         shared_ptr<string> description_ {};
       };
 
@@ -192,7 +190,6 @@ namespace Models
     shared_ptr<string> creationTime_ {};
     // The description of the prefix list.
     shared_ptr<string> description_ {};
-    // Details about the entries in the prefix list.
     shared_ptr<DescribePrefixListAttributesResponseBody::Entries> entries_ {};
     // The maximum number of entries in the prefix list.
     shared_ptr<int32_t> maxEntries_ {};

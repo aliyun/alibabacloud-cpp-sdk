@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Strategy, strategy_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDeploymentSetsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DeploymentSetIds, deploymentSetIds_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     DescribeDeploymentSetsRequest() = default ;
     DescribeDeploymentSetsRequest(const DescribeDeploymentSetsRequest &) = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->deploymentSetIds_ == nullptr
         && this->deploymentSetName_ == nullptr && this->domain_ == nullptr && this->granularity_ == nullptr && this->networkType_ == nullptr && this->ownerAccount_ == nullptr
         && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->strategy_ == nullptr; };
+        && this->resourceOwnerId_ == nullptr && this->strategy_ == nullptr && this->type_ == nullptr; };
     // deploymentSetIds Field Functions 
     bool hasDeploymentSetIds() const { return this->deploymentSetIds_ != nullptr;};
     void deleteDeploymentSetIds() { this->deploymentSetIds_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
     inline DescribeDeploymentSetsRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline DescribeDeploymentSetsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     // The IDs of deployment sets. The value can be a JSON array that consists of deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", ... "ds-zzzzzzzzz"]`. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
     shared_ptr<string> deploymentSetIds_ {};
@@ -184,6 +193,7 @@ namespace Models
     // *   Availability: high availability strategy
     // *   AvailabilityGroup: high availability group strategy
     shared_ptr<string> strategy_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models
