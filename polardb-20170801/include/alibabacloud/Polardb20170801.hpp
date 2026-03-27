@@ -5294,6 +5294,23 @@ namespace Polardb20170801
        * @return UpgradeDBClusterVersionZonalResponse
        */
       Models::UpgradeDBClusterVersionZonalResponse upgradeDBClusterVersionZonal(const Models::UpgradeDBClusterVersionZonalRequest &request);
+
+      /**
+       * @summary 执行自定义命令
+       *
+       * @param request UpgradePolarClawSkillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradePolarClawSkillsResponse
+       */
+      Models::UpgradePolarClawSkillsResponse upgradePolarClawSkillsWithOptions(const Models::UpgradePolarClawSkillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 执行自定义命令
+       *
+       * @param request UpgradePolarClawSkillsRequest
+       * @return UpgradePolarClawSkillsResponse
+       */
+      Models::UpgradePolarClawSkillsResponse upgradePolarClawSkills(const Models::UpgradePolarClawSkillsRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Polardb20170801

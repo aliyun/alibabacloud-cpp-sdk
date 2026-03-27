@@ -893,5 +893,8 @@
 #include <alibabacloud/models/UpgradeDBClusterVersionZonalRequest.hpp>
 #include <alibabacloud/models/UpgradeDBClusterVersionZonalResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDBClusterVersionZonalResponse.hpp>
+#include <alibabacloud/models/UpgradePolarClawSkillsRequest.hpp>
+#include <alibabacloud/models/UpgradePolarClawSkillsResponseBody.hpp>
+#include <alibabacloud/models/UpgradePolarClawSkillsResponse.hpp>
 
 #endif

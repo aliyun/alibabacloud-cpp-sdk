@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_TO_JSON(ServerlessType, serverlessType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Storages, storages_);
       DARABONBA_PTR_TO_JSON(UpgradeAvailable, upgradeAvailable_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -71,6 +72,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_FROM_JSON(ServerlessType, serverlessType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Storages, storages_);
       DARABONBA_PTR_FROM_JSON(UpgradeAvailable, upgradeAvailable_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -88,6 +90,68 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Storages : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Storages& obj) { 
+        DARABONBA_PTR_TO_JSON(StorageCapacity, storageCapacity_);
+        DARABONBA_PTR_TO_JSON(StorageInstanceId, storageInstanceId_);
+        DARABONBA_PTR_TO_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
+        DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      };
+      friend void from_json(const Darabonba::Json& j, Storages& obj) { 
+        DARABONBA_PTR_FROM_JSON(StorageCapacity, storageCapacity_);
+        DARABONBA_PTR_FROM_JSON(StorageInstanceId, storageInstanceId_);
+        DARABONBA_PTR_FROM_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
+        DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      };
+      Storages() = default ;
+      Storages(const Storages &) = default ;
+      Storages(Storages &&) = default ;
+      Storages(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Storages() = default ;
+      Storages& operator=(const Storages &) = default ;
+      Storages& operator=(Storages &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->storageCapacity_ == nullptr
+        && this->storageInstanceId_ == nullptr && this->storagePerformanceLevel_ == nullptr && this->storageType_ == nullptr; };
+      // storageCapacity Field Functions 
+      bool hasStorageCapacity() const { return this->storageCapacity_ != nullptr;};
+      void deleteStorageCapacity() { this->storageCapacity_ = nullptr;};
+      inline string getStorageCapacity() const { DARABONBA_PTR_GET_DEFAULT(storageCapacity_, "") };
+      inline Storages& setStorageCapacity(string storageCapacity) { DARABONBA_PTR_SET_VALUE(storageCapacity_, storageCapacity) };
+
+
+      // storageInstanceId Field Functions 
+      bool hasStorageInstanceId() const { return this->storageInstanceId_ != nullptr;};
+      void deleteStorageInstanceId() { this->storageInstanceId_ = nullptr;};
+      inline string getStorageInstanceId() const { DARABONBA_PTR_GET_DEFAULT(storageInstanceId_, "") };
+      inline Storages& setStorageInstanceId(string storageInstanceId) { DARABONBA_PTR_SET_VALUE(storageInstanceId_, storageInstanceId) };
+
+
+      // storagePerformanceLevel Field Functions 
+      bool hasStoragePerformanceLevel() const { return this->storagePerformanceLevel_ != nullptr;};
+      void deleteStoragePerformanceLevel() { this->storagePerformanceLevel_ = nullptr;};
+      inline string getStoragePerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(storagePerformanceLevel_, "") };
+      inline Storages& setStoragePerformanceLevel(string storagePerformanceLevel) { DARABONBA_PTR_SET_VALUE(storagePerformanceLevel_, storagePerformanceLevel) };
+
+
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline Storages& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
+    protected:
+      shared_ptr<string> storageCapacity_ {};
+      shared_ptr<string> storageInstanceId_ {};
+      shared_ptr<string> storagePerformanceLevel_ {};
+      shared_ptr<string> storageType_ {};
+    };
+
     class SecurityIPArrays : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SecurityIPArrays& obj) { 
@@ -720,8 +784,8 @@ namespace Models
         && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->isLatestVersion_ == nullptr
         && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr
         && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr && this->upgradeAvailable_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
+        && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr && this->storages_ == nullptr
+        && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -907,6 +971,15 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // storages Field Functions 
+    bool hasStorages() const { return this->storages_ != nullptr;};
+    void deleteStorages() { this->storages_ = nullptr;};
+    inline const vector<DescribeApplicationAttributeResponseBody::Storages> & getStorages() const { DARABONBA_PTR_GET_CONST(storages_, vector<DescribeApplicationAttributeResponseBody::Storages>) };
+    inline vector<DescribeApplicationAttributeResponseBody::Storages> getStorages() { DARABONBA_PTR_GET(storages_, vector<DescribeApplicationAttributeResponseBody::Storages>) };
+    inline DescribeApplicationAttributeResponseBody& setStorages(const vector<DescribeApplicationAttributeResponseBody::Storages> & storages) { DARABONBA_PTR_SET_VALUE(storages_, storages) };
+    inline DescribeApplicationAttributeResponseBody& setStorages(vector<DescribeApplicationAttributeResponseBody::Storages> && storages) { DARABONBA_PTR_SET_RVALUE(storages_, storages) };
+
+
     // upgradeAvailable Field Functions 
     bool hasUpgradeAvailable() const { return this->upgradeAvailable_ != nullptr;};
     void deleteUpgradeAvailable() { this->upgradeAvailable_ = nullptr;};
@@ -968,6 +1041,7 @@ namespace Models
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
     shared_ptr<string> serverlessType_ {};
     shared_ptr<string> status_ {};
+    shared_ptr<vector<DescribeApplicationAttributeResponseBody::Storages>> storages_ {};
     shared_ptr<string> upgradeAvailable_ {};
     // VPC ID
     shared_ptr<string> VPCId_ {};

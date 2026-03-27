@@ -1871,6 +1871,18 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
+  if (!!request.hasSecurityIPArrayName()) {
+    query["SecurityIPArrayName"] = request.getSecurityIPArrayName();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasSecurityIPType()) {
+    query["SecurityIPType"] = request.getSecurityIPType();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.getTag();
   }
@@ -21239,6 +21251,60 @@ UpgradeDBClusterVersionZonalResponse Client::upgradeDBClusterVersionZonalWithOpt
 UpgradeDBClusterVersionZonalResponse Client::upgradeDBClusterVersionZonal(const UpgradeDBClusterVersionZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeDBClusterVersionZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 执行自定义命令
+ *
+ * @param request UpgradePolarClawSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradePolarClawSkillsResponse
+ */
+UpgradePolarClawSkillsResponse Client::upgradePolarClawSkillsWithOptions(const UpgradePolarClawSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUpgradeMethod()) {
+    query["UpgradeMethod"] = request.getUpgradeMethod();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradePolarClawSkills"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradePolarClawSkillsResponse>();
+}
+
+/**
+ * @summary 执行自定义命令
+ *
+ * @param request UpgradePolarClawSkillsRequest
+ * @return UpgradePolarClawSkillsResponse
+ */
+UpgradePolarClawSkillsResponse Client::upgradePolarClawSkills(const UpgradePolarClawSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradePolarClawSkillsWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Polardb20170801

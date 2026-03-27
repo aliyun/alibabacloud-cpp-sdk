@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEPOLARFSATTRIBUTERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEPOLARFSATTRIBUTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,6 +14,7 @@ namespace Models
   class DescribePolarFsAttributeResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolarFsAttributeResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccelerateType, accelerateType_);
       DARABONBA_PTR_TO_JSON(AcceleratedStorageSpace, acceleratedStorageSpace_);
       DARABONBA_PTR_TO_JSON(AcceleratingEnable, acceleratingEnable_);
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
@@ -22,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientDownloadPath, clientDownloadPath_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(CustomBucketPath, customBucketPath_);
+      DARABONBA_PTR_TO_JSON(CustomBucketPathList, customBucketPathList_);
       DARABONBA_PTR_TO_JSON(DBType, DBType_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
@@ -49,6 +52,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolarFsAttributeResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccelerateType, accelerateType_);
       DARABONBA_PTR_FROM_JSON(AcceleratedStorageSpace, acceleratedStorageSpace_);
       DARABONBA_PTR_FROM_JSON(AcceleratingEnable, acceleratingEnable_);
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
@@ -58,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientDownloadPath, clientDownloadPath_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(CustomBucketPath, customBucketPath_);
+      DARABONBA_PTR_FROM_JSON(CustomBucketPathList, customBucketPathList_);
       DARABONBA_PTR_FROM_JSON(DBType, DBType_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
@@ -147,14 +152,63 @@ namespace Models
       shared_ptr<string> token_ {};
     };
 
-    virtual bool empty() const override { return this->acceleratedStorageSpace_ == nullptr
-        && this->acceleratingEnable_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthBaseLine_ == nullptr && this->bucketId_ == nullptr && this->category_ == nullptr
-        && this->clientDownloadPath_ == nullptr && this->createTime_ == nullptr && this->customBucketPath_ == nullptr && this->DBType_ == nullptr && this->expireTime_ == nullptr
-        && this->expired_ == nullptr && this->fileSystemId_ == nullptr && this->lockMode_ == nullptr && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr
-        && this->mountInfo_ == nullptr && this->payType_ == nullptr && this->polarFsInstanceDescription_ == nullptr && this->polarFsInstanceId_ == nullptr && this->polarFsStatus_ == nullptr
-        && this->polarFsType_ == nullptr && this->polarFsVersion_ == nullptr && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->relativePfsClusterId_ == nullptr
-        && this->requestId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+    class CustomBucketPathList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CustomBucketPathList& obj) { 
+        DARABONBA_PTR_TO_JSON(Bucket, bucket_);
+        DARABONBA_PTR_TO_JSON(Path, path_);
+      };
+      friend void from_json(const Darabonba::Json& j, CustomBucketPathList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Bucket, bucket_);
+        DARABONBA_PTR_FROM_JSON(Path, path_);
+      };
+      CustomBucketPathList() = default ;
+      CustomBucketPathList(const CustomBucketPathList &) = default ;
+      CustomBucketPathList(CustomBucketPathList &&) = default ;
+      CustomBucketPathList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CustomBucketPathList() = default ;
+      CustomBucketPathList& operator=(const CustomBucketPathList &) = default ;
+      CustomBucketPathList& operator=(CustomBucketPathList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->bucket_ == nullptr
+        && this->path_ == nullptr; };
+      // bucket Field Functions 
+      bool hasBucket() const { return this->bucket_ != nullptr;};
+      void deleteBucket() { this->bucket_ = nullptr;};
+      inline string getBucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
+      inline CustomBucketPathList& setBucket(string bucket) { DARABONBA_PTR_SET_VALUE(bucket_, bucket) };
+
+
+      // path Field Functions 
+      bool hasPath() const { return this->path_ != nullptr;};
+      void deletePath() { this->path_ = nullptr;};
+      inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+      inline CustomBucketPathList& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+    protected:
+      shared_ptr<string> bucket_ {};
+      shared_ptr<string> path_ {};
+    };
+
+    virtual bool empty() const override { return this->accelerateType_ == nullptr
+        && this->acceleratedStorageSpace_ == nullptr && this->acceleratingEnable_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthBaseLine_ == nullptr && this->bucketId_ == nullptr
+        && this->category_ == nullptr && this->clientDownloadPath_ == nullptr && this->createTime_ == nullptr && this->customBucketPath_ == nullptr && this->customBucketPathList_ == nullptr
+        && this->DBType_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->fileSystemId_ == nullptr && this->lockMode_ == nullptr
+        && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr && this->mountInfo_ == nullptr && this->payType_ == nullptr && this->polarFsInstanceDescription_ == nullptr
+        && this->polarFsInstanceId_ == nullptr && this->polarFsStatus_ == nullptr && this->polarFsType_ == nullptr && this->polarFsVersion_ == nullptr && this->regionId_ == nullptr
+        && this->relativeDbClusterId_ == nullptr && this->relativePfsClusterId_ == nullptr && this->requestId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr
+        && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+    // accelerateType Field Functions 
+    bool hasAccelerateType() const { return this->accelerateType_ != nullptr;};
+    void deleteAccelerateType() { this->accelerateType_ = nullptr;};
+    inline string getAccelerateType() const { DARABONBA_PTR_GET_DEFAULT(accelerateType_, "") };
+    inline DescribePolarFsAttributeResponseBody& setAccelerateType(string accelerateType) { DARABONBA_PTR_SET_VALUE(accelerateType_, accelerateType) };
+
+
     // acceleratedStorageSpace Field Functions 
     bool hasAcceleratedStorageSpace() const { return this->acceleratedStorageSpace_ != nullptr;};
     void deleteAcceleratedStorageSpace() { this->acceleratedStorageSpace_ = nullptr;};
@@ -216,6 +270,15 @@ namespace Models
     void deleteCustomBucketPath() { this->customBucketPath_ = nullptr;};
     inline string getCustomBucketPath() const { DARABONBA_PTR_GET_DEFAULT(customBucketPath_, "") };
     inline DescribePolarFsAttributeResponseBody& setCustomBucketPath(string customBucketPath) { DARABONBA_PTR_SET_VALUE(customBucketPath_, customBucketPath) };
+
+
+    // customBucketPathList Field Functions 
+    bool hasCustomBucketPathList() const { return this->customBucketPathList_ != nullptr;};
+    void deleteCustomBucketPathList() { this->customBucketPathList_ = nullptr;};
+    inline const vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList> & getCustomBucketPathList() const { DARABONBA_PTR_GET_CONST(customBucketPathList_, vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>) };
+    inline vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList> getCustomBucketPathList() { DARABONBA_PTR_GET(customBucketPathList_, vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>) };
+    inline DescribePolarFsAttributeResponseBody& setCustomBucketPathList(const vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList> & customBucketPathList) { DARABONBA_PTR_SET_VALUE(customBucketPathList_, customBucketPathList) };
+    inline DescribePolarFsAttributeResponseBody& setCustomBucketPathList(vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList> && customBucketPathList) { DARABONBA_PTR_SET_RVALUE(customBucketPathList_, customBucketPathList) };
 
 
     // DBType Field Functions 
@@ -396,6 +459,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accelerateType_ {};
     shared_ptr<double> acceleratedStorageSpace_ {};
     shared_ptr<string> acceleratingEnable_ {};
     shared_ptr<double> bandwidth_ {};
@@ -405,6 +469,7 @@ namespace Models
     shared_ptr<string> clientDownloadPath_ {};
     shared_ptr<string> createTime_ {};
     shared_ptr<string> customBucketPath_ {};
+    shared_ptr<vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>> customBucketPathList_ {};
     shared_ptr<string> DBType_ {};
     shared_ptr<string> expireTime_ {};
     shared_ptr<string> expired_ {};

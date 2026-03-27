@@ -39,6 +39,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_TO_JSON(SecurityIPArrayName, securityIPArrayName_);
+      DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
+      DARABONBA_PTR_TO_JSON(SecurityIPType, securityIPType_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TargetVersion, targetVersion_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -72,6 +75,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecurityIPArrayName, securityIPArrayName_);
+      DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
+      DARABONBA_PTR_FROM_JSON(SecurityIPType, securityIPType_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TargetVersion, targetVersion_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -137,8 +143,9 @@ namespace Models
         && this->autoUseCoupon_ == nullptr && this->componentsShrink_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr
         && this->endpointsShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr
         && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr
-        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->tag_ == nullptr
-        && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr
+        && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -314,6 +321,27 @@ namespace Models
     inline CreateApplicationShrinkRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
+    // securityIPArrayName Field Functions 
+    bool hasSecurityIPArrayName() const { return this->securityIPArrayName_ != nullptr;};
+    void deleteSecurityIPArrayName() { this->securityIPArrayName_ = nullptr;};
+    inline string getSecurityIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(securityIPArrayName_, "") };
+    inline CreateApplicationShrinkRequest& setSecurityIPArrayName(string securityIPArrayName) { DARABONBA_PTR_SET_VALUE(securityIPArrayName_, securityIPArrayName) };
+
+
+    // securityIPList Field Functions 
+    bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
+    void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline CreateApplicationShrinkRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
+
+
+    // securityIPType Field Functions 
+    bool hasSecurityIPType() const { return this->securityIPType_ != nullptr;};
+    void deleteSecurityIPType() { this->securityIPType_ = nullptr;};
+    inline string getSecurityIPType() const { DARABONBA_PTR_GET_DEFAULT(securityIPType_, "") };
+    inline CreateApplicationShrinkRequest& setSecurityIPType(string securityIPType) { DARABONBA_PTR_SET_VALUE(securityIPType_, securityIPType) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -386,6 +414,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> securityGroupId_ {};
+    shared_ptr<string> securityIPArrayName_ {};
+    shared_ptr<string> securityIPList_ {};
+    shared_ptr<string> securityIPType_ {};
     shared_ptr<vector<CreateApplicationShrinkRequest::Tag>> tag_ {};
     shared_ptr<string> targetVersion_ {};
     shared_ptr<string> usedTime_ {};
