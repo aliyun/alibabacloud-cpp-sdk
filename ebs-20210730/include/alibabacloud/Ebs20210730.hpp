@@ -210,6 +210,23 @@ namespace Ebs20210730
       Models::CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageCluster(const Models::CreateDedicatedBlockStorageClusterRequest &request);
 
       /**
+       * @summary Triggers a diagnostic.
+       *
+       * @param request CreateDiagnoseReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDiagnoseReportResponse
+       */
+      Models::CreateDiagnoseReportResponse createDiagnoseReportWithOptions(const Models::CreateDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Triggers a diagnostic.
+       *
+       * @param request CreateDiagnoseReportRequest
+       * @return CreateDiagnoseReportResponse
+       */
+      Models::CreateDiagnoseReportResponse createDiagnoseReport(const Models::CreateDiagnoseReportRequest &request);
+
+      /**
        * @summary Creates a replication pair-consistent group.
        *
        * @description ## [](#)Usage notes
@@ -454,6 +471,23 @@ namespace Ebs20210730
        * @return DescribeDedicatedBlockStorageClustersResponse
        */
       Models::DescribeDedicatedBlockStorageClustersResponse describeDedicatedBlockStorageClusters(const Models::DescribeDedicatedBlockStorageClustersRequest &request);
+
+      /**
+       * @summary Queries diagnostic reports.
+       *
+       * @param request DescribeDiagnoseReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDiagnoseReportResponse
+       */
+      Models::DescribeDiagnoseReportResponse describeDiagnoseReportWithOptions(const Models::DescribeDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries diagnostic reports.
+       *
+       * @param request DescribeDiagnoseReportRequest
+       * @return DescribeDiagnoseReportResponse
+       */
+      Models::DescribeDiagnoseReportResponse describeDiagnoseReport(const Models::DescribeDiagnoseReportRequest &request);
 
       /**
        * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.

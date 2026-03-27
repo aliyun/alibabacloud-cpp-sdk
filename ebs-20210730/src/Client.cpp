@@ -558,6 +558,72 @@ CreateDedicatedBlockStorageClusterResponse Client::createDedicatedBlockStorageCl
 }
 
 /**
+ * @summary Triggers a diagnostic.
+ *
+ * @param request CreateDiagnoseReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDiagnoseReportResponse
+ */
+CreateDiagnoseReportResponse Client::createDiagnoseReportWithOptions(const CreateDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDiagnoseType()) {
+    query["DiagnoseType"] = request.getDiagnoseType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDiagnoseReport"},
+    {"version" , "2021-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDiagnoseReportResponse>();
+}
+
+/**
+ * @summary Triggers a diagnostic.
+ *
+ * @param request CreateDiagnoseReportRequest
+ * @return CreateDiagnoseReportResponse
+ */
+CreateDiagnoseReportResponse Client::createDiagnoseReport(const CreateDiagnoseReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDiagnoseReportWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a replication pair-consistent group.
  *
  * @description ## [](#)Usage notes
@@ -1339,6 +1405,84 @@ DescribeDedicatedBlockStorageClustersResponse Client::describeDedicatedBlockStor
 DescribeDedicatedBlockStorageClustersResponse Client::describeDedicatedBlockStorageClusters(const DescribeDedicatedBlockStorageClustersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDedicatedBlockStorageClustersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries diagnostic reports.
+ *
+ * @param request DescribeDiagnoseReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDiagnoseReportResponse
+ */
+DescribeDiagnoseReportResponse Client::describeDiagnoseReportWithOptions(const DescribeDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDiagnoseType()) {
+    query["DiagnoseType"] = request.getDiagnoseType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReportIds()) {
+    query["ReportIds"] = request.getReportIds();
+  }
+
+  if (!!request.hasResourceIds()) {
+    query["ResourceIds"] = request.getResourceIds();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDiagnoseReport"},
+    {"version" , "2021-07-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDiagnoseReportResponse>();
+}
+
+/**
+ * @summary Queries diagnostic reports.
+ *
+ * @param request DescribeDiagnoseReportRequest
+ * @return DescribeDiagnoseReportResponse
+ */
+DescribeDiagnoseReportResponse Client::describeDiagnoseReport(const DescribeDiagnoseReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDiagnoseReportWithOptions(request, runtime);
 }
 
 /**

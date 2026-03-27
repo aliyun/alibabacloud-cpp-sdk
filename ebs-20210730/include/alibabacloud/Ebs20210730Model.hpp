@@ -27,6 +27,9 @@
 #include <alibabacloud/models/CreateDedicatedBlockStorageClusterRequest.hpp>
 #include <alibabacloud/models/CreateDedicatedBlockStorageClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateDedicatedBlockStorageClusterResponse.hpp>
+#include <alibabacloud/models/CreateDiagnoseReportRequest.hpp>
+#include <alibabacloud/models/CreateDiagnoseReportResponseBody.hpp>
+#include <alibabacloud/models/CreateDiagnoseReportResponse.hpp>
 #include <alibabacloud/models/CreateDiskReplicaGroupRequest.hpp>
 #include <alibabacloud/models/CreateDiskReplicaGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateDiskReplicaGroupResponse.hpp>
@@ -58,6 +61,9 @@
 #include <alibabacloud/models/DescribeDedicatedBlockStorageClustersRequest.hpp>
 #include <alibabacloud/models/DescribeDedicatedBlockStorageClustersResponseBody.hpp>
 #include <alibabacloud/models/DescribeDedicatedBlockStorageClustersResponse.hpp>
+#include <alibabacloud/models/DescribeDiagnoseReportRequest.hpp>
+#include <alibabacloud/models/DescribeDiagnoseReportResponseBody.hpp>
+#include <alibabacloud/models/DescribeDiagnoseReportResponse.hpp>
 #include <alibabacloud/models/DescribeDiskEventsRequest.hpp>
 #include <alibabacloud/models/DescribeDiskEventsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiskEventsResponse.hpp>
