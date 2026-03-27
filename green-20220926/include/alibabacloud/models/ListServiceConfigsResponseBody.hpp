@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_ANY_TO_JSON(Option, option_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_TO_JSON(SceneType, sceneType_);
         DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
         DARABONBA_PTR_TO_JSON(ServiceDesc, serviceDesc_);
         DARABONBA_PTR_TO_JSON(ServiceName, serviceName_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_ANY_FROM_JSON(Option, option_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_FROM_JSON(SceneType, sceneType_);
         DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
         DARABONBA_PTR_FROM_JSON(ServiceDesc, serviceDesc_);
         DARABONBA_PTR_FROM_JSON(ServiceName, serviceName_);
@@ -306,8 +308,8 @@ namespace Models
 
       virtual bool empty() const override { return this->classify_ == nullptr
         && this->copyFrom_ == nullptr && this->customServiceConf_ == nullptr && this->gmtModified_ == nullptr && this->option_ == nullptr && this->resourceType_ == nullptr
-        && this->serviceCode_ == nullptr && this->serviceDesc_ == nullptr && this->serviceName_ == nullptr && this->serviceType_ == nullptr && this->uid_ == nullptr
-        && this->useStatus_ == nullptr; };
+        && this->sceneType_ == nullptr && this->serviceCode_ == nullptr && this->serviceDesc_ == nullptr && this->serviceName_ == nullptr && this->serviceType_ == nullptr
+        && this->uid_ == nullptr && this->useStatus_ == nullptr; };
       // classify Field Functions 
       bool hasClassify() const { return this->classify_ != nullptr;};
       void deleteClassify() { this->classify_ = nullptr;};
@@ -352,6 +354,13 @@ namespace Models
       void deleteResourceType() { this->resourceType_ = nullptr;};
       inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
       inline Data& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+      // sceneType Field Functions 
+      bool hasSceneType() const { return this->sceneType_ != nullptr;};
+      void deleteSceneType() { this->sceneType_ = nullptr;};
+      inline string getSceneType() const { DARABONBA_PTR_GET_DEFAULT(sceneType_, "") };
+      inline Data& setSceneType(string sceneType) { DARABONBA_PTR_SET_VALUE(sceneType_, sceneType) };
 
 
       // serviceCode Field Functions 
@@ -409,6 +418,7 @@ namespace Models
       Darabonba::Json option_ {};
       // Resource type.
       shared_ptr<string> resourceType_ {};
+      shared_ptr<string> sceneType_ {};
       // Service code.
       shared_ptr<string> serviceCode_ {};
       // Service description.
