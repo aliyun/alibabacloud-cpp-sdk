@@ -74,6 +74,7 @@
 #include <alibabacloud/models/SubmitDocParserJobResponse.hpp>
 #include <alibabacloud/models/SubmitDocStructureJobRequest.hpp>
 #include <alibabacloud/models/SubmitDocStructureJobAdvanceRequest.hpp>
+#include <alibabacloud/models/SubmitDocStructureJobShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitDocStructureJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitDocStructureJobResponse.hpp>
 #include <alibabacloud/models/SubmitDocumentExtractJobRequest.hpp>
@@ -84,26 +85,5 @@
 #include <alibabacloud/models/SubmitTableUnderstandingJobAdvanceRequest.hpp>
 #include <alibabacloud/models/SubmitTableUnderstandingJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitTableUnderstandingJobResponse.hpp>
-#include <alibabacloud/models/GetDocumentConvertResultResponseBodyData.hpp>
-#include <alibabacloud/models/GetPageNumResponseBodyData.hpp>
-#include <alibabacloud/models/QueryDocParserStatusResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertImageToExcelJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertImageToMarkdownJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertImageToPdfJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertImageToWordJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertPdfToExcelJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertPdfToImageJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertPdfToMarkdownJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitConvertPdfToWordJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitDocParserJobRequestCustomOssConfig.hpp>
-#include <alibabacloud/models/SubmitDocParserJobRequestLlmParam.hpp>
-#include <alibabacloud/models/SubmitDocParserJobRequestMultimediaParameters.hpp>
-#include <alibabacloud/models/SubmitDocParserJobAdvanceRequestCustomOssConfig.hpp>
-#include <alibabacloud/models/SubmitDocParserJobAdvanceRequestLlmParam.hpp>
-#include <alibabacloud/models/SubmitDocParserJobAdvanceRequestMultimediaParameters.hpp>
-#include <alibabacloud/models/SubmitDocParserJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitDocStructureJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitDocumentExtractJobResponseBodyData.hpp>
-#include <alibabacloud/models/SubmitTableUnderstandingJobResponseBodyData.hpp>
 
 #endif

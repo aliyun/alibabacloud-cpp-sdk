@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->imageStrategy_ == nullptr && return this->revealMarkdown_ == nullptr && return this->useUrlResponseBody_ == nullptr; };
+        && this->imageStrategy_ == nullptr && this->revealMarkdown_ == nullptr && this->useUrlResponseBody_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetDocStructureResultRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // imageStrategy Field Functions 
     bool hasImageStrategy() const { return this->imageStrategy_ != nullptr;};
     void deleteImageStrategy() { this->imageStrategy_ = nullptr;};
-    inline string imageStrategy() const { DARABONBA_PTR_GET_DEFAULT(imageStrategy_, "") };
+    inline string getImageStrategy() const { DARABONBA_PTR_GET_DEFAULT(imageStrategy_, "") };
     inline GetDocStructureResultRequest& setImageStrategy(string imageStrategy) { DARABONBA_PTR_SET_VALUE(imageStrategy_, imageStrategy) };
 
 
     // revealMarkdown Field Functions 
     bool hasRevealMarkdown() const { return this->revealMarkdown_ != nullptr;};
     void deleteRevealMarkdown() { this->revealMarkdown_ = nullptr;};
-    inline bool revealMarkdown() const { DARABONBA_PTR_GET_DEFAULT(revealMarkdown_, false) };
+    inline bool getRevealMarkdown() const { DARABONBA_PTR_GET_DEFAULT(revealMarkdown_, false) };
     inline GetDocStructureResultRequest& setRevealMarkdown(bool revealMarkdown) { DARABONBA_PTR_SET_VALUE(revealMarkdown_, revealMarkdown) };
 
 
     // useUrlResponseBody Field Functions 
     bool hasUseUrlResponseBody() const { return this->useUrlResponseBody_ != nullptr;};
     void deleteUseUrlResponseBody() { this->useUrlResponseBody_ = nullptr;};
-    inline bool useUrlResponseBody() const { DARABONBA_PTR_GET_DEFAULT(useUrlResponseBody_, false) };
+    inline bool getUseUrlResponseBody() const { DARABONBA_PTR_GET_DEFAULT(useUrlResponseBody_, false) };
     inline GetDocStructureResultRequest& setUseUrlResponseBody(bool useUrlResponseBody) { DARABONBA_PTR_SET_VALUE(useUrlResponseBody_, useUrlResponseBody) };
 
 
   protected:
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> imageStrategy_ = nullptr;
-    std::shared_ptr<bool> revealMarkdown_ = nullptr;
-    std::shared_ptr<bool> useUrlResponseBody_ = nullptr;
+    shared_ptr<string> id_ {};
+    shared_ptr<string> imageStrategy_ {};
+    shared_ptr<bool> revealMarkdown_ {};
+    shared_ptr<bool> useUrlResponseBody_ {};
   };
 
   } // namespace Models

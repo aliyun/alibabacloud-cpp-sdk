@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableEventCallback_ == nullptr
-        && return this->imageNameExtension_ == nullptr && return this->imageNamesShrink_ == nullptr && return this->imageUrlsShrink_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr; };
+        && this->imageNameExtension_ == nullptr && this->imageNamesShrink_ == nullptr && this->imageUrlsShrink_ == nullptr && this->ossBucket_ == nullptr && this->ossEndpoint_ == nullptr; };
     // enableEventCallback Field Functions 
     bool hasEnableEventCallback() const { return this->enableEventCallback_ != nullptr;};
     void deleteEnableEventCallback() { this->enableEventCallback_ = nullptr;};
-    inline bool enableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
+    inline bool getEnableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
     inline SubmitConvertImageToWordJobShrinkRequest& setEnableEventCallback(bool enableEventCallback) { DARABONBA_PTR_SET_VALUE(enableEventCallback_, enableEventCallback) };
 
 
     // imageNameExtension Field Functions 
     bool hasImageNameExtension() const { return this->imageNameExtension_ != nullptr;};
     void deleteImageNameExtension() { this->imageNameExtension_ = nullptr;};
-    inline string imageNameExtension() const { DARABONBA_PTR_GET_DEFAULT(imageNameExtension_, "") };
+    inline string getImageNameExtension() const { DARABONBA_PTR_GET_DEFAULT(imageNameExtension_, "") };
     inline SubmitConvertImageToWordJobShrinkRequest& setImageNameExtension(string imageNameExtension) { DARABONBA_PTR_SET_VALUE(imageNameExtension_, imageNameExtension) };
 
 
     // imageNamesShrink Field Functions 
     bool hasImageNamesShrink() const { return this->imageNamesShrink_ != nullptr;};
     void deleteImageNamesShrink() { this->imageNamesShrink_ = nullptr;};
-    inline string imageNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(imageNamesShrink_, "") };
+    inline string getImageNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(imageNamesShrink_, "") };
     inline SubmitConvertImageToWordJobShrinkRequest& setImageNamesShrink(string imageNamesShrink) { DARABONBA_PTR_SET_VALUE(imageNamesShrink_, imageNamesShrink) };
 
 
     // imageUrlsShrink Field Functions 
     bool hasImageUrlsShrink() const { return this->imageUrlsShrink_ != nullptr;};
     void deleteImageUrlsShrink() { this->imageUrlsShrink_ = nullptr;};
-    inline string imageUrlsShrink() const { DARABONBA_PTR_GET_DEFAULT(imageUrlsShrink_, "") };
+    inline string getImageUrlsShrink() const { DARABONBA_PTR_GET_DEFAULT(imageUrlsShrink_, "") };
     inline SubmitConvertImageToWordJobShrinkRequest& setImageUrlsShrink(string imageUrlsShrink) { DARABONBA_PTR_SET_VALUE(imageUrlsShrink_, imageUrlsShrink) };
 
 
     // ossBucket Field Functions 
     bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
     void deleteOssBucket() { this->ossBucket_ = nullptr;};
-    inline string ossBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+    inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
     inline SubmitConvertImageToWordJobShrinkRequest& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
 
 
     // ossEndpoint Field Functions 
     bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
     void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
-    inline string ossEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
+    inline string getOssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
     inline SubmitConvertImageToWordJobShrinkRequest& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
 
 
   protected:
-    std::shared_ptr<bool> enableEventCallback_ = nullptr;
-    std::shared_ptr<string> imageNameExtension_ = nullptr;
-    std::shared_ptr<string> imageNamesShrink_ = nullptr;
-    std::shared_ptr<string> imageUrlsShrink_ = nullptr;
-    std::shared_ptr<string> ossBucket_ = nullptr;
-    std::shared_ptr<string> ossEndpoint_ = nullptr;
+    shared_ptr<bool> enableEventCallback_ {};
+    shared_ptr<string> imageNameExtension_ {};
+    shared_ptr<string> imageNamesShrink_ {};
+    shared_ptr<string> imageUrlsShrink_ {};
+    shared_ptr<string> ossBucket_ {};
+    shared_ptr<string> ossEndpoint_ {};
   };
 
   } // namespace Models

@@ -360,11 +360,11 @@ namespace DocmindApi20220711
       /**
        * @summary 文档智能解析
        *
-       * @param request SubmitDocStructureJobRequest
+       * @param tmpReq SubmitDocStructureJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitDocStructureJobResponse
        */
-      Models::SubmitDocStructureJobResponse submitDocStructureJobWithOptions(const Models::SubmitDocStructureJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::SubmitDocStructureJobResponse submitDocStructureJobWithOptions(const Models::SubmitDocStructureJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文档智能解析

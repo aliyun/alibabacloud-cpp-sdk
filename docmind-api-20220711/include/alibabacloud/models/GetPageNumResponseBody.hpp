@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETPAGENUMRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETPAGENUMRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetPageNumResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,59 +39,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->pageNum_ == nullptr; };
+      // pageNum Field Functions 
+      bool hasPageNum() const { return this->pageNum_ != nullptr;};
+      void deletePageNum() { this->pageNum_ = nullptr;};
+      inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+      inline Data& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
+
+
+    protected:
+      shared_ptr<int32_t> pageNum_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->httpCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->httpCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetPageNumResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetPageNumResponseBodyData) };
-    inline GetPageNumResponseBodyData data() { DARABONBA_PTR_GET(data_, GetPageNumResponseBodyData) };
-    inline GetPageNumResponseBody& setData(const GetPageNumResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetPageNumResponseBody& setData(GetPageNumResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetPageNumResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetPageNumResponseBody::Data) };
+    inline GetPageNumResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetPageNumResponseBody::Data) };
+    inline GetPageNumResponseBody& setData(const GetPageNumResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetPageNumResponseBody& setData(GetPageNumResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline GetPageNumResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline GetPageNumResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // httpCode Field Functions 
     bool hasHttpCode() const { return this->httpCode_ != nullptr;};
     void deleteHttpCode() { this->httpCode_ = nullptr;};
-    inline string httpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, "") };
+    inline string getHttpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, "") };
     inline GetPageNumResponseBody& setHttpCode(string httpCode) { DARABONBA_PTR_SET_VALUE(httpCode_, httpCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPageNumResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetPageNumResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<GetPageNumResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> errorCode_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<string> httpCode_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<GetPageNumResponseBody::Data> data_ {};
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<string> httpCode_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

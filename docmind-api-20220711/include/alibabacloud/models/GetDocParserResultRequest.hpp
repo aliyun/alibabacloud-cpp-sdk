@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->excludeFields_ == nullptr
-        && return this->id_ == nullptr && return this->layoutNum_ == nullptr && return this->layoutStepSize_ == nullptr; };
+        && this->id_ == nullptr && this->layoutNum_ == nullptr && this->layoutStepSize_ == nullptr; };
     // excludeFields Field Functions 
     bool hasExcludeFields() const { return this->excludeFields_ != nullptr;};
     void deleteExcludeFields() { this->excludeFields_ = nullptr;};
-    inline const vector<string> & excludeFields() const { DARABONBA_PTR_GET_CONST(excludeFields_, vector<string>) };
-    inline vector<string> excludeFields() { DARABONBA_PTR_GET(excludeFields_, vector<string>) };
+    inline const vector<string> & getExcludeFields() const { DARABONBA_PTR_GET_CONST(excludeFields_, vector<string>) };
+    inline vector<string> getExcludeFields() { DARABONBA_PTR_GET(excludeFields_, vector<string>) };
     inline GetDocParserResultRequest& setExcludeFields(const vector<string> & excludeFields) { DARABONBA_PTR_SET_VALUE(excludeFields_, excludeFields) };
     inline GetDocParserResultRequest& setExcludeFields(vector<string> && excludeFields) { DARABONBA_PTR_SET_RVALUE(excludeFields_, excludeFields) };
 
@@ -50,29 +50,29 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetDocParserResultRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // layoutNum Field Functions 
     bool hasLayoutNum() const { return this->layoutNum_ != nullptr;};
     void deleteLayoutNum() { this->layoutNum_ = nullptr;};
-    inline int32_t layoutNum() const { DARABONBA_PTR_GET_DEFAULT(layoutNum_, 0) };
+    inline int32_t getLayoutNum() const { DARABONBA_PTR_GET_DEFAULT(layoutNum_, 0) };
     inline GetDocParserResultRequest& setLayoutNum(int32_t layoutNum) { DARABONBA_PTR_SET_VALUE(layoutNum_, layoutNum) };
 
 
     // layoutStepSize Field Functions 
     bool hasLayoutStepSize() const { return this->layoutStepSize_ != nullptr;};
     void deleteLayoutStepSize() { this->layoutStepSize_ = nullptr;};
-    inline int32_t layoutStepSize() const { DARABONBA_PTR_GET_DEFAULT(layoutStepSize_, 0) };
+    inline int32_t getLayoutStepSize() const { DARABONBA_PTR_GET_DEFAULT(layoutStepSize_, 0) };
     inline GetDocParserResultRequest& setLayoutStepSize(int32_t layoutStepSize) { DARABONBA_PTR_SET_VALUE(layoutStepSize_, layoutStepSize) };
 
 
   protected:
-    std::shared_ptr<vector<string>> excludeFields_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<int32_t> layoutNum_ = nullptr;
-    std::shared_ptr<int32_t> layoutStepSize_ = nullptr;
+    shared_ptr<vector<string>> excludeFields_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<int32_t> layoutNum_ {};
+    shared_ptr<int32_t> layoutStepSize_ {};
   };
 
   } // namespace Models

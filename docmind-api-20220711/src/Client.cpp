@@ -10,15 +10,15 @@
 #include <darabonba/http/Form.hpp>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::DocmindApi20220711::Models;
@@ -94,32 +94,30 @@ AlibabaCloud::DocmindApi20220711::Client::Client(AlibabaCloud::OpenApi::Utils::M
 
 Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
   Darabonba::RuntimeOptions runtime_(json({
-    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
-    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
-    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
-    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
-    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
-    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
-    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
-    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
-    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
-    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
-    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getKey(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCa(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getReadTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getConnectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getNoProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getMaxIdleConns(), _maxIdleConns))},
     {"retryOptions", _retryOptions},
-    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.getIgnoreSSL(), false))},
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
-  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
-  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
-  Darabonba::Exception _lastException;
+  std::exception_ptr _lastExceptionPtr;
   int _retriesAttempted = 0;
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
   });
-  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+  while (Darabonba::allowRetry(runtime_.getRetryOptions(), _context)) {
     if (_retriesAttempted > 0) {
-      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.getRetryOptions(), _context);
       if (_backoffTime > 0) {
         Darabonba::sleep(_backoffTime);
       }
@@ -132,29 +130,27 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
-      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
       shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-      _lastResponse  = response_;
 
       json respMap = nullptr;
-      string bodyStr = Darabonba::Stream::readAsString(response_->body());
-      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+      string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
+      if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap["Error"]);
+        json err = json(respMap.value("Error", Darabonba::Json()));
         throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err["Code"])},
-          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
+          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
           {"data" , json({
-            {"httpCode" , response_->statusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+            {"httpCode" , response_->getStatusCode()},
+            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
+            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
           })}
         }));
       }
@@ -162,18 +158,17 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
       return Darabonba::Core::merge(respMap
       );
-    } catch (const Darabonba::Exception& ex) {
+    } catch (const Darabonba::DaraException& ex) {
+      _lastExceptionPtr = std::current_exception();
       _context = Darabonba::Policy::RetryPolicyContext(json({
         {"retriesAttempted" , _retriesAttempted},
-        {"lastRequest" , _lastRequest},
-        {"lastResponse" , _lastResponse},
         {"exception" , ex},
       }));
       continue;
     }
   }
 
-  throw *_context.exception();
+  std::rethrow_exception(_lastExceptionPtr);
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -200,28 +195,28 @@ AyncTradeDocumentPackageExtractSmartAppResponse Client::ayncTradeDocumentPackage
   AyncTradeDocumentPackageExtractSmartAppShrinkRequest request = AyncTradeDocumentPackageExtractSmartAppShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCustomExtractionRange()) {
-    request.setCustomExtractionRangeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customExtractionRange(), "CustomExtractionRange", "json"));
+    request.setCustomExtractionRangeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomExtractionRange(), "CustomExtractionRange", "json"));
   }
 
   json query = {};
   if (!!request.hasCustomExtractionRangeShrink()) {
-    query["CustomExtractionRange"] = request.customExtractionRangeShrink();
+    query["CustomExtractionRange"] = request.getCustomExtractionRangeShrink();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasTemplateName()) {
-    query["TemplateName"] = request.templateName();
+    query["TemplateName"] = request.getTemplateName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -264,24 +259,24 @@ GetDocParserResultResponse Client::getDocParserResultWithOptions(const GetDocPar
   GetDocParserResultShrinkRequest request = GetDocParserResultShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExcludeFields()) {
-    request.setExcludeFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeFields(), "ExcludeFields", "simple"));
+    request.setExcludeFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeFields(), "ExcludeFields", "simple"));
   }
 
   json query = {};
   if (!!request.hasExcludeFieldsShrink()) {
-    query["ExcludeFields"] = request.excludeFieldsShrink();
+    query["ExcludeFields"] = request.getExcludeFieldsShrink();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasLayoutNum()) {
-    query["LayoutNum"] = request.layoutNum();
+    query["LayoutNum"] = request.getLayoutNum();
   }
 
   if (!!request.hasLayoutStepSize()) {
-    query["LayoutStepSize"] = request.layoutStepSize();
+    query["LayoutStepSize"] = request.getLayoutStepSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -323,19 +318,19 @@ GetDocStructureResultResponse Client::getDocStructureResultWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasImageStrategy()) {
-    query["ImageStrategy"] = request.imageStrategy();
+    query["ImageStrategy"] = request.getImageStrategy();
   }
 
   if (!!request.hasRevealMarkdown()) {
-    query["RevealMarkdown"] = request.revealMarkdown();
+    query["RevealMarkdown"] = request.getRevealMarkdown();
   }
 
   if (!!request.hasUseUrlResponseBody()) {
-    query["UseUrlResponseBody"] = request.useUrlResponseBody();
+    query["UseUrlResponseBody"] = request.getUseUrlResponseBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -377,7 +372,7 @@ GetDocumentCompareResultResponse Client::getDocumentCompareResultWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -419,7 +414,7 @@ GetDocumentConvertResultResponse Client::getDocumentConvertResultWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -461,7 +456,7 @@ GetDocumentExtractResultResponse Client::getDocumentExtractResultWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -503,7 +498,7 @@ GetPageNumResponse Client::getPageNumWithOptions(const GetPageNumRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -545,7 +540,7 @@ GetTableUnderstandingResultResponse Client::getTableUnderstandingResultWithOptio
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -587,7 +582,7 @@ QueryDocParserStatusResponse Client::queryDocParserStatusWithOptions(const Query
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -630,40 +625,40 @@ SubmitConvertImageToExcelJobResponse Client::submitConvertImageToExcelJobWithOpt
   SubmitConvertImageToExcelJobShrinkRequest request = SubmitConvertImageToExcelJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasImageNames()) {
-    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageNames(), "ImageNames", "simple"));
+    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageNames(), "ImageNames", "simple"));
   }
 
   if (!!tmpReq.hasImageUrls()) {
-    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageUrls(), "ImageUrls", "simple"));
+    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageUrls(), "ImageUrls", "simple"));
   }
 
   json query = {};
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasForceMergeExcel()) {
-    query["ForceMergeExcel"] = request.forceMergeExcel();
+    query["ForceMergeExcel"] = request.getForceMergeExcel();
   }
 
   if (!!request.hasImageNameExtension()) {
-    query["ImageNameExtension"] = request.imageNameExtension();
+    query["ImageNameExtension"] = request.getImageNameExtension();
   }
 
   if (!!request.hasImageNamesShrink()) {
-    query["ImageNames"] = request.imageNamesShrink();
+    query["ImageNames"] = request.getImageNamesShrink();
   }
 
   if (!!request.hasImageUrlsShrink()) {
-    query["ImageUrls"] = request.imageUrlsShrink();
+    query["ImageUrls"] = request.getImageUrlsShrink();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -706,32 +701,32 @@ SubmitConvertImageToMarkdownJobResponse Client::submitConvertImageToMarkdownJobW
   SubmitConvertImageToMarkdownJobShrinkRequest request = SubmitConvertImageToMarkdownJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasImageNames()) {
-    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageNames(), "ImageNames", "simple"));
+    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageNames(), "ImageNames", "simple"));
   }
 
   if (!!tmpReq.hasImageUrls()) {
-    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageUrls(), "ImageUrls", "simple"));
+    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageUrls(), "ImageUrls", "simple"));
   }
 
   json query = {};
   if (!!request.hasImageNameExtension()) {
-    query["ImageNameExtension"] = request.imageNameExtension();
+    query["ImageNameExtension"] = request.getImageNameExtension();
   }
 
   if (!!request.hasImageNamesShrink()) {
-    query["ImageNames"] = request.imageNamesShrink();
+    query["ImageNames"] = request.getImageNamesShrink();
   }
 
   if (!!request.hasImageUrlsShrink()) {
-    query["ImageUrls"] = request.imageUrlsShrink();
+    query["ImageUrls"] = request.getImageUrlsShrink();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -774,36 +769,36 @@ SubmitConvertImageToPdfJobResponse Client::submitConvertImageToPdfJobWithOptions
   SubmitConvertImageToPdfJobShrinkRequest request = SubmitConvertImageToPdfJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasImageNames()) {
-    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageNames(), "ImageNames", "simple"));
+    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageNames(), "ImageNames", "simple"));
   }
 
   if (!!tmpReq.hasImageUrls()) {
-    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageUrls(), "ImageUrls", "simple"));
+    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageUrls(), "ImageUrls", "simple"));
   }
 
   json query = {};
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasImageNameExtension()) {
-    query["ImageNameExtension"] = request.imageNameExtension();
+    query["ImageNameExtension"] = request.getImageNameExtension();
   }
 
   if (!!request.hasImageNamesShrink()) {
-    query["ImageNames"] = request.imageNamesShrink();
+    query["ImageNames"] = request.getImageNamesShrink();
   }
 
   if (!!request.hasImageUrlsShrink()) {
-    query["ImageUrls"] = request.imageUrlsShrink();
+    query["ImageUrls"] = request.getImageUrlsShrink();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -846,36 +841,36 @@ SubmitConvertImageToWordJobResponse Client::submitConvertImageToWordJobWithOptio
   SubmitConvertImageToWordJobShrinkRequest request = SubmitConvertImageToWordJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasImageNames()) {
-    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageNames(), "ImageNames", "simple"));
+    request.setImageNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageNames(), "ImageNames", "simple"));
   }
 
   if (!!tmpReq.hasImageUrls()) {
-    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.imageUrls(), "ImageUrls", "simple"));
+    request.setImageUrlsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImageUrls(), "ImageUrls", "simple"));
   }
 
   json query = {};
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasImageNameExtension()) {
-    query["ImageNameExtension"] = request.imageNameExtension();
+    query["ImageNameExtension"] = request.getImageNameExtension();
   }
 
   if (!!request.hasImageNamesShrink()) {
-    query["ImageNames"] = request.imageNamesShrink();
+    query["ImageNames"] = request.getImageNamesShrink();
   }
 
   if (!!request.hasImageUrlsShrink()) {
-    query["ImageUrls"] = request.imageUrlsShrink();
+    query["ImageUrls"] = request.getImageUrlsShrink();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -917,31 +912,31 @@ SubmitConvertPdfToExcelJobResponse Client::submitConvertPdfToExcelJobWithOptions
   request.validate();
   json query = {};
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasForceExportInnerImage()) {
-    query["ForceExportInnerImage"] = request.forceExportInnerImage();
+    query["ForceExportInnerImage"] = request.getForceExportInnerImage();
   }
 
   if (!!request.hasForceMergeExcel()) {
-    query["ForceMergeExcel"] = request.forceMergeExcel();
+    query["ForceMergeExcel"] = request.getForceMergeExcel();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -982,10 +977,10 @@ SubmitConvertPdfToExcelJobResponse Client::submitConvertPdfToExcelJobAdvance(con
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1038,7 +1033,7 @@ SubmitConvertPdfToExcelJobResponse Client::submitConvertPdfToExcelJobAdvance(con
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1069,23 +1064,23 @@ SubmitConvertPdfToImageJobResponse Client::submitConvertPdfToImageJobWithOptions
   request.validate();
   json query = {};
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1126,10 +1121,10 @@ SubmitConvertPdfToImageJobResponse Client::submitConvertPdfToImageJobAdvance(con
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1182,7 +1177,7 @@ SubmitConvertPdfToImageJobResponse Client::submitConvertPdfToImageJobAdvance(con
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1213,19 +1208,19 @@ SubmitConvertPdfToMarkdownJobResponse Client::submitConvertPdfToMarkdownJobWithO
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1266,10 +1261,10 @@ SubmitConvertPdfToMarkdownJobResponse Client::submitConvertPdfToMarkdownJobAdvan
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1322,7 +1317,7 @@ SubmitConvertPdfToMarkdownJobResponse Client::submitConvertPdfToMarkdownJobAdvan
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1353,35 +1348,35 @@ SubmitConvertPdfToWordJobResponse Client::submitConvertPdfToWordJobWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasForceExportInnerImage()) {
-    query["ForceExportInnerImage"] = request.forceExportInnerImage();
+    query["ForceExportInnerImage"] = request.getForceExportInnerImage();
   }
 
   if (!!request.hasFormulaEnhancement()) {
-    query["FormulaEnhancement"] = request.formulaEnhancement();
+    query["FormulaEnhancement"] = request.getFormulaEnhancement();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1422,10 +1417,10 @@ SubmitConvertPdfToWordJobResponse Client::submitConvertPdfToWordJobAdvance(const
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1478,7 +1473,7 @@ SubmitConvertPdfToWordJobResponse Client::submitConvertPdfToWordJobAdvance(const
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1509,35 +1504,35 @@ SubmitDigitalDocStructureJobResponse Client::submitDigitalDocStructureJobWithOpt
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileNameExtension()) {
-    query["FileNameExtension"] = request.fileNameExtension();
+    query["FileNameExtension"] = request.getFileNameExtension();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasImageStrategy()) {
-    query["ImageStrategy"] = request.imageStrategy();
+    query["ImageStrategy"] = request.getImageStrategy();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   if (!!request.hasRevealMarkdown()) {
-    query["RevealMarkdown"] = request.revealMarkdown();
+    query["RevealMarkdown"] = request.getRevealMarkdown();
   }
 
   if (!!request.hasUseUrlResponseBody()) {
-    query["UseUrlResponseBody"] = request.useUrlResponseBody();
+    query["UseUrlResponseBody"] = request.getUseUrlResponseBody();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1578,10 +1573,10 @@ SubmitDigitalDocStructureJobResponse Client::submitDigitalDocStructureJobAdvance
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1634,7 +1629,7 @@ SubmitDigitalDocStructureJobResponse Client::submitDigitalDocStructureJobAdvance
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1666,80 +1661,88 @@ SubmitDocParserJobResponse Client::submitDocParserJobWithOptions(const SubmitDoc
   SubmitDocParserJobShrinkRequest request = SubmitDocParserJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCustomOssConfig()) {
-    request.setCustomOssConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customOssConfig(), "CustomOssConfig", "json"));
+    request.setCustomOssConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomOssConfig(), "CustomOssConfig", "json"));
   }
 
   if (!!tmpReq.hasLLMParam()) {
-    request.setLLMParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.LLMParam(), "LLMParam", "json"));
+    request.setLLMParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLLMParam(), "LLMParam", "json"));
   }
 
   if (!!tmpReq.hasMultimediaParameters()) {
-    request.setMultimediaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.multimediaParameters(), "MultimediaParameters", "json"));
+    request.setMultimediaParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMultimediaParameters(), "MultimediaParameters", "json"));
+  }
+
+  if (!!tmpReq.hasOutputFormat()) {
+    request.setOutputFormatShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutputFormat(), "OutputFormat", "simple"));
   }
 
   json query = {};
   if (!!request.hasCustomOssConfigShrink()) {
-    query["CustomOssConfig"] = request.customOssConfigShrink();
+    query["CustomOssConfig"] = request.getCustomOssConfigShrink();
   }
 
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasEnhancementMode()) {
-    query["EnhancementMode"] = request.enhancementMode();
+    query["EnhancementMode"] = request.getEnhancementMode();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileNameExtension()) {
-    query["FileNameExtension"] = request.fileNameExtension();
+    query["FileNameExtension"] = request.getFileNameExtension();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasFormulaEnhancement()) {
-    query["FormulaEnhancement"] = request.formulaEnhancement();
+    query["FormulaEnhancement"] = request.getFormulaEnhancement();
   }
 
   if (!!request.hasLLMParamShrink()) {
-    query["LLMParam"] = request.LLMParamShrink();
+    query["LLMParam"] = request.getLLMParamShrink();
   }
 
   if (!!request.hasLlmEnhancement()) {
-    query["LlmEnhancement"] = request.llmEnhancement();
+    query["LlmEnhancement"] = request.getLlmEnhancement();
   }
 
   if (!!request.hasMultimediaParametersShrink()) {
-    query["MultimediaParameters"] = request.multimediaParametersShrink();
+    query["MultimediaParameters"] = request.getMultimediaParametersShrink();
   }
 
   if (!!request.hasNeedHeaderFooter()) {
-    query["NeedHeaderFooter"] = request.needHeaderFooter();
+    query["NeedHeaderFooter"] = request.getNeedHeaderFooter();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
+  }
+
+  if (!!request.hasOutputFormatShrink()) {
+    query["OutputFormat"] = request.getOutputFormatShrink();
   }
 
   if (!!request.hasOutputHtmlTable()) {
-    query["OutputHtmlTable"] = request.outputHtmlTable();
+    query["OutputHtmlTable"] = request.getOutputHtmlTable();
   }
 
   if (!!request.hasPageIndex()) {
-    query["PageIndex"] = request.pageIndex();
+    query["PageIndex"] = request.getPageIndex();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1780,10 +1783,10 @@ SubmitDocParserJobResponse Client::submitDocParserJobAdvance(const SubmitDocPars
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -1836,7 +1839,7 @@ SubmitDocParserJobResponse Client::submitDocParserJobAdvance(const SubmitDocPars
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -1859,51 +1862,61 @@ SubmitDocParserJobResponse Client::submitDocParserJobAdvance(const SubmitDocPars
 /**
  * @summary 文档智能解析
  *
- * @param request SubmitDocStructureJobRequest
+ * @param tmpReq SubmitDocStructureJobRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitDocStructureJobResponse
  */
-SubmitDocStructureJobResponse Client::submitDocStructureJobWithOptions(const SubmitDocStructureJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+SubmitDocStructureJobResponse Client::submitDocStructureJobWithOptions(const SubmitDocStructureJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitDocStructureJobShrinkRequest request = SubmitDocStructureJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOutputFormat()) {
+    request.setOutputFormatShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutputFormat(), "OutputFormat", "simple"));
+  }
+
   json query = {};
   if (!!request.hasAllowPptFormat()) {
-    query["AllowPptFormat"] = request.allowPptFormat();
+    query["AllowPptFormat"] = request.getAllowPptFormat();
   }
 
   if (!!request.hasEnableEventCallback()) {
-    query["EnableEventCallback"] = request.enableEventCallback();
+    query["EnableEventCallback"] = request.getEnableEventCallback();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileNameExtension()) {
-    query["FileNameExtension"] = request.fileNameExtension();
+    query["FileNameExtension"] = request.getFileNameExtension();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasFormulaEnhancement()) {
-    query["FormulaEnhancement"] = request.formulaEnhancement();
+    query["FormulaEnhancement"] = request.getFormulaEnhancement();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
+  }
+
+  if (!!request.hasOutputFormatShrink()) {
+    query["OutputFormat"] = request.getOutputFormatShrink();
   }
 
   if (!!request.hasPageIndex()) {
-    query["PageIndex"] = request.pageIndex();
+    query["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasStructureType()) {
-    query["StructureType"] = request.structureType();
+    query["StructureType"] = request.getStructureType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1944,10 +1957,10 @@ SubmitDocStructureJobResponse Client::submitDocStructureJobAdvance(const SubmitD
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -2000,7 +2013,7 @@ SubmitDocStructureJobResponse Client::submitDocStructureJobAdvance(const SubmitD
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -2031,23 +2044,23 @@ SubmitDocumentExtractJobResponse Client::submitDocumentExtractJobWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileNameExtension()) {
-    query["FileNameExtension"] = request.fileNameExtension();
+    query["FileNameExtension"] = request.getFileNameExtension();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2088,10 +2101,10 @@ SubmitDocumentExtractJobResponse Client::submitDocumentExtractJobAdvance(const S
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -2144,7 +2157,7 @@ SubmitDocumentExtractJobResponse Client::submitDocumentExtractJobAdvance(const S
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -2175,23 +2188,23 @@ SubmitTableUnderstandingJobResponse Client::submitTableUnderstandingJobWithOptio
   request.validate();
   json query = {};
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileNameExtension()) {
-    query["FileNameExtension"] = request.fileNameExtension();
+    query["FileNameExtension"] = request.getFileNameExtension();
   }
 
   if (!!request.hasFileUrl()) {
-    query["FileUrl"] = request.fileUrl();
+    query["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasOssBucket()) {
-    query["OssBucket"] = request.ossBucket();
+    query["OssBucket"] = request.getOssBucket();
   }
 
   if (!!request.hasOssEndpoint()) {
-    query["OssEndpoint"] = request.ossEndpoint();
+    query["OssEndpoint"] = request.getOssEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2232,10 +2245,10 @@ SubmitTableUnderstandingJobResponse Client::submitTableUnderstandingJobAdvance(c
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -2288,7 +2301,7 @@ SubmitTableUnderstandingJobResponse Client::submitTableUnderstandingJobAdvance(c
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.fileUrlObject()},
+      {"content" , request.getFileUrlObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({

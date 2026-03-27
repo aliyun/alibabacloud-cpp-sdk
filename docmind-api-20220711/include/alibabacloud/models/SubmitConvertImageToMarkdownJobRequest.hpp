@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageNameExtension_ == nullptr
-        && return this->imageNames_ == nullptr && return this->imageUrls_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr; };
+        && this->imageNames_ == nullptr && this->imageUrls_ == nullptr && this->ossBucket_ == nullptr && this->ossEndpoint_ == nullptr; };
     // imageNameExtension Field Functions 
     bool hasImageNameExtension() const { return this->imageNameExtension_ != nullptr;};
     void deleteImageNameExtension() { this->imageNameExtension_ = nullptr;};
-    inline string imageNameExtension() const { DARABONBA_PTR_GET_DEFAULT(imageNameExtension_, "") };
+    inline string getImageNameExtension() const { DARABONBA_PTR_GET_DEFAULT(imageNameExtension_, "") };
     inline SubmitConvertImageToMarkdownJobRequest& setImageNameExtension(string imageNameExtension) { DARABONBA_PTR_SET_VALUE(imageNameExtension_, imageNameExtension) };
 
 
     // imageNames Field Functions 
     bool hasImageNames() const { return this->imageNames_ != nullptr;};
     void deleteImageNames() { this->imageNames_ = nullptr;};
-    inline const vector<string> & imageNames() const { DARABONBA_PTR_GET_CONST(imageNames_, vector<string>) };
-    inline vector<string> imageNames() { DARABONBA_PTR_GET(imageNames_, vector<string>) };
+    inline const vector<string> & getImageNames() const { DARABONBA_PTR_GET_CONST(imageNames_, vector<string>) };
+    inline vector<string> getImageNames() { DARABONBA_PTR_GET(imageNames_, vector<string>) };
     inline SubmitConvertImageToMarkdownJobRequest& setImageNames(const vector<string> & imageNames) { DARABONBA_PTR_SET_VALUE(imageNames_, imageNames) };
     inline SubmitConvertImageToMarkdownJobRequest& setImageNames(vector<string> && imageNames) { DARABONBA_PTR_SET_RVALUE(imageNames_, imageNames) };
 
@@ -59,8 +59,8 @@ namespace Models
     // imageUrls Field Functions 
     bool hasImageUrls() const { return this->imageUrls_ != nullptr;};
     void deleteImageUrls() { this->imageUrls_ = nullptr;};
-    inline const vector<string> & imageUrls() const { DARABONBA_PTR_GET_CONST(imageUrls_, vector<string>) };
-    inline vector<string> imageUrls() { DARABONBA_PTR_GET(imageUrls_, vector<string>) };
+    inline const vector<string> & getImageUrls() const { DARABONBA_PTR_GET_CONST(imageUrls_, vector<string>) };
+    inline vector<string> getImageUrls() { DARABONBA_PTR_GET(imageUrls_, vector<string>) };
     inline SubmitConvertImageToMarkdownJobRequest& setImageUrls(const vector<string> & imageUrls) { DARABONBA_PTR_SET_VALUE(imageUrls_, imageUrls) };
     inline SubmitConvertImageToMarkdownJobRequest& setImageUrls(vector<string> && imageUrls) { DARABONBA_PTR_SET_RVALUE(imageUrls_, imageUrls) };
 
@@ -68,23 +68,23 @@ namespace Models
     // ossBucket Field Functions 
     bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
     void deleteOssBucket() { this->ossBucket_ = nullptr;};
-    inline string ossBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+    inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
     inline SubmitConvertImageToMarkdownJobRequest& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
 
 
     // ossEndpoint Field Functions 
     bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
     void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
-    inline string ossEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
+    inline string getOssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
     inline SubmitConvertImageToMarkdownJobRequest& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
 
 
   protected:
-    std::shared_ptr<string> imageNameExtension_ = nullptr;
-    std::shared_ptr<vector<string>> imageNames_ = nullptr;
-    std::shared_ptr<vector<string>> imageUrls_ = nullptr;
-    std::shared_ptr<string> ossBucket_ = nullptr;
-    std::shared_ptr<string> ossEndpoint_ = nullptr;
+    shared_ptr<string> imageNameExtension_ {};
+    shared_ptr<vector<string>> imageNames_ {};
+    shared_ptr<vector<string>> imageUrls_ {};
+    shared_ptr<string> ossBucket_ {};
+    shared_ptr<string> ossEndpoint_ {};
   };
 
   } // namespace Models

@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->completed_ == nullptr
-        && return this->createTime_ == nullptr && return this->data_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->success_ == nullptr; };
+        && this->createTime_ == nullptr && this->data_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->success_ == nullptr; };
     // completed Field Functions 
     bool hasCompleted() const { return this->completed_ != nullptr;};
     void deleteCompleted() { this->completed_ = nullptr;};
-    inline bool completed() const { DARABONBA_PTR_GET_DEFAULT(completed_, false) };
+    inline bool getCompleted() const { DARABONBA_PTR_GET_DEFAULT(completed_, false) };
     inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setCompleted(bool completed) { DARABONBA_PTR_SET_VALUE(completed_, completed) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline     const Darabonba::Json & data() const { DARABONBA_GET(data_) };
-    Darabonba::Json & data() { DARABONBA_GET(data_) };
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
     inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
-    inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setData(Darabonba::Json & data) { DARABONBA_SET_RVALUE(data_, data) };
+    inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline AyncTradeDocumentPackageExtractSmartAppResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<bool> completed_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    Darabonba::Json data_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> completed_ {};
+    shared_ptr<string> createTime_ {};
+    Darabonba::Json data_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models
