@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Each cloud product supports only one virtual instance per region.
+    // Each cloud product can only create one virtual instance in each region.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

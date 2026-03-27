@@ -106,35 +106,15 @@ namespace Models
 
 
   protected:
-    // The content type. Valid values:
-    // 
-    // - JSON (default)
-    // 
-    // - FORM
     shared_ptr<string> contentType_ {};
-    // The headers.
+    // headers
     shared_ptr<map<string, string>> headers_ {};
-    // The language. Valid values:
-    // 
-    // - zh_CN
-    // 
-    // - en_US
     shared_ptr<string> lang_ {};
-    // The request method. Valid values:
-    // 
-    // - GET
-    // 
-    // - POST
     shared_ptr<string> method_ {};
-    // The name of the webhook.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The URL for the alert callback.
-    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
-    // The unique ID of the webhook.
     shared_ptr<string> webhookId_ {};
     shared_ptr<string> workspace_ {};
   };

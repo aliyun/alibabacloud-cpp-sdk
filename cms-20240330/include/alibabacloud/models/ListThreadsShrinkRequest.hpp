@@ -75,15 +75,10 @@ namespace Models
 
 
   protected:
-    // The filter conditions for the query. If you do not specify this parameter, all threads in the instance are queried.
     shared_ptr<string> filterShrink_ {};
-    // The maximum number of results to return. The maximum value is 200.
     shared_ptr<int64_t> maxResults_ {};
-    // The paging token.
     shared_ptr<string> nextToken_ {};
-    // The session status.
     shared_ptr<string> status_ {};
-    // The session ID.
     shared_ptr<string> threadId_ {};
   };
 

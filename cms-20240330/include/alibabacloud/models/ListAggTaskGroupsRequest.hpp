@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The key of the resource group tag.
+      // Key of the resource group tag.
       shared_ptr<string> key_ {};
-      // The value of the resource group tag.
+      // Value of the resource group tag.
       shared_ptr<string> value_ {};
     };
 
@@ -150,21 +150,21 @@ namespace Models
 
 
   protected:
-    // A list of aggregation task group IDs. The value must be a string that can be parsed as a JSON array.
+    // List of IDs for the aggregation task groups, which must be JSON parseable.
     shared_ptr<string> filterAggTaskGroupIds_ {};
-    // A list of aggregation task group names. The value must be a string that can be parsed as a JSON array.
+    // List of names for the aggregation task groups, which must be JSON parseable.
     shared_ptr<string> filterAggTaskGroupNames_ {};
-    // The maximum number of entries to return on each page.
+    // Maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // Query token.
     shared_ptr<string> nextToken_ {};
-    // The name to search for. Fuzzy search is supported.
+    // Name search, supports fuzzy matching.
     shared_ptr<string> query_ {};
-    // The status of the aggregation task group. Valid values are \\`Running\\` and \\`Stopped\\`. The default value is \\`Running\\`.
+    // Status of the aggregation task group, either \\"Running\\" or \\"Stopped\\". Default is Running.
     shared_ptr<string> status_ {};
-    // The tags of the resource group.
+    // Resource group tags.
     shared_ptr<vector<ListAggTaskGroupsRequest::Tags>> tags_ {};
-    // The ID of the target Prometheus instance for the aggregation task group.
+    // The target Prometheus instance ID for the aggregation task group.
     shared_ptr<string> targetPrometheusId_ {};
   };
 

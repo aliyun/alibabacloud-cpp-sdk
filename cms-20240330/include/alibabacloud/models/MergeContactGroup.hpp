@@ -99,19 +99,12 @@ namespace Models
 
 
   protected:
-    // 组内成员的唯一标识符列表。
     shared_ptr<vector<string>> contacts_ {};
-    // 扩展字段，用于存储额外信息。
     Darabonba::Json extend_ {};
-    // 创建时间。
     shared_ptr<string> gmtCreate_ {};
-    // 最后修改时间。
     shared_ptr<string> gmtModified_ {};
-    // 联系人组唯一标识符。
     shared_ptr<string> identifier_ {};
-    // 联系人组名称。
     shared_ptr<string> name_ {};
-    // 联系人组来源系统。
     shared_ptr<string> source_ {};
   };
 

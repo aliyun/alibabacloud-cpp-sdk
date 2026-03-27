@@ -72,13 +72,9 @@ namespace Models
 
 
   protected:
-    // Custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
-    // Description.
     shared_ptr<string> description_ {};
-    // Extraction strategies. Supports "Episodic", "Summary", and "Fact".
     shared_ptr<vector<string>> extractionStrategies_ {};
-    // Short-term memory retention time.
     shared_ptr<int32_t> shortTermTtl_ {};
   };
 

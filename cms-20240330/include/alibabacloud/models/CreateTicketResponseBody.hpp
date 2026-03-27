@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The password-free ticket.
+    // 免登录票据。
     shared_ptr<string> ticket_ {};
   };
 

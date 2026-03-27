@@ -105,21 +105,13 @@ namespace Models
 
 
   protected:
-    // Agent ID
     shared_ptr<string> agentId_ {};
-    // App key assigned by the merchant
     shared_ptr<string> appId_ {};
-    // Resource metadata
     Darabonba::Json metadata_ {};
-    // Query text
     shared_ptr<string> query_ {};
-    // Rerank the search results.
     shared_ptr<bool> rerank_ {};
-    // Run ID
     shared_ptr<string> runId_ {};
-    // Number of top results to return
     shared_ptr<int32_t> topK_ {};
-    // User ID
     shared_ptr<string> userId_ {};
   };
 

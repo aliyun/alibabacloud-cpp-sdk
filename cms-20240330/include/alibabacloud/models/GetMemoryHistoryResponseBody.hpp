@@ -107,9 +107,7 @@ namespace Models
 
 
       protected:
-        // Message content.
         shared_ptr<string> content_ {};
-        // Message sender role.
         shared_ptr<string> role_ {};
       };
 
@@ -191,25 +189,15 @@ namespace Models
 
 
     protected:
-      // Creation time.
       shared_ptr<string> createdAt_ {};
-      // Event type.
       shared_ptr<string> event_ {};
-      // Memory ID.
       shared_ptr<string> id_ {};
-      // Original message.
       shared_ptr<vector<Results::Input>> input_ {};
-      // Memory ID.
       shared_ptr<string> memoryId_ {};
-      // Metadata.
       Darabonba::Json metadata_ {};
-      // New memory.
       shared_ptr<string> newMemory_ {};
-      // Old memory.
       shared_ptr<string> oldMemory_ {};
-      // Update time.
       shared_ptr<string> updatedAt_ {};
-      // User ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -232,9 +220,7 @@ namespace Models
 
 
   protected:
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Return value.
     shared_ptr<vector<GetMemoryHistoryResponseBody::Results>> results_ {};
   };
 

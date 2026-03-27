@@ -161,19 +161,19 @@ namespace Models
 
 
       protected:
-        // The scrape job name.
+        // Scraping job name
         shared_ptr<string> jobName_ {};
-        // The details.
+        // Detailed information.
         shared_ptr<string> message_ {};
-        // The scrape path.
+        // Metrics path
         shared_ptr<string> metricsPath_ {};
-        // The invocation method.
+        // Call method.
         shared_ptr<string> scheme_ {};
-        // The scrape interval.
+        // Scrape interval
         shared_ptr<string> scrapeInterval_ {};
-        // The scrape timeout period.
+        // Scrape timeout
         shared_ptr<string> scrapeTimeout_ {};
-        // The service discovery configurations.
+        // Service discovery configuration
         shared_ptr<vector<string>> serviceDiscoveryConfigs_ {};
       };
 
@@ -260,27 +260,27 @@ namespace Models
 
 
     protected:
-      // The add-on name.
+      // Addon name.
       shared_ptr<string> addonName_ {};
-      // The name of the add-on release.
+      // Addon Release name
       shared_ptr<string> addonReleaseName_ {};
-      // The add-on version.
+      // Addon version
       shared_ptr<string> addonVersion_ {};
-      // The configuration YAML file.
+      // Configuration yaml
       shared_ptr<string> configYaml_ {};
-      // The enabled status.
+      // Enable status
       shared_ptr<string> enableStatus_ {};
-      // Indicates whether the YAML file is encrypted.
+      // Encrypt yaml
       shared_ptr<bool> encryptYaml_ {};
-      // The number of matched pods.
+      // Matched pod count
       shared_ptr<int64_t> matchedPodCount_ {};
-      // The details.
+      // Detailed information.
       shared_ptr<string> message_ {};
-      // The service name.
+      // Service name.
       shared_ptr<string> name_ {};
-      // The namespace.
+      // Namespace
       shared_ptr<string> namespace_ {};
-      // The custom configurations.
+      // Custom configurations
       shared_ptr<vector<CustomScrapeJobRules::ScrapeConfigs>> scrapeConfigs_ {};
     };
 
@@ -317,13 +317,13 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // Cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The custom scrape job rules.
+    // Custom scraping job rules
     shared_ptr<vector<ListIntegrationPolicyCustomScrapeJobRulesResponseBody::CustomScrapeJobRules>> customScrapeJobRules_ {};
-    // The policy ID.
+    // Policy ID.
     shared_ptr<string> policyId_ {};
-    // The ID of the request.
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The time when the workspace was created.
+    // Creation Time
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> createTime_ {};
-    // The description of the workspace.
+    // Workspace Description
     shared_ptr<string> description_ {};
-    // The display name of the workspace.
+    // Workspace Display Name
     shared_ptr<string> displayName_ {};
-    // The time when the workspace was last modified.
+    // Last Modified Time
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> lastModifyTime_ {};
-    // The region ID.
+    // Region ID
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The name of the Simple Log Service project.
+    // Log Service Project Name
     shared_ptr<string> slsProject_ {};
-    // The name of the workspace.
+    // Workspace Name
     // 
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};

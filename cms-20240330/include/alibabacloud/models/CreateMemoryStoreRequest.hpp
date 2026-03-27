@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(extractionStrategies, extractionStrategies_);
       DARABONBA_PTR_TO_JSON(memoryStoreName, memoryStoreName_);
       DARABONBA_PTR_TO_JSON(shortTermTtl, shortTermTtl_);
+      DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
+      DARABONBA_PTR_TO_JSON(traceSourceConfig, traceSourceConfig_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMemoryStoreRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(customExtractionStrategies, customExtractionStrategies_);
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(extractionStrategies, extractionStrategies_);
       DARABONBA_PTR_FROM_JSON(memoryStoreName, memoryStoreName_);
       DARABONBA_PTR_FROM_JSON(shortTermTtl, shortTermTtl_);
+      DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
+      DARABONBA_PTR_FROM_JSON(traceSourceConfig, traceSourceConfig_);
     };
     CreateMemoryStoreRequest() = default ;
     CreateMemoryStoreRequest(const CreateMemoryStoreRequest &) = default ;
@@ -39,8 +43,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TraceSourceConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TraceSourceConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(includeOutput, includeOutput_);
+        DARABONBA_PTR_TO_JSON(query, query_);
+        DARABONBA_PTR_TO_JSON(workspace, workspace_);
+      };
+      friend void from_json(const Darabonba::Json& j, TraceSourceConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(includeOutput, includeOutput_);
+        DARABONBA_PTR_FROM_JSON(query, query_);
+        DARABONBA_PTR_FROM_JSON(workspace, workspace_);
+      };
+      TraceSourceConfig() = default ;
+      TraceSourceConfig(const TraceSourceConfig &) = default ;
+      TraceSourceConfig(TraceSourceConfig &&) = default ;
+      TraceSourceConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TraceSourceConfig() = default ;
+      TraceSourceConfig& operator=(const TraceSourceConfig &) = default ;
+      TraceSourceConfig& operator=(TraceSourceConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->includeOutput_ == nullptr
+        && this->query_ == nullptr && this->workspace_ == nullptr; };
+      // includeOutput Field Functions 
+      bool hasIncludeOutput() const { return this->includeOutput_ != nullptr;};
+      void deleteIncludeOutput() { this->includeOutput_ = nullptr;};
+      inline bool getIncludeOutput() const { DARABONBA_PTR_GET_DEFAULT(includeOutput_, false) };
+      inline TraceSourceConfig& setIncludeOutput(bool includeOutput) { DARABONBA_PTR_SET_VALUE(includeOutput_, includeOutput) };
+
+
+      // query Field Functions 
+      bool hasQuery() const { return this->query_ != nullptr;};
+      void deleteQuery() { this->query_ = nullptr;};
+      inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+      inline TraceSourceConfig& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
+
+
+      // workspace Field Functions 
+      bool hasWorkspace() const { return this->workspace_ != nullptr;};
+      void deleteWorkspace() { this->workspace_ = nullptr;};
+      inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+      inline TraceSourceConfig& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
+    protected:
+      shared_ptr<bool> includeOutput_ {};
+      shared_ptr<string> query_ {};
+      shared_ptr<string> workspace_ {};
+    };
+
     virtual bool empty() const override { return this->customExtractionStrategies_ == nullptr
-        && this->description_ == nullptr && this->extractionStrategies_ == nullptr && this->memoryStoreName_ == nullptr && this->shortTermTtl_ == nullptr; };
+        && this->description_ == nullptr && this->extractionStrategies_ == nullptr && this->memoryStoreName_ == nullptr && this->shortTermTtl_ == nullptr && this->sourceType_ == nullptr
+        && this->traceSourceConfig_ == nullptr; };
     // customExtractionStrategies Field Functions 
     bool hasCustomExtractionStrategies() const { return this->customExtractionStrategies_ != nullptr;};
     void deleteCustomExtractionStrategies() { this->customExtractionStrategies_ = nullptr;};
@@ -80,21 +137,32 @@ namespace Models
     inline CreateMemoryStoreRequest& setShortTermTtl(int32_t shortTermTtl) { DARABONBA_PTR_SET_VALUE(shortTermTtl_, shortTermTtl) };
 
 
+    // sourceType Field Functions 
+    bool hasSourceType() const { return this->sourceType_ != nullptr;};
+    void deleteSourceType() { this->sourceType_ = nullptr;};
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline CreateMemoryStoreRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
+    // traceSourceConfig Field Functions 
+    bool hasTraceSourceConfig() const { return this->traceSourceConfig_ != nullptr;};
+    void deleteTraceSourceConfig() { this->traceSourceConfig_ = nullptr;};
+    inline const CreateMemoryStoreRequest::TraceSourceConfig & getTraceSourceConfig() const { DARABONBA_PTR_GET_CONST(traceSourceConfig_, CreateMemoryStoreRequest::TraceSourceConfig) };
+    inline CreateMemoryStoreRequest::TraceSourceConfig getTraceSourceConfig() { DARABONBA_PTR_GET(traceSourceConfig_, CreateMemoryStoreRequest::TraceSourceConfig) };
+    inline CreateMemoryStoreRequest& setTraceSourceConfig(const CreateMemoryStoreRequest::TraceSourceConfig & traceSourceConfig) { DARABONBA_PTR_SET_VALUE(traceSourceConfig_, traceSourceConfig) };
+    inline CreateMemoryStoreRequest& setTraceSourceConfig(CreateMemoryStoreRequest::TraceSourceConfig && traceSourceConfig) { DARABONBA_PTR_SET_RVALUE(traceSourceConfig_, traceSourceConfig) };
+
+
   protected:
-    // A list of custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
-    // The description of the Memory Store.
     shared_ptr<string> description_ {};
-    // The extraction strategies to use. Valid values: `Episodic`, `Summary`, and `Fact`.
     shared_ptr<vector<string>> extractionStrategies_ {};
-    // The name of the Memory Store.
-    // 
     // This parameter is required.
     shared_ptr<string> memoryStoreName_ {};
-    // The time-to-live (TTL) for short-term memory.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> shortTermTtl_ {};
+    shared_ptr<string> sourceType_ {};
+    shared_ptr<CreateMemoryStoreRequest::TraceSourceConfig> traceSourceConfig_ {};
   };
 
   } // namespace Models

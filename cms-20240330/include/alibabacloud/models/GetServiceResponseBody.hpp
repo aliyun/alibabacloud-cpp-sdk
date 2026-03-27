@@ -113,9 +113,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> key_ {};
-        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -217,31 +215,29 @@ namespace Models
 
 
     protected:
-      // The extended information.
+      // Extended information.
       shared_ptr<string> attributes_ {};
-      // The time when the service was created.
+      // Creation time
       shared_ptr<string> createTime_ {};
-      // The description. This parameter is valid only when serviceType is set to RUM.
+      // Description, only valid when serviceType=RUM.
       shared_ptr<string> description_ {};
-      // The display name. This parameter is valid only when serviceType is set to RUM.
+      // Display name, only valid when serviceType=RUM.
       shared_ptr<string> displayName_ {};
-      // The ID of the ARMS application that is compatible with earlier versions.
+      // Legacy ARMS application ID
       shared_ptr<string> pid_ {};
-      // The region ID.
+      // Region ID
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The service ID.
+      // Service ID.
       shared_ptr<string> serviceId_ {};
-      // The service name.
+      // Service name
       shared_ptr<string> serviceName_ {};
-      // The service status. This parameter is valid only when serviceType is set to RUM.
+      // Service status, only valid when serviceType=RUM.
       shared_ptr<string> serviceStatus_ {};
-      // The service type.
+      // Service type.
       shared_ptr<string> serviceType_ {};
-      // The array of tags.
       shared_ptr<vector<Service::Tags>> tags_ {};
-      // The workspace name.
+      // Workspace name
       shared_ptr<string> workspace_ {};
     };
 
@@ -264,9 +260,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The service object.
+    // Service object.
     shared_ptr<GetServiceResponseBody::Service> service_ {};
   };
 

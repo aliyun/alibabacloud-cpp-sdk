@@ -147,29 +147,29 @@ namespace Models
 
 
   protected:
-    // 转换操作
+    // Transformation operation.
     shared_ptr<vector<TransformAction>> actions_ {};
-    // 创建时间
+    // Create Time.
     shared_ptr<string> createTime_ {};
-    // 描述
+    // Description.
     shared_ptr<string> description_ {};
-    // 是否启用
+    // Whether enabled.
     shared_ptr<bool> enable_ {};
-    // 筛选设置
+    // Filter Setting.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // 匹配处理后退出
+    // Exit after matching processing.
     shared_ptr<bool> quitAfterMatch_ {};
-    // 排序数
+    // Sort order.
     shared_ptr<int32_t> sortId_ {};
     // transformer Id
     shared_ptr<string> transformerId_ {};
-    // 名称
+    // Name.
     // 
     // This parameter is required.
     shared_ptr<string> transformerName_ {};
-    // 更新时间
+    // Update Time.
     shared_ptr<string> updateTime_ {};
-    // 用户id
+    // User ID.
     shared_ptr<string> userId_ {};
     // workspace
     shared_ptr<string> workspace_ {};

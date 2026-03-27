@@ -41,7 +41,6 @@ namespace Models
 
 
   protected:
-    // 行动集成ID列表
     shared_ptr<vector<string>> actions_ {};
   };
 

@@ -89,11 +89,11 @@ namespace Models
 
 
     protected:
-      // The instance ID.
+      // Instance ID.
       shared_ptr<string> prometheusInstanceId_ {};
-      // The region ID.
+      // Region.
       shared_ptr<string> regionId_ {};
-      // The user ID.
+      // User ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -152,19 +152,19 @@ namespace Models
 
 
   protected:
-    // The policy for password-free read access. IP address segments and VPC IDs are supported.
+    // Password-free read policy (supports IP segments and VpcId).
     shared_ptr<string> authFreeReadPolicy_ {};
-    // Specifies whether to enable password-free read access.
+    // Whether to support password-free read.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable authentication tokens.
+    // Whether to support authToken.
     shared_ptr<bool> enableAuthToken_ {};
-    // A list of Prometheus instances.
+    // List of Prometheus instances.
     shared_ptr<vector<UpdatePrometheusViewRequest::PrometheusInstances>> prometheusInstances_ {};
-    // The name of the Prometheus view.
+    // Prometheus view name.
     shared_ptr<string> prometheusViewName_ {};
-    // The status of the Prometheus view.
+    // Running status.
     shared_ptr<string> status_ {};
-    // The workspace to which the view belongs.
+    // Belonging workspace.
     shared_ptr<string> workspace_ {};
   };
 

@@ -83,9 +83,7 @@ namespace Models
 
 
     protected:
-      // 实体类型。
       shared_ptr<string> entityType_ {};
-      // SPL查询语句。
       shared_ptr<string> spl_ {};
     };
 
@@ -153,21 +151,13 @@ namespace Models
 
 
   protected:
-    // 实体描述。
     shared_ptr<string> description_ {};
-    // 实体ID。
     shared_ptr<string> entityGroupId_ {};
-    // 实体名称。
     shared_ptr<string> entityGroupName_ {};
-    // 实体查询规则集合。
     shared_ptr<vector<EntityGroupBase::EntityQueries>> entityQueries_ {};
-    // 用于实体发现的规则。
     shared_ptr<EntityDiscoverRule> entityRules_ {};
-    // 地域ID。
     shared_ptr<string> regionId_ {};
-    // 用户ID。
     shared_ptr<string> userId_ {};
-    // 工作空间。
     shared_ptr<string> workspace_ {};
   };
 

@@ -71,22 +71,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the specified resources. Valid values:
-    // 
-    // false (default): No
-    // true: Yes
     shared_ptr<bool> all_ {};
-    // A list of resource IDs.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag key.
-    // 
-    // You can detach tags with up to 20 tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

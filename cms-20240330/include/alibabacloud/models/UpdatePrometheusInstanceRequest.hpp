@@ -130,27 +130,33 @@ namespace Models
 
 
   protected:
-    // The number of days to store archived data after the storage duration expires. A value of 0 disables archiving. For V1 instances, the valid values are 1 to 365. This is supported only for the pay-by-data-write billing method. For V2 instances, the valid values are 1 to 3650. A value of 3650 indicates permanent storage.
+    // The number of days to automatically archive and save after the storage expires, 0 means no archiving. The range of archiving days:
+    // V1: 1~365 days. Only supported for metric write volume.
+    // V2: 1~3650 days (3650 indicates permanent storage).
     shared_ptr<int32_t> archiveDuration_ {};
-    // The policy for password-free read access. The policy supports IP address segments and VPC IDs.
+    // Password-free read policy (supports IP segments and VpcId).
     shared_ptr<string> authFreeReadPolicy_ {};
-    // The policy for password-free write access. The policy supports IP address segments and VPC IDs.
+    // Password-free write policy (supports IP segments and VpcId).
     shared_ptr<string> authFreeWritePolicy_ {};
-    // Specifies whether to enable password-free read access.
+    // Whether to enable password-free read.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable password-free write access.
+    // Whether to enable password-free write.
     shared_ptr<bool> enableAuthFreeWrite_ {};
-    // Specifies whether to enable authentication with an access token.
+    // Whether to enable access token authentication.
     shared_ptr<bool> enableAuthToken_ {};
-    // The billing method. You can change the billing method only once during the instance lifecycle. Valid values: \\`POSTPAY\\` (pay-as-you-go based on reported metrics) and \\`POSTPAY_GB\\` (pay-as-you-go based on data writes).
+    // Billing method (can only be modified once during the instance\\"s lifecycle):
+    // POSTPAY: Postpaid by metric reporting volume.
+    // POSTPAY_GB: Postpaid by metric write volume.
     shared_ptr<string> paymentType_ {};
-    // The name of the instance.
+    // Instance name.
     shared_ptr<string> prometheusInstanceName_ {};
-    // The status of the instance storage database. Only RUNNING is supported. If this parameter is left empty, the status of the storage database is not changed.
+    // Instance storage DB status (only supports RUNNING). If empty, the storage DB status will not be changed.
     shared_ptr<string> status_ {};
-    // The storage duration in days. If the instance is billed by data writes, valid values are 90 and 180. If the instance is billed by reported metrics, valid values are 15, 30, 60, 90, and 180.
+    // Storage duration (days):
+    // By write volume: 90, 180.
+    // By metric reporting volume: 15, 30, 60, 90, 180.
     shared_ptr<int32_t> storageDuration_ {};
-    // The workspace to which the instance belongs.
+    // Belonging workspace.
     shared_ptr<string> workspace_ {};
   };
 

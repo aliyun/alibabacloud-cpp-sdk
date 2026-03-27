@@ -118,23 +118,14 @@ namespace Models
 
 
   protected:
-    // 筛选配置
     shared_ptr<FilterSetting> filterSetting_ {};
-    // 标签名
     shared_ptr<string> labelKey_ {};
-    // Mapping配置。
     shared_ptr<map<string, string>> mapping_ {};
-    // 正则表达式
     shared_ptr<string> regExp_ {};
-    // 引用路径
     shared_ptr<string> source_ {};
-    // 目标位置
     shared_ptr<string> target_ {};
-    // 转换类型
     shared_ptr<string> type_ {};
-    // 设置的值
     shared_ptr<string> value_ {};
-    // 变量名
     shared_ptr<string> variable_ {};
   };
 

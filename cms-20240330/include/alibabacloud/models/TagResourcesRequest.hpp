@@ -63,17 +63,10 @@ namespace Models
 
 
   protected:
-    // A list of resource IDs.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
-    // 
-    // You can attach a maximum of 20 tags.
     shared_ptr<vector<Tag>> tag_ {};
   };
 

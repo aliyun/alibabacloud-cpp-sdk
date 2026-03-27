@@ -103,6 +103,9 @@
 #include <alibabacloud/models/CreateChatResponse.hpp>
 #include <alibabacloud/models/CreateCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/CreateCloudResourceResponse.hpp>
+#include <alibabacloud/models/CreateDeliveryTaskRequest.hpp>
+#include <alibabacloud/models/CreateDeliveryTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateDeliveryTaskResponse.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeResponse.hpp>
@@ -153,6 +156,8 @@
 #include <alibabacloud/models/DeleteBizTraceResponse.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponse.hpp>
+#include <alibabacloud/models/DeleteDeliveryTaskResponseBody.hpp>
+#include <alibabacloud/models/DeleteDeliveryTaskResponse.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeResponse.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillResponseBody.hpp>
@@ -213,6 +218,8 @@
 #include <alibabacloud/models/GetCmsServiceRequest.hpp>
 #include <alibabacloud/models/GetCmsServiceResponseBody.hpp>
 #include <alibabacloud/models/GetCmsServiceResponse.hpp>
+#include <alibabacloud/models/GetDeliveryTaskResponseBody.hpp>
+#include <alibabacloud/models/GetDeliveryTaskResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeSkillRequest.hpp>
@@ -286,6 +293,10 @@
 #include <alibabacloud/models/ListBizTracesRequest.hpp>
 #include <alibabacloud/models/ListBizTracesResponseBody.hpp>
 #include <alibabacloud/models/ListBizTracesResponse.hpp>
+#include <alibabacloud/models/ListDeliveryTasksRequest.hpp>
+#include <alibabacloud/models/ListDeliveryTasksShrinkRequest.hpp>
+#include <alibabacloud/models/ListDeliveryTasksResponseBody.hpp>
+#include <alibabacloud/models/ListDeliveryTasksResponse.hpp>
 #include <alibabacloud/models/ListDigitalEmployeeSkillVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListDigitalEmployeeSkillVersionsResponse.hpp>
 #include <alibabacloud/models/ListDigitalEmployeeSkillsRequest.hpp>
@@ -380,6 +391,9 @@
 #include <alibabacloud/models/UpdateBizTraceRequest.hpp>
 #include <alibabacloud/models/UpdateBizTraceResponseBody.hpp>
 #include <alibabacloud/models/UpdateBizTraceResponse.hpp>
+#include <alibabacloud/models/UpdateDeliveryTaskRequest.hpp>
+#include <alibabacloud/models/UpdateDeliveryTaskResponseBody.hpp>
+#include <alibabacloud/models/UpdateDeliveryTaskResponse.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeResponse.hpp>

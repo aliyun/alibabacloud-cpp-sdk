@@ -112,20 +112,12 @@ namespace Models
 
 
     protected:
-      // The time when the skill was created.
-      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The description.
       shared_ptr<string> description_ {};
-      // The display name of the skill.
       shared_ptr<string> displayName_ {};
-      // Indicates whether the skill is enabled.
       shared_ptr<bool> enable_ {};
-      // The name of the skill.
       shared_ptr<string> skillName_ {};
-      // The time when the skill was last updated.
-      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -170,15 +162,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The list of skills.
     shared_ptr<vector<ListDigitalEmployeeSkillsResponseBody::Skills>> skills_ {};
-    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

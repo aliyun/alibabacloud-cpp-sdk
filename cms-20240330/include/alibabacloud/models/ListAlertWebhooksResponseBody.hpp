@@ -133,31 +133,13 @@ namespace Models
 
 
     protected:
-      // The content type of the data. Valid values:
-      // 
-      // - JSON
-      // 
-      // - FORM
       shared_ptr<string> contentType_ {};
-      // The headers.
+      // headers
       Darabonba::Json headers_ {};
-      // The language. Valid values:
-      // 
-      // - zh_CN
-      // 
-      // - en_US
       shared_ptr<string> lang_ {};
-      // The request method. Valid values:
-      // 
-      // - GET
-      // 
-      // - POST
       shared_ptr<string> method_ {};
-      // The name of the webhook.
       shared_ptr<string> name_ {};
-      // The URL of the alert callback.
       shared_ptr<string> url_ {};
-      // The unique ID of the webhook.
       shared_ptr<string> webhookId_ {};
       shared_ptr<string> workspace_ {};
     };
@@ -202,15 +184,11 @@ namespace Models
 
 
   protected:
-    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
     shared_ptr<int64_t> total_ {};
-    // The webhooks.
+    // webhooks
     shared_ptr<vector<ListAlertWebhooksResponseBody::Webhooks>> webhooks_ {};
   };
 

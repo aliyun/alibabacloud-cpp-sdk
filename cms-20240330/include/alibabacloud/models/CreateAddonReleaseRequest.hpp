@@ -124,29 +124,29 @@ namespace Models
 
 
   protected:
-    // The name of the add-on to integrate.
+    // The Addon name of the component that needs to be monitored.
     // 
     // This parameter is required.
     shared_ptr<string> addonName_ {};
-    // The language of the add-on.
+    // The language type of the component.
     shared_ptr<string> aliyunLang_ {};
-    // Specifies whether to perform a dry run. The default value is false.
+    // Whether it is a dry run, default is false.
     shared_ptr<bool> dryRun_ {};
-    // The entity discovery rules.
+    // Field rules
     shared_ptr<EntityDiscoverRule> entityRules_ {};
-    // The environment type. Set this parameter to CS for container environments or ECS for ECS environments. For all other environment types, set this parameter to Cloud.
+    // Environment type. If the Policy type is CS and ECS, use accordingly; otherwise, it is unified as Cloud.
     shared_ptr<string> envType_ {};
-    // The ID of the parent AddonRelease.
+    // Parent AddonReleaseId.
     shared_ptr<string> parentAddonReleaseId_ {};
-    // The name of the release after the integration. If you do not specify this parameter, a default name is generated.
+    // The plugin name after access. If not specified, a default rule name will be generated.
     shared_ptr<string> releaseName_ {};
-    // The metadata.
+    // Input metadata.
     shared_ptr<string> values_ {};
-    // The version of the add-on to integrate.
+    // The version of the Addon component that needs to be monitored.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};
-    // The name of the workspace where the add-on is installed.
+    // The workspace name for installing the component resources.
     shared_ptr<string> workspace_ {};
   };
 

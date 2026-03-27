@@ -48,9 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The name of the skill.
     shared_ptr<string> skillName_ {};
   };
 

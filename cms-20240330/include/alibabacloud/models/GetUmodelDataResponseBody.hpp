@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The detailed information.
+      // Details.
       shared_ptr<string> message_ {};
-      // The type of the error.
+      // Error type
       shared_ptr<string> type_ {};
     };
 
@@ -135,17 +135,17 @@ namespace Models
 
 
   protected:
-    // The error messages.
+    // Error information
     shared_ptr<vector<GetUmodelDataResponseBody::Errors>> errors_ {};
-    // The list of links between nodes.
+    // List of node link relationships
     shared_ptr<vector<Darabonba::Json>> links_ {};
-    // The list of nodes.
+    // List of nodes
     shared_ptr<vector<Darabonba::Json>> nodes_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The total number of links between nodes.
+    // Total number of node links
     shared_ptr<int32_t> totalLinksCount_ {};
-    // The total number of nodes.
+    // Total number of nodes
     shared_ptr<int32_t> totalNodesCount_ {};
   };
 

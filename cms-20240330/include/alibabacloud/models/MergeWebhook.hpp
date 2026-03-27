@@ -142,29 +142,17 @@ namespace Models
 
 
   protected:
-    // 内容类型。
     shared_ptr<string> contentType_ {};
-    // 扩展字段，用于存储额外配置。
     shared_ptr<string> extend_ {};
-    // 创建时间。
     shared_ptr<string> gmtCreate_ {};
-    // 最后修改时间。
     Darabonba::Json gmtModified_ {};
-    // 请求头信息。
     shared_ptr<string> headers_ {};
-    // Webhook 唯一标识符。
     shared_ptr<string> identifier_ {};
-    // 语言偏好。
     shared_ptr<string> lang_ {};
-    // HTTP 请求方法。
     shared_ptr<string> method_ {};
-    // Webhook 名称。
     shared_ptr<string> name_ {};
-    // Webhook 来源系统。
     shared_ptr<string> source_ {};
-    // Webhook 类型，表示其目标平台。
     shared_ptr<string> type_ {};
-    // Webhook 地址，用于发送请求。
     shared_ptr<string> webhook_ {};
   };
 

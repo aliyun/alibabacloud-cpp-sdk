@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // Tag key
       shared_ptr<string> key_ {};
-      // The tag value.
+      // Tag value
       shared_ptr<string> value_ {};
     };
 
@@ -205,33 +205,33 @@ namespace Models
 
 
   protected:
-    // The add-on name.
+    // Addon name.
     shared_ptr<string> addonName_ {};
-    // The ID of the attached resource.
+    // Bound resource ID
     shared_ptr<string> bindResourceId_ {};
-    // The IDs of the entity groups to filter by. Separate multiple IDs with commas.
+    // Filter for entity IDs, separated by commas
     shared_ptr<string> entityGroupIds_ {};
-    // The IDs of the regions to query. Separate multiple region IDs with commas.
+    // Used for Region query, separated by commas
     shared_ptr<string> filterRegionIds_ {};
-    // The maximum number of entries to return on each page. The default value is 30. The maximum value is 100.
+    // Maximum number of results to return. Default is 30, with a maximum of 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first request. You can obtain the token from the response to the previous request.
+    // Used to return more results. This parameter is not required for the first query. For subsequent queries, use the Token obtained from the response.
     shared_ptr<string> nextToken_ {};
-    // The policy ID.
+    // Policy ID.
     shared_ptr<string> policyId_ {};
-    // The policy name.
+    // Rule name.
     shared_ptr<string> policyName_ {};
-    // The policy type.
+    // Policy type
     shared_ptr<string> policyType_ {};
-    // The instance ID.
+    // Instance ID.
     shared_ptr<string> prometheusInstanceId_ {};
-    // A general-purpose query string.
+    // Used for general queries
     shared_ptr<string> query_ {};
-    // The resource group ID.
+    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of tags.
+    // Tag list.
     shared_ptr<vector<ListIntegrationPoliciesRequest::Tag>> tag_ {};
-    // The workspace.
+    // Workspace.
     shared_ptr<string> workspace_ {};
   };
 

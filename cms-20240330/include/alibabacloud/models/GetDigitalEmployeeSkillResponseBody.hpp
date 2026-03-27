@@ -86,9 +86,7 @@ namespace Models
 
 
     protected:
-      // File content
       shared_ptr<string> content_ {};
-      // File name
       shared_ptr<string> name_ {};
     };
 
@@ -168,29 +166,18 @@ namespace Models
 
 
   protected:
-    // Creation time
-    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
-    // Skill description
     shared_ptr<string> description_ {};
-    // Skill display name
     shared_ptr<string> displayName_ {};
-    // Whether the skill is enabled
     shared_ptr<bool> enable_ {};
-    // Skill file list
     shared_ptr<vector<GetDigitalEmployeeSkillResponseBody::Files>> files_ {};
-    // Remarks
     shared_ptr<string> remark_ {};
-    // Request ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Skill name
     shared_ptr<string> skillName_ {};
-    // Update time
-    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
-    // Version number
     shared_ptr<string> version_ {};
   };
 

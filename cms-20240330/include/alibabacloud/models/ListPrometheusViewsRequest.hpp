@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // Tag key
       shared_ptr<string> key_ {};
-      // The tag value.
+      // Match value.
       shared_ptr<string> value_ {};
     };
 
@@ -168,25 +168,25 @@ namespace Models
 
 
   protected:
-    // The region IDs by which to filter the results.
+    // Filter by RegionID.
     shared_ptr<string> filterRegionIds_ {};
-    // The maximum number of records to return.
+    // Maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token.
+    // Query token.
     shared_ptr<string> nextToken_ {};
-    // The IDs of the Prometheus view instances.
+    // List of Prometheus view instance IDs.
     shared_ptr<string> prometheusViewIds_ {};
-    // The name of the Prometheus view.
+    // Prometheus view name.
     shared_ptr<string> prometheusViewName_ {};
-    // The resource group ID.
+    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource type.
+    // Resource type.
     shared_ptr<string> resourceType_ {};
-    // The list of tags.
+    // List of tags.
     shared_ptr<vector<ListPrometheusViewsRequest::Tag>> tag_ {};
-    // The instance version. Valid values: V1 and V2.
+    // Instance version: V1 or V2
     shared_ptr<string> version_ {};
-    // The name of the workspace.
+    // Workspace name
     shared_ptr<string> workspace_ {};
   };
 

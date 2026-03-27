@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // The group of the common Umodel schema.
-    // 
     // This parameter is required.
     shared_ptr<string> group_ {};
-    // The version number.
-    // 
     // This parameter is required.
     shared_ptr<string> version_ {};
   };

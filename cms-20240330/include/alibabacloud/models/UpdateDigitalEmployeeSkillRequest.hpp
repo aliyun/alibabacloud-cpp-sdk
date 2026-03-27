@@ -76,9 +76,7 @@ namespace Models
 
 
     protected:
-      // File content
       shared_ptr<string> content_ {};
-      // File name
       shared_ptr<string> name_ {};
     };
 
@@ -122,19 +120,12 @@ namespace Models
 
 
   protected:
-    // Description
     shared_ptr<string> description_ {};
-    // Display name
     shared_ptr<string> displayName_ {};
-    // Is enabled
-    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
-    // List of skill files
-    // 
     // This parameter is required.
     shared_ptr<vector<UpdateDigitalEmployeeSkillRequest::Files>> files_ {};
-    // Remark
     shared_ptr<string> remark_ {};
   };
 

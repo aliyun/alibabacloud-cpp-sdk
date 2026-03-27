@@ -109,19 +109,12 @@ namespace Models
 
 
   protected:
-    // 联系人ID过滤
     shared_ptr<vector<string>> contacts_ {};
-    // 自定义webhook ID过滤
     shared_ptr<vector<string>> customWebhooks_ {};
-    // 钉钉webhook ID过滤
     shared_ptr<vector<string>> dingWebhooks_ {};
-    // 飞书webhook ID过滤
     shared_ptr<vector<string>> fsWebhooks_ {};
-    // 联系人组过滤配置
     shared_ptr<vector<string>> groups_ {};
-    // slack webhook ID过滤列表
     shared_ptr<vector<string>> slackWebhooks_ {};
-    // 微信webhook ID过滤
     shared_ptr<vector<string>> wxWebhooks_ {};
   };
 

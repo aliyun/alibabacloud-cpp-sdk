@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // RUM上报域名
     shared_ptr<string> domain_ {};
-    // 初始化message（失败场景）
     shared_ptr<string> message_ {};
-    // 域名DNS初始化状态
     shared_ptr<bool> result_ {};
   };
 

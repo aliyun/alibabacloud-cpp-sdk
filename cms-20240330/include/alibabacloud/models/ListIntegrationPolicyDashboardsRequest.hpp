@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The add-on name.
+    // Addon Name.
     shared_ptr<string> addonName_ {};
-    // The query language.
+    // Query Language
     shared_ptr<string> language_ {};
-    // The component scenario.
+    // Component Scenario.
     shared_ptr<string> scene_ {};
   };
 

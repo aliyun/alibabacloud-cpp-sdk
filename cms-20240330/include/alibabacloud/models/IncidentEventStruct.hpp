@@ -165,33 +165,33 @@ namespace Models
 
 
   protected:
-    // 自动恢复时间。
+    // Automatic recovery time.
     shared_ptr<int64_t> autoRecoverTime_ {};
-    // 内容。
+    // Content.
     shared_ptr<string> content_ {};
-    // 统计数量。
+    // Count.
     shared_ptr<int32_t> count_ {};
-    // 维度。
+    // Dimension.
     shared_ptr<map<string, string>> dimension_ {};
-    // 用于分组维度。
+    // Used for grouping dimensions.
     shared_ptr<map<string, string>> groupBy_ {};
-    // 事件事件ID。
+    // Incident Event Id.
     shared_ptr<string> incidentEventId_ {};
-    // 事件ID。
+    // Incident Id.
     shared_ptr<string> incidentId_ {};
-    // 最后时间。
+    // Last time.
     shared_ptr<int64_t> lastTime_ {};
-    // 手动恢复时间。
+    // Manual recovery time.
     shared_ptr<int64_t> recoverTime_ {};
-    // 描述事件关联的资源信息。
+    // Describes the resource information associated with the event.
     shared_ptr<map<string, string>> resource_ {};
-    // 状态。
+    // Status.
     shared_ptr<int64_t> status_ {};
-    // 时间。
+    // Time.
     shared_ptr<string> time_ {};
-    // 标题。
+    // Title.
     shared_ptr<string> title_ {};
-    // 用户ID。
+    // User ID.
     shared_ptr<string> userId_ {};
   };
 

@@ -86,9 +86,7 @@ namespace Models
 
 
     protected:
-      // Content.
       shared_ptr<string> content_ {};
-      // Role.
       shared_ptr<string> role_ {};
     };
 
@@ -170,24 +168,15 @@ namespace Models
 
 
   protected:
-    // Application agent ID.
     shared_ptr<string> agentId_ {};
-    // Application ID.
     shared_ptr<string> appId_ {};
-    // Asynchronous mode.
     shared_ptr<bool> asyncMode_ {};
-    // Custom instructions.
     shared_ptr<string> customInstructions_ {};
-    // Infer.
     shared_ptr<bool> infer_ {};
-    // Messages.
     shared_ptr<vector<AddMemoriesRequest::Messages>> messages_ {};
-    // Metadata.
     Darabonba::Json metadata_ {};
-    // Run ID.
     shared_ptr<string> runId_ {};
     shared_ptr<int64_t> timestamp_ {};
-    // User ID.
     shared_ptr<string> userId_ {};
   };
 

@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // The status code.
+        // Status code
         shared_ptr<string> code_ {};
-        // The status level.
+        // Status level
         shared_ptr<string> level_ {};
-        // The execution information.
+        // Calculation execution information
         shared_ptr<string> message_ {};
-        // The suggestion provided when an execution fault occurs.
+        // Suggestions when an error occurs during execution
         shared_ptr<string> suggestion_ {};
       };
 
@@ -169,15 +169,15 @@ namespace Models
 
 
     protected:
-      // Information about the execution procedure.
+      // Information during the execution process
       shared_ptr<string> executionStates_ {};
-      // The status level.
+      // Status level
       shared_ptr<string> level_ {};
-      // The execution result.
+      // Execution result
       shared_ptr<string> result_ {};
-      // The retry policy.
+      // Retry policy
       shared_ptr<string> retryPolicy_ {};
-      // A list of detailed status information.
+      // Detailed status information list
       shared_ptr<vector<ResponseStatus::StatusItem>> statusItem_ {};
     };
 
@@ -218,13 +218,13 @@ namespace Models
 
 
   protected:
-    // The list of returned data.
+    // Total list of returned data
     shared_ptr<vector<vector<string>>> data_ {};
-    // The list of request headers.
+    // List of request headers
     shared_ptr<vector<string>> header_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The result status.
+    // Result status
     shared_ptr<GetEntityStoreDataResponseBody::ResponseStatus> responseStatus_ {};
   };
 

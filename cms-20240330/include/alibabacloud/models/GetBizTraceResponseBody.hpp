@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // The business trace.
     shared_ptr<BizTraceConfig> item_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

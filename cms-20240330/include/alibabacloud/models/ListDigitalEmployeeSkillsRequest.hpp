@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page. A null value indicates that there are no more pages.
     shared_ptr<string> nextToken_ {};
-    // The name of the skill.
     shared_ptr<string> skillName_ {};
   };
 

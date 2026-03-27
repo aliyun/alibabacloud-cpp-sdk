@@ -138,15 +138,10 @@ namespace Models
 
 
       protected:
-        // The collection interval.
         shared_ptr<string> interval_ {};
-        // The number of matched targets.
         shared_ptr<int64_t> matchedTargetCount_ {};
-        // The collection path.
         shared_ptr<string> path_ {};
-        // The collection port.
         shared_ptr<string> port_ {};
-        // The target port.
         shared_ptr<string> targetPort_ {};
       };
 
@@ -226,25 +221,15 @@ namespace Models
 
 
     protected:
-      // The add-on name.
       shared_ptr<string> addonName_ {};
-      // The name of the add-on release.
       shared_ptr<string> addonReleaseName_ {};
-      // The add-on version.
       shared_ptr<string> addonVersion_ {};
-      // The configuration YAML file.
       shared_ptr<string> configYaml_ {};
-      // The status.
       shared_ptr<string> enableStatus_ {};
-      // Indicates whether the YAML file is encrypted.
       shared_ptr<bool> encryptYaml_ {};
-      // The list of Endpoints.
       shared_ptr<vector<ServiceMonitors::Endpoints>> endpoints_ {};
-      // The number of matched services.
       shared_ptr<int64_t> matchedServiceCount_ {};
-      // The name of the ServiceMonitor.
       shared_ptr<string> name_ {};
-      // The namespace.
       shared_ptr<string> namespace_ {};
     };
 
@@ -281,13 +266,9 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of ServiceMonitors.
     shared_ptr<vector<ListIntegrationPolicyServiceMonitorsResponseBody::ServiceMonitors>> serviceMonitors_ {};
   };
 

@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The name of the add-on release.
     shared_ptr<string> addonReleaseName_ {};
-    // Specifies whether to encrypt the YAML file.
     shared_ptr<bool> encryptYaml_ {};
-    // The namespace.
     shared_ptr<string> namespace_ {};
   };
 

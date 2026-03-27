@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The description.
+    // Description.
     shared_ptr<string> description_ {};
   };
 

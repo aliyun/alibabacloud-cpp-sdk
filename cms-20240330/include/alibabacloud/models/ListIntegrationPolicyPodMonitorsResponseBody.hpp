@@ -138,15 +138,15 @@ namespace Models
 
 
       protected:
-        // The collection interval.
+        // Collection interval
         shared_ptr<string> interval_ {};
-        // The number of matched targets.
+        // Number of matched targets
         shared_ptr<int64_t> matchedTargetCount_ {};
-        // The metric collection path.
+        // Metric collection path
         shared_ptr<string> path_ {};
-        // The port number.
+        // Port number
         shared_ptr<string> port_ {};
-        // The target port.
+        // Target port
         shared_ptr<string> targetPort_ {};
       };
 
@@ -226,25 +226,25 @@ namespace Models
 
 
     protected:
-      // The name of the add-on.
+      // Addon name.
       shared_ptr<string> addonName_ {};
-      // The name of the add-on release.
+      // Addon Release name.
       shared_ptr<string> addonReleaseName_ {};
-      // The version of the add-on.
+      // Addon version.
       shared_ptr<string> addonVersion_ {};
-      // The YAML configuration.
+      // Configuration yaml.
       shared_ptr<string> configYaml_ {};
-      // The status.
+      // Enable status.
       shared_ptr<string> enableStatus_ {};
-      // Indicates whether the YAML file is encrypted.
+      // Encrypt yaml.
       shared_ptr<bool> encryptYaml_ {};
-      // The endpoints of the instance.
+      // Instance endpoints.
       shared_ptr<vector<PodMonitors::Endpoints>> endpoints_ {};
-      // The number of matched pods.
+      // Number of matched pods
       shared_ptr<int64_t> matchedPodCount_ {};
-      // The collection name.
+      // Collection name.
       shared_ptr<string> name_ {};
-      // The namespace.
+      // Namespace
       shared_ptr<string> namespace_ {};
     };
 
@@ -281,13 +281,13 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // Cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The list of PodMonitors.
+    // PodMonitor list
     shared_ptr<vector<ListIntegrationPolicyPodMonitorsResponseBody::PodMonitors>> podMonitors_ {};
-    // The policy ID.
+    // Policy ID.
     shared_ptr<string> policyId_ {};
-    // The ID of the request.
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

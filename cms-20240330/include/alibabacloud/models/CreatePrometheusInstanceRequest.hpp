@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // Tag key.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // Tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -187,43 +187,38 @@ namespace Models
 
 
   protected:
-    // The number of days that data is automatically archived after the storage duration expires. A value of 0 indicates that data is not archived. Valid values:
-    // 
-    // - V1 instances: 60 to 365.
-    // 
-    // - V2 instances: 60 to 3650. A value of 3650 indicates that the data is permanently stored.
+    // The number of days to automatically archive and save after the storage expires, 0 means no archiving. The range of archiving days is as follows:
+    // * V1: 60~365 days.
+    // * V2: 60~3650 days (3650 indicates permanent storage).
     shared_ptr<int32_t> archiveDuration_ {};
-    // The policy for password-free read access. IP address ranges and VPC IDs are supported.
+    // Password-free read policy (supports IP segments and VpcId).
     shared_ptr<string> authFreeReadPolicy_ {};
-    // The policy for password-free write access.
+    // Password-free write policy.
     shared_ptr<string> authFreeWritePolicy_ {};
-    // Specifies whether to enable password-free read access. This feature is supported only for V2 instances.
+    // Whether to enable password-free read (only supported in V2 version).
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable password-free write access. This feature is supported only for V2 instances.
+    // Whether to enable password-free write (only supported in V2 version).
     shared_ptr<bool> enableAuthFreeWrite_ {};
-    // Specifies whether to enable an authorization token. This feature is supported only for V1 instances.
+    // Whether to enable authorization Token (only supported in V1 version).
     shared_ptr<bool> enableAuthToken_ {};
-    // The billing method.
-    // 
-    // - POSTPAY: pay-as-you-go based on the volume of reported metrics.
-    // 
-    // - Note: If you leave this parameter empty, the default billing method is used. If a default billing method is not configured, POSTPAY is used.
+    // Billing method:
+    // * POSTPAY: Postpaid by metric reporting volume.
+    // * POSTPAY_GB: Postpaid by metric write volume.
+    // Note, if left blank, the user\\"s default billing method configuration will be used. If the user has not configured a default, the system defaults to billing by metric reporting volume.
     shared_ptr<string> paymentType_ {};
-    // The name of the instance.
+    // Instance name.
     // 
     // This parameter is required.
     shared_ptr<string> prometheusInstanceName_ {};
-    // The instance status.
+    // Instance status.
     shared_ptr<string> status_ {};
-    // The storage duration of the instance in days. The valid values depend on the billing method:
-    // 
-    // - For instances billed based on data written: 90 and 180.
-    // 
-    // - For instances billed based on reported metrics: 15, 30, 60, 90, and 180.
+    // Storage duration (days):
+    // * By write volume: 90, 180.
+    // * By metric reporting volume: 15, 30, 60, 90, 180.
     shared_ptr<int32_t> storageDuration_ {};
-    // The tags.
+    // Tag values.
     shared_ptr<vector<CreatePrometheusInstanceRequest::Tags>> tags_ {};
-    // The workspace to which the instance belongs. The default value is default-cms-{userId}-{regionId}.
+    // Belonging workspace, default value: default-cms-{userId}-{regionId}.
     shared_ptr<string> workspace_ {};
   };
 

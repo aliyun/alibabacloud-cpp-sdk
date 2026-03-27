@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The region ID.
+    // Region ID
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The name of the workspace.
+    // Workspace name
     shared_ptr<string> workspaceName_ {};
   };
 

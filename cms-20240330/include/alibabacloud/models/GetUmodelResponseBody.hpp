@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The public Umodel schema group.
+      // Common Umodel Schema group
       shared_ptr<string> group_ {};
-      // The version.
+      // Version
       shared_ptr<string> version_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // This parameter is reserved.
+    // This field does not need to be filled currently
     shared_ptr<vector<GetUmodelResponseBody::CommonSchemaRef>> commonSchemaRef_ {};
-    // The Umodel description.
+    // Umodel description
     shared_ptr<string> description_ {};
-    // The region of the resource.
+    // Region
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The workspace name.
+    // Workspace name
     shared_ptr<string> workspace_ {};
   };
 

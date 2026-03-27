@@ -91,19 +91,12 @@ namespace Models
 
 
   protected:
-    // 名称
-    // 
     // This parameter is required.
     shared_ptr<string> alertEventIntegrationPolicyName_ {};
-    // 描述
     shared_ptr<string> description_ {};
-    // 过滤设置
     shared_ptr<FilterSetting> filterSetting_ {};
-    // 订阅设置
     shared_ptr<string> integrationSetting_ {};
-    // 转换设置
     shared_ptr<vector<TransformAction>> transformerSetting_ {};
-    // 类型
     shared_ptr<string> type_ {};
   };
 

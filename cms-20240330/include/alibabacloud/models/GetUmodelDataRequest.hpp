@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The query conditions.
+    // Query conditions
     Darabonba::Json content_ {};
-    // The method.
+    // Method
     // 
     // This parameter is required.
     shared_ptr<string> method_ {};

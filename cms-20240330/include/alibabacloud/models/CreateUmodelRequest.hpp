@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The description of the Umodel.
+    // Umodel description
     shared_ptr<string> description_ {};
   };
 

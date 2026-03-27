@@ -94,19 +94,12 @@ namespace Models
 
 
   protected:
-    // Digital employee display name.
     shared_ptr<string> displayName_ {};
-    // Digital employee type.
     shared_ptr<string> employeeType_ {};
-    // The number of entries to return on each page. The default value is 20. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // Digital employee name.
     shared_ptr<string> name_ {};
-    // Token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Tags.
     shared_ptr<string> tagsShrink_ {};
   };
 

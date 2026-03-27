@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // The request body.
     shared_ptr<NotifyStrategyForModify> body_ {};
-    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

@@ -158,29 +158,17 @@ namespace Models
   protected:
     // UUID
     shared_ptr<string> alertEventIntegrationPolicyId_ {};
-    // 名称
-    // 
     // This parameter is required.
     shared_ptr<string> alertEventIntegrationPolicyName_ {};
-    // 创建时间
     shared_ptr<string> createTime_ {};
-    // 描述
     shared_ptr<string> description_ {};
-    // 是否启用
     shared_ptr<bool> enable_ {};
-    // 过滤配置
     shared_ptr<FilterSetting> filterSetting_ {};
-    // 订阅设置
     shared_ptr<string> integrationSetting_ {};
-    // 集成的上报入口key
     shared_ptr<string> token_ {};
-    // 转换设置
     shared_ptr<vector<TransformAction>> transformerSetting_ {};
-    // 类型
     shared_ptr<string> type_ {};
-    // 更新时间
     shared_ptr<string> updateTime_ {};
-    // 用户id
     shared_ptr<string> userId_ {};
     // workspace
     shared_ptr<string> workspace_ {};

@@ -114,9 +114,8 @@ namespace Models
 
 
       protected:
-        // The Simple Log Service (SLS) project.
+        // SLS project。
         shared_ptr<string> project_ {};
-        // The workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -192,21 +191,13 @@ namespace Models
 
     protected:
       shared_ptr<map<string, string>> attributes_ {};
-      // The time when the session was created.
       shared_ptr<string> createTime_ {};
-      // The name of the digital employee.
       shared_ptr<string> digitalEmployeeName_ {};
-      // The session status.
       shared_ptr<string> status_ {};
-      // The session ID.
       shared_ptr<string> threadId_ {};
-      // The session title.
       shared_ptr<string> title_ {};
-      // The time when the session was last updated.
       shared_ptr<string> updateTime_ {};
-      // The session properties.
       shared_ptr<Threads::Variables> variables_ {};
-      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -257,17 +248,12 @@ namespace Models
 
 
   protected:
-    // The maximum number of results returned. The maximum value is 200.
     shared_ptr<int64_t> maxResults_ {};
-    // The paging token.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The session ID.
     shared_ptr<string> threadId_ {};
-    // The sessions.
     shared_ptr<vector<ListThreadsResponseBody::Threads>> threads_ {};
-    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

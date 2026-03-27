@@ -91,11 +91,8 @@ namespace Models
 
 
     protected:
-      // 选项的中文显示名称
       shared_ptr<string> labelCn_ {};
-      // 选项的英文显示名称
       shared_ptr<string> labelEn_ {};
-      // 值
       shared_ptr<string> value_ {};
     };
 
@@ -161,23 +158,13 @@ namespace Models
 
 
   protected:
-    // 输入框的最大宽度，仅对SELECT_PARAM、INPUT_PARAM生效
     shared_ptr<int32_t> maxWidth_ {};
-    // 输入框的最小宽度，仅对SELECT_PARAM、INPUT_PARAM生效
     shared_ptr<int32_t> minWidth_ {};
-    // 名称
     shared_ptr<string> name_ {};
-    // 仅对INPUT_PARAM有效。用于前端展示的中文展位符
     shared_ptr<string> placeholderCn_ {};
-    // 仅对INPUT_PARAM有效。用于前端展示的英文展位符
     shared_ptr<string> placeholderEn_ {};
-    // ● TEXT_PARAM: 只读文本参数，由后台定义，前端不显示用户输入控件
-    // ● INPUT_PARAM：输入框参数
-    // ● SELECT_PARAM：选择框参数
     shared_ptr<string> type_ {};
-    // 值
     shared_ptr<string> value_ {};
-    // 仅对SELECT_PARAM有效。  下拉列表的可选值列表。
     shared_ptr<vector<AlertRuleAlertMetricParamDef::Values>> values_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ARMS application for backward compatibility.
+    // Historical compatible ARMS application ID
     shared_ptr<string> pid_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The service ID.
+    // Service ID
     shared_ptr<string> serviceId_ {};
   };
 

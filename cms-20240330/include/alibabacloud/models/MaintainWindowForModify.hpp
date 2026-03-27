@@ -101,13 +101,13 @@ namespace Models
 
 
     protected:
-      // 生效天(周一到周日)
+      // Effective days (Monday to Sunday).
       shared_ptr<vector<int32_t>> dayInWeek_ {};
-      // 结束时间(分钟数)
+      // End time (in minutes).
       shared_ptr<int32_t> endTimeInMinute_ {};
-      // 开始时间(分钟数)
+      // Start time (in minutes).
       shared_ptr<int32_t> startTimeInMinute_ {};
-      // 时区
+      // Time zone.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -168,21 +168,21 @@ namespace Models
 
 
   protected:
-    // 描述
+    // Description.
     shared_ptr<string> description_ {};
-    // 生效时间范围
+    // Effective time range.
     shared_ptr<MaintainWindowForModify::EffectTimeRange> effectTimeRange_ {};
-    // Crontab 表达式
+    // Crontab expression.
     shared_ptr<string> effective_ {};
-    // 生效结束时间
+    // Effective end time.
     shared_ptr<string> endTime_ {};
-    // 筛选条件
+    // Filtering conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // 名称
+    // Name.
     // 
     // This parameter is required.
     shared_ptr<string> maintainWindowName_ {};
-    // 生效开始时间
+    // Effective start time.
     shared_ptr<string> startTime_ {};
   };
 

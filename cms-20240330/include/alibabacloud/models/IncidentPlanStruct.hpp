@@ -169,33 +169,33 @@ namespace Models
 
 
   protected:
-    // 自动恢复等待时间。
+    // Automatic recovery wait time.
     shared_ptr<int32_t> autoRecoverSeconds_ {};
-    // 事件关闭超时时间。
+    // Event closure timeout.
     shared_ptr<int64_t> closeExpire_ {};
-    // 参与协作的团队或角色列表。
+    // List of teams or roles involved in collaboration.
     shared_ptr<vector<IncidentPlanCorporationStruct>> corporation_ {};
-    // 预案描述。
+    // Contingency plan description.
     shared_ptr<string> description_ {};
-    // 升级策略 ID的列表。
+    // List of escalation policy IDs.
     shared_ptr<vector<string>> escalationId_ {};
-    // 创建时间。
+    // Creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // 最后修改时间
+    // Last modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // 分组字段路径
+    // Grouping field path.
     shared_ptr<vector<IncidentPlanFieldPath>> groupBy_ {};
-    // 事件预案 ID。
+    // Event contingency plan ID.
     shared_ptr<string> incidentPlanId_ {};
-    // 预案名称。
+    // Contingency plan name.
     shared_ptr<string> name_ {};
-    // 资源字段映射路径的列表。
+    // List of resource field mapping paths.
     shared_ptr<vector<IncidentPlanFieldPath>> resourceFiled_ {};
-    // 状态。
+    // Status.
     shared_ptr<string> status_ {};
-    // 用户 ID。
+    // User ID.
     shared_ptr<int64_t> userId_ {};
-    // 工作空间名称
+    // Workspace name.
     shared_ptr<string> workspace_ {};
   };
 

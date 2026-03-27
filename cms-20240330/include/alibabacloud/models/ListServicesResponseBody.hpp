@@ -158,27 +158,26 @@ namespace Models
 
 
     protected:
-      // Additional information.
+      // Extended information.
       shared_ptr<string> attributes_ {};
-      // The creation time.
+      // Creation time
       shared_ptr<string> createTime_ {};
-      // The service description. This parameter is valid only when serviceType is RUM.
+      // Service description, valid only when serviceType=RUM.
       shared_ptr<string> description_ {};
-      // The display name. This parameter is valid only when serviceType is RUM.
+      // Display name, valid only when serviceType=RUM.
       shared_ptr<string> displayName_ {};
-      // The ID of the ARMS application for backward compatibility.
+      // Historical compatible ARMS application ID
       shared_ptr<string> pid_ {};
-      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The service ID.
+      // Service ID
       shared_ptr<string> serviceId_ {};
-      // The service name.
+      // Service name
       shared_ptr<string> serviceName_ {};
-      // The service status. This parameter is valid only when serviceType is RUM.
+      // Service status, valid only when serviceType=RUM.
       shared_ptr<string> serviceStatus_ {};
-      // The service type.
+      // Service type
       shared_ptr<string> serviceType_ {};
-      // The workspace.
+      // Workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -222,15 +221,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of results returned. The maximum value is 200.
+    // Maximum number of results to return, with a maximum value of 200
     shared_ptr<int32_t> maxResults_ {};
-    // The paging token.
+    // Pagination token
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // A list of service information.
+    // List of service information.
     shared_ptr<vector<ListServicesResponseBody::Services>> services_ {};
-    // The total number of records.
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
   };
 

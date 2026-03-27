@@ -59,11 +59,11 @@ namespace Models
 
 
   protected:
-    // 额外的资源标识符
+    // Additional resource identifier.
     shared_ptr<string> extraId_ {};
-    // 资源 ID 对象。
+    // Resource ID object.
     Darabonba::Json resourceId_ {};
-    // 资源类型，表示该资源属于哪种云产品。
+    // Resource type, indicating which cloud product the resource belongs to.
     shared_ptr<string> type_ {};
   };
 

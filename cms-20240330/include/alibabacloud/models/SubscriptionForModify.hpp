@@ -102,9 +102,13 @@ namespace Models
 
 
     protected:
+      // Alert push action plan ID list.
       shared_ptr<vector<string>> alertActionIds_ {};
+      // Action plan ID.
       shared_ptr<string> responsePlanId_ {};
+      // Action integration plan ID list.
       shared_ptr<vector<string>> restoreActionIds_ {};
+      // Template UUID.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -159,10 +163,16 @@ namespace Models
 
 
   protected:
+    // Description.
     shared_ptr<string> description_ {};
+    // Filtering settings.
     shared_ptr<FilterSetting> filterSetting_ {};
+    // Notification policy UUID.
     shared_ptr<string> notifyStrategyId_ {};
+    // Push settings.
     shared_ptr<SubscriptionForModify::PushingSetting> pushingSetting_ {};
+    // Name.
+    // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};

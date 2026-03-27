@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The public Umodel schema group.
-    // 
     // This parameter is required.
     shared_ptr<string> group_ {};
   };

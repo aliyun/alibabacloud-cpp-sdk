@@ -181,13 +181,9 @@ namespace Models
 
 
         protected:
-          // 协议描述
           shared_ptr<string> description_ {};
-          // 协议显示icon
           shared_ptr<string> icon_ {};
-          // 协议显示名称
           shared_ptr<string> label_ {};
-          // 协议名称
           shared_ptr<string> name_ {};
         };
 
@@ -221,7 +217,6 @@ namespace Models
 
 
         protected:
-          // 检测规则 PromQL
           shared_ptr<vector<string>> promQL_ {};
         };
 
@@ -281,13 +276,9 @@ namespace Models
 
 
         protected:
-          // 是否是组模式
           shared_ptr<bool> entityGroupMode_ {};
-          // 实体类型
           shared_ptr<string> entityType_ {};
-          // 是否是单实体模式
           shared_ptr<bool> singleEntityMode_ {};
-          // 实体中提取VPC ID 信息的字段
           shared_ptr<string> vpcIdFieldKey_ {};
         };
 
@@ -364,23 +355,14 @@ namespace Models
 
 
       protected:
-        // 告警规则默认安装后是否启用
         shared_ptr<string> alertDefaultStatus_ {};
-        // 默认模式，即无需绑定实体的接入模式。
         shared_ptr<bool> bindDefaultPolicy_ {};
-        // 绑定的目标实体信息
         shared_ptr<Policies::BindEntity> bindEntity_ {};
-        // 是否默认安装
         shared_ptr<bool> defaultInstall_ {};
-        // 是否启用内部授权Token分配
         shared_ptr<bool> enableServiceAccount_ {};
-        // 组件接入后的数据检查规则
         shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
-        // 是否需要在接入后提示重启工作负载
         shared_ptr<bool> needRestartAfterIntegration_ {};
-        // 支持的客户端协议信息列表
         shared_ptr<vector<Policies::Protocols>> protocols_ {};
-        // 跳转的目标组件名称
         shared_ptr<string> targetAddonName_ {};
       };
 
@@ -437,11 +419,8 @@ namespace Models
 
 
       protected:
-        // 支持的集群类型
         shared_ptr<vector<string>> clusterTypes_ {};
-        // 探针依赖描述，组件名称。新版已由 collectors 字段替换
         shared_ptr<map<string, bool>> features_ {};
-        // 依赖的服务列表
         shared_ptr<vector<string>> services_ {};
       };
 
@@ -483,9 +462,7 @@ namespace Models
 
 
       protected:
-        // CommonSchema 的分组名称
         shared_ptr<string> group_ {};
-        // CommonSchema 的分组版本
         shared_ptr<string> version_ {};
       };
 
@@ -555,21 +532,13 @@ namespace Models
 
 
     protected:
-      // 绑定的CommonSchema 列表
       shared_ptr<vector<Environments::CommonSchemaRefs>> commonSchemaRefs_ {};
-      // 依赖描述信息
       shared_ptr<Environments::Dependencies> dependencies_ {};
-      // 环境类型的描述
       shared_ptr<string> description_ {};
-      // 是否启用
       shared_ptr<bool> enable_ {};
-      // 环境类型显示名称
       shared_ptr<string> label_ {};
-      // 环境类型名称
       shared_ptr<string> name_ {};
-      // 组件的控制策略组合信息
       shared_ptr<Environments::Policies> policies_ {};
-      // 策略类型
       shared_ptr<string> policyType_ {};
     };
 
@@ -620,11 +589,8 @@ namespace Models
 
 
     protected:
-      // 描述信息
       shared_ptr<string> description_ {};
-      // 示意图名称
       shared_ptr<string> name_ {};
-      // 示意图 URL
       shared_ptr<string> url_ {};
     };
 
@@ -739,36 +705,19 @@ namespace Models
 
 
   protected:
-    // 组件别名，显示名称
     shared_ptr<string> alias_ {};
-    // 组件分类信息
     shared_ptr<vector<string>> categories_ {};
-    // 组件示意图列表
     shared_ptr<vector<AddonMeta::Dashboards>> dashboards_ {};
-    // 描述信息。
     shared_ptr<string> description_ {};
-    // 支持的环境类型列表
     shared_ptr<vector<AddonMeta::Environments>> environments_ {};
-    // 组件图标。
     shared_ptr<string> icon_ {};
-    // 关键词列表
     shared_ptr<vector<string>> keywords_ {};
-    // 语言，取值：
-    // 
-    // - zh：中文（默认值）
-    // - en：英文
     shared_ptr<string> language_ {};
-    // 该组件上一次接入时间
     shared_ptr<string> latestReleaseCreateTime_ {};
-    // 组件名称
     shared_ptr<string> name_ {};
-    // Policy 下是否只能安装一次
     shared_ptr<bool> once_ {};
-    // 场景
     shared_ptr<string> scene_ {};
-    // 版本号
     shared_ptr<string> version_ {};
-    // 组件排序权重
     shared_ptr<int32_t> weight_ {};
   };
 

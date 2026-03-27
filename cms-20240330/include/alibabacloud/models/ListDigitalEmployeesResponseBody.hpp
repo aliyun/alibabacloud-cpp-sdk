@@ -155,13 +155,9 @@ namespace Models
 
 
         protected:
-          // Knowledge base attributes.
           shared_ptr<string> attributes_ {};
-          // Bailian index ID.
           shared_ptr<string> indexId_ {};
-          // Region of the Bailian knowledge base.
           shared_ptr<string> region_ {};
-          // Bailian workspace ID.
           shared_ptr<string> workspaceId_ {};
         };
 
@@ -186,9 +182,7 @@ namespace Models
 
 
       protected:
-        // Bailian knowledge base list.
         shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
-        // SOP knowledge base list.
         shared_ptr<vector<Darabonba::Json>> sop_ {};
       };
 
@@ -277,30 +271,17 @@ namespace Models
 
 
     protected:
-      // Creation time.
-      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // Default rule.
       shared_ptr<string> defaultRule_ {};
-      // Description.
       shared_ptr<string> description_ {};
-      // Digital employee display name.
       shared_ptr<string> displayName_ {};
-      // Digital employee type.
       shared_ptr<string> employeeType_ {};
-      // List of knowledge bases.
       shared_ptr<DigitalEmployees::Knowledges> knowledges_ {};
-      // Digital employee name.
       shared_ptr<string> name_ {};
-      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Role ARN.
       shared_ptr<string> roleArn_ {};
-      // Tags.
       shared_ptr<vector<Tag>> tags_ {};
-      // Update time.
-      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -345,15 +326,10 @@ namespace Models
 
 
   protected:
-    // List of digital employees.
     shared_ptr<vector<ListDigitalEmployeesResponseBody::DigitalEmployees>> digitalEmployees_ {};
-    // Maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
-    // Token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // 通道列表
+    // Channel list.
     shared_ptr<vector<string>> channel_ {};
-    // 联系人id
+    // Contact ID.
     shared_ptr<string> contactId_ {};
-    // 联系类型。
+    // Contact type.
     shared_ptr<string> contactType_ {};
   };
 

@@ -117,19 +117,19 @@ namespace Models
 
 
     protected:
-      // The entity group ID.
+      // Entity group ID.
       shared_ptr<string> entityGroupId_ {};
-      // The policy ID.
+      // Policy ID.
       shared_ptr<string> policyId_ {};
-      // The policy name.
+      // Policy name.
       shared_ptr<string> policyName_ {};
-      // The policy type.
+      // Policy type.
       shared_ptr<string> policyType_ {};
-      // The region.
+      // Region ID.
       shared_ptr<string> regionId_ {};
-      // The user ID.
+      // User ID.
       shared_ptr<string> userId_ {};
-      // The workspace where the policy resides.
+      // The workspace where the Policy resides.
       shared_ptr<string> workspace_ {};
     };
 
@@ -159,11 +159,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the policy was created.
+    // Whether it is created.
     shared_ptr<bool> created_ {};
-    // The upload policy.
+    // Uploaded policy.
     shared_ptr<CreateIntegrationPolicyResponseBody::Policy> policy_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

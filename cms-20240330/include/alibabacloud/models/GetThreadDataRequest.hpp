@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of session data entries to return. The maximum value is 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 

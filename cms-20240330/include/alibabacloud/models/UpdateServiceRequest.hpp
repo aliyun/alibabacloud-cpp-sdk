@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The extended properties.
+    // Extended attributes.
     shared_ptr<string> attributes_ {};
-    // The description of the service. This parameter is valid only when serviceType is set to RUM.
+    // Service description, only valid when serviceType=RUM.
     shared_ptr<string> description_ {};
-    // The display name. This parameter is valid only when serviceType is set to RUM.
+    // Display name, only valid when serviceType=RUM.
     shared_ptr<string> displayName_ {};
-    // The status of the service. This parameter is valid only when serviceType is set to RUM.
+    // Service status, only valid when serviceType=RUM.
     shared_ptr<string> serviceStatus_ {};
   };
 

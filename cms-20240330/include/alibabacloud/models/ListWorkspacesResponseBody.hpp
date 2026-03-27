@@ -122,23 +122,23 @@ namespace Models
 
 
     protected:
-      // The time when the workspace was created.
+      // Creation time
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The description of the workspace.
+      // Workspace description
       shared_ptr<string> description_ {};
-      // The display name of the workspace.
+      // Workspace display name
       shared_ptr<string> displayName_ {};
-      // The time when the workspace was last modified.
+      // Last modified time
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> lastModifyTime_ {};
-      // The ID of the region.
+      // Region ID
       shared_ptr<string> regionId_ {};
-      // The name of the Simple Log Service project.
+      // Log Service project name
       shared_ptr<string> slsProject_ {};
-      // The name of the workspace.
+      // Workspace name
       // 
       // This parameter is required.
       shared_ptr<string> workspaceName_ {};
@@ -184,15 +184,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page. Default value: 50. Maximum value: 50.
+    // Page size
+    // Default value:
+    // 	50
+    // Maximum value:
+    // 	50
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // Pagination Token
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // Total count
     shared_ptr<int32_t> total_ {};
-    // The list of workspaces.
+    // List of workspaces
     shared_ptr<vector<ListWorkspacesResponseBody::Workspaces>> workspaces_ {};
   };
 

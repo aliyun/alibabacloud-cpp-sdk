@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // The advanced configuration.
     shared_ptr<string> advancedConfig_ {};
-    // The name of the business trace.
     shared_ptr<string> bizTraceName_ {};
-    // The list of configuration rules.
     shared_ptr<string> ruleConfig_ {};
-    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

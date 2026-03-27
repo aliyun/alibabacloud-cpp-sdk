@@ -78,13 +78,9 @@ namespace Models
 
 
   protected:
-    // The name of the webhook.
     shared_ptr<string> name_ {};
-    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The unique ID of the webhook.
     shared_ptr<vector<string>> webhookIds_ {};
     shared_ptr<string> workspace_ {};
   };

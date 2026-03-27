@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created.
+      // Creation time
       shared_ptr<string> createdAt_ {};
-      // The HTTP API query URL.
+      // HTTP API query address
       shared_ptr<string> httpApiUrl_ {};
-      // The instance ID.
-      shared_ptr<string> instanceId_ {};
-      // The cloud product.
-      shared_ptr<string> namespace_ {};
       // Region ID
+      shared_ptr<string> instanceId_ {};
+      // Cloud product
+      shared_ptr<string> namespace_ {};
+      // User ID
       shared_ptr<string> regionId_ {};
-      // The user ID.
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // The instance.
+    // Instance ID
     shared_ptr<CreatePrometheusVirtualInstanceResponseBody::Instance> instance_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

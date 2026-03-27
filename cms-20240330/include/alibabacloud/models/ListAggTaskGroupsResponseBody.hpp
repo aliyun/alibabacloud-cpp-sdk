@@ -223,41 +223,41 @@ namespace Models
 
 
     protected:
-      // The summary of the aggregation task group configuration.
+      // Hash of the aggregation task group configuration.
       shared_ptr<string> aggTaskGroupConfigHash_ {};
-      // The ID of the aggregation task group.
+      // ID of the aggregation task group.
       shared_ptr<string> aggTaskGroupId_ {};
-      // The name of the aggregation task group.
+      // Name of the aggregation task group.
       shared_ptr<string> aggTaskGroupName_ {};
-      // The scheduling expression for the aggregation task group when the scheduling mode is \\`Cron\\`.
+      // Cron expression for the aggregation task group when the scheduling mode is set to \\"Cron\\".
       shared_ptr<string> cronExpr_ {};
-      // The fixed delay for scheduling, in seconds.
+      // Fixed delay time (in seconds) for scheduling.
       shared_ptr<int32_t> delay_ {};
-      // The description of the aggregation task group.
+      // Description of the aggregation task group.
       shared_ptr<string> description_ {};
-      // The UNIX timestamp that indicates the scheduling start time.
+      // Start time of the schedule in seconds since epoch.
       shared_ptr<int64_t> fromTime_ {};
-      // The scheduling interval.
+      // Scheduling interval.
       shared_ptr<string> interval_ {};
-      // The maximum number of retries for an aggregation task.
+      // Maximum number of retries for the aggregation task.
       shared_ptr<int32_t> maxRetries_ {};
-      // The maximum retry duration for an aggregation task, in seconds.
+      // Maximum retry time (in seconds) for the aggregation task.
       shared_ptr<int32_t> maxRunTimeInSeconds_ {};
-      // The region ID.
+      // Region ID.
       shared_ptr<string> regionId_ {};
-      // The scheduling mode.
+      // Scheduling mode.
       shared_ptr<string> scheduleMode_ {};
-      // The scheduling time expression.
+      // Scheduling time expression.
       shared_ptr<string> scheduleTimeExpr_ {};
-      // The ID of the source Prometheus instance for the aggregation task group.
+      // The source Prometheus instance ID of the aggregation task group.
       shared_ptr<string> sourcePrometheusId_ {};
-      // The status of the aggregation task group.
+      // Status of the aggregation task group.
       shared_ptr<string> status_ {};
-      // The ID of the target Prometheus instance for the aggregation task group.
+      // The target Prometheus instance ID of the aggregation task group.
       shared_ptr<string> targetPrometheusId_ {};
-      // The UNIX timestamp that indicates the scheduling end time.
+      // The second-level timestamp corresponding to the end time of scheduling.
       shared_ptr<int64_t> toTime_ {};
-      // The time when the aggregation task group was updated.
+      // Update time of the aggregation task group.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -301,15 +301,15 @@ namespace Models
 
 
   protected:
-    // A list of aggregation task groups.
+    // List of aggregation task groups.
     shared_ptr<vector<ListAggTaskGroupsResponseBody::AggTaskGroups>> aggTaskGroups_ {};
-    // The maximum number of entries returned.
+    // The maximum number of records returned.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to use to retrieve the next page of results. This value is empty when there are no more results to return.
+    // Token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // Total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

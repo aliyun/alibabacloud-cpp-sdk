@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the Umodel data to delete. Omit this parameter to delete all Umodel data.
+    // Can specify the name of a specific Umodel data, leaving it blank means all
     shared_ptr<string> domain_ {};
-    // The kind of the Umodel data. If unspecified, data of all kinds is deleted.
+    // Can specify the kind of a specific Umodel data, leaving it blank means all
     shared_ptr<string> kind_ {};
-    // The name of the Umodel data. If unspecified, data with any name is deleted.
+    // Can specify the name of a specific Umodel data, leaving it blank means all
     shared_ptr<string> name_ {};
   };
 

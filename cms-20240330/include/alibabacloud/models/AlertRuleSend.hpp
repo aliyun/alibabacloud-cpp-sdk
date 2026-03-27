@@ -87,10 +87,13 @@ namespace Models
 
 
   protected:
+    // Alert Action Integration Configuration.
     shared_ptr<AlertRuleAction> action_ {};
+    // Alert Notification Configuration.
     shared_ptr<AlertRuleNotification> notification_ {};
     shared_ptr<vector<string>> notifyStrategies_ {};
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
+    // Whether to deliver alert events to ARMS Alert Management.
     shared_ptr<bool> sendToArms_ {};
   };
 

@@ -115,13 +115,9 @@ namespace Models
 
 
       protected:
-        // Knowledge base attributes
         shared_ptr<string> attributes_ {};
-        // Bailian index ID
         shared_ptr<string> indexId_ {};
-        // Region of the Bailian knowledge base
         shared_ptr<string> region_ {};
-        // Bailian workspace ID
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -146,9 +142,7 @@ namespace Models
 
 
     protected:
-      // Bailian knowledge base list
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
-      // SOP knowledge base list
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
@@ -192,15 +186,10 @@ namespace Models
 
 
   protected:
-    // Default rule
     shared_ptr<string> defaultRule_ {};
-    // Description
     shared_ptr<string> description_ {};
-    // Digital employee display name
     shared_ptr<string> displayName_ {};
-    // List of knowledge bases
     shared_ptr<UpdateDigitalEmployeeRequest::Knowledges> knowledges_ {};
-    // Role ARN
     shared_ptr<string> roleArn_ {};
   };
 

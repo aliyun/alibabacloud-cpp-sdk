@@ -110,17 +110,17 @@ namespace Models
 
 
     protected:
-      // The dashboard ID.
+      // Dashboard ID.
       shared_ptr<string> id_ {};
-      // The dashboard name.
+      // Dashboard name.
       shared_ptr<string> name_ {};
-      // The tags.
+      // Tags.
       shared_ptr<vector<string>> tags_ {};
-      // The dashboard title.
+      // Dashboard title.
       shared_ptr<string> title_ {};
-      // The dashboard UID.
+      // Dashboard UID.
       shared_ptr<string> uid_ {};
-      // The URL of the dashboard.
+      // Dashboard URL address.
       shared_ptr<string> url_ {};
     };
 
@@ -150,11 +150,11 @@ namespace Models
 
 
   protected:
-    // A list of dashboards for the Prometheus instance.
+    // List of Prometheus instance dashboards.
     shared_ptr<vector<ListPrometheusDashboardsResponseBody::PrometheusDashboards>> prometheusDashboards_ {};
-    // The ID of the request.
+    // ID of the request
     shared_ptr<string> requestId_ {};
-    // The total number of instances.
+    // Total number of instances
     shared_ptr<int32_t> totalCount_ {};
   };
 

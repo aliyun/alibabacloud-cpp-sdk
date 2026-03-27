@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The status of the aggregation task group. Valid values are "Running" and "Stopped". The default value is Running.
+    // Status of the aggregation task group, either “Running” or “Stopped”. Default is Running.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

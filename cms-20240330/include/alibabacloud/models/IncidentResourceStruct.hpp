@@ -97,19 +97,19 @@ namespace Models
 
 
   protected:
-    // 描述信息。
+    // Description information.
     shared_ptr<string> description_ {};
-    // 事件ID。
+    // Incident ID.
     shared_ptr<string> incidentId_ {};
-    // 事件中该资源的唯一 ID。
+    // The unique ID of this resource in the event.
     shared_ptr<string> incidentResourceId_ {};
-    // 事件资源详情对象。
+    // Event resource details object.
     shared_ptr<IncidentResourceDetail> resource_ {};
-    // 来源。
+    // Source.
     shared_ptr<string> source_ {};
-    // 时间戳
+    // Time.
     shared_ptr<int64_t> time_ {};
-    // 用户 ID。
+    // User ID.
     shared_ptr<int64_t> userId_ {};
   };
 

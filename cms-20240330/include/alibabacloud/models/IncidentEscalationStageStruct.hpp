@@ -116,23 +116,23 @@ namespace Models
 
 
   protected:
-    // 联系人列表
+    // Contact list.
     shared_ptr<vector<IncidentContactStruct>> contact_ {};
-    // 周期通知统计次数
+    // Number of recurring notification attempts.
     shared_ptr<int32_t> cycleNotifyCount_ {};
-    // 周期通知时间
+    // Recurring notification interval.
     shared_ptr<int32_t> cycleNotifyTime_ {};
-    // 描述
+    // Description.
     shared_ptr<string> description_ {};
-    // 有效时间
+    // Effective time period.
     shared_ptr<string> effectTime_ {};
-    // 名称
+    // Name.
     shared_ptr<string> name_ {};
-    // 阶段指数
+    // Phase index.
     shared_ptr<int32_t> stageIndex_ {};
-    // 时区
+    // Time zone.
     shared_ptr<string> timeZone_ {};
-    // 等待进入下一阶段的时间
+    // Time to wait before proceeding to the next phase.
     shared_ptr<int32_t> waitToNextStageTime_ {};
   };
 

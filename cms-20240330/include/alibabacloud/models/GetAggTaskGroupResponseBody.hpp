@@ -131,7 +131,7 @@ namespace Models
 
 
       protected:
-        // The key of the resource group tag.
+        // Key of the resource group tag.
         shared_ptr<string> key_ {};
         // The value of the resource group tag.
         shared_ptr<string> value_ {};
@@ -292,47 +292,47 @@ namespace Models
 
 
     protected:
-      // The configuration of the aggregation task group.
+      // Aggregation task group configuration.
       shared_ptr<string> aggTaskGroupConfig_ {};
-      // The summary of the aggregation task group configuration.
+      // Summary of the aggregation task group configuration.
       shared_ptr<string> aggTaskGroupConfigHash_ {};
-      // The ID of the aggregation task group.
+      // ID of the aggregation task group.
       shared_ptr<string> aggTaskGroupId_ {};
-      // The name of the aggregation task group.
+      // Name of the aggregation task group.
       shared_ptr<string> aggTaskGroupName_ {};
-      // The scheduling expression of the aggregation task group when the scheduling mode is set to Cron.
+      // Scheduling expression for the aggregation task group when the scheduling mode is \\"Cron\\".
       shared_ptr<string> cronExpr_ {};
-      // The fixed delay time for scheduling, in seconds.
+      // Fixed delay time (in seconds) for scheduling.
       shared_ptr<int32_t> delay_ {};
-      // The description of the aggregation task group.
+      // Description of the aggregation task group.
       shared_ptr<string> description_ {};
-      // The UNIX timestamp in seconds that corresponds to the start time of the scheduling. This parameter is not yet in effect.
+      // Second-level timestamp corresponding to the start time of scheduling (not yet effective).
       shared_ptr<int64_t> fromTime_ {};
-      // The maximum number of retries to execute the aggregation task.
+      // Maximum number of retries for executing the aggregation task.
       shared_ptr<int32_t> maxRetries_ {};
-      // The maximum runtime of the aggregation task, in seconds.
+      // Maximum retry time for executing the aggregation task.
       shared_ptr<int32_t> maxRunTimeInSeconds_ {};
-      // The dry run configuration.
+      // Pre-check configuration.
       shared_ptr<string> precheckString_ {};
-      // The region ID.
+      // Region ID.
       shared_ptr<string> regionId_ {};
-      // The scheduling mode.
+      // Scheduling mode.
       shared_ptr<string> scheduleMode_ {};
-      // The scheduling time expression.
+      // Scheduling time expression.
       shared_ptr<string> scheduleTimeExpr_ {};
-      // The ID of the source Prometheus instance for the aggregation task group.
+      // ID of the source Prometheus instance for the aggregation task group.
       shared_ptr<string> sourcePrometheusId_ {};
-      // The status of the aggregation task group.
+      // Status of the aggregation task group.
       shared_ptr<string> status_ {};
-      // The tags of the resource group.
+      // Resource group tags
       shared_ptr<vector<AggTaskGroup::Tags>> tags_ {};
-      // The ID of the target Prometheus instance for the aggregation task group.
+      // The target Prometheus instance ID of the aggregation task group.
       shared_ptr<string> targetPrometheusId_ {};
-      // The UNIX timestamp in seconds that corresponds to the end time of the scheduling.
+      // The second-level timestamp corresponding to the end time of the scheduling.
       shared_ptr<int64_t> toTime_ {};
-      // The time when the aggregation task group was updated. This is a timestamp.
+      // The update time (timestamp) of the aggregation task group.
       shared_ptr<string> updateTime_ {};
-      // The user to which the aggregation task group belongs.
+      // The user to whom the aggregation task group belongs.
       shared_ptr<string> userId_ {};
     };
 
@@ -362,11 +362,11 @@ namespace Models
 
 
   protected:
-    // The aggregation task group.
+    // Aggregation task group.
     shared_ptr<GetAggTaskGroupResponseBody::AggTaskGroup> aggTaskGroup_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

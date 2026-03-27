@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // Tag `key` value.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // Tag `value` value.
       shared_ptr<string> value_ {};
     };
 
@@ -168,18 +168,18 @@ namespace Models
 
 
     protected:
-      // The cluster entity type. Examples: acs.ack.cluster, acs.one.cluster, and acs.asi.cluster.
+      // Cluster entity type, such as acs.ack.cluster/acs.one.cluster/acs.asi.cluster or others.
       shared_ptr<string> clusterEntityType_ {};
-      // The cluster ID.
+      // Cluster ID.
       shared_ptr<string> clusterId_ {};
       shared_ptr<string> clusterNamespace_ {};
-      // Specifies whether to disable unique policy binding. If this parameter is set to true, you can create multiple policies for a container cluster.
+      // Whether to disable the unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
       shared_ptr<bool> disablePolicyShare_ {};
-      // The entity group ID.
+      // Entity group ID.
       shared_ptr<string> entityGroupId_ {};
-      // The ID of the user who owns the cluster.
+      // User ID to which the cluster belongs.
       shared_ptr<string> entityUserId_ {};
-      // The virtual private cloud (VPC) ID.
+      // VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -232,19 +232,19 @@ namespace Models
 
 
   protected:
-    // The entity group used to create the policy. You can quickly create a policy using an entity group. The clusterId and vpcId parameters are independent of each other.
+    // Entity group for creating the policy. Policies can be quickly created using the entity group, and `clusterId` and `vpcId` are independent of each other.
     shared_ptr<CreateIntegrationPolicyRequest::EntityGroup> entityGroup_ {};
-    // The policy name.
+    // Policy name
     shared_ptr<string> policyName_ {};
-    // The policy type. Valid values: CS, ECS, and Cloud.
+    // Policy type: CS/ECS/Cloud
     // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};
-    // The resource group ID.
+    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource tags.
+    // Resource tags.
     shared_ptr<vector<CreateIntegrationPolicyRequest::Tags>> tags_ {};
-    // The workspace.
+    // Workspace.
     shared_ptr<string> workspace_ {};
   };
 

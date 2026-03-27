@@ -94,19 +94,12 @@ namespace Models
 
 
   protected:
-    // 创建时间
     shared_ptr<string> createTime_ {};
-    // 实例类型
     shared_ptr<string> instanceType_ {};
-    // RUM关联的Prometheus实例ID
     shared_ptr<string> prometheusInstanceId_ {};
-    // RUM关联的Prometheus实例名称
     shared_ptr<string> prometheusInstanceName_ {};
-    // 阿里云RegionId
     shared_ptr<string> regionId_ {};
-    // 实例状态
     shared_ptr<string> status_ {};
-    // 云监控2.0 workspace
     shared_ptr<string> workspace_ {};
   };
 
