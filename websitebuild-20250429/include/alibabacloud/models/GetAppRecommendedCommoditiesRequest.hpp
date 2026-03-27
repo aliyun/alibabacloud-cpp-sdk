@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetAppRecommendedCommoditiesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(Extend, extend_);
       DARABONBA_PTR_TO_JSON(ResourceConditions, resourceConditions_);
       DARABONBA_PTR_TO_JSON(Scene, scene_);
     };
     friend void from_json(const Darabonba::Json& j, GetAppRecommendedCommoditiesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(Extend, extend_);
       DARABONBA_PTR_FROM_JSON(ResourceConditions, resourceConditions_);
       DARABONBA_PTR_FROM_JSON(Scene, scene_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->resourceConditions_ == nullptr && this->scene_ == nullptr; };
+        && this->extend_ == nullptr && this->resourceConditions_ == nullptr && this->scene_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline GetAppRecommendedCommoditiesRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // extend Field Functions 
+    bool hasExtend() const { return this->extend_ != nullptr;};
+    void deleteExtend() { this->extend_ = nullptr;};
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline GetAppRecommendedCommoditiesRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // resourceConditions Field Functions 
@@ -58,6 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> extend_ {};
     shared_ptr<string> resourceConditions_ {};
     shared_ptr<string> scene_ {};
   };

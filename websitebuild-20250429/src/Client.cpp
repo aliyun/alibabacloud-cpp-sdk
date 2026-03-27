@@ -1159,6 +1159,10 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommoditiesWithOpt
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
   if (!!request.hasResourceConditions()) {
     query["ResourceConditions"] = request.getResourceConditions();
   }
