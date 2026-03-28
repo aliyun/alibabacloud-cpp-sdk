@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建部署
+ * @summary Create a deployment job.
  *
  * @param request CreateDeploymentRequest
  * @param headers map
@@ -118,7 +118,7 @@ CreateDeploymentResponse Client::createDeploymentWithOptions(const CreateDeploym
 }
 
 /**
- * @summary 创建部署
+ * @summary Create a deployment job.
  *
  * @param request CreateDeploymentRequest
  * @return CreateDeploymentResponse
@@ -302,6 +302,8 @@ CreateKnowledgeBaseJobResponse Client::createKnowledgeBaseJob(const string &Know
 /**
  * @summary Create a runtime.
  *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/pai/dsw-billing-description?spm=a2c4g.11186623.help-menu-30347.d_1_1_3.fb4453d9l200bE) of PAI-DSW product.
+ *
  * @param request CreateRuntimeRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -312,6 +314,10 @@ CreateRuntimeResponse Client::createRuntimeWithOptions(const CreateRuntimeReques
   json body = {};
   if (!!request.hasAccessibility()) {
     body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasAutoUpdateImage()) {
+    body["AutoUpdateImage"] = request.getAutoUpdateImage();
   }
 
   if (!!request.hasCredentialConfig()) {
@@ -383,6 +389,8 @@ CreateRuntimeResponse Client::createRuntimeWithOptions(const CreateRuntimeReques
 /**
  * @summary Create a runtime.
  *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/pai/dsw-billing-description?spm=a2c4g.11186623.help-menu-30347.d_1_1_3.fb4453d9l200bE) of PAI-DSW product.
+ *
  * @param request CreateRuntimeRequest
  * @return CreateRuntimeResponse
  */
@@ -393,7 +401,7 @@ CreateRuntimeResponse Client::createRuntime(const CreateRuntimeRequest &request)
 }
 
 /**
- * @summary 创建快照
+ * @summary Create a snapshot.
  *
  * @param request CreateSnapshotRequest
  * @param headers map
@@ -458,7 +466,7 @@ CreateSnapshotResponse Client::createSnapshotWithOptions(const CreateSnapshotReq
 }
 
 /**
- * @summary 创建快照
+ * @summary Create a snapshot.
  *
  * @param request CreateSnapshotRequest
  * @return CreateSnapshotResponse
@@ -470,7 +478,7 @@ CreateSnapshotResponse Client::createSnapshot(const CreateSnapshotRequest &reque
 }
 
 /**
- * @summary 删除部署
+ * @summary Delete a deployment job.
  *
  * @param request DeleteDeploymentRequest
  * @param headers map
@@ -503,7 +511,7 @@ DeleteDeploymentResponse Client::deleteDeploymentWithOptions(const string &Deplo
 }
 
 /**
- * @summary 删除部署
+ * @summary Delete a deployment job.
  *
  * @param request DeleteDeploymentRequest
  * @return DeleteDeploymentResponse
@@ -650,7 +658,7 @@ DeleteRuntimeResponse Client::deleteRuntime(const string &RuntimeId, const Delet
 }
 
 /**
- * @summary 删除快照
+ * @summary Delete a snapshot.
  *
  * @param request DeleteSnapshotRequest
  * @param headers map
@@ -683,7 +691,7 @@ DeleteSnapshotResponse Client::deleteSnapshotWithOptions(const string &SnapshotI
 }
 
 /**
- * @summary 删除快照
+ * @summary Delete a snapshot.
  *
  * @param request DeleteSnapshotRequest
  * @return DeleteSnapshotResponse
@@ -695,7 +703,7 @@ DeleteSnapshotResponse Client::deleteSnapshot(const string &SnapshotId, const De
 }
 
 /**
- * @summary 查看部署
+ * @summary Retrieve the details of a deployment job.
  *
  * @param request GetDeploymentRequest
  * @param headers map
@@ -728,7 +736,7 @@ GetDeploymentResponse Client::getDeploymentWithOptions(const string &DeploymentI
 }
 
 /**
- * @summary 查看部署
+ * @summary Retrieve the details of a deployment job.
  *
  * @param request GetDeploymentRequest
  * @return GetDeploymentResponse
@@ -879,7 +887,7 @@ GetRuntimeResponse Client::getRuntime(const string &RuntimeId, const GetRuntimeR
 }
 
 /**
- * @summary 获取快照详情
+ * @summary Obtain snapshot details.
  *
  * @param request GetSnapshotRequest
  * @param headers map
@@ -912,7 +920,7 @@ GetSnapshotResponse Client::getSnapshotWithOptions(const string &SnapshotId, con
 }
 
 /**
- * @summary 获取快照详情
+ * @summary Obtain snapshot details.
  *
  * @param request GetSnapshotRequest
  * @return GetSnapshotResponse
@@ -924,7 +932,7 @@ GetSnapshotResponse Client::getSnapshot(const string &SnapshotId, const GetSnaps
 }
 
 /**
- * @summary 获取部署列表
+ * @summary Retrieve a list of deployment jobs.
  *
  * @param request ListDeploymentsRequest
  * @param headers map
@@ -1013,7 +1021,7 @@ ListDeploymentsResponse Client::listDeploymentsWithOptions(const ListDeployments
 }
 
 /**
- * @summary 获取部署列表
+ * @summary Retrieve a list of deployment jobs.
  *
  * @param request ListDeploymentsRequest
  * @return ListDeploymentsResponse
@@ -1025,7 +1033,7 @@ ListDeploymentsResponse Client::listDeployments(const ListDeploymentsRequest &re
 }
 
 /**
- * @summary 获取知识库切片列表
+ * @summary Retrieve the knowledge base segment list.
  *
  * @param request ListKnowledgeBaseChunksRequest
  * @param headers map
@@ -1074,7 +1082,7 @@ ListKnowledgeBaseChunksResponse Client::listKnowledgeBaseChunksWithOptions(const
 }
 
 /**
- * @summary 获取知识库切片列表
+ * @summary Retrieve the knowledge base segment list.
  *
  * @param request ListKnowledgeBaseChunksRequest
  * @return ListKnowledgeBaseChunksResponse
@@ -1345,7 +1353,7 @@ ListRuntimesResponse Client::listRuntimes(const ListRuntimesRequest &request) {
 }
 
 /**
- * @summary 获取快照列表
+ * @summary Retrieve a snapshot list.
  *
  * @param request ListSnapshotsRequest
  * @param headers map
@@ -1395,6 +1403,10 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const ListSnapshotsReques
     query["SnapshotResourceType"] = request.getSnapshotResourceType();
   }
 
+  if (!!request.hasSnapshotStatus()) {
+    query["SnapshotStatus"] = request.getSnapshotStatus();
+  }
+
   if (!!request.hasSortBy()) {
     query["SortBy"] = request.getSortBy();
   }
@@ -1422,7 +1434,7 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const ListSnapshotsReques
 }
 
 /**
- * @summary 获取快照列表
+ * @summary Retrieve a snapshot list.
  *
  * @param request ListSnapshotsRequest
  * @return ListSnapshotsResponse
@@ -1515,7 +1527,7 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const string &Knowle
 }
 
 /**
- * @summary 更新部署
+ * @summary Update a deployment job.
  *
  * @param request UpdateDeploymentRequest
  * @param headers map
@@ -1564,7 +1576,7 @@ UpdateDeploymentResponse Client::updateDeploymentWithOptions(const string &Deplo
 }
 
 /**
- * @summary 更新部署
+ * @summary Update a deployment job.
  *
  * @param request UpdateDeploymentRequest
  * @return UpdateDeploymentResponse
@@ -1641,7 +1653,7 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const string &KnowledgeB
 }
 
 /**
- * @summary 更新知识库切片
+ * @summary Update Knowledge Base Chunk
  *
  * @param request UpdateKnowledgeBaseChunkRequest
  * @param headers map
@@ -1678,7 +1690,7 @@ UpdateKnowledgeBaseChunkResponse Client::updateKnowledgeBaseChunkWithOptions(con
 }
 
 /**
- * @summary 更新知识库切片
+ * @summary Update Knowledge Base Chunk
  *
  * @param request UpdateKnowledgeBaseChunkRequest
  * @return UpdateKnowledgeBaseChunkResponse
@@ -1753,6 +1765,10 @@ UpdateRuntimeResponse Client::updateRuntimeWithOptions(const string &RuntimeId, 
     body["Action"] = request.getAction();
   }
 
+  if (!!request.hasAutoUpdateImage()) {
+    body["AutoUpdateImage"] = request.getAutoUpdateImage();
+  }
+
   if (!!request.hasRunTimeout()) {
     body["RunTimeout"] = request.getRunTimeout();
   }
@@ -1796,7 +1812,7 @@ UpdateRuntimeResponse Client::updateRuntime(const string &RuntimeId, const Updat
 }
 
 /**
- * @summary 更新快照
+ * @summary Update a snapshot.
  *
  * @param request UpdateSnapshotRequest
  * @param headers map
@@ -1837,7 +1853,7 @@ UpdateSnapshotResponse Client::updateSnapshotWithOptions(const string &SnapshotI
 }
 
 /**
- * @summary 更新快照
+ * @summary Update a snapshot.
  *
  * @param request UpdateSnapshotRequest
  * @return UpdateSnapshotResponse

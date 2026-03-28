@@ -121,15 +121,32 @@ namespace Models
 
 
   protected:
+    // 任务操作类型。
+    // - SyncIndex：更新知识库索引
     shared_ptr<string> jobAction_ {};
+    // 知识库任务ID。
     shared_ptr<string> knowledgeBaseJobId_ {};
+    // 使用 NextToken 方式查询时，每次最多返回的结果数。
     shared_ptr<int32_t> maxResults_ {};
+    // 用来标记当前开始读取的位置，置空表示从头开始。
     shared_ptr<string> nextToken_ {};
+    // 排序方式。
+    // 
+    // - ASC：升序。
+    // - DESC：降序。
     shared_ptr<string> order_ {};
+    // 当前页数。 取值范围：大于0。 默认值：1。如果同时传入MaxResults，则使用NextToken查询方式，忽略此字段值。
     shared_ptr<int32_t> pageNumber_ {};
+    // 每页查询的数量。如果同时传入 MaxResults，则以 MaxResults 数量为准。
     shared_ptr<int32_t> pageSize_ {};
+    // 排序字段。目前只支持GmtCreateTime。
     shared_ptr<string> sortBy_ {};
+    // 知识库任务状态。
+    // - Running: 运行中。
+    // - Success: 运行成功。
+    // - Failed: 运行失败。
     shared_ptr<string> status_ {};
+    // 知识库所在工作空间ID。
     shared_ptr<string> workspaceId_ {};
   };
 

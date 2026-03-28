@@ -149,18 +149,60 @@ namespace Models
 
 
   protected:
+    // The creator ID.
     shared_ptr<string> creator_ {};
+    // The maximum number of records allowed to be returned by this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. The pagination token used in the next request to retrieve a new page of results.
+    // 
+    // *   This value is left empty during the first request.
+    // *   The `NextToken` value returned by the previous response passed in subsequent requests.
     shared_ptr<string> nextToken_ {};
+    // The sorting method.
+    // 
+    // *   ASC: ascending order.
+    // *   DESC: Descending order.
     shared_ptr<string> order_ {};
+    // The page number in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Runtime ID. Supports exact search by runtime ID.
     shared_ptr<string> runtimeId_ {};
+    // The name of the runtime. Supports fuzzy search by name.
     shared_ptr<string> runtimeName_ {};
+    // Runtime status. Valid values:
+    // 
+    // *   Creating: The data cache is being created.
+    // *   SaveFailed: Failed to save the runtime image.
+    // *   Stopped: The file system is stopped.
+    // *   Failed: Failed
+    // *   ResourceAllocating: Resource allocation in progress
+    // *   Stopping: Stopping in progress
+    // *   Updating: Updating in progress
+    // *   Saving: Saving the runtime image in progress
+    // *   Queuing: Queuing in progress
+    // *   Recovering: The instance is recovering.
+    // *   Starting: The instance is being created.
+    // *   Running: The gateway is running.
+    // *   Saved: The runtime image is saved.
+    // *   Deleting: The mount target is being deleted.
+    // *   EnvPreparing: Preparing environment.
     shared_ptr<string> runtimeStatus_ {};
+    // The field used to sort the results in paged queries. Default value: GmtCreateTime. Valid values are as follows:
+    // 
+    // *   GmtCreateTime (default value): Sort by the time when created.
+    // *   GmtModifiedTime: Sorted by modification time.
+    // *   Creator: The ID of the creator.
+    // *   WorkDir: the working path.
+    // *   RuntimeName: the runtime parameter.
+    // *   Status: the status of the runtime.
     shared_ptr<string> sortBy_ {};
+    // Version
     shared_ptr<string> version_ {};
+    // The OSS path of the working directory.
     shared_ptr<string> workDir_ {};
+    // The ID of the DataWorks workspace. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

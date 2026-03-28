@@ -21,7 +21,7 @@ namespace PAILangStudio20240710
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建部署
+       * @summary Create a deployment job.
        *
        * @param request CreateDeploymentRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace PAILangStudio20240710
       Models::CreateDeploymentResponse createDeploymentWithOptions(const Models::CreateDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建部署
+       * @summary Create a deployment job.
        *
        * @param request CreateDeploymentRequest
        * @return CreateDeploymentResponse
@@ -77,6 +77,8 @@ namespace PAILangStudio20240710
       /**
        * @summary Create a runtime.
        *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/pai/dsw-billing-description?spm=a2c4g.11186623.help-menu-30347.d_1_1_3.fb4453d9l200bE) of PAI-DSW product.
+       *
        * @param request CreateRuntimeRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -87,13 +89,15 @@ namespace PAILangStudio20240710
       /**
        * @summary Create a runtime.
        *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/pai/dsw-billing-description?spm=a2c4g.11186623.help-menu-30347.d_1_1_3.fb4453d9l200bE) of PAI-DSW product.
+       *
        * @param request CreateRuntimeRequest
        * @return CreateRuntimeResponse
        */
       Models::CreateRuntimeResponse createRuntime(const Models::CreateRuntimeRequest &request);
 
       /**
-       * @summary 创建快照
+       * @summary Create a snapshot.
        *
        * @param request CreateSnapshotRequest
        * @param headers map
@@ -103,7 +107,7 @@ namespace PAILangStudio20240710
       Models::CreateSnapshotResponse createSnapshotWithOptions(const Models::CreateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建快照
+       * @summary Create a snapshot.
        *
        * @param request CreateSnapshotRequest
        * @return CreateSnapshotResponse
@@ -111,7 +115,7 @@ namespace PAILangStudio20240710
       Models::CreateSnapshotResponse createSnapshot(const Models::CreateSnapshotRequest &request);
 
       /**
-       * @summary 删除部署
+       * @summary Delete a deployment job.
        *
        * @param request DeleteDeploymentRequest
        * @param headers map
@@ -121,7 +125,7 @@ namespace PAILangStudio20240710
       Models::DeleteDeploymentResponse deleteDeploymentWithOptions(const string &DeploymentId, const Models::DeleteDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除部署
+       * @summary Delete a deployment job.
        *
        * @param request DeleteDeploymentRequest
        * @return DeleteDeploymentResponse
@@ -183,7 +187,7 @@ namespace PAILangStudio20240710
       Models::DeleteRuntimeResponse deleteRuntime(const string &RuntimeId, const Models::DeleteRuntimeRequest &request);
 
       /**
-       * @summary 删除快照
+       * @summary Delete a snapshot.
        *
        * @param request DeleteSnapshotRequest
        * @param headers map
@@ -193,7 +197,7 @@ namespace PAILangStudio20240710
       Models::DeleteSnapshotResponse deleteSnapshotWithOptions(const string &SnapshotId, const Models::DeleteSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除快照
+       * @summary Delete a snapshot.
        *
        * @param request DeleteSnapshotRequest
        * @return DeleteSnapshotResponse
@@ -201,7 +205,7 @@ namespace PAILangStudio20240710
       Models::DeleteSnapshotResponse deleteSnapshot(const string &SnapshotId, const Models::DeleteSnapshotRequest &request);
 
       /**
-       * @summary 查看部署
+       * @summary Retrieve the details of a deployment job.
        *
        * @param request GetDeploymentRequest
        * @param headers map
@@ -211,7 +215,7 @@ namespace PAILangStudio20240710
       Models::GetDeploymentResponse getDeploymentWithOptions(const string &DeploymentId, const Models::GetDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看部署
+       * @summary Retrieve the details of a deployment job.
        *
        * @param request GetDeploymentRequest
        * @return GetDeploymentResponse
@@ -273,7 +277,7 @@ namespace PAILangStudio20240710
       Models::GetRuntimeResponse getRuntime(const string &RuntimeId, const Models::GetRuntimeRequest &request);
 
       /**
-       * @summary 获取快照详情
+       * @summary Obtain snapshot details.
        *
        * @param request GetSnapshotRequest
        * @param headers map
@@ -283,7 +287,7 @@ namespace PAILangStudio20240710
       Models::GetSnapshotResponse getSnapshotWithOptions(const string &SnapshotId, const Models::GetSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取快照详情
+       * @summary Obtain snapshot details.
        *
        * @param request GetSnapshotRequest
        * @return GetSnapshotResponse
@@ -291,7 +295,7 @@ namespace PAILangStudio20240710
       Models::GetSnapshotResponse getSnapshot(const string &SnapshotId, const Models::GetSnapshotRequest &request);
 
       /**
-       * @summary 获取部署列表
+       * @summary Retrieve a list of deployment jobs.
        *
        * @param request ListDeploymentsRequest
        * @param headers map
@@ -301,7 +305,7 @@ namespace PAILangStudio20240710
       Models::ListDeploymentsResponse listDeploymentsWithOptions(const Models::ListDeploymentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取部署列表
+       * @summary Retrieve a list of deployment jobs.
        *
        * @param request ListDeploymentsRequest
        * @return ListDeploymentsResponse
@@ -309,7 +313,7 @@ namespace PAILangStudio20240710
       Models::ListDeploymentsResponse listDeployments(const Models::ListDeploymentsRequest &request);
 
       /**
-       * @summary 获取知识库切片列表
+       * @summary Retrieve the knowledge base segment list.
        *
        * @param request ListKnowledgeBaseChunksRequest
        * @param headers map
@@ -319,7 +323,7 @@ namespace PAILangStudio20240710
       Models::ListKnowledgeBaseChunksResponse listKnowledgeBaseChunksWithOptions(const string &KnowledgeBaseId, const Models::ListKnowledgeBaseChunksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取知识库切片列表
+       * @summary Retrieve the knowledge base segment list.
        *
        * @param request ListKnowledgeBaseChunksRequest
        * @return ListKnowledgeBaseChunksResponse
@@ -381,7 +385,7 @@ namespace PAILangStudio20240710
       Models::ListRuntimesResponse listRuntimes(const Models::ListRuntimesRequest &request);
 
       /**
-       * @summary 获取快照列表
+       * @summary Retrieve a snapshot list.
        *
        * @param request ListSnapshotsRequest
        * @param headers map
@@ -391,7 +395,7 @@ namespace PAILangStudio20240710
       Models::ListSnapshotsResponse listSnapshotsWithOptions(const Models::ListSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取快照列表
+       * @summary Retrieve a snapshot list.
        *
        * @param request ListSnapshotsRequest
        * @return ListSnapshotsResponse
@@ -417,7 +421,7 @@ namespace PAILangStudio20240710
       Models::RetrieveKnowledgeBaseResponse retrieveKnowledgeBase(const string &KnowledgeBaseId, const Models::RetrieveKnowledgeBaseRequest &request);
 
       /**
-       * @summary 更新部署
+       * @summary Update a deployment job.
        *
        * @param request UpdateDeploymentRequest
        * @param headers map
@@ -427,7 +431,7 @@ namespace PAILangStudio20240710
       Models::UpdateDeploymentResponse updateDeploymentWithOptions(const string &DeploymentId, const Models::UpdateDeploymentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新部署
+       * @summary Update a deployment job.
        *
        * @param request UpdateDeploymentRequest
        * @return UpdateDeploymentResponse
@@ -453,7 +457,7 @@ namespace PAILangStudio20240710
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const string &KnowledgeBaseId, const Models::UpdateKnowledgeBaseRequest &request);
 
       /**
-       * @summary 更新知识库切片
+       * @summary Update Knowledge Base Chunk
        *
        * @param request UpdateKnowledgeBaseChunkRequest
        * @param headers map
@@ -463,7 +467,7 @@ namespace PAILangStudio20240710
       Models::UpdateKnowledgeBaseChunkResponse updateKnowledgeBaseChunkWithOptions(const string &KnowledgeBaseId, const string &KnowledgeBaseChunkId, const Models::UpdateKnowledgeBaseChunkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新知识库切片
+       * @summary Update Knowledge Base Chunk
        *
        * @param request UpdateKnowledgeBaseChunkRequest
        * @return UpdateKnowledgeBaseChunkResponse
@@ -507,7 +511,7 @@ namespace PAILangStudio20240710
       Models::UpdateRuntimeResponse updateRuntime(const string &RuntimeId, const Models::UpdateRuntimeRequest &request);
 
       /**
-       * @summary 更新快照
+       * @summary Update a snapshot.
        *
        * @param request UpdateSnapshotRequest
        * @param headers map
@@ -517,7 +521,7 @@ namespace PAILangStudio20240710
       Models::UpdateSnapshotResponse updateSnapshotWithOptions(const string &SnapshotId, const Models::UpdateSnapshotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新快照
+       * @summary Update a snapshot.
        *
        * @param request UpdateSnapshotRequest
        * @return UpdateSnapshotResponse

@@ -127,13 +127,17 @@ namespace Models
 
 
     protected:
-      // Collectioin名称
+      // Vector database table or collection name.
       shared_ptr<string> collectionName_ {};
-      // Embedding连接ID
+      // Vector database connection ID.
       shared_ptr<string> connectionId_ {};
-      // VectorDB连接名称
+      // Vector database connection name.
       shared_ptr<string> connectionName_ {};
-      // VectorDB类型
+      // Vector database type. Supported values are as follows:
+      // 
+      // *   Elasticsearch
+      // *   Milvus
+      // *   Faiss
       shared_ptr<string> vectorDBType_ {};
     };
 
@@ -212,13 +216,13 @@ namespace Models
 
 
       protected:
-        // 元数据Key
+        // Metadata field name.
         shared_ptr<string> key_ {};
-        // 引用次数
+        // The number of references to the permission policy.
         shared_ptr<int32_t> referenceCount_ {};
-        // 值的个数
+        // Number of values.
         shared_ptr<int32_t> valueCount_ {};
-        // 元数据Value类型
+        // Metadata field type.
         shared_ptr<string> valueType_ {};
       };
 
@@ -233,7 +237,7 @@ namespace Models
 
 
     protected:
-      // 自定义元数据
+      // Custom metadata.
       shared_ptr<vector<MetaDataConfig::CustomMetaData>> customMetaData_ {};
     };
 
@@ -288,7 +292,7 @@ namespace Models
 
 
       protected:
-        // 列Key
+        // Column name.
         shared_ptr<string> key_ {};
       };
 
@@ -320,7 +324,7 @@ namespace Models
 
 
       protected:
-        // 列Key
+        // Column name.
         shared_ptr<string> key_ {};
       };
 
@@ -352,7 +356,7 @@ namespace Models
 
 
       protected:
-        // 列Key
+        // The column name.
         shared_ptr<string> key_ {};
       };
 
@@ -386,11 +390,11 @@ namespace Models
 
 
     protected:
-      // 所有列名
+      // All column names.
       shared_ptr<vector<IndexColumnConfig::ColumnDefinitions>> columnDefinitions_ {};
-      // 内容检索列
+      // Content filtering column. The fields in this list support keyword-based retrieval.
       shared_ptr<vector<IndexColumnConfig::ContentColumns>> contentColumns_ {};
-      // Embedding列
+      // Vector index column. The fields in this list will be vectorized and participate in retrieval.
       shared_ptr<vector<IndexColumnConfig::EmbeddingColumns>> embeddingColumns_ {};
     };
 
@@ -441,11 +445,11 @@ namespace Models
 
 
     protected:
-      // Embedding连接ID
+      // Index service connection ID.
       shared_ptr<string> connectionId_ {};
-      // Embedding连接名称
+      // Index service connection name.
       shared_ptr<string> connectionName_ {};
-      // 模型
+      // Model name.
       shared_ptr<string> model_ {};
     };
 
@@ -477,7 +481,7 @@ namespace Models
 
 
     protected:
-      // 统一资源识别码
+      // Storage path for the source file.
       shared_ptr<string> uri_ {};
     };
 
@@ -537,13 +541,16 @@ namespace Models
 
 
     protected:
-      // 分块时长
+      // Chunk duration in seconds.
       shared_ptr<int32_t> chunkDuration_ {};
-      // 分块重叠大小
+      // Chunk overlap size.
       shared_ptr<int32_t> chunkOverlap_ {};
-      // 分块大小
+      // Chunk size.
       shared_ptr<int32_t> chunkSize_ {};
-      // 分块策略
+      // Chunking strategy. Strategy types are as follows:
+      // 
+      // *   Default. System default slicing strategy.
+      // *   ASR. Split by audio content; valid for video knowledge bases.
       shared_ptr<string> chunkStrategy_ {};
     };
 
@@ -614,9 +621,9 @@ namespace Models
 
 
       protected:
-        // Embedding分批大小
+        // Index batch size. Document and structured data type knowledge base is valid.
         shared_ptr<int32_t> batchSize_ {};
-        // Embedding并发数
+        // Index concurrency count. Image and video type knowledge base is valid.
         shared_ptr<int32_t> concurrency_ {};
       };
 
@@ -722,23 +729,23 @@ namespace Models
 
 
       protected:
-        // CPU核数
+        // The number of vCPU cores.
         shared_ptr<int32_t> CPU_ {};
-        // 驱动版本
+        // The version of the GPU driver.
         shared_ptr<string> driver_ {};
-        // GPU卡数
+        // The number of GPUs.
         shared_ptr<int32_t> GPU_ {};
-        // GPU类型
+        // The GPU type.
         shared_ptr<string> GPUType_ {};
-        // 机型名称
+        // Model name.
         shared_ptr<string> instanceType_ {};
-        // 内存大小
+        // The memory size. Unit: GB.
         shared_ptr<int32_t> memory_ {};
-        // 副本数量
+        // Number of replicas.
         shared_ptr<int32_t> podCount_ {};
-        // 共享内存容量
+        // The shared memory size. Unit: GB.
         shared_ptr<int32_t> sharedMemory_ {};
-        // 节点类型
+        // Node type. Possible values are Head and Worker.
         shared_ptr<string> type_ {};
       };
 
@@ -793,17 +800,20 @@ namespace Models
 
 
     protected:
-      // 运行资源配置
+      // Runtime resource configuration list.
       shared_ptr<vector<AutoUpdateConfig::EcsSpecs>> ecsSpecs_ {};
-      // Embedding配置
+      // Vector index configuration.
       shared_ptr<AutoUpdateConfig::EmbeddingConfig> embeddingConfig_ {};
-      // 任务最大运行时间
+      // Maximum task running time, in seconds.
       shared_ptr<int32_t> maxRunningTimeInSeconds_ {};
-      // 资源组ID
+      // Resource group ID. Empty or \\"public-cluster\\" indicates public resources.
       shared_ptr<string> resourceId_ {};
-      // 知识库自动更新状态
+      // Knowledge base auto-update switch status.
+      // 
+      // *   Enable: Turn on auto-update.
+      // *   Disable: Turn off auto-update.
       shared_ptr<string> status_ {};
-      // 用户VPC配置
+      // User VPC configuration.
       shared_ptr<UserVpc> userVpc_ {};
     };
 
@@ -974,26 +984,55 @@ namespace Models
 
 
   protected:
+    // Workspace visibility, possible values are:
+    // 
+    // *   PRIVATE: In this workspace, visible only to you and administrators.
+    // *   PUBLIC: In this workspace, visible to everyone.
     shared_ptr<string> accessibility_ {};
+    // Knowledge base auto-update configuration.
     shared_ptr<GetKnowledgeBaseResponseBody::AutoUpdateConfig> autoUpdateConfig_ {};
+    // File slicing configuration.
     shared_ptr<GetKnowledgeBaseResponseBody::ChunkConfig> chunkConfig_ {};
+    // Creator user ID.
     shared_ptr<string> creator_ {};
+    // Data source.
     shared_ptr<vector<GetKnowledgeBaseResponseBody::DataSources>> dataSources_ {};
+    // The ID of the dataset corresponding to the knowledge base.
     shared_ptr<string> datasetId_ {};
+    // Knowledge base description.
     shared_ptr<string> description_ {};
+    // Vector index configuration.
     shared_ptr<GetKnowledgeBaseResponseBody::EmbeddingConfig> embeddingConfig_ {};
+    // Knowledge base creation time (UTC).
     shared_ptr<string> gmtCreateTime_ {};
+    // Knowledge base modification time (UTC).
     shared_ptr<string> gmtModifiedTime_ {};
+    // Column field configuration. The structured data type knowledge base is effective.
     shared_ptr<GetKnowledgeBaseResponseBody::IndexColumnConfig> indexColumnConfig_ {};
+    // Knowledge base ID.
     shared_ptr<string> knowledgeBaseId_ {};
+    // Knowledge base type.
+    // 
+    // *   TEXT: Document.
+    // *   STRUCTURED: Structured data.
+    // *   IMAGE: Picture.
+    // *   VIDEO: Video.
     shared_ptr<string> knowledgeBaseType_ {};
+    // Metadata configuration.
     shared_ptr<GetKnowledgeBaseResponseBody::MetaDataConfig> metaDataConfig_ {};
+    // Knowledge base name.
     shared_ptr<string> name_ {};
+    // Storage path for the output data.
     shared_ptr<string> outputDir_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Runtime ID.
     shared_ptr<string> runtimeId_ {};
+    // Vector database configuration.
     shared_ptr<GetKnowledgeBaseResponseBody::VectorDBConfig> vectorDBConfig_ {};
+    // Knowledge base version. Default is v1.
     shared_ptr<string> versionName_ {};
+    // The ID of the workspace where the knowledge base resides.
     shared_ptr<string> workspaceId_ {};
   };
 

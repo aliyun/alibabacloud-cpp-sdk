@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const Runtime& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
@@ -37,6 +38,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, Runtime& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
@@ -560,15 +562,22 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->creator_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr && this->envs_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr && this->resourceId_ == nullptr && this->runTimeout_ == nullptr
-        && this->runtimeId_ == nullptr && this->runtimeLog_ == nullptr && this->runtimeName_ == nullptr && this->runtimeStatus_ == nullptr && this->runtimeType_ == nullptr
-        && this->userVpc_ == nullptr && this->version_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->autoUpdateImage_ == nullptr && this->creator_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr
+        && this->envs_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr && this->resourceId_ == nullptr
+        && this->runTimeout_ == nullptr && this->runtimeId_ == nullptr && this->runtimeLog_ == nullptr && this->runtimeName_ == nullptr && this->runtimeStatus_ == nullptr
+        && this->runtimeType_ == nullptr && this->userVpc_ == nullptr && this->version_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline Runtime& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // autoUpdateImage Field Functions 
+    bool hasAutoUpdateImage() const { return this->autoUpdateImage_ != nullptr;};
+    void deleteAutoUpdateImage() { this->autoUpdateImage_ = nullptr;};
+    inline bool getAutoUpdateImage() const { DARABONBA_PTR_GET_DEFAULT(autoUpdateImage_, false) };
+    inline Runtime& setAutoUpdateImage(bool autoUpdateImage) { DARABONBA_PTR_SET_VALUE(autoUpdateImage_, autoUpdateImage) };
 
 
     // creator Field Functions 
@@ -718,6 +727,7 @@ namespace Models
 
   protected:
     shared_ptr<string> accessibility_ {};
+    shared_ptr<bool> autoUpdateImage_ {};
     shared_ptr<string> creator_ {};
     shared_ptr<Runtime::CredentialConfig> credentialConfig_ {};
     shared_ptr<vector<Runtime::DataSources>> dataSources_ {};

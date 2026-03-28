@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreationType, creationType_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_TO_JSON(SnapshotName, snapshotName_);
       DARABONBA_PTR_TO_JSON(SnapshotResourceId, snapshotResourceId_);
       DARABONBA_PTR_TO_JSON(SnapshotResourceType, snapshotResourceType_);
+      DARABONBA_PTR_TO_JSON(SnapshotStatus, snapshotStatus_);
       DARABONBA_PTR_TO_JSON(SnapshotStoragePath, snapshotStoragePath_);
       DARABONBA_PTR_TO_JSON(SnapshotUrl, snapshotUrl_);
       DARABONBA_PTR_TO_JSON(WorkDir, workDir_);
@@ -33,12 +35,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreationType, creationType_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_FROM_JSON(SnapshotName, snapshotName_);
       DARABONBA_PTR_FROM_JSON(SnapshotResourceId, snapshotResourceId_);
       DARABONBA_PTR_FROM_JSON(SnapshotResourceType, snapshotResourceType_);
+      DARABONBA_PTR_FROM_JSON(SnapshotStatus, snapshotStatus_);
       DARABONBA_PTR_FROM_JSON(SnapshotStoragePath, snapshotStoragePath_);
       DARABONBA_PTR_FROM_JSON(SnapshotUrl, snapshotUrl_);
       DARABONBA_PTR_FROM_JSON(WorkDir, workDir_);
@@ -56,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->creationType_ == nullptr && this->creator_ == nullptr && this->description_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
-        && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotResourceId_ == nullptr && this->snapshotResourceType_ == nullptr && this->snapshotStoragePath_ == nullptr
-        && this->snapshotUrl_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->creationType_ == nullptr && this->creator_ == nullptr && this->description_ == nullptr && this->errorMessage_ == nullptr && this->gmtCreateTime_ == nullptr
+        && this->gmtModifiedTime_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotResourceId_ == nullptr && this->snapshotResourceType_ == nullptr
+        && this->snapshotStatus_ == nullptr && this->snapshotStoragePath_ == nullptr && this->snapshotUrl_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -85,6 +89,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Snapshot& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // errorMessage Field Functions 
+    bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+    void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline Snapshot& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // gmtCreateTime Field Functions 
@@ -129,6 +140,13 @@ namespace Models
     inline Snapshot& setSnapshotResourceType(string snapshotResourceType) { DARABONBA_PTR_SET_VALUE(snapshotResourceType_, snapshotResourceType) };
 
 
+    // snapshotStatus Field Functions 
+    bool hasSnapshotStatus() const { return this->snapshotStatus_ != nullptr;};
+    void deleteSnapshotStatus() { this->snapshotStatus_ = nullptr;};
+    inline string getSnapshotStatus() const { DARABONBA_PTR_GET_DEFAULT(snapshotStatus_, "") };
+    inline Snapshot& setSnapshotStatus(string snapshotStatus) { DARABONBA_PTR_SET_VALUE(snapshotStatus_, snapshotStatus) };
+
+
     // snapshotStoragePath Field Functions 
     bool hasSnapshotStoragePath() const { return this->snapshotStoragePath_ != nullptr;};
     void deleteSnapshotStoragePath() { this->snapshotStoragePath_ = nullptr;};
@@ -162,12 +180,14 @@ namespace Models
     shared_ptr<string> creationType_ {};
     shared_ptr<string> creator_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> errorMessage_ {};
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<string> snapshotId_ {};
     shared_ptr<string> snapshotName_ {};
     shared_ptr<string> snapshotResourceId_ {};
     shared_ptr<string> snapshotResourceType_ {};
+    shared_ptr<string> snapshotStatus_ {};
     shared_ptr<string> snapshotStoragePath_ {};
     shared_ptr<string> snapshotUrl_ {};
     shared_ptr<string> workDir_ {};

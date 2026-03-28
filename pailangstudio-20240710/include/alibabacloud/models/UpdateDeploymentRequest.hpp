@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // Indicates whether to automatically skip the deployment confirmation step.
     shared_ptr<bool> autoApproval_ {};
+    // Service Configuration for deployment. For more information, see the [deployment configuration](https://help.aliyun.com/zh/pai/user-guide/parameters-of-model-services) of PAI-EAS.
     shared_ptr<string> deploymentConfig_ {};
+    // Deployment description.
     shared_ptr<string> description_ {};
+    // Deployment stage operation information. The JSON format is as follows:  
+    // {"Stage":3,"Action":"Confirm"}. Valid values for Action are:  
+    // * Confirm: confirm.  
+    // * Cancel: cancel.
     shared_ptr<string> stageAction_ {};
+    // Workspace ID. For information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of returned results for a request.
     shared_ptr<int32_t> maxResults_ {};
+    // The next request token.
     shared_ptr<string> nextToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // The list of runtimes.
     shared_ptr<vector<Runtime>> runtimes_ {};
+    // The total number of runtime.
     shared_ptr<int32_t> totalCount_ {};
   };
 

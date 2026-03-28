@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The snapshot description.
     shared_ptr<string> description_ {};
+    // The snapshot name. The format requirements are as follows:
+    // * It can contain only letters, digits, and underscores (_).
+    // * It must start with a letter.
+    // * It must be 1 to 256 characters in length.
     shared_ptr<string> snapshotName_ {};
+    // The workspace ID. For information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

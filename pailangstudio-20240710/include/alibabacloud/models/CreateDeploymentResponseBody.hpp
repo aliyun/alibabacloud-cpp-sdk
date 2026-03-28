@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Deployment record ID.
     shared_ptr<string> deploymentId_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

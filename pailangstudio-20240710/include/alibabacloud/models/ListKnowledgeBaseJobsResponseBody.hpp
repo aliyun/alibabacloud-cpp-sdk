@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // 知识库任务列表。
     shared_ptr<vector<KnowledgeBaseJob>> knowledgeBaseJobs_ {};
+    // 本次请求允许返回的最大记录条数。
     shared_ptr<int32_t> maxResults_ {};
+    // 返回下一次查询开始的位置。为空表示已经获取了全部数据。
     shared_ptr<string> nextToken_ {};
+    // 请求ID。
     shared_ptr<string> requestId_ {};
+    // 总记录条数。
     shared_ptr<int32_t> totalCount_ {};
   };
 

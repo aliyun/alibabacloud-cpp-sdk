@@ -165,21 +165,29 @@ namespace Models
 
 
     protected:
-      // 描述
+      // Deployment stage description.
       shared_ptr<string> description_ {};
-      // 错误信息
+      // Error message.
       shared_ptr<string> errorMessage_ {};
-      // 结束时间
+      // End time.
       shared_ptr<string> gmtEndTime_ {};
-      // 开始时间
+      // Start Time.
       shared_ptr<string> gmtStartTime_ {};
-      // 阶段
+      // Deployment stage.
       shared_ptr<int32_t> stage_ {};
-      // 阶段信息
+      // Deployment stage information.
       shared_ptr<string> stageInfo_ {};
-      // 阶段名称
+      // Deployment stage name.
       shared_ptr<string> stageName_ {};
-      // 阶段状态
+      // Deployment stage status. Valid values:  
+      // * NotStarted: Not started.  
+      // * WaitForConfirm: Waiting for confirmation.  
+      // * Waiting: Waiting.  
+      // * Creating: Creating.  
+      // * Running: Running.  
+      // * Succeed: Succeeded.  
+      // * Failed: Failed.  
+      // * Canceled: Canceled.
       shared_ptr<string> stageStatus_ {};
     };
 
@@ -230,11 +238,11 @@ namespace Models
 
 
     protected:
-      // 启用输入内容审查
+      // Indicates whether to enable security review for input.
       shared_ptr<bool> enableInputModeration_ {};
-      // 启用输出内容审查
+      // Indicates whether to enable content moderation for output.
       shared_ptr<bool> enableOutputModeration_ {};
-      // 流式输出内容送审缓存大小
+      // Cache size for streaming output content submitted for moderation. The default value is 5.
       shared_ptr<int32_t> streamingModerationThreshold_ {};
     };
 
@@ -276,9 +284,12 @@ namespace Models
 
 
     protected:
-      // 连接名称
+      // The connection name. This parameter is required when the chat history storage type is RDS.
       shared_ptr<string> connectionName_ {};
-      // 存储类型
+      // The storage class. Valid values:  
+      // * LOCAL: Chat history is stored in a local SQLite file. This option does not support multi-instance deployment.  
+      // * OSS: Chat history is stored in a specific path under the service OSS workspace path.  
+      // * RDS: Chat history is stored in an RDS Table, and an RDS connection must be specified.
       shared_ptr<string> storageType_ {};
     };
 
@@ -449,27 +460,68 @@ namespace Models
 
 
   protected:
+    // The workspace visibility. Valid values:  
+    // - PRIVATE: The resource is visible only to you and administrators in this workspace.  
+    // - PUBLIC: The resource is visible to all users in this workspace.
     shared_ptr<string> accessibility_ {};
+    // Indicates whether deployment confirmation is automatically skipped.
     shared_ptr<bool> autoApproval_ {};
+    // Chat history configuration.
     shared_ptr<GetDeploymentResponseBody::ChatHistoryConfig> chatHistoryConfig_ {};
+    // Content moderation configuration.
     shared_ptr<GetDeploymentResponseBody::ContentModerationConfig> contentModerationConfig_ {};
+    // Creator ID.
     shared_ptr<string> creator_ {};
+    // Deployment configuration. For details, see [Deployment Configuration](https://help.aliyun.com/zh/pai/user-guide/parameters-of-model-services) in PAI-EAS documentation.
     shared_ptr<string> deploymentConfig_ {};
+    // The ID of the deployment job.
     shared_ptr<string> deploymentId_ {};
+    // Stage information of the deployment.
     shared_ptr<vector<GetDeploymentResponseBody::DeploymentStages>> deploymentStages_ {};
+    // Task Status. Valid values:  
+    // * Creating: Creating.  
+    // * Failed: Deployment failed.  
+    // * Stopping: Stopping.  
+    // * Waiting: Waiting.  
+    // * Starting: Starting.  
+    // * Running: Running.  
+    // * Pending: Pending.  
+    // * WaitForConfirm: Waiting for confirmation.  
+    // * Canceled: Canceled.  
+    // * Succeed: Succeeded.
     shared_ptr<string> deploymentStatus_ {};
+    // The service description.
     shared_ptr<string> description_ {};
+    // Indicates whether Tracing Analysis is enabled.
     shared_ptr<bool> enableTrace_ {};
+    // Error message.
     shared_ptr<string> errorMessage_ {};
+    // Creation Time.
     shared_ptr<string> gmtCreateTime_ {};
+    // Updated At.
     shared_ptr<string> gmtModifiedTime_ {};
+    // Operation Type. Valid values:  
+    // * Create: Create a new service.  
+    // * Update: Update an existing service.
     shared_ptr<string> operationType_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the resource to be deployed.
     shared_ptr<string> resourceId_ {};
+    // The snapshot ID of the resource to be deployed. If this parameter is provided, the system deploys directly based on this snapshot. If not provided, the system creates a new snapshot of the resource before deployment.
     shared_ptr<string> resourceSnapshotId_ {};
+    // The resource type to be deployed. Valid values:  
+    // * Flow: A pipeline project  
+    // * Code: A Code project
     shared_ptr<string> resourceType_ {};
+    // Service Name. Format requirements:  
+    // * Supports lowercase letters, digits, and underscores.  
+    // * Must start with a letter.  
+    // * Length must be 1–45 characters.
     shared_ptr<string> serviceName_ {};
+    // The OSS working directory for the service. It stores runtime logs, conversation history, and other data.
     shared_ptr<string> workDir_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

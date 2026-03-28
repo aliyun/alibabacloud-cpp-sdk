@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_TO_JSON(SnapshotResourceId, snapshotResourceId_);
       DARABONBA_PTR_TO_JSON(SnapshotResourceType, snapshotResourceType_);
+      DARABONBA_PTR_TO_JSON(SnapshotStatus, snapshotStatus_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_FROM_JSON(SnapshotResourceId, snapshotResourceId_);
       DARABONBA_PTR_FROM_JSON(SnapshotResourceType, snapshotResourceType_);
+      DARABONBA_PTR_FROM_JSON(SnapshotStatus, snapshotStatus_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creationType_ == nullptr
         && this->creator_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->snapshotId_ == nullptr && this->snapshotResourceId_ == nullptr && this->snapshotResourceType_ == nullptr && this->sortBy_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->pageSize_ == nullptr && this->snapshotId_ == nullptr && this->snapshotResourceId_ == nullptr && this->snapshotResourceType_ == nullptr && this->snapshotStatus_ == nullptr
+        && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
     // creationType Field Functions 
     bool hasCreationType() const { return this->creationType_ != nullptr;};
     void deleteCreationType() { this->creationType_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     inline ListSnapshotsRequest& setSnapshotResourceType(string snapshotResourceType) { DARABONBA_PTR_SET_VALUE(snapshotResourceType_, snapshotResourceType) };
 
 
+    // snapshotStatus Field Functions 
+    bool hasSnapshotStatus() const { return this->snapshotStatus_ != nullptr;};
+    void deleteSnapshotStatus() { this->snapshotStatus_ = nullptr;};
+    inline string getSnapshotStatus() const { DARABONBA_PTR_GET_DEFAULT(snapshotStatus_, "") };
+    inline ListSnapshotsRequest& setSnapshotStatus(string snapshotStatus) { DARABONBA_PTR_SET_VALUE(snapshotStatus_, snapshotStatus) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -140,17 +149,40 @@ namespace Models
 
 
   protected:
+    // The creation type of the snapshot. To query multiple types at the same time, separate them with commas.
     shared_ptr<string> creationType_ {};
+    // The creator ID.
     shared_ptr<string> creator_ {};
+    // The maximum number of records allowed to be returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Pagination cursor used to retrieve results for the next page.
+    // 
+    // * Leave empty for the first request.
+    // * For subsequent requests, pass the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // Sorting order.
+    // 
+    // - ASC: ascending order.
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
+    // Page number of the current page in paged query.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items displayed per page. Default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Snapshot ID.
     shared_ptr<string> snapshotId_ {};
+    // Snapshot resource ID.
     shared_ptr<string> snapshotResourceId_ {};
+    // The snapshot resource type. Valid values:
+    // * Flow: pipeline
     shared_ptr<string> snapshotResourceType_ {};
+    shared_ptr<string> snapshotStatus_ {};
+    // Sorting field used in paged query. The default value is GmtCreateTime. Valid values:
+    // 
+    // - GmtCreateTime (default): sort by Creation Time.
+    // - GmtModifiedTime: sort by Updated At.
     shared_ptr<string> sortBy_ {};
+    // The workspace ID. For information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

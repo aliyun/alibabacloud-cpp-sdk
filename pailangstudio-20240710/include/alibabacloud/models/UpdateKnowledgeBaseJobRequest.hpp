@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Knowledge base task description.
     shared_ptr<string> description_ {};
+    // Workspace ID where the knowledge course is located.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

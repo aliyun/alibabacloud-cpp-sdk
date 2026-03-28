@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the DataWorks workspace. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

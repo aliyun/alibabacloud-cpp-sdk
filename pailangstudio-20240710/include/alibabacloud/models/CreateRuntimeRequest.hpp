@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateRuntimeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
@@ -30,6 +31,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateRuntimeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
@@ -121,15 +123,15 @@ namespace Models
 
 
     protected:
-      // 默认路由
+      // The default Ingress.
       shared_ptr<string> defaultRoute_ {};
-      // 扩展网段
+      // The extended CIDR blocks.
       shared_ptr<vector<string>> extendedCIDRs_ {};
-      // 安全组ID
+      // The ID of a security group.
       shared_ptr<string> securityGroupId_ {};
-      // 交换机ID
+      // The vSwitch IDs.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -171,9 +173,9 @@ namespace Models
 
 
     protected:
-      // 标签键
+      // Tag key.
       shared_ptr<string> key_ {};
-      // 标签值
+      // Tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -215,9 +217,9 @@ namespace Models
 
 
     protected:
-      // 环境键
+      // The environment key.
       shared_ptr<string> key_ {};
-      // 环境值
+      // The value of the environment.
       shared_ptr<string> value_ {};
     };
 
@@ -305,19 +307,25 @@ namespace Models
 
 
     protected:
-      // CPU数量
+      // The number of CPU cores.
       shared_ptr<int32_t> CPU_ {};
-      // 驱动版本
+      // The version of the GPU driver.
       shared_ptr<string> driver_ {};
-      // GPU数量
+      // The number of the GPUs.
       shared_ptr<int32_t> GPU_ {};
-      // GPU类型
+      // The GPU Class. Valid values are as follows:
+      // 
+      // *   V100
+      // *   A100
+      // *   T4
+      // *   A10
+      // *   P100
       shared_ptr<string> GPUType_ {};
-      // 实例类型
+      // Instance Type
       shared_ptr<string> instanceType_ {};
-      // 内存信息
+      // The memory size, in GB.
       shared_ptr<int32_t> memory_ {};
-      // 共享内存
+      // The shared memory size. Unit: GB.
       shared_ptr<int32_t> sharedMemory_ {};
     };
 
@@ -368,11 +376,11 @@ namespace Models
 
 
     protected:
-      // 数据集ID
+      // The ID of the dataset. Choose either Uri or another option.
       shared_ptr<string> datasetId_ {};
-      // 挂载路径
+      // The path to which the data disk is mounted.
       shared_ptr<string> mountPath_ {};
-      // 统一资源识别码
+      // The OSS path of the data source. You must choose either DatasetId or another option.
       shared_ptr<string> uri_ {};
     };
 
@@ -469,11 +477,14 @@ namespace Models
 
 
         protected:
-          // AssumeRoleFor
+          // The entity to which the role is assigned.
           shared_ptr<string> assumeRoleFor_ {};
-          // 角色名称
+          // The Alibaba Cloud Resource Name (ARN) of the RAM role.
           shared_ptr<string> roleArn_ {};
-          // 角色类型
+          // The class of the role. Valid values:
+          // 
+          // *   service: assumed by the service;
+          // *   user: assumed by the regular user account
           shared_ptr<string> roleType_ {};
         };
 
@@ -503,11 +514,14 @@ namespace Models
 
 
       protected:
-        // Key
+        // The key that identifies the configuration.
         shared_ptr<string> key_ {};
-        // 角色列表
+        // The list of configured roles.
         shared_ptr<vector<CredentialConfigItems::Roles>> roles_ {};
-        // Type
+        // The configuration type. Valid values:
+        // 
+        // *   Role: role assumption
+        // *   RoleChain: role chain assumption
         shared_ptr<string> type_ {};
       };
 
@@ -537,23 +551,30 @@ namespace Models
 
 
     protected:
-      // AliyunEnvRoleKey
+      // The key of the environment variable role.
       shared_ptr<string> aliyunEnvRoleKey_ {};
-      // Credential配置项列表
+      // The list of credential configurations.
       shared_ptr<vector<CredentialConfig::CredentialConfigItems>> credentialConfigItems_ {};
-      // 是否启用Credential注入
+      // Whether to enable credential injection.
       shared_ptr<bool> enableCredentialInject_ {};
     };
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr && this->envs_ == nullptr && this->labels_ == nullptr
-        && this->resourceId_ == nullptr && this->runTimeout_ == nullptr && this->runtimeName_ == nullptr && this->runtimeType_ == nullptr && this->userVpc_ == nullptr
-        && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->autoUpdateImage_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr && this->envs_ == nullptr
+        && this->labels_ == nullptr && this->resourceId_ == nullptr && this->runTimeout_ == nullptr && this->runtimeName_ == nullptr && this->runtimeType_ == nullptr
+        && this->userVpc_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline CreateRuntimeRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // autoUpdateImage Field Functions 
+    bool hasAutoUpdateImage() const { return this->autoUpdateImage_ != nullptr;};
+    void deleteAutoUpdateImage() { this->autoUpdateImage_ = nullptr;};
+    inline bool getAutoUpdateImage() const { DARABONBA_PTR_GET_DEFAULT(autoUpdateImage_, false) };
+    inline CreateRuntimeRequest& setAutoUpdateImage(bool autoUpdateImage) { DARABONBA_PTR_SET_VALUE(autoUpdateImage_, autoUpdateImage) };
 
 
     // credentialConfig Field Functions 
@@ -653,18 +674,41 @@ namespace Models
 
 
   protected:
+    // Workspace visibility. Possible values are:
+    // 
+    // *   PRIVATE: In this workspace, visible only to you and administrators.
+    // *   PUBLIC: In this workspace, visible to everyone.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<bool> autoUpdateImage_ {};
+    // The credential configuration.
     shared_ptr<CreateRuntimeRequest::CredentialConfig> credentialConfig_ {};
+    // Mount data source.
     shared_ptr<vector<CreateRuntimeRequest::DataSources>> dataSources_ {};
+    // The configurations of ECS resources.
     shared_ptr<CreateRuntimeRequest::EcsSpec> ecsSpec_ {};
+    // The environment variables. Separate the environment variables with commas (,).
     shared_ptr<vector<CreateRuntimeRequest::Envs>> envs_ {};
+    // The list of tags.
     shared_ptr<vector<CreateRuntimeRequest::Labels>> labels_ {};
+    // The resource quota ID.
     shared_ptr<string> resourceId_ {};
+    // Timeout in seconds for a single test executed on the runtime.
     shared_ptr<int32_t> runTimeout_ {};
+    // The name of the container runtime. Format requirements:
+    // 
+    // *   Can only contain English letters, digits, and underscores (_).
+    // *   Starts with a letter.
+    // *   The length must be 1 to 256 characters.
     shared_ptr<string> runtimeName_ {};
+    // The runtime type used by the nodes. Valid values:
+    // 
+    // *   DSW: PAI-DSW instance
     shared_ptr<string> runtimeType_ {};
+    // User VPC Configuration.
     shared_ptr<CreateRuntimeRequest::UserVpc> userVpc_ {};
+    // The OSS path of the working directory.
     shared_ptr<string> workDir_ {};
+    // The ID of the workspace. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

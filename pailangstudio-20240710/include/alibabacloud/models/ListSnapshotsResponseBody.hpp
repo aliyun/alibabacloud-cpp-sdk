@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Maximum number of records allowed to be returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Pagination cursor for the next request.
     shared_ptr<string> nextToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Snapshot list.
     shared_ptr<vector<Snapshot>> snapshots_ {};
+    // Total quantity.
     shared_ptr<int32_t> totalCount_ {};
   };
 

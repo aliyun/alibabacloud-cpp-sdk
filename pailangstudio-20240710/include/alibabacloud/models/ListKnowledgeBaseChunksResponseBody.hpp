@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // 文件元数据ID
+        // File metadata ID.
         shared_ptr<string> fileMetaId_ {};
-        // 文件名
+        // File name.
         shared_ptr<string> fileName_ {};
-        // 文件地址
+        // File path.
         shared_ptr<string> fileUri_ {};
       };
 
@@ -190,13 +190,13 @@ namespace Models
 
 
       protected:
-        // 下载地址
+        // Download URL.
         shared_ptr<string> downloadUrl_ {};
-        // 占位符ID
+        // Placeholder ID.
         shared_ptr<string> placeholderId_ {};
-        // 类型
+        // Attachment type.
         shared_ptr<string> type_ {};
-        // 路径
+        // Attachment path.
         shared_ptr<string> uri_ {};
       };
 
@@ -300,31 +300,33 @@ namespace Models
 
 
     protected:
-      // 切片附属信息
+      // List of segment attachments.
       shared_ptr<vector<KnowledgeBaseChunks::ChunkAttachment>> chunkAttachment_ {};
-      // 切片内容
+      // Segment content.
       shared_ptr<string> chunkContent_ {};
-      // 切片结束位置
+      // Segment end position. Returns the number of milliseconds from the start of file playback.
       shared_ptr<int32_t> chunkEnd_ {};
-      // 切片顺序
+      // Ordinal number of the segment within the file.
       shared_ptr<int32_t> chunkSequence_ {};
-      // 切片大小
+      // Segment size.
       shared_ptr<int32_t> chunkSize_ {};
-      // 切片起始位置
+      // Segment start position. Returns the number of milliseconds from the start of file playback.
       shared_ptr<int32_t> chunkStart_ {};
-      // 切片状态
+      // Segment status.  
+      // - Enable: enabled.  
+      // - Disable: disabled.
       shared_ptr<string> chunkStatus_ {};
-      // 切片下载地址
+      // Download URL of the segment. Returned for image and video files.
       shared_ptr<string> downloadUrl_ {};
-      // 切片ID
+      // Segment ID.
       shared_ptr<string> knowledgeBaseChunkId_ {};
-      // 知识库ID
+      // Knowledge base ID.
       shared_ptr<string> knowledgeBaseId_ {};
-      // 原始文件信息
+      // Original file information.
       shared_ptr<KnowledgeBaseChunks::MetaData> metaData_ {};
-      // 切片缩略图
+      // Thumbnail of the segment. Returned for image and video files.
       shared_ptr<string> thumbnailUrl_ {};
-      // 知识库版本
+      // Knowledge base version.
       shared_ptr<string> versionName_ {};
     };
 
@@ -361,10 +363,13 @@ namespace Models
 
 
   protected:
-    // 切片列表
+    // Segment list.
     shared_ptr<vector<ListKnowledgeBaseChunksResponseBody::KnowledgeBaseChunks>> knowledgeBaseChunks_ {};
+    // Maximum number of records allowed to be returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of segments.
     shared_ptr<int32_t> totalCount_ {};
   };
 

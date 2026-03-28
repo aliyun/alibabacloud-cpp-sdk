@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetRuntimeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
@@ -38,6 +39,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetRuntimeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
@@ -137,15 +139,15 @@ namespace Models
 
 
     protected:
-      // 默认路由
+      // Default route.
       shared_ptr<string> defaultRoute_ {};
-      // 扩展网段
+      // The extended CIDR blocks.
       shared_ptr<vector<string>> extendedCIDRs_ {};
-      // 安全组ID
+      // Security Group ID.
       shared_ptr<string> securityGroupId_ {};
-      // 交换机ID
+      // vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID
+      // The virtual private cloud (VPC) ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -187,9 +189,9 @@ namespace Models
 
 
     protected:
-      // 标签键
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // 标签值
+      // Tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -231,9 +233,9 @@ namespace Models
 
 
     protected:
-      // 环境键
+      // The environment key.
       shared_ptr<string> key_ {};
-      // 环境值
+      // The value of the environment.
       shared_ptr<string> value_ {};
     };
 
@@ -321,19 +323,19 @@ namespace Models
 
 
     protected:
-      // CPU数量
+      // The number of CPU cores.
       shared_ptr<int32_t> CPU_ {};
-      // 驱动版本
+      // The version of the GPU driver.
       shared_ptr<string> driver_ {};
-      // GPU数量
+      // The number of GPUs.
       shared_ptr<int32_t> GPU_ {};
-      // GPU类型
+      // GPU type.
       shared_ptr<string> GPUType_ {};
-      // 实例类型
+      // Instance type.
       shared_ptr<string> instanceType_ {};
-      // 内存信息
+      // The memory size. Unit: GB.
       shared_ptr<int32_t> memory_ {};
-      // 共享内存
+      // The shared memory size. Unit: GB.
       shared_ptr<int32_t> sharedMemory_ {};
     };
 
@@ -384,11 +386,11 @@ namespace Models
 
 
     protected:
-      // 数据集ID
+      // Dataset ID. Choose either Uri or another option.
       shared_ptr<string> datasetId_ {};
-      // 挂载路径
+      // The path to which the data disk is mounted.
       shared_ptr<string> mountPath_ {};
-      // 统一资源识别码
+      // The OSS path of the data source. You must choose either DatasetId or another option.
       shared_ptr<string> uri_ {};
     };
 
@@ -485,11 +487,14 @@ namespace Models
 
 
         protected:
-          // AssumeRoleFor
+          // The entity to which the role is assigned.
           shared_ptr<string> assumeRoleFor_ {};
-          // 角色名称
+          // The Alibaba Cloud Resource Name (ARN) of the RAM role.
           shared_ptr<string> roleArn_ {};
-          // 角色类型
+          // The class of the role. Valid values:
+          // 
+          // *   service: assumed by the service;
+          // *   user: assumed by the regular user account
           shared_ptr<string> roleType_ {};
         };
 
@@ -519,11 +524,14 @@ namespace Models
 
 
       protected:
-        // Key
+        // The key that identifies the configuration.
         shared_ptr<string> key_ {};
-        // 角色列表
+        // The list of configured roles.
         shared_ptr<vector<CredentialConfigItems::Roles>> roles_ {};
-        // Type
+        // The configuration type. Valid values:
+        // 
+        // *   Role: role assumption
+        // *   RoleChain: role chain assumption
         shared_ptr<string> type_ {};
       };
 
@@ -553,24 +561,32 @@ namespace Models
 
 
     protected:
-      // AliyunEnvRoleKey
+      // The key of the environment variable role.
       shared_ptr<string> aliyunEnvRoleKey_ {};
-      // Credential配置项列表
+      // The list of credential configurations.
       shared_ptr<vector<CredentialConfig::CredentialConfigItems>> credentialConfigItems_ {};
-      // 是否启用Credential注入
+      // Whether to enable credential injection.
       shared_ptr<bool> enableCredentialInject_ {};
     };
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->creator_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr && this->envs_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr && this->requestId_ == nullptr && this->resourceId_ == nullptr
-        && this->runTimeout_ == nullptr && this->runtimeId_ == nullptr && this->runtimeLog_ == nullptr && this->runtimeName_ == nullptr && this->runtimeStatus_ == nullptr
-        && this->runtimeType_ == nullptr && this->userVpc_ == nullptr && this->version_ == nullptr && this->workDir_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->autoUpdateImage_ == nullptr && this->creator_ == nullptr && this->credentialConfig_ == nullptr && this->dataSources_ == nullptr && this->ecsSpec_ == nullptr
+        && this->envs_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr && this->requestId_ == nullptr
+        && this->resourceId_ == nullptr && this->runTimeout_ == nullptr && this->runtimeId_ == nullptr && this->runtimeLog_ == nullptr && this->runtimeName_ == nullptr
+        && this->runtimeStatus_ == nullptr && this->runtimeType_ == nullptr && this->userVpc_ == nullptr && this->version_ == nullptr && this->workDir_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline GetRuntimeResponseBody& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // autoUpdateImage Field Functions 
+    bool hasAutoUpdateImage() const { return this->autoUpdateImage_ != nullptr;};
+    void deleteAutoUpdateImage() { this->autoUpdateImage_ = nullptr;};
+    inline bool getAutoUpdateImage() const { DARABONBA_PTR_GET_DEFAULT(autoUpdateImage_, false) };
+    inline GetRuntimeResponseBody& setAutoUpdateImage(bool autoUpdateImage) { DARABONBA_PTR_SET_VALUE(autoUpdateImage_, autoUpdateImage) };
 
 
     // creator Field Functions 
@@ -726,26 +742,64 @@ namespace Models
 
 
   protected:
+    // Workspace visibility.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<bool> autoUpdateImage_ {};
+    // Creator ID.
     shared_ptr<string> creator_ {};
+    // The credential configuration.
     shared_ptr<GetRuntimeResponseBody::CredentialConfig> credentialConfig_ {};
+    // MountData Source
     shared_ptr<vector<GetRuntimeResponseBody::DataSources>> dataSources_ {};
+    // ECS resource configurations.
     shared_ptr<GetRuntimeResponseBody::EcsSpec> ecsSpec_ {};
+    // The environment variables. Separate the environment variables with commas (,).
     shared_ptr<vector<GetRuntimeResponseBody::Envs>> envs_ {};
+    // The time when the export directory was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // Modification time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The tag of the resource group.
     shared_ptr<vector<GetRuntimeResponseBody::Labels>> labels_ {};
+    // The Request ID.
     shared_ptr<string> requestId_ {};
+    // The resource quota ID.
     shared_ptr<string> resourceId_ {};
+    // Timeout in seconds for a single test executed on the runtime.
     shared_ptr<int32_t> runTimeout_ {};
+    // Runtime ID.
     shared_ptr<string> runtimeId_ {};
+    // The runtime log.
     shared_ptr<string> runtimeLog_ {};
+    // The name of the runtime.
     shared_ptr<string> runtimeName_ {};
+    // The status of the runtime. Valid values:
+    // 
+    // *   Creating: The data cache is being created.
+    // *   SaveFailed: Failed to save the runtime image
+    // *   Stopped: The file system is stopped.
+    // *   Failed: Failed
+    // *   ResourceAllocating: Resources are being allocated
+    // *   Stopping: The file system is being stopped
+    // *   Updating: Update in progress
+    // *   Saving: The runtime image is being saved
+    // *   Queuing: Queueing in progress
+    // *   Recovering: The instance is being recovered
+    // *   Starting: The instance is being created.
+    // *   Running: The gateway is running.
+    // *   Saved: The runtime image is saved.
+    // *   Deleting: The mount target is being deleted.
+    // *   EnvPreparing: Preparing environment.
     shared_ptr<string> runtimeStatus_ {};
+    // The type of the runtime.
     shared_ptr<string> runtimeType_ {};
+    // User VPC configuration.
     shared_ptr<GetRuntimeResponseBody::UserVpc> userVpc_ {};
+    // The runtime image version.
     shared_ptr<string> version_ {};
+    // The OSS path of the working directory.
     shared_ptr<string> workDir_ {};
+    // The ID of the DataWorks Workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -130,16 +130,35 @@ namespace Models
 
 
   protected:
+    // Creator user ID.
     shared_ptr<string> creator_ {};
+    // Knowledge Base ID.
     shared_ptr<string> knowledgeBaseId_ {};
+    // The type of the knowledge base.
+    // 
+    // *   TEXT: Document.
+    // *   STRUCTURED: Structured data.
+    // *   IMAGE: Image.
+    // *   VIDEO: Video.
     shared_ptr<string> knowledgeBaseType_ {};
+    // When querying using NextToken, the maximum number of results returned each time.
     shared_ptr<int32_t> maxResults_ {};
+    // The name of the knowledge base.
     shared_ptr<string> name_ {};
+    // Used to mark the current starting position for reading; leaving it empty means starting from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The order in which you want to sort the queried instances.
+    // 
+    // *   ASC: ascending order.
+    // *   DESC: descending order.
     shared_ptr<string> order_ {};
+    // Current page number. Value range: greater than 0. Default value: 1. If MaxResults is passed in at the same time, the NextToken query method will be used, and this field value will be ignored.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of queries per page. If MaxResults is passed in at the same time, the quantity will be based on MaxResults.
     shared_ptr<int32_t> pageSize_ {};
+    // Sorting field. Currently, only GmtCreateTime is supported.
     shared_ptr<string> sortBy_ {};
+    // The ID of the DataWorks workspace. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // 知识库所在工作空间ID。
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

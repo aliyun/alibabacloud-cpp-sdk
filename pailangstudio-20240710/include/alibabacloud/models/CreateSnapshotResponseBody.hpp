@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Snapshot ID.
     shared_ptr<string> snapshotId_ {};
   };
 

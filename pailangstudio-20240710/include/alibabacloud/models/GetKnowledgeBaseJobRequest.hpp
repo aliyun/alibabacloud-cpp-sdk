@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Knowledge Base Workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // List of deployment jobs.
     shared_ptr<vector<Deployment>> deployments_ {};
+    // Maximum number of records allowed to be returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Pagination cursor for the next request.
     shared_ptr<string> nextToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total quantity.
     shared_ptr<int32_t> totalCount_ {};
   };
 

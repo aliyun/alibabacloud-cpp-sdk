@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Knowledge base list.
     shared_ptr<vector<KnowledgeBase>> knowledgeBases_ {};
+    // The maximum number of records allowed to be returned by this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Returns the position from which the next query starts. Empty indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

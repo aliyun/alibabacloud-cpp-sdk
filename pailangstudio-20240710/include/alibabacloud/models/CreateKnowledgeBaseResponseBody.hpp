@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Knowledge base ID.
     shared_ptr<string> knowledgeBaseId_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // The workspace ID of the knowledge base.
     shared_ptr<string> workspaceId_ {};
   };
 

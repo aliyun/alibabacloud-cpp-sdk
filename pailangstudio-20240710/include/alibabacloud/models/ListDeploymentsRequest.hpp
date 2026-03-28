@@ -167,20 +167,48 @@ namespace Models
 
 
   protected:
+    // The creator ID.
     shared_ptr<string> creator_ {};
+    // Deployment job ID.
     shared_ptr<string> deploymentId_ {};
+    // The deployment job status. To query multiple statuses simultaneously, separate them with commas.
     shared_ptr<string> deploymentStatus_ {};
+    // Maximum number of records allowed to be returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // Pagination cursor used to retrieve the next page of results.  
+    // 
+    // * Leave empty for the first request.  
+    // * For subsequent requests, pass the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The operation type. Valid values:  
+    // * Create: Create a service.  
+    // * Update: Update an existing service.
     shared_ptr<string> operationType_ {};
+    // Sorting order.  
+    // 
+    // - ASC: ascending.  
+    // - DESC: descending.
     shared_ptr<string> order_ {};
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items displayed per page. Default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource ID to be deployed.
     shared_ptr<string> resourceId_ {};
+    // The snapshot ID of the resource to be deployed. If this parameter is provided, the system deploys directly based on this snapshot. If it is not provided, the system first creates a new snapshot for the resource and then executes the deployment.
     shared_ptr<string> resourceSnapshotId_ {};
+    // The resource type to be deployed. Valid values:  
+    // * Flow: A project of the pipeline pattern  
+    // * Code: A project of the Code pattern
     shared_ptr<string> resourceType_ {};
+    // The service name. Fuzzy search by service name is supported.
     shared_ptr<string> serviceName_ {};
+    // Field used for sorting in paged queries. The default field is GmtCreateTime. Valid values are as follows:  
+    // 
+    // * GmtCreateTime (default): sort by creation time.  
+    // * GmtModifiedTime: sort by updated time.
     shared_ptr<string> sortBy_ {};
+    // Workspace ID. For information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

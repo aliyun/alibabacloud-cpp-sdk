@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Knowledge Base Version. Default is v1.
     shared_ptr<string> versionName_ {};
+    // The ID of the DataWorks workspace. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

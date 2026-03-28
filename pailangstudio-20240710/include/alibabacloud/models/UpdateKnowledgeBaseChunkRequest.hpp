@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // Chunk content.
     shared_ptr<string> chunkContent_ {};
+    // Chunk status.
+    // 
+    // - Enable: Enabled.
+    // - Disable: Disabled.
     shared_ptr<string> chunkStatus_ {};
   };
 

@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // 知识库切片列表。
     shared_ptr<vector<KnowledgeBaseFileChunk>> knowledgeBaseFileChunks_ {};
   };
 

@@ -100,11 +100,11 @@ namespace Models
 
 
     protected:
-      // 启用输入内容审查
+      // Whether to enable security review for input.
       shared_ptr<bool> enableInputModeration_ {};
-      // 启用输出内容审查
+      // Whether to enable content moderation for output.
       shared_ptr<bool> enableOutputModeration_ {};
-      // 流式输出内容送审缓存大小
+      // The cache size for streaming output content submitted for moderation. Default value: 5.
       shared_ptr<int32_t> streamingModerationThreshold_ {};
     };
 
@@ -146,9 +146,12 @@ namespace Models
 
 
     protected:
-      // 连接名称
+      // Connection name. This parameter is required when the chat history storage type is RDS.
       shared_ptr<string> connectionName_ {};
-      // 存储类型
+      // Storage class. Valid values:  
+      // * LOCAL: Chat history is stored in a local SQLite file. This option does not support multi-instance deployment.  
+      // * OSS: Chat history is stored under a specific path within the service\\"s OSS workspace path.  
+      // * RDS: Chat history is stored in an RDS table, and an RDS connection must be specified.
       shared_ptr<string> storageType_ {};
     };
 
@@ -252,18 +255,38 @@ namespace Models
 
 
   protected:
+    // Workspace visibility. Valid values:  
+    // - PRIVATE: The service is visible only to you and administrators within this workspace.  
+    // - PUBLIC: The service is visible to all users within this workspace.
     shared_ptr<string> accessibility_ {};
+    // Indicates whether to automatically skip the deployment confirmation step.
     shared_ptr<bool> autoApproval_ {};
+    // Chat history configuration.
     shared_ptr<CreateDeploymentRequest::ChatHistoryConfig> chatHistoryConfig_ {};
+    // Content moderation configuration.
     shared_ptr<CreateDeploymentRequest::ContentModerationConfig> contentModerationConfig_ {};
+    // Deployment configuration. For details, see [Deployment Configuration](https://help.aliyun.com/zh/pai/user-guide/parameters-of-model-services) in PAI-EAS.
     shared_ptr<string> deploymentConfig_ {};
+    // Service description.
     shared_ptr<string> description_ {};
+    // Indicates whether to enable Tracing Analysis.
     shared_ptr<bool> enableTrace_ {};
+    // The ID of the resource to deploy.
     shared_ptr<string> resourceId_ {};
+    // The snapshot ID of the resource to deploy. If this parameter is provided, the system deploys directly based on this snapshot. If this parameter is not provided, the system creates a new snapshot of the resource and then executes the deployment.
     shared_ptr<string> resourceSnapshotId_ {};
+    // The resource type to deploy. Valid values:
+    // * Flow: A pipeline project
+    // * Code: A code project
     shared_ptr<string> resourceType_ {};
+    // Service name. Format requirements:
+    // * Supports lowercase letters, digits, and underscores
+    // * Must start with a letter
+    // * Length must be 1 to 45 characters
     shared_ptr<string> serviceName_ {};
+    // The OSS working directory for the service. It is used to store the service\\"s runtime logs, conversation history, and other data.
     shared_ptr<string> workDir_ {};
+    // Workspace ID. For information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

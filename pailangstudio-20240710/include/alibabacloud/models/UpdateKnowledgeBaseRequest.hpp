@@ -98,9 +98,9 @@ namespace Models
 
 
       protected:
-        // 元数据Key
+        // Metadata Field Name.
         shared_ptr<string> key_ {};
-        // 元数据Value类型
+        // Metadata Field Type Currently, only the String class type is supported.
         shared_ptr<string> valueType_ {};
       };
 
@@ -115,7 +115,7 @@ namespace Models
 
 
     protected:
-      // 自定义元数据
+      // Custom metadata.
       shared_ptr<vector<MetaDataConfig::CustomMetaData>> customMetaData_ {};
     };
 
@@ -186,9 +186,9 @@ namespace Models
 
 
       protected:
-        // Embedding分批大小
+        // Index batch size. Documentation and structured data type Knowledge Base are effective.
         shared_ptr<int32_t> batchSize_ {};
-        // Embedding并发数
+        // Index concurrency. Image and Video Type Knowledge Base is valid.
         shared_ptr<int32_t> concurrency_ {};
       };
 
@@ -294,23 +294,23 @@ namespace Models
 
 
       protected:
-        // CPU核数
+        // The number of CPU cores.
         shared_ptr<int32_t> CPU_ {};
-        // 驱动版本
+        // Driver Version.
         shared_ptr<string> driver_ {};
-        // GPU卡数
+        // The number of GPU cards.
         shared_ptr<int32_t> GPU_ {};
-        // GPU类型
+        // The GPU Class.
         shared_ptr<string> GPUType_ {};
-        // 机型名称
+        // Model name.
         shared_ptr<string> instanceType_ {};
-        // 内存大小
+        // Memory size, in GB.
         shared_ptr<int32_t> memory_ {};
-        // 副本数量
+        // The number of replicas.
         shared_ptr<int32_t> podCount_ {};
-        // 共享内存容量
+        // Shared memory capacity, in units of GB.
         shared_ptr<int32_t> sharedMemory_ {};
-        // 节点类型
+        // Node type. Possible values are Head and Worker.
         shared_ptr<string> type_ {};
       };
 
@@ -365,17 +365,20 @@ namespace Models
 
 
     protected:
-      // 运行资源配置
+      // Run Resource Configuration List Documentation and structured knowledge base contain only one element and the **Type** is Worker. images and videos knowledge base contain two elements and the **Types** are Head and Worker.
       shared_ptr<vector<AutoUpdateConfig::EcsSpecs>> ecsSpecs_ {};
-      // Embedding配置
+      // Vector Index Configuration.
       shared_ptr<AutoUpdateConfig::EmbeddingConfig> embeddingConfig_ {};
-      // 任务最大运行时间
+      // Maximum task running time, in seconds.
       shared_ptr<int32_t> maxRunningTimeInSeconds_ {};
-      // 资源组ID
+      // Resource Group ID. Empty or public-cluster indicates public resource.
       shared_ptr<string> resourceId_ {};
-      // 知识库自动更新状态
+      // Knowledge Base Automatic Update Switch Status
+      // 
+      // *   Enable: Turn on automatic updates.
+      // *   Disable: Turn off automatic updates.
       shared_ptr<string> status_ {};
-      // 用户VPC配置
+      // User VPC Configuration.
       shared_ptr<UserVpc> userVpc_ {};
     };
 
@@ -428,11 +431,18 @@ namespace Models
 
 
   protected:
+    // Knowledge Base Automatic Update Configuration.
     shared_ptr<UpdateKnowledgeBaseRequest::AutoUpdateConfig> autoUpdateConfig_ {};
+    // Whether to bind at runtime.
     shared_ptr<bool> bindRuntime_ {};
+    // Knowledge base description.
     shared_ptr<string> description_ {};
+    // Metadata Configuration.
     shared_ptr<UpdateKnowledgeBaseRequest::MetaDataConfig> metaDataConfig_ {};
+    // Runtime ID.
     shared_ptr<string> runtimeId_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

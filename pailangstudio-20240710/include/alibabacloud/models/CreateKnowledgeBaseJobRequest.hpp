@@ -93,11 +93,11 @@ namespace Models
 
 
     protected:
-      // 安全组ID
+      // The ID of a security group.
       shared_ptr<string> securityGroupId_ {};
-      // 交换机ID
+      // The vSwitch IDs.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID。
+      // VPC ID
       shared_ptr<string> vpcId_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
     protected:
-      // Embedding分批大小
+      // Index batch size. The knowledge base for documentation and structured data types is effective.
       shared_ptr<int32_t> batchSize_ {};
-      // Embedding并发数
+      // Index concurrency. Image and video type knowledge base is valid.
       shared_ptr<int32_t> concurrency_ {};
     };
 
@@ -247,23 +247,23 @@ namespace Models
 
 
     protected:
-      // CPU核数
+      // The number of CPU cores. You must specify the resource quota to use.
       shared_ptr<int32_t> CPU_ {};
-      // 驱动版本
+      // The version of the GPU driver.
       shared_ptr<string> driver_ {};
-      // GPU卡数
+      // The number of GPU cards. You must specify the resource quota to use.
       shared_ptr<int32_t> GPU_ {};
-      // GPU类型
+      // GPU Class
       shared_ptr<string> GPUType_ {};
-      // 机型名称
+      // The name of the instance type. Use of public resources must be filled in.
       shared_ptr<string> instanceType_ {};
-      // 内存大小
+      // The memory size, in GB. You must specify the resource quota to use.
       shared_ptr<int32_t> memory_ {};
-      // 副本数量
+      // The number of replicas.
       shared_ptr<int32_t> podCount_ {};
-      // 共享内存容量
+      // The Shared Memory Capacity. Unit: GB. You must specify the resource quota to use.
       shared_ptr<int32_t> sharedMemory_ {};
-      // 节点类型
+      // The type of the node. Possible values are Head and Worker.
       shared_ptr<string> type_ {};
     };
 
@@ -340,14 +340,29 @@ namespace Models
 
 
   protected:
+    // Workspace visibility. Possible values are:
+    // 
+    // *   PRIVATE: In this workspace, it is visible only to you and the administrator.
+    // *   PUBLIC: This workspace is visible to all users.
     shared_ptr<string> accessibility_ {};
+    // Knowledge base task description.
     shared_ptr<string> description_ {};
+    // Task Run Resource Configuration List Documentation and structured Knowledge Base contain only one Element and the Type is Worker. Images and Videos Knowledge Base contain two Elements and the Types are Head and Worker.
     shared_ptr<vector<CreateKnowledgeBaseJobRequest::EcsSpecs>> ecsSpecs_ {};
+    // Index Configuration.
     shared_ptr<CreateKnowledgeBaseJobRequest::EmbeddingConfig> embeddingConfig_ {};
+    // The type of the task operation.
+    // 
+    // *   SyncIndex: updates the knowledge base index
     shared_ptr<string> jobAction_ {};
+    // The maximum running time for the task, in seconds.
     shared_ptr<int32_t> maxRunningTimeInSeconds_ {};
+    // The resource group ID. This field being empty or public-cluster indicates a public resource.
     shared_ptr<string> resourceId_ {};
+    // Task Run VPC Info.
     shared_ptr<CreateKnowledgeBaseJobRequest::UserVpc> userVpc_ {};
+    // The ID of the workspace. For information on how to obtain the workspace ID, see ListWorkspaces.[](~~449124~~)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

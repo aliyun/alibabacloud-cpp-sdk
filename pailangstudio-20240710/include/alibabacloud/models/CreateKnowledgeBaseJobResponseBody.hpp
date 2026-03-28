@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Knowledge Base Task ID.
     shared_ptr<string> knowledgeBaseJobId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

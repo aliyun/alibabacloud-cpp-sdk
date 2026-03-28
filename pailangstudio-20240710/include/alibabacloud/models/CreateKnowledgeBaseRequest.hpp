@@ -101,11 +101,15 @@ namespace Models
 
 
     protected:
-      // Collectioin名称
+      // Vector database table or collection name.
       shared_ptr<string> collectionName_ {};
-      // Embedding连接ID
+      // Vector database connection ID. For more information about how to obtain the connection ID, see [ListConnections](https://help.aliyun.com/document_detail/2922801.html).
       shared_ptr<string> connectionId_ {};
-      // VectorDB类型
+      // Vector database type. Supports the following values:
+      // 
+      // *   Elasticsearch
+      // *   Milvus
+      // *   Faiss (only supported for document and structured data knowledge bases)
       // 
       // This parameter is required.
       shared_ptr<string> vectorDBType_ {};
@@ -168,9 +172,9 @@ namespace Models
 
 
       protected:
-        // 元数据Key
+        // Metadata field name.
         shared_ptr<string> key_ {};
-        // 元数据Value类型
+        // Metadata field type. Currently, only the String class type is supported.
         shared_ptr<string> valueType_ {};
       };
 
@@ -185,7 +189,7 @@ namespace Models
 
 
     protected:
-      // 自定义元数据
+      // Custom metadata.
       shared_ptr<vector<MetaDataConfig::CustomMetaData>> customMetaData_ {};
     };
 
@@ -240,7 +244,7 @@ namespace Models
 
 
       protected:
-        // 列Key
+        // Column name.
         shared_ptr<string> key_ {};
       };
 
@@ -272,7 +276,7 @@ namespace Models
 
 
       protected:
-        // 列Key
+        // Column name.
         shared_ptr<string> key_ {};
       };
 
@@ -304,7 +308,7 @@ namespace Models
 
 
       protected:
-        // 列Key
+        // The column name.
         shared_ptr<string> key_ {};
       };
 
@@ -338,11 +342,11 @@ namespace Models
 
 
     protected:
-      // 所有列名
+      // All column names.
       shared_ptr<vector<IndexColumnConfig::ColumnDefinitions>> columnDefinitions_ {};
-      // 内容检索列
+      // Content filtering column. The fields in this list support keyword-based retrieval.
       shared_ptr<vector<IndexColumnConfig::ContentColumns>> contentColumns_ {};
-      // Embedding列
+      // Vector retrieval column. The fields in this list will be vectorized and participate in retrieval.
       shared_ptr<vector<IndexColumnConfig::EmbeddingColumns>> embeddingColumns_ {};
     };
 
@@ -384,11 +388,21 @@ namespace Models
 
 
     protected:
-      // Embedding连接ID
+      // Index service connection ID. For more information about how to obtain the connection ID, see [ListConnections](https://help.aliyun.com/document_detail/2922801.html). The connection types supported by each type of knowledge base are as follows:
+      // 
+      // *   Documents: BaiLian LLM Service, General Embedding Model Service, AI Search Open Platform Model Service.
+      // *   Structured Data: BaiLian LLM Service, General Embedding Model Service, AI Search Open Platform Model Service.
+      // *   Images: BaiLian LLM Service, General Multimodal Embedding Model Service.
+      // *   Videos: BaiLian LLM Service.
       // 
       // This parameter is required.
       shared_ptr<string> connectionId_ {};
-      // 模型
+      // Model name. Specifically, when selecting the BaiLian LLM Service, the models supported by each type of knowledge base are as follows:
+      // 
+      // *   Documents: text-embedding-v1, text-embedding-v2, text-embedding-v3, text-embedding-v4
+      // *   Structured Data: text-embedding-v1, text-embedding-v2, text-embedding-v3, text-embedding-v4
+      // *   Images: multimodal-embedding-v1
+      // *   Videos: qwen2.5-vl-embedding
       // 
       // This parameter is required.
       shared_ptr<string> model_ {};
@@ -422,7 +436,7 @@ namespace Models
 
 
     protected:
-      // 统一资源识别码
+      // Source file storage path.
       shared_ptr<string> uri_ {};
     };
 
@@ -482,13 +496,16 @@ namespace Models
 
 
     protected:
-      // 分块时长
+      // Chunk duration, in seconds.
       shared_ptr<int32_t> chunkDuration_ {};
-      // 分块重叠大小
+      // Chunk overlap size
       shared_ptr<int32_t> chunkOverlap_ {};
-      // 分块大小
+      // Chunk size
       shared_ptr<int32_t> chunkSize_ {};
-      // 分块策略
+      // Chunking strategy. Supported strategies are as follows:
+      // 
+      // *   Default. System default slicing strategy.
+      // *   Asr. Split by audio content; valid for video knowledge bases.
       shared_ptr<string> chunkStrategy_ {};
     };
 
@@ -600,25 +617,58 @@ namespace Models
 
 
   protected:
+    // The visibility of the workspace.
+    // 
+    // *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
+    // *   PUBLIC: The model is visible to all users in the workspace.
     shared_ptr<string> accessibility_ {};
+    // File slicing configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreateKnowledgeBaseRequest::ChunkConfig> chunkConfig_ {};
+    // Data source.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateKnowledgeBaseRequest::DataSources>> dataSources_ {};
+    // Custom description of the knowledge base.
     shared_ptr<string> description_ {};
+    // Vector index configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreateKnowledgeBaseRequest::EmbeddingConfig> embeddingConfig_ {};
+    // Structured knowledge base field column configuration.
     shared_ptr<CreateKnowledgeBaseRequest::IndexColumnConfig> indexColumnConfig_ {};
+    // The type of the knowledge base. Specifies whether to disable the instance protection period. Default value: false. Valid values:
+    // 
+    // *   TEXT: Document.
+    // *   STRUCTURED: Structured data.
+    // *   IMAGE: Picture.
+    // *   VIDEO: Video.
+    // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseType_ {};
+    // The metadata configurations.
     shared_ptr<CreateKnowledgeBaseRequest::MetaDataConfig> metaDataConfig_ {};
+    // The name of the knowledge base. The name must meet the following requirements:
+    // 
+    // *   Can contain letters, numbers, or underscores (_).
+    // *   Starts with a letter.
+    // *   Length is 1 to 127 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Storage path for output data.
+    // 
     // This parameter is required.
     shared_ptr<string> outputDir_ {};
+    // Runtime ID.
     shared_ptr<string> runtimeId_ {};
+    // Vector store configuration.
+    // 
     // This parameter is required.
     shared_ptr<CreateKnowledgeBaseRequest::VectorDBConfig> vectorDBConfig_ {};
+    // The ID of the workspace. For more information about how to obtain the ID of a workspace, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

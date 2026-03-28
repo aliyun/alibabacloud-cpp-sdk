@@ -115,11 +115,11 @@ namespace Models
 
 
     protected:
-      // 安全组ID
+      // Security Group ID.
       shared_ptr<string> securityGroupId_ {};
-      // 交换机ID
+      // Switch ID.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID。
+      // VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
     protected:
-      // PaiFlow工作流运行ID
+      // PaiFlow Workflow Run ID
       shared_ptr<string> pipelineRunId_ {};
     };
 
@@ -202,11 +202,11 @@ namespace Models
 
 
     protected:
-      // 增加Chunk数量
+      // Increase the number of Chunks
       shared_ptr<int32_t> addChunkCount_ {};
-      // 删除Chunk数量
+      // Delete Chunk Quantity
       shared_ptr<int32_t> deleteChunkCount_ {};
-      // 总处理文件数
+      // Total Number of Processed Files
       shared_ptr<int32_t> totalFileCount_ {};
     };
 
@@ -248,9 +248,9 @@ namespace Models
 
 
     protected:
-      // Embedding分批大小
+      // Index batch size. Documentation and structured data types knowledge base is effective.
       shared_ptr<int32_t> batchSize_ {};
-      // Embedding并发数
+      // Index concurrency. Image and Video Type Knowledge Base is valid.
       shared_ptr<int32_t> concurrency_ {};
     };
 
@@ -356,23 +356,23 @@ namespace Models
 
 
     protected:
-      // CPU核数
+      // The number of CPU cores.
       shared_ptr<int32_t> CPU_ {};
-      // 驱动版本
+      // Driver Version.
       shared_ptr<string> driver_ {};
-      // GPU卡数
+      // The number of GPU cards.
       shared_ptr<int32_t> GPU_ {};
-      // GPU类型
+      // GPU Class.
       shared_ptr<string> GPUType_ {};
-      // 机型名称
+      // Model name.
       shared_ptr<string> instanceType_ {};
-      // 内存大小
+      // Memory size, in GB.
       shared_ptr<int32_t> memory_ {};
-      // 副本数量
+      // Number of copies.
       shared_ptr<int32_t> podCount_ {};
-      // 共享内存容量
+      // Shared memory capacity, in units of GB.
       shared_ptr<int32_t> sharedMemory_ {};
-      // 节点类型
+      // Node type. Possible values are Head and Worker.
       shared_ptr<string> type_ {};
     };
 
@@ -532,25 +532,54 @@ namespace Models
 
 
   protected:
+    // Workspace visibility, possible values are:
+    // 
+    // *   PRIVATE: In this workspace, it is only visible to you and the administrators.
+    // *   PUBLIC: In this workspace, visible to everyone.
     shared_ptr<string> accessibility_ {};
+    // Creator User ID.
     shared_ptr<string> creator_ {};
+    // Knowledge Base Task Description.
     shared_ptr<string> description_ {};
+    // Run Resource Configuration List
     shared_ptr<vector<GetKnowledgeBaseJobResponseBody::EcsSpecs>> ecsSpecs_ {};
+    // Index Configuration.
     shared_ptr<GetKnowledgeBaseJobResponseBody::EmbeddingConfig> embeddingConfig_ {};
+    // Task error info.
     shared_ptr<string> errorMessage_ {};
+    // Task creation time (UTC).
     shared_ptr<string> gmtCreateTime_ {};
+    // Task end time (UTC).
     shared_ptr<string> gmtFinishTime_ {};
+    // Task Update Time (UTC).
     shared_ptr<string> gmtModifiedTime_ {};
+    // Task Operation Type.
+    // 
+    // *   SyncIndex: Update Knowledge Base Index
     shared_ptr<string> jobAction_ {};
+    // Knowledge Base ID.
     shared_ptr<string> knowledgeBaseId_ {};
+    // Knowledge Base Task ID.
     shared_ptr<string> knowledgeBaseJobId_ {};
+    // Task Result.
     shared_ptr<GetKnowledgeBaseJobResponseBody::KnowledgeBaseJobResult> knowledgeBaseJobResult_ {};
+    // Maximum task running time, in seconds.
     shared_ptr<int32_t> maxRunningTimeInSeconds_ {};
+    // Workflow Run Info.
     shared_ptr<GetKnowledgeBaseJobResponseBody::PipelineRunInfo> pipelineRunInfo_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // The resource group ID. Empty or public-cluster indicates public resource.
     shared_ptr<string> resourceId_ {};
+    // Knowledge Base Task Status
+    // 
+    // *   Running: The instance is in operation.
+    // *   Success: Run successfully.
+    // *   Failed: Run failed.
     shared_ptr<string> status_ {};
+    // Task Run VPC Info.
     shared_ptr<GetKnowledgeBaseJobResponseBody::UserVpc> userVpc_ {};
+    // Knowledge Base workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -112,14 +112,32 @@ namespace Models
 
 
   protected:
+    // Workspace visibility. Valid values:
+    // - PRIVATE: Visible only to you and administrators in this workspace.
+    // - PUBLIC: Visible to everyone in this workspace.
     shared_ptr<string> accessibility_ {};
+    // Snapshot creation type. Valid values:
+    // * ManualCreated: manual creation
+    // * DeploymentAutoCreated: automatic creation by service deployment
+    // * EvaluationAutoCreated: automatic creation by evaluation job
     shared_ptr<string> creationType_ {};
+    // Description of the snapshot.
     shared_ptr<string> description_ {};
+    // Snapshot name. Requirements:
+    // * Can contain only letters, digits, and underscores (_)
+    // * Must start with a letter
+    // * Length must be 1 to 256 characters
     shared_ptr<string> snapshotName_ {};
+    // Snapshot resource ID.
     shared_ptr<string> snapshotResourceId_ {};
+    // Snapshot resource type. Valid values:
+    // * Flow: pipeline
     shared_ptr<string> snapshotResourceType_ {};
+    // Create a snapshot from source files under the specified OSS folder.
     shared_ptr<string> sourceStoragePath_ {};
+    // OSS working directory for storing the snapshot.
     shared_ptr<string> workDir_ {};
+    // Workspace ID. For information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

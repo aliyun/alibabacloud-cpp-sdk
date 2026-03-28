@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateRuntimeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Action, action_);
+      DARABONBA_PTR_TO_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_TO_JSON(RunTimeout, runTimeout_);
       DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateRuntimeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Action, action_);
+      DARABONBA_PTR_FROM_JSON(AutoUpdateImage, autoUpdateImage_);
       DARABONBA_PTR_FROM_JSON(RunTimeout, runTimeout_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && this->runTimeout_ == nullptr && this->version_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->autoUpdateImage_ == nullptr && this->runTimeout_ == nullptr && this->version_ == nullptr && this->workspaceId_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
     inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline UpdateRuntimeRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+    // autoUpdateImage Field Functions 
+    bool hasAutoUpdateImage() const { return this->autoUpdateImage_ != nullptr;};
+    void deleteAutoUpdateImage() { this->autoUpdateImage_ = nullptr;};
+    inline bool getAutoUpdateImage() const { DARABONBA_PTR_GET_DEFAULT(autoUpdateImage_, false) };
+    inline UpdateRuntimeRequest& setAutoUpdateImage(bool autoUpdateImage) { DARABONBA_PTR_SET_VALUE(autoUpdateImage_, autoUpdateImage) };
 
 
     // runTimeout Field Functions 
@@ -66,9 +75,17 @@ namespace Models
 
 
   protected:
+    // Runtime operation. Valid values:
+    // 
+    // *   Start: Startup runtime
+    // *   Stop: Stop runtime
     shared_ptr<string> action_ {};
+    shared_ptr<bool> autoUpdateImage_ {};
+    // Timeout in seconds for a single test executed on the runtime.
     shared_ptr<int32_t> runTimeout_ {};
+    // Runtime image version.
     shared_ptr<string> version_ {};
+    // The ID of the DataWorks workspace. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

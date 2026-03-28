@@ -75,9 +75,9 @@ namespace Models
 
 
     protected:
-      // 文件元数据ID
+      // File metadata ID.
       shared_ptr<string> fileMetaId_ {};
-      // 文件地址
+      // File URI. If FileMetaId is also provided, this parameter value is ignored.
       shared_ptr<string> fileUri_ {};
     };
 
@@ -121,10 +121,17 @@ namespace Models
 
 
   protected:
+    // Segment status.  
+    // - Enable: Valid.  
+    // - Disable: Invalid.
     shared_ptr<string> chunkStatus_ {};
+    // Original file information. If empty, the entire knowledge base version is traversed.
     shared_ptr<ListKnowledgeBaseChunksRequest::MetaData> metaData_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Knowledge base version. The default is v1.
     shared_ptr<string> versionName_ {};
   };
 
