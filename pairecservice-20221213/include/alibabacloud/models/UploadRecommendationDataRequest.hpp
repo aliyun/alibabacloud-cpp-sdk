@@ -14,12 +14,10 @@ namespace Models
   class UploadRecommendationDataRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UploadRecommendationDataRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(DataType, dataType_);
     };
     friend void from_json(const Darabonba::Json& j, UploadRecommendationDataRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(DataType, dataType_);
     };
@@ -76,15 +74,8 @@ namespace Models
       shared_ptr<string> operationType_ {};
     };
 
-    virtual bool empty() const override { return this->regionId_ == nullptr
-        && this->content_ == nullptr && this->dataType_ == nullptr; };
-    // regionId Field Functions 
-    bool hasRegionId() const { return this->regionId_ != nullptr;};
-    void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
-    inline UploadRecommendationDataRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
-
-
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->dataType_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -102,7 +93,6 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> regionId_ {};
     shared_ptr<vector<UploadRecommendationDataRequest::Content>> content_ {};
     shared_ptr<string> dataType_ {};
   };

@@ -14,11 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const TrafficControlTaskTrafficInfoTargetTrafficsDataValue& obj) { 
       DARABONBA_PTR_TO_JSON(Traffic, traffic_);
-      DARABONBA_PTR_TO_JSON(RecorfTime, recorfTime_);
+      DARABONBA_PTR_TO_JSON(RecordTime, recordTime_);
     };
     friend void from_json(const Darabonba::Json& j, TrafficControlTaskTrafficInfoTargetTrafficsDataValue& obj) { 
       DARABONBA_PTR_FROM_JSON(Traffic, traffic_);
-      DARABONBA_PTR_FROM_JSON(RecorfTime, recorfTime_);
+      DARABONBA_PTR_FROM_JSON(RecordTime, recordTime_);
     };
     TrafficControlTaskTrafficInfoTargetTrafficsDataValue() = default ;
     TrafficControlTaskTrafficInfoTargetTrafficsDataValue(const TrafficControlTaskTrafficInfoTargetTrafficsDataValue &) = default ;
@@ -32,7 +32,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->traffic_ == nullptr
-        && this->recorfTime_ == nullptr; };
+        && this->recordTime_ == nullptr; };
     // traffic Field Functions 
     bool hasTraffic() const { return this->traffic_ != nullptr;};
     void deleteTraffic() { this->traffic_ = nullptr;};
@@ -40,16 +40,16 @@ namespace Models
     inline TrafficControlTaskTrafficInfoTargetTrafficsDataValue& setTraffic(double traffic) { DARABONBA_PTR_SET_VALUE(traffic_, traffic) };
 
 
-    // recorfTime Field Functions 
-    bool hasRecorfTime() const { return this->recorfTime_ != nullptr;};
-    void deleteRecorfTime() { this->recorfTime_ = nullptr;};
-    inline int64_t getRecorfTime() const { DARABONBA_PTR_GET_DEFAULT(recorfTime_, 0L) };
-    inline TrafficControlTaskTrafficInfoTargetTrafficsDataValue& setRecorfTime(int64_t recorfTime) { DARABONBA_PTR_SET_VALUE(recorfTime_, recorfTime) };
+    // recordTime Field Functions 
+    bool hasRecordTime() const { return this->recordTime_ != nullptr;};
+    void deleteRecordTime() { this->recordTime_ = nullptr;};
+    inline int64_t getRecordTime() const { DARABONBA_PTR_GET_DEFAULT(recordTime_, 0L) };
+    inline TrafficControlTaskTrafficInfoTargetTrafficsDataValue& setRecordTime(int64_t recordTime) { DARABONBA_PTR_SET_VALUE(recordTime_, recordTime) };
 
 
   protected:
     shared_ptr<double> traffic_ {};
-    shared_ptr<int64_t> recorfTime_ {};
+    shared_ptr<int64_t> recordTime_ {};
   };
 
   } // namespace Models

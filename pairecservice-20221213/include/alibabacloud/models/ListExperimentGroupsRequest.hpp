@@ -15,7 +15,6 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListExperimentGroupsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(LayerId, layerId_);
-      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TimeRangeEnd, timeRangeEnd_);
       DARABONBA_PTR_TO_JSON(TimeRangeStart, timeRangeStart_);
@@ -23,7 +22,6 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListExperimentGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(LayerId, layerId_);
-      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TimeRangeEnd, timeRangeEnd_);
       DARABONBA_PTR_FROM_JSON(TimeRangeStart, timeRangeStart_);
@@ -40,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->layerId_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->timeRangeEnd_ == nullptr && this->timeRangeStart_ == nullptr; };
+        && this->layerId_ == nullptr && this->status_ == nullptr && this->timeRangeEnd_ == nullptr && this->timeRangeStart_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -53,13 +51,6 @@ namespace Models
     void deleteLayerId() { this->layerId_ = nullptr;};
     inline string getLayerId() const { DARABONBA_PTR_GET_DEFAULT(layerId_, "") };
     inline ListExperimentGroupsRequest& setLayerId(string layerId) { DARABONBA_PTR_SET_VALUE(layerId_, layerId) };
-
-
-    // regionId Field Functions 
-    bool hasRegionId() const { return this->regionId_ != nullptr;};
-    void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
-    inline ListExperimentGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
@@ -87,7 +78,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> layerId_ {};
-    shared_ptr<string> regionId_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> timeRangeEnd_ {};
     shared_ptr<string> timeRangeStart_ {};

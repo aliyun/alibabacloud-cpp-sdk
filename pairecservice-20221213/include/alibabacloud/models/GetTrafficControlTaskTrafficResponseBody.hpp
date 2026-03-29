@@ -60,11 +60,11 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const TargetTraffics& obj) { 
           DARABONBA_PTR_TO_JSON(Data, data_);
-          DARABONBA_PTR_TO_JSON(TrafficControlTargetId, trafficControlTargetId_);
+          DARABONBA_PTR_TO_JSON(TrafficContorlTargetId, trafficContorlTargetId_);
         };
         friend void from_json(const Darabonba::Json& j, TargetTraffics& obj) { 
           DARABONBA_PTR_FROM_JSON(Data, data_);
-          DARABONBA_PTR_FROM_JSON(TrafficControlTargetId, trafficControlTargetId_);
+          DARABONBA_PTR_FROM_JSON(TrafficContorlTargetId, trafficContorlTargetId_);
         };
         TargetTraffics() = default ;
         TargetTraffics(const TargetTraffics &) = default ;
@@ -78,7 +78,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->data_ == nullptr
-        && this->trafficControlTargetId_ == nullptr; };
+        && this->trafficContorlTargetId_ == nullptr; };
         // data Field Functions 
         bool hasData() const { return this->data_ != nullptr;};
         void deleteData() { this->data_ = nullptr;};
@@ -88,16 +88,16 @@ namespace Models
         inline TargetTraffics& setData(map<string, TrafficControlTaskTrafficInfoTargetTrafficsDataValue> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
-        // trafficControlTargetId Field Functions 
-        bool hasTrafficControlTargetId() const { return this->trafficControlTargetId_ != nullptr;};
-        void deleteTrafficControlTargetId() { this->trafficControlTargetId_ = nullptr;};
-        inline string getTrafficControlTargetId() const { DARABONBA_PTR_GET_DEFAULT(trafficControlTargetId_, "") };
-        inline TargetTraffics& setTrafficControlTargetId(string trafficControlTargetId) { DARABONBA_PTR_SET_VALUE(trafficControlTargetId_, trafficControlTargetId) };
+        // trafficContorlTargetId Field Functions 
+        bool hasTrafficContorlTargetId() const { return this->trafficContorlTargetId_ != nullptr;};
+        void deleteTrafficContorlTargetId() { this->trafficContorlTargetId_ = nullptr;};
+        inline string getTrafficContorlTargetId() const { DARABONBA_PTR_GET_DEFAULT(trafficContorlTargetId_, "") };
+        inline TargetTraffics& setTrafficContorlTargetId(string trafficContorlTargetId) { DARABONBA_PTR_SET_VALUE(trafficContorlTargetId_, trafficContorlTargetId) };
 
 
       protected:
         shared_ptr<map<string, TrafficControlTaskTrafficInfoTargetTrafficsDataValue>> data_ {};
-        shared_ptr<string> trafficControlTargetId_ {};
+        shared_ptr<string> trafficContorlTargetId_ {};
       };
 
       virtual bool empty() const override { return this->targetTraffics_ == nullptr

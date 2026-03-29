@@ -945,6 +945,152 @@ CreateCrowdResponse Client::createCrowd(const CreateCrowdRequest &request) {
 }
 
 /**
+ * @summary 创建数据诊断。
+ *
+ * @param request CreateDataDiagnosisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataDiagnosisResponse
+ */
+CreateDataDiagnosisResponse Client::createDataDiagnosisWithOptions(const CreateDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasCycleTime()) {
+    body["CycleTime"] = request.getCycleTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLeftTableMetaId()) {
+    body["LeftTableMetaId"] = request.getLeftTableMetaId();
+  }
+
+  if (!!request.hasLeftTablePartitionField()) {
+    body["LeftTablePartitionField"] = request.getLeftTablePartitionField();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPartitionField()) {
+    body["PartitionField"] = request.getPartitionField();
+  }
+
+  if (!!request.hasRightTableMetaId()) {
+    body["RightTableMetaId"] = request.getRightTableMetaId();
+  }
+
+  if (!!request.hasRightTablePartitionField()) {
+    body["RightTablePartitionField"] = request.getRightTablePartitionField();
+  }
+
+  if (!!request.hasTableMetaId()) {
+    body["TableMetaId"] = request.getTableMetaId();
+  }
+
+  if (!!request.hasTopNQuantity()) {
+    body["TopNQuantity"] = request.getTopNQuantity();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDataDiagnosis"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataDiagnosisResponse>();
+}
+
+/**
+ * @summary 创建数据诊断。
+ *
+ * @param request CreateDataDiagnosisRequest
+ * @return CreateDataDiagnosisResponse
+ */
+CreateDataDiagnosisResponse Client::createDataDiagnosis(const CreateDataDiagnosisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDataDiagnosisWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建数据诊断（重跑）任务。
+ *
+ * @param request CreateDataDiagnosisJobsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataDiagnosisJobsResponse
+ */
+CreateDataDiagnosisJobsResponse Client::createDataDiagnosisJobsWithOptions(const CreateDataDiagnosisJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDataDiagnosisId()) {
+    body["DataDiagnosisId"] = request.getDataDiagnosisId();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDataDiagnosisJobs"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/batch/datadiagnosisjobs/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataDiagnosisJobsResponse>();
+}
+
+/**
+ * @summary 创建数据诊断（重跑）任务。
+ *
+ * @param request CreateDataDiagnosisJobsRequest
+ * @return CreateDataDiagnosisJobsResponse
+ */
+CreateDataDiagnosisJobsResponse Client::createDataDiagnosisJobs(const CreateDataDiagnosisJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDataDiagnosisJobsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建引擎配置
  *
  * @param request CreateEngineConfigRequest
@@ -2917,6 +3063,51 @@ DeleteCrowdResponse Client::deleteCrowd(const string &CrowdId, const DeleteCrowd
 }
 
 /**
+ * @summary 删除指定数据诊断。
+ *
+ * @param request DeleteDataDiagnosisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataDiagnosisResponse
+ */
+DeleteDataDiagnosisResponse Client::deleteDataDiagnosisWithOptions(const string &DataDiagnosisId, const DeleteDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataDiagnosis"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses/" , Darabonba::Encode::Encoder::percentEncode(DataDiagnosisId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataDiagnosisResponse>();
+}
+
+/**
+ * @summary 删除指定数据诊断。
+ *
+ * @param request DeleteDataDiagnosisRequest
+ * @return DeleteDataDiagnosisResponse
+ */
+DeleteDataDiagnosisResponse Client::deleteDataDiagnosis(const string &DataDiagnosisId, const DeleteDataDiagnosisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDataDiagnosisWithOptions(DataDiagnosisId, request, headers, runtime);
+}
+
+/**
  * @summary 删除指定推荐引擎配置。
  *
  * @param request DeleteEngineConfigRequest
@@ -4042,6 +4233,51 @@ GetCalculationJobResponse Client::getCalculationJob(const string &CalculationJob
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCalculationJobWithOptions(CalculationJobId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取数据诊断详细信息。
+ *
+ * @param request GetDataDiagnosisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataDiagnosisResponse
+ */
+GetDataDiagnosisResponse Client::getDataDiagnosisWithOptions(const string &DataDiagnosisId, const GetDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataDiagnosis"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses/" , Darabonba::Encode::Encoder::percentEncode(DataDiagnosisId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataDiagnosisResponse>();
+}
+
+/**
+ * @summary 获取数据诊断详细信息。
+ *
+ * @param request GetDataDiagnosisRequest
+ * @return GetDataDiagnosisResponse
+ */
+GetDataDiagnosisResponse Client::getDataDiagnosis(const string &DataDiagnosisId, const GetDataDiagnosisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDataDiagnosisWithOptions(DataDiagnosisId, request, headers, runtime);
 }
 
 /**
@@ -5456,6 +5692,201 @@ ListCrowdsResponse Client::listCrowds(const ListCrowdsRequest &request) {
 }
 
 /**
+ * @summary 获取数据诊断列表。
+ *
+ * @param tmpReq ListDataDiagnosesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataDiagnosesResponse
+ */
+ListDataDiagnosesResponse Client::listDataDiagnosesWithOptions(const ListDataDiagnosesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDataDiagnosesShrinkRequest request = ListDataDiagnosesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTypes()) {
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTypesShrink()) {
+    query["Types"] = request.getTypesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataDiagnoses"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataDiagnosesResponse>();
+}
+
+/**
+ * @summary 获取数据诊断列表。
+ *
+ * @param request ListDataDiagnosesRequest
+ * @return ListDataDiagnosesResponse
+ */
+ListDataDiagnosesResponse Client::listDataDiagnoses(const ListDataDiagnosesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDataDiagnosesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取数据诊断任务列表。
+ *
+ * @param tmpReq ListDataDiagnosisJobsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataDiagnosisJobsResponse
+ */
+ListDataDiagnosisJobsResponse Client::listDataDiagnosisJobsWithOptions(const ListDataDiagnosisJobsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDataDiagnosisJobsShrinkRequest request = ListDataDiagnosisJobsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTypes()) {
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTypesShrink()) {
+    query["Types"] = request.getTypesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataDiagnosisJobs"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnosisjobs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataDiagnosisJobsResponse>();
+}
+
+/**
+ * @summary 获取数据诊断任务列表。
+ *
+ * @param request ListDataDiagnosisJobsRequest
+ * @return ListDataDiagnosisJobsResponse
+ */
+ListDataDiagnosisJobsResponse Client::listDataDiagnosisJobs(const ListDataDiagnosisJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDataDiagnosisJobsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取数据诊断报告。
+ *
+ * @param request ListDataDiagnosisReportsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataDiagnosisReportsResponse
+ */
+ListDataDiagnosisReportsResponse Client::listDataDiagnosisReportsWithOptions(const string &DataDiagnosisId, const ListDataDiagnosisReportsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasFeatureName()) {
+    query["FeatureName"] = request.getFeatureName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRemainRateType()) {
+    query["RemainRateType"] = request.getRemainRateType();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasTopN()) {
+    query["TopN"] = request.getTopN();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataDiagnosisReports"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses/" , Darabonba::Encode::Encoder::percentEncode(DataDiagnosisId) , "/reports")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataDiagnosisReportsResponse>();
+}
+
+/**
+ * @summary 获取数据诊断报告。
+ *
+ * @param request ListDataDiagnosisReportsRequest
+ * @return ListDataDiagnosisReportsResponse
+ */
+ListDataDiagnosisReportsResponse Client::listDataDiagnosisReports(const string &DataDiagnosisId, const ListDataDiagnosisReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDataDiagnosisReportsWithOptions(DataDiagnosisId, request, headers, runtime);
+}
+
+/**
  * @summary 获取引擎配置列表。
  *
  * @param request ListEngineConfigsRequest
@@ -5541,10 +5972,6 @@ ListExperimentGroupsResponse Client::listExperimentGroupsWithOptions(const ListE
 
   if (!!request.hasLayerId()) {
     query["LayerId"] = request.getLayerId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStatus()) {
@@ -7593,6 +8020,63 @@ PushResourceRuleResponse Client::pushResourceRule(const string &ResourceRuleId, 
 }
 
 /**
+ * @summary QueryDataDiagnosisStatistics
+ *
+ * @param request QueryDataDiagnosisStatisticsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryDataDiagnosisStatisticsResponse
+ */
+QueryDataDiagnosisStatisticsResponse Client::queryDataDiagnosisStatisticsWithOptions(const string &DataDiagnosisId, const QueryDataDiagnosisStatisticsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRemainRateType()) {
+    query["RemainRateType"] = request.getRemainRateType();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryDataDiagnosisStatistics"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses/" , Darabonba::Encode::Encoder::percentEncode(DataDiagnosisId) , "/statistics/action/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryDataDiagnosisStatisticsResponse>();
+}
+
+/**
+ * @summary QueryDataDiagnosisStatistics
+ *
+ * @param request QueryDataDiagnosisStatisticsRequest
+ * @return QueryDataDiagnosisStatisticsResponse
+ */
+QueryDataDiagnosisStatisticsResponse Client::queryDataDiagnosisStatistics(const string &DataDiagnosisId, const QueryDataDiagnosisStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryDataDiagnosisStatisticsWithOptions(DataDiagnosisId, request, headers, runtime);
+}
+
+/**
  * @summary 查看样本一致性任务差异的详情
  *
  * @param request QuerySampleConsistencyJobDifferenceRequest
@@ -8508,6 +8992,95 @@ UpdateCrowdResponse Client::updateCrowd(const string &CrowdId, const UpdateCrowd
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateCrowdWithOptions(CrowdId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新数据诊断。
+ *
+ * @param request UpdateDataDiagnosisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataDiagnosisResponse
+ */
+UpdateDataDiagnosisResponse Client::updateDataDiagnosisWithOptions(const string &DataDiagnosisId, const UpdateDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasCycleTime()) {
+    body["CycleTime"] = request.getCycleTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLeftTableMetaId()) {
+    body["LeftTableMetaId"] = request.getLeftTableMetaId();
+  }
+
+  if (!!request.hasLeftTablePartitionField()) {
+    body["LeftTablePartitionField"] = request.getLeftTablePartitionField();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPartitionField()) {
+    body["PartitionField"] = request.getPartitionField();
+  }
+
+  if (!!request.hasRightTableMetaId()) {
+    body["RightTableMetaId"] = request.getRightTableMetaId();
+  }
+
+  if (!!request.hasRightTablePartitionField()) {
+    body["RightTablePartitionField"] = request.getRightTablePartitionField();
+  }
+
+  if (!!request.hasTableMetaId()) {
+    body["TableMetaId"] = request.getTableMetaId();
+  }
+
+  if (!!request.hasTopNQuantity()) {
+    body["TopNQuantity"] = request.getTopNQuantity();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataDiagnosis"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/datadiagnoses/" , Darabonba::Encode::Encoder::percentEncode(DataDiagnosisId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataDiagnosisResponse>();
+}
+
+/**
+ * @summary 更新数据诊断。
+ *
+ * @param request UpdateDataDiagnosisRequest
+ * @return UpdateDataDiagnosisResponse
+ */
+UpdateDataDiagnosisResponse Client::updateDataDiagnosis(const string &DataDiagnosisId, const UpdateDataDiagnosisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDataDiagnosisWithOptions(DataDiagnosisId, request, headers, runtime);
 }
 
 /**
@@ -10033,11 +10606,6 @@ UpdateTrafficControlTaskTrafficResponse Client::updateTrafficControlTaskTraffic(
  */
 UploadRecommendationDataResponse Client::uploadRecommendationDataWithOptions(const UploadRecommendationDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
   json body = {};
   if (!!request.hasContent()) {
     body["Content"] = request.getContent();
@@ -10049,7 +10617,6 @@ UploadRecommendationDataResponse Client::uploadRecommendationDataWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({

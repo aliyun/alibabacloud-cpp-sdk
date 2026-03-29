@@ -309,6 +309,42 @@ namespace PaiRecService20221213
       Models::CreateCrowdResponse createCrowd(const Models::CreateCrowdRequest &request);
 
       /**
+       * @summary 创建数据诊断。
+       *
+       * @param request CreateDataDiagnosisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataDiagnosisResponse
+       */
+      Models::CreateDataDiagnosisResponse createDataDiagnosisWithOptions(const Models::CreateDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据诊断。
+       *
+       * @param request CreateDataDiagnosisRequest
+       * @return CreateDataDiagnosisResponse
+       */
+      Models::CreateDataDiagnosisResponse createDataDiagnosis(const Models::CreateDataDiagnosisRequest &request);
+
+      /**
+       * @summary 创建数据诊断（重跑）任务。
+       *
+       * @param request CreateDataDiagnosisJobsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataDiagnosisJobsResponse
+       */
+      Models::CreateDataDiagnosisJobsResponse createDataDiagnosisJobsWithOptions(const Models::CreateDataDiagnosisJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据诊断（重跑）任务。
+       *
+       * @param request CreateDataDiagnosisJobsRequest
+       * @return CreateDataDiagnosisJobsResponse
+       */
+      Models::CreateDataDiagnosisJobsResponse createDataDiagnosisJobs(const Models::CreateDataDiagnosisJobsRequest &request);
+
+      /**
        * @summary 创建引擎配置
        *
        * @param request CreateEngineConfigRequest
@@ -777,6 +813,24 @@ namespace PaiRecService20221213
       Models::DeleteCrowdResponse deleteCrowd(const string &CrowdId, const Models::DeleteCrowdRequest &request);
 
       /**
+       * @summary 删除指定数据诊断。
+       *
+       * @param request DeleteDataDiagnosisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataDiagnosisResponse
+       */
+      Models::DeleteDataDiagnosisResponse deleteDataDiagnosisWithOptions(const string &DataDiagnosisId, const Models::DeleteDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定数据诊断。
+       *
+       * @param request DeleteDataDiagnosisRequest
+       * @return DeleteDataDiagnosisResponse
+       */
+      Models::DeleteDataDiagnosisResponse deleteDataDiagnosis(const string &DataDiagnosisId, const Models::DeleteDataDiagnosisRequest &request);
+
+      /**
        * @summary 删除指定推荐引擎配置。
        *
        * @param request DeleteEngineConfigRequest
@@ -1223,6 +1277,24 @@ namespace PaiRecService20221213
        * @return GetCalculationJobResponse
        */
       Models::GetCalculationJobResponse getCalculationJob(const string &CalculationJobId, const Models::GetCalculationJobRequest &request);
+
+      /**
+       * @summary 获取数据诊断详细信息。
+       *
+       * @param request GetDataDiagnosisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataDiagnosisResponse
+       */
+      Models::GetDataDiagnosisResponse getDataDiagnosisWithOptions(const string &DataDiagnosisId, const Models::GetDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据诊断详细信息。
+       *
+       * @param request GetDataDiagnosisRequest
+       * @return GetDataDiagnosisResponse
+       */
+      Models::GetDataDiagnosisResponse getDataDiagnosis(const string &DataDiagnosisId, const Models::GetDataDiagnosisRequest &request);
 
       /**
        * @summary 获取引擎配置详细信息。
@@ -1757,6 +1829,60 @@ namespace PaiRecService20221213
        * @return ListCrowdsResponse
        */
       Models::ListCrowdsResponse listCrowds(const Models::ListCrowdsRequest &request);
+
+      /**
+       * @summary 获取数据诊断列表。
+       *
+       * @param tmpReq ListDataDiagnosesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataDiagnosesResponse
+       */
+      Models::ListDataDiagnosesResponse listDataDiagnosesWithOptions(const Models::ListDataDiagnosesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据诊断列表。
+       *
+       * @param request ListDataDiagnosesRequest
+       * @return ListDataDiagnosesResponse
+       */
+      Models::ListDataDiagnosesResponse listDataDiagnoses(const Models::ListDataDiagnosesRequest &request);
+
+      /**
+       * @summary 获取数据诊断任务列表。
+       *
+       * @param tmpReq ListDataDiagnosisJobsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataDiagnosisJobsResponse
+       */
+      Models::ListDataDiagnosisJobsResponse listDataDiagnosisJobsWithOptions(const Models::ListDataDiagnosisJobsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据诊断任务列表。
+       *
+       * @param request ListDataDiagnosisJobsRequest
+       * @return ListDataDiagnosisJobsResponse
+       */
+      Models::ListDataDiagnosisJobsResponse listDataDiagnosisJobs(const Models::ListDataDiagnosisJobsRequest &request);
+
+      /**
+       * @summary 获取数据诊断报告。
+       *
+       * @param request ListDataDiagnosisReportsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataDiagnosisReportsResponse
+       */
+      Models::ListDataDiagnosisReportsResponse listDataDiagnosisReportsWithOptions(const string &DataDiagnosisId, const Models::ListDataDiagnosisReportsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据诊断报告。
+       *
+       * @param request ListDataDiagnosisReportsRequest
+       * @return ListDataDiagnosisReportsResponse
+       */
+      Models::ListDataDiagnosisReportsResponse listDataDiagnosisReports(const string &DataDiagnosisId, const Models::ListDataDiagnosisReportsRequest &request);
 
       /**
        * @summary 获取引擎配置列表。
@@ -2425,6 +2551,24 @@ namespace PaiRecService20221213
       Models::PushResourceRuleResponse pushResourceRule(const string &ResourceRuleId, const Models::PushResourceRuleRequest &request);
 
       /**
+       * @summary QueryDataDiagnosisStatistics
+       *
+       * @param request QueryDataDiagnosisStatisticsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryDataDiagnosisStatisticsResponse
+       */
+      Models::QueryDataDiagnosisStatisticsResponse queryDataDiagnosisStatisticsWithOptions(const string &DataDiagnosisId, const Models::QueryDataDiagnosisStatisticsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary QueryDataDiagnosisStatistics
+       *
+       * @param request QueryDataDiagnosisStatisticsRequest
+       * @return QueryDataDiagnosisStatisticsResponse
+       */
+      Models::QueryDataDiagnosisStatisticsResponse queryDataDiagnosisStatistics(const string &DataDiagnosisId, const Models::QueryDataDiagnosisStatisticsRequest &request);
+
+      /**
        * @summary 查看样本一致性任务差异的详情
        *
        * @param request QuerySampleConsistencyJobDifferenceRequest
@@ -2711,6 +2855,24 @@ namespace PaiRecService20221213
        * @return UpdateCrowdResponse
        */
       Models::UpdateCrowdResponse updateCrowd(const string &CrowdId, const Models::UpdateCrowdRequest &request);
+
+      /**
+       * @summary 更新数据诊断。
+       *
+       * @param request UpdateDataDiagnosisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataDiagnosisResponse
+       */
+      Models::UpdateDataDiagnosisResponse updateDataDiagnosisWithOptions(const string &DataDiagnosisId, const Models::UpdateDataDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据诊断。
+       *
+       * @param request UpdateDataDiagnosisRequest
+       * @return UpdateDataDiagnosisResponse
+       */
+      Models::UpdateDataDiagnosisResponse updateDataDiagnosis(const string &DataDiagnosisId, const Models::UpdateDataDiagnosisRequest &request);
 
       /**
        * @summary 更新引擎配置。
