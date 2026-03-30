@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The fingerprint that you want to remove.
     shared_ptr<string> fingerprint_ {};
+    // The name of the OIDC IdP.
     shared_ptr<string> OIDCProviderName_ {};
   };
 

@@ -105,11 +105,17 @@ namespace Models
 
 
     protected:
+      // The time when the RAM user was created.
       shared_ptr<string> createDate_ {};
+      // The time when the RAM user will be permanently deleted from the recycle bin.
       shared_ptr<string> deleteDate_ {};
+      // The display name of the RAM user.
       shared_ptr<string> displayName_ {};
+      // The time when the RAM user was deleted and moved to the recycle bin.
       shared_ptr<string> recycleDate_ {};
+      // The ID of the RAM user.
       shared_ptr<string> userId_ {};
+      // The logon name of the RAM user.
       shared_ptr<string> userPrincipalName_ {};
     };
 
@@ -132,7 +138,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The information about the RAM user.
     shared_ptr<GetUserInRecycleBinResponseBody::User> user_ {};
   };
 

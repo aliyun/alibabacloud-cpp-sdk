@@ -74,7 +74,13 @@ namespace Models
 
 
     protected:
+      // The key of tag N.
+      // 
+      // Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The value of tag N.
+      // 
+      // Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -115,9 +121,25 @@ namespace Models
 
 
   protected:
+    // The ID of resource N.
+    // 
+    // Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
+    // 
+    // >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
     shared_ptr<vector<string>> resourceId_ {};
+    // The name of resource N.
+    // 
+    // Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
+    // 
+    // >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
     shared_ptr<vector<string>> resourcePrincipalName_ {};
+    // The type of the resource. Valid value:
+    // 
+    // *   user: a Resource Access Management (RAM) user.
     shared_ptr<string> resourceType_ {};
+    // The key of tag N.
+    // 
+    // Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length. The tag key cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The report generation status. Valid values:
+    // 
+    // *   Started: The system starts to generate a governance report.
+    // *   Progressing: The system is generating a governance report.
+    // *   Completed: A governance report is generated.
     shared_ptr<string> state_ {};
   };
 

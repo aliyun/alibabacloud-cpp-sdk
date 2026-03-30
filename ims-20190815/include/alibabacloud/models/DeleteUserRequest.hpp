@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The ID of the RAM user.
+    // 
+    // >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
     shared_ptr<string> userId_ {};
+    // The logon name of the RAM user.
+    // 
+    // >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
     shared_ptr<string> userPrincipalName_ {};
   };
 

@@ -339,38 +339,31 @@ namespace Models
       shared_ptr<int32_t> accessTokenValidity_ {};
       // The ID of the Alibaba Cloud account to which the application belongs.
       shared_ptr<string> accountId_ {};
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
-      // The application name.
+      // The name of the application.
       shared_ptr<string> appName_ {};
-      // The application type. Valid values:
+      // The type of the application. Valid values:
       // 
-      // - WebApp: a web application that is based on browser interaction.
-      // 
-      // - NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
-      // 
-      // - ServerApp: an application that can directly access Alibaba Cloud services without user logon. Currently, only applications that use the System for Cross-domain Identity Management (SCIM) for user synchronization are supported.
+      // *   WebApp: a web application.
+      // *   NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
+      // *   ServerApp: an application that can access Alibaba Cloud services without the need for user logon. Only applications that synchronize user information based on the System for Cross-domain Identity Management (SCIM) protocol are supported.
       shared_ptr<string> appType_ {};
-      // The time when the application was created.
+      // The creation time.
       shared_ptr<string> createDate_ {};
-      // The permission scopes of the application.
+      // The information about the permissions that are granted on the application.
       shared_ptr<Application::DelegatedScope> delegatedScope_ {};
       // The display name of the application.
       shared_ptr<string> displayName_ {};
-      // Indicates whether the application can be installed by other Alibaba Cloud accounts.
+      // Indicates whether the application can be installed by using other Alibaba Cloud accounts.
       shared_ptr<bool> isMultiTenant_ {};
-      // The OAuth protocol version of the application. Valid values:
-      // 
-      // - `2.0`: OAuth 2.0.
-      // 
-      // - `2.1`: OAuth 2.1.
       shared_ptr<string> protocolVersion_ {};
       shared_ptr<Application::RedirectUris> redirectUris_ {};
       // The validity period of the refresh token. Unit: seconds.
       shared_ptr<int32_t> refreshTokenValidity_ {};
-      // Indicates whether an application key is required.
+      // Indicates whether a secret is required.
       shared_ptr<bool> secretRequired_ {};
-      // The time when the application was last updated.
+      // The update time.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -395,7 +388,7 @@ namespace Models
   protected:
     // The information about the application.
     shared_ptr<GetApplicationResponseBody::Application> application_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

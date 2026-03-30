@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the RAM user group.
     shared_ptr<string> groupName_ {};
   };
 

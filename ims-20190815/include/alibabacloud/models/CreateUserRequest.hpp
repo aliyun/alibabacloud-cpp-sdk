@@ -78,7 +78,13 @@ namespace Models
 
 
     protected:
+      // The key of the tag.
+      // 
+      // The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The value of the tag.
+      // 
+      // The tag value can be an empty string. The tag value can be up to 128 characters in length. The tag value cannot start with `acs:` or contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -129,12 +135,34 @@ namespace Models
 
 
   protected:
+    // The description.
+    // 
+    // The description must be 1 to 128 characters in length.
     shared_ptr<string> comments_ {};
+    // The display name of the RAM user.
+    // 
+    // The name must be 1 to 24 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // The email address of the RAM user.
+    // 
+    // > This parameter is valid only on the China site (aliyun.com).
     shared_ptr<string> email_ {};
+    // The mobile number of the RAM user.
+    // 
+    // Format: Country code-Mobile phone number.
+    // 
+    // > This parameter is valid only on the China site (aliyun.com).
     shared_ptr<string> mobilePhone_ {};
+    // The tags. You can specify up to 20 tags.
     shared_ptr<vector<CreateUserRequest::Tag>> tag_ {};
+    // The logon name of the Resource Access Management (RAM) user.
+    // 
+    // The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name. For more information about how to query the default domain name, see [GetDefaultDomain](https://help.aliyun.com/document_detail/186720.html).
+    // 
+    // The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> userPrincipalName_ {};
   };

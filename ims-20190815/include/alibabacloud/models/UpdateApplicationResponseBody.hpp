@@ -339,32 +339,27 @@ namespace Models
       shared_ptr<int32_t> accessTokenValidity_ {};
       // The ID of the Alibaba Cloud account to which the application belongs.
       shared_ptr<string> accountId_ {};
-      // The application ID.
+      // The ID of the application.
       shared_ptr<string> appId_ {};
       // The application name.
       shared_ptr<string> appName_ {};
       // The application type.
       shared_ptr<string> appType_ {};
-      // The time when the application was created.
+      // The creation time.
       shared_ptr<string> createDate_ {};
-      // The information about the permission scopes of the application.
+      // The information about the permissions that are granted on the application.
       shared_ptr<Application::DelegatedScope> delegatedScope_ {};
       // The display name of the application.
       shared_ptr<string> displayName_ {};
-      // Indicates whether the application can be installed by other Alibaba Cloud accounts.
+      // Indicates whether the application can be installed by using other Alibaba Cloud accounts.
       shared_ptr<bool> isMultiTenant_ {};
-      // The OAuth protocol version of the application. Valid values:
-      // 
-      // - `2.0`: OAuth 2.0.
-      // 
-      // - `2.1`: OAuth 2.1.
       shared_ptr<string> protocolVersion_ {};
       shared_ptr<Application::RedirectUris> redirectUris_ {};
       // The validity period of the refresh token. Unit: seconds.
       shared_ptr<int32_t> refreshTokenValidity_ {};
-      // Indicates whether an application key is required.
+      // Indicates whether a secret is required.
       shared_ptr<bool> secretRequired_ {};
-      // The time when the application was updated.
+      // The update time.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -387,7 +382,7 @@ namespace Models
 
 
   protected:
-    // The application information.
+    // The information about the application.
     shared_ptr<UpdateApplicationResponseBody::Application> application_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

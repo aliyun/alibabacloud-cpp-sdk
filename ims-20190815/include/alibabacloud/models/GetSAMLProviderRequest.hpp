@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the SAML provider.
+    // The name of the IdP.
     // 
     // This parameter is required.
     shared_ptr<string> SAMLProviderName_ {};

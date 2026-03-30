@@ -147,6 +147,7 @@ namespace Models
 
   protected:
     shared_ptr<ListAccessKeysResponseBody::AccessKeys> accessKeys_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

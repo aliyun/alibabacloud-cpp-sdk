@@ -87,9 +87,16 @@ namespace Models
 
 
     protected:
+      // The AccessKey ID.
       shared_ptr<string> accessKeyId_ {};
+      // The AccessKey secret.
       shared_ptr<string> accessKeySecret_ {};
+      // The time when the AccessKey pair was created.
       shared_ptr<string> createDate_ {};
+      // The status of the AccessKey pair. Valid values:
+      // 
+      // *   Active
+      // *   Inactive
       shared_ptr<string> status_ {};
     };
 
@@ -112,7 +119,9 @@ namespace Models
 
 
   protected:
+    // The information about the AccessKey pair.
     shared_ptr<CreateAccessKeyResponseBody::AccessKey> accessKey_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID of the RAM user.
     shared_ptr<string> userAccessKeyId_ {};
+    // The ID of the RAM user.
+    // 
+    // > - If you use an Alibaba Cloud account to call the operation, you must specify the parameter.
+    // > - If you use a RAM user to call the operation, you can leave the parameter empty. In this case, the ID of the RAM user is used by default.
     shared_ptr<string> userId_ {};
   };
 

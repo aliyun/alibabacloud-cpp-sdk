@@ -147,6 +147,7 @@ namespace Models
 
   protected:
     shared_ptr<ListAccessKeysInRecycleBinResponseBody::AccessKeys> accessKeys_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

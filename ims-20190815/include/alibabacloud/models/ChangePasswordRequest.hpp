@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The new password that is used to log on to the console.
+    // 
+    // The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](https://help.aliyun.com/document_detail/186691.html).
+    // 
     // This parameter is required.
     shared_ptr<string> newPassword_ {};
+    // The old password that is used to log on to the console.
+    // 
     // This parameter is required.
     shared_ptr<string> oldPassword_ {};
   };

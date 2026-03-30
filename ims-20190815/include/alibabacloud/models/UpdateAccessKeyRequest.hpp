@@ -57,10 +57,20 @@ namespace Models
 
 
   protected:
+    // The status of the AccessKey pair. Valid values:
+    // 
+    // *   Active
+    // *   Inactive
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
+    // The AccessKey ID of the AccessKey pair for which you want to modify the status.
+    // 
     // This parameter is required.
     shared_ptr<string> userAccessKeyId_ {};
+    // The logon name of the RAM user.
+    // 
+    // If this parameter is empty, the status of the AccessKey pair for the current user is modified.
     shared_ptr<string> userPrincipalName_ {};
   };
 

@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The logon name of the RAM user.
+    // 
+    // If this parameter is empty, the AccessKey pairs of the current user are queried.
     shared_ptr<string> userPrincipalName_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the OIDC IdP.
     shared_ptr<string> OIDCProviderName_ {};
   };
 

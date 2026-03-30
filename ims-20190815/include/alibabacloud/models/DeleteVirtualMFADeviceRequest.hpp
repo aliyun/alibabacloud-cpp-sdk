@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The serial number of the MFA device.
+    // 
     // This parameter is required.
     shared_ptr<string> serialNumber_ {};
   };

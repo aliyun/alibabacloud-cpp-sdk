@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID of the Resource Access Management (RAM) user.
+    // 
     // This parameter is required.
     shared_ptr<string> userAccessKeyId_ {};
   };

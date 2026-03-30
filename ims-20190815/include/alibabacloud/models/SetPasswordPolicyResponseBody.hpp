@@ -170,28 +170,27 @@ namespace Models
 
 
     protected:
-      // Indicates whether logon is prevented after the password expires.
+      // Indicates whether to disable logon after the password expires.
       shared_ptr<bool> hardExpire_ {};
-      // The validity period of the initial password.
       shared_ptr<int32_t> initialPasswordAge_ {};
       shared_ptr<bool> interceptRiskPasswordOnApi_ {};
-      // The maximum number of consecutive logon failures that are allowed.
+      // The maximum number of password retries.
       shared_ptr<int32_t> maxLoginAttemps_ {};
       // The validity period of the password.
       shared_ptr<int32_t> maxPasswordAge_ {};
       // The minimum number of unique characters in the password.
       shared_ptr<int32_t> minimumPasswordDifferentCharacter_ {};
-      // The minimum length of the password.
+      // The minimum number of characters in the password.
       shared_ptr<int32_t> minimumPasswordLength_ {};
-      // Prevents passwords from containing the username.
+      // Indicates whether to exclude the username from the password.
       shared_ptr<bool> passwordNotContainUserName_ {};
-      // The number of previous passwords that cannot be reused.
+      // The policy for password history check.
       shared_ptr<int32_t> passwordReusePrevention_ {};
       // Indicates whether the password must contain lowercase letters.
       shared_ptr<bool> requireLowercaseCharacters_ {};
       // Indicates whether the password must contain digits.
       shared_ptr<bool> requireNumbers_ {};
-      // Indicates whether the password must contain symbols.
+      // Indicates whether the password must contain special characters.
       shared_ptr<bool> requireSymbols_ {};
       // Indicates whether the password must contain uppercase letters.
       shared_ptr<bool> requireUppercaseCharacters_ {};
@@ -216,7 +215,7 @@ namespace Models
 
 
   protected:
-    // The password strength policy.
+    // The details of the password policy.
     shared_ptr<SetPasswordPolicyResponseBody::PasswordPolicy> passwordPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

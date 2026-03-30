@@ -226,12 +226,19 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
+      // The ID of the application.
       shared_ptr<string> appId_ {};
+      // The name of the application.
       shared_ptr<string> appName_ {};
+      // The time when the application was installed. The value is a timestamp.
       shared_ptr<string> createDate_ {};
+      // The information about the scopes of permissions that are granted to the application.
       shared_ptr<ApplicationProvisionInfo::DelegatedScope> delegatedScope_ {};
+      // The display name of the application.
       shared_ptr<string> displayName_ {};
+      // The update time. The value is a timestamp.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -254,7 +261,9 @@ namespace Models
 
 
   protected:
+    // The installation information about the application.
     shared_ptr<GetApplicationProvisionInfoResponseBody::ApplicationProvisionInfo> applicationProvisionInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -226,12 +226,19 @@ namespace Models
 
 
     protected:
+      // The name of the application principal. The value is in the `<app_name>@app.<account_id>.onaliyun.com` format.
       shared_ptr<string> appPrincipalName_ {};
+      // The time when the application was installed. The value is a timestamp.
       shared_ptr<string> createDate_ {};
+      // The information about the scopes of permissions that are granted to the application.
       shared_ptr<ExternalApplication::DelegatedScope> delegatedScope_ {};
+      // The display name of the application.
       shared_ptr<string> displayName_ {};
+      // The ID of the application.
       shared_ptr<string> foreignAppId_ {};
+      // The ID of the Alibaba Cloud account to which the external application belongs.
       shared_ptr<string> tenantId_ {};
+      // The update time. The value is a timestamp.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -254,7 +261,9 @@ namespace Models
 
 
   protected:
+    // The information about the external application.
     shared_ptr<ProvisionExternalApplicationResponseBody::ExternalApplication> externalApplication_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

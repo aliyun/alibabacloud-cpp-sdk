@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The fingerprint of the HTTPS CA certificate.
+    // 
+    // The fingerprint can contain letters and digits.
+    // 
+    // The fingerprint can be up to 128 characters in length.
     shared_ptr<string> fingerprint_ {};
+    // The name of the OIDC IdP.
     shared_ptr<string> OIDCProviderName_ {};
   };
 

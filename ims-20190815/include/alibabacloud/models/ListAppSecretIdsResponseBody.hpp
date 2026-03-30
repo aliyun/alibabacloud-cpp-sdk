@@ -137,6 +137,7 @@ namespace Models
 
   protected:
     shared_ptr<ListAppSecretIdsResponseBody::AppSecrets> appSecrets_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

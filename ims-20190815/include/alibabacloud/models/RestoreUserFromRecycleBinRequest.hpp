@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the RAM user.
     shared_ptr<string> userId_ {};
   };
 

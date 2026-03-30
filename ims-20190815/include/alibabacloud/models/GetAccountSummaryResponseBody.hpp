@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AttachedSystemPoliciesPerGroupQuota, attachedSystemPoliciesPerGroupQuota_);
         DARABONBA_PTR_TO_JSON(AttachedSystemPoliciesPerRoleQuota, attachedSystemPoliciesPerRoleQuota_);
         DARABONBA_PTR_TO_JSON(AttachedSystemPoliciesPerUserQuota, attachedSystemPoliciesPerUserQuota_);
+        DARABONBA_PTR_TO_JSON(AuthorizedClientPerUserQuota, authorizedClientPerUserQuota_);
         DARABONBA_PTR_TO_JSON(ConditionsPerAKPolicyQuota, conditionsPerAKPolicyQuota_);
         DARABONBA_PTR_TO_JSON(Groups, groups_);
         DARABONBA_PTR_TO_JSON(GroupsPerUserQuota, groupsPerUserQuota_);
@@ -68,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AttachedSystemPoliciesPerGroupQuota, attachedSystemPoliciesPerGroupQuota_);
         DARABONBA_PTR_FROM_JSON(AttachedSystemPoliciesPerRoleQuota, attachedSystemPoliciesPerRoleQuota_);
         DARABONBA_PTR_FROM_JSON(AttachedSystemPoliciesPerUserQuota, attachedSystemPoliciesPerUserQuota_);
+        DARABONBA_PTR_FROM_JSON(AuthorizedClientPerUserQuota, authorizedClientPerUserQuota_);
         DARABONBA_PTR_FROM_JSON(ConditionsPerAKPolicyQuota, conditionsPerAKPolicyQuota_);
         DARABONBA_PTR_FROM_JSON(Groups, groups_);
         DARABONBA_PTR_FROM_JSON(GroupsPerUserQuota, groupsPerUserQuota_);
@@ -98,10 +100,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessKeysPerUserQuota_ == nullptr
         && this->accountAccessKeysPerAccountQuota_ == nullptr && this->attachedPoliciesPerGroupQuota_ == nullptr && this->attachedPoliciesPerRoleQuota_ == nullptr && this->attachedPoliciesPerUserQuota_ == nullptr && this->attachedSystemPoliciesPerGroupQuota_ == nullptr
-        && this->attachedSystemPoliciesPerRoleQuota_ == nullptr && this->attachedSystemPoliciesPerUserQuota_ == nullptr && this->conditionsPerAKPolicyQuota_ == nullptr && this->groups_ == nullptr && this->groupsPerUserQuota_ == nullptr
-        && this->groupsQuota_ == nullptr && this->IPItemsPerAKPolicyQuota_ == nullptr && this->MFADevices_ == nullptr && this->MFADevicesInUse_ == nullptr && this->policies_ == nullptr
-        && this->policiesQuota_ == nullptr && this->policySizeQuota_ == nullptr && this->roles_ == nullptr && this->rolesQuota_ == nullptr && this->users_ == nullptr
-        && this->usersQuota_ == nullptr && this->versionsPerPolicyQuota_ == nullptr && this->virtualMFADevicesQuota_ == nullptr; };
+        && this->attachedSystemPoliciesPerRoleQuota_ == nullptr && this->attachedSystemPoliciesPerUserQuota_ == nullptr && this->authorizedClientPerUserQuota_ == nullptr && this->conditionsPerAKPolicyQuota_ == nullptr && this->groups_ == nullptr
+        && this->groupsPerUserQuota_ == nullptr && this->groupsQuota_ == nullptr && this->IPItemsPerAKPolicyQuota_ == nullptr && this->MFADevices_ == nullptr && this->MFADevicesInUse_ == nullptr
+        && this->policies_ == nullptr && this->policiesQuota_ == nullptr && this->policySizeQuota_ == nullptr && this->roles_ == nullptr && this->rolesQuota_ == nullptr
+        && this->users_ == nullptr && this->usersQuota_ == nullptr && this->versionsPerPolicyQuota_ == nullptr && this->virtualMFADevicesQuota_ == nullptr; };
       // accessKeysPerUserQuota Field Functions 
       bool hasAccessKeysPerUserQuota() const { return this->accessKeysPerUserQuota_ != nullptr;};
       void deleteAccessKeysPerUserQuota() { this->accessKeysPerUserQuota_ = nullptr;};
@@ -156,6 +158,13 @@ namespace Models
       void deleteAttachedSystemPoliciesPerUserQuota() { this->attachedSystemPoliciesPerUserQuota_ = nullptr;};
       inline int32_t getAttachedSystemPoliciesPerUserQuota() const { DARABONBA_PTR_GET_DEFAULT(attachedSystemPoliciesPerUserQuota_, 0) };
       inline SummaryMap& setAttachedSystemPoliciesPerUserQuota(int32_t attachedSystemPoliciesPerUserQuota) { DARABONBA_PTR_SET_VALUE(attachedSystemPoliciesPerUserQuota_, attachedSystemPoliciesPerUserQuota) };
+
+
+      // authorizedClientPerUserQuota Field Functions 
+      bool hasAuthorizedClientPerUserQuota() const { return this->authorizedClientPerUserQuota_ != nullptr;};
+      void deleteAuthorizedClientPerUserQuota() { this->authorizedClientPerUserQuota_ = nullptr;};
+      inline int32_t getAuthorizedClientPerUserQuota() const { DARABONBA_PTR_GET_DEFAULT(authorizedClientPerUserQuota_, 0) };
+      inline SummaryMap& setAuthorizedClientPerUserQuota(int32_t authorizedClientPerUserQuota) { DARABONBA_PTR_SET_VALUE(authorizedClientPerUserQuota_, authorizedClientPerUserQuota) };
 
 
       // conditionsPerAKPolicyQuota Field Functions 
@@ -271,41 +280,41 @@ namespace Models
 
 
     protected:
-      // The maximum number of AccessKey pairs that a RAM user can have.
+      // The maximum number of AccessKey pairs that a Resource Access Management (RAM) user can have.
       shared_ptr<int32_t> accessKeysPerUserQuota_ {};
-      // The maximum number of AccessKeys for an Alibaba Cloud account.
       shared_ptr<int32_t> accountAccessKeysPerAccountQuota_ {};
-      // The maximum number of custom policies that can be attached to a user group.
+      // The maximum number of custom policies that can be added to a RAM user group.
       shared_ptr<int32_t> attachedPoliciesPerGroupQuota_ {};
-      // The maximum number of custom policies that can be attached to a RAM role.
+      // The maximum number of custom policies that can be added to a RAM role.
       shared_ptr<int32_t> attachedPoliciesPerRoleQuota_ {};
-      // The maximum number of custom policies that can be attached to a RAM user.
+      // The maximum number of custom policies that can be added to a RAM user.
       shared_ptr<int32_t> attachedPoliciesPerUserQuota_ {};
-      // The maximum number of system policies that can be attached to a user group.
+      // The maximum number of system policies that can be added to a RAM user group.
       shared_ptr<int32_t> attachedSystemPoliciesPerGroupQuota_ {};
-      // The maximum number of system policies that can be attached to a RAM role.
+      // The maximum number of system policies that can be added to a RAM role.
       shared_ptr<int32_t> attachedSystemPoliciesPerRoleQuota_ {};
-      // The maximum number of system policies that can be attached to a RAM user.
+      // The maximum number of system policies that can be added to a RAM user.
       shared_ptr<int32_t> attachedSystemPoliciesPerUserQuota_ {};
-      // The maximum number of conditions that can be set in an account-level or AccessKey-level network access control policy.
+      shared_ptr<int32_t> authorizedClientPerUserQuota_ {};
+      // The maximum number of network access control policies that can be configured for an Alibaba Cloud account or AccessKey pair.
       shared_ptr<int32_t> conditionsPerAKPolicyQuota_ {};
-      // The number of user groups.
+      // The number of RAM user groups.
       shared_ptr<int32_t> groups_ {};
-      // The maximum number of user groups that a RAM user can join.
+      // The maximum number of RAM user groups to which a RAM user can be added.
       shared_ptr<int32_t> groupsPerUserQuota_ {};
-      // The maximum number of user groups that can be created.
+      // The maximum number of RAM user groups that can be created.
       shared_ptr<int32_t> groupsQuota_ {};
-      // The maximum number of IP addresses that can be set in an account-level or AccessKey-level network access control policy.
+      // The maximum number of IP addresses that can be specified in an account-level AccessKey pair-based or AccessKey pair-level policy for network access control.
       shared_ptr<int32_t> IPItemsPerAKPolicyQuota_ {};
       // The number of virtual multi-factor authentication (MFA) devices.
       shared_ptr<int32_t> MFADevices_ {};
-      // The number of virtual MFA devices that are in use.
+      // The number of virtual MFA devices in use.
       shared_ptr<int32_t> MFADevicesInUse_ {};
       // The number of custom policies.
       shared_ptr<int32_t> policies_ {};
       // The maximum number of custom policies that can be created.
       shared_ptr<int32_t> policiesQuota_ {};
-      // The maximum length of a policy document.
+      // The maximum length of the policy content.
       shared_ptr<int32_t> policySizeQuota_ {};
       // The number of RAM roles.
       shared_ptr<int32_t> roles_ {};
@@ -342,7 +351,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The summary information of the Alibaba Cloud account.
+    // The overview information about the Alibaba Cloud account.
     shared_ptr<GetAccountSummaryResponseBody::SummaryMap> summaryMap_ {};
   };
 

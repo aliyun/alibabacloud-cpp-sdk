@@ -96,23 +96,17 @@ namespace Models
 
 
     protected:
-      // The signature algorithm that is supported by the Alibaba Cloud SP. Valid values:
-      // 
-      // - rsa-sha256
-      // 
-      // - rsa-sha1 (default)
       shared_ptr<string> authnSignAlgo_ {};
       // The auxiliary domain name.
       shared_ptr<string> auxiliaryDomain_ {};
-      // The metadata file. The file is Base64-encoded.
+      // The metadata file, which is Base64-encoded.
       shared_ptr<string> metadataDocument_ {};
       // Indicates whether user-based SSO is enabled.
       shared_ptr<bool> ssoEnabled_ {};
-      // Indicates whether the `<saml:NameID>` element in a SAML response must contain a domain name when a user logs on using SAML-based SSO. This applies if the username that is specified on the IdP for logon matching contains a domain name suffix.
+      // Indicates whether the SAML SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the IdP for SSO must have a domain name as the suffix.
       // 
-      // - If this parameter is set to `true`, the value of the `<saml:NameID>` element **must** be in the `username@domain` format, which includes a domain name suffix. The `domain` can be the default domain name or a domain alias if one is configured.
-      // 
-      // - If this parameter is set to `false`, the value of the `<saml:NameID>` element **must** be the `username` only. The value **must not** contain the `domain` part.
+      // *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+      // *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
       // 
       // The default value is `true`.
       shared_ptr<bool> ssoLoginWithDomain_ {};
@@ -139,7 +133,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user-based SSO settings.
+    // The configurations of user-based SSO.
     shared_ptr<SetUserSsoSettingsResponseBody::UserSsoSettings> userSsoSettings_ {};
   };
 

@@ -170,37 +170,27 @@ namespace Models
 
 
     protected:
-      // Indicates whether logon is restricted after the password expires.
+      // Indicates whether to disable logon after the password expires.
       shared_ptr<bool> hardExpire_ {};
-      // The validity period of the initial password.
       shared_ptr<int32_t> initialPasswordAge_ {};
-      // Indicates whether to block threat passwords when a password is set using OpenAPI.
-      // 
-      // Valid values:
-      // 
-      // - true: Threat passwords are blocked when you set a password using OpenAPI.
-      // 
-      // - false: Threat passwords are not blocked when you set a password using OpenAPI.
-      // 
-      // Default value: false
       shared_ptr<bool> interceptRiskPasswordOnApi_ {};
-      // The maximum number of logon attempts.
+      // The maximum number of password retries.
       shared_ptr<int32_t> maxLoginAttemps_ {};
-      // The password validity period.
+      // The validity period of the password.
       shared_ptr<int32_t> maxPasswordAge_ {};
-      // The minimum number of different characters in the password.
+      // The minimum number of unique characters in the password.
       shared_ptr<int32_t> minimumPasswordDifferentCharacter_ {};
-      // The minimum password length.
+      // The minimum required number of characters in a password.
       shared_ptr<int32_t> minimumPasswordLength_ {};
-      // Indicates whether the password must not contain the username.
+      // Indicates whether to exclude the username from the password.
       shared_ptr<bool> passwordNotContainUserName_ {};
-      // The password reuse prevention policy.
+      // The policy for password history check.
       shared_ptr<int32_t> passwordReusePrevention_ {};
       // Indicates whether the password must contain lowercase letters.
       shared_ptr<bool> requireLowercaseCharacters_ {};
-      // Indicates whether the password must contain numbers.
+      // Indicates whether the password must contain digits.
       shared_ptr<bool> requireNumbers_ {};
-      // Indicates whether the password must contain symbols.
+      // Indicates whether the password must contain special characters.
       shared_ptr<bool> requireSymbols_ {};
       // Indicates whether the password must contain uppercase letters.
       shared_ptr<bool> requireUppercaseCharacters_ {};
@@ -225,7 +215,7 @@ namespace Models
 
 
   protected:
-    // The password strength policy information.
+    // The details of the password policy.
     shared_ptr<GetPasswordPolicyResponseBody::PasswordPolicy> passwordPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

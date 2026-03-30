@@ -253,27 +253,11 @@ namespace Models
   protected:
     shared_ptr<GetGovernanceItemReportResponseBody::ColumnsSchema> columnsSchema_ {};
     shared_ptr<GetGovernanceItemReportResponseBody::ColumnsValue> columnsValue_ {};
-    // The time when the report for the check item was generated.
     shared_ptr<string> generateTime_ {};
-    // Indicates whether the response is truncated. Valid values:
-    // 
-    // - true
-    // 
-    // - false
     shared_ptr<bool> isTruncated_ {};
-    // This parameter is returned only when `IsTruncated` is set to true. Use this parameter to retrieve the truncated content.
     shared_ptr<string> marker_ {};
-    // The data type of the metric value. Valid values:
-    // 
-    // - Number: the numeric type.
-    // 
-    // - String: the string type.
-    // 
-    // - Boolean: the Boolean type.
     shared_ptr<string> metricType_ {};
-    // The metric value.
     Darabonba::Json metricValue_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

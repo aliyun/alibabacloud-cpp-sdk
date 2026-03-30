@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
+      // The time when the AccessKey pair was used for the last time.
       shared_ptr<string> lastUsedDate_ {};
+      // The Alibaba Cloud service that was last accessed by using the AccessKey pair.
       shared_ptr<string> serviceName_ {};
     };
 
@@ -92,7 +94,9 @@ namespace Models
 
 
   protected:
+    // The details of the time when the AccessKey pair was used for the last time.
     shared_ptr<GetAccessKeyLastUsedResponseBody::AccessKeyLastUsed> accessKeyLastUsed_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

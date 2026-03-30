@@ -105,23 +105,14 @@ namespace Models
 
 
     protected:
-      // Indicates whether the RAM user is required to enable MFA.
+      // Indicates whether to forcefully enable MFA for the RAM user.
       shared_ptr<bool> MFABindRequired_ {};
-      // Indicates whether the RAM user must reset the password at the next logon.
+      // Indicates whether the RAM user is required to reset the password upon the next logon.
       shared_ptr<bool> passwordResetRequired_ {};
-      // The status of the initial password. This password is set when a logon configuration is created or when console logon is re-enabled.
-      // 
-      // Valid values
-      // 
-      // - "NotInitial": The password is not an initial password.
-      // 
-      // - "InitialValid": The initial password is valid.
-      // 
-      // - "InitialExpired": The initial password has expired.
       shared_ptr<string> passwordStatus_ {};
-      // Indicates whether password-based logon for the console is enabled or disabled.
+      // Indicates whether to enable password-based logons to the console.
       shared_ptr<string> status_ {};
-      // The time when the logon configuration was last updated.
+      // The update time.
       shared_ptr<string> updateDate_ {};
       // The logon name of the RAM user.
       shared_ptr<string> userPrincipalName_ {};
@@ -146,7 +137,7 @@ namespace Models
 
 
   protected:
-    // The logon information for the console.
+    // The logon information.
     shared_ptr<CreateLoginProfileResponseBody::LoginProfile> loginProfile_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

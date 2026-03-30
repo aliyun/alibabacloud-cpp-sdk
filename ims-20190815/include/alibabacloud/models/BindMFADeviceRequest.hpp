@@ -66,9 +66,20 @@ namespace Models
 
 
   protected:
+    // The first verification code.
+    // 
+    // >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
     shared_ptr<string> authenticationCode1_ {};
+    // The second verification code.
+    // 
+    // >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
     shared_ptr<string> authenticationCode2_ {};
+    // The serial number of the MFA device.
+    // 
+    // >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
     shared_ptr<string> serialNumber_ {};
+    // The logon name of the RAM user.
+    // 
     // This parameter is required.
     shared_ptr<string> userPrincipalName_ {};
   };
