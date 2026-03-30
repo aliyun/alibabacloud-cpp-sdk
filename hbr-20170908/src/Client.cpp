@@ -181,6 +181,88 @@ AddCrossAccountResponse Client::addCrossAccount(const AddCrossAccountRequest &re
 }
 
 /**
+ * @param request AddDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDataSourceResponse
+ */
+AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasConnectionInfo()) {
+    query["ConnectionInfo"] = request.getConnectionInfo();
+  }
+
+  if (!!request.hasCredential()) {
+    query["Credential"] = request.getCredential();
+  }
+
+  if (!!request.hasDataSourceName()) {
+    query["DataSourceName"] = request.getDataSourceName();
+  }
+
+  if (!!request.hasDataSourceType()) {
+    query["DataSourceType"] = request.getDataSourceType();
+  }
+
+  if (!!request.hasExclude()) {
+    query["Exclude"] = request.getExclude();
+  }
+
+  if (!!request.hasInclude()) {
+    query["Include"] = request.getInclude();
+  }
+
+  if (!!request.hasIndexLevel()) {
+    query["IndexLevel"] = request.getIndexLevel();
+  }
+
+  if (!!request.hasOptions()) {
+    query["Options"] = request.getOptions();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasSchedule()) {
+    query["Schedule"] = request.getSchedule();
+  }
+
+  if (!!request.hasSpeedLimit()) {
+    query["SpeedLimit"] = request.getSpeedLimit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddDataSource"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDataSourceResponse>();
+}
+
+/**
+ * @param request AddDataSourceRequest
+ * @return AddDataSourceResponse
+ */
+AddDataSourceResponse Client::addDataSource(const AddDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDataSourceWithOptions(request, runtime);
+}
+
+/**
  * @summary 浏览备份文件
  *
  * @param request BrowseFilesRequest

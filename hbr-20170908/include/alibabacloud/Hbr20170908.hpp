@@ -55,6 +55,19 @@ namespace Hbr20170908
       Models::AddCrossAccountResponse addCrossAccount(const Models::AddCrossAccountRequest &request);
 
       /**
+       * @param request AddDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddDataSourceResponse
+       */
+      Models::AddDataSourceResponse addDataSourceWithOptions(const Models::AddDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request AddDataSourceRequest
+       * @return AddDataSourceResponse
+       */
+      Models::AddDataSourceResponse addDataSource(const Models::AddDataSourceRequest &request);
+
+      /**
        * @summary 浏览备份文件
        *
        * @param request BrowseFilesRequest

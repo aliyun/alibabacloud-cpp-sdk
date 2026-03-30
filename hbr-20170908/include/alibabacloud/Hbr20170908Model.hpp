@@ -12,6 +12,9 @@
 #include <alibabacloud/models/AddCrossAccountRequest.hpp>
 #include <alibabacloud/models/AddCrossAccountResponseBody.hpp>
 #include <alibabacloud/models/AddCrossAccountResponse.hpp>
+#include <alibabacloud/models/AddDataSourceRequest.hpp>
+#include <alibabacloud/models/AddDataSourceResponseBody.hpp>
+#include <alibabacloud/models/AddDataSourceResponse.hpp>
 #include <alibabacloud/models/BrowseFilesRequest.hpp>
 #include <alibabacloud/models/BrowseFilesResponseBody.hpp>
 #include <alibabacloud/models/BrowseFilesResponse.hpp>
