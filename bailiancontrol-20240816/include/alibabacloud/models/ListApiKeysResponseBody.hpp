@@ -51,6 +51,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ApiKeys& obj) { 
         DARABONBA_PTR_TO_JSON(apiKeyValue, apiKeyValue_);
         DARABONBA_PTR_TO_JSON(apikeyId, apikeyId_);
+        DARABONBA_PTR_TO_JSON(authSetModel, authSetModel_);
         DARABONBA_PTR_TO_JSON(blocked, blocked_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
@@ -65,6 +66,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, ApiKeys& obj) { 
         DARABONBA_PTR_FROM_JSON(apiKeyValue, apiKeyValue_);
         DARABONBA_PTR_FROM_JSON(apikeyId, apikeyId_);
+        DARABONBA_PTR_FROM_JSON(authSetModel, authSetModel_);
         DARABONBA_PTR_FROM_JSON(blocked, blocked_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
@@ -87,10 +89,41 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AuthSetModel : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AuthSetModel& obj) { 
+          DARABONBA_PTR_TO_JSON(authSetMode, authSetMode_);
+        };
+        friend void from_json(const Darabonba::Json& j, AuthSetModel& obj) { 
+          DARABONBA_PTR_FROM_JSON(authSetMode, authSetMode_);
+        };
+        AuthSetModel() = default ;
+        AuthSetModel(const AuthSetModel &) = default ;
+        AuthSetModel(AuthSetModel &&) = default ;
+        AuthSetModel(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AuthSetModel() = default ;
+        AuthSetModel& operator=(const AuthSetModel &) = default ;
+        AuthSetModel& operator=(AuthSetModel &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->authSetMode_ == nullptr; };
+        // authSetMode Field Functions 
+        bool hasAuthSetMode() const { return this->authSetMode_ != nullptr;};
+        void deleteAuthSetMode() { this->authSetMode_ = nullptr;};
+        inline string getAuthSetMode() const { DARABONBA_PTR_GET_DEFAULT(authSetMode_, "") };
+        inline AuthSetModel& setAuthSetMode(string authSetMode) { DARABONBA_PTR_SET_VALUE(authSetMode_, authSetMode) };
+
+
+      protected:
+        shared_ptr<string> authSetMode_ {};
+      };
+
       virtual bool empty() const override { return this->apiKeyValue_ == nullptr
-        && this->apikeyId_ == nullptr && this->blocked_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->description_ == nullptr
-        && this->expireTime_ == nullptr && this->extData_ == nullptr && this->parentUid_ == nullptr && this->type_ == nullptr && this->uid_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->apikeyId_ == nullptr && this->authSetModel_ == nullptr && this->blocked_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr
+        && this->description_ == nullptr && this->expireTime_ == nullptr && this->extData_ == nullptr && this->parentUid_ == nullptr && this->type_ == nullptr
+        && this->uid_ == nullptr && this->workspaceId_ == nullptr; };
       // apiKeyValue Field Functions 
       bool hasApiKeyValue() const { return this->apiKeyValue_ != nullptr;};
       void deleteApiKeyValue() { this->apiKeyValue_ = nullptr;};
@@ -103,6 +136,15 @@ namespace Models
       void deleteApikeyId() { this->apikeyId_ = nullptr;};
       inline string getApikeyId() const { DARABONBA_PTR_GET_DEFAULT(apikeyId_, "") };
       inline ApiKeys& setApikeyId(string apikeyId) { DARABONBA_PTR_SET_VALUE(apikeyId_, apikeyId) };
+
+
+      // authSetModel Field Functions 
+      bool hasAuthSetModel() const { return this->authSetModel_ != nullptr;};
+      void deleteAuthSetModel() { this->authSetModel_ = nullptr;};
+      inline const ApiKeys::AuthSetModel & getAuthSetModel() const { DARABONBA_PTR_GET_CONST(authSetModel_, ApiKeys::AuthSetModel) };
+      inline ApiKeys::AuthSetModel getAuthSetModel() { DARABONBA_PTR_GET(authSetModel_, ApiKeys::AuthSetModel) };
+      inline ApiKeys& setAuthSetModel(const ApiKeys::AuthSetModel & authSetModel) { DARABONBA_PTR_SET_VALUE(authSetModel_, authSetModel) };
+      inline ApiKeys& setAuthSetModel(ApiKeys::AuthSetModel && authSetModel) { DARABONBA_PTR_SET_RVALUE(authSetModel_, authSetModel) };
 
 
       // blocked Field Functions 
@@ -178,6 +220,7 @@ namespace Models
     protected:
       shared_ptr<string> apiKeyValue_ {};
       shared_ptr<string> apikeyId_ {};
+      shared_ptr<ApiKeys::AuthSetModel> authSetModel_ {};
       shared_ptr<int32_t> blocked_ {};
       shared_ptr<int64_t> createTime_ {};
       shared_ptr<string> creator_ {};
