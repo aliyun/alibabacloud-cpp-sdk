@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeCouponShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CouponId, couponId_);
       DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
+      DARABONBA_PTR_TO_JSON(CouponTemplateIdList, couponTemplateIdListShrink_);
       DARABONBA_PTR_TO_JSON(CouponType, couponType_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(EcIdAccountIds, ecIdAccountIdsShrink_);
@@ -31,6 +32,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeCouponShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CouponId, couponId_);
       DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
+      DARABONBA_PTR_FROM_JSON(CouponTemplateIdList, couponTemplateIdListShrink_);
       DARABONBA_PTR_FROM_JSON(CouponType, couponType_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(EcIdAccountIds, ecIdAccountIdsShrink_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->couponId_ == nullptr
-        && this->couponNo_ == nullptr && this->couponType_ == nullptr && this->currentPage_ == nullptr && this->ecIdAccountIdsShrink_ == nullptr && this->effectiveEndTime_ == nullptr
-        && this->effectiveStartTime_ == nullptr && this->expireEndDate_ == nullptr && this->expireStartDate_ == nullptr && this->maxResults_ == nullptr && this->nbid_ == nullptr
-        && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+        && this->couponNo_ == nullptr && this->couponTemplateIdListShrink_ == nullptr && this->couponType_ == nullptr && this->currentPage_ == nullptr && this->ecIdAccountIdsShrink_ == nullptr
+        && this->effectiveEndTime_ == nullptr && this->effectiveStartTime_ == nullptr && this->expireEndDate_ == nullptr && this->expireStartDate_ == nullptr && this->maxResults_ == nullptr
+        && this->nbid_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
     // couponId Field Functions 
     bool hasCouponId() const { return this->couponId_ != nullptr;};
     void deleteCouponId() { this->couponId_ = nullptr;};
@@ -71,6 +73,13 @@ namespace Models
     void deleteCouponNo() { this->couponNo_ = nullptr;};
     inline string getCouponNo() const { DARABONBA_PTR_GET_DEFAULT(couponNo_, "") };
     inline DescribeCouponShrinkRequest& setCouponNo(string couponNo) { DARABONBA_PTR_SET_VALUE(couponNo_, couponNo) };
+
+
+    // couponTemplateIdListShrink Field Functions 
+    bool hasCouponTemplateIdListShrink() const { return this->couponTemplateIdListShrink_ != nullptr;};
+    void deleteCouponTemplateIdListShrink() { this->couponTemplateIdListShrink_ = nullptr;};
+    inline string getCouponTemplateIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(couponTemplateIdListShrink_, "") };
+    inline DescribeCouponShrinkRequest& setCouponTemplateIdListShrink(string couponTemplateIdListShrink) { DARABONBA_PTR_SET_VALUE(couponTemplateIdListShrink_, couponTemplateIdListShrink) };
 
 
     // couponType Field Functions 
@@ -160,6 +169,7 @@ namespace Models
   protected:
     shared_ptr<int64_t> couponId_ {};
     shared_ptr<string> couponNo_ {};
+    shared_ptr<string> couponTemplateIdListShrink_ {};
     shared_ptr<string> couponType_ {};
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};

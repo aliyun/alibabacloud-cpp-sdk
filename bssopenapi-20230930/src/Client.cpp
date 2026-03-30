@@ -966,6 +966,10 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
   tmpReq.validate();
   DescribeCouponShrinkRequest request = DescribeCouponShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCouponTemplateIdList()) {
+    request.setCouponTemplateIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCouponTemplateIdList(), "CouponTemplateIdList", "json"));
+  }
+
   if (!!tmpReq.hasEcIdAccountIds()) {
     request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
   }
@@ -977,6 +981,10 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
 
   if (!!request.hasCouponNo()) {
     query["CouponNo"] = request.getCouponNo();
+  }
+
+  if (!!request.hasCouponTemplateIdListShrink()) {
+    query["CouponTemplateIdList"] = request.getCouponTemplateIdListShrink();
   }
 
   if (!!request.hasCouponType()) {
