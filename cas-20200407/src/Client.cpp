@@ -89,6 +89,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 添加授权ak
+ *
+ * @param request AddCloudAccessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddCloudAccessResponse
+ */
+AddCloudAccessResponse Client::addCloudAccessWithOptions(const AddCloudAccessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCloudName()) {
+    query["CloudName"] = request.getCloudName();
+  }
+
+  if (!!request.hasSecretId()) {
+    query["SecretId"] = request.getSecretId();
+  }
+
+  if (!!request.hasSecretKey()) {
+    query["SecretKey"] = request.getSecretKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddCloudAccess"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddCloudAccessResponse>();
+}
+
+/**
+ * @summary 添加授权ak
+ *
+ * @param request AddCloudAccessRequest
+ * @return AddCloudAccessResponse
+ */
+AddCloudAccessResponse Client::addCloudAccess(const AddCloudAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addCloudAccessWithOptions(request, runtime);
+}
+
+/**
  * @summary 申请证书
  *
  * @param request ApplyCertificateRequest
@@ -643,6 +693,162 @@ CreateDeploymentJobResponse Client::createDeploymentJob(const CreateDeploymentJo
 }
 
 /**
+ * @summary Applies for a client certificate in a certificate repository of a single user.
+ *
+ * @param request CreateWHClientCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWHClientCertificateResponse
+ */
+CreateWHClientCertificateResponse Client::createWHClientCertificateWithOptions(const CreateWHClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAfterTime()) {
+    query["AfterTime"] = request.getAfterTime();
+  }
+
+  if (!!request.hasAlgorithm()) {
+    query["Algorithm"] = request.getAlgorithm();
+  }
+
+  if (!!request.hasBeforeTime()) {
+    query["BeforeTime"] = request.getBeforeTime();
+  }
+
+  if (!!request.hasCommonName()) {
+    query["CommonName"] = request.getCommonName();
+  }
+
+  if (!!request.hasCountry()) {
+    query["Country"] = request.getCountry();
+  }
+
+  if (!!request.hasCsr()) {
+    query["Csr"] = request.getCsr();
+  }
+
+  if (!!request.hasDays()) {
+    query["Days"] = request.getDays();
+  }
+
+  if (!!request.hasImmediately()) {
+    query["Immediately"] = request.getImmediately();
+  }
+
+  if (!!request.hasLocality()) {
+    query["Locality"] = request.getLocality();
+  }
+
+  if (!!request.hasMonths()) {
+    query["Months"] = request.getMonths();
+  }
+
+  if (!!request.hasOrganization()) {
+    query["Organization"] = request.getOrganization();
+  }
+
+  if (!!request.hasOrganizationUnit()) {
+    query["OrganizationUnit"] = request.getOrganizationUnit();
+  }
+
+  if (!!request.hasParentIdentifier()) {
+    query["ParentIdentifier"] = request.getParentIdentifier();
+  }
+
+  if (!!request.hasSanType()) {
+    query["SanType"] = request.getSanType();
+  }
+
+  if (!!request.hasSanValue()) {
+    query["SanValue"] = request.getSanValue();
+  }
+
+  if (!!request.hasState()) {
+    query["State"] = request.getState();
+  }
+
+  if (!!request.hasYears()) {
+    query["Years"] = request.getYears();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateWHClientCertificate"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWHClientCertificateResponse>();
+}
+
+/**
+ * @summary Applies for a client certificate in a certificate repository of a single user.
+ *
+ * @param request CreateWHClientCertificateRequest
+ * @return CreateWHClientCertificateResponse
+ */
+CreateWHClientCertificateResponse Client::createWHClientCertificate(const CreateWHClientCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWHClientCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建证书仓库。
+ *
+ * @param request CreateWarehouseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWarehouseResponse
+ */
+CreateWarehouseResponse Client::createWarehouseWithOptions(const CreateWarehouseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBiz()) {
+    query["Biz"] = request.getBiz();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateWarehouse"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWarehouseResponse>();
+}
+
+/**
+ * @summary 创建证书仓库。
+ *
+ * @param request CreateWarehouseRequest
+ * @return CreateWarehouseResponse
+ */
+CreateWarehouseResponse Client::createWarehouse(const CreateWarehouseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWarehouseWithOptions(request, runtime);
+}
+
+/**
  * @summary Decrypts a certificate in a certificate repository.
  *
  * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -756,6 +962,48 @@ DeleteCertificateRequestResponse Client::deleteCertificateRequestWithOptions(con
 DeleteCertificateRequestResponse Client::deleteCertificateRequest(const DeleteCertificateRequestRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCertificateRequestWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除授权ak
+ *
+ * @param request DeleteCloudAccessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudAccessResponse
+ */
+DeleteCloudAccessResponse Client::deleteCloudAccessWithOptions(const DeleteCloudAccessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessId()) {
+    query["AccessId"] = request.getAccessId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudAccess"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudAccessResponse>();
+}
+
+/**
+ * @summary 删除授权ak
+ *
+ * @param request DeleteCloudAccessRequest
+ * @return DeleteCloudAccessResponse
+ */
+DeleteCloudAccessResponse Client::deleteCloudAccess(const DeleteCloudAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudAccessWithOptions(request, runtime);
 }
 
 /**
@@ -978,6 +1226,48 @@ DeleteUserCertificateResponse Client::deleteUserCertificateWithOptions(const Del
 DeleteUserCertificateResponse Client::deleteUserCertificate(const DeleteUserCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteUserCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除证书仓库
+ *
+ * @param request DeleteWarehouseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWarehouseResponse
+ */
+DeleteWarehouseResponse Client::deleteWarehouseWithOptions(const DeleteWarehouseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWarehouseInstanceId()) {
+    query["WarehouseInstanceId"] = request.getWarehouseInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWarehouse"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWarehouseResponse>();
+}
+
+/**
+ * @summary 删除证书仓库
+ *
+ * @param request DeleteWarehouseRequest
+ * @return DeleteWarehouseResponse
+ */
+DeleteWarehouseResponse Client::deleteWarehouse(const DeleteWarehouseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWarehouseWithOptions(request, runtime);
 }
 
 /**
@@ -1240,6 +1530,48 @@ DescribePackageStateResponse Client::describePackageStateWithOptions(const Descr
 DescribePackageStateResponse Client::describePackageState(const DescribePackageStateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePackageStateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询仓库证书详情。
+ *
+ * @param request DescribeWarehouseCertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWarehouseCertResponse
+ */
+DescribeWarehouseCertResponse Client::describeWarehouseCertWithOptions(const DescribeWarehouseCertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertIdentifier()) {
+    query["CertIdentifier"] = request.getCertIdentifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeWarehouseCert"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWarehouseCertResponse>();
+}
+
+/**
+ * @summary 查询仓库证书详情。
+ *
+ * @param request DescribeWarehouseCertRequest
+ * @return DescribeWarehouseCertResponse
+ */
+DescribeWarehouseCertResponse Client::describeWarehouseCert(const DescribeWarehouseCertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeWarehouseCertWithOptions(request, runtime);
 }
 
 /**
@@ -2444,6 +2776,70 @@ ListUserCertificateOrderResponse Client::listUserCertificateOrder(const ListUser
 }
 
 /**
+ * @summary 查询证书仓库
+ *
+ * @param tmpReq ListWarehouseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWarehouseResponse
+ */
+ListWarehouseResponse Client::listWarehouseWithOptions(const ListWarehouseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListWarehouseShrinkRequest request = ListWarehouseShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWarehouseInstanceIds()) {
+    request.setWarehouseInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWarehouseInstanceIds(), "WarehouseInstanceIds", "json"));
+  }
+
+  if (!!tmpReq.hasWarehouseTypes()) {
+    request.setWarehouseTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWarehouseTypes(), "WarehouseTypes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWarehouseInstanceIdsShrink()) {
+    query["WarehouseInstanceIds"] = request.getWarehouseInstanceIdsShrink();
+  }
+
+  if (!!request.hasWarehouseTypesShrink()) {
+    query["WarehouseTypes"] = request.getWarehouseTypesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWarehouse"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWarehouseResponse>();
+}
+
+/**
+ * @summary 查询证书仓库
+ *
+ * @param request ListWarehouseRequest
+ * @return ListWarehouseResponse
+ */
+ListWarehouseResponse Client::listWarehouse(const ListWarehouseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWarehouseWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
  *
  * @param request ListWorkerResourceRequest
@@ -2693,6 +3089,52 @@ RevokeCertificateResponse Client::revokeCertificateWithOptions(const RevokeCerti
 RevokeCertificateResponse Client::revokeCertificate(const RevokeCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary Revokes a client certificate or a server certificate in a certificate repository.
+ *
+ * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ *
+ * @param request RevokeWHClientCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeWHClientCertificateResponse
+ */
+RevokeWHClientCertificateResponse Client::revokeWHClientCertificateWithOptions(const RevokeWHClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentifier()) {
+    query["Identifier"] = request.getIdentifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeWHClientCertificate"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeWHClientCertificateResponse>();
+}
+
+/**
+ * @summary Revokes a client certificate or a server certificate in a certificate repository.
+ *
+ * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ *
+ * @param request RevokeWHClientCertificateRequest
+ * @return RevokeWHClientCertificateResponse
+ */
+RevokeWHClientCertificateResponse Client::revokeWHClientCertificate(const RevokeWHClientCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeWHClientCertificateWithOptions(request, runtime);
 }
 
 /**
@@ -3115,6 +3557,68 @@ UploadCsrResponse Client::uploadCsrWithOptions(const UploadCsrRequest &request, 
 UploadCsrResponse Client::uploadCsr(const UploadCsrRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadCsrWithOptions(request, runtime);
+}
+
+/**
+ * @summary The private key of the certificate.
+ *
+ * @description You can call this operation to upload a private certificate to a certificate repository.
+ * ## [](#qps-)Limits
+ * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ *
+ * @param request UploadPCACertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadPCACertResponse
+ */
+UploadPCACertResponse Client::uploadPCACertWithOptions(const UploadPCACertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCert()) {
+    query["Cert"] = request.getCert();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPrivateKey()) {
+    query["PrivateKey"] = request.getPrivateKey();
+  }
+
+  if (!!request.hasWarehouseId()) {
+    query["WarehouseId"] = request.getWarehouseId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadPCACert"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadPCACertResponse>();
+}
+
+/**
+ * @summary The private key of the certificate.
+ *
+ * @description You can call this operation to upload a private certificate to a certificate repository.
+ * ## [](#qps-)Limits
+ * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ *
+ * @param request UploadPCACertRequest
+ * @return UploadPCACertResponse
+ */
+UploadPCACertResponse Client::uploadPCACert(const UploadPCACertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadPCACertWithOptions(request, runtime);
 }
 
 /**

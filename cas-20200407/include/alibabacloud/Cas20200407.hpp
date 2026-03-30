@@ -21,6 +21,23 @@ namespace Cas20200407
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 添加授权ak
+       *
+       * @param request AddCloudAccessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddCloudAccessResponse
+       */
+      Models::AddCloudAccessResponse addCloudAccessWithOptions(const Models::AddCloudAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加授权ak
+       *
+       * @param request AddCloudAccessRequest
+       * @return AddCloudAccessResponse
+       */
+      Models::AddCloudAccessResponse addCloudAccess(const Models::AddCloudAccessRequest &request);
+
+      /**
        * @summary 申请证书
        *
        * @param request ApplyCertificateRequest
@@ -214,6 +231,40 @@ namespace Cas20200407
       Models::CreateDeploymentJobResponse createDeploymentJob(const Models::CreateDeploymentJobRequest &request);
 
       /**
+       * @summary Applies for a client certificate in a certificate repository of a single user.
+       *
+       * @param request CreateWHClientCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWHClientCertificateResponse
+       */
+      Models::CreateWHClientCertificateResponse createWHClientCertificateWithOptions(const Models::CreateWHClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Applies for a client certificate in a certificate repository of a single user.
+       *
+       * @param request CreateWHClientCertificateRequest
+       * @return CreateWHClientCertificateResponse
+       */
+      Models::CreateWHClientCertificateResponse createWHClientCertificate(const Models::CreateWHClientCertificateRequest &request);
+
+      /**
+       * @summary 创建证书仓库。
+       *
+       * @param request CreateWarehouseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWarehouseResponse
+       */
+      Models::CreateWarehouseResponse createWarehouseWithOptions(const Models::CreateWarehouseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建证书仓库。
+       *
+       * @param request CreateWarehouseRequest
+       * @return CreateWarehouseResponse
+       */
+      Models::CreateWarehouseResponse createWarehouse(const Models::CreateWarehouseRequest &request);
+
+      /**
        * @summary Decrypts a certificate in a certificate repository.
        *
        * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -258,6 +309,23 @@ namespace Cas20200407
        * @return DeleteCertificateRequestResponse
        */
       Models::DeleteCertificateRequestResponse deleteCertificateRequest(const Models::DeleteCertificateRequestRequest &request);
+
+      /**
+       * @summary 删除授权ak
+       *
+       * @param request DeleteCloudAccessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCloudAccessResponse
+       */
+      Models::DeleteCloudAccessResponse deleteCloudAccessWithOptions(const Models::DeleteCloudAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除授权ak
+       *
+       * @param request DeleteCloudAccessRequest
+       * @return DeleteCloudAccessResponse
+       */
+      Models::DeleteCloudAccessResponse deleteCloudAccess(const Models::DeleteCloudAccessRequest &request);
 
       /**
        * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
@@ -355,6 +423,23 @@ namespace Cas20200407
        * @return DeleteUserCertificateResponse
        */
       Models::DeleteUserCertificateResponse deleteUserCertificate(const Models::DeleteUserCertificateRequest &request);
+
+      /**
+       * @summary 删除证书仓库
+       *
+       * @param request DeleteWarehouseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWarehouseResponse
+       */
+      Models::DeleteWarehouseResponse deleteWarehouseWithOptions(const Models::DeleteWarehouseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除证书仓库
+       *
+       * @param request DeleteWarehouseRequest
+       * @return DeleteWarehouseResponse
+       */
+      Models::DeleteWarehouseResponse deleteWarehouse(const Models::DeleteWarehouseRequest &request);
 
       /**
        * @summary Deletes the worker of a deployment task.
@@ -463,6 +548,23 @@ namespace Cas20200407
        * @return DescribePackageStateResponse
        */
       Models::DescribePackageStateResponse describePackageState(const Models::DescribePackageStateRequest &request);
+
+      /**
+       * @summary 查询仓库证书详情。
+       *
+       * @param request DescribeWarehouseCertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWarehouseCertResponse
+       */
+      Models::DescribeWarehouseCertResponse describeWarehouseCertWithOptions(const Models::DescribeWarehouseCertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询仓库证书详情。
+       *
+       * @param request DescribeWarehouseCertRequest
+       * @return DescribeWarehouseCertResponse
+       */
+      Models::DescribeWarehouseCertResponse describeWarehouseCert(const Models::DescribeWarehouseCertRequest &request);
 
       /**
        * @summary Encrypts a certificate in a certificate repository.
@@ -885,6 +987,23 @@ namespace Cas20200407
       Models::ListUserCertificateOrderResponse listUserCertificateOrder(const Models::ListUserCertificateOrderRequest &request);
 
       /**
+       * @summary 查询证书仓库
+       *
+       * @param tmpReq ListWarehouseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWarehouseResponse
+       */
+      Models::ListWarehouseResponse listWarehouseWithOptions(const Models::ListWarehouseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询证书仓库
+       *
+       * @param request ListWarehouseRequest
+       * @return ListWarehouseResponse
+       */
+      Models::ListWarehouseResponse listWarehouse(const Models::ListWarehouseRequest &request);
+
+      /**
        * @summary Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
        *
        * @param request ListWorkerResourceRequest
@@ -974,6 +1093,27 @@ namespace Cas20200407
        * @return RevokeCertificateResponse
        */
       Models::RevokeCertificateResponse revokeCertificate(const Models::RevokeCertificateRequest &request);
+
+      /**
+       * @summary Revokes a client certificate or a server certificate in a certificate repository.
+       *
+       * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       *
+       * @param request RevokeWHClientCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeWHClientCertificateResponse
+       */
+      Models::RevokeWHClientCertificateResponse revokeWHClientCertificateWithOptions(const Models::RevokeWHClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Revokes a client certificate or a server certificate in a certificate repository.
+       *
+       * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       *
+       * @param request RevokeWHClientCertificateRequest
+       * @return RevokeWHClientCertificateResponse
+       */
+      Models::RevokeWHClientCertificateResponse revokeWHClientCertificate(const Models::RevokeWHClientCertificateRequest &request);
 
       /**
        * @summary Signs a private certificate in a certificate application repository.
@@ -1101,6 +1241,31 @@ namespace Cas20200407
        * @return UploadCsrResponse
        */
       Models::UploadCsrResponse uploadCsr(const Models::UploadCsrRequest &request);
+
+      /**
+       * @summary The private key of the certificate.
+       *
+       * @description You can call this operation to upload a private certificate to a certificate repository.
+       * ## [](#qps-)Limits
+       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       *
+       * @param request UploadPCACertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadPCACertResponse
+       */
+      Models::UploadPCACertResponse uploadPCACertWithOptions(const Models::UploadPCACertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary The private key of the certificate.
+       *
+       * @description You can call this operation to upload a private certificate to a certificate repository.
+       * ## [](#qps-)Limits
+       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       *
+       * @param request UploadPCACertRequest
+       * @return UploadPCACertResponse
+       */
+      Models::UploadPCACertResponse uploadPCACert(const Models::UploadPCACertRequest &request);
 
       /**
        * @summary Uploads a certificate.
