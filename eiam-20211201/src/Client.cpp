@@ -1631,6 +1631,10 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
     query["CloudAccountProviderName"] = request.getCloudAccountProviderName();
   }
 
+  if (!!request.hasCloudAccountSite()) {
+    query["CloudAccountSite"] = request.getCloudAccountSite();
+  }
+
   if (!!request.hasCloudAccountVendorType()) {
     query["CloudAccountVendorType"] = request.getCloudAccountVendorType();
   }

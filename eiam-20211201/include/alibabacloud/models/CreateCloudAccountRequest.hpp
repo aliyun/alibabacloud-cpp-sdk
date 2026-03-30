@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CloudAccountExternalId, cloudAccountExternalId_);
       DARABONBA_PTR_TO_JSON(CloudAccountName, cloudAccountName_);
       DARABONBA_PTR_TO_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+      DARABONBA_PTR_TO_JSON(CloudAccountSite, cloudAccountSite_);
       DARABONBA_PTR_TO_JSON(CloudAccountVendorType, cloudAccountVendorType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CloudAccountExternalId, cloudAccountExternalId_);
       DARABONBA_PTR_FROM_JSON(CloudAccountName, cloudAccountName_);
       DARABONBA_PTR_FROM_JSON(CloudAccountProviderName, cloudAccountProviderName_);
+      DARABONBA_PTR_FROM_JSON(CloudAccountSite, cloudAccountSite_);
       DARABONBA_PTR_FROM_JSON(CloudAccountVendorType, cloudAccountVendorType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->cloudAccountExternalId_ == nullptr && this->cloudAccountName_ == nullptr && this->cloudAccountProviderName_ == nullptr && this->cloudAccountVendorType_ == nullptr && this->description_ == nullptr
-        && this->instanceId_ == nullptr; };
+        && this->cloudAccountExternalId_ == nullptr && this->cloudAccountName_ == nullptr && this->cloudAccountProviderName_ == nullptr && this->cloudAccountSite_ == nullptr && this->cloudAccountVendorType_ == nullptr
+        && this->description_ == nullptr && this->instanceId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteCloudAccountProviderName() { this->cloudAccountProviderName_ = nullptr;};
     inline string getCloudAccountProviderName() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountProviderName_, "") };
     inline CreateCloudAccountRequest& setCloudAccountProviderName(string cloudAccountProviderName) { DARABONBA_PTR_SET_VALUE(cloudAccountProviderName_, cloudAccountProviderName) };
+
+
+    // cloudAccountSite Field Functions 
+    bool hasCloudAccountSite() const { return this->cloudAccountSite_ != nullptr;};
+    void deleteCloudAccountSite() { this->cloudAccountSite_ = nullptr;};
+    inline string getCloudAccountSite() const { DARABONBA_PTR_GET_DEFAULT(cloudAccountSite_, "") };
+    inline CreateCloudAccountRequest& setCloudAccountSite(string cloudAccountSite) { DARABONBA_PTR_SET_VALUE(cloudAccountSite_, cloudAccountSite) };
 
 
     // cloudAccountVendorType Field Functions 
@@ -104,6 +113,7 @@ namespace Models
     shared_ptr<string> cloudAccountName_ {};
     // 云账号提供商名称
     shared_ptr<string> cloudAccountProviderName_ {};
+    shared_ptr<string> cloudAccountSite_ {};
     // 云账号类型
     // 
     // This parameter is required.
