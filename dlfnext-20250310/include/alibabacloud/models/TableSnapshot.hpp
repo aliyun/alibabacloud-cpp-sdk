@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(fileCount, fileCount_);
       DARABONBA_PTR_TO_JSON(fileSizeInBytes, fileSizeInBytes_);
       DARABONBA_PTR_TO_JSON(lastFileCreationTime, lastFileCreationTime_);
+      DARABONBA_PTR_TO_JSON(partitionCount, partitionCount_);
       DARABONBA_PTR_TO_JSON(recordCount, recordCount_);
       DARABONBA_PTR_TO_JSON(snapshot, snapshot_);
       DARABONBA_PTR_TO_JSON(totalBuckets, totalBuckets_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(fileCount, fileCount_);
       DARABONBA_PTR_FROM_JSON(fileSizeInBytes, fileSizeInBytes_);
       DARABONBA_PTR_FROM_JSON(lastFileCreationTime, lastFileCreationTime_);
+      DARABONBA_PTR_FROM_JSON(partitionCount, partitionCount_);
       DARABONBA_PTR_FROM_JSON(recordCount, recordCount_);
       DARABONBA_PTR_FROM_JSON(snapshot, snapshot_);
       DARABONBA_PTR_FROM_JSON(totalBuckets, totalBuckets_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileCount_ == nullptr
-        && this->fileSizeInBytes_ == nullptr && this->lastFileCreationTime_ == nullptr && this->recordCount_ == nullptr && this->snapshot_ == nullptr && this->totalBuckets_ == nullptr; };
+        && this->fileSizeInBytes_ == nullptr && this->lastFileCreationTime_ == nullptr && this->partitionCount_ == nullptr && this->recordCount_ == nullptr && this->snapshot_ == nullptr
+        && this->totalBuckets_ == nullptr; };
     // fileCount Field Functions 
     bool hasFileCount() const { return this->fileCount_ != nullptr;};
     void deleteFileCount() { this->fileCount_ = nullptr;};
@@ -61,6 +64,13 @@ namespace Models
     void deleteLastFileCreationTime() { this->lastFileCreationTime_ = nullptr;};
     inline int64_t getLastFileCreationTime() const { DARABONBA_PTR_GET_DEFAULT(lastFileCreationTime_, 0L) };
     inline TableSnapshot& setLastFileCreationTime(int64_t lastFileCreationTime) { DARABONBA_PTR_SET_VALUE(lastFileCreationTime_, lastFileCreationTime) };
+
+
+    // partitionCount Field Functions 
+    bool hasPartitionCount() const { return this->partitionCount_ != nullptr;};
+    void deletePartitionCount() { this->partitionCount_ = nullptr;};
+    inline int64_t getPartitionCount() const { DARABONBA_PTR_GET_DEFAULT(partitionCount_, 0L) };
+    inline TableSnapshot& setPartitionCount(int64_t partitionCount) { DARABONBA_PTR_SET_VALUE(partitionCount_, partitionCount) };
 
 
     // recordCount Field Functions 
@@ -90,6 +100,7 @@ namespace Models
     shared_ptr<int64_t> fileCount_ {};
     shared_ptr<int64_t> fileSizeInBytes_ {};
     shared_ptr<int64_t> lastFileCreationTime_ {};
+    shared_ptr<int64_t> partitionCount_ {};
     shared_ptr<int64_t> recordCount_ {};
     shared_ptr<Snapshot> snapshot_ {};
     shared_ptr<int32_t> totalBuckets_ {};

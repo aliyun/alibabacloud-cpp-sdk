@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(options, options_);
       DARABONBA_PTR_TO_JSON(owner, owner_);
+      DARABONBA_PTR_TO_JSON(tableCount, tableCount_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_TO_JSON(updatedBy, updatedBy_);
     };
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(options, options_);
       DARABONBA_PTR_FROM_JSON(owner, owner_);
+      DARABONBA_PTR_FROM_JSON(tableCount, tableCount_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_FROM_JSON(updatedBy, updatedBy_);
     };
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->createdBy_ == nullptr && this->id_ == nullptr && this->location_ == nullptr && this->name_ == nullptr && this->options_ == nullptr
-        && this->owner_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
+        && this->owner_ == nullptr && this->tableCount_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -100,6 +102,13 @@ namespace Models
     inline Database& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
+    // tableCount Field Functions 
+    bool hasTableCount() const { return this->tableCount_ != nullptr;};
+    void deleteTableCount() { this->tableCount_ = nullptr;};
+    inline int64_t getTableCount() const { DARABONBA_PTR_GET_DEFAULT(tableCount_, 0L) };
+    inline Database& setTableCount(int64_t tableCount) { DARABONBA_PTR_SET_VALUE(tableCount_, tableCount) };
+
+
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -122,6 +131,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<map<string, string>> options_ {};
     shared_ptr<string> owner_ {};
+    shared_ptr<int64_t> tableCount_ {};
     shared_ptr<int64_t> updatedAt_ {};
     shared_ptr<string> updatedBy_ {};
   };
