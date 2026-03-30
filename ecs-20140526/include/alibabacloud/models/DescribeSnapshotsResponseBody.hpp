@@ -67,6 +67,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
+          DARABONBA_PTR_TO_JSON(FullSnapshotSizeInBytes, fullSnapshotSizeInBytes_);
           DARABONBA_PTR_TO_JSON(InstantAccess, instantAccess_);
           DARABONBA_PTR_TO_JSON(InstantAccessRetentionDays, instantAccessRetentionDays_);
           DARABONBA_PTR_TO_JSON(KMSKeyId, KMSKeyId_);
@@ -98,6 +99,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
+          DARABONBA_PTR_FROM_JSON(FullSnapshotSizeInBytes, fullSnapshotSizeInBytes_);
           DARABONBA_PTR_FROM_JSON(InstantAccess, instantAccess_);
           DARABONBA_PTR_FROM_JSON(InstantAccessRetentionDays, instantAccessRetentionDays_);
           DARABONBA_PTR_FROM_JSON(KMSKeyId, KMSKeyId_);
@@ -210,12 +212,12 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->available_ == nullptr
-        && this->category_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->encrypted_ == nullptr && this->instantAccess_ == nullptr
-        && this->instantAccessRetentionDays_ == nullptr && this->KMSKeyId_ == nullptr && this->lastModifiedTime_ == nullptr && this->productCode_ == nullptr && this->progress_ == nullptr
-        && this->regionId_ == nullptr && this->remainTime_ == nullptr && this->resourceGroupId_ == nullptr && this->retentionDays_ == nullptr && this->snapshotId_ == nullptr
-        && this->snapshotLinkId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotSN_ == nullptr && this->snapshotType_ == nullptr && this->sourceDiskId_ == nullptr
-        && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr && this->sourceRegionId_ == nullptr && this->sourceSnapshotId_ == nullptr && this->sourceStorageType_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->usage_ == nullptr; };
+        && this->category_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->encrypted_ == nullptr && this->fullSnapshotSizeInBytes_ == nullptr
+        && this->instantAccess_ == nullptr && this->instantAccessRetentionDays_ == nullptr && this->KMSKeyId_ == nullptr && this->lastModifiedTime_ == nullptr && this->productCode_ == nullptr
+        && this->progress_ == nullptr && this->regionId_ == nullptr && this->remainTime_ == nullptr && this->resourceGroupId_ == nullptr && this->retentionDays_ == nullptr
+        && this->snapshotId_ == nullptr && this->snapshotLinkId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotSN_ == nullptr && this->snapshotType_ == nullptr
+        && this->sourceDiskId_ == nullptr && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr && this->sourceRegionId_ == nullptr && this->sourceSnapshotId_ == nullptr
+        && this->sourceStorageType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->usage_ == nullptr; };
         // available Field Functions 
         bool hasAvailable() const { return this->available_ != nullptr;};
         void deleteAvailable() { this->available_ = nullptr;};
@@ -249,6 +251,13 @@ namespace Models
         void deleteEncrypted() { this->encrypted_ = nullptr;};
         inline bool getEncrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, false) };
         inline Snapshot& setEncrypted(bool encrypted) { DARABONBA_PTR_SET_VALUE(encrypted_, encrypted) };
+
+
+        // fullSnapshotSizeInBytes Field Functions 
+        bool hasFullSnapshotSizeInBytes() const { return this->fullSnapshotSizeInBytes_ != nullptr;};
+        void deleteFullSnapshotSizeInBytes() { this->fullSnapshotSizeInBytes_ = nullptr;};
+        inline int64_t getFullSnapshotSizeInBytes() const { DARABONBA_PTR_GET_DEFAULT(fullSnapshotSizeInBytes_, 0L) };
+        inline Snapshot& setFullSnapshotSizeInBytes(int64_t fullSnapshotSizeInBytes) { DARABONBA_PTR_SET_VALUE(fullSnapshotSizeInBytes_, fullSnapshotSizeInBytes) };
 
 
         // instantAccess Field Functions 
@@ -427,6 +436,7 @@ namespace Models
         shared_ptr<string> creationTime_ {};
         shared_ptr<string> description_ {};
         shared_ptr<bool> encrypted_ {};
+        shared_ptr<int64_t> fullSnapshotSizeInBytes_ {};
         shared_ptr<bool> instantAccess_ {};
         shared_ptr<int32_t> instantAccessRetentionDays_ {};
         shared_ptr<string> KMSKeyId_ {};

@@ -2429,6 +2429,116 @@ CancelTaskResponse Client::cancelTask(const CancelTaskRequest &request) {
 }
 
 /**
+ * @summary 使用一块已有的磁盘克隆出新磁盘
+ *
+ * @param request CloneDisksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloneDisksResponse
+ */
+CloneDisksResponse Client::cloneDisksWithOptions(const CloneDisksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArn()) {
+    query["Arn"] = request.getArn();
+  }
+
+  if (!!request.hasBurstingEnabled()) {
+    query["BurstingEnabled"] = request.getBurstingEnabled();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDiskCategory()) {
+    query["DiskCategory"] = request.getDiskCategory();
+  }
+
+  if (!!request.hasDiskName()) {
+    query["DiskName"] = request.getDiskName();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasEncrypted()) {
+    query["Encrypted"] = request.getEncrypted();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    query["KmsKeyId"] = request.getKmsKeyId();
+  }
+
+  if (!!request.hasMultiAttach()) {
+    query["MultiAttach"] = request.getMultiAttach();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPerformanceLevel()) {
+    query["PerformanceLevel"] = request.getPerformanceLevel();
+  }
+
+  if (!!request.hasProvisionedIops()) {
+    query["ProvisionedIops"] = request.getProvisionedIops();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasSourceDiskId()) {
+    query["SourceDiskId"] = request.getSourceDiskId();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloneDisks"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloneDisksResponse>();
+}
+
+/**
+ * @summary 使用一块已有的磁盘克隆出新磁盘
+ *
+ * @param request CloneDisksRequest
+ * @return CloneDisksResponse
+ */
+CloneDisksResponse Client::cloneDisks(const CloneDisksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloneDisksWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead.
  *
  * @summary ConnectRouterInterface
@@ -17351,7 +17461,7 @@ DescribePhysicalConnectionsResponse Client::describePhysicalConnections(const De
 }
 
 /**
- * @summary 查询运维窗口
+ * @summary Query O\\\\\\&M window
  *
  * @param tmpReq DescribePlanMaintenanceWindowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17416,7 +17526,7 @@ DescribePlanMaintenanceWindowsResponse Client::describePlanMaintenanceWindowsWit
 }
 
 /**
- * @summary 查询运维窗口
+ * @summary Query O\\\\\\&M window
  *
  * @param request DescribePlanMaintenanceWindowsRequest
  * @return DescribePlanMaintenanceWindowsResponse

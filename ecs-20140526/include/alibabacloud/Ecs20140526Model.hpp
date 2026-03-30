@@ -77,6 +77,9 @@
 #include <alibabacloud/models/CancelTaskRequest.hpp>
 #include <alibabacloud/models/CancelTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelTaskResponse.hpp>
+#include <alibabacloud/models/CloneDisksRequest.hpp>
+#include <alibabacloud/models/CloneDisksResponseBody.hpp>
+#include <alibabacloud/models/CloneDisksResponse.hpp>
 #include <alibabacloud/models/ConnectRouterInterfaceRequest.hpp>
 #include <alibabacloud/models/ConnectRouterInterfaceResponseBody.hpp>
 #include <alibabacloud/models/ConnectRouterInterfaceResponse.hpp>

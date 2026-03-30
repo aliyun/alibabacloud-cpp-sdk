@@ -844,6 +844,23 @@ namespace Ecs20140526
       Models::CancelTaskResponse cancelTask(const Models::CancelTaskRequest &request);
 
       /**
+       * @summary 使用一块已有的磁盘克隆出新磁盘
+       *
+       * @param request CloneDisksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloneDisksResponse
+       */
+      Models::CloneDisksResponse cloneDisksWithOptions(const Models::CloneDisksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 使用一块已有的磁盘克隆出新磁盘
+       *
+       * @param request CloneDisksRequest
+       * @return CloneDisksResponse
+       */
+      Models::CloneDisksResponse cloneDisks(const Models::CloneDisksRequest &request);
+
+      /**
        * @deprecated OpenAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead.
        *
        * @summary ConnectRouterInterface
@@ -4674,7 +4691,7 @@ namespace Ecs20140526
       Models::DescribePhysicalConnectionsResponse describePhysicalConnections(const Models::DescribePhysicalConnectionsRequest &request);
 
       /**
-       * @summary 查询运维窗口
+       * @summary Query O\\\\\\&M window
        *
        * @param tmpReq DescribePlanMaintenanceWindowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4683,7 +4700,7 @@ namespace Ecs20140526
       Models::DescribePlanMaintenanceWindowsResponse describePlanMaintenanceWindowsWithOptions(const Models::DescribePlanMaintenanceWindowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询运维窗口
+       * @summary Query O\\\\\\&M window
        *
        * @param request DescribePlanMaintenanceWindowsRequest
        * @return DescribePlanMaintenanceWindowsResponse
