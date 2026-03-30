@@ -116,6 +116,10 @@
 #include <alibabacloud/models/ObtainCredentialRequest.hpp>
 #include <alibabacloud/models/ObtainCredentialResponseBody.hpp>
 #include <alibabacloud/models/ObtainCredentialResponse.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenHeaders.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenRequest.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenResponseBody.hpp>
+#include <alibabacloud/models/ObtainJwtAuthenticationTokenResponse.hpp>
 #include <alibabacloud/models/ObtainJwtAuthenticationTokenByDerivedShortTokenRequest.hpp>
 #include <alibabacloud/models/ObtainJwtAuthenticationTokenByDerivedShortTokenResponseBody.hpp>
 #include <alibabacloud/models/ObtainJwtAuthenticationTokenByDerivedShortTokenResponse.hpp>

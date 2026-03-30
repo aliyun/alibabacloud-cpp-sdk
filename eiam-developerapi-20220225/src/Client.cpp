@@ -1928,6 +1928,10 @@ ObtainCloudAccountRoleAccessCredentialResponse Client::obtainCloudAccountRoleAcc
     query["cloudAccountRoleExternalId"] = request.getCloudAccountRoleExternalId();
   }
 
+  if (!!request.hasDurationSeconds()) {
+    query["durationSeconds"] = request.getDurationSeconds();
+  }
+
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -2019,6 +2023,64 @@ ObtainCredentialResponse Client::obtainCredential(const string &instanceId, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   ObtainCredentialHeaders headers = ObtainCredentialHeaders();
   return obtainCredentialWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取JWT认证令牌明文。
+ *
+ * @param request ObtainJwtAuthenticationTokenRequest
+ * @param headers ObtainJwtAuthenticationTokenHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ObtainJwtAuthenticationTokenResponse
+ */
+ObtainJwtAuthenticationTokenResponse Client::obtainJwtAuthenticationTokenWithOptions(const string &instanceId, const ObtainJwtAuthenticationTokenRequest &request, const ObtainJwtAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAuthenticationTokenId()) {
+    body["authenticationTokenId"] = request.getAuthenticationTokenId();
+  }
+
+  if (!!request.hasConsumerId()) {
+    body["consumerId"] = request.getConsumerId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ObtainJwtAuthenticationToken"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/authenticationTokens/_/actions/obtainJwt")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<ObtainJwtAuthenticationTokenResponse>();
+}
+
+/**
+ * @summary 获取JWT认证令牌明文。
+ *
+ * @param request ObtainJwtAuthenticationTokenRequest
+ * @return ObtainJwtAuthenticationTokenResponse
+ */
+ObtainJwtAuthenticationTokenResponse Client::obtainJwtAuthenticationToken(const string &instanceId, const ObtainJwtAuthenticationTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ObtainJwtAuthenticationTokenHeaders headers = ObtainJwtAuthenticationTokenHeaders();
+  return obtainJwtAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
 }
 
 /**

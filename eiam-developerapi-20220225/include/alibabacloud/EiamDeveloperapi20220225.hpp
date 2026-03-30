@@ -621,6 +621,24 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCredentialResponse obtainCredential(const string &instanceId, const Models::ObtainCredentialRequest &request);
 
       /**
+       * @summary 获取JWT认证令牌明文。
+       *
+       * @param request ObtainJwtAuthenticationTokenRequest
+       * @param headers ObtainJwtAuthenticationTokenHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ObtainJwtAuthenticationTokenResponse
+       */
+      Models::ObtainJwtAuthenticationTokenResponse obtainJwtAuthenticationTokenWithOptions(const string &instanceId, const Models::ObtainJwtAuthenticationTokenRequest &request, const Models::ObtainJwtAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取JWT认证令牌明文。
+       *
+       * @param request ObtainJwtAuthenticationTokenRequest
+       * @return ObtainJwtAuthenticationTokenResponse
+       */
+      Models::ObtainJwtAuthenticationTokenResponse obtainJwtAuthenticationToken(const string &instanceId, const Models::ObtainJwtAuthenticationTokenRequest &request);
+
+      /**
        * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
        *
        * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest

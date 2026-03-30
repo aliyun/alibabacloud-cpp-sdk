@@ -44,10 +44,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const CloudAccountRoleAccessCredential& obj) { 
         DARABONBA_PTR_TO_JSON(accessCredentialExpiresAt, accessCredentialExpiresAt_);
         DARABONBA_PTR_TO_JSON(alibabaCloudStsToken, alibabaCloudStsToken_);
+        DARABONBA_PTR_TO_JSON(awsStsToken, awsStsToken_);
       };
       friend void from_json(const Darabonba::Json& j, CloudAccountRoleAccessCredential& obj) { 
         DARABONBA_PTR_FROM_JSON(accessCredentialExpiresAt, accessCredentialExpiresAt_);
         DARABONBA_PTR_FROM_JSON(alibabaCloudStsToken, alibabaCloudStsToken_);
+        DARABONBA_PTR_FROM_JSON(awsStsToken, awsStsToken_);
       };
       CloudAccountRoleAccessCredential() = default ;
       CloudAccountRoleAccessCredential(const CloudAccountRoleAccessCredential &) = default ;
@@ -60,6 +62,68 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AwsStsToken : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AwsStsToken& obj) { 
+          DARABONBA_PTR_TO_JSON(accessKeyId, accessKeyId_);
+          DARABONBA_PTR_TO_JSON(expiration, expiration_);
+          DARABONBA_PTR_TO_JSON(secretAccessKey, secretAccessKey_);
+          DARABONBA_PTR_TO_JSON(sessionToken, sessionToken_);
+        };
+        friend void from_json(const Darabonba::Json& j, AwsStsToken& obj) { 
+          DARABONBA_PTR_FROM_JSON(accessKeyId, accessKeyId_);
+          DARABONBA_PTR_FROM_JSON(expiration, expiration_);
+          DARABONBA_PTR_FROM_JSON(secretAccessKey, secretAccessKey_);
+          DARABONBA_PTR_FROM_JSON(sessionToken, sessionToken_);
+        };
+        AwsStsToken() = default ;
+        AwsStsToken(const AwsStsToken &) = default ;
+        AwsStsToken(AwsStsToken &&) = default ;
+        AwsStsToken(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AwsStsToken() = default ;
+        AwsStsToken& operator=(const AwsStsToken &) = default ;
+        AwsStsToken& operator=(AwsStsToken &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->accessKeyId_ == nullptr
+        && this->expiration_ == nullptr && this->secretAccessKey_ == nullptr && this->sessionToken_ == nullptr; };
+        // accessKeyId Field Functions 
+        bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
+        void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
+        inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
+        inline AwsStsToken& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
+
+
+        // expiration Field Functions 
+        bool hasExpiration() const { return this->expiration_ != nullptr;};
+        void deleteExpiration() { this->expiration_ = nullptr;};
+        inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+        inline AwsStsToken& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
+
+
+        // secretAccessKey Field Functions 
+        bool hasSecretAccessKey() const { return this->secretAccessKey_ != nullptr;};
+        void deleteSecretAccessKey() { this->secretAccessKey_ = nullptr;};
+        inline string getSecretAccessKey() const { DARABONBA_PTR_GET_DEFAULT(secretAccessKey_, "") };
+        inline AwsStsToken& setSecretAccessKey(string secretAccessKey) { DARABONBA_PTR_SET_VALUE(secretAccessKey_, secretAccessKey) };
+
+
+        // sessionToken Field Functions 
+        bool hasSessionToken() const { return this->sessionToken_ != nullptr;};
+        void deleteSessionToken() { this->sessionToken_ = nullptr;};
+        inline string getSessionToken() const { DARABONBA_PTR_GET_DEFAULT(sessionToken_, "") };
+        inline AwsStsToken& setSessionToken(string sessionToken) { DARABONBA_PTR_SET_VALUE(sessionToken_, sessionToken) };
+
+
+      protected:
+        shared_ptr<string> accessKeyId_ {};
+        shared_ptr<string> expiration_ {};
+        shared_ptr<string> secretAccessKey_ {};
+        shared_ptr<string> sessionToken_ {};
+      };
+
       class AlibabaCloudStsToken : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const AlibabaCloudStsToken& obj) { 
@@ -123,7 +187,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->accessCredentialExpiresAt_ == nullptr
-        && this->alibabaCloudStsToken_ == nullptr; };
+        && this->alibabaCloudStsToken_ == nullptr && this->awsStsToken_ == nullptr; };
       // accessCredentialExpiresAt Field Functions 
       bool hasAccessCredentialExpiresAt() const { return this->accessCredentialExpiresAt_ != nullptr;};
       void deleteAccessCredentialExpiresAt() { this->accessCredentialExpiresAt_ = nullptr;};
@@ -140,9 +204,19 @@ namespace Models
       inline CloudAccountRoleAccessCredential& setAlibabaCloudStsToken(CloudAccountRoleAccessCredential::AlibabaCloudStsToken && alibabaCloudStsToken) { DARABONBA_PTR_SET_RVALUE(alibabaCloudStsToken_, alibabaCloudStsToken) };
 
 
+      // awsStsToken Field Functions 
+      bool hasAwsStsToken() const { return this->awsStsToken_ != nullptr;};
+      void deleteAwsStsToken() { this->awsStsToken_ = nullptr;};
+      inline const CloudAccountRoleAccessCredential::AwsStsToken & getAwsStsToken() const { DARABONBA_PTR_GET_CONST(awsStsToken_, CloudAccountRoleAccessCredential::AwsStsToken) };
+      inline CloudAccountRoleAccessCredential::AwsStsToken getAwsStsToken() { DARABONBA_PTR_GET(awsStsToken_, CloudAccountRoleAccessCredential::AwsStsToken) };
+      inline CloudAccountRoleAccessCredential& setAwsStsToken(const CloudAccountRoleAccessCredential::AwsStsToken & awsStsToken) { DARABONBA_PTR_SET_VALUE(awsStsToken_, awsStsToken) };
+      inline CloudAccountRoleAccessCredential& setAwsStsToken(CloudAccountRoleAccessCredential::AwsStsToken && awsStsToken) { DARABONBA_PTR_SET_RVALUE(awsStsToken_, awsStsToken) };
+
+
     protected:
       shared_ptr<int64_t> accessCredentialExpiresAt_ {};
       shared_ptr<CloudAccountRoleAccessCredential::AlibabaCloudStsToken> alibabaCloudStsToken_ {};
+      shared_ptr<CloudAccountRoleAccessCredential::AwsStsToken> awsStsToken_ {};
     };
 
     virtual bool empty() const override { return this->cloudAccountId_ == nullptr
