@@ -14,6 +14,7 @@ namespace Models
   class CreateEcdReportTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateEcdReportTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(FilterList, filterList_);
       DARABONBA_PTR_TO_JSON(LangType, langType_);
       DARABONBA_PTR_TO_JSON(ReportFileName, reportFileName_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateEcdReportTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(FilterList, filterList_);
       DARABONBA_PTR_FROM_JSON(LangType, langType_);
       DARABONBA_PTR_FROM_JSON(ReportFileName, reportFileName_);
@@ -111,8 +113,15 @@ namespace Models
       shared_ptr<vector<string>> filterValues_ {};
     };
 
-    virtual bool empty() const override { return this->filterList_ == nullptr
-        && this->langType_ == nullptr && this->reportFileName_ == nullptr && this->subType_ == nullptr && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->filterList_ == nullptr && this->langType_ == nullptr && this->reportFileName_ == nullptr && this->subType_ == nullptr && this->taskType_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline CreateEcdReportTaskRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // filterList Field Functions 
     bool hasFilterList() const { return this->filterList_ != nullptr;};
     void deleteFilterList() { this->filterList_ = nullptr;};
@@ -151,6 +160,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The filter conditions for filtering query results. The logical relationship between each filter condition is "and" (&). Each filter condition contains FilterKey and FilterValues, which indicate the key and value for the filter condition.
     shared_ptr<vector<CreateEcdReportTaskRequest::FilterList>> filterList_ {};
     // The language of the report. An enumerated type.

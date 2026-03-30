@@ -14,6 +14,7 @@ namespace Models
   class DescribeEcdReportTasksRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeEcdReportTasksRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEcdReportTasksRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -40,8 +42,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNum_ == nullptr
-        && this->pageSize_ == nullptr && this->status_ == nullptr && this->subType_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->subType_ == nullptr && this->taskId_ == nullptr
+        && this->taskType_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline DescribeEcdReportTasksRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
@@ -87,6 +97,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The number of the page to return. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries returned per page. Maximum value: 200.

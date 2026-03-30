@@ -14,6 +14,7 @@ namespace Models
   class DescribeDesktopsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(DesktopGroupId, desktopGroupId_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserName, userName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(DesktopGroupId, desktopGroupId_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
@@ -146,15 +148,22 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->desktopStatusList_ == nullptr
-        && this->desktopType_ == nullptr && this->directoryId_ == nullptr && this->endUserId_ == nullptr && this->excludedEndUserId_ == nullptr && this->expiredTime_ == nullptr
-        && this->fillResourceGroup_ == nullptr && this->filterDesktopGroup_ == nullptr && this->gpuInstanceGroupId_ == nullptr && this->groupId_ == nullptr && this->imageId_ == nullptr
-        && this->includeAutoSnapshotPolicy_ == nullptr && this->managementFlag_ == nullptr && this->maxResults_ == nullptr && this->multiResource_ == nullptr && this->nextToken_ == nullptr
-        && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->onlyDesktopGroup_ == nullptr && this->osTypes_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->policyGroupId_ == nullptr && this->protocolType_ == nullptr && this->qosRuleId_ == nullptr && this->queryFotaUpdate_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subPayType_ == nullptr && this->tag_ == nullptr
-        && this->userName_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->chargeType_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr
+        && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->directoryId_ == nullptr && this->endUserId_ == nullptr && this->excludedEndUserId_ == nullptr
+        && this->expiredTime_ == nullptr && this->fillResourceGroup_ == nullptr && this->filterDesktopGroup_ == nullptr && this->gpuInstanceGroupId_ == nullptr && this->groupId_ == nullptr
+        && this->imageId_ == nullptr && this->includeAutoSnapshotPolicy_ == nullptr && this->managementFlag_ == nullptr && this->maxResults_ == nullptr && this->multiResource_ == nullptr
+        && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->onlyDesktopGroup_ == nullptr && this->osTypes_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->policyGroupId_ == nullptr && this->protocolType_ == nullptr && this->qosRuleId_ == nullptr
+        && this->queryFotaUpdate_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subPayType_ == nullptr
+        && this->tag_ == nullptr && this->userName_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline DescribeDesktopsRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -429,6 +438,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The billing method of the cloud computer.
     // 
     // Valid values:

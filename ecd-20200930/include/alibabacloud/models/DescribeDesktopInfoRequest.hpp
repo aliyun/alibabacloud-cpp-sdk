@@ -14,11 +14,13 @@ namespace Models
   class DescribeDesktopInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(NeedExtraInfo, needExtraInfo_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(NeedExtraInfo, needExtraInfo_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->needExtraInfo_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->desktopId_ == nullptr && this->needExtraInfo_ == nullptr && this->regionId_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline DescribeDesktopInfoRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -60,6 +69,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The IDs of the cloud computers. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
     shared_ptr<bool> needExtraInfo_ {};

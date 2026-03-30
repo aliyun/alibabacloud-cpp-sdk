@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDesktopTypesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppliedScope, appliedScope_);
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(CpuCount, cpuCount_);
       DARABONBA_PTR_TO_JSON(DesktopGroupIdForModify, desktopGroupIdForModify_);
       DARABONBA_PTR_TO_JSON(DesktopIdForModify, desktopIdForModify_);
@@ -37,6 +38,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeDesktopTypesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppliedScope, appliedScope_);
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(CpuCount, cpuCount_);
       DARABONBA_PTR_FROM_JSON(DesktopGroupIdForModify, desktopGroupIdForModify_);
       DARABONBA_PTR_FROM_JSON(DesktopIdForModify, desktopIdForModify_);
@@ -69,15 +71,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appliedScope_ == nullptr
-        && this->cpuCount_ == nullptr && this->desktopGroupIdForModify_ == nullptr && this->desktopIdForModify_ == nullptr && this->desktopTypeId_ == nullptr && this->desktopTypeIdList_ == nullptr
-        && this->gpuCount_ == nullptr && this->gpuDriverType_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeFamily_ == nullptr && this->memorySize_ == nullptr
-        && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr
-        && this->scopeSet_ == nullptr && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr && this->zoneId_ == nullptr; };
+        && this->businessChannel_ == nullptr && this->cpuCount_ == nullptr && this->desktopGroupIdForModify_ == nullptr && this->desktopIdForModify_ == nullptr && this->desktopTypeId_ == nullptr
+        && this->desktopTypeIdList_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverType_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeFamily_ == nullptr
+        && this->memorySize_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr
+        && this->scope_ == nullptr && this->scopeSet_ == nullptr && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr && this->zoneId_ == nullptr; };
     // appliedScope Field Functions 
     bool hasAppliedScope() const { return this->appliedScope_ != nullptr;};
     void deleteAppliedScope() { this->appliedScope_ = nullptr;};
     inline string getAppliedScope() const { DARABONBA_PTR_GET_DEFAULT(appliedScope_, "") };
     inline DescribeDesktopTypesRequest& setAppliedScope(string appliedScope) { DARABONBA_PTR_SET_VALUE(appliedScope_, appliedScope) };
+
+
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline DescribeDesktopTypesRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
 
 
     // cpuCount Field Functions 
@@ -220,6 +229,7 @@ namespace Models
   protected:
     // Applicable Scope of specifications. Default value: `Public`
     shared_ptr<string> appliedScope_ {};
+    shared_ptr<string> businessChannel_ {};
     // The number of vCPUs.
     shared_ptr<int32_t> cpuCount_ {};
     // The ID of the cloud computer share you want to modify. If this parameter is provided, the response will include compatibility information for the specified specification.

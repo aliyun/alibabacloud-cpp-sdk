@@ -4357,7 +4357,7 @@ namespace Ecd20200930
       Models::ModifyNetworkPackageEnabledResponse modifyNetworkPackageEnabled(const Models::ModifyNetworkPackageEnabledRequest &request);
 
       /**
-       * @summary 修改全球加速配置
+       * @summary Modifies Global Accelerator (GA) configuration.
        *
        * @param request ModifyOfficeSiteAcceleratorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4366,7 +4366,7 @@ namespace Ecd20200930
       Models::ModifyOfficeSiteAcceleratorResponse modifyOfficeSiteAcceleratorWithOptions(const Models::ModifyOfficeSiteAcceleratorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改全球加速配置
+       * @summary Modifies Global Accelerator (GA) configuration.
        *
        * @param request ModifyOfficeSiteAcceleratorRequest
        * @return ModifyOfficeSiteAcceleratorResponse
@@ -4917,7 +4917,7 @@ namespace Ecd20200930
       Models::RevokeCoordinatePrivilegeResponse revokeCoordinatePrivilege(const Models::RevokeCoordinatePrivilegeRequest &request);
 
       /**
-       * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+       * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
        *
        * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
        *
@@ -4928,7 +4928,7 @@ namespace Ecd20200930
       Models::RunCommandResponse runCommandWithOptions(const Models::RunCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+       * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
        *
        * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
        *

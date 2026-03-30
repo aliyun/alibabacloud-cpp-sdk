@@ -3985,6 +3985,10 @@ CreateDriveResponse Client::createDrive(const CreateDriveRequest &request) {
 CreateEcdReportTaskResponse Client::createEcdReportTaskWithOptions(const CreateEcdReportTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasFilterList()) {
     query["FilterList"] = request.getFilterList();
   }
@@ -8071,6 +8075,10 @@ DescribeDesktopGroupsResponse Client::describeDesktopGroups(const DescribeDeskto
 DescribeDesktopInfoResponse Client::describeDesktopInfoWithOptions(const DescribeDesktopInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasDesktopId()) {
     query["DesktopId"] = request.getDesktopId();
   }
@@ -8493,6 +8501,10 @@ DescribeDesktopTypesResponse Client::describeDesktopTypesWithOptions(const Descr
     query["AppliedScope"] = request.getAppliedScope();
   }
 
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasCpuCount()) {
     query["CpuCount"] = request.getCpuCount();
   }
@@ -8609,6 +8621,10 @@ DescribeDesktopTypesResponse Client::describeDesktopTypes(const DescribeDesktopT
 DescribeDesktopsResponse Client::describeDesktopsWithOptions(const DescribeDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasChargeType()) {
     query["ChargeType"] = request.getChargeType();
   }
@@ -9067,6 +9083,10 @@ DescribeDrivesResponse Client::describeDrives(const DescribeDrivesRequest &reque
 DescribeEcdReportTasksResponse Client::describeEcdReportTasksWithOptions(const DescribeEcdReportTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasPageNum()) {
     query["PageNum"] = request.getPageNum();
   }
@@ -16716,7 +16736,7 @@ ModifyNetworkPackageEnabledResponse Client::modifyNetworkPackageEnabled(const Mo
 }
 
 /**
- * @summary 修改全球加速配置
+ * @summary Modifies Global Accelerator (GA) configuration.
  *
  * @param request ModifyOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16755,7 +16775,7 @@ ModifyOfficeSiteAcceleratorResponse Client::modifyOfficeSiteAcceleratorWithOptio
 }
 
 /**
- * @summary 修改全球加速配置
+ * @summary Modifies Global Accelerator (GA) configuration.
  *
  * @param request ModifyOfficeSiteAcceleratorRequest
  * @return ModifyOfficeSiteAcceleratorResponse
@@ -18812,7 +18832,7 @@ RevokeCoordinatePrivilegeResponse Client::revokeCoordinatePrivilege(const Revoke
 }
 
 /**
- * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+ * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
  *
  * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
  *
@@ -18873,7 +18893,7 @@ RunCommandResponse Client::runCommandWithOptions(const RunCommandRequest &reques
 }
 
 /**
- * @summary Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+ * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
  *
  * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
  *
