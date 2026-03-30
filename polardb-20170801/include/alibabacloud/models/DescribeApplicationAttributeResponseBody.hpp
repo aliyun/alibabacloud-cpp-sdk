@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -284,6 +286,37 @@ namespace Models
       shared_ptr<string> regionId_ {};
       shared_ptr<string> securityGroupId_ {};
       shared_ptr<string> securityGroupName_ {};
+    };
+
+    class PolarClawSaaSApplicationAttribute : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PolarClawSaaSApplicationAttribute& obj) { 
+        DARABONBA_PTR_TO_JSON(AuthCallbackURL, authCallbackURL_);
+      };
+      friend void from_json(const Darabonba::Json& j, PolarClawSaaSApplicationAttribute& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuthCallbackURL, authCallbackURL_);
+      };
+      PolarClawSaaSApplicationAttribute() = default ;
+      PolarClawSaaSApplicationAttribute(const PolarClawSaaSApplicationAttribute &) = default ;
+      PolarClawSaaSApplicationAttribute(PolarClawSaaSApplicationAttribute &&) = default ;
+      PolarClawSaaSApplicationAttribute(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PolarClawSaaSApplicationAttribute() = default ;
+      PolarClawSaaSApplicationAttribute& operator=(const PolarClawSaaSApplicationAttribute &) = default ;
+      PolarClawSaaSApplicationAttribute& operator=(PolarClawSaaSApplicationAttribute &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->authCallbackURL_ == nullptr; };
+      // authCallbackURL Field Functions 
+      bool hasAuthCallbackURL() const { return this->authCallbackURL_ != nullptr;};
+      void deleteAuthCallbackURL() { this->authCallbackURL_ = nullptr;};
+      inline string getAuthCallbackURL() const { DARABONBA_PTR_GET_DEFAULT(authCallbackURL_, "") };
+      inline PolarClawSaaSApplicationAttribute& setAuthCallbackURL(string authCallbackURL) { DARABONBA_PTR_SET_VALUE(authCallbackURL_, authCallbackURL) };
+
+
+    protected:
+      shared_ptr<string> authCallbackURL_ {};
     };
 
     class MemApplicationAttribute : public Darabonba::Model {
@@ -783,9 +816,10 @@ namespace Models
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr && this->DBClusterId_ == nullptr
         && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->isLatestVersion_ == nullptr
         && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr
-        && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr && this->storages_ == nullptr
-        && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
+        && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->polarClawSaaSApplicationAttribute_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr
+        && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr
+        && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -918,6 +952,15 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
+    // polarClawSaaSApplicationAttribute Field Functions 
+    bool hasPolarClawSaaSApplicationAttribute() const { return this->polarClawSaaSApplicationAttribute_ != nullptr;};
+    void deletePolarClawSaaSApplicationAttribute() { this->polarClawSaaSApplicationAttribute_ = nullptr;};
+    inline const DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute & getPolarClawSaaSApplicationAttribute() const { DARABONBA_PTR_GET_CONST(polarClawSaaSApplicationAttribute_, DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute) };
+    inline DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute getPolarClawSaaSApplicationAttribute() { DARABONBA_PTR_GET(polarClawSaaSApplicationAttribute_, DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute) };
+    inline DescribeApplicationAttributeResponseBody& setPolarClawSaaSApplicationAttribute(const DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute & polarClawSaaSApplicationAttribute) { DARABONBA_PTR_SET_VALUE(polarClawSaaSApplicationAttribute_, polarClawSaaSApplicationAttribute) };
+    inline DescribeApplicationAttributeResponseBody& setPolarClawSaaSApplicationAttribute(DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute && polarClawSaaSApplicationAttribute) { DARABONBA_PTR_SET_RVALUE(polarClawSaaSApplicationAttribute_, polarClawSaaSApplicationAttribute) };
+
+
     // polarFSInstanceId Field Functions 
     bool hasPolarFSInstanceId() const { return this->polarFSInstanceId_ != nullptr;};
     void deletePolarFSInstanceId() { this->polarFSInstanceId_ = nullptr;};
@@ -1034,6 +1077,7 @@ namespace Models
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     shared_ptr<string> minorVersion_ {};
     shared_ptr<string> payType_ {};
+    shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
     shared_ptr<string> polarFSInstanceId_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> requestId_ {};

@@ -1783,6 +1783,14 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["Architecture"] = request.getArchitecture();
   }
 
+  if (!!request.hasAuthProvider()) {
+    query["AuthProvider"] = request.getAuthProvider();
+  }
+
+  if (!!request.hasAuthProviderConfig()) {
+    query["AuthProviderConfig"] = request.getAuthProviderConfig();
+  }
+
   if (!!request.hasAutoAllocatePublicEip()) {
     query["AutoAllocatePublicEip"] = request.getAutoAllocatePublicEip();
   }
