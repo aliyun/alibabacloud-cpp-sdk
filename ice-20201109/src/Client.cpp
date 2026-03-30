@@ -13928,6 +13928,10 @@ ListYikeProductionsResponse Client::listYikeProductionsWithOptions(const ListYik
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
