@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LoginPassword, loginPassword_);
       DARABONBA_PTR_TO_JSON(NewNodeGroupName, newNodeGroupName_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
+      DARABONBA_PTR_TO_JSON(RamRoleName, ramRoleName_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateNodeGroupRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LoginPassword, loginPassword_);
       DARABONBA_PTR_FROM_JSON(NewNodeGroupName, newNodeGroupName_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
+      DARABONBA_PTR_FROM_JSON(RamRoleName, ramRoleName_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
     UpdateNodeGroupRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemMountEnabled_ == nullptr
         && this->imageId_ == nullptr && this->keyPairName_ == nullptr && this->loginPassword_ == nullptr && this->newNodeGroupName_ == nullptr && this->nodeGroupId_ == nullptr
-        && this->userData_ == nullptr; };
+        && this->ramRoleName_ == nullptr && this->userData_ == nullptr; };
     // fileSystemMountEnabled Field Functions 
     bool hasFileSystemMountEnabled() const { return this->fileSystemMountEnabled_ != nullptr;};
     void deleteFileSystemMountEnabled() { this->fileSystemMountEnabled_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline UpdateNodeGroupRequest& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
+    // ramRoleName Field Functions 
+    bool hasRamRoleName() const { return this->ramRoleName_ != nullptr;};
+    void deleteRamRoleName() { this->ramRoleName_ = nullptr;};
+    inline string getRamRoleName() const { DARABONBA_PTR_GET_DEFAULT(ramRoleName_, "") };
+    inline UpdateNodeGroupRequest& setRamRoleName(string ramRoleName) { DARABONBA_PTR_SET_VALUE(ramRoleName_, ramRoleName) };
+
+
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
@@ -106,6 +115,7 @@ namespace Models
     shared_ptr<string> newNodeGroupName_ {};
     // Node group ID
     shared_ptr<string> nodeGroupId_ {};
+    shared_ptr<string> ramRoleName_ {};
     // User-defined script
     shared_ptr<string> userData_ {};
   };

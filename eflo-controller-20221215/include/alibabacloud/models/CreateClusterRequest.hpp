@@ -108,6 +108,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeGroupDescription, nodeGroupDescription_);
         DARABONBA_PTR_TO_JSON(NodeGroupName, nodeGroupName_);
         DARABONBA_PTR_TO_JSON(Nodes, nodes_);
+        DARABONBA_PTR_TO_JSON(RamRoleName, ramRoleName_);
         DARABONBA_PTR_TO_JSON(SystemDisk, systemDisk_);
         DARABONBA_PTR_TO_JSON(UserData, userData_);
         DARABONBA_PTR_TO_JSON(VirtualGpuEnabled, virtualGpuEnabled_);
@@ -123,6 +124,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeGroupDescription, nodeGroupDescription_);
         DARABONBA_PTR_FROM_JSON(NodeGroupName, nodeGroupName_);
         DARABONBA_PTR_FROM_JSON(Nodes, nodes_);
+        DARABONBA_PTR_FROM_JSON(RamRoleName, ramRoleName_);
         DARABONBA_PTR_FROM_JSON(SystemDisk, systemDisk_);
         DARABONBA_PTR_FROM_JSON(UserData, userData_);
         DARABONBA_PTR_FROM_JSON(VirtualGpuEnabled, virtualGpuEnabled_);
@@ -542,8 +544,8 @@ namespace Models
 
       virtual bool empty() const override { return this->fileSystemMountEnabled_ == nullptr
         && this->hyperNodes_ == nullptr && this->imageId_ == nullptr && this->keyPairName_ == nullptr && this->loginPassword_ == nullptr && this->machineType_ == nullptr
-        && this->nodeGroupDescription_ == nullptr && this->nodeGroupName_ == nullptr && this->nodes_ == nullptr && this->systemDisk_ == nullptr && this->userData_ == nullptr
-        && this->virtualGpuEnabled_ == nullptr && this->zoneId_ == nullptr; };
+        && this->nodeGroupDescription_ == nullptr && this->nodeGroupName_ == nullptr && this->nodes_ == nullptr && this->ramRoleName_ == nullptr && this->systemDisk_ == nullptr
+        && this->userData_ == nullptr && this->virtualGpuEnabled_ == nullptr && this->zoneId_ == nullptr; };
       // fileSystemMountEnabled Field Functions 
       bool hasFileSystemMountEnabled() const { return this->fileSystemMountEnabled_ != nullptr;};
       void deleteFileSystemMountEnabled() { this->fileSystemMountEnabled_ = nullptr;};
@@ -611,6 +613,13 @@ namespace Models
       inline NodeGroups& setNodes(vector<NodeGroups::Nodes> && nodes) { DARABONBA_PTR_SET_RVALUE(nodes_, nodes) };
 
 
+      // ramRoleName Field Functions 
+      bool hasRamRoleName() const { return this->ramRoleName_ != nullptr;};
+      void deleteRamRoleName() { this->ramRoleName_ = nullptr;};
+      inline string getRamRoleName() const { DARABONBA_PTR_GET_DEFAULT(ramRoleName_, "") };
+      inline NodeGroups& setRamRoleName(string ramRoleName) { DARABONBA_PTR_SET_VALUE(ramRoleName_, ramRoleName) };
+
+
       // systemDisk Field Functions 
       bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
       void deleteSystemDisk() { this->systemDisk_ = nullptr;};
@@ -659,6 +668,7 @@ namespace Models
       shared_ptr<string> nodeGroupName_ {};
       // Node list
       shared_ptr<vector<NodeGroups::Nodes>> nodes_ {};
+      shared_ptr<string> ramRoleName_ {};
       // System disk information
       shared_ptr<NodeGroups::SystemDisk> systemDisk_ {};
       // Instance custom data. It needs to be encoded in Base64, and the original data should not exceed 16 KB.

@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeGroupDescription, nodeGroupDescription_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(NodeGroupName, nodeGroupName_);
+      DARABONBA_PTR_TO_JSON(RamRoleName, ramRoleName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeGroupDescription, nodeGroupDescription_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupName, nodeGroupName_);
+      DARABONBA_PTR_FROM_JSON(RamRoleName, ramRoleName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
@@ -120,8 +122,8 @@ namespace Models
     virtual bool empty() const override { return this->az_ == nullptr
         && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->createTime_ == nullptr && this->fileSystemMountEnabled_ == nullptr && this->imageId_ == nullptr
         && this->imageName_ == nullptr && this->keyPairName_ == nullptr && this->loginType_ == nullptr && this->machineType_ == nullptr && this->nodeCount_ == nullptr
-        && this->nodeGroupDescription_ == nullptr && this->nodeGroupId_ == nullptr && this->nodeGroupName_ == nullptr && this->requestId_ == nullptr && this->systemDisk_ == nullptr
-        && this->updateTime_ == nullptr && this->userData_ == nullptr && this->virtualGpuEnabled_ == nullptr; };
+        && this->nodeGroupDescription_ == nullptr && this->nodeGroupId_ == nullptr && this->nodeGroupName_ == nullptr && this->ramRoleName_ == nullptr && this->requestId_ == nullptr
+        && this->systemDisk_ == nullptr && this->updateTime_ == nullptr && this->userData_ == nullptr && this->virtualGpuEnabled_ == nullptr; };
     // az Field Functions 
     bool hasAz() const { return this->az_ != nullptr;};
     void deleteAz() { this->az_ = nullptr;};
@@ -220,6 +222,13 @@ namespace Models
     inline DescribeNodeGroupResponseBody& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
 
 
+    // ramRoleName Field Functions 
+    bool hasRamRoleName() const { return this->ramRoleName_ != nullptr;};
+    void deleteRamRoleName() { this->ramRoleName_ = nullptr;};
+    inline string getRamRoleName() const { DARABONBA_PTR_GET_DEFAULT(ramRoleName_, "") };
+    inline DescribeNodeGroupResponseBody& setRamRoleName(string ramRoleName) { DARABONBA_PTR_SET_VALUE(ramRoleName_, ramRoleName) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -272,6 +281,7 @@ namespace Models
     shared_ptr<string> nodeGroupDescription_ {};
     shared_ptr<string> nodeGroupId_ {};
     shared_ptr<string> nodeGroupName_ {};
+    shared_ptr<string> ramRoleName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeNodeGroupResponseBody::SystemDisk> systemDisk_ {};

@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MachineType, machineType_);
         DARABONBA_PTR_TO_JSON(NodeGroupDescription, nodeGroupDescription_);
         DARABONBA_PTR_TO_JSON(NodeGroupName, nodeGroupName_);
+        DARABONBA_PTR_TO_JSON(RamRoleName, ramRoleName_);
         DARABONBA_PTR_TO_JSON(SystemDisk, systemDisk_);
         DARABONBA_PTR_TO_JSON(UserData, userData_);
         DARABONBA_PTR_TO_JSON(VirtualGpuEnabled, virtualGpuEnabled_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MachineType, machineType_);
         DARABONBA_PTR_FROM_JSON(NodeGroupDescription, nodeGroupDescription_);
         DARABONBA_PTR_FROM_JSON(NodeGroupName, nodeGroupName_);
+        DARABONBA_PTR_FROM_JSON(RamRoleName, ramRoleName_);
         DARABONBA_PTR_FROM_JSON(SystemDisk, systemDisk_);
         DARABONBA_PTR_FROM_JSON(UserData, userData_);
         DARABONBA_PTR_FROM_JSON(VirtualGpuEnabled, virtualGpuEnabled_);
@@ -133,7 +135,8 @@ namespace Models
 
       virtual bool empty() const override { return this->az_ == nullptr
         && this->fileSystemMountEnabled_ == nullptr && this->imageId_ == nullptr && this->keyPairName_ == nullptr && this->loginPassword_ == nullptr && this->machineType_ == nullptr
-        && this->nodeGroupDescription_ == nullptr && this->nodeGroupName_ == nullptr && this->systemDisk_ == nullptr && this->userData_ == nullptr && this->virtualGpuEnabled_ == nullptr; };
+        && this->nodeGroupDescription_ == nullptr && this->nodeGroupName_ == nullptr && this->ramRoleName_ == nullptr && this->systemDisk_ == nullptr && this->userData_ == nullptr
+        && this->virtualGpuEnabled_ == nullptr; };
       // az Field Functions 
       bool hasAz() const { return this->az_ != nullptr;};
       void deleteAz() { this->az_ = nullptr;};
@@ -190,6 +193,13 @@ namespace Models
       inline NodeGroup& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
 
 
+      // ramRoleName Field Functions 
+      bool hasRamRoleName() const { return this->ramRoleName_ != nullptr;};
+      void deleteRamRoleName() { this->ramRoleName_ = nullptr;};
+      inline string getRamRoleName() const { DARABONBA_PTR_GET_DEFAULT(ramRoleName_, "") };
+      inline NodeGroup& setRamRoleName(string ramRoleName) { DARABONBA_PTR_SET_VALUE(ramRoleName_, ramRoleName) };
+
+
       // systemDisk Field Functions 
       bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
       void deleteSystemDisk() { this->systemDisk_ = nullptr;};
@@ -238,6 +248,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> nodeGroupName_ {};
+      shared_ptr<string> ramRoleName_ {};
       // Details of the node system disk configuration.
       shared_ptr<NodeGroup::SystemDisk> systemDisk_ {};
       // User-defined data

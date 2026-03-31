@@ -3232,6 +3232,10 @@ UpdateNodeGroupResponse Client::updateNodeGroupWithOptions(const UpdateNodeGroup
     body["NodeGroupId"] = request.getNodeGroupId();
   }
 
+  if (!!request.hasRamRoleName()) {
+    body["RamRoleName"] = request.getRamRoleName();
+  }
+
   if (!!request.hasUserData()) {
     body["UserData"] = request.getUserData();
   }
