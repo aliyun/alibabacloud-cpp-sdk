@@ -1091,12 +1091,20 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["ApplicationName"] = request.getApplicationName();
   }
 
+  if (!!request.hasApplicationOwner()) {
+    query["ApplicationOwner"] = request.getApplicationOwner();
+  }
+
   if (!!request.hasApplicationSourceType()) {
     query["ApplicationSourceType"] = request.getApplicationSourceType();
   }
 
   if (!!request.hasApplicationTemplateId()) {
     query["ApplicationTemplateId"] = request.getApplicationTemplateId();
+  }
+
+  if (!!request.hasCustomFields()) {
+    query["CustomFields"] = request.getCustomFields();
   }
 
   if (!!request.hasDescription()) {
@@ -10067,6 +10075,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
     query["AuthorizationType"] = request.getAuthorizationType();
   }
 
+  if (!!request.hasCustomFields()) {
+    query["CustomFields"] = request.getCustomFields();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -15978,12 +15990,20 @@ UpdateApplicationInfoResponse Client::updateApplicationInfoWithOptions(const Upd
     query["ApplicationName"] = request.getApplicationName();
   }
 
+  if (!!request.hasApplicationOwner()) {
+    query["ApplicationOwner"] = request.getApplicationOwner();
+  }
+
   if (!!request.hasApplicationVisibility()) {
     query["ApplicationVisibility"] = request.getApplicationVisibility();
   }
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCustomFields()) {
+    query["CustomFields"] = request.getCustomFields();
   }
 
   if (!!request.hasInstanceId()) {

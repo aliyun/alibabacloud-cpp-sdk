@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(AuthorizationType, authorizationType_);
+      DARABONBA_PTR_TO_JSON(CustomFields, customFields_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(M2MClientStatus, m2MClientStatus_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(AuthorizationType, authorizationType_);
+      DARABONBA_PTR_FROM_JSON(CustomFields, customFields_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(M2MClientStatus, m2MClientStatus_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -52,10 +54,52 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CustomFields : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CustomFields& obj) { 
+        DARABONBA_PTR_TO_JSON(FieldName, fieldName_);
+        DARABONBA_PTR_TO_JSON(FieldValue, fieldValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, CustomFields& obj) { 
+        DARABONBA_PTR_FROM_JSON(FieldName, fieldName_);
+        DARABONBA_PTR_FROM_JSON(FieldValue, fieldValue_);
+      };
+      CustomFields() = default ;
+      CustomFields(const CustomFields &) = default ;
+      CustomFields(CustomFields &&) = default ;
+      CustomFields(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CustomFields() = default ;
+      CustomFields& operator=(const CustomFields &) = default ;
+      CustomFields& operator=(CustomFields &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->fieldName_ == nullptr
+        && this->fieldValue_ == nullptr; };
+      // fieldName Field Functions 
+      bool hasFieldName() const { return this->fieldName_ != nullptr;};
+      void deleteFieldName() { this->fieldName_ = nullptr;};
+      inline string getFieldName() const { DARABONBA_PTR_GET_DEFAULT(fieldName_, "") };
+      inline CustomFields& setFieldName(string fieldName) { DARABONBA_PTR_SET_VALUE(fieldName_, fieldName) };
+
+
+      // fieldValue Field Functions 
+      bool hasFieldValue() const { return this->fieldValue_ != nullptr;};
+      void deleteFieldValue() { this->fieldValue_ = nullptr;};
+      inline string getFieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
+      inline CustomFields& setFieldValue(string fieldValue) { DARABONBA_PTR_SET_VALUE(fieldValue_, fieldValue) };
+
+
+    protected:
+      shared_ptr<string> fieldName_ {};
+      shared_ptr<string> fieldValue_ {};
+    };
+
     virtual bool empty() const override { return this->applicationCreationType_ == nullptr
-        && this->applicationIdentityType_ == nullptr && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->authorizationType_ == nullptr && this->instanceId_ == nullptr
-        && this->m2MClientStatus_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceServerStatus_ == nullptr && this->ssoType_ == nullptr
-        && this->status_ == nullptr; };
+        && this->applicationIdentityType_ == nullptr && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->authorizationType_ == nullptr && this->customFields_ == nullptr
+        && this->instanceId_ == nullptr && this->m2MClientStatus_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceServerStatus_ == nullptr
+        && this->ssoType_ == nullptr && this->status_ == nullptr; };
     // applicationCreationType Field Functions 
     bool hasApplicationCreationType() const { return this->applicationCreationType_ != nullptr;};
     void deleteApplicationCreationType() { this->applicationCreationType_ = nullptr;};
@@ -91,6 +135,15 @@ namespace Models
     void deleteAuthorizationType() { this->authorizationType_ = nullptr;};
     inline string getAuthorizationType() const { DARABONBA_PTR_GET_DEFAULT(authorizationType_, "") };
     inline ListApplicationsRequest& setAuthorizationType(string authorizationType) { DARABONBA_PTR_SET_VALUE(authorizationType_, authorizationType) };
+
+
+    // customFields Field Functions 
+    bool hasCustomFields() const { return this->customFields_ != nullptr;};
+    void deleteCustomFields() { this->customFields_ = nullptr;};
+    inline const vector<ListApplicationsRequest::CustomFields> & getCustomFields() const { DARABONBA_PTR_GET_CONST(customFields_, vector<ListApplicationsRequest::CustomFields>) };
+    inline vector<ListApplicationsRequest::CustomFields> getCustomFields() { DARABONBA_PTR_GET(customFields_, vector<ListApplicationsRequest::CustomFields>) };
+    inline ListApplicationsRequest& setCustomFields(const vector<ListApplicationsRequest::CustomFields> & customFields) { DARABONBA_PTR_SET_VALUE(customFields_, customFields) };
+    inline ListApplicationsRequest& setCustomFields(vector<ListApplicationsRequest::CustomFields> && customFields) { DARABONBA_PTR_SET_RVALUE(customFields_, customFields) };
 
 
     // instanceId Field Functions 
@@ -154,6 +207,7 @@ namespace Models
     // *   authorize_required: Only the user with explicit authorization can access the application.
     // *   default_all: By default, all users can access the application.
     shared_ptr<string> authorizationType_ {};
+    shared_ptr<vector<ListApplicationsRequest::CustomFields>> customFields_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
