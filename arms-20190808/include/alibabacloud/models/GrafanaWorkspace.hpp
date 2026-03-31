@@ -120,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -325,32 +327,108 @@ namespace Models
 
 
   protected:
+    // Indicates whether the workspace is commercialized.
     shared_ptr<bool> commercial_ {};
+    // The deployment mode of Grafana. You can ignore this parameter.
     shared_ptr<string> deployType_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The time when the workspace expires.
     shared_ptr<float> endTime_ {};
+    // The time when the workspace was created.
     shared_ptr<float> gmtCreate_ {};
+    // The version number of Grafana.
+    // 
+    // Valid values:
+    // 
+    // *   8.2.x
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   10.0.x
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    // *   9.0.x
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
+    // 
+    //     <!-- -->
     shared_ptr<string> grafanaVersion_ {};
+    // The domain name of the workspace.
     shared_ptr<string> grafanaWorkspaceDomain_ {};
+    // status of workspace domain
     shared_ptr<string> grafanaWorkspaceDomainStatus_ {};
+    // The version.
+    // 
+    // Valid values:
+    // - standard：Standard Edition
+    // 
+    // - personal_deition：Developer Edition
+    // 
+    // -  experts_edition：Expert Edition
+    // 
+    // - advanced_edition：Advanced Edition
     shared_ptr<string> grafanaWorkspaceEdition_ {};
+    // The ID of the workspace.
     shared_ptr<string> grafanaWorkspaceId_ {};
+    // The public IP address and port number.
     shared_ptr<string> grafanaWorkspaceIp_ {};
+    // The workspace name.
     shared_ptr<string> grafanaWorkspaceName_ {};
+    // The maximum number of accounts.
     shared_ptr<string> maxAccount_ {};
+    // The ID of the purchase order.
     shared_ptr<string> ntmId_ {};
+    // The personalized domain name.
     shared_ptr<string> personalDomain_ {};
+    // The prefix of the personalized domain name.
     shared_ptr<string> personalDomainPrefix_ {};
+    // The private domain name of the workspace.
     shared_ptr<string> privateDomain_ {};
+    // The private IP address and port number.
     shared_ptr<string> privateIp_ {};
+    // The protocol type.
     shared_ptr<string> protocol_ {};
+    // The region ID of the disk.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // Indicates whether the migration guide for the shared edition is provided.
     shared_ptr<bool> shareSynced_ {};
+    // The outbound IP address.
     shared_ptr<string> snatIp_ {};
+    // The status of the workspace.
+    // 
+    // Valid values:
+    // 
+    // - StartFailed：The workspace failed to be started
+    // 
+    // - Stop：The workspace is stopped
+    // 
+    // - Starting：The workspace is being started
+    // 
+    // - DeleteFailed：The workspace failed to be deleted
+    // 
+    // - Running：The workspace is running
+    // 
+    // - DeleteSucceed：The workspace is deleted
     shared_ptr<string> status_ {};
+    // The tags.
     shared_ptr<vector<GrafanaWorkspace::Tags>> tags_ {};
+    // The versions that are available for upgrades.
     shared_ptr<vector<string>> upgradeVersion_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

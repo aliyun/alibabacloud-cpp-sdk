@@ -122,9 +122,7 @@ namespace Models
 
 
         protected:
-          // The tag key.
           shared_ptr<string> key_ {};
-          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -181,7 +179,6 @@ namespace Models
       shared_ptr<string> pid_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags of the task.
       shared_ptr<RetcodeAppDataBean::Tags> tags_ {};
     };
 

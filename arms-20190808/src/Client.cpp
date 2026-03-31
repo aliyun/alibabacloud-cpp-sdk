@@ -131,7 +131,7 @@ AddAliClusterIdsToPrometheusGlobalViewResponse Client::addAliClusterIdsToPrometh
 /**
  * @deprecated OpenAPI AddGrafana is deprecated
  *
- * @summary Integrates the dashboard of Prometheus Service.
+ * @summary Integrates the dashboard of Managed Service for Prometheus.
  *
  * @param request AddGrafanaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -172,7 +172,7 @@ AddGrafanaResponse Client::addGrafanaWithOptions(const AddGrafanaRequest &reques
 /**
  * @deprecated OpenAPI AddGrafana is deprecated
  *
- * @summary Integrates the dashboard of Prometheus Service.
+ * @summary Integrates the dashboard of Managed Service for Prometheus.
  *
  * @param request AddGrafanaRequest
  * @return AddGrafanaResponse
@@ -471,7 +471,7 @@ AddPrometheusIntegrationResponse Client::addPrometheusIntegration(const AddProme
 /**
  * @deprecated OpenAPI AddRecordingRule is deprecated
  *
- * @summary Creates or updates a recording rule of Managed Service for Prometheus.
+ * @summary Creates or updates a recording rule.
  *
  * @param request AddRecordingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -512,7 +512,7 @@ AddRecordingRuleResponse Client::addRecordingRuleWithOptions(const AddRecordingR
 /**
  * @deprecated OpenAPI AddRecordingRule is deprecated
  *
- * @summary Creates or updates a recording rule of Managed Service for Prometheus.
+ * @summary Creates or updates a recording rule.
  *
  * @param request AddRecordingRuleRequest
  * @return AddRecordingRuleResponse
@@ -789,7 +789,7 @@ BindPrometheusGrafanaInstanceResponse Client::bindPrometheusGrafanaInstance(cons
 }
 
 /**
- * @summary Blocks alert notifications in a time period.
+ * @summary Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
  *
  * @param request BlockAlarmNotificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -832,7 +832,7 @@ BlockAlarmNotificationResponse Client::blockAlarmNotificationWithOptions(const B
 }
 
 /**
- * @summary Blocks alert notifications in a time period.
+ * @summary Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
  *
  * @param request BlockAlarmNotificationRequest
  * @return BlockAlarmNotificationResponse
@@ -2105,7 +2105,7 @@ CreateOrUpdateContactGroupResponse Client::createOrUpdateContactGroup(const Crea
 }
 
 /**
- * @summary Creates or modifies an EventBridge integration.
+ * @summary Creates or modifies an EventBridge integration that is used to push notifications.
  *
  * @param request CreateOrUpdateEventBridgeIntegrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2168,7 +2168,7 @@ CreateOrUpdateEventBridgeIntegrationResponse Client::createOrUpdateEventBridgeIn
 }
 
 /**
- * @summary Creates or modifies an EventBridge integration.
+ * @summary Creates or modifies an EventBridge integration that is used to push notifications.
  *
  * @param request CreateOrUpdateEventBridgeIntegrationRequest
  * @return CreateOrUpdateEventBridgeIntegrationResponse
@@ -3623,7 +3623,7 @@ DeleteAppListResponse Client::deleteAppList(const DeleteAppListRequest &request)
 /**
  * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
  *
- * @summary Releases a Prometheus instance for Alibaba Cloud services.
+ * @summary Uninstalls a Prometheus instance.
  *
  * @param request DeleteCmsExporterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3660,7 +3660,7 @@ DeleteCmsExporterResponse Client::deleteCmsExporterWithOptions(const DeleteCmsEx
 /**
  * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
  *
- * @summary Releases a Prometheus instance for Alibaba Cloud services.
+ * @summary Uninstalls a Prometheus instance.
  *
  * @param request DeleteCmsExporterRequest
  * @return DeleteCmsExporterResponse
@@ -4059,7 +4059,7 @@ DeleteEnvironmentFeatureResponse Client::deleteEnvironmentFeature(const DeleteEn
 }
 
 /**
- * @summary Deletes an EventBridge integration.
+ * @summary Deletes an EventBridge integration that is used to push notifications.
  *
  * @param request DeleteEventBridgeIntegrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4090,7 +4090,7 @@ DeleteEventBridgeIntegrationResponse Client::deleteEventBridgeIntegrationWithOpt
 }
 
 /**
- * @summary Deletes an EventBridge integration.
+ * @summary Deletes an EventBridge integration that is used to push notifications.
  *
  * @param request DeleteEventBridgeIntegrationRequest
  * @return DeleteEventBridgeIntegrationResponse
@@ -4253,7 +4253,7 @@ DeleteIMRobotResponse Client::deleteIMRobot(const DeleteIMRobotRequest &request)
 /**
  * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
  *
- * @summary Deletes collection rules from an integration.
+ * @summary Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
  *
  * @param request DeleteIntegrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4294,7 +4294,7 @@ DeleteIntegrationResponse Client::deleteIntegrationWithOptions(const DeleteInteg
 /**
  * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
  *
- * @summary Deletes collection rules from an integration.
+ * @summary Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
  *
  * @param request DeleteIntegrationRequest
  * @return DeleteIntegrationResponse
@@ -4821,7 +4821,7 @@ DeleteScenarioResponse Client::deleteScenario(const DeleteScenarioRequest &reque
 }
 
 /**
- * @summary The ID of the silence policy.
+ * @summary Deletes a silence policy based on its ID.
  *
  * @param request DeleteSilencePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4852,7 +4852,7 @@ DeleteSilencePolicyResponse Client::deleteSilencePolicyWithOptions(const DeleteS
 }
 
 /**
- * @summary The ID of the silence policy.
+ * @summary Deletes a silence policy based on its ID.
  *
  * @param request DeleteSilencePolicyRequest
  * @return DeleteSilencePolicyResponse
@@ -5715,7 +5715,7 @@ DescribeEnvironmentFeatureResponse Client::describeEnvironmentFeature(const Desc
 }
 
 /**
- * @summary Queries instant messaging (IM) chatbots.
+ * @summary Queries a list of IM chatbots.
  *
  * @param request DescribeIMRobotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5758,7 +5758,7 @@ DescribeIMRobotsResponse Client::describeIMRobotsWithOptions(const DescribeIMRob
 }
 
 /**
- * @summary Queries instant messaging (IM) chatbots.
+ * @summary Queries a list of IM chatbots.
  *
  * @param request DescribeIMRobotsRequest
  * @return DescribeIMRobotsResponse
@@ -9411,7 +9411,7 @@ ListEnvServiceMonitorsResponse Client::listEnvServiceMonitors(const ListEnvServi
 }
 
 /**
- * @summary 环境addon列表
+ * @summary Queries the information about the add-ons that are installed in an environment.
  *
  * @param request ListEnvironmentAddonsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9446,7 +9446,7 @@ ListEnvironmentAddonsResponse Client::listEnvironmentAddonsWithOptions(const Lis
 }
 
 /**
- * @summary 环境addon列表
+ * @summary Queries the information about the add-ons that are installed in an environment.
  *
  * @param request ListEnvironmentAddonsRequest
  * @return ListEnvironmentAddonsResponse
@@ -9843,7 +9843,7 @@ ListEscalationPoliciesResponse Client::listEscalationPolicies(const ListEscalati
 }
 
 /**
- * @summary Queries an EventBridge integration.
+ * @summary Queries EventBridge integrations that are used to push notifications.
  *
  * @param request ListEventBridgeIntegrationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9870,7 +9870,7 @@ ListEventBridgeIntegrationsResponse Client::listEventBridgeIntegrationsWithOptio
 }
 
 /**
- * @summary Queries an EventBridge integration.
+ * @summary Queries EventBridge integrations that are used to push notifications.
  *
  * @param request ListEventBridgeIntegrationsRequest
  * @return ListEventBridgeIntegrationsResponse
@@ -12143,7 +12143,7 @@ SearchTraceAppByNameResponse Client::searchTraceAppByName(const SearchTraceAppBy
 }
 
 /**
- * @summary Queries application monitoring tasks by page.
+ * @summary Queries Application Monitoring tasks by page.
  *
  * @param request SearchTraceAppByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12194,7 +12194,7 @@ SearchTraceAppByPageResponse Client::searchTraceAppByPageWithOptions(const Searc
 }
 
 /**
- * @summary Queries application monitoring tasks by page.
+ * @summary Queries Application Monitoring tasks by page.
  *
  * @param request SearchTraceAppByPageRequest
  * @return SearchTraceAppByPageResponse

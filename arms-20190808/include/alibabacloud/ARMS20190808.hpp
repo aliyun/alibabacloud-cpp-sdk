@@ -44,7 +44,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI AddGrafana is deprecated
        *
-       * @summary Integrates the dashboard of Prometheus Service.
+       * @summary Integrates the dashboard of Managed Service for Prometheus.
        *
        * @param request AddGrafanaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -55,7 +55,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI AddGrafana is deprecated
        *
-       * @summary Integrates the dashboard of Prometheus Service.
+       * @summary Integrates the dashboard of Managed Service for Prometheus.
        *
        * @param request AddGrafanaRequest
        * @return AddGrafanaResponse
@@ -170,7 +170,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI AddRecordingRule is deprecated
        *
-       * @summary Creates or updates a recording rule of Managed Service for Prometheus.
+       * @summary Creates or updates a recording rule.
        *
        * @param request AddRecordingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -181,7 +181,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI AddRecordingRule is deprecated
        *
-       * @summary Creates or updates a recording rule of Managed Service for Prometheus.
+       * @summary Creates or updates a recording rule.
        *
        * @param request AddRecordingRuleRequest
        * @return AddRecordingRuleResponse
@@ -265,7 +265,7 @@ namespace ARMS20190808
       Models::BindPrometheusGrafanaInstanceResponse bindPrometheusGrafanaInstance(const Models::BindPrometheusGrafanaInstanceRequest &request);
 
       /**
-       * @summary Blocks alert notifications in a time period.
+       * @summary Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
        *
        * @param request BlockAlarmNotificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -274,7 +274,7 @@ namespace ARMS20190808
       Models::BlockAlarmNotificationResponse blockAlarmNotificationWithOptions(const Models::BlockAlarmNotificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Blocks alert notifications in a time period.
+       * @summary Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
        *
        * @param request BlockAlarmNotificationRequest
        * @return BlockAlarmNotificationResponse
@@ -633,7 +633,7 @@ namespace ARMS20190808
       Models::CreateOrUpdateContactGroupResponse createOrUpdateContactGroup(const Models::CreateOrUpdateContactGroupRequest &request);
 
       /**
-       * @summary Creates or modifies an EventBridge integration.
+       * @summary Creates or modifies an EventBridge integration that is used to push notifications.
        *
        * @param request CreateOrUpdateEventBridgeIntegrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +642,7 @@ namespace ARMS20190808
       Models::CreateOrUpdateEventBridgeIntegrationResponse createOrUpdateEventBridgeIntegrationWithOptions(const Models::CreateOrUpdateEventBridgeIntegrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an EventBridge integration.
+       * @summary Creates or modifies an EventBridge integration that is used to push notifications.
        *
        * @param request CreateOrUpdateEventBridgeIntegrationRequest
        * @return CreateOrUpdateEventBridgeIntegrationResponse
@@ -1008,7 +1008,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
        *
-       * @summary Releases a Prometheus instance for Alibaba Cloud services.
+       * @summary Uninstalls a Prometheus instance.
        *
        * @param request DeleteCmsExporterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1019,7 +1019,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
        *
-       * @summary Releases a Prometheus instance for Alibaba Cloud services.
+       * @summary Uninstalls a Prometheus instance.
        *
        * @param request DeleteCmsExporterRequest
        * @return DeleteCmsExporterResponse
@@ -1163,7 +1163,7 @@ namespace ARMS20190808
       Models::DeleteEnvironmentFeatureResponse deleteEnvironmentFeature(const Models::DeleteEnvironmentFeatureRequest &request);
 
       /**
-       * @summary Deletes an EventBridge integration.
+       * @summary Deletes an EventBridge integration that is used to push notifications.
        *
        * @param request DeleteEventBridgeIntegrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1172,7 +1172,7 @@ namespace ARMS20190808
       Models::DeleteEventBridgeIntegrationResponse deleteEventBridgeIntegrationWithOptions(const Models::DeleteEventBridgeIntegrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an EventBridge integration.
+       * @summary Deletes an EventBridge integration that is used to push notifications.
        *
        * @param request DeleteEventBridgeIntegrationRequest
        * @return DeleteEventBridgeIntegrationResponse
@@ -1243,7 +1243,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
        *
-       * @summary Deletes collection rules from an integration.
+       * @summary Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
        *
        * @param request DeleteIntegrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1254,7 @@ namespace ARMS20190808
       /**
        * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
        *
-       * @summary Deletes collection rules from an integration.
+       * @summary Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
        *
        * @param request DeleteIntegrationRequest
        * @return DeleteIntegrationResponse
@@ -1444,7 +1444,7 @@ namespace ARMS20190808
       Models::DeleteScenarioResponse deleteScenario(const Models::DeleteScenarioRequest &request);
 
       /**
-       * @summary The ID of the silence policy.
+       * @summary Deletes a silence policy based on its ID.
        *
        * @param request DeleteSilencePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1453,7 +1453,7 @@ namespace ARMS20190808
       Models::DeleteSilencePolicyResponse deleteSilencePolicyWithOptions(const Models::DeleteSilencePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the silence policy.
+       * @summary Deletes a silence policy based on its ID.
        *
        * @param request DeleteSilencePolicyRequest
        * @return DeleteSilencePolicyResponse
@@ -1733,7 +1733,7 @@ namespace ARMS20190808
       Models::DescribeEnvironmentFeatureResponse describeEnvironmentFeature(const Models::DescribeEnvironmentFeatureRequest &request);
 
       /**
-       * @summary Queries instant messaging (IM) chatbots.
+       * @summary Queries a list of IM chatbots.
        *
        * @param request DescribeIMRobotsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1742,7 +1742,7 @@ namespace ARMS20190808
       Models::DescribeIMRobotsResponse describeIMRobotsWithOptions(const Models::DescribeIMRobotsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries instant messaging (IM) chatbots.
+       * @summary Queries a list of IM chatbots.
        *
        * @param request DescribeIMRobotsRequest
        * @return DescribeIMRobotsResponse
@@ -2963,7 +2963,7 @@ namespace ARMS20190808
       Models::ListEnvServiceMonitorsResponse listEnvServiceMonitors(const Models::ListEnvServiceMonitorsRequest &request);
 
       /**
-       * @summary 环境addon列表
+       * @summary Queries the information about the add-ons that are installed in an environment.
        *
        * @param request ListEnvironmentAddonsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +2972,7 @@ namespace ARMS20190808
       Models::ListEnvironmentAddonsResponse listEnvironmentAddonsWithOptions(const Models::ListEnvironmentAddonsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 环境addon列表
+       * @summary Queries the information about the add-ons that are installed in an environment.
        *
        * @param request ListEnvironmentAddonsRequest
        * @return ListEnvironmentAddonsResponse
@@ -3099,7 +3099,7 @@ namespace ARMS20190808
       Models::ListEscalationPoliciesResponse listEscalationPolicies(const Models::ListEscalationPoliciesRequest &request);
 
       /**
-       * @summary Queries an EventBridge integration.
+       * @summary Queries EventBridge integrations that are used to push notifications.
        *
        * @param request ListEventBridgeIntegrationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3108,7 +3108,7 @@ namespace ARMS20190808
       Models::ListEventBridgeIntegrationsResponse listEventBridgeIntegrationsWithOptions(const Models::ListEventBridgeIntegrationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an EventBridge integration.
+       * @summary Queries EventBridge integrations that are used to push notifications.
        *
        * @param request ListEventBridgeIntegrationsRequest
        * @return ListEventBridgeIntegrationsResponse
@@ -3839,7 +3839,7 @@ namespace ARMS20190808
       Models::SearchTraceAppByNameResponse searchTraceAppByName(const Models::SearchTraceAppByNameRequest &request);
 
       /**
-       * @summary Queries application monitoring tasks by page.
+       * @summary Queries Application Monitoring tasks by page.
        *
        * @param request SearchTraceAppByPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3848,7 +3848,7 @@ namespace ARMS20190808
       Models::SearchTraceAppByPageResponse searchTraceAppByPageWithOptions(const Models::SearchTraceAppByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries application monitoring tasks by page.
+       * @summary Queries Application Monitoring tasks by page.
        *
        * @param request SearchTraceAppByPageRequest
        * @return SearchTraceAppByPageResponse
