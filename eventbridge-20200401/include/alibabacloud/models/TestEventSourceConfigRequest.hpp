@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Port, port_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+        DARABONBA_PTR_TO_JSON(SnapshotMode, snapshotMode_);
         DARABONBA_PTR_TO_JSON(TableNames, tableNames_);
         DARABONBA_PTR_TO_JSON(User, user_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Port, port_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+        DARABONBA_PTR_FROM_JSON(SnapshotMode, snapshotMode_);
         DARABONBA_PTR_FROM_JSON(TableNames, tableNames_);
         DARABONBA_PTR_FROM_JSON(User, user_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
@@ -72,8 +74,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->allowedCIDRs_ == nullptr
         && this->databaseName_ == nullptr && this->hostName_ == nullptr && this->networkType_ == nullptr && this->password_ == nullptr && this->port_ == nullptr
-        && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->tableNames_ == nullptr && this->user_ == nullptr && this->vSwitchIds_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->snapshotMode_ == nullptr && this->tableNames_ == nullptr && this->user_ == nullptr
+        && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
       // allowedCIDRs Field Functions 
       bool hasAllowedCIDRs() const { return this->allowedCIDRs_ != nullptr;};
       void deleteAllowedCIDRs() { this->allowedCIDRs_ = nullptr;};
@@ -130,6 +132,13 @@ namespace Models
       inline SourceMySQLParameters& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
+      // snapshotMode Field Functions 
+      bool hasSnapshotMode() const { return this->snapshotMode_ != nullptr;};
+      void deleteSnapshotMode() { this->snapshotMode_ = nullptr;};
+      inline string getSnapshotMode() const { DARABONBA_PTR_GET_DEFAULT(snapshotMode_, "") };
+      inline SourceMySQLParameters& setSnapshotMode(string snapshotMode) { DARABONBA_PTR_SET_VALUE(snapshotMode_, snapshotMode) };
+
+
       // tableNames Field Functions 
       bool hasTableNames() const { return this->tableNames_ != nullptr;};
       void deleteTableNames() { this->tableNames_ = nullptr;};
@@ -179,6 +188,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
+      shared_ptr<string> snapshotMode_ {};
       // The table name. The name must be prefixed with the database name. ${DatabaseName}.${TableName}
       shared_ptr<string> tableNames_ {};
       // The username that is used to log on to the database.

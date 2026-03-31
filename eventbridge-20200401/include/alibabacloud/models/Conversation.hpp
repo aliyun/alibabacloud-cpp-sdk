@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const Conversation& obj) { 
       DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
     };
     friend void from_json(const Darabonba::Json& j, Conversation& obj) { 
       DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->id_ == nullptr && this->title_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->id_ == nullptr && this->status_ == nullptr && this->title_ == nullptr && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline Conversation& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline Conversation& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // title Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     shared_ptr<int64_t> createdAt_ {};
     shared_ptr<string> id_ {};
+    shared_ptr<string> status_ {};
     shared_ptr<string> title_ {};
     shared_ptr<int64_t> updatedAt_ {};
   };
