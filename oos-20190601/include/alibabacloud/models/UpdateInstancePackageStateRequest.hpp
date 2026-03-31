@@ -42,61 +42,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configurationInfo_ == nullptr
-        && return this->configureAction_ == nullptr && return this->instanceId_ == nullptr && return this->parameters_ == nullptr && return this->regionId_ == nullptr && return this->templateName_ == nullptr
-        && return this->templateVersion_ == nullptr; };
+        && this->configureAction_ == nullptr && this->instanceId_ == nullptr && this->parameters_ == nullptr && this->regionId_ == nullptr && this->templateName_ == nullptr
+        && this->templateVersion_ == nullptr; };
     // configurationInfo Field Functions 
     bool hasConfigurationInfo() const { return this->configurationInfo_ != nullptr;};
     void deleteConfigurationInfo() { this->configurationInfo_ = nullptr;};
-    inline string configurationInfo() const { DARABONBA_PTR_GET_DEFAULT(configurationInfo_, "") };
+    inline string getConfigurationInfo() const { DARABONBA_PTR_GET_DEFAULT(configurationInfo_, "") };
     inline UpdateInstancePackageStateRequest& setConfigurationInfo(string configurationInfo) { DARABONBA_PTR_SET_VALUE(configurationInfo_, configurationInfo) };
 
 
     // configureAction Field Functions 
     bool hasConfigureAction() const { return this->configureAction_ != nullptr;};
     void deleteConfigureAction() { this->configureAction_ = nullptr;};
-    inline string configureAction() const { DARABONBA_PTR_GET_DEFAULT(configureAction_, "") };
+    inline string getConfigureAction() const { DARABONBA_PTR_GET_DEFAULT(configureAction_, "") };
     inline UpdateInstancePackageStateRequest& setConfigureAction(string configureAction) { DARABONBA_PTR_SET_VALUE(configureAction_, configureAction) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateInstancePackageStateRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline UpdateInstancePackageStateRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline UpdateInstancePackageStateRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline UpdateInstancePackageStateRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateInstancePackageStateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline UpdateInstancePackageStateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // templateVersion Field Functions 
     bool hasTemplateVersion() const { return this->templateVersion_ != nullptr;};
     void deleteTemplateVersion() { this->templateVersion_ = nullptr;};
-    inline string templateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
+    inline string getTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
     inline UpdateInstancePackageStateRequest& setTemplateVersion(string templateVersion) { DARABONBA_PTR_SET_VALUE(templateVersion_, templateVersion) };
 
 
   protected:
-    std::shared_ptr<string> configurationInfo_ = nullptr;
+    shared_ptr<string> configurationInfo_ {};
     // The operation type.
     // 
     // Valid values:
@@ -105,21 +105,21 @@ namespace Models
     // *   install
     // 
     // This parameter is required.
-    std::shared_ptr<string> configureAction_ = nullptr;
+    shared_ptr<string> configureAction_ {};
     // The ID of the Elastic Compute Service (ECS) instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The parameters for installing or uninstalling the extensions.
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
     // The version of the template.
-    std::shared_ptr<string> templateVersion_ = nullptr;
+    shared_ptr<string> templateVersion_ {};
   };
 
   } // namespace Models

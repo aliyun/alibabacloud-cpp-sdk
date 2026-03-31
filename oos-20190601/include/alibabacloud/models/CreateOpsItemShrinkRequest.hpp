@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->clientToken_ == nullptr && return this->dedupString_ == nullptr && return this->description_ == nullptr && return this->priority_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resources_ == nullptr && return this->severity_ == nullptr && return this->solutions_ == nullptr && return this->source_ == nullptr
-        && return this->tagsShrink_ == nullptr && return this->title_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dedupString_ == nullptr && this->description_ == nullptr && this->priority_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resources_ == nullptr && this->severity_ == nullptr && this->solutions_ == nullptr && this->source_ == nullptr
+        && this->tagsShrink_ == nullptr && this->title_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline CreateOpsItemShrinkRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateOpsItemShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dedupString Field Functions 
     bool hasDedupString() const { return this->dedupString_ != nullptr;};
     void deleteDedupString() { this->dedupString_ = nullptr;};
-    inline string dedupString() const { DARABONBA_PTR_GET_DEFAULT(dedupString_, "") };
+    inline string getDedupString() const { DARABONBA_PTR_GET_DEFAULT(dedupString_, "") };
     inline CreateOpsItemShrinkRequest& setDedupString(string dedupString) { DARABONBA_PTR_SET_VALUE(dedupString_, dedupString) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateOpsItemShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline CreateOpsItemShrinkRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateOpsItemShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateOpsItemShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline CreateOpsItemShrinkRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
-    inline string severity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+    inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
     inline CreateOpsItemShrinkRequest& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
 
 
     // solutions Field Functions 
     bool hasSolutions() const { return this->solutions_ != nullptr;};
     void deleteSolutions() { this->solutions_ = nullptr;};
-    inline string solutions() const { DARABONBA_PTR_GET_DEFAULT(solutions_, "") };
+    inline string getSolutions() const { DARABONBA_PTR_GET_DEFAULT(solutions_, "") };
     inline CreateOpsItemShrinkRequest& setSolutions(string solutions) { DARABONBA_PTR_SET_VALUE(solutions_, solutions) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline CreateOpsItemShrinkRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline CreateOpsItemShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateOpsItemShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -194,21 +194,21 @@ namespace Models
     //     <!-- -->
     // 
     // This parameter is required.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The string to be deduplicated.
-    std::shared_ptr<string> dedupString_ = nullptr;
+    shared_ptr<string> dedupString_ {};
     // The description of the operation.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The priority. Valid values: 1 to 5. 1 indicates the highest priority.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The Alibaba Cloud Resource Names (ARNs) of the associated resources.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
     // The severity level.
     // 
     // Valid values:
@@ -246,19 +246,19 @@ namespace Models
     //     <!-- -->
     // 
     // This parameter is required.
-    std::shared_ptr<string> severity_ = nullptr;
+    shared_ptr<string> severity_ {};
     // The solutions.
-    std::shared_ptr<string> solutions_ = nullptr;
+    shared_ptr<string> solutions_ {};
     // The source business.
     // 
     // This parameter is required.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The tags.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
     // The title of the O\\&M item.
     // 
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

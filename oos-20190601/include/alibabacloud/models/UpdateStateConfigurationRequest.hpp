@@ -50,114 +50,114 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->configureMode_ == nullptr && return this->description_ == nullptr && return this->parameters_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->scheduleExpression_ == nullptr && return this->scheduleType_ == nullptr && return this->stateConfigurationId_ == nullptr && return this->tags_ == nullptr && return this->targets_ == nullptr; };
+        && this->configureMode_ == nullptr && this->description_ == nullptr && this->parameters_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->scheduleExpression_ == nullptr && this->scheduleType_ == nullptr && this->stateConfigurationId_ == nullptr && this->tags_ == nullptr && this->targets_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateStateConfigurationRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // configureMode Field Functions 
     bool hasConfigureMode() const { return this->configureMode_ != nullptr;};
     void deleteConfigureMode() { this->configureMode_ = nullptr;};
-    inline string configureMode() const { DARABONBA_PTR_GET_DEFAULT(configureMode_, "") };
+    inline string getConfigureMode() const { DARABONBA_PTR_GET_DEFAULT(configureMode_, "") };
     inline UpdateStateConfigurationRequest& setConfigureMode(string configureMode) { DARABONBA_PTR_SET_VALUE(configureMode_, configureMode) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateStateConfigurationRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline UpdateStateConfigurationRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline UpdateStateConfigurationRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline UpdateStateConfigurationRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateStateConfigurationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline UpdateStateConfigurationRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // scheduleExpression Field Functions 
     bool hasScheduleExpression() const { return this->scheduleExpression_ != nullptr;};
     void deleteScheduleExpression() { this->scheduleExpression_ = nullptr;};
-    inline string scheduleExpression() const { DARABONBA_PTR_GET_DEFAULT(scheduleExpression_, "") };
+    inline string getScheduleExpression() const { DARABONBA_PTR_GET_DEFAULT(scheduleExpression_, "") };
     inline UpdateStateConfigurationRequest& setScheduleExpression(string scheduleExpression) { DARABONBA_PTR_SET_VALUE(scheduleExpression_, scheduleExpression) };
 
 
     // scheduleType Field Functions 
     bool hasScheduleType() const { return this->scheduleType_ != nullptr;};
     void deleteScheduleType() { this->scheduleType_ = nullptr;};
-    inline string scheduleType() const { DARABONBA_PTR_GET_DEFAULT(scheduleType_, "") };
+    inline string getScheduleType() const { DARABONBA_PTR_GET_DEFAULT(scheduleType_, "") };
     inline UpdateStateConfigurationRequest& setScheduleType(string scheduleType) { DARABONBA_PTR_SET_VALUE(scheduleType_, scheduleType) };
 
 
     // stateConfigurationId Field Functions 
     bool hasStateConfigurationId() const { return this->stateConfigurationId_ != nullptr;};
     void deleteStateConfigurationId() { this->stateConfigurationId_ = nullptr;};
-    inline string stateConfigurationId() const { DARABONBA_PTR_GET_DEFAULT(stateConfigurationId_, "") };
+    inline string getStateConfigurationId() const { DARABONBA_PTR_GET_DEFAULT(stateConfigurationId_, "") };
     inline UpdateStateConfigurationRequest& setStateConfigurationId(string stateConfigurationId) { DARABONBA_PTR_SET_VALUE(stateConfigurationId_, stateConfigurationId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline     const Darabonba::Json & tags() const { DARABONBA_GET(tags_) };
-    Darabonba::Json & tags() { DARABONBA_GET(tags_) };
+    inline     const Darabonba::Json & getTags() const { DARABONBA_GET(tags_) };
+    Darabonba::Json & getTags() { DARABONBA_GET(tags_) };
     inline UpdateStateConfigurationRequest& setTags(const Darabonba::Json & tags) { DARABONBA_SET_VALUE(tags_, tags) };
-    inline UpdateStateConfigurationRequest& setTags(Darabonba::Json & tags) { DARABONBA_SET_RVALUE(tags_, tags) };
+    inline UpdateStateConfigurationRequest& setTags(Darabonba::Json && tags) { DARABONBA_SET_RVALUE(tags_, tags) };
 
 
     // targets Field Functions 
     bool hasTargets() const { return this->targets_ != nullptr;};
     void deleteTargets() { this->targets_ = nullptr;};
-    inline string targets() const { DARABONBA_PTR_GET_DEFAULT(targets_, "") };
+    inline string getTargets() const { DARABONBA_PTR_GET_DEFAULT(targets_, "") };
     inline UpdateStateConfigurationRequest& setTargets(string targets) { DARABONBA_PTR_SET_VALUE(targets_, targets) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
-    std::shared_ptr<string> configureMode_ = nullptr;
+    shared_ptr<string> configureMode_ {};
     // The description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The parameters.
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The schedule expression.
-    std::shared_ptr<string> scheduleExpression_ = nullptr;
+    shared_ptr<string> scheduleExpression_ {};
     // The schedule type.
-    std::shared_ptr<string> scheduleType_ = nullptr;
+    shared_ptr<string> scheduleType_ {};
     // The ID of the desired-state configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stateConfigurationId_ = nullptr;
+    shared_ptr<string> stateConfigurationId_ {};
     // The tags to be added to the configuration.
-    Darabonba::Json tags_ = nullptr;
+    Darabonba::Json tags_ {};
     // The resources to be queried.
-    std::shared_ptr<string> targets_ = nullptr;
+    shared_ptr<string> targets_ {};
   };
 
   } // namespace Models

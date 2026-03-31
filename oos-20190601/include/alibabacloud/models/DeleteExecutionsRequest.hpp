@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionIds_ == nullptr
-        && return this->force_ == nullptr && return this->regionId_ == nullptr; };
+        && this->force_ == nullptr && this->regionId_ == nullptr; };
     // executionIds Field Functions 
     bool hasExecutionIds() const { return this->executionIds_ != nullptr;};
     void deleteExecutionIds() { this->executionIds_ = nullptr;};
-    inline string executionIds() const { DARABONBA_PTR_GET_DEFAULT(executionIds_, "") };
+    inline string getExecutionIds() const { DARABONBA_PTR_GET_DEFAULT(executionIds_, "") };
     inline DeleteExecutionsRequest& setExecutionIds(string executionIds) { DARABONBA_PTR_SET_VALUE(executionIds_, executionIds) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteExecutionsRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteExecutionsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -62,11 +62,11 @@ namespace Models
     // You can specify multiple execution IDs in a JSON array in the format of `["xxxxxxxxx", "yyyyyyyyy", ... "zzzzzzzzz"]`. You can specify up to 100 execution IDs at a time. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> executionIds_ = nullptr;
+    shared_ptr<string> executionIds_ {};
     // Whether to force delete the running task, the default value is false.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

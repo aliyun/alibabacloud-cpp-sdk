@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoDeleteExecutions_ == nullptr
-        && return this->regionId_ == nullptr && return this->templateName_ == nullptr; };
+        && this->regionId_ == nullptr && this->templateName_ == nullptr; };
     // autoDeleteExecutions Field Functions 
     bool hasAutoDeleteExecutions() const { return this->autoDeleteExecutions_ != nullptr;};
     void deleteAutoDeleteExecutions() { this->autoDeleteExecutions_ = nullptr;};
-    inline bool autoDeleteExecutions() const { DARABONBA_PTR_GET_DEFAULT(autoDeleteExecutions_, false) };
+    inline bool getAutoDeleteExecutions() const { DARABONBA_PTR_GET_DEFAULT(autoDeleteExecutions_, false) };
     inline DeleteTemplateRequest& setAutoDeleteExecutions(bool autoDeleteExecutions) { DARABONBA_PTR_SET_VALUE(autoDeleteExecutions_, autoDeleteExecutions) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteTemplateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline DeleteTemplateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
   protected:
     // Specifies whether to delete the related executions when a template is deleted.
-    std::shared_ptr<bool> autoDeleteExecutions_ = nullptr;
+    shared_ptr<bool> autoDeleteExecutions_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
   };
 
   } // namespace Models

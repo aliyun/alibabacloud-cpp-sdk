@@ -157,6 +157,48 @@ namespace Oos20190601
       Models::CreateApplicationGroupResponse createApplicationGroup(const Models::CreateApplicationGroupRequest &request);
 
       /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request CreateChatConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateChatConfigurationResponse
+       */
+      Models::CreateChatConfigurationResponse createChatConfigurationWithOptions(const Models::CreateChatConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request CreateChatConfigurationRequest
+       * @return CreateChatConfigurationResponse
+       */
+      Models::CreateChatConfigurationResponse createChatConfiguration(const Models::CreateChatConfigurationRequest &request);
+
+      /**
+       * @summary 创建部署制品
+       *
+       * @param request CreateDeployRevisionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDeployRevisionResponse
+       */
+      Models::CreateDeployRevisionResponse createDeployRevisionWithOptions(const Models::CreateDeployRevisionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建部署制品
+       *
+       * @param request CreateDeployRevisionRequest
+       * @return CreateDeployRevisionResponse
+       */
+      Models::CreateDeployRevisionResponse createDeployRevision(const Models::CreateDeployRevisionRequest &request);
+
+      /**
        * @summary 创建仓库
        *
        * @param request CreateGitRepositoryRequest
@@ -174,7 +216,7 @@ namespace Oos20190601
       Models::CreateGitRepositoryResponse createGitRepository(const Models::CreateGitRepositoryRequest &request);
 
       /**
-       * @summary Creates an O\\\\\\\\\\\\&M Item.
+       * @summary Creates an O\\\\\\\\\\\\\\\\\\\\&M Item.
        *
        * @param tmpReq CreateOpsItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +225,7 @@ namespace Oos20190601
       Models::CreateOpsItemResponse createOpsItemWithOptions(const Models::CreateOpsItemRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an O\\\\\\\\\\\\&M Item.
+       * @summary Creates an O\\\\\\\\\\\\\\\\\\\\&M Item.
        *
        * @param request CreateOpsItemRequest
        * @return CreateOpsItemResponse
@@ -225,7 +267,7 @@ namespace Oos20190601
       Models::CreatePatchBaselineResponse createPatchBaseline(const Models::CreatePatchBaselineRequest &request);
 
       /**
-       * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+       * @summary Creates an encryption parameter. Make sure that you have the permissions to call the CreateSecret operation of Key Management Service (KMS) before you call this operation.
        *
        * @param tmpReq CreateSecretParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +276,7 @@ namespace Oos20190601
       Models::CreateSecretParameterResponse createSecretParameterWithOptions(const Models::CreateSecretParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+       * @summary Creates an encryption parameter. Make sure that you have the permissions to call the CreateSecret operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request CreateSecretParameterRequest
        * @return CreateSecretParameterResponse
@@ -310,7 +352,32 @@ namespace Oos20190601
       Models::DeleteApplicationGroupResponse deleteApplicationGroup(const Models::DeleteApplicationGroupRequest &request);
 
       /**
-       * @summary Deletes multiple executions.
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request DeleteChatConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteChatConfigurationResponse
+       */
+      Models::DeleteChatConfigurationResponse deleteChatConfigurationWithOptions(const Models::DeleteChatConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request DeleteChatConfigurationRequest
+       * @return DeleteChatConfigurationResponse
+       */
+      Models::DeleteChatConfigurationResponse deleteChatConfiguration(const Models::DeleteChatConfigurationRequest &request);
+
+      /**
+       * @summary Deletes executions.
        *
        * @param request DeleteExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +386,7 @@ namespace Oos20190601
       Models::DeleteExecutionsResponse deleteExecutionsWithOptions(const Models::DeleteExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes multiple executions.
+       * @summary Deletes executions.
        *
        * @param request DeleteExecutionsRequest
        * @return DeleteExecutionsResponse
@@ -378,7 +445,7 @@ namespace Oos20190601
       Models::DeletePatchBaselineResponse deletePatchBaseline(const Models::DeletePatchBaselineRequest &request);
 
       /**
-       * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+       * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request DeleteSecretParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +454,7 @@ namespace Oos20190601
       Models::DeleteSecretParameterResponse deleteSecretParameterWithOptions(const Models::DeleteSecretParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+       * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request DeleteSecretParameterRequest
        * @return DeleteSecretParameterResponse
@@ -463,7 +530,7 @@ namespace Oos20190601
       Models::DeployApplicationGroupResponse deployApplicationGroup(const Models::DeployApplicationGroupRequest &request);
 
       /**
-       * @summary 查询应用分组资源成本
+       * @summary Queries the resource costs of an application group.
        *
        * @param request DescribeApplicationGroupBillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +539,7 @@ namespace Oos20190601
       Models::DescribeApplicationGroupBillResponse describeApplicationGroupBillWithOptions(const Models::DescribeApplicationGroupBillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用分组资源成本
+       * @summary Queries the resource costs of an application group.
        *
        * @param request DescribeApplicationGroupBillRequest
        * @return DescribeApplicationGroupBillResponse
@@ -565,6 +632,31 @@ namespace Oos20190601
       Models::GetApplicationGroupResponse getApplicationGroup(const Models::GetApplicationGroupRequest &request);
 
       /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request GetChatConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetChatConfigurationResponse
+       */
+      Models::GetChatConfigurationResponse getChatConfigurationWithOptions(const Models::GetChatConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request GetChatConfigurationRequest
+       * @return GetChatConfigurationResponse
+       */
+      Models::GetChatConfigurationResponse getChatConfiguration(const Models::GetChatConfigurationRequest &request);
+
+      /**
        * @summary Queries the information about the template of an execution, including the content of the template.
        *
        * @param request GetExecutionTemplateRequest
@@ -633,7 +725,7 @@ namespace Oos20190601
       Models::GetInventorySchemaResponse getInventorySchema(const Models::GetInventorySchemaRequest &request);
 
       /**
-       * @summary Queries the details of an O\\\\\\\\\\\\&M item.
+       * @summary Queries the details of an O\\\\\\\\\\\\\\\\\\\\&M item.
        *
        * @param request GetOpsItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +734,7 @@ namespace Oos20190601
       Models::GetOpsItemResponse getOpsItemWithOptions(const Models::GetOpsItemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an O\\\\\\\\\\\\&M item.
+       * @summary Queries the details of an O\\\\\\\\\\\\\\\\\\\\&M item.
        *
        * @param request GetOpsItemRequest
        * @return GetOpsItemResponse
@@ -718,7 +810,7 @@ namespace Oos20190601
       Models::GetPatchBaselineResponse getPatchBaseline(const Models::GetPatchBaselineRequest &request);
 
       /**
-       * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+       * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request GetSecretParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +819,7 @@ namespace Oos20190601
       Models::GetSecretParameterResponse getSecretParameterWithOptions(const Models::GetSecretParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+       * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request GetSecretParameterRequest
        * @return GetSecretParameterResponse
@@ -735,7 +827,7 @@ namespace Oos20190601
       Models::GetSecretParameterResponse getSecretParameter(const Models::GetSecretParameterRequest &request);
 
       /**
-       * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+       * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request GetSecretParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +836,7 @@ namespace Oos20190601
       Models::GetSecretParametersResponse getSecretParametersWithOptions(const Models::GetSecretParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+       * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request GetSecretParametersRequest
        * @return GetSecretParametersResponse
@@ -752,7 +844,7 @@ namespace Oos20190601
       Models::GetSecretParametersResponse getSecretParameters(const Models::GetSecretParametersRequest &request);
 
       /**
-       * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+       * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request GetSecretParametersByPathRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +853,7 @@ namespace Oos20190601
       Models::GetSecretParametersByPathResponse getSecretParametersByPathWithOptions(const Models::GetSecretParametersByPathRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+       * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request GetSecretParametersByPathRequest
        * @return GetSecretParametersByPathResponse
@@ -769,7 +861,7 @@ namespace Oos20190601
       Models::GetSecretParametersByPathResponse getSecretParametersByPath(const Models::GetSecretParametersByPathRequest &request);
 
       /**
-       * @summary Queries the settings of the delivery feature.
+       * @summary Queries the service settings, including the configuration of delivering template execution records and the associated organization ID.
        *
        * @param request GetServiceSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +870,7 @@ namespace Oos20190601
       Models::GetServiceSettingsResponse getServiceSettingsWithOptions(const Models::GetServiceSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the settings of the delivery feature.
+       * @summary Queries the service settings, including the configuration of delivering template execution records and the associated organization ID.
        *
        * @param request GetServiceSettingsRequest
        * @return GetServiceSettingsResponse
@@ -803,7 +895,7 @@ namespace Oos20190601
       Models::GetTemplateResponse getTemplate(const Models::GetTemplateRequest &request);
 
       /**
-       * @summary 获取参数可用值
+       * @summary Obtains available values of parameters.
        *
        * @param request GetTemplateParameterConstraintsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +904,7 @@ namespace Oos20190601
       Models::GetTemplateParameterConstraintsResponse getTemplateParameterConstraintsWithOptions(const Models::GetTemplateParameterConstraintsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取参数可用值
+       * @summary Obtains available values of parameters.
        *
        * @param request GetTemplateParameterConstraintsRequest
        * @return GetTemplateParameterConstraintsResponse
@@ -869,6 +961,31 @@ namespace Oos20190601
        * @return ListApplicationsResponse
        */
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
+
+      /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request ListChatConfigurationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListChatConfigurationsResponse
+       */
+      Models::ListChatConfigurationsResponse listChatConfigurationsWithOptions(const Models::ListChatConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request ListChatConfigurationsRequest
+       * @return ListChatConfigurationsResponse
+       */
+      Models::ListChatConfigurationsResponse listChatConfigurations(const Models::ListChatConfigurationsRequest &request);
 
       /**
        * @summary Queries the logs of an execution.
@@ -1045,7 +1162,7 @@ namespace Oos20190601
       Models::ListInstancePatchStatesResponse listInstancePatchStates(const Models::ListInstancePatchStatesRequest &request);
 
       /**
-       * @summary Queries the information about the patches of an instance.
+       * @summary Queries the patches of an instance.
        *
        * @param request ListInstancePatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1054,7 +1171,7 @@ namespace Oos20190601
       Models::ListInstancePatchesResponse listInstancePatchesWithOptions(const Models::ListInstancePatchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the patches of an instance.
+       * @summary Queries the patches of an instance.
        *
        * @param request ListInstancePatchesRequest
        * @return ListInstancePatchesResponse
@@ -1079,7 +1196,7 @@ namespace Oos20190601
       Models::ListInventoryEntriesResponse listInventoryEntries(const Models::ListInventoryEntriesRequest &request);
 
       /**
-       * @summary Queries O\\&M items.
+       * @summary Queries O\\\\\\&M items.
        *
        * @param tmpReq ListOpsItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1088,7 +1205,7 @@ namespace Oos20190601
       Models::ListOpsItemsResponse listOpsItemsWithOptions(const Models::ListOpsItemsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries O\\&M items.
+       * @summary Queries O\\\\\\&M items.
        *
        * @param request ListOpsItemsRequest
        * @return ListOpsItemsResponse
@@ -1147,7 +1264,7 @@ namespace Oos20190601
       Models::ListPatchBaselinesResponse listPatchBaselines(const Models::ListPatchBaselinesRequest &request);
 
       /**
-       * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+       * @summary Queries the information about a scheduled execution that involves O\\&M operations on Elastic Compute Service (ECS) instances.
        *
        * @param request ListResourceExecutionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1273,7 @@ namespace Oos20190601
       Models::ListResourceExecutionStatusResponse listResourceExecutionStatusWithOptions(const Models::ListResourceExecutionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+       * @summary Queries the information about a scheduled execution that involves O\\&M operations on Elastic Compute Service (ECS) instances.
        *
        * @param request ListResourceExecutionStatusRequest
        * @return ListResourceExecutionStatusResponse
@@ -1270,6 +1387,23 @@ namespace Oos20190601
       Models::ListTagValuesResponse listTagValues(const Models::ListTagValuesRequest &request);
 
       /**
+       * @summary 用于获取任务执行内部的云助手脚本执行ID
+       *
+       * @param request ListTaskExecutionInvocationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTaskExecutionInvocationsResponse
+       */
+      Models::ListTaskExecutionInvocationsResponse listTaskExecutionInvocationsWithOptions(const Models::ListTaskExecutionInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于获取任务执行内部的云助手脚本执行ID
+       *
+       * @param request ListTaskExecutionInvocationsRequest
+       * @return ListTaskExecutionInvocationsResponse
+       */
+      Models::ListTaskExecutionInvocationsResponse listTaskExecutionInvocations(const Models::ListTaskExecutionInvocationsRequest &request);
+
+      /**
        * @summary Queries task executions. Multiple methods are supported to filter task executions.
        *
        * @param request ListTaskExecutionsRequest
@@ -1287,7 +1421,7 @@ namespace Oos20190601
       Models::ListTaskExecutionsResponse listTaskExecutions(const Models::ListTaskExecutionsRequest &request);
 
       /**
-       * @summary Queries a list of versions of a template.
+       * @summary Queries the versions of a template.
        *
        * @param request ListTemplateVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1430,7 @@ namespace Oos20190601
       Models::ListTemplateVersionsResponse listTemplateVersionsWithOptions(const Models::ListTemplateVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of versions of a template.
+       * @summary Queries the versions of a template.
        *
        * @param request ListTemplateVersionsRequest
        * @return ListTemplateVersionsResponse
@@ -1382,16 +1516,16 @@ namespace Oos20190601
       Models::SearchInventoryResponse searchInventory(const Models::SearchInventoryRequest &request);
 
       /**
-       * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
+       * @summary Enables or disables the feature of delivering template execution records and sets the storage location and organization ID.
        *
-       * @param request SetServiceSettingsRequest
+       * @param tmpReq SetServiceSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SetServiceSettingsResponse
        */
-      Models::SetServiceSettingsResponse setServiceSettingsWithOptions(const Models::SetServiceSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::SetServiceSettingsResponse setServiceSettingsWithOptions(const Models::SetServiceSettingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
+       * @summary Enables or disables the feature of delivering template execution records and sets the storage location and organization ID.
        *
        * @param request SetServiceSettingsRequest
        * @return SetServiceSettingsResponse
@@ -1518,7 +1652,32 @@ namespace Oos20190601
       Models::UpdateApplicationGroupResponse updateApplicationGroup(const Models::UpdateApplicationGroupRequest &request);
 
       /**
-       * @summary Update executions that are in Running or Waiting status.
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request UpdateChatConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateChatConfigurationResponse
+       */
+      Models::UpdateChatConfigurationResponse updateChatConfigurationWithOptions(const Models::UpdateChatConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+       *
+       * @description ## 请求说明
+       * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+       * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+       *
+       * @param request UpdateChatConfigurationRequest
+       * @return UpdateChatConfigurationResponse
+       */
+      Models::UpdateChatConfigurationResponse updateChatConfiguration(const Models::UpdateChatConfigurationRequest &request);
+
+      /**
+       * @summary Updates an execution in the Running or Waiting state.
        *
        * @param request UpdateExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1527,7 +1686,7 @@ namespace Oos20190601
       Models::UpdateExecutionResponse updateExecutionWithOptions(const Models::UpdateExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update executions that are in Running or Waiting status.
+       * @summary Updates an execution in the Running or Waiting state.
        *
        * @param request UpdateExecutionRequest
        * @return UpdateExecutionResponse
@@ -1552,7 +1711,7 @@ namespace Oos20190601
       Models::UpdateInstancePackageStateResponse updateInstancePackageState(const Models::UpdateInstancePackageStateRequest &request);
 
       /**
-       * @summary Modifies an O\\\\\\\\\\\\&M item.
+       * @summary Modifies an O\\\\\\\\\\\\\\\\\\\\&M item.
        *
        * @param tmpReq UpdateOpsItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1561,7 +1720,7 @@ namespace Oos20190601
       Models::UpdateOpsItemResponse updateOpsItemWithOptions(const Models::UpdateOpsItemRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an O\\\\\\\\\\\\&M item.
+       * @summary Modifies an O\\\\\\\\\\\\\\\\\\\\&M item.
        *
        * @param request UpdateOpsItemRequest
        * @return UpdateOpsItemResponse
@@ -1603,7 +1762,7 @@ namespace Oos20190601
       Models::UpdatePatchBaselineResponse updatePatchBaseline(const Models::UpdatePatchBaselineRequest &request);
 
       /**
-       * @summary Updates an encryption parameter.
+       * @summary Updates an encryption parameter. Make sure that you have the permissions to call the UpdateSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param tmpReq UpdateSecretParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1612,7 +1771,7 @@ namespace Oos20190601
       Models::UpdateSecretParameterResponse updateSecretParameterWithOptions(const Models::UpdateSecretParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an encryption parameter.
+       * @summary Updates an encryption parameter. Make sure that you have the permissions to call the UpdateSecretValue operation of Key Management Service (KMS) before you call this operation.
        *
        * @param request UpdateSecretParameterRequest
        * @return UpdateSecretParameterResponse
@@ -1652,6 +1811,23 @@ namespace Oos20190601
        * @return UpdateTemplateResponse
        */
       Models::UpdateTemplateResponse updateTemplate(const Models::UpdateTemplateRequest &request);
+
+      /**
+       * @summary 更新模板属性
+       *
+       * @param request UpdateTemplateAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTemplateAttributesResponse
+       */
+      Models::UpdateTemplateAttributesResponse updateTemplateAttributesWithOptions(const Models::UpdateTemplateAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模板属性
+       *
+       * @param request UpdateTemplateAttributesRequest
+       * @return UpdateTemplateAttributesResponse
+       */
+      Models::UpdateTemplateAttributesResponse updateTemplateAttributes(const Models::UpdateTemplateAttributesRequest &request);
 
       /**
        * @summary Check whether a template is valid.

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->htmlUrl_ == nullptr && return this->isPrivate_ == nullptr && return this->requestId_ == nullptr; };
+        && this->htmlUrl_ == nullptr && this->isPrivate_ == nullptr && this->requestId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetGitRepositoryResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // htmlUrl Field Functions 
     bool hasHtmlUrl() const { return this->htmlUrl_ != nullptr;};
     void deleteHtmlUrl() { this->htmlUrl_ = nullptr;};
-    inline string htmlUrl() const { DARABONBA_PTR_GET_DEFAULT(htmlUrl_, "") };
+    inline string getHtmlUrl() const { DARABONBA_PTR_GET_DEFAULT(htmlUrl_, "") };
     inline GetGitRepositoryResponseBody& setHtmlUrl(string htmlUrl) { DARABONBA_PTR_SET_VALUE(htmlUrl_, htmlUrl) };
 
 
     // isPrivate Field Functions 
     bool hasIsPrivate() const { return this->isPrivate_ != nullptr;};
     void deleteIsPrivate() { this->isPrivate_ = nullptr;};
-    inline bool isPrivate() const { DARABONBA_PTR_GET_DEFAULT(isPrivate_, false) };
+    inline bool getIsPrivate() const { DARABONBA_PTR_GET_DEFAULT(isPrivate_, false) };
     inline GetGitRepositoryResponseBody& setIsPrivate(bool isPrivate) { DARABONBA_PTR_SET_VALUE(isPrivate_, isPrivate) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetGitRepositoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> htmlUrl_ = nullptr;
-    std::shared_ptr<bool> isPrivate_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> htmlUrl_ {};
+    shared_ptr<bool> isPrivate_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

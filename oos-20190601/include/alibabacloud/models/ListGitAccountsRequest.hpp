@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindType_ == nullptr
-        && return this->clientToken_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr && return this->roleName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->platform_ == nullptr && this->regionId_ == nullptr && this->roleName_ == nullptr; };
     // bindType Field Functions 
     bool hasBindType() const { return this->bindType_ != nullptr;};
     void deleteBindType() { this->bindType_ = nullptr;};
-    inline string bindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+    inline string getBindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
     inline ListGitAccountsRequest& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ListGitAccountsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline ListGitAccountsRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListGitAccountsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline ListGitAccountsRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
   protected:
-    std::shared_ptr<string> bindType_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> bindType_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> platform_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> platform_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

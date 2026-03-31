@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && return this->maxResults_ == nullptr && return this->name_ == nullptr && return this->names_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr
-        && return this->tagsShrink_ == nullptr; };
+        && this->maxResults_ == nullptr && this->name_ == nullptr && this->names_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr
+        && this->tagsShrink_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
-    inline string applicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
+    inline string getApplicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
     inline ListApplicationsShrinkRequest& setApplicationType(string applicationType) { DARABONBA_PTR_SET_VALUE(applicationType_, applicationType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListApplicationsShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListApplicationsShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // names Field Functions 
     bool hasNames() const { return this->names_ != nullptr;};
     void deleteNames() { this->names_ = nullptr;};
-    inline string names() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
+    inline string getNames() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
     inline ListApplicationsShrinkRequest& setNames(string names) { DARABONBA_PTR_SET_VALUE(names_, names) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListApplicationsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListApplicationsShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline ListApplicationsShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
@@ -121,19 +121,19 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> applicationType_ = nullptr;
+    shared_ptr<string> applicationType_ {};
     // The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The name of the application.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The names of the applications.
-    std::shared_ptr<string> names_ = nullptr;
+    shared_ptr<string> names_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The region ID. Set the value to cn-hangzhou.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The tags.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
   };
 
   } // namespace Models

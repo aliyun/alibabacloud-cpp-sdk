@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileExists_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // fileExists Field Functions 
     bool hasFileExists() const { return this->fileExists_ != nullptr;};
     void deleteFileExists() { this->fileExists_ = nullptr;};
-    inline bool fileExists() const { DARABONBA_PTR_GET_DEFAULT(fileExists_, false) };
+    inline bool getFileExists() const { DARABONBA_PTR_GET_DEFAULT(fileExists_, false) };
     inline CheckGitRepoFileExistsResponseBody& setFileExists(bool fileExists) { DARABONBA_PTR_SET_VALUE(fileExists_, fileExists) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckGitRepoFileExistsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> fileExists_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> fileExists_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

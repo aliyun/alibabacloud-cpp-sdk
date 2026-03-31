@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->parameterConstraints_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // parameterConstraints Field Functions 
     bool hasParameterConstraints() const { return this->parameterConstraints_ != nullptr;};
     void deleteParameterConstraints() { this->parameterConstraints_ = nullptr;};
-    inline     const Darabonba::Json & parameterConstraints() const { DARABONBA_GET(parameterConstraints_) };
-    Darabonba::Json & parameterConstraints() { DARABONBA_GET(parameterConstraints_) };
+    inline     const Darabonba::Json & getParameterConstraints() const { DARABONBA_GET(parameterConstraints_) };
+    Darabonba::Json & getParameterConstraints() { DARABONBA_GET(parameterConstraints_) };
     inline GetTemplateParameterConstraintsResponseBody& setParameterConstraints(const Darabonba::Json & parameterConstraints) { DARABONBA_SET_VALUE(parameterConstraints_, parameterConstraints) };
-    inline GetTemplateParameterConstraintsResponseBody& setParameterConstraints(Darabonba::Json & parameterConstraints) { DARABONBA_SET_RVALUE(parameterConstraints_, parameterConstraints) };
+    inline GetTemplateParameterConstraintsResponseBody& setParameterConstraints(Darabonba::Json && parameterConstraints) { DARABONBA_SET_RVALUE(parameterConstraints_, parameterConstraints) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTemplateParameterConstraintsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The constraints of the parameters.
-    Darabonba::Json parameterConstraints_ = nullptr;
+    Darabonba::Json parameterConstraints_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

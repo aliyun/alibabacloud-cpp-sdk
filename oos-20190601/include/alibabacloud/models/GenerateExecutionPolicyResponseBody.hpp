@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->missingPolicy_ == nullptr
-        && return this->policy_ == nullptr && return this->requestId_ == nullptr; };
+        && this->policy_ == nullptr && this->requestId_ == nullptr; };
     // missingPolicy Field Functions 
     bool hasMissingPolicy() const { return this->missingPolicy_ != nullptr;};
     void deleteMissingPolicy() { this->missingPolicy_ = nullptr;};
-    inline string missingPolicy() const { DARABONBA_PTR_GET_DEFAULT(missingPolicy_, "") };
+    inline string getMissingPolicy() const { DARABONBA_PTR_GET_DEFAULT(missingPolicy_, "") };
     inline GenerateExecutionPolicyResponseBody& setMissingPolicy(string missingPolicy) { DARABONBA_PTR_SET_VALUE(missingPolicy_, missingPolicy) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline GenerateExecutionPolicyResponseBody& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateExecutionPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The policies that are missing.
-    std::shared_ptr<string> missingPolicy_ = nullptr;
+    shared_ptr<string> missingPolicy_ {};
     // The RAM policy.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

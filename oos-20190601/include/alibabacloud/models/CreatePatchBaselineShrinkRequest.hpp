@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->approvalRules_ == nullptr
-        && return this->approvedPatchesShrink_ == nullptr && return this->approvedPatchesEnableNonSecurity_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr
-        && return this->operationSystem_ == nullptr && return this->regionId_ == nullptr && return this->rejectedPatchesShrink_ == nullptr && return this->rejectedPatchesAction_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->sourcesShrink_ == nullptr && return this->tagsShrink_ == nullptr; };
+        && this->approvedPatchesShrink_ == nullptr && this->approvedPatchesEnableNonSecurity_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->name_ == nullptr
+        && this->operationSystem_ == nullptr && this->regionId_ == nullptr && this->rejectedPatchesShrink_ == nullptr && this->rejectedPatchesAction_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sourcesShrink_ == nullptr && this->tagsShrink_ == nullptr; };
     // approvalRules Field Functions 
     bool hasApprovalRules() const { return this->approvalRules_ != nullptr;};
     void deleteApprovalRules() { this->approvalRules_ = nullptr;};
-    inline string approvalRules() const { DARABONBA_PTR_GET_DEFAULT(approvalRules_, "") };
+    inline string getApprovalRules() const { DARABONBA_PTR_GET_DEFAULT(approvalRules_, "") };
     inline CreatePatchBaselineShrinkRequest& setApprovalRules(string approvalRules) { DARABONBA_PTR_SET_VALUE(approvalRules_, approvalRules) };
 
 
     // approvedPatchesShrink Field Functions 
     bool hasApprovedPatchesShrink() const { return this->approvedPatchesShrink_ != nullptr;};
     void deleteApprovedPatchesShrink() { this->approvedPatchesShrink_ = nullptr;};
-    inline string approvedPatchesShrink() const { DARABONBA_PTR_GET_DEFAULT(approvedPatchesShrink_, "") };
+    inline string getApprovedPatchesShrink() const { DARABONBA_PTR_GET_DEFAULT(approvedPatchesShrink_, "") };
     inline CreatePatchBaselineShrinkRequest& setApprovedPatchesShrink(string approvedPatchesShrink) { DARABONBA_PTR_SET_VALUE(approvedPatchesShrink_, approvedPatchesShrink) };
 
 
     // approvedPatchesEnableNonSecurity Field Functions 
     bool hasApprovedPatchesEnableNonSecurity() const { return this->approvedPatchesEnableNonSecurity_ != nullptr;};
     void deleteApprovedPatchesEnableNonSecurity() { this->approvedPatchesEnableNonSecurity_ = nullptr;};
-    inline bool approvedPatchesEnableNonSecurity() const { DARABONBA_PTR_GET_DEFAULT(approvedPatchesEnableNonSecurity_, false) };
+    inline bool getApprovedPatchesEnableNonSecurity() const { DARABONBA_PTR_GET_DEFAULT(approvedPatchesEnableNonSecurity_, false) };
     inline CreatePatchBaselineShrinkRequest& setApprovedPatchesEnableNonSecurity(bool approvedPatchesEnableNonSecurity) { DARABONBA_PTR_SET_VALUE(approvedPatchesEnableNonSecurity_, approvedPatchesEnableNonSecurity) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreatePatchBaselineShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreatePatchBaselineShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreatePatchBaselineShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // operationSystem Field Functions 
     bool hasOperationSystem() const { return this->operationSystem_ != nullptr;};
     void deleteOperationSystem() { this->operationSystem_ = nullptr;};
-    inline string operationSystem() const { DARABONBA_PTR_GET_DEFAULT(operationSystem_, "") };
+    inline string getOperationSystem() const { DARABONBA_PTR_GET_DEFAULT(operationSystem_, "") };
     inline CreatePatchBaselineShrinkRequest& setOperationSystem(string operationSystem) { DARABONBA_PTR_SET_VALUE(operationSystem_, operationSystem) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreatePatchBaselineShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // rejectedPatchesShrink Field Functions 
     bool hasRejectedPatchesShrink() const { return this->rejectedPatchesShrink_ != nullptr;};
     void deleteRejectedPatchesShrink() { this->rejectedPatchesShrink_ = nullptr;};
-    inline string rejectedPatchesShrink() const { DARABONBA_PTR_GET_DEFAULT(rejectedPatchesShrink_, "") };
+    inline string getRejectedPatchesShrink() const { DARABONBA_PTR_GET_DEFAULT(rejectedPatchesShrink_, "") };
     inline CreatePatchBaselineShrinkRequest& setRejectedPatchesShrink(string rejectedPatchesShrink) { DARABONBA_PTR_SET_VALUE(rejectedPatchesShrink_, rejectedPatchesShrink) };
 
 
     // rejectedPatchesAction Field Functions 
     bool hasRejectedPatchesAction() const { return this->rejectedPatchesAction_ != nullptr;};
     void deleteRejectedPatchesAction() { this->rejectedPatchesAction_ = nullptr;};
-    inline string rejectedPatchesAction() const { DARABONBA_PTR_GET_DEFAULT(rejectedPatchesAction_, "") };
+    inline string getRejectedPatchesAction() const { DARABONBA_PTR_GET_DEFAULT(rejectedPatchesAction_, "") };
     inline CreatePatchBaselineShrinkRequest& setRejectedPatchesAction(string rejectedPatchesAction) { DARABONBA_PTR_SET_VALUE(rejectedPatchesAction_, rejectedPatchesAction) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreatePatchBaselineShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // sourcesShrink Field Functions 
     bool hasSourcesShrink() const { return this->sourcesShrink_ != nullptr;};
     void deleteSourcesShrink() { this->sourcesShrink_ = nullptr;};
-    inline string sourcesShrink() const { DARABONBA_PTR_GET_DEFAULT(sourcesShrink_, "") };
+    inline string getSourcesShrink() const { DARABONBA_PTR_GET_DEFAULT(sourcesShrink_, "") };
     inline CreatePatchBaselineShrinkRequest& setSourcesShrink(string sourcesShrink) { DARABONBA_PTR_SET_VALUE(sourcesShrink_, sourcesShrink) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline CreatePatchBaselineShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
@@ -152,19 +152,19 @@ namespace Models
     // The rules of scanning and installing patches for the specified operating system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> approvalRules_ = nullptr;
+    shared_ptr<string> approvalRules_ {};
     // The approved patches.
-    std::shared_ptr<string> approvedPatchesShrink_ = nullptr;
+    shared_ptr<string> approvedPatchesShrink_ {};
     // Specifies whether the approved patch involves updates other than security-related updates.
-    std::shared_ptr<bool> approvedPatchesEnableNonSecurity_ = nullptr;
+    shared_ptr<bool> approvedPatchesEnableNonSecurity_ {};
     // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The description of the patch baseline.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the patch baseline.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The type of the operating system. Valid values:
     // 
     // *   Windows
@@ -177,19 +177,19 @@ namespace Models
     // *   AlmaLinux
     // 
     // This parameter is required.
-    std::shared_ptr<string> operationSystem_ = nullptr;
+    shared_ptr<string> operationSystem_ {};
     // The ID of the region in which you want to create a patch baseline.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The rejected patches.
-    std::shared_ptr<string> rejectedPatchesShrink_ = nullptr;
+    shared_ptr<string> rejectedPatchesShrink_ {};
     // The action of the rejected patch.
-    std::shared_ptr<string> rejectedPatchesAction_ = nullptr;
+    shared_ptr<string> rejectedPatchesAction_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The patch source configurations.
-    std::shared_ptr<string> sourcesShrink_ = nullptr;
+    shared_ptr<string> sourcesShrink_ {};
     // The tags.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTGITBRANCHESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListGitBranchesResponseBodyGitBranches.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,35 +34,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class GitBranches : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const GitBranches& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+      };
+      friend void from_json(const Darabonba::Json& j, GitBranches& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+      };
+      GitBranches() = default ;
+      GitBranches(const GitBranches &) = default ;
+      GitBranches(GitBranches &&) = default ;
+      GitBranches(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~GitBranches() = default ;
+      GitBranches& operator=(const GitBranches &) = default ;
+      GitBranches& operator=(GitBranches &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline GitBranches& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    protected:
+      shared_ptr<string> name_ {};
+    };
+
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->gitBranches_ == nullptr && return this->requestId_ == nullptr; };
+        && this->gitBranches_ == nullptr && this->requestId_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline ListGitBranchesResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // gitBranches Field Functions 
     bool hasGitBranches() const { return this->gitBranches_ != nullptr;};
     void deleteGitBranches() { this->gitBranches_ = nullptr;};
-    inline const vector<ListGitBranchesResponseBodyGitBranches> & gitBranches() const { DARABONBA_PTR_GET_CONST(gitBranches_, vector<ListGitBranchesResponseBodyGitBranches>) };
-    inline vector<ListGitBranchesResponseBodyGitBranches> gitBranches() { DARABONBA_PTR_GET(gitBranches_, vector<ListGitBranchesResponseBodyGitBranches>) };
-    inline ListGitBranchesResponseBody& setGitBranches(const vector<ListGitBranchesResponseBodyGitBranches> & gitBranches) { DARABONBA_PTR_SET_VALUE(gitBranches_, gitBranches) };
-    inline ListGitBranchesResponseBody& setGitBranches(vector<ListGitBranchesResponseBodyGitBranches> && gitBranches) { DARABONBA_PTR_SET_RVALUE(gitBranches_, gitBranches) };
+    inline const vector<ListGitBranchesResponseBody::GitBranches> & getGitBranches() const { DARABONBA_PTR_GET_CONST(gitBranches_, vector<ListGitBranchesResponseBody::GitBranches>) };
+    inline vector<ListGitBranchesResponseBody::GitBranches> getGitBranches() { DARABONBA_PTR_GET(gitBranches_, vector<ListGitBranchesResponseBody::GitBranches>) };
+    inline ListGitBranchesResponseBody& setGitBranches(const vector<ListGitBranchesResponseBody::GitBranches> & gitBranches) { DARABONBA_PTR_SET_VALUE(gitBranches_, gitBranches) };
+    inline ListGitBranchesResponseBody& setGitBranches(vector<ListGitBranchesResponseBody::GitBranches> && gitBranches) { DARABONBA_PTR_SET_RVALUE(gitBranches_, gitBranches) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListGitBranchesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<int32_t> count_ = nullptr;
-    std::shared_ptr<vector<ListGitBranchesResponseBodyGitBranches>> gitBranches_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<int32_t> count_ {};
+    shared_ptr<vector<ListGitBranchesResponseBody::GitBranches>> gitBranches_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

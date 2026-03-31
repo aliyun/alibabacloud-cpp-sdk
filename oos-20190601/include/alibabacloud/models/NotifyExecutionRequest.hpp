@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionId_ == nullptr
-        && return this->executionStatus_ == nullptr && return this->loopItem_ == nullptr && return this->notifyNote_ == nullptr && return this->notifyType_ == nullptr && return this->parameters_ == nullptr
-        && return this->regionId_ == nullptr && return this->taskExecutionId_ == nullptr && return this->taskExecutionIds_ == nullptr && return this->taskName_ == nullptr; };
+        && this->executionStatus_ == nullptr && this->loopItem_ == nullptr && this->notifyNote_ == nullptr && this->notifyType_ == nullptr && this->parameters_ == nullptr
+        && this->regionId_ == nullptr && this->taskExecutionId_ == nullptr && this->taskExecutionIds_ == nullptr && this->taskName_ == nullptr; };
     // executionId Field Functions 
     bool hasExecutionId() const { return this->executionId_ != nullptr;};
     void deleteExecutionId() { this->executionId_ = nullptr;};
-    inline string executionId() const { DARABONBA_PTR_GET_DEFAULT(executionId_, "") };
+    inline string getExecutionId() const { DARABONBA_PTR_GET_DEFAULT(executionId_, "") };
     inline NotifyExecutionRequest& setExecutionId(string executionId) { DARABONBA_PTR_SET_VALUE(executionId_, executionId) };
 
 
     // executionStatus Field Functions 
     bool hasExecutionStatus() const { return this->executionStatus_ != nullptr;};
     void deleteExecutionStatus() { this->executionStatus_ = nullptr;};
-    inline string executionStatus() const { DARABONBA_PTR_GET_DEFAULT(executionStatus_, "") };
+    inline string getExecutionStatus() const { DARABONBA_PTR_GET_DEFAULT(executionStatus_, "") };
     inline NotifyExecutionRequest& setExecutionStatus(string executionStatus) { DARABONBA_PTR_SET_VALUE(executionStatus_, executionStatus) };
 
 
     // loopItem Field Functions 
     bool hasLoopItem() const { return this->loopItem_ != nullptr;};
     void deleteLoopItem() { this->loopItem_ = nullptr;};
-    inline string loopItem() const { DARABONBA_PTR_GET_DEFAULT(loopItem_, "") };
+    inline string getLoopItem() const { DARABONBA_PTR_GET_DEFAULT(loopItem_, "") };
     inline NotifyExecutionRequest& setLoopItem(string loopItem) { DARABONBA_PTR_SET_VALUE(loopItem_, loopItem) };
 
 
     // notifyNote Field Functions 
     bool hasNotifyNote() const { return this->notifyNote_ != nullptr;};
     void deleteNotifyNote() { this->notifyNote_ = nullptr;};
-    inline string notifyNote() const { DARABONBA_PTR_GET_DEFAULT(notifyNote_, "") };
+    inline string getNotifyNote() const { DARABONBA_PTR_GET_DEFAULT(notifyNote_, "") };
     inline NotifyExecutionRequest& setNotifyNote(string notifyNote) { DARABONBA_PTR_SET_VALUE(notifyNote_, notifyNote) };
 
 
     // notifyType Field Functions 
     bool hasNotifyType() const { return this->notifyType_ != nullptr;};
     void deleteNotifyType() { this->notifyType_ = nullptr;};
-    inline string notifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
+    inline string getNotifyType() const { DARABONBA_PTR_GET_DEFAULT(notifyType_, "") };
     inline NotifyExecutionRequest& setNotifyType(string notifyType) { DARABONBA_PTR_SET_VALUE(notifyType_, notifyType) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline string getParameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
     inline NotifyExecutionRequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline NotifyExecutionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // taskExecutionId Field Functions 
     bool hasTaskExecutionId() const { return this->taskExecutionId_ != nullptr;};
     void deleteTaskExecutionId() { this->taskExecutionId_ = nullptr;};
-    inline string taskExecutionId() const { DARABONBA_PTR_GET_DEFAULT(taskExecutionId_, "") };
+    inline string getTaskExecutionId() const { DARABONBA_PTR_GET_DEFAULT(taskExecutionId_, "") };
     inline NotifyExecutionRequest& setTaskExecutionId(string taskExecutionId) { DARABONBA_PTR_SET_VALUE(taskExecutionId_, taskExecutionId) };
 
 
     // taskExecutionIds Field Functions 
     bool hasTaskExecutionIds() const { return this->taskExecutionIds_ != nullptr;};
     void deleteTaskExecutionIds() { this->taskExecutionIds_ = nullptr;};
-    inline string taskExecutionIds() const { DARABONBA_PTR_GET_DEFAULT(taskExecutionIds_, "") };
+    inline string getTaskExecutionIds() const { DARABONBA_PTR_GET_DEFAULT(taskExecutionIds_, "") };
     inline NotifyExecutionRequest& setTaskExecutionIds(string taskExecutionIds) { DARABONBA_PTR_SET_VALUE(taskExecutionIds_, taskExecutionIds) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline NotifyExecutionRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
@@ -124,13 +124,13 @@ namespace Models
     // The ID of the execution.
     // 
     // This parameter is required.
-    std::shared_ptr<string> executionId_ = nullptr;
+    shared_ptr<string> executionId_ {};
     // The state of the terminated execution. This parameter is valid if you set the NotifyType parameter to CompleteExecution.
-    std::shared_ptr<string> executionStatus_ = nullptr;
+    shared_ptr<string> executionStatus_ {};
     // The items of the child node in the loop task.
-    std::shared_ptr<string> loopItem_ = nullptr;
+    shared_ptr<string> loopItem_ {};
     // The description for the notification.
-    std::shared_ptr<string> notifyNote_ = nullptr;
+    shared_ptr<string> notifyNote_ {};
     // The type of the notification. Valid values:
     // 
     // *   **ExecuteTask**: starts to run a specific task. This value is used if you perform debugging in the Debug mode. If you set this parameter to ExecuteTask, you also need to set the Parameters parameter.
@@ -142,17 +142,17 @@ namespace Models
     // *   **SkipTask**: skips a failed task whose execution mode is Suspend upon Failure.
     // 
     // This parameter is required.
-    std::shared_ptr<string> notifyType_ = nullptr;
+    shared_ptr<string> notifyType_ {};
     // The parameters of the subsequent task. This parameter is valid if you set the NotifyType parameter to ExecuteTask.
-    std::shared_ptr<string> parameters_ = nullptr;
+    shared_ptr<string> parameters_ {};
     // The ID of the region in which the execution resides.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The execution ID of the task.
-    std::shared_ptr<string> taskExecutionId_ = nullptr;
+    shared_ptr<string> taskExecutionId_ {};
     // The execution IDs of the tasks.
-    std::shared_ptr<string> taskExecutionIds_ = nullptr;
+    shared_ptr<string> taskExecutionIds_ {};
     // The name of the subsequent task.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

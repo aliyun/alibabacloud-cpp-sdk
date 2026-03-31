@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateApplicationGroupShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(DeployedRevisionId, deployedRevisionId_);
+      DARABONBA_PTR_TO_JSON(MonitorMetadata, monitorMetadata_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NewName, newName_);
       DARABONBA_PTR_TO_JSON(OperationName, operationName_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateApplicationGroupShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(DeployedRevisionId, deployedRevisionId_);
+      DARABONBA_PTR_FROM_JSON(MonitorMetadata, monitorMetadata_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NewName, newName_);
       DARABONBA_PTR_FROM_JSON(OperationName, operationName_);
@@ -42,54 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationName_ == nullptr
-        && return this->deployedRevisionId_ == nullptr && return this->name_ == nullptr && return this->newName_ == nullptr && return this->operationName_ == nullptr && return this->parametersShrink_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->deployedRevisionId_ == nullptr && this->monitorMetadata_ == nullptr && this->name_ == nullptr && this->newName_ == nullptr && this->operationName_ == nullptr
+        && this->parametersShrink_ == nullptr && this->regionId_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline UpdateApplicationGroupShrinkRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // deployedRevisionId Field Functions 
     bool hasDeployedRevisionId() const { return this->deployedRevisionId_ != nullptr;};
     void deleteDeployedRevisionId() { this->deployedRevisionId_ = nullptr;};
-    inline string deployedRevisionId() const { DARABONBA_PTR_GET_DEFAULT(deployedRevisionId_, "") };
+    inline string getDeployedRevisionId() const { DARABONBA_PTR_GET_DEFAULT(deployedRevisionId_, "") };
     inline UpdateApplicationGroupShrinkRequest& setDeployedRevisionId(string deployedRevisionId) { DARABONBA_PTR_SET_VALUE(deployedRevisionId_, deployedRevisionId) };
+
+
+    // monitorMetadata Field Functions 
+    bool hasMonitorMetadata() const { return this->monitorMetadata_ != nullptr;};
+    void deleteMonitorMetadata() { this->monitorMetadata_ = nullptr;};
+    inline string getMonitorMetadata() const { DARABONBA_PTR_GET_DEFAULT(monitorMetadata_, "") };
+    inline UpdateApplicationGroupShrinkRequest& setMonitorMetadata(string monitorMetadata) { DARABONBA_PTR_SET_VALUE(monitorMetadata_, monitorMetadata) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateApplicationGroupShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // newName Field Functions 
     bool hasNewName() const { return this->newName_ != nullptr;};
     void deleteNewName() { this->newName_ = nullptr;};
-    inline string newName() const { DARABONBA_PTR_GET_DEFAULT(newName_, "") };
+    inline string getNewName() const { DARABONBA_PTR_GET_DEFAULT(newName_, "") };
     inline UpdateApplicationGroupShrinkRequest& setNewName(string newName) { DARABONBA_PTR_SET_VALUE(newName_, newName) };
 
 
     // operationName Field Functions 
     bool hasOperationName() const { return this->operationName_ != nullptr;};
     void deleteOperationName() { this->operationName_ = nullptr;};
-    inline string operationName() const { DARABONBA_PTR_GET_DEFAULT(operationName_, "") };
+    inline string getOperationName() const { DARABONBA_PTR_GET_DEFAULT(operationName_, "") };
     inline UpdateApplicationGroupShrinkRequest& setOperationName(string operationName) { DARABONBA_PTR_SET_VALUE(operationName_, operationName) };
 
 
     // parametersShrink Field Functions 
     bool hasParametersShrink() const { return this->parametersShrink_ != nullptr;};
     void deleteParametersShrink() { this->parametersShrink_ = nullptr;};
-    inline string parametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
+    inline string getParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
     inline UpdateApplicationGroupShrinkRequest& setParametersShrink(string parametersShrink) { DARABONBA_PTR_SET_VALUE(parametersShrink_, parametersShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateApplicationGroupShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -97,20 +106,21 @@ namespace Models
     // The application name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationName_ = nullptr;
-    std::shared_ptr<string> deployedRevisionId_ = nullptr;
+    shared_ptr<string> applicationName_ {};
+    shared_ptr<string> deployedRevisionId_ {};
+    shared_ptr<string> monitorMetadata_ {};
     // The name of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The new name of the application group.
-    std::shared_ptr<string> newName_ = nullptr;
+    shared_ptr<string> newName_ {};
     // The name of the configuration update operation.
-    std::shared_ptr<string> operationName_ = nullptr;
+    shared_ptr<string> operationName_ {};
     // The JSON string that consists of a set of parameters. Default value: {}.
-    std::shared_ptr<string> parametersShrink_ = nullptr;
+    shared_ptr<string> parametersShrink_ {};
     // The region ID. Set the value to cn-hangzhou.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

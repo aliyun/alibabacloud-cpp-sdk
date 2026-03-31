@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationName_ == nullptr
-        && return this->deployParameters_ == nullptr && return this->name_ == nullptr && return this->regionId_ == nullptr; };
+        && this->deployParameters_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline ContinueDeployApplicationGroupRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // deployParameters Field Functions 
     bool hasDeployParameters() const { return this->deployParameters_ != nullptr;};
     void deleteDeployParameters() { this->deployParameters_ = nullptr;};
-    inline string deployParameters() const { DARABONBA_PTR_GET_DEFAULT(deployParameters_, "") };
+    inline string getDeployParameters() const { DARABONBA_PTR_GET_DEFAULT(deployParameters_, "") };
     inline ContinueDeployApplicationGroupRequest& setDeployParameters(string deployParameters) { DARABONBA_PTR_SET_VALUE(deployParameters_, deployParameters) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ContinueDeployApplicationGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ContinueDeployApplicationGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The name of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationName_ = nullptr;
+    shared_ptr<string> applicationName_ {};
     // The deployment information about the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deployParameters_ = nullptr;
+    shared_ptr<string> deployParameters_ {};
     // The name of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

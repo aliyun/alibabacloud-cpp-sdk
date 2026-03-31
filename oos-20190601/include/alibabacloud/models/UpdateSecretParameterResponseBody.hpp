@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATESECRETPARAMETERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_UPDATESECRETPARAMETERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateSecretParameterResponseBodyParameter.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,207 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Parameter : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Parameter& obj) { 
+        DARABONBA_PTR_TO_JSON(Constraints, constraints_);
+        DARABONBA_PTR_TO_JSON(CreatedBy, createdBy_);
+        DARABONBA_PTR_TO_JSON(CreatedDate, createdDate_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(KeyId, keyId_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ParameterVersion, parameterVersion_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(ShareType, shareType_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+        DARABONBA_PTR_TO_JSON(UpdatedBy, updatedBy_);
+        DARABONBA_PTR_TO_JSON(UpdatedDate, updatedDate_);
+      };
+      friend void from_json(const Darabonba::Json& j, Parameter& obj) { 
+        DARABONBA_PTR_FROM_JSON(Constraints, constraints_);
+        DARABONBA_PTR_FROM_JSON(CreatedBy, createdBy_);
+        DARABONBA_PTR_FROM_JSON(CreatedDate, createdDate_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ParameterVersion, parameterVersion_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(ShareType, shareType_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+        DARABONBA_PTR_FROM_JSON(UpdatedBy, updatedBy_);
+        DARABONBA_PTR_FROM_JSON(UpdatedDate, updatedDate_);
+      };
+      Parameter() = default ;
+      Parameter(const Parameter &) = default ;
+      Parameter(Parameter &&) = default ;
+      Parameter(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Parameter() = default ;
+      Parameter& operator=(const Parameter &) = default ;
+      Parameter& operator=(Parameter &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->constraints_ == nullptr
+        && this->createdBy_ == nullptr && this->createdDate_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->keyId_ == nullptr
+        && this->name_ == nullptr && this->parameterVersion_ == nullptr && this->resourceGroupId_ == nullptr && this->shareType_ == nullptr && this->tags_ == nullptr
+        && this->type_ == nullptr && this->updatedBy_ == nullptr && this->updatedDate_ == nullptr; };
+      // constraints Field Functions 
+      bool hasConstraints() const { return this->constraints_ != nullptr;};
+      void deleteConstraints() { this->constraints_ = nullptr;};
+      inline string getConstraints() const { DARABONBA_PTR_GET_DEFAULT(constraints_, "") };
+      inline Parameter& setConstraints(string constraints) { DARABONBA_PTR_SET_VALUE(constraints_, constraints) };
+
+
+      // createdBy Field Functions 
+      bool hasCreatedBy() const { return this->createdBy_ != nullptr;};
+      void deleteCreatedBy() { this->createdBy_ = nullptr;};
+      inline string getCreatedBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
+      inline Parameter& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
+
+
+      // createdDate Field Functions 
+      bool hasCreatedDate() const { return this->createdDate_ != nullptr;};
+      void deleteCreatedDate() { this->createdDate_ = nullptr;};
+      inline string getCreatedDate() const { DARABONBA_PTR_GET_DEFAULT(createdDate_, "") };
+      inline Parameter& setCreatedDate(string createdDate) { DARABONBA_PTR_SET_VALUE(createdDate_, createdDate) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Parameter& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Parameter& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // keyId Field Functions 
+      bool hasKeyId() const { return this->keyId_ != nullptr;};
+      void deleteKeyId() { this->keyId_ = nullptr;};
+      inline string getKeyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+      inline Parameter& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Parameter& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // parameterVersion Field Functions 
+      bool hasParameterVersion() const { return this->parameterVersion_ != nullptr;};
+      void deleteParameterVersion() { this->parameterVersion_ = nullptr;};
+      inline int32_t getParameterVersion() const { DARABONBA_PTR_GET_DEFAULT(parameterVersion_, 0) };
+      inline Parameter& setParameterVersion(int32_t parameterVersion) { DARABONBA_PTR_SET_VALUE(parameterVersion_, parameterVersion) };
+
+
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Parameter& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+      // shareType Field Functions 
+      bool hasShareType() const { return this->shareType_ != nullptr;};
+      void deleteShareType() { this->shareType_ = nullptr;};
+      inline string getShareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
+      inline Parameter& setShareType(string shareType) { DARABONBA_PTR_SET_VALUE(shareType_, shareType) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+      inline Parameter& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Parameter& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      // updatedBy Field Functions 
+      bool hasUpdatedBy() const { return this->updatedBy_ != nullptr;};
+      void deleteUpdatedBy() { this->updatedBy_ = nullptr;};
+      inline string getUpdatedBy() const { DARABONBA_PTR_GET_DEFAULT(updatedBy_, "") };
+      inline Parameter& setUpdatedBy(string updatedBy) { DARABONBA_PTR_SET_VALUE(updatedBy_, updatedBy) };
+
+
+      // updatedDate Field Functions 
+      bool hasUpdatedDate() const { return this->updatedDate_ != nullptr;};
+      void deleteUpdatedDate() { this->updatedDate_ = nullptr;};
+      inline string getUpdatedDate() const { DARABONBA_PTR_GET_DEFAULT(updatedDate_, "") };
+      inline Parameter& setUpdatedDate(string updatedDate) { DARABONBA_PTR_SET_VALUE(updatedDate_, updatedDate) };
+
+
+    protected:
+      // The constraints of the parameter.
+      shared_ptr<string> constraints_ {};
+      // The user who created the parameter.
+      shared_ptr<string> createdBy_ {};
+      // The time when the parameter was created.
+      shared_ptr<string> createdDate_ {};
+      // The description of the parameter.
+      shared_ptr<string> description_ {};
+      // The ID of the parameter.
+      shared_ptr<string> id_ {};
+      // The ID of customer master key (CMK) of Key Management Service (KMS) that is used for encryption.
+      shared_ptr<string> keyId_ {};
+      // The name of the parameter.
+      shared_ptr<string> name_ {};
+      // The version number of the parameter.
+      shared_ptr<int32_t> parameterVersion_ {};
+      // The ID of the resource group.
+      shared_ptr<string> resourceGroupId_ {};
+      // The share type of the parameter.
+      shared_ptr<string> shareType_ {};
+      // The tags of the parameter.
+      shared_ptr<string> tags_ {};
+      // The type of the parameter.
+      shared_ptr<string> type_ {};
+      // The user who updated the parameter.
+      shared_ptr<string> updatedBy_ {};
+      // The time when the parameter was updated.
+      shared_ptr<string> updatedDate_ {};
+    };
+
     virtual bool empty() const override { return this->parameter_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // parameter Field Functions 
     bool hasParameter() const { return this->parameter_ != nullptr;};
     void deleteParameter() { this->parameter_ = nullptr;};
-    inline const UpdateSecretParameterResponseBodyParameter & parameter() const { DARABONBA_PTR_GET_CONST(parameter_, UpdateSecretParameterResponseBodyParameter) };
-    inline UpdateSecretParameterResponseBodyParameter parameter() { DARABONBA_PTR_GET(parameter_, UpdateSecretParameterResponseBodyParameter) };
-    inline UpdateSecretParameterResponseBody& setParameter(const UpdateSecretParameterResponseBodyParameter & parameter) { DARABONBA_PTR_SET_VALUE(parameter_, parameter) };
-    inline UpdateSecretParameterResponseBody& setParameter(UpdateSecretParameterResponseBodyParameter && parameter) { DARABONBA_PTR_SET_RVALUE(parameter_, parameter) };
+    inline const UpdateSecretParameterResponseBody::Parameter & getParameter() const { DARABONBA_PTR_GET_CONST(parameter_, UpdateSecretParameterResponseBody::Parameter) };
+    inline UpdateSecretParameterResponseBody::Parameter getParameter() { DARABONBA_PTR_GET(parameter_, UpdateSecretParameterResponseBody::Parameter) };
+    inline UpdateSecretParameterResponseBody& setParameter(const UpdateSecretParameterResponseBody::Parameter & parameter) { DARABONBA_PTR_SET_VALUE(parameter_, parameter) };
+    inline UpdateSecretParameterResponseBody& setParameter(UpdateSecretParameterResponseBody::Parameter && parameter) { DARABONBA_PTR_SET_RVALUE(parameter_, parameter) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateSecretParameterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the parameter.
-    std::shared_ptr<UpdateSecretParameterResponseBodyParameter> parameter_ = nullptr;
+    shared_ptr<UpdateSecretParameterResponseBody::Parameter> parameter_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

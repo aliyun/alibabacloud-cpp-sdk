@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opsItemId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // opsItemId Field Functions 
     bool hasOpsItemId() const { return this->opsItemId_ != nullptr;};
     void deleteOpsItemId() { this->opsItemId_ = nullptr;};
-    inline string opsItemId() const { DARABONBA_PTR_GET_DEFAULT(opsItemId_, "") };
+    inline string getOpsItemId() const { DARABONBA_PTR_GET_DEFAULT(opsItemId_, "") };
     inline GetOpsItemRequest& setOpsItemId(string opsItemId) { DARABONBA_PTR_SET_VALUE(opsItemId_, opsItemId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetOpsItemRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The O\\&M item ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> opsItemId_ = nullptr;
+    shared_ptr<string> opsItemId_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

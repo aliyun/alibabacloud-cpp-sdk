@@ -46,85 +46,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->branch_ == nullptr
-        && return this->clientToken_ == nullptr && return this->filePath_ == nullptr && return this->orgId_ == nullptr && return this->owner_ == nullptr && return this->platform_ == nullptr
-        && return this->regionId_ == nullptr && return this->repoFullName_ == nullptr && return this->repoId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->filePath_ == nullptr && this->orgId_ == nullptr && this->owner_ == nullptr && this->platform_ == nullptr
+        && this->regionId_ == nullptr && this->repoFullName_ == nullptr && this->repoId_ == nullptr; };
     // branch Field Functions 
     bool hasBranch() const { return this->branch_ != nullptr;};
     void deleteBranch() { this->branch_ = nullptr;};
-    inline string branch() const { DARABONBA_PTR_GET_DEFAULT(branch_, "") };
+    inline string getBranch() const { DARABONBA_PTR_GET_DEFAULT(branch_, "") };
     inline CheckGitRepoFileExistsRequest& setBranch(string branch) { DARABONBA_PTR_SET_VALUE(branch_, branch) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CheckGitRepoFileExistsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // filePath Field Functions 
     bool hasFilePath() const { return this->filePath_ != nullptr;};
     void deleteFilePath() { this->filePath_ = nullptr;};
-    inline string filePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
+    inline string getFilePath() const { DARABONBA_PTR_GET_DEFAULT(filePath_, "") };
     inline CheckGitRepoFileExistsRequest& setFilePath(string filePath) { DARABONBA_PTR_SET_VALUE(filePath_, filePath) };
 
 
     // orgId Field Functions 
     bool hasOrgId() const { return this->orgId_ != nullptr;};
     void deleteOrgId() { this->orgId_ = nullptr;};
-    inline string orgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
+    inline string getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
     inline CheckGitRepoFileExistsRequest& setOrgId(string orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline CheckGitRepoFileExistsRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline CheckGitRepoFileExistsRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CheckGitRepoFileExistsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // repoFullName Field Functions 
     bool hasRepoFullName() const { return this->repoFullName_ != nullptr;};
     void deleteRepoFullName() { this->repoFullName_ = nullptr;};
-    inline string repoFullName() const { DARABONBA_PTR_GET_DEFAULT(repoFullName_, "") };
+    inline string getRepoFullName() const { DARABONBA_PTR_GET_DEFAULT(repoFullName_, "") };
     inline CheckGitRepoFileExistsRequest& setRepoFullName(string repoFullName) { DARABONBA_PTR_SET_VALUE(repoFullName_, repoFullName) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline int64_t repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, 0L) };
+    inline int64_t getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, 0L) };
     inline CheckGitRepoFileExistsRequest& setRepoId(int64_t repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
   protected:
-    std::shared_ptr<string> branch_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> branch_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> filePath_ = nullptr;
-    std::shared_ptr<string> orgId_ = nullptr;
+    shared_ptr<string> filePath_ {};
+    shared_ptr<string> orgId_ {};
     // This parameter is required.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // This parameter is required.
-    std::shared_ptr<string> platform_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> platform_ {};
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> repoFullName_ = nullptr;
-    std::shared_ptr<int64_t> repoId_ = nullptr;
+    shared_ptr<string> repoFullName_ {};
+    shared_ptr<int64_t> repoId_ {};
   };
 
   } // namespace Models

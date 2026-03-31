@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEPATCHBASELINEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreatePatchBaselineRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -55,22 +54,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the tag.
+      shared_ptr<string> key_ {};
+      // The value of the tag.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->approvalRules_ == nullptr
-        && return this->approvedPatches_ == nullptr && return this->approvedPatchesEnableNonSecurity_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr
-        && return this->operationSystem_ == nullptr && return this->regionId_ == nullptr && return this->rejectedPatches_ == nullptr && return this->rejectedPatchesAction_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->sources_ == nullptr && return this->tags_ == nullptr; };
+        && this->approvedPatches_ == nullptr && this->approvedPatchesEnableNonSecurity_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->name_ == nullptr
+        && this->operationSystem_ == nullptr && this->regionId_ == nullptr && this->rejectedPatches_ == nullptr && this->rejectedPatchesAction_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sources_ == nullptr && this->tags_ == nullptr; };
     // approvalRules Field Functions 
     bool hasApprovalRules() const { return this->approvalRules_ != nullptr;};
     void deleteApprovalRules() { this->approvalRules_ = nullptr;};
-    inline string approvalRules() const { DARABONBA_PTR_GET_DEFAULT(approvalRules_, "") };
+    inline string getApprovalRules() const { DARABONBA_PTR_GET_DEFAULT(approvalRules_, "") };
     inline CreatePatchBaselineRequest& setApprovalRules(string approvalRules) { DARABONBA_PTR_SET_VALUE(approvalRules_, approvalRules) };
 
 
     // approvedPatches Field Functions 
     bool hasApprovedPatches() const { return this->approvedPatches_ != nullptr;};
     void deleteApprovedPatches() { this->approvedPatches_ = nullptr;};
-    inline const vector<string> & approvedPatches() const { DARABONBA_PTR_GET_CONST(approvedPatches_, vector<string>) };
-    inline vector<string> approvedPatches() { DARABONBA_PTR_GET(approvedPatches_, vector<string>) };
+    inline const vector<string> & getApprovedPatches() const { DARABONBA_PTR_GET_CONST(approvedPatches_, vector<string>) };
+    inline vector<string> getApprovedPatches() { DARABONBA_PTR_GET(approvedPatches_, vector<string>) };
     inline CreatePatchBaselineRequest& setApprovedPatches(const vector<string> & approvedPatches) { DARABONBA_PTR_SET_VALUE(approvedPatches_, approvedPatches) };
     inline CreatePatchBaselineRequest& setApprovedPatches(vector<string> && approvedPatches) { DARABONBA_PTR_SET_RVALUE(approvedPatches_, approvedPatches) };
 
@@ -78,50 +121,50 @@ namespace Models
     // approvedPatchesEnableNonSecurity Field Functions 
     bool hasApprovedPatchesEnableNonSecurity() const { return this->approvedPatchesEnableNonSecurity_ != nullptr;};
     void deleteApprovedPatchesEnableNonSecurity() { this->approvedPatchesEnableNonSecurity_ = nullptr;};
-    inline bool approvedPatchesEnableNonSecurity() const { DARABONBA_PTR_GET_DEFAULT(approvedPatchesEnableNonSecurity_, false) };
+    inline bool getApprovedPatchesEnableNonSecurity() const { DARABONBA_PTR_GET_DEFAULT(approvedPatchesEnableNonSecurity_, false) };
     inline CreatePatchBaselineRequest& setApprovedPatchesEnableNonSecurity(bool approvedPatchesEnableNonSecurity) { DARABONBA_PTR_SET_VALUE(approvedPatchesEnableNonSecurity_, approvedPatchesEnableNonSecurity) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreatePatchBaselineRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreatePatchBaselineRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreatePatchBaselineRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // operationSystem Field Functions 
     bool hasOperationSystem() const { return this->operationSystem_ != nullptr;};
     void deleteOperationSystem() { this->operationSystem_ = nullptr;};
-    inline string operationSystem() const { DARABONBA_PTR_GET_DEFAULT(operationSystem_, "") };
+    inline string getOperationSystem() const { DARABONBA_PTR_GET_DEFAULT(operationSystem_, "") };
     inline CreatePatchBaselineRequest& setOperationSystem(string operationSystem) { DARABONBA_PTR_SET_VALUE(operationSystem_, operationSystem) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreatePatchBaselineRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // rejectedPatches Field Functions 
     bool hasRejectedPatches() const { return this->rejectedPatches_ != nullptr;};
     void deleteRejectedPatches() { this->rejectedPatches_ = nullptr;};
-    inline const vector<string> & rejectedPatches() const { DARABONBA_PTR_GET_CONST(rejectedPatches_, vector<string>) };
-    inline vector<string> rejectedPatches() { DARABONBA_PTR_GET(rejectedPatches_, vector<string>) };
+    inline const vector<string> & getRejectedPatches() const { DARABONBA_PTR_GET_CONST(rejectedPatches_, vector<string>) };
+    inline vector<string> getRejectedPatches() { DARABONBA_PTR_GET(rejectedPatches_, vector<string>) };
     inline CreatePatchBaselineRequest& setRejectedPatches(const vector<string> & rejectedPatches) { DARABONBA_PTR_SET_VALUE(rejectedPatches_, rejectedPatches) };
     inline CreatePatchBaselineRequest& setRejectedPatches(vector<string> && rejectedPatches) { DARABONBA_PTR_SET_RVALUE(rejectedPatches_, rejectedPatches) };
 
@@ -129,22 +172,22 @@ namespace Models
     // rejectedPatchesAction Field Functions 
     bool hasRejectedPatchesAction() const { return this->rejectedPatchesAction_ != nullptr;};
     void deleteRejectedPatchesAction() { this->rejectedPatchesAction_ = nullptr;};
-    inline string rejectedPatchesAction() const { DARABONBA_PTR_GET_DEFAULT(rejectedPatchesAction_, "") };
+    inline string getRejectedPatchesAction() const { DARABONBA_PTR_GET_DEFAULT(rejectedPatchesAction_, "") };
     inline CreatePatchBaselineRequest& setRejectedPatchesAction(string rejectedPatchesAction) { DARABONBA_PTR_SET_VALUE(rejectedPatchesAction_, rejectedPatchesAction) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreatePatchBaselineRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // sources Field Functions 
     bool hasSources() const { return this->sources_ != nullptr;};
     void deleteSources() { this->sources_ = nullptr;};
-    inline const vector<string> & sources() const { DARABONBA_PTR_GET_CONST(sources_, vector<string>) };
-    inline vector<string> sources() { DARABONBA_PTR_GET(sources_, vector<string>) };
+    inline const vector<string> & getSources() const { DARABONBA_PTR_GET_CONST(sources_, vector<string>) };
+    inline vector<string> getSources() { DARABONBA_PTR_GET(sources_, vector<string>) };
     inline CreatePatchBaselineRequest& setSources(const vector<string> & sources) { DARABONBA_PTR_SET_VALUE(sources_, sources) };
     inline CreatePatchBaselineRequest& setSources(vector<string> && sources) { DARABONBA_PTR_SET_RVALUE(sources_, sources) };
 
@@ -152,29 +195,29 @@ namespace Models
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<CreatePatchBaselineRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreatePatchBaselineRequestTags>) };
-    inline vector<CreatePatchBaselineRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreatePatchBaselineRequestTags>) };
-    inline CreatePatchBaselineRequest& setTags(const vector<CreatePatchBaselineRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreatePatchBaselineRequest& setTags(vector<CreatePatchBaselineRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<CreatePatchBaselineRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreatePatchBaselineRequest::Tags>) };
+    inline vector<CreatePatchBaselineRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreatePatchBaselineRequest::Tags>) };
+    inline CreatePatchBaselineRequest& setTags(const vector<CreatePatchBaselineRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreatePatchBaselineRequest& setTags(vector<CreatePatchBaselineRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
     // The rules of scanning and installing patches for the specified operating system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> approvalRules_ = nullptr;
+    shared_ptr<string> approvalRules_ {};
     // The approved patches.
-    std::shared_ptr<vector<string>> approvedPatches_ = nullptr;
+    shared_ptr<vector<string>> approvedPatches_ {};
     // Specifies whether the approved patch involves updates other than security-related updates.
-    std::shared_ptr<bool> approvedPatchesEnableNonSecurity_ = nullptr;
+    shared_ptr<bool> approvedPatchesEnableNonSecurity_ {};
     // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The description of the patch baseline.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the patch baseline.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The type of the operating system. Valid values:
     // 
     // *   Windows
@@ -187,19 +230,19 @@ namespace Models
     // *   AlmaLinux
     // 
     // This parameter is required.
-    std::shared_ptr<string> operationSystem_ = nullptr;
+    shared_ptr<string> operationSystem_ {};
     // The ID of the region in which you want to create a patch baseline.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The rejected patches.
-    std::shared_ptr<vector<string>> rejectedPatches_ = nullptr;
+    shared_ptr<vector<string>> rejectedPatches_ {};
     // The action of the rejected patch.
-    std::shared_ptr<string> rejectedPatchesAction_ = nullptr;
+    shared_ptr<string> rejectedPatchesAction_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The patch source configurations.
-    std::shared_ptr<vector<string>> sources_ = nullptr;
+    shared_ptr<vector<string>> sources_ {};
     // The tags.
-    std::shared_ptr<vector<CreatePatchBaselineRequestTags>> tags_ = nullptr;
+    shared_ptr<vector<CreatePatchBaselineRequest::Tags>> tags_ {};
   };
 
   } // namespace Models

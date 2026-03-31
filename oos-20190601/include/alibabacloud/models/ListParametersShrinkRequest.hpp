@@ -52,129 +52,129 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->name_ == nullptr && return this->nextToken_ == nullptr && return this->path_ == nullptr && return this->recursive_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->shareType_ == nullptr && return this->sortField_ == nullptr && return this->sortOrder_ == nullptr && return this->tagsShrink_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->name_ == nullptr && this->nextToken_ == nullptr && this->path_ == nullptr && this->recursive_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->shareType_ == nullptr && this->sortField_ == nullptr && this->sortOrder_ == nullptr && this->tagsShrink_ == nullptr
+        && this->type_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListParametersShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListParametersShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListParametersShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline ListParametersShrinkRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // recursive Field Functions 
     bool hasRecursive() const { return this->recursive_ != nullptr;};
     void deleteRecursive() { this->recursive_ = nullptr;};
-    inline bool recursive() const { DARABONBA_PTR_GET_DEFAULT(recursive_, false) };
+    inline bool getRecursive() const { DARABONBA_PTR_GET_DEFAULT(recursive_, false) };
     inline ListParametersShrinkRequest& setRecursive(bool recursive) { DARABONBA_PTR_SET_VALUE(recursive_, recursive) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListParametersShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListParametersShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // shareType Field Functions 
     bool hasShareType() const { return this->shareType_ != nullptr;};
     void deleteShareType() { this->shareType_ = nullptr;};
-    inline string shareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
+    inline string getShareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
     inline ListParametersShrinkRequest& setShareType(string shareType) { DARABONBA_PTR_SET_VALUE(shareType_, shareType) };
 
 
     // sortField Field Functions 
     bool hasSortField() const { return this->sortField_ != nullptr;};
     void deleteSortField() { this->sortField_ = nullptr;};
-    inline string sortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
+    inline string getSortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
     inline ListParametersShrinkRequest& setSortField(string sortField) { DARABONBA_PTR_SET_VALUE(sortField_, sortField) };
 
 
     // sortOrder Field Functions 
     bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
     void deleteSortOrder() { this->sortOrder_ = nullptr;};
-    inline string sortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
     inline ListParametersShrinkRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline ListParametersShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListParametersShrinkRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The number of entries per page. Valid values: 10 to 100. Default value: 50.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The name of the common parameter.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The pagination token that can be used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
-    std::shared_ptr<string> path_ = nullptr;
+    shared_ptr<string> path_ {};
     // Specifies whether to query parameters from all levels of directories in the specified path. Default value: false.
-    std::shared_ptr<bool> recursive_ = nullptr;
+    shared_ptr<bool> recursive_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The share type of the common parameter. Valid values:
     // 
     // *   Public
     // *   Private
     // 
     // Default value: Private.
-    std::shared_ptr<string> shareType_ = nullptr;
+    shared_ptr<string> shareType_ {};
     // The field used to sort the query results. Valid values:
     // 
     // *   Name
     // *   CreatedDate
-    std::shared_ptr<string> sortField_ = nullptr;
+    shared_ptr<string> sortField_ {};
     // The order in which the entries are sorted. Valid values:
     // 
     // *   Ascending
     // *   Descending (Default)
-    std::shared_ptr<string> sortOrder_ = nullptr;
+    shared_ptr<string> sortOrder_ {};
     // The tags.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
     // The data type of the common parameter.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

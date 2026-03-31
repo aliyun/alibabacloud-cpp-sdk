@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationName_ == nullptr
-        && return this->name_ == nullptr && return this->regionId_ == nullptr && return this->retainResource_ == nullptr; };
+        && this->name_ == nullptr && this->regionId_ == nullptr && this->retainResource_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline DeleteApplicationGroupRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DeleteApplicationGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteApplicationGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // retainResource Field Functions 
     bool hasRetainResource() const { return this->retainResource_ != nullptr;};
     void deleteRetainResource() { this->retainResource_ = nullptr;};
-    inline bool retainResource() const { DARABONBA_PTR_GET_DEFAULT(retainResource_, false) };
+    inline bool getRetainResource() const { DARABONBA_PTR_GET_DEFAULT(retainResource_, false) };
     inline DeleteApplicationGroupRequest& setRetainResource(bool retainResource) { DARABONBA_PTR_SET_VALUE(retainResource_, retainResource) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The name of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationName_ = nullptr;
+    shared_ptr<string> applicationName_ {};
     // The name of the application group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the region. Set the value to cn-hangzhou.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to retain resources created by application manager when deleting the application. Valid values:
     // - true
     // - false
-    std::shared_ptr<bool> retainResource_ = nullptr;
+    shared_ptr<bool> retainResource_ {};
   };
 
   } // namespace Models

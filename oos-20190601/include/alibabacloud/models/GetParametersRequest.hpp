@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->names_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // names Field Functions 
     bool hasNames() const { return this->names_ != nullptr;};
     void deleteNames() { this->names_ = nullptr;};
-    inline string names() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
+    inline string getNames() const { DARABONBA_PTR_GET_DEFAULT(names_, "") };
     inline GetParametersRequest& setNames(string names) { DARABONBA_PTR_SET_VALUE(names_, names) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetParametersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The names of the common parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> names_ = nullptr;
+    shared_ptr<string> names_ {};
     // The ID of the region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
