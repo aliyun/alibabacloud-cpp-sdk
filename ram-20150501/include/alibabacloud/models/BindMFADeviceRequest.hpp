@@ -1,0 +1,82 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_BINDMFADEVICEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_BINDMFADEVICEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Ram20150501
+{
+namespace Models
+{
+  class BindMFADeviceRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const BindMFADeviceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthenticationCode1, authenticationCode1_);
+      DARABONBA_PTR_TO_JSON(AuthenticationCode2, authenticationCode2_);
+      DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
+      DARABONBA_PTR_TO_JSON(UserName, userName_);
+    };
+    friend void from_json(const Darabonba::Json& j, BindMFADeviceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthenticationCode1, authenticationCode1_);
+      DARABONBA_PTR_FROM_JSON(AuthenticationCode2, authenticationCode2_);
+      DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
+      DARABONBA_PTR_FROM_JSON(UserName, userName_);
+    };
+    BindMFADeviceRequest() = default ;
+    BindMFADeviceRequest(const BindMFADeviceRequest &) = default ;
+    BindMFADeviceRequest(BindMFADeviceRequest &&) = default ;
+    BindMFADeviceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~BindMFADeviceRequest() = default ;
+    BindMFADeviceRequest& operator=(const BindMFADeviceRequest &) = default ;
+    BindMFADeviceRequest& operator=(BindMFADeviceRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->authenticationCode1_ == nullptr
+        && this->authenticationCode2_ == nullptr && this->serialNumber_ == nullptr && this->userName_ == nullptr; };
+    // authenticationCode1 Field Functions 
+    bool hasAuthenticationCode1() const { return this->authenticationCode1_ != nullptr;};
+    void deleteAuthenticationCode1() { this->authenticationCode1_ = nullptr;};
+    inline string getAuthenticationCode1() const { DARABONBA_PTR_GET_DEFAULT(authenticationCode1_, "") };
+    inline BindMFADeviceRequest& setAuthenticationCode1(string authenticationCode1) { DARABONBA_PTR_SET_VALUE(authenticationCode1_, authenticationCode1) };
+
+
+    // authenticationCode2 Field Functions 
+    bool hasAuthenticationCode2() const { return this->authenticationCode2_ != nullptr;};
+    void deleteAuthenticationCode2() { this->authenticationCode2_ = nullptr;};
+    inline string getAuthenticationCode2() const { DARABONBA_PTR_GET_DEFAULT(authenticationCode2_, "") };
+    inline BindMFADeviceRequest& setAuthenticationCode2(string authenticationCode2) { DARABONBA_PTR_SET_VALUE(authenticationCode2_, authenticationCode2) };
+
+
+    // serialNumber Field Functions 
+    bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
+    void deleteSerialNumber() { this->serialNumber_ = nullptr;};
+    inline string getSerialNumber() const { DARABONBA_PTR_GET_DEFAULT(serialNumber_, "") };
+    inline BindMFADeviceRequest& setSerialNumber(string serialNumber) { DARABONBA_PTR_SET_VALUE(serialNumber_, serialNumber) };
+
+
+    // userName Field Functions 
+    bool hasUserName() const { return this->userName_ != nullptr;};
+    void deleteUserName() { this->userName_ = nullptr;};
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline BindMFADeviceRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
+  protected:
+    // The first authentication code.
+    shared_ptr<string> authenticationCode1_ {};
+    // The second authentication code.
+    shared_ptr<string> authenticationCode2_ {};
+    // The serial number of the MFA device.
+    shared_ptr<string> serialNumber_ {};
+    // The name of the RAM user.
+    shared_ptr<string> userName_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Ram20150501
+#endif
