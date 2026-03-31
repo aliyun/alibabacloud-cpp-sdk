@@ -83,6 +83,9 @@
 #include <alibabacloud/models/AddTemplateRequest.hpp>
 #include <alibabacloud/models/AddTemplateResponseBody.hpp>
 #include <alibabacloud/models/AddTemplateResponse.hpp>
+#include <alibabacloud/models/AddYikeUserCreditRequest.hpp>
+#include <alibabacloud/models/AddYikeUserCreditResponseBody.hpp>
+#include <alibabacloud/models/AddYikeUserCreditResponse.hpp>
 #include <alibabacloud/models/AlterSearchIndexRequest.hpp>
 #include <alibabacloud/models/AlterSearchIndexResponseBody.hpp>
 #include <alibabacloud/models/AlterSearchIndexResponse.hpp>
@@ -234,6 +237,15 @@
 #include <alibabacloud/models/CreateYikeAssetUploadRequest.hpp>
 #include <alibabacloud/models/CreateYikeAssetUploadResponseBody.hpp>
 #include <alibabacloud/models/CreateYikeAssetUploadResponse.hpp>
+#include <alibabacloud/models/CreateYikeProductionRequest.hpp>
+#include <alibabacloud/models/CreateYikeProductionResponseBody.hpp>
+#include <alibabacloud/models/CreateYikeProductionResponse.hpp>
+#include <alibabacloud/models/CreateYikeUserRequest.hpp>
+#include <alibabacloud/models/CreateYikeUserResponseBody.hpp>
+#include <alibabacloud/models/CreateYikeUserResponse.hpp>
+#include <alibabacloud/models/CreateYikeWorkspaceRequest.hpp>
+#include <alibabacloud/models/CreateYikeWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/CreateYikeWorkspaceResponse.hpp>
 #include <alibabacloud/models/DecryptKMSDataKeyRequest.hpp>
 #include <alibabacloud/models/DecryptKMSDataKeyResponseBody.hpp>
 #include <alibabacloud/models/DecryptKMSDataKeyResponse.hpp>
@@ -633,6 +645,9 @@
 #include <alibabacloud/models/GetYikeStoryboardJobRequest.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobResponse.hpp>
+#include <alibabacloud/models/GetYikeUserCreditRequest.hpp>
+#include <alibabacloud/models/GetYikeUserCreditResponseBody.hpp>
+#include <alibabacloud/models/GetYikeUserCreditResponse.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibRequest.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibResponseBody.hpp>
 #include <alibabacloud/models/InsertMediaToSearchLibResponse.hpp>
@@ -959,6 +974,9 @@
 #include <alibabacloud/models/SetNotifyConfigRequest.hpp>
 #include <alibabacloud/models/SetNotifyConfigResponseBody.hpp>
 #include <alibabacloud/models/SetNotifyConfigResponse.hpp>
+#include <alibabacloud/models/SetYikeUserRoleRequest.hpp>
+#include <alibabacloud/models/SetYikeUserRoleResponseBody.hpp>
+#include <alibabacloud/models/SetYikeUserRoleResponse.hpp>
 #include <alibabacloud/models/StartAIAgentInstanceRequest.hpp>
 #include <alibabacloud/models/StartAIAgentInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/StartAIAgentInstanceResponseBody.hpp>

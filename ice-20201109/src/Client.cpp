@@ -760,6 +760,52 @@ AddTemplateResponse Client::addTemplate(const AddTemplateRequest &request) {
 }
 
 /**
+ * @summary 增加用户积分
+ *
+ * @param request AddYikeUserCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddYikeUserCreditResponse
+ */
+AddYikeUserCreditResponse Client::addYikeUserCreditWithOptions(const AddYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredit()) {
+    query["Credit"] = request.getCredit();
+  }
+
+  if (!!request.hasYikeUserId()) {
+    query["YikeUserId"] = request.getYikeUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddYikeUserCredit"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddYikeUserCreditResponse>();
+}
+
+/**
+ * @summary 增加用户积分
+ *
+ * @param request AddYikeUserCreditRequest
+ * @return AddYikeUserCreditResponse
+ */
+AddYikeUserCreditResponse Client::addYikeUserCredit(const AddYikeUserCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addYikeUserCreditWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies search index information including index status and configurations.
  *
  * @param request AlterSearchIndexRequest
@@ -3543,6 +3589,156 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUploadWithOptions(const Cre
 CreateYikeAssetUploadResponse Client::createYikeAssetUpload(const CreateYikeAssetUploadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createYikeAssetUploadWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建一刻项目
+ *
+ * @param request CreateYikeProductionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateYikeProductionResponse
+ */
+CreateYikeProductionResponse Client::createYikeProductionWithOptions(const CreateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateYikeProduction"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateYikeProductionResponse>();
+}
+
+/**
+ * @summary 创建一刻项目
+ *
+ * @param request CreateYikeProductionRequest
+ * @return CreateYikeProductionResponse
+ */
+CreateYikeProductionResponse Client::createYikeProduction(const CreateYikeProductionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createYikeProductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建一刻子用户
+ *
+ * @param request CreateYikeUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateYikeUserResponse
+ */
+CreateYikeUserResponse Client::createYikeUserWithOptions(const CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNickname()) {
+    query["Nickname"] = request.getNickname();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasProductionIds()) {
+    query["ProductionIds"] = request.getProductionIds();
+  }
+
+  if (!!request.hasUserNamePrefix()) {
+    query["UserNamePrefix"] = request.getUserNamePrefix();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateYikeUser"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateYikeUserResponse>();
+}
+
+/**
+ * @summary 创建一刻子用户
+ *
+ * @param request CreateYikeUserRequest
+ * @return CreateYikeUserResponse
+ */
+CreateYikeUserResponse Client::createYikeUser(const CreateYikeUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createYikeUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建工作室
+ *
+ * @param request CreateYikeWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateYikeWorkspaceResponse
+ */
+CreateYikeWorkspaceResponse Client::createYikeWorkspaceWithOptions(const CreateYikeWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasUserCountLimit()) {
+    query["UserCountLimit"] = request.getUserCountLimit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateYikeWorkspace"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateYikeWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建工作室
+ *
+ * @param request CreateYikeWorkspaceRequest
+ * @return CreateYikeWorkspaceResponse
+ */
+CreateYikeWorkspaceResponse Client::createYikeWorkspace(const CreateYikeWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createYikeWorkspaceWithOptions(request, runtime);
 }
 
 /**
@@ -10038,6 +10234,48 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJobWithOptions(const GetYi
 GetYikeStoryboardJobResponse Client::getYikeStoryboardJob(const GetYikeStoryboardJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getYikeStoryboardJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询一刻用户积分
+ *
+ * @param request GetYikeUserCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeUserCreditResponse
+ */
+GetYikeUserCreditResponse Client::getYikeUserCreditWithOptions(const GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasYikeUserId()) {
+    query["YikeUserId"] = request.getYikeUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYikeUserCredit"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeUserCreditResponse>();
+}
+
+/**
+ * @summary 查询一刻用户积分
+ *
+ * @param request GetYikeUserCreditRequest
+ * @return GetYikeUserCreditResponse
+ */
+GetYikeUserCreditResponse Client::getYikeUserCredit(const GetYikeUserCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeUserCreditWithOptions(request, runtime);
 }
 
 /**
@@ -16544,6 +16782,52 @@ SetNotifyConfigResponse Client::setNotifyConfigWithOptions(const SetNotifyConfig
 SetNotifyConfigResponse Client::setNotifyConfig(const SetNotifyConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setNotifyConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置用户角色
+ *
+ * @param request SetYikeUserRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetYikeUserRoleResponse
+ */
+SetYikeUserRoleResponse Client::setYikeUserRoleWithOptions(const SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
+  }
+
+  if (!!request.hasYikeUserId()) {
+    query["YikeUserId"] = request.getYikeUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetYikeUserRole"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetYikeUserRoleResponse>();
+}
+
+/**
+ * @summary 设置用户角色
+ *
+ * @param request SetYikeUserRoleRequest
+ * @return SetYikeUserRoleResponse
+ */
+SetYikeUserRoleResponse Client::setYikeUserRole(const SetYikeUserRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setYikeUserRoleWithOptions(request, runtime);
 }
 
 /**

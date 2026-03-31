@@ -251,6 +251,23 @@ namespace ICE20201109
       Models::AddTemplateResponse addTemplate(const Models::AddTemplateRequest &request);
 
       /**
+       * @summary 增加用户积分
+       *
+       * @param request AddYikeUserCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddYikeUserCreditResponse
+       */
+      Models::AddYikeUserCreditResponse addYikeUserCreditWithOptions(const Models::AddYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 增加用户积分
+       *
+       * @param request AddYikeUserCreditRequest
+       * @return AddYikeUserCreditResponse
+       */
+      Models::AddYikeUserCreditResponse addYikeUserCredit(const Models::AddYikeUserCreditRequest &request);
+
+      /**
        * @summary Modifies search index information including index status and configurations.
        *
        * @param request AlterSearchIndexRequest
@@ -1172,6 +1189,57 @@ namespace ICE20201109
        * @return CreateYikeAssetUploadResponse
        */
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
+
+      /**
+       * @summary 创建一刻项目
+       *
+       * @param request CreateYikeProductionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeProductionResponse
+       */
+      Models::CreateYikeProductionResponse createYikeProductionWithOptions(const Models::CreateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一刻项目
+       *
+       * @param request CreateYikeProductionRequest
+       * @return CreateYikeProductionResponse
+       */
+      Models::CreateYikeProductionResponse createYikeProduction(const Models::CreateYikeProductionRequest &request);
+
+      /**
+       * @summary 创建一刻子用户
+       *
+       * @param request CreateYikeUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeUserResponse
+       */
+      Models::CreateYikeUserResponse createYikeUserWithOptions(const Models::CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一刻子用户
+       *
+       * @param request CreateYikeUserRequest
+       * @return CreateYikeUserResponse
+       */
+      Models::CreateYikeUserResponse createYikeUser(const Models::CreateYikeUserRequest &request);
+
+      /**
+       * @summary 创建工作室
+       *
+       * @param request CreateYikeWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeWorkspaceResponse
+       */
+      Models::CreateYikeWorkspaceResponse createYikeWorkspaceWithOptions(const Models::CreateYikeWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工作室
+       *
+       * @param request CreateYikeWorkspaceRequest
+       * @return CreateYikeWorkspaceResponse
+       */
+      Models::CreateYikeWorkspaceResponse createYikeWorkspace(const Models::CreateYikeWorkspaceRequest &request);
 
       /**
        * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
@@ -3739,6 +3807,23 @@ namespace ICE20201109
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
 
       /**
+       * @summary 查询一刻用户积分
+       *
+       * @param request GetYikeUserCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeUserCreditResponse
+       */
+      Models::GetYikeUserCreditResponse getYikeUserCreditWithOptions(const Models::GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻用户积分
+       *
+       * @param request GetYikeUserCreditRequest
+       * @return GetYikeUserCreditResponse
+       */
+      Models::GetYikeUserCreditResponse getYikeUserCredit(const Models::GetYikeUserCreditRequest &request);
+
+      /**
        * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
        *
        * @param request InsertMediaToSearchLibRequest
@@ -5811,6 +5896,23 @@ namespace ICE20201109
        * @return SetNotifyConfigResponse
        */
       Models::SetNotifyConfigResponse setNotifyConfig(const Models::SetNotifyConfigRequest &request);
+
+      /**
+       * @summary 设置用户角色
+       *
+       * @param request SetYikeUserRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetYikeUserRoleResponse
+       */
+      Models::SetYikeUserRoleResponse setYikeUserRoleWithOptions(const Models::SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置用户角色
+       *
+       * @param request SetYikeUserRoleRequest
+       * @return SetYikeUserRoleResponse
+       */
+      Models::SetYikeUserRoleResponse setYikeUserRole(const Models::SetYikeUserRoleRequest &request);
 
       /**
        * @summary Starts an AI agent that is configured in the Intelligent Media Services (IMS) console.
