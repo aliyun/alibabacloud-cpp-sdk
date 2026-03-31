@@ -50,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DesktopGroupName, desktopGroupName_);
         DARABONBA_PTR_TO_JSON(DirectoryId, directoryId_);
         DARABONBA_PTR_TO_JSON(DirectoryType, directoryType_);
+        DARABONBA_PTR_TO_JSON(EnvId, envId_);
+        DARABONBA_PTR_TO_JSON(EnvType, envType_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_TO_JSON(ExpiredTimes, expiredTimes_);
         DARABONBA_PTR_TO_JSON(GpuCount, gpuCount_);
@@ -105,6 +107,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DesktopGroupName, desktopGroupName_);
         DARABONBA_PTR_FROM_JSON(DirectoryId, directoryId_);
         DARABONBA_PTR_FROM_JSON(DirectoryType, directoryType_);
+        DARABONBA_PTR_FROM_JSON(EnvId, envId_);
+        DARABONBA_PTR_FROM_JSON(EnvType, envType_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_FROM_JSON(ExpiredTimes, expiredTimes_);
         DARABONBA_PTR_FROM_JSON(GpuCount, gpuCount_);
@@ -366,15 +370,15 @@ namespace Models
       virtual bool empty() const override { return this->allowAutoSetup_ == nullptr
         && this->allowBufferCount_ == nullptr && this->bindAmount_ == nullptr && this->buyDesktopsCount_ == nullptr && this->comments_ == nullptr && this->connectDuration_ == nullptr
         && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->creator_ == nullptr && this->dataDiskCategory_ == nullptr && this->dataDiskSize_ == nullptr
-        && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->directoryId_ == nullptr && this->directoryType_ == nullptr && this->expiredTime_ == nullptr
-        && this->expiredTimes_ == nullptr && this->gpuCount_ == nullptr && this->gpuSpec_ == nullptr && this->idleDisconnectDuration_ == nullptr && this->imageId_ == nullptr
-        && this->keepDuration_ == nullptr && this->loadPolicy_ == nullptr && this->maxDesktopsCount_ == nullptr && this->memory_ == nullptr && this->minDesktopsCount_ == nullptr
-        && this->nasFileSystemID_ == nullptr && this->nasFileSystemName_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr
-        && this->osType_ == nullptr && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr && this->ownType_ == nullptr && this->payType_ == nullptr
-        && this->policyGroupId_ == nullptr && this->policyGroupIds_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNames_ == nullptr && this->profileFollowSwitch_ == nullptr
-        && this->protocolType_ == nullptr && this->ratioThreshold_ == nullptr && this->resType_ == nullptr && this->resetType_ == nullptr && this->scaleTimerInfos_ == nullptr
-        && this->status_ == nullptr && this->stopDuration_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->timerInfos_ == nullptr
-        && this->timingStrategyInfo_ == nullptr && this->version_ == nullptr; };
+        && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->directoryId_ == nullptr && this->directoryType_ == nullptr && this->envId_ == nullptr
+        && this->envType_ == nullptr && this->expiredTime_ == nullptr && this->expiredTimes_ == nullptr && this->gpuCount_ == nullptr && this->gpuSpec_ == nullptr
+        && this->idleDisconnectDuration_ == nullptr && this->imageId_ == nullptr && this->keepDuration_ == nullptr && this->loadPolicy_ == nullptr && this->maxDesktopsCount_ == nullptr
+        && this->memory_ == nullptr && this->minDesktopsCount_ == nullptr && this->nasFileSystemID_ == nullptr && this->nasFileSystemName_ == nullptr && this->officeSiteId_ == nullptr
+        && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr
+        && this->ownType_ == nullptr && this->payType_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupIds_ == nullptr && this->policyGroupName_ == nullptr
+        && this->policyGroupNames_ == nullptr && this->profileFollowSwitch_ == nullptr && this->protocolType_ == nullptr && this->ratioThreshold_ == nullptr && this->resType_ == nullptr
+        && this->resetType_ == nullptr && this->scaleTimerInfos_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr && this->systemDiskCategory_ == nullptr
+        && this->systemDiskSize_ == nullptr && this->timerInfos_ == nullptr && this->timingStrategyInfo_ == nullptr && this->version_ == nullptr; };
       // allowAutoSetup Field Functions 
       bool hasAllowAutoSetup() const { return this->allowAutoSetup_ != nullptr;};
       void deleteAllowAutoSetup() { this->allowAutoSetup_ = nullptr;};
@@ -478,6 +482,20 @@ namespace Models
       void deleteDirectoryType() { this->directoryType_ = nullptr;};
       inline string getDirectoryType() const { DARABONBA_PTR_GET_DEFAULT(directoryType_, "") };
       inline Desktops& setDirectoryType(string directoryType) { DARABONBA_PTR_SET_VALUE(directoryType_, directoryType) };
+
+
+      // envId Field Functions 
+      bool hasEnvId() const { return this->envId_ != nullptr;};
+      void deleteEnvId() { this->envId_ = nullptr;};
+      inline string getEnvId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
+      inline Desktops& setEnvId(string envId) { DARABONBA_PTR_SET_VALUE(envId_, envId) };
+
+
+      // envType Field Functions 
+      bool hasEnvType() const { return this->envType_ != nullptr;};
+      void deleteEnvType() { this->envType_ = nullptr;};
+      inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+      inline Desktops& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
       // expiredTime Field Functions 
@@ -796,6 +814,8 @@ namespace Models
       shared_ptr<string> directoryId_ {};
       // The type of the directory.
       shared_ptr<string> directoryType_ {};
+      shared_ptr<string> envId_ {};
+      shared_ptr<string> envType_ {};
       // The expiration date of the subscription cloud computer share.
       shared_ptr<string> expiredTime_ {};
       shared_ptr<vector<string>> expiredTimes_ {};

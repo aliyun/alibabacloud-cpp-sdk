@@ -54,6 +54,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DesktopType, desktopType_);
         DARABONBA_PTR_TO_JSON(EndUserCount, endUserCount_);
         DARABONBA_PTR_TO_JSON(EntraDomainName, entraDomainName_);
+        DARABONBA_PTR_TO_JSON(EnvId, envId_);
+        DARABONBA_PTR_TO_JSON(EnvType, envType_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_TO_JSON(ExpiredTimes, expiredTimes_);
         DARABONBA_PTR_TO_JSON(GpuCount, gpuCount_);
@@ -113,6 +115,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DesktopType, desktopType_);
         DARABONBA_PTR_FROM_JSON(EndUserCount, endUserCount_);
         DARABONBA_PTR_FROM_JSON(EntraDomainName, entraDomainName_);
+        DARABONBA_PTR_FROM_JSON(EnvId, envId_);
+        DARABONBA_PTR_FROM_JSON(EnvType, envType_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_FROM_JSON(ExpiredTimes, expiredTimes_);
         DARABONBA_PTR_FROM_JSON(GpuCount, gpuCount_);
@@ -323,15 +327,15 @@ namespace Models
         && this->bindAmount_ == nullptr && this->buyDesktopsCount_ == nullptr && this->comments_ == nullptr && this->connectDuration_ == nullptr && this->countPerStatus_ == nullptr
         && this->cpu_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->dataDiskCategory_ == nullptr && this->dataDiskSize_ == nullptr
         && this->desktopCount_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->desktopType_ == nullptr && this->endUserCount_ == nullptr
-        && this->entraDomainName_ == nullptr && this->expiredTime_ == nullptr && this->expiredTimes_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverVersion_ == nullptr
-        && this->gpuSpec_ == nullptr && this->idleDisconnectDuration_ == nullptr && this->imageId_ == nullptr && this->isLdap_ == nullptr && this->keepDuration_ == nullptr
-        && this->loadPolicy_ == nullptr && this->maxDesktopsCount_ == nullptr && this->memory_ == nullptr && this->minDesktopsCount_ == nullptr && this->officeSiteId_ == nullptr
-        && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr
-        && this->ownType_ == nullptr && this->payType_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr
-        && this->policyGroupNameList_ == nullptr && this->protocolType_ == nullptr && this->ratioThreshold_ == nullptr && this->resetType_ == nullptr && this->simpleUserGroupId_ == nullptr
-        && this->status_ == nullptr && this->stopDuration_ == nullptr && this->subnetId_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr
-        && this->tags_ == nullptr && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr && this->version_ == nullptr && this->volumeEncryptionEnabled_ == nullptr
-        && this->volumeEncryptionKey_ == nullptr; };
+        && this->entraDomainName_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr && this->expiredTime_ == nullptr && this->expiredTimes_ == nullptr
+        && this->gpuCount_ == nullptr && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->idleDisconnectDuration_ == nullptr && this->imageId_ == nullptr
+        && this->isLdap_ == nullptr && this->keepDuration_ == nullptr && this->loadPolicy_ == nullptr && this->maxDesktopsCount_ == nullptr && this->memory_ == nullptr
+        && this->minDesktopsCount_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr
+        && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr && this->ownType_ == nullptr && this->payType_ == nullptr && this->policyGroupId_ == nullptr
+        && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->protocolType_ == nullptr && this->ratioThreshold_ == nullptr
+        && this->resetType_ == nullptr && this->simpleUserGroupId_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr && this->subnetId_ == nullptr
+        && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr
+        && this->version_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -451,6 +455,20 @@ namespace Models
       void deleteEntraDomainName() { this->entraDomainName_ = nullptr;};
       inline string getEntraDomainName() const { DARABONBA_PTR_GET_DEFAULT(entraDomainName_, "") };
       inline DesktopGroups& setEntraDomainName(string entraDomainName) { DARABONBA_PTR_SET_VALUE(entraDomainName_, entraDomainName) };
+
+
+      // envId Field Functions 
+      bool hasEnvId() const { return this->envId_ != nullptr;};
+      void deleteEnvId() { this->envId_ = nullptr;};
+      inline string getEnvId() const { DARABONBA_PTR_GET_DEFAULT(envId_, "") };
+      inline DesktopGroups& setEnvId(string envId) { DARABONBA_PTR_SET_VALUE(envId_, envId) };
+
+
+      // envType Field Functions 
+      bool hasEnvType() const { return this->envType_ != nullptr;};
+      void deleteEnvType() { this->envType_ = nullptr;};
+      inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+      inline DesktopGroups& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
       // expiredTime Field Functions 
@@ -780,6 +798,8 @@ namespace Models
       // The number of users who can access the cloud computer share.
       shared_ptr<int32_t> endUserCount_ {};
       shared_ptr<string> entraDomainName_ {};
+      shared_ptr<string> envId_ {};
+      shared_ptr<string> envType_ {};
       // The expiration date of the subscription cloud computer share.
       shared_ptr<string> expiredTime_ {};
       shared_ptr<vector<string>> expiredTimes_ {};
