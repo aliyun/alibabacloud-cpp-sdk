@@ -66,6 +66,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AgentDisposalMethod, agentDisposalMethod_);
           DARABONBA_PTR_TO_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
           DARABONBA_PTR_TO_JSON(AgentDisposalSuggestion, agentDisposalSuggestion_);
+          DARABONBA_PTR_TO_JSON(AgentDisposes, agentDisposes_);
           DARABONBA_PTR_TO_JSON(AlertNum, alertNum_);
           DARABONBA_PTR_TO_JSON(AlertUuid, alertUuid_);
           DARABONBA_PTR_TO_JSON(Aliuid, aliuid_);
@@ -91,6 +92,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AgentDisposalMethod, agentDisposalMethod_);
           DARABONBA_PTR_FROM_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
           DARABONBA_PTR_FROM_JSON(AgentDisposalSuggestion, agentDisposalSuggestion_);
+          DARABONBA_PTR_FROM_JSON(AgentDisposes, agentDisposes_);
           DARABONBA_PTR_FROM_JSON(AlertNum, alertNum_);
           DARABONBA_PTR_FROM_JSON(AlertUuid, alertUuid_);
           DARABONBA_PTR_FROM_JSON(Aliuid, aliuid_);
@@ -122,12 +124,54 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class AgentDisposes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AgentDisposes& obj) { 
+            DARABONBA_PTR_TO_JSON(AgentDisposalMethod, agentDisposalMethod_);
+            DARABONBA_PTR_TO_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
+          };
+          friend void from_json(const Darabonba::Json& j, AgentDisposes& obj) { 
+            DARABONBA_PTR_FROM_JSON(AgentDisposalMethod, agentDisposalMethod_);
+            DARABONBA_PTR_FROM_JSON(AgentDisposalPlaybookUuid, agentDisposalPlaybookUuid_);
+          };
+          AgentDisposes() = default ;
+          AgentDisposes(const AgentDisposes &) = default ;
+          AgentDisposes(AgentDisposes &&) = default ;
+          AgentDisposes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AgentDisposes() = default ;
+          AgentDisposes& operator=(const AgentDisposes &) = default ;
+          AgentDisposes& operator=(AgentDisposes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->agentDisposalMethod_ == nullptr
+        && this->agentDisposalPlaybookUuid_ == nullptr; };
+          // agentDisposalMethod Field Functions 
+          bool hasAgentDisposalMethod() const { return this->agentDisposalMethod_ != nullptr;};
+          void deleteAgentDisposalMethod() { this->agentDisposalMethod_ = nullptr;};
+          inline string getAgentDisposalMethod() const { DARABONBA_PTR_GET_DEFAULT(agentDisposalMethod_, "") };
+          inline AgentDisposes& setAgentDisposalMethod(string agentDisposalMethod) { DARABONBA_PTR_SET_VALUE(agentDisposalMethod_, agentDisposalMethod) };
+
+
+          // agentDisposalPlaybookUuid Field Functions 
+          bool hasAgentDisposalPlaybookUuid() const { return this->agentDisposalPlaybookUuid_ != nullptr;};
+          void deleteAgentDisposalPlaybookUuid() { this->agentDisposalPlaybookUuid_ = nullptr;};
+          inline string getAgentDisposalPlaybookUuid() const { DARABONBA_PTR_GET_DEFAULT(agentDisposalPlaybookUuid_, "") };
+          inline AgentDisposes& setAgentDisposalPlaybookUuid(string agentDisposalPlaybookUuid) { DARABONBA_PTR_SET_VALUE(agentDisposalPlaybookUuid_, agentDisposalPlaybookUuid) };
+
+
+        protected:
+          shared_ptr<string> agentDisposalMethod_ {};
+          shared_ptr<string> agentDisposalPlaybookUuid_ {};
+        };
+
         virtual bool empty() const override { return this->agentConfidence_ == nullptr
-        && this->agentDisposalMethod_ == nullptr && this->agentDisposalPlaybookUuid_ == nullptr && this->agentDisposalSuggestion_ == nullptr && this->alertNum_ == nullptr && this->alertUuid_ == nullptr
-        && this->aliuid_ == nullptr && this->cloudCode_ == nullptr && this->entityId_ == nullptr && this->entityInfo_ == nullptr && this->entityName_ == nullptr
-        && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->eventNum_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->isAsset_ == nullptr && this->isMalware_ == nullptr && this->malwareType_ == nullptr
-        && this->subUserId_ == nullptr && this->tags_ == nullptr; };
+        && this->agentDisposalMethod_ == nullptr && this->agentDisposalPlaybookUuid_ == nullptr && this->agentDisposalSuggestion_ == nullptr && this->agentDisposes_ == nullptr && this->alertNum_ == nullptr
+        && this->alertUuid_ == nullptr && this->aliuid_ == nullptr && this->cloudCode_ == nullptr && this->entityId_ == nullptr && this->entityInfo_ == nullptr
+        && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->eventNum_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->isAsset_ == nullptr && this->isMalware_ == nullptr
+        && this->malwareType_ == nullptr && this->subUserId_ == nullptr && this->tags_ == nullptr; };
         // agentConfidence Field Functions 
         bool hasAgentConfidence() const { return this->agentConfidence_ != nullptr;};
         void deleteAgentConfidence() { this->agentConfidence_ = nullptr;};
@@ -154,6 +198,15 @@ namespace Models
         void deleteAgentDisposalSuggestion() { this->agentDisposalSuggestion_ = nullptr;};
         inline string getAgentDisposalSuggestion() const { DARABONBA_PTR_GET_DEFAULT(agentDisposalSuggestion_, "") };
         inline ResponseData& setAgentDisposalSuggestion(string agentDisposalSuggestion) { DARABONBA_PTR_SET_VALUE(agentDisposalSuggestion_, agentDisposalSuggestion) };
+
+
+        // agentDisposes Field Functions 
+        bool hasAgentDisposes() const { return this->agentDisposes_ != nullptr;};
+        void deleteAgentDisposes() { this->agentDisposes_ = nullptr;};
+        inline const vector<ResponseData::AgentDisposes> & getAgentDisposes() const { DARABONBA_PTR_GET_CONST(agentDisposes_, vector<ResponseData::AgentDisposes>) };
+        inline vector<ResponseData::AgentDisposes> getAgentDisposes() { DARABONBA_PTR_GET(agentDisposes_, vector<ResponseData::AgentDisposes>) };
+        inline ResponseData& setAgentDisposes(const vector<ResponseData::AgentDisposes> & agentDisposes) { DARABONBA_PTR_SET_VALUE(agentDisposes_, agentDisposes) };
+        inline ResponseData& setAgentDisposes(vector<ResponseData::AgentDisposes> && agentDisposes) { DARABONBA_PTR_SET_RVALUE(agentDisposes_, agentDisposes) };
 
 
         // alertNum Field Functions 
@@ -294,6 +347,7 @@ namespace Models
         shared_ptr<string> agentDisposalMethod_ {};
         shared_ptr<string> agentDisposalPlaybookUuid_ {};
         shared_ptr<string> agentDisposalSuggestion_ {};
+        shared_ptr<vector<ResponseData::AgentDisposes>> agentDisposes_ {};
         shared_ptr<int32_t> alertNum_ {};
         shared_ptr<string> alertUuid_ {};
         shared_ptr<int64_t> aliuid_ {};

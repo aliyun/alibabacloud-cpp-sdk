@@ -106,6 +106,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(OpLevel, opLevel_);
             DARABONBA_PTR_TO_JSON(ParamConfig, paramConfig_);
             DARABONBA_PTR_TO_JSON(TaskConfig, taskConfig_);
+            DARABONBA_PTR_TO_JSON(UnAvailableCode, unAvailableCode_);
             DARABONBA_PTR_TO_JSON(Uuid, uuid_);
             DARABONBA_PTR_TO_JSON(WafPlaybook, wafPlaybook_);
           };
@@ -118,6 +119,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(OpLevel, opLevel_);
             DARABONBA_PTR_FROM_JSON(ParamConfig, paramConfig_);
             DARABONBA_PTR_FROM_JSON(TaskConfig, taskConfig_);
+            DARABONBA_PTR_FROM_JSON(UnAvailableCode, unAvailableCode_);
             DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
             DARABONBA_PTR_FROM_JSON(WafPlaybook, wafPlaybook_);
           };
@@ -134,7 +136,7 @@ namespace Models
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->available_ == nullptr
         && this->description_ == nullptr && this->displayName_ == nullptr && this->name_ == nullptr && this->opCode_ == nullptr && this->opLevel_ == nullptr
-        && this->paramConfig_ == nullptr && this->taskConfig_ == nullptr && this->uuid_ == nullptr && this->wafPlaybook_ == nullptr; };
+        && this->paramConfig_ == nullptr && this->taskConfig_ == nullptr && this->unAvailableCode_ == nullptr && this->uuid_ == nullptr && this->wafPlaybook_ == nullptr; };
           // available Field Functions 
           bool hasAvailable() const { return this->available_ != nullptr;};
           void deleteAvailable() { this->available_ = nullptr;};
@@ -193,6 +195,13 @@ namespace Models
           inline PlaybookList& setTaskConfig(string taskConfig) { DARABONBA_PTR_SET_VALUE(taskConfig_, taskConfig) };
 
 
+          // unAvailableCode Field Functions 
+          bool hasUnAvailableCode() const { return this->unAvailableCode_ != nullptr;};
+          void deleteUnAvailableCode() { this->unAvailableCode_ = nullptr;};
+          inline string getUnAvailableCode() const { DARABONBA_PTR_GET_DEFAULT(unAvailableCode_, "") };
+          inline PlaybookList& setUnAvailableCode(string unAvailableCode) { DARABONBA_PTR_SET_VALUE(unAvailableCode_, unAvailableCode) };
+
+
           // uuid Field Functions 
           bool hasUuid() const { return this->uuid_ != nullptr;};
           void deleteUuid() { this->uuid_ = nullptr;};
@@ -226,6 +235,7 @@ namespace Models
           shared_ptr<vector<Darabonba::Json>> paramConfig_ {};
           // The opcode configuration.
           shared_ptr<string> taskConfig_ {};
+          shared_ptr<string> unAvailableCode_ {};
           shared_ptr<string> uuid_ {};
           // Indicates whether the playbook is intended for Web Application Firewall (WAF). Valid values:
           // 

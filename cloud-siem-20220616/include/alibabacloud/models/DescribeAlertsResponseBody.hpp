@@ -91,6 +91,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
+          DARABONBA_PTR_TO_JSON(InvestigationReport, investigationReport_);
           DARABONBA_PTR_TO_JSON(IsDefend, isDefend_);
           DARABONBA_PTR_TO_JSON(LogTime, logTime_);
           DARABONBA_PTR_TO_JSON(LogUuid, logUuid_);
@@ -132,6 +133,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
+          DARABONBA_PTR_FROM_JSON(InvestigationReport, investigationReport_);
           DARABONBA_PTR_FROM_JSON(IsDefend, isDefend_);
           DARABONBA_PTR_FROM_JSON(LogTime, logTime_);
           DARABONBA_PTR_FROM_JSON(LogUuid, logUuid_);
@@ -215,9 +217,9 @@ namespace Models
         && this->alertStatus_ == nullptr && this->alertTitle_ == nullptr && this->alertTitleEn_ == nullptr && this->alertType_ == nullptr && this->alertTypeCode_ == nullptr
         && this->alertTypeEn_ == nullptr && this->alertUuid_ == nullptr && this->assetList_ == nullptr && this->attCk_ == nullptr && this->cloudCode_ == nullptr
         && this->detectionRuleId_ == nullptr && this->endTime_ == nullptr && this->entityList_ == nullptr && this->extendContent_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->isDefend_ == nullptr && this->logTime_ == nullptr
-        && this->logUuid_ == nullptr && this->mainUserId_ == nullptr && this->occurTime_ == nullptr && this->productId_ == nullptr && this->startTime_ == nullptr
-        && this->subUserId_ == nullptr && this->subUserName_ == nullptr && this->vendorId_ == nullptr; };
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->investigationReport_ == nullptr && this->isDefend_ == nullptr
+        && this->logTime_ == nullptr && this->logUuid_ == nullptr && this->mainUserId_ == nullptr && this->occurTime_ == nullptr && this->productId_ == nullptr
+        && this->startTime_ == nullptr && this->subUserId_ == nullptr && this->subUserName_ == nullptr && this->vendorId_ == nullptr; };
         // alertDesc Field Functions 
         bool hasAlertDesc() const { return this->alertDesc_ != nullptr;};
         void deleteAlertDesc() { this->alertDesc_ = nullptr;};
@@ -423,6 +425,13 @@ namespace Models
         inline ResponseData& setIncidentUuid(string incidentUuid) { DARABONBA_PTR_SET_VALUE(incidentUuid_, incidentUuid) };
 
 
+        // investigationReport Field Functions 
+        bool hasInvestigationReport() const { return this->investigationReport_ != nullptr;};
+        void deleteInvestigationReport() { this->investigationReport_ = nullptr;};
+        inline string getInvestigationReport() const { DARABONBA_PTR_GET_DEFAULT(investigationReport_, "") };
+        inline ResponseData& setInvestigationReport(string investigationReport) { DARABONBA_PTR_SET_VALUE(investigationReport_, investigationReport) };
+
+
         // isDefend Field Functions 
         bool hasIsDefend() const { return this->isDefend_ != nullptr;};
         void deleteIsDefend() { this->isDefend_ = nullptr;};
@@ -556,6 +565,7 @@ namespace Models
         shared_ptr<int64_t> id_ {};
         // The UUID of the event.
         shared_ptr<string> incidentUuid_ {};
+        shared_ptr<string> investigationReport_ {};
         // Indicates whether an attack is defended. Valid values:
         // 
         // *   0: detected.

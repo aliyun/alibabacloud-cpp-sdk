@@ -16,6 +16,4 @@ else()
   FetchContent_MakeAvailable(_alibabacloud_credentials)
   message(STATUS "Added alibabacloud_credentials source : ${_alibabacloud_credentials_SOURCE_DIR}")
   message(STATUS "Added alibabacloud_credentials binary : ${_alibabacloud_credentials_BINARY_DIR}")
-
-  target_include_directories(${PROJECT_NAME} PRIVATE "${_alibabacloud_credentials_SOURCE_DIR}/include")
 endif()
