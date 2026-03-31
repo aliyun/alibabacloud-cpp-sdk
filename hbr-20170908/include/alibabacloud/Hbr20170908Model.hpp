@@ -147,6 +147,9 @@
 #include <alibabacloud/models/DescribeCrossAccountsRequest.hpp>
 #include <alibabacloud/models/DescribeCrossAccountsResponseBody.hpp>
 #include <alibabacloud/models/DescribeCrossAccountsResponse.hpp>
+#include <alibabacloud/models/DescribeDataSourcesRequest.hpp>
+#include <alibabacloud/models/DescribeDataSourcesResponseBody.hpp>
+#include <alibabacloud/models/DescribeDataSourcesResponse.hpp>
 #include <alibabacloud/models/DescribeHanaBackupPlansRequest.hpp>
 #include <alibabacloud/models/DescribeHanaBackupPlansResponseBody.hpp>
 #include <alibabacloud/models/DescribeHanaBackupPlansResponse.hpp>
@@ -238,6 +241,9 @@
 #include <alibabacloud/models/ListProtectedResourcesResponse.hpp>
 #include <alibabacloud/models/OpenHbrServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenHbrServiceResponse.hpp>
+#include <alibabacloud/models/RemoveDataSourceRequest.hpp>
+#include <alibabacloud/models/RemoveDataSourceResponseBody.hpp>
+#include <alibabacloud/models/RemoveDataSourceResponse.hpp>
 #include <alibabacloud/models/SearchHistoricalSnapshotsRequest.hpp>
 #include <alibabacloud/models/SearchHistoricalSnapshotsShrinkRequest.hpp>
 #include <alibabacloud/models/SearchHistoricalSnapshotsResponseBody.hpp>
@@ -265,6 +271,9 @@
 #include <alibabacloud/models/UpdateContainerClusterRequest.hpp>
 #include <alibabacloud/models/UpdateContainerClusterResponseBody.hpp>
 #include <alibabacloud/models/UpdateContainerClusterResponse.hpp>
+#include <alibabacloud/models/UpdateDataSourceRequest.hpp>
+#include <alibabacloud/models/UpdateDataSourceResponseBody.hpp>
+#include <alibabacloud/models/UpdateDataSourceResponse.hpp>
 #include <alibabacloud/models/UpdateHanaBackupPlanRequest.hpp>
 #include <alibabacloud/models/UpdateHanaBackupPlanResponseBody.hpp>
 #include <alibabacloud/models/UpdateHanaBackupPlanResponse.hpp>

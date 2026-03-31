@@ -885,6 +885,19 @@ namespace Hbr20170908
       Models::DescribeCrossAccountsResponse describeCrossAccounts(const Models::DescribeCrossAccountsRequest &request);
 
       /**
+       * @param request DescribeDataSourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDataSourcesResponse
+       */
+      Models::DescribeDataSourcesResponse describeDataSourcesWithOptions(const Models::DescribeDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeDataSourcesRequest
+       * @return DescribeDataSourcesResponse
+       */
+      Models::DescribeDataSourcesResponse describeDataSources(const Models::DescribeDataSourcesRequest &request);
+
+      /**
        * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
        *
        * @param request DescribeHanaBackupPlansRequest
@@ -1441,6 +1454,19 @@ namespace Hbr20170908
       Models::OpenHbrServiceResponse openHbrService();
 
       /**
+       * @param request RemoveDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveDataSourceResponse
+       */
+      Models::RemoveDataSourceResponse removeDataSourceWithOptions(const Models::RemoveDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request RemoveDataSourceRequest
+       * @return RemoveDataSourceResponse
+       */
+      Models::RemoveDataSourceResponse removeDataSource(const Models::RemoveDataSourceRequest &request);
+
+      /**
        * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
        *
        * @param tmpReq SearchHistoricalSnapshotsRequest
@@ -1599,6 +1625,19 @@ namespace Hbr20170908
        * @return UpdateContainerClusterResponse
        */
       Models::UpdateContainerClusterResponse updateContainerCluster(const Models::UpdateContainerClusterRequest &request);
+
+      /**
+       * @param request UpdateDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataSourceResponse
+       */
+      Models::UpdateDataSourceResponse updateDataSourceWithOptions(const Models::UpdateDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request UpdateDataSourceRequest
+       * @return UpdateDataSourceResponse
+       */
+      Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
 
       /**
        * @summary Updates an SAP HANA backup plan.

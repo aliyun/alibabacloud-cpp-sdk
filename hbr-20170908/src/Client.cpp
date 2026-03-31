@@ -3093,6 +3093,64 @@ DescribeCrossAccountsResponse Client::describeCrossAccounts(const DescribeCrossA
 }
 
 /**
+ * @param request DescribeDataSourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataSourcesResponse
+ */
+DescribeDataSourcesResponse Client::describeDataSourcesWithOptions(const DescribeDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDataSourceId()) {
+    query["DataSourceId"] = request.getDataSourceId();
+  }
+
+  if (!!request.hasDataSourceName()) {
+    query["DataSourceName"] = request.getDataSourceName();
+  }
+
+  if (!!request.hasDataSourceType()) {
+    query["DataSourceType"] = request.getDataSourceType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataSources"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataSourcesResponse>();
+}
+
+/**
+ * @param request DescribeDataSourcesRequest
+ * @return DescribeDataSourcesResponse
+ */
+DescribeDataSourcesResponse Client::describeDataSources(const DescribeDataSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataSourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
  *
  * @param request DescribeHanaBackupPlansRequest
@@ -4885,6 +4943,44 @@ OpenHbrServiceResponse Client::openHbrService() {
 }
 
 /**
+ * @param request RemoveDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveDataSourceResponse
+ */
+RemoveDataSourceResponse Client::removeDataSourceWithOptions(const RemoveDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataSourceId()) {
+    query["DataSourceId"] = request.getDataSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveDataSource"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveDataSourceResponse>();
+}
+
+/**
+ * @param request RemoveDataSourceRequest
+ * @return RemoveDataSourceResponse
+ */
+RemoveDataSourceResponse Client::removeDataSource(const RemoveDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeDataSourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
  *
  * @param tmpReq SearchHistoricalSnapshotsRequest
@@ -5474,6 +5570,88 @@ UpdateContainerClusterResponse Client::updateContainerClusterWithOptions(const U
 UpdateContainerClusterResponse Client::updateContainerCluster(const UpdateContainerClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateContainerClusterWithOptions(request, runtime);
+}
+
+/**
+ * @param request UpdateDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataSourceResponse
+ */
+UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasConnectionInfo()) {
+    query["ConnectionInfo"] = request.getConnectionInfo();
+  }
+
+  if (!!request.hasCredential()) {
+    query["Credential"] = request.getCredential();
+  }
+
+  if (!!request.hasDataSourceId()) {
+    query["DataSourceId"] = request.getDataSourceId();
+  }
+
+  if (!!request.hasDataSourceName()) {
+    query["DataSourceName"] = request.getDataSourceName();
+  }
+
+  if (!!request.hasExclude()) {
+    query["Exclude"] = request.getExclude();
+  }
+
+  if (!!request.hasInclude()) {
+    query["Include"] = request.getInclude();
+  }
+
+  if (!!request.hasIndexLevel()) {
+    query["IndexLevel"] = request.getIndexLevel();
+  }
+
+  if (!!request.hasOptions()) {
+    query["Options"] = request.getOptions();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasSchedule()) {
+    query["Schedule"] = request.getSchedule();
+  }
+
+  if (!!request.hasSpeedLimit()) {
+    query["SpeedLimit"] = request.getSpeedLimit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataSource"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataSourceResponse>();
+}
+
+/**
+ * @param request UpdateDataSourceRequest
+ * @return UpdateDataSourceResponse
+ */
+UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataSourceWithOptions(request, runtime);
 }
 
 /**
