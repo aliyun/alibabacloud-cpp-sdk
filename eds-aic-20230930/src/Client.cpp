@@ -663,6 +663,10 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
     query["PromotionId"] = request.getPromotionId();
   }
 
+  if (!!request.hasSaleMode()) {
+    query["SaleMode"] = request.getSaleMode();
+  }
+
   if (!!request.hasStreamMode()) {
     query["StreamMode"] = request.getStreamMode();
   }

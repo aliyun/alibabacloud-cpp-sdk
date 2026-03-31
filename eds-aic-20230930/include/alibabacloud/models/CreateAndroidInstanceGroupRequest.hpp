@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_TO_JSON(StreamMode, streamMode_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -67,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_FROM_JSON(StreamMode, streamMode_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -295,8 +297,8 @@ namespace Models
         && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->enableIpv6_ == nullptr && this->gpuAcceleration_ == nullptr && this->imageId_ == nullptr
         && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->keyPairId_ == nullptr && this->networkInfo_ == nullptr
         && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->streamMode_ == nullptr && this->tag_ == nullptr
-        && this->vSwitchId_ == nullptr; };
+        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->saleMode_ == nullptr && this->streamMode_ == nullptr
+        && this->tag_ == nullptr && this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -467,6 +469,13 @@ namespace Models
     inline CreateAndroidInstanceGroupRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
+    // saleMode Field Functions 
+    bool hasSaleMode() const { return this->saleMode_ != nullptr;};
+    void deleteSaleMode() { this->saleMode_ = nullptr;};
+    inline string getSaleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline CreateAndroidInstanceGroupRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
+
+
     // streamMode Field Functions 
     bool hasStreamMode() const { return this->streamMode_ != nullptr;};
     void deleteStreamMode() { this->streamMode_ = nullptr;};
@@ -587,6 +596,7 @@ namespace Models
     // The ID of the policy. You can call the [ListPolicyGroups](https://help.aliyun.com/document_detail/2807352.html) operation to query policies.
     shared_ptr<string> policyGroupId_ {};
     shared_ptr<string> promotionId_ {};
+    shared_ptr<string> saleMode_ {};
     shared_ptr<int32_t> streamMode_ {};
     // The tags
     shared_ptr<vector<CreateAndroidInstanceGroupRequest::Tag>> tag_ {};
