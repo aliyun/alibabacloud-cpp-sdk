@@ -187,29 +187,28 @@ namespace Models
       protected:
         // The ID of the Alibaba Cloud account to which the resource belongs.
         shared_ptr<string> accountId_ {};
-        // The zone where the resource resides.
+        // The ID of the zone in which the resource resides.
         shared_ptr<string> availabilityZone_ {};
         // The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
         shared_ptr<int64_t> captureTime_ {};
-        // A list of rules associated with the resource and their compliance details.
+        // The information about the rules that evaluated the resource and the compliance evaluation result.
         shared_ptr<string> configuration_ {};
-        // The details of the resource change that triggered this evaluation.
+        // The details of the resource change that triggered the compliance evaluation.
         shared_ptr<string> configurationDiff_ {};
-        // The ID of the region where the resource resides.
+        // The ID of the region in which the resource resides.
         shared_ptr<string> region_ {};
         // The timestamp when the resource was created. Unit: milliseconds.
         shared_ptr<int64_t> resourceCreateTime_ {};
-        // The resource ID.
+        // The ID of the resource.
         shared_ptr<string> resourceId_ {};
-        // The resource name.
+        // The name of the resource.
         shared_ptr<string> resourceName_ {};
-        // The status of the resource. The status of a resource is defined by the corresponding Alibaba Cloud service. This parameter can be empty. For example:
+        // The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
         // 
-        // - If the resource type is ACS::ECS::Instance, this parameter can be Running or Stopped because an ECS instance is stateful.
-        // 
-        // - If the resource type is ACS::OSS::Bucket, this parameter is empty because an OSS bucket is stateless.
+        // *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+        // *   If the ResourceType parameter is set to ACS::OSS::Bucket, the resource is an OSS bucket that does not have a specific state. In this case, this parameter is left empty.
         shared_ptr<string> resourceStatus_ {};
-        // The resource type.
+        // The type of the resource.
         shared_ptr<string> resourceType_ {};
         // The tags of the resource.
         shared_ptr<string> tags_ {};
@@ -241,11 +240,14 @@ namespace Models
 
 
     protected:
-      // A list of compliance timeline entries.
+      // The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+      // 
+      // *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+      // *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
       shared_ptr<vector<ResourceComplianceTimeline::ComplianceList>> complianceList_ {};
-      // The maximum number of entries returned per page.
+      // The maximum number of entries returned for a single request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token used to query the next page.
+      // A pagination token. It can be used in the next request to retrieve a new page of results.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -270,7 +272,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The compliance timeline of the resource.
+    // The information about the compliance timeline.
     shared_ptr<GetAggregateResourceComplianceTimelineResponseBody::ResourceComplianceTimeline> resourceComplianceTimeline_ {};
   };
 

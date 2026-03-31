@@ -106,19 +106,19 @@ namespace Models
 
 
     protected:
-      // The identifier of the supported rule template.
+      // The ID of the supported rule template.
       // 
       // This parameter is required.
       shared_ptr<string> managedRuleIdentifier_ {};
-      // The type of the automatic remediation template. Valid value: OOS (Operation Orchestration).
+      // The type of the automatic remediation template. The value is set to OOS.
       shared_ptr<string> remediationType_ {};
-      // The definition of the template parameters.
+      // The parameters of the automatic remediation template.
       shared_ptr<string> templateDefinition_ {};
       // The description of the automatic remediation template.
       // 
       // This parameter is required.
       shared_ptr<string> templateDescription_ {};
-      // The identifier of the automatic remediation template.
+      // The ID of the automatic remediation template.
       shared_ptr<string> templateIdentifier_ {};
       // The name of the automatic remediation template.
       shared_ptr<string> templateName_ {};

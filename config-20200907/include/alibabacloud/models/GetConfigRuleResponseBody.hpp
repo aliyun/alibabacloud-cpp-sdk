@@ -153,9 +153,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // TagKey
         shared_ptr<string> tagKey_ {};
-        // The tag value.
+        // TagValue
         shared_ptr<string> tagValue_ {};
       };
 
@@ -197,7 +197,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
         shared_ptr<string> tagKey_ {};
         // The tag value.
         shared_ptr<string> tagValue_ {};
@@ -275,27 +275,22 @@ namespace Models
         protected:
           // The event source.
           // 
-          // > Only Cloud Config events are supported. The value is aliyun.config.
+          // >  Only aliyun.config is returned, which indicates that only events related to Cloud Config are supported.
           shared_ptr<string> eventSource_ {};
-          // The execution frequency of the rule. Valid values:
+          // The interval at which the rule is triggered. Valid values:
           // 
-          // - One_Hour: 1 hour.
+          // *   One_Hour
+          // *   Three_Hours
+          // *   Six_Hours
+          // *   Twelve_Hours
+          // *   TwentyFour_Hours
           // 
-          // - Three_Hours: 3 hours.
-          // 
-          // - Six_Hours: 6 hours.
-          // 
-          // - Twelve_Hours: 12 hours.
-          // 
-          // - TwentyFour_Hours: 24 hours.
-          // 
-          // > This parameter is returned only when the rule is triggered periodically.
+          // >  This parameter is returned if the rule is periodically triggered.
           shared_ptr<string> maximumExecutionFrequency_ {};
           // The trigger type of the rule. Valid values:
           // 
-          // - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-          // 
-          // - ScheduledNotification: The rule is triggered periodically.
+          // *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+          // *   ScheduledNotification: The rule is periodically triggered.
           shared_ptr<string> messageType_ {};
         };
 
@@ -327,17 +322,15 @@ namespace Models
       protected:
         // The identifier of the rule.
         // 
-        // - If the rule is a managed rule, the value of this parameter is the identifier of the managed rule.
-        // 
-        // - If the rule is a custom rule, the value of this parameter is the ARN of the function.
+        // *   If the rule is a managed rule, the value of this parameter is the identifier of the managed rule.
+        // *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
         shared_ptr<string> identifier_ {};
-        // The owner of the rule. Valid values:
+        // The type of the rule. Valid values:
         // 
-        // - CUSTOM_FC: a custom rule.
-        // 
-        // - ALIYUN: a managed rule.
+        // *   CUSTOM_FC: a custom rule.
+        // *   ALIYUN: a managed rule.
         shared_ptr<string> owner_ {};
-        // The source details.
+        // The details of the source of the rule.
         shared_ptr<vector<Source::SourceDetails>> sourceDetails_ {};
       };
 
@@ -371,7 +364,7 @@ namespace Models
 
 
       protected:
-        // The list of resource types that are evaluated by the rule. You can also view this information in the ResourceTypesScope field.
+        // The types of the resources to be evaluated against the rule. You can also view the resource types by using the ResourceTypesScope parameter.
         shared_ptr<vector<string>> complianceResourceTypes_ {};
       };
 
@@ -455,27 +448,22 @@ namespace Models
         protected:
           // The event source.
           // 
-          // > Only Cloud Config events are supported. The value is aliyun.config.
+          // >  Only aliyun.config is returned, which indicates that only events related to Cloud Config are supported.
           shared_ptr<string> eventSource_ {};
-          // The execution frequency of the rule. Valid values:
+          // The interval at which the rule is triggered. Valid values:
           // 
-          // - One_Hour: 1 hour.
+          // *   One_Hour
+          // *   Three_Hours
+          // *   Six_Hours
+          // *   Twelve_Hours
+          // *   TwentyFour_Hours
           // 
-          // - Three_Hours: 3 hours.
-          // 
-          // - Six_Hours: 6 hours.
-          // 
-          // - Twelve_Hours: 12 hours.
-          // 
-          // - TwentyFour_Hours: 24 hours.
-          // 
-          // > This parameter is returned only when the rule is triggered periodically.
+          // >  This parameter is returned if the rule is periodically triggered.
           shared_ptr<string> maximumExecutionFrequency_ {};
           // The trigger type of the rule. Valid values:
           // 
-          // - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-          // 
-          // - ScheduledNotification: The rule is triggered periodically.
+          // *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+          // *   ScheduledNotification: The rule is periodically triggered.
           shared_ptr<string> messageType_ {};
         };
 
@@ -540,19 +528,19 @@ namespace Models
 
 
       protected:
-        // The details of the required input parameters of the managed rule.
+        // The settings of the required input parameters for the managed rule.
         Darabonba::Json compulsoryInputParameterDetails_ {};
         // The description of the managed rule.
         shared_ptr<string> description_ {};
         // The identifier of the managed rule.
         shared_ptr<string> identifier_ {};
-        // The list of rule labels.
+        // The rule tags.
         shared_ptr<vector<string>> labels_ {};
         // The name of the managed rule.
         shared_ptr<string> managedRuleName_ {};
-        // The details of the optional input parameters of the managed rule.
+        // The settings of the optional input parameters for the managed rule.
         Darabonba::Json optionalInputParameterDetails_ {};
-        // The source details of the managed rule.
+        // The details of the source of the managed rule.
         shared_ptr<vector<ManagedRule::SourceDetails>> sourceDetails_ {};
       };
 
@@ -656,13 +644,13 @@ namespace Models
 
 
       protected:
-        // The ID of the compliance package.
+        // The compliance package ID.
         shared_ptr<string> compliancePackId_ {};
         // The name of the compliance package.
         shared_ptr<string> compliancePackName_ {};
-        // The ID of the Alibaba Cloud account that was used to create the rule.
+        // The ID of the account that was used to create the rule.
         shared_ptr<string> creatorId_ {};
-        // The name of the creator.
+        // The name of the account that was used to create the rule.
         shared_ptr<string> creatorName_ {};
       };
 
@@ -759,25 +747,24 @@ namespace Models
 
 
       protected:
-        // The timestamp when the rule was first activated. Unit: milliseconds.
+        // The timestamp generated when the rule was first triggered. Unit: millisecond.
         shared_ptr<int64_t> firstActivatedTimestamp_ {};
-        // Indicates whether the rule has been evaluated. Valid values:
+        // Indicates whether resource configurations were evaluated based on the rule. Valid values:
         // 
-        // - true: The rule has been evaluated.
-        // 
-        // - false: The rule has not been evaluated.
+        // *   true: Resource configurations were evaluated based on the rule.
+        // *   false: Resource configurations were not evaluated based on the rule.
         shared_ptr<bool> firstEvaluationStarted_ {};
-        // The error code returned for the last failed execution of the rule.
+        // The error code returned for the previous failed compliance evaluation.
         shared_ptr<string> lastErrorCode_ {};
-        // The error message returned for the last failed execution of the rule.
+        // The error message returned for the previous failed compliance evaluation.
         shared_ptr<string> lastErrorMessage_ {};
-        // The timestamp when the last failed evaluation of the rule ended. Unit: milliseconds.
+        // The timestamp generated when the previous failed compliance evaluation of the rule ended. Unit: millisecond.
         shared_ptr<int64_t> lastFailedEvaluationTimestamp_ {};
-        // The timestamp when the last failed invocation of the rule started. Unit: milliseconds.
+        // The timestamp generated when the previous failed compliance evaluation of the rule started. Unit: millisecond.
         shared_ptr<int64_t> lastFailedInvocationTimestamp_ {};
-        // The timestamp when the last successful evaluation of the rule ended. Unit: milliseconds.
+        // The timestamp generated when the previous successful compliance evaluation of the rule ended. Unit: millisecond.
         shared_ptr<int64_t> lastSuccessfulEvaluationTimestamp_ {};
-        // The timestamp when the last successful invocation of the rule started. Unit: milliseconds.
+        // The timestamp generated when the previous successful compliance evaluation of the rule started. Unit: millisecond.
         shared_ptr<int64_t> lastSuccessfulInvocationTimestamp_ {};
       };
 
@@ -819,17 +806,14 @@ namespace Models
 
 
       protected:
-        // The compliance evaluation result. Valid values:
+        // The statistics on the compliance evaluation results by compliance type. Valid values:
         // 
-        // - COMPLIANT: The resource is compliant.
-        // 
-        // - NON_COMPLIANT: The resource is non-compliant.
-        // 
-        // - NOT_APPLICABLE: The rule does not apply to the resource.
-        // 
-        // - INSUFFICIENT_DATA: No data is available.
+        // *   COMPLIANT: The resource was evaluated as compliant.
+        // *   NON_COMPLIANT: The resource was evaluated as incompliant.
+        // *   NOT_APPLICABLE: The rule did not apply to your resource.
+        // *   INSUFFICIENT_DATA: No resource data was available.
         shared_ptr<string> complianceType_ {};
-        // The number of resources that are evaluated based on the compliance result.
+        // The number of evaluated resources.
         shared_ptr<int32_t> count_ {};
       };
 
@@ -1095,115 +1079,105 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account to which the rule belongs.
       shared_ptr<int64_t> accountId_ {};
-      // The compliance statistics of the rule.
+      // The details of compliance evaluation results.
       shared_ptr<ConfigRule::Compliance> compliance_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the rule.
+      // The ARN of the managed rule.
       shared_ptr<string> configRuleArn_ {};
-      // The execution status of the rule.
+      // The information about compliance evaluations performed by the rule.
       shared_ptr<ConfigRule::ConfigRuleEvaluationStatus> configRuleEvaluationStatus_ {};
       // The rule ID.
       shared_ptr<string> configRuleId_ {};
-      // The rule name.
+      // The name of the rule.
       shared_ptr<string> configRuleName_ {};
       // The status of the rule. Valid values:
       // 
-      // - ACTIVE: The rule is enabled.
-      // 
-      // - DELETING: The rule is being deleted.
-      // 
-      // - EVALUATING: The rule is being used to evaluate resource configurations.
-      // 
-      // - INACTIVE: The rule is disabled.
+      // *   ACTIVE: The rule is enabled.
+      // *   DELETING: The rule is being deleted.
+      // *   EVALUATING: The rule is being used to evaluate resource configurations.
+      // *   INACTIVE: The rule is disabled.
       shared_ptr<string> configRuleState_ {};
       // The trigger type of the rule. Valid values:
       // 
-      // - ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
-      // 
-      // - ScheduledNotification: The rule is triggered periodically.
+      // *   ConfigurationItemChangeNotification: The rule was triggered by configuration changes.
+      // *   ScheduledNotification: The rule was periodically triggered.
       shared_ptr<string> configRuleTriggerTypes_ {};
-      // The information about the creator of the rule.
+      // The information about the creation of the rule.
       shared_ptr<ConfigRule::CreateBy> createBy_ {};
-      // The timestamp when the rule was created. Unit: milliseconds.
+      // The timestamp generated when the rule was created. Unit: millisecond.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The description of the rule.
+      // The description of the managed rule.
       shared_ptr<string> description_ {};
-      // The IDs of the regions where the rule does not apply. The rule does not evaluate resources in these regions. Separate multiple region IDs with a comma (,).
+      // ExcludeRegionIdsScope
       shared_ptr<string> excludeRegionIdsScope_ {};
-      // The IDs of the resource groups where the rule does not apply. The rule does not evaluate resources in these resource groups. Separate multiple resource group IDs with a comma (,).
+      // ExcludeResourceGroupIdsScope
       shared_ptr<string> excludeResourceGroupIdsScope_ {};
-      // The IDs of the resources that are not evaluated by the rule. Separate multiple resource IDs with a comma (,).
+      // The ID of the resource excluded from the compliance evaluations performed by the rule.
       shared_ptr<string> excludeResourceIdsScope_ {};
-      // The tags of the resources that are not evaluated by the rule.
+      // ExcludeTagsScope
       shared_ptr<vector<ConfigRule::ExcludeTagsScope>> excludeTagsScope_ {};
-      // The extended content. This parameter is used only to specify the trigger time for a rule that is triggered on a 24-hour cycle.
+      // Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
       shared_ptr<string> extendContent_ {};
       // The input parameters of the rule.
       Darabonba::Json inputParameters_ {};
       // The details of the managed rule.
       shared_ptr<ConfigRule::ManagedRule> managedRule_ {};
-      // The execution frequency of the rule. Valid values:
+      // The interval at which the rule is triggered. Valid values:
       // 
-      // - One_Hour: 1 hour.
+      // *   One_Hour
+      // *   Three_Hours
+      // *   Six_Hours
+      // *   Twelve_Hours
+      // *   TwentyFour_Hours
       // 
-      // - Three_Hours: 3 hours.
-      // 
-      // - Six_Hours: 6 hours.
-      // 
-      // - Twelve_Hours: 12 hours.
-      // 
-      // - TwentyFour_Hours: 24 hours.
-      // 
-      // > This parameter is returned only when the rule is triggered periodically.
+      // >  This parameter is returned if the rule is periodically triggered.
       shared_ptr<string> maximumExecutionFrequency_ {};
-      // The timestamp when the rule was last updated. Unit: milliseconds.
+      // The timestamp generated when the rule was last updated. Unit: millisecond.
       shared_ptr<int64_t> modifiedTimestamp_ {};
-      // The IDs of the regions where the rule applies. The rule evaluates only resources in these regions.
+      // The ID of the region to which the rule applies.
       shared_ptr<string> regionIdsScope_ {};
-      // The IDs of the resource groups where the rule applies. The rule evaluates only resources in these resource groups.
+      // The ID of the resource group to which the rule applies.
       shared_ptr<string> resourceGroupIdsScope_ {};
-      // The IDs of the resources that are evaluated by the rule. Separate multiple resource IDs with a comma (,).
+      // ResourceIdsScope
       shared_ptr<string> resourceIdsScope_ {};
-      // The rule evaluates only resources that have the specified names.
+      // The names of the resource to which the rule applies.
       shared_ptr<string> resourceNameScope_ {};
-      // The types of the resources that are evaluated by the rule.
+      // The type of the resource to be evaluated by the rule.
       shared_ptr<string> resourceTypesScope_ {};
-      // The risk level of the rule. Valid values:
+      // The risk level of the resources that do not comply with the rule. Valid values:
       // 
-      // - 1: high
-      // 
-      // - 2: medium
-      // 
-      // - 3: low
+      // *   1: high.
+      // *   2: medium.
+      // *   3: low.
       shared_ptr<int32_t> riskLevel_ {};
       // The effective scope of the rule.
       shared_ptr<ConfigRule::Scope> scope_ {};
-      // The source of the rule.
+      // The information about how the rule was created.
       shared_ptr<ConfigRule::Source> source_ {};
-      // This parameter is not returned for rules that are created using the `TagsScope` parameter.
+      // When retrieving details of rules created using the parameter `TagsScope`, this field will not be returned.
       // 
-      // This parameter is returned for rules that are created using the deprecated TagKeyScope parameter. We do not recommend that you use the `TagKeyScope` parameter. For example, if `TagKeyScope` is set to `ECS,OSS` and this parameter is set to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
+      // To retrieve rules created using the deprecated field `TagKeyScope` (not recommended): for example, when the parameter `TagKeyScope` has a value of ECS,OSS, if this parameter is set to `AND`, it means that the rule only applies to resources bound with both labels ECS and OSS.
       // 
-      // Valid values:
+      // Values:
       // 
-      // - AND
+      //  - AND: And.
       // 
-      // - OR
+      //  - OR: Or.
       shared_ptr<string> tagKeyLogicScope_ {};
-      // This parameter is deprecated. Use the `TagsScope` parameter instead.
+      // This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
       // 
-      // The rule applies only to resources with the specified tag.
+      // The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
       // 
-      // > The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
+      // >  The TagKeyScope and `TagValueScope` parameters are returned at the same time.``
       shared_ptr<string> tagKeyScope_ {};
-      // This parameter is deprecated. Use the `TagsScope` parameter instead.
+      // This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
       // 
-      // The rule applies only to resources with the specified tag.
+      // The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
       // 
-      // > The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
+      // >  The TagKeyScope and `TagValueScope` parameters are returned at the same time.``
       shared_ptr<string> tagValueScope_ {};
-      // The tags of the resource.
+      // The tag list.
       shared_ptr<vector<ConfigRule::Tags>> tags_ {};
-      // The tag-based scope.
+      // TagsScope
       shared_ptr<vector<ConfigRule::TagsScope>> tagsScope_ {};
     };
 

@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // The details of the required input parameters for the rule.
+      // The details of the required input parameters of the rule.
       Darabonba::Json compulsoryInputParameterDetails_ {};
       // The name of the rule.
       shared_ptr<string> configRuleName_ {};
       // The description of the rule.
       shared_ptr<string> description_ {};
-      // The URL of the documentation that provides guidance on how to fix a non-compliant resource.
+      // The URL of the topic that describes how the evaluation rule remediates the incompliant configurations.
       shared_ptr<string> helpUrls_ {};
       // The identifier of the rule.
       shared_ptr<string> identifier_ {};
-      // The details of the optional input parameters for the rule.
+      // The details of the optional input parameters of the rule.
       Darabonba::Json optionalInputParameterDetails_ {};
-      // The resource type.
+      // The type of resource.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -173,13 +173,13 @@ namespace Models
 
 
   protected:
-    // The list of proactive rules.
+    // The evaluation rules.
     shared_ptr<vector<ListPreManagedRulesResponseBody::ManagedRules>> managedRules_ {};
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

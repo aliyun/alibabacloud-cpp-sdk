@@ -84,27 +84,29 @@ namespace Models
 
 
   protected:
-    // The scope of the filter.
+    // The scope for filtering managed rules allows you to filter out managed rules without resource coverage. The possible values are:
+    // 
+    //  - ALL: All rules.
+    // 
+    //  - UNCOVERED_RESOURCE: Filters managed rules where some resources are not covered.
     shared_ptr<string> filterType_ {};
-    // The keyword of the rule template.
+    // The keyword of the managed rule.
     shared_ptr<string> keyword_ {};
-    // The page number.
+    // The page number of the page to return.
     // 
-    // The value must be greater than or equal to 1. Default value: 1.
+    // Pages start from page 1. Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
-    // Valid values: 1 to 100. Default value: 10.
+    // Valid values: 1 to 100. Minimum value: 1. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource type that is evaluated by the rule.
+    // The type of the resources to be evaluated based on the rule.
     shared_ptr<string> resourceTypes_ {};
-    // The risk level of the rule template. Valid values:
+    // The risk level of the managed rule. Valid values:
     // 
-    // - 1: high
-    // 
-    // - 2: medium
-    // 
-    // - 3: low
+    // *   1: high
+    // *   2: medium
+    // *   3: low
     shared_ptr<int32_t> riskLevel_ {};
   };
 

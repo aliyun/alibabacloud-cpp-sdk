@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The resource type.
+    // 
+    // For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
     shared_ptr<string> resourceType_ {};
   };
 

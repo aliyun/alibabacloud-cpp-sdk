@@ -142,9 +142,9 @@ namespace Models
 
 
         protected:
-          // The key of the tag.
+          // The tag key of the rule.
           shared_ptr<string> key_ {};
-          // The value of the tag.
+          // The tag value of the rule.
           shared_ptr<string> value_ {};
         };
 
@@ -232,19 +232,19 @@ namespace Models
 
 
         protected:
-          // The ID of the account group.
+          // The account group ID.
           shared_ptr<string> aggregatorId_ {};
           // The name of the account group.
           shared_ptr<string> aggregatorName_ {};
-          // The ID of the compliance package.
+          // The compliance package ID.
           shared_ptr<string> compliancePackId_ {};
           // The name of the compliance package.
           shared_ptr<string> compliancePackName_ {};
           // The ID of the management account that created the rule.
           shared_ptr<string> creatorId_ {};
-          // The name of the management account that created the rule.
+          // The name of the management account that create the rule.
           shared_ptr<string> creatorName_ {};
-          // The type of the creator. The value is fixed to AGGREGATOR.
+          // The type of the creator of the rule. The value is fixed to AGGREGATOR, which indicates an account group.
           shared_ptr<string> creatorType_ {};
         };
 
@@ -286,17 +286,14 @@ namespace Models
 
 
         protected:
-          // The summary of the compliance evaluation result. Valid values:
+          // The compliance evaluation result. Valid values:
           // 
-          // - COMPLIANT: The resource is compliant.
-          // 
-          // - NON_COMPLIANT: The resource is non-compliant.
-          // 
-          // - NOT_APPLICABLE: The rule does not apply to the resource.
-          // 
-          // - INSUFFICIENT_DATA: No data is available.
+          // *   COMPLIANT: The resources are evaluated as compliant.
+          // *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+          // *   NOT_APPLICABLE: The rule does not apply to the resources.
+          // *   INSUFFICIENT_DATA: No data is available.
           shared_ptr<string> complianceType_ {};
-          // The number of resources that are evaluated based on the summary of the compliance evaluation.
+          // The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
           shared_ptr<int32_t> count_ {};
         };
 
@@ -416,55 +413,47 @@ namespace Models
 
 
       protected:
-        // The ID of the management account to which the rule belongs.
+        // The ID of the management account to which the rules belong.
         shared_ptr<int64_t> accountId_ {};
-        // The remediation type. The value is fixed to OOS, which indicates Operation Orchestration Service.
+        // The type of the remediation template. Only OOS is returned, which indicates CloudOps Orchestration Service.
         shared_ptr<string> automationType_ {};
         // The compliance evaluation result.
         shared_ptr<ConfigRuleList::Compliance> compliance_ {};
         // The ARN of the rule.
         shared_ptr<string> configRuleArn_ {};
-        // The ID of the rule.
+        // The rule ID.
         shared_ptr<string> configRuleId_ {};
         // The name of the rule.
         shared_ptr<string> configRuleName_ {};
-        // The state of the rule. Valid values:
+        // The status of the rule. Valid values:
         // 
-        // - ACTIVE: The rule is enabled.
-        // 
-        // - DELETING: The rule is being deleted.
-        // 
-        // - EVALUATING: The rule is being evaluated.
-        // 
-        // - INACTIVE: The rule is disabled.
+        // *   ACTIVE: The rule is being used to monitor resource configurations.
+        // *   DELETING: The rule is being deleted.
+        // *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+        // *   INACTIVE: The rule is disabled.
         shared_ptr<string> configRuleState_ {};
-        // The information about the creator of the rule.
+        // The information about the creation of the rule.
         shared_ptr<ConfigRuleList::CreateBy> createBy_ {};
-        // The time when the rule was created. The time is displayed in UTC+8.
         shared_ptr<string> createDate_ {};
         // The description of the rule.
         shared_ptr<string> description_ {};
-        // The types of the resources that are evaluated by the rule. Multiple resource types are separated by commas (,).
+        // The types of resources evaluated by the rule. Multiple resource types are separated with commas (,).
         shared_ptr<string> resourceTypesScope_ {};
-        // The risk level of the rule. Valid values:
+        // The risk level of the resources that do not comply with the rule. Valid values:
         // 
-        // - 1: high
-        // 
-        // - 2: medium
-        // 
-        // - 3: low
+        // *   1: high
+        // *   2: medium
+        // *   3: low
         shared_ptr<int32_t> riskLevel_ {};
         // The identifier of the rule.
         // 
-        // - If the rule is a managed rule, the value of this parameter is the identifier of the rule template.
-        // 
-        // - If the rule is a custom rule, the value of this parameter is the ARN of the function.
+        // *   If the rule is a managed rule, the value of this parameter is the name of the managed rule.
+        // *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of a function.
         shared_ptr<string> sourceIdentifier_ {};
-        // The owner of the rule. Valid values:
+        // The type of the rule. Valid values:
         // 
-        // - CUSTOM_FC: a custom rule.
-        // 
-        // - ALIYUN: a managed rule.
+        // *   CUSTOM_FC: a custom rule.
+        // *   ALIYUN: a managed rule.
         shared_ptr<string> sourceOwner_ {};
         // The tags of the rule.
         shared_ptr<vector<ConfigRuleList::Tags>> tags_ {};
@@ -503,11 +492,11 @@ namespace Models
 
 
     protected:
-      // The details of the rules.
+      // The details of the rule.
       shared_ptr<vector<ConfigRules::ConfigRuleList>> configRuleList_ {};
-      // The page number.
+      // The number of the page returned.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned on each page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of rules.
       shared_ptr<int64_t> totalCount_ {};
@@ -532,9 +521,9 @@ namespace Models
 
 
   protected:
-    // The rules.
+    // The queried rules.
     shared_ptr<ListAggregateConfigRulesResponseBody::ConfigRules> configRules_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

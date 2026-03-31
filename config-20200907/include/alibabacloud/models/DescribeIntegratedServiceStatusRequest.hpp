@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The code of the cloud service.
-    // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
   };

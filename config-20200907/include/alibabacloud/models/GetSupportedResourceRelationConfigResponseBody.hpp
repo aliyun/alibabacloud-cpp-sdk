@@ -70,17 +70,14 @@ namespace Models
 
 
     protected:
-      // The type of the resource relation. Valid values:
+      // The type of the relationship between the resource and the object. Valid values:
       // 
-      // - IsContained: Is contained in.
-      // 
-      // - IsAttachedTo: Is attached to.
-      // 
-      // - IsAssociatedIn: Is associated with.
-      // 
-      // - Contains: Contains.
+      // *   IsContained: The object is included as part of the resource.
+      // *   IsAttachedTo: The object is added to the resource.
+      // *   IsAssociatedIn: The object is associated with the resource.
+      // *   Contains: The actual value contains the expected value.
       shared_ptr<string> relationType_ {};
-      // The resource type of the relation target.
+      // The resource type.
       shared_ptr<string> targetResourceType_ {};
     };
 
@@ -105,7 +102,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resource relations.
+    // An array that contains the relationships.
     shared_ptr<vector<GetSupportedResourceRelationConfigResponseBody::ResourceRelationConfigList>> resourceRelationConfigList_ {};
   };
 

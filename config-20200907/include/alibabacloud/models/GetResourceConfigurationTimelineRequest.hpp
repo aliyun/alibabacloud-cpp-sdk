@@ -94,29 +94,29 @@ namespace Models
 
 
   protected:
-    // The end timestamp of the time range to query. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the current time is used.
+    // The end of the time range to query. The default value indicates the time when the GetResourceConfigurationTimeline operation is called. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The maximum number of entries to return for a single request. Valid values: 1 to 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the response of the current request is truncated, you can use this token to retrieve the next page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The ID of the resource.
+    // The resource IDs.
     // 
-    // For more information, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // For more information about how to query the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     // The resource type.
     // 
-    // For more information, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+    // For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The start timestamp of the time range to query. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the query starts from 30 days before the current time.
+    // The beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

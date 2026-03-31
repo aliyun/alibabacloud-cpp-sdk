@@ -124,7 +124,7 @@ namespace Models
 
 
         protected:
-          // The types of resources that are evaluated based on the rule template.
+          // The types of resources to which the managed rule applies.
           shared_ptr<vector<string>> complianceResourceTypes_ {};
         };
 
@@ -206,35 +206,32 @@ namespace Models
 
 
       protected:
-        // The name of the rule template.
+        // The name of the managed rule.
         shared_ptr<string> configRuleName_ {};
-        // The description of the rule template.
+        // The description of the managed rule.
         shared_ptr<string> description_ {};
-        // The URL of the document that provides remediation guidance.
+        // The URL of the topic that describes how the managed rule remediates the incompliant configurations.
         shared_ptr<string> helpUrls_ {};
-        // The unique identifier of the rule template.
+        // The unique identifier of the managed rule.
         shared_ptr<string> identifier_ {};
-        // The list of labels of the rule template.
+        // The classification description of the managed rule.
         shared_ptr<vector<string>> labels_ {};
-        // The identifier of the supported remediation template.
+        // The ID of the remediation template.
         shared_ptr<string> remediationTemplateIdentifier_ {};
-        // The name of the supported remediation template.
+        // The name of the remediation template.
         shared_ptr<string> remediationTemplateName_ {};
-        // The risk level of the rule. Valid values:
+        // The risk level of the resources that do not comply with the rule. Valid values:
         // 
-        // - 1: high
-        // 
-        // - 2: medium
-        // 
-        // - 3: low
+        // *   1: high
+        // *   2: medium
+        // *   3: low
         shared_ptr<int32_t> riskLevel_ {};
-        // The effective scope of the rule template.
+        // The effective scope of the managed rule.
         shared_ptr<ManagedRuleList::Scope> scope_ {};
-        // Indicates whether the rule supports dry runs. Valid values:
+        // Indicates whether precheck is supported. Valid values:
         // 
-        // - true: The rule supports dry runs.
-        // 
-        // - false: The rule does not support dry runs.
+        // *   true
+        // *   false
         shared_ptr<bool> supportPreviewManagedRule_ {};
       };
 
@@ -271,15 +268,15 @@ namespace Models
 
 
     protected:
-      // The details of the rule templates.
+      // The details of the managed rule.
       shared_ptr<vector<ManagedRules::ManagedRuleList>> managedRuleList_ {};
-      // The page number of the returned page.
+      // The page number.
       // 
-      // The value must be greater than or equal to 1.
+      // Page start from page 1.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries returned per page. Valid values: 1 to 500.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of rule templates.
+      // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -302,9 +299,9 @@ namespace Models
 
 
   protected:
-    // The rule templates.
+    // The managed rules.
     shared_ptr<ListManagedRulesResponseBody::ManagedRules> managedRules_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

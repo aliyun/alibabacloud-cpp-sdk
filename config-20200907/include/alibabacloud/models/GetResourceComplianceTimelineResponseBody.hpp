@@ -187,31 +187,30 @@ namespace Models
       protected:
         // The ID of the Alibaba Cloud account to which the resource belongs.
         shared_ptr<string> accountId_ {};
-        // The zone where the resource resides.
+        // The ID of the zone in which the resource resides.
         shared_ptr<string> availabilityZone_ {};
-        // The timestamp when the compliance evaluation of the resource was recorded. Unit: milliseconds.
+        // The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
         shared_ptr<int64_t> captureTime_ {};
-        // The list of rules associated with the resource and the compliance details of the rules.
+        // The rules associated with the resource and the compliance details of the rules.
         shared_ptr<string> configuration_ {};
-        // The details of the resource change that triggered this evaluation.
+        // The details of the resource changes that trigger the compliance evaluation.
         shared_ptr<string> configurationDiff_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The timestamp when the resource was created. Unit: milliseconds.
+        // The time when the resource was created. Unit: milliseconds.
         shared_ptr<int64_t> resourceCreateTime_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
         // The resource name.
         shared_ptr<string> resourceName_ {};
-        // The resource status. The resource status is defined by each Alibaba Cloud service. This parameter can be empty. For example:
+        // The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
         // 
-        // - If the resource type is \\`ACS::ECS::Instance\\`, this parameter can be \\`Running\\` or \\`Stopped\\` because ECS instances are stateful.
-        // 
-        // - If the resource type is \\`ACS::OSS::Bucket\\`, this parameter is empty because OSS buckets are stateless.
+        // *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+        // *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
         shared_ptr<string> resourceStatus_ {};
-        // The resource type.
+        // The type of the resource.
         shared_ptr<string> resourceType_ {};
-        // The resource tags.
+        // The tags of the resource.
         shared_ptr<string> tags_ {};
       };
 
@@ -241,11 +240,11 @@ namespace Models
 
 
     protected:
-      // The list of compliance evaluation history records.
+      // The compliance evaluation records on the compliance timeline.
       shared_ptr<vector<ResourceComplianceTimeline::ComplianceList>> complianceList_ {};
-      // The maximum number of entries returned per page.
+      // The maximum number of entries that can be returned for a single request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that you use to retrieve the next page of results.
+      // The token that is used to initiate the next request.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -268,9 +267,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The compliance evaluation history of the resource.
+    // The information about the compliance timeline.
     shared_ptr<GetResourceComplianceTimelineResponseBody::ResourceComplianceTimeline> resourceComplianceTimeline_ {};
   };
 

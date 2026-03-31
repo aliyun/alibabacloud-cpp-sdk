@@ -98,8 +98,14 @@ namespace Models
 
 
       protected:
+        // The rule ID.
         shared_ptr<string> configRuleId_ {};
+        // The error code.
         shared_ptr<string> errorCode_ {};
+        // Indicates whether the request was successful. Valid values:
+        // 
+        // *   true
+        // *   false
         shared_ptr<bool> success_ {};
       };
 
@@ -114,6 +120,7 @@ namespace Models
 
 
     protected:
+      // The result information about the operation.
       shared_ptr<vector<OperateRuleResult::OperateRuleItemList>> operateRuleItemList_ {};
     };
 
@@ -136,7 +143,9 @@ namespace Models
 
 
   protected:
+    // The results of the operations.
     shared_ptr<ActiveAggregateConfigRulesResponseBody::OperateRuleResult> operateRuleResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

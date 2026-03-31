@@ -72,17 +72,14 @@ namespace Models
 
 
     protected:
-      // The status of resource monitoring. Valid values:
+      // The status of the configuration recorder. Valid values:
       // 
-      // - REGISTRABLE: Not registered.
-      // 
-      // - BUILDING: Building.
-      // 
-      // - REGISTERED: Registered.
-      // 
-      // - REBUILDING: Rebuilding.
+      // *   REGISTRABLE: The configuration recorder has not been registered.
+      // *   BUILDING: The configuration recorder is being deployed.
+      // *   REGISTERED: The configuration recorder has been registered.
+      // *   REBUILDING: The configuration recorder is being redeployed.
       shared_ptr<string> configurationRecorderStatus_ {};
-      // A list of monitored resource types.
+      // The types of resources that are monitored.
       shared_ptr<vector<string>> resourceTypes_ {};
     };
 
@@ -105,7 +102,7 @@ namespace Models
 
 
   protected:
-    // The resource monitoring information.
+    // The details of the configuration recorder that monitors resources.
     shared_ptr<GetConfigurationRecorderResponseBody::ConfigurationRecorder> configurationRecorder_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

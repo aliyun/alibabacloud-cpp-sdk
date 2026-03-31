@@ -136,23 +136,14 @@ namespace Models
 
 
       protected:
-        // The timestamp when the compliance summary was generated. Unit: milliseconds.
+        // The time when the compliance summary was generated. Unit: milliseconds.
         shared_ptr<int64_t> complianceSummaryTimestamp_ {};
-        // The number of compliant resources.
+        // The number of resources evaluated as compliant.
         shared_ptr<int32_t> compliantCount_ {};
-        // The number of non-compliant resources detected by high-risk rules.
-        // 
-        // > Note: This value can be greater than the total number of resources in your account. Resources are counted based on each rule. For example, if a resource is evaluated as non-compliant by two rules, the value of this parameter increases by 2.
         shared_ptr<int32_t> highRiskRuleNonCompliantResourceCount_ {};
-        // The number of non-compliant resources detected by low-risk rules.
-        // 
-        // > Note: This value can be greater than the total number of resources in your account. Resources are counted based on each rule. For example, if a resource is evaluated as non-compliant by two low-risk rules, the value of this parameter increases by 2.
         shared_ptr<int32_t> lowRiskRuleNonCompliantResourceCount_ {};
-        // The number of non-compliant resources detected by medium-risk rules.
-        // 
-        // > Note: This value can be greater than the total number of resources in your account. Resources are counted based on each rule. For example, if a resource is evaluated as non-compliant by two rules, the value of this parameter increases by 2.
         shared_ptr<int32_t> mediumRiskRuleNonCompliantResourceCount_ {};
-        // The number of non-compliant resources.
+        // The number of resources evaluated as non-compliant.
         shared_ptr<int32_t> nonCompliantCount_ {};
         // The total number of resources.
         shared_ptr<int64_t> totalCount_ {};
@@ -214,11 +205,11 @@ namespace Models
 
 
       protected:
-        // The timestamp when the compliance summary was generated. Unit: milliseconds.
+        // The time when the compliance summary was generated. Unit: milliseconds.
         shared_ptr<int64_t> complianceSummaryTimestamp_ {};
-        // The number of compliant rules.
+        // The number of rules evaluated as compliant.
         shared_ptr<int32_t> compliantCount_ {};
-        // The number of non-compliant rules.
+        // The number of rules evaluated as non-compliant.
         shared_ptr<int32_t> nonCompliantCount_ {};
         // The total number of rules.
         shared_ptr<int64_t> totalCount_ {};
@@ -245,9 +236,9 @@ namespace Models
 
 
     protected:
-      // The compliance summary by rule.
+      // The summary of compliance statistics from the rule dimension.
       shared_ptr<ComplianceSummary::ComplianceSummaryByConfigRule> complianceSummaryByConfigRule_ {};
-      // The compliance summary by resource.
+      // The summary of compliance statistics from the resource dimension.
       shared_ptr<ComplianceSummary::ComplianceSummaryByResource> complianceSummaryByResource_ {};
     };
 
@@ -270,7 +261,7 @@ namespace Models
 
 
   protected:
-    // The compliance summary.
+    // The summary of compliance statistics.
     shared_ptr<GetComplianceSummaryResponseBody::ComplianceSummary> complianceSummary_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

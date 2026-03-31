@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The SQL search statement.
+    // The SQL query statement.
     // 
     // This parameter is required.
     shared_ptr<string> sql_ {};

@@ -96,45 +96,39 @@ namespace Models
   protected:
     // The ID of the account group.
     // 
-    // For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+    // You can the [ListAggregators](https://help.aliyun.com/document_detail/255797.html) operation to obtain the ID of the account group.
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
     // The execution mode of the remediation. Valid values:
     // 
-    // - NON_EXECUTION: The remediation is not executed.
-    // 
-    // - AUTO_EXECUTION: The remediation is automatically executed.
-    // 
-    // - MANUAL_EXECUTION: The remediation is manually executed.
-    // 
-    // - NOT_CONFIG: The execution mode is not specified.
+    // *   NON_EXECUTION: The remediation is not executed.
+    // *   AUTO_EXECUTION: The remediation is automatically executed.
+    // *   MANUAL_EXECUTION: The remediation is manually executed.
+    // *   NOT_CONFIG: The execution mode is not specified.
     shared_ptr<string> invokeType_ {};
-    // The parameters of the remediation setting.
+    // The desired parameter values of the remediation setting.
     shared_ptr<string> params_ {};
     // The ID of the remediation setting.
     // 
-    // For more information, see [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html).
+    // You can call the [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html) operation to obtain the ID of the remediation setting.
     // 
     // This parameter is required.
     shared_ptr<string> remediationId_ {};
     // The ID of the remediation template.
     // 
-    // For more information, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html).
+    // You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
     shared_ptr<string> remediationTemplateId_ {};
-    // The type of the remediation. Valid values:
+    // The type of the remediation template. Valid values:
     // 
-    // - OOS: Operation Orchestration Service (OOS) (template-based remediation).
-    // 
-    // - FC: Function Compute (FC) (custom remediation).
+    // *   OOS: Operation Orchestration Service (OOS)
+    // *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
     shared_ptr<string> remediationType_ {};
-    // The source of the rule for which the remediation is performed. Valid values:
+    // The type of the rule for which the remediation template is configured. Valid values:
     // 
-    // - ALIYUN: rule template.
-    // 
-    // - CUSTOM: custom remediation.
-    // 
-    // - NONE: none.
+    // *   ALIYUN: managed rule.
+    // *   CUSTOM: custom rule.
+    // *   NONE: The rule is not specified.
     shared_ptr<string> sourceType_ {};
   };
 

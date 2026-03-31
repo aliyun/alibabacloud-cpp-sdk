@@ -74,13 +74,13 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource.
+      // The key of the tag that is added to the resource.
       // 
-      // You can attach a maximum of 20 tag keys.
+      // You can add up to 20 tag keys to a resource.
       shared_ptr<string> key_ {};
-      // The tag value of the resource.
+      // The value of the tag that is added to the resource.
       // 
-      // You can attach a maximum of 20 tag values.
+      // You can add up to 20 tag values to a resource.
       shared_ptr<string> value_ {};
     };
 
@@ -119,31 +119,27 @@ namespace Models
 
 
   protected:
-    // The ID of the region.
+    // The region ID of the tags.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource ID.
+    // The resource IDs. You can add tags to up to 50 resources.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource in CloudConfig. Valid values:
+    // The resource type. Valid values:
     // 
-    // - `ACS::Config::Rule`: a rule for a single account.
-    // 
-    // - `ACS::Config::AggregateConfigRule`: a rule for multiple accounts.
-    // 
-    // - `ACS::Config::Aggregator`: an account group.
-    // 
-    // - `ACS::Config::CompliancePack`: a compliance package for a single account.
-    // 
-    // - `ACS::Config::AggregateCompliancePack`: a compliance package for multiple accounts.
+    // *   `ACS::Config::Rule`
+    // *   `ACS::Config::AggregateConfigRule`
+    // *   `ACS::Config::Aggregator`
+    // *   `ACS::Config::CompliancePack`
+    // *   `ACS::Config::AggregateCompliancePack`
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags of the resource.
+    // The tag value of the resource.
     // 
-    // You can attach a maximum of 20 tags.
+    // You can specify up to 20 tag values.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

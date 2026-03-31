@@ -57,13 +57,8 @@ namespace Models
 
 
   protected:
-    // The event type for cross-account integration. The supported event type is:
-    // 
-    // - NonCompliantNotification: non-compliance events.
     shared_ptr<string> aggregatorDeliveryDataType_ {};
-    // The enabling status of the integrated service.
     shared_ptr<bool> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

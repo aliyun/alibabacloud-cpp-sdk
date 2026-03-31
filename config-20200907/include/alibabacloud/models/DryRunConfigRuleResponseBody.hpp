@@ -57,19 +57,9 @@ namespace Models
 
 
   protected:
-    // The compliance type of the rule. Valid values:
-    // 
-    // - COMPLIANT: Compliant.
-    // 
-    // - NON_COMPLIANT: Non-compliant.
-    // 
-    // - NOT_APPLICABLE: Not applicable.
-    // 
-    // - INSUFFICIENT_DATA: Insufficient data.
     shared_ptr<string> complianceType_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The context of the rule conditions.
     shared_ptr<string> ruleConditionContext_ {};
   };
 

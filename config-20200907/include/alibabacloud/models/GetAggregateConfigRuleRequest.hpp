@@ -72,13 +72,15 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource.
+      // The tag key of the resource. You can specify up to 20 tag keys.
       // 
-      // You can add a maximum of 20 tag keys.
+      // The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource.
+      // The tag values.
       // 
-      // You can add a maximum of 20 tag values.
+      // The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // 
+      // Each key-value must be unique. You can specify at most 20 tag values in each call.
       shared_ptr<string> value_ {};
     };
 
@@ -110,18 +112,19 @@ namespace Models
   protected:
     // The ID of the account group.
     // 
-    // For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+    // For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The rule ID.
+    // The ID of the rule.
     // 
-    // For more information, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+    // You can call the [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html) operation to obtain the rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> configRuleId_ {};
-    // The tags.
-    // This parameter is deprecated. If you specify this parameter, the value does not take effect.
+    // The tags of the resource.
+    // 
+    // You can add up to 20 tags to a resource.
     shared_ptr<vector<GetAggregateConfigRuleRequest::Tag>> tag_ {};
   };
 

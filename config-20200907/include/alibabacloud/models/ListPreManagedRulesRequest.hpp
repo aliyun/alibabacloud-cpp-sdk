@@ -60,15 +60,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The number of the page to return.
     // 
-    // The value starts from 1. The default value is 1.
+    // Pages start from page 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page.
     // 
-    // The default value is 10.
+    // Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // A list of resource types.
+    // The type of the resource.
     shared_ptr<vector<string>> resourceTypes_ {};
   };
 

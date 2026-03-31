@@ -107,23 +107,18 @@ namespace Models
 
 
       protected:
-        // The execution period of the rule. Valid values:
+        // The interval at which the rule is triggered. Valid values: Valid values:
         // 
-        // - One_Hour: 1 hour.
-        // 
-        // - Three_Hours: 3 hours.
-        // 
-        // - Six_Hours: 6 hours.
-        // 
-        // - Twelve_Hours: 12 hours.
-        // 
-        // - TwentyFour_Hours: 24 hours.
+        // *   One_Hour
+        // *   Three_Hours
+        // *   Six_Hours
+        // *   Twelve_Hours
+        // *   TwentyFour_Hours
         shared_ptr<string> maximumExecutionFrequency_ {};
         // The trigger type of the rule. Valid values:
         // 
-        // - ConfigurationItemChangeNotification: The rule is triggered by a configuration change.
-        // 
-        // - ScheduledNotification: The rule is triggered periodically.
+        // *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+        // *   ScheduledNotification: The rule is periodically triggered.
         shared_ptr<string> messageType_ {};
       };
 
@@ -157,7 +152,7 @@ namespace Models
 
 
       protected:
-        // The resource types for which the rule template is effective.
+        // The types of resources to which the managed rule applies.
         shared_ptr<vector<string>> complianceResourceTypes_ {};
       };
 
@@ -245,31 +240,29 @@ namespace Models
 
 
     protected:
-      // The information about the required input parameters for the rule template.
+      // The details of the required input parameters for the managed rule.
       Darabonba::Json compulsoryInputParameterDetails_ {};
-      // The name of the rule template.
+      // The name of the managed rule.
       shared_ptr<string> configRuleName_ {};
-      // The description of the rule template.
+      // The description of the managed rule.
       shared_ptr<string> description_ {};
-      // The URL of the document that provides guidance on how to fix the issue.
+      // The URL of the topic that provides guidance on remediation for the managed rule.
       shared_ptr<string> helpUrls_ {};
-      // The identifier of the rule template.
+      // The identifier of the managed rule.
       shared_ptr<string> identifier_ {};
-      // The labels of the rule template.
+      // The tags of the managed rule.
       shared_ptr<vector<string>> labels_ {};
-      // The information about the optional input parameters for the rule template.
+      // The details of the optional input parameters for the managed rule.
       Darabonba::Json optionalInputParameterDetails_ {};
-      // The risk level of the rule template. Valid values:
+      // The risk level of the managed rule. Valid values:
       // 
-      // - 1: high risk.
-      // 
-      // - 2: medium risk.
-      // 
-      // - 3: low risk.
+      // *   1: high
+      // *   2: medium
+      // *   3: low
       shared_ptr<int32_t> riskLevel_ {};
-      // The effective scope of the rule template.
+      // The effective scope of the managed rule.
       shared_ptr<ManagedRule::Scope> scope_ {};
-      // The trigger methods for the rule.
+      // The information about the trigger type of the managed rule.
       shared_ptr<vector<ManagedRule::SourceDetails>> sourceDetails_ {};
     };
 
@@ -292,9 +285,9 @@ namespace Models
 
 
   protected:
-    // The details of the rule template.
+    // The details of the managed rule.
     shared_ptr<GetManagedRuleResponseBody::ManagedRule> managedRule_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

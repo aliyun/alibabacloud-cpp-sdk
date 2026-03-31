@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The rule IDs. Separate multiple rule IDs with commas (,).
     shared_ptr<string> configRuleIds_ {};
   };
 

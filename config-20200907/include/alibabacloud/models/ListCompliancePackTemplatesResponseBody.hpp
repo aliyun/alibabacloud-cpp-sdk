@@ -170,14 +170,14 @@ namespace Models
 
 
           protected:
-            // The name of the parameter for the managed rule.
+            // The name of the input parameter of the managed rule.
             shared_ptr<string> parameterName_ {};
-            // The value of the parameter for the managed rule.
+            // The value of the input parameter of the managed rule.
             shared_ptr<string> parameterValue_ {};
-            // Indicates whether the parameter is required for the managed rule. Valid values:
+            // Indicates whether the parameter is required in the managed rule. Valid values:
             // 
-            // - true: The parameter is required.
-            // - false: The parameter is not required.
+            // *   true: required
+            // *   false: optional
             shared_ptr<bool> required_ {};
           };
 
@@ -250,18 +250,18 @@ namespace Models
 
 
         protected:
-          // The parameters of the managed rule.
+          // The input parameter of the managed rule.
           shared_ptr<vector<ConfigRules::ConfigRuleParameters>> configRuleParameters_ {};
-          // The description of the control. This parameter is returned only for compliance packs that are created based on a regulation.
+          // The description of the regulation. This parameter is available only for regulation compliance packages.
           shared_ptr<string> controlDescription_ {};
-          // The ID of the control.
+          // The regulation ID.
           // 
-          // > This parameter appears only for regulatory compliance packages.
+          // >  This parameter is available only for regulation compliance packages.
           shared_ptr<string> controlId_ {};
-          // Indicates whether the rule can be quickly enabled. Valid values:
+          // Indicates whether the rules are enabled together with the compliance package. Valid values:
           // 
-          // - true: The rule can be quickly enabled.
-          // - false: The rule cannot be quickly enabled.
+          // *   true
+          // *   false
           shared_ptr<bool> defaultEnable_ {};
           // The description of the rule.
           shared_ptr<string> description_ {};
@@ -269,13 +269,13 @@ namespace Models
           shared_ptr<string> managedRuleIdentifier_ {};
           // The name of the managed rule.
           shared_ptr<string> managedRuleName_ {};
-          // The resource types that are evaluated by the rule.
+          // The types of the resources evaluated based on the rule.
           shared_ptr<string> resourceTypesScope_ {};
           // The risk level of the managed rule. Valid values:
           // 
-          // - 1: high
-          // - 2: medium
-          // - 3: low
+          // *   1: high
+          // *   2: medium
+          // *   3: low
           shared_ptr<int32_t> riskLevel_ {};
         };
 
@@ -334,23 +334,23 @@ namespace Models
 
 
       protected:
-        // The ID of the compliance pack template.
+        // The ID of the compliance package template.
         shared_ptr<string> compliancePackTemplateId_ {};
-        // The name of the compliance pack template.
+        // The name of the compliance package template.
         shared_ptr<string> compliancePackTemplateName_ {};
-        // A list of default rules in the compliance pack.
+        // The default rules in the compliance package.
         shared_ptr<vector<CompliancePackTemplates::ConfigRules>> configRules_ {};
-        // The description of the compliance pack.
+        // The description of the compliance package.
         shared_ptr<string> description_ {};
-        // The classification labels of the compliance pack.
+        // The tag of the compliance package.
         shared_ptr<string> labels_ {};
-        // The UNIX timestamp when the compliance pack was last updated.
+        // The time when the compliance package was last updated.
         shared_ptr<int32_t> lastUpdate_ {};
-        // The risk level of the rules in the compliance pack. Valid values:
+        // The risk level of the managed rule in the compliance package. Valid values:
         // 
-        // - 1: high
-        // - 2: medium
-        // - 3: low
+        // *   1: high
+        // *   2: medium
+        // *   3: low
         shared_ptr<int32_t> riskLevel_ {};
       };
 
@@ -387,13 +387,13 @@ namespace Models
 
 
     protected:
-      // A list of compliance pack templates.
+      // The compliance package templates.
       shared_ptr<vector<CompliancePackTemplatesResult::CompliancePackTemplates>> compliancePackTemplates_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of compliance pack templates.
+      // The total number of the compliance package templates returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -416,9 +416,9 @@ namespace Models
 
 
   protected:
-    // The details of the compliance pack templates.
+    // The information about the compliance package templates returned.
     shared_ptr<ListCompliancePackTemplatesResponseBody::CompliancePackTemplatesResult> compliancePackTemplatesResult_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -115,27 +115,12 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> accountId_ {};
-      // The timestamp when the report was generated. Unit: milliseconds.
       shared_ptr<int64_t> reportCreateEndTimestamp_ {};
-      // The timestamp when the report started to be generated. Unit: milliseconds.
       shared_ptr<int64_t> reportCreateStartTimestamp_ {};
-      // The ID of the report template.
       shared_ptr<string> reportTemplateId_ {};
-      // The download URL of the report.
       shared_ptr<string> reportUrl_ {};
-      // The status of the report. Valid values:
-      // 
-      // - COMPLETE: The report is generated.
-      // 
-      // - CREATING: The report is being generated.
-      // 
-      // - FAILED: The report failed to be generated.
-      // 
-      // - TIMEOUT: The request timed out.
       shared_ptr<string> status_ {};
-      // The ID of the report generated from the template.
       shared_ptr<string> templateReportId_ {};
     };
 
@@ -158,9 +143,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The report generated from the template.
     shared_ptr<GetReportFromTemplateResponseBody::TemplateReport> templateReport_ {};
   };
 

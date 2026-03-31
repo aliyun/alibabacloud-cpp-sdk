@@ -78,9 +78,15 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource. You can specify up to 20 tag keys.
+      // 
+      // The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag values.
+      // 
+      // The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // 
+      // Each key-value must be unique. You can specify at most 20 tag values in each call.
       shared_ptr<string> value_ {};
     };
 
@@ -137,31 +143,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The page number.
+    // The number of the page to return.
     // 
-    // Minimum value: 1. Default value: 1.
+    // Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     // 
-    // Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+    // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The risk level of the compliance pack. Valid values:
-    // 
-    // - 1: high
-    // 
-    // - 2: medium
-    // 
-    // - 3: low
     shared_ptr<int32_t> riskLevel_ {};
-    // The status of the compliance pack. Valid values:
+    // The status of the one or more compliance packages to be queried. Valid values:
     // 
-    // - ACTIVE: The compliance pack is active.
-    // 
-    // - CREATING: The compliance pack is being created.
+    // *   ACTIVE: compliance packages that are available for use.
+    // *   CREATING: compliance packages that are being created.
     shared_ptr<string> status_ {};
-    // The tags of the resource.
-    // 
-    // You can add up to 20 tags to a resource.
+    // The tags.
     shared_ptr<vector<ListAggregateCompliancePacksRequest::Tag>> tag_ {};
   };
 

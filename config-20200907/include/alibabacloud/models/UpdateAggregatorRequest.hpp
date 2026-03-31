@@ -80,11 +80,15 @@ namespace Models
 
 
     protected:
-      // The key of the tag. A tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys.
       // 
-      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+      // The tag values.
+      // 
+      // The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // 
+      // Each key-value must be unique. You can specify at most 20 tag values in each call.
       shared_ptr<string> value_ {};
     };
 
@@ -139,17 +143,17 @@ namespace Models
       // 
       // For more information about how to obtain the ID of a member, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
       // 
-      // > To update the member list, you must specify both `AccountId` and `AccountType`.
+      // >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
       shared_ptr<int64_t> accountId_ {};
-      // The name of the member.
+      // The display name of the member.
       // 
       // For more information about how to obtain the name of a member, see [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
       // 
-      // > To update the member list, you must specify both `AccountId` and `AccountType`.
+      // >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
       shared_ptr<string> accountName_ {};
-      // The affiliation of the member. Only ResourceDirectory is supported.
+      // The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
       // 
-      // > To update the member list, you must specify both `AccountId` and `AccountType`.
+      // >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
       shared_ptr<string> accountType_ {};
     };
 
@@ -212,7 +216,7 @@ namespace Models
   protected:
     // The members in the account group.
     // 
-    // > You can leave this parameter empty to skip updating the member list. To update the member list, you must specify both `AccountId` and `AccountType`.
+    // >  When you modify the configurations of an account group, this parameter can be left empty. In this case, the member list is not updated. If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
     shared_ptr<vector<UpdateAggregatorRequest::AggregatorAccounts>> aggregatorAccounts_ {};
     // The ID of the account group.
     // 
@@ -224,17 +228,17 @@ namespace Models
     // 
     // For more information about how to obtain the name of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     shared_ptr<string> aggregatorName_ {};
-    // A client token that ensures the idempotence of the request. Generate a unique token for each request. The token can contain only ASCII characters and must be no more than 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The description of the account group.
     // 
     // For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     shared_ptr<string> description_ {};
-    // The ID of the folder. You can enter multiple folder IDs. Separate the IDs with commas (,).
+    // The folder ID. Separate multiple folder IDs with commas (,).
     shared_ptr<string> folderId_ {};
-    // The tags of the resource. This parameter is deprecated and no longer takes effect. Ignore this parameter.
+    // The tags of the resource.
     // 
-    // You can attach up to 20 tags.
+    // You can add up to 20 tags to a resource.
     shared_ptr<vector<UpdateAggregatorRequest::Tag>> tag_ {};
   };
 

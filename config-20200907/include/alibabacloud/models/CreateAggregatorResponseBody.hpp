@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the account group.
+    // The account group ID.
     shared_ptr<string> aggregatorId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

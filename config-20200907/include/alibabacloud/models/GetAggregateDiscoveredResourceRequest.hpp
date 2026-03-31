@@ -94,36 +94,35 @@ namespace Models
 
 
   protected:
-    // The account group ID.
+    // The ID of the account group.
     // 
-    // For more information about how to obtain the account group ID, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+    // For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
     // Specifies whether to query the compliance results of the resource. Valid values:
     // 
-    // - 0 (default): does not query the compliance results of the resource.
-    // 
-    // - 1: queries the compliance results of the resource.
+    // *   0 (default): does not query the compliance results of the resource.
+    // *   1: queries the compliance results of the resource.
     shared_ptr<int32_t> complianceOption_ {};
-    // The region ID of the resource.
+    // The ID of the region in which the resource resides.
     // 
-    // For more information about how to obtain the region ID of the resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+    // For more information about how to query the ID of a region in which the resource resides, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // Required. The ID of the Alibaba Cloud account to which the resource to be queried belongs in the account group.
+    // Required. The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
     shared_ptr<int64_t> resourceAccountId_ {};
     // The resource ID.
     // 
-    // For more information about how to obtain the resource ID, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+    // For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type.
+    // The type of the resource.
     // 
-    // For more information about how to obtain the resource type, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+    // For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

@@ -110,7 +110,14 @@ namespace Models
 
 
         protected:
+          // The evaluation result. Valid values:
+          // 
+          // *   COMPLIANT: The resources are evaluated as compliant.
+          // *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+          // *   NOT_APPLICABLE: The rule does not apply to the resources.
+          // *   INSUFFICIENT_DATA: No resource data is available.
           shared_ptr<string> complianceType_ {};
+          // The total number of evaluation results.
           shared_ptr<int64_t> count_ {};
         };
 
@@ -133,7 +140,9 @@ namespace Models
 
 
       protected:
+        // The queried evaluation results.
         shared_ptr<vector<ComplianceResultList::Compliances>> compliances_ {};
+        // The region ID of the evaluated resource.
         shared_ptr<string> regionId_ {};
       };
 
@@ -148,6 +157,7 @@ namespace Models
 
 
     protected:
+      // The evaluation results grouped by region.
       shared_ptr<vector<ComplianceResult::ComplianceResultList>> complianceResultList_ {};
     };
 
@@ -170,7 +180,9 @@ namespace Models
 
 
   protected:
+    // The queried evaluation results.
     shared_ptr<GetResourceComplianceGroupByRegionResponseBody::ComplianceResult> complianceResult_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

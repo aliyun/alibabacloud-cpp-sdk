@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the delivery channel.
     shared_ptr<string> deliveryChannelId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

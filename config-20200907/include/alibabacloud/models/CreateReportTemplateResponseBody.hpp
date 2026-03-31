@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // Report template ID
     shared_ptr<string> reportTemplateId_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

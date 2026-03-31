@@ -97,31 +97,27 @@ namespace Models
 
 
     protected:
-      // The event type for cross-account integration. Supported event types:
+      // The type of the event that is integrated across accounts. Valid values:
       // 
-      // - NonCompliantNotification: non-compliance events.
+      // *   NonCompliantNotification: non-compliance event
       shared_ptr<string> aggregatorDeliveryDataType_ {};
-      // The event types for the integration. Separate multiple types with commas (,). Supported event types:
+      // The types of the integrated events. Separate multiple event types with commas (,). Valid values:
       // 
-      // - ConfigurationItemChangeNotification: resource change events.
-      // 
-      // - NonCompliantNotification: non-compliance events.
+      // *   ConfigurationItemChangeNotification: resource change event
+      // *   NonCompliantNotification: non-compliance event
       shared_ptr<string> integratedTypes_ {};
-      // The identifier of the integrable Alibaba Cloud service. Valid values:
+      // The identifier of the cloud service. Valid values:
       // 
-      // - eventbridge: EventBridge.
-      // 
-      // - cms: Cloud Monitor.
-      // 
-      // - bpstudio: Cloud Architect Design Tools.
+      // *   eventbridge: EventBridge
+      // *   cms: CloudMonitor
+      // *   bpstudio: Cloud Architect Design Tools
       shared_ptr<string> serviceCode_ {};
-      // The name of the integrated service.
+      // The name of the cloud service.
       shared_ptr<string> serviceName_ {};
-      // The integration status of the Alibaba Cloud service. Valid values:
+      // The integration status of the cloud service. Valid values:
       // 
-      // - true: The service is integrated.
-      // 
-      // - false: The service is not integrated.
+      // *   true
+      // *   false
       shared_ptr<bool> status_ {};
     };
 
@@ -144,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The information about the integrated services.
+    // The information about the cloud service that can be integrated.
     shared_ptr<vector<ListIntegratedServiceResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

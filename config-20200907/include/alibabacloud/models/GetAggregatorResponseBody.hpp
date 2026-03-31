@@ -173,21 +173,18 @@ namespace Models
 
 
       protected:
-        // The member ID.
+        // The ID of the member.
         shared_ptr<int64_t> accountId_ {};
-        // The member name.
+        // The display name of the member.
         shared_ptr<string> accountName_ {};
-        // The type of the account. Only ResourceDirectory is supported.
+        // The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
         shared_ptr<string> accountType_ {};
-        // The status of Resource Monitoring for the member. Valid values:
+        // The status of the configuration recorder for the member. Valid values:
         // 
-        // - REGISTRABLE: Not registered.
-        // 
-        // - BUILDING: Building.
-        // 
-        // - REGISTERED: Registered.
-        // 
-        // - REBUILDING: Rebuilding.
+        // *   REGISTRABLE: The configuration recorder is not registered.
+        // *   BUILDING: The configuration recorder is being deployed.
+        // *   REGISTERED: The configuration recorder is registered.
+        // *   REBUILDING: The configuration recorder is being redeployed.
         shared_ptr<string> recorderStatus_ {};
       };
 
@@ -290,7 +287,7 @@ namespace Models
       shared_ptr<int64_t> aggregatorAccountCount_ {};
       // The information about the members in the account group.
       shared_ptr<vector<Aggregator::AggregatorAccounts>> aggregatorAccounts_ {};
-      // The timestamp when the account group was created.
+      // The timestamp generated when the account group was created.
       // 
       // Unit: milliseconds.
       shared_ptr<string> aggregatorCreateTimestamp_ {};
@@ -300,25 +297,21 @@ namespace Models
       shared_ptr<string> aggregatorName_ {};
       // The status of the account group. Valid values:
       // 
-      // - 0: The account group is being created.
-      // 
-      // - 1: The account group is created.
+      // *   0: The account group is being created.
+      // *   1: The account group was created.
       shared_ptr<int32_t> aggregatorStatus_ {};
       // The type of the account group. Valid values:
       // 
-      // - RD: global account group.
-      // 
-      // - FOLDER: folder account group.
-      // 
-      // - CUSTOM: custom account group.
+      // *   RD: a global account group.
+      // *   FOLDER: an account group for a folder.
+      // *   CUSTOM: a custom account group.
       shared_ptr<string> aggregatorType_ {};
       // The description of the account group.
       shared_ptr<string> description_ {};
-      // The ID of the folder to which the folder account group is attached.
+      // The ID of the attached folder of the account group.
       shared_ptr<string> folderId_ {};
-      // The name of the folder to which the folder account group is attached. Multiple names are separated by commas (,).
       shared_ptr<string> folderName_ {};
-      // The resource tags.
+      // tags
       shared_ptr<vector<Aggregator::Tags>> tags_ {};
     };
 
@@ -341,7 +334,7 @@ namespace Models
 
 
   protected:
-    // The information about the account group.
+    // The details of the account group.
     shared_ptr<GetAggregatorResponseBody::Aggregator> aggregator_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,11 +48,9 @@ namespace Models
 
 
   protected:
-    // The property descriptions of the resource.
-    // 
     // This parameter is required.
     shared_ptr<string> configuration_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the compliance evaluation report.
     shared_ptr<string> reportId_ {};
   };
 

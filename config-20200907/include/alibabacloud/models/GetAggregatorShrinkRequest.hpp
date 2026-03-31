@@ -52,9 +52,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> aggregatorId_ {};
-    // The tags of the resource. This parameter is deprecated and is not in use.
+    // The tags of the resource.
     // 
-    // A maximum of 20 tags can be attached.
+    // You can add up to 20 tags to a resource.
     shared_ptr<string> tagShrink_ {};
   };
 
