@@ -110,7 +110,6 @@ namespace Models
     shared_ptr<string> prompt_ {};
     shared_ptr<double> threshold_ {};
     shared_ptr<int32_t> topK_ {};
-    // This parameter is required.
     shared_ptr<string> userDefinedId_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

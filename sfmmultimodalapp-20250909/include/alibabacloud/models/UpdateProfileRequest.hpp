@@ -164,7 +164,6 @@ namespace Models
     shared_ptr<vector<UpdateProfileRequest::AttributesOperations>> attributesOperations_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> name_ {};
-    // This parameter is required.
     shared_ptr<string> userDefinedId_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

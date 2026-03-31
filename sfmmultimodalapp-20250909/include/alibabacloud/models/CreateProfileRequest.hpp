@@ -158,7 +158,6 @@ namespace Models
     shared_ptr<string> description_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // This parameter is required.
     shared_ptr<string> userDefinedId_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
