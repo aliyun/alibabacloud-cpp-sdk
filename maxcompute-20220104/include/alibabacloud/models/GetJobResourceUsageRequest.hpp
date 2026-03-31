@@ -80,11 +80,17 @@ namespace Models
 
 
   protected:
+    // The date that is accurate to the day part for the query. The date must be in the yyyy-MM-dd format.
+    // 
     // This parameter is required.
     shared_ptr<string> date_ {};
+    // The list of job executors.
     shared_ptr<vector<string>> jobOwnerList_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The list of nicknames of quotas that are used by jobs.
     shared_ptr<vector<string>> quotaNicknameList_ {};
   };
 

@@ -71,26 +71,10 @@ namespace Models
 
 
   protected:
-    // The names of the projects.
     shared_ptr<vector<string>> projectList_ {};
-    // The storage class. Valid values include the following:
-    // 
-    // - totalStorage
-    // 
-    // - longTermStorage
-    // 
-    // - lowFreqStorage
-    // 
-    // - standardStorage
-    // 
-    // - recycleBinStorage
     shared_ptr<vector<string>> typeList_ {};
-    // The end of the time range to query.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The start of the time range to query.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

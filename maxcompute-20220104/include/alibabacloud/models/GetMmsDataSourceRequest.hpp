@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The language of the description for the configuration items.
     shared_ptr<string> lang_ {};
-    // Specifies whether to obtain the specific configuration items of the data source.
     shared_ptr<bool> withConfig_ {};
   };
 

@@ -269,47 +269,26 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
         shared_ptr<string> createTime_ {};
-        // The ID of the source database.
         shared_ptr<int64_t> dbId_ {};
-        // The destination MaxCompute project.
         shared_ptr<string> dstDbName_ {};
-        // The destination MaxCompute schema.
         shared_ptr<string> dstSchemaName_ {};
-        // The destination MaxCompute table.
         shared_ptr<string> dstTableName_ {};
-        // The end time of the task.
         shared_ptr<string> endTime_ {};
-        // The ID of the migration task.
         shared_ptr<int64_t> id_ {};
-        // The ID of the migration job.
         shared_ptr<int64_t> jobId_ {};
-        // The name of the migration job.
         shared_ptr<string> jobName_ {};
-        // The number of retries.
         shared_ptr<int32_t> retriedTimes_ {};
-        // Indicates whether the task is running.
         shared_ptr<bool> running_ {};
-        // The ID of the data source.
         shared_ptr<int64_t> sourceId_ {};
-        // The name of the data source.
         shared_ptr<string> sourceName_ {};
-        // The name of the source database.
         shared_ptr<string> srcDbName_ {};
-        // The name of the source schema. This parameter specifies the schema in a Layer 3 namespace.
         shared_ptr<string> srcSchemaName_ {};
-        // The name of the source table.
         shared_ptr<string> srcTableName_ {};
-        // The start time of the task.
         shared_ptr<string> startTime_ {};
-        // The status of the migration task.
         shared_ptr<string> status_ {};
-        // Indicates whether the task is stopped.
         shared_ptr<bool> stopped_ {};
-        // The ID of the source table.
         shared_ptr<int64_t> tableId_ {};
-        // The task type.
         shared_ptr<string> type_ {};
       };
 
@@ -346,13 +325,9 @@ namespace Models
 
 
     protected:
-      // The list of migration tasks.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
-      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -375,9 +350,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<ListMmsTasksResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

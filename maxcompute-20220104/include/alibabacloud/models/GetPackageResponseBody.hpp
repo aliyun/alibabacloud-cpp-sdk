@@ -131,8 +131,11 @@ namespace Models
 
 
         protected:
+          // The operations that were performed on the table.
           shared_ptr<vector<string>> actions_ {};
+          // The name of the table.
           shared_ptr<string> name_ {};
+          // The name of schema.
           shared_ptr<string> schemaName_ {};
         };
 
@@ -185,8 +188,11 @@ namespace Models
 
 
         protected:
+          // The operations that were performed on the resource.
           shared_ptr<vector<string>> actions_ {};
+          // The name of the resource.
           shared_ptr<string> name_ {};
+          // The name of schema.
           shared_ptr<string> schemaName_ {};
         };
 
@@ -239,8 +245,11 @@ namespace Models
 
 
         protected:
+          // The operations that were performed on the function.
           shared_ptr<vector<string>> actions_ {};
+          // The name of the function.
           shared_ptr<string> name_ {};
+          // The name of schema.
           shared_ptr<string> schemaName_ {};
         };
 
@@ -274,8 +283,11 @@ namespace Models
 
 
       protected:
+        // The functions.
         shared_ptr<vector<ResourceList::Function>> function_ {};
+        // The resources.
         shared_ptr<vector<ResourceList::Resource>> resource_ {};
+        // The tables.
         shared_ptr<vector<ResourceList::Table>> table_ {};
       };
 
@@ -317,7 +329,9 @@ namespace Models
 
 
       protected:
+        // The security level for sensitive data.
         shared_ptr<string> label_ {};
+        // The name of the MaxCompute project.
         shared_ptr<string> project_ {};
       };
 
@@ -342,7 +356,9 @@ namespace Models
 
 
     protected:
+      // The projects in which the package is installed.
       shared_ptr<vector<Data::AllowedProjectList>> allowedProjectList_ {};
+      // The details of the resources that are included in the package.
       shared_ptr<Data::ResourceList> resourceList_ {};
     };
 
@@ -386,10 +402,15 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetPackageResponseBody::Data> data_ {};
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

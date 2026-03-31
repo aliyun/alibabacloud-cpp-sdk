@@ -122,10 +122,15 @@ namespace Models
 
 
       protected:
+        // The ID of the Alibaba Cloud account.
         shared_ptr<string> accountId_ {};
+        // The username of the account.
         shared_ptr<string> accountName_ {};
+        // The type of the account.
         shared_ptr<string> accountType_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The ID of the tenant.
         shared_ptr<string> tenantId_ {};
       };
 
@@ -162,9 +167,13 @@ namespace Models
 
 
     protected:
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of returned entries.
       shared_ptr<int32_t> totalCount_ {};
+      // The users.
       shared_ptr<vector<Data::Users>> users_ {};
     };
 
@@ -187,7 +196,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListUsersResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

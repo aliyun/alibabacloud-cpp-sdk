@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // The name of the schema to which the table or view belongs.
     shared_ptr<string> schemaName_ {};
+    // The type of the table or view that you want to view. Valid values:
+    // 
+    // *   **internal**: internal table
+    // *   **external**: external table
+    // *   **view**: view
+    // *   **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
     shared_ptr<string> type_ {};
   };
 

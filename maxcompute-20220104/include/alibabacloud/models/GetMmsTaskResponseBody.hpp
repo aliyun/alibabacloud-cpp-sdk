@@ -243,47 +243,26 @@ namespace Models
 
 
     protected:
-      // The creation time of the task.
       shared_ptr<string> createTime_ {};
-      // The source database ID.
       shared_ptr<int64_t> dbId_ {};
-      // The destination MaxCompute project.
       shared_ptr<string> dstDbName_ {};
-      // The destination MaxCompute schema.
       shared_ptr<string> dstSchemaName_ {};
-      // The destination MaxCompute table.
       shared_ptr<string> dstTableName_ {};
-      // The end time of the task.
       shared_ptr<string> endTime_ {};
-      // The migration task ID.
       shared_ptr<int64_t> id_ {};
-      // The migration job ID.
       shared_ptr<int64_t> jobId_ {};
-      // The migration job name.
       shared_ptr<string> jobName_ {};
-      // The number of times the task has been retried.
       shared_ptr<int32_t> retriedTimes_ {};
-      // Indicates if the task is running.
       shared_ptr<bool> running_ {};
-      // The data source ID.
       shared_ptr<int64_t> sourceId_ {};
-      // The data source name.
       shared_ptr<string> sourceName_ {};
-      // The source database name.
       shared_ptr<string> srcDbName_ {};
-      // The name of the source schema. This refers to the schema in a Layer 3 namespace.
       shared_ptr<string> srcSchemaName_ {};
-      // The source table name.
       shared_ptr<string> srcTableName_ {};
-      // The start time of the task.
       shared_ptr<string> startTime_ {};
-      // The migration task status.
       shared_ptr<string> status_ {};
-      // Indicates if the task is stopped.
       shared_ptr<bool> stopped_ {};
-      // The source table ID.
       shared_ptr<int64_t> tableId_ {};
-      // The task type.
       shared_ptr<string> type_ {};
     };
 
@@ -306,9 +285,7 @@ namespace Models
 
 
   protected:
-    // The migration task object.
     shared_ptr<GetMmsTaskResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

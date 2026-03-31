@@ -98,29 +98,9 @@ namespace Models
 
 
     protected:
-      // The date of statistics.
       shared_ptr<string> date_ {};
-      // The timestamp of the last data update.
       shared_ptr<int64_t> timestamp_ {};
-      // The unit of the storage metric usage. It includes:
-      // 
-      // - lowFreqStorage
-      // 
-      // - standardStorage
-      // 
-      // - longTermStorage
-      // 
-      // - totalStorage
       shared_ptr<map<string, string>> unit_ {};
-      // The storage metrics. It includes:
-      // 
-      // - lowFreqStorage
-      // 
-      // - standardStorage
-      // 
-      // - longTermStorage
-      // 
-      // - totalStorage
       shared_ptr<map<string, double>> value_ {};
     };
 
@@ -164,19 +144,10 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<GetStorageSizeSummaryResponseBody::Data> data_ {};
-    // The business error code or an empty value.
-    // 
-    // - If success is false, a business error code is returned.
-    // 
-    // - If success is true, an empty value is returned.
     shared_ptr<string> errorCode_ {};
-    // The description of the error.
     shared_ptr<string> errorMsg_ {};
-    // Indicates whether the business is successful. If this parameter is not empty and the value is not 200, the business fails.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

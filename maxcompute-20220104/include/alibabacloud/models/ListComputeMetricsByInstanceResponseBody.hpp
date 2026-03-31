@@ -174,15 +174,43 @@ namespace Models
 
 
       protected:
+        // The end time of the job execution.
         shared_ptr<int64_t> endTime_ {};
+        // The job(instance) ID.
         shared_ptr<string> instanceId_ {};
+        // The owner of the job.
         shared_ptr<string> jobOwner_ {};
+        // The name of the project.
         shared_ptr<string> projectName_ {};
+        // The signature of the SQL job.
         shared_ptr<string> signature_ {};
+        // Specifications Type, specifies the resource package that you select when you purchase the MaxCompute service.
+        // - OdpsStandard: the pay-as-you-go resource package.
+        // 
+        // - OdpsSpot: the pay-as-you-go spot resource package.
         shared_ptr<string> specCode_ {};
+        // The submission time of the job.
         shared_ptr<int64_t> submitTime_ {};
+        // Metering types.
+        // - ComputationSql: the metering data of SQL jobs that involve internal tables.
+        // 
+        // - ComputationSqlOTS: the metering data of SQL jobs that involve Tablestore external tables.
+        // 
+        // - ComputationSqlOSS: the metering data of SQL jobs that involve OSS external tables.
+        // 
+        // - MapReduce: the metering data of MapReduce jobs.
+        // 
+        // - spark: the metering data of Spark jobs.
+        // 
+        // - mars: the metering data of Mars jobs.
         shared_ptr<string> type_ {};
+        // The unit of computing resource usage
         shared_ptr<string> unit_ {};
+        // The computing resource usage is calculated based on the following items:
+        // 
+        // - Amount of scanned data in the unit of GB. For the jobs whose metering types are ComputationSql, ComputationSqlOTS, or ComputationSqlOSS, they are billed based on the amount of scanned data. The computing resource usage of such a job is calculated by using the following formula: Amount of scanned data × Complexity. The complexity is fixed at 1 for the jobs whose metering types are ComputationSqlOTS or ComputationSqlOSS.
+        // 
+        // - CU-hours. For the jobs whose metering types are MapReduce, spark, or mars, they are billed based on CU-hours.
         shared_ptr<double> usage_ {};
       };
 
@@ -219,9 +247,13 @@ namespace Models
 
 
     protected:
+      // List of pay-as-you-go job compute usage.
       shared_ptr<vector<Data::InstanceComputeMetrics>> instanceComputeMetrics_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of results returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -265,10 +297,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListComputeMetricsByInstanceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // - 1xx: informational response. The request is received and is being processed.
+    // - 2xx: success. The request is successfully received, understood, and accepted by the server.
+    // - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+    // - 5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

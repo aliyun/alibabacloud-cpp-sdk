@@ -116,8 +116,11 @@ namespace Models
 
 
       protected:
+        // The operations that were performed on the table.
         shared_ptr<vector<string>> actions_ {};
+        // The name of the table.
         shared_ptr<string> name_ {};
+        // The Schema name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -170,8 +173,11 @@ namespace Models
 
 
       protected:
+        // The operations that were performed on the resource.
         shared_ptr<vector<string>> actions_ {};
+        // The name of the resource.
         shared_ptr<string> name_ {};
+        // The Schema name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -224,8 +230,11 @@ namespace Models
 
 
       protected:
+        // The operations that were performed on the project.
         shared_ptr<vector<string>> actions_ {};
+        // The name of the MaxCompute project.
         shared_ptr<string> name_ {};
+        // The Schema name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -278,8 +287,11 @@ namespace Models
 
 
       protected:
+        // The operations that were performed on the package.
         shared_ptr<vector<string>> actions_ {};
+        // The name of the package.
         shared_ptr<string> name_ {};
+        // The Schema name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -332,8 +344,11 @@ namespace Models
 
 
       protected:
+        // The operations that were performed on the instance.
         shared_ptr<vector<string>> actions_ {};
+        // The name of the instance.
         shared_ptr<string> name_ {};
+        // The Schema name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -386,8 +401,11 @@ namespace Models
 
 
       protected:
+        // The operations that were performed on the function.
         shared_ptr<vector<string>> actions_ {};
+        // The name of the function.
         shared_ptr<string> name_ {};
+        // The Schema name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -448,11 +466,17 @@ namespace Models
 
 
     protected:
+      // The function.
       shared_ptr<vector<Data::Function>> function_ {};
+      // The instance.
       shared_ptr<vector<Data::Instance>> instance_ {};
+      // The package.
       shared_ptr<vector<Data::Package>> package_ {};
+      // The project.
       shared_ptr<vector<Data::Project>> project_ {};
+      // The resource.
       shared_ptr<vector<Data::Resource>> resource_ {};
+      // The table.
       shared_ptr<vector<Data::Table>> table_ {};
     };
 
@@ -496,10 +520,15 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetRoleAclResponseBody::Data> data_ {};
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

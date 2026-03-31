@@ -239,12 +239,19 @@ namespace Models
 
 
           protected:
+            // The quota plan that takes effect based on the scheduling plan.
             shared_ptr<string> currPlan_ {};
+            // The time when the current quota plan is scheduled.
             shared_ptr<string> currTime_ {};
+            // The next quota plan that will take effect based on the scheduling plan.
             shared_ptr<string> nextPlan_ {};
+            // The time when the next quota plan is scheduled.
             shared_ptr<string> nextTime_ {};
+            // If the quota plan that immediately takes effect is different from the current quota plan, this parameter is not empty.
             shared_ptr<string> oncePlan_ {};
+            // The time when the quota plan immediately takes effect.
             shared_ptr<string> onceTime_ {};
+            // The name of the operator.
             shared_ptr<string> operatorName_ {};
           };
 
@@ -295,8 +302,14 @@ namespace Models
 
 
           protected:
+            // The billing method of the quota. Valid values:
+            // 
+            // *   subscription: a subscription quota.
+            // *   payasyougo: a pay-as-you-go quota.
             shared_ptr<string> billingMethod_ {};
+            // The specifications of the order.
             shared_ptr<string> odpsSpecCode_ {};
+            // The ID of the order.
             shared_ptr<string> orderId_ {};
           };
 
@@ -423,21 +436,37 @@ namespace Models
 
 
         protected:
+          // The information of the order.
           shared_ptr<SubQuotaInfoList::BillingPolicy> billingPolicy_ {};
+          // The ID of the cluster.
           shared_ptr<string> cluster_ {};
+          // The time when the resource was created.
           shared_ptr<int64_t> createTime_ {};
+          // The ID of the user who created the quota plan.
           shared_ptr<string> creatorId_ {};
+          // The ID of the level-2 quota.
           shared_ptr<string> id_ {};
+          // The name of the level-2 quota.
           shared_ptr<string> name_ {};
+          // The alias of the level-2 quota.
           shared_ptr<string> nickName_ {};
+          // The description of the quota.
           Darabonba::Json parameter_ {};
+          // The ID of the parent resource.
           shared_ptr<string> parentId_ {};
+          // The ID of the region.
           shared_ptr<string> regionId_ {};
+          // The information of the scheduling plan.
           shared_ptr<SubQuotaInfoList::ScheduleInfo> scheduleInfo_ {};
+          // The status of the resource.
           shared_ptr<string> status_ {};
+          // The tag of the resource for the quota.
           shared_ptr<string> tag_ {};
+          // The ID of the tenant.
           shared_ptr<string> tenantId_ {};
+          // The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the cluster.
           shared_ptr<string> type_ {};
+          // The version number.
           shared_ptr<string> version_ {};
         };
 
@@ -525,12 +554,19 @@ namespace Models
 
 
         protected:
+          // The quota plan that takes effect based on the scheduling plan.
           shared_ptr<string> currPlan_ {};
+          // The time when the current quota plan is scheduled.
           shared_ptr<string> currTime_ {};
+          // The next quota plan that will take effect based on the scheduling plan.
           shared_ptr<string> nextPlan_ {};
+          // The time when the next quota plan is scheduled.
           shared_ptr<string> nextTime_ {};
+          // If the quota plan that immediately takes effect is different from the current quota plan, this parameter is not empty.
           shared_ptr<string> oncePlan_ {};
+          // The time when the quota plan immediately takes effect.
           shared_ptr<string> onceTime_ {};
+          // The name of the operator.
           shared_ptr<string> operatorName_ {};
         };
 
@@ -581,8 +617,14 @@ namespace Models
 
 
         protected:
+          // The billing method of the quota. Valid values:
+          // 
+          // *   subscription: a subscription quota.
+          // *   payasyougo: a pay-as-you-go quota.
           shared_ptr<string> billingMethod_ {};
+          // The specifications of the order.
           shared_ptr<string> odpsSpecCode_ {};
+          // The ID of the order.
           shared_ptr<string> orderId_ {};
         };
 
@@ -719,22 +761,39 @@ namespace Models
 
 
       protected:
+        // The information of the order.
         shared_ptr<Quota::BillingPolicy> billingPolicy_ {};
+        // The ID of the cluster.
         shared_ptr<string> cluster_ {};
+        // The time when the quota plan was created.
         shared_ptr<int64_t> createTime_ {};
+        // The ID of the Alibaba Cloud account that is used to create the resource.
         shared_ptr<string> creatorId_ {};
+        // The ID of the quota.
         shared_ptr<string> id_ {};
+        // The name of the quota.
         shared_ptr<string> name_ {};
+        // The alias of the quota.
         shared_ptr<string> nickName_ {};
+        // The description of the quota.
         Darabonba::Json parameter_ {};
+        // The ID of the parent resource.
         shared_ptr<string> parentId_ {};
+        // The ID of the region.
         shared_ptr<string> regionId_ {};
+        // The information of the scheduling plan.
         shared_ptr<Quota::ScheduleInfo> scheduleInfo_ {};
+        // The status of the resource.
         shared_ptr<string> status_ {};
+        // The information of the level-2 quota.
         shared_ptr<vector<Quota::SubQuotaInfoList>> subQuotaInfoList_ {};
+        // The tag of the resource for the quota.
         shared_ptr<string> tag_ {};
+        // The ID of the tenant.
         shared_ptr<string> tenantId_ {};
+        // The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the cluster.
         shared_ptr<string> type_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -764,8 +823,11 @@ namespace Models
 
 
     protected:
+      // The time when the quota plan was created.
       shared_ptr<string> createTime_ {};
+      // The name of the quota plan.
       shared_ptr<string> name_ {};
+      // The details of the quota.
       shared_ptr<Data::Quota> quota_ {};
     };
 
@@ -788,7 +850,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetQuotaPlanResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

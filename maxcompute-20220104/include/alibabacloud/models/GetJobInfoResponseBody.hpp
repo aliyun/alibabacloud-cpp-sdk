@@ -182,11 +182,17 @@ namespace Models
 
 
       protected:
+        // The intelligent diagnostics result description.
         shared_ptr<string> description_ {};
+        // Information about the nodes where data skew or data expansion is detected. This parameter is returned only when the diagnostics scenario is data skew or data expansion.
         shared_ptr<map<string, string>> params_ {};
+        // The intelligent diagnostics result scenario.
         shared_ptr<string> scene_ {};
+        // The intelligent diagnostics result tag.
         shared_ptr<string> sceneTag_ {};
+        // The intelligent diagnostics result summary.
         shared_ptr<string> summary_ {};
+        // The intelligent diagnostics result type.
         shared_ptr<string> type_ {};
       };
 
@@ -237,8 +243,11 @@ namespace Models
 
 
       protected:
+        // The encoding of the substatus.
         shared_ptr<int32_t> code_ {};
+        // The description of the substatus.
         shared_ptr<string> description_ {};
+        // The start time of the substatus.
         shared_ptr<string> startTime_ {};
       };
 
@@ -428,30 +437,55 @@ namespace Models
 
 
     protected:
+      // The amount of resources consumed by the job. This parameter is returned only for jobs that are complete.Unit: 100\\*Core\\*s.
       shared_ptr<int64_t> cuUsage_ {};
+      // The end time of the job.
       shared_ptr<int64_t> endAtTime_ {};
+      // The ID of the ancestor node.
       shared_ptr<string> extNodeId_ {};
+      // The Alibaba Cloud account ID of the task owner.
       shared_ptr<string> extNodeOnDuty_ {};
+      // The upstream platform.
       shared_ptr<string> extPlantFrom_ {};
+      // The amount of data scanned by the job.
       shared_ptr<double> inputBytes_ {};
+      // The job ID.
       shared_ptr<string> instanceId_ {};
+      // The owner of the job.
       shared_ptr<string> jobOwner_ {};
+      // The substatuses of the job lifecycle.
       shared_ptr<vector<Data::JobSubStatusList>> jobSubStatusList_ {};
+      // The type of the job.
       shared_ptr<string> jobType_ {};
+      // The number of memory consumed by the job. This parameter is returned only for jobs that are complete.Unit: MB\\*s.
       shared_ptr<int64_t> memoryUsage_ {};
+      // The priority of the job.
       shared_ptr<int64_t> priority_ {};
+      // The project name.
       shared_ptr<string> project_ {};
+      // The nickname of the computing quota that is used by the job.
       shared_ptr<string> quotaNickname_ {};
+      // The quota type.
       shared_ptr<string> quotaType_ {};
+      // The region ID.
       shared_ptr<string> region_ {};
+      // The start time, which is the time when the job received the first batch of computing resources. For jobs that run for a short period of time or do not consume computing resources, such as the jobs that involve DDL statements, the job submission time is used instead.
       shared_ptr<int64_t> runningAtTime_ {};
+      // The execution duration, which is the duration from the start time to the end time of the job.
       shared_ptr<int64_t> runningTime_ {};
+      // The intelligent diagnostics result.
       shared_ptr<vector<Data::SceneResults>> sceneResults_ {};
+      // The signature of the SQL job. You can use the signature to find the instances on which each time an SQL statement is executed.
       shared_ptr<string> signature_ {};
+      // The job status.
       shared_ptr<string> status_ {};
+      // The time when the job was submitted.
       shared_ptr<int64_t> submittedAtTime_ {};
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
+      // The total duration from the time a job is submitted to the time the job is terminated.
       shared_ptr<int64_t> totalTime_ {};
+      // The wait time, which is the duration from the time the job is submitted to the time the job starts to run.
       shared_ptr<int64_t> waitingTime_ {};
     };
 
@@ -495,10 +529,21 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<GetJobInfoResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // *   1xx: informational response. The request is received and is being processed.
+    // *   2xx: success. The request is successfully received, understood, and accepted by the server.
+    // *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // *   4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
+    // *   5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

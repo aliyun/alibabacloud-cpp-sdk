@@ -102,9 +102,7 @@ namespace Models
 
 
       protected:
-        // The metadata of the metric.
         shared_ptr<map<string, string>> metric_ {};
-        // The numeric information of the metric.
         Darabonba::Json value_ {};
       };
 
@@ -127,9 +125,7 @@ namespace Models
 
 
     protected:
-      // The metric values.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
-      // The name of the metric.
       shared_ptr<string> name_ {};
     };
 
@@ -173,15 +169,10 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<QueryTunnelMetricDetailResponseBody::Data> data_ {};
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The HTTP status code returned.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -79,6 +79,7 @@ namespace Models
 
 
       protected:
+        // The name of the user.
         shared_ptr<string> name_ {};
       };
 
@@ -93,6 +94,7 @@ namespace Models
 
 
     protected:
+      // The users.
       shared_ptr<vector<Data::Users>> users_ {};
     };
 
@@ -115,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListUsersByRoleResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

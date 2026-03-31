@@ -250,49 +250,28 @@ namespace Models
 
 
   protected:
-    // {Source column name: Destination column name}
     shared_ptr<map<string, string>> columnMapping_ {};
-    // The destination MaxCompute project.
     shared_ptr<string> dstDbName_ {};
-    // The destination MaxCompute schema.
     shared_ptr<string> dstSchemaName_ {};
-    // Specifies whether to migrate table data.
     shared_ptr<bool> enableDataMigration_ {};
-    // Specifies whether to migrate table schemas.
     shared_ptr<bool> enableSchemaMigration_ {};
-    // Specifies whether to enable data verification. The current verification method is to execute SELECT COUNT(\\*) on the source and destination to compare the number of rows.
     shared_ptr<bool> enableVerification_ {};
-    // The expected completion time of the migration. Note: A smaller eta value gives the migration task higher priority.
     shared_ptr<string> eta_ {};
-    // Specifies whether to perform an incremental migration. In an incremental migration, only new or changed partitions are migrated. Note that changed partitions are re-migrated.
     shared_ptr<bool> increment_ {};
-    // The name of the migration job.
     shared_ptr<string> name_ {};
-    // Other configuration information.
     Darabonba::Json others_ {};
-    // {Table name: Partition filter expression}
     shared_ptr<map<string, string>> partitionFilters_ {};
-    // The list of partition IDs.
     shared_ptr<vector<int64_t>> partitions_ {};
-    // Specifies whether to migrate only metadata.
     shared_ptr<bool> schemaOnly_ {};
-    // The ID of the data source.
     shared_ptr<int64_t> sourceId_ {};
-    // The name of the data source.
     shared_ptr<string> sourceName_ {};
-    // The name of the source database.
     shared_ptr<string> srcDbName_ {};
-    // The name of the source schema. This is the schema in a Layer 3 namespace.
     shared_ptr<string> srcSchemaName_ {};
-    // The blacklist of tables.
     shared_ptr<vector<string>> tableBlackList_ {};
-    // {Source table: Destination table}
     shared_ptr<map<string, string>> tableMapping_ {};
-    // The whitelist of tables. Note: If you configure both a whitelist and a blacklist, only the blacklist takes effect.
     shared_ptr<vector<string>> tableWhiteList_ {};
-    // The list of table names.
     shared_ptr<vector<string>> tables_ {};
-    // The type of the migration task.
+    // MOCK, HIVE: hive udtf task, HIVE_DATAX: hive datax task, COPY_TASK: odps Copy Task, ODPS_INSERT_OVERWRITE: odps simple insert overwrite task, MC2MC_VERIFY, OSS, HIVE_OSS
     shared_ptr<string> taskType_ {};
   };
 

@@ -165,14 +165,23 @@ namespace Models
 
 
       protected:
+        // The compute unit (CU) snapshot proportion of the job.
         shared_ptr<double> cuSnapshot_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The account that submits the job.
         shared_ptr<string> jobOwner_ {};
+        // The memory snapshot proportion of the job.
         shared_ptr<double> memorySnapshot_ {};
+        // The progress of the job.
         shared_ptr<double> progress_ {};
+        // The name of the MaxCompute project.
         shared_ptr<string> project_ {};
+        // The nickname of the quota that is used by the job.
         shared_ptr<string> quotaNickname_ {};
+        // The time when the job starts to run.
         shared_ptr<int64_t> runningAtTime_ {};
+        // The time when the job is submitted.
         shared_ptr<int64_t> submittedAtTime_ {};
       };
 
@@ -209,9 +218,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The list of jobs in the running state.
       shared_ptr<vector<Data::RunningJobInfoList>> runningJobInfoList_ {};
+      // The total number of returned entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -255,10 +268,16 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetRunningJobsResponseBody::Data> data_ {};
+    // *   If the value of success was false, an error code was returned.
+    // *   If the value of success was true, a null value was returned.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

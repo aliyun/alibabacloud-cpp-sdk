@@ -98,11 +98,8 @@ namespace Models
 
 
     protected:
-      // Sorts by lastDdlTime.
       shared_ptr<string> lastDdlTime_ {};
-      // Sorts by number of rows.
       shared_ptr<string> numRows_ {};
-      // Sorts by data size.
       shared_ptr<string> size_ {};
     };
 
@@ -198,27 +195,16 @@ namespace Models
 
   protected:
     shared_ptr<ListMmsPartitionsShrinkRequest::Sorter> sorter_ {};
-    // The database ID.
     shared_ptr<int64_t> dbId_ {};
-    // The database name.
     shared_ptr<string> dbName_ {};
-    // The maximum lastDdlTime value.
     shared_ptr<string> lastDdlTimeEnd_ {};
-    // The minimum lastDdlTime value.
     shared_ptr<string> lastDdlTimeStart_ {};
-    // The page number to return.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The migration status.
     shared_ptr<string> statusShrink_ {};
-    // The ID of the table that contains the partition.
     shared_ptr<int64_t> tableId_ {};
-    // The table name.
     shared_ptr<string> tableName_ {};
-    // Filters partitions whose metadata has been updated.
     shared_ptr<bool> updated_ {};
-    // The partition value.
     shared_ptr<string> value_ {};
   };
 

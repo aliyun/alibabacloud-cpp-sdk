@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The start time when the quota plan takes effect.
         shared_ptr<string> after_ {};
+        // The time when the quota plan takes effect.
         shared_ptr<string> at_ {};
       };
 
@@ -156,11 +158,17 @@ namespace Models
 
 
     protected:
+      // The condition value.
       shared_ptr<Data::Condition> condition_ {};
+      // The ID of the quota plan.
       shared_ptr<string> id_ {};
+      // The name of the operator.
       shared_ptr<string> operator_ {};
+      // The name of the quota plan.
       shared_ptr<string> plan_ {};
+      // The time zone.
       shared_ptr<string> timezone_ {};
+      // The type of the quota plan.
       shared_ptr<string> type_ {};
     };
 
@@ -204,10 +212,16 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<GetQuotaScheduleResponseBody::Data>> data_ {};
+    // *   If the value of success was false, an error code was returned.
+    // *   If the value of success was true, a null value was returned.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

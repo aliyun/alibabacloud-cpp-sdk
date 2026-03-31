@@ -325,59 +325,33 @@ namespace Models
 
 
       protected:
-        // Time created in MMS
         shared_ptr<string> createTime_ {};
-        // Whether deleted
         shared_ptr<bool> deleted_ {};
-        // Database description
         shared_ptr<string> description_ {};
-        // The MaxCompute schema corresponding to the source database. If the target MaxCompute project does not have a schema layer enabled, this value is null. By default, it is consistent with the source database name.
         shared_ptr<string> dstName_ {};
-        // Target MaxCompute project name
         shared_ptr<string> dstProjectName_ {};
-        // Other information stored in JSON format
         shared_ptr<string> extra_ {};
-        // Database ID
         shared_ptr<int64_t> id_ {};
         // Last DDL Time
         shared_ptr<string> lastDdlTime_ {};
-        // Database storage location
         shared_ptr<string> location_ {};
-        // Database name
         shared_ptr<string> name_ {};
-        // Number of database data rows
         shared_ptr<int64_t> numRows_ {};
-        // Database owner
         shared_ptr<string> owner_ {};
-        // Number of partitions
         shared_ptr<int32_t> partitions_ {};
-        // Partitions being migrated
         shared_ptr<int32_t> partitionsDoing_ {};
-        // Partitions migrated
         shared_ptr<int32_t> partitionsDone_ {};
-        // Failed partitions
         shared_ptr<int32_t> partitionsFailed_ {};
-        // Database data size in bytes
         shared_ptr<int64_t> size_ {};
-        // Data source ID.
         shared_ptr<int64_t> sourceId_ {};
-        // Data source name
         shared_ptr<string> sourceName_ {};
-        // Migration status: INIT, DOING, FAILED, DONE, PART_DONE
         shared_ptr<string> status_ {};
-        // Number of tables
         shared_ptr<int32_t> tables_ {};
-        // Tables being migrated
         shared_ptr<int32_t> tablesDoing_ {};
-        // Tables migrated
         shared_ptr<int32_t> tablesDone_ {};
-        // Failed tables
         shared_ptr<int32_t> tablesFailed_ {};
-        // Partially migrated tables
         shared_ptr<int32_t> tablesPartDone_ {};
-        // Latest data update time
         shared_ptr<string> updateTime_ {};
-        // Whether data is updated
         shared_ptr<bool> updated_ {};
       };
 
@@ -414,13 +388,9 @@ namespace Models
 
 
     protected:
-      // Database list
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
-      // Page number
       shared_ptr<int32_t> pageNum_ {};
-      // Page size
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -443,9 +413,7 @@ namespace Models
 
 
   protected:
-    // Returned data.
     shared_ptr<ListMmsDbsResponseBody::Data> data_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

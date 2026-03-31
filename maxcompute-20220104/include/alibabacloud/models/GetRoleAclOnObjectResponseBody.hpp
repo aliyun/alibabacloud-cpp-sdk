@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The operations that were performed on the object.
       shared_ptr<vector<string>> actions_ {};
     };
 
@@ -84,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The returned data
     shared_ptr<GetRoleAclOnObjectResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

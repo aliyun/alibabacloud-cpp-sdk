@@ -106,9 +106,7 @@ namespace Models
 
 
       protected:
-        // The metadata of the metric.
         shared_ptr<map<string, string>> metric_ {};
-        // The time series data.
         shared_ptr<vector<vector<double>>> values_ {};
       };
 
@@ -145,13 +143,9 @@ namespace Models
 
 
     protected:
-      // The category of the metric.
       shared_ptr<string> category_ {};
-      // The metric values.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
-      // The name of the metric.
       shared_ptr<string> name_ {};
-      // The step size of the monitoring data.
       shared_ptr<int64_t> period_ {};
     };
 
@@ -195,25 +189,10 @@ namespace Models
 
 
   protected:
-    // The data returned.
     shared_ptr<QueryStorageMetricResponseBody::Data> data_ {};
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The HTTP status code.
-    // 
-    // - 1xx: Informational - The request was received and is being processed.
-    // 
-    // - 2xx: Success - The request was successfully received, understood, and accepted by the server.
-    // 
-    // - 3xx: Redirection - The request was redirected. Further action is needed to complete the request.
-    // 
-    // - 4xx: Client error - The request contains incorrect parameters or syntax, or cannot be fulfilled.
-    // 
-    // - 5xx: Server error - The server failed to fulfill the request for other reasons.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Display time zone.
     shared_ptr<string> displayTimezone_ {};
   };
 

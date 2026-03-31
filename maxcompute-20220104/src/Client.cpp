@@ -93,6 +93,11 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Activate a Quota Plan Immediately.
+ *
+ * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ApplyComputeQuotaPlanResponse
@@ -116,6 +121,11 @@ ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlanWithOptions(const str
 }
 
 /**
+ * @summary Activate a Quota Plan Immediately.
+ *
+ * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ *
  * @return ApplyComputeQuotaPlanResponse
  */
 ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlan(const string &nickname, const string &planName) {
@@ -125,6 +135,11 @@ ApplyComputeQuotaPlanResponse Client::applyComputeQuotaPlan(const string &nickna
 }
 
 /**
+ * @summary Creates a quota plan.
+ *
+ * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ *
  * @param request CreateComputeQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -160,6 +175,11 @@ CreateComputeQuotaPlanResponse Client::createComputeQuotaPlanWithOptions(const s
 }
 
 /**
+ * @summary Creates a quota plan.
+ *
+ * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ *
  * @param request CreateComputeQuotaPlanRequest
  * @return CreateComputeQuotaPlanResponse
  */
@@ -170,7 +190,7 @@ CreateComputeQuotaPlanResponse Client::createComputeQuotaPlan(const string &nick
 }
 
 /**
- * @summary Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+ * @summary Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
  *
  * @param request CreateMmsDataSourceRequest
  * @param headers map
@@ -215,7 +235,7 @@ CreateMmsDataSourceResponse Client::createMmsDataSourceWithOptions(const CreateM
 }
 
 /**
- * @summary Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+ * @summary Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
  *
  * @param request CreateMmsDataSourceRequest
  * @return CreateMmsDataSourceResponse
@@ -227,7 +247,7 @@ CreateMmsDataSourceResponse Client::createMmsDataSource(const CreateMmsDataSourc
 }
 
 /**
- * @summary Creates a job to pull metadata from a data source.
+ * @summary Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
  *
  * @param request CreateMmsFetchMetadataJobRequest
  * @param headers map
@@ -264,7 +284,7 @@ CreateMmsFetchMetadataJobResponse Client::createMmsFetchMetadataJobWithOptions(c
 }
 
 /**
- * @summary Creates a job to pull metadata from a data source.
+ * @summary Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
  *
  * @param request CreateMmsFetchMetadataJobRequest
  * @return CreateMmsFetchMetadataJobResponse
@@ -405,6 +425,8 @@ CreateMmsJobResponse Client::createMmsJob(const string &sourceId, const CreateMm
 }
 
 /**
+ * @summary Creates a package.
+ *
  * @param request CreatePackageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -437,6 +459,8 @@ CreatePackageResponse Client::createPackageWithOptions(const string &projectName
 }
 
 /**
+ * @summary Creates a package.
+ *
  * @param request CreatePackageRequest
  * @return CreatePackageResponse
  */
@@ -447,7 +471,7 @@ CreatePackageResponse Client::createPackage(const string &projectName, const Cre
 }
 
 /**
- * @summary 创建项目
+ * @summary Creates a MaxCompute project.
  *
  * @param request CreateProjectRequest
  * @param headers map
@@ -475,7 +499,7 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
 }
 
 /**
- * @summary 创建项目
+ * @summary Creates a MaxCompute project.
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -487,9 +511,7 @@ CreateProjectResponse Client::createProject(const CreateProjectRequest &request)
 }
 
 /**
- * @summary Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
- *
- * @description **Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+ * @summary CreateQuota
  *
  * @param request CreateQuotaRequest
  * @param headers map
@@ -534,9 +556,7 @@ CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &req
 }
 
 /**
- * @summary Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
- *
- * @description **Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+ * @summary CreateQuota
  *
  * @param request CreateQuotaRequest
  * @return CreateQuotaResponse
@@ -548,6 +568,8 @@ CreateQuotaResponse Client::createQuota(const CreateQuotaRequest &request) {
 }
 
 /**
+ * @summary Creates a quota plan.
+ *
  * @param request CreateQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -584,6 +606,8 @@ CreateQuotaPlanResponse Client::createQuotaPlanWithOptions(const string &nicknam
 }
 
 /**
+ * @summary Creates a quota plan.
+ *
  * @param request CreateQuotaPlanRequest
  * @return CreateQuotaPlanResponse
  */
@@ -594,6 +618,8 @@ CreateQuotaPlanResponse Client::createQuotaPlan(const string &nickname, const Cr
 }
 
 /**
+ * @summary Creates a role at the MaxCompute project level.
+ *
  * @param request CreateRoleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -620,6 +646,8 @@ CreateRoleResponse Client::createRoleWithOptions(const string &projectName, cons
 }
 
 /**
+ * @summary Creates a role at the MaxCompute project level.
+ *
  * @param request CreateRoleRequest
  * @return CreateRoleResponse
  */
@@ -630,6 +658,8 @@ CreateRoleResponse Client::createRole(const string &projectName, const CreateRol
 }
 
 /**
+ * @summary Deletes a MaxCompute quota plan.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteComputeQuotaPlanResponse
@@ -653,6 +683,8 @@ DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlanWithOptions(const s
 }
 
 /**
+ * @summary Deletes a MaxCompute quota plan.
+ *
  * @return DeleteComputeQuotaPlanResponse
  */
 DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlan(const string &nickname, const string &planName) {
@@ -662,7 +694,7 @@ DeleteComputeQuotaPlanResponse Client::deleteComputeQuotaPlan(const string &nick
 }
 
 /**
- * @summary Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
+ * @summary Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -687,7 +719,7 @@ DeleteMmsDataSourceResponse Client::deleteMmsDataSourceWithOptions(const string 
 }
 
 /**
- * @summary Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
+ * @summary Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
  *
  * @return DeleteMmsDataSourceResponse
  */
@@ -698,7 +730,7 @@ DeleteMmsDataSourceResponse Client::deleteMmsDataSource(const string &sourceId) 
 }
 
 /**
- * @summary Deletes a MaxCompute Migration Assist (MMA) data migration plan.
+ * @summary Deletes a MaxCompute Migration Assist (MMA) migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +755,7 @@ DeleteMmsJobResponse Client::deleteMmsJobWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary Deletes a MaxCompute Migration Assist (MMA) data migration plan.
+ * @summary Deletes a MaxCompute Migration Assist (MMA) migration job.
  *
  * @return DeleteMmsJobResponse
  */
@@ -734,7 +766,7 @@ DeleteMmsJobResponse Client::deleteMmsJob(const string &sourceId, const string &
 }
 
 /**
- * @summary Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
+ * @summary Deletes a MaxCompute project.
  *
  * @param request DeleteProjectRequest
  * @param headers map
@@ -767,7 +799,7 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const string &projectName
 }
 
 /**
- * @summary Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
+ * @summary Deletes a MaxCompute project.
  *
  * @param request DeleteProjectRequest
  * @return DeleteProjectResponse
@@ -779,6 +811,8 @@ DeleteProjectResponse Client::deleteProject(const string &projectName, const Del
 }
 
 /**
+ * @summary Deletes a quota plan.
+ *
  * @param request DeleteQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -814,6 +848,8 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlanWithOptions(const string &nicknam
 }
 
 /**
+ * @summary Deletes a quota plan.
+ *
  * @param request DeleteQuotaPlanRequest
  * @return DeleteQuotaPlanResponse
  */
@@ -824,6 +860,8 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlan(const string &nickname, const st
 }
 
 /**
+ * @summary GetComputeEffectivePlan.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetComputeEffectivePlanResponse
@@ -847,6 +885,8 @@ GetComputeEffectivePlanResponse Client::getComputeEffectivePlanWithOptions(const
 }
 
 /**
+ * @summary GetComputeEffectivePlan.
+ *
  * @return GetComputeEffectivePlanResponse
  */
 GetComputeEffectivePlanResponse Client::getComputeEffectivePlan(const string &nickname) {
@@ -856,6 +896,8 @@ GetComputeEffectivePlanResponse Client::getComputeEffectivePlan(const string &ni
 }
 
 /**
+ * @summary Get detailed information of a single compute quota plan.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetComputeQuotaPlanResponse
@@ -879,6 +921,8 @@ GetComputeQuotaPlanResponse Client::getComputeQuotaPlanWithOptions(const string 
 }
 
 /**
+ * @summary Get detailed information of a single compute quota plan.
+ *
  * @return GetComputeQuotaPlanResponse
  */
 GetComputeQuotaPlanResponse Client::getComputeQuotaPlan(const string &nickname, const string &planName) {
@@ -888,6 +932,8 @@ GetComputeQuotaPlanResponse Client::getComputeQuotaPlan(const string &nickname, 
 }
 
 /**
+ * @summary Displays the time-specific configuration of compute quota.
+ *
  * @param request GetComputeQuotaScheduleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -919,6 +965,8 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaScheduleWithOptions(const
 }
 
 /**
+ * @summary Displays the time-specific configuration of compute quota.
+ *
  * @param request GetComputeQuotaScheduleRequest
  * @return GetComputeQuotaScheduleResponse
  */
@@ -929,6 +977,8 @@ GetComputeQuotaScheduleResponse Client::getComputeQuotaSchedule(const string &ni
 }
 
 /**
+ * @summary Queries the basic information about a job.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetJobInfoResponse
@@ -952,6 +1002,8 @@ GetJobInfoResponse Client::getJobInfoWithOptions(const string &instanceId, const
 }
 
 /**
+ * @summary Queries the basic information about a job.
+ *
  * @return GetJobInfoResponse
  */
 GetJobInfoResponse Client::getJobInfo(const string &instanceId) {
@@ -961,6 +1013,8 @@ GetJobInfoResponse Client::getJobInfo(const string &instanceId) {
 }
 
 /**
+ * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+ *
  * @param tmpReq GetJobResourceUsageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1018,6 +1072,8 @@ GetJobResourceUsageResponse Client::getJobResourceUsageWithOptions(const GetJobR
 }
 
 /**
+ * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+ *
  * @param request GetJobResourceUsageRequest
  * @return GetJobResourceUsageResponse
  */
@@ -1028,7 +1084,7 @@ GetJobResourceUsageResponse Client::getJobResourceUsage(const GetJobResourceUsag
 }
 
 /**
- * @summary Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+ * @summary Queries a MaxCompute Migration Assist (MMA) asynchronous task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1053,7 +1109,7 @@ GetMmsAsyncTaskResponse Client::getMmsAsyncTaskWithOptions(const string &sourceI
 }
 
 /**
- * @summary Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+ * @summary Queries a MaxCompute Migration Assist (MMA) asynchronous task.
  *
  * @return GetMmsAsyncTaskResponse
  */
@@ -1064,7 +1120,7 @@ GetMmsAsyncTaskResponse Client::getMmsAsyncTask(const string &sourceId, const st
 }
 
 /**
- * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries the information about a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request GetMmsDataSourceRequest
  * @param headers map
@@ -1101,7 +1157,7 @@ GetMmsDataSourceResponse Client::getMmsDataSourceWithOptions(const string &sourc
 }
 
 /**
- * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries the information about a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request GetMmsDataSourceRequest
  * @return GetMmsDataSourceResponse
@@ -1113,7 +1169,7 @@ GetMmsDataSourceResponse Client::getMmsDataSource(const string &sourceId, const 
 }
 
 /**
- * @summary Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a database in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1138,7 +1194,7 @@ GetMmsDbResponse Client::getMmsDbWithOptions(const string &sourceId, const strin
 }
 
 /**
- * @summary Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a database in a MaxCompute Migration Assist (MMA) data source.
  *
  * @return GetMmsDbResponse
  */
@@ -1149,7 +1205,7 @@ GetMmsDbResponse Client::getMmsDb(const string &sourceId, const string &dbId) {
 }
 
 /**
- * @summary Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
+ * @summary Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1174,7 +1230,7 @@ GetMmsFetchMetadataJobResponse Client::getMmsFetchMetadataJobWithOptions(const s
 }
 
 /**
- * @summary Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
+ * @summary Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
  *
  * @return GetMmsFetchMetadataJobResponse
  */
@@ -1185,7 +1241,7 @@ GetMmsFetchMetadataJobResponse Client::getMmsFetchMetadataJob(const string &sour
 }
 
 /**
- * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+ * @summary Queries the details of a MaxCompute Migration Assist (MMA) migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1210,7 +1266,7 @@ GetMmsJobResponse Client::getMmsJobWithOptions(const string &sourceId, const str
 }
 
 /**
- * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+ * @summary Queries the details of a MaxCompute Migration Assist (MMA) migration job.
  *
  * @return GetMmsJobResponse
  */
@@ -1221,7 +1277,7 @@ GetMmsJobResponse Client::getMmsJob(const string &sourceId, const string &jobId)
 }
 
 /**
- * @summary Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a partition from a MaxCompute Migration Assist (MMA) data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1302,7 @@ GetMmsPartitionResponse Client::getMmsPartitionWithOptions(const string &sourceI
 }
 
 /**
- * @summary Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a partition from a MaxCompute Migration Assist (MMA) data source.
  *
  * @return GetMmsPartitionResponse
  */
@@ -1257,7 +1313,7 @@ GetMmsPartitionResponse Client::getMmsPartition(const string &sourceId, const st
 }
 
 /**
- * @summary Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a table in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1282,7 +1338,7 @@ GetMmsTableResponse Client::getMmsTableWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a table in a MaxCompute Migration Assist (MMA) data source.
  *
  * @return GetMmsTableResponse
  */
@@ -1293,7 +1349,7 @@ GetMmsTableResponse Client::getMmsTable(const string &sourceId, const string &ta
 }
 
 /**
- * @summary Retrieves the details of a specific migration task.
+ * @summary Queries the details of a migration task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1374,7 @@ GetMmsTaskResponse Client::getMmsTaskWithOptions(const string &sourceId, const s
 }
 
 /**
- * @summary Retrieves the details of a specific migration task.
+ * @summary Queries the details of a migration task.
  *
  * @return GetMmsTaskResponse
  */
@@ -1329,6 +1385,8 @@ GetMmsTaskResponse Client::getMmsTask(const string &sourceId, const string &task
 }
 
 /**
+ * @summary Obtains the information about a package.
+ *
  * @param request GetPackageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1360,6 +1418,8 @@ GetPackageResponse Client::getPackageWithOptions(const string &projectName, cons
 }
 
 /**
+ * @summary Obtains the information about a package.
+ *
  * @param request GetPackageRequest
  * @return GetPackageResponse
  */
@@ -1370,7 +1430,7 @@ GetPackageResponse Client::getPackage(const string &projectName, const string &p
 }
 
 /**
- * @summary Queries the basic information about a MaxCompute project.
+ * @summary Queries the information about a MaxCompute project.
  *
  * @param request GetProjectRequest
  * @param headers map
@@ -1411,7 +1471,7 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Queries the basic information about a MaxCompute project.
+ * @summary Queries the information about a MaxCompute project.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse
@@ -1423,7 +1483,7 @@ GetProjectResponse Client::getProject(const string &projectName, const GetProjec
 }
 
 /**
- * @summary Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
+ * @summary Obtains the information about a specified level-1 quota.
  *
  * @param request GetQuotaRequest
  * @param headers map
@@ -1468,7 +1528,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &nickname, const GetQu
 }
 
 /**
- * @summary Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
+ * @summary Obtains the information about a specified level-1 quota.
  *
  * @param request GetQuotaRequest
  * @return GetQuotaResponse
@@ -1480,6 +1540,8 @@ GetQuotaResponse Client::getQuota(const string &nickname, const GetQuotaRequest 
 }
 
 /**
+ * @summary Obtains the information of a quota plan.
+ *
  * @param request GetQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1515,6 +1577,8 @@ GetQuotaPlanResponse Client::getQuotaPlanWithOptions(const string &nickname, con
 }
 
 /**
+ * @summary Obtains the information of a quota plan.
+ *
  * @param request GetQuotaPlanRequest
  * @return GetQuotaPlanResponse
  */
@@ -1525,6 +1589,8 @@ GetQuotaPlanResponse Client::getQuotaPlan(const string &nickname, const string &
 }
 
 /**
+ * @summary Obtains the scheduling plan for a quota plan.
+ *
  * @param request GetQuotaScheduleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1564,6 +1630,8 @@ GetQuotaScheduleResponse Client::getQuotaScheduleWithOptions(const string &nickn
 }
 
 /**
+ * @summary Obtains the scheduling plan for a quota plan.
+ *
  * @param request GetQuotaScheduleRequest
  * @return GetQuotaScheduleResponse
  */
@@ -1574,6 +1642,8 @@ GetQuotaScheduleResponse Client::getQuotaSchedule(const string &nickname, const 
 }
 
 /**
+ * @summary Queries quota resource consumption information.
+ *
  * @param tmpReq GetQuotaUsageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1647,6 +1717,8 @@ GetQuotaUsageResponse Client::getQuotaUsageWithOptions(const string &nickname, c
 }
 
 /**
+ * @summary Queries quota resource consumption information.
+ *
  * @param request GetQuotaUsageRequest
  * @return GetQuotaUsageResponse
  */
@@ -1657,6 +1729,8 @@ GetQuotaUsageResponse Client::getQuotaUsage(const string &nickname, const GetQuo
 }
 
 /**
+ * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRoleAclResponse
@@ -1680,6 +1754,8 @@ GetRoleAclResponse Client::getRoleAclWithOptions(const string &projectName, cons
 }
 
 /**
+ * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+ *
  * @return GetRoleAclResponse
  */
 GetRoleAclResponse Client::getRoleAcl(const string &projectName, const string &roleName) {
@@ -1689,6 +1765,8 @@ GetRoleAclResponse Client::getRoleAcl(const string &projectName, const string &r
 }
 
 /**
+ * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+ *
  * @param request GetRoleAclOnObjectRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1724,6 +1802,8 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObjectWithOptions(const string &p
 }
 
 /**
+ * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+ *
  * @param request GetRoleAclOnObjectRequest
  * @return GetRoleAclOnObjectResponse
  */
@@ -1734,6 +1814,8 @@ GetRoleAclOnObjectResponse Client::getRoleAclOnObject(const string &projectName,
 }
 
 /**
+ * @summary Obtains the policy that is attached to a project-level role.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRolePolicyResponse
@@ -1757,6 +1839,8 @@ GetRolePolicyResponse Client::getRolePolicyWithOptions(const string &projectName
 }
 
 /**
+ * @summary Obtains the policy that is attached to a project-level role.
+ *
  * @return GetRolePolicyResponse
  */
 GetRolePolicyResponse Client::getRolePolicy(const string &projectName, const string &roleName) {
@@ -1766,6 +1850,8 @@ GetRolePolicyResponse Client::getRolePolicy(const string &projectName, const str
 }
 
 /**
+ * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+ *
  * @param tmpReq GetRunningJobsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1827,6 +1913,8 @@ GetRunningJobsResponse Client::getRunningJobsWithOptions(const GetRunningJobsReq
 }
 
 /**
+ * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+ *
  * @param request GetRunningJobsRequest
  * @return GetRunningJobsResponse
  */
@@ -1837,8 +1925,6 @@ GetRunningJobsResponse Client::getRunningJobs(const GetRunningJobsRequest &reque
 }
 
 /**
- * @summary Retrieves a summary of the total storage amount.
- *
  * @param request GetStorageAmountSummaryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1878,8 +1964,6 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummaryWithOptions(const
 }
 
 /**
- * @summary Retrieves a summary of the total storage amount.
- *
  * @param request GetStorageAmountSummaryRequest
  * @return GetStorageAmountSummaryResponse
  */
@@ -1890,8 +1974,6 @@ GetStorageAmountSummaryResponse Client::getStorageAmountSummary(const GetStorage
 }
 
 /**
- * @summary Retrieves a summary of storage usage.
- *
  * @param request GetStorageSizeSummaryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1931,8 +2013,6 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummaryWithOptions(const Get
 }
 
 /**
- * @summary Retrieves a summary of storage usage.
- *
  * @param request GetStorageSizeSummaryRequest
  * @return GetStorageSizeSummaryResponse
  */
@@ -1943,8 +2023,6 @@ GetStorageSizeSummaryResponse Client::getStorageSizeSummary(const GetStorageSize
 }
 
 /**
- * @summary Retrieves the year-on-year (YoY) change in storage usage.
- *
  * @param tmpReq GetStorageSummaryComparedRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1998,8 +2076,6 @@ GetStorageSummaryComparedResponse Client::getStorageSummaryComparedWithOptions(c
 }
 
 /**
- * @summary Retrieves the year-on-year (YoY) change in storage usage.
- *
  * @param request GetStorageSummaryComparedRequest
  * @return GetStorageSummaryComparedResponse
  */
@@ -2010,6 +2086,8 @@ GetStorageSummaryComparedResponse Client::getStorageSummaryCompared(const string
 }
 
 /**
+ * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+ *
  * @param request GetTableInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2045,6 +2123,8 @@ GetTableInfoResponse Client::getTableInfoWithOptions(const string &projectName, 
 }
 
 /**
+ * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+ *
  * @param request GetTableInfoRequest
  * @return GetTableInfoResponse
  */
@@ -2055,6 +2135,8 @@ GetTableInfoResponse Client::getTableInfo(const string &projectName, const strin
 }
 
 /**
+ * @summary Obtains the trusted projects of the current project.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTrustedProjectsResponse
@@ -2078,6 +2160,8 @@ GetTrustedProjectsResponse Client::getTrustedProjectsWithOptions(const string &p
 }
 
 /**
+ * @summary Obtains the trusted projects of the current project.
+ *
  * @return GetTrustedProjectsResponse
  */
 GetTrustedProjectsResponse Client::getTrustedProjects(const string &projectName) {
@@ -2087,6 +2171,8 @@ GetTrustedProjectsResponse Client::getTrustedProjects(const string &projectName)
 }
 
 /**
+ * @summary Terminates a running job.
+ *
  * @param request KillJobsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2123,6 +2209,8 @@ KillJobsResponse Client::killJobsWithOptions(const KillJobsRequest &request, con
 }
 
 /**
+ * @summary Terminates a running job.
+ *
  * @param request KillJobsRequest
  * @return KillJobsResponse
  */
@@ -2133,6 +2221,8 @@ KillJobsResponse Client::killJobs(const KillJobsRequest &request) {
 }
 
 /**
+ * @summary Queries a list of computing resources used by a pay-as-you-go job.
+ *
  * @param request ListComputeMetricsByInstanceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2204,6 +2294,8 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstanceWithOpt
 }
 
 /**
+ * @summary Queries a list of computing resources used by a pay-as-you-go job.
+ *
  * @param request ListComputeMetricsByInstanceRequest
  * @return ListComputeMetricsByInstanceResponse
  */
@@ -2214,7 +2306,7 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstance(const 
 }
 
 /**
- * @summary Lists compute quota plans.
+ * @summary Get computeQuotaPlan list.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2239,7 +2331,7 @@ ListComputeQuotaPlanResponse Client::listComputeQuotaPlanWithOptions(const strin
 }
 
 /**
- * @summary Lists compute quota plans.
+ * @summary Get computeQuotaPlan list.
  *
  * @return ListComputeQuotaPlanResponse
  */
@@ -2250,6 +2342,8 @@ ListComputeQuotaPlanResponse Client::listComputeQuotaPlan(const string &nickname
 }
 
 /**
+ * @summary Obtains functions in a MaxCompute project.
+ *
  * @param request ListFunctionsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2293,6 +2387,8 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const string &projectName
 }
 
 /**
+ * @summary Obtains functions in a MaxCompute project.
+ *
  * @param request ListFunctionsRequest
  * @return ListFunctionsResponse
  */
@@ -2303,7 +2399,7 @@ ListFunctionsResponse Client::listFunctions(const string &projectName, const Lis
 }
 
 /**
- * @summary Retrieves a list of jobs.
+ * @summary Views a list of jobs.
  *
  * @param request ListJobInfosRequest
  * @param headers map
@@ -2422,7 +2518,7 @@ ListJobInfosResponse Client::listJobInfosWithOptions(const ListJobInfosRequest &
 }
 
 /**
- * @summary Retrieves a list of jobs.
+ * @summary Views a list of jobs.
  *
  * @param request ListJobInfosRequest
  * @return ListJobInfosResponse
@@ -2434,6 +2530,8 @@ ListJobInfosResponse Client::listJobInfos(const ListJobInfosRequest &request) {
 }
 
 /**
+ * @summary Queries a performance metric of the job that is complete.
+ *
  * @param request ListJobMetricRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2495,6 +2593,8 @@ ListJobMetricResponse Client::listJobMetricWithOptions(const ListJobMetricReques
 }
 
 /**
+ * @summary Queries a performance metric of the job that is complete.
+ *
  * @param request ListJobMetricRequest
  * @return ListJobMetricResponse
  */
@@ -2505,7 +2605,7 @@ ListJobMetricResponse Client::listJobMetric(const ListJobMetricRequest &request)
 }
 
 /**
- * @summary Retrieves job snapshot data at a specific point in time.
+ * @summary Views a list of job snapshot data at a specific point in time.
  *
  * @param request ListJobSnapshotInfosRequest
  * @param headers map
@@ -2612,7 +2712,7 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfosWithOptions(const ListJ
 }
 
 /**
- * @summary Retrieves job snapshot data at a specific point in time.
+ * @summary Views a list of job snapshot data at a specific point in time.
  *
  * @param request ListJobSnapshotInfosRequest
  * @return ListJobSnapshotInfosResponse
@@ -2624,7 +2724,7 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfos(const ListJobSnapshotI
 }
 
 /**
- * @summary Lists the MaxCompute Migration Assist (MMA) data sources.
+ * @summary Queries a list of MaxCompute Migration Assist (MMA) data sources.
  *
  * @param request ListMmsDataSourcesRequest
  * @param headers map
@@ -2673,7 +2773,7 @@ ListMmsDataSourcesResponse Client::listMmsDataSourcesWithOptions(const ListMmsDa
 }
 
 /**
- * @summary Lists the MaxCompute Migration Assist (MMA) data sources.
+ * @summary Queries a list of MaxCompute Migration Assist (MMA) data sources.
  *
  * @param request ListMmsDataSourcesRequest
  * @return ListMmsDataSourcesResponse
@@ -2685,7 +2785,7 @@ ListMmsDataSourcesResponse Client::listMmsDataSources(const ListMmsDataSourcesRe
 }
 
 /**
- * @summary List databases in the MMA data source.
+ * @summary Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param tmpReq ListMmsDbsRequest
  * @param headers map
@@ -2740,7 +2840,7 @@ ListMmsDbsResponse Client::listMmsDbsWithOptions(const string &sourceId, const L
 }
 
 /**
- * @summary List databases in the MMA data source.
+ * @summary Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request ListMmsDbsRequest
  * @return ListMmsDbsResponse
@@ -2752,7 +2852,7 @@ ListMmsDbsResponse Client::listMmsDbs(const string &sourceId, const ListMmsDbsRe
 }
 
 /**
- * @summary Lists migration jobs.
+ * @summary Queries a list of migration jobs.
  *
  * @param request ListMmsJobsRequest
  * @param headers map
@@ -2825,7 +2925,7 @@ ListMmsJobsResponse Client::listMmsJobsWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary Lists migration jobs.
+ * @summary Queries a list of migration jobs.
  *
  * @param request ListMmsJobsRequest
  * @return ListMmsJobsResponse
@@ -2837,7 +2937,7 @@ ListMmsJobsResponse Client::listMmsJobs(const string &sourceId, const ListMmsJob
 }
 
 /**
- * @summary Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param tmpReq ListMmsPartitionsRequest
  * @param headers map
@@ -2920,7 +3020,7 @@ ListMmsPartitionsResponse Client::listMmsPartitionsWithOptions(const string &sou
 }
 
 /**
- * @summary Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request ListMmsPartitionsRequest
  * @return ListMmsPartitionsResponse
@@ -2932,7 +3032,7 @@ ListMmsPartitionsResponse Client::listMmsPartitions(const string &sourceId, cons
 }
 
 /**
- * @summary Lists the tables in a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param tmpReq ListMmsTablesRequest
  * @param headers map
@@ -3027,7 +3127,7 @@ ListMmsTablesResponse Client::listMmsTablesWithOptions(const string &sourceId, c
 }
 
 /**
- * @summary Lists the tables in a MaxCompute Migration Assist (MMA) data source.
+ * @summary Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request ListMmsTablesRequest
  * @return ListMmsTablesResponse
@@ -3039,7 +3139,7 @@ ListMmsTablesResponse Client::listMmsTables(const string &sourceId, const ListMm
 }
 
 /**
- * @summary Lists the execution logs for a specific migration task.
+ * @summary Queries a list of the execution logs of a single migration task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3064,7 +3164,7 @@ ListMmsTaskLogsResponse Client::listMmsTaskLogsWithOptions(const string &sourceI
 }
 
 /**
- * @summary Lists the execution logs for a specific migration task.
+ * @summary Queries a list of the execution logs of a single migration task.
  *
  * @return ListMmsTaskLogsResponse
  */
@@ -3075,7 +3175,7 @@ ListMmsTaskLogsResponse Client::listMmsTaskLogs(const string &sourceId, const st
 }
 
 /**
- * @summary Retrieves a list of migration tasks.
+ * @summary Queries a list of migration tasks.
  *
  * @param request ListMmsTasksRequest
  * @param headers map
@@ -3148,7 +3248,7 @@ ListMmsTasksResponse Client::listMmsTasksWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary Retrieves a list of migration tasks.
+ * @summary Queries a list of migration tasks.
  *
  * @param request ListMmsTasksRequest
  * @return ListMmsTasksResponse
@@ -3160,6 +3260,8 @@ ListMmsTasksResponse Client::listMmsTasks(const string &sourceId, const ListMmsT
 }
 
 /**
+ * @summary Queries the packages in a MaxCompute project.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPackagesResponse
@@ -3183,6 +3285,8 @@ ListPackagesResponse Client::listPackagesWithOptions(const string &projectName, 
 }
 
 /**
+ * @summary Queries the packages in a MaxCompute project.
+ *
  * @return ListPackagesResponse
  */
 ListPackagesResponse Client::listPackages(const string &projectName) {
@@ -3192,7 +3296,7 @@ ListPackagesResponse Client::listPackages(const string &projectName) {
 }
 
 /**
- * @summary ListProjectUsers
+ * @summary Queries a list of users in a project.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3217,7 +3321,7 @@ ListProjectUsersResponse Client::listProjectUsersWithOptions(const string &proje
 }
 
 /**
- * @summary ListProjectUsers
+ * @summary Queries a list of users in a project.
  *
  * @return ListProjectUsersResponse
  */
@@ -3228,6 +3332,8 @@ ListProjectUsersResponse Client::listProjectUsers(const string &projectName) {
 }
 
 /**
+ * @summary Queries a list of MaxCompute projects.
+ *
  * @param request ListProjectsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3295,6 +3401,8 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 }
 
 /**
+ * @summary Queries a list of MaxCompute projects.
+ *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
  */
@@ -3305,7 +3413,7 @@ ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of quotas.
+ * @summary Queries quotas.
  *
  * @param request ListQuotasRequest
  * @param headers map
@@ -3362,7 +3470,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
 }
 
 /**
- * @summary Retrieves a list of quotas.
+ * @summary Queries quotas.
  *
  * @param request ListQuotasRequest
  * @return ListQuotasResponse
@@ -3374,6 +3482,8 @@ ListQuotasResponse Client::listQuotas(const ListQuotasRequest &request) {
 }
 
 /**
+ * @summary Obtains quota plans.
+ *
  * @param request ListQuotasPlansRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3409,6 +3519,8 @@ ListQuotasPlansResponse Client::listQuotasPlansWithOptions(const string &nicknam
 }
 
 /**
+ * @summary Obtains quota plans.
+ *
  * @param request ListQuotasPlansRequest
  * @return ListQuotasPlansResponse
  */
@@ -3419,6 +3531,8 @@ ListQuotasPlansResponse Client::listQuotasPlans(const string &nickname, const Li
 }
 
 /**
+ * @summary Obtains resources in a MaxCompute project.
+ *
  * @param request ListResourcesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3462,6 +3576,8 @@ ListResourcesResponse Client::listResourcesWithOptions(const string &projectName
 }
 
 /**
+ * @summary Obtains resources in a MaxCompute project.
+ *
  * @param request ListResourcesRequest
  * @return ListResourcesResponse
  */
@@ -3472,6 +3588,8 @@ ListResourcesResponse Client::listResources(const string &projectName, const Lis
 }
 
 /**
+ * @summary Obtains MaxCompute project-level roles.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRolesResponse
@@ -3495,6 +3613,8 @@ ListRolesResponse Client::listRolesWithOptions(const string &projectName, const 
 }
 
 /**
+ * @summary Obtains MaxCompute project-level roles.
+ *
  * @return ListRolesResponse
  */
 ListRolesResponse Client::listRoles(const string &projectName) {
@@ -3504,6 +3624,8 @@ ListRolesResponse Client::listRoles(const string &projectName) {
 }
 
 /**
+ * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+ *
  * @param tmpReq ListStoragePartitionsInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3577,6 +3699,8 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfoWithOptions(c
 }
 
 /**
+ * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+ *
  * @param request ListStoragePartitionsInfoRequest
  * @return ListStoragePartitionsInfoResponse
  */
@@ -3587,8 +3711,6 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfo(const string
 }
 
 /**
- * @summary Retrieves the storage details of projects.
- *
  * @param request ListStorageProjectsInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3652,8 +3774,6 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfoWithOptions(const
 }
 
 /**
- * @summary Retrieves the storage details of projects.
- *
  * @param request ListStorageProjectsInfoRequest
  * @return ListStorageProjectsInfoResponse
  */
@@ -3664,6 +3784,8 @@ ListStorageProjectsInfoResponse Client::listStorageProjectsInfo(const ListStorag
 }
 
 /**
+ * @summary Queries the table storage details of a MaxCompute project.
+ *
  * @param tmpReq ListStorageTablesInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3741,6 +3863,8 @@ ListStorageTablesInfoResponse Client::listStorageTablesInfoWithOptions(const str
 }
 
 /**
+ * @summary Queries the table storage details of a MaxCompute project.
+ *
  * @param request ListStorageTablesInfoRequest
  * @return ListStorageTablesInfoResponse
  */
@@ -3751,6 +3875,8 @@ ListStorageTablesInfoResponse Client::listStorageTablesInfo(const string &projec
 }
 
 /**
+ * @summary Obtains tables in a MaxCompute project.
+ *
  * @param request ListTablesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3798,6 +3924,8 @@ ListTablesResponse Client::listTablesWithOptions(const string &projectName, cons
 }
 
 /**
+ * @summary Obtains tables in a MaxCompute project.
+ *
  * @param request ListTablesRequest
  * @return ListTablesResponse
  */
@@ -3808,6 +3936,8 @@ ListTablesResponse Client::listTables(const string &projectName, const ListTable
 }
 
 /**
+ * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTunnelQuotaTimerResponse
@@ -3831,6 +3961,8 @@ ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimerWithOptions(const strin
 }
 
 /**
+ * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+ *
  * @return ListTunnelQuotaTimerResponse
  */
 ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimer(const string &nickname) {
@@ -3840,6 +3972,8 @@ ListTunnelQuotaTimerResponse Client::listTunnelQuotaTimer(const string &nickname
 }
 
 /**
+ * @summary Obtains users in a MaxCompute project.
+ *
  * @param request ListUsersRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3875,6 +4009,8 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
+ * @summary Obtains users in a MaxCompute project.
+ *
  * @param request ListUsersRequest
  * @return ListUsersResponse
  */
@@ -3885,6 +4021,8 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
+ * @summary Obtains information about the users who are assigned a project-level role.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUsersByRoleResponse
@@ -3908,6 +4046,8 @@ ListUsersByRoleResponse Client::listUsersByRoleWithOptions(const string &project
 }
 
 /**
+ * @summary Obtains information about the users who are assigned a project-level role.
+ *
  * @return ListUsersByRoleResponse
  */
 ListUsersByRoleResponse Client::listUsersByRole(const string &projectName, const string &roleName) {
@@ -3917,6 +4057,8 @@ ListUsersByRoleResponse Client::listUsersByRole(const string &projectName, const
 }
 
 /**
+ * @summary Queries the information about a specified level-1 quota group.
+ *
  * @param request QueryQuotaRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3960,6 +4102,8 @@ QueryQuotaResponse Client::queryQuotaWithOptions(const string &nickname, const Q
 }
 
 /**
+ * @summary Queries the information about a specified level-1 quota group.
+ *
  * @param request QueryQuotaRequest
  * @return QueryQuotaResponse
  */
@@ -3970,7 +4114,7 @@ QueryQuotaResponse Client::queryQuota(const string &nickname, const QueryQuotaRe
 }
 
 /**
- * @summary Queries the time series data of resource consumption for a quota.
+ * @summary 查询quota的资源使用信息
  *
  * @param request QueryQuotaMetricRequest
  * @param headers map
@@ -4029,7 +4173,7 @@ QueryQuotaMetricResponse Client::queryQuotaMetricWithOptions(const string &metri
 }
 
 /**
- * @summary Queries the time series data of resource consumption for a quota.
+ * @summary 查询quota的资源使用信息
  *
  * @param request QueryQuotaMetricRequest
  * @return QueryQuotaMetricResponse
@@ -4041,7 +4185,7 @@ QueryQuotaMetricResponse Client::queryQuotaMetric(const string &metric, const Qu
 }
 
 /**
- * @summary Queries time-series metrics of data storage.
+ * @summary Queries time series metrics of stored data.
  *
  * @param request QueryStorageMetricRequest
  * @param headers map
@@ -4088,7 +4232,7 @@ QueryStorageMetricResponse Client::queryStorageMetricWithOptions(const string &m
 }
 
 /**
- * @summary Queries time-series metrics of data storage.
+ * @summary Queries time series metrics of stored data.
  *
  * @param request QueryStorageMetricRequest
  * @return QueryStorageMetricResponse
@@ -4100,15 +4244,7 @@ QueryStorageMetricResponse Client::queryStorageMetric(const string &metric, cons
 }
 
 /**
- * @summary Queries metric data for the Tunnel Data Transmission Service within a specified time range.
- *
- * @description - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
- * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
- * - The `metric` parameter is also required. It specifies the type of metric to query.
- * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
- * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
- * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
- * - Ensure all parameters meet the requirements in this document to prevent request failures.
+ * @summary Queries the metrics of the Tunnel service within a specified time range.
  *
  * @param request QueryTunnelMetricRequest
  * @param headers map
@@ -4179,15 +4315,7 @@ QueryTunnelMetricResponse Client::queryTunnelMetricWithOptions(const string &met
 }
 
 /**
- * @summary Queries metric data for the Tunnel Data Transmission Service within a specified time range.
- *
- * @description - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
- * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
- * - The `metric` parameter is also required. It specifies the type of metric to query.
- * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
- * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
- * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
- * - Ensure all parameters meet the requirements in this document to prevent request failures.
+ * @summary Queries the metrics of the Tunnel service within a specified time range.
  *
  * @param request QueryTunnelMetricRequest
  * @return QueryTunnelMetricResponse
@@ -4199,14 +4327,7 @@ QueryTunnelMetricResponse Client::queryTunnelMetric(const string &metric, const 
 }
 
 /**
- * @summary Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
- *
- * @description - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
- * - The `quotaNickname` and `project` parameters cannot both be empty.
- * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
- * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
- * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
- * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
+ * @summary Queries the metrics of the Tunnel service within a specified time range.
  *
  * @param request QueryTunnelMetricDetailRequest
  * @param headers map
@@ -4277,14 +4398,7 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetailWithOptions(const
 }
 
 /**
- * @summary Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
- *
- * @description - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
- * - The `quotaNickname` and `project` parameters cannot both be empty.
- * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
- * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
- * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
- * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
+ * @summary Queries the metrics of the Tunnel service within a specified time range.
  *
  * @param request QueryTunnelMetricDetailRequest
  * @return QueryTunnelMetricDetailResponse
@@ -4296,7 +4410,7 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetail(const string &me
 }
 
 /**
- * @summary Retries a data migration job.
+ * @summary Retries a migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4321,7 +4435,7 @@ RetryMmsJobResponse Client::retryMmsJobWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary Retries a data migration job.
+ * @summary Retries a migration job.
  *
  * @return RetryMmsJobResponse
  */
@@ -4332,7 +4446,7 @@ RetryMmsJobResponse Client::retryMmsJob(const string &sourceId, const string &jo
 }
 
 /**
- * @summary Starts a data migration job.
+ * @summary Starts a migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4357,7 +4471,7 @@ StartMmsJobResponse Client::startMmsJobWithOptions(const string &sourceId, const
 }
 
 /**
- * @summary Starts a data migration job.
+ * @summary Starts a migration job.
  *
  * @return StartMmsJobResponse
  */
@@ -4368,7 +4482,7 @@ StartMmsJobResponse Client::startMmsJob(const string &sourceId, const string &jo
 }
 
 /**
- * @summary Stops a data migration job.
+ * @summary Stops a migration job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4393,7 +4507,7 @@ StopMmsJobResponse Client::stopMmsJobWithOptions(const string &sourceId, const s
 }
 
 /**
- * @summary Stops a data migration job.
+ * @summary Stops a migration job.
  *
  * @return StopMmsJobResponse
  */
@@ -4404,8 +4518,6 @@ StopMmsJobResponse Client::stopMmsJob(const string &sourceId, const string &jobI
 }
 
 /**
- * @summary Retrieves the storage information for each category or project on a specified date.
- *
  * @param request SumStorageMetricsByDateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4457,8 +4569,6 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDateWithOptions(const
 }
 
 /**
- * @summary Retrieves the storage information for each category or project on a specified date.
- *
  * @param request SumStorageMetricsByDateRequest
  * @return SumStorageMetricsByDateResponse
  */
@@ -4469,6 +4579,11 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDate(const SumStorage
 }
 
 /**
+ * @summary Update the ComputeQuotaPlan.
+ *
+ * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ *
  * @param request UpdateComputeQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4504,6 +4619,11 @@ UpdateComputeQuotaPlanResponse Client::updateComputeQuotaPlanWithOptions(const s
 }
 
 /**
+ * @summary Update the ComputeQuotaPlan.
+ *
+ * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+ *
  * @param request UpdateComputeQuotaPlanRequest
  * @return UpdateComputeQuotaPlanResponse
  */
@@ -4514,9 +4634,10 @@ UpdateComputeQuotaPlanResponse Client::updateComputeQuotaPlan(const string &nick
 }
 
 /**
- * @summary Updates the time-based schedule for a computing quota.
+ * @summary Update the time-based plan for computing quota.
  *
- * @description Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
+ * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
  *
  * @param request UpdateComputeQuotaScheduleRequest
  * @param headers map
@@ -4550,9 +4671,10 @@ UpdateComputeQuotaScheduleResponse Client::updateComputeQuotaScheduleWithOptions
 }
 
 /**
- * @summary Updates the time-based schedule for a computing quota.
+ * @summary Update the time-based plan for computing quota.
  *
- * @description Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
+ * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+ * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
  *
  * @param request UpdateComputeQuotaScheduleRequest
  * @return UpdateComputeQuotaScheduleResponse
@@ -4564,6 +4686,8 @@ UpdateComputeQuotaScheduleResponse Client::updateComputeQuotaSchedule(const stri
 }
 
 /**
+ * @summary Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+ *
  * @param request UpdateComputeSubQuotaRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4595,6 +4719,8 @@ UpdateComputeSubQuotaResponse Client::updateComputeSubQuotaWithOptions(const str
 }
 
 /**
+ * @summary Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+ *
  * @param request UpdateComputeSubQuotaRequest
  * @return UpdateComputeSubQuotaResponse
  */
@@ -4605,7 +4731,7 @@ UpdateComputeSubQuotaResponse Client::updateComputeSubQuota(const string &nickna
 }
 
 /**
- * @summary Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
+ * @summary Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request UpdateMmsDataSourceRequest
  * @param headers map
@@ -4650,7 +4776,7 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSourceWithOptions(const string 
 }
 
 /**
- * @summary Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
+ * @summary Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
  *
  * @param request UpdateMmsDataSourceRequest
  * @return UpdateMmsDataSourceResponse
@@ -4662,6 +4788,8 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSource(const string &sourceId, 
 }
 
 /**
+ * @summary Updates the objects in a package and projects in which the package can be installed.
+ *
  * @param request UpdatePackageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4688,6 +4816,8 @@ UpdatePackageResponse Client::updatePackageWithOptions(const string &projectName
 }
 
 /**
+ * @summary Updates the objects in a package and projects in which the package can be installed.
+ *
  * @param request UpdatePackageRequest
  * @return UpdatePackageResponse
  */
@@ -4698,7 +4828,7 @@ UpdatePackageResponse Client::updatePackage(const string &projectName, const str
 }
 
 /**
- * @summary Modifies the basic information of a project.
+ * @summary Update Project Basic Information
  *
  * @param request UpdateProjectBasicMetaRequest
  * @param headers map
@@ -4735,7 +4865,7 @@ UpdateProjectBasicMetaResponse Client::updateProjectBasicMetaWithOptions(const s
 }
 
 /**
- * @summary Modifies the basic information of a project.
+ * @summary Update Project Basic Information
  *
  * @param request UpdateProjectBasicMetaRequest
  * @return UpdateProjectBasicMetaResponse
@@ -4747,6 +4877,8 @@ UpdateProjectBasicMetaResponse Client::updateProjectBasicMeta(const string &proj
 }
 
 /**
+ * @summary Updates the default computing quota of a project.
+ *
  * @param request UpdateProjectDefaultQuotaRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4778,6 +4910,8 @@ UpdateProjectDefaultQuotaResponse Client::updateProjectDefaultQuotaWithOptions(c
 }
 
 /**
+ * @summary Updates the default computing quota of a project.
+ *
  * @param request UpdateProjectDefaultQuotaRequest
  * @return UpdateProjectDefaultQuotaResponse
  */
@@ -4788,6 +4922,8 @@ UpdateProjectDefaultQuotaResponse Client::updateProjectDefaultQuota(const string
 }
 
 /**
+ * @summary Modifies the IP address whitelist of a MaxCompute project.
+ *
  * @param request UpdateProjectIpWhiteListRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4814,6 +4950,8 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteListWithOptions(con
 }
 
 /**
+ * @summary Modifies the IP address whitelist of a MaxCompute project.
+ *
  * @param request UpdateProjectIpWhiteListRequest
  * @return UpdateProjectIpWhiteListResponse
  */
@@ -4824,7 +4962,7 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteList(const string &
 }
 
 /**
- * @summary Upgrades a project\\"s Layer 2 model to a Layer 3 model.
+ * @summary 将project的二层模型升级为三层模型
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4849,7 +4987,7 @@ UpdateProjectModelTierResponse Client::updateProjectModelTierWithOptions(const s
 }
 
 /**
- * @summary Upgrades a project\\"s Layer 2 model to a Layer 3 model.
+ * @summary 将project的二层模型升级为三层模型
  *
  * @return UpdateProjectModelTierResponse
  */
@@ -4860,6 +4998,8 @@ UpdateProjectModelTierResponse Client::updateProjectModelTier(const string &proj
 }
 
 /**
+ * @summary Updates a quota plan.
+ *
  * @param request UpdateQuotaPlanRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4896,6 +5036,8 @@ UpdateQuotaPlanResponse Client::updateQuotaPlanWithOptions(const string &nicknam
 }
 
 /**
+ * @summary Updates a quota plan.
+ *
  * @param request UpdateQuotaPlanRequest
  * @return UpdateQuotaPlanResponse
  */
@@ -4906,6 +5048,8 @@ UpdateQuotaPlanResponse Client::updateQuotaPlan(const string &nickname, const st
 }
 
 /**
+ * @summary Updates the scheduling plan for a quota plan.
+ *
  * @param request UpdateQuotaScheduleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4942,6 +5086,8 @@ UpdateQuotaScheduleResponse Client::updateQuotaScheduleWithOptions(const string 
 }
 
 /**
+ * @summary Updates the scheduling plan for a quota plan.
+ *
  * @param request UpdateQuotaScheduleRequest
  * @return UpdateQuotaScheduleResponse
  */
@@ -4952,9 +5098,9 @@ UpdateQuotaScheduleResponse Client::updateQuotaSchedule(const string &nickname, 
 }
 
 /**
- * @summary Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
+ * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
  *
- * @description Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
+ * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
  *
  * @param request UpdateTunnelQuotaTimerRequest
  * @param headers map
@@ -4988,9 +5134,9 @@ UpdateTunnelQuotaTimerResponse Client::updateTunnelQuotaTimerWithOptions(const s
 }
 
 /**
- * @summary Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
+ * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
  *
- * @description Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
+ * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
  *
  * @param request UpdateTunnelQuotaTimerRequest
  * @return UpdateTunnelQuotaTimerResponse
@@ -5002,7 +5148,7 @@ UpdateTunnelQuotaTimerResponse Client::updateTunnelQuotaTimer(const string &nick
 }
 
 /**
- * @summary Adds or removes users from a project role.
+ * @summary Add or remove users from a project role.
  *
  * @param request UpdateUsersToRoleRequest
  * @param headers map
@@ -5039,7 +5185,7 @@ UpdateUsersToRoleResponse Client::updateUsersToRoleWithOptions(const string &pro
 }
 
 /**
- * @summary Adds or removes users from a project role.
+ * @summary Add or remove users from a project role.
  *
  * @param request UpdateUsersToRoleRequest
  * @return UpdateUsersToRoleResponse

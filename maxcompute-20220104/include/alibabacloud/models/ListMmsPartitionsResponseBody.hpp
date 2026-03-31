@@ -233,39 +233,23 @@ namespace Models
 
 
       protected:
-        // The ID of the database that contains the partition. The term "database" refers to different metadata layers across data sources. For example, it maps to Dataset in BigQuery, Database in Hive, Schema in Databricks, and Schema in MaxCompute.
         shared_ptr<int64_t> dbId_ {};
-        // The database name. The term "database" refers to different metadata layers across data sources. For example, it maps to Dataset in BigQuery, Database in Hive, Schema in Databricks, and Schema in MaxCompute.
         shared_ptr<string> dbName_ {};
-        // The destination MaxCompute project name.
         shared_ptr<string> dstProjectName_ {};
-        // The destination MaxCompute schema name. This field is empty for MaxCompute projects that do not use schemas.
         shared_ptr<string> dstSchemaName_ {};
-        // The destination MaxCompute table name.
         shared_ptr<string> dstTableName_ {};
-        // The destination MaxCompute partition value. By default, this matches the source partition value.
         shared_ptr<string> dstValue_ {};
-        // The partition ID.
         shared_ptr<int64_t> id_ {};
-        // The time when the DDL was last changed.
+        // lastDdlTime
         shared_ptr<string> lastDdlTime_ {};
-        // The number of rows.
         shared_ptr<int64_t> numRows_ {};
-        // The data size in bytes.
         shared_ptr<int64_t> size_ {};
-        // The data source ID.
         shared_ptr<int64_t> sourceId_ {};
-        // The data source name.
         shared_ptr<string> sourceName_ {};
-        // The migration status.
         shared_ptr<string> status_ {};
-        // The table ID.
         shared_ptr<int64_t> tableId_ {};
-        // The table name.
         shared_ptr<string> tableName_ {};
-        // Indicates whether the metadata has been updated.
         shared_ptr<bool> updated_ {};
-        // The partition value.
         shared_ptr<string> value_ {};
       };
 
@@ -302,13 +286,9 @@ namespace Models
 
 
     protected:
-      // The list of partitions.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
-      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of partitions.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -331,9 +311,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<ListMmsPartitionsResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

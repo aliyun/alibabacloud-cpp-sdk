@@ -121,15 +121,33 @@ namespace Models
 
 
   protected:
+    // Specifies whether to list the built-in **SYSTEM_CATALOG** projects that are used to provide data such as project metadata and historical usage data. For more information, see [Tenant-level Information Schema](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tenant-level-information-schema).
+    // 
+    // Valid values:
+    // 
+    // *   true: The built-in SYSTEM_CATALOG projects are listed.
+    // *   false: The built-in SYSTEM_CATALOG projects are not listed.
     shared_ptr<bool> listSystemCatalog_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<string> marker_ {};
+    // The maximum number of entries per page. Default value: 10.
     shared_ptr<int32_t> maxItem_ {};
+    // Specifies the marker after which the returned list begins.
     shared_ptr<string> prefix_ {};
+    // The quota name that is automatically generated. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), choose **Workspace** > **Quotas** from the left-side navigation pane, and then view the quota name on the **Quotas** page.
     shared_ptr<string> quotaName_ {};
+    // The quota nickname. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), choose **Workspace** > **Quotas** from the left-side navigation pane, and then view the quota nickname on the **Quotas** page.
     shared_ptr<string> quotaNickName_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
+    // The instance ID and billing method of the default computing quota.
     shared_ptr<string> saleTags_ {};
+    // The tenant ID. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), and choose **Tenants** > **Tenant Property** from the left-side navigation pane to view the tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The project type. Valid values:
+    // 
+    // *   **managed**: internal project
+    // *   **external**: external project
     shared_ptr<string> type_ {};
   };
 

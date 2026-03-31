@@ -139,12 +139,19 @@ namespace Models
 
 
       protected:
+        // The class in which the function was defined.
         shared_ptr<string> class_ {};
+        // The time when the function was created. Unit: milliseconds.
         shared_ptr<int64_t> creationTime_ {};
+        // The display name of the function.
         shared_ptr<string> displayName_ {};
+        // The name of the function.
         shared_ptr<string> name_ {};
+        // The owner of the function.
         shared_ptr<string> owner_ {};
+        // The name of the resource that was associated with the function.
         shared_ptr<string> resources_ {};
+        // The schema of the function.
         shared_ptr<string> schema_ {};
       };
 
@@ -174,8 +181,11 @@ namespace Models
 
 
     protected:
+      // The information about each function.
       shared_ptr<vector<Data::Functions>> functions_ {};
+      // Indicates the marker after which the returned list begins.
       shared_ptr<string> marker_ {};
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxItem_ {};
     };
 
@@ -198,7 +208,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListFunctionsResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

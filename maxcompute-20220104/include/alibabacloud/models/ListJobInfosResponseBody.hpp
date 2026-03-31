@@ -217,17 +217,17 @@ namespace Models
 
 
         protected:
-          // The details of the smart diagnosis result.
+          // The intelligent diagnostics result description.
           shared_ptr<string> description_ {};
-          // Information about the nodes that have data skew or data bloat. This parameter is returned only when the diagnosis scenario is data skew or data bloat.
+          // Information about the nodes where data skew or data expansion is detected. This parameter is returned only when the diagnostics scenario is data skew or data expansion.
           shared_ptr<map<string, string>> params_ {};
-          // The scenario of the smart diagnosis result.
+          // The intelligent diagnostics result scenario.
           shared_ptr<string> scene_ {};
-          // The tag of the smart diagnosis result.
+          // The intelligent diagnostics result tag.
           shared_ptr<string> sceneTag_ {};
-          // A summary of the smart diagnosis result.
+          // The intelligent diagnostics result summary.
           shared_ptr<string> summary_ {};
-          // The type of the smart diagnosis result.
+          // The intelligent diagnostics result type.
           shared_ptr<string> type_ {};
         };
 
@@ -468,64 +468,64 @@ namespace Models
       protected:
         // The cluster ID.
         shared_ptr<string> cluster_ {};
-        // The proportion of CUs in the job snapshot.
+        // The CU snapshot proportion of the job.
         shared_ptr<double> cuSnapshot_ {};
-        // The total CUs used.
+        // The amount of resources consumed by the job. This parameter is returned only for jobs that are complete.Unit: 100\\*Core\\*s.
         shared_ptr<int64_t> cuUsage_ {};
-        // The time when the job finished.
+        // The time when the job stops running.
         shared_ptr<int64_t> endAtTime_ {};
-        // The ID of the DataWorks node.
+        // The node ID of DataWorks.
         shared_ptr<string> extNodeId_ {};
         shared_ptr<string> extNodeName_ {};
-        // The person in charge of the execution.
+        // The account of the node owner.
         shared_ptr<string> extNodeOnDuty_ {};
         // The upstream platform.
         shared_ptr<string> extPlantFrom_ {};
         shared_ptr<string> extPlatformId_ {};
-        // The amount of data scanned by the job. Unit: bytes.
+        // The amount of scanned data for the job. Unit: byte.
         shared_ptr<double> inputBytes_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The account that submitted the job.
+        // The account that commits the job.
         shared_ptr<string> jobOwner_ {};
-        // The job type.
+        // The type of the job.
         shared_ptr<string> jobType_ {};
-        // The proportion of memory in the job snapshot.
+        // The memory snapshot proportion of the job.
         shared_ptr<double> memorySnapshot_ {};
-        // The total memory used.
+        // The number of memory consumed by the job. This parameter is returned only for jobs that are complete.Unit: MB\\*s.
         shared_ptr<int64_t> memoryUsage_ {};
-        // The priority.
+        // The priority of the job.
         shared_ptr<int64_t> priority_ {};
         // The name of the MaxCompute project.
         shared_ptr<string> project_ {};
-        // The nickname of the quota that the job uses.
+        // The nickname of the quota that is used by the job.
         shared_ptr<string> quotaNickname_ {};
-        // The quota type.
+        // The type of the quota.
         shared_ptr<string> quotaType_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The time when the job started to run.
+        // The time when the job starts to run.
         shared_ptr<int64_t> runningAtTime_ {};
-        // The runtime.
+        // The period for which the job runs.
         shared_ptr<int64_t> runningTime_ {};
-        // The smart diagnosis results.
+        // The intelligent diagnostics results.
         shared_ptr<vector<JobInfoList::SceneResults>> sceneResults_ {};
-        // The SQL signature.
+        // The signature of the SQL job.
         shared_ptr<string> signature_ {};
-        // The status.
+        // The status of the job.
         shared_ptr<string> status_ {};
-        // The status of the job snapshot.
+        // The status of the snapshot.
         shared_ptr<string> statusSnapshot_ {};
-        // The time when the job was submitted.
+        // The time when the job was committed.
         shared_ptr<int64_t> submittedAtTime_ {};
         // The tags.
         shared_ptr<string> tags_ {};
         shared_ptr<string> taskName_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
-        // The total runtime.
+        // The total period for which the job runs.
         shared_ptr<int64_t> totalTime_ {};
-        // The waiting time.
+        // The duration for which the job waits to start.
         shared_ptr<int64_t> waitingTime_ {};
       };
 
@@ -562,13 +562,13 @@ namespace Models
 
 
     protected:
-      // The list of job information.
+      // The information about the jobs.
       shared_ptr<vector<Data::JobInfoList>> jobInfoList_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of returned entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -598,9 +598,9 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The data returned.
     shared_ptr<ListJobInfosResponseBody::Data> data_ {};
-    // Indicates whether the business logic was successful. A value other than 200 indicates a failure.
+    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

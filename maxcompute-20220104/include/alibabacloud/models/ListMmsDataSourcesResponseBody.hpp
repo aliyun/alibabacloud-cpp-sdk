@@ -76,7 +76,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(partitionsDoneNum, partitionsDoneNum_);
           DARABONBA_PTR_TO_JSON(partitionsFailedNum, partitionsFailedNum_);
           DARABONBA_PTR_TO_JSON(region, region_);
+          DARABONBA_PTR_TO_JSON(scanErrMsg, scanErrMsg_);
           DARABONBA_PTR_TO_JSON(scanId, scanId_);
+          DARABONBA_PTR_TO_JSON(scanStatus, scanStatus_);
           DARABONBA_PTR_TO_JSON(status, status_);
           DARABONBA_PTR_TO_JSON(tableNum, tableNum_);
           DARABONBA_PTR_TO_JSON(tablesDoingNum, tablesDoingNum_);
@@ -102,7 +104,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(partitionsDoneNum, partitionsDoneNum_);
           DARABONBA_PTR_FROM_JSON(partitionsFailedNum, partitionsFailedNum_);
           DARABONBA_PTR_FROM_JSON(region, region_);
+          DARABONBA_PTR_FROM_JSON(scanErrMsg, scanErrMsg_);
           DARABONBA_PTR_FROM_JSON(scanId, scanId_);
+          DARABONBA_PTR_FROM_JSON(scanStatus, scanStatus_);
           DARABONBA_PTR_FROM_JSON(status, status_);
           DARABONBA_PTR_FROM_JSON(tableNum, tableNum_);
           DARABONBA_PTR_FROM_JSON(tablesDoingNum, tablesDoingNum_);
@@ -237,25 +241,15 @@ namespace Models
 
 
         protected:
-          // The description of the configuration.
           shared_ptr<string> desc_ {};
-          // The enumerated values for the configuration.
           shared_ptr<vector<string>> enums_ {};
-          // The configuration group.
           shared_ptr<string> group_ {};
-          // The English identifier for the configuration.
           shared_ptr<string> key_ {};
-          // The name of the configuration.
           shared_ptr<string> name_ {};
-          // An example value for the configuration.
           shared_ptr<string> placeHolder_ {};
-          // Indicates whether the configuration is required.
           shared_ptr<bool> required_ {};
-          // If \\`type\\` is set to \\`file\\`, \\`subType\\` specifies the file type, such as \\`.keytab\\`.
           shared_ptr<string> subType_ {};
-          // The type of the configuration. Valid values: \\`boolean\\`, \\`int\\`, \\`map\\`, \\`string\\`, \\`password\\`, and \\`file\\`.
           shared_ptr<string> type_ {};
-          // The value of the configuration.
           Darabonba::Json value_ {};
         };
 
@@ -263,8 +257,8 @@ namespace Models
         && this->config_ == nullptr && this->createTime_ == nullptr && this->dbNum_ == nullptr && this->dstProject_ == nullptr && this->dstProjects_ == nullptr
         && this->errMsg_ == nullptr && this->id_ == nullptr && this->lastUpdateTime_ == nullptr && this->name_ == nullptr && this->networklink_ == nullptr
         && this->partitionNum_ == nullptr && this->partitionsDoingNum_ == nullptr && this->partitionsDoneNum_ == nullptr && this->partitionsFailedNum_ == nullptr && this->region_ == nullptr
-        && this->scanId_ == nullptr && this->status_ == nullptr && this->tableNum_ == nullptr && this->tablesDoingNum_ == nullptr && this->tablesDoneNum_ == nullptr
-        && this->tablesFailedNum_ == nullptr && this->tablesPartDoneNum_ == nullptr && this->type_ == nullptr; };
+        && this->scanErrMsg_ == nullptr && this->scanId_ == nullptr && this->scanStatus_ == nullptr && this->status_ == nullptr && this->tableNum_ == nullptr
+        && this->tablesDoingNum_ == nullptr && this->tablesDoneNum_ == nullptr && this->tablesFailedNum_ == nullptr && this->tablesPartDoneNum_ == nullptr && this->type_ == nullptr; };
         // agentIsOnline Field Functions 
         bool hasAgentIsOnline() const { return this->agentIsOnline_ != nullptr;};
         void deleteAgentIsOnline() { this->agentIsOnline_ = nullptr;};
@@ -381,11 +375,25 @@ namespace Models
         inline ObjectList& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+        // scanErrMsg Field Functions 
+        bool hasScanErrMsg() const { return this->scanErrMsg_ != nullptr;};
+        void deleteScanErrMsg() { this->scanErrMsg_ = nullptr;};
+        inline string getScanErrMsg() const { DARABONBA_PTR_GET_DEFAULT(scanErrMsg_, "") };
+        inline ObjectList& setScanErrMsg(string scanErrMsg) { DARABONBA_PTR_SET_VALUE(scanErrMsg_, scanErrMsg) };
+
+
         // scanId Field Functions 
         bool hasScanId() const { return this->scanId_ != nullptr;};
         void deleteScanId() { this->scanId_ = nullptr;};
         inline int64_t getScanId() const { DARABONBA_PTR_GET_DEFAULT(scanId_, 0L) };
         inline ObjectList& setScanId(int64_t scanId) { DARABONBA_PTR_SET_VALUE(scanId_, scanId) };
+
+
+        // scanStatus Field Functions 
+        bool hasScanStatus() const { return this->scanStatus_ != nullptr;};
+        void deleteScanStatus() { this->scanStatus_ = nullptr;};
+        inline string getScanStatus() const { DARABONBA_PTR_GET_DEFAULT(scanStatus_, "") };
+        inline ObjectList& setScanStatus(string scanStatus) { DARABONBA_PTR_SET_VALUE(scanStatus_, scanStatus) };
 
 
         // status Field Functions 
@@ -438,53 +446,31 @@ namespace Models
 
 
       protected:
-        // Indicates whether the data source instance or its associated agent is started.
         shared_ptr<bool> agentIsOnline_ {};
-        // The configurations of the data source.
         shared_ptr<vector<ObjectList::Config>> config_ {};
-        // The time when the data source was created.
         shared_ptr<string> createTime_ {};
-        // The number of databases in the data source.
         shared_ptr<int32_t> dbNum_ {};
-        // The default destination MaxCompute project.
         shared_ptr<string> dstProject_ {};
-        // The list of destination MaxCompute projects.
         shared_ptr<vector<string>> dstProjects_ {};
-        // The reason why the data source instance failed to start or shut down. This parameter is returned only when the value of \\`status\\` is \\`START_FAILED\\` or \\`STOP_FAILED\\`.
         shared_ptr<string> errMsg_ {};
-        // The data source ID.
         shared_ptr<int64_t> id_ {};
-        // The last time when the metadata was synchronized.
         shared_ptr<string> lastUpdateTime_ {};
-        // The name of the data source.
         shared_ptr<string> name_ {};
-        // The MaxCompute network connectivity ID is the region ID.
         shared_ptr<string> networklink_ {};
-        // The number of partitions in the data source.
         shared_ptr<int32_t> partitionNum_ {};
-        // The number of partitions that are being migrated.
         shared_ptr<int32_t> partitionsDoingNum_ {};
-        // The number of partitions that have been migrated.
         shared_ptr<int32_t> partitionsDoneNum_ {};
-        // The number of partitions that failed to be migrated.
         shared_ptr<int32_t> partitionsFailedNum_ {};
-        // The region ID.
         shared_ptr<string> region_ {};
-        // The ID of the metadata synchronization task.
+        shared_ptr<string> scanErrMsg_ {};
         shared_ptr<int64_t> scanId_ {};
-        // The status of the data source.
+        shared_ptr<string> scanStatus_ {};
         shared_ptr<string> status_ {};
-        // The number of tables in the data source.
         shared_ptr<int32_t> tableNum_ {};
-        // The number of tables that are being migrated.
         shared_ptr<int32_t> tablesDoingNum_ {};
-        // The number of tables that have been migrated.
         shared_ptr<int32_t> tablesDoneNum_ {};
-        // The number of tables that failed to be migrated.
         shared_ptr<int32_t> tablesFailedNum_ {};
-        // The number of tables that are partially migrated.
         shared_ptr<int32_t> tablesPartDoneNum_ {};
-        // The type of the data source.
         shared_ptr<string> type_ {};
       };
 
@@ -521,13 +507,9 @@ namespace Models
 
 
     protected:
-      // The list of data sources.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
-      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -550,9 +532,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<ListMmsDataSourcesResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

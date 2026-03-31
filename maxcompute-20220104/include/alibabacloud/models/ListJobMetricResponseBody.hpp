@@ -106,7 +106,9 @@ namespace Models
 
 
       protected:
+        // Metric related information.
         shared_ptr<map<string, string>> metric_ {};
+        // Metric values information.
         shared_ptr<vector<vector<double>>> values_ {};
       };
 
@@ -143,9 +145,13 @@ namespace Models
 
 
     protected:
+      // The category of the metrics.
       shared_ptr<string> category_ {};
+      // Metric details.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
+      // The name of observation metric.
       shared_ptr<string> name_ {};
+      // The monitoring statistical period.Unit:Second(s).
       shared_ptr<int64_t> period_ {};
     };
 
@@ -189,10 +195,20 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListJobMetricResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // HTTP status code.
+    // - 1xx: Informational response - Request received, processing continues.
+    // - 2xx: Success - The request has been successfully received, understood, and accepted by the server.
+    // - 3xx: Redirection - Further action must be taken to complete the request.
+    // - 4xx: Client error - The request contains bad syntax or cannot be fulfilled.
+    // - 5xx: Server error - The server failed to fulfill an apparently valid request.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

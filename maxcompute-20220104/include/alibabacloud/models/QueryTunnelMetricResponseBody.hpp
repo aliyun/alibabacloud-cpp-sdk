@@ -106,9 +106,7 @@ namespace Models
 
 
       protected:
-        // The metadata of the metric.
         shared_ptr<map<string, string>> metric_ {};
-        // A list of metric values.
         shared_ptr<vector<vector<double>>> values_ {};
       };
 
@@ -145,13 +143,9 @@ namespace Models
 
 
     protected:
-      // The category of the metric.
       shared_ptr<string> category_ {};
-      // The metric values.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
-      // The name of the metric.
       shared_ptr<string> name_ {};
-      // The step size of the monitoring data.
       shared_ptr<int64_t> period_ {};
     };
 
@@ -195,15 +189,10 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<QueryTunnelMetricResponseBody::Data> data_ {};
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // Indicates whether the operation was successful. If this parameter is not empty and the value is not 200, the operation failed.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -124,21 +124,13 @@ namespace Models
 
 
     protected:
-      // The time when metadata synchronization ended.
       shared_ptr<string> endTime_ {};
-      // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The ID of the asynchronous task.
       shared_ptr<int64_t> id_ {};
-      // The progress of metadata synchronization. Valid values: 1 to 10000.
       shared_ptr<float> progress_ {};
-      // The result of metadata synchronization.
       shared_ptr<string> result_ {};
-      // The data source ID.
       shared_ptr<int64_t> sourceId_ {};
-      // The time when metadata synchronization started.
       shared_ptr<string> startTime_ {};
-      // The status of the asynchronous task for metadata synchronization.
       shared_ptr<string> status_ {};
     };
 
@@ -161,9 +153,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<GetMmsFetchMetadataJobResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

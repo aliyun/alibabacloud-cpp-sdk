@@ -175,16 +175,69 @@ namespace Models
 
 
       protected:
+        // The remarks.
         shared_ptr<string> comment_ {};
+        // The Base64-encoded 128-bit MD5 hash value of the HTTP request body.
         shared_ptr<string> contentMD5_ {};
+        // The time when the resource was created.
         shared_ptr<int64_t> creationTime_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The time when the resource was modified.
         shared_ptr<int64_t> lastModifiedTime_ {};
+        // The user who updated the resource.
         shared_ptr<string> lastUpdator_ {};
+        // The name of the resource.
         shared_ptr<string> name_ {};
+        // The owner of the resource.
         shared_ptr<string> owner_ {};
+        // The schema to which the resource belongs.
         shared_ptr<string> schema_ {};
+        // The size of the resource.
         shared_ptr<int64_t> size_ {};
+        // The resource type.
+        // 
+        // Valid values:
+        // 
+        // *   file
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        // *   py
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        // *   jar
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        // *   volumefile
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        // *   table
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
+        // 
+        //     <!-- -->
         shared_ptr<string> type_ {};
       };
 
@@ -214,8 +267,11 @@ namespace Models
 
 
     protected:
+      // Indicates the marker after which the returned list begins.
       shared_ptr<string> marker_ {};
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxItem_ {};
+      // The list of resources.
       shared_ptr<vector<Data::Resources>> resources_ {};
     };
 
@@ -238,7 +294,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListResourcesResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<string>> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

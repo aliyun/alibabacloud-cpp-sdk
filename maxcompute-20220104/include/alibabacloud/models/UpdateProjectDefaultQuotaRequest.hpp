@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The default computing quota that is used to allocate computing resources, the jobs that are initiated by this project consume the computing resources in the default quota.
     shared_ptr<string> quota_ {};
   };
 

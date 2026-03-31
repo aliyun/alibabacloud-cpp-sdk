@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The request body parameters.
     shared_ptr<string> body_ {};
+    // The ID of the region.
     shared_ptr<string> region_ {};
+    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

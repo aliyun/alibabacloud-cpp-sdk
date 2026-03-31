@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the region.
     shared_ptr<string> region_ {};
+    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -296,28 +296,70 @@ namespace Models
 
 
       protected:
+        // The date on which the statistics are collected. This value is not returned.
         shared_ptr<string> date_ {};
+        // Indicates whether the table is a partitioned table.
         shared_ptr<bool> isPartitioned_ {};
+        // The time when the table was last accessed. This value is returned when the table is a non-partitioned table.
+        // 
+        // >  The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the last access time cannot be collected.
         shared_ptr<int64_t> lastAccessTime_ {};
+        // The storage usage at the long-term storage tier.
         shared_ptr<double> longTermStorage_ {};
+        // The number of long-term storage files.
         shared_ptr<int64_t> longTermStorageFileCount_ {};
+        // The unit of the storage usage at the long-term storage tier.
         shared_ptr<string> longTermStorageUnit_ {};
+        // The storage usage at the low-frequency tier.
         shared_ptr<double> lowFreqStorage_ {};
+        // The number of low-frequency storage files.
         shared_ptr<int64_t> lowFreqStorageFileCount_ {};
+        // The unit of the storage usage at the low-frequency storage tier.
         shared_ptr<string> lowFreqStorageUnit_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // The change rate of the total storage usage compared with that of the recent {$recentDays} days.
         shared_ptr<double> rate_ {};
+        // The schema name.
         shared_ptr<string> schemaName_ {};
+        // The storage usage at the standard storage tier.
         shared_ptr<double> standardStorage_ {};
+        // The number of standard storage files.
         shared_ptr<int64_t> standardStorageFileCount_ {};
+        // The unit of the storage usage at the standard storage tier.
         shared_ptr<string> standardStorageUnit_ {};
+        // The table storage type.
+        // 
+        // *   standard
+        // *   lowfrequency
+        // *   longterm
+        // *   unknown: This value is returned when the table is a partitioned table. You can call the ListStoragePartitionsInfo operation to query the storage type of each partition.
         shared_ptr<string> storageType_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
+        // The access frequency.
+        // 
+        // > 
+        // 
+        // *   Access behaviors include:
+        // 
+        // *   The table is used as the input table of an SQL task.
+        // *   The table is downloaded by Tunnel.
+        // *   The table is read by calling the Storage API. The partition granularity of the partitioned table is not available. Each time an access operation is performed, the access frequency is incremented by 1.
+        // 
+        // *   The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the access frequency cannot be collected.
         shared_ptr<int64_t> totalFrequency_ {};
+        // The total amount of accessed data.
+        // 
+        // >  The amount of data that is read by all access behaviors.
         shared_ptr<double> totalInputAmount_ {};
+        // The unit of the total amount of accessed data.
         shared_ptr<string> totalInputAmountUnit_ {};
+        // The total storage usage. For a partitioned table, this parameter indicates the sum of the storage usage of all partitions. If the storage types of partitions are different, the value is the sum of the storage usage of each storage type.
         shared_ptr<double> totalStorage_ {};
+        // The total number of files.
         shared_ptr<int64_t> totalStorageFileCount_ {};
+        // The unit of storage usage.
         shared_ptr<string> totalStorageUnit_ {};
       };
 
@@ -361,10 +403,15 @@ namespace Models
 
 
     protected:
+      // The date on which the statistics are collected.
       shared_ptr<string> date_ {};
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The table storage information.
       shared_ptr<vector<Data::StorageTableInfoList>> storageTableInfoList_ {};
+      // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -408,10 +455,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListStorageTablesInfoResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // *   1xx: informational response. The request is received and is being processed.
+    // *   2xx: success. The request is successfully received, understood, and accepted by the server.
+    // *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // *   4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
+    // *   5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

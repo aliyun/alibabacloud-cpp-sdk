@@ -231,12 +231,19 @@ namespace Models
 
 
           protected:
+            // The value of elastic Reserved CUs.
             shared_ptr<int64_t> elasticReservedCU_ {};
+            // whether to enable the priority feature.
             shared_ptr<bool> enablePriority_ {};
+            // Whether it is exclusive.
             shared_ptr<bool> forceReservedMin_ {};
+            // The value of maxCU in Reserved CUs.
             shared_ptr<int64_t> maxCU_ {};
+            // The value of minCU in Reserved CUs.
             shared_ptr<int64_t> minCU_ {};
+            // Scheduling policy.
             shared_ptr<string> schedulerType_ {};
+            // The upper limit for CUs that can be concurrently used by a job scheduled to the quota.
             shared_ptr<int64_t> singleJobCULimit_ {};
           };
 
@@ -331,17 +338,29 @@ namespace Models
 
 
         protected:
+          // Cluster ID.
           shared_ptr<string> cluster_ {};
+          // Creation time.
           shared_ptr<int64_t> createTime_ {};
+          // Creator cloud account UID.
           shared_ptr<string> creatorId_ {};
+          // The ID of the level-2 quota.
           shared_ptr<string> id_ {};
+          // The name of the level-2 quota.
           shared_ptr<string> name_ {};
+          // The nickname of the level-2 quota.
           shared_ptr<string> nickName_ {};
+          // The parameters of the level-2 quota.
           shared_ptr<SubQuotaInfoList::Parameter> parameter_ {};
+          // Region ID.
           shared_ptr<string> regionId_ {};
+          // Resource status.
           shared_ptr<string> status_ {};
+          // Tenant ID.
           shared_ptr<string> tenantId_ {};
+          // The type of quota.
           shared_ptr<string> type_ {};
+          // Version number.
           shared_ptr<string> version_ {};
         };
 
@@ -392,8 +411,11 @@ namespace Models
 
 
         protected:
+          // The value of elastic Reserved CUs.
           shared_ptr<int64_t> elasticReservedCU_ {};
+          // The value of maxCU in Reserved CUs.
           shared_ptr<int64_t> maxCU_ {};
+          // The value of minCU in Reserved CUs.
           shared_ptr<int64_t> minCU_ {};
         };
 
@@ -497,18 +519,31 @@ namespace Models
 
 
       protected:
+        // Cluster ID.
         shared_ptr<string> cluster_ {};
+        // Creation time.
         shared_ptr<int64_t> createTime_ {};
+        // Creator\\"s cloud account UID.
         shared_ptr<string> creatorId_ {};
+        // The ID of the level-1 quota.
         shared_ptr<string> id_ {};
+        // The name of the level-1 quota.
         shared_ptr<string> name_ {};
+        // The nickname of the level-1 quota.
         shared_ptr<string> nickName_ {};
+        // CU value parameters for the level-1 quota.
         shared_ptr<Quota::Parameter> parameter_ {};
+        // Region ID.
         shared_ptr<string> regionId_ {};
+        // Resource status.
         shared_ptr<string> status_ {};
+        // The list of level-2 quotas.
         shared_ptr<vector<Quota::SubQuotaInfoList>> subQuotaInfoList_ {};
+        // Tenant ID.
         shared_ptr<string> tenantId_ {};
+        // Corresponds to the `resourceSystemType` field of the control cluster.
         shared_ptr<string> type_ {};
+        // Version number.
         shared_ptr<string> version_ {};
       };
 
@@ -545,9 +580,15 @@ namespace Models
 
 
     protected:
+      // The time when the quota plan was created.
       shared_ptr<string> createTime_ {};
+      // Whether it is currently effective.
+      // > 
+      // > - A Quota plan that has taken effect cannot be deleted, i.e., isEffective=true
       shared_ptr<bool> isEffective_ {};
+      // The name of the quota plan.
       shared_ptr<string> name_ {};
+      // The details of the quota.
       shared_ptr<Data::Quota> quota_ {};
     };
 
@@ -591,10 +632,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<GetComputeQuotaPlanResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // - 1xx: informational response. The request is received and is being processed.
+    // - 2xx: success. The request is successfully received, understood, and accepted by the server.
+    // - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+    // - 5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,17 +75,10 @@ namespace Models
 
 
   protected:
-    // The data returned.
     shared_ptr<string> data_ {};
-    // - If the request fails, an error code is returned.
-    // 
-    // - If the request is successful, this parameter is empty.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // Indicates whether the operation was successful. A value other than 200 indicates that the operation failed.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

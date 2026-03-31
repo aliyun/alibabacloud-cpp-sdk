@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The number of elastically reserved slots.
         shared_ptr<int64_t> elasticReservedSlotNum_ {};
+        // The number of reserved slots.
         shared_ptr<int64_t> slotNum_ {};
       };
 
@@ -138,9 +140,13 @@ namespace Models
 
 
     protected:
+      // The start time of the time-specific configuration.
       shared_ptr<string> beginTime_ {};
+      // The end time of the time-specific configuration.
       shared_ptr<string> endTime_ {};
+      // The time zone property for the time-specific configuration.
       shared_ptr<string> timezone_ {};
+      // The parameters for the time-specific configuration.
       shared_ptr<Data::TunnelQuotaParameter> tunnelQuotaParameter_ {};
     };
 
@@ -184,10 +190,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<vector<ListTunnelQuotaTimerResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // *   1xx: informational response. The request is received and is being processed.
+    // *   2xx: success. The request is successfully received, understood, and accepted by the server.
+    // *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // *   4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+    // *   5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

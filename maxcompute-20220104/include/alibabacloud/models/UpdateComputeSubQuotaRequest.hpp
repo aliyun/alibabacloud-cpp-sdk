@@ -127,13 +127,25 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable the priority feature.
         shared_ptr<bool> enablePriority_ {};
+        // Specifies whether the quota is strongly exclusive.
         shared_ptr<bool> forceReservedMin_ {};
+        // The value of minCU in Reserved CUs.
+        // > The value of maxCU must be less than or equal to the value of maxCU in the level-1 quota that you purchased.
+        // 
         // This parameter is required.
         shared_ptr<int64_t> maxCU_ {};
+        // The value of maxCU in Reserved CUs.
+        // > 
+        // >- The total value of minCU in all the level-2 quotas is equal to the value of minCU in the level-1 quota.
+        // >- The value of minCU must be less than or equal to the value of maxCU in the level-2 quota and less than or equal to the value of minCU in the level-1 quota that you purchased.
+        // 
         // This parameter is required.
         shared_ptr<int64_t> minCU_ {};
+        // Scheduling policy of the quota.
         shared_ptr<string> schedulerType_ {};
+        // The upper limit for CUs that can be concurrently used by a job scheduled to the quota.
         shared_ptr<int64_t> singleJobCULimit_ {};
       };
 
@@ -163,9 +175,16 @@ namespace Models
 
 
     protected:
+      // The nickname of the level-2 quota.
+      // 
       // This parameter is required.
       shared_ptr<string> nickName_ {};
+      // The parameters of the level-2 quota.
       shared_ptr<SubQuotaInfoList::Parameter> parameter_ {};
+      // The type of quota.
+      // 
+      // > 
+      // > - FUXI_OFFLINE(default) : Quotas of this type are used to run batch jobs.
       shared_ptr<string> type_ {};
     };
 
@@ -180,6 +199,7 @@ namespace Models
 
 
   protected:
+    // The list of level-2 quotas.
     shared_ptr<vector<UpdateComputeSubQuotaRequest::SubQuotaInfoList>> subQuotaInfoList_ {};
   };
 

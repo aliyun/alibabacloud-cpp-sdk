@@ -145,7 +145,9 @@ namespace Models
 
 
           protected:
+            // The operations that were performed on the table.
             shared_ptr<vector<string>> actions_ {};
+            // The name of the table.
             shared_ptr<string> name_ {};
           };
 
@@ -189,7 +191,9 @@ namespace Models
 
 
           protected:
+            // The operations that were performed on the resource.
             shared_ptr<vector<string>> actions_ {};
+            // The name of the resource.
             shared_ptr<string> name_ {};
           };
 
@@ -233,7 +237,9 @@ namespace Models
 
 
           protected:
+            // The operations that were performed on the project.
             shared_ptr<vector<string>> actions_ {};
+            // The name of the MaxCompute project.
             shared_ptr<string> name_ {};
           };
 
@@ -277,7 +283,9 @@ namespace Models
 
 
           protected:
+            // The operations that were performed on the package.
             shared_ptr<vector<string>> actions_ {};
+            // The name of the package.
             shared_ptr<string> name_ {};
           };
 
@@ -321,7 +329,9 @@ namespace Models
 
 
           protected:
+            // The operations that were performed on the instance.
             shared_ptr<vector<string>> actions_ {};
+            // The name of the instance.
             shared_ptr<string> name_ {};
           };
 
@@ -365,7 +375,9 @@ namespace Models
 
 
           protected:
+            // The operations that were performed on the function.
             shared_ptr<vector<string>> actions_ {};
+            // The name of the function.
             shared_ptr<string> name_ {};
           };
 
@@ -426,11 +438,17 @@ namespace Models
 
 
         protected:
+          // The function.
           shared_ptr<vector<Acl::Function>> function_ {};
+          // The instance.
           shared_ptr<vector<Acl::Instance>> instance_ {};
+          // The package.
           shared_ptr<vector<Acl::Package>> package_ {};
+          // The project.
           shared_ptr<vector<Acl::Project>> project_ {};
+          // The resource.
           shared_ptr<vector<Acl::Resource>> resource_ {};
+          // The table.
           shared_ptr<vector<Acl::Table>> table_ {};
         };
 
@@ -467,9 +485,13 @@ namespace Models
 
 
       protected:
+        // The ACL-based permissions that are granted to the role.
         shared_ptr<Roles::Acl> acl_ {};
+        // The name of the role.
         shared_ptr<string> name_ {};
+        // The policy that is attached to the role.
         shared_ptr<string> policy_ {};
+        // The type of the role.
         shared_ptr<string> type_ {};
       };
 
@@ -484,6 +506,7 @@ namespace Models
 
 
     protected:
+      // The MaxCompute project-level roles.
       shared_ptr<vector<Data::Roles>> roles_ {};
     };
 
@@ -506,7 +529,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListRolesResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

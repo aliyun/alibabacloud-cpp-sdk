@@ -222,20 +222,53 @@ namespace Models
 
 
       protected:
+        // The number of files.
         shared_ptr<int64_t> fileCount_ {};
+        // The storage size.
         shared_ptr<double> fileSize_ {};
+        // The unit of the storage size.
         shared_ptr<string> fileSizeUnit_ {};
+        // Indicates whether the table is a partitioned table. This operation returns the partition information. You do not need to take note of this parameter.
         shared_ptr<bool> isPartitioned_ {};
+        // The time when the partition data was last accessed.
+        // 
+        // >  The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the last access time cannot be collected.
         shared_ptr<int64_t> lastAccessTime_ {};
+        // The partition name.
         shared_ptr<string> partition_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
+        // The change rate of the total storage usage compared with that of the recent {$recentDays} days. No value is returned.
         shared_ptr<double> rate_ {};
+        // The schema name.
         shared_ptr<string> schemaName_ {};
+        // The storage type.
+        // 
+        // *   standard
+        // *   lowfrequency
+        // *   longterm
         shared_ptr<string> storageType_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
+        // The access frequency.
+        // 
+        // > 
+        // 
+        // *   Access behaviors include:
+        // 
+        // *   The table is used as the input table of an SQL task.
+        // *   The table is downloaded by Tunnel.
+        // *   The table is read by calling the Storage API. The partition granularity of the partitioned table is not available. Each time an access operation is performed, the access frequency is incremented by 1.
+        // 
+        // *   The data collection method is upgraded from July 2023. If the data is not accessed after the upgrade or is accessed by using ALGO jobs or the direct read method of Hologres, the access frequency cannot be collected.
         shared_ptr<int64_t> totalFrequency_ {};
+        // The total amount of accessed data.
+        // 
+        // >  The amount of data that is read by all access behaviors.
         shared_ptr<double> totalInputAmount_ {};
+        // The unit of the total amount of accessed data.
         shared_ptr<string> totalInputAmountUnit_ {};
+        // The type.
         shared_ptr<string> type_ {};
       };
 
@@ -279,10 +312,15 @@ namespace Models
 
 
     protected:
+      // The date on which the statistics are collected.
       shared_ptr<string> date_ {};
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The partition storage information.
       shared_ptr<vector<Data::StoragePartitionInfoList>> storagePartitionInfoList_ {};
+      // The total number of returned entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -326,10 +364,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListStoragePartitionsInfoResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // *   1xx: informational response. The request is received and is being processed.
+    // *   2xx: success. The request is successfully received, understood, and accepted by the server.
+    // *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // *   4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
+    // *   5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

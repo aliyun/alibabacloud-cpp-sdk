@@ -171,7 +171,9 @@ namespace Models
 
 
           protected:
+            // If you enable the project data protection mechanism, you can configure exception or trusted projects. This allows specified users to transfer data of a specified object to a specified project. The project data protection mechanism does not take effect in all the situations that are specified in the exception policy.
             shared_ptr<string> exceptionPolicy_ {};
+            // Indicates whether the [data protection mechanism](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) is enabled for the project. This allows or denies data transfer across projects. By default, the data protection mechanism is disabled.
             shared_ptr<bool> protected_ {};
           };
 
@@ -230,12 +232,19 @@ namespace Models
 
 
         protected:
+          // Indicates whether the [download control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature is enabled. By default, this feature is disabled.
           shared_ptr<bool> enableDownloadPrivilege_ {};
+          // Indicates whether the [label-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature is enabled. By default, this feature is disabled.
           shared_ptr<bool> labelSecurity_ {};
+          // Indicates whether to allow the object creator to have the access permissions on the object. The default value is true, which indicates that the object creator has the access permissions on the object.
           shared_ptr<bool> objectCreatorHasAccessPermission_ {};
+          // Indicates whether the object creator has the authorization permissions on the object. The default value is true, which indicates that the object creator has the authorization permissions on the object.
           shared_ptr<bool> objectCreatorHasGrantPermission_ {};
+          // The properties of the [data protection mechanism](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection).
           shared_ptr<SecurityProperties::ProjectProtection> projectProtection_ {};
+          // Indicates whether the [ACL-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/acl-based-access-control) feature is enabled. By default, this feature is enabled.
           shared_ptr<bool> usingAcl_ {};
+          // Indicates whether the [policy-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/policy-based-access-control-1) feature is enabled. By default, this feature is enabled.
           shared_ptr<bool> usingPolicy_ {};
         };
 
@@ -277,7 +286,9 @@ namespace Models
 
 
         protected:
+          // The instance ID of the default computing quota.
           shared_ptr<string> resourceId_ {};
+          // The billing method of the default computing quota.
           shared_ptr<string> resourceType_ {};
         };
 
@@ -358,7 +369,13 @@ namespace Models
 
 
           protected:
+            // The lifecycle type. Valid values:
+            // 
+            // *   **mandatory**: The lifecycle clause is required in a table creation statement.
+            // *   **optional**: The lifecycle clause is optional in a table creation statement. If you do not configure a lifecycle for a table, the table does not expire.
+            // *   **inherit**: If you do not configure a lifecycle for a table when you create the table, the value of the odps.table.lifecycle.value parameter is used as the table lifecycle by default.
             shared_ptr<string> type_ {};
+            // The table lifecycle. Unit: days. Valid values: 1 to 37231. Default value: 37231.
             shared_ptr<string> value_ {};
           };
 
@@ -390,6 +407,7 @@ namespace Models
 
 
           protected:
+            // Indicates whether the external project is an external project for [data lakehouse solution 2.0](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide).
             shared_ptr<string> isExternalCatalogBound_ {};
           };
 
@@ -440,8 +458,13 @@ namespace Models
 
 
           protected:
+            // The data encryption algorithm that is supported by the key. Valid values: AES256, AESCTR, and RC4.
             shared_ptr<string> algorithm_ {};
+            // Indicates whether the data encryption feature needs to be enabled for the project. For more information about data encryption, see
+            // 
+            // [Storage encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
             shared_ptr<bool> enable_ {};
+            // The type of key that is used for data encryption. You can select MaxCompute Default Key or Bring Your Own Key (BYOK) as the key type. If you select MaxCompute Default Key, the default key that is created by MaxCompute is used.
             shared_ptr<string> key_ {};
           };
 
@@ -532,16 +555,39 @@ namespace Models
 
 
         protected:
+          // Indicates whether a full table scan is allowed in the project. A full table scan occupies a large number of resources, which reduces data processing efficiency. By default, the full table scan feature is disabled.
           shared_ptr<bool> allowFullScan_ {};
+          // Indicates whether the DECIMAL type of the MaxCompute V2.0 data type edition is enabled.
           shared_ptr<bool> enableDecimal2_ {};
+          // Indicates whether the routing of the Tunnel resource group is enabled.
+          // 
+          // *   true: The data transfer tasks that are submitted by the project by default use the Tunnel resource group that is bound to the project.
+          // *   false: The data transfer tasks that are submitted by the project by default use the Tunnel shared resource group.
           shared_ptr<bool> enableTunnelQuotaRoute_ {};
+          // The storage encryption properties.
           shared_ptr<Properties::Encryption> encryption_ {};
+          // The properties of the external project.
           shared_ptr<Properties::ExternalProjectProperties> externalProjectProperties_ {};
+          // The retention period for backup data. Unit: days. During the retention period, you can restore data of the version in use to the backup data of any version. Valid values: [0,30]. Default value: 1. The value 0 indicates that the backup feature is disabled.
           shared_ptr<int64_t> retentionDays_ {};
+          // The maximum consumption threshold of a single SQL statement. Formula: Amount of scanned data (GB) × Complexity.
           shared_ptr<string> sqlMeteringMax_ {};
+          // The table lifecycle properties.
           shared_ptr<Properties::TableLifecycle> tableLifecycle_ {};
+          // The time zone that is used by your project. The time zone is the same as the time zone specified by `odps.sql.timezone`.
           shared_ptr<string> timezone_ {};
+          // The [Tunnel](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group that is bound to the project.
+          // 
+          // *   Default resource group: The Tunnel shared resource group is used. You cannot use the subscription-based Tunnel resource group for the project. The default resource group is automatically used by the Tunnel service of your project, regardless of the parameter setting.
+          // *   Subscription-based Tunnel resource group: You can use the subscription-based Tunnel resource group for the project.
           shared_ptr<string> tunnelQuota_ {};
+          // The data type edition. Valid values:
+          // 
+          // *   **1**: MaxCompute V1.0 data type edition
+          // *   **2**: MaxCompute V2.0 data type edition
+          // *   **hive**: Hive-compatible data type edition
+          // 
+          // For more information about the differences among the three data type editions, see [Data type editions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
           shared_ptr<string> typeSystem_ {};
         };
 
@@ -583,7 +629,13 @@ namespace Models
 
 
         protected:
+          // The IP address whitelist for access over the Internet or the network for interconnecting with other Alibaba Cloud services.
+          // 
+          // >  If you configure only the IP address whitelist for access over the Internet or the network for interconnecting with other Alibaba Cloud services, the access over the Internet or the network for interconnecting with other Alibaba Cloud services is subject to configurations, and access over a virtual private cloud (VPC) is not allowed.
           shared_ptr<string> ipList_ {};
+          // The IP address whitelist for access over a VPC.
+          // 
+          // >  If you configure only the IP address whitelist for access over a VPC, the access over a VPC is subject to configurations, and the access over the Internet or the network for interconnecting with other Alibaba Cloud services is not allowed.
           shared_ptr<string> vpcIpList_ {};
         };
 
@@ -698,19 +750,46 @@ namespace Models
 
 
       protected:
+        // The project description.
         shared_ptr<string> comment_ {};
+        // The total storage usage. The storage space that is occupied by your project, which is the logical storage space after your project data is collected and compressed.
         shared_ptr<string> costStorage_ {};
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // The default computing quota that is used to allocate computing resources. If you do not specify a computing quota for your project, the jobs that are initiated by your project consume the computing resources in the default quota. For more information about how to use computing resources, see [Use quota groups for computing resources](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/use-of-computing-resources)
         shared_ptr<string> defaultQuota_ {};
+        // The information about the IP address whitelist.
         shared_ptr<Projects::IpWhiteList> ipWhiteList_ {};
+        // The name of the project.
         shared_ptr<string> name_ {};
+        // The account information of the project owner.
         shared_ptr<string> owner_ {};
+        // The basic properties of the project.
         shared_ptr<Projects::Properties> properties_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The instance ID and billing method of the default computing quota.
         shared_ptr<Projects::SaleTag> saleTag_ {};
+        // The permission properties.
         shared_ptr<Projects::SecurityProperties> securityProperties_ {};
+        // The project status. Valid values:
+        // 
+        // *   **AVAILABLE**
+        // *   **READONLY**
+        // *   **FROZEN**
+        // *   **DELETING**
         shared_ptr<string> status_ {};
+        // Indicates whether data storage by schema is supported. MaxCompute supports the schema feature. This feature allows you to classify objects such as tables, resources, and user-defined functions (UDFs) in a project by schema. You can create multiple schemas in a project. For more information, see [Schema-related operations](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/schema-related-operations).
+        // 
+        // Valid values:
+        // 
+        // *   true: supported
+        // *   false: not supported
         shared_ptr<bool> threeTierModel_ {};
+        // The project type. Valid values:
+        // 
+        // *   **managed**: internal project
+        // *   **external**: external project
         shared_ptr<string> type_ {};
       };
 
@@ -747,9 +826,13 @@ namespace Models
 
 
     protected:
+      // A pagination token. Only continuous page turning is supported. If NextToken is not empty, the next page exists. The value of NextToken can be used in the next request to retrieve a new page of results.
       shared_ptr<string> nextToken_ {};
+      // Indicates the marker after which the returned list begins.
       shared_ptr<string> marker_ {};
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxItem_ {};
+      // The list of projects.
       shared_ptr<vector<Data::Projects>> projects_ {};
     };
 
@@ -772,7 +855,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListProjectsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

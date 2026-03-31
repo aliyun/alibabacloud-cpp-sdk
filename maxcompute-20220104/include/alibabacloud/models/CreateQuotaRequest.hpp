@@ -66,24 +66,11 @@ namespace Models
 
 
   protected:
-    // Billing type. Use payasyougo for pay-as-you-go or subscription for subscription.
-    // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // Product code. For example:
-    // Alibaba Cloud China Website (www\\.aliyun.com): use odps for pay-as-you-go and odpsplus for subscription.
-    // Alibaba Cloud International Website (www\\.alibabacloud.com): use odps_intl for pay-as-you-go and odpsplus_intl for subscription.
-    // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // Quota specification.
-    // >Notice: Required only for subscription quotas.
-    // The minimum CU value is 50.
-    // ord_time supports month and year.
     shared_ptr<string> commodityData_ {};
-    // >Notice: 
-    // 
-    // Required only for subscription quotas.
     shared_ptr<string> partNickName_ {};
   };
 

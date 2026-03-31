@@ -87,9 +87,7 @@ namespace Models
 
 
     protected:
-      // Sorts tasks by start time.
       shared_ptr<string> startTime_ {};
-      // Sorts tasks by status.
       shared_ptr<string> status_ {};
     };
 
@@ -177,25 +175,15 @@ namespace Models
 
   protected:
     shared_ptr<ListMmsTasksRequest::Sorter> sorter_ {};
-    // The destination MaxCompute project.
     shared_ptr<string> dstDbName_ {};
-    // The destination MaxCompute table.
     shared_ptr<string> dstTableName_ {};
-    // The ID of the migration job.
     shared_ptr<int64_t> jobId_ {};
-    // The name of the job.
     shared_ptr<string> jobName_ {};
-    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The partition value. This parameter is used to filter migration tasks by a specific partition value.
     shared_ptr<string> partition_ {};
-    // The name of the source database.
     shared_ptr<string> srcDbName_ {};
-    // The name of the source table.
     shared_ptr<string> srcTableName_ {};
-    // The status of the migration task.
     shared_ptr<string> status_ {};
   };
 

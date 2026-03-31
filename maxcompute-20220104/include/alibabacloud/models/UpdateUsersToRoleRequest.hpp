@@ -53,9 +53,9 @@ namespace Models
 
 
   protected:
-    // The action to add users to the project role.
+    // The accounts.
     shared_ptr<vector<string>> add_ {};
-    // The action to remove users from the project role.
+    // The accounts.
     shared_ptr<vector<string>> remove_ {};
   };
 

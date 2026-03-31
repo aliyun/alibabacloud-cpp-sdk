@@ -271,53 +271,30 @@ namespace Models
 
 
     protected:
-      // The database description.
       shared_ptr<string> description_ {};
-      // The MaxCompute schema corresponding to the source database. If the destination MaxCompute project does not enable the schema layer, this value is null. By default, this value matches the source database name.
       shared_ptr<string> dstName_ {};
-      // The name of the destination MaxCompute project.
       shared_ptr<string> dstProjectName_ {};
-      // Other information stored in JSON format.
       shared_ptr<string> extra_ {};
-      // The database ID.
       shared_ptr<int64_t> id_ {};
-      // The last DDL time.
+      // last ddl time
       shared_ptr<string> lastDdlTime_ {};
-      // The storage location of the database.
       shared_ptr<string> location_ {};
-      // The database name.
       shared_ptr<string> name_ {};
-      // The number of rows in the database.
       shared_ptr<int64_t> numRows_ {};
-      // The database owner.
       shared_ptr<string> owner_ {};
-      // The number of partitions.
       shared_ptr<int32_t> partitions_ {};
-      // The partitions that are being migrated.
       shared_ptr<int32_t> partitionsDoing_ {};
-      // The number of partitions whose migration is complete.
       shared_ptr<int32_t> partitionsDone_ {};
-      // The partitions that failed during migration.
       shared_ptr<int32_t> partitionsFailed_ {};
-      // The size of the database in bytes.
       shared_ptr<int64_t> size_ {};
-      // The ID of the data source.
       shared_ptr<int64_t> sourceId_ {};
-      // The name of the data source.
       shared_ptr<string> sourceName_ {};
-      // The migration status. Valid values: INIT, DOING, FAILED, DONE, and PART_DONE.
       shared_ptr<string> status_ {};
-      // The number of tables.
       shared_ptr<int32_t> tables_ {};
-      // The tables that are being migrated.
       shared_ptr<int32_t> tablesDoing_ {};
-      // Tables for which migration has completed
       shared_ptr<int32_t> tablesDone_ {};
-      // The tables that failed to migrate.
       shared_ptr<int32_t> tablesFailed_ {};
-      // The tables whose migration is partially complete.
       shared_ptr<int32_t> tablesPartDone_ {};
-      // Indicates whether the metadata is updated.
       shared_ptr<bool> updated_ {};
     };
 
@@ -340,9 +317,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
     shared_ptr<GetMmsDbResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

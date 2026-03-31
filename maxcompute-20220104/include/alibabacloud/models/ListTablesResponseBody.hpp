@@ -129,11 +129,17 @@ namespace Models
 
 
       protected:
+        // The time when the table was created.
         shared_ptr<int64_t> creationTime_ {};
+        // The display name of the table.
         shared_ptr<string> displayName_ {};
+        // The name of the table.
         shared_ptr<string> name_ {};
+        // The owner of the table.
         shared_ptr<string> owner_ {};
+        // The schema to which the table belongs.
         shared_ptr<string> schema_ {};
+        // The type of the table.
         shared_ptr<string> type_ {};
       };
 
@@ -163,8 +169,11 @@ namespace Models
 
 
     protected:
+      // Indicates the marker after which the returned list begins.
       shared_ptr<string> marker_ {};
+      // The maximum number of entries returned per page.
       shared_ptr<int32_t> maxItem_ {};
+      // The information about tables.
       shared_ptr<vector<Data::Tables>> tables_ {};
     };
 
@@ -187,7 +196,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListTablesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

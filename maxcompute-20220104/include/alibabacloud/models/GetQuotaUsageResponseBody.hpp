@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The title of the chart.
         shared_ptr<string> title_ {};
+        // The type of the chart.
         shared_ptr<string> type_ {};
+        // The data metric field.
         shared_ptr<vector<string>> yAxis_ {};
       };
 
@@ -134,7 +137,9 @@ namespace Models
 
 
     protected:
+      // The metric results.
       Darabonba::Json metrics_ {};
+      // The information about the chart.
       shared_ptr<vector<Data::Plot>> plot_ {};
     };
 
@@ -178,10 +183,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<GetQuotaUsageResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // *   1xx: informational response. The request is received and is being processed.
+    // *   2xx: success. The request is successfully received, understood, and accepted by the server.
+    // *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // *   4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
+    // *   5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

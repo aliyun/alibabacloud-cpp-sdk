@@ -75,15 +75,10 @@ namespace Models
 
 
   protected:
-    // Data source name
     shared_ptr<string> name_ {};
-    // Page number
     shared_ptr<int32_t> pageNum_ {};
-    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
-    // Sorting conditions
     shared_ptr<string> sorterShrink_ {};
-    // Data source status
     shared_ptr<string> status_ {};
   };
 

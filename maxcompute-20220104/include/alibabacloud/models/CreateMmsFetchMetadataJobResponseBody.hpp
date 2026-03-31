@@ -59,7 +59,6 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task that syncs metadata.
       shared_ptr<int64_t> scanId_ {};
     };
 
@@ -82,9 +81,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
     shared_ptr<CreateMmsFetchMetadataJobResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

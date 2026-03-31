@@ -218,15 +218,10 @@ namespace Models
 
 
           protected:
-            // The comment on the column.
             shared_ptr<string> comment_ {};
-            // The default value of the column.
             shared_ptr<string> defaultValue_ {};
-            // The column name.
             shared_ptr<string> name_ {};
-            // Indicates whether the column can be null.
             shared_ptr<bool> nullable_ {};
-            // The column type.
             shared_ptr<string> type_ {};
           };
 
@@ -295,15 +290,10 @@ namespace Models
 
 
           protected:
-            // The comment on the column.
             shared_ptr<string> comment_ {};
-            // The default value of the column.
             shared_ptr<string> defaultValue_ {};
-            // The column name.
             shared_ptr<string> name_ {};
-            // Indicates whether the column can be null.
             shared_ptr<bool> nullable_ {};
-            // The column type.
             shared_ptr<string> type_ {};
           };
 
@@ -342,13 +332,9 @@ namespace Models
 
 
         protected:
-          // All non-partition key columns of the table.
           shared_ptr<vector<Schema::Columns>> columns_ {};
-          // The comment on the table.
           shared_ptr<string> comment_ {};
-          // The table name.
           shared_ptr<string> name_ {};
-          // All partition key columns.
           shared_ptr<vector<Schema::Partitions>> partitions_ {};
         };
 
@@ -551,59 +537,37 @@ namespace Models
 
 
       protected:
-        // The database ID.
         shared_ptr<int64_t> dbId_ {};
-        // The database name.
         shared_ptr<string> dbName_ {};
-        // The name of the destination MaxCompute table. By default, this name is the same as the source table name.
         shared_ptr<string> dstName_ {};
-        // The name of the destination MaxCompute project.
         shared_ptr<string> dstProjectName_ {};
-        // The name of the destination MaxCompute schema. This parameter is null if the destination MaxCompute project does not have a schema layer.
         shared_ptr<string> dstSchemaName_ {};
-        // Other information stored in JSON format.
         shared_ptr<string> extra_ {};
-        // Indicates whether the table is a partitioned table.
         shared_ptr<bool> hasPartitions_ {};
-        // The table ID.
+        // table ID
         shared_ptr<int64_t> id_ {};
-        // The input format.
+        // inputFormat
         shared_ptr<string> inputFormat_ {};
-        // The last DDL time.
+        // lastDdlTime
         shared_ptr<string> lastDdlTime_ {};
-        // The storage location of the table.
         shared_ptr<string> location_ {};
-        // The table name.
         shared_ptr<string> name_ {};
-        // The number of rows.
         shared_ptr<int64_t> numRows_ {};
-        // The output format.
+        // outFormat
         shared_ptr<string> outputFormat_ {};
-        // The owner of the table.
         shared_ptr<string> owner_ {};
-        // The number of partitions.
         shared_ptr<int32_t> partitions_ {};
-        // The number of partitions that are being migrated.
         shared_ptr<int32_t> partitionsDoing_ {};
-        // The number of partitions that are migrated.
         shared_ptr<int32_t> partitionsDone_ {};
-        // The number of partitions that failed to be migrated.
         shared_ptr<int32_t> partitionsFailed_ {};
-        // The table schema.
         shared_ptr<ObjectList::Schema> schema_ {};
-        // The serializer/deserializer (SerDe).
+        // serde
         shared_ptr<string> serde_ {};
-        // The data size in bytes.
         shared_ptr<int64_t> size_ {};
-        // The ID of the data source.
         shared_ptr<int64_t> sourceId_ {};
-        // The name of the data source.
         shared_ptr<string> sourceName_ {};
-        // The migration status.
         shared_ptr<string> status_ {};
-        // The table type.
         shared_ptr<string> type_ {};
-        // Indicates whether the metadata is updated.
         shared_ptr<bool> updated_ {};
       };
 
@@ -640,13 +604,9 @@ namespace Models
 
 
     protected:
-      // The list of tables.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
-      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -669,9 +629,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<ListMmsTablesResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -128,34 +128,16 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort the results in ascending order.
     shared_ptr<bool> ascOrder_ {};
-    // The list of grouping bases.
     shared_ptr<vector<string>> groupList_ {};
-    // The maximum number of entries to return. The default value is 10. The maximum value is 100.
     shared_ptr<int64_t> limit_ {};
-    // The list of operation types.
     shared_ptr<vector<string>> operationList_ {};
-    // The column to sort by.
     shared_ptr<string> orderColumn_ {};
-    // The name of the project.
     shared_ptr<string> project_ {};
-    // The nickname of the level-2 quota for the tunnel.
-    // 
-    // The nickname of the shared quota is default.
-    // 
-    // The nickname of the exclusive quota is in the quotaNickname#subQuotaNickname format.
     shared_ptr<string> quotaNickname_ {};
-    // The list of table names.
-    // 
-    // The tables belong to a project. Therefore, if tableList is not empty, project cannot be empty.
     shared_ptr<vector<string>> tableList_ {};
-    // The end of the time range to query.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The start of the time range to query.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

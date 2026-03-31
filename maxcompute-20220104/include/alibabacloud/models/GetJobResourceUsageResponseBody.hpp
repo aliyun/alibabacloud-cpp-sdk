@@ -128,10 +128,15 @@ namespace Models
 
 
       protected:
+        // The total number of used compute units (CUs).
         shared_ptr<int64_t> cuUsage_ {};
+        // The start date of the query in the format of yyyy-MM-dd.
         shared_ptr<string> date_ {};
+        // The job executor.
         shared_ptr<string> jobOwner_ {};
+        // The total memory usage.
         shared_ptr<int64_t> memoryUsage_ {};
+        // The quota nickname.
         shared_ptr<string> quotaNickname_ {};
       };
 
@@ -168,9 +173,13 @@ namespace Models
 
 
     protected:
+      // The data list returned.
       shared_ptr<vector<Data::JobResourceUsageList>> jobResourceUsageList_ {};
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of returned entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -214,10 +223,15 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<GetJobResourceUsageResponseBody::Data> data_ {};
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request failed.
     shared_ptr<string> errorMsg_ {};
+    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -108,14 +108,30 @@ namespace Models
 
 
   protected:
+    // Grouping basis.
+    // 
+    // > Available values: project, quota, type, status. Meanings:
+    // >- project: Group and aggregate by project;
+    // >- quota: Group and aggregate by quota;
+    // >- type: Group and aggregate by job type;
+    // >- status: Group and aggregate by job status.
     shared_ptr<string> group_ {};
+    // The name of observation metric.
     shared_ptr<string> metric_ {};
+    // The monitoring statistical period.Unit:Second(s).
     shared_ptr<int64_t> period_ {};
+    // The name of MaxCompute projects (for filtering).
     shared_ptr<vector<string>> project_ {};
+    // The nickname of computing Quota nickname used by the job (for filtering).
     shared_ptr<vector<string>> quota_ {};
+    // The type of observation metric.
     shared_ptr<string> type_ {};
+    // The end time for the observation interval.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The start time for the observation interval.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

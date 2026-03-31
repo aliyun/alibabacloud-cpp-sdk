@@ -238,17 +238,29 @@ namespace Models
 
 
         protected:
+          // The ID of the cluster.
           shared_ptr<string> cluster_ {};
+          // The time when the resource was created.
           shared_ptr<int64_t> createTime_ {};
+          // The ID of the Alibaba Cloud account that is used to create the resource.
           shared_ptr<string> creatorId_ {};
+          // The ID of the level-2 quota.
           shared_ptr<string> id_ {};
+          // The name of the level-2 quota.
           shared_ptr<string> name_ {};
+          // The nickname of the level-2 quota.
           shared_ptr<string> nickName_ {};
+          // The description of the level-2 quota.
           Darabonba::Json parameter_ {};
+          // The region ID.
           shared_ptr<string> regionId_ {};
+          // Resource status.
           shared_ptr<string> status_ {};
+          // The ID of the tenant.
           shared_ptr<string> tenantId_ {};
+          // The type of quota.
           shared_ptr<string> type_ {};
+          // The version number.
           shared_ptr<string> version_ {};
         };
 
@@ -352,18 +364,31 @@ namespace Models
 
 
       protected:
+        // The ID of the cluster.
         shared_ptr<string> cluster_ {};
+        // The time when the level-1 quota was created.
         shared_ptr<int64_t> createTime_ {};
+        // The ID of the Alibaba Cloud account that is used to create the resource.
         shared_ptr<string> creatorId_ {};
+        // The ID of the level-1 quota.
         shared_ptr<string> id_ {};
+        // The name of the level-1 quota.
         shared_ptr<string> name_ {};
+        // The nickname of the level-1 quota.
         shared_ptr<string> nickName_ {};
+        // The description of the level-2 quota.
         Darabonba::Json parameter_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The status of the resource.
         shared_ptr<string> status_ {};
+        // The list of subquotas.
         shared_ptr<vector<Quota::SubQuotaInfoList>> subQuotaInfoList_ {};
+        // The ID of the tenant.
         shared_ptr<string> tenantId_ {};
+        // The type of quota.
         shared_ptr<string> type_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -400,9 +425,14 @@ namespace Models
 
 
     protected:
+      // The time when the quota plan was created.
       shared_ptr<string> createTime_ {};
+      // Whether it is currently effective.
+      // > A Quota plan that has taken effect cannot be deleted, i.e., isEffective=true
       shared_ptr<bool> isEffective_ {};
+      // The name of the quota plan.
       shared_ptr<string> name_ {};
+      // The details of the quota.
       shared_ptr<Data::Quota> quota_ {};
     };
 
@@ -446,10 +476,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<GetComputeEffectivePlanResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // - 1xx: informational response. The request is received and is being processed.
+    // - 2xx: success. The request is successfully received, understood, and accepted by the server.
+    // - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+    // - 5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

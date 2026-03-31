@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The number of elastic reserved concurrent slots.
+        // The number of elastically reserved slots.
         shared_ptr<int64_t> elasticReservedSlotNum_ {};
-        // The number of reserved concurrent slots.
+        // The number of reserved slots.
         shared_ptr<int64_t> slotNum_ {};
       };
 
@@ -125,11 +125,11 @@ namespace Models
 
 
     protected:
-      // The start time of the time-based configuration.
+      // The start time of the time-specific configuration.
       shared_ptr<string> beginTime_ {};
-      // The end time of the time-based configuration.
+      // The end time of the time-specific configuration.
       shared_ptr<string> endTime_ {};
-      // The parameters of the time-based configuration.
+      // The parameters for the time-specific configuration.
       shared_ptr<Body::TunnelQuotaParameter> tunnelQuotaParameter_ {};
     };
 
@@ -154,7 +154,6 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<vector<UpdateTunnelQuotaTimerRequest::Body>> body_ {};
-    // The time zone.
     shared_ptr<string> timezone_ {};
   };
 

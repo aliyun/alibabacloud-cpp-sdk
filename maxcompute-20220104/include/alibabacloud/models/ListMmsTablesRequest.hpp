@@ -105,11 +105,8 @@ namespace Models
 
 
     protected:
-      // The sort order for lastDdlTime.
       shared_ptr<string> lastDdlTime_ {};
-      // The sort order for the number of rows.
       shared_ptr<string> numRows_ {};
-      // The sort order for the data size.
       shared_ptr<string> size_ {};
     };
 
@@ -228,33 +225,19 @@ namespace Models
 
   protected:
     shared_ptr<ListMmsTablesRequest::Sorter> sorter_ {};
-    // The ID of the database.
     shared_ptr<int64_t> dbId_ {};
-    // The name of the database.
     shared_ptr<string> dbName_ {};
-    // The name of the destination MaxCompute table.
     shared_ptr<string> dstName_ {};
-    // The name of the destination MaxCompute project.
     shared_ptr<string> dstProjectName_ {};
-    // The name of the destination MaxCompute schema. This parameter is null if the destination MaxCompute project does not have a schema layer.
     shared_ptr<string> dstSchemaName_ {};
-    // The partitioned table.
     shared_ptr<bool> hasPartitions_ {};
-    // The end of the time range for lastDdlTime.
     shared_ptr<string> lastDdlTimeEnd_ {};
-    // The start of the time range for lastDdlTime.
     shared_ptr<string> lastDdlTimeStart_ {};
-    // The name of the table.
     shared_ptr<string> name_ {};
-    // Specifies whether to return only the names of the tables.
     shared_ptr<bool> onlyName_ {};
-    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The migration status.
     shared_ptr<vector<string>> status_ {};
-    // The table type.
     shared_ptr<string> type_ {};
   };
 

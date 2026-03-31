@@ -69,9 +69,7 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task. When you test the data source configuration, this ID is used to obtain the test result.
       shared_ptr<int64_t> asyncTaskId_ {};
-      // The ID of the data source.
       shared_ptr<int64_t> sourceId_ {};
     };
 
@@ -94,9 +92,7 @@ namespace Models
 
 
   protected:
-    // The result of the request.
     shared_ptr<UpdateMmsDataSourceResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

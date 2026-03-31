@@ -109,9 +109,13 @@ namespace Models
 
 
       protected:
+        // The time when the package was installed.
         shared_ptr<int64_t> installTime_ {};
+        // The name of the package.
         shared_ptr<string> name_ {};
+        // The project to which the package belongs. This parameter is required if the package is installed in the MaxCompute project.
         shared_ptr<string> sourceProject_ {};
+        // The status of the package.
         shared_ptr<string> status_ {};
       };
 
@@ -153,7 +157,9 @@ namespace Models
 
 
       protected:
+        // The time when the package was created.
         shared_ptr<int64_t> createTime_ {};
+        // The name of the package.
         shared_ptr<string> name_ {};
       };
 
@@ -178,7 +184,9 @@ namespace Models
 
 
     protected:
+      // The packages that were created.
       shared_ptr<vector<Data::CreatedPackages>> createdPackages_ {};
+      // The packages that were installed.
       shared_ptr<vector<Data::InstalledPackages>> installedPackages_ {};
     };
 
@@ -201,7 +209,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListPackagesResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

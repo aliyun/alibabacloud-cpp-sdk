@@ -259,47 +259,47 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort the results in ascending or descending order.
+    // Specifies whether to sort query results in ascending or descending order.
     shared_ptr<bool> ascOrder_ {};
-    // The upstream node ID.
+    // The ancestor node IDs.
     shared_ptr<vector<string>> extNodeIdList_ {};
     shared_ptr<vector<string>> extNodeNameList_ {};
-    // The start UNIX timestamp.
+    // The start timestamp.
     // 
     // This parameter is required.
     shared_ptr<int64_t> from_ {};
-    // The job instance ID.
+    // The job instance IDs.
     shared_ptr<vector<string>> instanceIdList_ {};
-    // The job owner.
+    // The job owners.
     shared_ptr<vector<string>> jobOwnerList_ {};
-    // The job priority.
+    // The job priorities.
     shared_ptr<vector<int64_t>> priorityList_ {};
-    // The project name.
+    // The project names.
     shared_ptr<vector<string>> projectList_ {};
-    // The nickname of the quota.
+    // The quota nickname.
     shared_ptr<string> quotaNickname_ {};
-    // The smart diagnosis tag.
+    // The intelligent diagnostics tags.
     shared_ptr<vector<string>> sceneTagList_ {};
-    // The job signature.
+    // The job signatures.
     shared_ptr<vector<string>> signatureList_ {};
-    // The fields for multi-column sorting.
+    // The sorting columns.
     shared_ptr<vector<string>> sortByList_ {};
-    // The sort orders for multi-column sorting.
+    // The orders for the sorting columns.
     shared_ptr<vector<string>> sortOrderList_ {};
-    // The job status.
+    // The job states.
     shared_ptr<vector<string>> statusList_ {};
     shared_ptr<vector<string>> taskNameList_ {};
-    // The end UNIX timestamp.
+    // The end timestamp.
     // 
     // This parameter is required.
     shared_ptr<int64_t> to_ {};
-    // The job type.
+    // The job types.
     shared_ptr<vector<string>> typeList_ {};
-    // The column to use for sorting.
+    // The column based on which you want to sort query results.
     shared_ptr<string> orderColumn_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> region_ {};

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The request body parameters. For valid values, see [MaxCompute permissions](https://help.aliyun.com/document_detail/27935.html).
     shared_ptr<string> body_ {};
   };
 

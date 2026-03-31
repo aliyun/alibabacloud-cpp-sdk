@@ -21,6 +21,11 @@ namespace MaxCompute20220104
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Activate a Quota Plan Immediately.
+       *
+       * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ApplyComputeQuotaPlanResponse
@@ -28,11 +33,21 @@ namespace MaxCompute20220104
       Models::ApplyComputeQuotaPlanResponse applyComputeQuotaPlanWithOptions(const string &nickname, const string &planName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Activate a Quota Plan Immediately.
+       *
+       * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+       *
        * @return ApplyComputeQuotaPlanResponse
        */
       Models::ApplyComputeQuotaPlanResponse applyComputeQuotaPlan(const string &nickname, const string &planName);
 
       /**
+       * @summary Creates a quota plan.
+       *
+       * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+       *
        * @param request CreateComputeQuotaPlanRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -41,13 +56,18 @@ namespace MaxCompute20220104
       Models::CreateComputeQuotaPlanResponse createComputeQuotaPlanWithOptions(const string &nickname, const Models::CreateComputeQuotaPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a quota plan.
+       *
+       * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+       *
        * @param request CreateComputeQuotaPlanRequest
        * @return CreateComputeQuotaPlanResponse
        */
       Models::CreateComputeQuotaPlanResponse createComputeQuotaPlan(const string &nickname, const Models::CreateComputeQuotaPlanRequest &request);
 
       /**
-       * @summary Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+       * @summary Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
        *
        * @param request CreateMmsDataSourceRequest
        * @param headers map
@@ -57,7 +77,7 @@ namespace MaxCompute20220104
       Models::CreateMmsDataSourceResponse createMmsDataSourceWithOptions(const Models::CreateMmsDataSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+       * @summary Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
        *
        * @param request CreateMmsDataSourceRequest
        * @return CreateMmsDataSourceResponse
@@ -65,7 +85,7 @@ namespace MaxCompute20220104
       Models::CreateMmsDataSourceResponse createMmsDataSource(const Models::CreateMmsDataSourceRequest &request);
 
       /**
-       * @summary Creates a job to pull metadata from a data source.
+       * @summary Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
        *
        * @param request CreateMmsFetchMetadataJobRequest
        * @param headers map
@@ -75,7 +95,7 @@ namespace MaxCompute20220104
       Models::CreateMmsFetchMetadataJobResponse createMmsFetchMetadataJobWithOptions(const string &sourceId, const Models::CreateMmsFetchMetadataJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job to pull metadata from a data source.
+       * @summary Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
        *
        * @param request CreateMmsFetchMetadataJobRequest
        * @return CreateMmsFetchMetadataJobResponse
@@ -101,6 +121,8 @@ namespace MaxCompute20220104
       Models::CreateMmsJobResponse createMmsJob(const string &sourceId, const Models::CreateMmsJobRequest &request);
 
       /**
+       * @summary Creates a package.
+       *
        * @param request CreatePackageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -109,13 +131,15 @@ namespace MaxCompute20220104
       Models::CreatePackageResponse createPackageWithOptions(const string &projectName, const Models::CreatePackageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a package.
+       *
        * @param request CreatePackageRequest
        * @return CreatePackageResponse
        */
       Models::CreatePackageResponse createPackage(const string &projectName, const Models::CreatePackageRequest &request);
 
       /**
-       * @summary 创建项目
+       * @summary Creates a MaxCompute project.
        *
        * @param request CreateProjectRequest
        * @param headers map
@@ -125,7 +149,7 @@ namespace MaxCompute20220104
       Models::CreateProjectResponse createProjectWithOptions(const Models::CreateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建项目
+       * @summary Creates a MaxCompute project.
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -133,9 +157,7 @@ namespace MaxCompute20220104
       Models::CreateProjectResponse createProject(const Models::CreateProjectRequest &request);
 
       /**
-       * @summary Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
-       *
-       * @description **Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+       * @summary CreateQuota
        *
        * @param request CreateQuotaRequest
        * @param headers map
@@ -145,9 +167,7 @@ namespace MaxCompute20220104
       Models::CreateQuotaResponse createQuotaWithOptions(const Models::CreateQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
-       *
-       * @description **Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+       * @summary CreateQuota
        *
        * @param request CreateQuotaRequest
        * @return CreateQuotaResponse
@@ -155,6 +175,8 @@ namespace MaxCompute20220104
       Models::CreateQuotaResponse createQuota(const Models::CreateQuotaRequest &request);
 
       /**
+       * @summary Creates a quota plan.
+       *
        * @param request CreateQuotaPlanRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -163,12 +185,16 @@ namespace MaxCompute20220104
       Models::CreateQuotaPlanResponse createQuotaPlanWithOptions(const string &nickname, const Models::CreateQuotaPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a quota plan.
+       *
        * @param request CreateQuotaPlanRequest
        * @return CreateQuotaPlanResponse
        */
       Models::CreateQuotaPlanResponse createQuotaPlan(const string &nickname, const Models::CreateQuotaPlanRequest &request);
 
       /**
+       * @summary Creates a role at the MaxCompute project level.
+       *
        * @param request CreateRoleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -177,12 +203,16 @@ namespace MaxCompute20220104
       Models::CreateRoleResponse createRoleWithOptions(const string &projectName, const Models::CreateRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a role at the MaxCompute project level.
+       *
        * @param request CreateRoleRequest
        * @return CreateRoleResponse
        */
       Models::CreateRoleResponse createRole(const string &projectName, const Models::CreateRoleRequest &request);
 
       /**
+       * @summary Deletes a MaxCompute quota plan.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteComputeQuotaPlanResponse
@@ -190,12 +220,14 @@ namespace MaxCompute20220104
       Models::DeleteComputeQuotaPlanResponse deleteComputeQuotaPlanWithOptions(const string &nickname, const string &planName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a MaxCompute quota plan.
+       *
        * @return DeleteComputeQuotaPlanResponse
        */
       Models::DeleteComputeQuotaPlanResponse deleteComputeQuotaPlan(const string &nickname, const string &planName);
 
       /**
-       * @summary Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
+       * @summary Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -204,14 +236,14 @@ namespace MaxCompute20220104
       Models::DeleteMmsDataSourceResponse deleteMmsDataSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
+       * @summary Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
        *
        * @return DeleteMmsDataSourceResponse
        */
       Models::DeleteMmsDataSourceResponse deleteMmsDataSource(const string &sourceId);
 
       /**
-       * @summary Deletes a MaxCompute Migration Assist (MMA) data migration plan.
+       * @summary Deletes a MaxCompute Migration Assist (MMA) migration job.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -220,14 +252,14 @@ namespace MaxCompute20220104
       Models::DeleteMmsJobResponse deleteMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a MaxCompute Migration Assist (MMA) data migration plan.
+       * @summary Deletes a MaxCompute Migration Assist (MMA) migration job.
        *
        * @return DeleteMmsJobResponse
        */
       Models::DeleteMmsJobResponse deleteMmsJob(const string &sourceId, const string &jobId);
 
       /**
-       * @summary Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
+       * @summary Deletes a MaxCompute project.
        *
        * @param request DeleteProjectRequest
        * @param headers map
@@ -237,7 +269,7 @@ namespace MaxCompute20220104
       Models::DeleteProjectResponse deleteProjectWithOptions(const string &projectName, const Models::DeleteProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
+       * @summary Deletes a MaxCompute project.
        *
        * @param request DeleteProjectRequest
        * @return DeleteProjectResponse
@@ -245,6 +277,8 @@ namespace MaxCompute20220104
       Models::DeleteProjectResponse deleteProject(const string &projectName, const Models::DeleteProjectRequest &request);
 
       /**
+       * @summary Deletes a quota plan.
+       *
        * @param request DeleteQuotaPlanRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -253,12 +287,16 @@ namespace MaxCompute20220104
       Models::DeleteQuotaPlanResponse deleteQuotaPlanWithOptions(const string &nickname, const string &planName, const Models::DeleteQuotaPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a quota plan.
+       *
        * @param request DeleteQuotaPlanRequest
        * @return DeleteQuotaPlanResponse
        */
       Models::DeleteQuotaPlanResponse deleteQuotaPlan(const string &nickname, const string &planName, const Models::DeleteQuotaPlanRequest &request);
 
       /**
+       * @summary GetComputeEffectivePlan.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetComputeEffectivePlanResponse
@@ -266,11 +304,15 @@ namespace MaxCompute20220104
       Models::GetComputeEffectivePlanResponse getComputeEffectivePlanWithOptions(const string &nickname, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary GetComputeEffectivePlan.
+       *
        * @return GetComputeEffectivePlanResponse
        */
       Models::GetComputeEffectivePlanResponse getComputeEffectivePlan(const string &nickname);
 
       /**
+       * @summary Get detailed information of a single compute quota plan.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetComputeQuotaPlanResponse
@@ -278,11 +320,15 @@ namespace MaxCompute20220104
       Models::GetComputeQuotaPlanResponse getComputeQuotaPlanWithOptions(const string &nickname, const string &planName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Get detailed information of a single compute quota plan.
+       *
        * @return GetComputeQuotaPlanResponse
        */
       Models::GetComputeQuotaPlanResponse getComputeQuotaPlan(const string &nickname, const string &planName);
 
       /**
+       * @summary Displays the time-specific configuration of compute quota.
+       *
        * @param request GetComputeQuotaScheduleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -291,12 +337,16 @@ namespace MaxCompute20220104
       Models::GetComputeQuotaScheduleResponse getComputeQuotaScheduleWithOptions(const string &nickname, const Models::GetComputeQuotaScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Displays the time-specific configuration of compute quota.
+       *
        * @param request GetComputeQuotaScheduleRequest
        * @return GetComputeQuotaScheduleResponse
        */
       Models::GetComputeQuotaScheduleResponse getComputeQuotaSchedule(const string &nickname, const Models::GetComputeQuotaScheduleRequest &request);
 
       /**
+       * @summary Queries the basic information about a job.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetJobInfoResponse
@@ -304,11 +354,15 @@ namespace MaxCompute20220104
       Models::GetJobInfoResponse getJobInfoWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the basic information about a job.
+       *
        * @return GetJobInfoResponse
        */
       Models::GetJobInfoResponse getJobInfo(const string &instanceId);
 
       /**
+       * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+       *
        * @param tmpReq GetJobResourceUsageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -317,13 +371,15 @@ namespace MaxCompute20220104
       Models::GetJobResourceUsageResponse getJobResourceUsageWithOptions(const Models::GetJobResourceUsageRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+       *
        * @param request GetJobResourceUsageRequest
        * @return GetJobResourceUsageResponse
        */
       Models::GetJobResourceUsageResponse getJobResourceUsage(const Models::GetJobResourceUsageRequest &request);
 
       /**
-       * @summary Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+       * @summary Queries a MaxCompute Migration Assist (MMA) asynchronous task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -332,14 +388,14 @@ namespace MaxCompute20220104
       Models::GetMmsAsyncTaskResponse getMmsAsyncTaskWithOptions(const string &sourceId, const string &asyncTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+       * @summary Queries a MaxCompute Migration Assist (MMA) asynchronous task.
        *
        * @return GetMmsAsyncTaskResponse
        */
       Models::GetMmsAsyncTaskResponse getMmsAsyncTask(const string &sourceId, const string &asyncTaskId);
 
       /**
-       * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries the information about a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request GetMmsDataSourceRequest
        * @param headers map
@@ -349,7 +405,7 @@ namespace MaxCompute20220104
       Models::GetMmsDataSourceResponse getMmsDataSourceWithOptions(const string &sourceId, const Models::GetMmsDataSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries the information about a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request GetMmsDataSourceRequest
        * @return GetMmsDataSourceResponse
@@ -357,7 +413,7 @@ namespace MaxCompute20220104
       Models::GetMmsDataSourceResponse getMmsDataSource(const string &sourceId, const Models::GetMmsDataSourceRequest &request);
 
       /**
-       * @summary Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a database in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,14 +422,14 @@ namespace MaxCompute20220104
       Models::GetMmsDbResponse getMmsDbWithOptions(const string &sourceId, const string &dbId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a database in a MaxCompute Migration Assist (MMA) data source.
        *
        * @return GetMmsDbResponse
        */
       Models::GetMmsDbResponse getMmsDb(const string &sourceId, const string &dbId);
 
       /**
-       * @summary Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
+       * @summary Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -382,14 +438,14 @@ namespace MaxCompute20220104
       Models::GetMmsFetchMetadataJobResponse getMmsFetchMetadataJobWithOptions(const string &sourceId, const string &scanId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
+       * @summary Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
        *
        * @return GetMmsFetchMetadataJobResponse
        */
       Models::GetMmsFetchMetadataJobResponse getMmsFetchMetadataJob(const string &sourceId, const string &scanId);
 
       /**
-       * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+       * @summary Queries the details of a MaxCompute Migration Assist (MMA) migration job.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -398,14 +454,14 @@ namespace MaxCompute20220104
       Models::GetMmsJobResponse getMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+       * @summary Queries the details of a MaxCompute Migration Assist (MMA) migration job.
        *
        * @return GetMmsJobResponse
        */
       Models::GetMmsJobResponse getMmsJob(const string &sourceId, const string &jobId);
 
       /**
-       * @summary Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a partition from a MaxCompute Migration Assist (MMA) data source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -414,14 +470,14 @@ namespace MaxCompute20220104
       Models::GetMmsPartitionResponse getMmsPartitionWithOptions(const string &sourceId, const string &partitionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a partition from a MaxCompute Migration Assist (MMA) data source.
        *
        * @return GetMmsPartitionResponse
        */
       Models::GetMmsPartitionResponse getMmsPartition(const string &sourceId, const string &partitionId);
 
       /**
-       * @summary Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a table in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -430,14 +486,14 @@ namespace MaxCompute20220104
       Models::GetMmsTableResponse getMmsTableWithOptions(const string &sourceId, const string &tableId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a table in a MaxCompute Migration Assist (MMA) data source.
        *
        * @return GetMmsTableResponse
        */
       Models::GetMmsTableResponse getMmsTable(const string &sourceId, const string &tableId);
 
       /**
-       * @summary Retrieves the details of a specific migration task.
+       * @summary Queries the details of a migration task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -446,13 +502,15 @@ namespace MaxCompute20220104
       Models::GetMmsTaskResponse getMmsTaskWithOptions(const string &sourceId, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specific migration task.
+       * @summary Queries the details of a migration task.
        *
        * @return GetMmsTaskResponse
        */
       Models::GetMmsTaskResponse getMmsTask(const string &sourceId, const string &taskId);
 
       /**
+       * @summary Obtains the information about a package.
+       *
        * @param request GetPackageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -461,13 +519,15 @@ namespace MaxCompute20220104
       Models::GetPackageResponse getPackageWithOptions(const string &projectName, const string &packageName, const Models::GetPackageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the information about a package.
+       *
        * @param request GetPackageRequest
        * @return GetPackageResponse
        */
       Models::GetPackageResponse getPackage(const string &projectName, const string &packageName, const Models::GetPackageRequest &request);
 
       /**
-       * @summary Queries the basic information about a MaxCompute project.
+       * @summary Queries the information about a MaxCompute project.
        *
        * @param request GetProjectRequest
        * @param headers map
@@ -477,7 +537,7 @@ namespace MaxCompute20220104
       Models::GetProjectResponse getProjectWithOptions(const string &projectName, const Models::GetProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information about a MaxCompute project.
+       * @summary Queries the information about a MaxCompute project.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
@@ -485,7 +545,7 @@ namespace MaxCompute20220104
       Models::GetProjectResponse getProject(const string &projectName, const Models::GetProjectRequest &request);
 
       /**
-       * @summary Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
+       * @summary Obtains the information about a specified level-1 quota.
        *
        * @param request GetQuotaRequest
        * @param headers map
@@ -495,7 +555,7 @@ namespace MaxCompute20220104
       Models::GetQuotaResponse getQuotaWithOptions(const string &nickname, const Models::GetQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
+       * @summary Obtains the information about a specified level-1 quota.
        *
        * @param request GetQuotaRequest
        * @return GetQuotaResponse
@@ -503,6 +563,8 @@ namespace MaxCompute20220104
       Models::GetQuotaResponse getQuota(const string &nickname, const Models::GetQuotaRequest &request);
 
       /**
+       * @summary Obtains the information of a quota plan.
+       *
        * @param request GetQuotaPlanRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -511,12 +573,16 @@ namespace MaxCompute20220104
       Models::GetQuotaPlanResponse getQuotaPlanWithOptions(const string &nickname, const string &planName, const Models::GetQuotaPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the information of a quota plan.
+       *
        * @param request GetQuotaPlanRequest
        * @return GetQuotaPlanResponse
        */
       Models::GetQuotaPlanResponse getQuotaPlan(const string &nickname, const string &planName, const Models::GetQuotaPlanRequest &request);
 
       /**
+       * @summary Obtains the scheduling plan for a quota plan.
+       *
        * @param request GetQuotaScheduleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -525,12 +591,16 @@ namespace MaxCompute20220104
       Models::GetQuotaScheduleResponse getQuotaScheduleWithOptions(const string &nickname, const Models::GetQuotaScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the scheduling plan for a quota plan.
+       *
        * @param request GetQuotaScheduleRequest
        * @return GetQuotaScheduleResponse
        */
       Models::GetQuotaScheduleResponse getQuotaSchedule(const string &nickname, const Models::GetQuotaScheduleRequest &request);
 
       /**
+       * @summary Queries quota resource consumption information.
+       *
        * @param tmpReq GetQuotaUsageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -539,12 +609,16 @@ namespace MaxCompute20220104
       Models::GetQuotaUsageResponse getQuotaUsageWithOptions(const string &nickname, const Models::GetQuotaUsageRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries quota resource consumption information.
+       *
        * @param request GetQuotaUsageRequest
        * @return GetQuotaUsageResponse
        */
       Models::GetQuotaUsageResponse getQuotaUsage(const string &nickname, const Models::GetQuotaUsageRequest &request);
 
       /**
+       * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRoleAclResponse
@@ -552,11 +626,15 @@ namespace MaxCompute20220104
       Models::GetRoleAclResponse getRoleAclWithOptions(const string &projectName, const string &roleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+       *
        * @return GetRoleAclResponse
        */
       Models::GetRoleAclResponse getRoleAcl(const string &projectName, const string &roleName);
 
       /**
+       * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+       *
        * @param request GetRoleAclOnObjectRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -565,12 +643,16 @@ namespace MaxCompute20220104
       Models::GetRoleAclOnObjectResponse getRoleAclOnObjectWithOptions(const string &projectName, const string &roleName, const Models::GetRoleAclOnObjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+       *
        * @param request GetRoleAclOnObjectRequest
        * @return GetRoleAclOnObjectResponse
        */
       Models::GetRoleAclOnObjectResponse getRoleAclOnObject(const string &projectName, const string &roleName, const Models::GetRoleAclOnObjectRequest &request);
 
       /**
+       * @summary Obtains the policy that is attached to a project-level role.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRolePolicyResponse
@@ -578,11 +660,15 @@ namespace MaxCompute20220104
       Models::GetRolePolicyResponse getRolePolicyWithOptions(const string &projectName, const string &roleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the policy that is attached to a project-level role.
+       *
        * @return GetRolePolicyResponse
        */
       Models::GetRolePolicyResponse getRolePolicy(const string &projectName, const string &roleName);
 
       /**
+       * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+       *
        * @param tmpReq GetRunningJobsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,14 +677,14 @@ namespace MaxCompute20220104
       Models::GetRunningJobsResponse getRunningJobsWithOptions(const Models::GetRunningJobsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+       *
        * @param request GetRunningJobsRequest
        * @return GetRunningJobsResponse
        */
       Models::GetRunningJobsResponse getRunningJobs(const Models::GetRunningJobsRequest &request);
 
       /**
-       * @summary Retrieves a summary of the total storage amount.
-       *
        * @param request GetStorageAmountSummaryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -607,16 +693,12 @@ namespace MaxCompute20220104
       Models::GetStorageAmountSummaryResponse getStorageAmountSummaryWithOptions(const Models::GetStorageAmountSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a summary of the total storage amount.
-       *
        * @param request GetStorageAmountSummaryRequest
        * @return GetStorageAmountSummaryResponse
        */
       Models::GetStorageAmountSummaryResponse getStorageAmountSummary(const Models::GetStorageAmountSummaryRequest &request);
 
       /**
-       * @summary Retrieves a summary of storage usage.
-       *
        * @param request GetStorageSizeSummaryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,16 +707,12 @@ namespace MaxCompute20220104
       Models::GetStorageSizeSummaryResponse getStorageSizeSummaryWithOptions(const Models::GetStorageSizeSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a summary of storage usage.
-       *
        * @param request GetStorageSizeSummaryRequest
        * @return GetStorageSizeSummaryResponse
        */
       Models::GetStorageSizeSummaryResponse getStorageSizeSummary(const Models::GetStorageSizeSummaryRequest &request);
 
       /**
-       * @summary Retrieves the year-on-year (YoY) change in storage usage.
-       *
        * @param tmpReq GetStorageSummaryComparedRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -643,14 +721,14 @@ namespace MaxCompute20220104
       Models::GetStorageSummaryComparedResponse getStorageSummaryComparedWithOptions(const string &type, const Models::GetStorageSummaryComparedRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the year-on-year (YoY) change in storage usage.
-       *
        * @param request GetStorageSummaryComparedRequest
        * @return GetStorageSummaryComparedResponse
        */
       Models::GetStorageSummaryComparedResponse getStorageSummaryCompared(const string &type, const Models::GetStorageSummaryComparedRequest &request);
 
       /**
+       * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+       *
        * @param request GetTableInfoRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,12 +737,16 @@ namespace MaxCompute20220104
       Models::GetTableInfoResponse getTableInfoWithOptions(const string &projectName, const string &tableName, const Models::GetTableInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+       *
        * @param request GetTableInfoRequest
        * @return GetTableInfoResponse
        */
       Models::GetTableInfoResponse getTableInfo(const string &projectName, const string &tableName, const Models::GetTableInfoRequest &request);
 
       /**
+       * @summary Obtains the trusted projects of the current project.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTrustedProjectsResponse
@@ -672,11 +754,15 @@ namespace MaxCompute20220104
       Models::GetTrustedProjectsResponse getTrustedProjectsWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains the trusted projects of the current project.
+       *
        * @return GetTrustedProjectsResponse
        */
       Models::GetTrustedProjectsResponse getTrustedProjects(const string &projectName);
 
       /**
+       * @summary Terminates a running job.
+       *
        * @param request KillJobsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -685,12 +771,16 @@ namespace MaxCompute20220104
       Models::KillJobsResponse killJobsWithOptions(const Models::KillJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Terminates a running job.
+       *
        * @param request KillJobsRequest
        * @return KillJobsResponse
        */
       Models::KillJobsResponse killJobs(const Models::KillJobsRequest &request);
 
       /**
+       * @summary Queries a list of computing resources used by a pay-as-you-go job.
+       *
        * @param request ListComputeMetricsByInstanceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -699,13 +789,15 @@ namespace MaxCompute20220104
       Models::ListComputeMetricsByInstanceResponse listComputeMetricsByInstanceWithOptions(const Models::ListComputeMetricsByInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of computing resources used by a pay-as-you-go job.
+       *
        * @param request ListComputeMetricsByInstanceRequest
        * @return ListComputeMetricsByInstanceResponse
        */
       Models::ListComputeMetricsByInstanceResponse listComputeMetricsByInstance(const Models::ListComputeMetricsByInstanceRequest &request);
 
       /**
-       * @summary Lists compute quota plans.
+       * @summary Get computeQuotaPlan list.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -714,13 +806,15 @@ namespace MaxCompute20220104
       Models::ListComputeQuotaPlanResponse listComputeQuotaPlanWithOptions(const string &nickname, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists compute quota plans.
+       * @summary Get computeQuotaPlan list.
        *
        * @return ListComputeQuotaPlanResponse
        */
       Models::ListComputeQuotaPlanResponse listComputeQuotaPlan(const string &nickname);
 
       /**
+       * @summary Obtains functions in a MaxCompute project.
+       *
        * @param request ListFunctionsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -729,13 +823,15 @@ namespace MaxCompute20220104
       Models::ListFunctionsResponse listFunctionsWithOptions(const string &projectName, const Models::ListFunctionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains functions in a MaxCompute project.
+       *
        * @param request ListFunctionsRequest
        * @return ListFunctionsResponse
        */
       Models::ListFunctionsResponse listFunctions(const string &projectName, const Models::ListFunctionsRequest &request);
 
       /**
-       * @summary Retrieves a list of jobs.
+       * @summary Views a list of jobs.
        *
        * @param request ListJobInfosRequest
        * @param headers map
@@ -745,7 +841,7 @@ namespace MaxCompute20220104
       Models::ListJobInfosResponse listJobInfosWithOptions(const Models::ListJobInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of jobs.
+       * @summary Views a list of jobs.
        *
        * @param request ListJobInfosRequest
        * @return ListJobInfosResponse
@@ -753,6 +849,8 @@ namespace MaxCompute20220104
       Models::ListJobInfosResponse listJobInfos(const Models::ListJobInfosRequest &request);
 
       /**
+       * @summary Queries a performance metric of the job that is complete.
+       *
        * @param request ListJobMetricRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,13 +859,15 @@ namespace MaxCompute20220104
       Models::ListJobMetricResponse listJobMetricWithOptions(const Models::ListJobMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a performance metric of the job that is complete.
+       *
        * @param request ListJobMetricRequest
        * @return ListJobMetricResponse
        */
       Models::ListJobMetricResponse listJobMetric(const Models::ListJobMetricRequest &request);
 
       /**
-       * @summary Retrieves job snapshot data at a specific point in time.
+       * @summary Views a list of job snapshot data at a specific point in time.
        *
        * @param request ListJobSnapshotInfosRequest
        * @param headers map
@@ -777,7 +877,7 @@ namespace MaxCompute20220104
       Models::ListJobSnapshotInfosResponse listJobSnapshotInfosWithOptions(const Models::ListJobSnapshotInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves job snapshot data at a specific point in time.
+       * @summary Views a list of job snapshot data at a specific point in time.
        *
        * @param request ListJobSnapshotInfosRequest
        * @return ListJobSnapshotInfosResponse
@@ -785,7 +885,7 @@ namespace MaxCompute20220104
       Models::ListJobSnapshotInfosResponse listJobSnapshotInfos(const Models::ListJobSnapshotInfosRequest &request);
 
       /**
-       * @summary Lists the MaxCompute Migration Assist (MMA) data sources.
+       * @summary Queries a list of MaxCompute Migration Assist (MMA) data sources.
        *
        * @param request ListMmsDataSourcesRequest
        * @param headers map
@@ -795,7 +895,7 @@ namespace MaxCompute20220104
       Models::ListMmsDataSourcesResponse listMmsDataSourcesWithOptions(const Models::ListMmsDataSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the MaxCompute Migration Assist (MMA) data sources.
+       * @summary Queries a list of MaxCompute Migration Assist (MMA) data sources.
        *
        * @param request ListMmsDataSourcesRequest
        * @return ListMmsDataSourcesResponse
@@ -803,7 +903,7 @@ namespace MaxCompute20220104
       Models::ListMmsDataSourcesResponse listMmsDataSources(const Models::ListMmsDataSourcesRequest &request);
 
       /**
-       * @summary List databases in the MMA data source.
+       * @summary Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param tmpReq ListMmsDbsRequest
        * @param headers map
@@ -813,7 +913,7 @@ namespace MaxCompute20220104
       Models::ListMmsDbsResponse listMmsDbsWithOptions(const string &sourceId, const Models::ListMmsDbsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List databases in the MMA data source.
+       * @summary Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request ListMmsDbsRequest
        * @return ListMmsDbsResponse
@@ -821,7 +921,7 @@ namespace MaxCompute20220104
       Models::ListMmsDbsResponse listMmsDbs(const string &sourceId, const Models::ListMmsDbsRequest &request);
 
       /**
-       * @summary Lists migration jobs.
+       * @summary Queries a list of migration jobs.
        *
        * @param request ListMmsJobsRequest
        * @param headers map
@@ -831,7 +931,7 @@ namespace MaxCompute20220104
       Models::ListMmsJobsResponse listMmsJobsWithOptions(const string &sourceId, const Models::ListMmsJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists migration jobs.
+       * @summary Queries a list of migration jobs.
        *
        * @param request ListMmsJobsRequest
        * @return ListMmsJobsResponse
@@ -839,7 +939,7 @@ namespace MaxCompute20220104
       Models::ListMmsJobsResponse listMmsJobs(const string &sourceId, const Models::ListMmsJobsRequest &request);
 
       /**
-       * @summary Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param tmpReq ListMmsPartitionsRequest
        * @param headers map
@@ -849,7 +949,7 @@ namespace MaxCompute20220104
       Models::ListMmsPartitionsResponse listMmsPartitionsWithOptions(const string &sourceId, const Models::ListMmsPartitionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request ListMmsPartitionsRequest
        * @return ListMmsPartitionsResponse
@@ -857,7 +957,7 @@ namespace MaxCompute20220104
       Models::ListMmsPartitionsResponse listMmsPartitions(const string &sourceId, const Models::ListMmsPartitionsRequest &request);
 
       /**
-       * @summary Lists the tables in a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param tmpReq ListMmsTablesRequest
        * @param headers map
@@ -867,7 +967,7 @@ namespace MaxCompute20220104
       Models::ListMmsTablesResponse listMmsTablesWithOptions(const string &sourceId, const Models::ListMmsTablesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the tables in a MaxCompute Migration Assist (MMA) data source.
+       * @summary Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request ListMmsTablesRequest
        * @return ListMmsTablesResponse
@@ -875,7 +975,7 @@ namespace MaxCompute20220104
       Models::ListMmsTablesResponse listMmsTables(const string &sourceId, const Models::ListMmsTablesRequest &request);
 
       /**
-       * @summary Lists the execution logs for a specific migration task.
+       * @summary Queries a list of the execution logs of a single migration task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -884,14 +984,14 @@ namespace MaxCompute20220104
       Models::ListMmsTaskLogsResponse listMmsTaskLogsWithOptions(const string &sourceId, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the execution logs for a specific migration task.
+       * @summary Queries a list of the execution logs of a single migration task.
        *
        * @return ListMmsTaskLogsResponse
        */
       Models::ListMmsTaskLogsResponse listMmsTaskLogs(const string &sourceId, const string &taskId);
 
       /**
-       * @summary Retrieves a list of migration tasks.
+       * @summary Queries a list of migration tasks.
        *
        * @param request ListMmsTasksRequest
        * @param headers map
@@ -901,7 +1001,7 @@ namespace MaxCompute20220104
       Models::ListMmsTasksResponse listMmsTasksWithOptions(const string &sourceId, const Models::ListMmsTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of migration tasks.
+       * @summary Queries a list of migration tasks.
        *
        * @param request ListMmsTasksRequest
        * @return ListMmsTasksResponse
@@ -909,6 +1009,8 @@ namespace MaxCompute20220104
       Models::ListMmsTasksResponse listMmsTasks(const string &sourceId, const Models::ListMmsTasksRequest &request);
 
       /**
+       * @summary Queries the packages in a MaxCompute project.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPackagesResponse
@@ -916,12 +1018,14 @@ namespace MaxCompute20220104
       Models::ListPackagesResponse listPackagesWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the packages in a MaxCompute project.
+       *
        * @return ListPackagesResponse
        */
       Models::ListPackagesResponse listPackages(const string &projectName);
 
       /**
-       * @summary ListProjectUsers
+       * @summary Queries a list of users in a project.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -930,13 +1034,15 @@ namespace MaxCompute20220104
       Models::ListProjectUsersResponse listProjectUsersWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListProjectUsers
+       * @summary Queries a list of users in a project.
        *
        * @return ListProjectUsersResponse
        */
       Models::ListProjectUsersResponse listProjectUsers(const string &projectName);
 
       /**
+       * @summary Queries a list of MaxCompute projects.
+       *
        * @param request ListProjectsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -945,13 +1051,15 @@ namespace MaxCompute20220104
       Models::ListProjectsResponse listProjectsWithOptions(const Models::ListProjectsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries a list of MaxCompute projects.
+       *
        * @param request ListProjectsRequest
        * @return ListProjectsResponse
        */
       Models::ListProjectsResponse listProjects(const Models::ListProjectsRequest &request);
 
       /**
-       * @summary Retrieves a list of quotas.
+       * @summary Queries quotas.
        *
        * @param request ListQuotasRequest
        * @param headers map
@@ -961,7 +1069,7 @@ namespace MaxCompute20220104
       Models::ListQuotasResponse listQuotasWithOptions(const Models::ListQuotasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of quotas.
+       * @summary Queries quotas.
        *
        * @param request ListQuotasRequest
        * @return ListQuotasResponse
@@ -969,6 +1077,8 @@ namespace MaxCompute20220104
       Models::ListQuotasResponse listQuotas(const Models::ListQuotasRequest &request);
 
       /**
+       * @summary Obtains quota plans.
+       *
        * @param request ListQuotasPlansRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -977,12 +1087,16 @@ namespace MaxCompute20220104
       Models::ListQuotasPlansResponse listQuotasPlansWithOptions(const string &nickname, const Models::ListQuotasPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains quota plans.
+       *
        * @param request ListQuotasPlansRequest
        * @return ListQuotasPlansResponse
        */
       Models::ListQuotasPlansResponse listQuotasPlans(const string &nickname, const Models::ListQuotasPlansRequest &request);
 
       /**
+       * @summary Obtains resources in a MaxCompute project.
+       *
        * @param request ListResourcesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -991,12 +1105,16 @@ namespace MaxCompute20220104
       Models::ListResourcesResponse listResourcesWithOptions(const string &projectName, const Models::ListResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains resources in a MaxCompute project.
+       *
        * @param request ListResourcesRequest
        * @return ListResourcesResponse
        */
       Models::ListResourcesResponse listResources(const string &projectName, const Models::ListResourcesRequest &request);
 
       /**
+       * @summary Obtains MaxCompute project-level roles.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRolesResponse
@@ -1004,11 +1122,15 @@ namespace MaxCompute20220104
       Models::ListRolesResponse listRolesWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains MaxCompute project-level roles.
+       *
        * @return ListRolesResponse
        */
       Models::ListRolesResponse listRoles(const string &projectName);
 
       /**
+       * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+       *
        * @param tmpReq ListStoragePartitionsInfoRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1017,14 +1139,14 @@ namespace MaxCompute20220104
       Models::ListStoragePartitionsInfoResponse listStoragePartitionsInfoWithOptions(const string &project, const string &table, const Models::ListStoragePartitionsInfoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+       *
        * @param request ListStoragePartitionsInfoRequest
        * @return ListStoragePartitionsInfoResponse
        */
       Models::ListStoragePartitionsInfoResponse listStoragePartitionsInfo(const string &project, const string &table, const Models::ListStoragePartitionsInfoRequest &request);
 
       /**
-       * @summary Retrieves the storage details of projects.
-       *
        * @param request ListStorageProjectsInfoRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,14 +1155,14 @@ namespace MaxCompute20220104
       Models::ListStorageProjectsInfoResponse listStorageProjectsInfoWithOptions(const Models::ListStorageProjectsInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage details of projects.
-       *
        * @param request ListStorageProjectsInfoRequest
        * @return ListStorageProjectsInfoResponse
        */
       Models::ListStorageProjectsInfoResponse listStorageProjectsInfo(const Models::ListStorageProjectsInfoRequest &request);
 
       /**
+       * @summary Queries the table storage details of a MaxCompute project.
+       *
        * @param tmpReq ListStorageTablesInfoRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1049,12 +1171,16 @@ namespace MaxCompute20220104
       Models::ListStorageTablesInfoResponse listStorageTablesInfoWithOptions(const string &project, const Models::ListStorageTablesInfoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the table storage details of a MaxCompute project.
+       *
        * @param request ListStorageTablesInfoRequest
        * @return ListStorageTablesInfoResponse
        */
       Models::ListStorageTablesInfoResponse listStorageTablesInfo(const string &project, const Models::ListStorageTablesInfoRequest &request);
 
       /**
+       * @summary Obtains tables in a MaxCompute project.
+       *
        * @param request ListTablesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1063,12 +1189,16 @@ namespace MaxCompute20220104
       Models::ListTablesResponse listTablesWithOptions(const string &projectName, const Models::ListTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains tables in a MaxCompute project.
+       *
        * @param request ListTablesRequest
        * @return ListTablesResponse
        */
       Models::ListTablesResponse listTables(const string &projectName, const Models::ListTablesRequest &request);
 
       /**
+       * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTunnelQuotaTimerResponse
@@ -1076,11 +1206,15 @@ namespace MaxCompute20220104
       Models::ListTunnelQuotaTimerResponse listTunnelQuotaTimerWithOptions(const string &nickname, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+       *
        * @return ListTunnelQuotaTimerResponse
        */
       Models::ListTunnelQuotaTimerResponse listTunnelQuotaTimer(const string &nickname);
 
       /**
+       * @summary Obtains users in a MaxCompute project.
+       *
        * @param request ListUsersRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1089,12 +1223,16 @@ namespace MaxCompute20220104
       Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains users in a MaxCompute project.
+       *
        * @param request ListUsersRequest
        * @return ListUsersResponse
        */
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
 
       /**
+       * @summary Obtains information about the users who are assigned a project-level role.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListUsersByRoleResponse
@@ -1102,11 +1240,15 @@ namespace MaxCompute20220104
       Models::ListUsersByRoleResponse listUsersByRoleWithOptions(const string &projectName, const string &roleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtains information about the users who are assigned a project-level role.
+       *
        * @return ListUsersByRoleResponse
        */
       Models::ListUsersByRoleResponse listUsersByRole(const string &projectName, const string &roleName);
 
       /**
+       * @summary Queries the information about a specified level-1 quota group.
+       *
        * @param request QueryQuotaRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1115,13 +1257,15 @@ namespace MaxCompute20220104
       Models::QueryQuotaResponse queryQuotaWithOptions(const string &nickname, const Models::QueryQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information about a specified level-1 quota group.
+       *
        * @param request QueryQuotaRequest
        * @return QueryQuotaResponse
        */
       Models::QueryQuotaResponse queryQuota(const string &nickname, const Models::QueryQuotaRequest &request);
 
       /**
-       * @summary Queries the time series data of resource consumption for a quota.
+       * @summary 查询quota的资源使用信息
        *
        * @param request QueryQuotaMetricRequest
        * @param headers map
@@ -1131,7 +1275,7 @@ namespace MaxCompute20220104
       Models::QueryQuotaMetricResponse queryQuotaMetricWithOptions(const string &metric, const Models::QueryQuotaMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time series data of resource consumption for a quota.
+       * @summary 查询quota的资源使用信息
        *
        * @param request QueryQuotaMetricRequest
        * @return QueryQuotaMetricResponse
@@ -1139,7 +1283,7 @@ namespace MaxCompute20220104
       Models::QueryQuotaMetricResponse queryQuotaMetric(const string &metric, const Models::QueryQuotaMetricRequest &request);
 
       /**
-       * @summary Queries time-series metrics of data storage.
+       * @summary Queries time series metrics of stored data.
        *
        * @param request QueryStorageMetricRequest
        * @param headers map
@@ -1149,7 +1293,7 @@ namespace MaxCompute20220104
       Models::QueryStorageMetricResponse queryStorageMetricWithOptions(const string &metric, const Models::QueryStorageMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries time-series metrics of data storage.
+       * @summary Queries time series metrics of stored data.
        *
        * @param request QueryStorageMetricRequest
        * @return QueryStorageMetricResponse
@@ -1157,15 +1301,7 @@ namespace MaxCompute20220104
       Models::QueryStorageMetricResponse queryStorageMetric(const string &metric, const Models::QueryStorageMetricRequest &request);
 
       /**
-       * @summary Queries metric data for the Tunnel Data Transmission Service within a specified time range.
-       *
-       * @description - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
-       * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
-       * - The `metric` parameter is also required. It specifies the type of metric to query.
-       * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
-       * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
-       * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
-       * - Ensure all parameters meet the requirements in this document to prevent request failures.
+       * @summary Queries the metrics of the Tunnel service within a specified time range.
        *
        * @param request QueryTunnelMetricRequest
        * @param headers map
@@ -1175,15 +1311,7 @@ namespace MaxCompute20220104
       Models::QueryTunnelMetricResponse queryTunnelMetricWithOptions(const string &metric, const Models::QueryTunnelMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries metric data for the Tunnel Data Transmission Service within a specified time range.
-       *
-       * @description - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
-       * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
-       * - The `metric` parameter is also required. It specifies the type of metric to query.
-       * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
-       * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
-       * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
-       * - Ensure all parameters meet the requirements in this document to prevent request failures.
+       * @summary Queries the metrics of the Tunnel service within a specified time range.
        *
        * @param request QueryTunnelMetricRequest
        * @return QueryTunnelMetricResponse
@@ -1191,14 +1319,7 @@ namespace MaxCompute20220104
       Models::QueryTunnelMetricResponse queryTunnelMetric(const string &metric, const Models::QueryTunnelMetricRequest &request);
 
       /**
-       * @summary Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
-       *
-       * @description - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
-       * - The `quotaNickname` and `project` parameters cannot both be empty.
-       * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
-       * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
-       * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
-       * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
+       * @summary Queries the metrics of the Tunnel service within a specified time range.
        *
        * @param request QueryTunnelMetricDetailRequest
        * @param headers map
@@ -1208,14 +1329,7 @@ namespace MaxCompute20220104
       Models::QueryTunnelMetricDetailResponse queryTunnelMetricDetailWithOptions(const string &metric, const Models::QueryTunnelMetricDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
-       *
-       * @description - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
-       * - The `quotaNickname` and `project` parameters cannot both be empty.
-       * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
-       * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
-       * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
-       * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
+       * @summary Queries the metrics of the Tunnel service within a specified time range.
        *
        * @param request QueryTunnelMetricDetailRequest
        * @return QueryTunnelMetricDetailResponse
@@ -1223,7 +1337,7 @@ namespace MaxCompute20220104
       Models::QueryTunnelMetricDetailResponse queryTunnelMetricDetail(const string &metric, const Models::QueryTunnelMetricDetailRequest &request);
 
       /**
-       * @summary Retries a data migration job.
+       * @summary Retries a migration job.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1232,14 +1346,14 @@ namespace MaxCompute20220104
       Models::RetryMmsJobResponse retryMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retries a data migration job.
+       * @summary Retries a migration job.
        *
        * @return RetryMmsJobResponse
        */
       Models::RetryMmsJobResponse retryMmsJob(const string &sourceId, const string &jobId);
 
       /**
-       * @summary Starts a data migration job.
+       * @summary Starts a migration job.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1248,14 +1362,14 @@ namespace MaxCompute20220104
       Models::StartMmsJobResponse startMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a data migration job.
+       * @summary Starts a migration job.
        *
        * @return StartMmsJobResponse
        */
       Models::StartMmsJobResponse startMmsJob(const string &sourceId, const string &jobId);
 
       /**
-       * @summary Stops a data migration job.
+       * @summary Stops a migration job.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1264,15 +1378,13 @@ namespace MaxCompute20220104
       Models::StopMmsJobResponse stopMmsJobWithOptions(const string &sourceId, const string &jobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a data migration job.
+       * @summary Stops a migration job.
        *
        * @return StopMmsJobResponse
        */
       Models::StopMmsJobResponse stopMmsJob(const string &sourceId, const string &jobId);
 
       /**
-       * @summary Retrieves the storage information for each category or project on a specified date.
-       *
        * @param request SumStorageMetricsByDateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1281,14 +1393,17 @@ namespace MaxCompute20220104
       Models::SumStorageMetricsByDateResponse sumStorageMetricsByDateWithOptions(const Models::SumStorageMetricsByDateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage information for each category or project on a specified date.
-       *
        * @param request SumStorageMetricsByDateRequest
        * @return SumStorageMetricsByDateResponse
        */
       Models::SumStorageMetricsByDateResponse sumStorageMetricsByDate(const Models::SumStorageMetricsByDateRequest &request);
 
       /**
+       * @summary Update the ComputeQuotaPlan.
+       *
+       * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+       *
        * @param request UpdateComputeQuotaPlanRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1297,15 +1412,21 @@ namespace MaxCompute20220104
       Models::UpdateComputeQuotaPlanResponse updateComputeQuotaPlanWithOptions(const string &nickname, const Models::UpdateComputeQuotaPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Update the ComputeQuotaPlan.
+       *
+       * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+       *
        * @param request UpdateComputeQuotaPlanRequest
        * @return UpdateComputeQuotaPlanResponse
        */
       Models::UpdateComputeQuotaPlanResponse updateComputeQuotaPlan(const string &nickname, const Models::UpdateComputeQuotaPlanRequest &request);
 
       /**
-       * @summary Updates the time-based schedule for a computing quota.
+       * @summary Update the time-based plan for computing quota.
        *
-       * @description Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
+       * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
        *
        * @param request UpdateComputeQuotaScheduleRequest
        * @param headers map
@@ -1315,9 +1436,10 @@ namespace MaxCompute20220104
       Models::UpdateComputeQuotaScheduleResponse updateComputeQuotaScheduleWithOptions(const string &nickname, const Models::UpdateComputeQuotaScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the time-based schedule for a computing quota.
+       * @summary Update the time-based plan for computing quota.
        *
-       * @description Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
+       * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+       * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
        *
        * @param request UpdateComputeQuotaScheduleRequest
        * @return UpdateComputeQuotaScheduleResponse
@@ -1325,6 +1447,8 @@ namespace MaxCompute20220104
       Models::UpdateComputeQuotaScheduleResponse updateComputeQuotaSchedule(const string &nickname, const Models::UpdateComputeQuotaScheduleRequest &request);
 
       /**
+       * @summary Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+       *
        * @param request UpdateComputeSubQuotaRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1333,13 +1457,15 @@ namespace MaxCompute20220104
       Models::UpdateComputeSubQuotaResponse updateComputeSubQuotaWithOptions(const string &nickname, const Models::UpdateComputeSubQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+       *
        * @param request UpdateComputeSubQuotaRequest
        * @return UpdateComputeSubQuotaResponse
        */
       Models::UpdateComputeSubQuotaResponse updateComputeSubQuota(const string &nickname, const Models::UpdateComputeSubQuotaRequest &request);
 
       /**
-       * @summary Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
+       * @summary Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request UpdateMmsDataSourceRequest
        * @param headers map
@@ -1349,7 +1475,7 @@ namespace MaxCompute20220104
       Models::UpdateMmsDataSourceResponse updateMmsDataSourceWithOptions(const string &sourceId, const Models::UpdateMmsDataSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
+       * @summary Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
        *
        * @param request UpdateMmsDataSourceRequest
        * @return UpdateMmsDataSourceResponse
@@ -1357,6 +1483,8 @@ namespace MaxCompute20220104
       Models::UpdateMmsDataSourceResponse updateMmsDataSource(const string &sourceId, const Models::UpdateMmsDataSourceRequest &request);
 
       /**
+       * @summary Updates the objects in a package and projects in which the package can be installed.
+       *
        * @param request UpdatePackageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1365,13 +1493,15 @@ namespace MaxCompute20220104
       Models::UpdatePackageResponse updatePackageWithOptions(const string &projectName, const string &packageName, const Models::UpdatePackageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the objects in a package and projects in which the package can be installed.
+       *
        * @param request UpdatePackageRequest
        * @return UpdatePackageResponse
        */
       Models::UpdatePackageResponse updatePackage(const string &projectName, const string &packageName, const Models::UpdatePackageRequest &request);
 
       /**
-       * @summary Modifies the basic information of a project.
+       * @summary Update Project Basic Information
        *
        * @param request UpdateProjectBasicMetaRequest
        * @param headers map
@@ -1381,7 +1511,7 @@ namespace MaxCompute20220104
       Models::UpdateProjectBasicMetaResponse updateProjectBasicMetaWithOptions(const string &projectName, const Models::UpdateProjectBasicMetaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information of a project.
+       * @summary Update Project Basic Information
        *
        * @param request UpdateProjectBasicMetaRequest
        * @return UpdateProjectBasicMetaResponse
@@ -1389,6 +1519,8 @@ namespace MaxCompute20220104
       Models::UpdateProjectBasicMetaResponse updateProjectBasicMeta(const string &projectName, const Models::UpdateProjectBasicMetaRequest &request);
 
       /**
+       * @summary Updates the default computing quota of a project.
+       *
        * @param request UpdateProjectDefaultQuotaRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1397,12 +1529,16 @@ namespace MaxCompute20220104
       Models::UpdateProjectDefaultQuotaResponse updateProjectDefaultQuotaWithOptions(const string &projectName, const Models::UpdateProjectDefaultQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the default computing quota of a project.
+       *
        * @param request UpdateProjectDefaultQuotaRequest
        * @return UpdateProjectDefaultQuotaResponse
        */
       Models::UpdateProjectDefaultQuotaResponse updateProjectDefaultQuota(const string &projectName, const Models::UpdateProjectDefaultQuotaRequest &request);
 
       /**
+       * @summary Modifies the IP address whitelist of a MaxCompute project.
+       *
        * @param request UpdateProjectIpWhiteListRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1411,13 +1547,15 @@ namespace MaxCompute20220104
       Models::UpdateProjectIpWhiteListResponse updateProjectIpWhiteListWithOptions(const string &projectName, const Models::UpdateProjectIpWhiteListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies the IP address whitelist of a MaxCompute project.
+       *
        * @param request UpdateProjectIpWhiteListRequest
        * @return UpdateProjectIpWhiteListResponse
        */
       Models::UpdateProjectIpWhiteListResponse updateProjectIpWhiteList(const string &projectName, const Models::UpdateProjectIpWhiteListRequest &request);
 
       /**
-       * @summary Upgrades a project\\"s Layer 2 model to a Layer 3 model.
+       * @summary 将project的二层模型升级为三层模型
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1426,13 +1564,15 @@ namespace MaxCompute20220104
       Models::UpdateProjectModelTierResponse updateProjectModelTierWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades a project\\"s Layer 2 model to a Layer 3 model.
+       * @summary 将project的二层模型升级为三层模型
        *
        * @return UpdateProjectModelTierResponse
        */
       Models::UpdateProjectModelTierResponse updateProjectModelTier(const string &projectName);
 
       /**
+       * @summary Updates a quota plan.
+       *
        * @param request UpdateQuotaPlanRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1441,12 +1581,16 @@ namespace MaxCompute20220104
       Models::UpdateQuotaPlanResponse updateQuotaPlanWithOptions(const string &nickname, const string &planName, const Models::UpdateQuotaPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates a quota plan.
+       *
        * @param request UpdateQuotaPlanRequest
        * @return UpdateQuotaPlanResponse
        */
       Models::UpdateQuotaPlanResponse updateQuotaPlan(const string &nickname, const string &planName, const Models::UpdateQuotaPlanRequest &request);
 
       /**
+       * @summary Updates the scheduling plan for a quota plan.
+       *
        * @param request UpdateQuotaScheduleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1455,15 +1599,17 @@ namespace MaxCompute20220104
       Models::UpdateQuotaScheduleResponse updateQuotaScheduleWithOptions(const string &nickname, const Models::UpdateQuotaScheduleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the scheduling plan for a quota plan.
+       *
        * @param request UpdateQuotaScheduleRequest
        * @return UpdateQuotaScheduleResponse
        */
       Models::UpdateQuotaScheduleResponse updateQuotaSchedule(const string &nickname, const Models::UpdateQuotaScheduleRequest &request);
 
       /**
-       * @summary Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
+       * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
        *
-       * @description Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
+       * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
        *
        * @param request UpdateTunnelQuotaTimerRequest
        * @param headers map
@@ -1473,9 +1619,9 @@ namespace MaxCompute20220104
       Models::UpdateTunnelQuotaTimerResponse updateTunnelQuotaTimerWithOptions(const string &nickname, const Models::UpdateTunnelQuotaTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
+       * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
        *
-       * @description Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
+       * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
        *
        * @param request UpdateTunnelQuotaTimerRequest
        * @return UpdateTunnelQuotaTimerResponse
@@ -1483,7 +1629,7 @@ namespace MaxCompute20220104
       Models::UpdateTunnelQuotaTimerResponse updateTunnelQuotaTimer(const string &nickname, const Models::UpdateTunnelQuotaTimerRequest &request);
 
       /**
-       * @summary Adds or removes users from a project role.
+       * @summary Add or remove users from a project role.
        *
        * @param request UpdateUsersToRoleRequest
        * @param headers map
@@ -1493,7 +1639,7 @@ namespace MaxCompute20220104
       Models::UpdateUsersToRoleResponse updateUsersToRoleWithOptions(const string &projectName, const string &roleName, const Models::UpdateUsersToRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds or removes users from a project role.
+       * @summary Add or remove users from a project role.
        *
        * @param request UpdateUsersToRoleRequest
        * @return UpdateUsersToRoleResponse

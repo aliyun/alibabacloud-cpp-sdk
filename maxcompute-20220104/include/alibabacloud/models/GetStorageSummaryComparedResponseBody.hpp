@@ -109,39 +109,10 @@ namespace Models
 
 
     protected:
-      // The start date.
       shared_ptr<string> beginDate_ {};
-      // The end date.
       shared_ptr<string> endDate_ {};
-      // The year-on-year (YoY) change rate of the storage usage from the start date to the end date. Valid values:
-      // 
-      // - lowFreqStorageRate
-      // 
-      // - totalStorageRate
-      // 
-      // - standardStorageRate
-      // 
-      // - longTermStorageRate
       shared_ptr<map<string, double>> rate_ {};
-      // The unit of the change in the storage usage from the start date to the end date. Valid values:
-      // 
-      // - lowFreqStorageUnit
-      // 
-      // - totalStorageUnit
-      // 
-      // - standardStorageUnit
-      // 
-      // - longTermStorageUnit
       shared_ptr<map<string, string>> unit_ {};
-      // The change in the storage usage from the start date to the end date. Valid values:
-      // 
-      // - lowFreqStorage
-      // 
-      // - totalStorage
-      // 
-      // - standardStorage
-      // 
-      // - longTermStorage
       shared_ptr<map<string, double>> value_ {};
     };
 
@@ -185,25 +156,10 @@ namespace Models
 
 
   protected:
-    // The data returned.
     shared_ptr<GetStorageSummaryComparedResponseBody::Data> data_ {};
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The HTTP status code.
-    // 
-    // - 1xx: informational response. The request is received and is being processed.
-    // 
-    // - 2xx: success. The request is successfully received, understood, and accepted by the server.
-    // 
-    // - 3xx: redirection. The request is redirected. You must take further action to complete the request.
-    // 
-    // - 4xx: client error. The request contains invalid parameters or syntax, or fails to meet specific conditions.
-    // 
-    // - 5xx: server error. The server cannot fulfill the request for other reasons.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

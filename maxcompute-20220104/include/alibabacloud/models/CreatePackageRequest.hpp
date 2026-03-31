@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request body parameters.
     shared_ptr<string> body_ {};
+    // Specifies whether to install the package.
     shared_ptr<bool> isInstall_ {};
   };
 

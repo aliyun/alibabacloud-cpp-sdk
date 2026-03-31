@@ -130,41 +130,17 @@ namespace Models
 
 
   protected:
-    // A list of HTTP status codes for requests.
     shared_ptr<vector<int32_t>> codeList_ {};
-    // A list of grouping criteria.
     shared_ptr<vector<string>> groupList_ {};
-    // A list of operation types.
     shared_ptr<vector<string>> operationList_ {};
-    // The name of the project.
     shared_ptr<string> project_ {};
-    // The nickname of the level-2 Tunnel quota.
-    // 
-    // The nickname of a shared quota is `default`.
-    // 
-    // The format of a dedicated quota nickname is `quotaNickname#subQuotaNickname`.
     shared_ptr<string> quotaNickname_ {};
-    // A list of table names.
-    // 
-    // The tables belong to a project. Therefore, if `tableList` is not empty, `project` cannot be empty.
     shared_ptr<vector<string>> tableList_ {};
-    // The maximum number of data entries to return.
-    // 
-    // This parameter takes effect when the grouping criterion includes `table` or `ip`.
-    // 
-    // The default value is 10. The maximum value is 100.
     shared_ptr<int32_t> topN_ {};
-    // The end of the time range for the query.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The start of the time range for the query.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The data aggregation policy. The default value is `max`.
-    // 
-    // Data is collected at a frequency of 1 minute. If you query data over a long time range, the automatic step size for data display may exceed 1 minute. In this case, metrics are aggregated. This parameter specifies the aggregation logic.
     shared_ptr<string> strategy_ {};
   };
 

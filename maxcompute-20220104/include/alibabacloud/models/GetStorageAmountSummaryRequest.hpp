@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The date for which the statistics are collected. The statistics are collected on a daily basis. Specify the date in the YYYYMMDD format.
     shared_ptr<string> date_ {};
-    // The region ID.
     shared_ptr<string> region_ {};
-    // The tenant ID. You can log on to the MaxCompute console and choose **Tenant Management** > **Tenant Properties** in the navigation pane on the left to view the tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

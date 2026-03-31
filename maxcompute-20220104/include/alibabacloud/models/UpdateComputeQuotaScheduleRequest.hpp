@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The time when the plan takes effect.
+        // The start time when the quota plan takes effect.
         // 
         // This parameter is required.
         shared_ptr<string> at_ {};
@@ -115,17 +115,15 @@ namespace Models
 
 
     protected:
-      // The condition for the plan to take effect.
+      // The value of effective condition.
       shared_ptr<Body::Condition> condition_ {};
       // The name of the quota plan.
       // 
       // This parameter is required.
       shared_ptr<string> plan_ {};
-      // The type.
+      // The type of the quota plan.
       // 
-      // >Notice: 
-      // 
-      // Only daily is supported.
+      // >Notice: Currently, only daily is supported.</notice>
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -152,9 +150,6 @@ namespace Models
   protected:
     // The request body parameters.
     shared_ptr<vector<UpdateComputeQuotaScheduleRequest::Body>> body_ {};
-    // The time zone.
-    // 
-    // > The default value is UTC+8.
     shared_ptr<string> scheduleTimezone_ {};
   };
 

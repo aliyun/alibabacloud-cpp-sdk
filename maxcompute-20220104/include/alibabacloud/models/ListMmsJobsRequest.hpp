@@ -77,7 +77,6 @@ namespace Models
 
 
     protected:
-      // Sorting by status
       shared_ptr<string> status_ {};
     };
 
@@ -165,25 +164,15 @@ namespace Models
 
   protected:
     shared_ptr<ListMmsJobsRequest::Sorter> sorter_ {};
-    // The destination MaxCompute project.
     shared_ptr<string> dstDbName_ {};
-    // The destination MaxCompute table.
     shared_ptr<string> dstTableName_ {};
-    // The name of the data source.
     shared_ptr<string> name_ {};
-    // The number of the page to return.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of items to return per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the source database.
     shared_ptr<string> srcDbName_ {};
-    // The name of the source table.
     shared_ptr<string> srcTableName_ {};
-    // The status of the migration job.
     shared_ptr<string> status_ {};
-    // Indicates whether the job is stopped.
     shared_ptr<int64_t> stopped_ {};
-    // The timer ID.
     shared_ptr<int64_t> timerId_ {};
   };
 

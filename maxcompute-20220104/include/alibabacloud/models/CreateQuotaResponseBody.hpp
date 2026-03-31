@@ -59,7 +59,6 @@ namespace Models
 
 
     protected:
-      // Quota alias.
       shared_ptr<string> nickName_ {};
     };
 
@@ -82,9 +81,7 @@ namespace Models
 
 
   protected:
-    // Response parameters.
     shared_ptr<CreateQuotaResponseBody::Data> data_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,19 +75,12 @@ namespace Models
 
 
   protected:
-    // The start date.
-    // 
     // This parameter is required.
     shared_ptr<string> beginDate_ {};
-    // The end date.
-    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // The list of projects.
     shared_ptr<string> projectsShrink_ {};
-    // The region ID.
     shared_ptr<string> region_ {};
-    // The tenant ID. You can log on to the MaxCompute console and choose **Tenant Property** in the navigation pane on the left to view the tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

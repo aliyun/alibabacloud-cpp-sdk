@@ -112,11 +112,8 @@ namespace Models
 
 
       protected:
-        // If the specified type is PROJECT, this parameter indicates the project name. If the specified type is STORAGE_TYPE, this parameter indicates the storage class.
         shared_ptr<string> itemName_ {};
-        // The percentage of the storage usage.
         shared_ptr<double> percentage_ {};
-        // The storage usage.
         shared_ptr<string> usage_ {};
       };
 
@@ -160,19 +157,10 @@ namespace Models
 
 
     protected:
-      // The date of the statistics. The format is yyyyMMdd.
       shared_ptr<string> dateTime_ {};
-      // A list of storage usage for the specified type.
       shared_ptr<vector<Data::ItemStorageMetrics>> itemStorageMetrics_ {};
-      // The storage class. Valid values:
-      // 
-      // - Storage. Standard storage.
-      // - LowFreqStorage. IA storage class.
-      // - ColdStorage. Archive storage.
       shared_ptr<string> storageType_ {};
-      // The unit of the total storage usage.
       shared_ptr<string> unit_ {};
-      // The total storage usage.
       shared_ptr<string> usage_ {};
     };
 
@@ -216,21 +204,10 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<vector<SumStorageMetricsByDateResponseBody::Data>> data_ {};
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The HTTP status code.
-    // 
-    // - 1xx: Informational response. The request has been received and is being processed.
-    // - 2xx: Success. The action was successfully received, understood, and accepted by the server.
-    // - 3xx: Redirection. The request was redirected, and further action is required to complete the request.
-    // - 4xx: Client error. The request contains invalid request parameters or syntax, or specific request conditions cannot be met.
-    // - 5xx: Server error. The server failed to fulfill the request for other reasons.
     shared_ptr<int32_t> httpCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

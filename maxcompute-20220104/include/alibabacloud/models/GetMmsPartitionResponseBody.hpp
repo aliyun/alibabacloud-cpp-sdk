@@ -207,39 +207,23 @@ namespace Models
 
 
     protected:
-      // The ID of the database that contains the partition. The name for this metadata layer depends on the data source. For example, it is a Dataset in BigQuery, a Database in Hive, or a Schema in Databricks and MaxCompute.
       shared_ptr<int64_t> dbId_ {};
-      // The name of the database. The name for this metadata layer depends on the data source. For example, it is a Dataset in BigQuery, a Database in Hive, or a Schema in Databricks and MaxCompute.
       shared_ptr<string> dbName_ {};
-      // The name of the destination MaxCompute project.
       shared_ptr<string> dstProjectName_ {};
-      // The name of the destination MaxCompute schema. This parameter is null if the destination MaxCompute project does not use a schema layer.
       shared_ptr<string> dstSchemaName_ {};
-      // The name of the destination MaxCompute table.
       shared_ptr<string> dstTableName_ {};
-      // The value of the destination MaxCompute partition. By default, this value is the same as the source partition value.
       shared_ptr<string> dstValue_ {};
-      // The partition ID.
       shared_ptr<int64_t> id_ {};
-      // The time of the last DDL operation.
+      // lastDdlTime
       shared_ptr<string> lastDdlTime_ {};
-      // The number of rows.
       shared_ptr<int64_t> numRows_ {};
-      // The data size in bytes.
       shared_ptr<int64_t> size_ {};
-      // The data source ID.
       shared_ptr<int64_t> sourceId_ {};
-      // The data source name.
       shared_ptr<string> sourceName_ {};
-      // The migration status.
       shared_ptr<string> status_ {};
-      // The table ID.
       shared_ptr<int64_t> tableId_ {};
-      // The table name.
       shared_ptr<string> tableName_ {};
-      // Indicates whether the metadata is updated.
       shared_ptr<bool> updated_ {};
-      // The partition value.
       shared_ptr<string> value_ {};
     };
 
@@ -262,9 +246,7 @@ namespace Models
 
 
   protected:
-    // The partition object.
     shared_ptr<GetMmsPartitionResponseBody::Data> data_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

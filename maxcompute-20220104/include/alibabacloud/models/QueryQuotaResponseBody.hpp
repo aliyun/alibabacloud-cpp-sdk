@@ -239,13 +239,21 @@ namespace Models
 
 
         protected:
+          // The current quota plan that has taken effect based on the scheduling plan.
           shared_ptr<string> currPlan_ {};
+          // The time when the plan specified by currPlan is scheduled.
           shared_ptr<string> currTime_ {};
+          // The quota plan that will take effect based on the scheduling plan.
           shared_ptr<string> nextPlan_ {};
+          // The time when the plan specified by nextPlan is scheduled.
           shared_ptr<string> nextTime_ {};
+          // The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
           shared_ptr<string> oncePlan_ {};
+          // The time when the quota plan specified by oncePlan is scheduled.
           shared_ptr<string> onceTime_ {};
+          // The operator name.
           shared_ptr<string> operatorName_ {};
+          // The time zone of the project.
           shared_ptr<string> timezone_ {};
         };
 
@@ -289,7 +297,9 @@ namespace Models
 
 
         protected:
+          // The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
           shared_ptr<vector<string>> resourceIds_ {};
+          // The object type. Valid values: quota and project.
           shared_ptr<string> resourceType_ {};
         };
 
@@ -349,9 +359,16 @@ namespace Models
 
 
         protected:
+          // The billing method. Valid values:
+          // 
+          // *   subscription: the subscription quota.
+          // *   payasyougo: the pay-as-you-go quota.
           shared_ptr<string> billingMethod_ {};
+          // In MaxCompute, instanceId and orderId are considered the same.
           shared_ptr<string> instanceId_ {};
+          // The order specifications.
           shared_ptr<string> odpsSpecCode_ {};
+          // The order ID.
           shared_ptr<string> orderId_ {};
         };
 
@@ -495,23 +512,41 @@ namespace Models
 
 
       protected:
+        // The order information.
         shared_ptr<SubQuotaInfoList::BillingPolicy> billingPolicy_ {};
+        // The cluster ID.
         shared_ptr<string> cluster_ {};
+        // The time when the resource was created.
         shared_ptr<int64_t> createTime_ {};
+        // The ID of the Alibaba Cloud account that is used to create the quota plan.
         shared_ptr<string> creatorId_ {};
+        // The role group name.
         shared_ptr<string> groupName_ {};
+        // The ID of the level-2 quota.
         shared_ptr<string> id_ {};
+        // The name of the level-2 quota.
         shared_ptr<string> name_ {};
+        // The nickname of the level-2 quota.
         shared_ptr<string> nickName_ {};
+        // The quota description.
         Darabonba::Json parameter_ {};
+        // The parent resource ID.
         shared_ptr<string> parentId_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The identifiers of MaxCompute quota objects. The identifiers are the same as those in the Alibaba Cloud sales bill. This parameter is used for tags.
         shared_ptr<SubQuotaInfoList::SaleTag> saleTag_ {};
+        // The information about the scheduling plan.
         shared_ptr<SubQuotaInfoList::ScheduleInfo> scheduleInfo_ {};
+        // The status of the resource.
         shared_ptr<string> status_ {};
+        // The resource tag of a quota.
         shared_ptr<string> tag_ {};
+        // The tenant ID.
         shared_ptr<string> tenantId_ {};
+        // This parameter corresponds to the resourceSystemType field.
         shared_ptr<string> type_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -608,13 +643,21 @@ namespace Models
 
 
       protected:
+        // The current quota plan that has taken effect based on the scheduling plan.
         shared_ptr<string> currPlan_ {};
+        // The time when the plan specified by currPlan is scheduled.
         shared_ptr<string> currTime_ {};
+        // The quota plan that will take effect based on the scheduling plan.
         shared_ptr<string> nextPlan_ {};
+        // The time when the plan specified by nextPlan is scheduled.
         shared_ptr<string> nextTime_ {};
+        // The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
         shared_ptr<string> oncePlan_ {};
+        // The time when the quota plan specified by oncePlan is scheduled.
         shared_ptr<string> onceTime_ {};
+        // The operator name.
         shared_ptr<string> operatorName_ {};
+        // The time zone of the project.
         shared_ptr<string> timezone_ {};
       };
 
@@ -658,7 +701,9 @@ namespace Models
 
 
       protected:
+        // The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
         shared_ptr<vector<string>> resourceIds_ {};
+        // The object type. Valid values: quota and project.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -718,9 +763,16 @@ namespace Models
 
 
       protected:
+        // The billing method. Valid values:
+        // 
+        // *   subscription: the subscription quota.
+        // *   payasyougo: the pay-as-you-go quota.
         shared_ptr<string> billingMethod_ {};
+        // In MaxCompute, instanceId and orderId are considered the same.
         shared_ptr<string> instanceId_ {};
+        // The order specifications.
         shared_ptr<string> odpsSpecCode_ {};
+        // The order ID.
         shared_ptr<string> orderId_ {};
       };
 
@@ -873,24 +925,43 @@ namespace Models
 
 
     protected:
+      // The order information.
       shared_ptr<Data::BillingPolicy> billingPolicy_ {};
+      // The ID of the Managed Service for Prometheus cluster.
       shared_ptr<string> cluster_ {};
+      // The time when the resource was created.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the Alibaba Cloud account that is used to create the quota plan.
       shared_ptr<string> creatorId_ {};
+      // The group name.
       shared_ptr<string> groupName_ {};
+      // The quota ID.
       shared_ptr<string> id_ {};
+      // The quota name.
       shared_ptr<string> name_ {};
+      // The quota alias.
       shared_ptr<string> nickName_ {};
+      // The quota description.
       Darabonba::Json parameter_ {};
+      // The parent resource ID.
       shared_ptr<string> parentId_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The identifiers of MaxCompute quota objects. The identifiers are the same as those in the Alibaba Cloud sales bill. This parameter is used for tags.
       shared_ptr<Data::SaleTag> saleTag_ {};
+      // The information about the scheduling plan.
       shared_ptr<Data::ScheduleInfo> scheduleInfo_ {};
+      // The status of the resource.
       shared_ptr<string> status_ {};
+      // The level-2 quotas.
       shared_ptr<vector<Data::SubQuotaInfoList>> subQuotaInfoList_ {};
+      // The resource tag of a quota.
       shared_ptr<string> tag_ {};
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
+      // This parameter corresponds to the resourceSystemType field.
       shared_ptr<string> type_ {};
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -934,10 +1005,15 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<QueryQuotaResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -130,17 +130,29 @@ namespace Models
 
 
   protected:
+    // Specifies whether to sort data in ascending order.
     shared_ptr<bool> ascOrder_ {};
+    // The date on which the statistics are collected, in days. Set this parameter to a value in the `YYYYMMdd` format.
+    // 
     // This parameter is required.
     shared_ptr<string> date_ {};
+    // The sorting column.
     shared_ptr<string> orderColumn_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // The number of recent days for comparison.
     shared_ptr<int32_t> recentDays_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
+    // The name of the schema.
     shared_ptr<string> schema_ {};
+    // The name of the table that you want to use for fuzzy match.
     shared_ptr<string> tablePrefix_ {};
+    // The ID of the tenant. You can log on to the MaxCompute console, and choose **Tenants** > **Tenant Property** from the left-side navigation pane to view the tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The storage types.
     shared_ptr<string> typesShrink_ {};
   };
 

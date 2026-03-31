@@ -68,18 +68,9 @@ namespace Models
 
 
   protected:
-    // The type of the update operation:
-    // 
-    // 1. UPDATE_CONFIG: updates the data source configuration.
-    // 2. START: starts the data source instance.
-    // 3. STOP: shuts down the data source instance.
-    // 4. RENAME: renames the data source.
     shared_ptr<string> action_ {};
-    // The data source configuration. The configuration items vary based on the data source.
     Darabonba::Json config_ {};
-    // The new name of the data source.
     shared_ptr<string> name_ {};
-    // Tests the data source configuration.
     shared_ptr<bool> test_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Specifies the marker after which the returned list begins.
     shared_ptr<string> marker_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxItem_ {};
+    // The names of the returned resources. The names must start with the value specified by the prefix parameter. If the prefix parameter is set to a, the names of the returned resources must start with a.
     shared_ptr<string> prefix_ {};
+    // The name of the schema.
     shared_ptr<string> schemaName_ {};
+    // The type of the table.
     shared_ptr<string> type_ {};
   };
 

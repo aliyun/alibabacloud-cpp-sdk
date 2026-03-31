@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The trusted AccessKey pairs.
     shared_ptr<string> akProven_ {};
-    // Specifies whether to include submodules. Valid values: -true: includes submodules. -false (default): does not include submodules.
+    // Specifies whether to include submodules. Valid values: -true: The request includes submodules. -false: The request does not include submodules. This is the default value.
     shared_ptr<bool> mock_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

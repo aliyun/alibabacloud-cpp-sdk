@@ -93,6 +93,7 @@ namespace Models
 
 
       protected:
+        // The start time when the quota plan takes effect.
         shared_ptr<string> at_ {};
       };
 
@@ -136,10 +137,15 @@ namespace Models
 
 
     protected:
+      // The value of effective condition.
       shared_ptr<Data::Condition> condition_ {};
+      // The ID of the quota plan.
       shared_ptr<string> id_ {};
+      // The name of the quota plan.
       shared_ptr<string> plan_ {};
+      // The time zone property.
       shared_ptr<string> timezone_ {};
+      // The type of the quota plan.
       shared_ptr<string> type_ {};
     };
 
@@ -183,10 +189,21 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<vector<GetComputeQuotaScheduleResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
+    // 
+    // - 1xx: informational response. The request is received and is being processed.
+    // - 2xx: success. The request is successfully received, understood, and accepted by the server.
+    // - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+    // - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+    // - 5xx: server error. The server cannot meet requirements due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

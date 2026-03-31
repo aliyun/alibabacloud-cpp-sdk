@@ -68,13 +68,9 @@ namespace Models
 
 
   protected:
-    // The configurations of the data source.
     Darabonba::Json config_ {};
-    // The name of the data source.
     shared_ptr<string> name_ {};
-    // The ID of the MaxCompute network connectivity.
     shared_ptr<string> networklink_ {};
-    // The type of the data source.
     shared_ptr<string> type_ {};
   };
 

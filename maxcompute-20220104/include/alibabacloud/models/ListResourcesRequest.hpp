@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Specifies the marker after which the returned list begins.
     shared_ptr<string> marker_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxItem_ {};
+    // The name of the resource.
     shared_ptr<string> name_ {};
+    // The name of the schema.
     shared_ptr<string> schemaName_ {};
   };
 

@@ -87,20 +87,11 @@ namespace Models
 
 
   protected:
-    // The end date. The value is a millisecond-level timestamp. This parameter is required.
     shared_ptr<int64_t> endDate_ {};
-    // The project names.
     shared_ptr<vector<string>> projectNames_ {};
-    // The region ID.
     shared_ptr<string> region_ {};
-    // The start date. The value is a millisecond-level timestamp. This parameter is required.
     shared_ptr<int64_t> startDate_ {};
-    // The type of storage usage statistics. This parameter is required. Valid values:
-    // 
-    // - PROJECT
-    // - STORAGE_TYPE
     shared_ptr<string> statsType_ {};
-    // The user UID.
     shared_ptr<string> userId_ {};
   };
 

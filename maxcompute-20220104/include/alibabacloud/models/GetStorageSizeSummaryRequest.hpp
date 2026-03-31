@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The date of statistics. The value is at the day level. The format is YYYYMMdd.
     shared_ptr<string> date_ {};
-    // The region ID.
     shared_ptr<string> region_ {};
-    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 
