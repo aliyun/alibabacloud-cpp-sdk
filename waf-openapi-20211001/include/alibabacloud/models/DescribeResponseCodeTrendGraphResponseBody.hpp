@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // The number of 302 response codes.
+      // The number of 302 error codes that are returned.
       shared_ptr<int64_t> code302Pv_ {};
-      // The number of 405 response codes.
+      // The number of 405 error codes that are returned.
       shared_ptr<int64_t> code405Pv_ {};
-      // The number of 444 response codes.
+      // The number of 444 error codes that are returned.
       shared_ptr<int64_t> code444Pv_ {};
-      // The number of 499 response codes.
+      // The number of 499 error codes that are returned.
       shared_ptr<int64_t> code499Pv_ {};
-      // The number of 5xx response codes.
+      // The number of 5xx error codes that are returned.
       shared_ptr<int64_t> code5xxPv_ {};
-      // The serial number of the time interval, sorted in chronological order.
+      // The serial number of the time interval. The serial numbers are arranged in chronological order.
       shared_ptr<int64_t> index_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The statistics of response codes.
+    // The array of the statistics of the error codes.
     shared_ptr<vector<DescribeResponseCodeTrendGraphResponseBody::ResponseCodes>> responseCodes_ {};
   };
 

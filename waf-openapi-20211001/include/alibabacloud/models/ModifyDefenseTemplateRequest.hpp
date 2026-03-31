@@ -84,29 +84,26 @@ namespace Models
 
 
   protected:
-    // The description of the protection template.
+    // The description of the protection rule template whose configurations you want to modify.
     shared_ptr<string> description_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou:** the Chinese mainland.
+    // *   **ap-southeast-1:** outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection template to modify.
+    // The ID of the protection rule template whose configurations you want to modify.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
-    // The name of the protection template. The name must be 1 to 255 characters long and can contain Chinese characters, letters, digits, underscores (_), periods (.), and hyphens (-).
-    // 
-    // > Template names must be unique for the same protection scenario (**DefenseScene**).
+    // The name of the protection rule template whose configurations you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};

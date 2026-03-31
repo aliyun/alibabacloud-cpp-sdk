@@ -103,55 +103,32 @@ namespace Models
 
 
   protected:
-    // [Deprecated] The hybrid cloud cluster ID.
+    // The ID of the hybrid cloud cluster.
     shared_ptr<int64_t> clusterId_ {};
-    // The cluster rule resource ID.
     shared_ptr<string> clusterRuleResourceId_ {};
-    // The Web Application Firewall (WAF) instance ID.
+    // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query the current WAF instance ID.
+    // >  You can call the DescribeInstanceInfo operation to query the ID of the WAF instance.[](~~140857~~)
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region of the WAF instance. Valid values:
+    // The region of the WAF instance. Valid value:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
-    // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The traffic routing rule configuration:
-    // 
-    // >Notice: 
-    // 
-    // The mode cannot be changed after it is selected.
-    // 
-    // 
-    // 
-    // - **check_mode** Defines the traffic scope for the routing rule. Valid values:
-    // 
-    //   - **all**: Routes all traffic.
-    // 
-    //   - **part**: Routes a specified portion of traffic.
-    // 
-    // - **type**: The rule\\"s match type. Valid values:
-    // 
-    //   - **exact**: Exact match
-    // 
-    //   - **regex**: Regular expression match.
-    // 
-    // - **substance**: The value of the rule.
+    // The configuration of the rule.
     shared_ptr<string> ruleConfig_ {};
     // The status of the rule. Valid values:
     // 
-    // - **on**: Enabled
-    // 
-    // - **off**: Disabled.
+    // *   **on**: enables the rule.
+    // *   **off**: disables the rule.
     shared_ptr<string> ruleStatus_ {};
-    // [Deprecated] The rule type. Valid values:
+    // The type of the rule. Valid values:
     // 
-    // - **pullin**: Traffic routing configuration.
+    // *   **pullin**: The traffic redirection rule.
     shared_ptr<string> ruleType_ {};
   };
 

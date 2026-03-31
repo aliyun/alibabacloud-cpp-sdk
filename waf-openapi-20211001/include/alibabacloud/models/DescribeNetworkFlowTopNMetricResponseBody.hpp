@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The end of the time range. This value is a UNIX timestamp. Unit: seconds.
+        // The end time of the query range (Unix timestamp, seconds). Same as the EndDate request parameter.
         shared_ptr<int64_t> endDate_ {};
-        // The beginning of the time range. This value is a UNIX timestamp. Unit: seconds.
+        // The start time of the query range (Unix timestamp, seconds). Same as the StartDate request parameter.
         shared_ptr<int64_t> startDate_ {};
       };
 
@@ -118,9 +118,9 @@ namespace Models
 
 
     protected:
-      // The time range used for the query.
+      // The query time range.
       shared_ptr<TopNMetaData::DateRange> dateRange_ {};
-      // The unit of the returned statistical data.
+      // The unit of the returned data. It is fixed as requests.
       shared_ptr<string> units_ {};
     };
 
@@ -171,11 +171,11 @@ namespace Models
 
 
     protected:
-      // The additional attribute associated with the entry. For example, when the Metric is set to real_client_ip, this parameter indicates the country or region to which the IP address belongs.
+      // Returns additional information, such as the country, province, or city to which an IP address belongs.
       shared_ptr<string> attribute_ {};
-      // The dimension value that corresponds to the specified Metric request parameter. For example, if the Metric is set to real_client_ip, this parameter indicates the source IP address.
+      // The value of this field varies depending on the queried Metric.
       shared_ptr<string> name_ {};
-      // The total number of requests or the QPS value, depending on the specified Metric. This value is used for top N ranking.
+      // Counts for top ranking.
       shared_ptr<int64_t> value_ {};
     };
 
@@ -207,7 +207,7 @@ namespace Models
 
 
   protected:
-    // An array of the top N statistics.
+    // The top statistical data array returned.
     shared_ptr<vector<DescribeNetworkFlowTopNMetricResponseBody::NetworkFlowTopNValues>> networkFlowTopNValues_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

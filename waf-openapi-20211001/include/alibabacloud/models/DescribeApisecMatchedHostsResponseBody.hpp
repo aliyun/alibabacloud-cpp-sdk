@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The number of queries.
+      // The number of APIs related to the domain name.
       shared_ptr<int64_t> count_ {};
       // The domain name or IP address.
       shared_ptr<string> matchedHost_ {};
@@ -104,9 +104,9 @@ namespace Models
 
 
   protected:
-    // The list of domain names.
+    // The domain names.
     shared_ptr<vector<DescribeApisecMatchedHostsResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<string> totalCount_ {};

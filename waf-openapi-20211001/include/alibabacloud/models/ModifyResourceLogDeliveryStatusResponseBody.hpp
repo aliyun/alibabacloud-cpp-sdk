@@ -66,21 +66,9 @@ namespace Models
 
 
   protected:
-    // The name of the log delivery configuration.
     shared_ptr<string> deliveryName_ {};
-    // The type of log delivery destination for the protected object. Valid values:
-    // 
-    // - **syslog**: logs are delivered to a syslog server.
-    // 
-    // - **kafka**: logs are delivered to a Kafka cluster.
     shared_ptr<string> deliveryType_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether log delivery is enabled for the protected object. Valid values:
-    // 
-    // - **true**: Log delivery is enabled.
-    // 
-    // - **false**: Log delivery is disabled.
     shared_ptr<bool> status_ {};
   };
 

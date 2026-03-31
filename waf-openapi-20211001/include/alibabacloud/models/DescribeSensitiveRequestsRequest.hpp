@@ -122,36 +122,34 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter is available only in hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain information about hybrid cloud clusters.
+    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. This value is a UNIX timestamp in seconds. The time is in UTC.
+    // The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return for a paged query. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of sensitive data.
+    // The type of the sensitive data.
     // 
-    // > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
+    // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
     shared_ptr<int64_t> sensitiveCode_ {};
     // The sensitive data.
     shared_ptr<string> sensitiveData_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp in seconds. The time is in UTC.
+    // The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

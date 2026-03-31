@@ -99,15 +99,15 @@ namespace Models
 
 
     protected:
-      // The total number of APIs that are associated with the domain name.
+      // The number of APIs.
       shared_ptr<int64_t> apiCount_ {};
-      // The domain name that is protected by WAF.
+      // The domain name.
       shared_ptr<string> domain_ {};
-      // The number of high-severity threats.
+      // The number of high-level risks.
       shared_ptr<int64_t> high_ {};
-      // The number of low-severity threats.
+      // The number of low-level risks.
       shared_ptr<int64_t> low_ {};
-      // The number of medium-severity threats.
+      // The number of medium-level risks.
       shared_ptr<int64_t> medium_ {};
     };
 
@@ -137,11 +137,11 @@ namespace Models
 
 
   protected:
-    // The statistics of domain names with API security risks.
+    // The response parameters.
     shared_ptr<vector<DescribeApisecAbnormalDomainStatisticResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // Id of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of domain names that have API security risks.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

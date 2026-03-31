@@ -125,9 +125,9 @@ namespace Models
 
 
       protected:
-        // The key of the custom response header.
+        // Specifies the key for a custom response header.
         shared_ptr<string> key_ {};
-        // The value of the custom response header.
+        // Specifies the value for a custom response header.
         shared_ptr<string> value_ {};
       };
 
@@ -269,53 +269,49 @@ namespace Models
 
 
     protected:
-      // Indicates whether the tracking cookie feature is enabled.
+      // The status of the tracking cookie.
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: disabled
+      // *   **1**: enabled. This is the default value.
       shared_ptr<int32_t> acwCookieStatus_ {};
-      // Indicates whether the secure attribute of the tracking cookie is enabled.
+      // The status of the secure attribute of the tracking cookie.
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: disabled. This is the default value.
+      // *   **1**: enabled.
       shared_ptr<int32_t> acwSecureStatus_ {};
-      // Indicates whether the secure attribute of the slider CAPTCHA cookie is enabled.
+      // The status of the secure attribute of the slider CAPTCHA cookie.
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: disabled. This is the default value.
+      // *   **1**: enabled.
       shared_ptr<int32_t> acwV3SecureStatus_ {};
-      // The custom XFF header that is used to obtain the real IP address of a client. If \\`XffStatus\\` is set to 1 and this parameter is left empty, the first IP address in the XFF header is used as the client IP address.
+      // The custom header fields that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP addresses in the XFF header fields are used as the originating IP addresses of clients.
       shared_ptr<vector<string>> customHeaders_ {};
       // The description of the protected object.
       shared_ptr<string> description_ {};
-      // The details of the protected object. The key-value pairs vary by product type.
+      // The description of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
       Darabonba::Json detail_ {};
-      // The time when the protected object was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The creation time of the protected object. Unit: seconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The time when the protected object was modified. This value is a UNIX timestamp. Unit: milliseconds.
+      // The most recent modification time of the protected object. Unit: seconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the WAF instance.
       shared_ptr<string> instanceId_ {};
-      // The account to which the asset of the protected object belongs. This parameter is returned in a multi-account management scenario.
+      // The Alibaba Cloud account to which the protected object belongs. You can specify this parameter to query protected objects that belong to a specific Alibaba Cloud account. Exact match is supported.
       shared_ptr<string> ownerUserId_ {};
-      // The protection mode of the protected object.
+      // The protection pattern.
       shared_ptr<string> pattern_ {};
-      // The type of cloud service to which the protected object belongs.
+      // The name of the cloud service.
       shared_ptr<string> product_ {};
       // The name of the protected object.
       shared_ptr<string> resource_ {};
-      // The name of the protected object group to which the protected object is added.
+      // The name of the protected object group to which the protected object belongs.
       shared_ptr<string> resourceGroup_ {};
-      // The ID of the Alibaba Cloud resource group.
+      // The ID of the resource group.
       shared_ptr<string> resourceManagerResourceGroupId_ {};
-      // The source of the protected object.
+      // The origin of the protected object.
       shared_ptr<string> resourceOrigin_ {};
-      // The custom response headers configured for the protected object.
+      // The response header.
       shared_ptr<vector<Resources::ResponseHeaders>> responseHeaders_ {};
-      // Indicates whether the X-Forwarded-For (XFF) proxy is enabled for the protected object.
+      // Indicates whether the X-Forwarded-For (XFF) header is used.
       shared_ptr<int32_t> xffStatus_ {};
     };
 
@@ -347,9 +343,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of protected objects.
+    // The protected objects.
     shared_ptr<vector<DescribeDefenseResourcesResponseBody::Resources>> resources_ {};
-    // The total number of returned entries.
+    // The total number of entries that are returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

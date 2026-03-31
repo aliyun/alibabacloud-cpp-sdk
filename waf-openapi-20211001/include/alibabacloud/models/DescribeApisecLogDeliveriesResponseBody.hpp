@@ -99,11 +99,9 @@ namespace Models
     protected:
       // The type of the log subscription. Valid values:
       // 
-      // - **risk**: risk information.
-      // 
-      // - **event**: attack event information.
-      // 
-      // - **asset**: asset information.
+      // *   **risk**: risk information.
+      // *   **event**: attack event information.
+      // *   **asset**: asset information.
       shared_ptr<string> assertKey_ {};
       // The ID of the region where logs are stored.
       shared_ptr<string> logRegionId_ {};
@@ -113,9 +111,8 @@ namespace Models
       shared_ptr<string> projectName_ {};
       // The status of API security log subscription. Valid values:
       // 
-      // - **true**: enabled.
-      // 
-      // - **false**: disabled.
+      // *   **true**: enabled.
+      // *   **false**: disabled.
       shared_ptr<bool> status_ {};
     };
 
@@ -140,7 +137,7 @@ namespace Models
   protected:
     // The configurations of API security log subscription.
     shared_ptr<vector<DescribeApisecLogDeliveriesResponseBody::DeliveryConfigs>> deliveryConfigs_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

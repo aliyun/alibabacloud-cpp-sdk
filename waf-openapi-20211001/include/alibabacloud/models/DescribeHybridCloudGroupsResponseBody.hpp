@@ -154,43 +154,40 @@ namespace Models
 
 
     protected:
-      // The back-to-origin mark of the protection cluster. The value is in the **{CarrierTag}-{ContinentTag}-{CityTag}-{Identifier}** format. The identifier is optional.
+      // The back-to-origin mark of the protected cluster. The value is in the {ISP name}-{Continent name}-{City name}-{Back-to-origin identifier} format. The back-to-origin identifier is optional.
       // 
-      // > For a list of valid values, see Additional information about response parameters.
+      // >  For more information about ISP names, continent names, city names, and back-to-origin identifiers, see the following sections.
       shared_ptr<string> backSourceMark_ {};
-      // The continent code of the protection cluster.
+      // The continent code of the protected cluster.
       // 
-      // > For a list of valid codes, see Additional information about response parameters.
+      // >  For more information about continent codes, see Continent codes in this topic.
       shared_ptr<int32_t> continentsValue_ {};
-      // The ID of the hybrid cloud node group.
+      // The ID of the node group.
       shared_ptr<int32_t> groupId_ {};
-      // The name of the hybrid cloud node group.
+      // The name of the node group.
       shared_ptr<string> groupName_ {};
-      // The type of the hybrid cloud node group. Valid values:
+      // The type of the node group. Valid values:
       // 
-      // - **protect**: protection node group.
-      // 
-      // - **control**: control node group.
-      // 
-      // - **storage**: storage node group.
-      // 
-      // - **controlStorage**: control and storage node group.
+      // *   **protect**
+      // *   **control**
+      // *   **storage**
+      // *   **controlStorage**
       shared_ptr<string> groupType_ {};
-      // The IP address of the load balancer that is associated with the hybrid cloud node group.
+      // The IP address of the server used for load balancing.
       shared_ptr<string> loadBalanceIp_ {};
       // The ID of the protection node.
       shared_ptr<int64_t> locationId_ {};
-      // The carrier code of the protection cluster.
+      // The ISP code of the protected cluster.
       // 
-      // > For a list of valid codes, see Additional information about response parameters.
+      // >  For more information about ISP codes, see ISP codes in this topic.
       shared_ptr<int32_t> operatorValue_ {};
-      // The ports that are used by the hybrid cloud cluster. Multiple ports are separated by commas (,).
+      // The port that is used by the hybrid cloud cluster. The value of this parameter is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
       shared_ptr<string> ports_ {};
-      // The city code of the protection cluster.
+      // The city code of the protected cluster.
       // 
-      // > For a list of valid codes, see Additional information about response parameters.
+      // >  For more information about city codes, see City codes in this topic.
       shared_ptr<int32_t> regionCodeValue_ {};
-      // The description of the hybrid cloud node group.
+      // The description of the node group.
       shared_ptr<string> remark_ {};
     };
 
@@ -220,11 +217,11 @@ namespace Models
 
 
   protected:
-    // The list of hybrid cloud node groups.
+    // The node groups.
     shared_ptr<vector<DescribeHybridCloudGroupsResponseBody::Groups>> groups_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of hybrid cloud node groups returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -106,51 +106,17 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate.
-    // 
     // This parameter is required.
     shared_ptr<string> certId_ {};
-    // The type of the cipher suite. Valid values:
-    // 
-    // - **1**: all cipher suites.
-    // 
-    // - **2**: strong cipher suites.
-    // 
-    // - **99**: custom cipher suites.
     shared_ptr<string> cipherSuite_ {};
-    // The custom cipher suites. This parameter is available only when you set **CipherSuite** to **99**.
     shared_ptr<vector<string>> customCiphers_ {};
-    // The domain name that is added to WAF in CNAME record mode.
-    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // Indicates whether to enable TLS 1.3. Valid values:
-    // 
-    // - **true**: TLS 1.3 is enabled.
-    // 
-    // - **false**: TLS 1.3 is disabled.
     shared_ptr<bool> enableTLSv3_ {};
-    // The ID of the WAF instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Transport Layer Security (TLS) version. Valid values:
-    // 
-    // - **tlsv1**
-    // 
-    // - **tlsv1.1**
-    // 
-    // - **tlsv1.2**
     shared_ptr<string> TLSVersion_ {};
   };
 

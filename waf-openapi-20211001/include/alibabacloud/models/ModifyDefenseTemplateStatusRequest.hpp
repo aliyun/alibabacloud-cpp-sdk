@@ -77,27 +77,25 @@ namespace Models
   protected:
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
-    // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // *   **cn-hangzhou:** the Chinese mainland.
+    // *   **ap-southeast-1:** outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection template.
+    // The ID of the protection rule template whose status you want to change.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
     // The new status of the protection rule template. Valid values:
     // 
-    // - **0**: Disabled.
-    // 
-    // - **1**: Enabled.
+    // *   **0:** disabled.
+    // *   **1:** enabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> templateStatus_ {};

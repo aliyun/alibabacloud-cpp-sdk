@@ -103,9 +103,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<int64_t> endDate_ {};
-        // The start of the time range to query. The time range cannot exceed the last 30 days. The value is a UNIX timestamp. Unit: seconds.
-        // 
-        // > The start time must be within the last 30 days from the current time.
+        // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
         // 
         // This parameter is required.
         shared_ptr<int64_t> startDate_ {};
@@ -160,11 +158,11 @@ namespace Models
 
 
       protected:
-        // The name of the field to filter. This operation supports all fields.
+        // The field name. This operation supports all fields. For more information, see the **Supported field names** section below.
         shared_ptr<string> key_ {};
-        // The operator.
+        // The operator. For more information, see the **Supported operators** section below.
         shared_ptr<string> opValue_ {};
-        // The filter value.
+        // The field content.
         Darabonba::Json values_ {};
       };
 
@@ -189,9 +187,9 @@ namespace Models
 
 
     protected:
-      // A list of filter conditions. Each node describes a filter condition.
+      // The filter conditions. Each object describes a filter condition.
       shared_ptr<vector<Filter::Conditions>> conditions_ {};
-      // The time range to query.
+      // The time range for the query.
       // 
       // This parameter is required.
       shared_ptr<Filter::DateRange> dateRange_ {};
@@ -244,29 +242,28 @@ namespace Models
 
 
   protected:
-    // The filter conditions. A logical AND relationship exists between multiple filter conditions.
+    // The filter conditions for the query. Multiple conditions are evaluated by using a logical AND.
     // 
     // This parameter is required.
     shared_ptr<DescribeSecurityEventLogsRequest::Filter> filter_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number to return for a paged query. The default value is **1**, which indicates the first page.
+    // The page number. Default value: **1**.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. The maximum value is **100**.
+    // The number of entries per page. Maximum value: **100**.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // The region of the WAF instance. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: The Chinese mainland.
+    // *   **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

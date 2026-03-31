@@ -50,11 +50,10 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The authorization status. Valid values:
+    // Indicates whether WAF is authorized to access Logstores. Valid values:
     // 
-    // - **true**: indicates that authorization is granted.
-    // 
-    // - **false**: indicates that authorization is not granted.
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> status_ {};
   };
 

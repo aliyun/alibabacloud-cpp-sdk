@@ -84,27 +84,25 @@ namespace Models
 
 
   protected:
-    // The API security status. Valid values:
+    // The status of the API security module. Valid values:
     // 
-    // - **1**: enabled.
-    // 
-    // - **0**: disabled.
+    // *   **1**: enabled
+    // *   **0**: disabled
     // 
     // This parameter is required.
     shared_ptr<int32_t> apisecStatus_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
-    // The name of the protected object group to which the protected object is added.
+    // The name of the protected object group to which the protected object belongs.
     shared_ptr<string> resourceGroups_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

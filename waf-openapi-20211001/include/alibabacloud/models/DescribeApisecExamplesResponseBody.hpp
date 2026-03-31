@@ -109,9 +109,7 @@ namespace Models
 
 
       protected:
-        // The code that indicates the type of sensitive data in the response.
         shared_ptr<string> sensitiveCode_ {};
-        // The list of sensitive data.
         shared_ptr<vector<string>> sensitiveDataList_ {};
       };
 
@@ -155,9 +153,7 @@ namespace Models
 
 
       protected:
-        // The code that indicates the type of sensitive data in the request.
         shared_ptr<string> sensitiveCode_ {};
-        // The list of sensitive data.
         shared_ptr<vector<string>> sensitiveDataList_ {};
       };
 
@@ -218,47 +214,12 @@ namespace Models
 
 
     protected:
-      // The complete URL of the API request.
       shared_ptr<string> apiUrl_ {};
-      // The proof-of-concept (PoC) request.
       shared_ptr<string> pocPayload_ {};
-      // The protocol type of the API request. Valid values:
-      // 
-      // - **http**: HTTP
-      // 
-      // - **https**: HTTPS
       shared_ptr<string> protocol_ {};
-      // The content of the sample request. This is a string converted from a JSON object that consists of a series of parameters. The JSON object contains the following fields:
-      // 
-      // - **method**: the request method.
-      // 
-      // - **host**: the requested domain name.
-      // 
-      // - **header**: the request header.
-      // 
-      // - **server_port**: the service port.
-      // 
-      // - **body**: the request body.
-      // 
-      // - **url**: the URI of the request.
-      // 
-      // - **server_protocol**: the server-side protocol.
-      // 
-      // > If the **body** content exceeds 16 KB, only a portion of the content is returned.
       shared_ptr<string> request_ {};
-      // The list of sensitive data in the request.
       shared_ptr<vector<Examples::RequestSensitiveData>> requestSensitiveData_ {};
-      // The content of the sample response. This is a string converted from a JSON object that consists of a series of parameters. The JSON object contains the following fields:
-      // 
-      // - **status**: the status code.
-      // 
-      // - **header**: the response header.
-      // 
-      // - **body**: the response body.
-      // 
-      // > If the **body** content exceeds 16 KB, only a portion of the content is returned.
       shared_ptr<string> response_ {};
-      // The list of sensitive data in the response.
       shared_ptr<vector<Examples::ResponseSensitiveData>> responseSensitiveData_ {};
     };
 
@@ -302,15 +263,10 @@ namespace Models
 
 
   protected:
-    // The list of API security examples.
     shared_ptr<vector<DescribeApisecExamplesResponseBody::Examples>> examples_ {};
-    // The number of entries returned on each page. Valid values: 1 to 5. Default value: 5.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

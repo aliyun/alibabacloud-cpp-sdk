@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The IP address of the client.
+      // The IP address of the service client.
       shared_ptr<string> clientIp_ {};
-      // The number of attack requests.
+      // The number of attacks that are initiated from the IP address.
       shared_ptr<int64_t> count_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The top 10 source IP addresses that initiated the most attacks.
+    // The array of the top 10 IP addresses from which attacks are initiated.
     shared_ptr<vector<DescribeRuleHitsTopClientIpResponseBody::RuleHitsTopClientIp>> ruleHitsTopClientIp_ {};
   };
 

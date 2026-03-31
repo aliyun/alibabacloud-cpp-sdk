@@ -160,59 +160,51 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The UID of the account to which the resource belongs.
+    // The ID of the Alibaba Cloud account to which the resource belongs.
     shared_ptr<string> ownerUserId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The domain name of the resource. This parameter is available when you query FC or SAE resources.
+    // The domain name. You can use this parameter if you set ResourceProduct to fc or sae.
     shared_ptr<string> resourceDomain_ {};
-    // The name of the function. This parameter is available when you query FC resources.
+    // The function name. You can use this parameter if you set ResourceProduct to fc.
     shared_ptr<string> resourceFunction_ {};
-    // The ID of the resource instance.
+    // The ID of the resource.
     shared_ptr<string> resourceInstanceId_ {};
     // The name of the instance that is added to WAF.
     shared_ptr<string> resourceInstanceName_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The name of the resource instance.
+    // The name of the resource.
     shared_ptr<string> resourceName_ {};
-    // The cloud service to which the resource belongs. By default, instances of Application Load Balancer (ALB), Microservices Engine (MSE), Function Compute (FC), and Serverless App Engine (SAE) are returned. Valid values:
+    // The cloud service to which the resource belongs. If you do not specify this parameter, the system automatically returns the Application Load Balancer (ALB), Microservices Engine (MSE), Function Compute, and Serverless App Engine (SAE) resources that are added to WAF. Valid values:
     // 
-    // - **alb**: ALB
+    // *   **alb**: ALB.
+    // *   **mse**: MSE.
+    // *   **fc**: Function Compute.
+    // *   **sae**: SAE.
+    // *   **ecs**: Elastic Compute Service (ECS).
+    // *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+    // *   **clb7**: Layer 7 CLB.
+    // *   **nlb**: Network Load Balancer (NLB).
     // 
-    // - **mse**: MSE
-    // 
-    // - **fc**: FC
-    // 
-    // - **sae**: SAE
-    // 
-    // - **ecs**: Elastic Compute Service (ECS)
-    // 
-    // - **clb4**: Classic Load Balancer (CLB) that uses TCP
-    // 
-    // - **clb7**: CLB that uses HTTP or HTTPS
-    // 
-    // - **nlb**: Network Load Balancer (NLB)
-    // 
-    // > Each cloud service supports different regions. If you specify this parameter, make sure the region you specify for the ResourceRegionId parameter supports this service. Otherwise, the query may fail.
+    // >  Different cloud services are available in different regions. The specified cloud service must be available in the specified region.
     shared_ptr<string> resourceProduct_ {};
-    // The ID of the region where the resource resides. For more information, see the "Regions and supported products" section in this topic.
+    // The region ID of the resource. For information about region IDs, see the following table.
     // 
-    // > Each cloud service supports different regions. If you specify the ResourceProduct parameter, make sure the region you specify for this parameter supports that service. Otherwise, the query may fail.
+    // >  Different cloud services are available in different regions. The specified cloud service must be available in the specified region.
     shared_ptr<string> resourceRegionId_ {};
-    // The name of the route. This parameter is available when you query MSE resources.
+    // The route name. You can use this parameter if you set ResourceProduct to mse.
     shared_ptr<string> resourceRouteName_ {};
   };
 

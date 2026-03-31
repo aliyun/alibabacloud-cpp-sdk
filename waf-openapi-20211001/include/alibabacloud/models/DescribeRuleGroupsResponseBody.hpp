@@ -108,29 +108,25 @@ namespace Models
 
 
     protected:
-      // The time when the rule group was last updated.
+      // The most recent time when the rule group was modified.
       shared_ptr<int64_t> gmtModified_ {};
-      // The automatic update status of the rule group.
+      // Indicates whether the automatic update feature is enabled for the rule group.
       // 
-      // - 1: Automatic updates are enabled.
-      // 
-      // - 2: Automatic updates are disabled.
+      // *   1: The automatic update feature is enabled for the rule group.
+      // *   2: The automatic update feature is disabled for the rule group.
       shared_ptr<int32_t> isSubscribe_ {};
-      // The ID of the rule group that the current rule group inherits.
-      // 
-      // - 0: The rule group is created from scratch and does not inherit from another rule group.
-      // 
-      // - 1011: The Strict rule group.
-      // 
-      // - 1012: The Medium rule group.
-      // 
-      // - 1013: The Loose rule group.
-      shared_ptr<int64_t> parentRuleGroupId_ {};
       // The ID of the rule group.
+      // 
+      // *   0: The rule group is created from scratch.
+      // *   1011: The rule group is a strict rule group.
+      // *   1012: The rule group is a medium rule group.
+      // *   1013: The rue group is a loose rule group.
+      shared_ptr<int64_t> parentRuleGroupId_ {};
+      // The ID of the regular expression rule group.
       shared_ptr<int64_t> ruleGroupId_ {};
       // The name of the rule group.
       shared_ptr<string> ruleGroupName_ {};
-      // The number of built-in rules.
+      // The number of built-in rules in the rule group.
       shared_ptr<int32_t> ruleTotalCount_ {};
     };
 
@@ -160,11 +156,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of regular expression rule groups.
+    // An array of regular expression rule groups.
     shared_ptr<vector<DescribeRuleGroupsResponseBody::RuleGroups>> ruleGroups_ {};
-    // The total number of entries returned.
+    // The total number of entries that are returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

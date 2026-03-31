@@ -94,29 +94,12 @@ namespace Models
 
 
   protected:
-    // The extra log fields that are configured in addition to the default log fields. The fields are specified as a string of comma-separated values.
     shared_ptr<string> addList_ {};
-    // The log fields that are removed from the default log fields. The fields are specified as a string of comma-separated values.
     shared_ptr<string> delList_ {};
-    // The log delivery type. Valid values:
-    // 
-    // - **sls**: Simple Log Service.
-    // 
-    // - **kafka**: Kafka.
-    // 
-    // - **syslog**: Syslog.
     shared_ptr<string> deliveryType_ {};
-    // The extended configuration for log delivery. The value is a string that is converted from a JSON object of parameters.
-    // 
-    // > For more information about the parameters, see the description of the **ExtendConfig** parameter in [ModifyResourceLogFieldConfig](~~ModifyResourceLogFieldConfig~~).
     shared_ptr<string> extendConfig_ {};
-    // The list of delivered log fields. The fields are specified as a string of comma-separated values.
     shared_ptr<string> fieldList_ {};
-    // The log delivery policies. Multiple policies are supported. The value is a string that is converted from a JSON array of parameters.
-    // 
-    // > For more information about the parameters, see the description of the **LogDeliveryStrategy** parameter in [ModifyResourceLogFieldConfig](~~ModifyResourceLogFieldConfig~~).
     shared_ptr<string> logDeliveryStrategy_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

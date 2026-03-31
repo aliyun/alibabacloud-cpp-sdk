@@ -166,39 +166,36 @@ namespace Models
 
 
     protected:
-      // Elastic QPS specification for the WAF instance.
+      // The burstable QPS of the WAF instance.
       shared_ptr<int64_t> elasticQpsSetValue_ {};
-      // End time of the billing period, in Unix timestamp format (UTC), measured in seconds.
+      // The billing end time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> endTime_ {};
-      // Overuse status for the current period. Valid values:
+      // The status of QPS usage within the current period of time. Valid values:
       // 
-      // - **0**: Normal.
-      // 
-      // - **1**: Overused.
-      // 
-      // - **2**: Sandbox.
+      // *   **0**: normal.
+      // *   **1**: excess.
+      // *   **2**: sandbox.
       shared_ptr<int32_t> exceedStatus_ {};
-      // Maximum QPS for the current period.
+      // The peak QPS within the current period of time.
       shared_ptr<int64_t> maxQps_ {};
-      // Unit price for burstable charges. Unit: CNY for the Alibaba Cloud China Website (www\\.aliyun.com) and USD for the Alibaba Cloud International Website (www\\.alibabacloud.com).
+      // The unit price in the bill. The price is measured in CNY for bills at the China site (aliyun.com) and in USD for bills at the international site (alibabacloud.com).
       shared_ptr<float> price_ {};
-      // QPS extension specification for the WAF instance.
+      // The extended QPS of the WAF instance.
       shared_ptr<int64_t> qps_ {};
-      // QPS specification within the version of the WAF instance.
+      // The default QPS of the WAF instance.
       shared_ptr<int64_t> qpsVersion_ {};
-      // Whether Fraud Detection is enabled. Valid values:
+      // Indicates whether risk identification is enabled. Valid values:
       // 
-      // - **true**: Fraud Detection is enabled.
-      // 
-      // - **false**: Fraud Detection is disabled.
+      // *   **true**
+      // *   **false**
       shared_ptr<bool> riskControl_ {};
-      // Number of Fraud Detection requests processed.
+      // The number of times that risk identification is performed.
       shared_ptr<int64_t> riskTraffic_ {};
-      // Start time of the billing period, in Unix timestamp format (UTC), measured in seconds.
+      // The billing start time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> startTime_ {};
-      // Total QPS subject to burstable billing.
+      // The actual QPS in total.
       shared_ptr<int64_t> total_ {};
-      // The billing type.
+      // The billing types.
       shared_ptr<vector<string>> type_ {};
     };
 
@@ -228,11 +225,11 @@ namespace Models
 
 
   protected:
-    // List of WAF burstable billing records.
+    // The bills of the burstable QPS (pay-as-you-go) feature.
     shared_ptr<vector<DescribePrepayDailyBillsResponseBody::Bills>> bills_ {};
-    // ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

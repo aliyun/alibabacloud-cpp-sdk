@@ -143,25 +143,24 @@ namespace Models
   protected:
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the paginated results Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of results per page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The query conditions. This parameter is a JSON string.
+    // The query conditions. Specify the value of this parameter as a string in the JSON format.
     // 
-    // > The query results vary based on the query conditions. For more information, see **Query parameter details**.
+    // >  The results vary based on the query condition. For more information, see the "**Query parameters**" section in this topic.
     shared_ptr<string> query_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: The Chinese mainland.
+    // *   **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // A list of resource tags. You can specify up to 20 tags.
+    // The tag of the resource. You can specify up to 20 tags.
     shared_ptr<vector<DescribeDefenseResourcesRequest::Tag>> tag_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud resource that is added to WAF.
+    // The ID of the resource that is added to WAF.
     shared_ptr<string> cloudResource_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

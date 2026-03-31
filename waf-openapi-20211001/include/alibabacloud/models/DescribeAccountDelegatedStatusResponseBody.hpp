@@ -68,15 +68,14 @@ namespace Models
   protected:
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // The name of the Alibaba Cloud account. This parameter is returned only if the account is a delegated administrator.
+    // The name of the Alibaba Cloud account. This parameter is returned only if the account is the delegated administrator account.
     shared_ptr<string> accountName_ {};
-    // Indicates whether the account is a delegated administrator for WAF.
+    // Indicates whether the Alibaba Cloud account is the delegated administrator account of the WAF instance.
     // 
-    // - **true**: The account is a delegated administrator.
-    // 
-    // - **false**: The account is not a delegated administrator.
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> delegatedStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

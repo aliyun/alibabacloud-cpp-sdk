@@ -88,11 +88,10 @@ namespace Models
 
 
     protected:
-      // The number of protected assets that are associated with the protection template.
       shared_ptr<int32_t> assetCount_ {};
-      // The number of protected object groups that are associated with the protection template.
+      // The number of protected object groups.
       shared_ptr<int32_t> groupCount_ {};
-      // The number of protected objects that are associated with the protection template.
+      // The number of protected objects.
       shared_ptr<int32_t> singleCount_ {};
       // The ID of the protection template.
       shared_ptr<int64_t> templateId_ {};
@@ -119,7 +118,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of resource count objects. Each object contains the number of protected objects, protected object groups, and protected assets that are associated with a protection template.
+    // The number of protected objects or protected object groups for which the protection template takes effect.
     shared_ptr<vector<DescribeTemplateResourceCountResponseBody::ResourceCount>> resourceCount_ {};
   };
 

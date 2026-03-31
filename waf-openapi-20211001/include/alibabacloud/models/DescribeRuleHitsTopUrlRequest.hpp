@@ -94,19 +94,18 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the current time is used as the end time.
+    // The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
     shared_ptr<string> endTimestamp_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou:** the Chinese mainland.
+    // *   **ap-southeast-1:** outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The protected object.
     // 
@@ -114,19 +113,15 @@ namespace Models
     shared_ptr<string> resource_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of protection rule that is triggered. If you do not specify this parameter, data of all rule types is returned.
+    // The type of rules that are triggered by the protected object. By default, this parameter is not specified and all types of rules are queried.
     // 
-    // - **blacklist**: The IP address blacklist.
-    // 
-    // - **custom**: A custom rule.
-    // 
-    // - **antiscan**: A scan protection rule.
-    // 
-    // - **cc_system**: An HTTP flood protection rule.
-    // 
-    // - **region_block**: A location blacklist.
+    // *   **blacklist:** IP address blacklist rules.
+    // *   **custom:** custom rules.
+    // *   **antiscan:** scan protection rules.
+    // *   **cc_system:** HTTP flood protection rules.
+    // *   **region_block:** region blacklist rules.
     shared_ptr<string> ruleType_ {};
-    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The beginning of the time range to query. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTimestamp_ {};

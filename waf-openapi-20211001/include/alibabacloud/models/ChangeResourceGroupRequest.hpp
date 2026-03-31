@@ -75,23 +75,22 @@ namespace Models
 
 
   protected:
-    // The ID of the destination resource group.
+    // The ID of the new resource group. You can view the available resource groups in the Resource Management console.
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the protected object.
+    // The ID of the protected object that you want to manage.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The ID of the resource group to which the WAF instance belongs.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of the resource. Set the value to **defenseresource**.
+    // The resource type. Set the value to defenseresource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

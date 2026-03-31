@@ -84,31 +84,27 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud resource that is added to WAF.
-    // 
-    // > Call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to add a cloud resource. The resource ID is included in the response.
     shared_ptr<string> cloudResourceId_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configuration.
+    // The listener configurations.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
-    // The forwarding configuration.
+    // The forwarding configurations.
     shared_ptr<string> redirectShrink_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: the Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

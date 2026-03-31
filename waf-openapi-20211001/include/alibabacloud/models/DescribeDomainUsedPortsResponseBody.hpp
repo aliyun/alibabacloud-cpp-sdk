@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The used ports.
     shared_ptr<vector<int32_t>> usedPorts_ {};
   };
 

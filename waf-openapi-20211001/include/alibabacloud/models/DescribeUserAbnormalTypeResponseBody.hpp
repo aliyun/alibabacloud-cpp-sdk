@@ -88,15 +88,15 @@ namespace Models
 
 
     protected:
-      // The code that identifies the specific risk, such as `Risk_InternalWeakPasswd`.
+      // The code of the risk.
       shared_ptr<string> abnormalCode_ {};
-      // The total number of risks detected for this risk type.
+      // The number of risks.
       shared_ptr<int64_t> abnormalCount_ {};
-      // The parent category of the risk, such as `RiskType_Account`.
+      // The parent type of the risk.
       shared_ptr<string> abnormalParentType_ {};
-      // The type of the risk detected by API security.
+      // The type of the risk.
       // 
-      // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported risk types.
+      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
       shared_ptr<string> abnormalType_ {};
     };
 
@@ -119,9 +119,9 @@ namespace Models
 
 
   protected:
-    // The risk types detected by API security and the number of risks for each type.
+    // The types and statistics of risks.
     shared_ptr<vector<DescribeUserAbnormalTypeResponseBody::Abnormal>> abnormal_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

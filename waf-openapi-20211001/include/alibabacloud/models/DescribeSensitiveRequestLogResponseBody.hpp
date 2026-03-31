@@ -145,27 +145,26 @@ namespace Models
 
 
     protected:
-      // The account that initiated the request.
       shared_ptr<string> account_ {};
-      // The API path.
+      // The API.
       shared_ptr<string> apiFormat_ {};
       // The ID of the API.
       shared_ptr<string> apiId_ {};
-      // The client IP address.
+      // The IP address.
       shared_ptr<string> clientIP_ {};
-      // The number of outbound sensitive data entries.
+      // The number of sensitive data records involved in cross-border data transfer.
       shared_ptr<int64_t> count_ {};
       // The domain name of the API.
       shared_ptr<string> matchedHost_ {};
-      // The code of the region to which the client IP address belongs.
+      // IP region, formatted as a region code.
       shared_ptr<string> remoteCountryId_ {};
-      // The time of the request. This value is a UNIX timestamp. Unit: seconds.
+      // The time when the request was initiated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
       shared_ptr<int64_t> requestTime_ {};
-      // The sensitive data. The key indicates the sensitive data type identifier, which can be a built-in or custom type, and the value indicates the list of sensitive data.
+      // The details of sensitive data. The value is a string that consists of a JSON struct. The JSON struct contains key-value pairs. In a key-value pair, a key indicates the identifier of a sensitive data type, including built-in and custom types, and a value indicates specific sensitive data.
       // 
-      // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
       shared_ptr<string> sensitiveList_ {};
-      // The ID of the access log.
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -195,7 +194,7 @@ namespace Models
 
 
   protected:
-    // The list of access logs.
+    // The access logs.
     shared_ptr<vector<DescribeSensitiveRequestLogResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

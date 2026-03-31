@@ -563,6 +563,9 @@
 #include <alibabacloud/models/DescribeUserSlsLogRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeUserSlsLogRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserSlsLogRegionsResponse.hpp>
+#include <alibabacloud/models/DescribeUserTrafficRequest.hpp>
+#include <alibabacloud/models/DescribeUserTrafficResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserTrafficResponse.hpp>
 #include <alibabacloud/models/DescribeUserWafLogStatusRequest.hpp>
 #include <alibabacloud/models/DescribeUserWafLogStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserWafLogStatusResponse.hpp>

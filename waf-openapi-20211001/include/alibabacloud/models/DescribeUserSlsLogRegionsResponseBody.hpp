@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The list of log storage region IDs.
+    // The region IDs.
     shared_ptr<vector<string>> logRegions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

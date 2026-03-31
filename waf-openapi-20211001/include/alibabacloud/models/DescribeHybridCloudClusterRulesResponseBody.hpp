@@ -108,41 +108,11 @@ namespace Models
 
 
     protected:
-      // The ID of the hybrid cloud cluster.
       shared_ptr<int64_t> clusterId_ {};
-      // The resource ID of the cluster rule.
       shared_ptr<string> clusterRuleResourceId_ {};
-      // The configuration of the traffic redirection rule:
-      // 
-      // - **check_mode**
-      // 
-      //   : the mode. Valid values:
-      // 
-      //   - **all**: redirects all traffic.
-      // 
-      //   - **part**: redirects a portion of traffic.
-      // 
-      // - **type**
-      // 
-      //   : the match type of the rule. Valid values:
-      // 
-      //   - **exact**: exact match.
-      // 
-      //   - **regex**: regular expression match.
-      // 
-      // - **substance**: the value of the rule.
       shared_ptr<string> ruleConfig_ {};
-      // The type of the rule. Valid value:
-      // 
-      // - **pullin**: traffic redirection
       shared_ptr<string> ruleType_ {};
-      // The status of the rule. Valid values:
-      // 
-      // - **1**: enabled.
-      // 
-      // - **0**: disabled.
       shared_ptr<string> status_ {};
-      // The version number.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -172,11 +142,8 @@ namespace Models
 
 
   protected:
-    // The response data.
     shared_ptr<vector<DescribeHybridCloudClusterRulesResponseBody::Data>> data_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of cloud native mode entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

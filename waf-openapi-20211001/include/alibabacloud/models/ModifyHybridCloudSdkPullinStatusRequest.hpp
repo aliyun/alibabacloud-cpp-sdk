@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to view the current WAF instance ID.
+    // >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -67,11 +67,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> mid_ {};
-    // The status of traffic redirection. Valid values of the parameter:
+    // The status of traffic redirection. Valid values:
     // 
-    // - **on**: Enable
-    // 
-    // - **off**: Disable
+    // *   **on**
+    // *   **off**
     // 
     // This parameter is required.
     shared_ptr<string> pullinStatus_ {};

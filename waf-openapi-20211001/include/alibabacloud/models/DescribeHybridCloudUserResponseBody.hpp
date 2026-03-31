@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The available HTTP ports. The value is a string. If multiple ports are returned, they are separated by commas (,). Example: **port1,port2,port3**.
+      // The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
       shared_ptr<string> httpPorts_ {};
-      // The available HTTPS ports. The value is a string. If multiple ports are returned, they are separated by commas (,). Example: **port1,port2,port3**.
+      // The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
       shared_ptr<string> httpsPorts_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the available HTTP and HTTPS port ranges for hybrid cloud access.
+    // The information about the ports that can be used by a hybrid cloud cluster.
     shared_ptr<DescribeHybridCloudUserResponseBody::UserInfo> userInfo_ {};
   };
 

@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // The number of requests protected by the ACL module. This includes requests that are monitored and blocked.
+      // The number of requests that are monitored or blocked by the custom rule (access control) module.
       shared_ptr<int64_t> aclSum_ {};
-      // The number of requests protected by the scan protection module. This includes requests that are monitored and blocked.
+      // The number of requests that are monitored or blocked by the scan protection module.
       shared_ptr<int64_t> antiScanSum_ {};
-      // The number of requests protected by the CC protection module. This includes requests that are monitored and blocked.
+      // The number of requests that are monitored or blocked by the HTTP flood protection module.
       shared_ptr<int64_t> ccSum_ {};
       // The total number of requests.
       shared_ptr<int64_t> count_ {};
-      // The ordinal number for the time point, sorted in chronological order.
+      // The serial number of the time interval. The serial numbers are arranged in chronological order.
       shared_ptr<int64_t> index_ {};
-      // The number of requests protected by the web attack protection module. This includes requests that are monitored and blocked.
+      // The number of requests that are monitored or blocked by the regular expression protection engine.
       shared_ptr<int64_t> wafSum_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
   protected:
-    // The QPS statistics of WAF.
+    // An array of the QPS statistics of the WAF instance.
     shared_ptr<vector<DescribePeakTrendResponseBody::FlowChart>> flowChart_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

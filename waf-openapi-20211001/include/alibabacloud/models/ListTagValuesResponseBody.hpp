@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, no next page exists.
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tag values that are associated with the specified tag key.
+    // The tag values.
     shared_ptr<vector<string>> values_ {};
   };
 

@@ -182,21 +182,21 @@ namespace Models
 
 
     protected:
-      // The number of HTTP ports that are added to WAF.
+      // The number of the HTTP ports that are added to WAF.
       // 
-      // > This parameter is returned only for ECS and CLB instances.
+      // >  This parameter is returned only if the cloud service is ECS or CLB.
       shared_ptr<int32_t> httpPortCount_ {};
-      // The number of HTTPS ports that are added to WAF.
+      // The number of the HTTPS ports that are added to WAF.
       // 
-      // > This parameter is returned only for ECS and CLB instances.
+      // >  This parameter is returned only if the cloud service is ECS or CLB.
       shared_ptr<int32_t> httpsPortCount_ {};
-      // The UID of the account to which the resource belongs.
+      // The ID of the Alibaba Cloud account to which the resource belongs.
       shared_ptr<string> ownerUserId_ {};
-      // The domain name of the resource. This parameter is returned for FC or SAE instances.
+      // The domain name. This parameter has a value only if the value of ResourceProduct is fc or sae.
       shared_ptr<string> resourceDomain_ {};
-      // The name of the function. This parameter is returned for FC instances.
+      // The function name. This parameter has a value only if the value of ResourceProduct is fc.
       shared_ptr<string> resourceFunction_ {};
-      // The ID of the resource instance.
+      // The ID of the resource.
       shared_ptr<string> resourceInstance_ {};
       // The ID of the instance that is added to WAF.
       shared_ptr<string> resourceInstanceId_ {};
@@ -204,31 +204,23 @@ namespace Models
       shared_ptr<string> resourceInstanceIp_ {};
       // The name of the instance that is added to WAF.
       shared_ptr<string> resourceInstanceName_ {};
-      // The name of the instance.
+      // The name of the resource.
       shared_ptr<string> resourceName_ {};
       // The cloud service to which the resource belongs. Valid values:
       // 
-      // - **alb**: ALB
-      // 
-      // - **mse**: MSE
-      // 
-      // - **fc**: FC
-      // 
-      // - **sae**: SAE
-      // 
-      // - **ecs**: ECS
-      // 
-      // - **clb4**: CLB that uses TCP
-      // 
-      // - **clb7**: CLB that uses HTTP or HTTPS
-      // 
-      // - **nlb**: NLB
+      // *   **alb**: ALB.
+      // *   **mse**: MSE.
+      // *   **fc**: Function Compute.
+      // *   **sae**: SAE.
+      // *   **ecs**: ECS.
+      // *   **clb4**: Layer 4 CLB.
+      // *   **clb7**: Layer 7 CLB.
       shared_ptr<string> resourceProduct_ {};
-      // The region where the resource resides.
+      // The region ID of the resource.
       shared_ptr<string> resourceRegionId_ {};
-      // The name of the route. This parameter is returned for MSE instances.
+      // The route name. This parameter has a value only if the value of ResourceProduct is mse.
       shared_ptr<string> resourceRouteName_ {};
-      // The name of the service. This parameter is returned for FC instances.
+      // The service name. This parameter has a value only if the value of ResourceProduct is fc.
       shared_ptr<string> resourceService_ {};
     };
 
@@ -258,11 +250,11 @@ namespace Models
 
 
   protected:
-    // A list of cloud services.
+    // The cloud service resources that are added to WAF.
     shared_ptr<vector<DescribeCloudResourcesResponseBody::CloudResources>> cloudResources_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of cloud services found.
+    // The total number of cloud service resources returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

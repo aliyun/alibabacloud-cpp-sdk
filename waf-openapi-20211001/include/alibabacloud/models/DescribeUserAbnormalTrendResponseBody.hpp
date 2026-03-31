@@ -97,15 +97,17 @@ namespace Models
 
 
     protected:
-      // The number of high-severity security risks.
+      // The number of high risks.
       shared_ptr<int64_t> abnormalHigh_ {};
-      // The number of low-severity security risks.
+      // The number of low risks.
       shared_ptr<int64_t> abnormalLow_ {};
-      // The number of medium-severity security risks.
+      // The number of medium risks.
       shared_ptr<int64_t> abnormalMedium_ {};
-      // The point in time when the statistics were collected. This value is a UNIX timestamp in UTC. Unit: seconds.
+      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // 
+      // >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
       shared_ptr<int64_t> timeStamp_ {};
-      // The point in time when the statistics were collected. This value is a UNIX timestamp in UTC. Unit: seconds.
+      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -128,9 +130,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of API security risk trend data points.
+    // The trends of risks.
     shared_ptr<vector<DescribeUserAbnormalTrendResponseBody::Trend>> trend_ {};
   };
 

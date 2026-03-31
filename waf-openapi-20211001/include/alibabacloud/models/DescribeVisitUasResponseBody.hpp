@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The total number of requests from the User-Agent.
+      // The number of requests that use the user agent.
       shared_ptr<int64_t> count_ {};
-      // The User-Agent.
+      // The user agent.
       shared_ptr<string> ua_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The top 10 User-Agents.
+    // The array of the top 10 user agents that are used to initiate requests.
     shared_ptr<vector<DescribeVisitUasResponseBody::Uas>> uas_ {};
   };
 

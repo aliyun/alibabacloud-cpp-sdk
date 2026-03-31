@@ -134,35 +134,32 @@ namespace Models
 
 
   protected:
-    // The IDs of the protected assets to attach. The value is in the [**"XX1","XX2",...**] format.
     shared_ptr<vector<string>> bindAssets_ {};
-    // The protected object groups to attach. The value is in the [**"group1","group2",...**] format.
+    // The protected object groups that you want to associate with the template. Specify the value in the [**"group1","group2",...**] format.
     shared_ptr<vector<string>> bindResourceGroups_ {};
-    // The protected objects to attach. The value is in the [**"XX1","XX2",...**] format.
+    // The protected objects that you want to associate with the template. Specify the value in the [**"XX1","XX2",...**] format.
     shared_ptr<vector<string>> bindResources_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection template.
+    // The ID of the protection rule template.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
-    // The IDs of the protected assets to detach. The value is in the [**"XX1","XX2",...**] format.
     shared_ptr<vector<string>> unbindAssets_ {};
-    // The protected object groups to detach. The value is in the [**"group1","group2",...**] format.
+    // The protected object groups that you want to disassociate from the template. Specify the value in the [**"group1","group2",...**] format.
     shared_ptr<vector<string>> unbindResourceGroups_ {};
-    // The protected objects to detach. The value is in the [**"XX1","XX2",...**] format.
+    // The protected objects that you want to disassociate from the template. Specify the value in the [**"XX1","XX2",...**] format.
     shared_ptr<vector<string>> unbindResources_ {};
   };
 

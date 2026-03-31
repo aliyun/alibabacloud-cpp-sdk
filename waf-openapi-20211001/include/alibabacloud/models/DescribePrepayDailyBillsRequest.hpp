@@ -75,23 +75,22 @@ namespace Models
 
 
   protected:
-    // ID of the WAF instance.
+    // The ID of the WAF instance.
     // 
-    // > To view your WAF instance ID, call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation.
+    // >  You can call the [DescribePayInfo](https://help.aliyun.com/document_detail/86651.html) operation to query the ID of your WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Page number of the returned list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of entries per page. Default value: **10**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // Region where the WAF instance is deployed. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // ID of the Alibaba Cloud resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

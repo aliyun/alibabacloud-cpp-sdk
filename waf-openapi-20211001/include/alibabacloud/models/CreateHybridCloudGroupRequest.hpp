@@ -121,9 +121,9 @@ namespace Models
 
 
   protected:
-    // The back-to-origin mark of the node group. The value is in the format of Carrier-Continent-City, which is used to identify the origin of back-to-origin requests.
+    // The region in which the node resides. Specify the parameter in the Carrier code-Continent code-City code format.
     shared_ptr<string> backSourceMark_ {};
-    // The ID of the Hybrid Cloud WAF cluster.
+    // The ID of the hybrid cloud cluster.
     // 
     // This parameter is required.
     shared_ptr<int64_t> clusterId_ {};
@@ -133,37 +133,33 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The type of the node group. Valid values:
     // 
-    // - **protect**: a protection node group that processes traffic filtering.
-    // 
-    // - **control**: a control node group that manages cluster configurations.
-    // 
-    // - **storage**: a storage node group that stores logs and data.
-    // 
-    // - **controlStorage**: a node group that serves as both control and storage.
+    // *   **protect**
+    // *   **control**
+    // *   **storage**
+    // *   **controlStorage**
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
     // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address of the load balancer that is associated with the node group.
+    // The IP address of the server used for load balancing.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalanceIp_ {};
-    // The location code of the region where the node group resides. The value is in the format of Carrier-Continent-City.
+    // The region in which the node resides. Specify the parameter in the Carrier code-Continent code-City code format.
     shared_ptr<string> locationCode_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The remarks on the node group. You can use this parameter to add a brief description for the node group.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

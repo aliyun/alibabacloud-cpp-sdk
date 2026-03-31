@@ -103,33 +103,14 @@ namespace Models
 
 
   protected:
-    // The region outside China to query. Supports fuzzy query by region ID or region name in Chinese or English.
     shared_ptr<string> abroadRegion_ {};
-    // The country outside China to query. Supports fuzzy query by country ID or country name in Chinese or English.
     shared_ptr<string> country_ {};
-    // The ID of the WAF instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language used for country and region names in the response. Valid values:
-    // 
-    // - **en** (**default**): English.
-    // 
-    // - **cn**: Simplified Chinese.
     shared_ptr<string> language_ {};
-    // The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page. Set this parameter to the value of the **NextToken** parameter returned from the previous API call. You do not need to specify this parameter for the first page query.
     shared_ptr<string> nextToken_ {};
-    // The region in which the WAF instance is deployed. Valid values:
-    // 
-    // - **cn-hangzhou**: The Chinese mainland.
-    // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

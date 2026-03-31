@@ -145,29 +145,16 @@ namespace Models
 
 
     protected:
-      // The name of the hybrid cloud cluster to which the SDK server belongs.
       shared_ptr<string> clusterName_ {};
-      // The time when the hybrid cloud SDK server was created. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The hostname of the hybrid cloud SDK server.
       shared_ptr<string> hostName_ {};
-      // The IP address of the hybrid cloud SDK server.
       shared_ptr<string> ip_ {};
-      // The ID of the SDK server.
+      // SDKID。
       shared_ptr<string> mid_ {};
-      // The address of the protection group associated with the SDK server.
       shared_ptr<string> protectionGroupAddress_ {};
-      // Indicates whether traffic redirection is enabled. Valid values:
-      // 
-      // - **on**: Traffic redirection is enabled.
-      // 
-      // - **off**: Traffic redirection is disabled.
       shared_ptr<string> pullinStatus_ {};
-      // The ID of the resource.
       shared_ptr<string> resourceId_ {};
-      // The status of the hybrid cloud SDK server.
       shared_ptr<string> status_ {};
-      // The time when the hybrid cloud SDK server was last updated. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -197,11 +184,8 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the hybrid cloud SDK servers.
     shared_ptr<vector<DescribeHybridCloudSdkServersResponseBody::SdkServers>> sdkServers_ {};
-    // The total number of hybrid cloud SDK servers returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -94,25 +94,24 @@ namespace Models
 
 
   protected:
-    // The name of the protected object group that you want to query. Fuzzy query is supported.
+    // The name of the protected object group that you want to query. Fuzzy queries are supported.
     shared_ptr<string> groupNameLike_ {};
     // The names of the protected object groups that you want to query. Separate multiple names with commas (,).
     shared_ptr<string> groupNames_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the current WAF instance ID.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: **1**, which indicates the first page.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **20**, which indicates 20 entries per page.
+    // The number of entries per page. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

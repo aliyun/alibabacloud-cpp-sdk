@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // All HTTP and HTTPS listener ports that are added to WAF.
+    // An array of HTTP and HTTPS listener ports that are added to the WAF instance.
     shared_ptr<vector<string>> resourcePorts_ {};
   };
 

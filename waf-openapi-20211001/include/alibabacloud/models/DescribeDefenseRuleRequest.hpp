@@ -94,39 +94,26 @@ namespace Models
 
 
   protected:
-    // The type of the protection rule. Valid values:
-    // 
-    // - **template** (default): a protection rule template.
-    // 
-    // - **resource**: a rule for a protected object.
-    // 
-    // - **global**: a global rule.
     shared_ptr<string> defenseType_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The protected object to which the protection rule applies.
-    // 
-    // > This parameter is required only when **DefenseType** is set to **resource**.
     shared_ptr<string> resource_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection rule.
+    // The ID of the protection rule that you want to query.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The ID of the protection rule template.
-    // 
-    // > This parameter is required only when **DefenseType** is set to **template**.
+    // The ID of the protection rule template to which the protection rule that you want to query belongs.
     shared_ptr<int64_t> templateId_ {};
   };
 

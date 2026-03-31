@@ -108,33 +108,29 @@ namespace Models
 
 
     protected:
-      // The assessment result. Valid values:
+      // The evaluation result. Valid values:
       // 
-      // - **report**: a data outbound transfer threat exists.
-      // 
-      // - **none**: no data outbound transfer threat exists.
+      // *   **report**: Risks exist in cross-border data transfer.
+      // *   **none**: No risks exist in cross-border data transfer.
       shared_ptr<string> detectionResult_ {};
-      // The total number of personal information data entries detected.
+      // The total number of entries returned.
       shared_ptr<int64_t> infoCount_ {};
-      // The number of outbound transfer data entries for the sensitive data type.
+      // The number of data entries that are transferred across borders.
       shared_ptr<int64_t> outboundCount_ {};
-      // The code that represents the type of sensitive data.
+      // The type of the sensitive data.
       // 
-      // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported sensitive data types.
+      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
       shared_ptr<int64_t> sensitiveCode_ {};
       // The sensitivity level. Valid values:
       // 
-      // - **high**: high.
-      // 
-      // - **medium**: medium.
-      // 
-      // - **low**: low.
+      // *   **high**
+      // *   **medium**
+      // *   **low**
       shared_ptr<string> sensitiveLevel_ {};
-      // The type of information. Valid values:
+      // The type of the information. Valid values:
       // 
-      // - **info**: all personal information.
-      // 
-      // - **sensitive**: only sensitive personal information.
+      // *   **info**: full personal information
+      // *   **sensitive**: sensitive personal information
       shared_ptr<string> sensitiveType_ {};
     };
 
@@ -164,11 +160,11 @@ namespace Models
 
 
   protected:
-    // The list of statistics on outbound transfers of personal information.
+    // The data types of personal information involved in cross-border data transfer.
     shared_ptr<vector<DescribeSensitiveOutboundStatisticResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned for outbound transfer statistics.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

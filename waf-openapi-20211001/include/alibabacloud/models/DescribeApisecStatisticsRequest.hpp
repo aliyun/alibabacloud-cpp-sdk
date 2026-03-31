@@ -106,35 +106,31 @@ namespace Models
 
 
   protected:
-    // The ID of the Hybrid Cloud WAF cluster.
+    // The ID of the hybrid cloud cluster.
     // 
-    // > This parameter is available only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query Hybrid Cloud WAF clusters.
+    // >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // * **cn-hangzhou**: Chinese mainland
+    // * **ap-southeast-1**: outside the Chinese mainland
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
-    // The type of detection statistics. Valid values:
+    // The type of the statistics. Valid values:
     // 
-    // - **risk**: statistics on security risks.
-    // 
-    // - **event**: statistics on attacks.
+    // *   **risk**: risk-related statistics.
+    // *   **event**: event-related statistics.
     shared_ptr<string> type_ {};
-    // The list of statuses used to filter the detection statistics.
     shared_ptr<vector<string>> userStatusList_ {};
   };
 

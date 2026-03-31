@@ -103,32 +103,15 @@ namespace Models
 
 
   protected:
-    // The domain name that is protected by WAF. If you do not specify this parameter, security events for all domain names are queried.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. This value is a UNIX timestamp in milliseconds.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
-    // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number of the page to return. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **5**. Valid values: 1 to 200.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: a region outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp in milliseconds.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

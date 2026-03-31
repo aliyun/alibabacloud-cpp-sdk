@@ -99,37 +99,28 @@ namespace Models
 
 
     protected:
-      // The ID of the rule.
+      // The ID of the policy.
       shared_ptr<int64_t> id_ {};
-      // The details of the rule. The value is a string that is converted from a JSON object.
+      // The details of the policy. The value is a string that consists of multiple parameters in the JSON format.
       shared_ptr<string> rule_ {};
-      // The status of the rule. Valid values:
+      // The status of the policy. Valid values:
       // 
-      // - **1**: enabled
-      // 
-      // - **0**: disabled
+      // *   **1**: enabled
+      // *   **0**: disabled
       shared_ptr<int64_t> status_ {};
-      // The type of the rule. Valid values:
+      // The type of the policy. Valid values:
       // 
-      // - **risk**: threat detection
-      // 
-      // - **event**: security event
-      // 
-      // - **sensitive_word**: sensitive data
-      // 
-      // - **auth_flag**: authentication credential
-      // 
-      // - **api_tag**: business purpose
-      // 
-      // - **desensitization**: data masking
-      // 
-      // - **whitelist**: whitelist
-      // 
-      // - **recognition**: API.
-      // 
-      // - **offline_api**: lifecycle management
+      // *   **risk**: risk detection
+      // *   **event**: security event
+      // *   **sensitive_word**: sensitive data
+      // *   **auth_flag**: authentication credential
+      // *   **api_tag**: business purpose
+      // *   **desensitization**: data masking
+      // *   **whitelist**: whitelist
+      // *   **recognition**: API recognition
+      // *   **offline_api**: lifecycle management
       shared_ptr<string> type_ {};
-      // The time when the rule was updated. This value is a UNIX timestamp. Unit: seconds.
+      // The time when the policy was updated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -159,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The list of rules.
+    // The policies.
     shared_ptr<vector<DescribeApisecRulesResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

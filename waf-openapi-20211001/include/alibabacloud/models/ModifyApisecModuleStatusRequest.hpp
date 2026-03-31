@@ -96,33 +96,30 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance resides. Valid values:
+    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
-    // Indicates whether to enable the compliance review feature. Valid values:
+    // The status of the compliance check feature. Valid values:
     // 
-    // - **1**: enabled.
-    // 
-    // - **0**: disabled.
+    // *   **1**: enabled
+    // *   **0**: disabled
     shared_ptr<int64_t> reportStatus_ {};
-    // The name of the protected object group for which you want to modify the API security module status.
+    // The name of the protected object group to which the protected object belongs.
     shared_ptr<string> resourceGroups_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The name of the protected object for which you want to modify the API security module status.
+    // The name of the protected object.
     shared_ptr<string> resources_ {};
-    // Indicates whether to enable the traceability audit feature. Valid values:
+    // The status of the tracing and auditing feature. Valid values:
     // 
-    // - **1**: enabled.
-    // 
-    // - **0**: disabled.
+    // *   **1**: enabled
+    // *   **0**: disabled
     shared_ptr<int32_t> traceStatus_ {};
   };
 

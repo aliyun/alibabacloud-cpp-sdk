@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -161,9 +161,9 @@ namespace Models
 
 
       protected:
-        // The custom request header field.
+        // The key of the custom header field.
         shared_ptr<string> key_ {};
-        // The value of the custom request header field.
+        // The value of the custom header field.
         shared_ptr<string> value_ {};
       };
 
@@ -245,49 +245,42 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable persistent connections. Valid values:
+      // Specifies whether to enable the persistent connection feature. Valid values:
       // 
-      // - **true** (default): enables persistent connections.
-      // 
-      // - **false**: disables persistent connections.
+      // *   **true** (default)
+      // *   **false**
       shared_ptr<bool> keepalive_ {};
-      // The number of requests that can be reused in a persistent connection. Valid values: 60 to 1000.
+      // The number of reused persistent connections. Valid values: 60 to 1000.
       // 
-      // > The number of requests that are reused over a persistent connection.
+      // >  This parameter specifies the number of persistent connections that can be reused after you enable the persistent connection feature.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period for an idle persistent connection. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+      // The timeout period of idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
       // 
-      // > The period of time after which an idle persistent connection is released.
+      // >  This parameter specifies the period of time after which an idle persistent connection is closed.
       shared_ptr<int32_t> keepaliveTimeout_ {};
-      // The maximum size of a request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
-      // 
-      // > This feature is available only for the WAF Ultimate edition.
       shared_ptr<int32_t> maxBodySize_ {};
-      // The read timeout period. Unit: seconds. Valid values: 1 to 3600.
+      // The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> readTimeout_ {};
-      // The value of this parameter is in the \\`[**{"k":"*****key*****","v":"*****value*****"}**]\\` format. ***key*** indicates the custom request header field. ***value*** indicates the value of the field.
+      // The custom header fields. Specify the value in the [**{"k":"*key*","v":"*value*"}**] format. ***key*** specifies the key of a custom header field. ***value*** specifies the value of a custom header field.
       // 
-      // > If the custom header field already exists in the request, the system overwrites the value of the custom header field with the specified value.
+      // >  If a request contains a custom header field, WAF overwrites the original value of the field with the specified value.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
-      // The write timeout period. Unit: seconds. Valid values: 1 to 3600.
+      // The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> writeTimeout_ {};
-      // The method that WAF uses to obtain the real IP address of a client. Valid values:
+      // The method that is used to obtain the originating IP address of a client. Valid values:
       // 
-      // - **0**: No Layer 7 proxy is deployed before WAF.
-      // 
-      // - **1**: WAF reads the first value of the XFF header field to obtain the client IP address.
-      // 
-      // - **2**: WAF reads the value of a custom header field to obtain the client IP address.
+      // *   **0**: No Layer 7 proxies are deployed in front of WAF.
+      // *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
+      // *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
       shared_ptr<int32_t> xffHeaderMode_ {};
-      // The list of custom header fields that are used to obtain the client IP address. The value is in the \\`[**"header1","header2",...**]\\` format.
+      // The custom header fields that are used to obtain the originating IP address of a client. Specify the value in the **["header1","header2",...]** format.
       // 
-      // > This parameter is required only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field to obtain the client IP address.
+      // >  This parameter is required only if you set **XffHeaderMode** to 2.
       shared_ptr<vector<string>> xffHeaders_ {};
-      // Specifies whether to use the X-Forwarded-Proto header to pass the WAF protocol. Valid values:
+      // Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
       // 
-      // - **true** (default): passes the WAF protocol.
-      // 
-      // - **false**: does not pass the WAF protocol.
+      // *   **true** (default)
+      // *   **false**
       shared_ptr<bool> xffProto_ {};
     };
 
@@ -368,15 +361,14 @@ namespace Models
 
 
       protected:
-        // The type of the certificate for the HTTPS protocol. Valid values:
+        // The type of the certificate. Valid values:
         // 
-        // - **default**: the default certificate.
-        // 
-        // - **extension**: the additional certificate.
+        // *   **default**: default certificate.
+        // *   **extension**: additional certificate.
         shared_ptr<string> appliedType_ {};
-        // The ID of the certificate to add.
+        // The ID of the certificate that you want to add.
         // 
-        // > Call [DescribeResourceInstanceCerts](https://help.aliyun.com/document_detail/2718120.html) to query the IDs of all SSL certificates that are associated with the cloud product instance.
+        // >  You can call the [DescribeCertificates](https://help.aliyun.com/document_detail/160783.html) operation to query the IDs of all SSL certificates that are associated with a domain name.
         shared_ptr<string> certificateId_ {};
       };
 
@@ -465,69 +457,56 @@ namespace Models
 
 
     protected:
-      // The list of certificate IDs.
+      // The certificates.
       shared_ptr<vector<Listen::Certificates>> certificates_ {};
-      // The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **1**: Adds all cipher suites.
-      // 
-      // - **2**: Adds strong cipher suites. You can select this value only when **TLSVersion** is set to **tlsv1.2**.
-      // 
-      // - **99**: Adds custom cipher suites.
+      // *   **1**: all cipher suites.
+      // *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
+      // *   **99**: custom cipher suites.
       shared_ptr<int32_t> cipherSuite_ {};
-      // The custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
+      // The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
       shared_ptr<vector<string>> customCiphers_ {};
-      // Specifies whether to support TLS 1.3. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **true**: TLS 1.3 is supported.
-      // 
-      // - **false**: TLS 1.3 is not supported.
+      // *   **true**
+      // *   **false**
       shared_ptr<bool> enableTLSv3_ {};
-      // Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **true**: enables HTTP/2.
-      // 
-      // - **false** (default): disables HTTP/2.
+      // *   **true**
+      // *   **false** (default)
       shared_ptr<bool> http2Enabled_ {};
-      // The port of the cloud product that is added to WAF.
+      // The port of the cloud service.
       // 
       // This parameter is required.
       shared_ptr<int32_t> port_ {};
       // The protocol type. Valid values:
       // 
-      // - **http**: HTTP.
-      // 
-      // - **https**: HTTPS.
+      // *   **http**
+      // *   **https**
       // 
       // This parameter is required.
       shared_ptr<string> protocol_ {};
-      // The ID of the cloud product instance.
+      // The instance ID of the cloud service.
       // 
       // This parameter is required.
       shared_ptr<string> resourceInstanceId_ {};
-      // The type of the cloud product. Valid values:
+      // The type of the cloud service that you want to add. Valid values:
       // 
-      // - **clb4**: Layer 4 CLB instance.
-      // 
-      // - **clb7**: Layer 7 CLB instance.
-      // 
-      // - **ecs**: ECS instance.
-      // 
-      // - **nlb**: Network Load Balancer (NLB) instance.
+      // *   **clb4**: Layer 4 CLB.
+      // *   **clb7**: Layer 7 CLB.
+      // *   **ecs**: ECS.
+      // *   **nlb**: Network Load Balancer (NLB).
       // 
       // This parameter is required.
       shared_ptr<string> resourceProduct_ {};
-      // The region ID of the cloud product.
-      // 
-      // > This parameter is required if the ID of the instance that you want to add has not been synchronized to WAF.
       shared_ptr<string> resourceRegionId_ {};
-      // The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **tlsv1**
-      // 
-      // - **tlsv1.1**
-      // 
-      // - **tlsv1.2**
+      // *   **tlsv1**
+      // *   **tlsv1.1**
+      // *   **tlsv1.2**
       shared_ptr<string> TLSVersion_ {};
     };
 
@@ -592,29 +571,28 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configuration.
+    // The listener configurations.
     // 
     // This parameter is required.
     shared_ptr<CreateCloudResourceRequest::Listen> listen_ {};
-    // The Alibaba Cloud account ID of the resource owner.
+    // The ID of the Alibaba Cloud account to which the resource belongs.
     shared_ptr<string> ownerUserId_ {};
-    // The forwarding configuration.
+    // The forwarding configurations.
     shared_ptr<CreateCloudResourceRequest::Redirect> redirect_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: the Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The list of tags. You can add up to 20 tags.
+    // The tags. You can specify up to 20 tags.
     shared_ptr<vector<CreateCloudResourceRequest::Tag>> tag_ {};
   };
 

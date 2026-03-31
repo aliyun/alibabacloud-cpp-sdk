@@ -107,7 +107,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The timestamp after which the IP address blacklist becomes invalid. Unit: seconds.
     // 
-    // > If you set this parameter to **0**, the IP address blacklist is permanently valid.
+    // >  If you set the parameter to **0**, the IP address blacklist is always valid.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expiredTime_ {};
@@ -115,23 +115,22 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address blacklist to add. You can specify custom IP addresses or CIDR blocks. Both IPv4 and IPv6 addresses are supported. Separate multiple IP addresses with commas (,). For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
+    // The IP addresses that you want to add to the IP address blacklist. CIDR blocks and IP addresses are supported. IPv4 and IPv6 addresses are supported. Separate the CIDR blocks or IP addresses with commas (,). For more information, see [Protection for major events](https://help.aliyun.com/document_detail/425591.html).
     // 
     // This parameter is required.
     shared_ptr<string> ipList_ {};
-    // The region of the WAF instance. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: regions outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the IP address blacklist rule for critical event protection.
+    // The ID of the IP address blacklist rule for major event protection.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The ID of the protection template for critical event protection.
+    // The ID of the IP address blacklist rule template for major event protection.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};

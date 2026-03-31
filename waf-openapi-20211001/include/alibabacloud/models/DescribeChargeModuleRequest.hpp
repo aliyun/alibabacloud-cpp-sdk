@@ -57,19 +57,9 @@ namespace Models
 
 
   protected:
-    // The billing method of the instance. Valid values:
-    // 
-    // - **POSTPAY**: a pay-as-you-go WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

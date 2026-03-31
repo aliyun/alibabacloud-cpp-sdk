@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The end of the time range that was queried. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+        // The end of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
         shared_ptr<int64_t> endDate_ {};
-        // The start of the time range that was queried. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+        // The beginning of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
         shared_ptr<int64_t> startDate_ {};
       };
 
@@ -118,9 +118,9 @@ namespace Models
 
 
     protected:
-      // The time range used for the query.
+      // The time range that is used for the query.
       shared_ptr<TopNMetaData::DateRange> dateRange_ {};
-      // The unit of the returned statistics.
+      // The unit of the statistics returned. It is fixed as requests.
       shared_ptr<string> units_ {};
     };
 
@@ -171,11 +171,11 @@ namespace Models
 
 
     protected:
-      // Additional information, such as the protection module to which a rule ID belongs.
+      // The additional information, such as the protection module for a protection rule whose ID is returned.
       shared_ptr<string> attribute_ {};
-      // The value of a field. The meaning of this parameter varies based on the specified \\`Metric\\`.
+      // The field value, which varies based on the metric.
       shared_ptr<string> name_ {};
-      // The statistical count used for top N sorting.
+      // The count for the data entry.
       shared_ptr<int64_t> value_ {};
     };
 
@@ -209,9 +209,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of the top N statistics.
+    // The top N data entries returned.
     shared_ptr<vector<DescribeSecurityEventTopNMetricResponseBody::SecurityEventTopNValues>> securityEventTopNValues_ {};
-    // The metadata of the returned data.
+    // The metadata of the data entries returned.
     shared_ptr<DescribeSecurityEventTopNMetricResponseBody::TopNMetaData> topNMetaData_ {};
   };
 

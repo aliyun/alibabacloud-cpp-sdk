@@ -130,83 +130,62 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF instance.
+    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the response. Valid values:
-    // 
-    // - **zh** (default): Chinese
-    // 
-    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The level of the rule.
+    // The level of the policy.
     // 
-    // For threat detection (risk) and security events (event), valid values are:
+    // If Type is set to risk or event, you can set this parameter to one of the following values:
     // 
-    // - **high**: important
+    // *   **high**
+    // *   **medium**
+    // *   **low**
     // 
-    // - **medium**: medium
+    // If Type is set to sensitive_word, you can set this parameter to one of the following values:
     // 
-    // - **low**: low
-    // 
-    // For sensitive data (sensitive_word), valid values are:
-    // 
-    // - **S1**: S1
-    // 
-    // - **S2**: S2
-    // 
-    // - **S3**: S3
-    // 
-    // - **S4**: S4
+    // *   **S1**
+    // *   **S2**
+    // *   **S3**
+    // *   **S4**
     shared_ptr<string> level_ {};
-    // The name of the rule.
+    // The name of the policy.
     shared_ptr<string> name_ {};
-    // The source of the rule. Valid values:
+    // The source of the policy. Valid values:
     // 
-    // - **custom**: custom
-    // 
-    // - **default**: built-in
+    // *   **custom**
+    // *   **default**
     shared_ptr<string> origin_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The enabling status of the rule. Valid values:
+    // The status of the policy. Valid values:
     // 
-    // - **1**: enabled
-    // 
-    // - **0**: disabled
+    // *   **1**: enabled
+    // *   **0**: disabled
     shared_ptr<int64_t> status_ {};
-    // The type of the rule. Valid values:
+    // The type of the policy. Valid values:
     // 
-    // - **risk**: threat detection
-    // 
-    // - **event**: security event
-    // 
-    // - **sensitive_word**: sensitive data
-    // 
-    // - **auth_flag**: authentication credential
-    // 
-    // - **api_tag**: business purpose
-    // 
-    // - **desensitization**: data masking
-    // 
-    // - **whitelist**: whitelist
-    // 
-    // - **recognition**: API
-    // 
-    // - **offline_api**: lifecycle management
+    // *   **risk**: risk detection
+    // *   **event**: security event
+    // *   **sensitive_word**: sensitive data
+    // *   **auth_flag**: authentication credential
+    // *   **api_tag**: business purpose
+    // *   **desensitization**: masking
+    // *   **whitelist**: whitelist
+    // *   **recognition**: API recognition
+    // *   **offline_api**: lifecycle management
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

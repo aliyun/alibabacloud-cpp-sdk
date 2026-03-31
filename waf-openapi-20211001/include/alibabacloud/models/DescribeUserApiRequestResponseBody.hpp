@@ -70,17 +70,14 @@ namespace Models
 
 
     protected:
-      // The number of statistics.
+      // The number of entries returned.
       shared_ptr<int64_t> count_ {};
-      // The statistics information. This includes:
+      // The type of the statistics. Valid values:
       // 
-      // - **client_list**: the client tool.
-      // 
-      // - **ip**: the IP address information.
-      // 
-      // - **region_id**: the region.
-      // 
-      // - **country_id**: the country.
+      // *   **client_list**: client
+      // *   **ip**: IP address
+      // *   **region_id** region
+      // *   **country_id**: country
       shared_ptr<string> value_ {};
     };
 
@@ -105,7 +102,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of statistics.
+    // The statistics.
     shared_ptr<vector<DescribeUserApiRequestResponseBody::Requests>> requests_ {};
   };
 

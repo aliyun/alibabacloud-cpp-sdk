@@ -99,23 +99,20 @@ namespace Models
 
 
     protected:
-      // The number of APIs involved.
+      // The number of APIs that are involved.
       shared_ptr<int64_t> apiCount_ {};
-      // The number of sites involved.
+      // The number of sites that are involved.
       shared_ptr<int64_t> domainCount_ {};
       // The code of the sensitive data.
-      // 
-      // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
+      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
       shared_ptr<string> sensitiveCode_ {};
-      // The sensitivity level of the API. Valid values:
+      // The sensitivity level of the sensitive data.Valid values:
       // 
-      // - **S1**: Low sensitivity.
-      // 
-      // - **S2**: Medium sensitivity.
-      // 
-      // - **S3**: High sensitivity.
+      // * **S1**: low sensitivity.
+      // * **S2**: moderate sensitivity.
+      // * **S3**: high sensitivity.
       shared_ptr<string> sensitiveLevel_ {};
-      // The data name of the sensitive data.
+      // The name of the sensitive data.
       shared_ptr<string> sensitiveName_ {};
     };
 

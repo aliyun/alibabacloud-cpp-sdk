@@ -122,46 +122,35 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud clusters.
+    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. This value is a Unix timestamp. Unit: seconds.
+    // The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
     // 
-    // > Compliance assessment supports queries for data from the past 1, 3, 6, and 12 months, or from January 1 of the previous year to the current time. Make sure that the specified time range is valid.
+    // >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
     shared_ptr<int64_t> endTime_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The domain name or IP address of the API.
     shared_ptr<string> matchedHost_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. This value is a Unix timestamp. Unit: seconds.
+    // The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
     // 
-    // > Compliance assessment supports queries for data from the past 1, 3, 6, and 12 months, or from January 1 of the previous year to the current time. Make sure that the specified time range is valid.
+    // >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
     shared_ptr<int64_t> startTime_ {};
-    // The dimension for statistics. Valid values:
-    // 
-    // - **matchedHost** (default): statistics by domain name
-    // 
-    // - **apiFormat**: statistics by API
-    // 
-    // >Notice: 
-    // 
-    // To collect statistics by API, you must specify the **MatchedHost** parameter.
     shared_ptr<string> type_ {};
   };
 

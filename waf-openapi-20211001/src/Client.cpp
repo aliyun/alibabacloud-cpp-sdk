@@ -62,7 +62,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds one or more IP addresses or CIDR blocks to an address book in a Web Application Firewall (WAF) instance. Address books can be referenced in protection rules for centralized IP address management.
+ * @summary 地址簿添加地址
  *
  * @param request AddAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -105,7 +105,7 @@ AddAddressResponse Client::addAddressWithOptions(const AddAddressRequest &reques
 }
 
 /**
- * @summary Adds one or more IP addresses or CIDR blocks to an address book in a Web Application Firewall (WAF) instance. Address books can be referenced in protection rules for centralized IP address management.
+ * @summary 地址簿添加地址
  *
  * @param request AddAddressRequest
  * @return AddAddressResponse
@@ -174,7 +174,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Clears all addresses from a Web Application Firewall (WAF) address book.
+ * @summary 地址簿清空所有地址
  *
  * @param request ClearAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -213,7 +213,7 @@ ClearAddressResponse Client::clearAddressWithOptions(const ClearAddressRequest &
 }
 
 /**
- * @summary Clears all addresses from a Web Application Firewall (WAF) address book.
+ * @summary 地址簿清空所有地址
  *
  * @param request ClearAddressRequest
  * @return ClearAddressResponse
@@ -224,7 +224,7 @@ ClearAddressResponse Client::clearAddress(const ClearAddressRequest &request) {
 }
 
 /**
- * @summary Clears the IP blacklist for a critical event protection rule.
+ * @summary Clears an IP address blacklist for major event protection.
  *
  * @param request ClearMajorProtectionBlackIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -271,7 +271,7 @@ ClearMajorProtectionBlackIpResponse Client::clearMajorProtectionBlackIpWithOptio
 }
 
 /**
- * @summary Clears the IP blacklist for a critical event protection rule.
+ * @summary Clears an IP address blacklist for major event protection.
  *
  * @param request ClearMajorProtectionBlackIpRequest
  * @return ClearMajorProtectionBlackIpResponse
@@ -282,7 +282,7 @@ ClearMajorProtectionBlackIpResponse Client::clearMajorProtectionBlackIp(const Cl
 }
 
 /**
- * @summary Copies a protection template.
+ * @summary Creates a new protection template from the copy.
  *
  * @param request CopyDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +325,7 @@ CopyDefenseTemplateResponse Client::copyDefenseTemplateWithOptions(const CopyDef
 }
 
 /**
- * @summary Copies a protection template.
+ * @summary Creates a new protection template from the copy.
  *
  * @param request CopyDefenseTemplateRequest
  * @return CopyDefenseTemplateResponse
@@ -336,7 +336,7 @@ CopyDefenseTemplateResponse Client::copyDefenseTemplate(const CopyDefenseTemplat
 }
 
 /**
- * @summary Creates a task to export API security data.
+ * @summary Creates a data export task in the API security module.
  *
  * @param request CreateApiExportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -395,7 +395,7 @@ CreateApiExportResponse Client::createApiExportWithOptions(const CreateApiExport
 }
 
 /**
- * @summary Creates a task to export API security data.
+ * @summary Creates a data export task in the API security module.
  *
  * @param request CreateApiExportRequest
  * @return CreateApiExportResponse
@@ -468,7 +468,7 @@ CreateCertsResponse Client::createCerts(const CreateCertsRequest &request) {
 }
 
 /**
- * @summary Integrates cloud products with Web Application Firewall (WAF). Currently, only Elastic Compute Service (ECS) and Classic Load Balancer (CLB) are supported.
+ * @summary Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
  *
  * @param tmpReq CreateCloudResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -533,7 +533,7 @@ CreateCloudResourceResponse Client::createCloudResourceWithOptions(const CreateC
 }
 
 /**
- * @summary Integrates cloud products with Web Application Firewall (WAF). Currently, only Elastic Compute Service (ECS) and Classic Load Balancer (CLB) are supported.
+ * @summary Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
  *
  * @param request CreateCloudResourceRequest
  * @return CreateCloudResourceResponse
@@ -544,7 +544,7 @@ CreateCloudResourceResponse Client::createCloudResource(const CreateCloudResourc
 }
 
 /**
- * @summary Adds an extension certificate for cloud native mode.
+ * @summary 添加云产品接入的扩展证书
  *
  * @param request CreateCloudResourceExtensionCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ CreateCloudResourceExtensionCertResponse Client::createCloudResourceExtensionCer
 }
 
 /**
- * @summary Adds an extension certificate for cloud native mode.
+ * @summary 添加云产品接入的扩展证书
  *
  * @param request CreateCloudResourceExtensionCertRequest
  * @return CreateCloudResourceExtensionCertResponse
@@ -602,7 +602,7 @@ CreateCloudResourceExtensionCertResponse Client::createCloudResourceExtensionCer
 }
 
 /**
- * @summary Creates a protected object.
+ * @summary 创建防护对象
  *
  * @param tmpReq CreateDefenseResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -691,7 +691,7 @@ CreateDefenseResourceResponse Client::createDefenseResourceWithOptions(const Cre
 }
 
 /**
- * @summary Creates a protected object.
+ * @summary 创建防护对象
  *
  * @param request CreateDefenseResourceRequest
  * @return CreateDefenseResourceResponse
@@ -836,7 +836,7 @@ CreateDefenseRuleResponse Client::createDefenseRule(const CreateDefenseRuleReque
 }
 
 /**
- * @summary Creates a protection template in Web Application Firewall (WAF).
+ * @summary Creates a protection rule template.
  *
  * @param request CreateDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -911,7 +911,7 @@ CreateDefenseTemplateResponse Client::createDefenseTemplateWithOptions(const Cre
 }
 
 /**
- * @summary Creates a protection template in Web Application Firewall (WAF).
+ * @summary Creates a protection rule template.
  *
  * @param request CreateDefenseTemplateRequest
  * @return CreateDefenseTemplateResponse
@@ -922,7 +922,7 @@ CreateDefenseTemplateResponse Client::createDefenseTemplate(const CreateDefenseT
 }
 
 /**
- * @summary Adds a domain name to a Web Application Firewall (WAF) instance for protection.
+ * @summary Adds a domain name to Web Application Firewall (WAF).
  *
  * @param tmpReq CreateDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -991,7 +991,7 @@ CreateDomainResponse Client::createDomainWithOptions(const CreateDomainRequest &
 }
 
 /**
- * @summary Adds a domain name to a Web Application Firewall (WAF) instance for protection.
+ * @summary Adds a domain name to Web Application Firewall (WAF).
  *
  * @param request CreateDomainRequest
  * @return CreateDomainResponse
@@ -1002,7 +1002,7 @@ CreateDomainResponse Client::createDomain(const CreateDomainRequest &request) {
 }
 
 /**
- * @summary Creates a hybrid cloud Web Application Firewall (WAF) cluster.
+ * @summary Creates a hybrid cloud cluster.
  *
  * @param request CreateHybridCloudClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1093,7 +1093,7 @@ CreateHybridCloudClusterResponse Client::createHybridCloudClusterWithOptions(con
 }
 
 /**
- * @summary Creates a hybrid cloud Web Application Firewall (WAF) cluster.
+ * @summary Creates a hybrid cloud cluster.
  *
  * @param request CreateHybridCloudClusterRequest
  * @return CreateHybridCloudClusterResponse
@@ -1104,7 +1104,7 @@ CreateHybridCloudClusterResponse Client::createHybridCloudCluster(const CreateHy
 }
 
 /**
- * @summary Creates a Hybrid Cloud Web Application Firewall (WAF) cluster rule.
+ * @summary 新增集群规则信息
  *
  * @param request CreateHybridCloudClusterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1159,7 +1159,7 @@ CreateHybridCloudClusterRuleResponse Client::createHybridCloudClusterRuleWithOpt
 }
 
 /**
- * @summary Creates a Hybrid Cloud Web Application Firewall (WAF) cluster rule.
+ * @summary 新增集群规则信息
  *
  * @param request CreateHybridCloudClusterRuleRequest
  * @return CreateHybridCloudClusterRuleResponse
@@ -1170,7 +1170,7 @@ CreateHybridCloudClusterRuleResponse Client::createHybridCloudClusterRule(const 
 }
 
 /**
- * @summary Creates a node group in a Hybrid Cloud Web Application Firewall (WAF) cluster.
+ * @summary Creates a node group for a hybrid cloud cluster.
  *
  * @param request CreateHybridCloudGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1237,7 +1237,7 @@ CreateHybridCloudGroupResponse Client::createHybridCloudGroupWithOptions(const C
 }
 
 /**
- * @summary Creates a node group in a Hybrid Cloud Web Application Firewall (WAF) cluster.
+ * @summary Creates a node group for a hybrid cloud cluster.
  *
  * @param request CreateHybridCloudGroupRequest
  * @return CreateHybridCloudGroupResponse
@@ -1248,7 +1248,7 @@ CreateHybridCloudGroupResponse Client::createHybridCloudGroup(const CreateHybrid
 }
 
 /**
- * @summary Creates a log delivery configuration for a Web Application Firewall (WAF) instance in a hybrid cloud.
+ * @summary Creates a hybrid cloud log delivery configuration.
  *
  * @param request CreateLogDeliveryConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1299,7 +1299,7 @@ CreateLogDeliveryConfigResponse Client::createLogDeliveryConfigWithOptions(const
 }
 
 /**
- * @summary Creates a log delivery configuration for a Web Application Firewall (WAF) instance in a hybrid cloud.
+ * @summary Creates a hybrid cloud log delivery configuration.
  *
  * @param request CreateLogDeliveryConfigRequest
  * @return CreateLogDeliveryConfigResponse
@@ -1310,7 +1310,7 @@ CreateLogDeliveryConfigResponse Client::createLogDeliveryConfig(const CreateLogD
 }
 
 /**
- * @summary Creates an IP address blacklist for critical event protection.
+ * @summary Creates an IP address blacklist for major event protection.
  *
  * @description This operation is available only on the China site (aliyun.com).
  *
@@ -1371,7 +1371,7 @@ CreateMajorProtectionBlackIpResponse Client::createMajorProtectionBlackIpWithOpt
 }
 
 /**
- * @summary Creates an IP address blacklist for critical event protection.
+ * @summary Creates an IP address blacklist for major event protection.
  *
  * @description This operation is available only on the China site (aliyun.com).
  *
@@ -1384,7 +1384,7 @@ CreateMajorProtectionBlackIpResponse Client::createMajorProtectionBlackIp(const 
 }
 
 /**
- * @summary Adds member accounts to use the multi-account management feature of Web Application Firewall (WAF).
+ * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
  *
  * @param request CreateMemberAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1431,7 @@ CreateMemberAccountsResponse Client::createMemberAccountsWithOptions(const Creat
 }
 
 /**
- * @summary Adds member accounts to use the multi-account management feature of Web Application Firewall (WAF).
+ * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
  *
  * @param request CreateMemberAccountsRequest
  * @return CreateMemberAccountsResponse
@@ -1442,7 +1442,7 @@ CreateMemberAccountsResponse Client::createMemberAccounts(const CreateMemberAcco
 }
 
 /**
- * @summary Starts a trial for a proof of concept (POC) feature.
+ * @summary 开启防护功能POC
  *
  * @param request CreatePocFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1485,7 +1485,7 @@ CreatePocFunctionResponse Client::createPocFunctionWithOptions(const CreatePocFu
 }
 
 /**
- * @summary Starts a trial for a proof of concept (POC) feature.
+ * @summary 开启防护功能POC
  *
  * @param request CreatePocFunctionRequest
  * @return CreatePocFunctionResponse
@@ -1542,7 +1542,7 @@ CreatePostpaidInstanceResponse Client::createPostpaidInstance(const CreatePostpa
 }
 
 /**
- * @summary Uploads an SM certificate for CNAME record access to Web Application Firewall (WAF).
+ * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
  *
  * @param request CreateSM2CertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1601,7 @@ CreateSM2CertResponse Client::createSM2CertWithOptions(const CreateSM2CertReques
 }
 
 /**
- * @summary Uploads an SM certificate for CNAME record access to Web Application Firewall (WAF).
+ * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
  *
  * @param request CreateSM2CertRequest
  * @return CreateSM2CertResponse
@@ -1612,7 +1612,7 @@ CreateSM2CertResponse Client::createSM2Cert(const CreateSM2CertRequest &request)
 }
 
 /**
- * @summary Deletes addresses from an address book.
+ * @summary 地址簿添加地址
  *
  * @param request DeleteAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1655,7 +1655,7 @@ DeleteAddressResponse Client::deleteAddressWithOptions(const DeleteAddressReques
 }
 
 /**
- * @summary Deletes addresses from an address book.
+ * @summary 地址簿添加地址
  *
  * @param request DeleteAddressRequest
  * @return DeleteAddressResponse
@@ -1666,7 +1666,7 @@ DeleteAddressResponse Client::deleteAddress(const DeleteAddressRequest &request)
 }
 
 /**
- * @summary Deletes API security risks in a batch.
+ * @summary Deletes multiple risks detected by the API security module at a time.
  *
  * @param request DeleteApisecAbnormalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1713,7 +1713,7 @@ DeleteApisecAbnormalsResponse Client::deleteApisecAbnormalsWithOptions(const Del
 }
 
 /**
- * @summary Deletes API security risks in a batch.
+ * @summary Deletes multiple risks detected by the API security module at a time.
  *
  * @param request DeleteApisecAbnormalsRequest
  * @return DeleteApisecAbnormalsResponse
@@ -1724,7 +1724,7 @@ DeleteApisecAbnormalsResponse Client::deleteApisecAbnormals(const DeleteApisecAb
 }
 
 /**
- * @summary Deletes API security events in batches.
+ * @summary Deletes multiple security events detected by the API security module at a time.
  *
  * @param request DeleteApisecEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1775,7 +1775,7 @@ DeleteApisecEventsResponse Client::deleteApisecEventsWithOptions(const DeleteApi
 }
 
 /**
- * @summary Deletes API security events in batches.
+ * @summary Deletes multiple security events detected by the API security module at a time.
  *
  * @param request DeleteApisecEventsRequest
  * @return DeleteApisecEventsResponse
@@ -1786,7 +1786,7 @@ DeleteApisecEventsResponse Client::deleteApisecEvents(const DeleteApisecEventsRe
 }
 
 /**
- * @summary Removes a cloud service from Web Application Firewall (WAF). This operation currently supports only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+ * @summary Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
  *
  * @param request DeleteCloudResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1841,7 +1841,7 @@ DeleteCloudResourceResponse Client::deleteCloudResourceWithOptions(const DeleteC
 }
 
 /**
- * @summary Removes a cloud service from Web Application Firewall (WAF). This operation currently supports only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+ * @summary Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
  *
  * @param request DeleteCloudResourceRequest
  * @return DeleteCloudResourceResponse
@@ -1852,7 +1852,7 @@ DeleteCloudResourceResponse Client::deleteCloudResource(const DeleteCloudResourc
 }
 
 /**
- * @summary Deletes an extension certificate for cloud native mode.
+ * @summary 删除云产品接入的扩展证书
  *
  * @param request DeleteCloudResourceExtensionCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1899,7 +1899,7 @@ DeleteCloudResourceExtensionCertResponse Client::deleteCloudResourceExtensionCer
 }
 
 /**
- * @summary Deletes an extension certificate for cloud native mode.
+ * @summary 删除云产品接入的扩展证书
  *
  * @param request DeleteCloudResourceExtensionCertRequest
  * @return DeleteCloudResourceExtensionCertResponse
@@ -1910,7 +1910,7 @@ DeleteCloudResourceExtensionCertResponse Client::deleteCloudResourceExtensionCer
 }
 
 /**
- * @summary Deletes a protected object.
+ * @summary 删除单个防护对象
  *
  * @param request DeleteDefenseResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +1953,7 @@ DeleteDefenseResourceResponse Client::deleteDefenseResourceWithOptions(const Del
 }
 
 /**
- * @summary Deletes a protected object.
+ * @summary 删除单个防护对象
  *
  * @param request DeleteDefenseResourceRequest
  * @return DeleteDefenseResourceResponse
@@ -2018,7 +2018,7 @@ DeleteDefenseResourceGroupResponse Client::deleteDefenseResourceGroup(const Dele
 }
 
 /**
- * @summary Deletes the specified protection rules.
+ * @summary Deletes a protection rule.
  *
  * @param request DeleteDefenseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2073,7 +2073,7 @@ DeleteDefenseRuleResponse Client::deleteDefenseRuleWithOptions(const DeleteDefen
 }
 
 /**
- * @summary Deletes the specified protection rules.
+ * @summary Deletes a protection rule.
  *
  * @param request DeleteDefenseRuleRequest
  * @return DeleteDefenseRuleResponse
@@ -2084,7 +2084,7 @@ DeleteDefenseRuleResponse Client::deleteDefenseRule(const DeleteDefenseRuleReque
 }
 
 /**
- * @summary Unblocks an IP address that is blocked by the scan protection module.
+ * @summary 更新防护规则封禁Ip
  *
  * @param request DeleteDefenseRuleBlockIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2131,7 +2131,7 @@ DeleteDefenseRuleBlockIpResponse Client::deleteDefenseRuleBlockIpWithOptions(con
 }
 
 /**
- * @summary Unblocks an IP address that is blocked by the scan protection module.
+ * @summary 更新防护规则封禁Ip
  *
  * @param request DeleteDefenseRuleBlockIpRequest
  * @return DeleteDefenseRuleBlockIpResponse
@@ -2196,7 +2196,7 @@ DeleteDefenseTemplateResponse Client::deleteDefenseTemplate(const DeleteDefenseT
 }
 
 /**
- * @summary Deletes a domain name that has been added to Web Application Firewall (WAF) in CNAME record mode.
+ * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
  *
  * @param request DeleteDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2243,7 +2243,7 @@ DeleteDomainResponse Client::deleteDomainWithOptions(const DeleteDomainRequest &
 }
 
 /**
- * @summary Deletes a domain name that has been added to Web Application Firewall (WAF) in CNAME record mode.
+ * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
  *
  * @param request DeleteDomainRequest
  * @return DeleteDomainResponse
@@ -2254,7 +2254,7 @@ DeleteDomainResponse Client::deleteDomain(const DeleteDomainRequest &request) {
 }
 
 /**
- * @summary Deletes a hybrid cloud cluster rule from a Web Application Firewall (WAF) instance.
+ * @summary 删除集群规则信息
  *
  * @param request DeleteHybridCloudClusterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2297,7 +2297,7 @@ DeleteHybridCloudClusterRuleResponse Client::deleteHybridCloudClusterRuleWithOpt
 }
 
 /**
- * @summary Deletes a hybrid cloud cluster rule from a Web Application Firewall (WAF) instance.
+ * @summary 删除集群规则信息
  *
  * @param request DeleteHybridCloudClusterRuleRequest
  * @return DeleteHybridCloudClusterRuleResponse
@@ -2308,7 +2308,7 @@ DeleteHybridCloudClusterRuleResponse Client::deleteHybridCloudClusterRule(const 
 }
 
 /**
- * @summary Deletes a group.
+ * @summary 删除组信息
  *
  * @param request DeleteHybridCloudGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2355,7 +2355,7 @@ DeleteHybridCloudGroupResponse Client::deleteHybridCloudGroupWithOptions(const D
 }
 
 /**
- * @summary Deletes a group.
+ * @summary 删除组信息
  *
  * @param request DeleteHybridCloudGroupRequest
  * @return DeleteHybridCloudGroupResponse
@@ -2366,7 +2366,7 @@ DeleteHybridCloudGroupResponse Client::deleteHybridCloudGroup(const DeleteHybrid
 }
 
 /**
- * @summary Deletes a log delivery configuration.
+ * @summary Delets a hybrid cloud log delivery configuration.
  *
  * @param request DeleteLogDeliveryConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2409,7 +2409,7 @@ DeleteLogDeliveryConfigResponse Client::deleteLogDeliveryConfigWithOptions(const
 }
 
 /**
- * @summary Deletes a log delivery configuration.
+ * @summary Delets a hybrid cloud log delivery configuration.
  *
  * @param request DeleteLogDeliveryConfigRequest
  * @return DeleteLogDeliveryConfigResponse
@@ -2420,7 +2420,7 @@ DeleteLogDeliveryConfigResponse Client::deleteLogDeliveryConfig(const DeleteLogD
 }
 
 /**
- * @summary Deletes an IP address from the blacklist for critical event protection.
+ * @summary Deletes an IP address blacklist for major event protection.
  *
  * @param request DeleteMajorProtectionBlackIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2471,7 +2471,7 @@ DeleteMajorProtectionBlackIpResponse Client::deleteMajorProtectionBlackIpWithOpt
 }
 
 /**
- * @summary Deletes an IP address from the blacklist for critical event protection.
+ * @summary Deletes an IP address blacklist for major event protection.
  *
  * @param request DeleteMajorProtectionBlackIpRequest
  * @return DeleteMajorProtectionBlackIpResponse
@@ -2482,7 +2482,7 @@ DeleteMajorProtectionBlackIpResponse Client::deleteMajorProtectionBlackIp(const 
 }
 
 /**
- * @summary Deletes a Web Application Firewall (WAF) member account.
+ * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
  *
  * @param request DeleteMemberAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2529,7 +2529,7 @@ DeleteMemberAccountResponse Client::deleteMemberAccountWithOptions(const DeleteM
 }
 
 /**
- * @summary Deletes a Web Application Firewall (WAF) member account.
+ * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
  *
  * @param request DeleteMemberAccountRequest
  * @return DeleteMemberAccountResponse
@@ -2540,7 +2540,7 @@ DeleteMemberAccountResponse Client::deleteMemberAccount(const DeleteMemberAccoun
 }
 
 /**
- * @summary Queries abnormal cloud resources added in cloud native mode.
+ * @summary 查询异常的云产品接入资源
  *
  * @param request DescribeAbnormalCloudResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2579,7 +2579,7 @@ DescribeAbnormalCloudResourcesResponse Client::describeAbnormalCloudResourcesWit
 }
 
 /**
- * @summary Queries abnormal cloud resources added in cloud native mode.
+ * @summary 查询异常的云产品接入资源
  *
  * @param request DescribeAbnormalCloudResourcesRequest
  * @return DescribeAbnormalCloudResourcesResponse
@@ -2590,7 +2590,7 @@ DescribeAbnormalCloudResourcesResponse Client::describeAbnormalCloudResources(co
 }
 
 /**
- * @summary Queries whether an account is a delegated administrator for Web Application Firewall (WAF) using the multi-account management feature.
+ * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
  *
  * @param request DescribeAccountDelegatedStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2629,7 +2629,7 @@ DescribeAccountDelegatedStatusResponse Client::describeAccountDelegatedStatusWit
 }
 
 /**
- * @summary Queries whether an account is a delegated administrator for Web Application Firewall (WAF) using the multi-account management feature.
+ * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
  *
  * @param request DescribeAccountDelegatedStatusRequest
  * @return DescribeAccountDelegatedStatusResponse
@@ -2640,7 +2640,7 @@ DescribeAccountDelegatedStatusResponse Client::describeAccountDelegatedStatus(co
 }
 
 /**
- * @summary Queries a paginated list of addresses in an address book.
+ * @summary 分页查询地址簿IP
  *
  * @param request DescribeAddressesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2695,7 +2695,7 @@ DescribeAddressesResponse Client::describeAddressesWithOptions(const DescribeAdd
 }
 
 /**
- * @summary Queries a paginated list of addresses in an address book.
+ * @summary 分页查询地址簿IP
  *
  * @param request DescribeAddressesRequest
  * @return DescribeAddressesResponse
@@ -2706,7 +2706,7 @@ DescribeAddressesResponse Client::describeAddresses(const DescribeAddressesReque
 }
 
 /**
- * @summary Queries the alert banner information of a Web Application Firewall (WAF) instance.
+ * @summary 查询实例信息
  *
  * @param request DescribeAlarmBannerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2745,7 +2745,7 @@ DescribeAlarmBannerResponse Client::describeAlarmBannerWithOptions(const Describ
 }
 
 /**
- * @summary Queries the alert banner information of a Web Application Firewall (WAF) instance.
+ * @summary 查询实例信息
  *
  * @param request DescribeAlarmBannerRequest
  * @return DescribeAlarmBannerResponse
@@ -2756,7 +2756,7 @@ DescribeAlarmBannerResponse Client::describeAlarmBanner(const DescribeAlarmBanne
 }
 
 /**
- * @summary Queries a list of alerts.
+ * @summary 查询实例信息
  *
  * @param request DescribeAlarmListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2795,7 +2795,7 @@ DescribeAlarmListResponse Client::describeAlarmListWithOptions(const DescribeAla
 }
 
 /**
- * @summary Queries a list of alerts.
+ * @summary 查询实例信息
  *
  * @param request DescribeAlarmListRequest
  * @return DescribeAlarmListResponse
@@ -2806,7 +2806,7 @@ DescribeAlarmListResponse Client::describeAlarmList(const DescribeAlarmListReque
 }
 
 /**
- * @summary Queries a list of API security export tasks.
+ * @summary Queries the list of data export tasks in the API security module.
  *
  * @param request DescribeApiExportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2857,7 +2857,7 @@ DescribeApiExportsResponse Client::describeApiExportsWithOptions(const DescribeA
 }
 
 /**
- * @summary Queries a list of API security export tasks.
+ * @summary Queries the list of data export tasks in the API security module.
  *
  * @param request DescribeApiExportsRequest
  * @return DescribeApiExportsResponse
@@ -2868,7 +2868,7 @@ DescribeApiExportsResponse Client::describeApiExports(const DescribeApiExportsRe
 }
 
 /**
- * @summary Queries the API security risk statistics for domain names that are protected by Web Application Firewall (WAF).
+ * @summary Queries the statistics on domain names on which risks are detected by the API security module.
  *
  * @param request DescribeApisecAbnormalDomainStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2931,7 +2931,7 @@ DescribeApisecAbnormalDomainStatisticResponse Client::describeApisecAbnormalDoma
 }
 
 /**
- * @summary Queries the API security risk statistics for domain names that are protected by Web Application Firewall (WAF).
+ * @summary Queries the statistics on domain names on which risks are detected by the API security module.
  *
  * @param request DescribeApisecAbnormalDomainStatisticRequest
  * @return DescribeApisecAbnormalDomainStatisticResponse
@@ -2942,7 +2942,7 @@ DescribeApisecAbnormalDomainStatisticResponse Client::describeApisecAbnormalDoma
 }
 
 /**
- * @summary Queries the API security risks that are detected by Web Application Firewall (WAF).
+ * @summary Queries the list of API security risks.
  *
  * @param request DescribeApisecAbnormalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3045,7 +3045,7 @@ DescribeApisecAbnormalsResponse Client::describeApisecAbnormalsWithOptions(const
 }
 
 /**
- * @summary Queries the API security risks that are detected by Web Application Firewall (WAF).
+ * @summary Queries the list of API security risks.
  *
  * @param request DescribeApisecAbnormalsRequest
  * @return DescribeApisecAbnormalsResponse
@@ -3056,7 +3056,7 @@ DescribeApisecAbnormalsResponse Client::describeApisecAbnormals(const DescribeAp
 }
 
 /**
- * @summary Queries a list of API security assets that are protected by Web Application Firewall (WAF).
+ * @summary Queries API assets in the API security module.
  *
  * @param request DescribeApisecApiResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3175,7 +3175,7 @@ DescribeApisecApiResourcesResponse Client::describeApisecApiResourcesWithOptions
 }
 
 /**
- * @summary Queries a list of API security assets that are protected by Web Application Firewall (WAF).
+ * @summary Queries API assets in the API security module.
  *
  * @param request DescribeApisecApiResourcesRequest
  * @return DescribeApisecApiResourcesResponse
@@ -3186,7 +3186,7 @@ DescribeApisecApiResourcesResponse Client::describeApisecApiResources(const Desc
 }
 
 /**
- * @summary Queries the trend of API assets detected by the API security module of Web Application Firewall (WAF).
+ * @summary Queries the asset trends in the API security module.
  *
  * @param request DescribeApisecAssetTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3237,7 +3237,7 @@ DescribeApisecAssetTrendResponse Client::describeApisecAssetTrendWithOptions(con
 }
 
 /**
- * @summary Queries the trend of API assets detected by the API security module of Web Application Firewall (WAF).
+ * @summary Queries the asset trends in the API security module.
  *
  * @param request DescribeApisecAssetTrendRequest
  * @return DescribeApisecAssetTrendResponse
@@ -3248,7 +3248,7 @@ DescribeApisecAssetTrendResponse Client::describeApisecAssetTrend(const Describe
 }
 
 /**
- * @summary Retrieves the details of an API security event.
+ * @summary 查询安全事件详情
  *
  * @param request DescribeApisecEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3303,7 +3303,7 @@ DescribeApisecEventDetailResponse Client::describeApisecEventDetailWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of an API security event.
+ * @summary 查询安全事件详情
  *
  * @param request DescribeApisecEventDetailRequest
  * @return DescribeApisecEventDetailResponse
@@ -3314,7 +3314,7 @@ DescribeApisecEventDetailResponse Client::describeApisecEventDetail(const Descri
 }
 
 /**
- * @summary Queries API security event statistics grouped by domain name for a Web Application Firewall (WAF) instance.
+ * @summary Queries the statistics on domain names on which security events are detected by the API security module.
  *
  * @param request DescribeApisecEventDomainStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3377,7 +3377,7 @@ DescribeApisecEventDomainStatisticResponse Client::describeApisecEventDomainStat
 }
 
 /**
- * @summary Queries API security event statistics grouped by domain name for a Web Application Firewall (WAF) instance.
+ * @summary Queries the statistics on domain names on which security events are detected by the API security module.
  *
  * @param request DescribeApisecEventDomainStatisticRequest
  * @return DescribeApisecEventDomainStatisticResponse
@@ -3388,7 +3388,7 @@ DescribeApisecEventDomainStatisticResponse Client::describeApisecEventDomainStat
 }
 
 /**
- * @summary Queries a list of API security events.
+ * @summary Queries API security events.
  *
  * @param request DescribeApisecEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3503,7 +3503,7 @@ DescribeApisecEventsResponse Client::describeApisecEventsWithOptions(const Descr
 }
 
 /**
- * @summary Queries a list of API security events.
+ * @summary Queries API security events.
  *
  * @param request DescribeApisecEventsRequest
  * @return DescribeApisecEventsResponse
@@ -3514,7 +3514,7 @@ DescribeApisecEventsResponse Client::describeApisecEvents(const DescribeApisecEv
 }
 
 /**
- * @summary Queries the API security examples that are detected by Web Application Firewall (WAF).
+ * @summary 查询API安全样例信息
  *
  * @param request DescribeApisecExamplesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3585,7 +3585,7 @@ DescribeApisecExamplesResponse Client::describeApisecExamplesWithOptions(const D
 }
 
 /**
- * @summary Queries the API security examples that are detected by Web Application Firewall (WAF).
+ * @summary 查询API安全样例信息
  *
  * @param request DescribeApisecExamplesRequest
  * @return DescribeApisecExamplesResponse
@@ -3646,7 +3646,7 @@ DescribeApisecLogDeliveriesResponse Client::describeApisecLogDeliveries(const De
 }
 
 /**
- * @summary Queries the list of domain names that are protected by API security.
+ * @summary Queries the list of domain names detected in the API security module.
  *
  * @param request DescribeApisecMatchedHostsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3705,7 +3705,7 @@ DescribeApisecMatchedHostsResponse Client::describeApisecMatchedHostsWithOptions
 }
 
 /**
- * @summary Queries the list of domain names that are protected by API security.
+ * @summary Queries the list of domain names detected in the API security module.
  *
  * @param request DescribeApisecMatchedHostsRequest
  * @return DescribeApisecMatchedHostsResponse
@@ -3716,7 +3716,7 @@ DescribeApisecMatchedHostsResponse Client::describeApisecMatchedHosts(const Desc
 }
 
 /**
- * @summary Retrieves a list of active API security protection object groups.
+ * @summary Queries the list of protected object groups to which API security policies are applied.
  *
  * @param request DescribeApisecProtectionGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3771,7 +3771,7 @@ DescribeApisecProtectionGroupsResponse Client::describeApisecProtectionGroupsWit
 }
 
 /**
- * @summary Retrieves a list of active API security protection object groups.
+ * @summary Queries the list of protected object groups to which API security policies are applied.
  *
  * @param request DescribeApisecProtectionGroupsRequest
  * @return DescribeApisecProtectionGroupsResponse
@@ -3782,7 +3782,7 @@ DescribeApisecProtectionGroupsResponse Client::describeApisecProtectionGroups(co
 }
 
 /**
- * @summary Queries the protected objects of a Web Application Firewall (WAF) instance for which API security is enabled.
+ * @summary Queries the list of protected objects to which API security policies are applied.
  *
  * @param request DescribeApisecProtectionResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3837,7 +3837,7 @@ DescribeApisecProtectionResourcesResponse Client::describeApisecProtectionResour
 }
 
 /**
- * @summary Queries the protected objects of a Web Application Firewall (WAF) instance for which API security is enabled.
+ * @summary Queries the list of protected objects to which API security policies are applied.
  *
  * @param request DescribeApisecProtectionResourcesRequest
  * @return DescribeApisecProtectionResourcesResponse
@@ -3848,7 +3848,7 @@ DescribeApisecProtectionResourcesResponse Client::describeApisecProtectionResour
 }
 
 /**
- * @summary Queries the rules of an API security policy.
+ * @summary Queries the policies configured in the API security module.
  *
  * @param request DescribeApisecRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3919,7 +3919,7 @@ DescribeApisecRulesResponse Client::describeApisecRulesWithOptions(const Describ
 }
 
 /**
- * @summary Queries the rules of an API security policy.
+ * @summary Queries the policies configured in the API security module.
  *
  * @param request DescribeApisecRulesRequest
  * @return DescribeApisecRulesResponse
@@ -3930,7 +3930,7 @@ DescribeApisecRulesResponse Client::describeApisecRules(const DescribeApisecRule
 }
 
 /**
- * @summary Queries statistics on domain names where sensitive data is detected by the API security module.
+ * @summary Queries the statistics on domain names on which sensitive data is detected by the API security module.
  *
  * @param request DescribeApisecSensitiveDomainStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3997,7 +3997,7 @@ DescribeApisecSensitiveDomainStatisticResponse Client::describeApisecSensitiveDo
 }
 
 /**
- * @summary Queries statistics on domain names where sensitive data is detected by the API security module.
+ * @summary Queries the statistics on domain names on which sensitive data is detected by the API security module.
  *
  * @param request DescribeApisecSensitiveDomainStatisticRequest
  * @return DescribeApisecSensitiveDomainStatisticResponse
@@ -4120,7 +4120,7 @@ DescribeApisecSlsProjectsResponse Client::describeApisecSlsProjects(const Descri
 }
 
 /**
- * @summary Queries statistics for API security risks or security events.
+ * @summary Queries the statistics of API security-related risks and events.
  *
  * @param request DescribeApisecStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4179,7 +4179,7 @@ DescribeApisecStatisticsResponse Client::describeApisecStatisticsWithOptions(con
 }
 
 /**
- * @summary Queries statistics for API security risks or security events.
+ * @summary Queries the statistics of API security-related risks and events.
  *
  * @param request DescribeApisecStatisticsRequest
  * @return DescribeApisecStatisticsResponse
@@ -4190,7 +4190,7 @@ DescribeApisecStatisticsResponse Client::describeApisecStatistics(const Describe
 }
 
 /**
- * @summary Queries security suggestions for API assets.
+ * @summary Queries the protection suggestions for APIs.
  *
  * @param request DescribeApisecSuggestionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4237,7 +4237,7 @@ DescribeApisecSuggestionsResponse Client::describeApisecSuggestionsWithOptions(c
 }
 
 /**
- * @summary Queries security suggestions for API assets.
+ * @summary Queries the protection suggestions for APIs.
  *
  * @param request DescribeApisecSuggestionsRequest
  * @return DescribeApisecSuggestionsResponse
@@ -4248,7 +4248,7 @@ DescribeApisecSuggestionsResponse Client::describeApisecSuggestions(const Descri
 }
 
 /**
- * @summary Queries user operation records for API security of Web Application Firewall (WAF).
+ * @summary Queries user operation records in the API security module.
  *
  * @param request DescribeApisecUserOperationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4299,7 +4299,7 @@ DescribeApisecUserOperationsResponse Client::describeApisecUserOperationsWithOpt
 }
 
 /**
- * @summary Queries user operation records for API security of Web Application Firewall (WAF).
+ * @summary Queries user operation records in the API security module.
  *
  * @param request DescribeApisecUserOperationsRequest
  * @return DescribeApisecUserOperationsResponse
@@ -4310,7 +4310,7 @@ DescribeApisecUserOperationsResponse Client::describeApisecUserOperations(const 
 }
 
 /**
- * @summary Queries paged records of ruleset changes.
+ * @summary 分页查询基础防护规则集变化记录
  *
  * @param request DescribeBaseRuleChangeLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4361,7 +4361,7 @@ DescribeBaseRuleChangeLogResponse Client::describeBaseRuleChangeLogWithOptions(c
 }
 
 /**
- * @summary Queries paged records of ruleset changes.
+ * @summary 分页查询基础防护规则集变化记录
  *
  * @param request DescribeBaseRuleChangeLogRequest
  * @return DescribeBaseRuleChangeLogResponse
@@ -4372,7 +4372,7 @@ DescribeBaseRuleChangeLogResponse Client::describeBaseRuleChangeLog(const Descri
 }
 
 /**
- * @summary Queries the system rules for Web Application Firewall (WAF) protection.
+ * @summary 查询基础防护系统规则集
  *
  * @param request DescribeBaseSystemRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4451,7 +4451,7 @@ DescribeBaseSystemRulesResponse Client::describeBaseSystemRulesWithOptions(const
 }
 
 /**
- * @summary Queries the system rules for Web Application Firewall (WAF) protection.
+ * @summary 查询基础防护系统规则集
  *
  * @param request DescribeBaseSystemRulesRequest
  * @return DescribeBaseSystemRulesResponse
@@ -4462,7 +4462,7 @@ DescribeBaseSystemRulesResponse Client::describeBaseSystemRules(const DescribeBa
 }
 
 /**
- * @summary Queries the AppKey for bot management.
+ * @summary 分页查询防护模板
  *
  * @param request DescribeBotAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4505,7 +4505,7 @@ DescribeBotAppKeyResponse Client::describeBotAppKeyWithOptions(const DescribeBot
 }
 
 /**
- * @summary Queries the AppKey for bot management.
+ * @summary 分页查询防护模板
  *
  * @param request DescribeBotAppKeyRequest
  * @return DescribeBotAppKeyResponse
@@ -4516,7 +4516,7 @@ DescribeBotAppKeyResponse Client::describeBotAppKey(const DescribeBotAppKeyReque
 }
 
 /**
- * @summary Queries the labels of bot management rules.
+ * @summary 分页获取Bot管理规则标签信息
  *
  * @param request DescribeBotRuleLabelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4571,7 +4571,7 @@ DescribeBotRuleLabelsResponse Client::describeBotRuleLabelsWithOptions(const Des
 }
 
 /**
- * @summary Queries the labels of bot management rules.
+ * @summary 分页获取Bot管理规则标签信息
  *
  * @param request DescribeBotRuleLabelsRequest
  * @return DescribeBotRuleLabelsResponse
@@ -4582,7 +4582,7 @@ DescribeBotRuleLabelsResponse Client::describeBotRuleLabels(const DescribeBotRul
 }
 
 /**
- * @summary Retrieves certificate details, including the certificate name, expiration time, issuance time, and associated domain name.
+ * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
  *
  * @param request DescribeCertDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4625,7 +4625,7 @@ DescribeCertDetailResponse Client::describeCertDetailWithOptions(const DescribeC
 }
 
 /**
- * @summary Retrieves certificate details, including the certificate name, expiration time, issuance time, and associated domain name.
+ * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
  *
  * @param request DescribeCertDetailRequest
  * @return DescribeCertDetailResponse
@@ -4636,7 +4636,7 @@ DescribeCertDetailResponse Client::describeCertDetail(const DescribeCertDetailRe
 }
 
 /**
- * @summary Retrieves the list of certificates for a user.
+ * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeCertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4691,7 +4691,7 @@ DescribeCertsResponse Client::describeCertsWithOptions(const DescribeCertsReques
 }
 
 /**
- * @summary Retrieves the list of certificates for a user.
+ * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeCertsRequest
  * @return DescribeCertsResponse
@@ -4702,7 +4702,7 @@ DescribeCertsResponse Client::describeCerts(const DescribeCertsRequest &request)
 }
 
 /**
- * @summary Retrieves the billing module information of Web Application Firewall (WAF).
+ * @summary 查询WAF计价模块信息
  *
  * @param request DescribeChargeModuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4741,7 +4741,7 @@ DescribeChargeModuleResponse Client::describeChargeModuleWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the billing module information of Web Application Firewall (WAF).
+ * @summary 查询WAF计价模块信息
  *
  * @param request DescribeChargeModuleRequest
  * @return DescribeChargeModuleResponse
@@ -4752,7 +4752,7 @@ DescribeChargeModuleResponse Client::describeChargeModule(const DescribeChargeMo
 }
 
 /**
- * @summary Queries the billing results for Web Application Firewall (WAF).
+ * @summary 查询WAF计价模块的计价结果
  *
  * @param request DescribeChargeResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4799,7 +4799,7 @@ DescribeChargeResultResponse Client::describeChargeResultWithOptions(const Descr
 }
 
 /**
- * @summary Queries the billing results for Web Application Firewall (WAF).
+ * @summary 查询WAF计价模块的计价结果
  *
  * @param request DescribeChargeResultRequest
  * @return DescribeChargeResultResponse
@@ -4810,7 +4810,7 @@ DescribeChargeResultResponse Client::describeChargeResult(const DescribeChargeRe
 }
 
 /**
- * @summary Retrieves port details of cloud service instances onboarded to Web Application Firewall (WAF).
+ * @summary Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
  *
  * @param request DescribeCloudResourceAccessPortDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4873,7 +4873,7 @@ DescribeCloudResourceAccessPortDetailsResponse Client::describeCloudResourceAcce
 }
 
 /**
- * @summary Retrieves port details of cloud service instances onboarded to Web Application Firewall (WAF).
+ * @summary Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
  *
  * @param request DescribeCloudResourceAccessPortDetailsRequest
  * @return DescribeCloudResourceAccessPortDetailsResponse
@@ -4884,7 +4884,7 @@ DescribeCloudResourceAccessPortDetailsResponse Client::describeCloudResourceAcce
 }
 
 /**
- * @summary Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+ * @summary Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
  *
  * @param request DescribeCloudResourceAccessedPortsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4927,7 +4927,7 @@ DescribeCloudResourceAccessedPortsResponse Client::describeCloudResourceAccessed
 }
 
 /**
- * @summary Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+ * @summary Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
  *
  * @param request DescribeCloudResourceAccessedPortsRequest
  * @return DescribeCloudResourceAccessedPortsResponse
@@ -4938,7 +4938,7 @@ DescribeCloudResourceAccessedPortsResponse Client::describeCloudResourceAccessed
 }
 
 /**
- * @summary Queries a list of resources added to Web Application Firewall (WAF) in cloud native mode.
+ * @summary 查询云产品接入资源列表
  *
  * @param request DescribeCloudResourceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5005,7 +5005,7 @@ DescribeCloudResourceListResponse Client::describeCloudResourceListWithOptions(c
 }
 
 /**
- * @summary Queries a list of resources added to Web Application Firewall (WAF) in cloud native mode.
+ * @summary 查询云产品接入资源列表
  *
  * @param request DescribeCloudResourceListRequest
  * @return DescribeCloudResourceListResponse
@@ -5016,7 +5016,7 @@ DescribeCloudResourceListResponse Client::describeCloudResourceList(const Descri
 }
 
 /**
- * @summary Queries the list of cloud services added to Web Application Firewall (WAF).
+ * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeCloudResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5099,7 +5099,7 @@ DescribeCloudResourcesResponse Client::describeCloudResourcesWithOptions(const D
 }
 
 /**
- * @summary Queries the list of cloud services added to Web Application Firewall (WAF).
+ * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeCloudResourcesRequest
  * @return DescribeCloudResourcesResponse
@@ -5110,7 +5110,7 @@ DescribeCloudResourcesResponse Client::describeCloudResources(const DescribeClou
 }
 
 /**
- * @summary Queries the total number of domain names added to WAF, including those in canonical name (CNAME) mode and hybrid cloud mode.
+ * @summary Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
  *
  * @param request DescribeCnameCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5149,7 +5149,7 @@ DescribeCnameCountResponse Client::describeCnameCountWithOptions(const DescribeC
 }
 
 /**
- * @summary Queries the total number of domain names added to WAF, including those in canonical name (CNAME) mode and hybrid cloud mode.
+ * @summary Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
  *
  * @param request DescribeCnameCountRequest
  * @return DescribeCnameCountResponse
@@ -5160,7 +5160,7 @@ DescribeCnameCountResponse Client::describeCnameCount(const DescribeCnameCountRe
 }
 
 /**
- * @summary Queries all log fields supported by Simple Log Service for Web Application Firewall (WAF).
+ * @summary 查询日志服务支持的所有字段
  *
  * @param tmpReq DescribeCommonLogFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5217,7 +5217,7 @@ DescribeCommonLogFieldsResponse Client::describeCommonLogFieldsWithOptions(const
 }
 
 /**
- * @summary Queries all log fields supported by Simple Log Service for Web Application Firewall (WAF).
+ * @summary 查询日志服务支持的所有字段
  *
  * @param request DescribeCommonLogFieldsRequest
  * @return DescribeCommonLogFieldsResponse
@@ -5228,7 +5228,7 @@ DescribeCommonLogFieldsResponse Client::describeCommonLogFields(const DescribeCo
 }
 
 /**
- * @summary Describes the compilation result of a custom regular expression rule.
+ * @summary 查询自定义正则规则编译结果
  *
  * @param request DescribeCustomBaseRuleCompileResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5267,7 +5267,7 @@ DescribeCustomBaseRuleCompileResultResponse Client::describeCustomBaseRuleCompil
 }
 
 /**
- * @summary Describes the compilation result of a custom regular expression rule.
+ * @summary 查询自定义正则规则编译结果
  *
  * @param request DescribeCustomBaseRuleCompileResultRequest
  * @return DescribeCustomBaseRuleCompileResultResponse
@@ -5278,7 +5278,7 @@ DescribeCustomBaseRuleCompileResultResponse Client::describeCustomBaseRuleCompil
 }
 
 /**
- * @summary Checks whether the current WAF instance is under a Distributed Denial of Service (DDoS) attack.
+ * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
  *
  * @param request DescribeDDoSStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5317,7 +5317,7 @@ DescribeDDoSStatusResponse Client::describeDDoSStatusWithOptions(const DescribeD
 }
 
 /**
- * @summary Checks whether the current WAF instance is under a Distributed Denial of Service (DDoS) attack.
+ * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
  *
  * @param request DescribeDDoSStatusRequest
  * @return DescribeDDoSStatusResponse
@@ -5328,7 +5328,7 @@ DescribeDDoSStatusResponse Client::describeDDoSStatus(const DescribeDDoSStatusRe
 }
 
 /**
- * @summary Queries the default SSL/TLS settings of a Web Application Firewall (WAF) instance.
+ * @summary Queries the default SSL and Transport Layer Security (TLS) settings.
  *
  * @param request DescribeDefaultHttpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5367,7 +5367,7 @@ DescribeDefaultHttpsResponse Client::describeDefaultHttpsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the default SSL/TLS settings of a Web Application Firewall (WAF) instance.
+ * @summary Queries the default SSL and Transport Layer Security (TLS) settings.
  *
  * @param request DescribeDefaultHttpsRequest
  * @return DescribeDefaultHttpsResponse
@@ -5378,7 +5378,7 @@ DescribeDefaultHttpsResponse Client::describeDefaultHttps(const DescribeDefaultH
 }
 
 /**
- * @summary Queries a paginated list of protected objects that can be associated with a defense group.
+ * @summary 分页查询可以被防护组绑定的防护对象列表
  *
  * @param request DescribeDefenseGroupValidResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5433,7 +5433,7 @@ DescribeDefenseGroupValidResourcesResponse Client::describeDefenseGroupValidReso
 }
 
 /**
- * @summary Queries a paginated list of protected objects that can be associated with a defense group.
+ * @summary 分页查询可以被防护组绑定的防护对象列表
  *
  * @param request DescribeDefenseGroupValidResourcesRequest
  * @return DescribeDefenseGroupValidResourcesResponse
@@ -5444,7 +5444,7 @@ DescribeDefenseGroupValidResourcesResponse Client::describeDefenseGroupValidReso
 }
 
 /**
- * @summary Retrieves the details of a protected object.
+ * @summary Queries the information about a protected object.
  *
  * @param request DescribeDefenseResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5487,7 +5487,7 @@ DescribeDefenseResourceResponse Client::describeDefenseResourceWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of a protected object.
+ * @summary Queries the information about a protected object.
  *
  * @param request DescribeDefenseResourceRequest
  * @return DescribeDefenseResourceResponse
@@ -5498,7 +5498,7 @@ DescribeDefenseResourceResponse Client::describeDefenseResource(const DescribeDe
 }
 
 /**
- * @summary Retrieves the details of a protected object group.
+ * @summary Queries the information about a protected object group.
  *
  * @param request DescribeDefenseResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5541,7 +5541,7 @@ DescribeDefenseResourceGroupResponse Client::describeDefenseResourceGroupWithOpt
 }
 
 /**
- * @summary Retrieves the details of a protected object group.
+ * @summary Queries the information about a protected object group.
  *
  * @param request DescribeDefenseResourceGroupRequest
  * @return DescribeDefenseResourceGroupResponse
@@ -5614,7 +5614,7 @@ DescribeDefenseResourceGroupNamesResponse Client::describeDefenseResourceGroupNa
 }
 
 /**
- * @summary Retrieves information about protected object groups using pagination.
+ * @summary Performs a pagination query to retrieve the information about protected object groups.
  *
  * @param request DescribeDefenseResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5669,7 +5669,7 @@ DescribeDefenseResourceGroupsResponse Client::describeDefenseResourceGroupsWithO
 }
 
 /**
- * @summary Retrieves information about protected object groups using pagination.
+ * @summary Performs a pagination query to retrieve the information about protected object groups.
  *
  * @param request DescribeDefenseResourceGroupsRequest
  * @return DescribeDefenseResourceGroupsResponse
@@ -5742,7 +5742,7 @@ DescribeDefenseResourceNamesResponse Client::describeDefenseResourceNames(const 
 }
 
 /**
- * @summary Queries the asset owner account of protected objects in multi-account management scenarios.
+ * @summary 查询防护对象和所属资源的关系
  *
  * @param request DescribeDefenseResourceOwnerUidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5785,7 +5785,7 @@ DescribeDefenseResourceOwnerUidResponse Client::describeDefenseResourceOwnerUidW
 }
 
 /**
- * @summary Queries the asset owner account of protected objects in multi-account management scenarios.
+ * @summary 查询防护对象和所属资源的关系
  *
  * @param request DescribeDefenseResourceOwnerUidRequest
  * @return DescribeDefenseResourceOwnerUidResponse
@@ -5796,7 +5796,7 @@ DescribeDefenseResourceOwnerUidResponse Client::describeDefenseResourceOwnerUid(
 }
 
 /**
- * @summary Queries the protection templates associated with a protected object or protected object group.
+ * @summary Queries the protection templates that are associated with a protected object or protected object group.
  *
  * @param request DescribeDefenseResourceTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5859,7 +5859,7 @@ DescribeDefenseResourceTemplatesResponse Client::describeDefenseResourceTemplate
 }
 
 /**
- * @summary Queries the protection templates associated with a protected object or protected object group.
+ * @summary Queries the protection templates that are associated with a protected object or protected object group.
  *
  * @param request DescribeDefenseResourceTemplatesRequest
  * @return DescribeDefenseResourceTemplatesResponse
@@ -5870,7 +5870,7 @@ DescribeDefenseResourceTemplatesResponse Client::describeDefenseResourceTemplate
 }
 
 /**
- * @summary Queries a list of protected objects.
+ * @summary Queries protected objects by page.
  *
  * @param request DescribeDefenseResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5925,7 +5925,7 @@ DescribeDefenseResourcesResponse Client::describeDefenseResourcesWithOptions(con
 }
 
 /**
- * @summary Queries a list of protected objects.
+ * @summary Queries protected objects by page.
  *
  * @param request DescribeDefenseResourcesRequest
  * @return DescribeDefenseResourcesResponse
@@ -5936,7 +5936,7 @@ DescribeDefenseResourcesResponse Client::describeDefenseResources(const Describe
 }
 
 /**
- * @summary Retrieves the details of a specified protection rule.
+ * @summary Queries a protection rule.
  *
  * @param request DescribeDefenseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5991,7 +5991,7 @@ DescribeDefenseRuleResponse Client::describeDefenseRuleWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the details of a specified protection rule.
+ * @summary Queries a protection rule.
  *
  * @param request DescribeDefenseRuleRequest
  * @return DescribeDefenseRuleResponse
@@ -6002,7 +6002,7 @@ DescribeDefenseRuleResponse Client::describeDefenseRule(const DescribeDefenseRul
 }
 
 /**
- * @summary Queries the statistics of rules in a specified Web Application Firewall (WAF) protection module.
+ * @summary 查询防护规则的统计信息
  *
  * @param request DescribeDefenseRuleStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6061,7 +6061,7 @@ DescribeDefenseRuleStatisticsResponse Client::describeDefenseRuleStatisticsWithO
 }
 
 /**
- * @summary Queries the statistics of rules in a specified Web Application Firewall (WAF) protection module.
+ * @summary 查询防护规则的统计信息
  *
  * @param request DescribeDefenseRuleStatisticsRequest
  * @return DescribeDefenseRuleStatisticsResponse
@@ -6072,7 +6072,7 @@ DescribeDefenseRuleStatisticsResponse Client::describeDefenseRuleStatistics(cons
 }
 
 /**
- * @summary Queries a paginated list of protection rules.
+ * @summary Queries protection rules by page.
  *
  * @param request DescribeDefenseRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6131,7 +6131,7 @@ DescribeDefenseRulesResponse Client::describeDefenseRulesWithOptions(const Descr
 }
 
 /**
- * @summary Queries a paginated list of protection rules.
+ * @summary Queries protection rules by page.
  *
  * @param request DescribeDefenseRulesRequest
  * @return DescribeDefenseRulesResponse
@@ -6142,7 +6142,7 @@ DescribeDefenseRulesResponse Client::describeDefenseRules(const DescribeDefenseR
 }
 
 /**
- * @summary Queries the protection configurations for a specific defense scenario.
+ * @summary 查询用户防护场景的配置
  *
  * @param request DescribeDefenseSceneConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6189,7 +6189,7 @@ DescribeDefenseSceneConfigResponse Client::describeDefenseSceneConfigWithOptions
 }
 
 /**
- * @summary Queries the protection configurations for a specific defense scenario.
+ * @summary 查询用户防护场景的配置
  *
  * @param request DescribeDefenseSceneConfigRequest
  * @return DescribeDefenseSceneConfigResponse
@@ -6200,7 +6200,7 @@ DescribeDefenseSceneConfigResponse Client::describeDefenseSceneConfig(const Desc
 }
 
 /**
- * @summary Retrieves the details of a specific protection template.
+ * @summary Queries a protection rule template.
  *
  * @param request DescribeDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6243,7 +6243,7 @@ DescribeDefenseTemplateResponse Client::describeDefenseTemplateWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of a specific protection template.
+ * @summary Queries a protection rule template.
  *
  * @param request DescribeDefenseTemplateRequest
  * @return DescribeDefenseTemplateResponse
@@ -6254,7 +6254,7 @@ DescribeDefenseTemplateResponse Client::describeDefenseTemplate(const DescribeDe
 }
 
 /**
- * @summary Queries the names of protected object groups that can be associated with a specific protection template.
+ * @summary Queries the names of protected object groups for which a protection template can take effect.
  *
  * @param request DescribeDefenseTemplateValidGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6313,7 +6313,7 @@ DescribeDefenseTemplateValidGroupsResponse Client::describeDefenseTemplateValidG
 }
 
 /**
- * @summary Queries the names of protected object groups that can be associated with a specific protection template.
+ * @summary Queries the names of protected object groups for which a protection template can take effect.
  *
  * @param request DescribeDefenseTemplateValidGroupsRequest
  * @return DescribeDefenseTemplateValidGroupsResponse
@@ -6324,7 +6324,7 @@ DescribeDefenseTemplateValidGroupsResponse Client::describeDefenseTemplateValidG
 }
 
 /**
- * @summary Queries a paginated list of protected objects that are valid for a specified protection template.
+ * @summary 分页查询可以被自定义模板绑定的防护对象列表
  *
  * @param request DescribeDefenseTemplateValidResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6383,7 +6383,7 @@ DescribeDefenseTemplateValidResourcesResponse Client::describeDefenseTemplateVal
 }
 
 /**
- * @summary Queries a paginated list of protected objects that are valid for a specified protection template.
+ * @summary 分页查询可以被自定义模板绑定的防护对象列表
  *
  * @param request DescribeDefenseTemplateValidResourcesRequest
  * @return DescribeDefenseTemplateValidResourcesResponse
@@ -6394,7 +6394,7 @@ DescribeDefenseTemplateValidResourcesResponse Client::describeDefenseTemplateVal
 }
 
 /**
- * @summary Retrieves a paginated list of protection templates.
+ * @summary Performs a paging query to retrieve protection templates.
  *
  * @param request DescribeDefenseTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6473,7 +6473,7 @@ DescribeDefenseTemplatesResponse Client::describeDefenseTemplatesWithOptions(con
 }
 
 /**
- * @summary Retrieves a paginated list of protection templates.
+ * @summary Performs a paging query to retrieve protection templates.
  *
  * @param request DescribeDefenseTemplatesRequest
  * @return DescribeDefenseTemplatesResponse
@@ -6484,7 +6484,7 @@ DescribeDefenseTemplatesResponse Client::describeDefenseTemplates(const Describe
 }
 
 /**
- * @summary Verifies that the DNS record of a domain name is correct.
+ * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
  *
  * @param request DescribeDomainDNSRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6527,7 +6527,7 @@ DescribeDomainDNSRecordResponse Client::describeDomainDNSRecordWithOptions(const
 }
 
 /**
- * @summary Verifies that the DNS record of a domain name is correct.
+ * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
  *
  * @param request DescribeDomainDNSRecordRequest
  * @return DescribeDomainDNSRecordResponse
@@ -6538,7 +6538,7 @@ DescribeDomainDNSRecordResponse Client::describeDomainDNSRecord(const DescribeDo
 }
 
 /**
- * @summary Retrieves the access configuration details of a domain name onboarded to Web Application Firewall (WAF).
+ * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
  *
  * @param request DescribeDomainDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6581,7 +6581,7 @@ DescribeDomainDetailResponse Client::describeDomainDetailWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the access configuration details of a domain name onboarded to Web Application Firewall (WAF).
+ * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
  *
  * @param request DescribeDomainDetailRequest
  * @return DescribeDomainDetailResponse
@@ -6592,7 +6592,7 @@ DescribeDomainDetailResponse Client::describeDomainDetail(const DescribeDomainDe
 }
 
 /**
- * @summary Queries the ports used by all domain names that are added in CNAME record mode and hybrid cloud mode with public network disaster recovery enabled.
+ * @summary 查询域名已使用的端口
  *
  * @param request DescribeDomainUsedPortsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6627,7 +6627,7 @@ DescribeDomainUsedPortsResponse Client::describeDomainUsedPortsWithOptions(const
 }
 
 /**
- * @summary Queries the ports used by all domain names that are added in CNAME record mode and hybrid cloud mode with public network disaster recovery enabled.
+ * @summary 查询域名已使用的端口
  *
  * @param request DescribeDomainUsedPortsRequest
  * @return DescribeDomainUsedPortsResponse
@@ -6712,7 +6712,7 @@ DescribeDomainsResponse Client::describeDomains(const DescribeDomainsRequest &re
 }
 
 /**
- * @summary Queries the daily bills for WAF on-demand instances for the last 7 days.
+ * @summary Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
  *
  * @param request DescribeElasticBillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6759,7 +6759,7 @@ DescribeElasticBillsResponse Client::describeElasticBillsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the daily bills for WAF on-demand instances for the last 7 days.
+ * @summary Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
  *
  * @param request DescribeElasticBillsRequest
  * @return DescribeElasticBillsResponse
@@ -6770,7 +6770,7 @@ DescribeElasticBillsResponse Client::describeElasticBills(const DescribeElasticB
 }
 
 /**
- * @summary Queries the traffic statistics.
+ * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
  *
  * @param request DescribeFlowChartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6825,7 +6825,7 @@ DescribeFlowChartResponse Client::describeFlowChartWithOptions(const DescribeFlo
 }
 
 /**
- * @summary Queries the traffic statistics.
+ * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
  *
  * @param request DescribeFlowChartRequest
  * @return DescribeFlowChartResponse
@@ -6836,7 +6836,7 @@ DescribeFlowChartResponse Client::describeFlowChart(const DescribeFlowChartReque
 }
 
 /**
- * @summary Queries the top 10 protected objects by request count.
+ * @summary Queries the top 10 protected objects that receive requests.
  *
  * @param request DescribeFlowTopResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6883,7 +6883,7 @@ DescribeFlowTopResourceResponse Client::describeFlowTopResourceWithOptions(const
 }
 
 /**
- * @summary Queries the top 10 protected objects by request count.
+ * @summary Queries the top 10 protected objects that receive requests.
  *
  * @param request DescribeFlowTopResourceRequest
  * @return DescribeFlowTopResourceResponse
@@ -6894,7 +6894,7 @@ DescribeFlowTopResourceResponse Client::describeFlowTopResource(const DescribeFl
 }
 
 /**
- * @summary Queries the top 10 most requested URLs.
+ * @summary Queries the top 10 URLs that are used to initiate requests.
  *
  * @param request DescribeFlowTopUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6945,7 +6945,7 @@ DescribeFlowTopUrlResponse Client::describeFlowTopUrlWithOptions(const DescribeF
 }
 
 /**
- * @summary Queries the top 10 most requested URLs.
+ * @summary Queries the top 10 URLs that are used to initiate requests.
  *
  * @param request DescribeFlowTopUrlRequest
  * @return DescribeFlowTopUrlResponse
@@ -6956,7 +6956,7 @@ DescribeFlowTopUrlResponse Client::describeFlowTopUrl(const DescribeFlowTopUrlRe
 }
 
 /**
- * @summary Queries statistics information about assets detected by the basic API security feature.
+ * @summary Queries the asset statistics provided by basic detection in the API security module.
  *
  * @param request DescribeFreeUserAssetCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6995,7 +6995,7 @@ DescribeFreeUserAssetCountResponse Client::describeFreeUserAssetCountWithOptions
 }
 
 /**
- * @summary Queries statistics information about assets detected by the basic API security feature.
+ * @summary Queries the asset statistics provided by basic detection in the API security module.
  *
  * @param request DescribeFreeUserAssetCountRequest
  * @return DescribeFreeUserAssetCountResponse
@@ -7006,7 +7006,7 @@ DescribeFreeUserAssetCountResponse Client::describeFreeUserAssetCount(const Desc
 }
 
 /**
- * @summary Queries statistics about security events detected by basic API security checks.
+ * @summary Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
  *
  * @param request DescribeFreeUserEventCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7045,7 +7045,7 @@ DescribeFreeUserEventCountResponse Client::describeFreeUserEventCountWithOptions
 }
 
 /**
- * @summary Queries statistics about security events detected by basic API security checks.
+ * @summary Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
  *
  * @param request DescribeFreeUserEventCountRequest
  * @return DescribeFreeUserEventCountResponse
@@ -7056,7 +7056,7 @@ DescribeFreeUserEventCountResponse Client::describeFreeUserEventCount(const Desc
 }
 
 /**
- * @summary Queries the types of security events for basic API security detection.
+ * @summary Queries the types of security events on which basic detection is performed in the API security module.
  *
  * @param request DescribeFreeUserEventTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7095,7 +7095,7 @@ DescribeFreeUserEventTypesResponse Client::describeFreeUserEventTypesWithOptions
 }
 
 /**
- * @summary Queries the types of security events for basic API security detection.
+ * @summary Queries the types of security events on which basic detection is performed in the API security module.
  *
  * @param request DescribeFreeUserEventTypesRequest
  * @return DescribeFreeUserEventTypesResponse
@@ -7106,7 +7106,7 @@ DescribeFreeUserEventTypesResponse Client::describeFreeUserEventTypes(const Desc
 }
 
 /**
- * @summary Queries security events detected by the basic API security scan.
+ * @summary Queries the list of security events on which basic detection is performed in the API security module.
  *
  * @param request DescribeFreeUserEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7145,7 +7145,7 @@ DescribeFreeUserEventsResponse Client::describeFreeUserEventsWithOptions(const D
 }
 
 /**
- * @summary Queries security events detected by the basic API security scan.
+ * @summary Queries the list of security events on which basic detection is performed in the API security module.
  *
  * @param request DescribeFreeUserEventsRequest
  * @return DescribeFreeUserEventsResponse
@@ -7210,7 +7210,7 @@ DescribeHybridCloudBasicMonitorResponse Client::describeHybridCloudBasicMonitor(
 }
 
 /**
- * @summary Retrieves a hybrid cloud cluster rule.
+ * @summary Obtains the rule information about a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudClusterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7237,7 +7237,7 @@ DescribeHybridCloudClusterRuleResponse Client::describeHybridCloudClusterRuleWit
 }
 
 /**
- * @summary Retrieves a hybrid cloud cluster rule.
+ * @summary Obtains the rule information about a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudClusterRuleRequest
  * @return DescribeHybridCloudClusterRuleResponse
@@ -7248,7 +7248,7 @@ DescribeHybridCloudClusterRuleResponse Client::describeHybridCloudClusterRule(co
 }
 
 /**
- * @summary Cluster rules
+ * @summary 集群规则列表
  *
  * @param request DescribeHybridCloudClusterRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7311,7 +7311,7 @@ DescribeHybridCloudClusterRulesResponse Client::describeHybridCloudClusterRulesW
 }
 
 /**
- * @summary Cluster rules
+ * @summary 集群规则列表
  *
  * @param request DescribeHybridCloudClusterRulesRequest
  * @return DescribeHybridCloudClusterRulesResponse
@@ -7322,7 +7322,7 @@ DescribeHybridCloudClusterRulesResponse Client::describeHybridCloudClusterRules(
 }
 
 /**
- * @summary Queries the servers in a hybrid cloud Web Application Firewall (WAF) cluster.
+ * @summary 集群机器列表
  *
  * @param request DescribeHybridCloudClusterServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7389,7 +7389,7 @@ DescribeHybridCloudClusterServersResponse Client::describeHybridCloudClusterServ
 }
 
 /**
- * @summary Queries the servers in a hybrid cloud Web Application Firewall (WAF) cluster.
+ * @summary 集群机器列表
  *
  * @param request DescribeHybridCloudClusterServersRequest
  * @return DescribeHybridCloudClusterServersResponse
@@ -7450,7 +7450,7 @@ DescribeHybridCloudClustersResponse Client::describeHybridCloudClusters(const De
 }
 
 /**
- * @summary Queries the Hybrid Cloud WAF node groups that are added to Web Application Firewall (WAF).
+ * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeHybridCloudGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7513,7 +7513,7 @@ DescribeHybridCloudGroupsResponse Client::describeHybridCloudGroupsWithOptions(c
 }
 
 /**
- * @summary Queries the Hybrid Cloud WAF node groups that are added to Web Application Firewall (WAF).
+ * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
  *
  * @param request DescribeHybridCloudGroupsRequest
  * @return DescribeHybridCloudGroupsResponse
@@ -7524,7 +7524,7 @@ DescribeHybridCloudGroupsResponse Client::describeHybridCloudGroups(const Descri
 }
 
 /**
- * @summary Queries the status of applications on nodes in a hybrid cloud Web Application Firewall (WAF) cluster.
+ * @summary Queries the status of applications running on a hybrid cloud cluster node.
  *
  * @param request DescribeHybridCloudProcessMonitorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7567,7 +7567,7 @@ DescribeHybridCloudProcessMonitorResponse Client::describeHybridCloudProcessMoni
 }
 
 /**
- * @summary Queries the status of applications on nodes in a hybrid cloud Web Application Firewall (WAF) cluster.
+ * @summary Queries the status of applications running on a hybrid cloud cluster node.
  *
  * @param request DescribeHybridCloudProcessMonitorRequest
  * @return DescribeHybridCloudProcessMonitorResponse
@@ -7578,7 +7578,7 @@ DescribeHybridCloudProcessMonitorResponse Client::describeHybridCloudProcessMoni
 }
 
 /**
- * @summary Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
+ * @summary Queries the number of protection nodes that can be added to a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudProtectableCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7617,7 +7617,7 @@ DescribeHybridCloudProtectableCountResponse Client::describeHybridCloudProtectab
 }
 
 /**
- * @summary Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
+ * @summary Queries the number of protection nodes that can be added to a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudProtectableCountRequest
  * @return DescribeHybridCloudProtectableCountResponse
@@ -7628,7 +7628,7 @@ DescribeHybridCloudProtectableCountResponse Client::describeHybridCloudProtectab
 }
 
 /**
- * @summary Queries the details of a hybrid cloud domain name.
+ * @summary 查询混合云域名详情
  *
  * @param request DescribeHybridCloudResourceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7687,7 +7687,7 @@ DescribeHybridCloudResourceDetailResponse Client::describeHybridCloudResourceDet
 }
 
 /**
- * @summary Queries the details of a hybrid cloud domain name.
+ * @summary 查询混合云域名详情
  *
  * @param request DescribeHybridCloudResourceDetailRequest
  * @return DescribeHybridCloudResourceDetailResponse
@@ -7698,7 +7698,7 @@ DescribeHybridCloudResourceDetailResponse Client::describeHybridCloudResourceDet
 }
 
 /**
- * @summary Queries the domain names that are added to Web Application Firewall (WAF) in hybrid cloud mode.
+ * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
  *
  * @param request DescribeHybridCloudResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7757,7 +7757,7 @@ DescribeHybridCloudResourcesResponse Client::describeHybridCloudResourcesWithOpt
 }
 
 /**
- * @summary Queries the domain names that are added to Web Application Firewall (WAF) in hybrid cloud mode.
+ * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
  *
  * @param request DescribeHybridCloudResourcesRequest
  * @return DescribeHybridCloudResourcesResponse
@@ -7768,7 +7768,7 @@ DescribeHybridCloudResourcesResponse Client::describeHybridCloudResources(const 
 }
 
 /**
- * @summary Queries the hybrid cloud SDK servers that are managed by a Web Application Firewall (WAF) instance.
+ * @summary 获取SDK信息
  *
  * @param request DescribeHybridCloudSdkServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7827,7 +7827,7 @@ DescribeHybridCloudSdkServersResponse Client::describeHybridCloudSdkServersWithO
 }
 
 /**
- * @summary Queries the hybrid cloud SDK servers that are managed by a Web Application Firewall (WAF) instance.
+ * @summary 获取SDK信息
  *
  * @param request DescribeHybridCloudSdkServersRequest
  * @return DescribeHybridCloudSdkServersResponse
@@ -7838,7 +7838,7 @@ DescribeHybridCloudSdkServersResponse Client::describeHybridCloudSdkServers(cons
 }
 
 /**
- * @summary Queries hybrid cloud server regions, including carriers, continents, and cities.
+ * @summary Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
  *
  * @param request DescribeHybridCloudServerRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7885,7 +7885,7 @@ DescribeHybridCloudServerRegionsResponse Client::describeHybridCloudServerRegion
 }
 
 /**
- * @summary Queries hybrid cloud server regions, including carriers, continents, and cities.
+ * @summary Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
  *
  * @param request DescribeHybridCloudServerRegionsRequest
  * @return DescribeHybridCloudServerRegionsResponse
@@ -7896,7 +7896,7 @@ DescribeHybridCloudServerRegionsResponse Client::describeHybridCloudServerRegion
 }
 
 /**
- * @summary Queries the regions that are supported for hybrid cloud access in Web Application Firewall (WAF).
+ * @summary 查询接入区域
  *
  * @param request DescribeHybridCloudSupportRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7935,7 +7935,7 @@ DescribeHybridCloudSupportRegionsResponse Client::describeHybridCloudSupportRegi
 }
 
 /**
- * @summary Queries the regions that are supported for hybrid cloud access in Web Application Firewall (WAF).
+ * @summary 查询接入区域
  *
  * @param request DescribeHybridCloudSupportRegionsRequest
  * @return DescribeHybridCloudSupportRegionsResponse
@@ -7946,7 +7946,7 @@ DescribeHybridCloudSupportRegionsResponse Client::describeHybridCloudSupportRegi
 }
 
 /**
- * @summary Queries the list of unassigned servers in a hybrid cloud cluster.
+ * @summary Queries servers that are not assigned to a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudUnassignedMachinesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8005,7 +8005,7 @@ DescribeHybridCloudUnassignedMachinesResponse Client::describeHybridCloudUnassig
 }
 
 /**
- * @summary Queries the list of unassigned servers in a hybrid cloud cluster.
+ * @summary Queries servers that are not assigned to a hybrid cloud cluster.
  *
  * @param request DescribeHybridCloudUnassignedMachinesRequest
  * @return DescribeHybridCloudUnassignedMachinesResponse
@@ -8016,7 +8016,7 @@ DescribeHybridCloudUnassignedMachinesResponse Client::describeHybridCloudUnassig
 }
 
 /**
- * @summary Queries the list of unsupported ports for a hybrid cloud.
+ * @summary Queries the ports that are not supported by the hybrid cloud mode.
  *
  * @param request DescribeHybridCloudUnsupportPortsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8055,7 +8055,7 @@ DescribeHybridCloudUnsupportPortsResponse Client::describeHybridCloudUnsupportPo
 }
 
 /**
- * @summary Queries the list of unsupported ports for a hybrid cloud.
+ * @summary Queries the ports that are not supported by the hybrid cloud mode.
  *
  * @param request DescribeHybridCloudUnsupportPortsRequest
  * @return DescribeHybridCloudUnsupportPortsResponse
@@ -8066,7 +8066,7 @@ DescribeHybridCloudUnsupportPortsResponse Client::describeHybridCloudUnsupportPo
 }
 
 /**
- * @summary Queries the available HTTP and HTTPS port ranges for hybrid cloud access.
+ * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
  *
  * @param request DescribeHybridCloudUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8105,7 +8105,7 @@ DescribeHybridCloudUserResponse Client::describeHybridCloudUserWithOptions(const
 }
 
 /**
- * @summary Queries the available HTTP and HTTPS port ranges for hybrid cloud access.
+ * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
  *
  * @param request DescribeHybridCloudUserRequest
  * @return DescribeHybridCloudUserResponse
@@ -8116,7 +8116,7 @@ DescribeHybridCloudUserResponse Client::describeHybridCloudUser(const DescribeHy
 }
 
 /**
- * @summary Retrieves the details of the Web Application Firewall (WAF) instance in your Alibaba Cloud account.
+ * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8151,7 +8151,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary Retrieves the details of the Web Application Firewall (WAF) instance in your Alibaba Cloud account.
+ * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -8162,7 +8162,7 @@ DescribeInstanceResponse Client::describeInstance(const DescribeInstanceRequest 
 }
 
 /**
- * @summary Retrieves supported countries and regions outside China for IP-based region blacklist.
+ * @summary 获取支持的海外IP区域封禁支持的国际及地域。
  *
  * @param request DescribeIpAbroadCountryInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8221,7 +8221,7 @@ DescribeIpAbroadCountryInfosResponse Client::describeIpAbroadCountryInfosWithOpt
 }
 
 /**
- * @summary Retrieves supported countries and regions outside China for IP-based region blacklist.
+ * @summary 获取支持的海外IP区域封禁支持的国际及地域。
  *
  * @param request DescribeIpAbroadCountryInfosRequest
  * @return DescribeIpAbroadCountryInfosResponse
@@ -8232,7 +8232,7 @@ DescribeIpAbroadCountryInfosResponse Client::describeIpAbroadCountryInfos(const 
 }
 
 /**
- * @summary Queries a single log delivery configuration for a hybrid cloud.
+ * @summary Queries a hybrid cloud log delivery configuration.
  *
  * @param request DescribeLogDeliveryConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8275,7 +8275,7 @@ DescribeLogDeliveryConfigResponse Client::describeLogDeliveryConfigWithOptions(c
 }
 
 /**
- * @summary Queries a single log delivery configuration for a hybrid cloud.
+ * @summary Queries a hybrid cloud log delivery configuration.
  *
  * @param request DescribeLogDeliveryConfigRequest
  * @return DescribeLogDeliveryConfigResponse
@@ -8286,7 +8286,7 @@ DescribeLogDeliveryConfigResponse Client::describeLogDeliveryConfig(const Descri
 }
 
 /**
- * @summary Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
+ * @summary Queries all hybrid cloud log delivery configurations.
  *
  * @param request DescribeLogDeliveryConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8341,7 +8341,7 @@ DescribeLogDeliveryConfigsResponse Client::describeLogDeliveryConfigsWithOptions
 }
 
 /**
- * @summary Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
+ * @summary Queries all hybrid cloud log delivery configurations.
  *
  * @param request DescribeLogDeliveryConfigsRequest
  * @return DescribeLogDeliveryConfigsResponse
@@ -8352,7 +8352,7 @@ DescribeLogDeliveryConfigsResponse Client::describeLogDeliveryConfigs(const Desc
 }
 
 /**
- * @summary Queries the IP address blacklist for critical event protection in a paginated format.
+ * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
  *
  * @param request DescribeMajorProtectionBlackIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8415,7 +8415,7 @@ DescribeMajorProtectionBlackIpsResponse Client::describeMajorProtectionBlackIpsW
 }
 
 /**
- * @summary Queries the IP address blacklist for critical event protection in a paginated format.
+ * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
  *
  * @param request DescribeMajorProtectionBlackIpsRequest
  * @return DescribeMajorProtectionBlackIpsResponse
@@ -8426,7 +8426,7 @@ DescribeMajorProtectionBlackIpsResponse Client::describeMajorProtectionBlackIps(
 }
 
 /**
- * @summary Retrieves all member accounts managed by the WAF multi-account management feature.
+ * @summary Queries information about members.
  *
  * @param request DescribeMemberAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8473,7 +8473,7 @@ DescribeMemberAccountsResponse Client::describeMemberAccountsWithOptions(const D
 }
 
 /**
- * @summary Retrieves all member accounts managed by the WAF multi-account management feature.
+ * @summary Queries information about members.
  *
  * @param request DescribeMemberAccountsRequest
  * @return DescribeMemberAccountsResponse
@@ -8484,7 +8484,7 @@ DescribeMemberAccountsResponse Client::describeMemberAccounts(const DescribeMemb
 }
 
 /**
- * @summary Queries the time series statistics for all traffic. This includes malicious and normal business requests.
+ * @summary Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
  *
  * @param tmpReq DescribeNetworkFlowTimeSeriesMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8537,7 +8537,7 @@ DescribeNetworkFlowTimeSeriesMetricResponse Client::describeNetworkFlowTimeSerie
 }
 
 /**
- * @summary Queries the time series statistics for all traffic. This includes malicious and normal business requests.
+ * @summary Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
  *
  * @param request DescribeNetworkFlowTimeSeriesMetricRequest
  * @return DescribeNetworkFlowTimeSeriesMetricResponse
@@ -8548,7 +8548,7 @@ DescribeNetworkFlowTimeSeriesMetricResponse Client::describeNetworkFlowTimeSerie
 }
 
 /**
- * @summary Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
+ * @summary Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
  *
  * @param tmpReq DescribeNetworkFlowTopNMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8605,7 +8605,7 @@ DescribeNetworkFlowTopNMetricResponse Client::describeNetworkFlowTopNMetricWithO
 }
 
 /**
- * @summary Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
+ * @summary Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
  *
  * @param request DescribeNetworkFlowTopNMetricRequest
  * @return DescribeNetworkFlowTopNMetricResponse
@@ -8616,7 +8616,7 @@ DescribeNetworkFlowTopNMetricResponse Client::describeNetworkFlowTopNMetric(cons
 }
 
 /**
- * @summary Queries the protection pause status of a Web Application Firewall (WAF) instance.
+ * @summary Queries the protection status of Web Application Firewall (WAF).
  *
  * @param request DescribePauseProtectionStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8655,7 +8655,7 @@ DescribePauseProtectionStatusResponse Client::describePauseProtectionStatusWithO
 }
 
 /**
- * @summary Queries the protection pause status of a Web Application Firewall (WAF) instance.
+ * @summary Queries the protection status of Web Application Firewall (WAF).
  *
  * @param request DescribePauseProtectionStatusRequest
  * @return DescribePauseProtectionStatusResponse
@@ -8666,7 +8666,7 @@ DescribePauseProtectionStatusResponse Client::describePauseProtectionStatus(cons
 }
 
 /**
- * @summary Queries the trend of queries per second (QPS).
+ * @summary Queries the queries per second (QPS) statistics of a WAF instance.
  *
  * @param request DescribePeakTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8721,7 +8721,7 @@ DescribePeakTrendResponse Client::describePeakTrendWithOptions(const DescribePea
 }
 
 /**
- * @summary Queries the trend of queries per second (QPS).
+ * @summary Queries the queries per second (QPS) statistics of a WAF instance.
  *
  * @param request DescribePeakTrendRequest
  * @return DescribePeakTrendResponse
@@ -8732,7 +8732,7 @@ DescribePeakTrendResponse Client::describePeakTrend(const DescribePeakTrendReque
 }
 
 /**
- * @summary Retrieves the enabled proof of concept (POC) feature trials.
+ * @summary 查询开启POC的功能信息
  *
  * @param request DescribePocFunctionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8771,7 +8771,7 @@ DescribePocFunctionsResponse Client::describePocFunctionsWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the enabled proof of concept (POC) feature trials.
+ * @summary 查询开启POC的功能信息
  *
  * @param request DescribePocFunctionsRequest
  * @return DescribePocFunctionsResponse
@@ -8782,7 +8782,7 @@ DescribePocFunctionsResponse Client::describePocFunctions(const DescribePocFunct
 }
 
 /**
- * @summary Queries burstable pay-as-you-go charges for a WAF subscription instance, such as burstable QPS.
+ * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
  *
  * @param request DescribePrepayDailyBillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8829,7 +8829,7 @@ DescribePrepayDailyBillsResponse Client::describePrepayDailyBillsWithOptions(con
 }
 
 /**
- * @summary Queries burstable pay-as-you-go charges for a WAF subscription instance, such as burstable QPS.
+ * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
  *
  * @param request DescribePrepayDailyBillsRequest
  * @return DescribePrepayDailyBillsResponse
@@ -8840,7 +8840,7 @@ DescribePrepayDailyBillsResponse Client::describePrepayDailyBills(const Describe
 }
 
 /**
- * @summary Queries synchronized cloud service instances.
+ * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
  *
  * @param request DescribeProductInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8923,7 +8923,7 @@ DescribeProductInstancesResponse Client::describeProductInstancesWithOptions(con
 }
 
 /**
- * @summary Queries synchronized cloud service instances.
+ * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
  *
  * @param request DescribeProductInstancesRequest
  * @return DescribeProductInstancesResponse
@@ -8934,7 +8934,7 @@ DescribeProductInstancesResponse Client::describeProductInstances(const Describe
 }
 
 /**
- * @summary Queries penalties for domain names added to Web Application Firewall (WAF) without an Internet Content Provider (ICP) filing.
+ * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
  *
  * @param request DescribePunishedDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8981,7 +8981,7 @@ DescribePunishedDomainsResponse Client::describePunishedDomainsWithOptions(const
 }
 
 /**
- * @summary Queries penalties for domain names added to Web Application Firewall (WAF) without an Internet Content Provider (ICP) filing.
+ * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
  *
  * @param request DescribePunishedDomainsRequest
  * @return DescribePunishedDomainsResponse
@@ -8992,7 +8992,7 @@ DescribePunishedDomainsResponse Client::describePunishedDomains(const DescribePu
 }
 
 /**
- * @summary Queries a paginated list of associated protection rules.
+ * @summary 分页查询关联规则
  *
  * @param request DescribeRelatedDefenseRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9051,7 +9051,7 @@ DescribeRelatedDefenseRulesResponse Client::describeRelatedDefenseRulesWithOptio
 }
 
 /**
- * @summary Queries a paginated list of associated protection rules.
+ * @summary 分页查询关联规则
  *
  * @param request DescribeRelatedDefenseRulesRequest
  * @return DescribeRelatedDefenseRulesResponse
@@ -9062,7 +9062,7 @@ DescribeRelatedDefenseRulesResponse Client::describeRelatedDefenseRules(const De
 }
 
 /**
- * @summary Queries the certificates of a cloud product instance. This operation is available only in multi-account scenarios and returns the certificates of both the delegated administrator and the member that owns the instance. For example, if user A is a delegated administrator with cert1 and the instance lb-xx-1 belongs to member B who has cert2, a query for the instance lb-xx-1 returns both cert1 and cert2.
+ * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
  *
  * @param request DescribeResourceInstanceCertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9113,7 +9113,7 @@ DescribeResourceInstanceCertsResponse Client::describeResourceInstanceCertsWithO
 }
 
 /**
- * @summary Queries the certificates of a cloud product instance. This operation is available only in multi-account scenarios and returns the certificates of both the delegated administrator and the member that owns the instance. For example, if user A is a delegated administrator with cert1 and the instance lb-xx-1 belongs to member B who has cert2, a query for the instance lb-xx-1 returns both cert1 and cert2.
+ * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
  *
  * @param request DescribeResourceInstanceCertsRequest
  * @return DescribeResourceInstanceCertsResponse
@@ -9124,7 +9124,7 @@ DescribeResourceInstanceCertsResponse Client::describeResourceInstanceCerts(cons
 }
 
 /**
- * @summary Queries the log delivery status for protected objects.
+ * @summary 查询防护对象日志外发状态
  *
  * @param request DescribeResourceLogDeliveryStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9167,7 +9167,7 @@ DescribeResourceLogDeliveryStatusResponse Client::describeResourceLogDeliverySta
 }
 
 /**
- * @summary Queries the log delivery status for protected objects.
+ * @summary 查询防护对象日志外发状态
  *
  * @param request DescribeResourceLogDeliveryStatusRequest
  * @return DescribeResourceLogDeliveryStatusResponse
@@ -9178,7 +9178,7 @@ DescribeResourceLogDeliveryStatusResponse Client::describeResourceLogDeliverySta
 }
 
 /**
- * @summary Queries the log field configuration for a protected object.
+ * @summary 查询防护对象日志字段配置
  *
  * @param request DescribeResourceLogFieldConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9225,7 +9225,7 @@ DescribeResourceLogFieldConfigResponse Client::describeResourceLogFieldConfigWit
 }
 
 /**
- * @summary Queries the log field configuration for a protected object.
+ * @summary 查询防护对象日志字段配置
  *
  * @param request DescribeResourceLogFieldConfigRequest
  * @return DescribeResourceLogFieldConfigResponse
@@ -9236,7 +9236,7 @@ DescribeResourceLogFieldConfigResponse Client::describeResourceLogFieldConfig(co
 }
 
 /**
- * @summary Queries the log collection status of protected objects in a Web Application Firewall (WAF) instance.
+ * @summary Queries whether the log collection feature is enabled for a protected object.
  *
  * @param request DescribeResourceLogStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9279,7 +9279,7 @@ DescribeResourceLogStatusResponse Client::describeResourceLogStatusWithOptions(c
 }
 
 /**
- * @summary Queries the log collection status of protected objects in a Web Application Firewall (WAF) instance.
+ * @summary Queries whether the log collection feature is enabled for a protected object.
  *
  * @param request DescribeResourceLogStatusRequest
  * @return DescribeResourceLogStatusResponse
@@ -9344,7 +9344,7 @@ DescribeResourcePortResponse Client::describeResourcePort(const DescribeResource
 }
 
 /**
- * @summary Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+ * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
  *
  * @param request DescribeResourceRegionIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9383,7 +9383,7 @@ DescribeResourceRegionIdResponse Client::describeResourceRegionIdWithOptions(con
 }
 
 /**
- * @summary Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+ * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
  *
  * @param request DescribeResourceRegionIdRequest
  * @return DescribeResourceRegionIdResponse
@@ -9394,7 +9394,7 @@ DescribeResourceRegionIdResponse Client::describeResourceRegionId(const Describe
 }
 
 /**
- * @summary Queries the list of regions supported by cloud native mode, primarily for CLB and ECS products.
+ * @summary Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
  *
  * @param request DescribeResourceSupportRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9437,7 +9437,7 @@ DescribeResourceSupportRegionsResponse Client::describeResourceSupportRegionsWit
 }
 
 /**
- * @summary Queries the list of regions supported by cloud native mode, primarily for CLB and ECS products.
+ * @summary Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
  *
  * @param request DescribeResourceSupportRegionsRequest
  * @return DescribeResourceSupportRegionsResponse
@@ -9448,7 +9448,7 @@ DescribeResourceSupportRegionsResponse Client::describeResourceSupportRegions(co
 }
 
 /**
- * @summary Queries the trend of abnormal response codes, such as 5xx, 405, 499, 302, and 444, that are returned by Web Application Firewall (WAF) to clients or by origin servers to WAF.
+ * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
  *
  * @param request DescribeResponseCodeTrendGraphRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9507,7 +9507,7 @@ DescribeResponseCodeTrendGraphResponse Client::describeResponseCodeTrendGraphWit
 }
 
 /**
- * @summary Queries the trend of abnormal response codes, such as 5xx, 405, 499, 302, and 444, that are returned by Web Application Firewall (WAF) to clients or by origin servers to WAF.
+ * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
  *
  * @param request DescribeResponseCodeTrendGraphRequest
  * @return DescribeResponseCodeTrendGraphResponse
@@ -9518,7 +9518,7 @@ DescribeResponseCodeTrendGraphResponse Client::describeResponseCodeTrendGraph(co
 }
 
 /**
- * @summary Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+ * @summary 查询授权状态
  *
  * @param request DescribeRoleAuthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9553,7 +9553,7 @@ DescribeRoleAuthStatusResponse Client::describeRoleAuthStatusWithOptions(const D
 }
 
 /**
- * @summary Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+ * @summary 查询授权状态
  *
  * @param request DescribeRoleAuthStatusRequest
  * @return DescribeRoleAuthStatusResponse
@@ -9564,7 +9564,7 @@ DescribeRoleAuthStatusResponse Client::describeRoleAuthStatus(const DescribeRole
 }
 
 /**
- * @summary Queries a paginated list of regular expression rule groups.
+ * @summary Queries regular expression rule groups by page.
  *
  * @param request DescribeRuleGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9619,7 +9619,7 @@ DescribeRuleGroupsResponse Client::describeRuleGroupsWithOptions(const DescribeR
 }
 
 /**
- * @summary Queries a paginated list of regular expression rule groups.
+ * @summary Queries regular expression rule groups by page.
  *
  * @param request DescribeRuleGroupsRequest
  * @return DescribeRuleGroupsResponse
@@ -9630,7 +9630,7 @@ DescribeRuleGroupsResponse Client::describeRuleGroups(const DescribeRuleGroupsRe
 }
 
 /**
- * @summary Queries the top 10 source IP addresses from which the most attacks originated.
+ * @summary Queries the top 10 IP addresses from which attacks are initiated.
  *
  * @param request DescribeRuleHitsTopClientIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9685,7 +9685,7 @@ DescribeRuleHitsTopClientIpResponse Client::describeRuleHitsTopClientIpWithOptio
 }
 
 /**
- * @summary Queries the top 10 source IP addresses from which the most attacks originated.
+ * @summary Queries the top 10 IP addresses from which attacks are initiated.
  *
  * @param request DescribeRuleHitsTopClientIpRequest
  * @return DescribeRuleHitsTopClientIpResponse
@@ -9696,7 +9696,7 @@ DescribeRuleHitsTopClientIpResponse Client::describeRuleHitsTopClientIp(const De
 }
 
 /**
- * @summary Queries the top 10 protected objects that triggered protection rules most frequently.
+ * @summary Queries the top 10 protected objects that trigger protection rules.
  *
  * @param request DescribeRuleHitsTopResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9747,7 +9747,7 @@ DescribeRuleHitsTopResourceResponse Client::describeRuleHitsTopResourceWithOptio
 }
 
 /**
- * @summary Queries the top 10 protected objects that triggered protection rules most frequently.
+ * @summary Queries the top 10 protected objects that trigger protection rules.
  *
  * @param request DescribeRuleHitsTopResourceRequest
  * @return DescribeRuleHitsTopResourceResponse
@@ -9758,7 +9758,7 @@ DescribeRuleHitsTopResourceResponse Client::describeRuleHitsTopResource(const De
 }
 
 /**
- * @summary Queries the top 10 rule IDs that are triggered most frequently.
+ * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
  *
  * @param request DescribeRuleHitsTopRuleIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9817,7 +9817,7 @@ DescribeRuleHitsTopRuleIdResponse Client::describeRuleHitsTopRuleIdWithOptions(c
 }
 
 /**
- * @summary Queries the top 10 rule IDs that are triggered most frequently.
+ * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
  *
  * @param request DescribeRuleHitsTopRuleIdRequest
  * @return DescribeRuleHitsTopRuleIdResponse
@@ -9828,7 +9828,7 @@ DescribeRuleHitsTopRuleIdResponse Client::describeRuleHitsTopRuleId(const Descri
 }
 
 /**
- * @summary Queries the top 10 most frequently triggered protection rule types.
+ * @summary Queries the top 10 protection modules that are matched.
  *
  * @param request DescribeRuleHitsTopTuleTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9879,7 +9879,7 @@ DescribeRuleHitsTopTuleTypeResponse Client::describeRuleHitsTopTuleTypeWithOptio
 }
 
 /**
- * @summary Queries the top 10 most frequently triggered protection rule types.
+ * @summary Queries the top 10 protection modules that are matched.
  *
  * @param request DescribeRuleHitsTopTuleTypeRequest
  * @return DescribeRuleHitsTopTuleTypeResponse
@@ -9890,7 +9890,7 @@ DescribeRuleHitsTopTuleTypeResponse Client::describeRuleHitsTopTuleType(const De
 }
 
 /**
- * @summary Displays the top 10 User-Agents by number of attacks.
+ * @summary Queries the top 10 user agents that are used to initiate attacks.
  *
  * @param request DescribeRuleHitsTopUaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9941,7 +9941,7 @@ DescribeRuleHitsTopUaResponse Client::describeRuleHitsTopUaWithOptions(const Des
 }
 
 /**
- * @summary Displays the top 10 User-Agents by number of attacks.
+ * @summary Queries the top 10 user agents that are used to initiate attacks.
  *
  * @param request DescribeRuleHitsTopUaRequest
  * @return DescribeRuleHitsTopUaResponse
@@ -9952,7 +9952,7 @@ DescribeRuleHitsTopUaResponse Client::describeRuleHitsTopUa(const DescribeRuleHi
 }
 
 /**
- * @summary Queries the top 10 URLs that trigger protection rules most frequently.
+ * @summary Queries the top 10 URLs that trigger protection rules.
  *
  * @param request DescribeRuleHitsTopUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10007,7 +10007,7 @@ DescribeRuleHitsTopUrlResponse Client::describeRuleHitsTopUrlWithOptions(const D
 }
 
 /**
- * @summary Queries the top 10 URLs that trigger protection rules most frequently.
+ * @summary Queries the top 10 URLs that trigger protection rules.
  *
  * @param request DescribeRuleHitsTopUrlRequest
  * @return DescribeRuleHitsTopUrlResponse
@@ -10018,12 +10018,12 @@ DescribeRuleHitsTopUrlResponse Client::describeRuleHitsTopUrl(const DescribeRule
 }
 
 /**
- * @summary Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
+ * @summary Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
  *
- * @description Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
- * - Requests that hit a whitelist rule.
- * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
- * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
+ * @description Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+ * *   Requests that match the protection rules of the whitelist module.
+ * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+ * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
  *
  * @param tmpReq DescribeSecurityEventLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10080,12 +10080,12 @@ DescribeSecurityEventLogsResponse Client::describeSecurityEventLogsWithOptions(c
 }
 
 /**
- * @summary Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
+ * @summary Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
  *
- * @description Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
- * - Requests that hit a whitelist rule.
- * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
- * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
+ * @description Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+ * *   Requests that match the protection rules of the whitelist module.
+ * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+ * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
  *
  * @param request DescribeSecurityEventLogsRequest
  * @return DescribeSecurityEventLogsResponse
@@ -10096,12 +10096,12 @@ DescribeSecurityEventLogsResponse Client::describeSecurityEventLogs(const Descri
 }
 
 /**
- * @summary Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
+ * @summary Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
  *
- * @description Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
- * - Requests that hit a whitelist rule.
- * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
- * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
+ * @description Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+ * *   Requests that match the protection rules of the whitelist module.
+ * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+ * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
  *
  * @param tmpReq DescribeSecurityEventTimeSeriesMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10154,12 +10154,12 @@ DescribeSecurityEventTimeSeriesMetricResponse Client::describeSecurityEventTimeS
 }
 
 /**
- * @summary Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
+ * @summary Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
  *
- * @description Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
- * - Requests that hit a whitelist rule.
- * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
- * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
+ * @description Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+ * *   Requests that match the protection rules of the whitelist module.
+ * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+ * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
  *
  * @param request DescribeSecurityEventTimeSeriesMetricRequest
  * @return DescribeSecurityEventTimeSeriesMetricResponse
@@ -10170,12 +10170,12 @@ DescribeSecurityEventTimeSeriesMetricResponse Client::describeSecurityEventTimeS
 }
 
 /**
- * @summary Queries the top N statistics for attack traffic. Attack traffic is aggregated by a specified dimension, sorted, and the top N results are returned.
+ * @summary Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
  *
- * @description Attack traffic refers to requests that hit a rule and are identified as a threat. The following types of requests are not included in the statistics:
- * - Requests that hit a whitelist rule.
- * - Requests that hit a bot rule with the action set to Tag.
- * - Requests that hit a rule with the action set to Dynamic Token, Slider, Strict Slider, or JS Challenge, and are allowed after the user passes verification.
+ * @description Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+ * *   Requests that match the protection rules of the whitelist module.
+ * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+ * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
  *
  * @param tmpReq DescribeSecurityEventTopNMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10232,12 +10232,12 @@ DescribeSecurityEventTopNMetricResponse Client::describeSecurityEventTopNMetricW
 }
 
 /**
- * @summary Queries the top N statistics for attack traffic. Attack traffic is aggregated by a specified dimension, sorted, and the top N results are returned.
+ * @summary Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
  *
- * @description Attack traffic refers to requests that hit a rule and are identified as a threat. The following types of requests are not included in the statistics:
- * - Requests that hit a whitelist rule.
- * - Requests that hit a bot rule with the action set to Tag.
- * - Requests that hit a rule with the action set to Dynamic Token, Slider, Strict Slider, or JS Challenge, and are allowed after the user passes verification.
+ * @description Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+ * *   Requests that match the protection rules of the whitelist module.
+ * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+ * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
  *
  * @param request DescribeSecurityEventTopNMetricRequest
  * @return DescribeSecurityEventTopNMetricResponse
@@ -10248,7 +10248,7 @@ DescribeSecurityEventTopNMetricResponse Client::describeSecurityEventTopNMetric(
 }
 
 /**
- * @summary Queries statistics for domain names and APIs that handle personal information.
+ * @summary Queries the personal information-related APIs and domain names.
  *
  * @param request DescribeSensitiveApiStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10315,7 +10315,7 @@ DescribeSensitiveApiStatisticResponse Client::describeSensitiveApiStatisticWithO
 }
 
 /**
- * @summary Queries statistics for domain names and APIs that handle personal information.
+ * @summary Queries the personal information-related APIs and domain names.
  *
  * @param request DescribeSensitiveApiStatisticRequest
  * @return DescribeSensitiveApiStatisticResponse
@@ -10326,7 +10326,7 @@ DescribeSensitiveApiStatisticResponse Client::describeSensitiveApiStatistic(cons
 }
 
 /**
- * @summary Queries the compliance detection results for API security.
+ * @summary Queries the compliance check results of API security.
  *
  * @param request DescribeSensitiveDetectionResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10377,7 +10377,7 @@ DescribeSensitiveDetectionResultResponse Client::describeSensitiveDetectionResul
 }
 
 /**
- * @summary Queries the compliance detection results for API security.
+ * @summary Queries the compliance check results of API security.
  *
  * @param request DescribeSensitiveDetectionResultRequest
  * @return DescribeSensitiveDetectionResultResponse
@@ -10388,7 +10388,7 @@ DescribeSensitiveDetectionResultResponse Client::describeSensitiveDetectionResul
 }
 
 /**
- * @summary Queries the distribution of outbound traffic that contains personal information.
+ * @summary Queries the traffic distribution of personal information records involved in cross-border data transfer.
  *
  * @param request DescribeSensitiveOutboundDistributionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10439,7 +10439,7 @@ DescribeSensitiveOutboundDistributionResponse Client::describeSensitiveOutboundD
 }
 
 /**
- * @summary Queries the distribution of outbound traffic that contains personal information.
+ * @summary Queries the traffic distribution of personal information records involved in cross-border data transfer.
  *
  * @param request DescribeSensitiveOutboundDistributionRequest
  * @return DescribeSensitiveOutboundDistributionResponse
@@ -10450,7 +10450,7 @@ DescribeSensitiveOutboundDistributionResponse Client::describeSensitiveOutboundD
 }
 
 /**
- * @summary Queries statistics about outbound transfers of personal information.
+ * @summary Queries the data types of personal information involved in cross-border data transfer.
  *
  * @param request DescribeSensitiveOutboundStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10533,7 +10533,7 @@ DescribeSensitiveOutboundStatisticResponse Client::describeSensitiveOutboundStat
 }
 
 /**
- * @summary Queries statistics about outbound transfers of personal information.
+ * @summary Queries the data types of personal information involved in cross-border data transfer.
  *
  * @param request DescribeSensitiveOutboundStatisticRequest
  * @return DescribeSensitiveOutboundStatisticResponse
@@ -10544,7 +10544,7 @@ DescribeSensitiveOutboundStatisticResponse Client::describeSensitiveOutboundStat
 }
 
 /**
- * @summary Queries the trend of sensitive outbound data detected by Web Application Firewall (WAF).
+ * @summary Queries the trends of cross-border data transfer of personal information.
  *
  * @param request DescribeSensitiveOutboundTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10595,7 +10595,7 @@ DescribeSensitiveOutboundTrendResponse Client::describeSensitiveOutboundTrendWit
 }
 
 /**
- * @summary Queries the trend of sensitive outbound data detected by Web Application Firewall (WAF).
+ * @summary Queries the trends of cross-border data transfer of personal information.
  *
  * @param request DescribeSensitiveOutboundTrendRequest
  * @return DescribeSensitiveOutboundTrendResponse
@@ -10606,7 +10606,7 @@ DescribeSensitiveOutboundTrendResponse Client::describeSensitiveOutboundTrend(co
 }
 
 /**
- * @summary Queries access logs for sensitive data.
+ * @summary Queries the access logs of sensitive data.
  *
  * @param request DescribeSensitiveRequestLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10689,7 +10689,7 @@ DescribeSensitiveRequestLogResponse Client::describeSensitiveRequestLogWithOptio
 }
 
 /**
- * @summary Queries access logs for sensitive data.
+ * @summary Queries the access logs of sensitive data.
  *
  * @param request DescribeSensitiveRequestLogRequest
  * @return DescribeSensitiveRequestLogResponse
@@ -10700,7 +10700,7 @@ DescribeSensitiveRequestLogResponse Client::describeSensitiveRequestLog(const De
 }
 
 /**
- * @summary Queries the results of sensitive data tracing.
+ * @summary Queries the tracing results of sensitive data.
  *
  * @param request DescribeSensitiveRequestsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10767,7 +10767,7 @@ DescribeSensitiveRequestsResponse Client::describeSensitiveRequestsWithOptions(c
 }
 
 /**
- * @summary Queries the results of sensitive data tracing.
+ * @summary Queries the tracing results of sensitive data.
  *
  * @param request DescribeSensitiveRequestsRequest
  * @return DescribeSensitiveRequestsResponse
@@ -10778,7 +10778,7 @@ DescribeSensitiveRequestsResponse Client::describeSensitiveRequests(const Descri
 }
 
 /**
- * @summary Queries statistics on sensitive data for data leakage prevention.
+ * @summary Queries the sensitive data statistics of the tracing and auditing feature.
  *
  * @param request DescribeSensitiveStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10841,7 +10841,7 @@ DescribeSensitiveStatisticResponse Client::describeSensitiveStatisticWithOptions
 }
 
 /**
- * @summary Queries statistics on sensitive data for data leakage prevention.
+ * @summary Queries the sensitive data statistics of the tracing and auditing feature.
  *
  * @param request DescribeSensitiveStatisticRequest
  * @return DescribeSensitiveStatisticResponse
@@ -10852,7 +10852,7 @@ DescribeSensitiveStatisticResponse Client::describeSensitiveStatistic(const Desc
 }
 
 /**
- * @summary Queries the Logstore authorization status.
+ * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
  *
  * @param request DescribeSlsAuthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10891,7 +10891,7 @@ DescribeSlsAuthStatusResponse Client::describeSlsAuthStatusWithOptions(const Des
 }
 
 /**
- * @summary Queries the Logstore authorization status.
+ * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
  *
  * @param request DescribeSlsAuthStatusRequest
  * @return DescribeSlsAuthStatusResponse
@@ -10902,7 +10902,7 @@ DescribeSlsAuthStatusResponse Client::describeSlsAuthStatus(const DescribeSlsAut
 }
 
 /**
- * @summary Retrieves Logstore information, including total capacity, storage duration, and used capacity.
+ * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
  *
  * @param request DescribeSlsLogStoreRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10941,7 +10941,7 @@ DescribeSlsLogStoreResponse Client::describeSlsLogStoreWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves Logstore information, including total capacity, storage duration, and used capacity.
+ * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
  *
  * @param request DescribeSlsLogStoreRequest
  * @return DescribeSlsLogStoreResponse
@@ -11002,7 +11002,7 @@ DescribeSlsLogStoreStatusResponse Client::describeSlsLogStoreStatus(const Descri
 }
 
 /**
- * @summary Queries the number of protected resources that are associated with one or more protection templates.
+ * @summary Queries the number of protected resources for which a protection template takes effect.
  *
  * @param request DescribeTemplateResourceCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11045,7 +11045,7 @@ DescribeTemplateResourceCountResponse Client::describeTemplateResourceCountWithO
 }
 
 /**
- * @summary Queries the number of protected resources that are associated with one or more protection templates.
+ * @summary Queries the number of protected resources for which a protection template takes effect.
  *
  * @param request DescribeTemplateResourceCountRequest
  * @return DescribeTemplateResourceCountResponse
@@ -11056,7 +11056,7 @@ DescribeTemplateResourceCountResponse Client::describeTemplateResourceCount(cons
 }
 
 /**
- * @summary Queries the resources attached to a protection template.
+ * @summary Queries the resources that are associated to a protection rule template.
  *
  * @param request DescribeTemplateResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11119,7 +11119,7 @@ DescribeTemplateResourcesResponse Client::describeTemplateResourcesWithOptions(c
 }
 
 /**
- * @summary Queries the resources attached to a protection template.
+ * @summary Queries the resources that are associated to a protection rule template.
  *
  * @param request DescribeTemplateResourcesRequest
  * @return DescribeTemplateResourcesResponse
@@ -11130,7 +11130,7 @@ DescribeTemplateResourcesResponse Client::describeTemplateResources(const Descri
 }
 
 /**
- * @summary Queries a paginated list of notable security events.
+ * @summary 查看攻击事件列表
  *
  * @param request DescribeThreatEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11189,7 +11189,7 @@ DescribeThreatEventResponse Client::describeThreatEventWithOptions(const Describ
 }
 
 /**
- * @summary Queries a paginated list of notable security events.
+ * @summary 查看攻击事件列表
  *
  * @param request DescribeThreatEventRequest
  * @return DescribeThreatEventResponse
@@ -11200,7 +11200,7 @@ DescribeThreatEventResponse Client::describeThreatEvent(const DescribeThreatEven
 }
 
 /**
- * @summary Retrieves the details of a security event that requires attention.
+ * @summary 查看威胁事件详情
  *
  * @param request DescribeThreatEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11243,7 +11243,7 @@ DescribeThreatEventDetailResponse Client::describeThreatEventDetailWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a security event that requires attention.
+ * @summary 查看威胁事件详情
  *
  * @param request DescribeThreatEventDetailRequest
  * @return DescribeThreatEventDetailResponse
@@ -11254,7 +11254,7 @@ DescribeThreatEventDetailResponse Client::describeThreatEventDetail(const Descri
 }
 
 /**
- * @summary Queries the top five security event metrics, which are aggregated by different objects and sorted in descending order.
+ * @summary 查询安全事件Top攻击统计数据
  *
  * @param request DescribeThreatEventTopMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11301,7 +11301,7 @@ DescribeThreatEventTopMetricResponse Client::describeThreatEventTopMetricWithOpt
 }
 
 /**
- * @summary Queries the top five security event metrics, which are aggregated by different objects and sorted in descending order.
+ * @summary 查询安全事件Top攻击统计数据
  *
  * @param request DescribeThreatEventTopMetricRequest
  * @return DescribeThreatEventTopMetricResponse
@@ -11312,7 +11312,7 @@ DescribeThreatEventTopMetricResponse Client::describeThreatEventTopMetric(const 
 }
 
 /**
- * @summary Queries the trend of API security risks for a Web Application Firewall (WAF) instance.
+ * @summary Queries the trends of API security risks.
  *
  * @param request DescribeUserAbnormalTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11355,7 +11355,7 @@ DescribeUserAbnormalTrendResponse Client::describeUserAbnormalTrendWithOptions(c
 }
 
 /**
- * @summary Queries the trend of API security risks for a Web Application Firewall (WAF) instance.
+ * @summary Queries the trends of API security risks.
  *
  * @param request DescribeUserAbnormalTrendRequest
  * @return DescribeUserAbnormalTrendResponse
@@ -11366,7 +11366,7 @@ DescribeUserAbnormalTrendResponse Client::describeUserAbnormalTrend(const Descri
 }
 
 /**
- * @summary Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+ * @summary Queries the types and statistics of risks in the API security module.
  *
  * @param request DescribeUserAbnormalTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11421,7 +11421,7 @@ DescribeUserAbnormalTypeResponse Client::describeUserAbnormalTypeWithOptions(con
 }
 
 /**
- * @summary Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+ * @summary Queries the types and statistics of risks in the API security module.
  *
  * @param request DescribeUserAbnormalTypeRequest
  * @return DescribeUserAbnormalTypeResponse
@@ -11432,7 +11432,7 @@ DescribeUserAbnormalTypeResponse Client::describeUserAbnormalType(const Describe
 }
 
 /**
- * @summary Queries traffic statistics for an API operation.
+ * @summary Queries the traffic statistics of an API.
  *
  * @param request DescribeUserApiRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11491,7 +11491,7 @@ DescribeUserApiRequestResponse Client::describeUserApiRequestWithOptions(const D
 }
 
 /**
- * @summary Queries traffic statistics for an API operation.
+ * @summary Queries the traffic statistics of an API.
  *
  * @param request DescribeUserApiRequestRequest
  * @return DescribeUserApiRequestResponse
@@ -11502,7 +11502,7 @@ DescribeUserApiRequestResponse Client::describeUserApiRequest(const DescribeUser
 }
 
 /**
- * @summary Queries user asset statistics for API Security.
+ * @summary Queries the user asset statistics in the API security module.
  *
  * @param request DescribeUserAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11553,7 +11553,7 @@ DescribeUserAssetResponse Client::describeUserAssetWithOptions(const DescribeUse
 }
 
 /**
- * @summary Queries user asset statistics for API Security.
+ * @summary Queries the user asset statistics in the API security module.
  *
  * @param request DescribeUserAssetRequest
  * @return DescribeUserAssetResponse
@@ -11564,7 +11564,7 @@ DescribeUserAssetResponse Client::describeUserAsset(const DescribeUserAssetReque
 }
 
 /**
- * @summary Describes the trend of API security attacks.
+ * @summary Queries the trends of attacks detected by the API security module.
  *
  * @param request DescribeUserEventTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11611,7 +11611,7 @@ DescribeUserEventTrendResponse Client::describeUserEventTrendWithOptions(const D
 }
 
 /**
- * @summary Describes the trend of API security attacks.
+ * @summary Queries the trends of attacks detected by the API security module.
  *
  * @param request DescribeUserEventTrendRequest
  * @return DescribeUserEventTrendResponse
@@ -11622,7 +11622,7 @@ DescribeUserEventTrendResponse Client::describeUserEventTrend(const DescribeUser
 }
 
 /**
- * @summary Queries the types and statistics of user security events.
+ * @summary Queries the types and statistics of security events in the API security module.
  *
  * @param request DescribeUserEventTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11681,7 +11681,7 @@ DescribeUserEventTypeResponse Client::describeUserEventTypeWithOptions(const Des
 }
 
 /**
- * @summary Queries the types and statistics of user security events.
+ * @summary Queries the types and statistics of security events in the API security module.
  *
  * @param request DescribeUserEventTypeRequest
  * @return DescribeUserEventTypeResponse
@@ -11692,7 +11692,7 @@ DescribeUserEventTypeResponse Client::describeUserEventType(const DescribeUserEv
 }
 
 /**
- * @summary Queries the log field configuration of a Web Application Firewall (WAF) instance, including additional fields, removed fields, delivery strategies, and extended settings.
+ * @summary 查询用户日志配置
  *
  * @param request DescribeUserLogFieldConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11735,7 +11735,7 @@ DescribeUserLogFieldConfigResponse Client::describeUserLogFieldConfigWithOptions
 }
 
 /**
- * @summary Queries the log field configuration of a Web Application Firewall (WAF) instance, including additional fields, removed fields, delivery strategies, and extended settings.
+ * @summary 查询用户日志配置
  *
  * @param request DescribeUserLogFieldConfigRequest
  * @return DescribeUserLogFieldConfigResponse
@@ -11746,7 +11746,7 @@ DescribeUserLogFieldConfigResponse Client::describeUserLogFieldConfig(const Desc
 }
 
 /**
- * @summary Queries the available log storage regions.
+ * @summary Queries available regions for log storage.
  *
  * @param request DescribeUserSlsLogRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11785,7 +11785,7 @@ DescribeUserSlsLogRegionsResponse Client::describeUserSlsLogRegionsWithOptions(c
 }
 
 /**
- * @summary Queries the available log storage regions.
+ * @summary Queries available regions for log storage.
  *
  * @param request DescribeUserSlsLogRegionsRequest
  * @return DescribeUserSlsLogRegionsResponse
@@ -11793,6 +11793,72 @@ DescribeUserSlsLogRegionsResponse Client::describeUserSlsLogRegionsWithOptions(c
 DescribeUserSlsLogRegionsResponse Client::describeUserSlsLogRegions(const DescribeUserSlsLogRegionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUserSlsLogRegionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看用户分类实时流量
+ *
+ * @param request DescribeUserTrafficRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserTrafficResponse
+ */
+DescribeUserTrafficResponse Client::describeUserTrafficWithOptions(const DescribeUserTrafficRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTimestamp()) {
+    query["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasStartTimestamp()) {
+    query["StartTimestamp"] = request.getStartTimestamp();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUserTraffic"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserTrafficResponse>();
+}
+
+/**
+ * @summary 查看用户分类实时流量
+ *
+ * @param request DescribeUserTrafficRequest
+ * @return DescribeUserTrafficResponse
+ */
+DescribeUserTrafficResponse Client::describeUserTraffic(const DescribeUserTrafficRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserTrafficWithOptions(request, runtime);
 }
 
 /**
@@ -11846,7 +11912,7 @@ DescribeUserWafLogStatusResponse Client::describeUserWafLogStatus(const Describe
 }
 
 /**
- * @summary Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
+ * @summary 查询归属校验内容
  *
  * @param request DescribeVerifyContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11885,7 +11951,7 @@ DescribeVerifyContentResponse Client::describeVerifyContentWithOptions(const Des
 }
 
 /**
- * @summary Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
+ * @summary 查询归属校验内容
  *
  * @param request DescribeVerifyContentRequest
  * @return DescribeVerifyContentResponse
@@ -11896,7 +11962,7 @@ DescribeVerifyContentResponse Client::describeVerifyContent(const DescribeVerify
 }
 
 /**
- * @summary Queries the top 10 IP addresses that have the highest number of requests.
+ * @summary Queries the top 10 IP addresses from which requests are sent.
  *
  * @param request DescribeVisitTopIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11947,7 +12013,7 @@ DescribeVisitTopIpResponse Client::describeVisitTopIpWithOptions(const DescribeV
 }
 
 /**
- * @summary Queries the top 10 IP addresses that have the highest number of requests.
+ * @summary Queries the top 10 IP addresses from which requests are sent.
  *
  * @param request DescribeVisitTopIpRequest
  * @return DescribeVisitTopIpResponse
@@ -11958,7 +12024,7 @@ DescribeVisitTopIpResponse Client::describeVisitTopIp(const DescribeVisitTopIpRe
 }
 
 /**
- * @summary Queries the top 10 User-Agents that sent the most requests.
+ * @summary Queries the top 10 user agents that are used to initiate requests.
  *
  * @param request DescribeVisitUasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12009,7 +12075,7 @@ DescribeVisitUasResponse Client::describeVisitUasWithOptions(const DescribeVisit
 }
 
 /**
- * @summary Queries the top 10 User-Agents that sent the most requests.
+ * @summary Queries the top 10 user agents that are used to initiate requests.
  *
  * @param request DescribeVisitUasRequest
  * @return DescribeVisitUasResponse
@@ -12070,7 +12136,7 @@ DescribeWafSourceIpSegmentResponse Client::describeWafSourceIpSegment(const Desc
 }
 
 /**
- * @summary Initializes a service-linked role for WAF.
+ * @summary 创建WAF服务关联角色
  *
  * @param request InitializeWafOperationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12109,7 +12175,7 @@ InitializeWafOperationRoleResponse Client::initializeWafOperationRoleWithOptions
 }
 
 /**
- * @summary Initializes a service-linked role for WAF.
+ * @summary 创建WAF服务关联角色
  *
  * @param request InitializeWafOperationRoleRequest
  * @return InitializeWafOperationRoleResponse
@@ -12232,7 +12298,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Lists the tag values of a specified tag key.
+ * @summary Queries the tag values of a tag key.
  *
  * @param request ListTagValuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12283,7 +12349,7 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
 }
 
 /**
- * @summary Lists the tag values of a specified tag key.
+ * @summary Queries the tag values of a tag key.
  *
  * @param request ListTagValuesRequest
  * @return ListTagValuesResponse
@@ -12294,7 +12360,7 @@ ListTagValuesResponse Client::listTagValues(const ListTagValuesRequest &request)
 }
 
 /**
- * @summary Modifies the status of API security risks in batches.
+ * @summary Modifies the status of multiple risks detected by the API security module at a time.
  *
  * @param request ModifyApisecAbnormalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12349,7 +12415,7 @@ ModifyApisecAbnormalsResponse Client::modifyApisecAbnormalsWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the status of API security risks in batches.
+ * @summary Modifies the status of multiple risks detected by the API security module at a time.
  *
  * @param request ModifyApisecAbnormalsRequest
  * @return ModifyApisecAbnormalsResponse
@@ -12360,7 +12426,7 @@ ModifyApisecAbnormalsResponse Client::modifyApisecAbnormals(const ModifyApisecAb
 }
 
 /**
- * @summary Modifies the annotation of an API asset in the API security module of Web Application Firewall (WAF).
+ * @summary Modifies the annotations of APIs in the API security module.
  *
  * @param request ModifyApisecApiResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12415,7 +12481,7 @@ ModifyApisecApiResourceResponse Client::modifyApisecApiResourceWithOptions(const
 }
 
 /**
- * @summary Modifies the annotation of an API asset in the API security module of Web Application Firewall (WAF).
+ * @summary Modifies the annotations of APIs in the API security module.
  *
  * @param request ModifyApisecApiResourceRequest
  * @return ModifyApisecApiResourceResponse
@@ -12426,7 +12492,7 @@ ModifyApisecApiResourceResponse Client::modifyApisecApiResource(const ModifyApis
 }
 
 /**
- * @summary Modifies the status of a batch of API security events.
+ * @summary Modifies the status of multiple security events detected by the API security module at a time.
  *
  * @param request ModifyApisecEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12485,7 +12551,7 @@ ModifyApisecEventsResponse Client::modifyApisecEventsWithOptions(const ModifyApi
 }
 
 /**
- * @summary Modifies the status of a batch of API security events.
+ * @summary Modifies the status of multiple security events detected by the API security module at a time.
  *
  * @param request ModifyApisecEventsRequest
  * @return ModifyApisecEventsResponse
@@ -12496,7 +12562,7 @@ ModifyApisecEventsResponse Client::modifyApisecEvents(const ModifyApisecEventsRe
 }
 
 /**
- * @summary Updates the API security log subscription settings.
+ * @summary Modifies the configurations of API security log subscription.
  *
  * @param request ModifyApisecLogDeliveryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12551,7 +12617,7 @@ ModifyApisecLogDeliveryResponse Client::modifyApisecLogDeliveryWithOptions(const
 }
 
 /**
- * @summary Updates the API security log subscription settings.
+ * @summary Modifies the configurations of API security log subscription.
  *
  * @param request ModifyApisecLogDeliveryRequest
  * @return ModifyApisecLogDeliveryResponse
@@ -12562,7 +12628,7 @@ ModifyApisecLogDeliveryResponse Client::modifyApisecLogDelivery(const ModifyApis
 }
 
 /**
- * @summary Modifies the log delivery status of an API security module in a Web Application Firewall (WAF) instance.
+ * @summary Modifies the status of API security log subscription.
  *
  * @param request ModifyApisecLogDeliveryStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12609,7 +12675,7 @@ ModifyApisecLogDeliveryStatusResponse Client::modifyApisecLogDeliveryStatusWithO
 }
 
 /**
- * @summary Modifies the log delivery status of an API security module in a Web Application Firewall (WAF) instance.
+ * @summary Modifies the status of API security log subscription.
  *
  * @param request ModifyApisecLogDeliveryStatusRequest
  * @return ModifyApisecLogDeliveryStatusResponse
@@ -12620,7 +12686,7 @@ ModifyApisecLogDeliveryStatusResponse Client::modifyApisecLogDeliveryStatus(cons
 }
 
 /**
- * @summary Enables or disables API security features for a protected object or protected object group in the Web Application Firewall (WAF) API security module.
+ * @summary Changes the status of features in the API security module for protected objects or protected object groups.
  *
  * @param request ModifyApisecModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12675,7 +12741,7 @@ ModifyApisecModuleStatusResponse Client::modifyApisecModuleStatusWithOptions(con
 }
 
 /**
- * @summary Enables or disables API security features for a protected object or protected object group in the Web Application Firewall (WAF) API security module.
+ * @summary Changes the status of features in the API security module for protected objects or protected object groups.
  *
  * @param request ModifyApisecModuleStatusRequest
  * @return ModifyApisecModuleStatusResponse
@@ -12686,7 +12752,7 @@ ModifyApisecModuleStatusResponse Client::modifyApisecModuleStatus(const ModifyAp
 }
 
 /**
- * @summary Modifies the API security status for a protected object or a protected object group.
+ * @summary Changes the status of the API security module for protected objects or protected object groups.
  *
  * @param request ModifyApisecStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12737,7 +12803,7 @@ ModifyApisecStatusResponse Client::modifyApisecStatusWithOptions(const ModifyApi
 }
 
 /**
- * @summary Modifies the API security status for a protected object or a protected object group.
+ * @summary Changes the status of the API security module for protected objects or protected object groups.
  *
  * @param request ModifyApisecStatusRequest
  * @return ModifyApisecStatusResponse
@@ -12748,7 +12814,7 @@ ModifyApisecStatusResponse Client::modifyApisecStatus(const ModifyApisecStatusRe
 }
 
 /**
- * @summary Modifies the configuration of a cloud resource connected to WAF.
+ * @summary Modifies the configurations of a service that is added to Web Application Firewall (WAF).
  *
  * @param tmpReq ModifyCloudResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12809,7 +12875,7 @@ ModifyCloudResourceResponse Client::modifyCloudResourceWithOptions(const ModifyC
 }
 
 /**
- * @summary Modifies the configuration of a cloud resource connected to WAF.
+ * @summary Modifies the configurations of a service that is added to Web Application Firewall (WAF).
  *
  * @param request ModifyCloudResourceRequest
  * @return ModifyCloudResourceResponse
@@ -12820,7 +12886,7 @@ ModifyCloudResourceResponse Client::modifyCloudResource(const ModifyCloudResourc
 }
 
 /**
- * @summary Modifies the certificate for a resource managed by WAF in cloud native mode.
+ * @summary 修改云产品接入的证书
  *
  * @param request ModifyCloudResourceCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12875,7 +12941,7 @@ ModifyCloudResourceCertResponse Client::modifyCloudResourceCertWithOptions(const
 }
 
 /**
- * @summary Modifies the certificate for a resource managed by WAF in cloud native mode.
+ * @summary 修改云产品接入的证书
  *
  * @param request ModifyCloudResourceCertRequest
  * @return ModifyCloudResourceCertResponse
@@ -12886,7 +12952,7 @@ ModifyCloudResourceCertResponse Client::modifyCloudResourceCert(const ModifyClou
 }
 
 /**
- * @summary Modifies the default certificate for cloud native mode.
+ * @summary 修改云产品接入的默认证书
  *
  * @param request ModifyCloudResourceDefaultCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12933,7 +12999,7 @@ ModifyCloudResourceDefaultCertResponse Client::modifyCloudResourceDefaultCertWit
 }
 
 /**
- * @summary Modifies the default certificate for cloud native mode.
+ * @summary 修改云产品接入的默认证书
  *
  * @param request ModifyCloudResourceDefaultCertRequest
  * @return ModifyCloudResourceDefaultCertResponse
@@ -12944,7 +13010,7 @@ ModifyCloudResourceDefaultCertResponse Client::modifyCloudResourceDefaultCert(co
 }
 
 /**
- * @summary Modifies the default SSL/TLS settings.
+ * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
  *
  * @param request ModifyDefaultHttpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13003,7 +13069,7 @@ ModifyDefaultHttpsResponse Client::modifyDefaultHttpsWithOptions(const ModifyDef
 }
 
 /**
- * @summary Modifies the default SSL/TLS settings.
+ * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
  *
  * @param request ModifyDefaultHttpsRequest
  * @return ModifyDefaultHttpsResponse
@@ -13014,7 +13080,7 @@ ModifyDefaultHttpsResponse Client::modifyDefaultHttps(const ModifyDefaultHttpsRe
 }
 
 /**
- * @summary Modifies the configuration of a protected object group.
+ * @summary Modifies the configurations of a protected object group.
  *
  * @param request ModifyDefenseResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13069,7 +13135,7 @@ ModifyDefenseResourceGroupResponse Client::modifyDefenseResourceGroupWithOptions
 }
 
 /**
- * @summary Modifies the configuration of a protected object group.
+ * @summary Modifies the configurations of a protected object group.
  *
  * @param request ModifyDefenseResourceGroupRequest
  * @return ModifyDefenseResourceGroupResponse
@@ -13158,7 +13224,7 @@ ModifyDefenseResourceXffResponse Client::modifyDefenseResourceXff(const ModifyDe
 }
 
 /**
- * @summary Modifies the configuration of a protection rule.
+ * @summary Modifies the configurations of a protection rule.
  *
  * @param request ModifyDefenseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13219,7 +13285,7 @@ ModifyDefenseRuleResponse Client::modifyDefenseRuleWithOptions(const ModifyDefen
 }
 
 /**
- * @summary Modifies the configuration of a protection rule.
+ * @summary Modifies the configurations of a protection rule.
  *
  * @param request ModifyDefenseRuleRequest
  * @return ModifyDefenseRuleResponse
@@ -13230,7 +13296,7 @@ ModifyDefenseRuleResponse Client::modifyDefenseRule(const ModifyDefenseRuleReque
 }
 
 /**
- * @summary Updates the cache for a web tamper-proofing rule.
+ * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
  *
  * @param request ModifyDefenseRuleCacheRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13277,7 +13343,7 @@ ModifyDefenseRuleCacheResponse Client::modifyDefenseRuleCacheWithOptions(const M
 }
 
 /**
- * @summary Updates the cache for a web tamper-proofing rule.
+ * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
  *
  * @param request ModifyDefenseRuleCacheRequest
  * @return ModifyDefenseRuleCacheResponse
@@ -13288,7 +13354,7 @@ ModifyDefenseRuleCacheResponse Client::modifyDefenseRuleCache(const ModifyDefens
 }
 
 /**
- * @summary Enables or disables a protection rule.
+ * @summary Changes the status of a protection rule.
  *
  * @param request ModifyDefenseRuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13343,7 +13409,7 @@ ModifyDefenseRuleStatusResponse Client::modifyDefenseRuleStatusWithOptions(const
 }
 
 /**
- * @summary Enables or disables a protection rule.
+ * @summary Changes the status of a protection rule.
  *
  * @param request ModifyDefenseRuleStatusRequest
  * @return ModifyDefenseRuleStatusResponse
@@ -13354,7 +13420,7 @@ ModifyDefenseRuleStatusResponse Client::modifyDefenseRuleStatus(const ModifyDefe
 }
 
 /**
- * @summary Modifies the mitigation settings for a protection scenario.
+ * @summary 修改用户防护场景的配置
  *
  * @param request ModifyDefenseSceneConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13405,7 +13471,7 @@ ModifyDefenseSceneConfigResponse Client::modifyDefenseSceneConfigWithOptions(con
 }
 
 /**
- * @summary Modifies the mitigation settings for a protection scenario.
+ * @summary 修改用户防护场景的配置
  *
  * @param request ModifyDefenseSceneConfigRequest
  * @return ModifyDefenseSceneConfigResponse
@@ -13416,7 +13482,7 @@ ModifyDefenseSceneConfigResponse Client::modifyDefenseSceneConfig(const ModifyDe
 }
 
 /**
- * @summary Modifies a defense template.
+ * @summary Modifies the configurations of a protection rule template.
  *
  * @param request ModifyDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13467,7 +13533,7 @@ ModifyDefenseTemplateResponse Client::modifyDefenseTemplateWithOptions(const Mod
 }
 
 /**
- * @summary Modifies a defense template.
+ * @summary Modifies the configurations of a protection rule template.
  *
  * @param request ModifyDefenseTemplateRequest
  * @return ModifyDefenseTemplateResponse
@@ -13536,7 +13602,7 @@ ModifyDefenseTemplateStatusResponse Client::modifyDefenseTemplateStatus(const Mo
 }
 
 /**
- * @summary Updates a CNAME-based domain name onboarded to Web Application Firewall (WAF).
+ * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
  *
  * @param tmpReq ModifyDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13601,7 +13667,7 @@ ModifyDomainResponse Client::modifyDomainWithOptions(const ModifyDomainRequest &
 }
 
 /**
- * @summary Updates a CNAME-based domain name onboarded to Web Application Firewall (WAF).
+ * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
  *
  * @param request ModifyDomainRequest
  * @return ModifyDomainResponse
@@ -13612,7 +13678,7 @@ ModifyDomainResponse Client::modifyDomain(const ModifyDomainRequest &request) {
 }
 
 /**
- * @summary Modifies the certificate that is associated with a domain name added to a Web Application Firewall (WAF) instance in CNAME record mode.
+ * @summary 修改域名的证书
  *
  * @param request ModifyDomainCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13671,7 +13737,7 @@ ModifyDomainCertResponse Client::modifyDomainCertWithOptions(const ModifyDomainC
 }
 
 /**
- * @summary Modifies the certificate that is associated with a domain name added to a Web Application Firewall (WAF) instance in CNAME record mode.
+ * @summary 修改域名的证书
  *
  * @param request ModifyDomainCertRequest
  * @return ModifyDomainCertResponse
@@ -13682,7 +13748,7 @@ ModifyDomainCertResponse Client::modifyDomainCert(const ModifyDomainCertRequest 
 }
 
 /**
- * @summary Re-add a domain name that was penalized for not having an ICP filing to Web Application Firewall (WAF).
+ * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
  *
  * @param request ModifyDomainPunishStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13725,7 +13791,7 @@ ModifyDomainPunishStatusResponse Client::modifyDomainPunishStatusWithOptions(con
 }
 
 /**
- * @summary Re-add a domain name that was penalized for not having an ICP filing to Web Application Firewall (WAF).
+ * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
  *
  * @param request ModifyDomainPunishStatusRequest
  * @return ModifyDomainPunishStatusResponse
@@ -13736,7 +13802,7 @@ ModifyDomainPunishStatusResponse Client::modifyDomainPunishStatus(const ModifyDo
 }
 
 /**
- * @summary Updates hybrid cloud cluster settings, such as the cluster name, ports, and access mode.
+ * @summary Modifies information about a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13831,7 +13897,7 @@ ModifyHybridCloudClusterResponse Client::modifyHybridCloudClusterWithOptions(con
 }
 
 /**
- * @summary Updates hybrid cloud cluster settings, such as the cluster name, ports, and access mode.
+ * @summary Modifies information about a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudClusterRequest
  * @return ModifyHybridCloudClusterResponse
@@ -13842,7 +13908,7 @@ ModifyHybridCloudClusterResponse Client::modifyHybridCloudCluster(const ModifyHy
 }
 
 /**
- * @summary Modifies the manual bypass status for a hybrid cloud cluster that is integrated with an SDK.
+ * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
  *
  * @param request ModifyHybridCloudClusterBypassStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13889,7 +13955,7 @@ ModifyHybridCloudClusterBypassStatusResponse Client::modifyHybridCloudClusterByp
 }
 
 /**
- * @summary Modifies the manual bypass status for a hybrid cloud cluster that is integrated with an SDK.
+ * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
  *
  * @param request ModifyHybridCloudClusterBypassStatusRequest
  * @return ModifyHybridCloudClusterBypassStatusResponse
@@ -13970,7 +14036,7 @@ ModifyHybridCloudClusterRuleResponse Client::modifyHybridCloudClusterRule(const 
 }
 
 /**
- * @summary Modifies the information of a cluster group.
+ * @summary Modifies a node group in a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14025,7 +14091,7 @@ ModifyHybridCloudGroupResponse Client::modifyHybridCloudGroupWithOptions(const M
 }
 
 /**
- * @summary Modifies the information of a cluster group.
+ * @summary Modifies a node group in a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudGroupRequest
  * @return ModifyHybridCloudGroupResponse
@@ -14036,7 +14102,7 @@ ModifyHybridCloudGroupResponse Client::modifyHybridCloudGroup(const ModifyHybrid
 }
 
 /**
- * @summary Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
+ * @summary Adds a node to a node group of a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudGroupExpansionServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14087,7 +14153,7 @@ ModifyHybridCloudGroupExpansionServerResponse Client::modifyHybridCloudGroupExpa
 }
 
 /**
- * @summary Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
+ * @summary Adds a node to a node group of a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudGroupExpansionServerRequest
  * @return ModifyHybridCloudGroupExpansionServerResponse
@@ -14098,7 +14164,7 @@ ModifyHybridCloudGroupExpansionServerResponse Client::modifyHybridCloudGroupExpa
 }
 
 /**
- * @summary Removes a node from a group in a hybrid cloud cluster.
+ * @summary Deletes a node from a node group of a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudGroupShrinkServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14149,7 +14215,7 @@ ModifyHybridCloudGroupShrinkServerResponse Client::modifyHybridCloudGroupShrinkS
 }
 
 /**
- * @summary Removes a node from a group in a hybrid cloud cluster.
+ * @summary Deletes a node from a node group of a hybrid cloud cluster.
  *
  * @param request ModifyHybridCloudGroupShrinkServerRequest
  * @return ModifyHybridCloudGroupShrinkServerResponse
@@ -14160,7 +14226,7 @@ ModifyHybridCloudGroupShrinkServerResponse Client::modifyHybridCloudGroupShrinkS
 }
 
 /**
- * @summary Modifies the traffic redirection status of a hybrid cloud SDK.
+ * @summary Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
  *
  * @param request ModifyHybridCloudSdkPullinStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14199,7 +14265,7 @@ ModifyHybridCloudSdkPullinStatusResponse Client::modifyHybridCloudSdkPullinStatu
 }
 
 /**
- * @summary Modifies the traffic redirection status of a hybrid cloud SDK.
+ * @summary Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
  *
  * @param request ModifyHybridCloudSdkPullinStatusRequest
  * @return ModifyHybridCloudSdkPullinStatusResponse
@@ -14210,7 +14276,7 @@ ModifyHybridCloudSdkPullinStatusResponse Client::modifyHybridCloudSdkPullinStatu
 }
 
 /**
- * @summary Modifies the configuration of a hybrid cloud node in a Web Application Firewall (WAF) instance.
+ * @summary Modifies the information about a hybrid cloud node.
  *
  * @param request ModifyHybridCloudServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14269,7 +14335,7 @@ ModifyHybridCloudServerResponse Client::modifyHybridCloudServerWithOptions(const
 }
 
 /**
- * @summary Modifies the configuration of a hybrid cloud node in a Web Application Firewall (WAF) instance.
+ * @summary Modifies the information about a hybrid cloud node.
  *
  * @param request ModifyHybridCloudServerRequest
  * @return ModifyHybridCloudServerResponse
@@ -14280,7 +14346,7 @@ ModifyHybridCloudServerResponse Client::modifyHybridCloudServer(const ModifyHybr
 }
 
 /**
- * @summary Modifies a log delivery configuration for a hybrid cloud cluster.
+ * @summary Modifies a hybrid cloud log delivery configuration.
  *
  * @param request ModifyLogDeliveryConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14331,7 +14397,7 @@ ModifyLogDeliveryConfigResponse Client::modifyLogDeliveryConfigWithOptions(const
 }
 
 /**
- * @summary Modifies a log delivery configuration for a hybrid cloud cluster.
+ * @summary Modifies a hybrid cloud log delivery configuration.
  *
  * @param request ModifyLogDeliveryConfigRequest
  * @return ModifyLogDeliveryConfigResponse
@@ -14342,7 +14408,7 @@ ModifyLogDeliveryConfigResponse Client::modifyLogDeliveryConfig(const ModifyLogD
 }
 
 /**
- * @summary Modifies an IP address blacklist for critical event protection.
+ * @summary Modifies an IP address blacklist for major event protection.
  *
  * @param request ModifyMajorProtectionBlackIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14401,7 +14467,7 @@ ModifyMajorProtectionBlackIpResponse Client::modifyMajorProtectionBlackIpWithOpt
 }
 
 /**
- * @summary Modifies an IP address blacklist for critical event protection.
+ * @summary Modifies an IP address blacklist for major event protection.
  *
  * @param request ModifyMajorProtectionBlackIpRequest
  * @return ModifyMajorProtectionBlackIpResponse
@@ -14412,7 +14478,7 @@ ModifyMajorProtectionBlackIpResponse Client::modifyMajorProtectionBlackIp(const 
 }
 
 /**
- * @summary Modifies the information of a member account that is managed by the multi-account management feature of Web Application Firewall (WAF).
+ * @summary Modifies the information about members that are added for multi-account management.
  *
  * @param request ModifyMemberAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14463,7 +14529,7 @@ ModifyMemberAccountResponse Client::modifyMemberAccountWithOptions(const ModifyM
 }
 
 /**
- * @summary Modifies the information of a member account that is managed by the multi-account management feature of Web Application Firewall (WAF).
+ * @summary Modifies the information about members that are added for multi-account management.
  *
  * @param request ModifyMemberAccountRequest
  * @return ModifyMemberAccountResponse
@@ -14528,7 +14594,7 @@ ModifyPauseProtectionStatusResponse Client::modifyPauseProtectionStatus(const Mo
 }
 
 /**
- * @summary Modifies the log delivery status of a protected object in Web Application Firewall (WAF).
+ * @summary 修改防护对象日志外发状态
  *
  * @param request ModifyResourceLogDeliveryStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14579,7 +14645,7 @@ ModifyResourceLogDeliveryStatusResponse Client::modifyResourceLogDeliveryStatusW
 }
 
 /**
- * @summary Modifies the log delivery status of a protected object in Web Application Firewall (WAF).
+ * @summary 修改防护对象日志外发状态
  *
  * @param request ModifyResourceLogDeliveryStatusRequest
  * @return ModifyResourceLogDeliveryStatusResponse
@@ -14590,7 +14656,7 @@ ModifyResourceLogDeliveryStatusResponse Client::modifyResourceLogDeliveryStatus(
 }
 
 /**
- * @summary Modifies the log field configuration of a protected object.
+ * @summary 修改防护对象的日志字段配置
  *
  * @param request ModifyResourceLogFieldConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14649,7 +14715,7 @@ ModifyResourceLogFieldConfigResponse Client::modifyResourceLogFieldConfigWithOpt
 }
 
 /**
- * @summary Modifies the log field configuration of a protected object.
+ * @summary 修改防护对象的日志字段配置
  *
  * @param request ModifyResourceLogFieldConfigRequest
  * @return ModifyResourceLogFieldConfigResponse
@@ -14718,7 +14784,7 @@ ModifyResourceLogStatusResponse Client::modifyResourceLogStatus(const ModifyReso
 }
 
 /**
- * @summary Attaches protected objects to or detaches protected objects from a protection template.
+ * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
  *
  * @param request ModifyTemplateResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14785,7 +14851,7 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResourcesWithOptions(const
 }
 
 /**
- * @summary Attaches protected objects to or detaches protected objects from a protection template.
+ * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
  *
  * @param request ModifyTemplateResourcesRequest
  * @return ModifyTemplateResourcesResponse
@@ -14796,7 +14862,7 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResources(const ModifyTemp
 }
 
 /**
- * @summary Modifies the default log field configuration of a Web Application Firewall (WAF) instance for log delivery to Simple Log Service.
+ * @summary 修改用户日志服务的默认字段配置
  *
  * @param request ModifyUserLogFieldConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14851,7 +14917,7 @@ ModifyUserLogFieldConfigResponse Client::modifyUserLogFieldConfigWithOptions(con
 }
 
 /**
- * @summary Modifies the default log field configuration of a Web Application Firewall (WAF) instance for log delivery to Simple Log Service.
+ * @summary 修改用户日志服务的默认字段配置
  *
  * @param request ModifyUserLogFieldConfigRequest
  * @return ModifyUserLogFieldConfigResponse
@@ -14862,7 +14928,7 @@ ModifyUserLogFieldConfigResponse Client::modifyUserLogFieldConfig(const ModifyUs
 }
 
 /**
- * @summary Enables or disables Simple Log Service for Web Application Firewall (WAF).
+ * @summary 开通或关闭WAF日志服务
  *
  * @param request ModifyUserWafLogStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14909,7 +14975,7 @@ ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatusWithOptions(const M
 }
 
 /**
- * @summary Enables or disables Simple Log Service for Web Application Firewall (WAF).
+ * @summary 开通或关闭WAF日志服务
  *
  * @param request ModifyUserWafLogStatusRequest
  * @return ModifyUserWafLogStatusResponse
@@ -14920,7 +14986,7 @@ ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatus(const ModifyUserWa
 }
 
 /**
- * @summary Re-adds a cloud product to Web Application Firewall (WAF) to restore protection after a cloud product access failure.
+ * @summary 重新接入云产品
  *
  * @param request ReCreateCloudResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14975,7 +15041,7 @@ ReCreateCloudResourceResponse Client::reCreateCloudResourceWithOptions(const ReC
 }
 
 /**
- * @summary Re-adds a cloud product to Web Application Firewall (WAF) to restore protection after a cloud product access failure.
+ * @summary 重新接入云产品
  *
  * @param request ReCreateCloudResourceRequest
  * @return ReCreateCloudResourceResponse
@@ -15038,7 +15104,7 @@ ReleaseInstanceResponse Client::releaseInstance(const ReleaseInstanceRequest &re
 /**
  * @summary Synchronizes Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances to Web Application Firewall (WAF).
  *
- * @description After you call this operation, the system performs the synchronization asynchronously. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the synchronization result.
+ * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
  *
  * @param request SyncProductInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15079,7 +15145,7 @@ SyncProductInstanceResponse Client::syncProductInstanceWithOptions(const SyncPro
 /**
  * @summary Synchronizes Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances to Web Application Firewall (WAF).
  *
- * @description After you call this operation, the system performs the synchronization asynchronously. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the synchronization result.
+ * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
  *
  * @param request SyncProductInstanceRequest
  * @return SyncProductInstanceResponse
@@ -15202,7 +15268,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
+ * @summary Verifies the ownership of a domain name.
  *
  * @param request VerifyDomainOwnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15245,7 +15311,7 @@ VerifyDomainOwnerResponse Client::verifyDomainOwnerWithOptions(const VerifyDomai
 }
 
 /**
- * @summary Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
+ * @summary Verifies the ownership of a domain name.
  *
  * @param request VerifyDomainOwnerRequest
  * @return VerifyDomainOwnerResponse

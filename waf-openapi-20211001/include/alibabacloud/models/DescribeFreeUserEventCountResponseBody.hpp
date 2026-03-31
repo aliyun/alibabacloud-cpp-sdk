@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<int64_t> eventLow_ {};
       // The number of medium-risk events.
       shared_ptr<int64_t> eventMedium_ {};
-      // The total number of API security events.
+      // The total number of security events.
       shared_ptr<int64_t> eventTotal_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The information about security events detected by basic API security checks.
+    // The information about the security events that are detected by using the basic detection feature.
     shared_ptr<DescribeFreeUserEventCountResponseBody::Event> event_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

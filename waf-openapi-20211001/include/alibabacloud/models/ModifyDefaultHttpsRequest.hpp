@@ -106,47 +106,41 @@ namespace Models
 
 
   protected:
-    // The certificate ID.
+    // The ID of the certificate.
     // 
     // This parameter is required.
     shared_ptr<string> certId_ {};
-    // The type of the cipher suite. Valid values:
+    // The type of the cipher suites. Valid values:
     // 
-    // - **1**: adds all cipher suites.
-    // 
-    // - **2**: adds strong cipher suites.
-    // 
-    // - **99**: adds custom cipher suites.
+    // *   **1**: all cipher suites.
+    // *   **2**: strong cipher suites.
+    // *   **99**: custom cipher suites.
     shared_ptr<int32_t> cipherSuite_ {};
-    // The custom cipher suites that you want to add. This parameter is used only when **CipherSuite** is set to **99**.
+    // The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
     shared_ptr<vector<string>> customCiphers_ {};
     // Specifies whether to support TLS 1.3. Valid values:
     // 
-    // - **true**: supports TLS 1.3.
-    // 
-    // - **false**: does not support TLS 1.3.
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> enableTLSv3_ {};
-    // The ID of the WAF instance.
+    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of the current WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: regions outside the Chinese mainland.
+    // *   **cn-hangzhou**: the Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // 阿里云资源组ID。
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The version of the TLS protocol. Valid values:
     // 
-    // - **tlsv1**
-    // 
-    // - **tlsv1.1**
-    // 
-    // - **tlsv1.2**
+    // *   **tlsv1**
+    // *   **tlsv1.1**
+    // *   **tlsv1.2**
     // 
     // This parameter is required.
     shared_ptr<string> TLSVersion_ {};

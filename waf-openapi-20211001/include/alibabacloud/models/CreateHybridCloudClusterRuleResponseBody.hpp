@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster rule resource.
     shared_ptr<string> clusterRuleResourceId_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

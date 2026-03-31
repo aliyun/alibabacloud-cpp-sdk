@@ -182,55 +182,49 @@ namespace Models
     protected:
       // The network access mode. Valid values:
       // 
-      // - **internet**: Internet access.
-      // 
-      // - **vpc**: leased line-based private network access.
+      // *   **internet**: Internet access.
+      // *   **vpc**: internal network access by using Express Connect circuits.
       shared_ptr<string> accessMode_ {};
-      // The region where the leased line is connected. Valid values:
+      // The region where the virtual private cloud (VPC) resides. Valid values:
       // 
-      // - **cn-hangzhou**: Hangzhou
-      // 
-      // - **cn-beijing**: Beijing
-      // 
-      // - **cn-shanghai**: Shanghai
+      // *   **cn-hangzhou**: China (Hangzhou).
+      // *   **cn-beiijng**: China (Beijing).
+      // *   **cn-shanghai**: China (Shanghai).
       shared_ptr<string> accessRegion_ {};
       // The name of the cluster.
       shared_ptr<string> clusterName_ {};
-      // The resource ID of the hybrid cloud cluster.
+      // The ID of the hybrid cloud cluster resource.
       shared_ptr<string> clusterResourceId_ {};
-      // The ports that use the HTTP protocol. The value is a string. If multiple ports are returned, they are separated by commas in the **port1,port2,port3** format.
+      // The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
       shared_ptr<string> httpPorts_ {};
-      // The ports that use the HTTPS protocol. The value is a string. If multiple ports are returned, they are separated by commas in the **port1,port2,port3** format.
+      // The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
       shared_ptr<string> httpsPorts_ {};
-      // The cluster ID.
+      // The ID of the cluster.
       shared_ptr<int64_t> id_ {};
-      // The number of protection nodes that you can add to the cluster.
+      // The number of protection nodes that can be added to the cluster.
       shared_ptr<int32_t> protectionServerCount_ {};
-      // The status of the proxy. Valid values:
+      // The status of the proxy gateway. Valid values:
       // 
-      // - **on**: enabled
-      // 
-      // - **off**: disabled
+      // *   **on**: enabled.
+      // *   **off**: disabled.
       shared_ptr<string> proxyStatus_ {};
       // The type of the cluster. Valid values:
       // 
-      // - **cname**: reverse proxy cluster
-      // 
-      // - **service**: service cluster
+      // *   **cname**: reverse proxy cluster.
+      // *   **service**: SDK-based traffic mirroring cluster.
       shared_ptr<string> proxyType_ {};
-      // The remarks.
+      // The remarks about the cluster.
       shared_ptr<string> remark_ {};
-      // The rule configuration.
+      // The configurations of the rule.
       shared_ptr<string> ruleConfig_ {};
-      // The status of the manual bypass setting. Valid values:
+      // The status of manual bypass. Valid values:
       // 
-      // - **on**: enabled.
-      // 
-      // - **off**: disabled.
+      // *   **on**: enabled.
+      // *   **off**: disabled.
       shared_ptr<string> ruleStatus_ {};
-      // The type of the rule. Valid values:
+      // The type of the rule. Valid value:
       // 
-      // - **bypass**: WAF does not perform security checks and allows traffic to pass through.
+      // *   **bypass**: Requests are allowed without security checks.
       shared_ptr<string> ruleType_ {};
     };
 
@@ -253,9 +247,9 @@ namespace Models
 
 
   protected:
-    // The list of clusters.
+    // The information about the clusters.
     shared_ptr<vector<DescribeHybridCloudClustersResponseBody::ClusterInfos>> clusterInfos_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

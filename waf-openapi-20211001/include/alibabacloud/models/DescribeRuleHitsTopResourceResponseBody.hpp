@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The number of requests that triggered the rule.
+      // The number of requests that match protection rules.
       shared_ptr<int64_t> count_ {};
       // The protected object.
       shared_ptr<string> resource_ {};
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The top 10 protected objects that triggered protection rules.
+    // The array of the top 10 protected objects that trigger protection rules.
     shared_ptr<vector<DescribeRuleHitsTopResourceResponseBody::RuleHitsTopResource>> ruleHitsTopResource_ {};
   };
 

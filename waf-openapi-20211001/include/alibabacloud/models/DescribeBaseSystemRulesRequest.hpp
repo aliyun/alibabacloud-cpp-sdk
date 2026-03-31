@@ -149,109 +149,19 @@ namespace Models
 
 
   protected:
-    // The type of attack that the system protection rule detects. Valid values:
-    // 
-    // - **sqli**: SQL injection.
-    // 
-    // - **xss**: cross-site scripting (XSS).
-    // 
-    // - **cmdi**: OS command injection.
-    // 
-    // - **expression_injection**: expression injection.
-    // 
-    // - **java_deserialization**: Java deserialization.
-    // 
-    // - **dot_net_deserialization**: .NET deserialization.
-    // 
-    // - **php_deserialization**: PHP deserialization.
-    // 
-    // - **code_exec**: code execution.
-    // 
-    // - **ssrf**: server-side request forgery (SSRF).
-    // 
-    // - **path_traversal**: path traversal.
-    // 
-    // - **arbitrary_file_uploading**: arbitrary file upload.
-    // 
-    // - **webshell**: webshell.
-    // 
-    // - **rfilei**: remote file inclusion (RFI).
-    // 
-    // - **lfilei**: local file inclusion (LFI).
-    // 
-    // - **protocol_violation**: protocol violation.
-    // 
-    // - **scanner_behavior**: scanner behavior.
-    // 
-    // - **logic_flaw**: logic flaw.
-    // 
-    // - **arbitrary_file_reading**: arbitrary file read.
-    // 
-    // - **arbitrary_file_download**: arbitrary file download.
-    // 
-    // - **xxe**: external entity injection.
-    // 
-    // - **csrf**: cross-site request forgery (CSRF).
-    // 
-    // - **crlf**: CRLF injection.
-    // 
-    // - **other**: other.
     shared_ptr<string> detectType_ {};
-    // The ID of the WAF instance.
-    // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the response. Valid values:
-    // 
-    // - **zh** (default): Chinese.
-    // 
-    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The risk level of the system protection rule. Valid values:
-    // 
-    // - **super_strict**: Very Strict.
-    // 
-    // - **strict**: Strict.
-    // 
-    // - **medium**: Medium.
-    // 
-    // - **loose**: Loose.
     shared_ptr<string> riskLevel_ {};
-    // The action of the system protection rule. Valid values:
-    // 
-    // - **block**: Block.
-    // 
-    // - **monitor**: Monitor.
     shared_ptr<string> ruleAction_ {};
-    // The ID of the system protection rule to query.
     shared_ptr<int64_t> ruleId_ {};
-    // The name of the system protection rule.
     shared_ptr<string> ruleName_ {};
-    // The status of the system protection rule. Valid values:
-    // 
-    // - **1**: disabled.
-    // 
-    // - **0**: enabled.
     shared_ptr<int32_t> ruleStatus_ {};
-    // The ID of the protection template.
-    // 
-    // > - Specify this parameter to query the system protection rules in a specific WAF protection template.
-    // >
-    // > - If you leave this parameter empty, the default configurations of the system protection rules are queried.
     shared_ptr<int64_t> templateId_ {};
   };
 

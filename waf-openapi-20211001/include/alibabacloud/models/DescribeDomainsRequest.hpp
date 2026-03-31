@@ -159,31 +159,27 @@ namespace Models
 
 
   protected:
-    // The IP address of the origin server or the back-to-origin domain name. You can specify only one of these options.
+    // An array of HTTPS listener ports.
     shared_ptr<string> backend_ {};
-    // The domain name added to WAF.
+    // The ID of the request.
     shared_ptr<string> domain_ {};
-    // The ID of the domain name.
     shared_ptr<string> domainId_ {};
-    // The ID of the WAF instance.
-    // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of the current WAF instance.
+    // The page number of the page to return. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: 1.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
     // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou:** the Chinese mainland.
+    // *   **ap-southeast-1:** outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The tags of the resource. A maximum of 20 tags are supported.
+    // The tag of the resource. You can specify up to 20 tags.
     shared_ptr<vector<DescribeDomainsRequest::Tag>> tag_ {};
   };
 

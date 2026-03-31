@@ -70,25 +70,18 @@ namespace Models
 
 
     protected:
-      // The number of requests that hit the rule.
+      // The number of requests that match protection rules.
       shared_ptr<int64_t> count_ {};
-      // The type of rule that was hit. This parameter is not returned by default, which indicates that data for all rule types is returned.
+      // The type of rule that is matched. By default, this parameter is not returned. This indicates that all types of rules that are matched are returned.
       // 
-      // - **waf**: basic protection rules.
-      // 
-      // - **blacklist**: IP address blacklist.
-      // 
-      // - **custom**: custom rules.
-      // 
-      // - **antiscan**: scan protection rules.
-      // 
-      // - **cc_system**: HTTP flood protection rules.
-      // 
-      // - **region_block**: location blacklist.
-      // 
-      // - **scene**: bot management.
-      // 
-      // - **dlp**: data leak prevention.
+      // *   **waf:** basic protection rules.
+      // *   **blacklist:** IP address blacklist rules.
+      // *   **custom:** custom rules.
+      // *   **antiscan:** scan protection rules.
+      // *   **cc_system:** HTTP flood protection rules.
+      // *   **region_block:** region blacklist rules.
+      // *   **scene:** bot management rules.
+      // *   **dlp:** data leakage prevention rules.
       shared_ptr<string> ruleType_ {};
     };
 
@@ -113,7 +106,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The top 10 protection rule types that were hit.
+    // The top 10 protection modules that are matched.
     shared_ptr<vector<DescribeRuleHitsTopTuleTypeResponseBody::RuleHitsTopTuleType>> ruleHitsTopTuleType_ {};
   };
 

@@ -103,21 +103,10 @@ namespace Models
 
 
     protected:
-      // The protection scenario of the rule. For more information, see the description of the **DefenseScene** parameter in [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html).
       shared_ptr<string> defenseScene_ {};
-      // The type of the protection rule. Valid values:
-      // 
-      // - **template** (default): a template rule.
-      // 
-      // - **resource**: a rule for a protected object.
-      // 
-      // - **global**: a global rule.
       shared_ptr<string> defenseType_ {};
-      // The ID of the protection rule.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the protection rule.
       shared_ptr<string> ruleName_ {};
-      // The ID of the protection template.
       shared_ptr<int64_t> templateId_ {};
     };
 
@@ -161,17 +150,10 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to query the next page of results. If more results are available, this parameter is returned.
-    // 
-    // > If this parameter is returned, more results are available. Use the returned NextToken value as a request parameter to retrieve the next page of data. Repeat this process until the **NextToken** parameter is not returned. This indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of associated rules.
     shared_ptr<vector<DescribeRelatedDefenseRulesResponseBody::Rules>> rules_ {};
-    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -99,19 +99,10 @@ namespace Models
 
 
     protected:
-      // The CVE ID of the vulnerability associated with the system rule.
       shared_ptr<string> cveId_ {};
-      // The operation type. Valid values:
-      // 
-      // - add: Add.
-      // 
-      // - modify: Modify.
       shared_ptr<string> operation_ {};
-      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The update time of the rule.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -141,11 +132,8 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of ruleset changes.
     shared_ptr<vector<DescribeBaseRuleChangeLogResponseBody::Rules>> rules_ {};
-    // The total number of rule change entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

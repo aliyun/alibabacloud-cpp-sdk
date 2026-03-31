@@ -97,13 +97,11 @@ namespace Models
 
 
       protected:
-        // The end time of the query. This is a UNIX timestamp. Unit: seconds.
+        // The end of the time range to query. The value is a Unix timestamp. Unit: seconds.
         // 
         // This parameter is required.
         shared_ptr<int64_t> endDate_ {};
-        // You can query data from the last 30 days. The start time of the query. This is a UNIX timestamp. Unit: seconds.
-        // 
-        // > ## The start time must be within the last 30 days.
+        // The beginning of the time range to query. The value is a Unix timestamp. Unit: seconds.
         // 
         // This parameter is required.
         shared_ptr<int64_t> startDate_ {};
@@ -158,11 +156,11 @@ namespace Models
 
 
       protected:
-        // The name of the field to filter. This operation supports all fields.
+        // The field name. This operation supports all fields. For details, see the **Supported field names** section below.
         shared_ptr<string> key_ {};
-        // The operator.
+        // The operator. For details, see the **Supported operators** section below.
         shared_ptr<string> opValue_ {};
-        // The filter value.
+        // The field content.
         Darabonba::Json values_ {};
       };
 
@@ -187,9 +185,9 @@ namespace Models
 
 
     protected:
-      // A list of filter conditions. Each node describes one filter condition.
+      // The filter conditions. Each object describes a filter condition.
       shared_ptr<vector<Filter::Conditions>> conditions_ {};
-      // The time range to query.
+      // The time range for the query.
       // 
       // This parameter is required.
       shared_ptr<Filter::DateRange> dateRange_ {};
@@ -235,33 +233,29 @@ namespace Models
 
 
   protected:
-    // The filter conditions for the query. Multiple filter conditions have a logical AND relationship.
+    // The filter conditions for the query. Multiple conditions are evaluated by using a logical AND.
     // 
     // This parameter is required.
     shared_ptr<DescribeSecurityEventTimeSeriesMetricRequest::Filter> filter_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies the content of the returned data. Different metrics correspond to different data content. This operation supports the following metrics:
+    // The metric whose time series data you want to return. The following metrics are supported:
     // 
-    // - mitigated_requests: Returns the time series statistics of blocked requests.
-    // 
-    // - monitored_requests: Returns the time series statistics of requests that hit only observation-type rules.
-    // 
-    // - mitigated_requests_group_by_defense_scene: Returns data grouped by module. It records a time series graph of the hit count for each module. A single request may hit multiple modules. Therefore, the hit count returned by this metric may not be consistent with the number of requests.
-    // 
-    // - mitigated_requests_group_by_block_defense_scene: Returns data grouped by module. It records a time series graph of the number of blocked requests for each module. A single request is blocked by only one module. Therefore, the count returned by this metric is consistent with the number of requests.
+    // *   mitigated_requests: The system returns the time series data of requests that are blocked.
+    // *   monitored_requests: The system returns the time series data of requests that match Monitor protection rules.
+    // *   mitigated_requests_group_by_defense_scene: The system returns the number of requests that match each protection module. The returned results are grouped by protection module and can be used to generate time series charts. A request can match multiple protection modules. Therefore, the total number of matched requests is inconsistent with the total number of requests.
+    // *   mitigated_requests_group_by_block_defense_scene: The system returns the number of requests that are blocked by each protection module. The returned results are grouped by protection module and can be used to generate time series charts. A request can be blocked by only one protection module. Therefore, the total number of blocked requests is consistent with the total number of requests.
     // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: The Chinese mainland.
+    // *   **ap-southeast-1**: Outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

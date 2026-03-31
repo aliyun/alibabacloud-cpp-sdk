@@ -94,31 +94,29 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF instance.
+    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number of the results to return. The default value is **1**, which returns the first page of results.
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is **10**.
+    // The number of entries to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou:** the Chinese mainland
+    // *   **ap-southeast-1:** outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The query type. Valid values:
+    // The type of the query condition. Valid values:
     // 
-    // - **id**: Queries by rule group ID.
-    // 
-    // - **name**: Queries by rule group name. Both Chinese and English names are supported.
+    // *   **id:** queries regular expression rule groups by ID.
+    // *   **name:** queries regular expression rule groups by name.
     shared_ptr<string> searchType_ {};
-    // The content to query.
+    // The query condition.
     shared_ptr<string> searchValue_ {};
   };
 

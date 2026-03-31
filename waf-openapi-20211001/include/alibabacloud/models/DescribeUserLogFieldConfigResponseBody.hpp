@@ -103,35 +103,13 @@ namespace Models
 
 
   protected:
-    // The additional log fields that are added to the default configuration. Multiple fields are separated by commas (,) in the `a,b,c,...` format.
     shared_ptr<string> addList_ {};
-    // The status of the log field configuration. Valid values:
-    // 
-    // - **initial**: The log field configuration is being initialized.
-    // 
-    // - **updating**: The log field configuration is being updated.
-    // 
-    // - **failed_finished**: The log field configuration update failed.
-    // 
-    // - **success_finished**: The log field configuration update succeeded.
     shared_ptr<string> configStatus_ {};
-    // The default log fields that are excluded from the log delivery configuration. Multiple fields are separated by commas (,) in the `a,b,c,...` format.
     shared_ptr<string> delList_ {};
-    // The log delivery type. Valid values:
-    // 
-    // - **sls**: Simple Log Service.
     shared_ptr<string> deliveryType_ {};
-    // The extended configuration for log delivery. The value is a JSON-formatted string that contains configuration key-value pairs, such as custom request headers.
-    // 
-    // > For more information, see the **ExtendConfig** parameter description in [ModifyUserLogFieldConfig](~~ModifyUserLogFieldConfig~~).
     shared_ptr<string> extendConfig_ {};
-    // The complete list of log fields that are delivered. Multiple fields are separated by commas (,) in the `a,b,c,...` format.
     shared_ptr<string> fieldList_ {};
-    // The log delivery policies. Multiple policies are supported. The value is a JSON-formatted string that contains an array of policy objects.
-    // 
-    // > For more information, see the **LogDeliveryStrategy** parameter description in [ModifyUserLogFieldConfig](~~ModifyUserLogFieldConfig~~).
     shared_ptr<string> logDeliveryStrategy_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

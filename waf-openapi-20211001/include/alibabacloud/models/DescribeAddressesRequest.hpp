@@ -94,27 +94,13 @@ namespace Models
 
 
   protected:
-    // The address to use for a fuzzy match. If you specify this parameter, only addresses that contain the specified string are returned.
     shared_ptr<string> addressLike_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
-    // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next page of results. Set this parameter to the value of **NextToken** that is returned from the previous call. Do not specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the address book to query.
     shared_ptr<int64_t> ruleId_ {};
   };
 

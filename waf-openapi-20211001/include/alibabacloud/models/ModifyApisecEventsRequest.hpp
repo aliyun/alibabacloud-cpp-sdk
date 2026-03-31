@@ -107,42 +107,33 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter is available only for hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain information about hybrid cloud clusters.
+    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // A list of API security event IDs.
+    // The IDs of the security events.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> eventIds_ {};
-    // The dimension of the security event. Valid values:
-    // 
-    // - **ip** (default): IP security event.
-    // 
-    // - **account**: account security event.
     shared_ptr<string> eventScope_ {};
-    // The ID of the WAF instance.
+    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The remarks.
+    // The description.
     shared_ptr<string> note_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: the Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // 阿里云资源组ID。
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The status of the event. Valid values:
     // 
-    // - **toBeConfirmed**: The event is pending confirmation.
-    // 
-    // - **confirmed**: The event is confirmed.
-    // 
-    // - **ignored**: The event is ignored.
+    // *   **toBeConfirmed**
+    // *   **confirmed**
+    // *   **ignored**
     // 
     // This parameter is required.
     shared_ptr<string> userStatus_ {};

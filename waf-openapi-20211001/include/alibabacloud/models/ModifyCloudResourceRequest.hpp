@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // The custom request header field.
+        // The key of the custom header field.
         shared_ptr<string> key_ {};
-        // The value of the custom request header field.
+        // The value of the custom header field.
         shared_ptr<string> value_ {};
       };
 
@@ -199,41 +199,40 @@ namespace Models
 
 
     protected:
-      // Indicates whether persistent connections are enabled. Valid values:
+      // Specifies whether to enable the persistent connection feature. Valid values:
       // 
-      // - **true** (default): enables persistent connections.
-      // 
-      // - **false**: disables persistent connections.
+      // *   **true** (default)
+      // *   **false**
       shared_ptr<bool> keepalive_ {};
-      // The maximum number of requests that can be served through one persistent connection. Valid values: 60 to 1000.
+      // The number of reused persistent connections. Valid values: 60 to 1000.
+      // 
+      // >  This parameter specifies the number of persistent connections that can be reused after you enable the persistent connection feature.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period for an idle persistent connection. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+      // The timeout period of idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+      // 
+      // >  This parameter specifies the period of time after which an idle persistent connection is closed.
       shared_ptr<int32_t> keepaliveTimeout_ {};
-      // The maximum size of a request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
       shared_ptr<int32_t> maxBodySize_ {};
-      // The read timeout period. Unit: seconds. Valid values: 1 to 3600.
+      // The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> readTimeout_ {};
-      // The custom header fields used to mark traffic that is processed by WAF.
+      // The custom header fields, which are key-value pairs. The fields are used to mark requests that pass through WAF.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
-      // The write timeout period. Unit: seconds. Valid values: 1 to 3600.
+      // The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
       shared_ptr<int32_t> writeTimeout_ {};
-      // The method that WAF uses to obtain the real IP address of a client. Valid values:
+      // The method that is used to obtain the originating IP address of a client. Valid values:
       // 
-      // - **0**: WAF obtains the real IP address of the client from the request. Use this value when no Layer 7 proxy resides before WAF.
-      // 
-      // - **1**: WAF reads the first value of the X-Forwarded-For (XFF) header as the client IP address.
-      // 
-      // - **2**: WAF reads the value of a custom header field as the client IP address.
+      // *   **0**: No Layer 7 proxies are deployed in front of WAF.
+      // *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
+      // *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
       shared_ptr<int32_t> xffHeaderMode_ {};
-      // The custom header fields that are used to obtain the client IP address.
+      // The custom header fields that are used to obtain the originating IP address of a client. Specify the value in the ["header1","header2",...] format.
       // 
-      // > This parameter is required only when **XffHeaderMode** is set to **2**.
+      // >  This parameter is required only if you set **XffHeaderMode** to 2.
       shared_ptr<vector<string>> xffHeaders_ {};
-      // Indicates whether the X-Forwarded-Proto header is used to pass the protocol used by WAF. Valid values:
+      // Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
       // 
-      // - **true** (default): passes the protocol.
-      // 
-      // - **false**: does not pass the protocol.
+      // *   **true** (default)
+      // *   **false**
       shared_ptr<bool> xffProto_ {};
     };
 
@@ -312,11 +311,10 @@ namespace Models
 
 
       protected:
-        // The type of the certificate for the HTTPS protocol. Valid values:
+        // The type of the certificate. Valid values:
         // 
-        // - **default**: a default certificate.
-        // 
-        // - **extension**: an extension certificate.
+        // *   **default**: default certificate.
+        // *   **extension**: additional certificate.
         shared_ptr<string> appliedType_ {};
         // The ID of the certificate.
         shared_ptr<string> certificateId_ {};
@@ -400,59 +398,49 @@ namespace Models
 
 
     protected:
-      // The certificate information.
+      // The certificates.
       shared_ptr<vector<Listen::Certificates>> certificates_ {};
-      // The type of the cipher suite to add. This parameter applies only when you use the HTTPS protocol. Valid values:
+      // The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **1**: adds all cipher suites.
-      // 
-      // - **2**: adds strong cipher suites. This value is available only when **TLSVersion** is set to **tlsv1.2**.
-      // 
-      // - **99**: adds custom cipher suites.
+      // *   **1**: all cipher suites.
+      // *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
+      // *   **99**: custom cipher suites.
       shared_ptr<int32_t> cipherSuite_ {};
-      // The custom cipher suites.
+      // The custom cipher suites that you want to add.
       shared_ptr<vector<string>> customCiphers_ {};
-      // Indicates whether TLS 1.3 is supported. This parameter applies only when you use the HTTPS protocol. Valid values:
+      // Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **true**: TLS 1.3 is supported.
-      // 
-      // - **false**: TLS 1.3 is not supported.
+      // *   **true**
+      // *   **false**
       shared_ptr<bool> enableTLSv3_ {};
-      // Indicates whether HTTP/2 is enabled. This parameter applies only when you use the HTTPS protocol. Valid values:
+      // Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **true**: enables HTTP/2.
-      // 
-      // - **false** (default): disables HTTP/2.
+      // *   **true**
+      // *   **false** (default)
       shared_ptr<bool> http2Enabled_ {};
-      // The listening port of the cloud service instance that is added to WAF.
+      // The port of the cloud service instance that is added to WAF.
       shared_ptr<int32_t> port_ {};
       // The protocol type. Valid values:
       // 
-      // - **http**: HTTP.
-      // 
-      // - **https**: HTTPS.
+      // *   **http**
+      // *   **https**
       // 
       // This parameter is required.
       shared_ptr<string> protocol_ {};
-      // The ID of the cloud service instance.
+      // The ID of the cloud service instance that is added to WAF.
       shared_ptr<string> resourceInstanceId_ {};
       // The type of the cloud service. Valid values:
       // 
-      // - **clb4**: Layer 4 Classic Load Balancer (CLB).
-      // 
-      // - **clb7**: Layer 7 CLB.
-      // 
-      // - **ecs**: Elastic Compute Service (ECS).
-      // 
-      // - **nlb**: Network Load Balancer (NLB).
+      // *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+      // *   **clb7**: Layer 7 CLB.
+      // *   **ecs**: Elastic Compute Service (ECS).
+      // *   **nlb**: Network Load Balancer (NLB).
       shared_ptr<string> resourceProduct_ {};
-      // The Transport Layer Security (TLS) version. This parameter applies only when you use the HTTPS protocol. Valid values:
+      // The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
-      // - **tlsv1**
-      // 
-      // - **tlsv1.1**
-      // 
-      // - **tlsv1.2**
+      // *   **tlsv1**
+      // *   **tlsv1.1**
+      // *   **tlsv1.2**
       shared_ptr<string> TLSVersion_ {};
     };
 
@@ -505,31 +493,27 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud resource that is added to WAF.
-    // 
-    // > Call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to add a cloud resource. The resource ID is included in the response.
     shared_ptr<string> cloudResourceId_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configuration.
+    // The listener configurations.
     // 
     // This parameter is required.
     shared_ptr<ModifyCloudResourceRequest::Listen> listen_ {};
-    // The forwarding configuration.
+    // The forwarding configurations.
     shared_ptr<ModifyCloudResourceRequest::Redirect> redirect_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: the Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

@@ -278,101 +278,91 @@ namespace Models
 
 
     protected:
-      // The number of threats associated with the API.
+      // The number of API-related risks.
       shared_ptr<int64_t> abnormalNum_ {};
-      // The number of account security events associated with the API.
       shared_ptr<int64_t> accountEventNum_ {};
-      // The total number of requests in the last 30 days.
+      // The total number of calls to this API in the previous 30 days.
       shared_ptr<int64_t> allCnt_ {};
-      // The API endpoint path.
+      // The API.
       shared_ptr<string> apiFormat_ {};
       // The ID of the API.
       shared_ptr<string> apiId_ {};
-      // The detailed information about the API. The value is a JSON string that contains the following fields:
+      // The API-related information. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
       // 
-      // - **param_num**: the number of API parameters.
-      // 
-      // - **request_method**: the request method.
-      // 
-      // - **protocol**: the request protocol.
-      // 
-      // - **api_url**: the request URL.
-      // 
-      // - **poc_payload**: the request.
-      // 
-      // - **request**: the request sample.
-      // 
-      // - **response**: the response sample.
-      // 
-      // - **param**: the request parameters.
-      // 
-      // > This parameter is returned only when you specify the **ApiId** request parameter.
+      // * **param_num**: the number of API parameters
+      // * **request_method**: the request method
+      // * **protocol**: the request protocol
+      // * **api_url**: the request URL
+      // * **poc_payload**: the request
+      // * **request**: the sample request
+      // * **response**: the sample response
+      // * **param**: the request parameters
       shared_ptr<string> apiInfo_ {};
-      // The HTTP request method of the API. Valid values: **GET**, **POST**, **HEAD**, **PUT**, **DELETE**, **CONNECT**, **PATCH**, and **OPTIONS**.
+      // The request method of the API. Valid values:
+      // 
+      // * **GET**
+      // * **POST**
+      // * **HEAD**
+      // * **PUT**
+      // * **DELETE**
+      // * **CONNECT**
+      // * **PATCH**
+      // * **OPTIONS**
       shared_ptr<string> apiMethod_ {};
-      // The sensitive data classification of the API. The value is a JSON string that contains the following fields:
+      // The API-related sensitive information. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
       // 
-      // - **request_sensitive_list**: the list of sensitive data types in the request.
-      // 
-      // - **response_sensitive_list**: the list of sensitive data types in the response.
-      // 
-      // - **sensitive_list**: the list of sensitive data types.
-      // 
-      // - **sensitive_level**: the sensitivity level.
+      // * **request_sensitive_list**: the sensitive data type in the request
+      // * **response_sensitive_list**: the sensitive data type in the response
+      // * **sensitive_list**: sensitive data types
+      // * **sensitive_level**: sensitivity level
       shared_ptr<string> apiSensitive_ {};
-      // The types of sensitive data detected in the API request. The value is a JSON array of sensitive data type IDs.
+      // The sensitive data type in the request.
       shared_ptr<string> apiSensitiveRequest_ {};
-      // The types of sensitive data detected in the API response. The value is a JSON array of sensitive data type IDs.
+      // The sensitive data type in the response.
       shared_ptr<string> apiSensitiveResponse_ {};
-      // The lifecycle status of the API. Valid values:
+      // The API status. Valid values:
       // 
-      // - **NewbornInterface**: newly discovered.
-      // 
-      // - **OfflineInterface**: inactive.
-      // 
-      // - **normal**: active.
+      // *   **NewbornInterface**: The API is newly added.
+      // *   **OfflineInterface**: The API is inactive.
+      // *   **normal**: The API is normal.
       shared_ptr<string> apiStatus_ {};
       // The business purpose of the API.
       // 
-      // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported business purposes.
+      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
       shared_ptr<string> apiTag_ {};
-      // The type of service that the API serves. Valid values:
+      // The service object. Valid values:
       // 
-      // - **PublicAPI**: public-facing service.
-      // 
-      // - **ThirdpartAPI**: third-party service.
-      // 
-      // - **InternalAPI**: internal service.
+      // *   **PublicAPI**: public services
+      // *   **ThirdpartAPI**: cooperation with third-party partners
+      // *   **InternalAPI**: internal office
       shared_ptr<string> apiType_ {};
-      // Indicates whether the API requires authentication. Valid values:
+      // Indicates whether authentication is required. Valid values:
       // 
-      // - **0**: The API requires authentication.
-      // 
-      // - **1**: The API does not require authentication.
+      // * **0**: Authentication is required.
+      // * **1**: Authentication is not required.
       shared_ptr<string> authFlag_ {};
-      // The number of bot requests in the last 30 days.
+      // The number of bot-initiated requests in the previous 30 days.
       shared_ptr<int64_t> botCnt_ {};
-      // The number of cross-border requests in the last 30 days.
+      // The number of the cross-border requests in the previous 30 days.
       shared_ptr<int64_t> crossBorderCnt_ {};
-      // The number of security events associated with the API.
+      // The number of API-related security events.
       shared_ptr<int64_t> eventNum_ {};
-      // The list of API samples.
+      // The sample APIs.
       shared_ptr<vector<string>> examples_ {};
-      // The time when the API was first discovered. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the API asset was first detected. This value is a UNIX timestamp in UTC. Unit: seconds.
       shared_ptr<int64_t> farthestTs_ {};
-      // Indicates whether the API is followed. Valid values:
+      // Specifies whether to follow the API. Valid values:
       // 
-      // - **1**: The API is followed.
-      // 
-      // - **0**: The API is not followed.
+      // *   **1**: follows the API.
+      // *   **0**: does not follow the API.
       shared_ptr<int32_t> follow_ {};
-      // The time of the most recent access to the API. The value is a UNIX timestamp. Unit: seconds.
+      // The time at which the API was last accessed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
       shared_ptr<int64_t> lastestTs_ {};
-      // The domain name or IP address that the API resides on.
+      // The domain name or IP address of the API.
       shared_ptr<string> matchedHost_ {};
-      // The remarks of the API asset.
+      // The remarks.
       shared_ptr<string> note_ {};
-      // The list of protected objects associated with the API.
+      // The list of protection objects corresponding to this asset.
       shared_ptr<vector<string>> resources_ {};
     };
 
@@ -402,11 +392,11 @@ namespace Models
 
 
   protected:
-    // The list of API assets.
+    // The API assets.
     shared_ptr<vector<DescribeApisecApiResourcesResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

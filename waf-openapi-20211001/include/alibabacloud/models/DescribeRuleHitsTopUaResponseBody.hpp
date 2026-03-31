@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The number of attack requests.
+      // The number of attacks that are initiated from the IP address.
       shared_ptr<int64_t> count_ {};
-      // The User-Agent string.
+      // The user agent.
       shared_ptr<string> ua_ {};
     };
 
@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The top 10 User-Agents that initiated attacks.
+    // The array of the top 10 user agents that are used to initiate attacks.
     shared_ptr<vector<DescribeRuleHitsTopUaResponseBody::RuleHitsTopUa>> ruleHitsTopUa_ {};
   };
 

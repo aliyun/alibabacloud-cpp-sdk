@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The total number of requests for the protected object during the specified time period.
+      // The total number of requests received by the protected object in a specified time range.
       shared_ptr<int64_t> count_ {};
       // The protected object.
       shared_ptr<string> resource_ {};
@@ -97,7 +97,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The top 10 protected objects that received the most requests.
+    // The array of the top 10 protected objects that receive requests.
     shared_ptr<vector<DescribeFlowTopResourceResponseBody::RuleHitsTopResource>> ruleHitsTopResource_ {};
   };
 

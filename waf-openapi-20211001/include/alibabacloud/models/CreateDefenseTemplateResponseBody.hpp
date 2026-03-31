@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the protection template.
+    // The ID of the protection rule template.
     shared_ptr<int64_t> templateId_ {};
   };
 

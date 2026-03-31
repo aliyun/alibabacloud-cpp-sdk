@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // The list of listening ports for the HTTP protocol.
+        // The HTTP listener ports.
         shared_ptr<vector<int64_t>> http_ {};
-        // The list of listening ports for the HTTPS protocol.
+        // The HTTPS listener ports.
         shared_ptr<vector<int64_t>> https_ {};
       };
 
@@ -162,7 +162,7 @@ namespace Models
 
 
         protected:
-          // The origin address for the HTTPS protocol.
+          // The HTTPS address of the origin server.
           shared_ptr<string> backend_ {};
         };
 
@@ -194,7 +194,7 @@ namespace Models
 
 
         protected:
-          // The origin address for the HTTP protocol.
+          // The HTTP address of the origin server.
           shared_ptr<string> backend_ {};
         };
 
@@ -219,9 +219,9 @@ namespace Models
 
 
       protected:
-        // The list of origin addresses for the HTTP protocol.
+        // The HTTP addresses of the origin server.
         shared_ptr<vector<Backeds::Http>> http_ {};
-        // The list of origin addresses for the HTTPS protocol.
+        // The HTTPS addresses of the origin server.
         shared_ptr<vector<Backeds::Https>> https_ {};
       };
 
@@ -282,29 +282,24 @@ namespace Models
 
 
     protected:
-      // The back-to-origin configuration.
+      // The back-to-origin settings.
       shared_ptr<Domains::Backeds> backeds_ {};
-      // The canonical name (CNAME) that is assigned to the domain name by WAF.
+      // The CNAME assigned by WAF to the domain name.
       shared_ptr<string> cname_ {};
-      // The domain name that is added to WAF.
+      // The domain name that is added to WAF in CNAME record mode.
       shared_ptr<string> domain_ {};
-      // The ID of the domain name.
       shared_ptr<string> domainId_ {};
-      // The listener configuration.
+      // The configurations of the listeners.
       shared_ptr<Domains::ListenPorts> listenPorts_ {};
-      // The ID of the Alibaba Cloud resource group.
+      // The ID of the resource group.
       shared_ptr<string> resourceManagerResourceGroupId_ {};
       // The status of the domain name. Valid values:
       // 
-      // - **1**: The domain name is in a normal state.
-      // 
-      // - **2**: The domain name is being created.
-      // 
-      // - **3**: The domain name is being modified.
-      // 
-      // - **4**: The domain name is being released.
-      // 
-      // - **5**: Forwarding is disabled for the domain name.
+      // *   **1:** The domain name is in a normal state.
+      // *   **2:** The domain name is being created.
+      // *   **3:** The domain name is being modified.
+      // *   **4:** The domain name is being released.
+      // *   **5:** WAF no longer forwards traffic that is sent to the domain name.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -334,11 +329,11 @@ namespace Models
 
 
   protected:
-    // The list of domain names.
+    // The domain names that are added to WAF in CNAME record mode.
     shared_ptr<vector<DescribeDomainsResponseBody::Domains>> domains_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of domain name configurations returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

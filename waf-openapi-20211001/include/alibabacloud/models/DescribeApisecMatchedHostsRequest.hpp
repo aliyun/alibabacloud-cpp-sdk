@@ -104,36 +104,32 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter is used only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain information about hybrid cloud clusters.
+    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The ID of the WAF instance.
+    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the ID of the current WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The domain name or IP address.
     shared_ptr<string> matchedHost_ {};
-    // The number of the page to return for a paged query. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. Default value: **10**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<string> pageSize_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland
+    // *   **ap-southeast-1**: outside the Chinese mainland
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The detection type. Valid values:
     // 
-    // - **api**: the list of domain names for API assets.
-    // 
-    // - **abnormal**: the list of domain names that have threats.
-    // 
-    // - **event**: the list of domain names that have management events.
+    // *   **api**: API-related domain names
+    // *   **abnormal**: risk-related domain names
+    // *   **event**: security event-related domain names
     shared_ptr<string> type_ {};
   };
 

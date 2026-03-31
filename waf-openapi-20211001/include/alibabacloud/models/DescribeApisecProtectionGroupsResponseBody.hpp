@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The master switch for API security.
+      // The switch of the API security module.
       shared_ptr<int64_t> apisecStatus_ {};
-      // The compliance check switch.
+      // The switch of the compliance check feature.
       shared_ptr<int64_t> reportStatus_ {};
       // The name of the protected object group.
       shared_ptr<string> resourceGroup_ {};
-      // The traceability audit switch.
+      // The switch of the tracing and auditing feature.
       shared_ptr<int64_t> traceStatus_ {};
     };
 
@@ -126,7 +126,7 @@ namespace Models
 
 
   protected:
-    // The list of protected object groups.
+    // The protected object groups.
     shared_ptr<vector<DescribeApisecProtectionGroupsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

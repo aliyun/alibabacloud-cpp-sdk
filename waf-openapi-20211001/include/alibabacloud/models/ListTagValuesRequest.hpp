@@ -84,27 +84,26 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  Obtain the ID of the WAF instance by calling the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The key of the tag that you want to query.
+    // The tag key.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The region in which the WAF instance resides. Valid values:
+    // The region of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: Outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
     // 

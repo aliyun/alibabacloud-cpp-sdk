@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The capacity of the Logstore. Unit: bytes.
     shared_ptr<int64_t> quota_ {};
-    // The request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The log retention period. Unit: days.
+    // The storage duration of the Logstore. Unit: days.
     shared_ptr<int32_t> ttl_ {};
     // The used capacity of the Logstore. Unit: bytes.
     shared_ptr<int64_t> used_ {};

@@ -234,47 +234,41 @@ namespace Models
 
 
     protected:
-      // The number of accounts associated with the monitored APIs.
       shared_ptr<int64_t> account_ {};
-      // The number of handled items.
+      // The number of handled events.
       shared_ptr<int64_t> actioned_ {};
-      // The number of APIs that are monitored by the API security module.
+      // The number of APIs.
       shared_ptr<int64_t> api_ {};
-      // The number of confirmed items.
+      // The number of confirmed events.
       shared_ptr<int64_t> confirmed_ {};
-      // The number of domain names that are monitored by the API security module.
+      // The number of domain names.
       shared_ptr<int64_t> domain_ {};
-      // The number of items that are manually verified as fixed.
+      // The number of fixed risks.
       shared_ptr<int64_t> fixed_ {};
-      // The number of high-risk items.
+      // The number of high-risk events.
       shared_ptr<int64_t> high_ {};
-      // The number of ignored items.
+      // The number of ignored risks.
       shared_ptr<int64_t> ignore_ {};
-      // The number of low-risk items.
+      // The number of low-risk events.
       shared_ptr<int64_t> low_ {};
-      // The number of medium-risk items.
+      // The number of moderate-risk events.
       shared_ptr<int64_t> medium_ {};
-      // The number of items that are verified as not fixed.
       shared_ptr<int64_t> notFixed_ {};
-      // The number of items that are verified as fixed by the system.
       shared_ptr<int64_t> systemFixed_ {};
-      // The number of items to be confirmed.
+      // The number of events to be confirmed.
       shared_ptr<int64_t> toBeConfirmed_ {};
-      // The number of items to be fixed.
+      // The number of risks to be fixed.
       shared_ptr<int64_t> toBeFixed_ {};
-      // The number of items to be verified by the system.
       shared_ptr<int64_t> toBeVerified_ {};
-      // The number of new high-risk items detected today.
+      // The number of new high-risk events today.
       shared_ptr<string> todayHigh_ {};
-      // The number of new low-risk items detected today.
+      // The number of new low-risk events today.
       shared_ptr<int64_t> todayLow_ {};
-      // The number of new medium-risk items detected today.
+      // The number of new moderate-risk events today.
       shared_ptr<string> todayMedium_ {};
-      // The total number of new items detected today.
+      // The total number of new events today.
       shared_ptr<string> todayTotal_ {};
-      // The total number of items.
-      // 
-      // > This is the sum of the values of the **High**, **Medium**, and **Low** response parameters.
+      // The total number of events.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -297,7 +291,7 @@ namespace Models
 
 
   protected:
-    // The statistical results of API security risks or events.
+    // The returned results.
     shared_ptr<DescribeApisecStatisticsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

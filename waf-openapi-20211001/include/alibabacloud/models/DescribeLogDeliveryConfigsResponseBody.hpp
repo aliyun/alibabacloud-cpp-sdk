@@ -85,17 +85,16 @@ namespace Models
 
 
     protected:
-      // The details of the log delivery configuration, returned as a JSON string.
+      // The content of the log delivery configuration. The value is a JSON string that contains multiple parameters.
       // 
-      // > The structure of this parameter is the same as the **DeliveryDetail** request parameter of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
+      // >  This parameter is the same as the **DeliveryDetail** parameter of the **CreateLogDeliveryConfig** operation. For more information, see **Parameter description for log delivery configuration** of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
       shared_ptr<string> deliveryDetail_ {};
       // The name of the log delivery configuration.
       shared_ptr<string> deliveryName_ {};
       // The type of the log delivery configuration. Valid values:
       // 
-      // - **syslog**: Log delivery to a syslog server.
-      // 
-      // - **kafka**: Log delivery to a Kafka cluster.
+      // *   **syslog**: Logs are delivered to a syslog service.
+      // *   **kafka**: Logs are delivered to a Kafka service.
       shared_ptr<string> deliveryType_ {};
     };
 
@@ -139,17 +138,12 @@ namespace Models
 
 
   protected:
-    // The log delivery configurations.
+    // The information about the log delivery configuration.
     shared_ptr<vector<DescribeLogDeliveryConfigsResponseBody::DeliveryConfigs>> deliveryConfigs_ {};
-    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    // 
-    // > If this parameter is not empty, more results are available. Use the value of **NextToken** in the next request to retrieve the next page of results. If the value is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of log delivery configurations returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

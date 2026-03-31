@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The end time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+        // The end of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
         shared_ptr<int64_t> endDate_ {};
-        // The start time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+        // The beginning of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
         shared_ptr<int64_t> startDate_ {};
       };
 
@@ -127,11 +127,11 @@ namespace Models
 
 
     protected:
-      // The time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point represents statistics for a 15-minute interval. For more information about the time granularity of the returned data, see the Time granularity of time series data points section.
+      // The time granularity of data points in the time series data returned. For example, a value of 15m indicates that data points are collected at 15-minute intervals. For more information about time granularities, see the **Time granularities of data points in time series** section below.
       shared_ptr<string> aggregateInterval_ {};
-      // The time range used for the query.
+      // The time range that is used for the query.
       shared_ptr<TimeSeriesMetaData::DateRange> dateRange_ {};
-      // The unit of the returned statistical data.
+      // The unit of the statistics returned. It is fixed as requests.
       shared_ptr<string> units_ {};
     };
 
@@ -186,11 +186,11 @@ namespace Models
 
 
     protected:
-      // The content of the returned data. This is consistent with the \\`Metric\\` request parameter.
+      // The metric. This value is the same as the value of Metric in the request parameters.
       shared_ptr<string> metric_ {};
-      // The time series. Each point represents the start time of a time range.
+      // The time points. Each point represents a time range.
       shared_ptr<vector<string>> timestamps_ {};
-      // The data series. Each point represents the statistical count within a specific time range.
+      // The data points. Each point represents a count for a time range.
       shared_ptr<vector<int64_t>> values_ {};
     };
 
@@ -224,9 +224,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned time series data. The operation can return time series data for multiple values.
+    // The time series data returned. This operation can return time series for multiple metrics.
     shared_ptr<vector<DescribeSecurityEventTimeSeriesMetricResponseBody::SecurityEventTimeSeries>> securityEventTimeSeries_ {};
-    // The metadata of the returned data.
+    // The metadata of the time series data returned.
     shared_ptr<DescribeSecurityEventTimeSeriesMetricResponseBody::TimeSeriesMetaData> timeSeriesMetaData_ {};
   };
 

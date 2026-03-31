@@ -103,43 +103,32 @@ namespace Models
 
 
   protected:
-    // The type of the protection rule. Valid values:
-    // 
-    // - **template** (default): template protection rules.
-    // 
-    // - **resource**: rules for protected objects.
-    // 
-    // - **global**: global rules.
     shared_ptr<string> defenseType_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The query conditions. Specify this parameter as a JSON string.
+    // The query conditions. Specify a string that contains multiple parameters in the JSON format.
     // 
-    // > The query results for protection rules vary based on the query conditions. For more information, see **Query parameter details**.
+    // >  The results vary based on the query conditions. For more information, see the "**Query parameters**" section in this topic.
     shared_ptr<string> query_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of the protection rule. Valid values:
+    // The type of protection rule that you want to query. Valid values:
     // 
-    // - **whitelist**: a whitelist rule
-    // 
-    // - **defense** (default): a protection rule
-    // 
-    // > This parameter is required only when **DefenseType** is set to **template**.
+    // *   **whitelist:** whitelist rule.
+    // *   **defense:** defense rule. This is the default value.
     shared_ptr<string> ruleType_ {};
   };
 

@@ -85,26 +85,24 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter is available only for hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster information.
+    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
-    // The end time of the query. The value is a UNIX timestamp in seconds.
+    // The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance resides. Valid values:
+    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The start time of the query. The value is a UNIX timestamp in seconds.
+    // The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

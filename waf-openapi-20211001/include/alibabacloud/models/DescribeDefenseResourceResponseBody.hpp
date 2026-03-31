@@ -123,9 +123,9 @@ namespace Models
 
 
       protected:
-        // The key of the custom response header.
+        // Specifies the key for a custom response header.
         shared_ptr<string> key_ {};
-        // The value of the custom response header.
+        // Specifies the value for a custom response header.
         shared_ptr<string> value_ {};
       };
 
@@ -267,43 +267,39 @@ namespace Models
 
 
     protected:
-      // Indicates whether the tracking cookie feature is enabled. Valid values:
+      // The status of the tracking cookie.
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: disabled.
+      // *   **1**: enabled.
       shared_ptr<int32_t> acwCookieStatus_ {};
-      // Indicates whether the secure attribute of the tracking cookie is enabled. Valid values:
+      // The status of the secure attribute of the tracking cookie.
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: disabled.
+      // *   **1**: enabled.
       shared_ptr<int32_t> acwSecureStatus_ {};
-      // Indicates whether the secure attribute of the slider CAPTCHA cookie is enabled. Valid values:
+      // The status of the secure attribute of the slider CAPTCHA cookie.
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: disabled.
+      // *   **1**: enabled.
       shared_ptr<int32_t> acwV3SecureStatus_ {};
-      // The list of custom header fields used to identify the actual client IP address.
+      // The custom header fields.
       // 
-      // > This parameter takes effect only when XffStatus is set to 1. WAF uses the first IP address in the specified header fields as the client source IP address to prevent X-Forwarded-For (XFF) spoofing. If multiple headers are specified, WAF checks them in order. If the first header does not contain a source IP address, WAF checks the next header. If none of the specified headers contain a source IP address, WAF uses the first IP address in the X-Forwarded-For header.
+      // >  If the value of XffStatus is 1, the first IP address in the specified header field is used as the originating IP address of the client to prevent X-Forwarded-For (XFF) forgery. If you specify multiple header fields, WAF reads the values of the header fields in sequence until the originating IP address is obtained. If the originating IP address cannot be obtained, the first IP address in the XFF header field is used as the originating IP address of the client.
       shared_ptr<vector<string>> customHeaders_ {};
       // The description of the protected object.
       shared_ptr<string> description_ {};
-      // The details of the protected object. The fields vary based on the cloud service type.
+      // The details of the protected object. Different key-value pairs indicate different attributes of the protected object.
       Darabonba::Json detail_ {};
-      // The time when the protected object was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the protected object was created. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The time when the protected object was modified. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the protected object was modified. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the WAF instance.
       shared_ptr<string> instanceId_ {};
-      // The ID of the Alibaba Cloud account to which the protected object belongs.
+      // The user ID (UID) of the Alibaba Cloud account to which the protected object belongs.
       shared_ptr<string> ownerUserId_ {};
-      // The protection pattern of the protected object.
+      // The pattern used for the protected object.
       shared_ptr<string> pattern_ {};
-      // The type of cloud service to which the protected object belongs.
+      // The name of the cloud service.
       shared_ptr<string> product_ {};
       // The name of the protected object.
       shared_ptr<string> resource_ {};
@@ -313,17 +309,15 @@ namespace Models
       shared_ptr<string> resourceManagerResourceGroupId_ {};
       // The origin of the protected object. Valid values:
       // 
-      // - **custom**: The protected object is created through provisioning.
-      // 
-      // - **access**: The protected object is user-defined.
+      // *   **custom**
+      // *   **access**
       shared_ptr<string> resourceOrigin_ {};
-      // The custom response headers configured for the protected object.
+      // The response header.
       shared_ptr<vector<Resource::ResponseHeaders>> responseHeaders_ {};
-      // Indicates whether a Layer 7 proxy such as Anti-DDoS or CDN is enabled in front of WAF. Valid values:
+      // Indicates whether a Layer 7 proxy is deployed in front of WAF, such as Anti-DDoS Proxy and Alibaba Cloud CDN. Valid values:
       // 
-      // - **0**: disabled.
-      // 
-      // - **1**: enabled.
+      // *   **0**: No Layer 7 proxy is deployed.
+      // *   **1**: A Layer 7 proxy is deployed.
       shared_ptr<int32_t> xffStatus_ {};
     };
 
@@ -346,9 +340,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the protected object.
+    // The protected object.
     shared_ptr<DescribeDefenseResourceResponseBody::Resource> resource_ {};
   };
 

@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The CNAME that is assigned by WAF to the domain name.
       shared_ptr<string> cname_ {};
-      // The domain name whose configurations are modified.
+      // The domain name whose access configurations you modified.
       shared_ptr<string> domain_ {};
       // The ID of the domain name.
       shared_ptr<string> domainId_ {};
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The information about the modified domain name.
+    // The information about the domain name.
     shared_ptr<ModifyDomainResponseBody::DomainInfo> domainInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The details of the log delivery configuration. The value is a JSON string that is generated from a series of parameters.
+    // The content of the log delivery configuration. Set the value to a JSON string that contains multiple parameters.
     // 
-    // > The parameters vary based on the value of **DeliveryType**. For more information, see **Parameters for log delivery configuration details**.
+    // >  The parameters vary based on the type of the **log delivery configuration** specified by **DeliveryType**. For more information, see **Parameter description for log delivery configuration**.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryDetail_ {};
@@ -96,23 +96,21 @@ namespace Models
     shared_ptr<string> deliveryName_ {};
     // The type of the log delivery configuration. Valid values:
     // 
-    // - **syslog**: Delivers logs to a syslog service.
-    // 
-    // - **kafka**: Delivers logs to a Kafka service.
+    // *   **syslog**: Logs are delivered to a syslog service.
+    // *   **kafka**: Logs are delivered to a Kafka service.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
-    // The ID of the WAF instance.
+    // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region ID of the WAF instance. Valid values:
     // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
+    // *   **cn-hangzhou**: the Chinese mainland.
+    // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

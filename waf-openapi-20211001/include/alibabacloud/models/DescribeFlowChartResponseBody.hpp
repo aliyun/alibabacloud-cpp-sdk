@@ -292,29 +292,29 @@ namespace Models
       shared_ptr<int64_t> ccCustomBlockSum_ {};
       // The number of requests that are monitored by custom HTTP flood protection rules.
       shared_ptr<int64_t> ccCustomReportsSum_ {};
-      // The number of requests that are blocked by system HTTP flood protection rules.
+      // The number of requests that are blocked by HTTP flood protection rules created by the system.
       shared_ptr<int64_t> ccSystemBlocksSum_ {};
-      // The number of requests that are monitored by system HTTP flood protection rules.
+      // The number of requests that are monitored by HTTP flood protection rules created by the system.
       shared_ptr<int64_t> ccSystemReportsSum_ {};
       // The total number of requests.
       shared_ptr<int64_t> count_ {};
-      // The total volume of inbound traffic. Unit: bytes.
+      // The total number of requests that are redirected to the WAF instance.
       shared_ptr<int64_t> inBytes_ {};
-      // The time sequence number, sorted in chronological order.
+      // The serial number of the time interval. The serial numbers are arranged in chronological order.
       shared_ptr<int64_t> index_ {};
-      // The peak number of requests.
+      // The peak traffic.
       shared_ptr<int64_t> maxPv_ {};
-      // The total volume of outbound traffic. Unit: bytes.
+      // The total number of requests that are forwarded by the WAF instance.
       shared_ptr<int64_t> outBytes_ {};
-      // The number of requests that are blocked by peak traffic throttling rules.
+      // The number of requests that are blocked by rate limiting rules.
       shared_ptr<int64_t> ratelimitBlockSum_ {};
-      // The number of requests that are monitored by peak traffic throttling rules.
+      // The number of requests that are monitored by rate limiting rules.
       shared_ptr<int64_t> ratelimitReportSum_ {};
-      // The number of requests that are blocked by Location Blacklist rules.
+      // The number of requests that are blocked by region blacklist rules.
       shared_ptr<int64_t> regionBlockBlocksSum_ {};
-      // The number of requests that are monitored by Location Blacklist rules.
+      // The number of requests that are monitored by region blacklist rules.
       shared_ptr<int64_t> regionBlockReportsSum_ {};
-      // The total number of requests from bots.
+      // The total number of bot requests.
       shared_ptr<int64_t> robotCount_ {};
       // The number of requests that are blocked by basic protection rules.
       shared_ptr<int64_t> wafBlockSum_ {};
@@ -343,7 +343,7 @@ namespace Models
   protected:
     // The traffic statistics.
     shared_ptr<vector<DescribeFlowChartResponseBody::FlowChart>> flowChart_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

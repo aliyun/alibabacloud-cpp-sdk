@@ -136,61 +136,44 @@ namespace Models
 
 
     protected:
-      // The protection scenario. Valid values:
+      // The scenario in which the protection template is used.
       // 
-      // - **waf_group**: Basic Protection.
-      // 
-      // - **antiscan**: Scan Protection.
-      // 
-      // - **ip_blacklist**: IP Blocklist.
-      // 
-      // - **custom_acl**: Custom Rule.
-      // 
-      // - **whitelist**: Allowlist.
-      // 
-      // - **region_block**: Geographic Blocking.
-      // 
-      // - **custom_response**: Custom Response.
-      // 
-      // - **cc**: HTTP Flood Protection.
-      // 
-      // - **tamperproof**: Webpage Tamper Protection.
-      // 
-      // - **dlp**: Data Loss Prevention.
-      // 
-      // - **bot_manager**: Bot Management.
+      // *   **waf_group**: basic protection.
+      // *   **antiscan**: scan protection.
+      // *   **ip_blacklist**: IP address blacklist.
+      // *   **custom_acl**: custom rule.
+      // *   **whitelist**: whitelist.
+      // *   **region_block**: region blacklist.
+      // *   **custom_response**: custom response.
+      // *   **cc**: HTTP flood protection.
+      // *   **tamperproof**: website tamper-proofing.
+      // *   **dlp**: data leakage prevention.
       shared_ptr<string> defenseScene_ {};
-      // The sub-scenario for the Bot Management template. This parameter is returned only when `DefenseScene` is set to `bot_manager`. Valid values:
+      // The sub-scenario in which the protection template is used. Valid values:
       // 
-      // - **web**: web protection
-      // 
-      // - **app**: app protection
-      // 
-      // - **basic**: basic protection
-      // 
-      // - **bot_custom_acl**: The protection template for advanced Custom Rules in Bot Management.
+      // *   **web**: bot management for website protection.
+      // *   **app**: bot management for app protection.
+      // *   **basic**: bot management for basic protection.
       shared_ptr<string> defenseSubScene_ {};
-      // The description of the template.
+      // The description of the protection template.
       shared_ptr<string> description_ {};
-      // The last modification time of the protection template. This value is a UNIX timestamp in milliseconds.
+      // The time when the protection template was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> gmtModified_ {};
       // The ID of the protection template.
       shared_ptr<int64_t> templateId_ {};
       // The name of the protection template.
       shared_ptr<string> templateName_ {};
-      // The origin of the protection template to be created. The value is custom, which indicates a user-defined template.
+      // The origin of the protection template. The value custom indicates that the protection template is a custom template created by the user.
       shared_ptr<string> templateOrigin_ {};
       // The status of the protection template. Valid values:
       // 
-      // - **0**: Disabled.
-      // 
-      // - **1**: Enabled.
+      // *   **0**: disabled.
+      // *   **1**: enabled.
       shared_ptr<int32_t> templateStatus_ {};
       // The type of the protection template. Valid values:
       // 
-      // - **user_default**: The user\\"s default protection template.
-      // 
-      // - **user_custom**: A custom protection template defined by the user.
+      // *   **user_default**: default template.
+      // *   **user_custom**: custom template.
       shared_ptr<string> templateType_ {};
     };
 
@@ -220,11 +203,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of protection templates.
+    // The protection templates.
     shared_ptr<vector<DescribeDefenseTemplatesResponseBody::Templates>> templates_ {};
-    // The total number of protection templates returned.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

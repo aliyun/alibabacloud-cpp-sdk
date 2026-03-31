@@ -94,39 +94,14 @@ namespace Models
 
 
   protected:
-    // The delivery type. Valid value:
-    // 
-    // - **sls**: Simple Log Service.
     shared_ptr<string> deliveryType_ {};
-    // The extended configuration for log delivery, in JSON format.
-    // 
-    // > For more information, see the description of the **ExtendConfig** parameter.
     shared_ptr<string> extendConfig_ {};
-    // The list of log fields to deliver. Use the \\`a,b,c,...\\` format.
-    // 
-    // > - You must include all required log fields. Call the [DescribeCommonLogFields](~~DescribeCommonLogFields~~) operation to view the log fields that WAF supports.
-    // >
-    // > - If the log fields include **request_header**, use the **ExtendConfig** parameter to specify the request headers to deliver.
-    // 
     // This parameter is required.
     shared_ptr<string> fieldList_ {};
-    // The ID of the WAF instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the ID of your WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The log delivery strategy, in JSON array format. You can specify multiple strategies.
-    // 
-    // > For more information, see the description of the **LogDeliveryStrategy** parameter.
     shared_ptr<string> logDeliveryStrategy_ {};
-    // The region in which the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

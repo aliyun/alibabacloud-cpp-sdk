@@ -94,33 +94,13 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The type of bot rule label to query.
     shared_ptr<string> labelType_ {};
-    // The number of entries to return on each page. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. This parameter is returned if a next page exists.
-    // 
-    // > If a value is returned for this parameter, it indicates that more results are available. Use the returned **NextToken** value in the next request to retrieve the next page of results. Repeat this process until no value is returned for this parameter. This indicates that all results have been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of bot management scenario. Valid values:
-    // 
-    // - **web**: web protection.
-    // 
-    // - **app**: app protection.
     shared_ptr<string> subScene_ {};
   };
 

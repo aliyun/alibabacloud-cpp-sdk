@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The name of the Logstore in Simple Log Service (SLS).
     shared_ptr<string> logStoreName_ {};
-    // Indicates whether the Simple Log Service project is created.
     shared_ptr<bool> projectName_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

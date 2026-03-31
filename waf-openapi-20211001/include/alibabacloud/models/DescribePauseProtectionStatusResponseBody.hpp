@@ -48,11 +48,10 @@ namespace Models
 
 
   protected:
-    // Indicates whether WAF protection is paused for the instance. Valid values:
+    // Indicates whether WAF protection is paused.
     // 
-    // - **0** (default): Protection is not paused.
-    // 
-    // - **1**: Protection is paused.
+    // *   **0**: indicates that WAF protection is not paused. This is the default value.
+    // *   **1**: indicates that WAF protection is paused.
     shared_ptr<int32_t> pauseStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

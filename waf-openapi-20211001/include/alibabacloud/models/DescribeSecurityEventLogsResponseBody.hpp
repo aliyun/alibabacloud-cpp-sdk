@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The end of the time range used for the query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+        // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
         shared_ptr<int64_t> endDate_ {};
-        // The start of the time range used for the query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+        // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
         shared_ptr<int64_t> startDate_ {};
       };
 
@@ -120,9 +120,9 @@ namespace Models
 
 
     protected:
-      // The time range used for the query.
+      // The time range that is used for the query.
       shared_ptr<SecurityEventMetaData::DateRange> dateRange_ {};
-      // The unit of the returned statistical data.
+      // The unit of the statistics returned. The value is fixed as requests.
       shared_ptr<string> units_ {};
     };
 
@@ -163,11 +163,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of detailed attack logs.
+    // The attack logs returned.
     shared_ptr<vector<Darabonba::Json>> securityEventLogs_ {};
-    // The total number of attack logs found.
+    // The total number of logs returned.
     shared_ptr<int64_t> securityEventLogsTotalCount_ {};
-    // The metadata of the returned data.
+    // The metadata of the time series data returned.
     shared_ptr<DescribeSecurityEventLogsResponseBody::SecurityEventMetaData> securityEventMetaData_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the log delivery configuration that was modified.
+    // The name of the log delivery configuration.
     shared_ptr<string> deliveryName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

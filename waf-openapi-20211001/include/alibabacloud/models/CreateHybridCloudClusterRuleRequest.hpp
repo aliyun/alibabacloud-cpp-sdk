@@ -94,56 +94,15 @@ namespace Models
 
 
   protected:
-    // The ID of the Hybrid Cloud WAF cluster.
-    // 
-    // > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain information about Hybrid Cloud WAF clusters.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> clusterId_ {};
-    // The ID of the WAF instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The configuration of the traffic redirection rule, in JSON format.
-    // 
-    // > The modes are mutually exclusive. You can select only one mode. If you change the mode, all traffic redirection rules in the previous mode are cleared.
-    // 
-    // - **check_mode**: the traffic redirection mode. Valid values:
-    // 
-    //   - **all**: redirects all traffic.
-    // 
-    //   - **part**: redirects a specific portion of traffic.
-    // 
-    // - **type**: the match type for the rule. Valid values:
-    // 
-    //   - **exact**: exact match.
-    // 
-    //   - **regex**: regular expression match.
-    // 
-    // - **substance**: the match value of the rule.
     shared_ptr<string> ruleConfig_ {};
-    // The status of the traffic redirection rule. Valid values:
-    // 
-    // - **on**: enabled.
-    // 
-    // - **off**: disabled.
-    // 
     // This parameter is required.
     shared_ptr<string> ruleStatus_ {};
-    // The type of the traffic redirection rule. Valid values:
-    // 
-    // - **pullin**: traffic redirection
-    // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};
   };

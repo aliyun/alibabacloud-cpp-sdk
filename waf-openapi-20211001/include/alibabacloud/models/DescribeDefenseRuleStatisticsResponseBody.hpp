@@ -97,15 +97,10 @@ namespace Models
 
 
     protected:
-      // The number of rules that match the specified grouping conditions.
       shared_ptr<int64_t> count_ {};
-      // The value of the quaternary grouping condition.
       shared_ptr<string> fourthValue_ {};
-      // The value of the primary grouping condition.
       shared_ptr<string> primaryValue_ {};
-      // The value of the secondary grouping condition.
       shared_ptr<string> secondaryValue_ {};
-      // The value of the tertiary grouping condition.
       shared_ptr<string> thirdValue_ {};
     };
 
@@ -128,9 +123,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The rule statistics that are grouped by the specified conditions.
     shared_ptr<vector<DescribeDefenseRuleStatisticsResponseBody::StatisticsInfos>> statisticsInfos_ {};
   };
 
