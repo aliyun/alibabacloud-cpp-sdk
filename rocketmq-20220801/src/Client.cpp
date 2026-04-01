@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Add Disaster Recovery Plan Entry
+ * @summary Adds a topic mapping to a Global Replicator task.
  *
  * @param request AddDisasterRecoveryItemRequest
  * @param headers map
@@ -70,7 +70,7 @@ AddDisasterRecoveryItemResponse Client::addDisasterRecoveryItemWithOptions(const
 }
 
 /**
- * @summary Add Disaster Recovery Plan Entry
+ * @summary Adds a topic mapping to a Global Replicator task.
  *
  * @param request AddDisasterRecoveryItemRequest
  * @return AddDisasterRecoveryItemResponse
@@ -703,7 +703,7 @@ DeleteConsumerGroupSubscriptionResponse Client::deleteConsumerGroupSubscription(
 }
 
 /**
- * @summary 删除容灾计划条目
+ * @summary Deletes a topic mapping of a Global Replicator task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -728,7 +728,7 @@ DeleteDisasterRecoveryItemResponse Client::deleteDisasterRecoveryItemWithOptions
 }
 
 /**
- * @summary 删除容灾计划条目
+ * @summary Deletes a topic mapping of a Global Replicator task.
  *
  * @return DeleteDisasterRecoveryItemResponse
  */
@@ -775,7 +775,7 @@ DeleteDisasterRecoveryPlanResponse Client::deleteDisasterRecoveryPlan(const stri
 }
 
 /**
- * @summary Deletes a ApsaraMQ for RocketMQ instance.
+ * @summary Releases an instance.
  *
  * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
  * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
@@ -804,7 +804,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &instanceI
 }
 
 /**
- * @summary Deletes a ApsaraMQ for RocketMQ instance.
+ * @summary Releases an instance.
  *
  * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
  * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
@@ -999,7 +999,7 @@ DeleteTopicResponse Client::deleteTopic(const string &instanceId, const string &
 }
 
 /**
- * @summary 执行迁移操作
+ * @summary Executes a specific operation on a specific migration task.
  *
  * @param request ExecuteMigrationOperationRequest
  * @param headers map
@@ -1038,7 +1038,7 @@ ExecuteMigrationOperationResponse Client::executeMigrationOperationWithOptions(c
 }
 
 /**
- * @summary 执行迁移操作
+ * @summary Executes a specific operation on a specific migration task.
  *
  * @param request ExecuteMigrationOperationRequest
  * @return ExecuteMigrationOperationResponse
@@ -1095,7 +1095,7 @@ FinishMigrationStageResponse Client::finishMigrationStage(const string &migratio
 }
 
 /**
- * @summary 查询topic可重置时间范围
+ * @summary Queries the time range within which the consumer offset in a topic can be reset.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1120,7 +1120,7 @@ GetConsumeTimespanResponse Client::getConsumeTimespanWithOptions(const string &i
 }
 
 /**
- * @summary 查询topic可重置时间范围
+ * @summary Queries the time range within which the consumer offset in a topic can be reset.
  *
  * @return GetConsumeTimespanResponse
  */
@@ -1301,7 +1301,7 @@ GetConsumerStackResponse Client::getConsumerStack(const string &instanceId, cons
 }
 
 /**
- * @summary 查询容灾计划条目详情
+ * @summary Queries the details of a topic mapping in a Global Replicator task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1326,7 +1326,7 @@ GetDisasterRecoveryItemResponse Client::getDisasterRecoveryItemWithOptions(const
 }
 
 /**
- * @summary 查询容灾计划条目详情
+ * @summary Queries the details of a topic mapping in a Global Replicator task.
  *
  * @return GetDisasterRecoveryItemResponse
  */
@@ -1679,7 +1679,7 @@ GetTraceResponse Client::getTrace(const string &instanceId, const string &topicN
 }
 
 /**
- * @summary 查询支持的可用区
+ * @summary Queries the supported zones.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1704,7 +1704,7 @@ ListAvailableZonesResponse Client::listAvailableZonesWithOptions(const map<strin
 }
 
 /**
- * @summary 查询支持的可用区
+ * @summary Queries the supported zones.
  *
  * @return ListAvailableZonesResponse
  */
@@ -1715,7 +1715,7 @@ ListAvailableZonesResponse Client::listAvailableZones() {
 }
 
 /**
- * @summary 查询消费者客户端连接信息
+ * @summary Queries the connections of a specific consumer client.
  *
  * @param request ListConsumerConnectionsRequest
  * @param headers map
@@ -1752,7 +1752,7 @@ ListConsumerConnectionsResponse Client::listConsumerConnectionsWithOptions(const
 }
 
 /**
- * @summary 查询消费者客户端连接信息
+ * @summary Queries the connections of a specific consumer client.
  *
  * @param request ListConsumerConnectionsRequest
  * @return ListConsumerConnectionsResponse
@@ -1866,7 +1866,7 @@ ListConsumerGroupsResponse Client::listConsumerGroups(const string &instanceId, 
 }
 
 /**
- * @summary Query disaster recovery plan consumption progress information
+ * @summary Queries consumer progress synchronization tasks.
  *
  * @param request ListDisasterRecoveryCheckpointsRequest
  * @param headers map
@@ -1911,7 +1911,7 @@ ListDisasterRecoveryCheckpointsResponse Client::listDisasterRecoveryCheckpointsW
 }
 
 /**
- * @summary Query disaster recovery plan consumption progress information
+ * @summary Queries consumer progress synchronization tasks.
  *
  * @param request ListDisasterRecoveryCheckpointsRequest
  * @return ListDisasterRecoveryCheckpointsResponse
@@ -2283,7 +2283,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Queries the list of messages.
+ * @summary Queries messages.
  *
  * @param request ListMessagesRequest
  * @param headers map
@@ -2344,7 +2344,7 @@ ListMessagesResponse Client::listMessagesWithOptions(const string &instanceId, c
 }
 
 /**
- * @summary Queries the list of messages.
+ * @summary Queries messages.
  *
  * @param request ListMessagesRequest
  * @return ListMessagesResponse
@@ -2405,7 +2405,7 @@ ListMetricMetaResponse Client::listMetricMeta(const ListMetricMetaRequest &reque
 }
 
 /**
- * @summary 查询迁移操作列表
+ * @summary Queries a list of migration operations.
  *
  * @param request ListMigrationOperationsRequest
  * @param headers map
@@ -2454,7 +2454,7 @@ ListMigrationOperationsResponse Client::listMigrationOperationsWithOptions(const
 }
 
 /**
- * @summary 查询迁移操作列表
+ * @summary Queries a list of migration operations.
  *
  * @param request ListMigrationOperationsRequest
  * @return ListMigrationOperationsResponse
@@ -2466,7 +2466,7 @@ ListMigrationOperationsResponse Client::listMigrationOperations(const string &mi
 }
 
 /**
- * @summary 查询迁移列表
+ * @summary Queries migration tasks.
  *
  * @param request ListMigrationsRequest
  * @param headers map
@@ -2515,7 +2515,7 @@ ListMigrationsResponse Client::listMigrationsWithOptions(const ListMigrationsReq
 }
 
 /**
- * @summary 查询迁移列表
+ * @summary Queries migration tasks.
  *
  * @param request ListMigrationsRequest
  * @return ListMigrationsResponse
@@ -2563,7 +2563,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary Query visible resource tag relationships
+ * @summary Queries the tags that are added to resources.
  *
  * @param request ListTagResourcesRequest
  * @param headers map
@@ -2616,7 +2616,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Query visible resource tag relationships
+ * @summary Queries the tags that are added to resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2800,7 +2800,7 @@ ListTracesResponse Client::listTraces(const string &instanceId, const string &to
 }
 
 /**
- * @summary Resets the consumer offset of a consumer group.
+ * @summary Resets the consumer offset of a consumer group. If you reset a consumer offset, the offset from which a consumer starts to consume messages is changed. If faults occur or wrong messages are consumed during message consumption, you can reset the consumer offset to roll back the consumption to a specific offset for reconsumption. You can also reset the consumer offset to the latest offset and temporarily leave the accumulated messages unhandled.
  *
  * @param request ResetConsumeOffsetRequest
  * @param headers map
@@ -2837,7 +2837,7 @@ ResetConsumeOffsetResponse Client::resetConsumeOffsetWithOptions(const string &i
 }
 
 /**
- * @summary Resets the consumer offset of a consumer group.
+ * @summary Resets the consumer offset of a consumer group. If you reset a consumer offset, the offset from which a consumer starts to consume messages is changed. If faults occur or wrong messages are consumed during message consumption, you can reset the consumer offset to roll back the consumption to a specific offset for reconsumption. You can also reset the consumer offset to the latest offset and temporarily leave the accumulated messages unhandled.
  *
  * @param request ResetConsumeOffsetRequest
  * @return ResetConsumeOffsetResponse
@@ -2849,7 +2849,7 @@ ResetConsumeOffsetResponse Client::resetConsumeOffset(const string &instanceId, 
 }
 
 /**
- * @summary Enable Disaster Recovery Plan Entry
+ * @summary Starts a topic mapping of a Global Replicator task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2874,7 +2874,7 @@ StartDisasterRecoveryItemResponse Client::startDisasterRecoveryItemWithOptions(c
 }
 
 /**
- * @summary Enable Disaster Recovery Plan Entry
+ * @summary Starts a topic mapping of a Global Replicator task.
  *
  * @return StartDisasterRecoveryItemResponse
  */
@@ -2885,7 +2885,7 @@ StartDisasterRecoveryItemResponse Client::startDisasterRecoveryItem(const string
 }
 
 /**
- * @summary Deactivate Disaster Recovery Plan Entry
+ * @summary Stops a topic mapping of a Global Replicator task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2910,7 +2910,7 @@ StopDisasterRecoveryItemResponse Client::stopDisasterRecoveryItemWithOptions(con
 }
 
 /**
- * @summary Deactivate Disaster Recovery Plan Entry
+ * @summary Stops a topic mapping of a Global Replicator task.
  *
  * @return StopDisasterRecoveryItemResponse
  */
@@ -3533,6 +3533,10 @@ VerifyConsumeMessageResponse Client::verifyConsumeMessage(const string &instance
 VerifySendMessageResponse Client::verifySendMessageWithOptions(const string &instanceId, const string &topicName, const VerifySendMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDeliveryTimeStamp()) {
+    body["deliveryTimeStamp"] = request.getDeliveryTimeStamp();
+  }
+
   if (!!request.hasLiteTopicName()) {
     body["liteTopicName"] = request.getLiteTopicName();
   }
@@ -3541,12 +3545,20 @@ VerifySendMessageResponse Client::verifySendMessageWithOptions(const string &ins
     body["message"] = request.getMessage();
   }
 
+  if (!!request.hasMessageGroup()) {
+    body["messageGroup"] = request.getMessageGroup();
+  }
+
   if (!!request.hasMessageKey()) {
     body["messageKey"] = request.getMessageKey();
   }
 
   if (!!request.hasMessageTag()) {
     body["messageTag"] = request.getMessageTag();
+  }
+
+  if (!!request.hasUserProperties()) {
+    body["userProperties"] = request.getUserProperties();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -227,6 +227,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const ProductInfo& obj) { 
           DARABONBA_PTR_TO_JSON(autoScaling, autoScaling_);
           DARABONBA_PTR_TO_JSON(capacityType, capacityType_);
+          DARABONBA_PTR_TO_JSON(drReplicationMode, drReplicationMode_);
           DARABONBA_PTR_TO_JSON(messageRetentionTime, messageRetentionTime_);
           DARABONBA_PTR_TO_JSON(msgProcessSpec, msgProcessSpec_);
           DARABONBA_PTR_TO_JSON(provisionedCapacity, provisionedCapacity_);
@@ -239,6 +240,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, ProductInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(autoScaling, autoScaling_);
           DARABONBA_PTR_FROM_JSON(capacityType, capacityType_);
+          DARABONBA_PTR_FROM_JSON(drReplicationMode, drReplicationMode_);
           DARABONBA_PTR_FROM_JSON(messageRetentionTime, messageRetentionTime_);
           DARABONBA_PTR_FROM_JSON(msgProcessSpec, msgProcessSpec_);
           DARABONBA_PTR_FROM_JSON(provisionedCapacity, provisionedCapacity_);
@@ -260,8 +262,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->autoScaling_ == nullptr
-        && this->capacityType_ == nullptr && this->messageRetentionTime_ == nullptr && this->msgProcessSpec_ == nullptr && this->provisionedCapacity_ == nullptr && this->sendReceiveRatio_ == nullptr
-        && this->storageEncryption_ == nullptr && this->storageSecretKey_ == nullptr && this->supportAutoScaling_ == nullptr && this->traceOn_ == nullptr; };
+        && this->capacityType_ == nullptr && this->drReplicationMode_ == nullptr && this->messageRetentionTime_ == nullptr && this->msgProcessSpec_ == nullptr && this->provisionedCapacity_ == nullptr
+        && this->sendReceiveRatio_ == nullptr && this->storageEncryption_ == nullptr && this->storageSecretKey_ == nullptr && this->supportAutoScaling_ == nullptr && this->traceOn_ == nullptr; };
         // autoScaling Field Functions 
         bool hasAutoScaling() const { return this->autoScaling_ != nullptr;};
         void deleteAutoScaling() { this->autoScaling_ = nullptr;};
@@ -274,6 +276,13 @@ namespace Models
         void deleteCapacityType() { this->capacityType_ = nullptr;};
         inline string getCapacityType() const { DARABONBA_PTR_GET_DEFAULT(capacityType_, "") };
         inline ProductInfo& setCapacityType(string capacityType) { DARABONBA_PTR_SET_VALUE(capacityType_, capacityType) };
+
+
+        // drReplicationMode Field Functions 
+        bool hasDrReplicationMode() const { return this->drReplicationMode_ != nullptr;};
+        void deleteDrReplicationMode() { this->drReplicationMode_ = nullptr;};
+        inline string getDrReplicationMode() const { DARABONBA_PTR_GET_DEFAULT(drReplicationMode_, "") };
+        inline ProductInfo& setDrReplicationMode(string drReplicationMode) { DARABONBA_PTR_SET_VALUE(drReplicationMode_, drReplicationMode) };
 
 
         // messageRetentionTime Field Functions 
@@ -343,6 +352,7 @@ namespace Models
         // This parameter is valid only when the supportAutoScaling parameter is set to enable.
         shared_ptr<bool> autoScaling_ {};
         shared_ptr<string> capacityType_ {};
+        shared_ptr<string> drReplicationMode_ {};
         // The retention period of messages. Unit: hours.
         // 
         // For information about the valid values of this parameter, see the "Limits on resource quotas" section in [Usage limits](https://help.aliyun.com/document_detail/440347.html).

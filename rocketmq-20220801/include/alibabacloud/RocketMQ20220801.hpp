@@ -21,7 +21,7 @@ namespace RocketMQ20220801
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Add Disaster Recovery Plan Entry
+       * @summary Adds a topic mapping to a Global Replicator task.
        *
        * @param request AddDisasterRecoveryItemRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace RocketMQ20220801
       Models::AddDisasterRecoveryItemResponse addDisasterRecoveryItemWithOptions(const string &planId, const Models::AddDisasterRecoveryItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add Disaster Recovery Plan Entry
+       * @summary Adds a topic mapping to a Global Replicator task.
        *
        * @param request AddDisasterRecoveryItemRequest
        * @return AddDisasterRecoveryItemResponse
@@ -239,7 +239,7 @@ namespace RocketMQ20220801
       Models::DeleteConsumerGroupSubscriptionResponse deleteConsumerGroupSubscription(const string &instanceId, const string &consumerGroupId, const Models::DeleteConsumerGroupSubscriptionRequest &request);
 
       /**
-       * @summary 删除容灾计划条目
+       * @summary Deletes a topic mapping of a Global Replicator task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -248,7 +248,7 @@ namespace RocketMQ20220801
       Models::DeleteDisasterRecoveryItemResponse deleteDisasterRecoveryItemWithOptions(const string &planId, const string &itemId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除容灾计划条目
+       * @summary Deletes a topic mapping of a Global Replicator task.
        *
        * @return DeleteDisasterRecoveryItemResponse
        */
@@ -271,7 +271,7 @@ namespace RocketMQ20220801
       Models::DeleteDisasterRecoveryPlanResponse deleteDisasterRecoveryPlan(const string &planId);
 
       /**
-       * @summary Deletes a ApsaraMQ for RocketMQ instance.
+       * @summary Releases an instance.
        *
        * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
        * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
@@ -284,7 +284,7 @@ namespace RocketMQ20220801
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a ApsaraMQ for RocketMQ instance.
+       * @summary Releases an instance.
        *
        * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
        * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
@@ -367,7 +367,7 @@ namespace RocketMQ20220801
       Models::DeleteTopicResponse deleteTopic(const string &instanceId, const string &topicName);
 
       /**
-       * @summary 执行迁移操作
+       * @summary Executes a specific operation on a specific migration task.
        *
        * @param request ExecuteMigrationOperationRequest
        * @param headers map
@@ -377,7 +377,7 @@ namespace RocketMQ20220801
       Models::ExecuteMigrationOperationResponse executeMigrationOperationWithOptions(const string &migrationId, const string &stageType, const string &operationId, const Models::ExecuteMigrationOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行迁移操作
+       * @summary Executes a specific operation on a specific migration task.
        *
        * @param request ExecuteMigrationOperationRequest
        * @return ExecuteMigrationOperationResponse
@@ -403,7 +403,7 @@ namespace RocketMQ20220801
       Models::FinishMigrationStageResponse finishMigrationStage(const string &migrationId, const string &stageType, const Models::FinishMigrationStageRequest &request);
 
       /**
-       * @summary 查询topic可重置时间范围
+       * @summary Queries the time range within which the consumer offset in a topic can be reset.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +412,7 @@ namespace RocketMQ20220801
       Models::GetConsumeTimespanResponse getConsumeTimespanWithOptions(const string &instanceId, const string &consumerGroupId, const string &topicName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询topic可重置时间范围
+       * @summary Queries the time range within which the consumer offset in a topic can be reset.
        *
        * @return GetConsumeTimespanResponse
        */
@@ -491,7 +491,7 @@ namespace RocketMQ20220801
       Models::GetConsumerStackResponse getConsumerStack(const string &instanceId, const string &consumerGroupId, const Models::GetConsumerStackRequest &request);
 
       /**
-       * @summary 查询容灾计划条目详情
+       * @summary Queries the details of a topic mapping in a Global Replicator task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -500,7 +500,7 @@ namespace RocketMQ20220801
       Models::GetDisasterRecoveryItemResponse getDisasterRecoveryItemWithOptions(const string &planId, const string &itemId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询容灾计划条目详情
+       * @summary Queries the details of a topic mapping in a Global Replicator task.
        *
        * @return GetDisasterRecoveryItemResponse
        */
@@ -647,7 +647,7 @@ namespace RocketMQ20220801
       Models::GetTraceResponse getTrace(const string &instanceId, const string &topicName, const string &messageId, const Models::GetTraceRequest &request);
 
       /**
-       * @summary 查询支持的可用区
+       * @summary Queries the supported zones.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -656,14 +656,14 @@ namespace RocketMQ20220801
       Models::ListAvailableZonesResponse listAvailableZonesWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询支持的可用区
+       * @summary Queries the supported zones.
        *
        * @return ListAvailableZonesResponse
        */
       Models::ListAvailableZonesResponse listAvailableZones();
 
       /**
-       * @summary 查询消费者客户端连接信息
+       * @summary Queries the connections of a specific consumer client.
        *
        * @param request ListConsumerConnectionsRequest
        * @param headers map
@@ -673,7 +673,7 @@ namespace RocketMQ20220801
       Models::ListConsumerConnectionsResponse listConsumerConnectionsWithOptions(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerConnectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者客户端连接信息
+       * @summary Queries the connections of a specific consumer client.
        *
        * @param request ListConsumerConnectionsRequest
        * @return ListConsumerConnectionsResponse
@@ -721,7 +721,7 @@ namespace RocketMQ20220801
       Models::ListConsumerGroupsResponse listConsumerGroups(const string &instanceId, const Models::ListConsumerGroupsRequest &request);
 
       /**
-       * @summary Query disaster recovery plan consumption progress information
+       * @summary Queries consumer progress synchronization tasks.
        *
        * @param request ListDisasterRecoveryCheckpointsRequest
        * @param headers map
@@ -731,7 +731,7 @@ namespace RocketMQ20220801
       Models::ListDisasterRecoveryCheckpointsResponse listDisasterRecoveryCheckpointsWithOptions(const string &planId, const string &itemId, const Models::ListDisasterRecoveryCheckpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query disaster recovery plan consumption progress information
+       * @summary Queries consumer progress synchronization tasks.
        *
        * @param request ListDisasterRecoveryCheckpointsRequest
        * @return ListDisasterRecoveryCheckpointsResponse
@@ -851,7 +851,7 @@ namespace RocketMQ20220801
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries the list of messages.
+       * @summary Queries messages.
        *
        * @param request ListMessagesRequest
        * @param headers map
@@ -861,7 +861,7 @@ namespace RocketMQ20220801
       Models::ListMessagesResponse listMessagesWithOptions(const string &instanceId, const string &topicName, const Models::ListMessagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of messages.
+       * @summary Queries messages.
        *
        * @param request ListMessagesRequest
        * @return ListMessagesResponse
@@ -887,7 +887,7 @@ namespace RocketMQ20220801
       Models::ListMetricMetaResponse listMetricMeta(const Models::ListMetricMetaRequest &request);
 
       /**
-       * @summary 查询迁移操作列表
+       * @summary Queries a list of migration operations.
        *
        * @param request ListMigrationOperationsRequest
        * @param headers map
@@ -897,7 +897,7 @@ namespace RocketMQ20220801
       Models::ListMigrationOperationsResponse listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询迁移操作列表
+       * @summary Queries a list of migration operations.
        *
        * @param request ListMigrationOperationsRequest
        * @return ListMigrationOperationsResponse
@@ -905,7 +905,7 @@ namespace RocketMQ20220801
       Models::ListMigrationOperationsResponse listMigrationOperations(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request);
 
       /**
-       * @summary 查询迁移列表
+       * @summary Queries migration tasks.
        *
        * @param request ListMigrationsRequest
        * @param headers map
@@ -915,7 +915,7 @@ namespace RocketMQ20220801
       Models::ListMigrationsResponse listMigrationsWithOptions(const Models::ListMigrationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询迁移列表
+       * @summary Queries migration tasks.
        *
        * @param request ListMigrationsRequest
        * @return ListMigrationsResponse
@@ -939,7 +939,7 @@ namespace RocketMQ20220801
       Models::ListRegionsResponse listRegions();
 
       /**
-       * @summary Query visible resource tag relationships
+       * @summary Queries the tags that are added to resources.
        *
        * @param request ListTagResourcesRequest
        * @param headers map
@@ -949,7 +949,7 @@ namespace RocketMQ20220801
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query visible resource tag relationships
+       * @summary Queries the tags that are added to resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1009,7 +1009,7 @@ namespace RocketMQ20220801
       Models::ListTracesResponse listTraces(const string &instanceId, const string &topicName, const Models::ListTracesRequest &request);
 
       /**
-       * @summary Resets the consumer offset of a consumer group.
+       * @summary Resets the consumer offset of a consumer group. If you reset a consumer offset, the offset from which a consumer starts to consume messages is changed. If faults occur or wrong messages are consumed during message consumption, you can reset the consumer offset to roll back the consumption to a specific offset for reconsumption. You can also reset the consumer offset to the latest offset and temporarily leave the accumulated messages unhandled.
        *
        * @param request ResetConsumeOffsetRequest
        * @param headers map
@@ -1019,7 +1019,7 @@ namespace RocketMQ20220801
       Models::ResetConsumeOffsetResponse resetConsumeOffsetWithOptions(const string &instanceId, const string &consumerGroupId, const string &topicName, const Models::ResetConsumeOffsetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the consumer offset of a consumer group.
+       * @summary Resets the consumer offset of a consumer group. If you reset a consumer offset, the offset from which a consumer starts to consume messages is changed. If faults occur or wrong messages are consumed during message consumption, you can reset the consumer offset to roll back the consumption to a specific offset for reconsumption. You can also reset the consumer offset to the latest offset and temporarily leave the accumulated messages unhandled.
        *
        * @param request ResetConsumeOffsetRequest
        * @return ResetConsumeOffsetResponse
@@ -1027,7 +1027,7 @@ namespace RocketMQ20220801
       Models::ResetConsumeOffsetResponse resetConsumeOffset(const string &instanceId, const string &consumerGroupId, const string &topicName, const Models::ResetConsumeOffsetRequest &request);
 
       /**
-       * @summary Enable Disaster Recovery Plan Entry
+       * @summary Starts a topic mapping of a Global Replicator task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1036,14 +1036,14 @@ namespace RocketMQ20220801
       Models::StartDisasterRecoveryItemResponse startDisasterRecoveryItemWithOptions(const string &planId, const string &itemId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enable Disaster Recovery Plan Entry
+       * @summary Starts a topic mapping of a Global Replicator task.
        *
        * @return StartDisasterRecoveryItemResponse
        */
       Models::StartDisasterRecoveryItemResponse startDisasterRecoveryItem(const string &planId, const string &itemId);
 
       /**
-       * @summary Deactivate Disaster Recovery Plan Entry
+       * @summary Stops a topic mapping of a Global Replicator task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1052,7 +1052,7 @@ namespace RocketMQ20220801
       Models::StopDisasterRecoveryItemResponse stopDisasterRecoveryItemWithOptions(const string &planId, const string &itemId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deactivate Disaster Recovery Plan Entry
+       * @summary Stops a topic mapping of a Global Replicator task.
        *
        * @return StopDisasterRecoveryItemResponse
        */

@@ -13,16 +13,22 @@ namespace Models
   class VerifySendMessageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const VerifySendMessageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(deliveryTimeStamp, deliveryTimeStamp_);
       DARABONBA_PTR_TO_JSON(liteTopicName, liteTopicName_);
       DARABONBA_PTR_TO_JSON(message, message_);
+      DARABONBA_PTR_TO_JSON(messageGroup, messageGroup_);
       DARABONBA_PTR_TO_JSON(messageKey, messageKey_);
       DARABONBA_PTR_TO_JSON(messageTag, messageTag_);
+      DARABONBA_ANY_TO_JSON(userProperties, userProperties_);
     };
     friend void from_json(const Darabonba::Json& j, VerifySendMessageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(deliveryTimeStamp, deliveryTimeStamp_);
       DARABONBA_PTR_FROM_JSON(liteTopicName, liteTopicName_);
       DARABONBA_PTR_FROM_JSON(message, message_);
+      DARABONBA_PTR_FROM_JSON(messageGroup, messageGroup_);
       DARABONBA_PTR_FROM_JSON(messageKey, messageKey_);
       DARABONBA_PTR_FROM_JSON(messageTag, messageTag_);
+      DARABONBA_ANY_FROM_JSON(userProperties, userProperties_);
     };
     VerifySendMessageRequest() = default ;
     VerifySendMessageRequest(const VerifySendMessageRequest &) = default ;
@@ -35,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->liteTopicName_ == nullptr
-        && this->message_ == nullptr && this->messageKey_ == nullptr && this->messageTag_ == nullptr; };
+    virtual bool empty() const override { return this->deliveryTimeStamp_ == nullptr
+        && this->liteTopicName_ == nullptr && this->message_ == nullptr && this->messageGroup_ == nullptr && this->messageKey_ == nullptr && this->messageTag_ == nullptr
+        && this->userProperties_ == nullptr; };
+    // deliveryTimeStamp Field Functions 
+    bool hasDeliveryTimeStamp() const { return this->deliveryTimeStamp_ != nullptr;};
+    void deleteDeliveryTimeStamp() { this->deliveryTimeStamp_ = nullptr;};
+    inline int64_t getDeliveryTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(deliveryTimeStamp_, 0L) };
+    inline VerifySendMessageRequest& setDeliveryTimeStamp(int64_t deliveryTimeStamp) { DARABONBA_PTR_SET_VALUE(deliveryTimeStamp_, deliveryTimeStamp) };
+
+
     // liteTopicName Field Functions 
     bool hasLiteTopicName() const { return this->liteTopicName_ != nullptr;};
     void deleteLiteTopicName() { this->liteTopicName_ = nullptr;};
@@ -49,6 +63,13 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline VerifySendMessageRequest& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // messageGroup Field Functions 
+    bool hasMessageGroup() const { return this->messageGroup_ != nullptr;};
+    void deleteMessageGroup() { this->messageGroup_ = nullptr;};
+    inline string getMessageGroup() const { DARABONBA_PTR_GET_DEFAULT(messageGroup_, "") };
+    inline VerifySendMessageRequest& setMessageGroup(string messageGroup) { DARABONBA_PTR_SET_VALUE(messageGroup_, messageGroup) };
 
 
     // messageKey Field Functions 
@@ -65,14 +86,26 @@ namespace Models
     inline VerifySendMessageRequest& setMessageTag(string messageTag) { DARABONBA_PTR_SET_VALUE(messageTag_, messageTag) };
 
 
+    // userProperties Field Functions 
+    bool hasUserProperties() const { return this->userProperties_ != nullptr;};
+    void deleteUserProperties() { this->userProperties_ = nullptr;};
+    inline     const Darabonba::Json & getUserProperties() const { DARABONBA_GET(userProperties_) };
+    Darabonba::Json & getUserProperties() { DARABONBA_GET(userProperties_) };
+    inline VerifySendMessageRequest& setUserProperties(const Darabonba::Json & userProperties) { DARABONBA_SET_VALUE(userProperties_, userProperties) };
+    inline VerifySendMessageRequest& setUserProperties(Darabonba::Json && userProperties) { DARABONBA_SET_RVALUE(userProperties_, userProperties) };
+
+
   protected:
+    shared_ptr<int64_t> deliveryTimeStamp_ {};
     shared_ptr<string> liteTopicName_ {};
     // The message body.
     shared_ptr<string> message_ {};
+    shared_ptr<string> messageGroup_ {};
     // The message key.
     shared_ptr<string> messageKey_ {};
     // The message tag.
     shared_ptr<string> messageTag_ {};
+    Darabonba::Json userProperties_ {};
   };
 
   } // namespace Models
