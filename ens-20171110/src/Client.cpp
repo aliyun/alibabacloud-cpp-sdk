@@ -5072,6 +5072,48 @@ DeleteNetworkInterfacesResponse Client::deleteNetworkInterfaces(const DeleteNetw
 }
 
 /**
+ * @summary Releases the VPC peering connection.
+ *
+ * @param request DeleteNetworkPeerConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNetworkPeerConnectionResponse
+ */
+DeleteNetworkPeerConnectionResponse Client::deleteNetworkPeerConnectionWithOptions(const DeleteNetworkPeerConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteNetworkPeerConnection"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNetworkPeerConnectionResponse>();
+}
+
+/**
+ * @summary Releases the VPC peering connection.
+ *
+ * @param request DeleteNetworkPeerConnectionRequest
+ * @return DeleteNetworkPeerConnectionResponse
+ */
+DeleteNetworkPeerConnectionResponse Client::deleteNetworkPeerConnection(const DeleteNetworkPeerConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNetworkPeerConnectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an object.
  *
  * @param request DeleteObjectRequest
@@ -9950,6 +9992,68 @@ DescribeNetworkInterfacesResponse Client::describeNetworkInterfacesWithOptions(c
 DescribeNetworkInterfacesResponse Client::describeNetworkInterfaces(const DescribeNetworkInterfacesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeNetworkInterfacesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries VPC peering connections.
+ *
+ * @param request DescribeNetworkPeerConnectionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNetworkPeerConnectionsResponse
+ */
+DescribeNetworkPeerConnectionsResponse Client::describeNetworkPeerConnectionsWithOptions(const DescribeNetworkPeerConnectionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnsRegionId()) {
+    query["EnsRegionId"] = request.getEnsRegionId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNetworkIds()) {
+    query["NetworkIds"] = request.getNetworkIds();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeNetworkPeerConnections"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNetworkPeerConnectionsResponse>();
+}
+
+/**
+ * @summary Queries VPC peering connections.
+ *
+ * @param request DescribeNetworkPeerConnectionsRequest
+ * @return DescribeNetworkPeerConnectionsResponse
+ */
+DescribeNetworkPeerConnectionsResponse Client::describeNetworkPeerConnections(const DescribeNetworkPeerConnectionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNetworkPeerConnectionsWithOptions(request, runtime);
 }
 
 /**
@@ -18332,6 +18436,48 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新集群证书
+ *
+ * @param request UpdateClusterCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateClusterCertificateResponse
+ */
+UpdateClusterCertificateResponse Client::updateClusterCertificateWithOptions(const UpdateClusterCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateClusterCertificate"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateClusterCertificateResponse>();
+}
+
+/**
+ * @summary 更新集群证书
+ *
+ * @param request UpdateClusterCertificateRequest
+ * @return UpdateClusterCertificateResponse
+ */
+UpdateClusterCertificateResponse Client::updateClusterCertificate(const UpdateClusterCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateClusterCertificateWithOptions(request, runtime);
 }
 
 /**

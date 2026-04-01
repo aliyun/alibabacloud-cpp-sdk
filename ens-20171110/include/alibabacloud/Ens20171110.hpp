@@ -1628,6 +1628,23 @@ namespace Ens20171110
       Models::DeleteNetworkInterfacesResponse deleteNetworkInterfaces(const Models::DeleteNetworkInterfacesRequest &request);
 
       /**
+       * @summary Releases the VPC peering connection.
+       *
+       * @param request DeleteNetworkPeerConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNetworkPeerConnectionResponse
+       */
+      Models::DeleteNetworkPeerConnectionResponse deleteNetworkPeerConnectionWithOptions(const Models::DeleteNetworkPeerConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases the VPC peering connection.
+       *
+       * @param request DeleteNetworkPeerConnectionRequest
+       * @return DeleteNetworkPeerConnectionResponse
+       */
+      Models::DeleteNetworkPeerConnectionResponse deleteNetworkPeerConnection(const Models::DeleteNetworkPeerConnectionRequest &request);
+
+      /**
        * @summary Deletes an object.
        *
        * @param request DeleteObjectRequest
@@ -3340,6 +3357,23 @@ namespace Ens20171110
        * @return DescribeNetworkInterfacesResponse
        */
       Models::DescribeNetworkInterfacesResponse describeNetworkInterfaces(const Models::DescribeNetworkInterfacesRequest &request);
+
+      /**
+       * @summary Queries VPC peering connections.
+       *
+       * @param request DescribeNetworkPeerConnectionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNetworkPeerConnectionsResponse
+       */
+      Models::DescribeNetworkPeerConnectionsResponse describeNetworkPeerConnectionsWithOptions(const Models::DescribeNetworkPeerConnectionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries VPC peering connections.
+       *
+       * @param request DescribeNetworkPeerConnectionsRequest
+       * @return DescribeNetworkPeerConnectionsResponse
+       */
+      Models::DescribeNetworkPeerConnectionsResponse describeNetworkPeerConnections(const Models::DescribeNetworkPeerConnectionsRequest &request);
 
       /**
        * @summary Query the network list.
@@ -6163,6 +6197,23 @@ namespace Ens20171110
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary 更新集群证书
+       *
+       * @param request UpdateClusterCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateClusterCertificateResponse
+       */
+      Models::UpdateClusterCertificateResponse updateClusterCertificateWithOptions(const Models::UpdateClusterCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新集群证书
+       *
+       * @param request UpdateClusterCertificateRequest
+       * @return UpdateClusterCertificateResponse
+       */
+      Models::UpdateClusterCertificateResponse updateClusterCertificate(const Models::UpdateClusterCertificateRequest &request);
 
       /**
        * @summary 修改售卖约束

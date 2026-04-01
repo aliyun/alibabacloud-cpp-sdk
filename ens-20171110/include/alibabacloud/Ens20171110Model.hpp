@@ -286,6 +286,9 @@
 #include <alibabacloud/models/DeleteNetworkInterfacesShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteNetworkInterfacesResponseBody.hpp>
 #include <alibabacloud/models/DeleteNetworkInterfacesResponse.hpp>
+#include <alibabacloud/models/DeleteNetworkPeerConnectionRequest.hpp>
+#include <alibabacloud/models/DeleteNetworkPeerConnectionResponseBody.hpp>
+#include <alibabacloud/models/DeleteNetworkPeerConnectionResponse.hpp>
 #include <alibabacloud/models/DeleteObjectRequest.hpp>
 #include <alibabacloud/models/DeleteObjectResponseBody.hpp>
 #include <alibabacloud/models/DeleteObjectResponse.hpp>
@@ -572,6 +575,9 @@
 #include <alibabacloud/models/DescribeNetworkInterfacesRequest.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfacesResponseBody.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfacesResponse.hpp>
+#include <alibabacloud/models/DescribeNetworkPeerConnectionsRequest.hpp>
+#include <alibabacloud/models/DescribeNetworkPeerConnectionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeNetworkPeerConnectionsResponse.hpp>
 #include <alibabacloud/models/DescribeNetworksRequest.hpp>
 #include <alibabacloud/models/DescribeNetworksResponseBody.hpp>
 #include <alibabacloud/models/DescribeNetworksResponse.hpp>
@@ -1050,6 +1056,9 @@
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UpdateClusterCertificateRequest.hpp>
+#include <alibabacloud/models/UpdateClusterCertificateResponseBody.hpp>
+#include <alibabacloud/models/UpdateClusterCertificateResponse.hpp>
 #include <alibabacloud/models/UpdateEnsSaleControlRequest.hpp>
 #include <alibabacloud/models/UpdateEnsSaleControlShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateEnsSaleControlResponseBody.hpp>
