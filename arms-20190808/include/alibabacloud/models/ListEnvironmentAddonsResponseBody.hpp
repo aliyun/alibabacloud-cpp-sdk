@@ -43,10 +43,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(Addons, addons_);
+        DARABONBA_PTR_TO_JSON(ContainsV2Addon, containsV2Addon_);
         DARABONBA_PTR_TO_JSON(Total, total_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Addons, addons_);
+        DARABONBA_PTR_FROM_JSON(ContainsV2Addon, containsV2Addon_);
         DARABONBA_PTR_FROM_JSON(Total, total_);
       };
       Data() = default ;
@@ -659,7 +661,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->addons_ == nullptr
-        && this->total_ == nullptr; };
+        && this->containsV2Addon_ == nullptr && this->total_ == nullptr; };
       // addons Field Functions 
       bool hasAddons() const { return this->addons_ != nullptr;};
       void deleteAddons() { this->addons_ = nullptr;};
@@ -667,6 +669,13 @@ namespace Models
       inline vector<Data::Addons> getAddons() { DARABONBA_PTR_GET(addons_, vector<Data::Addons>) };
       inline Data& setAddons(const vector<Data::Addons> & addons) { DARABONBA_PTR_SET_VALUE(addons_, addons) };
       inline Data& setAddons(vector<Data::Addons> && addons) { DARABONBA_PTR_SET_RVALUE(addons_, addons) };
+
+
+      // containsV2Addon Field Functions 
+      bool hasContainsV2Addon() const { return this->containsV2Addon_ != nullptr;};
+      void deleteContainsV2Addon() { this->containsV2Addon_ = nullptr;};
+      inline bool getContainsV2Addon() const { DARABONBA_PTR_GET_DEFAULT(containsV2Addon_, false) };
+      inline Data& setContainsV2Addon(bool containsV2Addon) { DARABONBA_PTR_SET_VALUE(containsV2Addon_, containsV2Addon) };
 
 
       // total Field Functions 
@@ -679,6 +688,7 @@ namespace Models
     protected:
       // The queried add-ons.
       shared_ptr<vector<Data::Addons>> addons_ {};
+      shared_ptr<bool> containsV2Addon_ {};
       shared_ptr<int64_t> total_ {};
     };
 
