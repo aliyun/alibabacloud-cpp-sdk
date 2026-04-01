@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListCertRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CertType, certType_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(Identifiers, identifiers_);
       DARABONBA_PTR_TO_JSON(KeyWord, keyWord_);
       DARABONBA_PTR_TO_JSON(ShowSize, showSize_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListCertRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CertType, certType_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(Identifiers, identifiers_);
       DARABONBA_PTR_FROM_JSON(KeyWord, keyWord_);
       DARABONBA_PTR_FROM_JSON(ShowSize, showSize_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certType_ == nullptr
-        && this->currentPage_ == nullptr && this->keyWord_ == nullptr && this->showSize_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr
-        && this->warehouseId_ == nullptr; };
+        && this->currentPage_ == nullptr && this->identifiers_ == nullptr && this->keyWord_ == nullptr && this->showSize_ == nullptr && this->sourceType_ == nullptr
+        && this->status_ == nullptr && this->warehouseId_ == nullptr; };
     // certType Field Functions 
     bool hasCertType() const { return this->certType_ != nullptr;};
     void deleteCertType() { this->certType_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListCertRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // identifiers Field Functions 
+    bool hasIdentifiers() const { return this->identifiers_ != nullptr;};
+    void deleteIdentifiers() { this->identifiers_ = nullptr;};
+    inline string getIdentifiers() const { DARABONBA_PTR_GET_DEFAULT(identifiers_, "") };
+    inline ListCertRequest& setIdentifiers(string identifiers) { DARABONBA_PTR_SET_VALUE(identifiers_, identifiers) };
 
 
     // keyWord Field Functions 
@@ -101,6 +110,7 @@ namespace Models
     shared_ptr<string> certType_ {};
     // The number of the page to return. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
+    shared_ptr<string> identifiers_ {};
     // The keyword for the query. You can enter a name, domain name, or Subject Alternative Name (SAN) extension. Fuzzy match is supported.
     shared_ptr<string> keyWord_ {};
     // The number of entries to return on each page. Default value: 50.

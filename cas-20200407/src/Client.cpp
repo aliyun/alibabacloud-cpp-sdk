@@ -2081,6 +2081,10 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
     query["CurrentPage"] = request.getCurrentPage();
   }
 
+  if (!!request.hasIdentifiers()) {
+    query["Identifiers"] = request.getIdentifiers();
+  }
+
   if (!!request.hasKeyWord()) {
     query["KeyWord"] = request.getKeyWord();
   }
