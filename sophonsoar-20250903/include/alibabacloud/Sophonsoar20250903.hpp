@@ -21,6 +21,23 @@ namespace Sophonsoar20250903
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 停止剧本
+       *
+       * @param request AbortPlaybookExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AbortPlaybookExecutionResponse
+       */
+      Models::AbortPlaybookExecutionResponse abortPlaybookExecutionWithOptions(const Models::AbortPlaybookExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止剧本
+       *
+       * @param request AbortPlaybookExecutionRequest
+       * @return AbortPlaybookExecutionResponse
+       */
+      Models::AbortPlaybookExecutionResponse abortPlaybookExecution(const Models::AbortPlaybookExecutionRequest &request);
+
+      /**
        * @summary Create Component Asset.
        *
        * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic) before using this interface.
@@ -97,7 +114,9 @@ namespace Sophonsoar20250903
       Models::DeletePlaybookResponse deletePlaybook(const Models::DeletePlaybookRequest &request);
 
       /**
-       * @summary 执行组件动作
+       * @summary Execute component action.
+       *
+       * @description Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
        *
        * @param request ExecuteComponentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,7 +125,9 @@ namespace Sophonsoar20250903
       Models::ExecuteComponentResponse executeComponentWithOptions(const Models::ExecuteComponentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行组件动作
+       * @summary Execute component action.
+       *
+       * @description Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
        *
        * @param request ExecuteComponentRequest
        * @return ExecuteComponentResponse

@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // Field default value.
     shared_ptr<string> defaultValue_ {};
+    // Field description information.
     shared_ptr<string> fieldDescription_ {};
+    // Field example.
     shared_ptr<string> fieldExample_ {};
+    // Field name.
     shared_ptr<string> fieldName_ {};
+    // Field type, with the following values:
+    // 
+    // - **String**: String.
+    // - **Long**: Long integer.
+    // - **Integer**: Integer.
+    // - **Double**: Double.
+    // - **Boolean**: Boolean.
     shared_ptr<string> fieldType_ {};
   };
 

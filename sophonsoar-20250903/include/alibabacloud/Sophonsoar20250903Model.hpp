@@ -4,6 +4,9 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/FieldInputConfig.hpp>
 #include <alibabacloud/models/FieldOutputConfig.hpp>
+#include <alibabacloud/models/AbortPlaybookExecutionRequest.hpp>
+#include <alibabacloud/models/AbortPlaybookExecutionResponseBody.hpp>
+#include <alibabacloud/models/AbortPlaybookExecutionResponse.hpp>
 #include <alibabacloud/models/CreateComponentAssetRequest.hpp>
 #include <alibabacloud/models/CreateComponentAssetResponseBody.hpp>
 #include <alibabacloud/models/CreateComponentAssetResponse.hpp>

@@ -36,6 +36,64 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 停止剧本
+ *
+ * @param request AbortPlaybookExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AbortPlaybookExecutionResponse
+ */
+AbortPlaybookExecutionResponse Client::abortPlaybookExecutionWithOptions(const AbortPlaybookExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPlaybookExecutionUuid()) {
+    body["PlaybookExecutionUuid"] = request.getPlaybookExecutionUuid();
+  }
+
+  if (!!request.hasPlaybookUuid()) {
+    body["PlaybookUuid"] = request.getPlaybookUuid();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AbortPlaybookExecution"},
+    {"version" , "2025-09-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AbortPlaybookExecutionResponse>();
+}
+
+/**
+ * @summary 停止剧本
+ *
+ * @param request AbortPlaybookExecutionRequest
+ * @return AbortPlaybookExecutionResponse
+ */
+AbortPlaybookExecutionResponse Client::abortPlaybookExecution(const AbortPlaybookExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return abortPlaybookExecutionWithOptions(request, runtime);
+}
+
+/**
  * @summary Create Component Asset.
  *
  * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic) before using this interface.
@@ -284,7 +342,9 @@ DeletePlaybookResponse Client::deletePlaybook(const DeletePlaybookRequest &reque
 }
 
 /**
- * @summary 执行组件动作
+ * @summary Execute component action.
+ *
+ * @description Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
  *
  * @param request ExecuteComponentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -339,7 +399,9 @@ ExecuteComponentResponse Client::executeComponentWithOptions(const ExecuteCompon
 }
 
 /**
- * @summary 执行组件动作
+ * @summary Execute component action.
+ *
+ * @description Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
  *
  * @param request ExecuteComponentRequest
  * @return ExecuteComponentResponse

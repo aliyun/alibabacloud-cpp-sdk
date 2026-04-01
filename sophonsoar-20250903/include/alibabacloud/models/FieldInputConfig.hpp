@@ -134,16 +134,50 @@ namespace Models
 
 
   protected:
+    // Is the field arrayed? Possible values are:
+    // 
+    // - true: Arrayed.
+    // - false: Not Arrayed.
     shared_ptr<bool> arrayed_ {};
+    // Field default value.
     shared_ptr<string> defaultValue_ {};
+    // Field check regex.
     shared_ptr<string> fieldCheckRegex_ {};
+    // Field types, with the following values:
+    // 
+    // - **normal**: Normal type.
+    // - **custom**: Complex type; in this mode, FieldConfigs can be configured.
     shared_ptr<string> fieldClass_ {};
+    // Supports configuring nested input parameters in complex-type scenarios.
     shared_ptr<vector<FieldInputConfig>> fieldConfigs_ {};
+    // Field description.
     shared_ptr<string> fieldDescription_ {};
+    // Field example.
     shared_ptr<string> fieldExample_ {};
+    // Field name.
     shared_ptr<string> fieldName_ {};
+    // Field path.
     shared_ptr<string> fieldPath_ {};
+    // The field type. The value is as follows:
+    // 
+    // - **String**: String.
+    // - **Long**: Long integer.
+    // - **Integer**: Integer.
+    // - **Double**: Floating-point type.
+    // - **Boolean**: Boolean.
+    // - **ip**: The IP entity.
+    // - **file**: file entity.
+    // - **process**: process entity.
+    // - **incident**: event entity.
+    // - **alert**: alert entity.
+    // - **host**: host entity.
+    // - **domain**: The domain name entity.
+    // - **container**: container entity.
     shared_ptr<string> fieldType_ {};
+    // Is the field mandatory? Possible values are:
+    // 
+    // - **true**: Required.
+    // - **false**: Optional.
     shared_ptr<bool> required_ {};
   };
 

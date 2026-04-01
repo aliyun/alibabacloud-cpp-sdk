@@ -94,12 +94,24 @@ namespace Models
 
 
   protected:
+    // The name of the component action.
     shared_ptr<string> componentActionName_ {};
+    // Asset UUID.
     shared_ptr<string> componentAssetUuid_ {};
+    // Component input parameters.
     shared_ptr<string> componentInput_ {};
+    // The name of the component.
     shared_ptr<string> componentName_ {};
+    // The language type for requests and responses. Values:
+    // 
+    // - **zh** (default): Chinese.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The name of the node corresponding to the current component in the playbook.
     shared_ptr<string> playBookNodeName_ {};
+    // The UUID of the playbook.
+    // > You can obtain this parameter by calling the [DescribePlaybooks](~~DescribePlaybooks~~) interface.
     shared_ptr<string> playbookUuid_ {};
   };
 
