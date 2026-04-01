@@ -4198,7 +4198,10 @@ DescribeFilesetsResponse Client::describeFilesets(const DescribeFilesetsRequest 
 }
 
 /**
- * @summary 查询文件系统关联的 HpnZone 列表
+ * @summary Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+ *
+ * @description *   Only CPFS for Lingjun supports this operation.
+ * *   You can call this operation to query up to 20 file systems at a time.
  *
  * @param tmpReq DescribeFilesystemsAssociatedHpnZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4239,7 +4242,10 @@ DescribeFilesystemsAssociatedHpnZonesResponse Client::describeFilesystemsAssocia
 }
 
 /**
- * @summary 查询文件系统关联的 HpnZone 列表
+ * @summary Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+ *
+ * @description *   Only CPFS for Lingjun supports this operation.
+ * *   You can call this operation to query up to 20 file systems at a time.
  *
  * @param request DescribeFilesystemsAssociatedHpnZonesRequest
  * @return DescribeFilesystemsAssociatedHpnZonesResponse
@@ -4345,6 +4351,60 @@ DescribeLifecyclePoliciesResponse Client::describeLifecyclePoliciesWithOptions(c
 DescribeLifecyclePoliciesResponse Client::describeLifecyclePolicies(const DescribeLifecyclePoliciesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeLifecyclePoliciesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询生命周期策略日志
+ *
+ * @param request DescribeLifecyclePolicyLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLifecyclePolicyLogsResponse
+ */
+DescribeLifecyclePolicyLogsResponse Client::describeLifecyclePolicyLogsWithOptions(const DescribeLifecyclePolicyLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasLifecyclePolicyId()) {
+    query["LifecyclePolicyId"] = request.getLifecyclePolicyId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLifecyclePolicyLogs"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLifecyclePolicyLogsResponse>();
+}
+
+/**
+ * @summary 查询生命周期策略日志
+ *
+ * @param request DescribeLifecyclePolicyLogsRequest
+ * @return DescribeLifecyclePolicyLogsResponse
+ */
+DescribeLifecyclePolicyLogsResponse Client::describeLifecyclePolicyLogs(const DescribeLifecyclePolicyLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLifecyclePolicyLogsWithOptions(request, runtime);
 }
 
 /**
@@ -5398,7 +5458,7 @@ GetFilesetResponse Client::getFileset(const GetFilesetRequest &request) {
 }
 
 /**
- * @summary 查询协议机挂载点
+ * @summary Query the export directory information of the protocol service
  *
  * @param request GetProtocolMountTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5449,7 +5509,7 @@ GetProtocolMountTargetResponse Client::getProtocolMountTargetWithOptions(const G
 }
 
 /**
- * @summary 查询协议机挂载点
+ * @summary Query the export directory information of the protocol service
  *
  * @param request GetProtocolMountTargetRequest
  * @return GetProtocolMountTargetResponse
@@ -7133,6 +7193,52 @@ StartDataFlowResponse Client::startDataFlow(const StartDataFlowRequest &request)
 }
 
 /**
+ * @summary 启动生命周期策略运行
+ *
+ * @param request StartLifecyclePolicyExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartLifecyclePolicyExecutionResponse
+ */
+StartLifecyclePolicyExecutionResponse Client::startLifecyclePolicyExecutionWithOptions(const StartLifecyclePolicyExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasLifecyclePolicyId()) {
+    query["LifecyclePolicyId"] = request.getLifecyclePolicyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartLifecyclePolicyExecution"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartLifecyclePolicyExecutionResponse>();
+}
+
+/**
+ * @summary 启动生命周期策略运行
+ *
+ * @param request StartLifecyclePolicyExecutionRequest
+ * @return StartLifecyclePolicyExecutionResponse
+ */
+StartLifecyclePolicyExecutionResponse Client::startLifecyclePolicyExecution(const StartLifecyclePolicyExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startLifecyclePolicyExecutionWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables a dataflow.
  *
  * @description *   This operation is available only to CPFS file systems.
@@ -7201,7 +7307,53 @@ StopDataFlowResponse Client::stopDataFlow(const StopDataFlowRequest &request) {
 }
 
 /**
- * @summary Creates tags and binds the tags to file systems.
+ * @summary 停止生命周期策略运行
+ *
+ * @param request StopLifecyclePolicyExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopLifecyclePolicyExecutionResponse
+ */
+StopLifecyclePolicyExecutionResponse Client::stopLifecyclePolicyExecutionWithOptions(const StopLifecyclePolicyExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasLifecyclePolicyId()) {
+    query["LifecyclePolicyId"] = request.getLifecyclePolicyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopLifecyclePolicyExecution"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopLifecyclePolicyExecutionResponse>();
+}
+
+/**
+ * @summary 停止生命周期策略运行
+ *
+ * @param request StopLifecyclePolicyExecutionRequest
+ * @return StopLifecyclePolicyExecutionResponse
+ */
+StopLifecyclePolicyExecutionResponse Client::stopLifecyclePolicyExecution(const StopLifecyclePolicyExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopLifecyclePolicyExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates and adds tags to specified resources. File systems and access points are supported.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7240,7 +7392,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates tags and binds the tags to file systems.
+ * @summary Creates and adds tags to specified resources. File systems and access points are supported.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -7251,7 +7403,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from a file system.
+ * @summary Deletes a tag from a specified resource.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7294,7 +7446,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from a file system.
+ * @summary Deletes a tag from a specified resource.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -7302,6 +7454,72 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新生命周期策略
+ *
+ * @param request UpdateLifecyclePolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLifecyclePolicyResponse
+ */
+UpdateLifecyclePolicyResponse Client::updateLifecyclePolicyWithOptions(const UpdateLifecyclePolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasLifecyclePolicyId()) {
+    query["LifecyclePolicyId"] = request.getLifecyclePolicyId();
+  }
+
+  if (!!request.hasPaths()) {
+    query["Paths"] = request.getPaths();
+  }
+
+  if (!!request.hasRetrieveRules()) {
+    query["RetrieveRules"] = request.getRetrieveRules();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasTransitRules()) {
+    query["TransitRules"] = request.getTransitRules();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateLifecyclePolicy"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLifecyclePolicyResponse>();
+}
+
+/**
+ * @summary 更新生命周期策略
+ *
+ * @param request UpdateLifecyclePolicyRequest
+ * @return UpdateLifecyclePolicyResponse
+ */
+UpdateLifecyclePolicyResponse Client::updateLifecyclePolicy(const UpdateLifecyclePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLifecyclePolicyWithOptions(request, runtime);
 }
 
 /**

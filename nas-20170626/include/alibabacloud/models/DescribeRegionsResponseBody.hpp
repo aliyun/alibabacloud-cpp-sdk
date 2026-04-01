@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The region name.
         shared_ptr<string> localName_ {};
-        // The endpoint for the region.
         shared_ptr<string> regionEndpoint_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -170,7 +167,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The queried regions.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

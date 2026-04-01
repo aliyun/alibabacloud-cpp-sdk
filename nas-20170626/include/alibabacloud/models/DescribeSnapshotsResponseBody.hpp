@@ -214,70 +214,20 @@ namespace Models
 
 
       protected:
-        // The time when snapshot creation was complete.
-        // 
-        // The time follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard in UTC. The time is displayed in the `yyyy-MM-ddThh:mmZ` format.
-        // 
-        // >  This parameter is valid only when the snapshot is created. During snapshot creation, the value of this parameter is the same as that of CreateTime.
         shared_ptr<string> completedTime_ {};
-        // The time when the snapshot was created.
-        // 
-        // The time follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard in UTC. The time is displayed in the `yyyy-MM-ddThh:mmZ` format.
         shared_ptr<string> createTime_ {};
-        // The description of the snapshot.
         shared_ptr<string> description_ {};
-        // Indicates whether the snapshot is encrypted.
-        // 
-        // Valid values:
-        // 
-        // *   0: The snapshot is not encrypted.
-        // *   1: The snapshot is encrypted.
         shared_ptr<int32_t> encryptType_ {};
-        // The type of the file system.
         shared_ptr<string> fileSystemType_ {};
-        // The progress of the snapshot creation. The value of this parameter is expressed as a percentage.
         shared_ptr<string> progress_ {};
-        // The remaining time that is required to create the snapshot.
-        // 
-        // Unit: seconds.
         shared_ptr<int32_t> remainTime_ {};
-        // The retention period of the auto snapshot.
-        // 
-        // Unit: days.
-        // 
-        // Valid values:
-        // 
-        // *   \\-1: Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
-        // *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
         shared_ptr<int32_t> retentionDays_ {};
-        // The snapshot ID.
         shared_ptr<string> snapshotId_ {};
-        // The snapshot name.
-        // 
-        // If you specify a name to create a snapshot, the name of the snapshot is returned. Otherwise, no value is returned for this parameter.
         shared_ptr<string> snapshotName_ {};
-        // The snapshot type. Valid values:
-        // 
-        // *   auto: automatically created snapshots
-        // *   user: manually created snapshots
         shared_ptr<string> snapshotType_ {};
-        // The ID of the source file system.
-        // 
-        // This parameter is retained even if the source file system of the snapshot is deleted.
         shared_ptr<string> sourceFileSystemId_ {};
-        // The capacity of the source file system.
-        // 
-        // Unit: GiB.
         shared_ptr<int64_t> sourceFileSystemSize_ {};
-        // The version of the source file system.
         shared_ptr<string> sourceFileSystemVersion_ {};
-        // The status of the snapshot.
-        // 
-        // Valid values:
-        // 
-        // *   progressing: The snapshot is being created.
-        // *   accomplished: The snapshot is created.
-        // *   failed: The snapshot fails to be created.
         shared_ptr<string> status_ {};
       };
 
@@ -341,7 +291,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details about snapshots.
     shared_ptr<DescribeSnapshotsResponseBody::Snapshots> snapshots_ {};
     // The total number of snapshots returned.
     shared_ptr<int32_t> totalCount_ {};

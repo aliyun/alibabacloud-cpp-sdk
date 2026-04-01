@@ -173,19 +173,7 @@ namespace Models
 
 
           protected:
-            // The name of the report.
-            // 
-            // *   CPFS:
-            // 
-            //     TotalFilesReport: task reports.
-            // 
-            // *   CPFS for Lingjun:
-            // 
-            //     *   FailedFilesReport: failed file reports.
-            //     *   SkippedFilesReport: skipped file reports.
-            //     *   SuccessFilesReport: successful file reports.
             shared_ptr<string> name_ {};
-            // The report URL.
             shared_ptr<string> path_ {};
           };
 
@@ -296,21 +284,13 @@ namespace Models
 
 
         protected:
-          // The actual amount of data for which the dataflow task is complete. Unit: bytes.
           shared_ptr<int64_t> actualBytes_ {};
-          // The actual number of files for which the dataflow task is complete.
           shared_ptr<int64_t> actualFiles_ {};
-          // The average flow velocity. Unit: bytes/s.
           shared_ptr<int64_t> averageSpeed_ {};
-          // The amount of data (including skipped data) for which the dataflow task is complete. Unit: bytes.
           shared_ptr<int64_t> bytesDone_ {};
-          // The amount of data scanned on the source. Unit: bytes.
           shared_ptr<int64_t> bytesTotal_ {};
-          // The number of files (including skipped files) for which the dataflow task is complete.
           shared_ptr<int64_t> filesDone_ {};
-          // The number of files scanned on the source.
           shared_ptr<int64_t> filesTotal_ {};
-          // The estimated remaining execution time. Unit: seconds.
           shared_ptr<int64_t> remainTime_ {};
         };
 
@@ -486,126 +466,28 @@ namespace Models
 
 
       protected:
-        // The conflict policy for files with the same name. Valid values:
-        // 
-        // *   SKIP_THE_FILE: skips files with the same name.
-        // *   KEEP_LATEST: compares the update time and keeps the latest version.
-        // *   OVERWRITE_EXISTING: forcibly overwrites the existing file.
         shared_ptr<string> conflictPolicy_ {};
-        // The time when the task was created.
         shared_ptr<string> createTime_ {};
-        // The ID of the dataflow.
         shared_ptr<string> dataFlowId_ {};
-        // The type of data on which operations are performed by the dataflow task. The following information is displayed:
-        // 
-        // *   Metadata: the metadata of a file, including the timestamp, ownership, and permission information of the file. If you select Metadata, only the metadata of the file is imported. You can only query the file. When you access the file data, the file is loaded from the source storage as required.
-        // *   Data: the data blocks of the file.
-        // *   MetaAndData: the metadata and data blocks of the file.
-        // 
-        // >  CPFS for Lingjun supports only the MetaAndData type.
         shared_ptr<string> dataType_ {};
-        // The directory in which the dataflow task is executed.
         shared_ptr<string> directory_ {};
-        // The directory mapped to the dataflow task.
         shared_ptr<string> dstDirectory_ {};
-        // The end time of the task.
         shared_ptr<string> endTime_ {};
-        // The cause of the task exception.
-        // 
-        // >  If this parameter is not returned or the return value is empty, no error occurs.
         shared_ptr<string> errorMsg_ {};
-        // The directory of the fileset in the CPFS file system.
-        // 
-        // Limits:
-        // 
-        // *   The directory must be 2 to 1024 characters in length.
-        // *   The directory must be encoded in UTF-8.
-        // *   The directory must start and end with a forward slash (/).
-        // *   The directory must be a fileset directory in the CPFS file system.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<string> fileSystemPath_ {};
-        // The ID of the file system.
         shared_ptr<string> filesystemId_ {};
-        // The path of the smart directory.
         shared_ptr<string> fsPath_ {};
-        // Filters subdirectories and transfers their contents.
-        // 
-        // >  Only CPFS for Lingjun supports this operation.
         shared_ptr<string> includes_ {};
-        // The initiator of the dataflow task. The following information is displayed:
-        // 
-        // *   User: The task is initiated by a user.
-        // *   System: The task is automatically initiated by CPFS based on the automatic update interval.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<string> originator_ {};
-        // The progress of the dataflow task. The number of operations that have been performed by the dataflow task.
         shared_ptr<int64_t> progress_ {};
-        // The progress of the dataflow task.
         shared_ptr<Task::ProgressStats> progressStats_ {};
-        // The save path of dataflow task reports in the CPFS file system.
-        // 
-        // *   The task reports for a CPFS file system are generated in the `.dataflow_report` directory of the CPFS file system.
-        // *   CPFS for Lingjun returns an OSS download link for you to download the task reports.
         shared_ptr<string> reportPath_ {};
-        // The reports.
-        // 
-        // > 
-        // 
-        // *   Streaming tasks do not support reports.
-        // 
-        // *   If the WithReport parameter is set to True, the CPFS for Lingjun report data is returned.
-        // 
-        // *   Only CPFS for Lingjun supports the WithReport parameter.
         shared_ptr<Task::Reports> reports_ {};
-        // The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
-        // 
-        // Among them:
-        // 
-        // *   storage type: Only Object Storage Service (OSS) is supported.
-        // 
-        // *   account id: the UID of the account of the source storage.
-        // 
-        // *   path: the name of the OSS bucket. Limits:
-        // 
-        //     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
-        //     *   The name can be up to 128 characters in length.
-        //     *   The name must be encoded in UTF-8.
-        // 
-        // > 
-        // 
-        // *   The OSS bucket must be an existing bucket in the region.
-        // 
-        // *   Only CPFS for Lingjun V2.6.0 and later support the account id parameter.
         shared_ptr<string> sourceStorage_ {};
-        // The start time of the task.
         shared_ptr<string> startTime_ {};
-        // The status of the dataflow task. The following information is displayed:
-        // 
-        // *   Pending: The dataflow task has been created and has not started.
-        // *   Executing: The dataflow task is being executed.
-        // *   Failed: The dataflow task failed to be executed. You can view the cause of the failure in the dataflow task report.
-        // *   Completed: The dataflow task is completed. You can check that all the files have been correctly transferred in the dataflow task report.
-        // *   Canceled: The dataflow task is canceled and is not completed.
-        // *   Canceling: The dataflow task is being canceled.
         shared_ptr<string> status_ {};
-        // The type of the dataflow task. The following information is displayed:
-        // 
-        // *   Import: imports data stored in the source storage to a CPFS file system.
-        // *   Export: exports specified data from a CPFS file system to the source storage.
-        // *   StreamImport: imports the specified data from the source storage to a CPFS file system in streaming mode.
-        // *   StreamExport: exports specified data from a CPFS file system to the source storage in streaming mode.
-        // *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
-        // *   Inventory: obtains the inventory list managed by a dataflow from the CPFS file system, providing the cache status of inventories in the dataflow.
-        // 
-        // >  Only CPFS for Lingjun V2.6.0 and later support StreamImport and StreamExport.
         shared_ptr<string> taskAction_ {};
-        // The ID of the dataflow task.
         shared_ptr<string> taskId_ {};
-        // Specify the OSS directory and synchronize data based on the content of the CSV file in the OSS directory.
-        // 
-        // >  Only CPFS for Lingjun supports this operation.
         shared_ptr<string> transferFileListPath_ {};
       };
 
@@ -653,7 +535,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about dataflow tasks.
     shared_ptr<DescribeDataFlowTasksResponseBody::TaskInfo> taskInfo_ {};
   };
 

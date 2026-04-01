@@ -154,13 +154,9 @@ namespace Models
 
 
         protected:
-          // The actual amount of data for which the data flow task is complete. Unit: bytes.
           shared_ptr<int64_t> actualBytes_ {};
-          // The average flow velocity. Unit: bytes/s.
           shared_ptr<int64_t> averageSpeed_ {};
-          // The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
           shared_ptr<int64_t> bytesDone_ {};
-          // The amount of data scanned on the source. Unit: bytes.
           shared_ptr<int64_t> bytesTotal_ {};
         };
 
@@ -211,11 +207,8 @@ namespace Models
 
 
         protected:
-          // The checksum. Format example: crc64:123456.
           shared_ptr<string> checksum_ {};
-          // The time when the file was modified. The value is a UNIX timestamp. Unit: ns.
           shared_ptr<int64_t> modifyTime_ {};
-          // The file size. Unit: bytes.
           shared_ptr<int64_t> size_ {};
         };
 
@@ -326,51 +319,19 @@ namespace Models
 
 
       protected:
-        // The time when the data streaming task was created.
         shared_ptr<string> createTime_ {};
-        // The ID of the data flow.
         shared_ptr<string> dataFlowId_ {};
-        // The ID of the data streaming task.
         shared_ptr<string> dataFlowSubTaskId_ {};
-        // The ID of the data flow task.
         shared_ptr<string> dataFlowTaskId_ {};
-        // The path of the destination file. Limits:
-        // 
-        // *   The path must be 1 to 1,023 characters in length.
-        // *   The path must be encoded in UTF-8.
-        // *   The path must start with a forward slash (/).
-        // *   The path must end with the file name.
         shared_ptr<string> dstFilePath_ {};
-        // The time when the data streaming task ended.
         shared_ptr<string> endTime_ {};
-        // The error message returned when the task failed.
         shared_ptr<string> errorMsg_ {};
-        // The file information.
         shared_ptr<DataFlowSubTaskItem::FileDetail> fileDetail_ {};
-        // The ID of the file system.
         shared_ptr<string> fileSystemId_ {};
-        // The progress of the data streaming task. Valid values: 0 to 10000.
         shared_ptr<int32_t> progress_ {};
-        // The progress information about data streaming tasks.
         shared_ptr<DataFlowSubTaskItem::ProgressStats> progressStats_ {};
-        // The path of the source file. Limits:
-        // 
-        // *   The path must be 1 to 1,023 characters in length.
-        // *   The path must be encoded in UTF-8.
-        // *   The path must start with a forward slash (/).
-        // *   The path must end with the file name.
         shared_ptr<string> srcFilePath_ {};
-        // The time when the data streaming task started.
         shared_ptr<string> startTime_ {};
-        // The status of the data streaming task. Valid values:
-        // 
-        // *   EXPIRED: The task is terminated.
-        // *   CREATED: The task is created.
-        // *   RUNNING: The task is running.
-        // *   COMPLETE: The task is complete.
-        // *   CANCELING: The task is being canceled.
-        // *   FAILED: The task failed to be executed.
-        // *   CANCELED: The task is canceled.
         shared_ptr<string> status_ {};
       };
 
@@ -414,7 +375,6 @@ namespace Models
 
 
   protected:
-    // The details about data streaming tasks.
     shared_ptr<DescribeDataFlowSubTasksResponseBody::DataFlowSubTask> dataFlowSubTask_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};

@@ -151,15 +151,6 @@ namespace Models
 
 
           protected:
-            // The automatic update directory. CPFS automatically checks whether the source data only in the directory is updated and imports the updated data.
-            // 
-            // Limits:
-            // 
-            // *   The directory must be 2 to 1,024 characters in length.
-            // *   The directory must be encoded in UTF-8.
-            // *   The directory must start and end with a forward slash (/).
-            // 
-            // >  The directory must be an existing directory in the CPFS file system and must be in a fileset where the dataflow is enabled.
             shared_ptr<string> refreshPath_ {};
           };
 
@@ -304,123 +295,23 @@ namespace Models
 
 
       protected:
-        // The details about automatic update policies.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<DataFlow::AutoRefresh> autoRefresh_ {};
-        // The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minutes.
-        // 
-        // Valid values: 5 to 526600. Default value: 10.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<int64_t> autoRefreshInterval_ {};
-        // The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. The following information is displayed:
-        // 
-        // *   None: Updated data in the source storage is not automatically imported into the CPFS file system. You can run a dataflow task to import the updated data from the source storage.
-        // *   ImportChanged: Updated data in the source storage is automatically imported into the CPFS file system.
-        // 
-        // >  Only CPFS is supported.
         shared_ptr<string> autoRefreshPolicy_ {};
-        // The time when the fileset was created.
-        // 
-        // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<string> createTime_ {};
-        // The ID of the dataflow.
         shared_ptr<string> dataFlowId_ {};
-        // The description of the dataflow.
-        // 
-        // Limits:
-        // 
-        // *   The name must be 2 to 128 characters in length and
-        // *   start with a letter but cannot start with `http://` or `https://`.
-        // *   The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
         shared_ptr<string> description_ {};
-        // The error message. Valid values:
-        // 
-        // *   None (default): The dataflow status is normal.
-        // *   SourceStorageUnreachable: The access path of the source storage is not found.
-        // *   ThroughputTooLow: The dataflow throughput is low.
         shared_ptr<string> errorMessage_ {};
-        // The ID of the file system.
         shared_ptr<string> fileSystemId_ {};
-        // The directory of the fileset in the CPFS file system.
-        // 
-        // Limits:
-        // 
-        // *   The directory must be 2 to 1024 characters in length.
-        // *   The directory must be encoded in UTF-8.
-        // *   The directory must start and end with a forward slash (/).
-        // *   The directory must be a fileset directory in the CPFS file system.
-        // 
-        // >  Only CPFS is supported.
         shared_ptr<string> fileSystemPath_ {};
-        // The description of the automatic update.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<string> fsetDescription_ {};
-        // The fileset ID.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<string> fsetId_ {};
-        // The type of security mechanism for the source storage. This parameter must be specified if the source storage is accessed with a security mechanism. Valid value:
-        // 
-        // *   Null (default): The OSS bucket can be accessed without a security mechanism.
-        // *   SSL: The source storage must be accessed with an SSL certificate.
         shared_ptr<string> sourceSecurityType_ {};
-        // The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
-        // 
-        // Among them:
-        // 
-        // *   storage type: Only OSS is supported.
-        // 
-        // *   account id: The UID of the account of the source storage.
-        // 
-        // *   path: The name of the OSS bucket.
-        // 
-        //     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
-        //     *   The name must be 8 to 128 characters in length.
-        //     *   Must be encoded in UTF-8.
-        //     *   The name cannot start with http:// or https://.
-        // 
-        // > 
-        // 
-        // *   The OSS bucket must be an existing bucket in the region.
-        // 
-        // *   Only CPFS for Lingjun V2.6.0 and later support the account id parameter.
         shared_ptr<string> sourceStorage_ {};
-        // The access path in the bucket of the source storage.
-        // 
-        // >  Only CPFS for Lingjun supports this parameter.
+        // 源端存储内的访问路径。
         shared_ptr<string> sourceStoragePath_ {};
-        // The dataflow status. The following information is displayed:
-        // 
-        // *   Starting: The dataflow is being created or enabled.
-        // *   Running: The dataflow has been created and is running properly.
-        // *   Updating: The dataflow is being modified. For example, the dataflow throughput is increased and the automatic update interval is modified.
-        // *   Deleting: The dataflow is being deleted.
-        // *   Stopping: The dataflow is being disabled.
-        // *   Stopped: The dataflow has been disabled.
-        // *   Misconfigured: The dataflow configuration is abnormal. For example, the source storage is inaccessible, and the automatic update cannot be completed due to low dataflow throughput.
         shared_ptr<string> status_ {};
-        // The maximum dataflow throughput. Unit: MB/s. Valid value:
-        // 
-        // *   600
-        // *   1200
-        // *   1500
-        // 
-        // > 
-        // 
-        // *   The dataflow throughput must be less than the I/O throughput of the file system.
-        // 
-        // *   Only CPFS supports this parameter.
         shared_ptr<int64_t> throughput_ {};
-        // The time when the fileset was last updated.
-        // 
-        // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
-        // 
-        // >  Only CPFS supports this parameter.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -464,7 +355,6 @@ namespace Models
 
 
   protected:
-    // The dataflow details.
     shared_ptr<DescribeDataFlowsResponseBody::DataFlowInfo> dataFlowInfo_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

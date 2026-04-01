@@ -150,27 +150,13 @@ namespace Models
 
 
       protected:
-        // The name of the permission group.
         shared_ptr<string> accessGroupName_ {};
-        // The network type of the permission group. Valid value: **Vpc**.
         shared_ptr<string> accessGroupType_ {};
-        // The time when the permission group was created.
         shared_ptr<string> createTime_ {};
-        // The description of the permission group.
         shared_ptr<string> description_ {};
-        // The type of the file system.
-        // 
-        // Valid values:
-        // 
-        // *   standard: General-purpose NAS
-        // *   extreme: Extreme NAS
-        // *   cpfs: CPFS
         shared_ptr<string> fileSystemType_ {};
-        // The number of mount targets to which the permission group is attached.
         shared_ptr<int32_t> mountTargetCount_ {};
-        // Region ID.
         shared_ptr<string> regionId_ {};
-        // The total number of rules in the permission group.
         shared_ptr<int32_t> ruleCount_ {};
       };
 
@@ -228,7 +214,6 @@ namespace Models
 
 
   protected:
-    // The queried permission groups.
     shared_ptr<DescribeAccessGroupsResponseBody::AccessGroups> accessGroups_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

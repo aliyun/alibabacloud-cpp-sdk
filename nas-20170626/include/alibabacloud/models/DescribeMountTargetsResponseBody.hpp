@@ -151,19 +151,7 @@ namespace Models
 
 
           protected:
-            // The tag key. Limits:
-            // 
-            // *   The tag key cannot be null or an empty string.
-            // *   The tag key can be up to 128 characters in length.
-            // *   The key value cannot start with aliyun or acs:.
-            // *   The key value cannot contain http:// or https://.
             shared_ptr<string> key_ {};
-            // The tag value.
-            // 
-            // Limits:
-            // 
-            // *   The tag value can be up to 128 characters in length.
-            // *   The tag value cannot contain http:// or https://.
             shared_ptr<string> value_ {};
           };
 
@@ -247,11 +235,8 @@ namespace Models
 
 
           protected:
-            // The default logon password of the ECS instance.
             shared_ptr<string> defaultPasswd_ {};
-            // The ID of the ECS instance on the client management node.
             shared_ptr<string> ecsId_ {};
-            // The IP address of the ECS instance on the client management node.
             shared_ptr<string> ecsIp_ {};
           };
 
@@ -347,39 +332,15 @@ namespace Models
 
 
       protected:
-        // The name of the permission group that is attached to the mount target.
         shared_ptr<string> accessGroup_ {};
-        // The information about client management nodes.
         shared_ptr<MountTarget::ClientMasterNodes> clientMasterNodes_ {};
-        // The dual-stack (IPv4 and IPv6) domain name of the mount target.
         shared_ptr<string> dualStackMountTargetDomain_ {};
-        // The type of the mount target.
-        // 
-        // *   IPv4: an IPv4 mount target
-        // *   DualStack: a dual-stack mount target
         shared_ptr<string> IPVersion_ {};
-        // The IPv4 domain name of the mount target.
         shared_ptr<string> mountTargetDomain_ {};
-        // The network type. Valid value: **Vpc**.
         shared_ptr<string> networkType_ {};
-        // The status of the mount target.
-        // 
-        // Valid values:
-        // 
-        // *   Active: The mount target is available.
-        // *   Inactive: The mount target is unavailable.
-        // *   Pending: The mount target is being created or modified.
-        // *   Deleting: The mount target is being deleted.
-        // *   Hibernating: The mount target is being hibernated.
-        // *   Hibernated: The mount target is hibernated.
-        // 
-        // > You can mount a file system only when the mount target of the file system is in the Active state.
         shared_ptr<string> status_ {};
-        // An array of tags. The array may contain up to 20 tags. If the array contains multiple tags, each tag key is unique.
         shared_ptr<MountTarget::Tags> tags_ {};
-        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vswId_ {};
       };
 
@@ -437,7 +398,6 @@ namespace Models
 
 
   protected:
-    // The queried mount targets.
     shared_ptr<DescribeMountTargetsResponseBody::MountTargets> mountTargets_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -85,7 +85,6 @@ namespace Models
 
 
       protected:
-        // The IP address of the client.
         shared_ptr<string> clientIP_ {};
       };
 
@@ -143,7 +142,6 @@ namespace Models
 
 
   protected:
-    // The queried clients.
     shared_ptr<DescribeMountedClientsResponseBody::Clients> clients_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

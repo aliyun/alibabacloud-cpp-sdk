@@ -1667,7 +1667,10 @@ namespace NAS20170626
       Models::DescribeFilesetsResponse describeFilesets(const Models::DescribeFilesetsRequest &request);
 
       /**
-       * @summary 查询文件系统关联的 HpnZone 列表
+       * @summary Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+       *
+       * @description *   Only CPFS for Lingjun supports this operation.
+       * *   You can call this operation to query up to 20 file systems at a time.
        *
        * @param tmpReq DescribeFilesystemsAssociatedHpnZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1676,7 +1679,10 @@ namespace NAS20170626
       Models::DescribeFilesystemsAssociatedHpnZonesResponse describeFilesystemsAssociatedHpnZonesWithOptions(const Models::DescribeFilesystemsAssociatedHpnZonesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询文件系统关联的 HpnZone 列表
+       * @summary Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+       *
+       * @description *   Only CPFS for Lingjun supports this operation.
+       * *   You can call this operation to query up to 20 file systems at a time.
        *
        * @param request DescribeFilesystemsAssociatedHpnZonesRequest
        * @return DescribeFilesystemsAssociatedHpnZonesResponse
@@ -1726,6 +1732,23 @@ namespace NAS20170626
        * @return DescribeLifecyclePoliciesResponse
        */
       Models::DescribeLifecyclePoliciesResponse describeLifecyclePolicies(const Models::DescribeLifecyclePoliciesRequest &request);
+
+      /**
+       * @summary 查询生命周期策略日志
+       *
+       * @param request DescribeLifecyclePolicyLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLifecyclePolicyLogsResponse
+       */
+      Models::DescribeLifecyclePolicyLogsResponse describeLifecyclePolicyLogsWithOptions(const Models::DescribeLifecyclePolicyLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询生命周期策略日志
+       *
+       * @param request DescribeLifecyclePolicyLogsRequest
+       * @return DescribeLifecyclePolicyLogsResponse
+       */
+      Models::DescribeLifecyclePolicyLogsResponse describeLifecyclePolicyLogs(const Models::DescribeLifecyclePolicyLogsRequest &request);
 
       /**
        * @summary Queries the log dump information configured in log analysis.
@@ -2114,7 +2137,7 @@ namespace NAS20170626
       Models::GetFilesetResponse getFileset(const Models::GetFilesetRequest &request);
 
       /**
-       * @summary 查询协议机挂载点
+       * @summary Query the export directory information of the protocol service
        *
        * @param request GetProtocolMountTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2146,7 @@ namespace NAS20170626
       Models::GetProtocolMountTargetResponse getProtocolMountTargetWithOptions(const Models::GetProtocolMountTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询协议机挂载点
+       * @summary Query the export directory information of the protocol service
        *
        * @param request GetProtocolMountTargetRequest
        * @return GetProtocolMountTargetResponse
@@ -2754,6 +2777,23 @@ namespace NAS20170626
       Models::StartDataFlowResponse startDataFlow(const Models::StartDataFlowRequest &request);
 
       /**
+       * @summary 启动生命周期策略运行
+       *
+       * @param request StartLifecyclePolicyExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartLifecyclePolicyExecutionResponse
+       */
+      Models::StartLifecyclePolicyExecutionResponse startLifecyclePolicyExecutionWithOptions(const Models::StartLifecyclePolicyExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动生命周期策略运行
+       *
+       * @param request StartLifecyclePolicyExecutionRequest
+       * @return StartLifecyclePolicyExecutionResponse
+       */
+      Models::StartLifecyclePolicyExecutionResponse startLifecyclePolicyExecution(const Models::StartLifecyclePolicyExecutionRequest &request);
+
+      /**
        * @summary Disables a dataflow.
        *
        * @description *   This operation is available only to CPFS file systems.
@@ -2785,7 +2825,24 @@ namespace NAS20170626
       Models::StopDataFlowResponse stopDataFlow(const Models::StopDataFlowRequest &request);
 
       /**
-       * @summary Creates tags and binds the tags to file systems.
+       * @summary 停止生命周期策略运行
+       *
+       * @param request StopLifecyclePolicyExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopLifecyclePolicyExecutionResponse
+       */
+      Models::StopLifecyclePolicyExecutionResponse stopLifecyclePolicyExecutionWithOptions(const Models::StopLifecyclePolicyExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止生命周期策略运行
+       *
+       * @param request StopLifecyclePolicyExecutionRequest
+       * @return StopLifecyclePolicyExecutionResponse
+       */
+      Models::StopLifecyclePolicyExecutionResponse stopLifecyclePolicyExecution(const Models::StopLifecyclePolicyExecutionRequest &request);
+
+      /**
+       * @summary Creates and adds tags to specified resources. File systems and access points are supported.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2794,7 +2851,7 @@ namespace NAS20170626
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates tags and binds the tags to file systems.
+       * @summary Creates and adds tags to specified resources. File systems and access points are supported.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2802,7 +2859,7 @@ namespace NAS20170626
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from a file system.
+       * @summary Deletes a tag from a specified resource.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2811,12 +2868,29 @@ namespace NAS20170626
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from a file system.
+       * @summary Deletes a tag from a specified resource.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary 更新生命周期策略
+       *
+       * @param request UpdateLifecyclePolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateLifecyclePolicyResponse
+       */
+      Models::UpdateLifecyclePolicyResponse updateLifecyclePolicyWithOptions(const Models::UpdateLifecyclePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新生命周期策略
+       *
+       * @param request UpdateLifecyclePolicyRequest
+       * @return UpdateLifecyclePolicyResponse
+       */
+      Models::UpdateLifecyclePolicyResponse updateLifecyclePolicy(const Models::UpdateLifecyclePolicyRequest &request);
 
       /**
        * @summary Modifies the retention period of data in the recycle bin of a file system.

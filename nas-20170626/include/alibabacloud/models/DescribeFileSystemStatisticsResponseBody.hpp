@@ -181,13 +181,9 @@ namespace Models
 
 
           protected:
-            // The end time of the validity period for the storage plan.
             shared_ptr<string> expiredTime_ {};
-            // The ID of the storage plan.
             shared_ptr<string> packageId_ {};
-            // The capacity of the storage plan.
             shared_ptr<int64_t> size_ {};
-            // The start time of the validity period for the storage plan.
             shared_ptr<string> startTime_ {};
           };
 
@@ -317,74 +313,20 @@ namespace Models
 
 
       protected:
-        // The capacity of the file system.
-        // 
-        // Unit: GiB.
         shared_ptr<int64_t> capacity_ {};
-        // The billing method.
-        // 
-        // Valid values:
-        // 
-        // *   Subscription: The subscription billing method is used.
-        // *   PayAsYouGo: The pay-as-you-go billing method is used.
-        // *   Package: A storage plan is attached to the file system.
         shared_ptr<string> chargeType_ {};
-        // The time when the NAS file system was created.
         shared_ptr<string> createTime_ {};
-        // The description of the file system.
         shared_ptr<string> description_ {};
-        // The time when the file system expires.
         shared_ptr<string> expiredTime_ {};
-        // The ID of the file system.
         shared_ptr<string> fileSystemId_ {};
-        // The type of the file system.
-        // 
-        // Valid values:
-        // 
-        // *   standard: General-purpose NAS file system
-        // *   extreme: Extreme NAS file system
-        // *   cpfs: CPFS file system
         shared_ptr<string> fileSystemType_ {};
-        // The storage usage of the Infrequent Access (IA) storage medium.
-        // 
-        // Unit: bytes.
         shared_ptr<int64_t> meteredIASize_ {};
-        // The storage usage of the file system.
-        // 
-        // The value of this parameter is the maximum storage usage of the file system over the last hour. Unit: bytes.
         shared_ptr<int64_t> meteredSize_ {};
-        // The information about storage plans.
         shared_ptr<FileSystem::Packages> packages_ {};
-        // The protocol type of the file system.
-        // 
-        // Valid values:
-        // 
-        // *   NFS: Network File System (NFS)
-        // *   SMB: Server Message Block (SMB)
-        // *   cpfs: the protocol type supported by the CPFS file system
         shared_ptr<string> protocolType_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The status of the file system.
-        // 
-        // This parameter is returned for Extreme NAS file systems and Cloud Parallel File Storage (CPFS) file systems. Valid values:
-        // 
-        // *   Pending: The file system is being created or modified.
-        // *   Running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the Running state.
-        // *   Stopped: The file system is unavailable.
-        // *   Extending: The file system is being scaled out.
-        // *   Stopping: The file system is being disabled.
-        // *   Deleting: The file system is being deleted.
         shared_ptr<string> status_ {};
-        // The storage type.
-        // 
-        // Valid values:
-        // 
-        // *   Valid values for General-purpose NAS file systems: Capacity and Performance.
-        // *   Valid values for Extreme NAS file systems: standard and advance.
-        // *   Valid values for CPFS file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline).
         shared_ptr<string> storageType_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -486,21 +428,10 @@ namespace Models
 
 
       protected:
-        // The number of expired file systems.
         shared_ptr<int32_t> expiredCount_ {};
-        // The number of expiring file systems.
-        // 
-        // File systems whose expiration time is less than or equal to seven days away from the current time are counted.
         shared_ptr<int32_t> expiringCount_ {};
-        // The type of the file system.
         shared_ptr<string> fileSystemType_ {};
-        // The storage usage of the file system.
-        // 
-        // The value of this parameter is the maximum storage usage of the file system over the last hour.
-        // 
-        // Unit: bytes.
         shared_ptr<int64_t> meteredSize_ {};
-        // The number of file systems of the current type.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -567,9 +498,7 @@ namespace Models
 
 
   protected:
-    // The statistics of file systems.
     shared_ptr<DescribeFileSystemStatisticsResponseBody::FileSystemStatistics> fileSystemStatistics_ {};
-    // The queried file systems.
     shared_ptr<DescribeFileSystemStatisticsResponseBody::FileSystems> fileSystems_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

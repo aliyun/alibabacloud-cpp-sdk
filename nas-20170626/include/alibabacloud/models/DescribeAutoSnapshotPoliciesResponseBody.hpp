@@ -168,47 +168,15 @@ namespace Models
 
 
       protected:
-        // The ID of the automatic snapshot policy.
         shared_ptr<string> autoSnapshotPolicyId_ {};
-        // The name of the automatic snapshot policy.
         shared_ptr<string> autoSnapshotPolicyName_ {};
-        // The time when the automatic snapshot policy was created.
-        // 
-        // The time follows the [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The number of file systems to which the automatic snapshot policy applies.
         shared_ptr<int32_t> fileSystemNums_ {};
-        // The type of the file system.
         shared_ptr<string> fileSystemType_ {};
-        // The region ID of the automatic snapshot policy.
         shared_ptr<string> regionId_ {};
-        // The days of a week on which auto snapshots are created.
-        // 
-        // Auto snapshots are created on a weekly basis.
-        // 
-        // Valid values: 1 to 7. The values from 1 to 7 indicate 7 days in a week from Monday to Sunday.
         shared_ptr<string> repeatWeekdays_ {};
-        // The retention period of auto snapshots.
-        // 
-        // Unit: days.
-        // 
-        // Valid values:
-        // 
-        // *   \\-1: Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
-        // *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
         shared_ptr<int32_t> retentionDays_ {};
-        // The status of the automatic snapshot policy.
-        // 
-        // Valid values:
-        // 
-        // *   Creating: The automatic snapshot policy is being created.
-        // *   Available: The automatic snapshot policy is available.
         shared_ptr<string> status_ {};
-        // The points in time at which auto snapshots are created.
-        // 
-        // Unit: hours.
-        // 
-        // Valid values: `0 to 23`. The values from 0 to 23 indicate a total of 24 hours from `00:00 to 23:00`. For example, 1 indicates 01:00. A maximum of 24 points in time can be returned. Multiple points in time are separated with commas (,).
         shared_ptr<string> timePoints_ {};
       };
 
@@ -266,7 +234,6 @@ namespace Models
 
 
   protected:
-    // The queried automatic snapshot policies.
     shared_ptr<DescribeAutoSnapshotPoliciesResponseBody::AutoSnapshotPolicies> autoSnapshotPolicies_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

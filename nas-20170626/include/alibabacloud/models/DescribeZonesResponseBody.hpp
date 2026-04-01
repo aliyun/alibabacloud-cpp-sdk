@@ -166,17 +166,7 @@ namespace Models
 
 
           protected:
-            // The protocol type.
-            // 
-            // *   If the FileSystemType parameter is set to standard, the protocol type is nfs or smb.
-            // *   If the FileSystemType parameter is set to extreme, the protocol type is nfs.
-            // *   If the FileSystemType parameter is set to cpfs, the protocol type is cpfs.
             shared_ptr<string> protocolType_ {};
-            // The storage type.
-            // 
-            // *   If the FileSystemType parameter is set to standard, the storage type is Performance or Capacity.
-            // *   If the FileSystemType parameter is set to extreme, the storage type is standard or advance.
-            // *   If the FileSystemType parameter is set to cpfs, the storage type is advance_100 (100 MB/s/TiB baseline) or advance_200 (200 MB/s/TiB baseline).
             shared_ptr<string> storageType_ {};
           };
 
@@ -264,13 +254,9 @@ namespace Models
 
 
       protected:
-        // This parameter is reserved. You can ignore this parameter.
         shared_ptr<Zone::Capacity> capacity_ {};
-        // The details about file system types.
         shared_ptr<Zone::InstanceTypes> instanceTypes_ {};
-        // This parameter is reserved. You can ignore this parameter.
         shared_ptr<Zone::Performance> performance_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -309,7 +295,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried zones.
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };
 

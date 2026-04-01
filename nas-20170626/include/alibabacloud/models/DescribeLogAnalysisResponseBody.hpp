@@ -136,13 +136,9 @@ namespace Models
 
 
         protected:
-          // The name of the dedicated Logstore that is used to store NAS operation logs.
           shared_ptr<string> logstore_ {};
-          // The name of the project where the dedicated Logstore resides.
           shared_ptr<string> project_ {};
-          // The region where the dedicated Logstore resides.
           shared_ptr<string> region_ {};
-          // The role that is used by NAS to access Simple Log Service.
           shared_ptr<string> roleArn_ {};
         };
 
@@ -165,9 +161,7 @@ namespace Models
 
 
       protected:
-        // The ID of the file system.
         shared_ptr<string> metaKey_ {};
-        // The log dump information of the file system.
         shared_ptr<Analysis::MetaValue> metaValue_ {};
       };
 
@@ -232,7 +226,6 @@ namespace Models
 
 
   protected:
-    // The collection of log dump information.
     shared_ptr<DescribeLogAnalysisResponseBody::Analyses> analyses_ {};
     // The HTTP status code.
     shared_ptr<string> code_ {};

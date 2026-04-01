@@ -104,17 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the file system.
         shared_ptr<string> fileSystemId_ {};
-        // The association status of the file system and virtual channel. Valid values:
-        // 
-        // *   Attaching: The association is being made.
-        // *   Attached: The association is complete.
-        // *   Detaching: The association is being canceled.
-        // *   Detached: The association is canceled.
-        // *   Failed: The association failed.
         shared_ptr<string> status_ {};
-        // The ID of the virtual storage channel.
         shared_ptr<string> vscId_ {};
       };
 
@@ -184,7 +175,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of associated information.
     shared_ptr<int32_t> totalCount_ {};
-    // A collection of file system and virtual channel association data.
     shared_ptr<DescribeFilesystemsVscAttachInfoResponseBody::VscAttachInfo> vscAttachInfo_ {};
   };
 

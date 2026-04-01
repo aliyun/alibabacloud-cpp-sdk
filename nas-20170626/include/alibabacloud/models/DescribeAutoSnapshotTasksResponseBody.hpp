@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The ID of the automatic snapshot policy.
         shared_ptr<string> autoSnapshotPolicyId_ {};
-        // The ID of the file system.
         shared_ptr<string> sourceFileSystemId_ {};
       };
 
@@ -155,7 +153,6 @@ namespace Models
 
 
   protected:
-    // The queried automatic snapshot tasks.
     shared_ptr<DescribeAutoSnapshotTasksResponseBody::AutoSnapshotTasks> autoSnapshotTasks_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

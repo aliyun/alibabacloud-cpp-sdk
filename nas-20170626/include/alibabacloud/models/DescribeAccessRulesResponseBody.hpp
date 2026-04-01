@@ -159,45 +159,14 @@ namespace Models
 
 
       protected:
-        // The name of the permission group.
         shared_ptr<string> accessGroupName_ {};
-        // The ID of the rule.
         shared_ptr<string> accessRuleId_ {};
-        // The type of the file system.
-        // 
-        // Valid values:
-        // 
-        // *   standard: General-purpose File Storage NAS (NAS) file system
-        // *   extreme: Extreme NAS file system
         shared_ptr<string> fileSystemType_ {};
-        // The IPv6 address or CIDR block of the authorized object.
         shared_ptr<string> ipv6SourceCidrIp_ {};
-        // The priority of the rule.
-        // 
-        // If multiple rules are attached to the authorized object, the rule with the highest priority takes effect.
-        // 
-        // Valid values: 1 to 100. The value 1 indicates the highest priority.
         shared_ptr<int32_t> priority_ {};
-        // The access permissions of the authorized object on the file system.
-        // 
-        // Valid values:
-        // 
-        // *   RDWR (default): the read and write permissions
-        // *   RDONLY: the read-only permissions
         shared_ptr<string> RWAccess_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The IP address or CIDR block of the authorized object.
         shared_ptr<string> sourceCidrIp_ {};
-        // The access permissions for different types of users in the authorized object.
-        // 
-        // Valid values:
-        // 
-        // *   no_squash: allows access from root users to the file system.
-        // *   root_squash: grants root users the least permissions as the nobody user.
-        // *   all_squash: grants all users the least permissions as the nobody user.
-        // 
-        // The nobody user has the least permissions in Linux and can access only the public content of the file system. This ensures the security of the file system.
         shared_ptr<string> userAccess_ {};
       };
 
@@ -255,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The rules in the permission group.
     shared_ptr<DescribeAccessRulesResponseBody::AccessRules> accessRules_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

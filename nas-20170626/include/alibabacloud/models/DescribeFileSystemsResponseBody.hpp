@@ -232,9 +232,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -402,20 +400,10 @@ namespace Models
 
 
           protected:
-            // The end time of the validity period for the storage plan.
             shared_ptr<string> expiredTime_ {};
-            // The ID of the storage plan.
             shared_ptr<string> packageId_ {};
-            // The type of the storage plan.
-            // 
-            // Valid values:
-            // 
-            // *   ssd: The storage plan for Performance NAS file systems.
-            // *   hybrid: The storage plan for Capacity NAS file systems.
             shared_ptr<string> packageType_ {};
-            // The capacity of the storage plan. Unit: bytes.
             shared_ptr<int64_t> size_ {};
-            // The start time of the validity period for the storage plan.
             shared_ptr<string> startTime_ {};
           };
 
@@ -472,12 +460,6 @@ namespace Models
 
         protected:
           shared_ptr<bool> enableABE_ {};
-          // Specifies whether to enable the oplock feature. Valid values:
-          // 
-          // *   true: enables the feature.
-          // *   false: disables the feature.
-          // 
-          // >  Only Server Message Block (SMB) file systems support this feature.
           shared_ptr<bool> enableOplock_ {};
         };
 
@@ -592,9 +574,7 @@ namespace Models
 
 
               protected:
-                // The tag key.
                 shared_ptr<string> key_ {};
-                // The tag value.
                 shared_ptr<string> value_ {};
               };
 
@@ -678,11 +658,8 @@ namespace Models
 
 
               protected:
-                // The default logon password of the ECS instance on the client management node.
                 shared_ptr<string> defaultPasswd_ {};
-                // The ID of the ECS instance on the client management node.
                 shared_ptr<string> ecsId_ {};
-                // The IP address of the ECS instance on the client management node.
                 shared_ptr<string> ecsIp_ {};
               };
 
@@ -771,35 +748,14 @@ namespace Models
 
 
           protected:
-            // The name of the permission group that is attached to the mount target.
             shared_ptr<string> accessGroupName_ {};
-            // The information about client management nodes.
-            // 
-            // This parameter is available only for CPFS file systems.
             shared_ptr<MountTarget::ClientMasterNodes> clientMasterNodes_ {};
-            // The dual-stack (IPv4 and IPv6) domain name of the mount target.
-            // > Only Extreme NAS file systems that reside in the Chinese mainland support IPv6.
             shared_ptr<string> dualStackMountTargetDomain_ {};
-            // The domain name of the mount target.
             shared_ptr<string> mountTargetDomain_ {};
-            // The network type. Valid value: vpc.
             shared_ptr<string> networkType_ {};
-            // The status of the mount target.
-            // 
-            // Valid values:
-            // 
-            // *   Active
-            // *   Inactive
-            // *   Pending
-            // *   Deleting
-            // *   Hibernating
-            // *   Hibernated
             shared_ptr<string> status_ {};
-            // The tags that are attached to the mount target.
             shared_ptr<MountTarget::Tags> tags_ {};
-            // The ID of the VPC.
             shared_ptr<string> vpcId_ {};
-            // The ID of the vSwitch.
             shared_ptr<string> vswId_ {};
           };
 
@@ -864,11 +820,8 @@ namespace Models
 
 
         protected:
-          // An LDAP entry.
           shared_ptr<string> bindDN_ {};
-          // An LDAP search base.
           shared_ptr<string> searchBase_ {};
-          // An LDAP URI.
           shared_ptr<string> URI_ {};
         };
 
@@ -1135,125 +1088,39 @@ namespace Models
 
 
       protected:
-        // Number of access points.
         shared_ptr<string> accessPointCount_ {};
-        // The ID of the automatic snapshot policy.
         shared_ptr<string> autoSnapshotPolicyId_ {};
-        // The bandwidth of the file system.
-        // 
-        // Unit: MB/s. This parameter is unavailable for General-purpose NAS file systems.
         shared_ptr<int64_t> bandwidth_ {};
-        // The capacity of the file system.
-        // 
-        // Unit: GiB.
         shared_ptr<int64_t> capacity_ {};
-        // The billing method.
-        // 
-        // Valid values:
-        // 
-        // *   Subscription
-        // *   PayAsYouGo
-        // *   Package: storage plan
         shared_ptr<string> chargeType_ {};
-        // The time when the file system was created.
         shared_ptr<string> createTime_ {};
-        // The description of the file system.
         shared_ptr<string> description_ {};
-        // Indicates whether the data in the file system is encrypted.
-        // 
-        // Valid values:
-        // 
-        // *   0: The data in the file system is not encrypted.
-        // *   1: A NAS-managed key is used to encrypt the data in the file system.
-        // *   2: A KMS-managed key is used to encrypt the data in the file system.
         shared_ptr<int32_t> encryptType_ {};
-        // The time when the file system expires.
         shared_ptr<string> expiredTime_ {};
-        // The ID of the file system.
         shared_ptr<string> fileSystemId_ {};
-        // The file system type.
-        // 
-        // Valid values:
-        // 
-        // *   standard: General-purpose NAS
-        // *   extreme: Extreme NAS
-        // *   cpfs: CPFS (locally redundant storage)
-        // *   cpfsse: CPFS SE (zone-redundant storage)
         shared_ptr<string> fileSystemType_ {};
-        // The ID of the key that is managed by Key Management Service (KMS).
         shared_ptr<string> KMSKeyId_ {};
-        // The Lightweight Directory Access Protocol (LDAP) configurations.
-        // 
-        // This parameter is available only for CPFS file systems.
         shared_ptr<FileSystem::Ldap> ldap_ {};
-        // Archive storage usage.
-        // 
-        // Unit: Byte.
         shared_ptr<int64_t> meteredArchiveSize_ {};
-        // The storage usage of the Infrequent Access (IA) storage medium.
-        // 
-        // Unit: bytes.
         shared_ptr<int64_t> meteredIASize_ {};
-        // The storage usage of the file system.
-        // 
-        // The value of this parameter is the maximum storage usage of the file system over the last hour. Unit: bytes.
         shared_ptr<int64_t> meteredSize_ {};
-        // The queried mount targets.
         shared_ptr<FileSystem::MountTargets> mountTargets_ {};
-        // The options.
         shared_ptr<FileSystem::Options> options_ {};
-        // The information about storage plans.
         shared_ptr<FileSystem::Packages> packages_ {};
-        // The protocol type of the file system.
-        // 
-        // Valid values:
-        // 
-        // *   NFS: Network File System.
-        // *   SMB: Server Message Block.
-        // *   cpfs: The protocol type supported by the CPFS file system.
         shared_ptr<string> protocolType_ {};
-        // The vSwitch ID.
         shared_ptr<string> quorumVswId_ {};
-        // Storage redundancy type. Returned only for CPFS SE.
         shared_ptr<string> redundancyType_ {};
-        // A list of IDs for the zone-redundant vSwitches.
         shared_ptr<FileSystem::RedundancyVSwitchIds> redundancyVSwitchIds_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The status of the file system. Valid values:
-        // - Pending: The file system is being created or modified.
-        // - Running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the Running state.
-        // - Stopped: The file system is unavailable.
-        // - Extending: The file system is being scaled up.
-        // - Stopping: The file system is being stopped.
-        // - Deleting: The file system is being deleted.
         shared_ptr<string> status_ {};
-        // The storage type.
-        // 
-        // Valid values:
-        // 
-        // *   General-purpose NAS: Capacity, Performance, Premium
-        // *   Extreme NAS: standard, advance
-        // *   CPFS: advance_100 (100 MB/s/TiB Baseline), advance_200 (200 MB/s/TiB Baseline), economic
-        // *   CPFS SE: advance_100 (100 MB/s/TiB Baseline)
         shared_ptr<string> storageType_ {};
-        // The features that are supported by the file system.
         shared_ptr<FileSystem::SupportedFeatures> supportedFeatures_ {};
-        // The tags that are attached to the file system.
         shared_ptr<FileSystem::Tags> tags_ {};
-        // The version number of the file system.
-        // 
-        // This parameter is available only for Extreme NAS file systems and CPFS file systems.
         shared_ptr<string> version_ {};
-        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
-        // >  This parameter is not publicly available.
         shared_ptr<string> vscTarget_ {};
-        // The information about vSwitch.
         shared_ptr<FileSystem::VswIds> vswIds_ {};
-        // The ID of the zone where the file system resides.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -1311,7 +1178,6 @@ namespace Models
 
 
   protected:
-    // The file system list.
     shared_ptr<DescribeFileSystemsResponseBody::FileSystems> fileSystems_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

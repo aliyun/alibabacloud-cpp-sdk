@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The list of HpnZones supported by the file system.
       shared_ptr<vector<string>> associatedHpnZones_ {};
+      // The ID of the CPFS for Lingjun file system.
       shared_ptr<string> fileSystemId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -105,7 +108,9 @@ namespace Models
 
 
   protected:
+    // The list of HpnZones associated with the file system.
     shared_ptr<vector<DescribeFilesystemsAssociatedHpnZonesResponseBody::Filesystems>> filesystems_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

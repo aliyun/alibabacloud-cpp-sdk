@@ -141,31 +141,12 @@ namespace Models
 
 
       protected:
-        // The end time of the validity period for the storage plan.
         shared_ptr<string> expiredTime_ {};
-        // The ID of the file system that is bound to the storage plan.
         shared_ptr<string> fileSystemId_ {};
-        // The ID of the storage plan.
         shared_ptr<string> packageId_ {};
-        // The capacity of the storage plan.
-        // 
-        // Unit: bytes.
         shared_ptr<int64_t> size_ {};
-        // The start time of the validity period for the storage plan.
         shared_ptr<string> startTime_ {};
-        // The status of the storage plan.
-        // 
-        // Valid values:
-        // 
-        // *   free: The storage plan is not bound to a file system. You can bind the storage plan to a file system of the same storage type.
-        // *   bound: The storage plan is bound to a file system.
         shared_ptr<string> status_ {};
-        // The type of the storage plan.
-        // 
-        // Valid values:
-        // 
-        // *   Performance
-        // *   Capacity
         shared_ptr<string> storageType_ {};
       };
 
@@ -223,7 +204,6 @@ namespace Models
 
 
   protected:
-    // The list of storage plans.
     shared_ptr<DescribeStoragePackagesResponseBody::Packages> packages_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
