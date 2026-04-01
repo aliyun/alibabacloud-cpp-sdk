@@ -1131,6 +1131,22 @@ namespace Elasticsearch20170613
       Models::GetEmonMonitorDataResponse getEmonMonitorData(const string &ProjectId, const Models::GetEmonMonitorDataRequest &request);
 
       /**
+       * @summary 获取keystore信息
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKeystoresResponse
+       */
+      Models::GetKeystoresResponse getKeystoresWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取keystore信息
+       *
+       * @return GetKeystoresResponse
+       */
+      Models::GetKeystoresResponse getKeystores(const string &InstanceId);
+
+      /**
        * @summary View the storage capacity and usage of the OpensStore instance.
        *
        * @param headers map
@@ -1233,6 +1249,24 @@ namespace Elasticsearch20170613
        * @return GrayPublishResponse
        */
       Models::GrayPublishResponse grayPublish(const string &InstanceId, const Models::GrayPublishRequest &request);
+
+      /**
+       * @summary 初始化ai模型
+       *
+       * @param request InitModelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitModelResponse
+       */
+      Models::InitModelResponse initModelWithOptions(const string &InstanceId, const Models::InitModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 初始化ai模型
+       *
+       * @param request InitModelRequest
+       * @return InitModelResponse
+       */
+      Models::InitModelResponse initModel(const string &InstanceId, const Models::InitModelRequest &request);
 
       /**
        * @summary Creates a service-linked role.
@@ -2139,6 +2173,24 @@ namespace Elasticsearch20170613
       Models::ListTagsResponse listTags(const Models::ListTagsRequest &request);
 
       /**
+       * @summary 用户自定义插件列表
+       *
+       * @param request ListUserPluginRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserPluginResponse
+       */
+      Models::ListUserPluginResponse listUserPluginWithOptions(const string &instanceId, const Models::ListUserPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户自定义插件列表
+       *
+       * @param request ListUserPluginRequest
+       * @return ListUserPluginResponse
+       */
+      Models::ListUserPluginResponse listUserPlugin(const string &instanceId, const Models::ListUserPluginRequest &request);
+
+      /**
        * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
        *
        * @param request ListVpcEndpointsRequest
@@ -2339,6 +2391,24 @@ namespace Elasticsearch20170613
       Models::OpenHttpsResponse openHttps(const string &InstanceId, const Models::OpenHttpsRequest &request);
 
       /**
+       * @summary 自定义插件解析&上传接口
+       *
+       * @param request PluginAnalysisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PluginAnalysisResponse
+       */
+      Models::PluginAnalysisResponse pluginAnalysisWithOptions(const string &instanceId, const Models::PluginAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 自定义插件解析&上传接口
+       *
+       * @param request PluginAnalysisRequest
+       * @return PluginAnalysisResponse
+       */
+      Models::PluginAnalysisResponse pluginAnalysis(const string &instanceId, const Models::PluginAnalysisRequest &request);
+
+      /**
        * @summary PostEmonTryAlarmRule
        *
        * @param request PostEmonTryAlarmRuleRequest
@@ -2387,6 +2457,24 @@ namespace Elasticsearch20170613
        * @return ReinstallCollectorResponse
        */
       Models::ReinstallCollectorResponse reinstallCollector(const string &ResId, const Models::ReinstallCollectorRequest &request);
+
+      /**
+       * @summary 从插件库中删除插件，区别于卸载插件
+       *
+       * @param request RemovePluginRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemovePluginResponse
+       */
+      Models::RemovePluginResponse removePluginWithOptions(const string &instanceId, const Models::RemovePluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从插件库中删除插件，区别于卸载插件
+       *
+       * @param request RemovePluginRequest
+       * @return RemovePluginResponse
+       */
+      Models::RemovePluginResponse removePlugin(const string &instanceId, const Models::RemovePluginRequest &request);
 
       /**
        * @summary Call RenewInstance to renew a subscription instance.
@@ -3059,6 +3147,24 @@ namespace Elasticsearch20170613
       Models::UpdateExtendfilesResponse updateExtendfiles(const string &InstanceId, const Models::UpdateExtendfilesRequest &request);
 
       /**
+       * @summary 修改FalconSeek配置
+       *
+       * @param request UpdateFalconSeekRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFalconSeekResponse
+       */
+      Models::UpdateFalconSeekResponse updateFalconSeekWithOptions(const string &InstanceId, const Models::UpdateFalconSeekRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改FalconSeek配置
+       *
+       * @param request UpdateFalconSeekRequest
+       * @return UpdateFalconSeekResponse
+       */
+      Models::UpdateFalconSeekResponse updateFalconSeek(const string &InstanceId, const Models::UpdateFalconSeekRequest &request);
+
+      /**
        * @summary null
        *
        * @description Before you call this operation, take note of the following items:
@@ -3185,6 +3291,24 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceSettingsResponse updateInstanceSettings(const string &InstanceId, const Models::UpdateInstanceSettingsRequest &request);
 
       /**
+       * @summary 更新keystore
+       *
+       * @param request UpdateKeystoresRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKeystoresResponse
+       */
+      Models::UpdateKeystoresResponse updateKeystoresWithOptions(const string &InstanceId, const Models::UpdateKeystoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新keystore
+       *
+       * @param request UpdateKeystoresRequest
+       * @return UpdateKeystoresResponse
+       */
+      Models::UpdateKeystoresResponse updateKeystores(const string &InstanceId, const Models::UpdateKeystoresRequest &request);
+
+      /**
        * @summary 更新kibana私网链接
        *
        * @param request UpdateKibanaPvlNetworkRequest
@@ -3219,6 +3343,24 @@ namespace Elasticsearch20170613
        * @return UpdateKibanaSettingsResponse
        */
       Models::UpdateKibanaSettingsResponse updateKibanaSettings(const string &InstanceId, const Models::UpdateKibanaSettingsRequest &request);
+
+      /**
+       * @summary UpdateKibanaSso
+       *
+       * @param request UpdateKibanaSsoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKibanaSsoResponse
+       */
+      Models::UpdateKibanaSsoResponse updateKibanaSsoWithOptions(const string &InstanceId, const Models::UpdateKibanaSsoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateKibanaSso
+       *
+       * @param request UpdateKibanaSsoRequest
+       * @return UpdateKibanaSsoResponse
+       */
+      Models::UpdateKibanaSsoResponse updateKibanaSso(const string &InstanceId, const Models::UpdateKibanaSsoRequest &request);
 
       /**
        * @summary Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
@@ -3573,6 +3715,22 @@ namespace Elasticsearch20170613
        * @return UpgradeEngineVersionResponse
        */
       Models::UpgradeEngineVersionResponse upgradeEngineVersion(const string &InstanceId, const Models::UpgradeEngineVersionRequest &request);
+
+      /**
+       * @summary 查询是否有可升级的小版本
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeInfoResponse
+       */
+      Models::UpgradeInfoResponse upgradeInfoWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询是否有可升级的小版本
+       *
+       * @return UpgradeInfoResponse
+       */
+      Models::UpgradeInfoResponse upgradeInfo(const string &instanceId);
 
       /**
        * @summary Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.

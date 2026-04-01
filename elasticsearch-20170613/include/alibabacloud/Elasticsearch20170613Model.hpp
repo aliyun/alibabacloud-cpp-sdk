@@ -193,6 +193,8 @@
 #include <alibabacloud/models/GetEmonMonitorDataRequest.hpp>
 #include <alibabacloud/models/GetEmonMonitorDataResponseBody.hpp>
 #include <alibabacloud/models/GetEmonMonitorDataResponse.hpp>
+#include <alibabacloud/models/GetKeystoresResponseBody.hpp>
+#include <alibabacloud/models/GetKeystoresResponse.hpp>
 #include <alibabacloud/models/GetOpenStoreUsageResponseBody.hpp>
 #include <alibabacloud/models/GetOpenStoreUsageResponse.hpp>
 #include <alibabacloud/models/GetRegionConfigurationRequest.hpp>
@@ -209,6 +211,9 @@
 #include <alibabacloud/models/GrayPublishRequest.hpp>
 #include <alibabacloud/models/GrayPublishResponseBody.hpp>
 #include <alibabacloud/models/GrayPublishResponse.hpp>
+#include <alibabacloud/models/InitModelRequest.hpp>
+#include <alibabacloud/models/InitModelResponseBody.hpp>
+#include <alibabacloud/models/InitModelResponse.hpp>
 #include <alibabacloud/models/InitializeOperationRoleRequest.hpp>
 #include <alibabacloud/models/InitializeOperationRoleResponseBody.hpp>
 #include <alibabacloud/models/InitializeOperationRoleResponse.hpp>
@@ -354,6 +359,9 @@
 #include <alibabacloud/models/ListTagsRequest.hpp>
 #include <alibabacloud/models/ListTagsResponseBody.hpp>
 #include <alibabacloud/models/ListTagsResponse.hpp>
+#include <alibabacloud/models/ListUserPluginRequest.hpp>
+#include <alibabacloud/models/ListUserPluginResponseBody.hpp>
+#include <alibabacloud/models/ListUserPluginResponse.hpp>
 #include <alibabacloud/models/ListVpcEndpointsRequest.hpp>
 #include <alibabacloud/models/ListVpcEndpointsResponseBody.hpp>
 #include <alibabacloud/models/ListVpcEndpointsResponse.hpp>
@@ -384,6 +392,9 @@
 #include <alibabacloud/models/OpenHttpsRequest.hpp>
 #include <alibabacloud/models/OpenHttpsResponseBody.hpp>
 #include <alibabacloud/models/OpenHttpsResponse.hpp>
+#include <alibabacloud/models/PluginAnalysisRequest.hpp>
+#include <alibabacloud/models/PluginAnalysisResponseBody.hpp>
+#include <alibabacloud/models/PluginAnalysisResponse.hpp>
 #include <alibabacloud/models/PostEmonTryAlarmRuleRequest.hpp>
 #include <alibabacloud/models/PostEmonTryAlarmRuleResponseBody.hpp>
 #include <alibabacloud/models/PostEmonTryAlarmRuleResponse.hpp>
@@ -393,6 +404,9 @@
 #include <alibabacloud/models/ReinstallCollectorRequest.hpp>
 #include <alibabacloud/models/ReinstallCollectorResponseBody.hpp>
 #include <alibabacloud/models/ReinstallCollectorResponse.hpp>
+#include <alibabacloud/models/RemovePluginRequest.hpp>
+#include <alibabacloud/models/RemovePluginResponseBody.hpp>
+#include <alibabacloud/models/RemovePluginResponse.hpp>
 #include <alibabacloud/models/RenewInstanceRequest.hpp>
 #include <alibabacloud/models/RenewInstanceResponseBody.hpp>
 #include <alibabacloud/models/RenewInstanceResponse.hpp>
@@ -498,6 +512,9 @@
 #include <alibabacloud/models/UpdateExtendfilesRequest.hpp>
 #include <alibabacloud/models/UpdateExtendfilesResponseBody.hpp>
 #include <alibabacloud/models/UpdateExtendfilesResponse.hpp>
+#include <alibabacloud/models/UpdateFalconSeekRequest.hpp>
+#include <alibabacloud/models/UpdateFalconSeekResponseBody.hpp>
+#include <alibabacloud/models/UpdateFalconSeekResponse.hpp>
 #include <alibabacloud/models/UpdateHotIkDictsRequest.hpp>
 #include <alibabacloud/models/UpdateHotIkDictsResponseBody.hpp>
 #include <alibabacloud/models/UpdateHotIkDictsResponse.hpp>
@@ -516,12 +533,18 @@
 #include <alibabacloud/models/UpdateInstanceSettingsRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceSettingsResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceSettingsResponse.hpp>
+#include <alibabacloud/models/UpdateKeystoresRequest.hpp>
+#include <alibabacloud/models/UpdateKeystoresResponseBody.hpp>
+#include <alibabacloud/models/UpdateKeystoresResponse.hpp>
 #include <alibabacloud/models/UpdateKibanaPvlNetworkRequest.hpp>
 #include <alibabacloud/models/UpdateKibanaPvlNetworkResponseBody.hpp>
 #include <alibabacloud/models/UpdateKibanaPvlNetworkResponse.hpp>
 #include <alibabacloud/models/UpdateKibanaSettingsRequest.hpp>
 #include <alibabacloud/models/UpdateKibanaSettingsResponseBody.hpp>
 #include <alibabacloud/models/UpdateKibanaSettingsResponse.hpp>
+#include <alibabacloud/models/UpdateKibanaSsoRequest.hpp>
+#include <alibabacloud/models/UpdateKibanaSsoResponseBody.hpp>
+#include <alibabacloud/models/UpdateKibanaSsoResponse.hpp>
 #include <alibabacloud/models/UpdateKibanaWhiteIpsRequest.hpp>
 #include <alibabacloud/models/UpdateKibanaWhiteIpsResponseBody.hpp>
 #include <alibabacloud/models/UpdateKibanaWhiteIpsResponse.hpp>
@@ -573,6 +596,8 @@
 #include <alibabacloud/models/UpgradeEngineVersionRequest.hpp>
 #include <alibabacloud/models/UpgradeEngineVersionResponseBody.hpp>
 #include <alibabacloud/models/UpgradeEngineVersionResponse.hpp>
+#include <alibabacloud/models/UpgradeInfoResponseBody.hpp>
+#include <alibabacloud/models/UpgradeInfoResponse.hpp>
 #include <alibabacloud/models/ValidateConnectionRequest.hpp>
 #include <alibabacloud/models/ValidateConnectionResponseBody.hpp>
 #include <alibabacloud/models/ValidateConnectionResponse.hpp>

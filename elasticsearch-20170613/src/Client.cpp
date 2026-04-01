@@ -2928,6 +2928,42 @@ GetEmonMonitorDataResponse Client::getEmonMonitorData(const string &ProjectId, c
 }
 
 /**
+ * @summary 获取keystore信息
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKeystoresResponse
+ */
+GetKeystoresResponse Client::getKeystoresWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKeystores"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/keystores")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKeystoresResponse>();
+}
+
+/**
+ * @summary 获取keystore信息
+ *
+ * @return GetKeystoresResponse
+ */
+GetKeystoresResponse Client::getKeystores(const string &InstanceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getKeystoresWithOptions(InstanceId, headers, runtime);
+}
+
+/**
  * @summary View the storage capacity and usage of the OpensStore instance.
  *
  * @param headers map
@@ -3189,6 +3225,67 @@ GrayPublishResponse Client::grayPublish(const string &InstanceId, const GrayPubl
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return grayPublishWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 初始化ai模型
+ *
+ * @param request InitModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitModelResponse
+ */
+InitModelResponse Client::initModelWithOptions(const string &InstanceId, const InitModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiKey()) {
+    body["api_key"] = request.getApiKey();
+  }
+
+  if (!!request.hasHost()) {
+    body["host"] = request.getHost();
+  }
+
+  if (!!request.hasHttpSchema()) {
+    body["http_schema"] = request.getHttpSchema();
+  }
+
+  if (!!request.hasModels()) {
+    body["models"] = request.getModels();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InitModel"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/initModel")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitModelResponse>();
+}
+
+/**
+ * @summary 初始化ai模型
+ *
+ * @param request InitModelRequest
+ * @return InitModelResponse
+ */
+InitModelResponse Client::initModel(const string &InstanceId, const InitModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return initModelWithOptions(InstanceId, request, headers, runtime);
 }
 
 /**
@@ -5872,6 +5969,59 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 }
 
 /**
+ * @summary 用户自定义插件列表
+ *
+ * @param request ListUserPluginRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserPluginResponse
+ */
+ListUserPluginResponse Client::listUserPluginWithOptions(const string &instanceId, const ListUserPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.getSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUserPlugin"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/userPlugins")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserPluginResponse>();
+}
+
+/**
+ * @summary 用户自定义插件列表
+ *
+ * @param request ListUserPluginRequest
+ * @return ListUserPluginResponse
+ */
+ListUserPluginResponse Client::listUserPlugin(const string &instanceId, const ListUserPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listUserPluginWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
  *
  * @param request ListVpcEndpointsRequest
@@ -6375,6 +6525,52 @@ OpenHttpsResponse Client::openHttps(const string &InstanceId, const OpenHttpsReq
 }
 
 /**
+ * @summary 自定义插件解析&上传接口
+ *
+ * @param request PluginAnalysisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PluginAnalysisResponse
+ */
+PluginAnalysisResponse Client::pluginAnalysisWithOptions(const string &instanceId, const PluginAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , request.getBody()}
+  }));
+  Params params = Params(json({
+    {"action" , "PluginAnalysis"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/plugins/actions/analysis")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PluginAnalysisResponse>();
+}
+
+/**
+ * @summary 自定义插件解析&上传接口
+ *
+ * @param request PluginAnalysisRequest
+ * @return PluginAnalysisResponse
+ */
+PluginAnalysisResponse Client::pluginAnalysis(const string &instanceId, const PluginAnalysisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return pluginAnalysisWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary PostEmonTryAlarmRule
  *
  * @param request PostEmonTryAlarmRuleRequest
@@ -6504,6 +6700,46 @@ ReinstallCollectorResponse Client::reinstallCollector(const string &ResId, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return reinstallCollectorWithOptions(ResId, request, headers, runtime);
+}
+
+/**
+ * @summary 从插件库中删除插件，区别于卸载插件
+ *
+ * @param request RemovePluginRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemovePluginResponse
+ */
+RemovePluginResponse Client::removePluginWithOptions(const string &instanceId, const RemovePluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , request.getBody()}
+  }));
+  Params params = Params(json({
+    {"action" , "RemovePlugin"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/plugins/actions/remove")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemovePluginResponse>();
+}
+
+/**
+ * @summary 从插件库中删除插件，区别于卸载插件
+ *
+ * @param request RemovePluginRequest
+ * @return RemovePluginResponse
+ */
+RemovePluginResponse Client::removePlugin(const string &instanceId, const RemovePluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return removePluginWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -8257,6 +8493,51 @@ UpdateExtendfilesResponse Client::updateExtendfiles(const string &InstanceId, co
 }
 
 /**
+ * @summary 修改FalconSeek配置
+ *
+ * @param request UpdateFalconSeekRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFalconSeekResponse
+ */
+UpdateFalconSeekResponse Client::updateFalconSeekWithOptions(const string &InstanceId, const UpdateFalconSeekRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnable()) {
+    query["enable"] = request.getEnable();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateFalconSeek"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/falconseek")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFalconSeekResponse>();
+}
+
+/**
+ * @summary 修改FalconSeek配置
+ *
+ * @param request UpdateFalconSeekRequest
+ * @return UpdateFalconSeekResponse
+ */
+UpdateFalconSeekResponse Client::updateFalconSeek(const string &InstanceId, const UpdateFalconSeekRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateFalconSeekWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
  * @summary null
  *
  * @description Before you call this operation, take note of the following items:
@@ -8618,6 +8899,61 @@ UpdateInstanceSettingsResponse Client::updateInstanceSettings(const string &Inst
 }
 
 /**
+ * @summary 更新keystore
+ *
+ * @param request UpdateKeystoresRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKeystoresResponse
+ */
+UpdateKeystoresResponse Client::updateKeystoresWithOptions(const string &InstanceId, const UpdateKeystoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasForce()) {
+    query["force"] = request.getForce();
+  }
+
+  json body = {};
+  if (!!request.hasRemove()) {
+    body["remove"] = request.getRemove();
+  }
+
+  if (!!request.hasUpdate()) {
+    body["update"] = request.getUpdate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateKeystores"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/keystores")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKeystoresResponse>();
+}
+
+/**
+ * @summary 更新keystore
+ *
+ * @param request UpdateKeystoresRequest
+ * @return UpdateKeystoresResponse
+ */
+UpdateKeystoresResponse Client::updateKeystores(const string &InstanceId, const UpdateKeystoresRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateKeystoresWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
  * @summary 更新kibana私网链接
  *
  * @param request UpdateKibanaPvlNetworkRequest
@@ -8720,6 +9056,55 @@ UpdateKibanaSettingsResponse Client::updateKibanaSettings(const string &Instance
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary UpdateKibanaSso
+ *
+ * @param request UpdateKibanaSsoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKibanaSsoResponse
+ */
+UpdateKibanaSsoResponse Client::updateKibanaSsoWithOptions(const string &InstanceId, const UpdateKibanaSsoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnable()) {
+    query["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasNetworkType()) {
+    query["networkType"] = request.getNetworkType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateKibanaSso"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/actions/kibana-sso")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKibanaSsoResponse>();
+}
+
+/**
+ * @summary UpdateKibanaSso
+ *
+ * @param request UpdateKibanaSsoRequest
+ * @return UpdateKibanaSsoResponse
+ */
+UpdateKibanaSsoResponse Client::updateKibanaSso(const string &InstanceId, const UpdateKibanaSsoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateKibanaSsoWithOptions(InstanceId, request, headers, runtime);
 }
 
 /**
@@ -9659,6 +10044,42 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersion(const string &Instance
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return upgradeEngineVersionWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询是否有可升级的小版本
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeInfoResponse
+ */
+UpgradeInfoResponse Client::upgradeInfoWithOptions(const string &instanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeInfo"},
+    {"version" , "2017-06-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgradeInfo")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeInfoResponse>();
+}
+
+/**
+ * @summary 查询是否有可升级的小版本
+ *
+ * @return UpgradeInfoResponse
+ */
+UpgradeInfoResponse Client::upgradeInfo(const string &instanceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return upgradeInfoWithOptions(instanceId, headers, runtime);
 }
 
 /**
