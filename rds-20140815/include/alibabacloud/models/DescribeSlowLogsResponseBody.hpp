@@ -649,14 +649,22 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> DBInstanceId_ {};
+    // The end date of the query.
     shared_ptr<string> endTime_ {};
+    // The database engine of the instance.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeSlowLogsResponseBody::Items> items_ {};
+    // The number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of SQL statements that are returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start date of the query.
     shared_ptr<string> startTime_ {};
+    // The total number of entries that are returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

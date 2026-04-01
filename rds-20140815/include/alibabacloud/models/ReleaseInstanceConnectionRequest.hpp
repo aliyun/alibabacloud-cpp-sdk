@@ -94,10 +94,19 @@ namespace Models
 
 
   protected:
+    // The public endpoint of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> currentConnectionString_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The network type of the instance. Valid values:
+    // 
+    // *   **0**: virtual private cloud (VPC)
+    // *   **1**: classic network
+    // 
     // This parameter is required.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<string> ownerAccount_ {};

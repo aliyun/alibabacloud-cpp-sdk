@@ -436,7 +436,6 @@ namespace Models
     shared_ptr<string> category_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // A reserved parameter. No configuration is required.
     shared_ptr<string> customExtraInfo_ {};
     // The instance type of the read-only instance. For more information, see [Read-only instance types](https://help.aliyun.com/document_detail/145759.html). We recommend that you specify an instance type whose specifications are higher than or equal to the specifications of the instance type of the primary instance. If the specifications of the read-only instance are lower than the specifications of the primary instance, the read-only instance may encounter issues such as high latency and heavy load.
     // 
@@ -497,12 +496,6 @@ namespace Models
     shared_ptr<string> instructionSetArch_ {};
     // A reserved parameter.
     shared_ptr<string> ioAccelerationEnabled_ {};
-    // Specifies whether to create a DuckDB analytic instance. Valid values:
-    // 
-    // - **true**: Enabled
-    // - **false**: Disabled
-    // 
-    // > Currently, only RDS MySQL and RDS PostgreSQL support creating DuckDB analytic instances.
     shared_ptr<bool> isAnalyticReadOnlyIns_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

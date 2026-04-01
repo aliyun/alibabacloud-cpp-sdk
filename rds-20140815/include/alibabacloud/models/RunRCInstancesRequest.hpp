@@ -154,9 +154,7 @@ namespace Models
 
 
     protected:
-      // The tag key. You can create up to N tag keys at the same time, where N ranges from **1 to 20**. Empty strings are not allowed.
       shared_ptr<string> key_ {};
-      // The tag value corresponding to the tag key. You can create up to N tag values at the same time, where N ranges from **1 to 20**. Empty strings are allowed.
       shared_ptr<string> value_ {};
     };
 
@@ -209,12 +207,6 @@ namespace Models
     protected:
       // The type of the system disk. Set the value to **cloud_essd**, which indicates ESSDs.
       shared_ptr<string> category_ {};
-      // Performance level when the system disk is an enterprise SSD (ESSD). For details about performance differences among ESSD types, see [enterprise SSD (ESSD)](https://help.aliyun.com/document_detail/2859916.html). Valid values:  
-      // 
-      // - **PL0**  
-      // - **PL1** (default)  
-      // - **PL2**  
-      // - **PL3**
       shared_ptr<string> performanceLevel_ {};
       // The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
       shared_ptr<int32_t> size_ {};
@@ -339,9 +331,6 @@ namespace Models
       shared_ptr<string> category_ {};
       // The reserved parameter. This parameter is not supported.
       shared_ptr<bool> deleteWithInstance_ {};
-      // The mount target of the data disk.
-      // 
-      // > This parameter is used only in the full image (entire machine image) scenario. You can set this parameter to the mount target of the data disk in the full image and modify the corresponding **DataDisk.Size** and **DataDisk.Category** parameters to change the disk category and size of the data disk in the full image.
       shared_ptr<string> device_ {};
       // Specifies whether to encrypt the cloud disk. Valid values:
       // 
@@ -352,11 +341,6 @@ namespace Models
       shared_ptr<string> performanceLevel_ {};
       // The size of the data disk. Unit: GiB.
       shared_ptr<int32_t> size_ {};
-      // The snapshot used to create the data disk.
-      // 
-      // - If the snapshot size corresponding to **DataDisk.SnapshotId** is greater than the value of **DataDisk.Size**, the created disk size matches the snapshot size. If the snapshot size is smaller than the value of **DataDisk.Size**, the created disk size equals the value of **DataDisk.Size**.
-      // - Creating an elastic ephemeral disk from a snapshot is not supported.
-      // - Snapshots created on or before July 15, 2013 cannot be used to create disks.
       shared_ptr<string> snapshotId_ {};
     };
 
@@ -398,9 +382,7 @@ namespace Models
 
 
     protected:
-      // The ID of the target ACK Edge cluster.
       shared_ptr<string> clusterId_ {};
-      // The ID of the target edge node pool in the ACK Edge cluster.
       shared_ptr<string> nodePoolId_ {};
     };
 
@@ -735,7 +717,6 @@ namespace Models
 
 
   protected:
-    // ACU type
     shared_ptr<string> acuType_ {};
     // The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
     // 
@@ -753,28 +734,14 @@ namespace Models
     // *   **true** (default)
     // *   **false**
     shared_ptr<bool> autoRenew_ {};
-    // Specifies whether to automatically use a coupon. Valid values:
-    // * **true** (default): Yes.
-    // * **false**: No.
-    // 
-    // > If you use a coupon and later decrease the quota, the amount offset by the coupon will not be refunded.
     shared_ptr<bool> autoUseCoupon_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Information about the ACK Edge cluster.
     shared_ptr<RunRCInstancesRequest::CreateAckEdgeParam> createAckEdgeParam_ {};
-    // Reserved parameter. Not supported currently.
     shared_ptr<string> createExtraParam_ {};
-    // Specifies whether the instance can be added to an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster by invoking the **AttachRCInstances** API operation, enabling efficient management of container applications.
-    // 
-    // - **1**: Yes.
-    // - **0** (default): No.
     shared_ptr<string> createMode_ {};
     // The information about the data disks.
     shared_ptr<vector<RunRCInstancesRequest::DataDisk>> dataDisk_ {};
-    // Specifies whether to enable release protection. Valid values:  
-    // * **true**: Enabled  
-    // * **false** (default): Disabled
     shared_ptr<bool> deletionProtection_ {};
     // The deployment set ID.
     shared_ptr<string> deploymentSetId_ {};
@@ -785,10 +752,6 @@ namespace Models
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
     shared_ptr<bool> dryRun_ {};
-    // Hostname of the instance (2–64 characters).  
-    // 
-    // - Multiple segments separated by periods (.) are supported. Each segment can contain uppercase and lowercase English letters, digits, and hyphens (-).  
-    // - A period (.) or hyphen (-) cannot appear at the beginning or end of a segment, nor can two periods or hyphens appear consecutively.
     shared_ptr<string> hostName_ {};
     // The ID of the image used by the instance.
     shared_ptr<string> imageId_ {};
@@ -811,7 +774,6 @@ namespace Models
     shared_ptr<RunRCInstancesRequest::NetworkOptions> networkOptions_ {};
     // The password of the account that is used to log on to the instance.
     shared_ptr<string> password_ {};
-    // Specifies whether to use the password preset in the image. When this parameter is used, the Password parameter must be empty, and you must ensure that the selected image has a password already configured. Default value: false.
     shared_ptr<bool> passwordInherit_ {};
     // The subscription duration of the instance. Default value: **1**.
     shared_ptr<int32_t> period_ {};
@@ -821,15 +783,12 @@ namespace Models
     // *   **Month** (default)
     shared_ptr<string> periodUnit_ {};
     shared_ptr<string> privateIpAddress_ {};
-    // The coupon code.
     shared_ptr<string> promotionCode_ {};
     // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Scheduled elasticity rule
     shared_ptr<string> scheduledRule_ {};
     // The reserved parameter. This parameter is not supported.
     shared_ptr<string> securityEnhancementStrategy_ {};
@@ -838,36 +797,12 @@ namespace Models
     // >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
     shared_ptr<string> securityGroupId_ {};
     shared_ptr<vector<string>> securityGroupIds_ {};
-    // The spot strategy for pay-as-you-go instances. This parameter takes effect only when the **InstanceChargeType** parameter is set to **PostPaid**. Valid values:  
-    // 
-    // - **NoSpot**: Normal pay-as-you-go instance.  
-    // - **SpotAsPriceGo**: The system automatically bids based on the current market price.  
-    // 
-    // Default value: **NoSpot**.
     shared_ptr<string> spotStrategy_ {};
-    // The deployment type of RDS Custom. Valid values:
-    // 
-    // - **eni**: Dual network interface cards.
-    // - **edge**: Point of presence (POP) node pool.
-    // - **share**: VPC.
     shared_ptr<string> supportCase_ {};
     // The specification of the system disk.
     shared_ptr<RunRCInstancesRequest::SystemDisk> systemDisk_ {};
-    // The list of tags.
     shared_ptr<vector<RunRCInstancesRequest::Tag>> tag_ {};
-    // The instance user data. The raw data can be up to 32 KB in size.  
-    // 
-    // Do not pass sensitive information, such as passwords and private keys, in plaintext. If you must pass such information, encrypt it first, encode it in Base64, and then transmit it. Decrypt and use it inside the instance. The following is an example of converting a script into a Base64-encoded string:  
-    // 
-    // ```
-    // echo -n \\"#!/bin/sh
-    // echo "Hello World"\\" | base64 -w 0
-    // ```
     shared_ptr<string> userData_ {};
-    // Specifies whether custom data is Base64-encoded.  
-    // 
-    // - **true**: Yes.  
-    // - **false** (default): No.
     shared_ptr<bool> userDataInBase64_ {};
     // The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
     // 

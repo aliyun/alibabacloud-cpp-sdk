@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The EIP ID.
     shared_ptr<string> allocationId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

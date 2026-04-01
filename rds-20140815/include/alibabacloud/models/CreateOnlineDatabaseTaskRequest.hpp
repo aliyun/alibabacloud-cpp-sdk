@@ -112,13 +112,27 @@ namespace Models
 
 
   protected:
+    // The consistency check method after the database is open. Valid values:
+    // 
+    // *   **SyncExecuteDBCheck**: synchronous database check
+    // *   **AsyncExecuteDBCheck**: asynchronous database check
+    // 
+    // > The check methods are supported for RDS instances that run SQL Server 2008 R2.
+    // 
     // This parameter is required.
     shared_ptr<string> checkDBMode_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
+    // The ID of the migration task.
+    // 
     // This parameter is required.
     shared_ptr<string> migrateTaskId_ {};
     shared_ptr<string> ownerAccount_ {};

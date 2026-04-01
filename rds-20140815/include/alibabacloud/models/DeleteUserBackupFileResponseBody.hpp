@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the deleted full backup file.
     shared_ptr<string> backupId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

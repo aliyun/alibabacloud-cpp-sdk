@@ -380,17 +380,14 @@ namespace Models
     // *   **ON**
     // *   **OFF**
     shared_ptr<string> externalReplication_ {};
-    // The executed global transaction identifier.
     shared_ptr<string> gtidExecuted_ {};
-    // Indicates whether full data has been successfully imported.
+    // COMPLETED: 导入完成，INIT: 初始化，IMPORTING: 正在导入
     shared_ptr<string> importStatus_ {};
     // The replication latency. Unit: seconds.
     shared_ptr<string> replicationDelay_ {};
     // The replication error message.
     shared_ptr<string> replicationErrorMessage_ {};
-    // The replication IP address.
     shared_ptr<string> replicationIp_ {};
-    // The replication port.
     shared_ptr<string> replicationPort_ {};
     // The source of the native replication.
     shared_ptr<string> replicationSource_ {};

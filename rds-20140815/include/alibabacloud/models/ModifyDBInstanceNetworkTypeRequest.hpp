@@ -149,20 +149,40 @@ namespace Models
 
 
   protected:
+    // The number of days for which you want to retain the classic network endpoint. Valid values: **1 to 120**. Default value: **7**.
+    // 
+    // > If you set the **RetainClassic** parameter to **True**, you must also specify this parameter.
     shared_ptr<string> classicExpiredDays_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The network type after the modification. Set the value to **VPC**.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The internal IP address of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
     shared_ptr<string> privateIpAddress_ {};
+    // The number of days for which you want to retain the read/write splitting endpoint of the classic network type. Valid values: **1 to 120**. Default value: **7**.
+    // 
+    // >  This parameter takes effect only when a read/write splitting endpoint of the classic network type exists and the **RetainClassic** parameter is set to **True**.
     shared_ptr<int32_t> readWriteSplittingClassicExpiredDays_ {};
+    // The internal IP address that corresponds to the read/write splitting endpoint of the instance. The internal IP address must be within the CIDR block supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
+    // 
+    // >  This parameter is valid when a read/write splitting endpoint of the classic network type exists.
     shared_ptr<string> readWriteSplittingPrivateIpAddress_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether to retain the classic network endpoint. Valid values:
+    // 
+    // *   **True**: retains the classic network endpoint.
+    // *   **False** (default): does not retain the classic network endpoint.
     shared_ptr<string> retainClassic_ {};
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
+    // The ID of the vSwitch. This parameter is required if the **VPCId** parameter is specified.
     shared_ptr<string> vSwitchId_ {};
   };
 

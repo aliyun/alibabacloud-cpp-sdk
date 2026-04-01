@@ -205,9 +205,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<DescribeOssDownloadsResponseBody::Items> items_ {};
+    // The ID of the migration task.
     shared_ptr<string> migrateTaskId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,11 +78,26 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // 
+    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
     shared_ptr<bool> dryRun_ {};
+    // Specifies whether to forcefully release a running instance. Valid values:
+    // 
+    // *   **Yes**
+    // *   **No** (default)
     shared_ptr<bool> force_ {};
+    // The details of the instance.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceId_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // Specifies whether to release an expired subscription instance. Valid values:
+    // 
+    // *   **true**
+    // *   **false** (default)
     shared_ptr<bool> terminateSubscription_ {};
   };
 

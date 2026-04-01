@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The deployment set ID.
+    // 
     // This parameter is required.
     shared_ptr<string> deploymentSetId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

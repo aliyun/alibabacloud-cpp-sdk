@@ -155,15 +155,25 @@ namespace Models
 
 
     protected:
+      // The discount amount of the maximum number of RCUs.
       shared_ptr<float> RCUDiscountMaxAmount_ {};
+      // The discount amount of the minimum number of RCUs.
       shared_ptr<float> RCUDiscountMinAmount_ {};
+      // The price of the maximum number of RCUs.
       shared_ptr<float> RCUOriginalMaxAmount_ {};
+      // The price of the minimum number of RCUs.
       shared_ptr<float> RCUOriginalMinAmount_ {};
+      // The original price of the disk capacity.
       shared_ptr<float> storageOriginalAmount_ {};
+      // The maximum total price before the discount.
       shared_ptr<float> totalOriginalMaxAmount_ {};
+      // The minimum total price before the discount.
       shared_ptr<float> totalOriginalMinAmount_ {};
+      // The transaction price of the maximum number of RCUs.
       shared_ptr<float> tradeMaxRCUAmount_ {};
+      // The transaction price of the minimum number of RCUs.
       shared_ptr<float> tradeMinRCUAmount_ {};
+      // The discounted price of the disk capacity.
       shared_ptr<float> storageDiscountAmount_ {};
     };
 
@@ -464,8 +474,11 @@ namespace Models
 
 
       protected:
+        // The returned message.
         shared_ptr<string> checkErrMsg_ {};
+        // The error code that is returned.
         shared_ptr<string> errorCode_ {};
+        // Indicates whether the request was successful.
         shared_ptr<string> success_ {};
       };
 
@@ -551,15 +564,23 @@ namespace Models
 
 
     protected:
+      // The information about the promotion.
       shared_ptr<PriceInfo::ActivityInfo> activityInfo_ {};
       shared_ptr<PriceInfo::Coupons> coupons_ {};
+      // The currency unit.
       shared_ptr<string> currency_ {};
+      // The discount.
       shared_ptr<float> discountPrice_ {};
+      // The order information.
       Darabonba::Json orderLines_ {};
+      // The original price.
       shared_ptr<float> originalPrice_ {};
       shared_ptr<PriceInfo::RuleIds> ruleIds_ {};
+      // The estimated hourly cost that is calculated based on the maximum number of RCUs you specify.
       shared_ptr<float> tradeMaxRCUAmount_ {};
+      // The estimated hourly cost that is calculated based on the minimum number of RCUs you specify.
       shared_ptr<float> tradeMinRCUAmount_ {};
+      // The transaction price, which is equal to the original price minus the discount.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -629,13 +650,22 @@ namespace Models
 
 
   protected:
+    // The order parameters.
+    // 
+    // >  If the **OrderParamOut** parameter is set to **true**, the value of the OrderParams parameter is returned.
     shared_ptr<string> orderParams_ {};
+    // The price information.
     shared_ptr<DescribePriceResponseBody::PriceInfo> priceInfo_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribePriceResponseBody::Rules> rules_ {};
+    // The pricing information about a serverless RDS instance.
     shared_ptr<DescribePriceResponseBody::ServerlessPrice> serverlessPrice_ {};
+    // Indicates whether discounts can be used.
     shared_ptr<bool> showDiscount_ {};
+    // The estimated hourly fee that is calculated based on the maximum number of RCUs.
     shared_ptr<float> tradeMaxRCUAmount_ {};
+    // The estimated hourly fee that is calculated based on the minimum number of RCUs.
     shared_ptr<float> tradeMinRCUAmount_ {};
   };
 

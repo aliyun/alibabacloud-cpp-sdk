@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<bool> deleteWithInstance_ {};
+    // The ID of the disk that you want to detach.
+    // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

@@ -58,6 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<string> profile_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> vpcId_ {};
   };

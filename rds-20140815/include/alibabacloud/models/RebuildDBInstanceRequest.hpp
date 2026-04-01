@@ -103,13 +103,25 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dedicatedHostGroupId_ {};
+    // The ID of the host on which the system rebuilds the secondary instance.
+    // 
+    // >  If you do not specify this parameter, the system preferentially rebuilds the secondary instance on the original host on which the secondary instance resides. If the remaining storage of the original host is insufficient, the system rebuilds the secondary instance on a host on which the primary instance does not reside. If no suitable hosts are found, the system reports an error that indicates insufficient storage.
     shared_ptr<string> dedicatedHostId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The role of the secondary instance that you want to rebuild. Valid values:
+    // 
+    // *   **FOLLOWER**: secondary instance
+    // *   **LOG**: logger instance
     shared_ptr<string> rebuildNodeType_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

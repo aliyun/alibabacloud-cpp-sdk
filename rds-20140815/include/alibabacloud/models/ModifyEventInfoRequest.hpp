@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // The action-related parameters. You can add action-related parameters based on your business requirements. The parameter value varies with the value of the TaskAction parameter.
     shared_ptr<string> actionParams_ {};
+    // The event handling action. Valid values:
+    // 
+    // *   **archive**
+    // *   **undo**
+    // 
+    // >  This parameter is required.
     shared_ptr<string> eventAction_ {};
+    // The event ID. You can call the DescribeEvents operation to obtain the IDs of the events. Separate multiple event IDs with commas (,). You can specify up to 20 event IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> securityToken_ {};

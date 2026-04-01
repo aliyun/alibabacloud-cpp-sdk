@@ -103,12 +103,30 @@ namespace Models
 
 
   protected:
+    // The backup type. Valid values:
+    // 
+    // *   **DataBackupPolicy**: data backup
+    // *   **LogBackupPolicy**: log backup
     shared_ptr<string> backupPolicyMode_ {};
+    // The method that is used to compress backup data. Valid values:
+    // 
+    // *   **0**: Backup data is not compressed.
+    // *   **1**: Backup data is compressed by using zlib.
+    // *   **2**: Backup data is compressed by using zlib that invokes more than one thread in parallel for each backup.
+    // *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases or tables.
+    // *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables.
     shared_ptr<string> compressType_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The policy that is used to retain archived backup files if the instance is released. Valid values:
+    // 
+    // *   **None**: No archived backup files are retained.
+    // *   **Lastest**: Only the last archived backup file is retained.
+    // *   **All**: All archived backup files are retained.
     shared_ptr<string> releasedKeepPolicy_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

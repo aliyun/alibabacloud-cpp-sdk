@@ -170,17 +170,53 @@ namespace Models
 
 
     protected:
+      // The PostgreSQL version to which the minor engine version corresponds. For more information, see [Release notes for AliPG](https://help.aliyun.com/document_detail/126002.html).
+      // 
+      // >  This parameter is available only for instances that run **PostgreSQL**.
       shared_ptr<string> communityMinorVersion_ {};
+      // The database engine that corresponds to the minor engine version.
       shared_ptr<string> engine_ {};
+      // The database engine version that corresponds to the minor engine version.
       shared_ptr<string> engineVersion_ {};
+      // The expiration time of the minor engine version.
       shared_ptr<string> expireDate_ {};
+      // The expiration status of the minor engine version. Valid values:
+      // 
+      // *   **vaild**
+      // *   **expired**
+      // 
+      // >  If the minor engine version is in the Offline state, the minor engine version is discontinued. In this case, ignore the expiration status. If the minor engine version is in the Online state and the expiration state is expired, the minor engine version expires. If the expiration state is vaild, the minor engine version is still in its lifecycle.
       shared_ptr<string> expireStatus_ {};
+      // An internal parameter. You do not need to specify this parameter.
       shared_ptr<bool> isHotfixVersion_ {};
+      // The minor engine version.
       shared_ptr<string> minorVersion_ {};
+      // The RDS edition of the instance that runs the minor engine version. Valid values:
+      // 
+      // *   **Basic**: RDS Basic Edition
+      // *   **HighAvailability**: RDS High-availability Edition
+      // *   **Finance**: RDS Enterprise Edition
       shared_ptr<string> nodeType_ {};
+      // The URL of the release notes for the minor engine version.
       shared_ptr<string> releaseNote_ {};
+      // The release type. Valid values:
+      // 
+      // *   **LTS**: a long-term version
+      // *   **BETA**: a preview version
       shared_ptr<string> releaseType_ {};
+      // The status of the minor engine version. Valid values:
+      // 
+      // *   **Offline**: discontinued
+      // *   **Online**: available
+      // 
+      // >  If the minor engine version is in the Offline state, the minor engine version is discontinued. In this case, ignore the expiration status. If the minor engine version is in the Online state and the expiration state is expired, the minor engine version expires. If the expiration state is vaild, the minor engine version is still in its lifecycle.
       shared_ptr<string> statusDesc_ {};
+      // The tag that corresponds to the minor engine version. Valid values:
+      // 
+      // *   **pgsql_docker_image**: tag of common instances
+      // *   **pgsql_babelfish_image**: tag of instances for which Babelfish is enabled
+      // 
+      // >  This parameter is available only for instances that run **PostgreSQL**.
       shared_ptr<string> tag_ {};
     };
 
@@ -231,11 +267,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxRecordsPerPage_ {};
+    // The details of the minor engine version.
     shared_ptr<vector<DescribeDBMiniEngineVersionsResponseBody::MinorVersionItems>> minorVersionItems_ {};
+    // The page number returned.
     shared_ptr<int32_t> pageNumbers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The deployment set ID.
     shared_ptr<string> deploymentSetId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

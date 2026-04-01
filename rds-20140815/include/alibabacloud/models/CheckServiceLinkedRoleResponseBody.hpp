@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Indicates whether an SLR is created.
     shared_ptr<string> hasServiceLinkedRole_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the service-linked role is required. Default value: true.
     shared_ptr<string> requireServiceLinkedRole_ {};
   };
 

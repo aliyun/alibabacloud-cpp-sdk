@@ -121,8 +121,6 @@ namespace Models
 
 
   protected:
-    // Custom for SQL Server to batch query monitoring data for specified resources.  
-    // Format: a collection of key:value pairs.
     shared_ptr<string> dimensions_ {};
     // The end of the time range to query. The end time must be later than the start time. Example: `2024-08-06 10:15:00`.
     shared_ptr<string> endTime_ {};

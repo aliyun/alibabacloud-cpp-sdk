@@ -121,12 +121,27 @@ namespace Models
 
 
   protected:
+    // The ID of the backup task.
     shared_ptr<int32_t> backupJobId_ {};
+    // The status of the backup task. Valid values:
+    // 
+    // *   **NoStart**
+    // *   **Progressing**
+    // 
+    // By default, this operation returns backup tasks in both states.
     shared_ptr<string> backupJobStatus_ {};
+    // The backup mode. Valid values:
+    // 
+    // *   **Automated**
+    // *   **Manual**
     shared_ptr<string> backupMode_ {};
+    // Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // A reserved parameter.
     shared_ptr<string> flag_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

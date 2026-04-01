@@ -202,21 +202,56 @@ namespace Models
 
 
     protected:
+      // The details of the task.
       shared_ptr<string> detail_ {};
+      // The creation time. The time is displayed in UTC.
       shared_ptr<string> gmtCreated_ {};
+      // The modification time. The time is displayed in UTC.
       shared_ptr<string> gmtModified_ {};
+      // The synchronization information. This parameter is a reserved parameter.
       shared_ptr<string> replicationInfo_ {};
+      // The status of the synchronization. Valid values:
+      // 
+      // *   **steaming**: The synchronization is in progress.
+      // *   **finish**: The synchronization is complete.
+      // *   **disconnect**: The synchronization is disconnected.
       shared_ptr<string> replicationState_ {};
+      // The account of the database that is used for data synchronization.
       shared_ptr<string> replicatorAccount_ {};
+      // The password of the account.
       shared_ptr<string> replicatorPassword_ {};
+      // The endpoint of the source instance.
       shared_ptr<string> sourceAddress_ {};
+      // The type of the source instance. Valid values:
+      // 
+      // *   other: other instances
+      // *   aliyunRDS: an ApsaraDB RDS instance
       shared_ptr<string> sourceCategory_ {};
+      // The port number of the source instance.
       shared_ptr<int64_t> sourcePort_ {};
+      // The destination instance ID.
       shared_ptr<string> targetInstanceId_ {};
+      // The ID of the task.
       shared_ptr<int64_t> taskId_ {};
+      // The name of the task.
       shared_ptr<string> taskName_ {};
+      // The stage of the task. Valid values:
+      // 
+      // *   **precheck**: the precheck stage.
+      // *   **basebackup**: the basic backup stage.
+      // *   **startup**: the startup stage.
+      // *   **increment**: the incremental synchronization stage.
       shared_ptr<string> taskStage_ {};
+      // The status of the task. Valid values:
+      // 
+      // *   **success**
+      // *   **failure**
+      // *   **running**
       shared_ptr<string> taskStatus_ {};
+      // The type of the task. Valid values:
+      // 
+      // *   **create**: creates a synchronization link.
+      // *   **create-dryrun**: performs a precheck before a synchronization link is created.
       shared_ptr<string> taskType_ {};
     };
 
@@ -253,9 +288,13 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> DBInstanceId_ {};
+    // The items.
     shared_ptr<vector<DescribeReplicationLinkLogsResponseBody::Items>> items_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalSize_ {};
   };
 

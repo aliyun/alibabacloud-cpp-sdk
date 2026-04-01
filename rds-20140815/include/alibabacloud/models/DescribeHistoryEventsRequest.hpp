@@ -176,22 +176,60 @@ namespace Models
 
 
   protected:
+    // The resource status. Valid values: **importing**, failed, checksuccess, and deleted.
     shared_ptr<string> archiveStatus_ {};
+    // The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
     shared_ptr<string> eventCategory_ {};
+    // The event ID.
     shared_ptr<string> eventId_ {};
+    // The event level. Valid values: ***high***, **medium**, and **low**.
     shared_ptr<string> eventLevel_ {};
+    // The status of the exception. Valid values:
+    // 
+    // *   1: pending
+    // *   2: ignored
+    // *   4: confirmed
+    // *   8: marked as false positive
+    // *   16: handling
+    // *   32: handled
+    // *   64: expired
     shared_ptr<string> eventStatus_ {};
+    // The system event type. This parameter takes effect only when InstanceEventType.N is not specified. Valid values:
+    // 
+    // *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
+    // *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+    // *   SystemFailure.Reboot: The instance is restarted due to a system error.
+    // *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
+    // *   SystemFailure.Delete: The instance is released due to an instance creation failure.
+    // *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
+    // *   InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
+    // *   InstanceExpiration.Delete: The subscription instance is released due to expiration.
+    // *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
+    // *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
+    // 
+    // >  For more information, see Overview. The values of this parameter are applicable only to instance system events, but not to disk system events.
     shared_ptr<string> eventType_ {};
+    // The beginning of the time range to query. Only tasks that have a start time later than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time. If you set this parameter to a time more than 30 days earlier than the current time, this time is automatically converted to a time that is exactly 30 days earlier than the current time.
+    // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The page number. Pages start from page 1. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The resource type. Set the value to **INSTANCE**.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
+    // The task ID. This value is used to query the data of a specific task.
     shared_ptr<string> taskId_ {};
+    // The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};
   };

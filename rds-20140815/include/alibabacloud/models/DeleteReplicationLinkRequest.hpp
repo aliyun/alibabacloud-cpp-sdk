@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the DR instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to delete the data synchronization link between the DR instance and the primary instance and promote the DR instance to the primary instance. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
+    // 
     // This parameter is required.
     shared_ptr<bool> promoteToMaster_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

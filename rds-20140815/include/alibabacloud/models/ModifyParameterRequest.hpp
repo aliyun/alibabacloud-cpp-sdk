@@ -130,17 +130,41 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to restart the instance for a new parameter value to take effect. Valid values:
+    // 
+    // *   **true**: The system forcefully restarts the instance. If a new parameter value takes effect only after the instance restarts, you must set this parameter to true. Otherwise, the new parameter value cannot take effect.
+    // *   **false**: The system does not forcefully restart the instance.
+    // 
+    // Default value: **false**.
     shared_ptr<bool> forcerestart_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The parameter template ID.
+    // 
+    // > *   If you specify this parameter, you do not need to specify **Parameters**.
+    // > *   If the parameter template can be applied only after the instance is restarted, you must specify **Forcerestart**.
     shared_ptr<string> parameterGroupId_ {};
+    // The JSON strings of parameters and their values. All the parameter values are of the string type. Format: {"Parameter name 1":"Parameter value 1","Parameter name 2":"Parameter value 2"...}. You can call the DescribeParameterTemplates operation to query parameter names and values.
+    // 
+    // >  If you specify this parameter, you do not need to specify **ParameterGroupId**.
     shared_ptr<string> parameters_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The time at which the modification takes effect. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // 
+    // > This time must be later than the time at which you call this operation.
     shared_ptr<string> switchTime_ {};
+    // The time at which the modification takes effect. Valid values:
+    // 
+    // - **Immediate**: immediately modifies the parameter. This is the default value.
+    // - **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
+    // - **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
     shared_ptr<string> switchTimeMode_ {};
   };
 

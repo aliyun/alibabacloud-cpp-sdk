@@ -50,7 +50,6 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Import job ID
     shared_ptr<string> taskId_ {};
   };
 

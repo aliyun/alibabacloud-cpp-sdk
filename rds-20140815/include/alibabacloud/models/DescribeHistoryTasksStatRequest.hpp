@@ -158,21 +158,44 @@ namespace Models
 
 
   protected:
+    // The minimum execution duration of a task. This parameter is used to filter tasks whose execution duration is longer than the minimum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
     shared_ptr<int32_t> fromExecTime_ {};
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> fromStartTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The status of the task. Valid values:
+    // 
+    // *   **Scheduled**
+    // *   **Running**
+    // *   **Succeed**
+    // *   **Failed**
+    // *   **Cancelling**
+    // *   **Canceled**
+    // *   **Waiting**
+    // 
+    // Separate multiple statuses with commas (,). By default, this parameter is left empty. This indicates that tasks in all statuses are queried.
     shared_ptr<string> status_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The task type.
     shared_ptr<string> taskType_ {};
+    // The maximum execution duration of a task. This parameter is used to filter tasks whose execution duration is shorter than or equal to the maximum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
     shared_ptr<int32_t> toExecTime_ {};
+    // The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> toStartTime_ {};
   };

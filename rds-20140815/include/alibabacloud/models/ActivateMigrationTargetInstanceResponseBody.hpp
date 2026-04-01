@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The name of the destination instance.
     shared_ptr<string> DBInstanceName_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The private IP address that is used to connect to the self-managed PostgreSQL instance.
     shared_ptr<string> sourceIpAddress_ {};
+    // The port number that is used to connect to the self-managed PostgreSQL instance.
     shared_ptr<int64_t> sourcePort_ {};
+    // The ID of the identification task.
     shared_ptr<int64_t> taskId_ {};
   };
 

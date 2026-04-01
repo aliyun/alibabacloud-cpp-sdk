@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The information about the instance.
       shared_ptr<vector<string>> insName_ {};
+      // The ID of the whitelist template.
       shared_ptr<int32_t> templateId_ {};
     };
 
@@ -131,11 +133,30 @@ namespace Models
 
 
   protected:
+    // The response code returned. Valid values:
+    // 
+    // *   **200**: success
+    // *   **400**: client error
+    // *   **401**: identity authentication failed
+    // *   **404**: request page not found
+    // *   **500**: server error
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<DescribeWhitelistTemplateLinkedInstanceResponseBody::Data> data_ {};
+    // The HTTP status code returned. Valid values:
+    // 
+    // *   **200**: success
+    // *   **400**: client error
+    // *   **500**: server error
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> success_ {};
   };
 

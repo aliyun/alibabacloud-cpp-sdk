@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // The payment type.
+    // 
+    // *   Valid value if the new billing method is pay-as-you-go: POSTPAY
+    // *   Valid value if the new billing method is subscription: PREPAY
     shared_ptr<string> chargeType_ {};
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The expiration time.
+    // 
+    // > If you call this operation to change the billing method of an instance from subscription to pay-as-you-go, this parameter is not returned.
     shared_ptr<string> expiredTime_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

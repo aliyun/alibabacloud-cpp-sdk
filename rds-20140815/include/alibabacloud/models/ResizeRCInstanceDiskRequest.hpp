@@ -101,7 +101,6 @@ namespace Models
     // 
     // >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
     shared_ptr<bool> autoPay_ {};
-    // The disk ID.
     shared_ptr<string> diskId_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 

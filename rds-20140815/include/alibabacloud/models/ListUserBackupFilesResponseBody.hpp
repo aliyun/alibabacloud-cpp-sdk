@@ -226,24 +226,49 @@ namespace Models
 
 
     protected:
+      // The ID of the full backup file.
       shared_ptr<string> backupId_ {};
+      // The information about the binary log file that contains incremental data. If incremental data is generated during the full backup, this parameter is returned.
       shared_ptr<string> binlogInfo_ {};
+      // The description of the full backup file.
       shared_ptr<string> comment_ {};
+      // The time when the system started to import the full backup file. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> creationTime_ {};
+      // The database engine of the instance.
       shared_ptr<string> engine_ {};
+      // The database engine version.
       shared_ptr<string> engineVersion_ {};
+      // The time when the full backup file is successfully imported. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> finishTime_ {};
+      // The time when the full backup file is successfully imported. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> modificationTime_ {};
+      // The name of the OSS bucket in which the full backup file is stored as an object.
       shared_ptr<string> ossBucket_ {};
+      // The metadata of the full backup file. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
       shared_ptr<string> ossFileMetaData_ {};
+      // The name of the full backup file that is stored as an object in an OSS bucket.
       shared_ptr<string> ossFileName_ {};
+      // The path of the full backup file that is stored as an object in an OSS bucket.
       shared_ptr<string> ossFilePath_ {};
+      // The size of the full backup file that is stored as an object in an OSS bucket. Unit: KB.
       shared_ptr<int64_t> ossFileSize_ {};
+      // The URL to download the full backup file from the OSS bucket.
       shared_ptr<string> ossUrl_ {};
+      // The reason why the full backup file failed to be imported.
       shared_ptr<string> reason_ {};
+      // The amount of storage that is required to restore the data of the full backup file. Unit: GB.
       shared_ptr<string> restoreSize_ {};
+      // The retention period of the full backup file. Unit: days.
       shared_ptr<int32_t> retention_ {};
+      // The status of the full backup file. Valid values:
+      // 
+      // *   **Importing**: The full backup file is being imported.
+      // *   **Failed**: The full backup file fails to be imported.
+      // *   **CheckSucccess**: The full backup file passes the check.
+      // *   **BackupSuccess**: The full backup file is imported.
+      // *   **Deleted**: The full backup file is deleted.
       shared_ptr<string> status_ {};
+      // The zone ID of the full backup file.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -266,7 +291,9 @@ namespace Models
 
 
   protected:
+    // The information about the full backup files.
     shared_ptr<vector<ListUserBackupFilesResponseBody::Records>> records_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,15 +103,26 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable fuzzy search. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> fuzzySearch_ {};
+    // The number of entries to return on each page. Enumerated valid values: 10, 30, and 50.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> maxRecordsPerPage_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumbers_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource group ID. For more information about resource groups, see related documentation.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the IP whitelist template. If you specify this parameter when you perform a fuzzy search, you can call the DescribeWhitelistTemplate operation to query the name of the whitelist template during the fuzzy search.
     shared_ptr<string> templateName_ {};
   };
 

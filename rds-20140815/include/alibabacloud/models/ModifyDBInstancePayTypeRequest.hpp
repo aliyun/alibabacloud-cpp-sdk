@@ -75,13 +75,26 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The billing method of the instance. The value is fixed as **Prepaid**, which indicates the subscription billing method.
+    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
+    // The renewal cycle of the instance.
+    // 
+    // *   **Year**
+    // *   **Month**
+    // 
     // This parameter is required.
     shared_ptr<string> period_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The subscription duration of the instance. Valid values:
+    // 
+    // *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from 1 to 5.
+    // *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from 1 to 11.
     shared_ptr<int32_t> usedTime_ {};
   };
 

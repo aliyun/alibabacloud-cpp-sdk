@@ -75,6 +75,12 @@ namespace Models
 
 
   protected:
+    // The type of reserved keyword to query. Valid values:
+    // 
+    // *   **account**
+    // *   **database**
+    // 
+    // >  This parameter is required.
     shared_ptr<string> key_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

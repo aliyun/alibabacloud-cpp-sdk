@@ -167,22 +167,60 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable or disable the database proxy feature. Valid values:
+    // 
+    // *   **Startup**: enables the feature.
+    // *   **Shutdown**: disables the feature.
+    // *   **Modify**: modifies the configuration of the feature.
+    // 
     // This parameter is required.
     shared_ptr<string> configDBProxyService_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // A deprecated parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
+    // The number of proxy instances that are enabled. Valid values: **1** to **16**. Default value: **1**.
+    // 
+    // >  The capability of the database proxy to process requests increases with the number of proxy instances that are enabled. You can monitor the load on the instance and specify an appropriate number of proxy instances based on the load monitoring data.
     shared_ptr<string> DBProxyInstanceNum_ {};
+    // The database proxy type. Valid values:
+    // 
+    // *   **common**: general-purpose database proxy
+    // *   **exclusive** (default): dedicated database proxy
     shared_ptr<string> DBProxyInstanceType_ {};
+    // The proxy nodes.
     shared_ptr<string> DBProxyNodesShrink_ {};
+    // The network type of the instance. Only the VPC network type is supported. Set the value to **VPC**.
+    // 
+    // >  If you enable the database proxy feature for the instance, you must specify this parameter.
     shared_ptr<string> instanceNetworkType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to enable persistent connections. Valid values:
+    // 
+    // *   **Enabled**
+    // *   **Disabled**
+    // 
+    // > 
+    // 
+    // *   This parameter is available only for instances that run MySQL.
+    // 
+    // *   If you want to modify persistent connections, you must set the **ConfigDBProxyService** parameter to **Modify**.
     shared_ptr<string> persistentConnectionStatus_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
+    // 
+    // >  If you enable the database proxy feature for the instance, you must specify this parameter.
     shared_ptr<string> VPCId_ {};
+    // The ID of the vSwitch to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
+    // 
+    // >  If you enable the database proxy feature for the instance, you must specify this parameter.
     shared_ptr<string> vSwitchId_ {};
   };
 

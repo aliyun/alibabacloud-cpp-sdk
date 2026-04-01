@@ -187,17 +187,58 @@ namespace Models
 
 
       protected:
+        // The ID of the Alibaba Cloud account.
         shared_ptr<int64_t> aliUid_ {};
+        // Indicates whether the notification has been confirmed. You can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed. Valid values:
+        // 
+        // *   **true**
+        // *   **false**
         shared_ptr<bool> confirmFlag_ {};
+        // The UID of the contact who called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed. The contact belongs to the current Alibaba Cloud account.
+        // 
+        // The value **0** indicates that the notification is automatically confirmed by the system.
         shared_ptr<int64_t> confirmor_ {};
+        // The time when the notification was created.
         shared_ptr<string> gmtCreated_ {};
+        // The time when the notification was modified.
         shared_ptr<string> gmtModified_ {};
+        // The ID of the notification.
         shared_ptr<int64_t> id_ {};
+        // The number of times that repeatedly sent notifications are blocked.
         shared_ptr<string> idempotentCount_ {};
+        // This parameter ensures the idempotence of the notification and prevents the notification from being repeatedly sent.
         shared_ptr<string> idempotentId_ {};
+        // The level of the notification. Valid values:
+        // 
+        // *   **help**
+        // *   **success**
+        // *   **warning**
+        // *   **error**
+        // *   **loading**
+        // *   **notice**
         shared_ptr<string> level_ {};
+        // The element in the notification template. This parameter is a JSON string. Fields in the JSON string vary based on the value of the **TemplateName** parameter.
+        // 
+        // *   If the **TemplateName** parameter is **RenewalRecommend**, the JSON string contains the following fields:
+        // 
+        //     *   **instanceName**: the ID of the instance that is about to expire
+        //     *   **reservedTime**: the remaining validity period of the instance in days
+        // 
+        // *   If the **TemplateName** parameter is **InstanceCreateFailed**, the JSON string contains the following fields:
+        // 
+        //     *   **orderId**: the ID of the order to purchase the instance
+        //     *   **reason**: the cause of the instance creation failure
         shared_ptr<string> notifyElement_ {};
+        // The template of the notification. Valid values:
+        // 
+        // *   **RenewalRecommend**: The template that is used to notify of renewal suggestions.
+        // *   **InstanceCreateFailed**: The template that is used to notify that an instance fails to be created and is refunded.
         shared_ptr<string> templateName_ {};
+        // The type of the notification. Valid values:
+        // 
+        // *   **Sell**: sales notification
+        // *   **Operation**: O\\&M notification
+        // *   **Promotion**: promotion notification
         shared_ptr<string> type_ {};
       };
 
@@ -234,9 +275,13 @@ namespace Models
 
 
     protected:
+      // The details of notifications.
       shared_ptr<vector<Data::NotifyItemList>> notifyItemList_ {};
+      // The page number of the page returned.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned on each page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<int32_t> totalRecordCount_ {};
     };
 
@@ -259,7 +304,9 @@ namespace Models
 
 
   protected:
+    // The response parameters.
     shared_ptr<QueryNotifyResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

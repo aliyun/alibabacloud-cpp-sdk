@@ -121,18 +121,51 @@ namespace Models
 
 
   protected:
+    // The database engine. Valid values:
+    // 
+    // *   **mysql**
+    // *   **PostgreSQL**
+    // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
+    // The database engine version of the instance.
+    // 
+    // *   If the instance runs MySQL, the instance must run one of the following MySQL versions:
+    // 
+    //     *   **5.6**
+    //     *   **5.7**
+    //     *   **8.0**
+    // 
+    // *   If the instance runs PostgreSQL, the instance must run one of the following PostgreSQL versions:
+    // 
+    //     *   **10.0**
+    //     *   **11.0**
+    //     *   **12.0**
+    //     *   **13.0**
+    //     *   **14.0**
+    //     *   **15.0**
+    // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The description of the parameter template. The value can be up to 200 characters in length.
     shared_ptr<string> parameterGroupDesc_ {};
+    // The name of the parameter template.
+    // 
+    // *   The value must start with a letter and can contain letters, digits, periods (.), and underscores (_).
+    // *   The value can be 8 to 64 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> parameterGroupName_ {};
+    // A JSON string that consists of parameters and their values in the parameter template. Format: {"Parameter 1":"Value of Parameter 1","Parameter 2":"Value of Parameter 2"...}. For more information about the parameters that can be modified, see [Modify the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html) or [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html).
+    // 
     // This parameter is required.
     shared_ptr<string> parameters_ {};
+    // The region ID of the parameter template. You can call the DescribeRegions operation to query the most recent zone list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

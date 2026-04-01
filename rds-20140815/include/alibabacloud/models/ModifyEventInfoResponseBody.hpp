@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error ID.
     shared_ptr<string> errorEventId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of successful records.
     shared_ptr<int32_t> successCount_ {};
+    // The ID of the successful event.
     shared_ptr<string> successEventId_ {};
   };
 

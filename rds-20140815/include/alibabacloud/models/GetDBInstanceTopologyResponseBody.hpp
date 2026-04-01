@@ -133,11 +133,26 @@ namespace Models
 
 
       protected:
+        // The ID of the instance.
         shared_ptr<string> DBInstanceName_ {};
+        // The ID of the dedicated cluster.
+        // 
+        // > : If the instance does not reside in the specified dedicated cluster, no value is returned.
         shared_ptr<string> dedicatedHostGroupId_ {};
+        // The host ID of the instance in the dedicated cluster.
+        // 
+        // > : If the instance does not reside in the specified dedicated cluster, no value is returned.
         shared_ptr<string> dedicatedHostId_ {};
+        // The ID of the instance.
+        // 
+        // > : The value \\*\\*-1\\*\\* is returned for an instance that does not reside in a dedicated cluster.
         shared_ptr<string> nodeId_ {};
+        // The type of the node. The following result is returned:
+        // 
+        // *   **Master**: a primary node
+        // *   **Slave**: a secondary node
         shared_ptr<string> role_ {};
+        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -197,9 +212,16 @@ namespace Models
 
 
       protected:
+        // The endpoint that is used to connect to the database instance.
         shared_ptr<string> connectionString_ {};
+        // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
+        // The network type of the endpoint. Valid values:
+        // 
+        // *   **vpc**
+        // *   **public**
         shared_ptr<string> netType_ {};
+        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -231,8 +253,11 @@ namespace Models
 
 
     protected:
+      // The network connection information of the instance.
       shared_ptr<vector<Data::Connections>> connections_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
+      // The queried nodes.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -269,9 +294,13 @@ namespace Models
 
 
   protected:
+    // An internal parameter. You can ignore this parameter.
     shared_ptr<string> code_ {};
+    // The details about the topology.
     shared_ptr<GetDBInstanceTopologyResponseBody::Data> data_ {};
+    // An internal parameter. You can ignore this parameter.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

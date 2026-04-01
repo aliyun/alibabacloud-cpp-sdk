@@ -138,14 +138,30 @@ namespace Models
 
 
     protected:
+      // The description of the Enhanced Monitoring metric.
       shared_ptr<string> description_ {};
+      // The category of the Enhanced Monitoring metric. Valid values:
+      // 
+      // *   **os**: OS metric
+      // *   **db**: database metric
       shared_ptr<string> dimension_ {};
+      // The key of the group to which the Enhanced Monitoring metric belongs.
       shared_ptr<string> groupKey_ {};
+      // The name of the group to which the Enhanced Monitoring metric belongs.
       shared_ptr<string> groupKeyType_ {};
+      // The method that is used to aggregate the monitoring data of the Enhanced Monitoring metric. Valid values:
+      // 
+      // *   **avg**: The system calculates the average value of the Enhanced Monitoring metric.
+      // *   **min**: The system calculates the minimum value of the Enhanced Monitoring metric.
+      // *   **max**: The system calculates the maximum value of the Enhanced Monitoring metric.
       shared_ptr<string> method_ {};
+      // The key of the Enhanced Monitoring metric.
       shared_ptr<string> metricsKey_ {};
+      // The alias of the Enhanced Monitoring metric.
       shared_ptr<string> metricsKeyAlias_ {};
+      // The serial number of the Enhanced Monitoring metric.
       shared_ptr<int32_t> sortRule_ {};
+      // The unit of the Enhanced Monitoring metric.
       shared_ptr<string> unit_ {};
     };
 
@@ -182,9 +198,13 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
+    // Details of the Enhanced Monitoring metric.
     shared_ptr<vector<DescribeAvailableMetricsResponseBody::Items>> items_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of enhanced monitoring metrics that are available for the instance.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

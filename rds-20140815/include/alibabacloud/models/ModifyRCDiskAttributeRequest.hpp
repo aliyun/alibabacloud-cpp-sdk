@@ -84,35 +84,12 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the burst (performance burst) feature for disks that support it. Valid values:
-    // 
-    // true: Enabled.
-    // false: No.
-    // Note
-    // If you specify any value for a disk that does not support the burst feature, an error is returned.
     shared_ptr<bool> burstingEnabled_ {};
-    // Specifies whether the disk is released when its associated instance is released. Default value: none, which means the current setting remains unchanged.
-    // 
-    // This parameter cannot be set for disks with the multi-attach feature enabled.
-    // 
-    // An error occurs if you set DeleteWithInstance to false in either of the following cases:
-    // 
-    // - The disk category is local disk (ephemeral).
-    // - The disk category is basic disk (cloud) and the disk is non-portable (Portable=false).
-    // 
-    // Warning
-    // If you set DeleteWithInstance to false, but the ECS instance to which the disk is attached is security locked (indicated by "LockReason": "security" in OperationLocks), the disk will be released together with the instance regardless of the DeleteWithInstance setting when the instance is released.
     shared_ptr<bool> deleteWithInstance_ {};
-    // The description of the disk. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The ID of the disk whose property you want to modify.
-    // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // Disk name. The name must be 2 to 128 characters in length and can contain characters from the letter categorization in Unicode (including English letters, Chinese characters, and digits). It can also include colons (:), underscores (_), periods (.), or hyphens (-).
     shared_ptr<string> diskName_ {};
-    // The region ID. You can call DescribeRegions to obtain valid region IDs.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

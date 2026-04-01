@@ -121,16 +121,27 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // *   **30 (default value)**
+    // *   **50**
+    // *   **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // This parameter is reserved. You do not need to specify this parameter.
     shared_ptr<string> proxyId_ {};
   };
 

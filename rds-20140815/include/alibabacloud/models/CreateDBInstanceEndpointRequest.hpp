@@ -99,10 +99,17 @@ namespace Models
 
 
     protected:
+      // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+      // 
       // This parameter is required.
       shared_ptr<string> DBInstanceId_ {};
+      // The node ID.
+      // 
       // This parameter is required.
       shared_ptr<string> nodeId_ {};
+      // The weight of the node. Read requests are distributed based on the weight.
+      // 
+      // Valid values: 0 to 100.
       shared_ptr<int64_t> weight_ {};
     };
 
@@ -197,23 +204,50 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // 
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The prefix of the internal endpoint.
+    // 
+    // When you create any type of endpoint, an internal endpoint is automatically created for the endpoint. This parameter specifies the prefix of the internal endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
+    // The user-defined description of the endpoint.
     shared_ptr<string> DBInstanceEndpointDescription_ {};
+    // The endpoint type. Valid values:
+    // 
+    // *   Primary: read/write endpoint of the instance
+    // *   Readonly: read-only endpoint of the instance
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceEndpointType_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The information about the endpoint.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateDBInstanceEndpointRequest::NodeItems>> nodeItems_ {};
+    // The port number of the internal endpoint. You can specify the port number for the internal endpoint.
+    // 
+    // Valid values: 3000 to 5999.
+    // 
     // This parameter is required.
     shared_ptr<string> port_ {};
+    // The IP address of the internal endpoint.
     shared_ptr<string> privateIpAddress_ {};
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The vSwitch ID of the internal endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The VPC ID of the internal endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

@@ -120,19 +120,12 @@ namespace Models
 
 
     protected:
-      // Creation time in UTC, formatted as YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createdTime_ {};
-      // Milvus version number.
       shared_ptr<string> dbVersion_ {};
-      // Job status.
       shared_ptr<string> status_ {};
-      // Target instance ID.
       shared_ptr<string> targetInstanceName_ {};
-      // Job ID.
       shared_ptr<int64_t> taskId_ {};
-      // Job name.
       shared_ptr<string> taskName_ {};
-      // Job type.
       shared_ptr<string> taskType_ {};
     };
 
@@ -169,14 +162,8 @@ namespace Models
 
 
   protected:
-    // None
     shared_ptr<vector<ListImportTasksResponseBody::Items>> items_ {};
-    // Number of records per page. Valid values: **1–100**.
-    // 
-    // Default value: **30**.  
-    // >If this parameter is specified, the **PageSize** and **PageNumber** parameters are unavailable.
     shared_ptr<int32_t> maxResults_ {};
-    // Paging cursor identity.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

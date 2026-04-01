@@ -400,8 +400,10 @@ namespace Models
 
 
   protected:
+    // The host group ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
     shared_ptr<DescribeDedicatedHostsResponseBody::DedicatedHosts> dedicatedHosts_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

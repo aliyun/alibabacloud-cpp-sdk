@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

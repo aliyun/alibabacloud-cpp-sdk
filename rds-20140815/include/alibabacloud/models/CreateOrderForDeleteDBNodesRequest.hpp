@@ -179,22 +179,55 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically complete the payment. Valid values:
+    // 
+    // 1.  **true**: You must make sure that your account balance is sufficient.
+    // 2.  **false**: An unpaid order is generated.
+    // 
+    // >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
     shared_ptr<bool> autoPay_ {};
+    // The additional business information about the instance.
     shared_ptr<string> businessInfo_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The commodity code. Valid values:
+    // 
+    // *   **bards**: The instance is a pay-as-you-go primary instance.
+    // *   **rds**: The instance is a subscription primary instance.
+    // *   **rords**: The instance is a pay-as-you-go read-only instance.
+    // *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance.
+    // *   **bards_intl**: The instance is a pay-as-you-go primary instance.
+    // *   **rds_intl**: The instance is a subscription primary instance.
+    // *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
+    // *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
+    // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
+    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
     shared_ptr<string> DBInstanceId_ {};
+    // An array that consists of information about the ID of the node.
     shared_ptr<vector<string>> DBNodeId_ {};
+    // The database engine version of the instance. Valid values:
+    // 
+    // Valid values if you set Engine to MySQL: **5.5, 5.6, 5.7, and 8.0**
     shared_ptr<string> engineVersion_ {};
+    // The type of the database node. Valid values:
+    // 
+    // *   **Master**: the primary node
+    // *   **Slave**: the secondary node
     shared_ptr<string> nodeType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
+    // The resources.
     shared_ptr<string> resource_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

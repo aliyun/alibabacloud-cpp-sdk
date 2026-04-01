@@ -140,17 +140,28 @@ namespace Models
 
 
   protected:
+    // The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID. If you specify this parameter, the details of all VSwitches in the VPC to which the dedicated cluster belongs are returned.
+    // 
+    // >  You must specify this parameter or the **VpcId** parameter.
     shared_ptr<string> dedicatedHostGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values: **1 to 50**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID of the VSwitch. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
+    // The ID of the VPC to which the vSwitch belongs.
+    // 
+    // > You must configure this parameter or **DedicatedHostGroupId**.
     shared_ptr<string> vpcId_ {};
+    // The ID of the zone to which the vSwitch belongs. You can call the DescribeAvailableZones operation to query zone IDs. If you specify this parameter, the query results are filtered based on the value of this parameter and only the details of the VSwitch that is deployed in the specified zone are returned.
     shared_ptr<string> zoneId_ {};
   };
 

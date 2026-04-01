@@ -84,11 +84,16 @@ namespace Models
 
 
   protected:
+    // The ID of the full backup file. You can call the ListUserBackupFiles operation to query the information about all full backup files in a region.
+    // 
     // This parameter is required.
     shared_ptr<string> backupId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

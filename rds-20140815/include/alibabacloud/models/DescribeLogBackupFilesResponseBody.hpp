@@ -203,10 +203,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeLogBackupFilesResponseBody::Items> items_ {};
+    // The page number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of log files on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total size of log files. Unit: bytes.
     shared_ptr<int64_t> totalFileSize_ {};
+    // The total number of log files.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

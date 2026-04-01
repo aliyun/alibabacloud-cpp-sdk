@@ -87,8 +87,18 @@ namespace Models
 
 
     protected:
+      // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The node ID.
+      // 
+      // You can query the node ID by using the following methods:
+      // 
+      // *   Log on the ApsaraDB RDS console, go to the instance details page, and then view the ID of the node in the instance topology in the lower part of the instance details page.
+      // *   Call the DescribeDBInstanceAttribute operation to query the node ID.
       shared_ptr<string> nodeId_ {};
+      // The weight of the node. Read requests are distributed based on the weight.
+      // 
+      // Valid values: 0 to 100.
       shared_ptr<int64_t> weight_ {};
     };
 
@@ -139,12 +149,21 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // 
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The user-defined description of the endpoint.
     shared_ptr<string> DBInstanceEndpointDescription_ {};
+    // The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceEndpointId_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The information about the endpoint.
     shared_ptr<vector<ModifyDBInstanceEndpointRequest::NodeItems>> nodeItems_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

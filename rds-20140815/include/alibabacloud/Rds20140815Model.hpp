@@ -874,6 +874,10 @@
 #include <alibabacloud/models/ModifyDBDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyDBDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyDBDescriptionResponse.hpp>
+#include <alibabacloud/models/ModifyDBInstanceRequest.hpp>
+#include <alibabacloud/models/ModifyDBInstanceShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyDBInstanceResponseBody.hpp>
+#include <alibabacloud/models/ModifyDBInstanceResponse.hpp>
 #include <alibabacloud/models/ModifyDBInstanceAutoUpgradeMinorVersionRequest.hpp>
 #include <alibabacloud/models/ModifyDBInstanceAutoUpgradeMinorVersionResponseBody.hpp>
 #include <alibabacloud/models/ModifyDBInstanceAutoUpgradeMinorVersionResponse.hpp>

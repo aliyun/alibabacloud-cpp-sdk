@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ARN of the credential for the Data API account.
     shared_ptr<string> secretArn_ {};
+    // The name of the credential.
     shared_ptr<string> secretName_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> success_ {};
   };
 

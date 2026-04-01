@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The endpoint that is used to connect to the destination instance.
+    // 
+    // >  The **DBInstanceNetType** parameter indicates whether the endpoint is internal or public.
     shared_ptr<string> connectionString_ {};
+    // The destination instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The port number that is used to connect to the destination instance.
+    // 
+    // > **DBInstanceNetType** indicates whether the port is internal or public.
     shared_ptr<string> port_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

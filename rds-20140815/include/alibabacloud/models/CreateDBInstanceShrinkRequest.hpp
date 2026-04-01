@@ -886,9 +886,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // Enable or disable [RDS MySQL native replication](https://help.aliyun.com/document_detail/2856526.html). Valid values:
-    // - **ON**: Enabled.
-    // - **OFF**: Disabled.
     shared_ptr<bool> externalReplication_ {};
     // The network type of the instance. Valid values:
     // 

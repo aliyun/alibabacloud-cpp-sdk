@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The DNS information about the AD domain.
     shared_ptr<string> ADDNS_ {};
+    // The service IP address of the AD domain.
     shared_ptr<string> ADServerIpAddress_ {};
+    // The status of the AD domain. Valid values:
+    // 
+    // *   **-1**: The instance is being added to the AD domain.
+    // *   **0**: The instance fails to be added to the AD domain.
+    // *   **1**: The instance is added to the AD domain.
     shared_ptr<string> ADStatus_ {};
+    // The cause of the error.
     shared_ptr<string> abnormalReason_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The username of the AD domain.
     shared_ptr<string> userName_ {};
   };
 

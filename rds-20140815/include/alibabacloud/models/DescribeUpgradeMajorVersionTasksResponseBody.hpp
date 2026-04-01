@@ -278,23 +278,10 @@ namespace Models
       // *   **clone**: The system does not migrate data to the new instance and does not switch your workloads over to the new instance.
       // *   **switch**: The system migrates data to the new instance and switches your workloads over to the new instance.
       shared_ptr<string> upgradeMode_ {};
-      // Indicates whether a switch is performed.
-      // 
-      // - **true**: Yes.
-      // - **false**: No.
       shared_ptr<bool> cutOver_ {};
-      // Estimated synchronization time for logical replication delay, in seconds.  
-      // > This is used only for **zero-downtime** major version upgrades.
       shared_ptr<int32_t> totalLogicRepDelayTime_ {};
-      // Logical replication delay size, in MB.
-      // 
-      // > Applies only to **zero-downtime** major version upgrades.
       shared_ptr<int32_t> totalLogicRepLatencyMB_ {};
-      // Temporary internal endpoint for zero-downtime major version upgrade, in the format `****.pg.rds.aliyuncs.com`.  
-      // > Applies only to **zero-downtime** major version upgrades.
       shared_ptr<string> zeroDownTimeConnectionString_ {};
-      // Port of the higher-version instance, which is the same as the source instance port.  
-      // > Applies only to **zero-downtime** major version upgrades.
       shared_ptr<int32_t> zeroDownTimePort_ {};
     };
 

@@ -75,11 +75,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetMajorVersion_ {};
-    // Upgrade mode. Valid values:  
-    // 
-    // - **zeroDownTimeUpgrade**: Zero downtime.  
-    // - **inPlaceUpgrade**: In-place upgrade.  
-    // - **greenBlueDeployment**: Blue-green deployment.
     shared_ptr<string> upgradeMode_ {};
   };
 

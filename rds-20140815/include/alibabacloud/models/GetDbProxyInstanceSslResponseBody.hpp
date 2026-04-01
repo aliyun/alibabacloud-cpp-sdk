@@ -157,6 +157,7 @@ namespace Models
 
   protected:
     shared_ptr<GetDbProxyInstanceSslResponseBody::DbProxyCertListItems> dbProxyCertListItems_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

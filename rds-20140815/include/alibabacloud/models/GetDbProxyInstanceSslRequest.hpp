@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

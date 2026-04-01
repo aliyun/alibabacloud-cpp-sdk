@@ -149,17 +149,49 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically complete the payment. Valid values:
+    // 
+    // 1.  **true**: automatically completes the payment. Make sure that your account balance is sufficient.
+    // 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
+    // 
+    // >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to pay for the order.
     shared_ptr<bool> autoPay_ {};
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The new storage capacity of the instance. Unit: GB For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
     shared_ptr<string> DBInstanceStorage_ {};
+    // The storage type of the instance. Valid values:
+    // 
+    // *   **cloud_essd**: performance level 1 (PL1) enhanced SSD (ESSD)
+    // *   **cloud_essd2**: PL2 ESSD
+    // *   **cloud_essd3**: PL3 ESSD
     shared_ptr<string> DBInstanceStorageType_ {};
+    // The information about the node.
+    // 
+    // >  This parameter is used for ApsaraDB RDS for MySQL instances that run RDS Cluster Edition.
     shared_ptr<string> DBNodeShrink_ {};
+    // Specifies whether to perform a dry run. Valid values: Valid values:
+    // 
+    // *   **true**: performs a dry run and does not perform the actual request. The system checks items such as the request parameters, request format, service limits, and available resources.
+    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
     shared_ptr<bool> dryRun_ {};
+    // The time when you want the change to take effect. Valid values:
+    // 
+    // *   **Immediate** (default): The change immediately takes effect.
+    // *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
     shared_ptr<string> effectiveTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to asynchronously perform the operation. Valid values:
+    // 
+    // *   **true** (default): sends only the order. The operation is asynchronously performed.
+    // *   **false**: sends the request. After the request passes the check, the operation is directly performed.
+    // 
+    // >  The default value is true, which indicates that the change operation is asynchronously performed. If you set this parameter to false, the change operation is simultaneously performed. This prolongs the response time of the operation.
     shared_ptr<bool> produceAsync_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -121,18 +121,32 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // 
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The endpoint that you want to modify. The endpoint can be a public endpoint or an internal endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
+    // The prefix of the new endpoint. You can modify only the prefix of the endpoint that is specified by the ConnectionString parameter.
     shared_ptr<string> connectionStringPrefix_ {};
+    // The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceEndpointId_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The port number of the new endpoint.
     shared_ptr<string> port_ {};
+    // The IP address of the internal endpoint.
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The vSwitch ID of the internal endpoint.
     shared_ptr<string> vSwitchId_ {};
+    // The VPC ID of the internal endpoint.
     shared_ptr<string> vpcId_ {};
   };
 

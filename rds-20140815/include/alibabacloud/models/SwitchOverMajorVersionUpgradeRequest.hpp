@@ -121,7 +121,6 @@ namespace Models
 
 
   protected:
-    // Used to ensure the idempotence of the request and prevent duplicate submissions. The client generates this parameter value, which must be unique across different requests. It can contain a maximum of 64 ASCII characters and must not include non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance name.
     shared_ptr<string> DBInstanceName_ {};
@@ -129,7 +128,6 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
     Darabonba::Bytes regionId_ {};
-    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

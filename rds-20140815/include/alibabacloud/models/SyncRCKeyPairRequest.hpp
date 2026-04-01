@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<bool> syncMode_ {};
   };

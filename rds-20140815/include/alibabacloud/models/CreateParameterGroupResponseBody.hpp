@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the parameter template. You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/144491.html) operation to query the IDs of parameter templates.
     shared_ptr<string> parameterGroupId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

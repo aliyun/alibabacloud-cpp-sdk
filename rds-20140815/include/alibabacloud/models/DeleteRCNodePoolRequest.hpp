@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The ID of the ACK cluster to which the RDS Custom instance belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The node pool ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodePoolId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

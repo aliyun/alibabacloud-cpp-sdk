@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // Instance ID.
-    // 
     // This parameter is required.
     shared_ptr<string> dbInstanceName_ {};
   };

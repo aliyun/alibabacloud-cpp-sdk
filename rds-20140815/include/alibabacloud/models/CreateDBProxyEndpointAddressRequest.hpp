@@ -121,19 +121,46 @@ namespace Models
 
 
   protected:
+    // The prefix of the proxy endpoint Enter a custom prefix.
+    // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The network type of the proxy endpoint. Valid values:
+    // 
+    // *   **Public**: Internet
+    // *   **VPC**: Virtual Private Cloud (VPC)
+    // *   **Classic**: classic network
+    // 
+    // Default value: **Classic**
+    // 
     // This parameter is required.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
+    // The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
+    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
+    // The port number that is associated with the proxy endpoint.
+    // 
+    // *   If the instance runs MySQL, the default value is **3306**.
+    // *   If the instance runs PostgreSQL, the default value is **5432**.
     shared_ptr<string> DBProxyNewConnectStringPort_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the VPC to which the proxy endpoint belongs. You can call the DescribeDBInstanceAttribute operation to query the information.
+    // 
+    // >  This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
     shared_ptr<string> VPCId_ {};
+    // The ID of the vSwitch that is associated with the specified VPC. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+    // 
+    // >  This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
     shared_ptr<string> vSwitchId_ {};
   };
 

@@ -134,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The key of the tag. You can create N tag keys at a time. Valid values of N: **1 to 20**. This parameter cannot be an empty string.
       shared_ptr<string> key_ {};
+      // The tag value. You can create N tag values at a time. Valid values of N: **1** to **20**. This parameter can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -387,43 +389,113 @@ namespace Models
 
 
   protected:
+    // The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
+    // 
+    // Valid values: **1** to **5**. Default value: **1**.
     shared_ptr<int32_t> amount_ {};
+    // Specifies whether to enable automatic payment. Valid values:
+    // 
+    // *   **true**: enables the feature. Make sure that your account balance is sufficient when you enable automatic payment.
+    // *   **false**: does not automatically complete the payment. An unpaid order is generated.
+    // 
+    // >  Default value: true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal for the instance. If you specify the subscription billing method for the instance, you must specify this parameter. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
+    // 
+    // > 
+    // 
+    // *   Monthly subscription: The auto-renewal period is one month.
+    // 
+    // *   Annually: The auto-renewal period is one year.
     shared_ptr<bool> autoRenew_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The ID of the ACK cluster to which the RDS Custom instance belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to add the instance to the ACK cluster. If this parameter is set to **1**, the created instances can be added to the ACK cluster. This allows you to efficiently manage container applications. Valid values:
+    // 
+    // *   **1**: adds the instance to the ACK cluster.
+    // *   **0** (default): does not add the instance to the ACK cluster.
     shared_ptr<string> createMode_ {};
+    // The data disks.
     shared_ptr<string> dataDiskShrink_ {};
+    // The ID of the deployment set.
     shared_ptr<string> deploymentSetId_ {};
+    // The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
+    // Specifies whether to perform a dry run. Default value: false. Valid values:
+    // 
+    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
     shared_ptr<bool> dryRun_ {};
+    // The instance hostname.
     shared_ptr<string> hostName_ {};
+    // The ID of the image used by the instance.
     shared_ptr<string> imageId_ {};
+    // The billing method of the instance. Valid values:
+    // 
+    // *   **Prepaid**: subscription.
+    // *   **Postpaid**: pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types for RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> internetChargeType_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> ioOptimized_ {};
+    // The name of the AccessKey pair. You can specify only one name.
     shared_ptr<string> keyPairName_ {};
+    // The name of the node pool.
     shared_ptr<string> nodePoolName_ {};
+    // The password for the root account of the instance.
     shared_ptr<string> password_ {};
+    // The subscription duration of the instance. Default value: **1**.
     shared_ptr<int32_t> period_ {};
+    // The unit of the subscription duration. Valid values:
+    // 
+    // *   **Year**
+    // *   **Month** (default)
     shared_ptr<string> periodUnit_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> securityEnhancementStrategy_ {};
+    // The ID of the security group. You can enter an existing security group ID. If no security groups exist, a security group is automatically created.
     shared_ptr<string> securityGroupId_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> spotStrategy_ {};
+    // The supported scenario. If you set the **createMode** parameter to **1**, you must also specify the SupportCase parameter. Valid value: **edge**.
     shared_ptr<string> supportCase_ {};
+    // The specification of the system disk.
     shared_ptr<string> systemDiskShrink_ {};
+    // The tags.
     shared_ptr<vector<CreateRCNodePoolShrinkRequest::Tag>> tag_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> userData_ {};
+    // The vSwitch ID.
+    // 
+    // >  The vSwitch must belong to the same zone as the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The zone ID of the instance.
+    // 
+    // >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
     shared_ptr<string> zoneId_ {};
   };
 

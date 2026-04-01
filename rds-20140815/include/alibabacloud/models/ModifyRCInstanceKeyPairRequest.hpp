@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
+    // Specifies whether to restart the instance.
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> reboot_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

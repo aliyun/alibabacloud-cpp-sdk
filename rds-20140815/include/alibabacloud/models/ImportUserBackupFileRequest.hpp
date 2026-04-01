@@ -196,11 +196,6 @@ namespace Models
     shared_ptr<string> backupFile_ {};
     // The region ID of the OSS bucket where the full backup file of the self-managed MySQL database is located. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> bucketRegion_ {};
-    // Specifies whether to automatically set up replication. Valid values:
-    // - true: Yes. The `MasterInfo` parameter is required.
-    // - false: No.
-    // 
-    // > This applies only to native replication instances and requires the `DBInstanceId` parameter to be passed when invoking the API.
     shared_ptr<bool> buildReplication_ {};
     // The description of the full backup file.
     shared_ptr<string> comment_ {};
@@ -208,24 +203,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The version of the database engine that is run on the self-managed MySQL database and ApsaraDB RDS for MySQL instance. Set the value to **5.7**.
     shared_ptr<string> engineVersion_ {};
-    // A case-sensitive JSON array containing the Master information for setting up MySQL replication. Example:
-    // 
-    // ```
-    // {"masterIp":"172.20.xx.xx","masterPort":"3306","masterUser":"replica","masterPassword":"W33uopkehBQ="}
-    // ```
-    // 
-    // The parameters in the array are described as follows:
-    // - `masterIp`: Primary database IP address.
-    // - `masterPort`: Primary database port.
-    // - `masterUser`: Replication account for the primary database.
-    // - `masterPassword`: Password for the replication account of the primary database, which must be Base64-encoded.
-    // 
-    // > This applies only to native replication instances and requires the `DBInstanceId` parameter to be passed when invoking the API.
     shared_ptr<string> masterInfo_ {};
-    // Import mode. Valid values:
-    // 
-    // - oss: Download the backup from OSS and import it.
-    // - stream: Import the backup over the network.
     shared_ptr<string> mode_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
@@ -246,19 +224,6 @@ namespace Models
     shared_ptr<int32_t> restoreSize_ {};
     // The retention period of the full backup file. Unit: days. Valid values: any **non-zero** positive integer.
     shared_ptr<int32_t> retention_ {};
-    // A case-sensitive JSON array that provides the source information for a full backup. Example:
-    // 
-    // ```
-    // {"sourceIp":"172.20.xx.xx","sourcePort":"9999"}
-    // ```
-    // 
-    // The parameters in the array are described as follows:
-    // 
-    // - `sourceIp`: Source IP address.
-    // 
-    // - `sourcePort`: Port on which Netcat listens at the source.
-    // 
-    // > This applies only to native replication instances and requires the `DBInstanceId` parameter to be passed when invoking the API.
     shared_ptr<string> sourceInfo_ {};
     // The zone ID. You can call the DescribeRegions operation to query the zone ID.
     // 

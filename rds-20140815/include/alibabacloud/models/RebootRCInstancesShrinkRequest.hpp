@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The batch operation mode. Set the value to **AllTogether**. In this mode, if all specified instances are restarted, a success message is returned. If an instance fails the verification, none of the specified instances can be restarted and an error message is returned.
     shared_ptr<string> batchOptimization_ {};
+    // Specifies whether to forcefully restart the instance. Valid values:
+    // 
+    // *   **true**
+    // *   **false** (default)
     shared_ptr<bool> forceReboot_ {};
+    // The node IDs.
     shared_ptr<string> instanceIdsShrink_ {};
     shared_ptr<string> rebootTime_ {};
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

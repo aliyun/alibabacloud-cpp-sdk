@@ -140,53 +140,19 @@ namespace Models
 
 
   protected:
-    // Instance ID
-    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Encryption algorithm to use. Valid values:
-    // 
-    // - AES_128_CBC
-    // - AES_128_GCM
-    // - AES_128_CTR
-    // - AES_128_ECB
-    // - AES_256_CBC
-    // - AES_256_GCM
-    // - AES_256_CTR
-    // - AES_256_ECB
-    // - SM4_128_CBC
-    // - SM4_128_GCM
-    // - SM4_128_CTR
-    // - SM4_128_ECB
     shared_ptr<string> encryptionAlgorithm_ {};
-    // Encryption key ID. This parameter is required when using a KMS key.
     shared_ptr<string> encryptionKey_ {};
-    // Column encryption key mode. Valid values:
-    // 
-    // - client_key (configure a randomly generated user key on the client side)
-    // - kms_key (use a custom key configured via Alibaba Cloud KMS)
-    // 
-    // Note:
-    // Once an instance is configured to use a KMS key, it can no longer use the client-side random key configuration method.
     shared_ptr<string> encryptionKeyMode_ {};
-    // Column encryption status. Valid values:
-    // - 1 (Enabled)
-    // - 0 (Disabled)
-    // 
     // This parameter is required.
     shared_ptr<string> encryptionStatus_ {};
-    // Whether to rotate the key
     shared_ptr<bool> isRotate_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Global Resource Descriptor (GRD) of the role used to specify the exact role. For more information, see RAM Role Overview.
-    // 
-    // Note:
-    // This parameter takes effect only when the column encryption key mode is set to kms_key. If not provided, the system uses an internal default value.
     shared_ptr<string> roleArn_ {};
-    // Whether to enable whitelist mode. true indicates that only columns in the whitelist are encrypted; false indicates that all columns are encrypted.
     shared_ptr<bool> whiteListMode_ {};
   };
 

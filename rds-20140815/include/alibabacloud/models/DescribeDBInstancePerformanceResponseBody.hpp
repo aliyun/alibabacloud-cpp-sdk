@@ -259,11 +259,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The end time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
+    // The database engine of the instance.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeDBInstancePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

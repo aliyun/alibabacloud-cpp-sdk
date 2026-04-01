@@ -50,7 +50,6 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Precheck task ID
     shared_ptr<int64_t> taskId_ {};
   };
 

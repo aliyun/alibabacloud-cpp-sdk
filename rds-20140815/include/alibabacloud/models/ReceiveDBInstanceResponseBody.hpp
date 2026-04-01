@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the disaster recovery instance after the switchover.
     shared_ptr<string> guardDBInstanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

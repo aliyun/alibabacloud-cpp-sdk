@@ -84,9 +84,7 @@ namespace Models
 
 
     protected:
-      // tag key.
       shared_ptr<string> key_ {};
-      // tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -171,13 +169,11 @@ namespace Models
     shared_ptr<int32_t> instantAccessRetentionDays_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.
     // 
     // By default, this parameter is left empty, which specifies that the snapshot is not automatically released.
     shared_ptr<int32_t> retentionDays_ {};
-    // Tag Details.
     shared_ptr<vector<CreateRCSnapshotRequest::Tag>> tag_ {};
     // This parameter has been deprecated.
     shared_ptr<string> zoneId_ {};

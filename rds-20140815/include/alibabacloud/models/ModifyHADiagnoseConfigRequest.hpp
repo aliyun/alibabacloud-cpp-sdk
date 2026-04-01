@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The availability check method of the instance. Valid values:
+    // 
+    // *   **SHORT**: Alibaba Cloud uses short-lived connections to check the availability of the instance.
+    // *   **LONG**: Alibaba Cloud uses persistent connections to check the availability of the instance.
     shared_ptr<string> tcpConnectionType_ {};
   };
 

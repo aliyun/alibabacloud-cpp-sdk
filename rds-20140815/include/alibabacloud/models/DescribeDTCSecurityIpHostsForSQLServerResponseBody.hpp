@@ -144,9 +144,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The number of distributed transaction whitelists.
     shared_ptr<string> ipHostPairNum_ {};
     shared_ptr<DescribeDTCSecurityIpHostsForSQLServerResponseBody::Items> items_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

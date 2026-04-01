@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The reserved parameter. This parameter is not supported.
       shared_ptr<string> currency_ {};
+      // The reserved parameter. This parameter is not supported.
       shared_ptr<string> fee_ {};
+      // The reserved parameter. This parameter is not supported.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -143,11 +146,20 @@ namespace Models
 
 
   protected:
+    // The billing method.
+    // *   **POSTPAY**: pay-as-you-go.
+    // *   **PREPAY**: subscription.
     shared_ptr<string> chargeType_ {};
+    // The time when the instance expires.
+    // >  If you change the billing method from subscription to pay-as-you-go, this parameter is not returned.
     shared_ptr<vector<string>> expiredTime_ {};
+    // The reserved parameter. This parameter is not supported.
     shared_ptr<vector<ModifyRCInstanceChargeTypeResponseBody::FeeOfInstances>> feeOfInstances_ {};
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

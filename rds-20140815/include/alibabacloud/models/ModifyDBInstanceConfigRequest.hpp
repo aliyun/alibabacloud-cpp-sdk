@@ -130,19 +130,39 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The name of the configuration item that you want to modify. Valid values:
+    // 
+    // *   **pgbouncer**. This configuration item is supported for ApsaraDB RDS for PostgreSQL instances.
+    // *   **clear_errorlog**. This configuration item is supported for ApsaraDB RDS for SQL Server instances.
+    // 
     // This parameter is required.
     shared_ptr<string> configName_ {};
+    // The value of the configuration item that you want to modify. Valid values:
+    // 
+    // *   If you set ConfigName to pgbouncer, the valid values are **true** and **false**.
+    // *   If you set ConfigName to clear_errorlog, set the value to **1**. The value 1 indicates that error logs are cleaned up.
+    // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The resource group ID. You can call the DescribeDBInstanceAttribute to obtain the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The update time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     shared_ptr<string> switchTime_ {};
+    // The time at which the modification takes effect. Valid values:
+    // 
+    // - **Immediate**: immediately modifies the parameter. This is the default value.
+    // - **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
+    // - **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
     shared_ptr<string> switchTimeMode_ {};
   };
 

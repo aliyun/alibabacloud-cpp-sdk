@@ -121,15 +121,28 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1. Pages start from page 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The region ID of the asset.
     shared_ptr<string> ddosRegionId_ {};
+    // The DDoS mitigation status of the asset. Valid values:
+    // 
+    // *   **defense**: queries assets for which traffic scrubbing is performed.
+    // *   **blackhole**: queries assets for which blackhole filtering is triggered.
     shared_ptr<string> ddosStatus_ {};
+    // The ID of the RDS Custom instance to which the asset to query is added.
     shared_ptr<string> instanceId_ {};
+    // The IP address of the asset to query.
     shared_ptr<string> instanceIp_ {};
+    // The name of the RDS Custom instance to which the asset to query is added.
     shared_ptr<string> instanceName_ {};
+    // The type of the asset that is assigned a public IP address. Set the value to **ecs**.
     shared_ptr<string> instanceType_ {};
+    // The number of instances on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region in which the RDS Custom instance resides.
     shared_ptr<string> regionId_ {};
+    // The type of the resource. Set the value to **ecs**.
     shared_ptr<string> resourceType_ {};
   };
 

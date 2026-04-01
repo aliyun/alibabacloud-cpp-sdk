@@ -213,27 +213,73 @@ namespace Models
 
 
   protected:
+    // The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+    // 
+    // *   **cert**
+    // *   **prefer**
+    // *   **verify-ca**
+    // *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
     shared_ptr<string> ACL_ {};
+    // The type of the server certificate. This parameter is supported only when the instance runs MySQL or PostgreSQL with cloud disks. If you set SSLEnabled to **1**, the default value of this parameter is **aliyun**. Valid values:
+    // 
+    // *   **aliyun**: a cloud certificate
+    // *   **custom**: a custom certificate
     shared_ptr<string> CAType_ {};
+    // The custom certificate. The custom certificate is in the `PFX` format.
+    // 
+    // *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the certificate file (The file name contains the extension.)>`
+    // *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the certificate file (The file name contains the extension.)>`
     shared_ptr<string> certificate_ {};
+    // The public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCAEbabled is set to **1**.
     shared_ptr<string> clientCACert_ {};
+    // Specifies whether to enable the public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+    // 
+    // *   **1**: enables the public key.
+    // *   **0**: disables the public key.
     shared_ptr<int32_t> clientCAEnabled_ {};
+    // The CRL that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCrlEnabled is set to **1**.
     shared_ptr<string> clientCertRevocationList_ {};
+    // Specifies whether to enable a certificate revocation list (CRL) that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+    // 
+    // *   **1**: enables the CRL.
+    // *   **0**: disables the CRL.
     shared_ptr<int32_t> clientCrlEnabled_ {};
+    // The internal or public endpoint for which the server certificate needs to be created or updated.
+    // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to enable the forceful SSL encryption feature. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html). Valid values:
+    // 
+    // *   **1**: enables the feature.
+    // *   **0**: disables the feature.
     shared_ptr<string> forceEncryption_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The password of the certificate.
     shared_ptr<string> passWord_ {};
+    // The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+    // 
+    // *   **cert**
+    // *   **prefer**
+    // *   **verify-ca**
+    // *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
     shared_ptr<string> replicationACL_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether to enable or disable the SSL encryption feature. Valid values:
+    // 
+    // *   **1**: enables the feature.
+    // *   **0**: disables the feature.
     shared_ptr<int32_t> SSLEnabled_ {};
+    // The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when CAType is set to **custom**.
     shared_ptr<string> serverCert_ {};
+    // The private key of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when CAType is set to **custom**.
     shared_ptr<string> serverKey_ {};
+    // The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html).
     shared_ptr<string> tlsVersion_ {};
   };
 

@@ -590,6 +590,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstancesAsCsvResponseBody::Items> items_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

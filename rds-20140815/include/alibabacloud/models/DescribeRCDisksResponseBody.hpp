@@ -370,7 +370,6 @@ namespace Models
 
 
     protected:
-      // The mount time.
       shared_ptr<string> attachedTime_ {};
       shared_ptr<bool> burstingEnabled_ {};
       // The category of the disk. Valid values:

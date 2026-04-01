@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // Permission expiration time in UTC format
         shared_ptr<string> expireTime_ {};
-        // Permission type. restrictedAccess indicates restricted access (data masking required)
         shared_ptr<string> privilege_ {};
-        // Account name
         shared_ptr<string> userName_ {};
       };
 
@@ -117,7 +114,6 @@ namespace Models
 
 
     protected:
-      // List of user encryption or data masking permissions
       shared_ptr<vector<Data::UserPrivilege>> userPrivilege_ {};
     };
 
@@ -140,9 +136,7 @@ namespace Models
 
 
   protected:
-    // Returned data
     shared_ptr<DescribeAccountMaskingPrivilegeResponseBody::Data> data_ {};
-    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

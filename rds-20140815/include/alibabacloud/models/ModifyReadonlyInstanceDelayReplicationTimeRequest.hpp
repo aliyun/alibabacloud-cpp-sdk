@@ -84,11 +84,16 @@ namespace Models
 
 
   protected:
+    // The ID of the read-only instance. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The replication latency of the data replication. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<string> readSQLReplicationTime_ {};
+    // The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

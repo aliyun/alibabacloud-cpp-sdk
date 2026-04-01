@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the backup file.
     shared_ptr<string> backupId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

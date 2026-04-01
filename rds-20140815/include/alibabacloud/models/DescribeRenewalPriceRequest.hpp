@@ -167,22 +167,45 @@ namespace Models
 
 
   protected:
+    // The additional business information about the instance.
     shared_ptr<string> businessInfo_ {};
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The instance type of the instance. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). By default, the current instance type applies.
     shared_ptr<string> DBInstanceClass_ {};
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The type of order. Set the value to **BUY**.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The billing method of the instance. Valid values:
+    // 
+    // *   **Postpaid**: pay-as-you-go
+    // *   **Prepaid**: subscription
     shared_ptr<string> payType_ {};
+    // The number of the instances. Default value: **1**.
     shared_ptr<int32_t> quantity_ {};
+    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The renewal cycle of the instance. Valid values:
+    // 
+    // *   **Year**
+    // *   **Month**
+    // 
     // This parameter is required.
     shared_ptr<string> timeType_ {};
+    // The subscription duration of the instance. Valid values:
+    // 
+    // *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter is within the range of **1 to 3**.
+    // *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter is within the range of **1 to 9**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> usedTime_ {};
   };

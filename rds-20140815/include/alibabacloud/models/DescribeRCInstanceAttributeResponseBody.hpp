@@ -390,28 +390,10 @@ namespace Models
 
 
     protected:
-      // A backup parameter.
       shared_ptr<bool> deleteWithInstance_ {};
-      // Specifies whether to encrypt the disk. Valid values:
-      // 
-      // - **true**: Yes
-      // - **false**: No
       shared_ptr<string> encrypted_ {};
-      // The system disk category. Valid values:
-      // 
-      // - **cloud_efficiency**: ultra disk.
-      // - **cloud_ssd**: standard SSD.
-      // - **cloud_essd**: enterprise SSD (ESSD).
-      // - **cloud_auto**: premium performance disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // Performance level of the system disk when it is an enterprise SSD (ESSD). Valid values:
-      // 
-      // - **PL0**
-      // - **PL1**
-      // - **PL2**
-      // - **PL3**
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // System disk size, in GiB.
       shared_ptr<int64_t> systemDiskSize_ {};
     };
 
@@ -1208,10 +1190,6 @@ namespace Models
 
 
   protected:
-    // Indicates whether auto-renewal is enabled for the instance. Valid values:
-    // 
-    // * **true**: Yes
-    // * **false**: No
     shared_ptr<bool> autoRenew_ {};
     // The ID of the cluster to which the instance belongs.
     // 
@@ -1219,26 +1197,15 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The number of CPU cores.
     shared_ptr<int32_t> cpu_ {};
-    // Indicates whether the instance is added to an ACK cluster. Valid values:  
-    // 
-    // - **1**: Yes  
-    // - **0**: No
     shared_ptr<int32_t> createMode_ {};
     // The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
     shared_ptr<string> creationTime_ {};
     // The performance mode of the burstable instance.
     shared_ptr<string> creditSpecification_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::DataDisks> dataDisks_ {};
-    // The database type. Valid values:
-    // 
-    // - **mssql**: SQL Server
-    // - **mysql**: MySQL
     shared_ptr<string> dbType_ {};
     // The attributes of the dedicated hosts.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::DedicatedHostAttribute> dedicatedHostAttribute_ {};
-    // Whether deletion protection is enabled. Valid values:
-    // * **true**: Enabled
-    // * **false**: Disabled
     shared_ptr<bool> deletionProtection_ {};
     // The ID of the deployment set.
     shared_ptr<string> deploymentSetId_ {};
@@ -1257,9 +1224,7 @@ namespace Models
     shared_ptr<bool> enableJumboFrame_ {};
     // The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
     shared_ptr<string> expiredTime_ {};
-    // Number of GPUs.
     shared_ptr<int32_t> gpu_ {};
-    // The GPU type.
     shared_ptr<string> gpuTypes_ {};
     // The instance hostname.
     shared_ptr<string> hostName_ {};
@@ -1271,9 +1236,6 @@ namespace Models
     // The image ID of the instance.
     shared_ptr<string> imageId_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::InnerIpAddress> innerIpAddress_ {};
-    // Billing method. Valid values:
-    // * **PrePaid**: subscription
-    // * **PostPaid**: pay-as-you-go
     shared_ptr<string> instanceChargeType_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -1306,7 +1268,6 @@ namespace Models
     shared_ptr<string> keyPairName_ {};
     // The memory capacity of the instance. Unit: MiB.
     shared_ptr<int32_t> memory_ {};
-    // The File Type. When the value is **rds_vnode**, it indicates that the node is a container node.
     shared_ptr<string> nodeType_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::OperationLocks> operationLocks_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::PublicIpAddress> publicIpAddress_ {};
@@ -1314,15 +1275,10 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
     // The serial number of the instance.
     shared_ptr<string> serialNumber_ {};
-    // The spot strategy for pay-as-you-go instances. Valid values:
-    // 
-    // - **NoSpot**: Normal pay-as-you-go instance.
-    // - **SpotAsPriceGo**: The system automatically bids based on the current marketplace price.
     shared_ptr<string> spotStrategy_ {};
     // The instance status. Valid values:
     // 
@@ -1338,12 +1294,8 @@ namespace Models
     // *   **StopCharging**: The billing of the instance stops after the instance is stopped. After the instance is stopped, resources such as CPU cores, memory resources, and public IP address are released. The instance may be unable to restart if some required resources are out of stock in the current region.
     // *   **Not-applicable**: The No Fees for Stopped Instances feature is not supported for the instance.
     shared_ptr<string> stoppedMode_ {};
-    // System disk specifications.
     shared_ptr<DescribeRCInstanceAttributeResponseBody::SystemDisk> systemDisk_ {};
     shared_ptr<DescribeRCInstanceAttributeResponseBody::Tags> tags_ {};
-    // The custom data of the instance, formatted as a base64-encoded string.
-    // 
-    // > If the instance does not have custom data, an empty string is returned.
     shared_ptr<string> userData_ {};
     // The virtual LAN (VLAN) ID of the instance.
     // 

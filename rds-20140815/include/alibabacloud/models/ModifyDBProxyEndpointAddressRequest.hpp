@@ -112,13 +112,30 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The network type of the database proxy endpoint. Valid values:
+    // 
+    // *   **Public**
+    // *   **VPC** (default)
+    // 
+    // >  If the RDS instance runs MySQL, this parameter is required.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
+    // The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the database proxy endpoint.
+    // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
+    // A deprecated parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
+    // The prefix of the new database proxy endpoint. A custom value is supported.
+    // 
+    // >  You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
     shared_ptr<string> DBProxyNewConnectString_ {};
+    // The port number that is associated with the database proxy endpoint. A custom value is supported.
+    // 
+    // >  You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
     shared_ptr<string> DBProxyNewConnectStringPort_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

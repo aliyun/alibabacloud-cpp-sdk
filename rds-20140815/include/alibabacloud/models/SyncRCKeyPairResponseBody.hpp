@@ -59,6 +59,10 @@ namespace Models
 
 
     protected:
+      // Indicates whether the synchronization succeeded. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
       shared_ptr<bool> isSyncInfo_ {};
     };
 
@@ -81,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The details of the result.
     shared_ptr<SyncRCKeyPairResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

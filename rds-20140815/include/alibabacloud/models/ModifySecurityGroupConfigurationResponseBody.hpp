@@ -145,8 +145,10 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<ModifySecurityGroupConfigurationResponseBody::Items> items_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

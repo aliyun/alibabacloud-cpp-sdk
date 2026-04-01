@@ -103,10 +103,18 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The type of the endpoint to query. Valid values:
+    // 
+    // *   **0**: a regular endpoint. This is the default value.
+    // *   **1**: a read/write splitting endpoint that is assigned after the shared proxy feature is enabled.
     shared_ptr<string> DBInstanceNetRWSplitType_ {};
+    // An internal parameter. You do not need to specify this parameter.
     shared_ptr<string> flag_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

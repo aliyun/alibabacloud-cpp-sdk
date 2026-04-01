@@ -256,9 +256,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeEventsResponseBody::EventItems> eventItems_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

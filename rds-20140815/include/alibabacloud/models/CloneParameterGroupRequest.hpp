@@ -113,16 +113,26 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The description of the parameter template in the destination region.
     shared_ptr<string> parameterGroupDesc_ {};
+    // The ID of the parameter template. You can call the DescribeParameterGroups operation to query the parameter template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
+    // The name of the parameter template in the destination region.
+    // 
     // This parameter is required.
     shared_ptr<string> parameterGroupName_ {};
+    // The ID of the source region to which the parameter template belongs. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group. You can leave this parameter empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the destination region. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> targetRegionId_ {};
   };

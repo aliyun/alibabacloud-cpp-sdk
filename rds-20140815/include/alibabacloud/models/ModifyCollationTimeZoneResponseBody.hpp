@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The character set collation of the instance.
     shared_ptr<string> collation_ {};
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The time zone.
     shared_ptr<string> timezone_ {};
   };
 

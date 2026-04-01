@@ -128,11 +128,6 @@ namespace Models
     // 
     // >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to automatically use a coupon. Valid values:
-    // * **true** (default): Yes.
-    // * **false**: No.
-    // 
-    // > If you use a coupon and later decrease the quota, the amount offset by the coupon will not be refunded.
     shared_ptr<bool> autoUseCoupon_ {};
     // The type of the change that you want to perform on the instance. Valid values:
     // 
@@ -150,17 +145,8 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The new instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types of RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
     shared_ptr<string> instanceType_ {};
-    // The coupon code.
     shared_ptr<string> promotionCode_ {};
-    // The restart time of the instance.
-    // 
-    // - If **RebootWhenFinished** is set to **false**, you **must** specify a restart time within 48 hours.
-    // - The time must follow the ISO 8601 standard in UTC+0. Format: `yyyy-MM-ddTHH:mmZ`.
     shared_ptr<string> rebootTime_ {};
-    // Whether to restart the instance immediately after the upgrade/downgrade operation ends. Valid values:
-    // - **true** (default): Yes.
-    // - **false**: No.
-    // > If the instance is in the **paused** status, it remains in that status even if you set `RebootWhenFinished=true`, and the restart operation will not be executed.
     shared_ptr<bool> rebootWhenFinished_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
