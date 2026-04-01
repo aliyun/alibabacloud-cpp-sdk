@@ -127,21 +127,11 @@ namespace Models
 
 
       protected:
-        // The number of nodes in the region.
         shared_ptr<string> ensRegionIdCount_ {};
-        // The code of the region.
         shared_ptr<string> netDistrictCode_ {};
-        // The name of the region.
         shared_ptr<string> netDistrictEnName_ {};
-        // The parent code of the region.
         shared_ptr<string> netDistrictFatherCode_ {};
-        // The level of the region.
-        // 
-        // *   **Big**: area
-        // *   **Middle**: province
-        // *   **Small**: city
         shared_ptr<string> netDistrictLevel_ {};
-        // The name of the region.
         shared_ptr<string> netDistrictName_ {};
       };
 
@@ -187,7 +177,6 @@ namespace Models
   protected:
     // The returned service code. A value of 0 indicates that the operation was successful.
     shared_ptr<int32_t> code_ {};
-    // The information about the regions.
     shared_ptr<DescribeEnsNetDistrictResponseBody::EnsNetDistricts> ensNetDistricts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

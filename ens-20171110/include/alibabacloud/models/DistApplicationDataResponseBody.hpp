@@ -111,13 +111,9 @@ namespace Models
 
 
       protected:
-        // The name of the data file.
         shared_ptr<string> name_ {};
-        // The error code. The value is of the enumerated data type.
         shared_ptr<int32_t> resultCode_ {};
-        // The description of the distribution result.
         shared_ptr<string> resultDescrip_ {};
-        // The version number of the data file.
         shared_ptr<string> version_ {};
       };
 
@@ -203,11 +199,9 @@ namespace Models
 
 
   protected:
-    // The list of ENS instance IDs.
     shared_ptr<DistApplicationDataResponseBody::DistInstanceIds> distInstanceIds_ {};
     // The total number of ENS instance IDs.
     shared_ptr<int32_t> distInstanceTotalCount_ {};
-    // The distribution result of the data file.
     shared_ptr<DistApplicationDataResponseBody::DistResults> distResults_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

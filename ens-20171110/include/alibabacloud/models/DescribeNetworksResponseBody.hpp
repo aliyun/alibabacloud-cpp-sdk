@@ -212,11 +212,9 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> key_ {};
             shared_ptr<string> tagKey_ {};
             shared_ptr<string> tagValue_ {};
-            // The bandwidth.
             shared_ptr<string> value_ {};
           };
 
@@ -418,36 +416,20 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR block of the network.
         shared_ptr<string> cidrBlock_ {};
-        // The timestamp when the instance was created. Unit: milliseconds.
         shared_ptr<string> createdTime_ {};
-        // The description of the network.
         shared_ptr<string> description_ {};
-        // The ID of the edge node.
         shared_ptr<string> ensRegionId_ {};
-        // The ID of the gateway route table.
         shared_ptr<string> gatewayRouteTableId_ {};
-        // The ID of the network access control list (ACL).
         shared_ptr<string> networkAclId_ {};
-        // The ID of the network.
         shared_ptr<string> networkId_ {};
-        // The name of the network.
         shared_ptr<string> networkName_ {};
-        // The ID of the route table.
         shared_ptr<string> routeTableId_ {};
-        // The IDs of the route tables.
         shared_ptr<Network::RouteTableIds> routeTableIds_ {};
-        // The route table ID.
         shared_ptr<string> routerTableId_ {};
         shared_ptr<Network::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
-        // The status of the network. Valid values:
-        // 
-        // *   Pending
-        // *   Available
         shared_ptr<string> status_ {};
         shared_ptr<Network::Tags> tags_ {};
-        // The list of vSwitches in the network.
         shared_ptr<Network::VSwitchIds> vSwitchIds_ {};
       };
 
@@ -505,7 +487,6 @@ namespace Models
 
 
   protected:
-    // The VPCs.
     shared_ptr<DescribeNetworksResponseBody::Networks> networks_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

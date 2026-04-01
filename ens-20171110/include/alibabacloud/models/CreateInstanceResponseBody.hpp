@@ -97,7 +97,6 @@ namespace Models
     // 
     // >  If you call this operation by using SDKs, the return value is of the integer type. If you call this operation by using common methods or HTTP requests, the return value is of the string type.
     shared_ptr<int32_t> code_ {};
-    // The IDs of instances.
     shared_ptr<CreateInstanceResponseBody::InstanceIds> instanceIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // The time when the key pair was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The fingerprint of the key pair.
         shared_ptr<string> keyPairFingerPrint_ {};
-        // The ID of the key pair.
         shared_ptr<string> keyPairId_ {};
-        // The name of the SSH key pair.
         shared_ptr<string> keyPairName_ {};
       };
 
@@ -177,7 +173,6 @@ namespace Models
 
 
   protected:
-    // Details about the key pairs.
     shared_ptr<DescribeKeyPairsResponseBody::KeyPairs> keyPairs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

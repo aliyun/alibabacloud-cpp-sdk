@@ -46,6 +46,14 @@
 #include <alibabacloud/models/AttachInstanceSDGShrinkRequest.hpp>
 #include <alibabacloud/models/AttachInstanceSDGResponseBody.hpp>
 #include <alibabacloud/models/AttachInstanceSDGResponse.hpp>
+#include <alibabacloud/models/AttachInstancesToNodePoolRequest.hpp>
+#include <alibabacloud/models/AttachInstancesToNodePoolShrinkRequest.hpp>
+#include <alibabacloud/models/AttachInstancesToNodePoolResponseBody.hpp>
+#include <alibabacloud/models/AttachInstancesToNodePoolResponse.hpp>
+#include <alibabacloud/models/AttachKeyPairRequest.hpp>
+#include <alibabacloud/models/AttachKeyPairShrinkRequest.hpp>
+#include <alibabacloud/models/AttachKeyPairResponseBody.hpp>
+#include <alibabacloud/models/AttachKeyPairResponse.hpp>
 #include <alibabacloud/models/AttachNetworkInterfaceRequest.hpp>
 #include <alibabacloud/models/AttachNetworkInterfaceResponseBody.hpp>
 #include <alibabacloud/models/AttachNetworkInterfaceResponse.hpp>
@@ -349,6 +357,9 @@
 #include <alibabacloud/models/DescribeClusterRequest.hpp>
 #include <alibabacloud/models/DescribeClusterResponseBody.hpp>
 #include <alibabacloud/models/DescribeClusterResponse.hpp>
+#include <alibabacloud/models/DescribeClusterAttachScriptsRequest.hpp>
+#include <alibabacloud/models/DescribeClusterAttachScriptsResponseBody.hpp>
+#include <alibabacloud/models/DescribeClusterAttachScriptsResponse.hpp>
 #include <alibabacloud/models/DescribeClusterDetailRequest.hpp>
 #include <alibabacloud/models/DescribeClusterDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeClusterDetailResponse.hpp>
@@ -649,6 +660,10 @@
 #include <alibabacloud/models/DetachInstanceSDGShrinkRequest.hpp>
 #include <alibabacloud/models/DetachInstanceSDGResponseBody.hpp>
 #include <alibabacloud/models/DetachInstanceSDGResponse.hpp>
+#include <alibabacloud/models/DetachKeyPairRequest.hpp>
+#include <alibabacloud/models/DetachKeyPairShrinkRequest.hpp>
+#include <alibabacloud/models/DetachKeyPairResponseBody.hpp>
+#include <alibabacloud/models/DetachKeyPairResponse.hpp>
 #include <alibabacloud/models/DetachNetworkInterfaceRequest.hpp>
 #include <alibabacloud/models/DetachNetworkInterfaceResponseBody.hpp>
 #include <alibabacloud/models/DetachNetworkInterfaceResponse.hpp>

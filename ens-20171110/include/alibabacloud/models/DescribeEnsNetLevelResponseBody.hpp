@@ -81,11 +81,6 @@ namespace Models
 
 
       protected:
-        // The network level. Valid values:
-        // 
-        // *   Big: greater area.
-        // *   Middle: province.
-        // *   Small: city.
         shared_ptr<string> ensNetLevelCode_ {};
       };
 
@@ -131,7 +126,6 @@ namespace Models
   protected:
     // The returned service code. A value of 0 indicates that the operation was successful.
     shared_ptr<int32_t> code_ {};
-    // The network levels.
     shared_ptr<DescribeEnsNetLevelResponseBody::EnsNetLevels> ensNetLevels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

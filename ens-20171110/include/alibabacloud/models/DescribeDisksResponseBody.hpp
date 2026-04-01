@@ -330,75 +330,24 @@ namespace Models
 
 
       protected:
-        // The category of the disk.
-        // 
-        // *   cloud_efficiency: ultra disk.
-        // *   cloud_ssd: all-flash disk.
-        // *   local_hdd: local HDD.
-        // *   local_ssd: local SSD.
         shared_ptr<string> category_ {};
-        // The time when the disk was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // Indicates whether the disk is released when the instance to which the disk is attached is released. Valid values:
-        // 
-        // *   true: The disk is released when the associated instance is released.
-        // *   false: The disk is retained when the associated instance is released.
         shared_ptr<bool> deleteWithInstance_ {};
-        // The namespace description.
         shared_ptr<string> description_ {};
-        // The billing method of the cloud disk or local disk. Valid values:
-        // 
-        // *   **prepaid**: subscription.
-        // *   **postpaid**: pay-as-you-go.
         shared_ptr<string> diskChargeType_ {};
-        // The ID of the disk.
         shared_ptr<string> diskId_ {};
-        // The name of the disk.
         shared_ptr<string> diskName_ {};
-        // Indicates whether the cloud disk is encrypted. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> encrypted_ {};
-        // The ID of the Key Management Service (KMS) key that is used for the cloud disk.
         shared_ptr<string> encryptedKeyId_ {};
-        // The ID of the edge node.
         shared_ptr<string> ensRegionId_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the cloud disk or local disk is removable. Valid values:
-        // 
-        // *   true: The disk is removable. A removable disk can independently exist and can be attached to or detached from an instance within the same zone.
-        // *   false: The disk is not removable. A disk that is not removable cannot independently exist or be attached to or detached from an instance within the same zone.
-        // 
-        // If disks are of the following categories or types, the **Portable** value is **false** and the disks have the same lifecycle as their attached instances:
-        // 
-        // *   Local HDDs
-        // *   Local SSDs
-        // *   Data disks that use the subscription billing method
         shared_ptr<bool> portable_ {};
-        // The serial number.
         shared_ptr<string> serialId_ {};
-        // The size of the disk. Unit: MiB.
         shared_ptr<int32_t> size_ {};
-        // The ID of the snapshot.
         shared_ptr<string> snapshotId_ {};
-        // The status of the disk. Valid values:
-        // 
-        // *   In-use: The disk is in use.
-        // *   Available: The disk can be attached.
-        // *   Attaching: The disk is being attached.
-        // *   Detaching: The disk is being detached.
-        // *   Creating: The disk is being created.
-        // *   ReIniting: The disk is being reset.
         shared_ptr<string> status_ {};
         shared_ptr<DisksItem::Tags> tags_ {};
-        // The type of the cloud disk or local disk. Valid values:
-        // 
-        // *   1: system disk.
-        // *   2: data disk.
         shared_ptr<string> type_ {};
       };
 
@@ -465,7 +414,6 @@ namespace Models
   protected:
     // The returned service code. 0 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The information about the disks.
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

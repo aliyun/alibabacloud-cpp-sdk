@@ -100,14 +100,8 @@ namespace Models
 
 
       protected:
-        // The renewal type of the instance.
-        // 
-        // *   **true**: enables auto-renewal.
-        // *   **false**: disables auto-renewal.
         shared_ptr<bool> autoRenewal_ {};
-        // The unit of the auto-renewal period.
         shared_ptr<string> duration_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -153,7 +147,6 @@ namespace Models
   protected:
     // The returned service code. A value of 0 indicates that the operation was successful.
     shared_ptr<int32_t> code_ {};
-    // The renewal status of the instance.
     shared_ptr<DescribeInstanceAutoRenewAttributeResponseBody::InstanceRenewAttributes> instanceRenewAttributes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

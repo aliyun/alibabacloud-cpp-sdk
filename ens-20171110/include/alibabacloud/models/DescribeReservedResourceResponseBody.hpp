@@ -190,15 +190,10 @@ namespace Models
 
 
       protected:
-        // The sizes of data disks.
         shared_ptr<SupportResource::DataDiskSizes> dataDiskSizes_ {};
-        // The ID of the node.
         shared_ptr<string> ensRegionId_ {};
-        // The specifications of instances.
         shared_ptr<string> instanceSpec_ {};
-        // The number of resources that you can purchase.
         shared_ptr<string> supportResourcesCount_ {};
-        // The sizes of system disks.
         shared_ptr<SupportResource::SystemDiskSizes> systemDiskSizes_ {};
       };
 
@@ -273,9 +268,7 @@ namespace Models
 
 
       protected:
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
       };
 
@@ -330,11 +323,9 @@ namespace Models
   protected:
     // The returned service code. 0 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The information about the image.
     shared_ptr<DescribeReservedResourceResponseBody::Images> images_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
     shared_ptr<DescribeReservedResourceResponseBody::SupportResources> supportResources_ {};
   };
 

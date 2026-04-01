@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The number of vCPUs.
         shared_ptr<int32_t> cpuCoreCount_ {};
-        // This parameter is unavailable.
         shared_ptr<string> instanceTypeId_ {};
-        // The name of the instance type.
         shared_ptr<string> instanceTypeName_ {};
-        // The memory size. Unit: MB.
         shared_ptr<int32_t> memorySize_ {};
       };
 
@@ -161,7 +157,6 @@ namespace Models
   protected:
     // The status code. If the request is successful, 0 is returned. If the request fails, a non-zero error code is returned.
     shared_ptr<int32_t> code_ {};
-    // Details about the instance types.
     shared_ptr<DescribeInstanceTypesResponseBody::InstanceTypes> instanceTypes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -588,6 +588,130 @@ AttachInstanceSDGResponse Client::attachInstanceSDG(const AttachInstanceSDGReque
 }
 
 /**
+ * @summary 添加已有节点到集群节点池
+ *
+ * @param tmpReq AttachInstancesToNodePoolRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AttachInstancesToNodePoolResponse
+ */
+AttachInstancesToNodePoolResponse Client::attachInstancesToNodePoolWithOptions(const AttachInstancesToNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AttachInstancesToNodePoolShrinkRequest request = AttachInstancesToNodePoolShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstances()) {
+    request.setInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstances(), "Instances", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasInstancesShrink()) {
+    query["Instances"] = request.getInstancesShrink();
+  }
+
+  if (!!request.hasNodepoolId()) {
+    query["NodepoolId"] = request.getNodepoolId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AttachInstancesToNodePool"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AttachInstancesToNodePoolResponse>();
+}
+
+/**
+ * @summary 添加已有节点到集群节点池
+ *
+ * @param request AttachInstancesToNodePoolRequest
+ * @return AttachInstancesToNodePoolResponse
+ */
+AttachInstancesToNodePoolResponse Client::attachInstancesToNodePool(const AttachInstancesToNodePoolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return attachInstancesToNodePoolWithOptions(request, runtime);
+}
+
+/**
+ * @summary Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+ *
+ * @description ## [](#)
+ * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+ * *   You can bind a maximum of 30 instances at a time.
+ * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+ * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+ *
+ * @param tmpReq AttachKeyPairRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AttachKeyPairResponse
+ */
+AttachKeyPairResponse Client::attachKeyPairWithOptions(const AttachKeyPairRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AttachKeyPairShrinkRequest request = AttachKeyPairShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasKeyPairId()) {
+    query["KeyPairId"] = request.getKeyPairId();
+  }
+
+  if (!!request.hasKeyPairName()) {
+    query["KeyPairName"] = request.getKeyPairName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AttachKeyPair"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AttachKeyPairResponse>();
+}
+
+/**
+ * @summary Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+ *
+ * @description ## [](#)
+ * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+ * *   You can bind a maximum of 30 instances at a time.
+ * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+ * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+ *
+ * @param request AttachKeyPairRequest
+ * @return AttachKeyPairResponse
+ */
+AttachKeyPairResponse Client::attachKeyPair(const AttachKeyPairRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return attachKeyPairWithOptions(request, runtime);
+}
+
+/**
  * @summary Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
  *
  * @description When you call this operation, take note of the following limits:
@@ -3965,6 +4089,10 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
     query["ClusterId"] = request.getClusterId();
   }
 
+  if (!!request.hasRetainResources()) {
+    query["RetainResources"] = request.getRetainResources();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4061,6 +4189,10 @@ DeleteClusterNodesResponse Client::deleteClusterNodesWithOptions(const DeleteClu
 
   if (!!request.hasClusterId()) {
     query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasReleaseNode()) {
+    query["ReleaseNode"] = request.getReleaseNode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6022,6 +6154,56 @@ DescribeClusterResponse Client::describeCluster(const DescribeClusterRequest &re
 }
 
 /**
+ * @summary 查询添加已有节点到集群节点池的脚本
+ *
+ * @param request DescribeClusterAttachScriptsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClusterAttachScriptsResponse
+ */
+DescribeClusterAttachScriptsResponse Client::describeClusterAttachScriptsWithOptions(const DescribeClusterAttachScriptsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasNodepoolId()) {
+    query["NodepoolId"] = request.getNodepoolId();
+  }
+
+  if (!!request.hasOptions()) {
+    query["Options"] = request.getOptions();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClusterAttachScripts"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClusterAttachScriptsResponse>();
+}
+
+/**
+ * @summary 查询添加已有节点到集群节点池的脚本
+ *
+ * @param request DescribeClusterAttachScriptsRequest
+ * @return DescribeClusterAttachScriptsResponse
+ */
+DescribeClusterAttachScriptsResponse Client::describeClusterAttachScripts(const DescribeClusterAttachScriptsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClusterAttachScriptsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询集群详细信息
  *
  * @param request DescribeClusterDetailRequest
@@ -7926,7 +8108,7 @@ DescribeExportImageStatusResponse Client::describeExportImageStatus(const Descri
 }
 
 /**
- * @summary Queries the information about file systems.
+ * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
  *
  * @param request DescribeFileSystemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7953,7 +8135,7 @@ DescribeFileSystemsResponse Client::describeFileSystemsWithOptions(const Describ
 }
 
 /**
- * @summary Queries the information about file systems.
+ * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
  *
  * @param request DescribeFileSystemsRequest
  * @return DescribeFileSystemsResponse
@@ -11286,6 +11468,76 @@ DetachInstanceSDGResponse Client::detachInstanceSDG(const DetachInstanceSDGReque
 }
 
 /**
+ * @summary Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+ *
+ * @description ## [](#)
+ * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+ * *   You can unbind a maximum of 30 instances at a time.
+ * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+ * *   At least one of key_pair_name and key_pair_id is not empty.
+ * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+ *
+ * @param tmpReq DetachKeyPairRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DetachKeyPairResponse
+ */
+DetachKeyPairResponse Client::detachKeyPairWithOptions(const DetachKeyPairRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DetachKeyPairShrinkRequest request = DetachKeyPairShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasKeyPairId()) {
+    query["KeyPairId"] = request.getKeyPairId();
+  }
+
+  if (!!request.hasKeyPairName()) {
+    query["KeyPairName"] = request.getKeyPairName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DetachKeyPair"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DetachKeyPairResponse>();
+}
+
+/**
+ * @summary Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+ *
+ * @description ## [](#)
+ * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+ * *   You can unbind a maximum of 30 instances at a time.
+ * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+ * *   At least one of key_pair_name and key_pair_id is not empty.
+ * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+ *
+ * @param request DetachKeyPairRequest
+ * @return DetachKeyPairResponse
+ */
+DetachKeyPairResponse Client::detachKeyPair(const DetachKeyPairRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return detachKeyPairWithOptions(request, runtime);
+}
+
+/**
  * @summary Detach an elastic network interface (ENI) from an instance.
  *
  * @description Before you call this operation, take note of the following items:
@@ -11421,6 +11673,10 @@ EventMigrateInstanceResponse Client::eventMigrateInstanceWithOptions(const Event
     query["PlanTime"] = request.getPlanTime();
   }
 
+  if (!!request.hasPlanUtcTime()) {
+    query["PlanUtcTime"] = request.getPlanUtcTime();
+  }
+
   if (!!request.hasResourceId()) {
     query["ResourceId"] = request.getResourceId();
   }
@@ -11479,6 +11735,10 @@ EventRebootInstanceResponse Client::eventRebootInstanceWithOptions(const EventRe
     query["PlanTime"] = request.getPlanTime();
   }
 
+  if (!!request.hasPlanUtcTime()) {
+    query["PlanUtcTime"] = request.getPlanUtcTime();
+  }
+
   if (!!request.hasResourceId()) {
     query["ResourceId"] = request.getResourceId();
   }
@@ -11535,6 +11795,10 @@ EventRedeployInstanceResponse Client::eventRedeployInstanceWithOptions(const Eve
 
   if (!!request.hasPlanTime()) {
     query["PlanTime"] = request.getPlanTime();
+  }
+
+  if (!!request.hasPlanUtcTime()) {
+    query["PlanUtcTime"] = request.getPlanUtcTime();
   }
 
   if (!!request.hasResourceId()) {
@@ -12126,7 +12390,7 @@ ImportKeyPairResponse Client::importKeyPair(const ImportKeyPairRequest &request)
 }
 
 /**
- * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+ * @summary Create a service-linked role (SLR) for ENS for the current user to manage resources.
  *
  * @param request InitializeENSECKServiceRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12149,7 +12413,7 @@ InitializeENSECKServiceRoleResponse Client::initializeENSECKServiceRoleWithOptio
 }
 
 /**
- * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+ * @summary Create a service-linked role (SLR) for ENS for the current user to manage resources.
  *
  * @return InitializeENSECKServiceRoleResponse
  */
@@ -12796,7 +13060,7 @@ ListObjectsResponse Client::listObjects(const ListObjectsRequest &request) {
 }
 
 /**
- * @summary 获取所有产品能力
+ * @summary Lists all service capabilities.
  *
  * @param request ListProductAbilitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12819,7 +13083,7 @@ ListProductAbilitiesResponse Client::listProductAbilitiesWithOptions(const Darab
 }
 
 /**
- * @summary 获取所有产品能力
+ * @summary Lists all service capabilities.
  *
  * @return ListProductAbilitiesResponse
  */
@@ -14179,7 +14443,7 @@ ModifySnapshotAttributeResponse Client::modifySnapshotAttribute(const ModifySnap
 }
 
 /**
- * @summary 修改snat规则
+ * @summary Modifies a specified SNAT entry.
  *
  * @param request ModifySnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14226,7 +14490,7 @@ ModifySnatEntryResponse Client::modifySnatEntryWithOptions(const ModifySnatEntry
 }
 
 /**
- * @summary 修改snat规则
+ * @summary Modifies a specified SNAT entry.
  *
  * @param request ModifySnatEntryRequest
  * @return ModifySnatEntryResponse

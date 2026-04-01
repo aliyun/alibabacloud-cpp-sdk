@@ -168,33 +168,15 @@ namespace Models
 
 
       protected:
-        // The time when the instance was created. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The ID of the EPN instance.
         shared_ptr<string> EPNInstanceId_ {};
-        // The name of the EPN instance.
         shared_ptr<string> EPNInstanceName_ {};
-        // Set the value to EdgeToEdge.
         shared_ptr<string> EPNInstanceType_ {};
-        // The end of the time range during which the data was queried. The time is displayed in UTC.
         shared_ptr<string> endTime_ {};
-        // The inbound bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-        // The time when the instance was last modified. The time is displayed in UTC.
         shared_ptr<string> modifyTime_ {};
-        // The networking mode. Valid values:
-        // 
-        // *   SpeedUp: intelligent acceleration network (Internet)
-        // *   Connection: internal network
-        // *   SpeedUpAndConnection: intelligent acceleration network and internal network
         shared_ptr<string> networkingModel_ {};
-        // The beginning of the time range during which the data was queried. The time is displayed in UTC.
         shared_ptr<string> startTime_ {};
-        // The status of the instance. Valid values:
-        // 
-        // *   Running
-        // *   Excuting
-        // *   Stopped
         shared_ptr<string> status_ {};
       };
 
@@ -252,7 +234,6 @@ namespace Models
 
 
   protected:
-    // Details of EPN instances.
     shared_ptr<DescribeEpnInstancesResponseBody::EPNInstances> EPNInstances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

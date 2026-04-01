@@ -137,23 +137,12 @@ namespace Models
 
 
       protected:
-        // The information about the ISP.
         shared_ptr<string> ensRegionIdCount_ {};
-        // The information about the instance.
         shared_ptr<string> instanceCount_ {};
-        // The region code.
         shared_ptr<string> netDistrictCode_ {};
-        // The name of the region.
         shared_ptr<string> netDistrictEnName_ {};
-        // The parent code of the region.
         shared_ptr<string> netDistrictFatherCode_ {};
-        // The region level. Valid values:
-        // 
-        // *   **Big**: area
-        // *   **Middle**: province
-        // *   **Small**: city
         shared_ptr<string> netDistrictLevel_ {};
-        // The Chinese name of the region.
         shared_ptr<string> netDistrictName_ {};
       };
 
@@ -199,7 +188,6 @@ namespace Models
   protected:
     // The returned service code. A value of 0 indicates that the operation was successful.
     shared_ptr<int32_t> code_ {};
-    // The information about the ISPs in the area.
     shared_ptr<DescribeEnsNetSaleDistrictResponseBody::EnsNetDistricts> ensNetDistricts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

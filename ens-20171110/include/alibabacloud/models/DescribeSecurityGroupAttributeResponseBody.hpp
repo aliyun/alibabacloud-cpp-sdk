@@ -187,27 +187,17 @@ namespace Models
 
 
       protected:
-        // The time at which the security group rule was created. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description.
         shared_ptr<string> description_ {};
-        // The range of destination IP addresses for outbound access control.
         shared_ptr<string> destCidrIp_ {};
-        // The direction in which the security group rule is applied.
         shared_ptr<string> direction_ {};
-        // The transport layer protocol.
         shared_ptr<string> ipProtocol_ {};
         shared_ptr<string> ipv6DestCidrIp_ {};
         shared_ptr<string> ipv6SourceCidrIp_ {};
-        // The policy.
         shared_ptr<string> policy_ {};
-        // The source port range.
         shared_ptr<string> portRange_ {};
-        // The priority of the rule.
         shared_ptr<int32_t> priority_ {};
-        // The range of source IP addresses for inbound access control.
         shared_ptr<string> sourceCidrIp_ {};
-        // The source port number range for the security group.
         shared_ptr<string> sourcePortRange_ {};
       };
 
@@ -267,7 +257,6 @@ namespace Models
   protected:
     // The description of the security group.
     shared_ptr<string> description_ {};
-    // Details about the rules.
     shared_ptr<DescribeSecurityGroupAttributeResponseBody::Permissions> permissions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -181,16 +181,9 @@ namespace Models
 
 
           protected:
-            // The format of the image.
             shared_ptr<string> format_ {};
-            // The size of the disk. Unit: GiB.
             shared_ptr<string> size_ {};
-            // The type of the disk. Valid values:
-            // 
-            // *   system: system disk.
-            // *   data: data disk.
             shared_ptr<string> type_ {};
-            // The ID of image.
             shared_ptr<string> imageId_ {};
           };
 
@@ -320,57 +313,20 @@ namespace Models
 
 
       protected:
-        // The image architecture. Valid values:
-        // 
-        // *   i386
-        // *   x86_64
         shared_ptr<string> architecture_ {};
-        // Computing type. ens_vm/ens: x86 computing. bare_metal: x86 bare machine or x86 bare metal. arm_vm: ARM computing. arm_bare_metal: ARM bare machine or ARM bare metal. pcfarm: heterogeneous computing.
         shared_ptr<string> computeType_ {};
-        // The image creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The mappings between the disk and the snapshot in the image.
         shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The source of the image. Valid values:
-        // 
-        // *   **others**: a custom image that is shared by other Alibaba Cloud accounts.
-        // *   **self**: your own custom image.
         shared_ptr<string> imageOwnerAlias_ {};
-        // The size of the image. Unit: GiB.
         shared_ptr<string> imageSize_ {};
-        // The size of the image storage.
         shared_ptr<string> imageStorageSize_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The operating system version.
         shared_ptr<string> osVersion_ {};
-        // The platform.
-        // 
-        // *   centos
-        // *   ubuntu
-        // *   alios
-        // *   debian
-        // *   rhel
-        // *   windows
         shared_ptr<string> platform_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
-        // The snapshot ID.
         shared_ptr<string> snapshotId_ {};
-        // The state of the image.
-        // 
-        // *   Creating.
-        // *   Packing.
-        // *   Uploading.
-        // *   Pack_failed.
-        // *   Upload_failed.
-        // *   Available: Only images in the Available state can be used and operated.
-        // *   Unavailable.
-        // *   Copying.
         shared_ptr<string> status_ {};
       };
 
@@ -437,7 +393,6 @@ namespace Models
   protected:
     // The HTTP status code that is returned.
     shared_ptr<int32_t> code_ {};
-    // The image information.
     shared_ptr<DescribeSelfImagesResponseBody::Images> images_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

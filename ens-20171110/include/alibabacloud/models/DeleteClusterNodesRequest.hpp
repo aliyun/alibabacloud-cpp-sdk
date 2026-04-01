@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteClusterNodesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Body, body_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(ReleaseNode, releaseNode_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteClusterNodesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Body, body_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(ReleaseNode, releaseNode_);
     };
     DeleteClusterNodesRequest() = default ;
     DeleteClusterNodesRequest(const DeleteClusterNodesRequest &) = default ;
@@ -67,7 +69,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->body_ == nullptr
-        && this->clusterId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->releaseNode_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
@@ -84,11 +86,19 @@ namespace Models
     inline DeleteClusterNodesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
+    // releaseNode Field Functions 
+    bool hasReleaseNode() const { return this->releaseNode_ != nullptr;};
+    void deleteReleaseNode() { this->releaseNode_ = nullptr;};
+    inline bool getReleaseNode() const { DARABONBA_PTR_GET_DEFAULT(releaseNode_, false) };
+    inline DeleteClusterNodesRequest& setReleaseNode(bool releaseNode) { DARABONBA_PTR_SET_VALUE(releaseNode_, releaseNode) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<DeleteClusterNodesRequest::Body> body_ {};
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    shared_ptr<bool> releaseNode_ {};
   };
 
   } // namespace Models

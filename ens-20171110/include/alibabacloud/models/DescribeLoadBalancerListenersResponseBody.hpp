@@ -159,34 +159,14 @@ namespace Models
 
 
       protected:
-        // The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
         shared_ptr<int32_t> backendServerPort_ {};
-        // The timestamp when the listener was created.
         shared_ptr<string> createTime_ {};
-        // The description of the listener.
         shared_ptr<string> description_ {};
-        // The listener port that is used for HTTP-to-HTTPS redirection.
         shared_ptr<string> forwardPort_ {};
-        // Indicates whether HTTP-to-HTTPS redirection is enabled for the listener. Valid values:
-        // 
-        // *   **on**
-        // *   **off**
         shared_ptr<string> listenerForward_ {};
-        // The listening port.
         shared_ptr<string> listenerPort_ {};
-        // The ID of the ELB instance.
         shared_ptr<string> loadBalancerId_ {};
-        // The network transmission protocol that is used by the listener.
-        // 
-        // *   **tcp**
-        // *   **udp**
-        // *   **http**
-        // *   **https**
         shared_ptr<string> protocol_ {};
-        // The status of the listener. Valid values:
-        // 
-        // *   **running**
-        // *   **stopped**
         shared_ptr<string> status_ {};
       };
 
@@ -244,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The listeners of the ELB instance.
     shared_ptr<DescribeLoadBalancerListenersResponseBody::Listeners> listeners_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

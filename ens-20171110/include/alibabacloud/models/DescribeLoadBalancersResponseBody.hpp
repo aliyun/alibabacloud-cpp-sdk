@@ -187,33 +187,17 @@ namespace Models
 
 
       protected:
-        // The IP address that the ELB instance uses to provide services.
         shared_ptr<string> address_ {};
-        // The IP version. Valid values: ipv4 and ipv6.
         shared_ptr<string> addressIPVersion_ {};
         shared_ptr<string> addressType_ {};
-        // The time when the ELB instance was created. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The ID of the ENS node.
         shared_ptr<string> ensRegionId_ {};
-        // The ID of the ELB instance.
         shared_ptr<string> loadBalancerId_ {};
-        // The name of the ELB instance.
         shared_ptr<string> loadBalancerName_ {};
-        // The status of the listener for the ELB instance. Valid values:
-        // 
-        // *   **Active**: The listener for the instance can forward the received traffic based on forwarding rules.
-        // *   **InActive**: The listener for the instance does not forward the received traffic.
         shared_ptr<string> loadBalancerStatus_ {};
         shared_ptr<string> loadBalancerType_ {};
-        // The ID of the network.
         shared_ptr<string> networkId_ {};
-        // The billing method. Valid values:
-        // 
-        // *   **PrePaid**: subscription.
-        // *   **PostPaid**: pay-as-you-go. Only this billing method is supported.
         shared_ptr<string> payType_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -271,7 +255,6 @@ namespace Models
 
 
   protected:
-    // An array of ELB instances.
     shared_ptr<DescribeLoadBalancersResponseBody::LoadBalancers> loadBalancers_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

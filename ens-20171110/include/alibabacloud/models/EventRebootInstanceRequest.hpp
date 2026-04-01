@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EventId, eventId_);
       DARABONBA_PTR_TO_JSON(OpsType, opsType_);
       DARABONBA_PTR_TO_JSON(PlanTime, planTime_);
+      DARABONBA_PTR_TO_JSON(PlanUtcTime, planUtcTime_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
     };
     friend void from_json(const Darabonba::Json& j, EventRebootInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EventId, eventId_);
       DARABONBA_PTR_FROM_JSON(OpsType, opsType_);
       DARABONBA_PTR_FROM_JSON(PlanTime, planTime_);
+      DARABONBA_PTR_FROM_JSON(PlanUtcTime, planUtcTime_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
     };
     EventRebootInstanceRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventId_ == nullptr
-        && this->opsType_ == nullptr && this->planTime_ == nullptr && this->resourceId_ == nullptr; };
+        && this->opsType_ == nullptr && this->planTime_ == nullptr && this->planUtcTime_ == nullptr && this->resourceId_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deletePlanTime() { this->planTime_ = nullptr;};
     inline int64_t getPlanTime() const { DARABONBA_PTR_GET_DEFAULT(planTime_, 0L) };
     inline EventRebootInstanceRequest& setPlanTime(int64_t planTime) { DARABONBA_PTR_SET_VALUE(planTime_, planTime) };
+
+
+    // planUtcTime Field Functions 
+    bool hasPlanUtcTime() const { return this->planUtcTime_ != nullptr;};
+    void deletePlanUtcTime() { this->planUtcTime_ = nullptr;};
+    inline string getPlanUtcTime() const { DARABONBA_PTR_GET_DEFAULT(planUtcTime_, "") };
+    inline EventRebootInstanceRequest& setPlanUtcTime(string planUtcTime) { DARABONBA_PTR_SET_VALUE(planUtcTime_, planUtcTime) };
 
 
     // resourceId Field Functions 
@@ -79,6 +88,7 @@ namespace Models
     shared_ptr<string> opsType_ {};
     // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
     shared_ptr<int64_t> planTime_ {};
+    shared_ptr<string> planUtcTime_ {};
     // The ID of the resource.
     // 
     // This parameter is required.

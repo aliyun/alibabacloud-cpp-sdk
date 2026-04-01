@@ -247,17 +247,11 @@ namespace Models
 
 
           protected:
-            // The region.
             shared_ptr<string> area_ {};
-            // The name. This parameter is empty by default.
             shared_ptr<string> enName_ {};
-            // The ID of the edge node.
             shared_ptr<string> ensRegionId_ {};
-            // The information about the Internet service provider (ISP).
             shared_ptr<string> isp_ {};
-            // The name of the edge node.
             shared_ptr<string> name_ {};
-            // The province.
             shared_ptr<string> province_ {};
           };
 
@@ -418,22 +412,14 @@ namespace Models
 
 
       protected:
-        // Bandwidth billing method.
         shared_ptr<SupportResource::BandwidthTypes> bandwidthTypes_ {};
-        // The maximum capacity of a data disk. Unit: GB.
         shared_ptr<int32_t> dataDiskMaxSize_ {};
-        // The minimum data disk size. Unit: GiB.
         shared_ptr<int32_t> dataDiskMinSize_ {};
-        // node ID
         shared_ptr<SupportResource::EnsRegionIds> ensRegionIds_ {};
-        // The supplementary information about the edge nodes.
         shared_ptr<SupportResource::EnsRegionIdsExtends> ensRegionIdsExtends_ {};
         shared_ptr<SupportResource::InstanceSpeces> instanceSpeces_ {};
-        // Operator
         shared_ptr<SupportResource::Isp> isp_ {};
-        // The maximum size of the system disk. Unit: GiB.
         shared_ptr<int32_t> systemDiskMaxSize_ {};
-        // The minimum capacity of a system disk. Unit: GB.
         shared_ptr<int32_t> systemDiskMinSize_ {};
       };
 
@@ -517,11 +503,8 @@ namespace Models
 
 
       protected:
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The size of the image. Unit: GB.
         shared_ptr<int32_t> imageSize_ {};
       };
 
@@ -567,11 +550,9 @@ namespace Models
 
 
   protected:
-    // The information about the image.
     shared_ptr<DescribeAvailableResourceInfoResponseBody::Images> images_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The specifications of resources that you can purchase.
     shared_ptr<DescribeAvailableResourceInfoResponseBody::SupportResources> supportResources_ {};
   };
 

@@ -116,20 +116,10 @@ namespace Models
 
 
       protected:
-        // The IP address of the backend server.
         shared_ptr<string> ip_ {};
-        // The backend port that is used by the ELB instance.
         shared_ptr<int32_t> port_ {};
-        // The ID of the instance that you want to use as the backend server.
         shared_ptr<string> serverId_ {};
-        // The type of the backend server. Valid values:
-        // 
-        // *   **ens**: ENS instance.
-        // *   **eni**: ENI instance.
         shared_ptr<string> type_ {};
-        // The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
-        // 
-        // >  The value 0 indicates that requests are not forwarded to the backend server.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -166,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The backend servers.
     shared_ptr<SetBackendServersResponseBody::BackendServers> backendServers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

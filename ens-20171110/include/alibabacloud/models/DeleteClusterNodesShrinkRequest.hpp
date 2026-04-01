@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteClusterNodesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Body, bodyShrink_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(ReleaseNode, releaseNode_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteClusterNodesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Body, bodyShrink_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(ReleaseNode, releaseNode_);
     };
     DeleteClusterNodesShrinkRequest() = default ;
     DeleteClusterNodesShrinkRequest(const DeleteClusterNodesShrinkRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bodyShrink_ == nullptr
-        && this->clusterId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->releaseNode_ == nullptr; };
     // bodyShrink Field Functions 
     bool hasBodyShrink() const { return this->bodyShrink_ != nullptr;};
     void deleteBodyShrink() { this->bodyShrink_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline DeleteClusterNodesShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
+    // releaseNode Field Functions 
+    bool hasReleaseNode() const { return this->releaseNode_ != nullptr;};
+    void deleteReleaseNode() { this->releaseNode_ = nullptr;};
+    inline bool getReleaseNode() const { DARABONBA_PTR_GET_DEFAULT(releaseNode_, false) };
+    inline DeleteClusterNodesShrinkRequest& setReleaseNode(bool releaseNode) { DARABONBA_PTR_SET_VALUE(releaseNode_, releaseNode) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> bodyShrink_ {};
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    shared_ptr<bool> releaseNode_ {};
   };
 
   } // namespace Models

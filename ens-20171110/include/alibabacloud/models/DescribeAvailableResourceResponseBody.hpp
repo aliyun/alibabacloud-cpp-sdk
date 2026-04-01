@@ -120,15 +120,10 @@ namespace Models
 
 
       protected:
-        // The size of the data disk. Unit: GB.
         shared_ptr<string> dataDiskSize_ {};
-        // The ID of the edge node.
         shared_ptr<string> ensRegionId_ {};
-        // The specifications of the resource plan.
         shared_ptr<string> instanceSpec_ {};
-        // The number of resources that you can purchase.
         shared_ptr<string> supportResourcesCount_ {};
-        // The size of the system disk. Unit: GiB.
         shared_ptr<string> systemDiskSize_ {};
       };
 
@@ -203,9 +198,7 @@ namespace Models
 
 
       protected:
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
       };
 
@@ -260,11 +253,9 @@ namespace Models
   protected:
     // The returned service code. 0 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The details of the images.
     shared_ptr<DescribeAvailableResourceResponseBody::Images> images_ {};
     // The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The specifications of resources that you can purchase.
     shared_ptr<DescribeAvailableResourceResponseBody::SupportResources> supportResources_ {};
   };
 

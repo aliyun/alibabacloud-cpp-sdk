@@ -107,18 +107,9 @@ namespace Models
 
 
       protected:
-        // The name of the data file.
         shared_ptr<string> name_ {};
-        // The push result. The value is of the enumeration type. Valid values:
-        // 
-        // *   0: The push operation is successful.
-        // *   100: The push operation has been performed and the file is pushed.
-        // *   200: The push operation has been performed and the file is being pushed to specific file servers.
-        // *   300: The push operation failed. You must trigger the push operation again. The ResultDescrip parameter indicates the error description.
         shared_ptr<int32_t> resultCode_ {};
-        // The description of the push status.
         shared_ptr<string> resultDescrip_ {};
-        // The version number of the data file.
         shared_ptr<string> version_ {};
       };
 
@@ -155,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The push results of data files.
     shared_ptr<PushApplicationDataResponseBody::PushResults> pushResults_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

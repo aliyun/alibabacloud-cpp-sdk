@@ -135,9 +135,7 @@ namespace Models
 
 
           protected:
-            // The ID of the application.
             shared_ptr<string> appId_ {};
-            // The information about the application, such as the resource specification, parameter configuration, and resources.
             shared_ptr<string> appInfo_ {};
           };
 
@@ -174,9 +172,7 @@ namespace Models
 
 
       protected:
-        // Details about the application.
         shared_ptr<Application::AppList> appList_ {};
-        // The name of the cluster.
         shared_ptr<string> clusterName_ {};
       };
 
@@ -234,7 +230,6 @@ namespace Models
 
 
   protected:
-    // Details about applications.
     shared_ptr<ListApplicationsResponseBody::Applications> applications_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

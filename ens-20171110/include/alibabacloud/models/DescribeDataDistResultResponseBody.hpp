@@ -197,13 +197,9 @@ namespace Models
 
 
               protected:
-                // The ID of the instance
                 shared_ptr<string> instanceId_ {};
-                // The start time of the distribution. The time is displayed in UTC.
                 shared_ptr<string> startTime_ {};
-                // The description of the distribution status.
                 shared_ptr<string> statusDescrip_ {};
-                // The time when the distribution status was last updated. The time is displayed in UTC.
                 shared_ptr<string> updateTime_ {};
               };
 
@@ -247,17 +243,8 @@ namespace Models
 
 
           protected:
-            // The number of associated edge instances.
             shared_ptr<string> instanceCount_ {};
-            // The distribution status of the edge instance.
             shared_ptr<StatusStat::Instances> instances_ {};
-            // The distribution status. The value is of the enumeration type. Valid values:
-            // 
-            // *   SUCCESS: The distribution is successful.
-            // *   FAILED: The distribution failed.
-            // *   DISTING: The data is being distributed.
-            // *   POD_RESTARTING: The idle pod is being restarted.
-            // *   DELETED: The data is cleared or removed.
             shared_ptr<string> status_ {};
           };
 
@@ -301,11 +288,8 @@ namespace Models
 
 
       protected:
-        // The name of the data file.
         shared_ptr<string> name_ {};
-        // The distribution status statistics.
         shared_ptr<DistResult::StatusStats> statusStats_ {};
-        // The version number of the data file.
         shared_ptr<string> version_ {};
       };
 
@@ -363,7 +347,6 @@ namespace Models
 
 
   protected:
-    // The distribution status of data files on edge instances.
     shared_ptr<DescribeDataDistResultResponseBody::DistResults> distResults_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

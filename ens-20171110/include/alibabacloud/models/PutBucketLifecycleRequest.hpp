@@ -47,8 +47,8 @@ namespace Models
     // allowSameActionOverlap Field Functions 
     bool hasAllowSameActionOverlap() const { return this->allowSameActionOverlap_ != nullptr;};
     void deleteAllowSameActionOverlap() { this->allowSameActionOverlap_ = nullptr;};
-    inline string getAllowSameActionOverlap() const { DARABONBA_PTR_GET_DEFAULT(allowSameActionOverlap_, "") };
-    inline PutBucketLifecycleRequest& setAllowSameActionOverlap(string allowSameActionOverlap) { DARABONBA_PTR_SET_VALUE(allowSameActionOverlap_, allowSameActionOverlap) };
+    inline bool getAllowSameActionOverlap() const { DARABONBA_PTR_GET_DEFAULT(allowSameActionOverlap_, false) };
+    inline PutBucketLifecycleRequest& setAllowSameActionOverlap(bool allowSameActionOverlap) { DARABONBA_PTR_SET_VALUE(allowSameActionOverlap_, allowSameActionOverlap) };
 
 
     // bucketName Field Functions 
@@ -98,7 +98,7 @@ namespace Models
     // 
     // *   **true**
     // *   **false** (default)
-    shared_ptr<string> allowSameActionOverlap_ {};
+    shared_ptr<bool> allowSameActionOverlap_ {};
     // The name of the bucket.
     // 
     // This parameter is required.

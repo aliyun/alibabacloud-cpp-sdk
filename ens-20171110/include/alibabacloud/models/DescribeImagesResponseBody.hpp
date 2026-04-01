@@ -171,16 +171,9 @@ namespace Models
 
 
           protected:
-            // The format of the image.
             shared_ptr<string> format_ {};
-            // The size of the disk. Unit: GiB.
             shared_ptr<string> size_ {};
-            // The type of the disk. Valid values:
-            // 
-            // *   system: system disk.
-            // *   data: data disk.
             shared_ptr<string> type_ {};
-            // The ID of image.
             shared_ptr<string> imageId_ {};
           };
 
@@ -274,32 +267,15 @@ namespace Models
 
 
       protected:
-        // The architecture of the image. Example: **x86_64**.
         shared_ptr<string> architecture_ {};
-        // The time when the image was created. The time follows the ISO 8601 standard.
         shared_ptr<string> creationTime_ {};
-        // The mappings between the disk and the snapshot in the image.
         shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The source of the image. Valid values:
-        // 
-        // *   system: Alibaba Cloud public images
-        // *   self: your custom images
-        // *   others: shared images from other Alibaba Cloud accounts, or community images published by other Alibaba Cloud accounts
         shared_ptr<string> imageOwnerAlias_ {};
-        // The size of the image. Unit: GiB.
         shared_ptr<string> imageSize_ {};
-        // The operating system type of the image. Valid values:
-        // 
-        // *   Linux
-        // *   Windows
         shared_ptr<string> platform_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the snapshot.
         shared_ptr<string> snapshotId_ {};
       };
 
@@ -366,7 +342,6 @@ namespace Models
   protected:
     // The returned service code. 0 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The information about the images.
     shared_ptr<DescribeImagesResponseBody::Images> images_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

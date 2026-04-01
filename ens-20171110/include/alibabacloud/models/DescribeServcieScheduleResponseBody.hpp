@@ -130,9 +130,7 @@ namespace Models
 
 
         protected:
-          // The ID of the container.
           shared_ptr<string> containerId_ {};
-          // The name of the container.
           shared_ptr<string> name_ {};
         };
 
@@ -199,7 +197,6 @@ namespace Models
     protected:
       // The name of the container service.
       shared_ptr<bool> containerService_ {};
-      // The information about the container.
       shared_ptr<PodAbstractInfo::ContainerStatuses> containerStatuses_ {};
       // The name of the pod.
       shared_ptr<bool> name_ {};

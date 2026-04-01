@@ -150,29 +150,13 @@ namespace Models
 
 
       protected:
-        // The architecture of the image. Example: **x86_64**.
         shared_ptr<string> architecture_ {};
-        // The time when the image was created.
         shared_ptr<string> creationTime_ {};
-        // The URL of the exported image.
         shared_ptr<string> exportedImageURL_ {};
-        // The export status of the image. Valid values:
-        // 
-        // *   Exporting
-        // *   Exported
-        // *   ExportError
-        // *   Unexported
         shared_ptr<string> imageExportStatus_ {};
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The source of the image. Valid values:
-        // 
-        // *   system: public image
-        // *   self: custom image
         shared_ptr<string> imageOwnerAlias_ {};
-        // The OS.
         shared_ptr<string> platform_ {};
       };
 
@@ -230,7 +214,6 @@ namespace Models
 
 
   protected:
-    // The returned result. For more information, see the Images parameter described in the JSON-formatted sample success response.
     shared_ptr<DescribeExportImageInfoResponseBody::Images> images_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

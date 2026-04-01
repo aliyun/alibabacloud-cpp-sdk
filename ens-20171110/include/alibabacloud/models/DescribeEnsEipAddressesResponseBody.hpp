@@ -183,9 +183,13 @@ namespace Models
 
 
           protected:
+            // 标签键
             shared_ptr<string> key_ {};
+            // 标签键。
             shared_ptr<string> tagKey_ {};
+            // 标签值。
             shared_ptr<string> tagValue_ {};
+            // 标签值。
             shared_ptr<string> value_ {};
           };
 
@@ -330,22 +334,66 @@ namespace Models
 
 
       protected:
+        // EIP的实例ID。
         shared_ptr<string> allocationId_ {};
+        // EIP的创建时间
         shared_ptr<string> allocationTime_ {};
+        // EIP的带宽峰值，默认值为5。取值范围：**5**~**10000**，单位：Mbps。
         shared_ptr<int32_t> bandwidth_ {};
+        // EIP的计费模式。
+        // 
+        // - **PrePaid**：包年包月。
+        // 
+        // - **PostPaid**：按量计费。
         shared_ptr<string> chargeType_ {};
+        // EIP的描述信息。
         shared_ptr<string> description_ {};
+        // ENS节点ID。
         shared_ptr<string> ensRegionId_ {};
         shared_ptr<bool> icmpReplyEnabled_ {};
+        // 当前绑定的实例的ID。
         shared_ptr<string> instanceId_ {};
+        // 要绑定的云产品实例的类型，取值： 
+        // 
+        // - **EnsInstance**：VPC类型的ENS实例。
+        // 
+        // - **SlbInstance**：负载均衡实例。
         shared_ptr<string> instanceType_ {};
+        // EIP的计费方式。
+        // 
+        // - **95BandwidthByMonth**：月95峰值带宽。
+        // 
+        // - **PayByBandwidth**：固定带宽计费。
         shared_ptr<string> internetChargeType_ {};
+        // EIP的IP地址。
         shared_ptr<string> ipAddress_ {};
+        // 如果该弹性IP是备用EIP时，表示当前EIP的运行状态。
+        // - **Stopped**：已停止。
+        // - **Running**：运行中。
+        // - **Starting**：启动中。
+        // - **Stopping**：停止中。
         shared_ptr<string> ipStatus_ {};
+        // 运营商，取值：
+        // 
+        // - **cmcc**：中国移动。
+        // - **unicom**：中国联通。
+        // - **telecom**：中国电信。
         shared_ptr<string> isp_ {};
+        // EIP实例名称。
         shared_ptr<string> name_ {};
+        // 该EIP是否是备用。
         shared_ptr<bool> standby_ {};
+        // EIP的状态。
+        // 
+        // - **Associating**：绑定中。
+        // 
+        // - **Unassociating**：解绑中。   
+        // 
+        // - **InUse**：已分配。   
+        // 
+        // - **Available**：可用。
         shared_ptr<string> status_ {};
+        // 标签集合。
         shared_ptr<EipAddress::Tags> tags_ {};
       };
 

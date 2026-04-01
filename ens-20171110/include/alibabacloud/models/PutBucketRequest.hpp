@@ -84,12 +84,22 @@ namespace Models
 
 
   protected:
+    // The access control list (ACL) of the bucket. private public-read-write public-read
     shared_ptr<string> bucketAcl_ {};
+    // The name of the bucket. This parameter can contain 3 to 50 characters in length and can contain only lowercase letters, digits, and hyphens (-). The name cannot start or end with a hyphen (-).
+    // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
+    // The description. The description can be 0 to 128 characters in length, and can contain Chinese characters and emoticons.
     shared_ptr<string> comment_ {};
+    // The scheduling scope. This parameter takes effect only when the value of the LogicalBucketType parameter is standard. Valid values:
+    // 
+    // *   **domestic**: Chinese mainland.
+    // *   **oversea**: outside the Chinese mainland.
     shared_ptr<string> dispatchScope_ {};
+    // The ID of the region where the node is located. If this parameter is not specified, the node is the global default node.
     shared_ptr<string> ensRegionId_ {};
+    // The type of the logical bucket. Valid values: sink standard (default)
     shared_ptr<string> logicalBucketType_ {};
   };
 

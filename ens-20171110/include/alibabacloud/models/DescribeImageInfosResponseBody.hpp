@@ -163,13 +163,9 @@ namespace Models
 
 
           protected:
-            // The format of the image.
             shared_ptr<string> format_ {};
-            // The size of the image. Unit: GB.
             shared_ptr<string> size_ {};
-            // The type of the disk. Valid values: System and Data.
             shared_ptr<string> type_ {};
-            // The ID of the image.
             shared_ptr<string> imageId_ {};
           };
 
@@ -256,28 +252,14 @@ namespace Models
 
 
       protected:
-        // The computing type of the image. Valid values:
-        // 
-        // *   ens_vm: x86 computing.
-        // *   arm_vm: ARM computing.
-        // *   bare_metal: x86 bare machine.
-        // *   pcfarm: heterogeneous computing.
         shared_ptr<string> computeType_ {};
-        // The description of the image.
         shared_ptr<string> description_ {};
-        // The mappings between disks and snapshots in the image.
         shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The size of the image. Unit: GiB.
         shared_ptr<string> imageSize_ {};
-        // The version of the image.
         shared_ptr<string> imageVersion_ {};
-        // The type of the image. Valid values: **centos**, **debian**, **ubuntu**, and **windows**.
         shared_ptr<string> OSName_ {};
-        // The type of the operating system.
         shared_ptr<string> OSType_ {};
-        // The ID of the region.
         shared_ptr<string> regionId_ {};
       };
 
@@ -323,7 +305,6 @@ namespace Models
   protected:
     // The HTTP status code that is returned.
     shared_ptr<int32_t> code_ {};
-    // The information about images.
     shared_ptr<DescribeImageInfosResponseBody::Images> images_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

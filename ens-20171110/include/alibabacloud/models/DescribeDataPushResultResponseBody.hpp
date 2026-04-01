@@ -197,13 +197,9 @@ namespace Models
 
 
               protected:
-                // The ID of the ENS node.
                 shared_ptr<string> regionId_ {};
-                // The start time of the push operation. The time is displayed in UTC.
                 shared_ptr<string> startTime_ {};
-                // The description of the status.
                 shared_ptr<string> statusDescrip_ {};
-                // The time when the status was last updated. The time is displayed in UTC.
                 shared_ptr<string> updateTime_ {};
               };
 
@@ -247,11 +243,8 @@ namespace Models
 
 
           protected:
-            // The total number of ENS nodes.
             shared_ptr<int32_t> regionIdCount_ {};
-            // The push status of data files on the ENS node.
             shared_ptr<StatusStat::RegionIds> regionIds_ {};
-            // The push status. The value is of the enumeration type. Valid values: SUCCESS FAILED PUSHING
             shared_ptr<string> status_ {};
           };
 
@@ -295,11 +288,8 @@ namespace Models
 
 
       protected:
-        // The name of the data file.
         shared_ptr<string> name_ {};
-        // The push status of data files.
         shared_ptr<PushResult::StatusStatS> statusStatS_ {};
-        // The version number of the data file.
         shared_ptr<string> version_ {};
       };
 
@@ -361,7 +351,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The push results of data files.
     shared_ptr<DescribeDataPushResultResponseBody::PushResults> pushResults_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

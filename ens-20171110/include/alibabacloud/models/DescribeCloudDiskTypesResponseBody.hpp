@@ -89,14 +89,7 @@ namespace Models
 
 
       protected:
-        // The category of the disk.
-        // 
-        // *   cloud_efficiency: ultra disk.
-        // *   cloud_ssd: all-flash disk.
-        // *   local_hdd: local HDD.
-        // *   local_ssd: local SSD.
         shared_ptr<string> category_ {};
-        // The ID of the edge node.
         shared_ptr<string> ensRegionId_ {};
       };
 
@@ -135,7 +128,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The specifications of resources that you can purchase.
     shared_ptr<DescribeCloudDiskTypesResponseBody::SupportResources> supportResources_ {};
   };
 

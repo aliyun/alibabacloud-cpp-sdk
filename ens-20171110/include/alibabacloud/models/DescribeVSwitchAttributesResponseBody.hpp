@@ -353,17 +353,12 @@ namespace Models
     shared_ptr<string> description_ {};
     // The ENS node ID.
     shared_ptr<string> ensRegionId_ {};
-    // A list of high-availability VIP instance IDs.
     shared_ptr<DescribeVSwitchAttributesResponseBody::HaVipIds> haVipIds_ {};
-    // A list of instance IDs.
     shared_ptr<DescribeVSwitchAttributesResponseBody::InstanceIds> instanceIds_ {};
-    // A list of load balancer instance IDs.
     shared_ptr<DescribeVSwitchAttributesResponseBody::LoadBalancerIds> loadBalancerIds_ {};
-    // A list of NAT gateway IDs.
     shared_ptr<DescribeVSwitchAttributesResponseBody::NatGatewayIds> natGatewayIds_ {};
     // The network ID.
     shared_ptr<string> networkId_ {};
-    // A list of elastic network interface IDs.
     shared_ptr<DescribeVSwitchAttributesResponseBody::NetworkInterfaceIds> networkInterfaceIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -47,7 +47,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EventType, eventType_);
         DARABONBA_PTR_TO_JSON(ExtendedAttribute, extendedAttribute_);
         DARABONBA_PTR_TO_JSON(NotBefore, notBefore_);
+        DARABONBA_PTR_TO_JSON(NotBeforeUtcTime, notBeforeUtcTime_);
         DARABONBA_PTR_TO_JSON(PublishTime, publishTime_);
+        DARABONBA_PTR_TO_JSON(PublishUtcTime, publishUtcTime_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       };
@@ -58,7 +60,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EventType, eventType_);
         DARABONBA_PTR_FROM_JSON(ExtendedAttribute, extendedAttribute_);
         DARABONBA_PTR_FROM_JSON(NotBefore, notBefore_);
+        DARABONBA_PTR_FROM_JSON(NotBeforeUtcTime, notBeforeUtcTime_);
         DARABONBA_PTR_FROM_JSON(PublishTime, publishTime_);
+        DARABONBA_PTR_FROM_JSON(PublishUtcTime, publishUtcTime_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       };
@@ -75,7 +79,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->eventId_ == nullptr
         && this->eventLevel_ == nullptr && this->eventStatus_ == nullptr && this->eventType_ == nullptr && this->extendedAttribute_ == nullptr && this->notBefore_ == nullptr
-        && this->publishTime_ == nullptr && this->reason_ == nullptr && this->resourceId_ == nullptr; };
+        && this->notBeforeUtcTime_ == nullptr && this->publishTime_ == nullptr && this->publishUtcTime_ == nullptr && this->reason_ == nullptr && this->resourceId_ == nullptr; };
       // eventId Field Functions 
       bool hasEventId() const { return this->eventId_ != nullptr;};
       void deleteEventId() { this->eventId_ = nullptr;};
@@ -118,11 +122,25 @@ namespace Models
       inline Events& setNotBefore(int64_t notBefore) { DARABONBA_PTR_SET_VALUE(notBefore_, notBefore) };
 
 
+      // notBeforeUtcTime Field Functions 
+      bool hasNotBeforeUtcTime() const { return this->notBeforeUtcTime_ != nullptr;};
+      void deleteNotBeforeUtcTime() { this->notBeforeUtcTime_ = nullptr;};
+      inline string getNotBeforeUtcTime() const { DARABONBA_PTR_GET_DEFAULT(notBeforeUtcTime_, "") };
+      inline Events& setNotBeforeUtcTime(string notBeforeUtcTime) { DARABONBA_PTR_SET_VALUE(notBeforeUtcTime_, notBeforeUtcTime) };
+
+
       // publishTime Field Functions 
       bool hasPublishTime() const { return this->publishTime_ != nullptr;};
       void deletePublishTime() { this->publishTime_ = nullptr;};
       inline int64_t getPublishTime() const { DARABONBA_PTR_GET_DEFAULT(publishTime_, 0L) };
       inline Events& setPublishTime(int64_t publishTime) { DARABONBA_PTR_SET_VALUE(publishTime_, publishTime) };
+
+
+      // publishUtcTime Field Functions 
+      bool hasPublishUtcTime() const { return this->publishUtcTime_ != nullptr;};
+      void deletePublishUtcTime() { this->publishUtcTime_ = nullptr;};
+      inline string getPublishUtcTime() const { DARABONBA_PTR_GET_DEFAULT(publishUtcTime_, "") };
+      inline Events& setPublishUtcTime(string publishUtcTime) { DARABONBA_PTR_SET_VALUE(publishUtcTime_, publishUtcTime) };
 
 
       // reason Field Functions 
@@ -174,8 +192,10 @@ namespace Models
       shared_ptr<string> extendedAttribute_ {};
       // The scheduled execution time of the event in milliseconds.
       shared_ptr<int64_t> notBefore_ {};
+      shared_ptr<string> notBeforeUtcTime_ {};
       // The release time in milliseconds.
       shared_ptr<int64_t> publishTime_ {};
+      shared_ptr<string> publishUtcTime_ {};
       // The event cause.
       shared_ptr<string> reason_ {};
       // The ID of the associated resources.

@@ -162,18 +162,10 @@ namespace Models
 
 
           protected:
-            // The code of the billable item.
             shared_ptr<string> costCode_ {};
-            // The name of the billable item.
             shared_ptr<string> costName_ {};
-            // Metering method
-            // 
-            // *   SpeedUp: bandwidth of intelligent acceleration
-            // *   IntranetConnection: internal bandwidth
             shared_ptr<string> costType_ {};
-            // The value of the billable item.
             shared_ptr<int32_t> costVal_ {};
-            // This parameter is unavailable.
             shared_ptr<string> ispLine_ {};
           };
 
@@ -231,18 +223,10 @@ namespace Models
 
 
       protected:
-        // The bandwidth data returned.
         shared_ptr<MeasurementData::BandWidthFeeDatas> bandWidthFeeDatas_ {};
-        // The metering method. Valid values:
-        // 
-        // *   ChargeByUnified: unified metering.
-        // *   ChargeByGrade: differential metering.
         shared_ptr<string> chargeModel_ {};
-        // The metering cycle.
         shared_ptr<string> costCycle_ {};
-        // The end time of the metering cycle.
         shared_ptr<string> costEndTime_ {};
-        // The start time of the metering cycle.
         shared_ptr<string> costStartTime_ {};
       };
 
@@ -279,7 +263,6 @@ namespace Models
 
 
   protected:
-    // The metering data returned.
     shared_ptr<DescribeEpnMeasurementDataResponseBody::MeasurementDatas> measurementDatas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

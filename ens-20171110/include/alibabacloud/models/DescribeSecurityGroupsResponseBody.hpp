@@ -211,19 +211,12 @@ namespace Models
 
 
       protected:
-        // The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the security group.
         shared_ptr<string> description_ {};
-        // The number of associated instances.
         shared_ptr<int32_t> instanceCount_ {};
-        // The IDs of the instances that are associated with the security group.
         shared_ptr<SecurityGroup::InstanceIds> instanceIds_ {};
-        // The IDs of the ENIs that are associated with the security group.
         shared_ptr<SecurityGroup::NetworkInterfaceIds> networkInterfaceIds_ {};
-        // The ID of the security group.
         shared_ptr<string> securityGroupId_ {};
-        // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
       };
 
@@ -287,7 +280,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details about security groups.
     shared_ptr<DescribeSecurityGroupsResponseBody::SecurityGroups> securityGroups_ {};
     // The total number of returned pages.
     shared_ptr<int32_t> totalCount_ {};

@@ -391,9 +391,7 @@ namespace Models
 
 
       protected:
-        // The number of resources in the network.
         shared_ptr<int32_t> resourceCount_ {};
-        // The resource type. VSwitch.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -584,7 +582,6 @@ namespace Models
   protected:
     // The IPv4 CIDR block of the network.
     shared_ptr<string> cidrBlock_ {};
-    // The list of resources in the network.
     shared_ptr<DescribeNetworkAttributeResponseBody::CloudResources> cloudResources_ {};
     // The time when the network was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> createdTime_ {};
@@ -594,19 +591,14 @@ namespace Models
     shared_ptr<string> ensRegionId_ {};
     // The ID of the gateway route table.
     shared_ptr<string> gatewayRouteTableId_ {};
-    // List of HaVipIds.
     shared_ptr<DescribeNetworkAttributeResponseBody::HaVipIds> haVipIds_ {};
-    // The instance IDs.
     shared_ptr<DescribeNetworkAttributeResponseBody::InstanceIds> instanceIds_ {};
-    // List of ELB instances.
     shared_ptr<DescribeNetworkAttributeResponseBody::LoadBalancerIds> loadBalancerIds_ {};
-    // List of NAT Gateways.
     shared_ptr<DescribeNetworkAttributeResponseBody::NatGatewayIds> natGatewayIds_ {};
     // The ID of the network access control list (ACL).
     shared_ptr<string> networkAclId_ {};
     // The ID of the network.
     shared_ptr<string> networkId_ {};
-    // A list of multicast source IDs.
     shared_ptr<DescribeNetworkAttributeResponseBody::NetworkInterfaceIds> networkInterfaceIds_ {};
     // The name of the network.
     shared_ptr<string> networkName_ {};
@@ -614,7 +606,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the route table.
     shared_ptr<string> routeTableId_ {};
-    // List of routing table IDs.
     shared_ptr<DescribeNetworkAttributeResponseBody::RouteTableIds> routeTableIds_ {};
     // The ID of the route table.
     shared_ptr<string> routerTableId_ {};
@@ -624,7 +615,6 @@ namespace Models
     // *   Pending
     // *   Available
     shared_ptr<string> status_ {};
-    // The list of vSwitches in the network.
     shared_ptr<DescribeNetworkAttributeResponseBody::VSwitchIds> vSwitchIds_ {};
   };
 

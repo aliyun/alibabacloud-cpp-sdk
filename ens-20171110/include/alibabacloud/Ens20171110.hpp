@@ -235,6 +235,52 @@ namespace Ens20171110
       Models::AttachInstanceSDGResponse attachInstanceSDG(const Models::AttachInstanceSDGRequest &request);
 
       /**
+       * @summary 添加已有节点到集群节点池
+       *
+       * @param tmpReq AttachInstancesToNodePoolRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachInstancesToNodePoolResponse
+       */
+      Models::AttachInstancesToNodePoolResponse attachInstancesToNodePoolWithOptions(const Models::AttachInstancesToNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加已有节点到集群节点池
+       *
+       * @param request AttachInstancesToNodePoolRequest
+       * @return AttachInstancesToNodePoolResponse
+       */
+      Models::AttachInstancesToNodePoolResponse attachInstancesToNodePool(const Models::AttachInstancesToNodePoolRequest &request);
+
+      /**
+       * @summary Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+       *
+       * @description ## [](#)
+       * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+       * *   You can bind a maximum of 30 instances at a time.
+       * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+       * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+       *
+       * @param tmpReq AttachKeyPairRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachKeyPairResponse
+       */
+      Models::AttachKeyPairResponse attachKeyPairWithOptions(const Models::AttachKeyPairRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+       *
+       * @description ## [](#)
+       * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+       * *   You can bind a maximum of 30 instances at a time.
+       * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+       * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+       *
+       * @param request AttachKeyPairRequest
+       * @return AttachKeyPairResponse
+       */
+      Models::AttachKeyPairResponse attachKeyPair(const Models::AttachKeyPairRequest &request);
+
+      /**
        * @summary Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
        *
        * @description When you call this operation, take note of the following limits:
@@ -1985,6 +2031,23 @@ namespace Ens20171110
       Models::DescribeClusterResponse describeCluster(const Models::DescribeClusterRequest &request);
 
       /**
+       * @summary 查询添加已有节点到集群节点池的脚本
+       *
+       * @param request DescribeClusterAttachScriptsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClusterAttachScriptsResponse
+       */
+      Models::DescribeClusterAttachScriptsResponse describeClusterAttachScriptsWithOptions(const Models::DescribeClusterAttachScriptsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询添加已有节点到集群节点池的脚本
+       *
+       * @param request DescribeClusterAttachScriptsRequest
+       * @return DescribeClusterAttachScriptsResponse
+       */
+      Models::DescribeClusterAttachScriptsResponse describeClusterAttachScripts(const Models::DescribeClusterAttachScriptsRequest &request);
+
+      /**
        * @summary 查询集群详细信息
        *
        * @param request DescribeClusterDetailRequest
@@ -2615,7 +2678,7 @@ namespace Ens20171110
       Models::DescribeExportImageStatusResponse describeExportImageStatus(const Models::DescribeExportImageStatusRequest &request);
 
       /**
-       * @summary Queries the information about file systems.
+       * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
        *
        * @param request DescribeFileSystemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2624,7 +2687,7 @@ namespace Ens20171110
       Models::DescribeFileSystemsResponse describeFileSystemsWithOptions(const Models::DescribeFileSystemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about file systems.
+       * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
        *
        * @param request DescribeFileSystemsRequest
        * @return DescribeFileSystemsResponse
@@ -3772,6 +3835,37 @@ namespace Ens20171110
       Models::DetachInstanceSDGResponse detachInstanceSDG(const Models::DetachInstanceSDGRequest &request);
 
       /**
+       * @summary Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+       *
+       * @description ## [](#)
+       * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+       * *   You can unbind a maximum of 30 instances at a time.
+       * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+       * *   At least one of key_pair_name and key_pair_id is not empty.
+       * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+       *
+       * @param tmpReq DetachKeyPairRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachKeyPairResponse
+       */
+      Models::DetachKeyPairResponse detachKeyPairWithOptions(const Models::DetachKeyPairRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+       *
+       * @description ## [](#)
+       * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+       * *   You can unbind a maximum of 30 instances at a time.
+       * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+       * *   At least one of key_pair_name and key_pair_id is not empty.
+       * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+       *
+       * @param request DetachKeyPairRequest
+       * @return DetachKeyPairResponse
+       */
+      Models::DetachKeyPairResponse detachKeyPair(const Models::DetachKeyPairRequest &request);
+
+      /**
        * @summary Detach an elastic network interface (ENI) from an instance.
        *
        * @description Before you call this operation, take note of the following items:
@@ -4078,7 +4172,7 @@ namespace Ens20171110
       Models::ImportKeyPairResponse importKeyPair(const Models::ImportKeyPairRequest &request);
 
       /**
-       * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+       * @summary Create a service-linked role (SLR) for ENS for the current user to manage resources.
        *
        * @param request InitializeENSECKServiceRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4087,7 +4181,7 @@ namespace Ens20171110
       Models::InitializeENSECKServiceRoleResponse initializeENSECKServiceRoleWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+       * @summary Create a service-linked role (SLR) for ENS for the current user to manage resources.
        *
        * @return InitializeENSECKServiceRoleResponse
        */
@@ -4309,7 +4403,7 @@ namespace Ens20171110
       Models::ListObjectsResponse listObjects(const Models::ListObjectsRequest &request);
 
       /**
-       * @summary 获取所有产品能力
+       * @summary Lists all service capabilities.
        *
        * @param request ListProductAbilitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4318,7 +4412,7 @@ namespace Ens20171110
       Models::ListProductAbilitiesResponse listProductAbilitiesWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取所有产品能力
+       * @summary Lists all service capabilities.
        *
        * @return ListProductAbilitiesResponse
        */
@@ -4793,7 +4887,7 @@ namespace Ens20171110
       Models::ModifySnapshotAttributeResponse modifySnapshotAttribute(const Models::ModifySnapshotAttributeRequest &request);
 
       /**
-       * @summary 修改snat规则
+       * @summary Modifies a specified SNAT entry.
        *
        * @param request ModifySnatEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4802,7 +4896,7 @@ namespace Ens20171110
       Models::ModifySnatEntryResponse modifySnatEntryWithOptions(const Models::ModifySnatEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改snat规则
+       * @summary Modifies a specified SNAT entry.
        *
        * @param request ModifySnatEntryRequest
        * @return ModifySnatEntryResponse

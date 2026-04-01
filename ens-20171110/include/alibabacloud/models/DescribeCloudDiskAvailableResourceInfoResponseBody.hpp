@@ -179,26 +179,13 @@ namespace Models
 
 
       protected:
-        // Node product capability.
         shared_ptr<SupportResource::Ability> ability_ {};
-        // The number of disks that you can purchase.
         shared_ptr<int64_t> canBuyCount_ {};
-        // The type of the disk.
-        // 
-        // *   cloud_efficiency:ultra disk.
-        // *   cloud_ssd:all-flash disk.
-        // *   local_hdd:local HDD.
-        // *   local_ssd:local SSD.
         shared_ptr<string> category_ {};
-        // The default size of the disk. Unit: GiB.
         shared_ptr<int64_t> defaultDiskSize_ {};
-        // The maximum size of the disk. Unit: GiB.
         shared_ptr<int64_t> diskMaxSize_ {};
-        // The minimum size of the disk size. Unit: GiB.
         shared_ptr<int64_t> diskMinSize_ {};
-        // The ID of the edge node.
         shared_ptr<string> ensRegionId_ {};
-        // The name of the task node.
         shared_ptr<string> ensRegionName_ {};
       };
 
@@ -237,7 +224,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The specifications of resources that you can purchase.
     shared_ptr<DescribeCloudDiskAvailableResourceInfoResponseBody::SupportResources> supportResources_ {};
   };
 

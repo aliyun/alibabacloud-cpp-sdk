@@ -157,17 +157,9 @@ namespace Models
 
 
           protected:
-            // The code of the resource.
             shared_ptr<string> costCode_ {};
-            // The name of the resource.
             shared_ptr<string> costName_ {};
-            // The consumption of the resource.
-            // 
-            // *   Memory unit: GB.
-            // *   CPU unit: vCPU.
-            // *   Storage unit: GB.
             shared_ptr<int32_t> costVal_ {};
-            // The type of the resource.
             shared_ptr<string> resourceType_ {};
           };
 
@@ -232,11 +224,8 @@ namespace Models
 
 
         protected:
-          // The memory size. Unit: GB.
           shared_ptr<int32_t> memory_ {};
-          // The storage capacity. Unit: GB.
           shared_ptr<int32_t> storage_ {};
-          // The number of vCPUs.
           shared_ptr<int32_t> vcpu_ {};
         };
 
@@ -306,11 +295,8 @@ namespace Models
 
 
           protected:
-            // The code of the bandwidth plan.
             shared_ptr<string> costCode_ {};
-            // The name of the bandwidth plan.
             shared_ptr<string> costName_ {};
-            // The bandwidth consumption. Unit: bit/second.
             shared_ptr<int32_t> costVal_ {};
           };
 
@@ -387,22 +373,12 @@ namespace Models
 
 
       protected:
-        // The bandwidth data returned.
         shared_ptr<MeasurementData::BandWidthFeeDatas> bandWidthFeeDatas_ {};
-        // The metering method. Valid values:
-        // 
-        // *   ChargeByUnified: unified metering.
-        // *   ChargeByGrade: differential metering.
         shared_ptr<string> chargeModel_ {};
-        // The metering cycle.
         shared_ptr<string> costCycle_ {};
-        // The end time of the metering cycle.
         shared_ptr<string> costEndTime_ {};
-        // The start time of the metering cycle.
         shared_ptr<string> costStartTime_ {};
-        // The information about computing resources.
         shared_ptr<MeasurementData::ResourceFeeData> resourceFeeData_ {};
-        // Details of the computing resources.
         shared_ptr<MeasurementData::ResourceFeeDataDetails> resourceFeeDataDetails_ {};
       };
 
@@ -439,7 +415,6 @@ namespace Models
 
 
   protected:
-    // The metering data returned.
     shared_ptr<DescribeMeasurementDataResponseBody::MeasurementDatas> measurementDatas_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

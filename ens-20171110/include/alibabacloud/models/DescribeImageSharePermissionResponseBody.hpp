@@ -87,7 +87,6 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud account with which you share the image.
         shared_ptr<string> aliyunUid_ {};
       };
 
@@ -152,7 +151,6 @@ namespace Models
 
 
   protected:
-    // The account information.
     shared_ptr<DescribeImageSharePermissionResponseBody::Accounts> accounts_ {};
     // The ID of the image.
     shared_ptr<string> imageId_ {};

@@ -117,13 +117,9 @@ namespace Models
 
 
       protected:
-        // The number of CPU cores.
         shared_ptr<string> core_ {};
-        // The display name of the instance type.
         shared_ptr<string> displayName_ {};
-        // The type of the instance.
         shared_ptr<string> instanceType_ {};
-        // The memory size. Unit: MB.
         shared_ptr<string> memory_ {};
       };
 
@@ -204,7 +200,6 @@ namespace Models
     shared_ptr<int32_t> dataDiskMaxSize_ {};
     // The minimum capacity of a data disk. Unit: GB.
     shared_ptr<int32_t> dataDiskMinSize_ {};
-    // The information about instance specifications.
     shared_ptr<DescribeInstanceSpecResponseBody::InstanceSpecs> instanceSpecs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

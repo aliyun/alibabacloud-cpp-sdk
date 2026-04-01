@@ -197,9 +197,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -319,34 +317,14 @@ namespace Models
 
 
         protected:
-          // The category of the cloud disk or local disk. Valid values:
-          // 
-          // *   **file**: local disk.
-          // *   **pangu**: ultra disk.
-          // *   **local_hdd**: local HDD.
           shared_ptr<string> category_ {};
-          // The ID of the disk.
           shared_ptr<string> diskId_ {};
-          // The name of the disk.
           shared_ptr<string> diskName_ {};
-          // The size of the disk. Unit: MiB.
           shared_ptr<int32_t> size_ {};
-          // The extended field of the disk category. Valid values:
-          // 
-          // *   **file**: local disk.
-          // *   **pangu**: ultra disk.
-          // *   **local_hdd**: local HDD.
           shared_ptr<string> deviceType_ {};
-          // The type of the cloud disk or local disk. Valid values:
-          // 
-          // *   **system**: system disk.
-          // *   **data**: data disk.
           shared_ptr<string> diskType_ {};
-          // The name of the disk.
           shared_ptr<string> name_ {};
-          // The size of the disk. Unit: MiB.
           shared_ptr<int32_t> storage_ {};
-          // The UUID of the disk.
           shared_ptr<string> uuid_ {};
         };
 
@@ -449,11 +427,8 @@ namespace Models
 
 
           protected:
-            // The gateway.
             shared_ptr<string> gateWay_ {};
-            // The IP address.
             shared_ptr<string> ip_ {};
-            // The Internet service provider (ISP).
             shared_ptr<string> isp_ {};
           };
 
@@ -570,11 +545,8 @@ namespace Models
 
 
           protected:
-            // The gateway.
             shared_ptr<string> gateWay_ {};
-            // The IP address.
             shared_ptr<string> ip_ {};
-            // The ISP.
             shared_ptr<string> isp_ {};
           };
 
@@ -697,14 +669,7 @@ namespace Models
 
 
               protected:
-                // Indicates whether the IP address is the primary private IP address. Valid values:
-                // 
-                // *   true
-                // *   false
                 shared_ptr<bool> primary_ {};
-                // The private IP address.
-                // 
-                // >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs. If you specify a private IP address, the number of instances must be 1. The private IP address takes effect only when the private IP address and the vSwitch ID are not empty.
                 shared_ptr<string> privateIpAddress_ {};
               };
 
@@ -769,7 +734,6 @@ namespace Models
 
 
               protected:
-                // IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
                 shared_ptr<string> ipv6Address_ {};
               };
 
@@ -836,20 +800,11 @@ namespace Models
 
 
           protected:
-            // The IPv6 addresses of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
             shared_ptr<NetworkInterfacesItem::Ipv6Sets> ipv6Sets_ {};
-            // The MAC address of the ENI.
             shared_ptr<string> macAddress_ {};
-            // The ID of the ENI.
             shared_ptr<string> networkInterfaceId_ {};
-            // The primary IP address of the ENI.
             shared_ptr<string> primaryIpAddress_ {};
-            // The private IP addresses of the ENI.
             shared_ptr<NetworkInterfacesItem::PrivateIpSets> privateIpSets_ {};
-            // The type of the disk. Valid values:
-            // 
-            // *   system: system disk.
-            // *   data: data disk.
             shared_ptr<string> type_ {};
           };
 
@@ -949,11 +904,8 @@ namespace Models
 
 
         protected:
-          // The ID of the network.
           shared_ptr<string> networkId_ {};
-          // Details of the private IP addresses.
           shared_ptr<NetworkAttributes::PrivateIpAddress> privateIpAddress_ {};
-          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
         };
 
@@ -1139,39 +1091,17 @@ namespace Models
 
 
           protected:
-            // The category of the cloud disk or local disk. Valid values:
-            // 
-            // *   **file**: local disk.
-            // *   **pangu**: ultra disk.
-            // *   **local_hdd**: local HDD.
             shared_ptr<string> category_ {};
-            // The ID of the disk.
             shared_ptr<string> diskId_ {};
-            // The name of the disk.
             shared_ptr<string> diskName_ {};
-            // The size of the disk. Unit: GiB.
             shared_ptr<int32_t> diskSize_ {};
-            // The KMS key ID used by the cloud drive.
             shared_ptr<string> encryptKeyId_ {};
-            // Specifies whether to encrypt the disk.
             shared_ptr<bool> encrypted_ {};
-            // The size of the disk. Unit: MiB.
             shared_ptr<int32_t> size_ {};
-            // The extended field of the disk category. Valid values:
-            // 
-            // *   **file**: local disk.
-            // *   **pangu**: ultra disk.
-            // *   **local_hdd**: local HDD.
             shared_ptr<string> deviceType_ {};
-            // The type of the cloud disk or local disk. Valid values:
-            // 
-            // **system**: system disk. **data**: data disk.
             shared_ptr<string> diskType_ {};
-            // The name of the disk.
             shared_ptr<string> name_ {};
-            // The size of the disk. Unit: MiB.
             shared_ptr<int32_t> storage_ {};
-            // The UUID of the disk.
             shared_ptr<string> uuid_ {};
           };
 
@@ -1442,91 +1372,37 @@ namespace Models
 
 
       protected:
-        // The automatic release time of the instance.
         shared_ptr<string> autoReleaseTime_ {};
-        // The number of vCPUs.
         shared_ptr<string> cpu_ {};
-        // The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // Details of the data disk.
         shared_ptr<Instance::DataDisk> dataDisk_ {};
         shared_ptr<bool> deletionProtection_ {};
-        // The total size of the disk. Unit: MiB.
         shared_ptr<int32_t> disk_ {};
-        // The region ID of the instance.
         shared_ptr<string> ensRegionId_ {};
-        // The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> expiredTime_ {};
-        // The hostname of the instance.
-        // 
-        // *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
-        // *   For a Windows instance, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot contain periods (.) or contain only digits.
-        // *   For an instance that runs another operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
         shared_ptr<string> hostName_ {};
-        // The ID of the image.
         shared_ptr<string> imageId_ {};
-        // The private IP addresses of the instances.
         shared_ptr<Instance::InnerIpAddress> innerIpAddress_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // The category of the instance. Valid values:
-        // 
-        // *   EnsInstance: ENS instances that you purchase.
-        // *   EnsService: ENS instances that belong to edge services.
-        // *   BuildMachine: ENS instances that are configured with image builders.
-        // *   EnsPostPaidInstance: pay-as-you-go ENS instances that you purchase.
         shared_ptr<string> instanceResourceType_ {};
-        // The instance family. Valid values:
-        // 
-        // *   x86_vm: x86-based computing instance.
-        // *   x86_pm: x86-based physical machine.
-        // *   x86_bmi: x86-based bare metal instance.
-        // *   x86_bm: bare metal instance with the SmartNIC.
-        // *   pc_bmi: heterogeneous bare metal instance.
-        // *   pc_vm: heterogeneous virtual machine.
-        // *   arm_bmi: Arm-based computing instance.
         shared_ptr<string> instanceTypeFamily_ {};
-        // The maximum outbound bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> internetMaxBandwidthIn_ {};
-        // The minimum inbound bandwidth. Unit: Mbit/s.
         shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-        // The name of the SSH key pair.
         shared_ptr<string> keyPairName_ {};
-        // The memory size. Unit: MB.
         shared_ptr<int32_t> memory_ {};
-        // Details of the network.
         shared_ptr<Instance::NetworkAttributes> networkAttributes_ {};
-        // The ENI attached to the instance.
         shared_ptr<Instance::NetworkInterfaces> networkInterfaces_ {};
-        // The name of the image.
         shared_ptr<string> OSName_ {};
-        // Details of the private IP addresses.
         shared_ptr<Instance::PrivateIpAddresses> privateIpAddresses_ {};
-        // The public IP addresses of the instances.
         shared_ptr<Instance::PublicIpAddress> publicIpAddress_ {};
-        // Details of the public IP addresses.
         shared_ptr<Instance::PublicIpAddresses> publicIpAddresses_ {};
-        // The IDs of the security groups.
         shared_ptr<Instance::SecurityGroupIds> securityGroupIds_ {};
-        // The ID of your Alibaba Cloud account.
         shared_ptr<string> serviceStatus_ {};
-        // The instance type.
         shared_ptr<string> specName_ {};
-        // The bidding policy of the preemptible instance.
         shared_ptr<string> spotStrategy_ {};
-        // The status of the instance. Valid values:
-        // 
-        // *   Running
-        // *   Expired
-        // *   Stopped
         shared_ptr<string> status_ {};
-        // Details of the system disk.
         shared_ptr<Instance::SystemDisk> systemDisk_ {};
-        // The tags of the instance.
-        // 
-        // >  This operation does not return tag information. You can call this operation in combination with the tag-related operations.
         shared_ptr<Instance::Tags> tags_ {};
       };
 
@@ -1593,7 +1469,6 @@ namespace Models
   protected:
     // The returned service code. 0 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The information about the instance is returned in an array of InstanceAttributesType.
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

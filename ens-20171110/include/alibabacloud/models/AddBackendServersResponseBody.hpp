@@ -116,20 +116,10 @@ namespace Models
 
 
       protected:
-        // The IP address of the backend server.
         shared_ptr<string> ip_ {};
-        // The backend port that is used by the ELB instance.
         shared_ptr<int32_t> port_ {};
-        // The ID of the instance that is used as the backend server.
         shared_ptr<string> serverId_ {};
-        // The type of the backend server. Valid values:
-        // 
-        // *   **ens**: ENS instance.
-        // *   **eni**: ENI.
         shared_ptr<string> type_ {};
-        // The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
-        // 
-        // >  The value 0 indicates that requests are not forwarded to the backend server.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -166,9 +156,6 @@ namespace Models
 
 
   protected:
-    // The list of backend servers that you want to add. You can add at most 20 backend servers.
-    // 
-    // >  Only ENS instances that are in the running state can be attached to the ELB instance as backend servers.
     shared_ptr<AddBackendServersResponseBody::BackendServers> backendServers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

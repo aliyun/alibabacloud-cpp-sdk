@@ -207,12 +207,7 @@ namespace Models
 
 
           protected:
-            // Specifies whether the private IP address is the primary private IP address. Valid values:
-            // 
-            // *   true
-            // *   false
             shared_ptr<bool> primary_ {};
-            // The private IP address.
             shared_ptr<string> privateIpAddress_ {};
             shared_ptr<string> privateIpStatus_ {};
           };
@@ -278,7 +273,6 @@ namespace Models
 
 
           protected:
-            // The IPv6 address of the ENI.
             shared_ptr<string> ipv6Address_ {};
           };
 
@@ -427,49 +421,21 @@ namespace Models
 
 
       protected:
-        // The time when the ENI was created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of ENI.
         shared_ptr<string> description_ {};
-        // The ID of the edge node.
         shared_ptr<string> ensRegionId_ {};
-        // The ID of the instance to which the ENI is bound.
         shared_ptr<string> instanceId_ {};
-        // The IPv6 addresses of the ENIs.
         shared_ptr<NetworkInterfaceSet::Ipv6Sets> ipv6Sets_ {};
-        // The MAC address of the ENI.
         shared_ptr<string> macAddress_ {};
-        // The ID of the network.
         shared_ptr<string> networkId_ {};
-        // The ID of the ENI.
         shared_ptr<string> networkInterfaceId_ {};
-        // The ENI name.
         shared_ptr<string> networkInterfaceName_ {};
-        // The private IP address of the server.
         shared_ptr<string> primaryIp_ {};
-        // The primary private IP address. Valid values:
-        // 
-        // *   **Public**: public IP address.
-        // *   **Private**: internal IP address.
         shared_ptr<string> primaryIpType_ {};
-        // Details about the private IP address.
         shared_ptr<NetworkInterfaceSet::PrivateIpSets> privateIpSets_ {};
-        // The ID of the security group.
         shared_ptr<NetworkInterfaceSet::SecurityGroupIds> securityGroupIds_ {};
-        // The status of the ENI. Valid values:
-        // 
-        // *   Available: The ENI is available.
-        // *   Attaching: The ENI is being attached to an instance.
-        // *   InUse: The ENI is attached to an instance.
-        // *   Detaching: The ENI is being detached from an instance.
-        // *   Deleting: The ENI is being deleted.
         shared_ptr<string> status_ {};
-        // The type of the ENI. Valid values:
-        // 
-        // *   Primary
-        // *   Secondary
         shared_ptr<string> type_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
         shared_ptr<bool> vmncLearn_ {};
       };
@@ -528,7 +494,6 @@ namespace Models
 
 
   protected:
-    // Details about the ENIs.
     shared_ptr<DescribeNetworkInterfacesResponseBody::NetworkInterfaceSets> networkInterfaceSets_ {};
     // The number of the page to return. Pages start from page **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

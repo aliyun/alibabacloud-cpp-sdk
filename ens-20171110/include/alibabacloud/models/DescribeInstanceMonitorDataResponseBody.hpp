@@ -100,11 +100,8 @@ namespace Models
 
 
       protected:
-        // The vCPU usage of the instance, which is raw data. For example, a value of 0.02 indicates that the usage is 2%.
         shared_ptr<string> CPU_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // This parameter is not yet supported.
         shared_ptr<string> memory_ {};
       };
 
@@ -150,7 +147,6 @@ namespace Models
   protected:
     // The returned service code. A value of 0 indicates that the operation was successful.
     shared_ptr<int32_t> code_ {};
-    // The set of InstanceMonitorDataType data.
     shared_ptr<DescribeInstanceMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

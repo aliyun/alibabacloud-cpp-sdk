@@ -1,0 +1,76 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_ATTACHKEYPAIRREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_ATTACHKEYPAIRREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Ens20171110
+{
+namespace Models
+{
+  class AttachKeyPairRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const AttachKeyPairRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(KeyPairId, keyPairId_);
+      DARABONBA_PTR_TO_JSON(KeyPairName, keyPairName_);
+    };
+    friend void from_json(const Darabonba::Json& j, AttachKeyPairRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(KeyPairId, keyPairId_);
+      DARABONBA_PTR_FROM_JSON(KeyPairName, keyPairName_);
+    };
+    AttachKeyPairRequest() = default ;
+    AttachKeyPairRequest(const AttachKeyPairRequest &) = default ;
+    AttachKeyPairRequest(AttachKeyPairRequest &&) = default ;
+    AttachKeyPairRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~AttachKeyPairRequest() = default ;
+    AttachKeyPairRequest& operator=(const AttachKeyPairRequest &) = default ;
+    AttachKeyPairRequest& operator=(AttachKeyPairRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->instanceIds_ == nullptr
+        && this->keyPairId_ == nullptr && this->keyPairName_ == nullptr; };
+    // instanceIds Field Functions 
+    bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
+    void deleteInstanceIds() { this->instanceIds_ = nullptr;};
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline AttachKeyPairRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
+    inline AttachKeyPairRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+
+
+    // keyPairId Field Functions 
+    bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
+    void deleteKeyPairId() { this->keyPairId_ = nullptr;};
+    inline string getKeyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
+    inline AttachKeyPairRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
+
+
+    // keyPairName Field Functions 
+    bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
+    void deleteKeyPairName() { this->keyPairName_ = nullptr;};
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline AttachKeyPairRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
+
+
+  protected:
+    // The instance IDs.
+    // 
+    // This parameter is required.
+    shared_ptr<vector<string>> instanceIds_ {};
+    // The key pair ID.
+    shared_ptr<string> keyPairId_ {};
+    // The name of the SSH key pair.
+    shared_ptr<string> keyPairName_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Ens20171110
+#endif

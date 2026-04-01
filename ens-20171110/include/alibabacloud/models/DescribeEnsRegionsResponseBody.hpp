@@ -118,15 +118,10 @@ namespace Models
 
 
       protected:
-        // The code of the region.
         shared_ptr<string> area_ {};
-        // The name of the node.
         shared_ptr<string> enName_ {};
-        // The ID of the node.
         shared_ptr<string> ensRegionId_ {};
-        // The name of the node.
         shared_ptr<string> name_ {};
-        // The province where the node is deployed.
         shared_ptr<string> province_ {};
       };
 
@@ -172,7 +167,6 @@ namespace Models
   protected:
     // The service code. 0 is returned for a successful request. An error code is returned for a failed request.
     shared_ptr<int32_t> code_ {};
-    // The information about the regions.
     shared_ptr<DescribeEnsRegionsResponseBody::EnsRegions> ensRegions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

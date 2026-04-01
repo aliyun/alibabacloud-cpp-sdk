@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OpsType, opsType_);
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(PlanTime, planTime_);
+      DARABONBA_PTR_TO_JSON(PlanUtcTime, planUtcTime_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
     };
     friend void from_json(const Darabonba::Json& j, EventMigrateInstanceRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OpsType, opsType_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(PlanTime, planTime_);
+      DARABONBA_PTR_FROM_JSON(PlanUtcTime, planUtcTime_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
     };
     EventMigrateInstanceRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataPolicy_ == nullptr
-        && this->eventId_ == nullptr && this->opsType_ == nullptr && this->password_ == nullptr && this->planTime_ == nullptr && this->resourceId_ == nullptr; };
+        && this->eventId_ == nullptr && this->opsType_ == nullptr && this->password_ == nullptr && this->planTime_ == nullptr && this->planUtcTime_ == nullptr
+        && this->resourceId_ == nullptr; };
     // dataPolicy Field Functions 
     bool hasDataPolicy() const { return this->dataPolicy_ != nullptr;};
     void deleteDataPolicy() { this->dataPolicy_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline EventMigrateInstanceRequest& setPlanTime(int64_t planTime) { DARABONBA_PTR_SET_VALUE(planTime_, planTime) };
 
 
+    // planUtcTime Field Functions 
+    bool hasPlanUtcTime() const { return this->planUtcTime_ != nullptr;};
+    void deletePlanUtcTime() { this->planUtcTime_ = nullptr;};
+    inline string getPlanUtcTime() const { DARABONBA_PTR_GET_DEFAULT(planUtcTime_, "") };
+    inline EventMigrateInstanceRequest& setPlanUtcTime(string planUtcTime) { DARABONBA_PTR_SET_VALUE(planUtcTime_, planUtcTime) };
+
+
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -109,6 +119,7 @@ namespace Models
     shared_ptr<string> password_ {};
     // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
     shared_ptr<int64_t> planTime_ {};
+    shared_ptr<string> planUtcTime_ {};
     // The ID of the resource.
     // 
     // This parameter is required.

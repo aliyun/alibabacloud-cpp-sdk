@@ -110,11 +110,8 @@ namespace Models
 
 
       protected:
-        // The command.
         shared_ptr<string> command_ {};
-        // The name of the container.
         shared_ptr<string> containerName_ {};
-        // The execution result of the command.
         shared_ptr<string> resultMsg_ {};
       };
 
@@ -194,7 +191,6 @@ namespace Models
 
 
   protected:
-    // The execution results of the commands.
     shared_ptr<RunServiceScheduleResponseBody::CommandResults> commandResults_ {};
     // The index number of the scheduled virtual device (pod).
     shared_ptr<int32_t> index_ {};

@@ -117,6 +117,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Status& obj) { 
           DARABONBA_PTR_TO_JSON(DesiredNodes, desiredNodes_);
+          DARABONBA_PTR_TO_JSON(FailedNodes, failedNodes_);
           DARABONBA_PTR_TO_JSON(InitialNodes, initialNodes_);
           DARABONBA_PTR_TO_JSON(RemovingNodes, removingNodes_);
           DARABONBA_PTR_TO_JSON(ServingNodes, servingNodes_);
@@ -125,6 +126,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, Status& obj) { 
           DARABONBA_PTR_FROM_JSON(DesiredNodes, desiredNodes_);
+          DARABONBA_PTR_FROM_JSON(FailedNodes, failedNodes_);
           DARABONBA_PTR_FROM_JSON(InitialNodes, initialNodes_);
           DARABONBA_PTR_FROM_JSON(RemovingNodes, removingNodes_);
           DARABONBA_PTR_FROM_JSON(ServingNodes, servingNodes_);
@@ -143,12 +145,20 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->desiredNodes_ == nullptr
-        && this->initialNodes_ == nullptr && this->removingNodes_ == nullptr && this->servingNodes_ == nullptr && this->state_ == nullptr && this->totalNodes_ == nullptr; };
+        && this->failedNodes_ == nullptr && this->initialNodes_ == nullptr && this->removingNodes_ == nullptr && this->servingNodes_ == nullptr && this->state_ == nullptr
+        && this->totalNodes_ == nullptr; };
         // desiredNodes Field Functions 
         bool hasDesiredNodes() const { return this->desiredNodes_ != nullptr;};
         void deleteDesiredNodes() { this->desiredNodes_ = nullptr;};
         inline int32_t getDesiredNodes() const { DARABONBA_PTR_GET_DEFAULT(desiredNodes_, 0) };
         inline Status& setDesiredNodes(int32_t desiredNodes) { DARABONBA_PTR_SET_VALUE(desiredNodes_, desiredNodes) };
+
+
+        // failedNodes Field Functions 
+        bool hasFailedNodes() const { return this->failedNodes_ != nullptr;};
+        void deleteFailedNodes() { this->failedNodes_ = nullptr;};
+        inline int32_t getFailedNodes() const { DARABONBA_PTR_GET_DEFAULT(failedNodes_, 0) };
+        inline Status& setFailedNodes(int32_t failedNodes) { DARABONBA_PTR_SET_VALUE(failedNodes_, failedNodes) };
 
 
         // initialNodes Field Functions 
@@ -188,6 +198,7 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> desiredNodes_ {};
+        shared_ptr<int32_t> failedNodes_ {};
         shared_ptr<int32_t> initialNodes_ {};
         shared_ptr<int32_t> removingNodes_ {};
         shared_ptr<int32_t> servingNodes_ {};

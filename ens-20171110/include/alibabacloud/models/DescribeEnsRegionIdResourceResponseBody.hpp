@@ -159,28 +159,14 @@ namespace Models
 
 
       protected:
-        // The region. Set the value to West.
         shared_ptr<string> area_ {};
-        // The code of the region.
         shared_ptr<string> areaCode_ {};
-        // The date when the transaction was processed.
         shared_ptr<string> bizDate_ {};
-        // The ID of the node.
         shared_ptr<string> ensRegionId_ {};
-        // The name of the node.
         shared_ptr<string> ensRegionIdName_ {};
-        // The number of instances.
         shared_ptr<int32_t> instanceCount_ {};
-        // The public bandwidth of the instance. Unit: Bits/s.
         shared_ptr<int64_t> internetBandwidth_ {};
-        // The ISP. Valid values:
-        // 
-        // *   cmcc: China Mobile
-        // *   unicom: China Unicom
-        // *   telecom: China Telecom
-        // *   multiCarrier: multi-line ISP
         shared_ptr<string> isp_ {};
-        // The number of vCPUs.
         shared_ptr<int32_t> VCpu_ {};
       };
 
@@ -238,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The returned data. For more information, see EnsRegionIdResources in sample JSON responses.
     shared_ptr<DescribeEnsRegionIdResourceResponseBody::EnsRegionIdResources> ensRegionIdResources_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -169,11 +169,9 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
             shared_ptr<string> tagKey_ {};
             shared_ptr<string> tagValue_ {};
-            // The request error rate.
             shared_ptr<string> value_ {};
           };
 
@@ -267,27 +265,15 @@ namespace Models
 
 
       protected:
-        // The IPv4 CIDR block of the vSwitch.
         shared_ptr<string> cidrBlock_ {};
-        // The time when the VPC was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createdTime_ {};
-        // The description of the vSwitch.
         shared_ptr<string> description_ {};
-        // The ID of the ENS node.
         shared_ptr<string> ensRegionId_ {};
-        // The number of available IP addresses.
         shared_ptr<int64_t> freeIpCount_ {};
-        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> networkId_ {};
-        // The status of the vSwitch. Valid values:
-        // 
-        // *   Pending
-        // *   Available
         shared_ptr<string> status_ {};
         shared_ptr<VSwitch::Tags> tags_ {};
-        // The ID of the vSwitch.
         shared_ptr<string> vSwitchId_ {};
-        // The name of the vSwitch.
         shared_ptr<string> vSwitchName_ {};
       };
 
@@ -353,7 +339,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the vSwitches. For more information, see the array of vSwitches in the response examples in the JSON format.
     shared_ptr<DescribeVSwitchesResponseBody::VSwitches> vSwitches_ {};
   };
 
