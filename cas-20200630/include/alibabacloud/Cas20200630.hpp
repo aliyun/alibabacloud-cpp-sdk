@@ -308,7 +308,7 @@ namespace Cas20200630
       Models::DeleteClientCertificateResponse deleteClientCertificate(const Models::DeleteClientCertificateRequest &request);
 
       /**
-       * @summary Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+       * @summary Queries the details about a certificate authority (CA) certificate.
        *
        * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
        * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
@@ -322,7 +322,7 @@ namespace Cas20200630
       Models::DescribeCACertificateResponse describeCACertificateWithOptions(const Models::DescribeCACertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+       * @summary Queries the details about a certificate authority (CA) certificate.
        *
        * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
        * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
@@ -466,7 +466,7 @@ namespace Cas20200630
       /**
        * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
        *
-       * @summary 获取客户端证书
+       * @summary Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
        *
        * @param request DescribeClientCertificateForSerialNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -477,7 +477,7 @@ namespace Cas20200630
       /**
        * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
        *
-       * @summary 获取客户端证书
+       * @summary Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
        *
        * @param request DescribeClientCertificateForSerialNumberRequest
        * @return DescribeClientCertificateForSerialNumberResponse
@@ -510,7 +510,7 @@ namespace Cas20200630
       Models::DescribeClientCertificateStatusResponse describeClientCertificateStatus(const Models::DescribeClientCertificateStatusRequest &request);
 
       /**
-       * @summary 获取客户端证书状态
+       * @summary Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
        *
        * @param request DescribeClientCertificateStatusForSerialNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -519,7 +519,7 @@ namespace Cas20200630
       Models::DescribeClientCertificateStatusForSerialNumberResponse describeClientCertificateStatusForSerialNumberWithOptions(const Models::DescribeClientCertificateStatusForSerialNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取客户端证书状态
+       * @summary Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
        *
        * @param request DescribeClientCertificateStatusForSerialNumberRequest
        * @return DescribeClientCertificateStatusForSerialNumberResponse
@@ -527,8 +527,6 @@ namespace Cas20200630
       Models::DescribeClientCertificateStatusForSerialNumberResponse describeClientCertificateStatusForSerialNumber(const Models::DescribeClientCertificateStatusForSerialNumberRequest &request);
 
       /**
-       * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
-       *
        * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
        *
        * @param request DescribePcaAndExternalCACertificateListRequest
@@ -538,8 +536,6 @@ namespace Cas20200630
       Models::DescribePcaAndExternalCACertificateListResponse describePcaAndExternalCACertificateListWithOptions(const Models::DescribePcaAndExternalCACertificateListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
-       *
        * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
        *
        * @param request DescribePcaAndExternalCACertificateListRequest
@@ -590,7 +586,7 @@ namespace Cas20200630
       Models::ListAllEndEntityInstanceResponse listAllEndEntityInstance(const Models::ListAllEndEntityInstanceRequest &request);
 
       /**
-       * @summary 获取证书日志
+       * @summary Queries the operation logs of a certificate authority (CA) certificate.
        *
        * @param request ListCACertificateLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -599,7 +595,7 @@ namespace Cas20200630
       Models::ListCACertificateLogResponse listCACertificateLogWithOptions(const Models::ListCACertificateLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取证书日志
+       * @summary Queries the operation logs of a certificate authority (CA) certificate.
        *
        * @param request ListCACertificateLogRequest
        * @return ListCACertificateLogResponse
@@ -607,7 +603,7 @@ namespace Cas20200630
       Models::ListCACertificateLogResponse listCACertificateLog(const Models::ListCACertificateLogRequest &request);
 
       /**
-       * @summary 获取证书列表
+       * @summary Queries a list of certificates.
        *
        * @param request ListCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,7 +612,7 @@ namespace Cas20200630
       Models::ListCertResponse listCertWithOptions(const Models::ListCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取证书列表
+       * @summary Queries a list of certificates.
        *
        * @param request ListCertRequest
        * @return ListCertResponse
@@ -649,7 +645,7 @@ namespace Cas20200630
       Models::ListClientCertificateResponse listClientCertificate(const Models::ListClientCertificateRequest &request);
 
       /**
-       * @summary 查询私有CA机构证书
+       * @summary Queries private certificate authority (CA) certificates.
        *
        * @param request ListPcaCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -658,7 +654,7 @@ namespace Cas20200630
       Models::ListPcaCaCertificateResponse listPcaCaCertificateWithOptions(const Models::ListPcaCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询私有CA机构证书
+       * @summary Queries private certificate authority (CA) certificates.
        *
        * @param request ListPcaCaCertificateRequest
        * @return ListPcaCaCertificateResponse
@@ -803,7 +799,7 @@ namespace Cas20200630
       Models::UpdatePcaCertificateResponse updatePcaCertificate(const Models::UpdatePcaCertificateRequest &request);
 
       /**
-       * @summary 上传pca证书到SSL上传证书
+       * @summary Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
        *
        * @param request UploadPcaCertToCasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +808,7 @@ namespace Cas20200630
       Models::UploadPcaCertToCasResponse uploadPcaCertToCasWithOptions(const Models::UploadPcaCertToCasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传pca证书到SSL上传证书
+       * @summary Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
        *
        * @param request UploadPcaCertToCasRequest
        * @return UploadPcaCertToCasResponse

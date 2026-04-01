@@ -14,10 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribePcaAndExternalCACertificateListRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(Identifiers, identifiers_);
+      DARABONBA_PTR_TO_JSON(KeyWord, keyWord_);
       DARABONBA_PTR_TO_JSON(ShowSize, showSize_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePcaAndExternalCACertificateListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(Identifiers, identifiers_);
+      DARABONBA_PTR_FROM_JSON(KeyWord, keyWord_);
       DARABONBA_PTR_FROM_JSON(ShowSize, showSize_);
     };
     DescribePcaAndExternalCACertificateListRequest() = default ;
@@ -32,12 +36,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->showSize_ == nullptr; };
+        && this->identifiers_ == nullptr && this->keyWord_ == nullptr && this->showSize_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribePcaAndExternalCACertificateListRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // identifiers Field Functions 
+    bool hasIdentifiers() const { return this->identifiers_ != nullptr;};
+    void deleteIdentifiers() { this->identifiers_ = nullptr;};
+    inline string getIdentifiers() const { DARABONBA_PTR_GET_DEFAULT(identifiers_, "") };
+    inline DescribePcaAndExternalCACertificateListRequest& setIdentifiers(string identifiers) { DARABONBA_PTR_SET_VALUE(identifiers_, identifiers) };
+
+
+    // keyWord Field Functions 
+    bool hasKeyWord() const { return this->keyWord_ != nullptr;};
+    void deleteKeyWord() { this->keyWord_ = nullptr;};
+    inline string getKeyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
+    inline DescribePcaAndExternalCACertificateListRequest& setKeyWord(string keyWord) { DARABONBA_PTR_SET_VALUE(keyWord_, keyWord) };
 
 
     // showSize Field Functions 
@@ -49,6 +67,8 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> identifiers_ {};
+    shared_ptr<string> keyWord_ {};
     shared_ptr<int32_t> showSize_ {};
   };
 

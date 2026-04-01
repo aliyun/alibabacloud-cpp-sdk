@@ -1129,7 +1129,7 @@ DeleteClientCertificateResponse Client::deleteClientCertificate(const DeleteClie
 }
 
 /**
- * @summary Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+ * @summary Queries the details about a certificate authority (CA) certificate.
  *
  * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
  * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
@@ -1165,7 +1165,7 @@ DescribeCACertificateResponse Client::describeCACertificateWithOptions(const Des
 }
 
 /**
- * @summary Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+ * @summary Queries the details about a certificate authority (CA) certificate.
  *
  * @description You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
  * Before you call this operation, make sure that you have created a root CA by calling the [CreateRootCACertificate] operation or an intermediate CA certificate by calling the [CreateSubCACertificate] operation.
@@ -1440,7 +1440,7 @@ DescribeClientCertificateResponse Client::describeClientCertificate(const Descri
 /**
  * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
  *
- * @summary 获取客户端证书
+ * @summary Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
  *
  * @param request DescribeClientCertificateForSerialNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1473,7 +1473,7 @@ DescribeClientCertificateForSerialNumberResponse Client::describeClientCertifica
 /**
  * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
  *
- * @summary 获取客户端证书
+ * @summary Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
  *
  * @param request DescribeClientCertificateForSerialNumberRequest
  * @return DescribeClientCertificateForSerialNumberResponse
@@ -1534,7 +1534,7 @@ DescribeClientCertificateStatusResponse Client::describeClientCertificateStatus(
 }
 
 /**
- * @summary 获取客户端证书状态
+ * @summary Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
  *
  * @param request DescribeClientCertificateStatusForSerialNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1565,7 +1565,7 @@ DescribeClientCertificateStatusForSerialNumberResponse Client::describeClientCer
 }
 
 /**
- * @summary 获取客户端证书状态
+ * @summary Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
  *
  * @param request DescribeClientCertificateStatusForSerialNumberRequest
  * @return DescribeClientCertificateStatusForSerialNumberResponse
@@ -1576,8 +1576,6 @@ DescribeClientCertificateStatusForSerialNumberResponse Client::describeClientCer
 }
 
 /**
- * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
- *
  * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
  *
  * @param request DescribePcaAndExternalCACertificateListRequest
@@ -1589,6 +1587,14 @@ DescribePcaAndExternalCACertificateListResponse Client::describePcaAndExternalCA
   json query = {};
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasIdentifiers()) {
+    query["Identifiers"] = request.getIdentifiers();
+  }
+
+  if (!!request.hasKeyWord()) {
+    query["KeyWord"] = request.getKeyWord();
   }
 
   if (!!request.hasShowSize()) {
@@ -1613,8 +1619,6 @@ DescribePcaAndExternalCACertificateListResponse Client::describePcaAndExternalCA
 }
 
 /**
- * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
- *
  * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
  *
  * @param request DescribePcaAndExternalCACertificateListRequest
@@ -1742,7 +1746,7 @@ ListAllEndEntityInstanceResponse Client::listAllEndEntityInstance(const ListAllE
 }
 
 /**
- * @summary 获取证书日志
+ * @summary Queries the operation logs of a certificate authority (CA) certificate.
  *
  * @param request ListCACertificateLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1773,7 +1777,7 @@ ListCACertificateLogResponse Client::listCACertificateLogWithOptions(const ListC
 }
 
 /**
- * @summary 获取证书日志
+ * @summary Queries the operation logs of a certificate authority (CA) certificate.
  *
  * @param request ListCACertificateLogRequest
  * @return ListCACertificateLogResponse
@@ -1784,7 +1788,7 @@ ListCACertificateLogResponse Client::listCACertificateLog(const ListCACertificat
 }
 
 /**
- * @summary 获取证书列表
+ * @summary Queries a list of certificates.
  *
  * @param request ListCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1851,7 +1855,7 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
 }
 
 /**
- * @summary 获取证书列表
+ * @summary Queries a list of certificates.
  *
  * @param request ListCertRequest
  * @return ListCertResponse
@@ -1924,7 +1928,7 @@ ListClientCertificateResponse Client::listClientCertificate(const ListClientCert
 }
 
 /**
- * @summary 查询私有CA机构证书
+ * @summary Queries private certificate authority (CA) certificates.
  *
  * @param request ListPcaCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1959,7 +1963,7 @@ ListPcaCaCertificateResponse Client::listPcaCaCertificateWithOptions(const ListP
 }
 
 /**
- * @summary 查询私有CA机构证书
+ * @summary Queries private certificate authority (CA) certificates.
  *
  * @param request ListPcaCaCertificateRequest
  * @return ListPcaCaCertificateResponse
@@ -2372,7 +2376,7 @@ UpdatePcaCertificateResponse Client::updatePcaCertificate(const UpdatePcaCertifi
 }
 
 /**
- * @summary 上传pca证书到SSL上传证书
+ * @summary Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
  *
  * @param request UploadPcaCertToCasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2403,7 +2407,7 @@ UploadPcaCertToCasResponse Client::uploadPcaCertToCasWithOptions(const UploadPca
 }
 
 /**
- * @summary 上传pca证书到SSL上传证书
+ * @summary Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
  *
  * @param request UploadPcaCertToCasRequest
  * @return UploadPcaCertToCasResponse
