@@ -17,11 +17,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(databaseName, databaseName_);
       DARABONBA_PTR_TO_JSON(lastAccessTime, lastAccessTime_);
+      DARABONBA_PTR_TO_JSON(lastRequester, lastRequester_);
       DARABONBA_PTR_TO_JSON(partitionName, partitionName_);
       DARABONBA_PTR_TO_JSON(storageActionParams, storageActionParams_);
       DARABONBA_PTR_TO_JSON(storageActionTimestamp, storageActionTimestamp_);
       DARABONBA_PTR_TO_JSON(storageClass, storageClass_);
       DARABONBA_PTR_TO_JSON(tableName, tableName_);
+      DARABONBA_PTR_TO_JSON(topRequester, topRequester_);
+      DARABONBA_PTR_TO_JSON(totalFileAccessNum, totalFileAccessNum_);
+      DARABONBA_PTR_TO_JSON(totalFileAccessNum30d, totalFileAccessNum30d_);
+      DARABONBA_PTR_TO_JSON(totalFileAccessNum7d, totalFileAccessNum7d_);
       DARABONBA_PTR_TO_JSON(totalFileCount, totalFileCount_);
       DARABONBA_PTR_TO_JSON(totalFileSizeInBytes, totalFileSizeInBytes_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
@@ -30,11 +35,16 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(databaseName, databaseName_);
       DARABONBA_PTR_FROM_JSON(lastAccessTime, lastAccessTime_);
+      DARABONBA_PTR_FROM_JSON(lastRequester, lastRequester_);
       DARABONBA_PTR_FROM_JSON(partitionName, partitionName_);
       DARABONBA_PTR_FROM_JSON(storageActionParams, storageActionParams_);
       DARABONBA_PTR_FROM_JSON(storageActionTimestamp, storageActionTimestamp_);
       DARABONBA_PTR_FROM_JSON(storageClass, storageClass_);
       DARABONBA_PTR_FROM_JSON(tableName, tableName_);
+      DARABONBA_PTR_FROM_JSON(topRequester, topRequester_);
+      DARABONBA_PTR_FROM_JSON(totalFileAccessNum, totalFileAccessNum_);
+      DARABONBA_PTR_FROM_JSON(totalFileAccessNum30d, totalFileAccessNum30d_);
+      DARABONBA_PTR_FROM_JSON(totalFileAccessNum7d, totalFileAccessNum7d_);
       DARABONBA_PTR_FROM_JSON(totalFileCount, totalFileCount_);
       DARABONBA_PTR_FROM_JSON(totalFileSizeInBytes, totalFileSizeInBytes_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
@@ -51,8 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->databaseName_ == nullptr && this->lastAccessTime_ == nullptr && this->partitionName_ == nullptr && this->storageActionParams_ == nullptr && this->storageActionTimestamp_ == nullptr
-        && this->storageClass_ == nullptr && this->tableName_ == nullptr && this->totalFileCount_ == nullptr && this->totalFileSizeInBytes_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->databaseName_ == nullptr && this->lastAccessTime_ == nullptr && this->lastRequester_ == nullptr && this->partitionName_ == nullptr && this->storageActionParams_ == nullptr
+        && this->storageActionTimestamp_ == nullptr && this->storageClass_ == nullptr && this->tableName_ == nullptr && this->topRequester_ == nullptr && this->totalFileAccessNum_ == nullptr
+        && this->totalFileAccessNum30d_ == nullptr && this->totalFileAccessNum7d_ == nullptr && this->totalFileCount_ == nullptr && this->totalFileSizeInBytes_ == nullptr && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -72,6 +83,13 @@ namespace Models
     void deleteLastAccessTime() { this->lastAccessTime_ = nullptr;};
     inline int64_t getLastAccessTime() const { DARABONBA_PTR_GET_DEFAULT(lastAccessTime_, 0L) };
     inline PartitionSummary& setLastAccessTime(int64_t lastAccessTime) { DARABONBA_PTR_SET_VALUE(lastAccessTime_, lastAccessTime) };
+
+
+    // lastRequester Field Functions 
+    bool hasLastRequester() const { return this->lastRequester_ != nullptr;};
+    void deleteLastRequester() { this->lastRequester_ = nullptr;};
+    inline string getLastRequester() const { DARABONBA_PTR_GET_DEFAULT(lastRequester_, "") };
+    inline PartitionSummary& setLastRequester(string lastRequester) { DARABONBA_PTR_SET_VALUE(lastRequester_, lastRequester) };
 
 
     // partitionName Field Functions 
@@ -111,6 +129,34 @@ namespace Models
     inline PartitionSummary& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
+    // topRequester Field Functions 
+    bool hasTopRequester() const { return this->topRequester_ != nullptr;};
+    void deleteTopRequester() { this->topRequester_ = nullptr;};
+    inline string getTopRequester() const { DARABONBA_PTR_GET_DEFAULT(topRequester_, "") };
+    inline PartitionSummary& setTopRequester(string topRequester) { DARABONBA_PTR_SET_VALUE(topRequester_, topRequester) };
+
+
+    // totalFileAccessNum Field Functions 
+    bool hasTotalFileAccessNum() const { return this->totalFileAccessNum_ != nullptr;};
+    void deleteTotalFileAccessNum() { this->totalFileAccessNum_ = nullptr;};
+    inline int64_t getTotalFileAccessNum() const { DARABONBA_PTR_GET_DEFAULT(totalFileAccessNum_, 0L) };
+    inline PartitionSummary& setTotalFileAccessNum(int64_t totalFileAccessNum) { DARABONBA_PTR_SET_VALUE(totalFileAccessNum_, totalFileAccessNum) };
+
+
+    // totalFileAccessNum30d Field Functions 
+    bool hasTotalFileAccessNum30d() const { return this->totalFileAccessNum30d_ != nullptr;};
+    void deleteTotalFileAccessNum30d() { this->totalFileAccessNum30d_ = nullptr;};
+    inline int64_t getTotalFileAccessNum30d() const { DARABONBA_PTR_GET_DEFAULT(totalFileAccessNum30d_, 0L) };
+    inline PartitionSummary& setTotalFileAccessNum30d(int64_t totalFileAccessNum30d) { DARABONBA_PTR_SET_VALUE(totalFileAccessNum30d_, totalFileAccessNum30d) };
+
+
+    // totalFileAccessNum7d Field Functions 
+    bool hasTotalFileAccessNum7d() const { return this->totalFileAccessNum7d_ != nullptr;};
+    void deleteTotalFileAccessNum7d() { this->totalFileAccessNum7d_ = nullptr;};
+    inline int64_t getTotalFileAccessNum7d() const { DARABONBA_PTR_GET_DEFAULT(totalFileAccessNum7d_, 0L) };
+    inline PartitionSummary& setTotalFileAccessNum7d(int64_t totalFileAccessNum7d) { DARABONBA_PTR_SET_VALUE(totalFileAccessNum7d_, totalFileAccessNum7d) };
+
+
     // totalFileCount Field Functions 
     bool hasTotalFileCount() const { return this->totalFileCount_ != nullptr;};
     void deleteTotalFileCount() { this->totalFileCount_ = nullptr;};
@@ -139,6 +185,7 @@ namespace Models
     shared_ptr<string> databaseName_ {};
     // Total files in partition
     shared_ptr<int64_t> lastAccessTime_ {};
+    shared_ptr<string> lastRequester_ {};
     // Partition identifier
     shared_ptr<string> partitionName_ {};
     shared_ptr<map<string, string>> storageActionParams_ {};
@@ -146,6 +193,10 @@ namespace Models
     shared_ptr<string> storageClass_ {};
     // Table name
     shared_ptr<string> tableName_ {};
+    shared_ptr<string> topRequester_ {};
+    shared_ptr<int64_t> totalFileAccessNum_ {};
+    shared_ptr<int64_t> totalFileAccessNum30d_ {};
+    shared_ptr<int64_t> totalFileAccessNum7d_ {};
     // 24h access count
     shared_ptr<int64_t> totalFileCount_ {};
     // Last data access timestamp in milliseconds
