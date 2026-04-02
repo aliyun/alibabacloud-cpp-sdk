@@ -396,6 +396,25 @@ namespace CloudauthIntl20220809
       Models::DocOcrMaxResponse docOcrMax(const Models::DocOcrMaxRequest &request);
 
       /**
+       * @summary 卡证ocr纯服务端V2
+       *
+       * @param request DocOcrV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DocOcrV2Response
+       */
+      Models::DocOcrV2Response docOcrV2WithOptions(const Models::DocOcrV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 卡证ocr纯服务端V2
+       *
+       * @param request DocOcrV2Request
+       * @return DocOcrV2Response
+       */
+      Models::DocOcrV2Response docOcrV2(const Models::DocOcrV2Request &request);
+
+      Models::DocOcrV2Response docOcrV2Advance(const Models::DocOcrV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary Console Export Records
        *
        * @param request DownloadVerifyRecordIntlRequest
@@ -430,6 +449,25 @@ namespace CloudauthIntl20220809
       Models::EkycVerifyResponse ekycVerify(const Models::EkycVerifyRequest &request);
 
       /**
+       * @summary ekyc纯服务端接口V2
+       *
+       * @param request EkycVerifyV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EkycVerifyV2Response
+       */
+      Models::EkycVerifyV2Response ekycVerifyV2WithOptions(const Models::EkycVerifyV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ekyc纯服务端接口V2
+       *
+       * @param request EkycVerifyV2Request
+       * @return EkycVerifyV2Response
+       */
+      Models::EkycVerifyV2Response ekycVerifyV2(const Models::EkycVerifyV2Request &request);
+
+      Models::EkycVerifyV2Response ekycVerifyV2Advance(const Models::EkycVerifyV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary This topic describes how to integrate FaceCompare using only the server-side API.
        *
        * @param request FaceCompareRequest
@@ -445,6 +483,25 @@ namespace CloudauthIntl20220809
        * @return FaceCompareResponse
        */
       Models::FaceCompareResponse faceCompare(const Models::FaceCompareRequest &request);
+
+      /**
+       * @summary 人脸比对V2
+       *
+       * @param request FaceCompareV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FaceCompareV2Response
+       */
+      Models::FaceCompareV2Response faceCompareV2WithOptions(const Models::FaceCompareV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 人脸比对V2
+       *
+       * @param request FaceCompareV2Request
+       * @return FaceCompareV2Response
+       */
+      Models::FaceCompareV2Response faceCompareV2(const Models::FaceCompareV2Request &request);
+
+      Models::FaceCompareV2Response faceCompareV2Advance(const Models::FaceCompareV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Face Cross Comparison

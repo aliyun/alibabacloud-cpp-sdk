@@ -1632,6 +1632,180 @@ DocOcrMaxResponse Client::docOcrMax(const DocOcrMaxRequest &request) {
 }
 
 /**
+ * @summary 卡证ocr纯服务端V2
+ *
+ * @param request DocOcrV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DocOcrV2Response
+ */
+DocOcrV2Response Client::docOcrV2WithOptions(const DocOcrV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCardSide()) {
+    query["CardSide"] = request.getCardSide();
+  }
+
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasIdFaceQuality()) {
+    query["IdFaceQuality"] = request.getIdFaceQuality();
+  }
+
+  if (!!request.hasIdOcrPictureUrl()) {
+    query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
+  }
+
+  if (!!request.hasIdThreshold()) {
+    query["IdThreshold"] = request.getIdThreshold();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    query["MerchantUserId"] = request.getMerchantUserId();
+  }
+
+  if (!!request.hasOcr()) {
+    query["Ocr"] = request.getOcr();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasSpoof()) {
+    query["Spoof"] = request.getSpoof();
+  }
+
+  json body = {};
+  if (!!request.hasIdOcrPictureBase64()) {
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
+  }
+
+  if (!!request.hasIdOcrPictureFile()) {
+    body["IdOcrPictureFile"] = request.getIdOcrPictureFile();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DocOcrV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DocOcrV2Response>();
+}
+
+/**
+ * @summary 卡证ocr纯服务端V2
+ *
+ * @param request DocOcrV2Request
+ * @return DocOcrV2Response
+ */
+DocOcrV2Response Client::docOcrV2(const DocOcrV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return docOcrV2WithOptions(request, runtime);
+}
+
+DocOcrV2Response Client::docOcrV2Advance(const DocOcrV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  DocOcrV2Request docOcrV2Req = DocOcrV2Request();
+  Utils::Utils::convert(request, docOcrV2Req);
+  if (!!request.hasIdOcrPictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getIdOcrPictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    docOcrV2Req.setIdOcrPictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  DocOcrV2Response docOcrV2Resp = docOcrV2WithOptions(docOcrV2Req, runtime);
+  return docOcrV2Resp;
+}
+
+/**
  * @summary Console Export Records
  *
  * @param request DownloadVerifyRecordIntlRequest
@@ -1782,6 +1956,215 @@ EkycVerifyResponse Client::ekycVerify(const EkycVerifyRequest &request) {
 }
 
 /**
+ * @summary ekyc纯服务端接口V2
+ *
+ * @param request EkycVerifyV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EkycVerifyV2Response
+ */
+EkycVerifyV2Response Client::ekycVerifyV2WithOptions(const EkycVerifyV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorize()) {
+    query["Authorize"] = request.getAuthorize();
+  }
+
+  if (!!request.hasCrop()) {
+    query["Crop"] = request.getCrop();
+  }
+
+  if (!!request.hasDocName()) {
+    query["DocName"] = request.getDocName();
+  }
+
+  if (!!request.hasDocNo()) {
+    query["DocNo"] = request.getDocNo();
+  }
+
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasFacePictureUrl()) {
+    query["FacePictureUrl"] = request.getFacePictureUrl();
+  }
+
+  if (!!request.hasIdOcrPictureUrl()) {
+    query["IdOcrPictureUrl"] = request.getIdOcrPictureUrl();
+  }
+
+  if (!!request.hasIdThreshold()) {
+    query["IdThreshold"] = request.getIdThreshold();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    query["MerchantUserId"] = request.getMerchantUserId();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  json body = {};
+  if (!!request.hasFacePictureBase64()) {
+    body["FacePictureBase64"] = request.getFacePictureBase64();
+  }
+
+  if (!!request.hasFacePictureFile()) {
+    body["FacePictureFile"] = request.getFacePictureFile();
+  }
+
+  if (!!request.hasIdOcrPictureBase64()) {
+    body["IdOcrPictureBase64"] = request.getIdOcrPictureBase64();
+  }
+
+  if (!!request.hasIdOcrPictureFile()) {
+    body["IdOcrPictureFile"] = request.getIdOcrPictureFile();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EkycVerifyV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EkycVerifyV2Response>();
+}
+
+/**
+ * @summary ekyc纯服务端接口V2
+ *
+ * @param request EkycVerifyV2Request
+ * @return EkycVerifyV2Response
+ */
+EkycVerifyV2Response Client::ekycVerifyV2(const EkycVerifyV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return ekycVerifyV2WithOptions(request, runtime);
+}
+
+EkycVerifyV2Response Client::ekycVerifyV2Advance(const EkycVerifyV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  EkycVerifyV2Request ekycVerifyV2Req = EkycVerifyV2Request();
+  Utils::Utils::convert(request, ekycVerifyV2Req);
+  if (!!request.hasFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getFacePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    ekycVerifyV2Req.setFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  if (!!request.hasIdOcrPictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getIdOcrPictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    ekycVerifyV2Req.setIdOcrPictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  EkycVerifyV2Response ekycVerifyV2Resp = ekycVerifyV2WithOptions(ekycVerifyV2Req, runtime);
+  return ekycVerifyV2Resp;
+}
+
+/**
  * @summary This topic describes how to integrate FaceCompare using only the server-side API.
  *
  * @param request FaceCompareRequest
@@ -1843,6 +2226,187 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
 FaceCompareResponse Client::faceCompare(const FaceCompareRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return faceCompareWithOptions(request, runtime);
+}
+
+/**
+ * @summary 人脸比对V2
+ *
+ * @param request FaceCompareV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FaceCompareV2Response
+ */
+FaceCompareV2Response Client::faceCompareV2WithOptions(const FaceCompareV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFacePictureQualityCheck()) {
+    query["FacePictureQualityCheck"] = request.getFacePictureQualityCheck();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasSourceFacePictureUrl()) {
+    query["SourceFacePictureUrl"] = request.getSourceFacePictureUrl();
+  }
+
+  if (!!request.hasTargetFacePictureUrl()) {
+    query["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
+  }
+
+  json body = {};
+  if (!!request.hasSourceFacePicture()) {
+    body["SourceFacePicture"] = request.getSourceFacePicture();
+  }
+
+  if (!!request.hasSourceFacePictureFile()) {
+    body["SourceFacePictureFile"] = request.getSourceFacePictureFile();
+  }
+
+  if (!!request.hasTargetFacePicture()) {
+    body["TargetFacePicture"] = request.getTargetFacePicture();
+  }
+
+  if (!!request.hasTargetFacePictureFile()) {
+    body["TargetFacePictureFile"] = request.getTargetFacePictureFile();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "FaceCompareV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FaceCompareV2Response>();
+}
+
+/**
+ * @summary 人脸比对V2
+ *
+ * @param request FaceCompareV2Request
+ * @return FaceCompareV2Response
+ */
+FaceCompareV2Response Client::faceCompareV2(const FaceCompareV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return faceCompareV2WithOptions(request, runtime);
+}
+
+FaceCompareV2Response Client::faceCompareV2Advance(const FaceCompareV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  FaceCompareV2Request faceCompareV2Req = FaceCompareV2Request();
+  Utils::Utils::convert(request, faceCompareV2Req);
+  if (!!request.hasSourceFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getSourceFacePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    faceCompareV2Req.setSourceFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  if (!!request.hasTargetFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getTargetFacePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    faceCompareV2Req.setTargetFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  FaceCompareV2Response faceCompareV2Resp = faceCompareV2WithOptions(faceCompareV2Req, runtime);
+  return faceCompareV2Resp;
 }
 
 /**

@@ -95,7 +95,7 @@ namespace Models
       shared_ptr<string> clientCfg_ {};
       // Standard encryption protocol for authentication.
       // 
-      // > This field is required when integrating with H5 web pages using iframe embedding.
+      // > Required when integrating with H5 web pages using iframe embedding.
       shared_ptr<string> protocol_ {};
       // Authentication ID
       shared_ptr<string> transactionId_ {};
@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // Return message
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
     // Return result
     shared_ptr<InitializeResponseBody::Result> result_ {};
