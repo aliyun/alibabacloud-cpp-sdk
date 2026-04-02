@@ -390,10 +390,12 @@ namespace Models
       class DataSourceProperties : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DataSourceProperties& obj) { 
+          DARABONBA_PTR_TO_JSON(ConnectionProperties, connectionProperties_);
           DARABONBA_PTR_TO_JSON(Encoding, encoding_);
           DARABONBA_PTR_TO_JSON(Timezone, timezone_);
         };
         friend void from_json(const Darabonba::Json& j, DataSourceProperties& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConnectionProperties, connectionProperties_);
           DARABONBA_PTR_FROM_JSON(Encoding, encoding_);
           DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
         };
@@ -408,8 +410,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->encoding_ == nullptr
-        && this->timezone_ == nullptr; };
+        virtual bool empty() const override { return this->connectionProperties_ == nullptr
+        && this->encoding_ == nullptr && this->timezone_ == nullptr; };
+        // connectionProperties Field Functions 
+        bool hasConnectionProperties() const { return this->connectionProperties_ != nullptr;};
+        void deleteConnectionProperties() { this->connectionProperties_ = nullptr;};
+        inline string getConnectionProperties() const { DARABONBA_PTR_GET_DEFAULT(connectionProperties_, "") };
+        inline DataSourceProperties& setConnectionProperties(string connectionProperties) { DARABONBA_PTR_SET_VALUE(connectionProperties_, connectionProperties) };
+
+
         // encoding Field Functions 
         bool hasEncoding() const { return this->encoding_ != nullptr;};
         void deleteEncoding() { this->encoding_ = nullptr;};
@@ -425,6 +434,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> connectionProperties_ {};
         // The database encoding.
         shared_ptr<string> encoding_ {};
         // The time zone.
@@ -955,9 +965,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const DestinationDataSourceSettings& obj) { 
         DARABONBA_PTR_TO_JSON(DataSourceName, dataSourceName_);
+        DARABONBA_PTR_TO_JSON(DataSourceProperties, dataSourceProperties_);
       };
       friend void from_json(const Darabonba::Json& j, DestinationDataSourceSettings& obj) { 
         DARABONBA_PTR_FROM_JSON(DataSourceName, dataSourceName_);
+        DARABONBA_PTR_FROM_JSON(DataSourceProperties, dataSourceProperties_);
       };
       DestinationDataSourceSettings() = default ;
       DestinationDataSourceSettings(const DestinationDataSourceSettings &) = default ;
@@ -970,7 +982,39 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->dataSourceName_ == nullptr; };
+      class DataSourceProperties : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataSourceProperties& obj) { 
+          DARABONBA_PTR_TO_JSON(ConnectionProperties, connectionProperties_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataSourceProperties& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConnectionProperties, connectionProperties_);
+        };
+        DataSourceProperties() = default ;
+        DataSourceProperties(const DataSourceProperties &) = default ;
+        DataSourceProperties(DataSourceProperties &&) = default ;
+        DataSourceProperties(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataSourceProperties() = default ;
+        DataSourceProperties& operator=(const DataSourceProperties &) = default ;
+        DataSourceProperties& operator=(DataSourceProperties &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->connectionProperties_ == nullptr; };
+        // connectionProperties Field Functions 
+        bool hasConnectionProperties() const { return this->connectionProperties_ != nullptr;};
+        void deleteConnectionProperties() { this->connectionProperties_ = nullptr;};
+        inline string getConnectionProperties() const { DARABONBA_PTR_GET_DEFAULT(connectionProperties_, "") };
+        inline DataSourceProperties& setConnectionProperties(string connectionProperties) { DARABONBA_PTR_SET_VALUE(connectionProperties_, connectionProperties) };
+
+
+      protected:
+        shared_ptr<string> connectionProperties_ {};
+      };
+
+      virtual bool empty() const override { return this->dataSourceName_ == nullptr
+        && this->dataSourceProperties_ == nullptr; };
       // dataSourceName Field Functions 
       bool hasDataSourceName() const { return this->dataSourceName_ != nullptr;};
       void deleteDataSourceName() { this->dataSourceName_ = nullptr;};
@@ -978,9 +1022,19 @@ namespace Models
       inline DestinationDataSourceSettings& setDataSourceName(string dataSourceName) { DARABONBA_PTR_SET_VALUE(dataSourceName_, dataSourceName) };
 
 
+      // dataSourceProperties Field Functions 
+      bool hasDataSourceProperties() const { return this->dataSourceProperties_ != nullptr;};
+      void deleteDataSourceProperties() { this->dataSourceProperties_ = nullptr;};
+      inline const DestinationDataSourceSettings::DataSourceProperties & getDataSourceProperties() const { DARABONBA_PTR_GET_CONST(dataSourceProperties_, DestinationDataSourceSettings::DataSourceProperties) };
+      inline DestinationDataSourceSettings::DataSourceProperties getDataSourceProperties() { DARABONBA_PTR_GET(dataSourceProperties_, DestinationDataSourceSettings::DataSourceProperties) };
+      inline DestinationDataSourceSettings& setDataSourceProperties(const DestinationDataSourceSettings::DataSourceProperties & dataSourceProperties) { DARABONBA_PTR_SET_VALUE(dataSourceProperties_, dataSourceProperties) };
+      inline DestinationDataSourceSettings& setDataSourceProperties(DestinationDataSourceSettings::DataSourceProperties && dataSourceProperties) { DARABONBA_PTR_SET_RVALUE(dataSourceProperties_, dataSourceProperties) };
+
+
     protected:
       // The data source name.
       shared_ptr<string> dataSourceName_ {};
+      shared_ptr<DestinationDataSourceSettings::DataSourceProperties> dataSourceProperties_ {};
     };
 
     virtual bool empty() const override { return this->description_ == nullptr
