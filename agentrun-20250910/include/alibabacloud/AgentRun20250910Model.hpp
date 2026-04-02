@@ -28,6 +28,8 @@
 #include <alibabacloud/models/ApigLLMModel.hpp>
 #include <alibabacloud/models/ArmsConfiguration.hpp>
 #include <alibabacloud/models/AttachPolicyConfig.hpp>
+#include <alibabacloud/models/BoundTool.hpp>
+#include <alibabacloud/models/BoundConfiguration.hpp>
 #include <alibabacloud/models/BrowserOssLocation.hpp>
 #include <alibabacloud/models/BrowserRecordingConfiguration.hpp>
 #include <alibabacloud/models/Browser.hpp>
@@ -66,6 +68,7 @@
 #include <alibabacloud/models/TLSConfig.hpp>
 #include <alibabacloud/models/CreateCustomDomainInput.hpp>
 #include <alibabacloud/models/CreateDomainInput.hpp>
+#include <alibabacloud/models/CreateFunagentInput.hpp>
 #include <alibabacloud/models/GatewayNetworkConfiguration.hpp>
 #include <alibabacloud/models/CreateGatewayInput.hpp>
 #include <alibabacloud/models/PolicyConfig.hpp>
@@ -99,6 +102,10 @@
 #include <alibabacloud/models/CreateTemplateInput.hpp>
 #include <alibabacloud/models/CreateToolData.hpp>
 #include <alibabacloud/models/CreateToolInput.hpp>
+#include <alibabacloud/models/Hook.hpp>
+#include <alibabacloud/models/McpProxyConfiguration.hpp>
+#include <alibabacloud/models/McpConfig.hpp>
+#include <alibabacloud/models/CreateToolInputV2.hpp>
 #include <alibabacloud/models/CreateToolOutput.hpp>
 #include <alibabacloud/models/CreateWorkspaceInput.hpp>
 #include <alibabacloud/models/Credential.hpp>
@@ -127,6 +134,8 @@
 #include <alibabacloud/models/DomainInfo.hpp>
 #include <alibabacloud/models/ErrorResult.hpp>
 #include <alibabacloud/models/FCLinkConfig.hpp>
+#include <alibabacloud/models/Funagent.hpp>
+#include <alibabacloud/models/FunagentResult.hpp>
 #include <alibabacloud/models/Gateway.hpp>
 #include <alibabacloud/models/GetBrowserSessionResult.hpp>
 #include <alibabacloud/models/GetCodeInterpreterSessionResult.hpp>
@@ -160,6 +169,9 @@
 #include <alibabacloud/models/ListCustomDomainsOutput.hpp>
 #include <alibabacloud/models/ListCustomDomainsResult.hpp>
 #include <alibabacloud/models/ListDomainsOutput.hpp>
+#include <alibabacloud/models/ListFunagentsInput.hpp>
+#include <alibabacloud/models/ListFunagentsOutput.hpp>
+#include <alibabacloud/models/ListFunagentsResult.hpp>
 #include <alibabacloud/models/ListGatewaysOutput.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesOutput.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResult.hpp>
@@ -176,6 +188,9 @@
 #include <alibabacloud/models/ListTemplatesResult.hpp>
 #include <alibabacloud/models/ToolListItem.hpp>
 #include <alibabacloud/models/ListToolsOutput.hpp>
+#include <alibabacloud/models/Tool.hpp>
+#include <alibabacloud/models/ListToolsOutputV2.hpp>
+#include <alibabacloud/models/ListToolsResult.hpp>
 #include <alibabacloud/models/Workspace.hpp>
 #include <alibabacloud/models/ListWorkspacesOutput.hpp>
 #include <alibabacloud/models/ListWorkspacesResult.hpp>
@@ -207,6 +222,7 @@
 #include <alibabacloud/models/StopSandboxResult.hpp>
 #include <alibabacloud/models/Target.hpp>
 #include <alibabacloud/models/TemplateResult.hpp>
+#include <alibabacloud/models/ToolResult.hpp>
 #include <alibabacloud/models/TriggerConfig.hpp>
 #include <alibabacloud/models/UpdateAgentRuntimeEndpointInput.hpp>
 #include <alibabacloud/models/UpdateAgentRuntimeInput.hpp>
@@ -225,6 +241,7 @@
 #include <alibabacloud/models/UpdateTemplateInput.hpp>
 #include <alibabacloud/models/UpdateToolData.hpp>
 #include <alibabacloud/models/UpdateToolInput.hpp>
+#include <alibabacloud/models/UpdateToolInputV2.hpp>
 #include <alibabacloud/models/UpdateToolOutput.hpp>
 #include <alibabacloud/models/UpdateWorkspaceInput.hpp>
 #include <alibabacloud/models/WorkspaceResult.hpp>
@@ -254,6 +271,8 @@
 #include <alibabacloud/models/CreateSandboxResponse.hpp>
 #include <alibabacloud/models/CreateTemplateRequest.hpp>
 #include <alibabacloud/models/CreateTemplateResponse.hpp>
+#include <alibabacloud/models/CreateToolRequest.hpp>
+#include <alibabacloud/models/CreateToolResponse.hpp>
 #include <alibabacloud/models/CreateWorkspaceRequest.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeleteAgentRuntimeResponse.hpp>
@@ -268,6 +287,7 @@
 #include <alibabacloud/models/DeleteModelServiceResponse.hpp>
 #include <alibabacloud/models/DeleteSandboxResponse.hpp>
 #include <alibabacloud/models/DeleteTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteToolResponse.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
 #include <alibabacloud/models/GetAccessTokenRequest.hpp>
 #include <alibabacloud/models/GetAccessTokenResponseBody.hpp>
@@ -285,6 +305,7 @@
 #include <alibabacloud/models/GetModelServiceResponse.hpp>
 #include <alibabacloud/models/GetSandboxResponse.hpp>
 #include <alibabacloud/models/GetTemplateResponse.hpp>
+#include <alibabacloud/models/GetToolResponse.hpp>
 #include <alibabacloud/models/GetWorkspaceResponse.hpp>
 #include <alibabacloud/models/GetWorkspaceDiscoveryEndpointsResponse.hpp>
 #include <alibabacloud/models/ListAgentRuntimeEndpointsRequest.hpp>
@@ -316,10 +337,14 @@
 #include <alibabacloud/models/ListSandboxesResponse.hpp>
 #include <alibabacloud/models/ListTemplatesRequest.hpp>
 #include <alibabacloud/models/ListTemplatesResponse.hpp>
+#include <alibabacloud/models/ListToolsRequest.hpp>
+#include <alibabacloud/models/ListToolsResponse.hpp>
 #include <alibabacloud/models/ListWorkspacesRequest.hpp>
 #include <alibabacloud/models/ListWorkspacesResponse.hpp>
+#include <alibabacloud/models/PauseSandboxResponse.hpp>
 #include <alibabacloud/models/PublishRuntimeVersionRequest.hpp>
 #include <alibabacloud/models/PublishRuntimeVersionResponse.hpp>
+#include <alibabacloud/models/ResumeSandboxResponse.hpp>
 #include <alibabacloud/models/StopSandboxResponse.hpp>
 #include <alibabacloud/models/StopTemplateMCPResponse.hpp>
 #include <alibabacloud/models/UpdateAgentRuntimeRequest.hpp>
@@ -340,6 +365,8 @@
 #include <alibabacloud/models/UpdateModelServiceResponse.hpp>
 #include <alibabacloud/models/UpdateTemplateRequest.hpp>
 #include <alibabacloud/models/UpdateTemplateResponse.hpp>
+#include <alibabacloud/models/UpdateToolRequest.hpp>
+#include <alibabacloud/models/UpdateToolResponse.hpp>
 #include <alibabacloud/models/UpdateWorkspaceRequest.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResponse.hpp>
 #include <alibabacloud/models/UpdateWorkspaceDiscoveryEndpointsRequest.hpp>

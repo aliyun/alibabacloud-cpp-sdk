@@ -279,6 +279,28 @@ namespace AgentRun20250910
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
+       * @summary 创建工具
+       *
+       * @description 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+       *
+       * @param request CreateToolRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateToolResponse
+       */
+      Models::CreateToolResponse createToolWithOptions(const Models::CreateToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工具
+       *
+       * @description 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+       *
+       * @param request CreateToolRequest
+       * @return CreateToolResponse
+       */
+      Models::CreateToolResponse createTool(const Models::CreateToolRequest &request);
+
+      /**
        * @summary 创建工作空间
        *
        * @description 创建工作空间
@@ -507,6 +529,26 @@ namespace AgentRun20250910
        * @return DeleteTemplateResponse
        */
       Models::DeleteTemplateResponse deleteTemplate(const string &templateName);
+
+      /**
+       * @summary 删除工具
+       *
+       * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteToolResponse
+       */
+      Models::DeleteToolResponse deleteToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工具
+       *
+       * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+       *
+       * @return DeleteToolResponse
+       */
+      Models::DeleteToolResponse deleteTool(const string &toolName);
 
       /**
        * @summary 删除工作空间
@@ -759,6 +801,26 @@ namespace AgentRun20250910
        * @return GetTemplateResponse
        */
       Models::GetTemplateResponse getTemplate(const string &templateName);
+
+      /**
+       * @summary 获取工具详情
+       *
+       * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetToolResponse
+       */
+      Models::GetToolResponse getToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工具详情
+       *
+       * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+       *
+       * @return GetToolResponse
+       */
+      Models::GetToolResponse getTool(const string &toolName);
 
       /**
        * @summary 查看工作空间
@@ -1073,6 +1135,28 @@ namespace AgentRun20250910
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
+       * @summary 工具列表
+       *
+       * @description 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+       *
+       * @param request ListToolsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListToolsResponse
+       */
+      Models::ListToolsResponse listToolsWithOptions(const Models::ListToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 工具列表
+       *
+       * @description 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+       *
+       * @param request ListToolsRequest
+       * @return ListToolsResponse
+       */
+      Models::ListToolsResponse listTools(const Models::ListToolsRequest &request);
+
+      /**
        * @summary 获取工作空间列表
        *
        * @description 获取工作空间列表
@@ -1093,6 +1177,26 @@ namespace AgentRun20250910
        * @return ListWorkspacesResponse
        */
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
+
+      /**
+       * @summary 暂停沙箱
+       *
+       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseSandboxResponse
+       */
+      Models::PauseSandboxResponse pauseSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停沙箱
+       *
+       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       *
+       * @return PauseSandboxResponse
+       */
+      Models::PauseSandboxResponse pauseSandbox(const string &sandboxId);
 
       /**
        * @summary 发布运行时版本
@@ -1117,7 +1221,23 @@ namespace AgentRun20250910
       Models::PublishRuntimeVersionResponse publishRuntimeVersion(const string &agentRuntimeId, const Models::PublishRuntimeVersionRequest &request);
 
       /**
-       * @summary 删除沙箱
+       * @summary 恢复沙箱
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeSandboxResponse
+       */
+      Models::ResumeSandboxResponse resumeSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 恢复沙箱
+       *
+       * @return ResumeSandboxResponse
+       */
+      Models::ResumeSandboxResponse resumeSandbox(const string &sandboxId);
+
+      /**
+       * @summary 停止沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
@@ -1128,7 +1248,7 @@ namespace AgentRun20250910
       Models::StopSandboxResponse stopSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除沙箱
+       * @summary 停止沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
@@ -1321,6 +1441,28 @@ namespace AgentRun20250910
        * @return UpdateTemplateResponse
        */
       Models::UpdateTemplateResponse updateTemplate(const string &templateName, const Models::UpdateTemplateRequest &request);
+
+      /**
+       * @summary 更新工具
+       *
+       * @description 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+       *
+       * @param request UpdateToolRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateToolResponse
+       */
+      Models::UpdateToolResponse updateToolWithOptions(const string &toolName, const Models::UpdateToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工具
+       *
+       * @description 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+       *
+       * @param request UpdateToolRequest
+       * @return UpdateToolResponse
+       */
+      Models::UpdateToolResponse updateTool(const string &toolName, const Models::UpdateToolRequest &request);
 
       /**
        * @summary 更新工作空间

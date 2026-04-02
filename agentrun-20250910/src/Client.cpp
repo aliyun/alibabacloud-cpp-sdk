@@ -590,6 +590,50 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
+ * @summary 创建工具
+ *
+ * @description 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+ *
+ * @param request CreateToolRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateToolResponse
+ */
+CreateToolResponse Client::createToolWithOptions(const CreateToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTool"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/tools")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateToolResponse>();
+}
+
+/**
+ * @summary 创建工具
+ *
+ * @description 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+ *
+ * @param request CreateToolRequest
+ * @return CreateToolResponse
+ */
+CreateToolResponse Client::createTool(const CreateToolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createToolWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建工作空间
  *
  * @description 创建工作空间
@@ -1079,6 +1123,46 @@ DeleteTemplateResponse Client::deleteTemplate(const string &templateName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteTemplateWithOptions(templateName, headers, runtime);
+}
+
+/**
+ * @summary 删除工具
+ *
+ * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteToolResponse
+ */
+DeleteToolResponse Client::deleteToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTool"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/tools/" , Darabonba::Encode::Encoder::percentEncode(toolName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteToolResponse>();
+}
+
+/**
+ * @summary 删除工具
+ *
+ * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+ *
+ * @return DeleteToolResponse
+ */
+DeleteToolResponse Client::deleteTool(const string &toolName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteToolWithOptions(toolName, headers, runtime);
 }
 
 /**
@@ -1633,6 +1717,46 @@ GetTemplateResponse Client::getTemplate(const string &templateName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getTemplateWithOptions(templateName, headers, runtime);
+}
+
+/**
+ * @summary 获取工具详情
+ *
+ * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetToolResponse
+ */
+GetToolResponse Client::getToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTool"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/tools/" , Darabonba::Encode::Encoder::percentEncode(toolName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetToolResponse>();
+}
+
+/**
+ * @summary 获取工具详情
+ *
+ * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+ *
+ * @return GetToolResponse
+ */
+GetToolResponse Client::getTool(const string &toolName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getToolWithOptions(toolName, headers, runtime);
 }
 
 /**
@@ -2630,6 +2754,71 @@ ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request)
 }
 
 /**
+ * @summary 工具列表
+ *
+ * @description 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+ *
+ * @param request ListToolsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListToolsResponse
+ */
+ListToolsResponse Client::listToolsWithOptions(const ListToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasToolType()) {
+    query["toolType"] = request.getToolType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceIds()) {
+    query["workspaceIds"] = request.getWorkspaceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTools"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/tools")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListToolsResponse>();
+}
+
+/**
+ * @summary 工具列表
+ *
+ * @description 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+ *
+ * @param request ListToolsRequest
+ * @return ListToolsResponse
+ */
+ListToolsResponse Client::listTools(const ListToolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listToolsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取工作空间列表
  *
  * @description 获取工作空间列表
@@ -2691,6 +2880,46 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
+ * @summary 暂停沙箱
+ *
+ * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseSandboxResponse
+ */
+PauseSandboxResponse Client::pauseSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PauseSandbox"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId) , "/pause")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseSandboxResponse>();
+}
+
+/**
+ * @summary 暂停沙箱
+ *
+ * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+ *
+ * @return PauseSandboxResponse
+ */
+PauseSandboxResponse Client::pauseSandbox(const string &sandboxId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return pauseSandboxWithOptions(sandboxId, headers, runtime);
+}
+
+/**
  * @summary 发布运行时版本
  *
  * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -2735,7 +2964,43 @@ PublishRuntimeVersionResponse Client::publishRuntimeVersion(const string &agentR
 }
 
 /**
- * @summary 删除沙箱
+ * @summary 恢复沙箱
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeSandboxResponse
+ */
+ResumeSandboxResponse Client::resumeSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeSandbox"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId) , "/resume")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeSandboxResponse>();
+}
+
+/**
+ * @summary 恢复沙箱
+ *
+ * @return ResumeSandboxResponse
+ */
+ResumeSandboxResponse Client::resumeSandbox(const string &sandboxId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resumeSandboxWithOptions(sandboxId, headers, runtime);
+}
+
+/**
+ * @summary 停止沙箱
  *
  * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
  *
@@ -2762,7 +3027,7 @@ StopSandboxResponse Client::stopSandboxWithOptions(const string &sandboxId, cons
 }
 
 /**
- * @summary 删除沙箱
+ * @summary 停止沙箱
  *
  * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
  *
@@ -3182,6 +3447,50 @@ UpdateTemplateResponse Client::updateTemplate(const string &templateName, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateTemplateWithOptions(templateName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新工具
+ *
+ * @description 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+ *
+ * @param request UpdateToolRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateToolResponse
+ */
+UpdateToolResponse Client::updateToolWithOptions(const string &toolName, const UpdateToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTool"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/tools/" , Darabonba::Encode::Encoder::percentEncode(toolName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateToolResponse>();
+}
+
+/**
+ * @summary 更新工具
+ *
+ * @description 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+ *
+ * @param request UpdateToolRequest
+ * @return UpdateToolResponse
+ */
+UpdateToolResponse Client::updateTool(const string &toolName, const UpdateToolRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateToolWithOptions(toolName, request, headers, runtime);
 }
 
 /**
