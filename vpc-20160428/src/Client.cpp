@@ -284,7 +284,7 @@ AddBgpNetworkResponse Client::addBgpNetwork(const AddBgpNetworkRequest &request)
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+ * @summary AddCommonBandwidthPackageIp
  *
  * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
  *
@@ -349,7 +349,7 @@ AddCommonBandwidthPackageIpResponse Client::addCommonBandwidthPackageIpWithOptio
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+ * @summary AddCommonBandwidthPackageIp
  *
  * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
  *
@@ -3919,6 +3919,100 @@ CreateDhcpOptionsSetResponse Client::createDhcpOptionsSetWithOptions(const Creat
 CreateDhcpOptionsSetResponse Client::createDhcpOptionsSet(const CreateDhcpOptionsSetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDhcpOptionsSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建增强型VPN网关
+ *
+ * @param request CreateEnhancedVpnGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEnhancedVpnGatewayResponse
+ */
+CreateEnhancedVpnGatewayResponse Client::createEnhancedVpnGatewayWithOptions(const CreateEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDisasterRecoveryVSwitchId()) {
+    query["DisasterRecoveryVSwitchId"] = request.getDisasterRecoveryVSwitchId();
+  }
+
+  if (!!request.hasGatewayType()) {
+    query["GatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNetworkType()) {
+    query["NetworkType"] = request.getNetworkType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasVpnType()) {
+    query["VpnType"] = request.getVpnType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateEnhancedVpnGateway"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEnhancedVpnGatewayResponse>();
+}
+
+/**
+ * @summary 创建增强型VPN网关
+ *
+ * @param request CreateEnhancedVpnGatewayRequest
+ * @return CreateEnhancedVpnGatewayResponse
+ */
+CreateEnhancedVpnGatewayResponse Client::createEnhancedVpnGateway(const CreateEnhancedVpnGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createEnhancedVpnGatewayWithOptions(request, runtime);
 }
 
 /**
@@ -10066,6 +10160,72 @@ DeleteDhcpOptionsSetResponse Client::deleteDhcpOptionsSet(const DeleteDhcpOption
 }
 
 /**
+ * @summary Deletes an Enhanced VPN gateway.
+ *
+ * @param request DeleteEnhancedVpnGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEnhancedVpnGatewayResponse
+ */
+DeleteEnhancedVpnGatewayResponse Client::deleteEnhancedVpnGatewayWithOptions(const DeleteEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasVpnGatewayId()) {
+    query["VpnGatewayId"] = request.getVpnGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEnhancedVpnGateway"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEnhancedVpnGatewayResponse>();
+}
+
+/**
+ * @summary Deletes an Enhanced VPN gateway.
+ *
+ * @param request DeleteEnhancedVpnGatewayRequest
+ * @return DeleteEnhancedVpnGatewayResponse
+ */
+DeleteEnhancedVpnGatewayResponse Client::deleteEnhancedVpnGateway(const DeleteEnhancedVpnGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteEnhancedVpnGatewayWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a Express Connect instance, including the initiator and acceptor.
  *
  * @param request DeleteExpressConnectRequest
@@ -14878,7 +15038,7 @@ DescribeEipGatewayInfoResponse Client::describeEipGatewayInfo(const DescribeEipG
 }
 
 /**
- * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+ * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
  *
  * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
  *
@@ -14943,7 +15103,7 @@ DescribeEipMonitorDataResponse Client::describeEipMonitorDataWithOptions(const D
 }
 
 /**
- * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+ * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
  *
  * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
  *
@@ -23049,7 +23209,7 @@ ListNatIpsResponse Client::listNatIps(const ListNatIpsRequest &request) {
 }
 
 /**
- * @summary Queries he connection features supported by a Express Connect circuit.
+ * @summary Querying the connection features supported by a Express Connect circuit.
  *
  * @param request ListPhysicalConnectionFeaturesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23104,7 +23264,7 @@ ListPhysicalConnectionFeaturesResponse Client::listPhysicalConnectionFeaturesWit
 }
 
 /**
- * @summary Queries he connection features supported by a Express Connect circuit.
+ * @summary Querying the connection features supported by a Express Connect circuit.
  *
  * @param request ListPhysicalConnectionFeaturesRequest
  * @return ListPhysicalConnectionFeaturesResponse
@@ -30301,7 +30461,8 @@ ReleaseIpv6AddressResponse Client::releaseIpv6Address(const ReleaseIpv6AddressRe
 }
 
 /**
- * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+ * @summary The region ID of the Internet Shared Bandwidth instance.
+ * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
  *
  * @param request RemoveCommonBandwidthPackageIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30360,7 +30521,8 @@ RemoveCommonBandwidthPackageIpResponse Client::removeCommonBandwidthPackageIpWit
 }
 
 /**
- * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+ * @summary The region ID of the Internet Shared Bandwidth instance.
+ * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
  *
  * @param request RemoveCommonBandwidthPackageIpRequest
  * @return RemoveCommonBandwidthPackageIpResponse
@@ -32492,6 +32654,84 @@ UpdateDhcpOptionsSetAttributeResponse Client::updateDhcpOptionsSetAttributeWithO
 UpdateDhcpOptionsSetAttributeResponse Client::updateDhcpOptionsSetAttribute(const UpdateDhcpOptionsSetAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDhcpOptionsSetAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改增强型VPN实例属性
+ *
+ * @param request UpdateEnhancedVpnGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEnhancedVpnGatewayResponse
+ */
+UpdateEnhancedVpnGatewayResponse Client::updateEnhancedVpnGatewayWithOptions(const UpdateEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPropagate()) {
+    query["AutoPropagate"] = request.getAutoPropagate();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasVpnGatewayId()) {
+    query["VpnGatewayId"] = request.getVpnGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateEnhancedVpnGateway"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEnhancedVpnGatewayResponse>();
+}
+
+/**
+ * @summary 修改增强型VPN实例属性
+ *
+ * @param request UpdateEnhancedVpnGatewayRequest
+ * @return UpdateEnhancedVpnGatewayResponse
+ */
+UpdateEnhancedVpnGatewayResponse Client::updateEnhancedVpnGateway(const UpdateEnhancedVpnGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateEnhancedVpnGatewayWithOptions(request, runtime);
 }
 
 /**

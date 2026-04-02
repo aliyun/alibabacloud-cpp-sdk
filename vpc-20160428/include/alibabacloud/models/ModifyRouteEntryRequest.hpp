@@ -153,7 +153,9 @@ namespace Models
     // 
     // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The destination CIDR block of the route entry. Only IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix lists are supported.
+    // The destination CIDR block of the route entry, which supports IPv4 CIDR blocks and IPv6 CIDR blocks.
+    // > When the **RouteEntryId** parameter is not provided, both the **DestinationCidrBlock** and **RouteTableId** parameters are required.
+    // When modifying a route whose destination CIDR block points to a prefix list, the **RouteEntryId** parameter is required, and the **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
     shared_ptr<string> destinationCidrBlock_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 

@@ -134,6 +134,9 @@
 #include <alibabacloud/models/CreateDhcpOptionsSetRequest.hpp>
 #include <alibabacloud/models/CreateDhcpOptionsSetResponseBody.hpp>
 #include <alibabacloud/models/CreateDhcpOptionsSetResponse.hpp>
+#include <alibabacloud/models/CreateEnhancedVpnGatewayRequest.hpp>
+#include <alibabacloud/models/CreateEnhancedVpnGatewayResponseBody.hpp>
+#include <alibabacloud/models/CreateEnhancedVpnGatewayResponse.hpp>
 #include <alibabacloud/models/CreateExpressCloudConnectionRequest.hpp>
 #include <alibabacloud/models/CreateExpressCloudConnectionResponseBody.hpp>
 #include <alibabacloud/models/CreateExpressCloudConnectionResponse.hpp>
@@ -315,6 +318,9 @@
 #include <alibabacloud/models/DeleteDhcpOptionsSetRequest.hpp>
 #include <alibabacloud/models/DeleteDhcpOptionsSetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDhcpOptionsSetResponse.hpp>
+#include <alibabacloud/models/DeleteEnhancedVpnGatewayRequest.hpp>
+#include <alibabacloud/models/DeleteEnhancedVpnGatewayResponseBody.hpp>
+#include <alibabacloud/models/DeleteEnhancedVpnGatewayResponse.hpp>
 #include <alibabacloud/models/DeleteExpressConnectRequest.hpp>
 #include <alibabacloud/models/DeleteExpressConnectResponseBody.hpp>
 #include <alibabacloud/models/DeleteExpressConnectResponse.hpp>
@@ -1148,6 +1154,9 @@
 #include <alibabacloud/models/UpdateDhcpOptionsSetAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateDhcpOptionsSetAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateDhcpOptionsSetAttributeResponse.hpp>
+#include <alibabacloud/models/UpdateEnhancedVpnGatewayRequest.hpp>
+#include <alibabacloud/models/UpdateEnhancedVpnGatewayResponseBody.hpp>
+#include <alibabacloud/models/UpdateEnhancedVpnGatewayResponse.hpp>
 #include <alibabacloud/models/UpdateFailoverTestJobRequest.hpp>
 #include <alibabacloud/models/UpdateFailoverTestJobResponseBody.hpp>
 #include <alibabacloud/models/UpdateFailoverTestJobResponse.hpp>

@@ -88,7 +88,7 @@ namespace Vpc20160428
       Models::AddBgpNetworkResponse addBgpNetwork(const Models::AddBgpNetworkRequest &request);
 
       /**
-       * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+       * @summary AddCommonBandwidthPackageIp
        *
        * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
        *
@@ -99,7 +99,7 @@ namespace Vpc20160428
       Models::AddCommonBandwidthPackageIpResponse addCommonBandwidthPackageIpWithOptions(const Models::AddCommonBandwidthPackageIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+       * @summary AddCommonBandwidthPackageIp
        *
        * @description Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
        *
@@ -1115,6 +1115,23 @@ namespace Vpc20160428
        * @return CreateDhcpOptionsSetResponse
        */
       Models::CreateDhcpOptionsSetResponse createDhcpOptionsSet(const Models::CreateDhcpOptionsSetRequest &request);
+
+      /**
+       * @summary 创建增强型VPN网关
+       *
+       * @param request CreateEnhancedVpnGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEnhancedVpnGatewayResponse
+       */
+      Models::CreateEnhancedVpnGatewayResponse createEnhancedVpnGatewayWithOptions(const Models::CreateEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建增强型VPN网关
+       *
+       * @param request CreateEnhancedVpnGatewayRequest
+       * @return CreateEnhancedVpnGatewayResponse
+       */
+      Models::CreateEnhancedVpnGatewayResponse createEnhancedVpnGateway(const Models::CreateEnhancedVpnGatewayRequest &request);
 
       /**
        * @summary Creates an Express Cloud Connect (ECC) instance.
@@ -2715,6 +2732,23 @@ namespace Vpc20160428
       Models::DeleteDhcpOptionsSetResponse deleteDhcpOptionsSet(const Models::DeleteDhcpOptionsSetRequest &request);
 
       /**
+       * @summary Deletes an Enhanced VPN gateway.
+       *
+       * @param request DeleteEnhancedVpnGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEnhancedVpnGatewayResponse
+       */
+      Models::DeleteEnhancedVpnGatewayResponse deleteEnhancedVpnGatewayWithOptions(const Models::DeleteEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an Enhanced VPN gateway.
+       *
+       * @param request DeleteEnhancedVpnGatewayRequest
+       * @return DeleteEnhancedVpnGatewayResponse
+       */
+      Models::DeleteEnhancedVpnGatewayResponse deleteEnhancedVpnGateway(const Models::DeleteEnhancedVpnGatewayRequest &request);
+
+      /**
        * @summary Deletes a Express Connect instance, including the initiator and acceptor.
        *
        * @param request DeleteExpressConnectRequest
@@ -4202,7 +4236,7 @@ namespace Vpc20160428
       Models::DescribeEipGatewayInfoResponse describeEipGatewayInfo(const Models::DescribeEipGatewayInfoRequest &request);
 
       /**
-       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
        *
        * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
        *
@@ -4213,7 +4247,7 @@ namespace Vpc20160428
       Models::DescribeEipMonitorDataResponse describeEipMonitorDataWithOptions(const Models::DescribeEipMonitorDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+       * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
        *
        * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
        *
@@ -6138,7 +6172,7 @@ namespace Vpc20160428
       Models::ListNatIpsResponse listNatIps(const Models::ListNatIpsRequest &request);
 
       /**
-       * @summary Queries he connection features supported by a Express Connect circuit.
+       * @summary Querying the connection features supported by a Express Connect circuit.
        *
        * @param request ListPhysicalConnectionFeaturesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6147,7 +6181,7 @@ namespace Vpc20160428
       Models::ListPhysicalConnectionFeaturesResponse listPhysicalConnectionFeaturesWithOptions(const Models::ListPhysicalConnectionFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries he connection features supported by a Express Connect circuit.
+       * @summary Querying the connection features supported by a Express Connect circuit.
        *
        * @param request ListPhysicalConnectionFeaturesRequest
        * @return ListPhysicalConnectionFeaturesResponse
@@ -7985,7 +8019,8 @@ namespace Vpc20160428
       Models::ReleaseIpv6AddressResponse releaseIpv6Address(const Models::ReleaseIpv6AddressRequest &request);
 
       /**
-       * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+       * @summary The region ID of the Internet Shared Bandwidth instance.
+       * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
        *
        * @param request RemoveCommonBandwidthPackageIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7994,7 +8029,8 @@ namespace Vpc20160428
       Models::RemoveCommonBandwidthPackageIpResponse removeCommonBandwidthPackageIpWithOptions(const Models::RemoveCommonBandwidthPackageIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+       * @summary The region ID of the Internet Shared Bandwidth instance.
+       * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
        *
        * @param request RemoveCommonBandwidthPackageIpRequest
        * @return RemoveCommonBandwidthPackageIpResponse
@@ -8619,6 +8655,23 @@ namespace Vpc20160428
        * @return UpdateDhcpOptionsSetAttributeResponse
        */
       Models::UpdateDhcpOptionsSetAttributeResponse updateDhcpOptionsSetAttribute(const Models::UpdateDhcpOptionsSetAttributeRequest &request);
+
+      /**
+       * @summary 修改增强型VPN实例属性
+       *
+       * @param request UpdateEnhancedVpnGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEnhancedVpnGatewayResponse
+       */
+      Models::UpdateEnhancedVpnGatewayResponse updateEnhancedVpnGatewayWithOptions(const Models::UpdateEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改增强型VPN实例属性
+       *
+       * @param request UpdateEnhancedVpnGatewayRequest
+       * @return UpdateEnhancedVpnGatewayResponse
+       */
+      Models::UpdateEnhancedVpnGatewayResponse updateEnhancedVpnGateway(const Models::UpdateEnhancedVpnGatewayRequest &request);
 
       /**
        * @summary Updates a failover test.
