@@ -663,6 +663,59 @@ CreateCloudResourceResponse Client::createCloudResource() {
 }
 
 /**
+ * @summary 创建数据集
+ *
+ * @param request CreateDatasetRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDatasetWithOptions(const string &workspace, const CreateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetName()) {
+    body["datasetName"] = request.getDatasetName();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasSchema()) {
+    body["schema"] = request.getSchema();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDataset"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/dataset")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasetResponse>();
+}
+
+/**
+ * @summary 创建数据集
+ *
+ * @param request CreateDatasetRequest
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDataset(const string &workspace, const CreateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDatasetWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary 创建数据投递任务
  *
  * @param request CreateDeliveryTaskRequest
@@ -1751,6 +1804,42 @@ DeleteCloudResourceResponse Client::deleteCloudResource() {
 }
 
 /**
+ * @summary 删除数据集
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatasetResponse
+ */
+DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataset"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatasetResponse>();
+}
+
+/**
+ * @summary 删除数据集
+ *
+ * @return DeleteDatasetResponse
+ */
+DeleteDatasetResponse Client::deleteDataset(const string &workspace, const string &datasetName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDatasetWithOptions(workspace, datasetName, headers, runtime);
+}
+
+/**
  * @summary 删除数据投递任务
  *
  * @param headers map
@@ -2149,6 +2238,42 @@ DeletePrometheusViewResponse Client::deletePrometheusView(const string &promethe
 }
 
 /**
+ * @summary 删除 Prometheus 虚拟实例
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePrometheusVirtualInstanceResponse
+ */
+DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePrometheusVirtualInstance"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/virtual-instances/" , Darabonba::Encode::Encoder::percentEncode(prometheusInstanceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePrometheusVirtualInstanceResponse>();
+}
+
+/**
+ * @summary 删除 Prometheus 虚拟实例
+ *
+ * @return DeletePrometheusVirtualInstanceResponse
+ */
+DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstance(const string &prometheusInstanceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId, headers, runtime);
+}
+
+/**
  * @summary Delete Service
  *
  * @param headers map
@@ -2441,6 +2566,55 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 执行查询语句
+ *
+ * @param request ExecuteQueryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteQueryResponse
+ */
+ExecuteQueryResponse Client::executeQueryWithOptions(const string &workspace, const string &datasetName, const ExecuteQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecuteQuery"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName) , "/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteQueryResponse>();
+}
+
+/**
+ * @summary 执行查询语句
+ *
+ * @param request ExecuteQueryRequest
+ * @return ExecuteQueryResponse
+ */
+ExecuteQueryResponse Client::executeQuery(const string &workspace, const string &datasetName, const ExecuteQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return executeQueryWithOptions(workspace, datasetName, request, headers, runtime);
 }
 
 /**
@@ -2842,6 +3016,42 @@ GetCmsServiceResponse Client::getCmsService(const GetCmsServiceRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCmsServiceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询数据集
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDatasetResponse
+ */
+GetDatasetResponse Client::getDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataset"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDatasetResponse>();
+}
+
+/**
+ * @summary 查询数据集
+ *
+ * @return GetDatasetResponse
+ */
+GetDatasetResponse Client::getDataset(const string &workspace, const string &datasetName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDatasetWithOptions(workspace, datasetName, headers, runtime);
 }
 
 /**
@@ -4166,6 +4376,59 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBizTracesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询数据集列表
+ *
+ * @param request ListDatasetsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatasetsResponse
+ */
+ListDatasetsResponse Client::listDatasetsWithOptions(const string &workspace, const ListDatasetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatasetName()) {
+    query["datasetName"] = request.getDatasetName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDatasets"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/dataset")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatasetsResponse>();
+}
+
+/**
+ * @summary 查询数据集列表
+ *
+ * @param request ListDatasetsRequest
+ * @return ListDatasetsResponse
+ */
+ListDatasetsResponse Client::listDatasets(const string &workspace, const ListDatasetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDatasetsWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -6062,6 +6325,51 @@ UpdateBizTraceResponse Client::updateBizTrace(const string &bizTraceId, const Up
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新数据集
+ *
+ * @param request UpdateDatasetRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDatasetResponse
+ */
+UpdateDatasetResponse Client::updateDatasetWithOptions(const string &workspace, const string &datasetName, const UpdateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataset"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/dataset/" , Darabonba::Encode::Encoder::percentEncode(datasetName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDatasetResponse>();
+}
+
+/**
+ * @summary 更新数据集
+ *
+ * @param request UpdateDatasetRequest
+ * @return UpdateDatasetResponse
+ */
+UpdateDatasetResponse Client::updateDataset(const string &workspace, const string &datasetName, const UpdateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDatasetWithOptions(workspace, datasetName, request, headers, runtime);
 }
 
 /**

@@ -177,6 +177,24 @@ namespace Cms20240330
       Models::CreateCloudResourceResponse createCloudResource();
 
       /**
+       * @summary 创建数据集
+       *
+       * @param request CreateDatasetRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDatasetWithOptions(const string &workspace, const Models::CreateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据集
+       *
+       * @param request CreateDatasetRequest
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDataset(const string &workspace, const Models::CreateDatasetRequest &request);
+
+      /**
        * @summary 创建数据投递任务
        *
        * @param request CreateDeliveryTaskRequest
@@ -525,6 +543,22 @@ namespace Cms20240330
       Models::DeleteCloudResourceResponse deleteCloudResource();
 
       /**
+       * @summary 删除数据集
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatasetResponse
+       */
+      Models::DeleteDatasetResponse deleteDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据集
+       *
+       * @return DeleteDatasetResponse
+       */
+      Models::DeleteDatasetResponse deleteDataset(const string &workspace, const string &datasetName);
+
+      /**
        * @summary 删除数据投递任务
        *
        * @param headers map
@@ -697,6 +731,22 @@ namespace Cms20240330
       Models::DeletePrometheusViewResponse deletePrometheusView(const string &prometheusViewId);
 
       /**
+       * @summary 删除 Prometheus 虚拟实例
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePrometheusVirtualInstanceResponse
+       */
+      Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 Prometheus 虚拟实例
+       *
+       * @return DeletePrometheusVirtualInstanceResponse
+       */
+      Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstance(const string &prometheusInstanceId);
+
+      /**
        * @summary Delete Service
        *
        * @param headers map
@@ -821,6 +871,24 @@ namespace Cms20240330
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
+       * @summary 执行查询语句
+       *
+       * @param request ExecuteQueryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteQueryResponse
+       */
+      Models::ExecuteQueryResponse executeQueryWithOptions(const string &workspace, const string &datasetName, const Models::ExecuteQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 执行查询语句
+       *
+       * @param request ExecuteQueryRequest
+       * @return ExecuteQueryResponse
+       */
+      Models::ExecuteQueryResponse executeQuery(const string &workspace, const string &datasetName, const Models::ExecuteQueryRequest &request);
 
       /**
        * @summary 插件详情(Addon)
@@ -975,6 +1043,22 @@ namespace Cms20240330
        * @return GetCmsServiceResponse
        */
       Models::GetCmsServiceResponse getCmsService(const Models::GetCmsServiceRequest &request);
+
+      /**
+       * @summary 查询数据集
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDatasetResponse
+       */
+      Models::GetDatasetResponse getDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据集
+       *
+       * @return GetDatasetResponse
+       */
+      Models::GetDatasetResponse getDataset(const string &workspace, const string &datasetName);
 
       /**
        * @summary 获取数据投递任务详情
@@ -1473,6 +1557,24 @@ namespace Cms20240330
        * @return ListBizTracesResponse
        */
       Models::ListBizTracesResponse listBizTraces(const Models::ListBizTracesRequest &request);
+
+      /**
+       * @summary 查询数据集列表
+       *
+       * @param request ListDatasetsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatasetsResponse
+       */
+      Models::ListDatasetsResponse listDatasetsWithOptions(const string &workspace, const Models::ListDatasetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据集列表
+       *
+       * @param request ListDatasetsRequest
+       * @return ListDatasetsResponse
+       */
+      Models::ListDatasetsResponse listDatasets(const string &workspace, const Models::ListDatasetsRequest &request);
 
       /**
        * @summary 获取数据投递任务列表
@@ -2045,6 +2147,24 @@ namespace Cms20240330
        * @return UpdateBizTraceResponse
        */
       Models::UpdateBizTraceResponse updateBizTrace(const string &bizTraceId, const Models::UpdateBizTraceRequest &request);
+
+      /**
+       * @summary 更新数据集
+       *
+       * @param request UpdateDatasetRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDatasetResponse
+       */
+      Models::UpdateDatasetResponse updateDatasetWithOptions(const string &workspace, const string &datasetName, const Models::UpdateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据集
+       *
+       * @param request UpdateDatasetRequest
+       * @return UpdateDatasetResponse
+       */
+      Models::UpdateDatasetResponse updateDataset(const string &workspace, const string &datasetName, const Models::UpdateDatasetRequest &request);
 
       /**
        * @summary 更新数据投递任务
