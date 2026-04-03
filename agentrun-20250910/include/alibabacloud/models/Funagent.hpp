@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(dbConnections, dbConnections_);
       DARABONBA_PTR_TO_JSON(dbHost, dbHost_);
+      DARABONBA_PTR_TO_JSON(dbInstanceId, dbInstanceId_);
       DARABONBA_PTR_TO_JSON(dbName, dbName_);
       DARABONBA_PTR_TO_JSON(dbPassword, dbPassword_);
       DARABONBA_PTR_TO_JSON(dbPort, dbPort_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(dbConnections, dbConnections_);
       DARABONBA_PTR_FROM_JSON(dbHost, dbHost_);
+      DARABONBA_PTR_FROM_JSON(dbInstanceId, dbInstanceId_);
       DARABONBA_PTR_FROM_JSON(dbName, dbName_);
       DARABONBA_PTR_FROM_JSON(dbPassword, dbPassword_);
       DARABONBA_PTR_FROM_JSON(dbPort, dbPort_);
@@ -81,10 +83,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adminName_ == nullptr
         && this->adminSecret_ == nullptr && this->cpu_ == nullptr && this->createdAt_ == nullptr && this->dbConnections_ == nullptr && this->dbHost_ == nullptr
-        && this->dbName_ == nullptr && this->dbPassword_ == nullptr && this->dbPort_ == nullptr && this->dbType_ == nullptr && this->dbUsername_ == nullptr
-        && this->description_ == nullptr && this->endpoint_ == nullptr && this->funagentId_ == nullptr && this->funagentName_ == nullptr && this->imageUrl_ == nullptr
-        && this->memory_ == nullptr && this->regionId_ == nullptr && this->replicas_ == nullptr && this->securityGroupId_ == nullptr && this->status_ == nullptr
-        && this->tenantId_ == nullptr && this->updatedAt_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->dbInstanceId_ == nullptr && this->dbName_ == nullptr && this->dbPassword_ == nullptr && this->dbPort_ == nullptr && this->dbType_ == nullptr
+        && this->dbUsername_ == nullptr && this->description_ == nullptr && this->endpoint_ == nullptr && this->funagentId_ == nullptr && this->funagentName_ == nullptr
+        && this->imageUrl_ == nullptr && this->memory_ == nullptr && this->regionId_ == nullptr && this->replicas_ == nullptr && this->securityGroupId_ == nullptr
+        && this->status_ == nullptr && this->tenantId_ == nullptr && this->updatedAt_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchIds_ == nullptr; };
     // adminName Field Functions 
     bool hasAdminName() const { return this->adminName_ != nullptr;};
     void deleteAdminName() { this->adminName_ = nullptr;};
@@ -125,6 +128,13 @@ namespace Models
     void deleteDbHost() { this->dbHost_ = nullptr;};
     inline string getDbHost() const { DARABONBA_PTR_GET_DEFAULT(dbHost_, "") };
     inline Funagent& setDbHost(string dbHost) { DARABONBA_PTR_SET_VALUE(dbHost_, dbHost) };
+
+
+    // dbInstanceId Field Functions 
+    bool hasDbInstanceId() const { return this->dbInstanceId_ != nullptr;};
+    void deleteDbInstanceId() { this->dbInstanceId_ = nullptr;};
+    inline string getDbInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceId_, "") };
+    inline Funagent& setDbInstanceId(string dbInstanceId) { DARABONBA_PTR_SET_VALUE(dbInstanceId_, dbInstanceId) };
 
 
     // dbName Field Functions 
@@ -276,6 +286,7 @@ namespace Models
     shared_ptr<string> createdAt_ {};
     shared_ptr<int32_t> dbConnections_ {};
     shared_ptr<string> dbHost_ {};
+    shared_ptr<string> dbInstanceId_ {};
     shared_ptr<string> dbName_ {};
     // 敏感；响应中应脱敏
     shared_ptr<string> dbPassword_ {};

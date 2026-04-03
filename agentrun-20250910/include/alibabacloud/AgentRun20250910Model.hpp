@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_AGENTRUN20250910MODEL_HPP_
 #define ALIBABACLOUD_AGENTRUN20250910MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AccessDeniedDetail.hpp>
 #include <alibabacloud/models/AgentEndpointConfig.hpp>
 #include <alibabacloud/models/CodeConfiguration.hpp>
 #include <alibabacloud/models/ContainerConfiguration.hpp>
@@ -17,6 +18,8 @@
 #include <alibabacloud/models/AgentRuntime.hpp>
 #include <alibabacloud/models/VersionWeight.hpp>
 #include <alibabacloud/models/RoutingConfiguration.hpp>
+#include <alibabacloud/models/ScheduledPolicy.hpp>
+#include <alibabacloud/models/ScalingStatus.hpp>
 #include <alibabacloud/models/AgentRuntimeEndpoint.hpp>
 #include <alibabacloud/models/AgentRuntimeEndpointResult.hpp>
 #include <alibabacloud/models/AgentRuntimeResult.hpp>
@@ -28,6 +31,11 @@
 #include <alibabacloud/models/ApigLLMModel.hpp>
 #include <alibabacloud/models/ArmsConfiguration.hpp>
 #include <alibabacloud/models/AttachPolicyConfig.hpp>
+#include <alibabacloud/models/BatchEvaluateWorkspacePermissionsInput.hpp>
+#include <alibabacloud/models/WorkspacePermissionItem.hpp>
+#include <alibabacloud/models/WorkspacePermissionEvaluateResult.hpp>
+#include <alibabacloud/models/BatchEvaluateWorkspacePermissionsOutput.hpp>
+#include <alibabacloud/models/BatchEvaluateWorkspacePermissionsResult.hpp>
 #include <alibabacloud/models/BoundTool.hpp>
 #include <alibabacloud/models/BoundConfiguration.hpp>
 #include <alibabacloud/models/BrowserOssLocation.hpp>
@@ -53,6 +61,7 @@
 #include <alibabacloud/models/CodeInterpreterSessionOut.hpp>
 #include <alibabacloud/models/CodeInterpreterSessionListOut.hpp>
 #include <alibabacloud/models/CommonResult.hpp>
+#include <alibabacloud/models/ScalingConfig.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeEndpointInput.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeInput.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeVersionInput.hpp>
@@ -78,6 +87,8 @@
 #include <alibabacloud/models/MCPAPIConfiguration.hpp>
 #include <alibabacloud/models/TargetConfiguration.hpp>
 #include <alibabacloud/models/CreateGatewayTargetInput.hpp>
+#include <alibabacloud/models/IMBotMetadata.hpp>
+#include <alibabacloud/models/CreateIMBotInput.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseInput.hpp>
 #include <alibabacloud/models/EmbedderConfig.hpp>
 #include <alibabacloud/models/LLMConfig.hpp>
@@ -97,8 +108,6 @@
 #include <alibabacloud/models/CreateSandboxInput.hpp>
 #include <alibabacloud/models/CredentialConfiguration.hpp>
 #include <alibabacloud/models/OssConfiguration.hpp>
-#include <alibabacloud/models/ScheduledPolicy.hpp>
-#include <alibabacloud/models/ScalingConfig.hpp>
 #include <alibabacloud/models/CreateTemplateInput.hpp>
 #include <alibabacloud/models/CreateToolData.hpp>
 #include <alibabacloud/models/CreateToolInput.hpp>
@@ -118,6 +127,7 @@
 #include <alibabacloud/models/DeleteBrowserResult.hpp>
 #include <alibabacloud/models/DeleteCodeInterpreterOut.hpp>
 #include <alibabacloud/models/DeleteCodeInterpreterResult.hpp>
+#include <alibabacloud/models/DeleteIMBotNoContent.hpp>
 #include <alibabacloud/models/KnowledgeBase.hpp>
 #include <alibabacloud/models/DeleteKnowledgeBaseResult.hpp>
 #include <alibabacloud/models/ModelProxy.hpp>
@@ -126,7 +136,6 @@
 #include <alibabacloud/models/DeleteModelServiceResult.hpp>
 #include <alibabacloud/models/Sandbox.hpp>
 #include <alibabacloud/models/DeleteSandboxResult.hpp>
-#include <alibabacloud/models/ScalingStatus.hpp>
 #include <alibabacloud/models/Template.hpp>
 #include <alibabacloud/models/DeleteTemplateResult.hpp>
 #include <alibabacloud/models/DeregisterServiceInput.hpp>
@@ -136,16 +145,21 @@
 #include <alibabacloud/models/FCLinkConfig.hpp>
 #include <alibabacloud/models/Funagent.hpp>
 #include <alibabacloud/models/FunagentResult.hpp>
+#include <alibabacloud/models/FunagentVersionItem.hpp>
 #include <alibabacloud/models/Gateway.hpp>
 #include <alibabacloud/models/GetBrowserSessionResult.hpp>
 #include <alibabacloud/models/GetCodeInterpreterSessionResult.hpp>
 #include <alibabacloud/models/GetCredentialOutput.hpp>
 #include <alibabacloud/models/GetDiscoveryEndpointsOutput.hpp>
 #include <alibabacloud/models/GetDiscoveryEndpointsResult.hpp>
+#include <alibabacloud/models/GetFunagentVersionsOutput.hpp>
+#include <alibabacloud/models/GetFunagentVersionsResult.hpp>
 #include <alibabacloud/models/ToolInfo.hpp>
 #include <alibabacloud/models/GetToolOutput.hpp>
 #include <alibabacloud/models/GrayTrafficWeight.hpp>
 #include <alibabacloud/models/HealthCheckConfig.hpp>
+#include <alibabacloud/models/IMBotInfo.hpp>
+#include <alibabacloud/models/IMBotResult.hpp>
 #include <alibabacloud/models/KnowledgeBaseResult.hpp>
 #include <alibabacloud/models/ListAgentRuntimeEndpointsInput.hpp>
 #include <alibabacloud/models/ListAgentRuntimeEndpointsOutput.hpp>
@@ -173,6 +187,8 @@
 #include <alibabacloud/models/ListFunagentsOutput.hpp>
 #include <alibabacloud/models/ListFunagentsResult.hpp>
 #include <alibabacloud/models/ListGatewaysOutput.hpp>
+#include <alibabacloud/models/ListIMBotsOutput.hpp>
+#include <alibabacloud/models/ListIMBotsResult.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesOutput.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResult.hpp>
 #include <alibabacloud/models/MemoryCollection.hpp>
@@ -232,6 +248,8 @@
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
 #include <alibabacloud/models/UpdateDiscoveryEndpointsInput.hpp>
 #include <alibabacloud/models/UpdateDomainInput.hpp>
+#include <alibabacloud/models/UpdateFunagentInput.hpp>
+#include <alibabacloud/models/UpdateIMBotInput.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseInput.hpp>
 #include <alibabacloud/models/UpdateMemoryCollectionInput.hpp>
 #include <alibabacloud/models/UpdateModelInput.hpp>

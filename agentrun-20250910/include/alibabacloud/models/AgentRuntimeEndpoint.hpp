@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_AGENTRUNTIMEENDPOINT_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/RoutingConfiguration.hpp>
+#include <alibabacloud/models/ScalingStatus.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_TO_JSON(endpointPublicUrl, endpointPublicUrl_);
       DARABONBA_PTR_TO_JSON(routingConfiguration, routingConfiguration_);
+      DARABONBA_PTR_TO_JSON(scalingStatus, scalingStatus_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
       DARABONBA_PTR_TO_JSON(targetVersion, targetVersion_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_FROM_JSON(endpointPublicUrl, endpointPublicUrl_);
       DARABONBA_PTR_FROM_JSON(routingConfiguration, routingConfiguration_);
+      DARABONBA_PTR_FROM_JSON(scalingStatus, scalingStatus_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
       DARABONBA_PTR_FROM_JSON(targetVersion, targetVersion_);
@@ -52,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeEndpointArn_ == nullptr
         && this->agentRuntimeEndpointId_ == nullptr && this->agentRuntimeEndpointName_ == nullptr && this->agentRuntimeId_ == nullptr && this->description_ == nullptr && this->disablePublicNetworkAccess_ == nullptr
-        && this->endpointPublicUrl_ == nullptr && this->routingConfiguration_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->targetVersion_ == nullptr; };
+        && this->endpointPublicUrl_ == nullptr && this->routingConfiguration_ == nullptr && this->scalingStatus_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr
+        && this->targetVersion_ == nullptr; };
     // agentRuntimeEndpointArn Field Functions 
     bool hasAgentRuntimeEndpointArn() const { return this->agentRuntimeEndpointArn_ != nullptr;};
     void deleteAgentRuntimeEndpointArn() { this->agentRuntimeEndpointArn_ = nullptr;};
@@ -111,6 +115,15 @@ namespace Models
     inline AgentRuntimeEndpoint& setRoutingConfiguration(RoutingConfiguration && routingConfiguration) { DARABONBA_PTR_SET_RVALUE(routingConfiguration_, routingConfiguration) };
 
 
+    // scalingStatus Field Functions 
+    bool hasScalingStatus() const { return this->scalingStatus_ != nullptr;};
+    void deleteScalingStatus() { this->scalingStatus_ = nullptr;};
+    inline const ScalingStatus & getScalingStatus() const { DARABONBA_PTR_GET_CONST(scalingStatus_, ScalingStatus) };
+    inline ScalingStatus getScalingStatus() { DARABONBA_PTR_GET(scalingStatus_, ScalingStatus) };
+    inline AgentRuntimeEndpoint& setScalingStatus(const ScalingStatus & scalingStatus) { DARABONBA_PTR_SET_VALUE(scalingStatus_, scalingStatus) };
+    inline AgentRuntimeEndpoint& setScalingStatus(ScalingStatus && scalingStatus) { DARABONBA_PTR_SET_RVALUE(scalingStatus_, scalingStatus) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -144,6 +157,8 @@ namespace Models
     shared_ptr<string> endpointPublicUrl_ {};
     // 智能体运行时端点的路由配置，支持多版本权重分配
     shared_ptr<RoutingConfiguration> routingConfiguration_ {};
+    // 端点的弹性伸缩状态，包括最小/目标/当前实例数及定时策略（复用 ScalingStatus）
+    shared_ptr<ScalingStatus> scalingStatus_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> statusReason_ {};
     shared_ptr<string> targetVersion_ {};
