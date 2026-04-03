@@ -66,6 +66,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ParameterName, parameterName_);
           DARABONBA_PTR_TO_JSON(ParameterValue, parameterValue_);
           DARABONBA_PTR_TO_JSON(Revisable, revisable_);
+          DARABONBA_PTR_TO_JSON(UserChangable, userChangable_);
         };
         friend void from_json(const Darabonba::Json& j, Parameters& obj) { 
           DARABONBA_PTR_FROM_JSON(CheckingCode, checkingCode_);
@@ -74,6 +75,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ParameterName, parameterName_);
           DARABONBA_PTR_FROM_JSON(ParameterValue, parameterValue_);
           DARABONBA_PTR_FROM_JSON(Revisable, revisable_);
+          DARABONBA_PTR_FROM_JSON(UserChangable, userChangable_);
         };
         Parameters() = default ;
         Parameters(const Parameters &) = default ;
@@ -87,7 +89,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->checkingCode_ == nullptr
-        && this->dynamic_ == nullptr && this->parameterDescription_ == nullptr && this->parameterName_ == nullptr && this->parameterValue_ == nullptr && this->revisable_ == nullptr; };
+        && this->dynamic_ == nullptr && this->parameterDescription_ == nullptr && this->parameterName_ == nullptr && this->parameterValue_ == nullptr && this->revisable_ == nullptr
+        && this->userChangable_ == nullptr; };
         // checkingCode Field Functions 
         bool hasCheckingCode() const { return this->checkingCode_ != nullptr;};
         void deleteCheckingCode() { this->checkingCode_ = nullptr;};
@@ -130,6 +133,13 @@ namespace Models
         inline Parameters& setRevisable(int32_t revisable) { DARABONBA_PTR_SET_VALUE(revisable_, revisable) };
 
 
+        // userChangable Field Functions 
+        bool hasUserChangable() const { return this->userChangable_ != nullptr;};
+        void deleteUserChangable() { this->userChangable_ = nullptr;};
+        inline int32_t getUserChangable() const { DARABONBA_PTR_GET_DEFAULT(userChangable_, 0) };
+        inline Parameters& setUserChangable(int32_t userChangable) { DARABONBA_PTR_SET_VALUE(userChangable_, userChangable) };
+
+
       protected:
         shared_ptr<string> checkingCode_ {};
         shared_ptr<int32_t> dynamic_ {};
@@ -137,6 +147,7 @@ namespace Models
         shared_ptr<string> parameterName_ {};
         shared_ptr<string> parameterValue_ {};
         shared_ptr<int32_t> revisable_ {};
+        shared_ptr<int32_t> userChangable_ {};
       };
 
       virtual bool empty() const override { return this->engine_ == nullptr

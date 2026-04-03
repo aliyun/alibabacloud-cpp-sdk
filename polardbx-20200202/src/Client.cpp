@@ -3727,6 +3727,8 @@ DescribeParameterGroupsResponse Client::describeParameterGroups(const DescribePa
 }
 
 /**
+ * @summary 查看参数模版
+ *
  * @param request DescribeParameterTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeParameterTemplatesResponse
@@ -3768,6 +3770,8 @@ DescribeParameterTemplatesResponse Client::describeParameterTemplatesWithOptions
 }
 
 /**
+ * @summary 查看参数模版
+ *
  * @param request DescribeParameterTemplatesRequest
  * @return DescribeParameterTemplatesResponse
  */
