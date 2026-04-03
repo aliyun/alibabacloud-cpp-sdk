@@ -260,6 +260,7 @@ namespace Models
     // *   **image**
     // *   **container**
     shared_ptr<string> scanRangeShrink_ {};
+    // 敏感文件Key列表
     shared_ptr<vector<string>> sensitiveKeyList_ {};
   };
 

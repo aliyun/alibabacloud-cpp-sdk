@@ -115,8 +115,6 @@ namespace Models
     // The URL that is used to download the file. You can specify this parameter to trigger file detection without the need to upload the file in advance.
     shared_ptr<string> downloadUrl_ {};
     // The identifier of the file. Only MD5 hash values are supported.
-    // 
-    // This parameter is required.
     shared_ptr<string> hashKey_ {};
     // The key of the file that is stored in the Object Storage Service (OSS) bucket. You can call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to query the keys of files.
     shared_ptr<string> ossKey_ {};

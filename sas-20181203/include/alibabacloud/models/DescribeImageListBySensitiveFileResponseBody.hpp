@@ -125,6 +125,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Digest, digest_);
         DARABONBA_PTR_TO_JSON(FirstScanTime, firstScanTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(LastScanTime, lastScanTime_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RepoName, repoName_);
@@ -138,6 +139,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Digest, digest_);
         DARABONBA_PTR_FROM_JSON(FirstScanTime, firstScanTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(LastScanTime, lastScanTime_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
@@ -159,8 +161,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->digest_ == nullptr
-        && this->firstScanTime_ == nullptr && this->instanceId_ == nullptr && this->lastScanTime_ == nullptr && this->regionId_ == nullptr && this->repoName_ == nullptr
-        && this->repoNamespace_ == nullptr && this->riskLevel_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->uuid_ == nullptr; };
+        && this->firstScanTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->lastScanTime_ == nullptr && this->regionId_ == nullptr
+        && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->riskLevel_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr
+        && this->uuid_ == nullptr; };
       // digest Field Functions 
       bool hasDigest() const { return this->digest_ != nullptr;};
       void deleteDigest() { this->digest_ = nullptr;};
@@ -180,6 +183,13 @@ namespace Models
       void deleteInstanceId() { this->instanceId_ = nullptr;};
       inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
       inline ImageInfos& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // instanceName Field Functions 
+      bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+      void deleteInstanceName() { this->instanceName_ = nullptr;};
+      inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+      inline ImageInfos& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
       // lastScanTime Field Functions 
@@ -245,6 +255,7 @@ namespace Models
       shared_ptr<int64_t> firstScanTime_ {};
       // The image instance ID.
       shared_ptr<string> instanceId_ {};
+      shared_ptr<string> instanceName_ {};
       // The timestamp when the last scan was performed. Unit: milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
       // The ID of the region in which the image instance resides.

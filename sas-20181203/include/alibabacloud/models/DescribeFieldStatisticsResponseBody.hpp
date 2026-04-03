@@ -37,6 +37,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AliYunInstanceCount, aliYunInstanceCount_);
         DARABONBA_PTR_TO_JSON(AwsInstanceCount, awsInstanceCount_);
         DARABONBA_PTR_TO_JSON(AzureInstanceCount, azureInstanceCount_);
+        DARABONBA_PTR_TO_JSON(BaiduInstanceCount, baiduInstanceCount_);
         DARABONBA_PTR_TO_JSON(ExposedInstanceCoreCount, exposedInstanceCoreCount_);
         DARABONBA_PTR_TO_JSON(ExposedInstanceCount, exposedInstanceCount_);
         DARABONBA_PTR_TO_JSON(GeneralAssetCount, generalAssetCount_);
@@ -48,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceCoreCount, instanceCoreCount_);
         DARABONBA_PTR_TO_JSON(InstanceCount, instanceCount_);
         DARABONBA_PTR_TO_JSON(InstanceSyncTaskCount, instanceSyncTaskCount_);
+        DARABONBA_PTR_TO_JSON(KingsoftInstanceCount, kingsoftInstanceCount_);
         DARABONBA_PTR_TO_JSON(NewInstanceCoreCount, newInstanceCoreCount_);
         DARABONBA_PTR_TO_JSON(NewInstanceCount, newInstanceCount_);
         DARABONBA_PTR_TO_JSON(NoRiskInstanceCount, noRiskInstanceCount_);
@@ -60,9 +62,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RegionCount, regionCount_);
         DARABONBA_PTR_TO_JSON(RiskInstanceCoreCount, riskInstanceCoreCount_);
         DARABONBA_PTR_TO_JSON(RiskInstanceCount, riskInstanceCount_);
+        DARABONBA_PTR_TO_JSON(StateCloudInstanceCount, stateCloudInstanceCount_);
         DARABONBA_PTR_TO_JSON(TencentInstanceCount, tencentInstanceCount_);
         DARABONBA_PTR_TO_JSON(TestAssetCount, testAssetCount_);
         DARABONBA_PTR_TO_JSON(TripartiteInstanceCount, tripartiteInstanceCount_);
+        DARABONBA_PTR_TO_JSON(UcloudInstanceCount, ucloudInstanceCount_);
         DARABONBA_PTR_TO_JSON(UnKnowStatusInstanceCount, unKnowStatusInstanceCount_);
         DARABONBA_PTR_TO_JSON(UnprotectedInstanceCoreCount, unprotectedInstanceCoreCount_);
         DARABONBA_PTR_TO_JSON(UnprotectedInstanceCount, unprotectedInstanceCount_);
@@ -73,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AliYunInstanceCount, aliYunInstanceCount_);
         DARABONBA_PTR_FROM_JSON(AwsInstanceCount, awsInstanceCount_);
         DARABONBA_PTR_FROM_JSON(AzureInstanceCount, azureInstanceCount_);
+        DARABONBA_PTR_FROM_JSON(BaiduInstanceCount, baiduInstanceCount_);
         DARABONBA_PTR_FROM_JSON(ExposedInstanceCoreCount, exposedInstanceCoreCount_);
         DARABONBA_PTR_FROM_JSON(ExposedInstanceCount, exposedInstanceCount_);
         DARABONBA_PTR_FROM_JSON(GeneralAssetCount, generalAssetCount_);
@@ -84,6 +89,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceCoreCount, instanceCoreCount_);
         DARABONBA_PTR_FROM_JSON(InstanceCount, instanceCount_);
         DARABONBA_PTR_FROM_JSON(InstanceSyncTaskCount, instanceSyncTaskCount_);
+        DARABONBA_PTR_FROM_JSON(KingsoftInstanceCount, kingsoftInstanceCount_);
         DARABONBA_PTR_FROM_JSON(NewInstanceCoreCount, newInstanceCoreCount_);
         DARABONBA_PTR_FROM_JSON(NewInstanceCount, newInstanceCount_);
         DARABONBA_PTR_FROM_JSON(NoRiskInstanceCount, noRiskInstanceCount_);
@@ -96,9 +102,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(RegionCount, regionCount_);
         DARABONBA_PTR_FROM_JSON(RiskInstanceCoreCount, riskInstanceCoreCount_);
         DARABONBA_PTR_FROM_JSON(RiskInstanceCount, riskInstanceCount_);
+        DARABONBA_PTR_FROM_JSON(StateCloudInstanceCount, stateCloudInstanceCount_);
         DARABONBA_PTR_FROM_JSON(TencentInstanceCount, tencentInstanceCount_);
         DARABONBA_PTR_FROM_JSON(TestAssetCount, testAssetCount_);
         DARABONBA_PTR_FROM_JSON(TripartiteInstanceCount, tripartiteInstanceCount_);
+        DARABONBA_PTR_FROM_JSON(UcloudInstanceCount, ucloudInstanceCount_);
         DARABONBA_PTR_FROM_JSON(UnKnowStatusInstanceCount, unKnowStatusInstanceCount_);
         DARABONBA_PTR_FROM_JSON(UnprotectedInstanceCoreCount, unprotectedInstanceCoreCount_);
         DARABONBA_PTR_FROM_JSON(UnprotectedInstanceCount, unprotectedInstanceCount_);
@@ -117,13 +125,14 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->aliYunInstanceCount_ == nullptr
-        && this->awsInstanceCount_ == nullptr && this->azureInstanceCount_ == nullptr && this->exposedInstanceCoreCount_ == nullptr && this->exposedInstanceCount_ == nullptr && this->generalAssetCount_ == nullptr
-        && this->googleInstanceCount_ == nullptr && this->groupCount_ == nullptr && this->huaweiInstanceCount_ == nullptr && this->idcInstanceCount_ == nullptr && this->importantAssetCount_ == nullptr
-        && this->instanceCoreCount_ == nullptr && this->instanceCount_ == nullptr && this->instanceSyncTaskCount_ == nullptr && this->newInstanceCoreCount_ == nullptr && this->newInstanceCount_ == nullptr
-        && this->noRiskInstanceCount_ == nullptr && this->notBindMachineInstanceCount_ == nullptr && this->notRunningStatusCoreCount_ == nullptr && this->notRunningStatusCount_ == nullptr && this->offlineInstanceCount_ == nullptr
-        && this->outMachineInstanceCount_ == nullptr && this->pauseInstanceCount_ == nullptr && this->regionCount_ == nullptr && this->riskInstanceCoreCount_ == nullptr && this->riskInstanceCount_ == nullptr
-        && this->tencentInstanceCount_ == nullptr && this->testAssetCount_ == nullptr && this->tripartiteInstanceCount_ == nullptr && this->unKnowStatusInstanceCount_ == nullptr && this->unprotectedInstanceCoreCount_ == nullptr
-        && this->unprotectedInstanceCount_ == nullptr && this->volcengineInstanceCount_ == nullptr && this->vpcCount_ == nullptr; };
+        && this->awsInstanceCount_ == nullptr && this->azureInstanceCount_ == nullptr && this->baiduInstanceCount_ == nullptr && this->exposedInstanceCoreCount_ == nullptr && this->exposedInstanceCount_ == nullptr
+        && this->generalAssetCount_ == nullptr && this->googleInstanceCount_ == nullptr && this->groupCount_ == nullptr && this->huaweiInstanceCount_ == nullptr && this->idcInstanceCount_ == nullptr
+        && this->importantAssetCount_ == nullptr && this->instanceCoreCount_ == nullptr && this->instanceCount_ == nullptr && this->instanceSyncTaskCount_ == nullptr && this->kingsoftInstanceCount_ == nullptr
+        && this->newInstanceCoreCount_ == nullptr && this->newInstanceCount_ == nullptr && this->noRiskInstanceCount_ == nullptr && this->notBindMachineInstanceCount_ == nullptr && this->notRunningStatusCoreCount_ == nullptr
+        && this->notRunningStatusCount_ == nullptr && this->offlineInstanceCount_ == nullptr && this->outMachineInstanceCount_ == nullptr && this->pauseInstanceCount_ == nullptr && this->regionCount_ == nullptr
+        && this->riskInstanceCoreCount_ == nullptr && this->riskInstanceCount_ == nullptr && this->stateCloudInstanceCount_ == nullptr && this->tencentInstanceCount_ == nullptr && this->testAssetCount_ == nullptr
+        && this->tripartiteInstanceCount_ == nullptr && this->ucloudInstanceCount_ == nullptr && this->unKnowStatusInstanceCount_ == nullptr && this->unprotectedInstanceCoreCount_ == nullptr && this->unprotectedInstanceCount_ == nullptr
+        && this->volcengineInstanceCount_ == nullptr && this->vpcCount_ == nullptr; };
       // aliYunInstanceCount Field Functions 
       bool hasAliYunInstanceCount() const { return this->aliYunInstanceCount_ != nullptr;};
       void deleteAliYunInstanceCount() { this->aliYunInstanceCount_ = nullptr;};
@@ -143,6 +152,13 @@ namespace Models
       void deleteAzureInstanceCount() { this->azureInstanceCount_ = nullptr;};
       inline int32_t getAzureInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(azureInstanceCount_, 0) };
       inline GroupedFields& setAzureInstanceCount(int32_t azureInstanceCount) { DARABONBA_PTR_SET_VALUE(azureInstanceCount_, azureInstanceCount) };
+
+
+      // baiduInstanceCount Field Functions 
+      bool hasBaiduInstanceCount() const { return this->baiduInstanceCount_ != nullptr;};
+      void deleteBaiduInstanceCount() { this->baiduInstanceCount_ = nullptr;};
+      inline int32_t getBaiduInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(baiduInstanceCount_, 0) };
+      inline GroupedFields& setBaiduInstanceCount(int32_t baiduInstanceCount) { DARABONBA_PTR_SET_VALUE(baiduInstanceCount_, baiduInstanceCount) };
 
 
       // exposedInstanceCoreCount Field Functions 
@@ -220,6 +236,13 @@ namespace Models
       void deleteInstanceSyncTaskCount() { this->instanceSyncTaskCount_ = nullptr;};
       inline int32_t getInstanceSyncTaskCount() const { DARABONBA_PTR_GET_DEFAULT(instanceSyncTaskCount_, 0) };
       inline GroupedFields& setInstanceSyncTaskCount(int32_t instanceSyncTaskCount) { DARABONBA_PTR_SET_VALUE(instanceSyncTaskCount_, instanceSyncTaskCount) };
+
+
+      // kingsoftInstanceCount Field Functions 
+      bool hasKingsoftInstanceCount() const { return this->kingsoftInstanceCount_ != nullptr;};
+      void deleteKingsoftInstanceCount() { this->kingsoftInstanceCount_ = nullptr;};
+      inline int32_t getKingsoftInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(kingsoftInstanceCount_, 0) };
+      inline GroupedFields& setKingsoftInstanceCount(int32_t kingsoftInstanceCount) { DARABONBA_PTR_SET_VALUE(kingsoftInstanceCount_, kingsoftInstanceCount) };
 
 
       // newInstanceCoreCount Field Functions 
@@ -306,6 +329,13 @@ namespace Models
       inline GroupedFields& setRiskInstanceCount(int32_t riskInstanceCount) { DARABONBA_PTR_SET_VALUE(riskInstanceCount_, riskInstanceCount) };
 
 
+      // stateCloudInstanceCount Field Functions 
+      bool hasStateCloudInstanceCount() const { return this->stateCloudInstanceCount_ != nullptr;};
+      void deleteStateCloudInstanceCount() { this->stateCloudInstanceCount_ = nullptr;};
+      inline int32_t getStateCloudInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(stateCloudInstanceCount_, 0) };
+      inline GroupedFields& setStateCloudInstanceCount(int32_t stateCloudInstanceCount) { DARABONBA_PTR_SET_VALUE(stateCloudInstanceCount_, stateCloudInstanceCount) };
+
+
       // tencentInstanceCount Field Functions 
       bool hasTencentInstanceCount() const { return this->tencentInstanceCount_ != nullptr;};
       void deleteTencentInstanceCount() { this->tencentInstanceCount_ = nullptr;};
@@ -325,6 +355,13 @@ namespace Models
       void deleteTripartiteInstanceCount() { this->tripartiteInstanceCount_ = nullptr;};
       inline int32_t getTripartiteInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(tripartiteInstanceCount_, 0) };
       inline GroupedFields& setTripartiteInstanceCount(int32_t tripartiteInstanceCount) { DARABONBA_PTR_SET_VALUE(tripartiteInstanceCount_, tripartiteInstanceCount) };
+
+
+      // ucloudInstanceCount Field Functions 
+      bool hasUcloudInstanceCount() const { return this->ucloudInstanceCount_ != nullptr;};
+      void deleteUcloudInstanceCount() { this->ucloudInstanceCount_ = nullptr;};
+      inline int32_t getUcloudInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(ucloudInstanceCount_, 0) };
+      inline GroupedFields& setUcloudInstanceCount(int32_t ucloudInstanceCount) { DARABONBA_PTR_SET_VALUE(ucloudInstanceCount_, ucloudInstanceCount) };
 
 
       // unKnowStatusInstanceCount Field Functions 
@@ -369,6 +406,7 @@ namespace Models
       shared_ptr<int32_t> awsInstanceCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> azureInstanceCount_ {};
+      shared_ptr<int32_t> baiduInstanceCount_ {};
       // The number of cores of exposed assets.
       shared_ptr<int64_t> exposedInstanceCoreCount_ {};
       // The number of exposed servers.
@@ -391,6 +429,7 @@ namespace Models
       shared_ptr<int32_t> instanceCount_ {};
       // The total number of tasks for the specified type of assets. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
       shared_ptr<int32_t> instanceSyncTaskCount_ {};
+      shared_ptr<int32_t> kingsoftInstanceCount_ {};
       // The number of cores of new servers.
       shared_ptr<int64_t> newInstanceCoreCount_ {};
       // The number of newly added servers.
@@ -415,12 +454,14 @@ namespace Models
       shared_ptr<int64_t> riskInstanceCoreCount_ {};
       // The number of assets that are at risk.
       shared_ptr<int32_t> riskInstanceCount_ {};
+      shared_ptr<int32_t> stateCloudInstanceCount_ {};
       // The total number of cloud services that are protected by Security Center.
       shared_ptr<int32_t> tencentInstanceCount_ {};
       // The number of assets whose importance is test.
       shared_ptr<int32_t> testAssetCount_ {};
       // The number of simple application servers.
       shared_ptr<int32_t> tripartiteInstanceCount_ {};
+      shared_ptr<int32_t> ucloudInstanceCount_ {};
       // The number of servers that are in the Unknown state.
       shared_ptr<int32_t> unKnowStatusInstanceCount_ {};
       // The number of cores of unprotected assets.

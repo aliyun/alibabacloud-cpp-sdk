@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyNoticeConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(FocusLevel, focusLevel_);
       DARABONBA_PTR_TO_JSON(Project, project_);
       DARABONBA_PTR_TO_JSON(Route, route_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyNoticeConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(FocusLevel, focusLevel_);
       DARABONBA_PTR_FROM_JSON(Project, project_);
       DARABONBA_PTR_FROM_JSON(Route, route_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && this->project_ == nullptr && this->route_ == nullptr && this->sourceIp_ == nullptr && this->timeLimit_ == nullptr; };
+        && this->focusLevel_ == nullptr && this->project_ == nullptr && this->route_ == nullptr && this->sourceIp_ == nullptr && this->timeLimit_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
     inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline ModifyNoticeConfigRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // focusLevel Field Functions 
+    bool hasFocusLevel() const { return this->focusLevel_ != nullptr;};
+    void deleteFocusLevel() { this->focusLevel_ = nullptr;};
+    inline string getFocusLevel() const { DARABONBA_PTR_GET_DEFAULT(focusLevel_, "") };
+    inline ModifyNoticeConfigRequest& setFocusLevel(string focusLevel) { DARABONBA_PTR_SET_VALUE(focusLevel_, focusLevel) };
 
 
     // project Field Functions 
@@ -78,6 +87,7 @@ namespace Models
     // Notification configuration type, default is SMS/email/in-site message. Value:
     // - **cms**: Cloud Monitor push
     shared_ptr<string> bizType_ {};
+    shared_ptr<string> focusLevel_ {};
     // The identifier of the notification item. Valid values:
     // 
     // *   **yundun_security_Weekreport**: notification for vulnerabilities

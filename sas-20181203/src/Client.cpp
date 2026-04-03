@@ -41880,6 +41880,10 @@ ModifyNoticeConfigResponse Client::modifyNoticeConfigWithOptions(const ModifyNot
     query["BizType"] = request.getBizType();
   }
 
+  if (!!request.hasFocusLevel()) {
+    query["FocusLevel"] = request.getFocusLevel();
+  }
+
   if (!!request.hasProject()) {
     query["Project"] = request.getProject();
   }
