@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GenerateAIAgentCallResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AIAgentUserId, AIAgentUserId_);
+      DARABONBA_PTR_TO_JSON(AvatarUserId, avatarUserId_);
       DARABONBA_PTR_TO_JSON(ChannelId, channelId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GenerateAIAgentCallResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AIAgentUserId, AIAgentUserId_);
+      DARABONBA_PTR_FROM_JSON(AvatarUserId, avatarUserId_);
       DARABONBA_PTR_FROM_JSON(ChannelId, channelId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->AIAgentUserId_ == nullptr
-        && this->channelId_ == nullptr && this->instanceId_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr && this->userId_ == nullptr; };
+        && this->avatarUserId_ == nullptr && this->channelId_ == nullptr && this->instanceId_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr
+        && this->userId_ == nullptr; };
     // AIAgentUserId Field Functions 
     bool hasAIAgentUserId() const { return this->AIAgentUserId_ != nullptr;};
     void deleteAIAgentUserId() { this->AIAgentUserId_ = nullptr;};
     inline string getAIAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentUserId_, "") };
     inline GenerateAIAgentCallResponseBody& setAIAgentUserId(string AIAgentUserId) { DARABONBA_PTR_SET_VALUE(AIAgentUserId_, AIAgentUserId) };
+
+
+    // avatarUserId Field Functions 
+    bool hasAvatarUserId() const { return this->avatarUserId_ != nullptr;};
+    void deleteAvatarUserId() { this->avatarUserId_ = nullptr;};
+    inline string getAvatarUserId() const { DARABONBA_PTR_GET_DEFAULT(avatarUserId_, "") };
+    inline GenerateAIAgentCallResponseBody& setAvatarUserId(string avatarUserId) { DARABONBA_PTR_SET_VALUE(avatarUserId_, avatarUserId) };
 
 
     // channelId Field Functions 
@@ -86,6 +96,7 @@ namespace Models
   protected:
     // The username of the AI agent in the Alibaba Real-Time Communication (ARTC) channel.
     shared_ptr<string> AIAgentUserId_ {};
+    shared_ptr<string> avatarUserId_ {};
     // The ARTC channel ID.
     shared_ptr<string> channelId_ {};
     // The ID of the AI agent.

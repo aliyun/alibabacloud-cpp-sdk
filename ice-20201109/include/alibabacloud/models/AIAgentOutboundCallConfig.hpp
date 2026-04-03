@@ -873,11 +873,13 @@ namespace Models
       class UserIdle : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const UserIdle& obj) { 
+          DARABONBA_PTR_TO_JSON(HangupEndWord, hangupEndWord_);
           DARABONBA_PTR_TO_JSON(MaxRepeats, maxRepeats_);
           DARABONBA_PTR_TO_JSON(Messages, messages_);
           DARABONBA_PTR_TO_JSON(WaitTime, waitTime_);
         };
         friend void from_json(const Darabonba::Json& j, UserIdle& obj) { 
+          DARABONBA_PTR_FROM_JSON(HangupEndWord, hangupEndWord_);
           DARABONBA_PTR_FROM_JSON(MaxRepeats, maxRepeats_);
           DARABONBA_PTR_FROM_JSON(Messages, messages_);
           DARABONBA_PTR_FROM_JSON(WaitTime, waitTime_);
@@ -935,8 +937,15 @@ namespace Models
           shared_ptr<string> text_ {};
         };
 
-        virtual bool empty() const override { return this->maxRepeats_ == nullptr
-        && this->messages_ == nullptr && this->waitTime_ == nullptr; };
+        virtual bool empty() const override { return this->hangupEndWord_ == nullptr
+        && this->maxRepeats_ == nullptr && this->messages_ == nullptr && this->waitTime_ == nullptr; };
+        // hangupEndWord Field Functions 
+        bool hasHangupEndWord() const { return this->hangupEndWord_ != nullptr;};
+        void deleteHangupEndWord() { this->hangupEndWord_ = nullptr;};
+        inline string getHangupEndWord() const { DARABONBA_PTR_GET_DEFAULT(hangupEndWord_, "") };
+        inline UserIdle& setHangupEndWord(string hangupEndWord) { DARABONBA_PTR_SET_VALUE(hangupEndWord_, hangupEndWord) };
+
+
         // maxRepeats Field Functions 
         bool hasMaxRepeats() const { return this->maxRepeats_ != nullptr;};
         void deleteMaxRepeats() { this->maxRepeats_ = nullptr;};
@@ -961,6 +970,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> hangupEndWord_ {};
         shared_ptr<int32_t> maxRepeats_ {};
         shared_ptr<vector<UserIdle::Messages>> messages_ {};
         shared_ptr<int32_t> waitTime_ {};
@@ -970,10 +980,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const LlmPending& obj) { 
           DARABONBA_PTR_TO_JSON(Messages, messages_);
+          DARABONBA_PTR_TO_JSON(Mode, mode_);
           DARABONBA_PTR_TO_JSON(WaitTime, waitTime_);
         };
         friend void from_json(const Darabonba::Json& j, LlmPending& obj) { 
           DARABONBA_PTR_FROM_JSON(Messages, messages_);
+          DARABONBA_PTR_FROM_JSON(Mode, mode_);
           DARABONBA_PTR_FROM_JSON(WaitTime, waitTime_);
         };
         LlmPending() = default ;
@@ -1030,7 +1042,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->messages_ == nullptr
-        && this->waitTime_ == nullptr; };
+        && this->mode_ == nullptr && this->waitTime_ == nullptr; };
         // messages Field Functions 
         bool hasMessages() const { return this->messages_ != nullptr;};
         void deleteMessages() { this->messages_ = nullptr;};
@@ -1038,6 +1050,13 @@ namespace Models
         inline vector<LlmPending::Messages> getMessages() { DARABONBA_PTR_GET(messages_, vector<LlmPending::Messages>) };
         inline LlmPending& setMessages(const vector<LlmPending::Messages> & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
         inline LlmPending& setMessages(vector<LlmPending::Messages> && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
+
+
+        // mode Field Functions 
+        bool hasMode() const { return this->mode_ != nullptr;};
+        void deleteMode() { this->mode_ = nullptr;};
+        inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+        inline LlmPending& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
         // waitTime Field Functions 
@@ -1049,6 +1068,7 @@ namespace Models
 
       protected:
         shared_ptr<vector<LlmPending::Messages>> messages_ {};
+        shared_ptr<string> mode_ {};
         shared_ptr<int32_t> waitTime_ {};
       };
 

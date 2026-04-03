@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEAIAGENTINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AIAgentConfig.hpp>
+#include <alibabacloud/models/AIAgentCallInfo.hpp>
 #include <alibabacloud/models/AIAgentRuntimeConfig.hpp>
 #include <alibabacloud/models/AIAgentTemplateConfig.hpp>
 using namespace std;
@@ -38,6 +39,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Instance& obj) { 
         DARABONBA_PTR_TO_JSON(AgentConfig, agentConfig_);
+        DARABONBA_PTR_TO_JSON(CallInfo, callInfo_);
         DARABONBA_PTR_TO_JSON(CallLogUrl, callLogUrl_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
@@ -49,6 +51,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Instance& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentConfig, agentConfig_);
+        DARABONBA_PTR_FROM_JSON(CallInfo, callInfo_);
         DARABONBA_PTR_FROM_JSON(CallLogUrl, callLogUrl_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
@@ -70,8 +73,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentConfig_ == nullptr
-        && this->callLogUrl_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->runtimeConfig_ == nullptr && this->sessionId_ == nullptr
-        && this->status_ == nullptr && this->templateConfig_ == nullptr && this->userData_ == nullptr; };
+        && this->callInfo_ == nullptr && this->callLogUrl_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->runtimeConfig_ == nullptr
+        && this->sessionId_ == nullptr && this->status_ == nullptr && this->templateConfig_ == nullptr && this->userData_ == nullptr; };
       // agentConfig Field Functions 
       bool hasAgentConfig() const { return this->agentConfig_ != nullptr;};
       void deleteAgentConfig() { this->agentConfig_ = nullptr;};
@@ -79,6 +82,15 @@ namespace Models
       inline AIAgentConfig getAgentConfig() { DARABONBA_PTR_GET(agentConfig_, AIAgentConfig) };
       inline Instance& setAgentConfig(const AIAgentConfig & agentConfig) { DARABONBA_PTR_SET_VALUE(agentConfig_, agentConfig) };
       inline Instance& setAgentConfig(AIAgentConfig && agentConfig) { DARABONBA_PTR_SET_RVALUE(agentConfig_, agentConfig) };
+
+
+      // callInfo Field Functions 
+      bool hasCallInfo() const { return this->callInfo_ != nullptr;};
+      void deleteCallInfo() { this->callInfo_ = nullptr;};
+      inline const AIAgentCallInfo & getCallInfo() const { DARABONBA_PTR_GET_CONST(callInfo_, AIAgentCallInfo) };
+      inline AIAgentCallInfo getCallInfo() { DARABONBA_PTR_GET(callInfo_, AIAgentCallInfo) };
+      inline Instance& setCallInfo(const AIAgentCallInfo & callInfo) { DARABONBA_PTR_SET_VALUE(callInfo_, callInfo) };
+      inline Instance& setCallInfo(AIAgentCallInfo && callInfo) { DARABONBA_PTR_SET_RVALUE(callInfo_, callInfo) };
 
 
       // callLogUrl Field Functions 
@@ -143,6 +155,7 @@ namespace Models
 
     protected:
       shared_ptr<AIAgentConfig> agentConfig_ {};
+      shared_ptr<AIAgentCallInfo> callInfo_ {};
       // The URL of the call log file.
       shared_ptr<string> callLogUrl_ {};
       shared_ptr<string> gmtCreate_ {};

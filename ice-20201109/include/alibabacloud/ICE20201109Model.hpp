@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_ICE20201109MODEL_HPP_
 #define ALIBABACLOUD_ICE20201109MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AIAgentCallInfo.hpp>
 #include <alibabacloud/models/AIAgentConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfig.hpp>
 #include <alibabacloud/models/AIAgentRuntimeConfig.hpp>
