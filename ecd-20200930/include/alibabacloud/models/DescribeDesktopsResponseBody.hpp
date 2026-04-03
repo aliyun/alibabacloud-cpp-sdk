@@ -44,6 +44,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Desktops& obj) { 
         DARABONBA_PTR_TO_JSON(AccountType, accountType_);
+        DARABONBA_PTR_TO_JSON(AgentProviderList, agentProviderList_);
         DARABONBA_PTR_TO_JSON(BindAmount, bindAmount_);
         DARABONBA_PTR_TO_JSON(BundleId, bundleId_);
         DARABONBA_PTR_TO_JSON(BundleName, bundleName_);
@@ -116,6 +117,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Desktops& obj) { 
         DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
+        DARABONBA_PTR_FROM_JSON(AgentProviderList, agentProviderList_);
         DARABONBA_PTR_FROM_JSON(BindAmount, bindAmount_);
         DARABONBA_PTR_FROM_JSON(BundleId, bundleId_);
         DARABONBA_PTR_FROM_JSON(BundleName, bundleName_);
@@ -787,25 +789,34 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->accountType_ == nullptr
-        && this->bindAmount_ == nullptr && this->bundleId_ == nullptr && this->bundleName_ == nullptr && this->chargeType_ == nullptr && this->connectionStatus_ == nullptr
-        && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->dataDiskCategory_ == nullptr && this->dataDiskSize_ == nullptr && this->desktopDurationList_ == nullptr
-        && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->desktopType_ == nullptr
-        && this->directoryId_ == nullptr && this->directoryType_ == nullptr && this->disks_ == nullptr && this->domainType_ == nullptr && this->downgradeQuota_ == nullptr
-        && this->downgradedTimes_ == nullptr && this->endUserIds_ == nullptr && this->entraDomainName_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr
-        && this->expiredTime_ == nullptr && this->fotaUpdate_ == nullptr && this->gpuCategory_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverVersion_ == nullptr
-        && this->gpuSpec_ == nullptr && this->hibernationBeta_ == nullptr && this->hibernationOptionsConfigured_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
-        && this->isLdap_ == nullptr && this->managementFlag_ == nullptr && this->managementFlags_ == nullptr && this->memory_ == nullptr && this->networkInterfaceId_ == nullptr
-        && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->officeSiteVpcType_ == nullptr
-        && this->osType_ == nullptr && this->osUpdate_ == nullptr && this->platform_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr
-        && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->progress_ == nullptr && this->protocolType_ == nullptr && this->resourceGroups_ == nullptr
-        && this->serialNumber_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr && this->snapshotPolicyId_ == nullptr && this->snapshotPolicyName_ == nullptr
-        && this->standardStartTime_ == nullptr && this->startTime_ == nullptr && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr
-        && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
+        && this->agentProviderList_ == nullptr && this->bindAmount_ == nullptr && this->bundleId_ == nullptr && this->bundleName_ == nullptr && this->chargeType_ == nullptr
+        && this->connectionStatus_ == nullptr && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->dataDiskCategory_ == nullptr && this->dataDiskSize_ == nullptr
+        && this->desktopDurationList_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr
+        && this->desktopType_ == nullptr && this->directoryId_ == nullptr && this->directoryType_ == nullptr && this->disks_ == nullptr && this->domainType_ == nullptr
+        && this->downgradeQuota_ == nullptr && this->downgradedTimes_ == nullptr && this->endUserIds_ == nullptr && this->entraDomainName_ == nullptr && this->envId_ == nullptr
+        && this->envType_ == nullptr && this->expiredTime_ == nullptr && this->fotaUpdate_ == nullptr && this->gpuCategory_ == nullptr && this->gpuCount_ == nullptr
+        && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->hibernationBeta_ == nullptr && this->hibernationOptionsConfigured_ == nullptr && this->hostName_ == nullptr
+        && this->imageId_ == nullptr && this->isLdap_ == nullptr && this->managementFlag_ == nullptr && this->managementFlags_ == nullptr && this->memory_ == nullptr
+        && this->networkInterfaceId_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr
+        && this->officeSiteVpcType_ == nullptr && this->osType_ == nullptr && this->osUpdate_ == nullptr && this->platform_ == nullptr && this->policyGroupId_ == nullptr
+        && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->progress_ == nullptr && this->protocolType_ == nullptr
+        && this->resourceGroups_ == nullptr && this->serialNumber_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr && this->snapshotPolicyId_ == nullptr
+        && this->snapshotPolicyName_ == nullptr && this->standardStartTime_ == nullptr && this->startTime_ == nullptr && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr
+        && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
       inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
       inline Desktops& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
+      // agentProviderList Field Functions 
+      bool hasAgentProviderList() const { return this->agentProviderList_ != nullptr;};
+      void deleteAgentProviderList() { this->agentProviderList_ = nullptr;};
+      inline const vector<string> & getAgentProviderList() const { DARABONBA_PTR_GET_CONST(agentProviderList_, vector<string>) };
+      inline vector<string> getAgentProviderList() { DARABONBA_PTR_GET(agentProviderList_, vector<string>) };
+      inline Desktops& setAgentProviderList(const vector<string> & agentProviderList) { DARABONBA_PTR_SET_VALUE(agentProviderList_, agentProviderList) };
+      inline Desktops& setAgentProviderList(vector<string> && agentProviderList) { DARABONBA_PTR_SET_RVALUE(agentProviderList_, agentProviderList) };
 
 
       // bindAmount Field Functions 
@@ -1315,6 +1326,7 @@ namespace Models
 
     protected:
       shared_ptr<string> accountType_ {};
+      shared_ptr<vector<string>> agentProviderList_ {};
       // The number of concurrent sessions of each cloud computer in a multi-session cloud computer pool.
       shared_ptr<int32_t> bindAmount_ {};
       // The ID of the template used to create the cloud computer.

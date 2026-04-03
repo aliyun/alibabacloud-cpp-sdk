@@ -45,6 +45,8 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const DescribePolicyGroups& obj) { 
         DARABONBA_PTR_TO_JSON(AcademicProxy, academicProxy_);
         DARABONBA_PTR_TO_JSON(AdminAccess, adminAccess_);
+        DARABONBA_PTR_TO_JSON(AdminKeyboardOnFullScreen, adminKeyboardOnFullScreen_);
+        DARABONBA_PTR_TO_JSON(AdminKeyboardOnWindows, adminKeyboardOnWindows_);
         DARABONBA_PTR_TO_JSON(AppContentProtection, appContentProtection_);
         DARABONBA_PTR_TO_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_TO_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
@@ -66,6 +68,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CpuRateLimit, cpuRateLimit_);
         DARABONBA_PTR_TO_JSON(CpuSampleDuration, cpuSampleDuration_);
         DARABONBA_PTR_TO_JSON(CpuSingleRateLimit, cpuSingleRateLimit_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(DesktopCount, desktopCount_);
         DARABONBA_PTR_TO_JSON(DesktopGroupCount, desktopGroupCount_);
         DARABONBA_PTR_TO_JSON(DeviceConnectHint, deviceConnectHint_);
@@ -94,6 +97,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_TO_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
         DARABONBA_PTR_TO_JSON(InternetPrinter, internetPrinter_);
+        DARABONBA_PTR_TO_JSON(KeyboardControl, keyboardControl_);
         DARABONBA_PTR_TO_JSON(LocalDrive, localDrive_);
         DARABONBA_PTR_TO_JSON(MaxReconnectTime, maxReconnectTime_);
         DARABONBA_PTR_TO_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
@@ -183,6 +187,8 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, DescribePolicyGroups& obj) { 
         DARABONBA_PTR_FROM_JSON(AcademicProxy, academicProxy_);
         DARABONBA_PTR_FROM_JSON(AdminAccess, adminAccess_);
+        DARABONBA_PTR_FROM_JSON(AdminKeyboardOnFullScreen, adminKeyboardOnFullScreen_);
+        DARABONBA_PTR_FROM_JSON(AdminKeyboardOnWindows, adminKeyboardOnWindows_);
         DARABONBA_PTR_FROM_JSON(AppContentProtection, appContentProtection_);
         DARABONBA_PTR_FROM_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_FROM_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
@@ -204,6 +210,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CpuRateLimit, cpuRateLimit_);
         DARABONBA_PTR_FROM_JSON(CpuSampleDuration, cpuSampleDuration_);
         DARABONBA_PTR_FROM_JSON(CpuSingleRateLimit, cpuSingleRateLimit_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(DesktopCount, desktopCount_);
         DARABONBA_PTR_FROM_JSON(DesktopGroupCount, desktopGroupCount_);
         DARABONBA_PTR_FROM_JSON(DeviceConnectHint, deviceConnectHint_);
@@ -232,6 +239,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_FROM_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
         DARABONBA_PTR_FROM_JSON(InternetPrinter, internetPrinter_);
+        DARABONBA_PTR_FROM_JSON(KeyboardControl, keyboardControl_);
         DARABONBA_PTR_FROM_JSON(LocalDrive, localDrive_);
         DARABONBA_PTR_FROM_JSON(MaxReconnectTime, maxReconnectTime_);
         DARABONBA_PTR_FROM_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
@@ -1001,33 +1009,34 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->academicProxy_ == nullptr
-        && this->adminAccess_ == nullptr && this->appContentProtection_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->autoReconnect_ == nullptr
-        && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr && this->clientCreateSnapshot_ == nullptr && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr
-        && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr
-        && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr && this->cpuProcessors_ == nullptr && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr
-        && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr
-        && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainList_ == nullptr
-        && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->edsCount_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr
-        && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr
-        && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr
-        && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr
-        && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr
-        && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr
-        && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr
-        && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr
-        && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr
-        && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr
-        && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr
-        && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr
-        && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr
-        && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr
-        && this->resourceRegionId_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr
-        && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr
-        && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr
-        && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr
-        && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr
-        && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr
-        && this->watermarkTransparency_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->adminAccess_ == nullptr && this->adminKeyboardOnFullScreen_ == nullptr && this->adminKeyboardOnWindows_ == nullptr && this->appContentProtection_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr
+        && this->authorizeSecurityPolicyRules_ == nullptr && this->autoReconnect_ == nullptr && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr && this->clientCreateSnapshot_ == nullptr
+        && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr && this->clipboard_ == nullptr
+        && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr && this->cpuProcessors_ == nullptr
+        && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->description_ == nullptr
+        && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr
+        && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainList_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr
+        && this->edsCount_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr
+        && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr
+        && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr
+        && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->keyboardControl_ == nullptr && this->localDrive_ == nullptr
+        && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr
+        && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr
+        && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr
+        && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr
+        && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr
+        && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr
+        && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
+        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
+        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
+        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr
+        && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr
+        && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
+        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
+        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
+        && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
+        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr
+        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1040,6 +1049,20 @@ namespace Models
       void deleteAdminAccess() { this->adminAccess_ = nullptr;};
       inline string getAdminAccess() const { DARABONBA_PTR_GET_DEFAULT(adminAccess_, "") };
       inline DescribePolicyGroups& setAdminAccess(string adminAccess) { DARABONBA_PTR_SET_VALUE(adminAccess_, adminAccess) };
+
+
+      // adminKeyboardOnFullScreen Field Functions 
+      bool hasAdminKeyboardOnFullScreen() const { return this->adminKeyboardOnFullScreen_ != nullptr;};
+      void deleteAdminKeyboardOnFullScreen() { this->adminKeyboardOnFullScreen_ = nullptr;};
+      inline string getAdminKeyboardOnFullScreen() const { DARABONBA_PTR_GET_DEFAULT(adminKeyboardOnFullScreen_, "") };
+      inline DescribePolicyGroups& setAdminKeyboardOnFullScreen(string adminKeyboardOnFullScreen) { DARABONBA_PTR_SET_VALUE(adminKeyboardOnFullScreen_, adminKeyboardOnFullScreen) };
+
+
+      // adminKeyboardOnWindows Field Functions 
+      bool hasAdminKeyboardOnWindows() const { return this->adminKeyboardOnWindows_ != nullptr;};
+      void deleteAdminKeyboardOnWindows() { this->adminKeyboardOnWindows_ = nullptr;};
+      inline string getAdminKeyboardOnWindows() const { DARABONBA_PTR_GET_DEFAULT(adminKeyboardOnWindows_, "") };
+      inline DescribePolicyGroups& setAdminKeyboardOnWindows(string adminKeyboardOnWindows) { DARABONBA_PTR_SET_VALUE(adminKeyboardOnWindows_, adminKeyboardOnWindows) };
 
 
       // appContentProtection Field Functions 
@@ -1195,6 +1218,13 @@ namespace Models
       void deleteCpuSingleRateLimit() { this->cpuSingleRateLimit_ = nullptr;};
       inline int32_t getCpuSingleRateLimit() const { DARABONBA_PTR_GET_DEFAULT(cpuSingleRateLimit_, 0) };
       inline DescribePolicyGroups& setCpuSingleRateLimit(int32_t cpuSingleRateLimit) { DARABONBA_PTR_SET_VALUE(cpuSingleRateLimit_, cpuSingleRateLimit) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline DescribePolicyGroups& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
       // desktopCount Field Functions 
@@ -1397,6 +1427,13 @@ namespace Models
       void deleteInternetPrinter() { this->internetPrinter_ = nullptr;};
       inline string getInternetPrinter() const { DARABONBA_PTR_GET_DEFAULT(internetPrinter_, "") };
       inline DescribePolicyGroups& setInternetPrinter(string internetPrinter) { DARABONBA_PTR_SET_VALUE(internetPrinter_, internetPrinter) };
+
+
+      // keyboardControl Field Functions 
+      bool hasKeyboardControl() const { return this->keyboardControl_ != nullptr;};
+      void deleteKeyboardControl() { this->keyboardControl_ = nullptr;};
+      inline string getKeyboardControl() const { DARABONBA_PTR_GET_DEFAULT(keyboardControl_, "") };
+      inline DescribePolicyGroups& setKeyboardControl(string keyboardControl) { DARABONBA_PTR_SET_VALUE(keyboardControl_, keyboardControl) };
 
 
       // localDrive Field Functions 
@@ -2018,6 +2055,8 @@ namespace Models
       // 
       // >  This parameter is in invitational preview for specific users and not available to the public.
       shared_ptr<string> adminAccess_ {};
+      shared_ptr<string> adminKeyboardOnFullScreen_ {};
+      shared_ptr<string> adminKeyboardOnWindows_ {};
       // Indicates whether the anti-screenshot feature is enabled.
       // 
       // Valid values:
@@ -2080,6 +2119,7 @@ namespace Models
       shared_ptr<int32_t> cpuSampleDuration_ {};
       // The single-CPU usage. Valid values: 70 to 100. Unit: %.
       shared_ptr<int32_t> cpuSingleRateLimit_ {};
+      shared_ptr<string> description_ {};
       // The number of cloud computers bound with this policy.
       shared_ptr<int32_t> desktopCount_ {};
       // The number of shared cloud computers bound with this policy.
@@ -2173,6 +2213,7 @@ namespace Models
       // *   BOTH: TCP and UDP.
       shared_ptr<string> internetCommunicationProtocol_ {};
       shared_ptr<string> internetPrinter_ {};
+      shared_ptr<string> keyboardControl_ {};
       // The permissions on local disk mapping.
       // 
       // Valid values:

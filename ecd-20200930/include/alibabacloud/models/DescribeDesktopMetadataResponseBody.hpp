@@ -37,6 +37,7 @@ namespace Models
     class Desktops : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Desktops& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentProviderList, agentProviderList_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_TO_JSON(DesktopGroupId, desktopGroupId_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       };
       friend void from_json(const Darabonba::Json& j, Desktops& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentProviderList, agentProviderList_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_FROM_JSON(DesktopGroupId, desktopGroupId_);
@@ -87,11 +89,20 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->creationTime_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr
-        && this->desktopType_ == nullptr && this->expiredTime_ == nullptr && this->imageId_ == nullptr && this->localName_ == nullptr && this->managementFlags_ == nullptr
-        && this->memberEniIp_ == nullptr && this->officeSiteId_ == nullptr && this->platform_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceGroupName_ == nullptr && this->startTime_ == nullptr; };
+      virtual bool empty() const override { return this->agentProviderList_ == nullptr
+        && this->chargeType_ == nullptr && this->creationTime_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
+        && this->desktopStatus_ == nullptr && this->desktopType_ == nullptr && this->expiredTime_ == nullptr && this->imageId_ == nullptr && this->localName_ == nullptr
+        && this->managementFlags_ == nullptr && this->memberEniIp_ == nullptr && this->officeSiteId_ == nullptr && this->platform_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->startTime_ == nullptr; };
+      // agentProviderList Field Functions 
+      bool hasAgentProviderList() const { return this->agentProviderList_ != nullptr;};
+      void deleteAgentProviderList() { this->agentProviderList_ = nullptr;};
+      inline const vector<string> & getAgentProviderList() const { DARABONBA_PTR_GET_CONST(agentProviderList_, vector<string>) };
+      inline vector<string> getAgentProviderList() { DARABONBA_PTR_GET(agentProviderList_, vector<string>) };
+      inline Desktops& setAgentProviderList(const vector<string> & agentProviderList) { DARABONBA_PTR_SET_VALUE(agentProviderList_, agentProviderList) };
+      inline Desktops& setAgentProviderList(vector<string> && agentProviderList) { DARABONBA_PTR_SET_RVALUE(agentProviderList_, agentProviderList) };
+
+
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -221,6 +232,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<string>> agentProviderList_ {};
       shared_ptr<string> chargeType_ {};
       shared_ptr<string> creationTime_ {};
       shared_ptr<string> desktopGroupId_ {};

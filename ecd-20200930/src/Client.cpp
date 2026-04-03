@@ -2421,6 +2421,14 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["AdminAccess"] = request.getAdminAccess();
   }
 
+  if (!!request.hasAdminKeyboardOnFullScreen()) {
+    query["AdminKeyboardOnFullScreen"] = request.getAdminKeyboardOnFullScreen();
+  }
+
+  if (!!request.hasAdminKeyboardOnWindows()) {
+    query["AdminKeyboardOnWindows"] = request.getAdminKeyboardOnWindows();
+  }
+
   if (!!request.hasAppContentProtection()) {
     query["AppContentProtection"] = request.getAppContentProtection();
   }
@@ -2509,6 +2517,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["CpuSingleRateLimit"] = request.getCpuSingleRateLimit();
   }
 
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
   if (!!request.hasDeviceConnectHint()) {
     query["DeviceConnectHint"] = request.getDeviceConnectHint();
   }
@@ -2595,6 +2607,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasInternetPrinter()) {
     query["InternetPrinter"] = request.getInternetPrinter();
+  }
+
+  if (!!request.hasKeyboardControl()) {
+    query["KeyboardControl"] = request.getKeyboardControl();
   }
 
   if (!!request.hasLocalDrive()) {
@@ -14727,6 +14743,14 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["AdminAccess"] = request.getAdminAccess();
   }
 
+  if (!!request.hasAdminKeyboardOnFullScreen()) {
+    query["AdminKeyboardOnFullScreen"] = request.getAdminKeyboardOnFullScreen();
+  }
+
+  if (!!request.hasAdminKeyboardOnWindows()) {
+    query["AdminKeyboardOnWindows"] = request.getAdminKeyboardOnWindows();
+  }
+
   if (!!request.hasAppContentProtection()) {
     query["AppContentProtection"] = request.getAppContentProtection();
   }
@@ -14813,6 +14837,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasCpuSingleRateLimit()) {
     query["CpuSingleRateLimit"] = request.getCpuSingleRateLimit();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasDeviceConnectHint()) {
