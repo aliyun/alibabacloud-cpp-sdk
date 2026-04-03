@@ -13,6 +13,7 @@ namespace Models
   class CreateVectorIndexRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateVectorIndexRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(Collection, collection_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(Dimension, dimension_);
@@ -23,12 +24,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ManagerAccountPassword, managerAccountPassword_);
       DARABONBA_PTR_TO_JSON(Metrics, metrics_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
+      DARABONBA_PTR_TO_JSON(Nlist, nlist_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PqEnable, pqEnable_);
+      DARABONBA_PTR_TO_JSON(RabitqBits, rabitqBits_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateVectorIndexRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(Collection, collection_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(Dimension, dimension_);
@@ -39,8 +43,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ManagerAccountPassword, managerAccountPassword_);
       DARABONBA_PTR_FROM_JSON(Metrics, metrics_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
+      DARABONBA_PTR_FROM_JSON(Nlist, nlist_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PqEnable, pqEnable_);
+      DARABONBA_PTR_FROM_JSON(RabitqBits, rabitqBits_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
@@ -55,10 +61,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collection_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->externalStorage_ == nullptr && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr
-        && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr
-        && this->pqEnable_ == nullptr && this->regionId_ == nullptr && this->type_ == nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && this->collection_ == nullptr && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->externalStorage_ == nullptr && this->hnswEfConstruction_ == nullptr
+        && this->hnswM_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metrics_ == nullptr && this->namespace_ == nullptr
+        && this->nlist_ == nullptr && this->ownerId_ == nullptr && this->pqEnable_ == nullptr && this->rabitqBits_ == nullptr && this->regionId_ == nullptr
+        && this->type_ == nullptr; };
+    // algorithm Field Functions 
+    bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
+    void deleteAlgorithm() { this->algorithm_ = nullptr;};
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline CreateVectorIndexRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -129,6 +143,13 @@ namespace Models
     inline CreateVectorIndexRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
+    // nlist Field Functions 
+    bool hasNlist() const { return this->nlist_ != nullptr;};
+    void deleteNlist() { this->nlist_ = nullptr;};
+    inline int32_t getNlist() const { DARABONBA_PTR_GET_DEFAULT(nlist_, 0) };
+    inline CreateVectorIndexRequest& setNlist(int32_t nlist) { DARABONBA_PTR_SET_VALUE(nlist_, nlist) };
+
+
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
@@ -141,6 +162,13 @@ namespace Models
     void deletePqEnable() { this->pqEnable_ = nullptr;};
     inline int32_t getPqEnable() const { DARABONBA_PTR_GET_DEFAULT(pqEnable_, 0) };
     inline CreateVectorIndexRequest& setPqEnable(int32_t pqEnable) { DARABONBA_PTR_SET_VALUE(pqEnable_, pqEnable) };
+
+
+    // rabitqBits Field Functions 
+    bool hasRabitqBits() const { return this->rabitqBits_ != nullptr;};
+    void deleteRabitqBits() { this->rabitqBits_ = nullptr;};
+    inline int32_t getRabitqBits() const { DARABONBA_PTR_GET_DEFAULT(rabitqBits_, 0) };
+    inline CreateVectorIndexRequest& setRabitqBits(int32_t rabitqBits) { DARABONBA_PTR_SET_VALUE(rabitqBits_, rabitqBits) };
 
 
     // regionId Field Functions 
@@ -158,6 +186,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> algorithm_ {};
     // Collection name.
     // > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
     // 
@@ -206,11 +235,13 @@ namespace Models
     // 
     // > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
     shared_ptr<string> namespace_ {};
+    shared_ptr<int32_t> nlist_ {};
     shared_ptr<int64_t> ownerId_ {};
     // Whether to enable PQ (Product Quantization) algorithm acceleration for the index. It is recommended to enable this when the data volume exceeds 500,000. Value description:
     // - 0: Disabled.
     // - 1: Enabled (default).
     shared_ptr<int32_t> pqEnable_ {};
+    shared_ptr<int32_t> rabitqBits_ {};
     // Region ID where the instance is located.
     // 
     // This parameter is required.

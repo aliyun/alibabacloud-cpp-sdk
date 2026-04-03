@@ -1184,7 +1184,15 @@ CreateCollectionResponse Client::createCollectionWithOptions(const CreateCollect
     request.setSparseVectorIndexConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSparseVectorIndexConfig(), "SparseVectorIndexConfig", "json"));
   }
 
+  if (!!tmpReq.hasVectorIndexConfig()) {
+    request.setVectorIndexConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVectorIndexConfig(), "VectorIndexConfig", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAlgorithm()) {
+    query["Algorithm"] = request.getAlgorithm();
+  }
+
   if (!!request.hasCollection()) {
     query["Collection"] = request.getCollection();
   }
@@ -1259,6 +1267,10 @@ CreateCollectionResponse Client::createCollectionWithOptions(const CreateCollect
 
   if (!!request.hasSupportSparse()) {
     query["SupportSparse"] = request.getSupportSparse();
+  }
+
+  if (!!request.hasVectorIndexConfigShrink()) {
+    query["VectorIndexConfig"] = request.getVectorIndexConfigShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -1804,7 +1816,15 @@ CreateDocumentCollectionResponse Client::createDocumentCollectionWithOptions(con
     request.setSparseVectorIndexConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSparseVectorIndexConfig(), "SparseVectorIndexConfig", "json"));
   }
 
+  if (!!tmpReq.hasVectorIndexConfig()) {
+    request.setVectorIndexConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVectorIndexConfig(), "VectorIndexConfig", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAlgorithm()) {
+    query["Algorithm"] = request.getAlgorithm();
+  }
+
   if (!!request.hasCollection()) {
     query["Collection"] = request.getCollection();
   }
@@ -1907,6 +1927,10 @@ CreateDocumentCollectionResponse Client::createDocumentCollectionWithOptions(con
 
   if (!!request.hasSupportSparse()) {
     query["SupportSparse"] = request.getSupportSparse();
+  }
+
+  if (!!request.hasVectorIndexConfigShrink()) {
+    query["VectorIndexConfig"] = request.getVectorIndexConfigShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3083,6 +3107,10 @@ CreateSupabaseProjectResponse Client::createSupabaseProject(const CreateSupabase
 CreateVectorIndexResponse Client::createVectorIndexWithOptions(const CreateVectorIndexRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAlgorithm()) {
+    query["Algorithm"] = request.getAlgorithm();
+  }
+
   if (!!request.hasCollection()) {
     query["Collection"] = request.getCollection();
   }
@@ -3123,12 +3151,20 @@ CreateVectorIndexResponse Client::createVectorIndexWithOptions(const CreateVecto
     query["Namespace"] = request.getNamespace();
   }
 
+  if (!!request.hasNlist()) {
+    query["Nlist"] = request.getNlist();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPqEnable()) {
     query["PqEnable"] = request.getPqEnable();
+  }
+
+  if (!!request.hasRabitqBits()) {
+    query["RabitqBits"] = request.getRabitqBits();
   }
 
   if (!!request.hasRegionId()) {
@@ -3367,6 +3403,74 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteBackupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除文本块
+ *
+ * @param tmpReq DeleteChunksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteChunksResponse
+ */
+DeleteChunksResponse Client::deleteChunksWithOptions(const DeleteChunksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteChunksShrinkRequest request = DeleteChunksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChunkIds()) {
+    request.setChunkIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChunkIds(), "ChunkIds", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasChunkIdsShrink()) {
+    query["ChunkIds"] = request.getChunkIdsShrink();
+  }
+
+  if (!!request.hasCollection()) {
+    query["Collection"] = request.getCollection();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasNamespacePassword()) {
+    query["NamespacePassword"] = request.getNamespacePassword();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteChunks"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteChunksResponse>();
+}
+
+/**
+ * @summary 删除文本块
+ *
+ * @param request DeleteChunksRequest
+ * @return DeleteChunksResponse
+ */
+DeleteChunksResponse Client::deleteChunks(const DeleteChunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteChunksWithOptions(request, runtime);
 }
 
 /**
@@ -10564,6 +10668,84 @@ ListBackupJobsResponse Client::listBackupJobs(const ListBackupJobsRequest &reque
 }
 
 /**
+ * @summary 获取文本块详情
+ *
+ * @param request ListChunksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListChunksResponse
+ */
+ListChunksResponse Client::listChunksWithOptions(const ListChunksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCollection()) {
+    query["Collection"] = request.getCollection();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasIncludeVector()) {
+    query["IncludeVector"] = request.getIncludeVector();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasNamespacePassword()) {
+    query["NamespacePassword"] = request.getNamespacePassword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListChunks"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListChunksResponse>();
+}
+
+/**
+ * @summary 获取文本块详情
+ *
+ * @param request ListChunksRequest
+ * @return ListChunksResponse
+ */
+ListChunksResponse Client::listChunks(const ListChunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listChunksWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of vector collections.
  *
  * @param request ListCollectionsRequest
@@ -13986,6 +14168,10 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
     request.setRecallWindowShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecallWindow(), "RecallWindow", "json"));
   }
 
+  if (!!tmpReq.hasRerankModel()) {
+    request.setRerankModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRerankModel(), "RerankModel", "json"));
+  }
+
   json query = {};
   if (!!request.hasCollection()) {
     query["Collection"] = request.getCollection();
@@ -14069,6 +14255,10 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
 
   if (!!request.hasRerankFactor()) {
     query["RerankFactor"] = request.getRerankFactor();
+  }
+
+  if (!!request.hasRerankModelShrink()) {
+    query["RerankModel"] = request.getRerankModelShrink();
   }
 
   if (!!request.hasTopK()) {
@@ -14218,6 +14408,10 @@ QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContentWithOptions
     request.setMergeMethodArgsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMergeMethodArgs(), "MergeMethodArgs", "json"));
   }
 
+  if (!!tmpReq.hasRerankModel()) {
+    request.setRerankModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRerankModel(), "RerankModel", "json"));
+  }
+
   if (!!tmpReq.hasSourceCollection()) {
     request.setSourceCollectionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceCollection(), "SourceCollection", "json"));
   }
@@ -14249,6 +14443,10 @@ QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContentWithOptions
 
   if (!!request.hasRerankFactor()) {
     query["RerankFactor"] = request.getRerankFactor();
+  }
+
+  if (!!request.hasRerankModelShrink()) {
+    query["RerankModel"] = request.getRerankModelShrink();
   }
 
   if (!!request.hasSourceCollectionShrink()) {
@@ -14414,6 +14612,10 @@ RerankResponse Client::rerankWithOptions(const RerankRequest &tmpReq, const Dara
   json body = {};
   if (!!request.hasDocumentsShrink()) {
     body["Documents"] = request.getDocumentsShrink();
+  }
+
+  if (!!request.hasInstruct()) {
+    body["Instruct"] = request.getInstruct();
   }
 
   if (!!request.hasMaxChunksPerDoc()) {

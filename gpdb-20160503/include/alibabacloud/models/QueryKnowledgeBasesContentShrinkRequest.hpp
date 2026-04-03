@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RerankFactor, rerankFactor_);
+      DARABONBA_PTR_TO_JSON(RerankModel, rerankModelShrink_);
       DARABONBA_PTR_TO_JSON(SourceCollection, sourceCollectionShrink_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
     };
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RerankFactor, rerankFactor_);
+      DARABONBA_PTR_FROM_JSON(RerankModel, rerankModelShrink_);
       DARABONBA_PTR_FROM_JSON(SourceCollection, sourceCollectionShrink_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
     };
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
         && this->DBInstanceId_ == nullptr && this->mergeMethod_ == nullptr && this->mergeMethodArgsShrink_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->rerankFactor_ == nullptr && this->sourceCollectionShrink_ == nullptr && this->topK_ == nullptr; };
+        && this->rerankFactor_ == nullptr && this->rerankModelShrink_ == nullptr && this->sourceCollectionShrink_ == nullptr && this->topK_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline QueryKnowledgeBasesContentShrinkRequest& setRerankFactor(double rerankFactor) { DARABONBA_PTR_SET_VALUE(rerankFactor_, rerankFactor) };
 
 
+    // rerankModelShrink Field Functions 
+    bool hasRerankModelShrink() const { return this->rerankModelShrink_ != nullptr;};
+    void deleteRerankModelShrink() { this->rerankModelShrink_ = nullptr;};
+    inline string getRerankModelShrink() const { DARABONBA_PTR_GET_DEFAULT(rerankModelShrink_, "") };
+    inline QueryKnowledgeBasesContentShrinkRequest& setRerankModelShrink(string rerankModelShrink) { DARABONBA_PTR_SET_VALUE(rerankModelShrink_, rerankModelShrink) };
+
+
     // sourceCollectionShrink Field Functions 
     bool hasSourceCollectionShrink() const { return this->sourceCollectionShrink_ != nullptr;};
     void deleteSourceCollectionShrink() { this->sourceCollectionShrink_ = nullptr;};
@@ -142,6 +151,7 @@ namespace Models
     // 
     // *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
     shared_ptr<double> rerankFactor_ {};
+    shared_ptr<string> rerankModelShrink_ {};
     // The information about collections to retrieve from.
     // 
     // This parameter is required.

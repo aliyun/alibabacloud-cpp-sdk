@@ -334,6 +334,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MergeMethod, mergeMethod_);
         DARABONBA_PTR_TO_JSON(MergeMethodArgs, mergeMethodArgs_);
         DARABONBA_PTR_TO_JSON(RerankFactor, rerankFactor_);
+        DARABONBA_PTR_TO_JSON(RerankModel, rerankModel_);
         DARABONBA_PTR_TO_JSON(SourceCollection, sourceCollection_);
         DARABONBA_PTR_TO_JSON(TopK, topK_);
       };
@@ -341,6 +342,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MergeMethod, mergeMethod_);
         DARABONBA_PTR_FROM_JSON(MergeMethodArgs, mergeMethodArgs_);
         DARABONBA_PTR_FROM_JSON(RerankFactor, rerankFactor_);
+        DARABONBA_PTR_FROM_JSON(RerankModel, rerankModel_);
         DARABONBA_PTR_FROM_JSON(SourceCollection, sourceCollection_);
         DARABONBA_PTR_FROM_JSON(TopK, topK_);
       };
@@ -391,6 +393,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Metrics, metrics_);
             DARABONBA_PTR_TO_JSON(RecallWindow, recallWindow_);
             DARABONBA_PTR_TO_JSON(RerankFactor, rerankFactor_);
+            DARABONBA_PTR_TO_JSON(RerankModel, rerankModel_);
             DARABONBA_PTR_TO_JSON(TopK, topK_);
             DARABONBA_PTR_TO_JSON(UseFullTextRetrieval, useFullTextRetrieval_);
           };
@@ -403,6 +406,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(Metrics, metrics_);
             DARABONBA_PTR_FROM_JSON(RecallWindow, recallWindow_);
             DARABONBA_PTR_FROM_JSON(RerankFactor, rerankFactor_);
+            DARABONBA_PTR_FROM_JSON(RerankModel, rerankModel_);
             DARABONBA_PTR_FROM_JSON(TopK, topK_);
             DARABONBA_PTR_FROM_JSON(UseFullTextRetrieval, useFullTextRetrieval_);
           };
@@ -417,6 +421,48 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class RerankModel : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const RerankModel& obj) { 
+              DARABONBA_PTR_TO_JSON(Instruct, instruct_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
+            };
+            friend void from_json(const Darabonba::Json& j, RerankModel& obj) { 
+              DARABONBA_PTR_FROM_JSON(Instruct, instruct_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
+            };
+            RerankModel() = default ;
+            RerankModel(const RerankModel &) = default ;
+            RerankModel(RerankModel &&) = default ;
+            RerankModel(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~RerankModel() = default ;
+            RerankModel& operator=(const RerankModel &) = default ;
+            RerankModel& operator=(RerankModel &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->instruct_ == nullptr
+        && this->name_ == nullptr; };
+            // instruct Field Functions 
+            bool hasInstruct() const { return this->instruct_ != nullptr;};
+            void deleteInstruct() { this->instruct_ = nullptr;};
+            inline string getInstruct() const { DARABONBA_PTR_GET_DEFAULT(instruct_, "") };
+            inline RerankModel& setInstruct(string instruct) { DARABONBA_PTR_SET_VALUE(instruct_, instruct) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline RerankModel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          protected:
+            shared_ptr<string> instruct_ {};
+            shared_ptr<string> name_ {};
+          };
+
           class GraphSearchArgs : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const GraphSearchArgs& obj) { 
@@ -451,7 +497,7 @@ namespace Models
 
           virtual bool empty() const override { return this->filter_ == nullptr
         && this->graphEnhance_ == nullptr && this->graphSearchArgs_ == nullptr && this->hybridSearch_ == nullptr && this->hybridSearchArgs_ == nullptr && this->metrics_ == nullptr
-        && this->recallWindow_ == nullptr && this->rerankFactor_ == nullptr && this->topK_ == nullptr && this->useFullTextRetrieval_ == nullptr; };
+        && this->recallWindow_ == nullptr && this->rerankFactor_ == nullptr && this->rerankModel_ == nullptr && this->topK_ == nullptr && this->useFullTextRetrieval_ == nullptr; };
           // filter Field Functions 
           bool hasFilter() const { return this->filter_ != nullptr;};
           void deleteFilter() { this->filter_ = nullptr;};
@@ -512,6 +558,15 @@ namespace Models
           void deleteRerankFactor() { this->rerankFactor_ = nullptr;};
           inline double getRerankFactor() const { DARABONBA_PTR_GET_DEFAULT(rerankFactor_, 0.0) };
           inline QueryParams& setRerankFactor(double rerankFactor) { DARABONBA_PTR_SET_VALUE(rerankFactor_, rerankFactor) };
+
+
+          // rerankModel Field Functions 
+          bool hasRerankModel() const { return this->rerankModel_ != nullptr;};
+          void deleteRerankModel() { this->rerankModel_ = nullptr;};
+          inline const QueryParams::RerankModel & getRerankModel() const { DARABONBA_PTR_GET_CONST(rerankModel_, QueryParams::RerankModel) };
+          inline QueryParams::RerankModel getRerankModel() { DARABONBA_PTR_GET(rerankModel_, QueryParams::RerankModel) };
+          inline QueryParams& setRerankModel(const QueryParams::RerankModel & rerankModel) { DARABONBA_PTR_SET_VALUE(rerankModel_, rerankModel) };
+          inline QueryParams& setRerankModel(QueryParams::RerankModel && rerankModel) { DARABONBA_PTR_SET_RVALUE(rerankModel_, rerankModel) };
 
 
           // topK Field Functions 
@@ -587,6 +642,7 @@ namespace Models
           // 
           // *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
           shared_ptr<double> rerankFactor_ {};
+          shared_ptr<QueryParams::RerankModel> rerankModel_ {};
           // The number of top results.
           shared_ptr<int64_t> topK_ {};
           // Specifies whether to use full-text retrieval (dual-path retrieval). The default value is false, which means only vector retrieval is used.
@@ -642,6 +698,48 @@ namespace Models
         shared_ptr<string> namespacePassword_ {};
         // Parameters related to the knowledge base retrieval.
         shared_ptr<SourceCollection::QueryParams> queryParams_ {};
+      };
+
+      class RerankModel : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RerankModel& obj) { 
+          DARABONBA_PTR_TO_JSON(Instruct, instruct_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, RerankModel& obj) { 
+          DARABONBA_PTR_FROM_JSON(Instruct, instruct_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+        };
+        RerankModel() = default ;
+        RerankModel(const RerankModel &) = default ;
+        RerankModel(RerankModel &&) = default ;
+        RerankModel(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RerankModel() = default ;
+        RerankModel& operator=(const RerankModel &) = default ;
+        RerankModel& operator=(RerankModel &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->instruct_ == nullptr
+        && this->name_ == nullptr; };
+        // instruct Field Functions 
+        bool hasInstruct() const { return this->instruct_ != nullptr;};
+        void deleteInstruct() { this->instruct_ = nullptr;};
+        inline string getInstruct() const { DARABONBA_PTR_GET_DEFAULT(instruct_, "") };
+        inline RerankModel& setInstruct(string instruct) { DARABONBA_PTR_SET_VALUE(instruct_, instruct) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline RerankModel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        shared_ptr<string> instruct_ {};
+        shared_ptr<string> name_ {};
       };
 
       class MergeMethodArgs : public Darabonba::Model {
@@ -759,7 +857,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->mergeMethod_ == nullptr
-        && this->mergeMethodArgs_ == nullptr && this->rerankFactor_ == nullptr && this->sourceCollection_ == nullptr && this->topK_ == nullptr; };
+        && this->mergeMethodArgs_ == nullptr && this->rerankFactor_ == nullptr && this->rerankModel_ == nullptr && this->sourceCollection_ == nullptr && this->topK_ == nullptr; };
       // mergeMethod Field Functions 
       bool hasMergeMethod() const { return this->mergeMethod_ != nullptr;};
       void deleteMergeMethod() { this->mergeMethod_ = nullptr;};
@@ -781,6 +879,15 @@ namespace Models
       void deleteRerankFactor() { this->rerankFactor_ = nullptr;};
       inline double getRerankFactor() const { DARABONBA_PTR_GET_DEFAULT(rerankFactor_, 0.0) };
       inline KnowledgeParams& setRerankFactor(double rerankFactor) { DARABONBA_PTR_SET_VALUE(rerankFactor_, rerankFactor) };
+
+
+      // rerankModel Field Functions 
+      bool hasRerankModel() const { return this->rerankModel_ != nullptr;};
+      void deleteRerankModel() { this->rerankModel_ = nullptr;};
+      inline const KnowledgeParams::RerankModel & getRerankModel() const { DARABONBA_PTR_GET_CONST(rerankModel_, KnowledgeParams::RerankModel) };
+      inline KnowledgeParams::RerankModel getRerankModel() { DARABONBA_PTR_GET(rerankModel_, KnowledgeParams::RerankModel) };
+      inline KnowledgeParams& setRerankModel(const KnowledgeParams::RerankModel & rerankModel) { DARABONBA_PTR_SET_VALUE(rerankModel_, rerankModel) };
+      inline KnowledgeParams& setRerankModel(KnowledgeParams::RerankModel && rerankModel) { DARABONBA_PTR_SET_RVALUE(rerankModel_, rerankModel) };
 
 
       // sourceCollection Field Functions 
@@ -815,6 +922,7 @@ namespace Models
       // 
       // *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
       shared_ptr<double> rerankFactor_ {};
+      shared_ptr<KnowledgeParams::RerankModel> rerankModel_ {};
       // Knowledge base.
       // 
       // This parameter is required.

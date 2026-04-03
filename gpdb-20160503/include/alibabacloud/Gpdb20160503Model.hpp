@@ -142,6 +142,10 @@
 #include <alibabacloud/models/DeleteBackupRequest.hpp>
 #include <alibabacloud/models/DeleteBackupResponseBody.hpp>
 #include <alibabacloud/models/DeleteBackupResponse.hpp>
+#include <alibabacloud/models/DeleteChunksRequest.hpp>
+#include <alibabacloud/models/DeleteChunksShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteChunksResponseBody.hpp>
+#include <alibabacloud/models/DeleteChunksResponse.hpp>
 #include <alibabacloud/models/DeleteCollectionRequest.hpp>
 #include <alibabacloud/models/DeleteCollectionResponseBody.hpp>
 #include <alibabacloud/models/DeleteCollectionResponse.hpp>
@@ -502,6 +506,9 @@
 #include <alibabacloud/models/ListBackupJobsRequest.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBody.hpp>
 #include <alibabacloud/models/ListBackupJobsResponse.hpp>
+#include <alibabacloud/models/ListChunksRequest.hpp>
+#include <alibabacloud/models/ListChunksResponseBody.hpp>
+#include <alibabacloud/models/ListChunksResponse.hpp>
 #include <alibabacloud/models/ListCollectionsRequest.hpp>
 #include <alibabacloud/models/ListCollectionsResponseBody.hpp>
 #include <alibabacloud/models/ListCollectionsResponse.hpp>

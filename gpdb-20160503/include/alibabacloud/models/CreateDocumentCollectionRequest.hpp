@@ -14,6 +14,7 @@ namespace Models
   class CreateDocumentCollectionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDocumentCollectionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(Collection, collection_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(Dimension, dimension_);
@@ -40,8 +41,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SparseRetrievalFields, sparseRetrievalFields_);
       DARABONBA_PTR_TO_JSON(SparseVectorIndexConfig, sparseVectorIndexConfig_);
       DARABONBA_PTR_TO_JSON(SupportSparse, supportSparse_);
+      DARABONBA_PTR_TO_JSON(VectorIndexConfig, vectorIndexConfig_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDocumentCollectionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(Collection, collection_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(Dimension, dimension_);
@@ -68,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SparseRetrievalFields, sparseRetrievalFields_);
       DARABONBA_PTR_FROM_JSON(SparseVectorIndexConfig, sparseVectorIndexConfig_);
       DARABONBA_PTR_FROM_JSON(SupportSparse, supportSparse_);
+      DARABONBA_PTR_FROM_JSON(VectorIndexConfig, vectorIndexConfig_);
     };
     CreateDocumentCollectionRequest() = default ;
     CreateDocumentCollectionRequest(const CreateDocumentCollectionRequest &) = default ;
@@ -80,13 +84,57 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class VectorIndexConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const VectorIndexConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(Nlist, nlist_);
+        DARABONBA_PTR_TO_JSON(RabitqBits, rabitqBits_);
+      };
+      friend void from_json(const Darabonba::Json& j, VectorIndexConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(Nlist, nlist_);
+        DARABONBA_PTR_FROM_JSON(RabitqBits, rabitqBits_);
+      };
+      VectorIndexConfig() = default ;
+      VectorIndexConfig(const VectorIndexConfig &) = default ;
+      VectorIndexConfig(VectorIndexConfig &&) = default ;
+      VectorIndexConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~VectorIndexConfig() = default ;
+      VectorIndexConfig& operator=(const VectorIndexConfig &) = default ;
+      VectorIndexConfig& operator=(VectorIndexConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->nlist_ == nullptr
+        && this->rabitqBits_ == nullptr; };
+      // nlist Field Functions 
+      bool hasNlist() const { return this->nlist_ != nullptr;};
+      void deleteNlist() { this->nlist_ = nullptr;};
+      inline int32_t getNlist() const { DARABONBA_PTR_GET_DEFAULT(nlist_, 0) };
+      inline VectorIndexConfig& setNlist(int32_t nlist) { DARABONBA_PTR_SET_VALUE(nlist_, nlist) };
+
+
+      // rabitqBits Field Functions 
+      bool hasRabitqBits() const { return this->rabitqBits_ != nullptr;};
+      void deleteRabitqBits() { this->rabitqBits_ = nullptr;};
+      inline int32_t getRabitqBits() const { DARABONBA_PTR_GET_DEFAULT(rabitqBits_, 0) };
+      inline VectorIndexConfig& setRabitqBits(int32_t rabitqBits) { DARABONBA_PTR_SET_VALUE(rabitqBits_, rabitqBits) };
+
+
+    protected:
+      shared_ptr<int32_t> nlist_ {};
+      shared_ptr<int32_t> rabitqBits_ {};
+    };
+
     class SparseVectorIndexConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SparseVectorIndexConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
         DARABONBA_PTR_TO_JSON(HnswEfConstruction, hnswEfConstruction_);
         DARABONBA_PTR_TO_JSON(HnswM, hnswM_);
       };
       friend void from_json(const Darabonba::Json& j, SparseVectorIndexConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
         DARABONBA_PTR_FROM_JSON(HnswEfConstruction, hnswEfConstruction_);
         DARABONBA_PTR_FROM_JSON(HnswM, hnswM_);
       };
@@ -101,8 +149,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->hnswEfConstruction_ == nullptr
-        && this->hnswM_ == nullptr; };
+      virtual bool empty() const override { return this->algorithm_ == nullptr
+        && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr; };
+      // algorithm Field Functions 
+      bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
+      void deleteAlgorithm() { this->algorithm_ = nullptr;};
+      inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+      inline SparseVectorIndexConfig& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
       // hnswEfConstruction Field Functions 
       bool hasHnswEfConstruction() const { return this->hnswEfConstruction_ != nullptr;};
       void deleteHnswEfConstruction() { this->hnswEfConstruction_ = nullptr;};
@@ -118,16 +173,25 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> algorithm_ {};
       shared_ptr<int32_t> hnswEfConstruction_ {};
       shared_ptr<int32_t> hnswM_ {};
     };
 
-    virtual bool empty() const override { return this->collection_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->embeddingModel_ == nullptr && this->enableGraph_ == nullptr && this->entityTypes_ == nullptr
-        && this->externalStorage_ == nullptr && this->fullTextRetrievalFields_ == nullptr && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr && this->LLMModel_ == nullptr
-        && this->language_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metadata_ == nullptr && this->metadataIndices_ == nullptr
-        && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr && this->parser_ == nullptr && this->pqEnable_ == nullptr
-        && this->regionId_ == nullptr && this->relationshipTypes_ == nullptr && this->sparseRetrievalFields_ == nullptr && this->sparseVectorIndexConfig_ == nullptr && this->supportSparse_ == nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && this->collection_ == nullptr && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->embeddingModel_ == nullptr && this->enableGraph_ == nullptr
+        && this->entityTypes_ == nullptr && this->externalStorage_ == nullptr && this->fullTextRetrievalFields_ == nullptr && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr
+        && this->LLMModel_ == nullptr && this->language_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metadata_ == nullptr
+        && this->metadataIndices_ == nullptr && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr && this->parser_ == nullptr
+        && this->pqEnable_ == nullptr && this->regionId_ == nullptr && this->relationshipTypes_ == nullptr && this->sparseRetrievalFields_ == nullptr && this->sparseVectorIndexConfig_ == nullptr
+        && this->supportSparse_ == nullptr && this->vectorIndexConfig_ == nullptr; };
+    // algorithm Field Functions 
+    bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
+    void deleteAlgorithm() { this->algorithm_ = nullptr;};
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline CreateDocumentCollectionRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -316,7 +380,17 @@ namespace Models
     inline CreateDocumentCollectionRequest& setSupportSparse(bool supportSparse) { DARABONBA_PTR_SET_VALUE(supportSparse_, supportSparse) };
 
 
+    // vectorIndexConfig Field Functions 
+    bool hasVectorIndexConfig() const { return this->vectorIndexConfig_ != nullptr;};
+    void deleteVectorIndexConfig() { this->vectorIndexConfig_ = nullptr;};
+    inline const CreateDocumentCollectionRequest::VectorIndexConfig & getVectorIndexConfig() const { DARABONBA_PTR_GET_CONST(vectorIndexConfig_, CreateDocumentCollectionRequest::VectorIndexConfig) };
+    inline CreateDocumentCollectionRequest::VectorIndexConfig getVectorIndexConfig() { DARABONBA_PTR_GET(vectorIndexConfig_, CreateDocumentCollectionRequest::VectorIndexConfig) };
+    inline CreateDocumentCollectionRequest& setVectorIndexConfig(const CreateDocumentCollectionRequest::VectorIndexConfig & vectorIndexConfig) { DARABONBA_PTR_SET_VALUE(vectorIndexConfig_, vectorIndexConfig) };
+    inline CreateDocumentCollectionRequest& setVectorIndexConfig(CreateDocumentCollectionRequest::VectorIndexConfig && vectorIndexConfig) { DARABONBA_PTR_SET_RVALUE(vectorIndexConfig_, vectorIndexConfig) };
+
+
   protected:
+    shared_ptr<string> algorithm_ {};
     // The name of the document collection that you want to create.
     // 
     // > The name must comply with PostgreSQL object naming restrictions.
@@ -436,6 +510,7 @@ namespace Models
     shared_ptr<string> sparseRetrievalFields_ {};
     shared_ptr<CreateDocumentCollectionRequest::SparseVectorIndexConfig> sparseVectorIndexConfig_ {};
     shared_ptr<bool> supportSparse_ {};
+    shared_ptr<CreateDocumentCollectionRequest::VectorIndexConfig> vectorIndexConfig_ {};
   };
 
   } // namespace Models

@@ -13,6 +13,7 @@ namespace Models
   class CreateCollectionShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateCollectionShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(Collection, collection_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(Dimension, dimension_);
@@ -32,9 +33,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SparseVectorIndexConfig, sparseVectorIndexConfigShrink_);
       DARABONBA_PTR_TO_JSON(SupportSparse, supportSparse_);
+      DARABONBA_PTR_TO_JSON(VectorIndexConfig, vectorIndexConfigShrink_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCollectionShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(Collection, collection_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(Dimension, dimension_);
@@ -54,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SparseVectorIndexConfig, sparseVectorIndexConfigShrink_);
       DARABONBA_PTR_FROM_JSON(SupportSparse, supportSparse_);
+      DARABONBA_PTR_FROM_JSON(VectorIndexConfig, vectorIndexConfigShrink_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     CreateCollectionShrinkRequest() = default ;
@@ -67,11 +71,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collection_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->externalStorage_ == nullptr && this->fullTextRetrievalFields_ == nullptr && this->hnswEfConstruction_ == nullptr
-        && this->hnswM_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metadata_ == nullptr && this->metadataIndices_ == nullptr
-        && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr && this->parser_ == nullptr && this->pqEnable_ == nullptr
-        && this->regionId_ == nullptr && this->sparseVectorIndexConfigShrink_ == nullptr && this->supportSparse_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && this->collection_ == nullptr && this->DBInstanceId_ == nullptr && this->dimension_ == nullptr && this->externalStorage_ == nullptr && this->fullTextRetrievalFields_ == nullptr
+        && this->hnswEfConstruction_ == nullptr && this->hnswM_ == nullptr && this->managerAccount_ == nullptr && this->managerAccountPassword_ == nullptr && this->metadata_ == nullptr
+        && this->metadataIndices_ == nullptr && this->metrics_ == nullptr && this->namespace_ == nullptr && this->ownerId_ == nullptr && this->parser_ == nullptr
+        && this->pqEnable_ == nullptr && this->regionId_ == nullptr && this->sparseVectorIndexConfigShrink_ == nullptr && this->supportSparse_ == nullptr && this->vectorIndexConfigShrink_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // algorithm Field Functions 
+    bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
+    void deleteAlgorithm() { this->algorithm_ = nullptr;};
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline CreateCollectionShrinkRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -205,6 +217,13 @@ namespace Models
     inline CreateCollectionShrinkRequest& setSupportSparse(bool supportSparse) { DARABONBA_PTR_SET_VALUE(supportSparse_, supportSparse) };
 
 
+    // vectorIndexConfigShrink Field Functions 
+    bool hasVectorIndexConfigShrink() const { return this->vectorIndexConfigShrink_ != nullptr;};
+    void deleteVectorIndexConfigShrink() { this->vectorIndexConfigShrink_ = nullptr;};
+    inline string getVectorIndexConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(vectorIndexConfigShrink_, "") };
+    inline CreateCollectionShrinkRequest& setVectorIndexConfigShrink(string vectorIndexConfigShrink) { DARABONBA_PTR_SET_VALUE(vectorIndexConfigShrink_, vectorIndexConfigShrink) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -213,6 +232,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> algorithm_ {};
     // The name of the collection that you want to create.
     // 
     // >  The name must comply with the naming conventions of PostgreSQL objects.
@@ -300,6 +320,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> sparseVectorIndexConfigShrink_ {};
     shared_ptr<bool> supportSparse_ {};
+    shared_ptr<string> vectorIndexConfigShrink_ {};
     // The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
     shared_ptr<string> workspaceId_ {};
   };

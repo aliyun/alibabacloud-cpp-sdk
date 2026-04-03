@@ -866,6 +866,23 @@ namespace Gpdb20160503
       Models::DeleteBackupResponse deleteBackup(const Models::DeleteBackupRequest &request);
 
       /**
+       * @summary 删除文本块
+       *
+       * @param tmpReq DeleteChunksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteChunksResponse
+       */
+      Models::DeleteChunksResponse deleteChunksWithOptions(const Models::DeleteChunksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除文本块
+       *
+       * @param request DeleteChunksRequest
+       * @return DeleteChunksResponse
+       */
+      Models::DeleteChunksResponse deleteChunks(const Models::DeleteChunksRequest &request);
+
+      /**
        * @summary Deletes a vector collection.
        *
        * @param request DeleteCollectionRequest
@@ -3219,6 +3236,23 @@ namespace Gpdb20160503
        * @return ListBackupJobsResponse
        */
       Models::ListBackupJobsResponse listBackupJobs(const Models::ListBackupJobsRequest &request);
+
+      /**
+       * @summary 获取文本块详情
+       *
+       * @param request ListChunksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListChunksResponse
+       */
+      Models::ListChunksResponse listChunksWithOptions(const Models::ListChunksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文本块详情
+       *
+       * @param request ListChunksRequest
+       * @return ListChunksResponse
+       */
+      Models::ListChunksResponse listChunks(const Models::ListChunksRequest &request);
 
       /**
        * @summary Queries a list of vector collections.

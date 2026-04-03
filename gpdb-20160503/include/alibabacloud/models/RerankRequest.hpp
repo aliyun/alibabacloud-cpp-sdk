@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RerankRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(Documents, documents_);
+      DARABONBA_PTR_TO_JSON(Instruct, instruct_);
       DARABONBA_PTR_TO_JSON(MaxChunksPerDoc, maxChunksPerDoc_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RerankRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(Documents, documents_);
+      DARABONBA_PTR_FROM_JSON(Instruct, instruct_);
       DARABONBA_PTR_FROM_JSON(MaxChunksPerDoc, maxChunksPerDoc_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->documents_ == nullptr && this->maxChunksPerDoc_ == nullptr && this->model_ == nullptr && this->ownerId_ == nullptr && this->query_ == nullptr
-        && this->regionId_ == nullptr && this->returnDocuments_ == nullptr && this->topK_ == nullptr; };
+        && this->documents_ == nullptr && this->instruct_ == nullptr && this->maxChunksPerDoc_ == nullptr && this->model_ == nullptr && this->ownerId_ == nullptr
+        && this->query_ == nullptr && this->regionId_ == nullptr && this->returnDocuments_ == nullptr && this->topK_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     inline vector<string> getDocuments() { DARABONBA_PTR_GET(documents_, vector<string>) };
     inline RerankRequest& setDocuments(const vector<string> & documents) { DARABONBA_PTR_SET_VALUE(documents_, documents) };
     inline RerankRequest& setDocuments(vector<string> && documents) { DARABONBA_PTR_SET_RVALUE(documents_, documents) };
+
+
+    // instruct Field Functions 
+    bool hasInstruct() const { return this->instruct_ != nullptr;};
+    void deleteInstruct() { this->instruct_ = nullptr;};
+    inline string getInstruct() const { DARABONBA_PTR_GET_DEFAULT(instruct_, "") };
+    inline RerankRequest& setInstruct(string instruct) { DARABONBA_PTR_SET_VALUE(instruct_, instruct) };
 
 
     // maxChunksPerDoc Field Functions 
@@ -123,6 +132,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // List of documents to be re-ordered.
     shared_ptr<vector<string>> documents_ {};
+    shared_ptr<string> instruct_ {};
     // Maximum number of chunks allowed when the text exceeds the model window:
     // - bge-reranker-v2-m3: default value is 10.
     // - bge-reranker-v2-minicpm-layerwise: default value is 5:

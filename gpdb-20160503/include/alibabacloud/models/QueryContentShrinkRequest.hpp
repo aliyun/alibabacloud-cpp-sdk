@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RecallWindow, recallWindowShrink_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RerankFactor, rerankFactor_);
+      DARABONBA_PTR_TO_JSON(RerankModel, rerankModelShrink_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
       DARABONBA_PTR_TO_JSON(UrlExpiration, urlExpiration_);
       DARABONBA_PTR_TO_JSON(UseFullTextRetrieval, useFullTextRetrieval_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RecallWindow, recallWindowShrink_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RerankFactor, rerankFactor_);
+      DARABONBA_PTR_FROM_JSON(RerankModel, rerankModelShrink_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
       DARABONBA_PTR_FROM_JSON(UrlExpiration, urlExpiration_);
       DARABONBA_PTR_FROM_JSON(UseFullTextRetrieval, useFullTextRetrieval_);
@@ -82,7 +84,7 @@ namespace Models
         && this->graphEnhance_ == nullptr && this->graphSearchArgsShrink_ == nullptr && this->hybridSearch_ == nullptr && this->hybridSearchArgsShrink_ == nullptr && this->includeFileUrl_ == nullptr
         && this->includeMetadataFields_ == nullptr && this->includeVector_ == nullptr && this->metrics_ == nullptr && this->namespace_ == nullptr && this->namespacePassword_ == nullptr
         && this->offset_ == nullptr && this->orderBy_ == nullptr && this->ownerId_ == nullptr && this->recallWindowShrink_ == nullptr && this->regionId_ == nullptr
-        && this->rerankFactor_ == nullptr && this->topK_ == nullptr && this->urlExpiration_ == nullptr && this->useFullTextRetrieval_ == nullptr; };
+        && this->rerankFactor_ == nullptr && this->rerankModelShrink_ == nullptr && this->topK_ == nullptr && this->urlExpiration_ == nullptr && this->useFullTextRetrieval_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
     inline QueryContentShrinkRequest& setRerankFactor(double rerankFactor) { DARABONBA_PTR_SET_VALUE(rerankFactor_, rerankFactor) };
 
 
+    // rerankModelShrink Field Functions 
+    bool hasRerankModelShrink() const { return this->rerankModelShrink_ != nullptr;};
+    void deleteRerankModelShrink() { this->rerankModelShrink_ = nullptr;};
+    inline string getRerankModelShrink() const { DARABONBA_PTR_GET_DEFAULT(rerankModelShrink_, "") };
+    inline QueryContentShrinkRequest& setRerankModelShrink(string rerankModelShrink) { DARABONBA_PTR_SET_VALUE(rerankModelShrink_, rerankModelShrink) };
+
+
     // topK Field Functions 
     bool hasTopK() const { return this->topK_ != nullptr;};
     void deleteTopK() { this->topK_ = nullptr;};
@@ -366,6 +375,7 @@ namespace Models
     // > - Re-ranking is slower when documents are sparsely split.
     // > - It is recommended that the re-ranked count (TopK * Factor, rounded up) does not exceed 50.
     shared_ptr<double> rerankFactor_ {};
+    shared_ptr<string> rerankModelShrink_ {};
     // The number of the returned top results.
     shared_ptr<int32_t> topK_ {};
     // The validity period of the returned image URL.
