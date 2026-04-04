@@ -37,6 +37,15 @@
 #include <alibabacloud/models/CheckResourceMeasureRequest.hpp>
 #include <alibabacloud/models/CheckResourceMeasureResponseBody.hpp>
 #include <alibabacloud/models/CheckResourceMeasureResponse.hpp>
+#include <alibabacloud/models/CheckUserResourceMeasureRequest.hpp>
+#include <alibabacloud/models/CheckUserResourceMeasureResponseBody.hpp>
+#include <alibabacloud/models/CheckUserResourceMeasureResponse.hpp>
+#include <alibabacloud/models/CreateAppAssistantAgentRequest.hpp>
+#include <alibabacloud/models/CreateAppAssistantAgentResponseBody.hpp>
+#include <alibabacloud/models/CreateAppAssistantAgentResponse.hpp>
+#include <alibabacloud/models/CreateAppAssistantAgentSsoLoginRequest.hpp>
+#include <alibabacloud/models/CreateAppAssistantAgentSsoLoginResponseBody.hpp>
+#include <alibabacloud/models/CreateAppAssistantAgentSsoLoginResponse.hpp>
 #include <alibabacloud/models/CreateAppInstanceRequest.hpp>
 #include <alibabacloud/models/CreateAppInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAppInstanceResponseBody.hpp>
@@ -114,6 +123,9 @@
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewRequest.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponseBody.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponse.hpp>
+#include <alibabacloud/models/ListAppAssistantAgentsRequest.hpp>
+#include <alibabacloud/models/ListAppAssistantAgentsResponseBody.hpp>
+#include <alibabacloud/models/ListAppAssistantAgentsResponse.hpp>
 #include <alibabacloud/models/ListAppCommoditySpecificationsForPartnerResponseBody.hpp>
 #include <alibabacloud/models/ListAppCommoditySpecificationsForPartnerResponse.hpp>
 #include <alibabacloud/models/ListAppCommoditySpecificationsV2ForPartnerRequest.hpp>

@@ -280,6 +280,172 @@ CheckResourceMeasureResponse Client::checkResourceMeasure(const CheckResourceMea
 }
 
 /**
+ * @summary 校验用户资源计量
+ *
+ * @param request CheckUserResourceMeasureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckUserResourceMeasureResponse
+ */
+CheckUserResourceMeasureResponse Client::checkUserResourceMeasureWithOptions(const CheckUserResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBelongId()) {
+    query["BelongId"] = request.getBelongId();
+  }
+
+  if (!!request.hasBelongIdType()) {
+    query["BelongIdType"] = request.getBelongIdType();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEspBizId()) {
+    query["EspBizId"] = request.getEspBizId();
+  }
+
+  if (!!request.hasOrderComponentParams()) {
+    query["OrderComponentParams"] = request.getOrderComponentParams();
+  }
+
+  if (!!request.hasResourceCode()) {
+    query["ResourceCode"] = request.getResourceCode();
+  }
+
+  if (!!request.hasResourceValue()) {
+    query["ResourceValue"] = request.getResourceValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckUserResourceMeasure"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckUserResourceMeasureResponse>();
+}
+
+/**
+ * @summary 校验用户资源计量
+ *
+ * @param request CheckUserResourceMeasureRequest
+ * @return CheckUserResourceMeasureResponse
+ */
+CheckUserResourceMeasureResponse Client::checkUserResourceMeasure(const CheckUserResourceMeasureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkUserResourceMeasureWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建应用助手智能体
+ *
+ * @param request CreateAppAssistantAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppAssistantAgentResponse
+ */
+CreateAppAssistantAgentResponse Client::createAppAssistantAgentWithOptions(const CreateAppAssistantAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPlatformType()) {
+    query["PlatformType"] = request.getPlatformType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppAssistantAgent"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppAssistantAgentResponse>();
+}
+
+/**
+ * @summary 创建应用助手智能体
+ *
+ * @param request CreateAppAssistantAgentRequest
+ * @return CreateAppAssistantAgentResponse
+ */
+CreateAppAssistantAgentResponse Client::createAppAssistantAgent(const CreateAppAssistantAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppAssistantAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 生成应用助手SSO免登
+ *
+ * @param request CreateAppAssistantAgentSsoLoginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppAssistantAgentSsoLoginResponse
+ */
+CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLoginWithOptions(const CreateAppAssistantAgentSsoLoginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPlatformType()) {
+    query["PlatformType"] = request.getPlatformType();
+  }
+
+  if (!!request.hasTargetUrl()) {
+    query["TargetUrl"] = request.getTargetUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppAssistantAgentSsoLogin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppAssistantAgentSsoLoginResponse>();
+}
+
+/**
+ * @summary 生成应用助手SSO免登
+ *
+ * @param request CreateAppAssistantAgentSsoLoginRequest
+ * @return CreateAppAssistantAgentSsoLoginResponse
+ */
+CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLogin(const CreateAppAssistantAgentSsoLoginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppAssistantAgentSsoLoginWithOptions(request, runtime);
+}
+
+/**
  * @summary Create a website instance
  *
  * @param tmpReq CreateAppInstanceRequest
@@ -1518,6 +1684,52 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicketForPreview(const IntrospectAppInstanceTicketForPreviewRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return introspectAppInstanceTicketForPreviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询应用助手智能体列表
+ *
+ * @param request ListAppAssistantAgentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppAssistantAgentsResponse
+ */
+ListAppAssistantAgentsResponse Client::listAppAssistantAgentsWithOptions(const ListAppAssistantAgentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPlatformType()) {
+    query["PlatformType"] = request.getPlatformType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppAssistantAgents"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppAssistantAgentsResponse>();
+}
+
+/**
+ * @summary 查询应用助手智能体列表
+ *
+ * @param request ListAppAssistantAgentsRequest
+ * @return ListAppAssistantAgentsResponse
+ */
+ListAppAssistantAgentsResponse Client::listAppAssistantAgents(const ListAppAssistantAgentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppAssistantAgentsWithOptions(request, runtime);
 }
 
 /**

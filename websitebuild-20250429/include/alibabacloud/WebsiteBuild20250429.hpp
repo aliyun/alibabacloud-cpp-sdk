@@ -89,6 +89,57 @@ namespace WebsiteBuild20250429
       Models::CheckResourceMeasureResponse checkResourceMeasure(const Models::CheckResourceMeasureRequest &request);
 
       /**
+       * @summary 校验用户资源计量
+       *
+       * @param request CheckUserResourceMeasureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckUserResourceMeasureResponse
+       */
+      Models::CheckUserResourceMeasureResponse checkUserResourceMeasureWithOptions(const Models::CheckUserResourceMeasureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 校验用户资源计量
+       *
+       * @param request CheckUserResourceMeasureRequest
+       * @return CheckUserResourceMeasureResponse
+       */
+      Models::CheckUserResourceMeasureResponse checkUserResourceMeasure(const Models::CheckUserResourceMeasureRequest &request);
+
+      /**
+       * @summary 创建应用助手智能体
+       *
+       * @param request CreateAppAssistantAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppAssistantAgentResponse
+       */
+      Models::CreateAppAssistantAgentResponse createAppAssistantAgentWithOptions(const Models::CreateAppAssistantAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建应用助手智能体
+       *
+       * @param request CreateAppAssistantAgentRequest
+       * @return CreateAppAssistantAgentResponse
+       */
+      Models::CreateAppAssistantAgentResponse createAppAssistantAgent(const Models::CreateAppAssistantAgentRequest &request);
+
+      /**
+       * @summary 生成应用助手SSO免登
+       *
+       * @param request CreateAppAssistantAgentSsoLoginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppAssistantAgentSsoLoginResponse
+       */
+      Models::CreateAppAssistantAgentSsoLoginResponse createAppAssistantAgentSsoLoginWithOptions(const Models::CreateAppAssistantAgentSsoLoginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成应用助手SSO免登
+       *
+       * @param request CreateAppAssistantAgentSsoLoginRequest
+       * @return CreateAppAssistantAgentSsoLoginResponse
+       */
+      Models::CreateAppAssistantAgentSsoLoginResponse createAppAssistantAgentSsoLogin(const Models::CreateAppAssistantAgentSsoLoginRequest &request);
+
+      /**
        * @summary Create a website instance
        *
        * @param tmpReq CreateAppInstanceRequest
@@ -511,6 +562,23 @@ namespace WebsiteBuild20250429
        * @return IntrospectAppInstanceTicketForPreviewResponse
        */
       Models::IntrospectAppInstanceTicketForPreviewResponse introspectAppInstanceTicketForPreview(const Models::IntrospectAppInstanceTicketForPreviewRequest &request);
+
+      /**
+       * @summary 查询应用助手智能体列表
+       *
+       * @param request ListAppAssistantAgentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppAssistantAgentsResponse
+       */
+      Models::ListAppAssistantAgentsResponse listAppAssistantAgentsWithOptions(const Models::ListAppAssistantAgentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询应用助手智能体列表
+       *
+       * @param request ListAppAssistantAgentsRequest
+       * @return ListAppAssistantAgentsResponse
+       */
+      Models::ListAppAssistantAgentsResponse listAppAssistantAgents(const Models::ListAppAssistantAgentsRequest &request);
 
       /**
        * @summary 获取商品配置信息
