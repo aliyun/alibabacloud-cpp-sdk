@@ -343,6 +343,8 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
+    // 
+    // This field is returned only when IPv6 is enabled for the vSwitch.
     shared_ptr<bool> enabledIpv6_ {};
     // The IPv6 CIDR block of the vSwitch.
     shared_ptr<string> ipv6CidrBlock_ {};

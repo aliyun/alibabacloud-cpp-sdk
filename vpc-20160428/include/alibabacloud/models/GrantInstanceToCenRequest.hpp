@@ -125,7 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The user ID (UID) of the Apsara Stack tenant account to which the CEN instance belongs.
+    // The user ID (UID) of the Alibaba Cloud account to which the CEN instance belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> cenOwnerId_ {};

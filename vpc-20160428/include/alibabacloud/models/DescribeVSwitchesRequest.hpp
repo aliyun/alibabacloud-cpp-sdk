@@ -285,7 +285,7 @@ namespace Models
     shared_ptr<vector<DescribeVSwitchesRequest::Tag>> tag_ {};
     // The ID of the vSwitch that you want to query.
     shared_ptr<string> vSwitchId_ {};
-    // The vSwitch name.
+    // The exact name of the vSwitch that you want to query. Fuzzy match is not supported.
     // 
     // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
     shared_ptr<string> vSwitchName_ {};
