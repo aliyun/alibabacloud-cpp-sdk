@@ -18,6 +18,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const Dataset& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(AccessibleRoleIdList, accessibleRoleIdList_);
       DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_TO_JSON(DataType, dataType_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
@@ -49,6 +50,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, Dataset& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(AccessibleRoleIdList, accessibleRoleIdList_);
       DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_FROM_JSON(DataType, dataType_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
@@ -123,17 +125,26 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->dataSourceType_ == nullptr && this->dataType_ == nullptr && this->datasetId_ == nullptr && this->description_ == nullptr && this->edition_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->isShared_ == nullptr && this->labels_ == nullptr
-        && this->latestVersion_ == nullptr && this->mountAccess_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr && this->options_ == nullptr
-        && this->ownerId_ == nullptr && this->property_ == nullptr && this->providerType_ == nullptr && this->sharedFrom_ == nullptr && this->sharingConfig_ == nullptr
-        && this->sourceDatasetId_ == nullptr && this->sourceDatasetVersion_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->tagTemplateType_ == nullptr
-        && this->uri_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->accessibleRoleIdList_ == nullptr && this->dataSourceType_ == nullptr && this->dataType_ == nullptr && this->datasetId_ == nullptr && this->description_ == nullptr
+        && this->edition_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->isShared_ == nullptr
+        && this->labels_ == nullptr && this->latestVersion_ == nullptr && this->mountAccess_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr
+        && this->options_ == nullptr && this->ownerId_ == nullptr && this->property_ == nullptr && this->providerType_ == nullptr && this->sharedFrom_ == nullptr
+        && this->sharingConfig_ == nullptr && this->sourceDatasetId_ == nullptr && this->sourceDatasetVersion_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr
+        && this->tagTemplateType_ == nullptr && this->uri_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline Dataset& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // accessibleRoleIdList Field Functions 
+    bool hasAccessibleRoleIdList() const { return this->accessibleRoleIdList_ != nullptr;};
+    void deleteAccessibleRoleIdList() { this->accessibleRoleIdList_ = nullptr;};
+    inline const vector<string> & getAccessibleRoleIdList() const { DARABONBA_PTR_GET_CONST(accessibleRoleIdList_, vector<string>) };
+    inline vector<string> getAccessibleRoleIdList() { DARABONBA_PTR_GET(accessibleRoleIdList_, vector<string>) };
+    inline Dataset& setAccessibleRoleIdList(const vector<string> & accessibleRoleIdList) { DARABONBA_PTR_SET_VALUE(accessibleRoleIdList_, accessibleRoleIdList) };
+    inline Dataset& setAccessibleRoleIdList(vector<string> && accessibleRoleIdList) { DARABONBA_PTR_SET_RVALUE(accessibleRoleIdList_, accessibleRoleIdList) };
 
 
     // dataSourceType Field Functions 
@@ -343,34 +354,102 @@ namespace Models
 
 
   protected:
+    // The workspace accessibility. Valid values:
+    // 
+    // *   PRIVATE (default): The dataset is accessible only to you and the administrator of the workspace.
+    // *   PUBLIC: The dataset is accessible to all members in the workspace.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<vector<string>> accessibleRoleIdList_ {};
+    // The data source type.
+    // 
+    // Valid values:
+    // 
+    // *   NAS
+    // *   OSS
     shared_ptr<string> dataSourceType_ {};
+    // The data type. Valid values:
+    // 
+    // *   COMMON (default)
+    // *   PIC
+    // *   TEXT
+    // *   Video
+    // *   AUDIO
     shared_ptr<string> dataType_ {};
+    // The dataset ID.
     shared_ptr<string> datasetId_ {};
+    // The dataset description.
     shared_ptr<string> description_ {};
     shared_ptr<string> edition_ {};
+    // The time when the dataset was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the dataset was modified.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The dataset import information, such as OSS, NAS, and CPFS.
+    // 
+    // **OSS**
+    // 
+    // { "region": "${region}",//The region ID. "bucket": "${bucket}",//The bucket name. "path": "${path}" //The file path. }
+    // 
+    // **NAS**
+    // 
+    // **CPFS**
+    // 
+    // **CPFS for Lingjun**
     shared_ptr<string> importInfo_ {};
     shared_ptr<bool> isShared_ {};
+    // The labels.
     shared_ptr<vector<Label>> labels_ {};
+    // The latest dataset version.
     shared_ptr<DatasetVersion> latestVersion_ {};
+    // MountAccess
     shared_ptr<string> mountAccess_ {};
+    // The IDs of the roles that have read and write permissions on the dataset in the workspace. The IDs starting with PAI is the IDs of the basic roles, and the IDs starting with role- is the IDs of the custom roles. If the list contains "\\*", all roles have read and write permissions.
     shared_ptr<vector<string>> mountAccessReadWriteRoleIdList_ {};
+    // The dataset name.
     shared_ptr<string> name_ {};
+    // The extended field that can be used as an option. The value is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can use the mountPath field to specify the default mount path of the dataset.
     shared_ptr<string> options_ {};
+    // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
+    // The dataset property. Valid values:
+    // 
+    // *   FILE
+    // *   DIRECTORY
     shared_ptr<string> property_ {};
+    // The provider type of the dataset. Valid values:
+    // 
+    // *   Ecs (default)
+    // *   Lingjun
     shared_ptr<string> providerType_ {};
     shared_ptr<DatasetShareRelationship> sharedFrom_ {};
     shared_ptr<Dataset::SharingConfig> sharingConfig_ {};
+    // The ID of the source dataset for the labeled dataset.
     shared_ptr<string> sourceDatasetId_ {};
+    // The version of the source dataset for the labeled dataset.
     shared_ptr<string> sourceDatasetVersion_ {};
+    // The source ID.
     shared_ptr<string> sourceId_ {};
+    // The source type.
+    // Valid values:
+    // 
+    // *   PAI_PUBLIC_DATASET
+    // *   ITAG
+    // *   USER
     shared_ptr<string> sourceType_ {};
+    // The labeling template of the iTAG labeled dataset.
     shared_ptr<string> tagTemplateType_ {};
+    // URI examples:
+    // 
+    // *   Object Storage Service (OSS) data source: `oss://bucket.endpoint/object`
+    // *   File Storage NAS (NAS) data source: `nas://<nasfisid>.region/subpath/to/dir/`
+    // *   Cloud Parallel File Storage (CPFS) 1.0 data source: `nas://<cpfs-fsid>.region/subpath/to/dir/`
+    // *   CPFS 2.0 data source: `nas://<cpfs-fsid>.region/<protocolserviceid>/`
+    // 
+    // >  You can distinguish CPFS 1.0 and CPFS 2.0 file systems based on the format of the file system ID: The ID of the CPFS 1.0 file system is in the cpfs-<8-bit ASCII characters> format. The ID of the CPFS 2.0 file system is in the cpfs-<16-bit ASCII characters> format.
     shared_ptr<string> uri_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The ID of the workspace to which the dataset belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

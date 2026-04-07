@@ -171,20 +171,35 @@ namespace Models
 
 
   protected:
+    // DataCount
     shared_ptr<int64_t> dataCount_ {};
+    // DataSize
     shared_ptr<int64_t> dataSize_ {};
+    // DataSourceType
     shared_ptr<string> dataSourceType_ {};
+    // Description
     shared_ptr<string> description_ {};
+    // create time
     shared_ptr<string> gmtCreateTime_ {};
+    // modify time
     shared_ptr<string> gmtModifiedTime_ {};
+    // ImportInfo
     shared_ptr<string> importInfo_ {};
+    // Labels
     shared_ptr<vector<Label>> labels_ {};
+    // MountAccess
     shared_ptr<string> mountAccess_ {};
+    // Options
     shared_ptr<string> options_ {};
+    // property
     shared_ptr<string> property_ {};
+    // SourceId
     shared_ptr<string> sourceId_ {};
+    // SourceType
     shared_ptr<string> sourceType_ {};
+    // Uri
     shared_ptr<string> uri_ {};
+    // version name
     shared_ptr<string> versionName_ {};
   };
 

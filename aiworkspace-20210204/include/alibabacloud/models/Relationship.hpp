@@ -68,9 +68,13 @@ namespace Models
 
 
   protected:
+    // Attributes
     Darabonba::Json attributes_ {};
+    // DataChannel
     shared_ptr<string> dataChannel_ {};
+    // RelationshipGuid
     shared_ptr<string> relationshipGuid_ {};
+    // RelationshipType
     shared_ptr<string> relationshipType_ {};
   };
 

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(WithLogs, withLogs_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatasetJobsRequest& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(WithLogs, withLogs_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListDatasetJobsRequest() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetVersion_ == nullptr
         && this->jobAction_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr
-        && this->status_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->status_ == nullptr && this->withLogs_ == nullptr && this->workspaceId_ == nullptr; };
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline ListDatasetJobsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // withLogs Field Functions 
+    bool hasWithLogs() const { return this->withLogs_ != nullptr;};
+    void deleteWithLogs() { this->withLogs_ = nullptr;};
+    inline bool getWithLogs() const { DARABONBA_PTR_GET_DEFAULT(withLogs_, false) };
+    inline ListDatasetJobsRequest& setWithLogs(bool withLogs) { DARABONBA_PTR_SET_VALUE(withLogs_, withLogs) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -114,6 +123,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> sortBy_ {};
     shared_ptr<string> status_ {};
+    shared_ptr<bool> withLogs_ {};
     // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     shared_ptr<string> workspaceId_ {};
   };

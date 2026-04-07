@@ -186,26 +186,83 @@ namespace Models
 
 
   protected:
+    // The file comment.
     shared_ptr<string> comment_ {};
+    // The MIME type of the file. It contains a Type and a SubType.
+    // 
+    // Valid value:
+    // 
+    // *   image/png: PNG
+    // *   image/jpeg: JPEG
+    // *   image/tiff: TIFF
+    // *   image/bmp: BMP
+    // *   image/gif: GIF
+    // *   image/x-icon: ICON
+    // *   image/svg + xml: SVG
+    // *   image/heic: HEIC
+    // *   image/webp: WEBP
     shared_ptr<string> contentType_ {};
+    // The file size. Unit: byte.
     shared_ptr<int64_t> dataSize_ {};
+    // The metadata ID of the dataset file.
     shared_ptr<string> datasetFileMetaId_ {};
+    // The time when the file was created. Format: ISO8601.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileCreateTime_ {};
+    // The directory of the file that is stored in OSS, NAS, or Cloud Parallel File Storage (CPFS).
     shared_ptr<string> fileDir_ {};
+    // The fingerprint value of the file. Used to check the uniqueness of the file. This value changes after the file content is modified. OSS files use ETags, and NAS files use MD5.
     shared_ptr<string> fileFingerPrint_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The file type. The same as MIME type.
+    // 
+    // Valid value:
+    // 
+    // *   image
+    // *   application
+    // *   audio
+    // *   video
+    // *   text
     shared_ptr<string> fileType_ {};
+    // The time when the file was last modified. Format: ISO8601.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileUpdateTime_ {};
+    // The specific metadata of the file. You cannot retrieve the metadata. In JSON String format.
     shared_ptr<string> metaAttributes_ {};
+    // The ID of the semantic index-based job.
     shared_ptr<string> semanticIndexJobId_ {};
+    // The time when the semantic index-based job is created.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> semanticIndexUpdateTime_ {};
     shared_ptr<string> status_ {};
+    // The time when the tag is last modified. The time follows the ISO 8601 standard.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> tagUpdateTime_ {};
+    // The tags for the metadata. The tags are divided into the following groups:
+    // 
+    // *   Algorithm tag group:
+    // 
+    //     *   ai: a list of tags that are aggregated by all algorithm tagging tasks for a single piece of metadata.
+    // 
+    // *   User-defined tag groups:
+    // 
+    //     *   user: a list of user-defined tags that are added to a single piece of metadata.
+    //     *   user-delete-ai-tags: a list of tags that you want to delete from an algorithm tag group.
     shared_ptr<string> tags_ {};
+    // The unique URI of the file. Used to record the unique path of the file. File paths in OSS and NAS are supported.
+    // 
+    // **OSS**
+    // 
+    // oss://${bucket}/${path}
+    // 
+    // **NAS**
+    // 
+    // nas://${fileSystemId}/${path}
     shared_ptr<string> uri_ {};
   };
 

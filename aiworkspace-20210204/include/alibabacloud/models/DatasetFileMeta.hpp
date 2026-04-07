@@ -186,25 +186,61 @@ namespace Models
 
 
   protected:
+    // The MIME Type of the file.
     shared_ptr<string> contentType_ {};
+    // The file size. Unit: bytes.
     shared_ptr<int64_t> dataSize_ {};
+    // The metadata ID of the dataset file.
     shared_ptr<string> datasetFileMetaId_ {};
+    // The download URL of the file.
     shared_ptr<string> downloadUrl_ {};
+    // The time when the file was created. A UTC timestamp in the ISO 8601 format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileCreateTime_ {};
+    // The file fingerprint, used to determine the uniqueness of the file content. This value changes after the file content is modified. OSS files use ETags, and NAS files use MD5 values.
     shared_ptr<string> fileFingerPrint_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The file type.
     shared_ptr<string> fileType_ {};
+    // The last modified time of the file. A UTC timestamp in the ISO 8601 format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> fileUpdateTime_ {};
+    // The specific metadata of the file. For example, the width and height of an image file, or the bitrate and resolution of a video file. This parameter cannot be used for retrieval. In JSON String format.
     shared_ptr<string> metaAttributes_ {};
+    // The similarity score.
     shared_ptr<float> score_ {};
+    // The ID of the last semantic indexing job.
     shared_ptr<string> semanticIndexJobId_ {};
+    // The last update time of the semantic index. A UTC timestamp in the ISO 8601 format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> semanticIndexUpdateTime_ {};
     shared_ptr<string> status_ {};
+    // The tags of the metadata, in JSON string format. Including:
+    // 
+    // *   Algorithm tag group:
+    // 
+    //     *   ai: tags from all algorithm tagging tasks on this metadata.
+    // 
+    // *   User-defined tag group:
+    // 
+    //     *   user: tags added by the user to this metadata.
+    //     *   user-delete-ai-tags: tags from the algorithm tag group that the user needs to delete.
     shared_ptr<string> tags_ {};
+    // The URL of the thumbnail.
     shared_ptr<string> thumbnailUrl_ {};
+    // The URI of the file. Used to record the unique path of the file. File paths in Object Storage Service (OSS) and File Storage NAS (NAS) are supported.
+    // 
+    // **OSS**
+    // 
+    // oss://${bucket}/${path}
+    // 
+    // **NAS**
+    // 
+    // nas://${fileSystemId}/${path}
     shared_ptr<string> uri_ {};
   };
 

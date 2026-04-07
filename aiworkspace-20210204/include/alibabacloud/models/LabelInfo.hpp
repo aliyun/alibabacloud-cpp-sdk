@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Key of Label
     shared_ptr<string> key_ {};
+    // Value of Label
     shared_ptr<string> value_ {};
   };
 

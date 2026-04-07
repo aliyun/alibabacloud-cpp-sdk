@@ -143,17 +143,29 @@ namespace Models
 
 
   protected:
+    // Accessibility
     shared_ptr<string> accessibility_ {};
+    // ExperimentId
     shared_ptr<string> experimentId_ {};
+    // GmtCreateTime
     shared_ptr<string> gmtCreateTime_ {};
+    // GmtModifiedTime
     shared_ptr<string> gmtModifiedTime_ {};
+    // Labels
     shared_ptr<vector<Darabonba::Json>> labels_ {};
+    // Name
     shared_ptr<string> name_ {};
+    // OwnerId
     shared_ptr<string> ownerId_ {};
+    // SourceId
     shared_ptr<string> sourceId_ {};
+    // SourceType
     shared_ptr<string> sourceType_ {};
+    // TrialId
     shared_ptr<string> trialId_ {};
+    // UserId
     shared_ptr<string> userId_ {};
+    // WorkspaceId
     shared_ptr<string> workspaceId_ {};
   };
 

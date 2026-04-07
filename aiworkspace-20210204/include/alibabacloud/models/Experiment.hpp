@@ -156,18 +156,31 @@ namespace Models
 
 
   protected:
+    // Accessibility
     shared_ptr<string> accessibility_ {};
+    // ArtifactUri
     shared_ptr<string> artifactUri_ {};
+    // ExperimentId
     shared_ptr<string> experimentId_ {};
+    // GmtCreatedTime
     shared_ptr<string> gmtCreateTime_ {};
+    // GmtModifiedTime
     shared_ptr<string> gmtModifiedTime_ {};
+    // Labels
     shared_ptr<vector<ExperimentLabel>> labels_ {};
+    // LatestRun
     shared_ptr<Run> latestRun_ {};
+    // Name
     shared_ptr<string> name_ {};
+    // OwnerId
     shared_ptr<string> ownerId_ {};
+    // RequestId
     shared_ptr<string> requestId_ {};
+    // TensorboardLogUri
     shared_ptr<string> tensorboardLogUri_ {};
+    // UserId
     shared_ptr<string> userId_ {};
+    // WorkspaceId
     shared_ptr<string> workspaceId_ {};
   };
 

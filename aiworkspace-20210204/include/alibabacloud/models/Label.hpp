@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The label key. The value can be up to 128 bytes in length and cannot contain equal signs (=) and commas (,).
     shared_ptr<string> key_ {};
+    // The label value. The value can be up to 128 bytes in length and cannot contain equal signs (=) and commas (,).
     shared_ptr<string> value_ {};
   };
 

@@ -1329,7 +1329,7 @@ namespace AIWorkSpace20210204
       Models::ListExperimentResponse listExperiment(const Models::ListExperimentRequest &request);
 
       /**
-       * @summary 列举特性
+       * @summary Queries a list of features.
        *
        * @param request ListFeaturesRequest
        * @param headers map
@@ -1339,7 +1339,7 @@ namespace AIWorkSpace20210204
       Models::ListFeaturesResponse listFeaturesWithOptions(const Models::ListFeaturesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举特性
+       * @summary Queries a list of features.
        *
        * @param request ListFeaturesRequest
        * @return ListFeaturesResponse

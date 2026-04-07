@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Key
     shared_ptr<string> key_ {};
+    // Value
     shared_ptr<string> value_ {};
   };
 

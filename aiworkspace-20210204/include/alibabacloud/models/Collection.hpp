@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The name of the collection. The name must be globally unique.
     shared_ptr<string> collectionName_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The last update time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
+    // The ID of the user that created the collection.
     shared_ptr<string> userId_ {};
   };
 

@@ -243,27 +243,49 @@ namespace Models
 
 
   protected:
+    // The workspace accessibility. Valid values:
+    // 
+    // *   PRIVATE (default): The model is accessible only to you and the administrator of the workspace.
+    // *   PUBLIC: The model is accessible to all members of the workspace.
     shared_ptr<string> accessibility_ {};
+    // The domain where the model is applied, such as nlp (Natural Language Processing) and cv (Computer Vision).
     shared_ptr<string> domain_ {};
+    // The additional information.
     Darabonba::Json extraInfo_ {};
+    // The time when the model was created, in UTC. The time follows the ISO 8601 standard.
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtLatestVersionModifiedTime_ {};
+    // The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The labels.
     shared_ptr<vector<Label>> labels_ {};
+    // The latest version of the model.
     shared_ptr<ModelVersion> latestVersion_ {};
+    // The model description.
     shared_ptr<string> modelDescription_ {};
+    // The model document.
     shared_ptr<string> modelDoc_ {};
+    // The model ID.
     shared_ptr<string> modelId_ {};
+    // The model name.
     shared_ptr<string> modelName_ {};
+    // The model type, such as checkpoint and LoRA.
     shared_ptr<string> modelType_ {};
+    // The sequence number of the model.
     shared_ptr<int64_t> orderNumber_ {};
+    // The community or organization to which the source model belongs, such as ModelScope or Hugging Face.
     shared_ptr<string> origin_ {};
+    // The ID of the Alibaba Cloud account.
     shared_ptr<string> ownerId_ {};
     shared_ptr<int64_t> parameterSize_ {};
+    // The model provider.
     shared_ptr<string> provider_ {};
     shared_ptr<vector<Label>> tags_ {};
+    // The task. The specific issue that the model resolves, such as text-classification.
     shared_ptr<string> task_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

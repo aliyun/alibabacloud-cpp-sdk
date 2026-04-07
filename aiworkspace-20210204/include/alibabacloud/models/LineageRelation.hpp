@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // DestEntityQualifiedName
     shared_ptr<string> destEntityQualifiedName_ {};
+    // RelationshipGuid
     shared_ptr<string> relationshipGuid_ {};
+    // SrcEntityQualifiedName
     shared_ptr<string> srcEntityQualifiedName_ {};
   };
 

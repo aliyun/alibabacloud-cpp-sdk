@@ -361,6 +361,10 @@ CreateCodeSourceResponse Client::createCodeSourceWithOptions(const CreateCodeSou
     body["Accessibility"] = request.getAccessibility();
   }
 
+  if (!!request.hasCloneType()) {
+    body["CloneType"] = request.getCloneType();
+  }
+
   if (!!request.hasCodeBranch()) {
     body["CodeBranch"] = request.getCodeBranch();
   }
@@ -517,6 +521,10 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
   json body = {};
   if (!!request.hasAccessibility()) {
     body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasAccessibleRoleIdList()) {
+    body["AccessibleRoleIdList"] = request.getAccessibleRoleIdList();
   }
 
   if (!!request.hasDataCount()) {
@@ -3608,6 +3616,10 @@ ListConnectionsResponse Client::listConnectionsWithOptions(const ListConnections
   }
 
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasConnectionIdsShrink()) {
     query["ConnectionIds"] = request.getConnectionIdsShrink();
   }
@@ -3969,6 +3981,10 @@ ListDatasetJobsResponse Client::listDatasetJobsWithOptions(const string &Dataset
     query["Status"] = request.getStatus();
   }
 
+  if (!!request.hasWithLogs()) {
+    query["WithLogs"] = request.getWithLogs();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -4101,6 +4117,10 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
 
   if (!!request.hasDataTypes()) {
     query["DataTypes"] = request.getDataTypes();
+  }
+
+  if (!!request.hasDatasetIds()) {
+    query["DatasetIds"] = request.getDatasetIds();
   }
 
   if (!!request.hasEdition()) {
@@ -4285,7 +4305,7 @@ ListExperimentResponse Client::listExperiment(const ListExperimentRequest &reque
 }
 
 /**
- * @summary 列举特性
+ * @summary Queries a list of features.
  *
  * @param request ListFeaturesRequest
  * @param headers map
@@ -4318,7 +4338,7 @@ ListFeaturesResponse Client::listFeaturesWithOptions(const ListFeaturesRequest &
 }
 
 /**
- * @summary 列举特性
+ * @summary Queries a list of features.
  *
  * @param request ListFeaturesRequest
  * @return ListFeaturesResponse
@@ -5715,6 +5735,10 @@ StopDatasetJobResponse Client::stopDatasetJob(const string &DatasetId, const str
 UpdateCodeSourceResponse Client::updateCodeSourceWithOptions(const string &CodeSourceId, const UpdateCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasCloneType()) {
+    body["CloneType"] = request.getCloneType();
+  }
+
   if (!!request.hasCodeBranch()) {
     body["CodeBranch"] = request.getCodeBranch();
   }
@@ -5947,6 +5971,14 @@ UpdateConnectionResponse Client::updateConnection(const string &ConnectionId, co
 UpdateDatasetResponse Client::updateDatasetWithOptions(const string &DatasetId, const UpdateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasAccessibleRoleIdList()) {
+    body["AccessibleRoleIdList"] = request.getAccessibleRoleIdList();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
   }

@@ -18,6 +18,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetDatasetResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(AccessibleRoleIdList, accessibleRoleIdList_);
       DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_TO_JSON(DataType, dataType_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
@@ -51,6 +52,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetDatasetResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(AccessibleRoleIdList, accessibleRoleIdList_);
       DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_FROM_JSON(DataType, dataType_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
@@ -127,17 +129,27 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->dataSourceType_ == nullptr && this->dataType_ == nullptr && this->datasetId_ == nullptr && this->description_ == nullptr && this->edition_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->isShared_ == nullptr && this->labels_ == nullptr
-        && this->latestVersion_ == nullptr && this->mountAccess_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr && this->options_ == nullptr
-        && this->ownerId_ == nullptr && this->property_ == nullptr && this->provider_ == nullptr && this->providerType_ == nullptr && this->requestId_ == nullptr
-        && this->sharedFrom_ == nullptr && this->sharingConfig_ == nullptr && this->sourceDatasetId_ == nullptr && this->sourceDatasetVersion_ == nullptr && this->sourceId_ == nullptr
-        && this->sourceType_ == nullptr && this->tagTemplateType_ == nullptr && this->uri_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->accessibleRoleIdList_ == nullptr && this->dataSourceType_ == nullptr && this->dataType_ == nullptr && this->datasetId_ == nullptr && this->description_ == nullptr
+        && this->edition_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->importInfo_ == nullptr && this->isShared_ == nullptr
+        && this->labels_ == nullptr && this->latestVersion_ == nullptr && this->mountAccess_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr
+        && this->options_ == nullptr && this->ownerId_ == nullptr && this->property_ == nullptr && this->provider_ == nullptr && this->providerType_ == nullptr
+        && this->requestId_ == nullptr && this->sharedFrom_ == nullptr && this->sharingConfig_ == nullptr && this->sourceDatasetId_ == nullptr && this->sourceDatasetVersion_ == nullptr
+        && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->tagTemplateType_ == nullptr && this->uri_ == nullptr && this->userId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline GetDatasetResponseBody& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // accessibleRoleIdList Field Functions 
+    bool hasAccessibleRoleIdList() const { return this->accessibleRoleIdList_ != nullptr;};
+    void deleteAccessibleRoleIdList() { this->accessibleRoleIdList_ = nullptr;};
+    inline const vector<string> & getAccessibleRoleIdList() const { DARABONBA_PTR_GET_CONST(accessibleRoleIdList_, vector<string>) };
+    inline vector<string> getAccessibleRoleIdList() { DARABONBA_PTR_GET(accessibleRoleIdList_, vector<string>) };
+    inline GetDatasetResponseBody& setAccessibleRoleIdList(const vector<string> & accessibleRoleIdList) { DARABONBA_PTR_SET_VALUE(accessibleRoleIdList_, accessibleRoleIdList) };
+    inline GetDatasetResponseBody& setAccessibleRoleIdList(vector<string> && accessibleRoleIdList) { DARABONBA_PTR_SET_RVALUE(accessibleRoleIdList_, accessibleRoleIdList) };
 
 
     // dataSourceType Field Functions 
@@ -366,6 +378,7 @@ namespace Models
     // *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
     // *   PUBLIC: The workspace is visible to all users.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<vector<string>> accessibleRoleIdList_ {};
     // The type of the data source. Valid values:
     // 
     // *   OSS: Object Storage Service (OSS)

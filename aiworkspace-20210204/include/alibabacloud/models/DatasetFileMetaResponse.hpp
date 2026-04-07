@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The metadata ID of the dataset file.
+    // 
     // This parameter is required.
     shared_ptr<string> datasetFileMetaId_ {};
+    // The description of the reason why the metadata operation failed.
+    // 
     // This parameter is required.
     shared_ptr<string> result_ {};
+    // The file URI.
     shared_ptr<string> uri_ {};
   };
 

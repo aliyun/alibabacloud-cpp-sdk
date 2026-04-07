@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // ExperimentId
     shared_ptr<string> experimentId_ {};
+    // Create time
     shared_ptr<string> gmtCreateTime_ {};
+    // Modified time
     shared_ptr<string> gmtModifiedTime_ {};
+    // Key of Experiment Label
     shared_ptr<string> key_ {};
+    // Value of Experiment Label
     shared_ptr<string> value_ {};
   };
 

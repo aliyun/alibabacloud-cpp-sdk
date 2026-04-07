@@ -94,12 +94,18 @@ namespace Models
 
 
   protected:
+    // The content of the dataset job configuration, in the JSON format.
     shared_ptr<string> config_ {};
+    // The type of the dataset job configuration.
     shared_ptr<string> configType_ {};
+    // The time when the dataset job was created.
     shared_ptr<string> createTime_ {};
+    // The ID of the dataset job configuration.
     shared_ptr<string> datasetJobConfigId_ {};
     shared_ptr<string> datasetVersion_ {};
+    // The time when the dataset job was modified.
     shared_ptr<string> modifyTime_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

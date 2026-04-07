@@ -14,6 +14,7 @@ namespace Models
   class ListConnectionsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListConnectionsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(ConnectionIds, connectionIds_);
       DARABONBA_PTR_TO_JSON(ConnectionName, connectionName_);
       DARABONBA_PTR_TO_JSON(ConnectionTypes, connectionTypes_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListConnectionsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(ConnectionIds, connectionIds_);
       DARABONBA_PTR_FROM_JSON(ConnectionName, connectionName_);
       DARABONBA_PTR_FROM_JSON(ConnectionTypes, connectionTypes_);
@@ -54,10 +56,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->connectionIds_ == nullptr
-        && this->connectionName_ == nullptr && this->connectionTypes_ == nullptr && this->creator_ == nullptr && this->encryptOption_ == nullptr && this->maxResults_ == nullptr
-        && this->model_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->sortBy_ == nullptr
-        && this->toolCall_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && this->connectionIds_ == nullptr && this->connectionName_ == nullptr && this->connectionTypes_ == nullptr && this->creator_ == nullptr && this->encryptOption_ == nullptr
+        && this->maxResults_ == nullptr && this->model_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr
+        && this->sortBy_ == nullptr && this->toolCall_ == nullptr && this->workspaceId_ == nullptr; };
+    // accessibility Field Functions 
+    bool hasAccessibility() const { return this->accessibility_ != nullptr;};
+    void deleteAccessibility() { this->accessibility_ = nullptr;};
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline ListConnectionsRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
     // connectionIds Field Functions 
     bool hasConnectionIds() const { return this->connectionIds_ != nullptr;};
     void deleteConnectionIds() { this->connectionIds_ = nullptr;};
@@ -156,6 +165,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessibility_ {};
     // The list of connection IDs.
     shared_ptr<vector<string>> connectionIds_ {};
     // The connection name.

@@ -103,7 +103,9 @@ namespace Models
 
     protected:
       shared_ptr<string> extra_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
     };
 
@@ -163,9 +165,20 @@ namespace Models
 
 
     protected:
+      // The display name of the model.
       shared_ptr<string> displayName_ {};
+      // The model identifier.
       shared_ptr<string> model_ {};
+      // The model type. Valid values:
+      // 
+      // *   LLM
+      // *   Embedding
+      // *   ReRank
       shared_ptr<string> modelType_ {};
+      // Indicates whether tool calling was supported. Valid values:
+      // 
+      // *   true
+      // *   false
       shared_ptr<bool> toolCall_ {};
     };
 
@@ -273,18 +286,44 @@ namespace Models
 
 
   protected:
+    // The workspace accessibility. Valid values:
+    // 
+    // *   PRIVATE (default): accessible only to you and the administrator of the workspace.
+    // *   PUBLIC: accessible to all members in the workspace.
     shared_ptr<string> accessibility_ {};
+    // The connection configuration.
     shared_ptr<map<string, string>> configs_ {};
+    // The connection ID.
     shared_ptr<string> connectionId_ {};
+    // The connection name.
     shared_ptr<string> connectionName_ {};
+    // The connection type. Valid values:
+    // 
+    // *   DashScopeConnection
+    // *   OpenLLMConnection
+    // *   MilvusConnection
+    // *   OpenSearchConnection
+    // *   LindormConnection
+    // *   ElasticsearchConnection
+    // *   HologresConnection
+    // *   RDSConnection
+    // *   CustomConnection
     shared_ptr<string> connectionType_ {};
+    // The connection creator.
     shared_ptr<string> creator_ {};
+    // The connection description.
     shared_ptr<string> description_ {};
+    // The time when the connection was modified, in UTC. The time follows the ISO 8601 standard.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the connection was modified, in UTC. The time follows the ISO 8601 standard.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The models.
     shared_ptr<vector<Connection::Models>> models_ {};
+    // The connection resource. This parameter is used for the connection configuration of the database type.
     shared_ptr<Connection::ResourceMeta> resourceMeta_ {};
+    // The key-value configuration to be encrypted, such as the database logon password and the key for model connection.
     shared_ptr<map<string, string>> secrets_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

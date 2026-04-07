@@ -15,6 +15,8 @@ namespace Models
   class UpdateDatasetRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDatasetRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(AccessibleRoleIdList, accessibleRoleIdList_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(MountAccessReadWriteRoleIdList, mountAccessReadWriteRoleIdList_);
@@ -23,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SharingConfig, sharingConfig_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDatasetRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(AccessibleRoleIdList, accessibleRoleIdList_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(MountAccessReadWriteRoleIdList, mountAccessReadWriteRoleIdList_);
@@ -74,8 +78,25 @@ namespace Models
       shared_ptr<vector<DatasetShareRelationship>> sharedTo_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->edition_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->sharingConfig_ == nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && this->accessibleRoleIdList_ == nullptr && this->description_ == nullptr && this->edition_ == nullptr && this->mountAccessReadWriteRoleIdList_ == nullptr && this->name_ == nullptr
+        && this->options_ == nullptr && this->sharingConfig_ == nullptr; };
+    // accessibility Field Functions 
+    bool hasAccessibility() const { return this->accessibility_ != nullptr;};
+    void deleteAccessibility() { this->accessibility_ = nullptr;};
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline UpdateDatasetRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // accessibleRoleIdList Field Functions 
+    bool hasAccessibleRoleIdList() const { return this->accessibleRoleIdList_ != nullptr;};
+    void deleteAccessibleRoleIdList() { this->accessibleRoleIdList_ = nullptr;};
+    inline const vector<string> & getAccessibleRoleIdList() const { DARABONBA_PTR_GET_CONST(accessibleRoleIdList_, vector<string>) };
+    inline vector<string> getAccessibleRoleIdList() { DARABONBA_PTR_GET(accessibleRoleIdList_, vector<string>) };
+    inline UpdateDatasetRequest& setAccessibleRoleIdList(const vector<string> & accessibleRoleIdList) { DARABONBA_PTR_SET_VALUE(accessibleRoleIdList_, accessibleRoleIdList) };
+    inline UpdateDatasetRequest& setAccessibleRoleIdList(vector<string> && accessibleRoleIdList) { DARABONBA_PTR_SET_RVALUE(accessibleRoleIdList_, accessibleRoleIdList) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -123,6 +144,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessibility_ {};
+    shared_ptr<vector<string>> accessibleRoleIdList_ {};
     // The description of the dataset.
     shared_ptr<string> description_ {};
     shared_ptr<string> edition_ {};

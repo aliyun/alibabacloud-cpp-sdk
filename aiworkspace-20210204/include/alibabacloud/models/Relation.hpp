@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // ErrMsg
     shared_ptr<string> errMsg_ {};
+    // LineageRelation
     shared_ptr<LineageRelation> lineageRelation_ {};
+    // Result
     shared_ptr<bool> result_ {};
   };
 

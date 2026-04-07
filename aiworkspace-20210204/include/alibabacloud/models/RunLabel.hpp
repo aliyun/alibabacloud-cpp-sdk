@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The last modified time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The label key.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The ID of the run.
     shared_ptr<string> runId_ {};
+    // The label value.
+    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

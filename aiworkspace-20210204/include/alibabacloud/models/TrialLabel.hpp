@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Create time
     shared_ptr<string> gmtCreateTime_ {};
+    // Modified time
     shared_ptr<string> gmtModifiedTime_ {};
+    // Key of Trial Label
     shared_ptr<string> key_ {};
+    // trl-v0fw9a0sd8f9af
     shared_ptr<string> trialId_ {};
+    // Value of Trial Label
     shared_ptr<string> value_ {};
   };
 

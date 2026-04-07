@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The value of the parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

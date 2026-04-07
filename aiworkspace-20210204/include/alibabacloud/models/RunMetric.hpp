@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The metric name.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The step number that generated the metric.
     shared_ptr<int64_t> step_ {};
+    // The timestamp when the metric was generated.
     shared_ptr<int64_t> timestamp_ {};
+    // The metric value.
+    // 
     // This parameter is required.
     shared_ptr<float> value_ {};
   };

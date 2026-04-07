@@ -13,6 +13,7 @@ namespace Models
   class UpdateCodeSourceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateCodeSourceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CloneType, cloneType_);
       DARABONBA_PTR_TO_JSON(CodeBranch, codeBranch_);
       DARABONBA_PTR_TO_JSON(CodeCommit, codeCommit_);
       DARABONBA_PTR_TO_JSON(CodeRepo, codeRepo_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateCodeSourceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloneType, cloneType_);
       DARABONBA_PTR_FROM_JSON(CodeBranch, codeBranch_);
       DARABONBA_PTR_FROM_JSON(CodeCommit, codeCommit_);
       DARABONBA_PTR_FROM_JSON(CodeRepo, codeRepo_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->codeBranch_ == nullptr
-        && this->codeCommit_ == nullptr && this->codeRepo_ == nullptr && this->codeRepoAccessToken_ == nullptr && this->codeRepoUserName_ == nullptr && this->description_ == nullptr
-        && this->displayName_ == nullptr && this->mountPath_ == nullptr; };
+    virtual bool empty() const override { return this->cloneType_ == nullptr
+        && this->codeBranch_ == nullptr && this->codeCommit_ == nullptr && this->codeRepo_ == nullptr && this->codeRepoAccessToken_ == nullptr && this->codeRepoUserName_ == nullptr
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->mountPath_ == nullptr; };
+    // cloneType Field Functions 
+    bool hasCloneType() const { return this->cloneType_ != nullptr;};
+    void deleteCloneType() { this->cloneType_ = nullptr;};
+    inline int32_t getCloneType() const { DARABONBA_PTR_GET_DEFAULT(cloneType_, 0) };
+    inline UpdateCodeSourceRequest& setCloneType(int32_t cloneType) { DARABONBA_PTR_SET_VALUE(cloneType_, cloneType) };
+
+
     // codeBranch Field Functions 
     bool hasCodeBranch() const { return this->codeBranch_ != nullptr;};
     void deleteCodeBranch() { this->codeBranch_ = nullptr;};
@@ -103,6 +112,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int32_t> cloneType_ {};
     // The name of the code branch.
     shared_ptr<string> codeBranch_ {};
     // The code commit ID.

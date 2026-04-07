@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(DataSourceTypes, dataSourceTypes_);
       DARABONBA_PTR_TO_JSON(DataTypes, dataTypes_);
+      DARABONBA_PTR_TO_JSON(DatasetIds, datasetIds_);
       DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(Label, label_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(DataSourceTypes, dataSourceTypes_);
       DARABONBA_PTR_FROM_JSON(DataTypes, dataTypes_);
+      DARABONBA_PTR_FROM_JSON(DatasetIds, datasetIds_);
       DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(Label, label_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -62,10 +64,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->dataSourceTypes_ == nullptr && this->dataTypes_ == nullptr && this->edition_ == nullptr && this->label_ == nullptr && this->name_ == nullptr
-        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->properties_ == nullptr && this->provider_ == nullptr
-        && this->shareScope_ == nullptr && this->sortBy_ == nullptr && this->sourceDatasetId_ == nullptr && this->sourceId_ == nullptr && this->sourceTypes_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->dataSourceTypes_ == nullptr && this->dataTypes_ == nullptr && this->datasetIds_ == nullptr && this->edition_ == nullptr && this->label_ == nullptr
+        && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->properties_ == nullptr
+        && this->provider_ == nullptr && this->shareScope_ == nullptr && this->sortBy_ == nullptr && this->sourceDatasetId_ == nullptr && this->sourceId_ == nullptr
+        && this->sourceTypes_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -85,6 +87,13 @@ namespace Models
     void deleteDataTypes() { this->dataTypes_ = nullptr;};
     inline string getDataTypes() const { DARABONBA_PTR_GET_DEFAULT(dataTypes_, "") };
     inline ListDatasetsRequest& setDataTypes(string dataTypes) { DARABONBA_PTR_SET_VALUE(dataTypes_, dataTypes) };
+
+
+    // datasetIds Field Functions 
+    bool hasDatasetIds() const { return this->datasetIds_ != nullptr;};
+    void deleteDatasetIds() { this->datasetIds_ = nullptr;};
+    inline string getDatasetIds() const { DARABONBA_PTR_GET_DEFAULT(datasetIds_, "") };
+    inline ListDatasetsRequest& setDatasetIds(string datasetIds) { DARABONBA_PTR_SET_VALUE(datasetIds_, datasetIds) };
 
 
     // edition Field Functions 
@@ -200,6 +209,7 @@ namespace Models
     // *   PIC: picture
     // *   AUDIO: audio
     shared_ptr<string> dataTypes_ {};
+    shared_ptr<string> datasetIds_ {};
     shared_ptr<string> edition_ {};
     // The dataset tag, which is used to filter datasets. Datasets whose tag key or tag value contains a specified string are filtered.
     shared_ptr<string> label_ {};
