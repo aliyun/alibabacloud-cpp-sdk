@@ -167,14 +167,8 @@ namespace Models
 
 
       protected:
-        // The name of the database to which the object belongs.
         shared_ptr<string> databaseName_ {};
-        // The table name.
         shared_ptr<SynchronousObject::TableList> tableList_ {};
-        // Indicates whether the data of an entire database is tracked. Valid values:
-        // 
-        // *   **true**: yes
-        // *   **false**: no
         shared_ptr<string> wholeDatabase_ {};
       };
 
@@ -534,7 +528,6 @@ namespace Models
     shared_ptr<string> subscriptionInstanceID_ {};
     // The name of the change tracking instance.
     shared_ptr<string> subscriptionInstanceName_ {};
-    // The objects for change tracking.
     shared_ptr<DescribeSubscriptionInstanceStatusResponseBody::SubscriptionObject> subscriptionObject_ {};
     // Indicates whether the call was successful.
     shared_ptr<string> success_ {};

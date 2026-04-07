@@ -353,20 +353,9 @@ namespace Models
 
 
         protected:
-          // The precheck result. Valid values:
-          // 
-          // *   **Success**: The task passed the precheck.
-          // *   **Failed**: The task failed to pass the precheck.
           shared_ptr<string> checkStatus_ {};
-          // The error message returned if the task failed to pass the precheck.
-          // 
-          // >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
           shared_ptr<string> errorMessage_ {};
-          // The name of the precheck item.
           shared_ptr<string> itemName_ {};
-          // The method to fix the precheck failure.
-          // 
-          // >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
           shared_ptr<string> repairMethod_ {};
         };
 
@@ -410,7 +399,6 @@ namespace Models
 
 
     protected:
-      // The result of each precheck item.
       shared_ptr<PrecheckStatus::Detail> detail_ {};
       // The precheck progress. Unit: %.
       shared_ptr<string> percent_ {};

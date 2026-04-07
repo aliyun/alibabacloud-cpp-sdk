@@ -203,26 +203,12 @@ namespace Models
 
 
           protected:
-            // The status of constraint creation. Valid values:
-            // 
-            // - **NotStarted**
-            // - **Migrating**
-            // - **Failed**
-            // - **Finished**
             shared_ptr<string> destinationOwnerDBName_ {};
-            // The constraints of the migration object, such as indexes and foreign keys. 
-            // 
-            // >  This parameter is returned only if the **ObjectType** parameter is set to **Table** and the migration object has constraints.
             shared_ptr<string> errorMessage_ {};
-            // The name of the database to which the migration object in the destination instance belongs.
             shared_ptr<string> objectDefinition_ {};
-            // The name of the database to which the migration object in the source instance belongs.
             shared_ptr<string> objectName_ {};
-            // The name of migration object.
             shared_ptr<string> objectType_ {};
-            // The error message returned if schema migration failed.
             shared_ptr<string> sourceOwnerDBName_ {};
-            // The type of the migration object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
             shared_ptr<string> status_ {};
           };
 
@@ -302,26 +288,13 @@ namespace Models
 
 
       protected:
-        // The schema of the migration object.
         shared_ptr<StructureInitializationDetail::ConstraintList> constraintList_ {};
-        // The status of schema migration. Valid values:
-        // 
-        // - **NotStarted**: Schema migration is not started.
-        // - **Migrating**: Schema migration is in progress.
-        // - **Failed**: Schema migration failed.
-        // - **Finished**: Schema migration is completed.
         shared_ptr<string> destinationOwnerDBName_ {};
-        // The details of schema migration.
         shared_ptr<string> errorMessage_ {};
-        // The task has failed for too long and cannot be restored
         shared_ptr<string> objectDefinition_ {};
-        // The name of the database to which the migration object in the source instance belongs.
         shared_ptr<string> objectName_ {};
-        // The name of the database to which the migration object in the destination instance belongs.
         shared_ptr<string> objectType_ {};
-        // The error message returned if incremental data migration failed.
         shared_ptr<string> sourceOwnerDBName_ {};
-        // The table name.
         shared_ptr<string> status_ {};
       };
 
@@ -423,20 +396,10 @@ namespace Models
 
 
       protected:
-        // The status of incremental data migration. Valid values:
-        // 
-        // *   **NotStarted**: Incremental data migration is not started.
-        // *   **Migrating**: Incremental data migration is in progress.
-        // *   **Failed**: Incremental data migration failed.
-        // *   **Finished**: Incremental data migration is completed.
         shared_ptr<string> destinationOwnerDBName_ {};
-        // The total number of records that are supposed to be migrated by the task.
         shared_ptr<string> errorMessage_ {};
-        // The time taken by full data migration.
         shared_ptr<string> sourceOwnerDBName_ {};
-        // The number of records that have been migrated.
         shared_ptr<string> status_ {};
-        // The name of the database to which the migration object in the destination instance belongs.
         shared_ptr<string> tableName_ {};
       };
 
@@ -566,26 +529,13 @@ namespace Models
 
 
       protected:
-        // The status of full data migration. Valid values:
-        // 
-        // - **NotStarted**: Full data migration is not started.
-        // - **Migrating**: Full data migration is in progress.
-        // - **Failed**: Full data migration failed.
-        // - **Finished**: Full data migration is completed.
         shared_ptr<string> destinationOwnerDBName_ {};
-        // The page number of the returned page.
         shared_ptr<string> errorMessage_ {};
-        // The details of full data migration.
         shared_ptr<string> finishRowNum_ {};
-        // The name of the database to which the migration object in the source instance belongs.
         shared_ptr<string> migrationTime_ {};
-        // Indicates whether the call was successful.
         shared_ptr<string> sourceOwnerDBName_ {};
-        // The total number of entries that are returned.
         shared_ptr<string> status_ {};
-        // The error message returned if the call failed.
         shared_ptr<string> tableName_ {};
-        // The table name.
         shared_ptr<string> totalRowNum_ {};
       };
 
@@ -683,9 +633,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of data migration instances that can be displayed on one page.
     shared_ptr<DescribeMigrationJobDetailResponseBody::DataInitializationDetailList> dataInitializationDetailList_ {};
-    // The error message returned if full data migration failed.
     shared_ptr<DescribeMigrationJobDetailResponseBody::DataSynchronizationDetailList> dataSynchronizationDetailList_ {};
     // Specifies whether to query the details of incremental data migration. Valid values:
     // 
@@ -709,7 +657,6 @@ namespace Models
     // 
     // > Default value: **false**
     shared_ptr<string> requestId_ {};
-    // The name of the database to which the migration object in the source instance belongs.
     shared_ptr<DescribeMigrationJobDetailResponseBody::StructureInitializationDetailList> structureInitializationDetailList_ {};
     // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
     shared_ptr<string> success_ {};

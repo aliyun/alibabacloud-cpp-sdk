@@ -557,6 +557,7 @@ namespace Models
     // >  This parameter can be used for data synchronization between ApsaraDB for Redis Enterprise Edition instances. For more information, see [Use OpenAPI Explorer to configure one-way or two-way data synchronization between ApsaraDB for Redis Enterprise Edition instances](https://help.aliyun.com/document_detail/155967.html).
     shared_ptr<string> migrationReserved_ {};
     shared_ptr<string> ownerId_ {};
+    // The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
     // 资源组ID。
     shared_ptr<string> resourceGroupId_ {};

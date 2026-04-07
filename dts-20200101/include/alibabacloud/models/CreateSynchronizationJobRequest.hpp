@@ -291,6 +291,7 @@ namespace Models
     // 
     // >  You must specify this parameter only if you set the PayType parameter to **PrePaid**.
     shared_ptr<string> period_ {};
+    // The ID of the region where the data synchronization instance resides. The region ID is the same as the value of the **DestRegion** parameter.
     shared_ptr<string> regionId_ {};
     // Resource GroupId
     shared_ptr<string> resourceGroupId_ {};

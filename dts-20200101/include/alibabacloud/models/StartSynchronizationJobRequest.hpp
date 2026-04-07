@@ -87,6 +87,7 @@ namespace Models
     // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
     shared_ptr<string> accountId_ {};
     shared_ptr<string> ownerId_ {};
+    // The ID of the region in which the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
     // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};

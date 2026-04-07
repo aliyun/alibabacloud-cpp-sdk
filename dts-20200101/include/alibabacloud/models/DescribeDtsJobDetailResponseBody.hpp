@@ -15,6 +15,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDtsJobDetailResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AppName, appName_);
+      DARABONBA_PTR_TO_JSON(ApprovalProcessStatus, approvalProcessStatus_);
+      DARABONBA_PTR_TO_JSON(ApprovalProcessUrl, approvalProcessUrl_);
       DARABONBA_PTR_TO_JSON(BeginTimestamp, beginTimestamp_);
       DARABONBA_PTR_TO_JSON(Binlog, binlog_);
       DARABONBA_PTR_TO_JSON(BinlogSite, binlogSite_);
@@ -76,6 +78,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeDtsJobDetailResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
+      DARABONBA_PTR_FROM_JSON(ApprovalProcessStatus, approvalProcessStatus_);
+      DARABONBA_PTR_FROM_JSON(ApprovalProcessUrl, approvalProcessUrl_);
       DARABONBA_PTR_FROM_JSON(BeginTimestamp, beginTimestamp_);
       DARABONBA_PTR_FROM_JSON(Binlog, binlog_);
       DARABONBA_PTR_FROM_JSON(BinlogSite, binlogSite_);
@@ -8817,23 +8821,37 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->appName_ == nullptr
-        && this->beginTimestamp_ == nullptr && this->binlog_ == nullptr && this->binlogSite_ == nullptr && this->binlogTime_ == nullptr && this->bootTime_ == nullptr
-        && this->checkpoint_ == nullptr && this->code_ == nullptr && this->consumptionCheckpoint_ == nullptr && this->consumptionClient_ == nullptr && this->createTime_ == nullptr
-        && this->dataDeliveryChannelInfo_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr && this->dbObject_ == nullptr && this->dedicatedClusterId_ == nullptr
-        && this->delay_ == nullptr && this->demoJob_ == nullptr && this->destNetType_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsBisLabel_ == nullptr
-        && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr
-        && this->dynamicMessage_ == nullptr && this->endTimestamp_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->errorMessage_ == nullptr
-        && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->httpStatusCode_ == nullptr
-        && this->initCheckpoint_ == nullptr && this->insightModule_ == nullptr && this->jobType_ == nullptr && this->lastUpdateTime_ == nullptr && this->maxDu_ == nullptr
-        && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->payType_ == nullptr && this->requestId_ == nullptr && this->reserved_ == nullptr
-        && this->resourceGroupDisplayName_ == nullptr && this->resourceGroupId_ == nullptr && this->retryState_ == nullptr && this->sourceEndpoint_ == nullptr && this->status_ == nullptr
-        && this->subDistributedJob_ == nullptr && this->subSyncJob_ == nullptr && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr
-        && this->success_ == nullptr && this->synchronizationDirection_ == nullptr && this->taskType_ == nullptr; };
+        && this->approvalProcessStatus_ == nullptr && this->approvalProcessUrl_ == nullptr && this->beginTimestamp_ == nullptr && this->binlog_ == nullptr && this->binlogSite_ == nullptr
+        && this->binlogTime_ == nullptr && this->bootTime_ == nullptr && this->checkpoint_ == nullptr && this->code_ == nullptr && this->consumptionCheckpoint_ == nullptr
+        && this->consumptionClient_ == nullptr && this->createTime_ == nullptr && this->dataDeliveryChannelInfo_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr
+        && this->dbObject_ == nullptr && this->dedicatedClusterId_ == nullptr && this->delay_ == nullptr && this->demoJob_ == nullptr && this->destNetType_ == nullptr
+        && this->destinationEndpoint_ == nullptr && this->dtsBisLabel_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr
+        && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr && this->dynamicMessage_ == nullptr && this->endTimestamp_ == nullptr && this->errCode_ == nullptr
+        && this->errMessage_ == nullptr && this->errorMessage_ == nullptr && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr
+        && this->groupId_ == nullptr && this->httpStatusCode_ == nullptr && this->initCheckpoint_ == nullptr && this->insightModule_ == nullptr && this->jobType_ == nullptr
+        && this->lastUpdateTime_ == nullptr && this->maxDu_ == nullptr && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->payType_ == nullptr
+        && this->requestId_ == nullptr && this->reserved_ == nullptr && this->resourceGroupDisplayName_ == nullptr && this->resourceGroupId_ == nullptr && this->retryState_ == nullptr
+        && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->subDistributedJob_ == nullptr && this->subSyncJob_ == nullptr && this->subscribeTopic_ == nullptr
+        && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr && this->success_ == nullptr && this->synchronizationDirection_ == nullptr && this->taskType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
     inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline DescribeDtsJobDetailResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+
+
+    // approvalProcessStatus Field Functions 
+    bool hasApprovalProcessStatus() const { return this->approvalProcessStatus_ != nullptr;};
+    void deleteApprovalProcessStatus() { this->approvalProcessStatus_ = nullptr;};
+    inline int64_t getApprovalProcessStatus() const { DARABONBA_PTR_GET_DEFAULT(approvalProcessStatus_, 0L) };
+    inline DescribeDtsJobDetailResponseBody& setApprovalProcessStatus(int64_t approvalProcessStatus) { DARABONBA_PTR_SET_VALUE(approvalProcessStatus_, approvalProcessStatus) };
+
+
+    // approvalProcessUrl Field Functions 
+    bool hasApprovalProcessUrl() const { return this->approvalProcessUrl_ != nullptr;};
+    void deleteApprovalProcessUrl() { this->approvalProcessUrl_ = nullptr;};
+    inline string getApprovalProcessUrl() const { DARABONBA_PTR_GET_DEFAULT(approvalProcessUrl_, "") };
+    inline DescribeDtsJobDetailResponseBody& setApprovalProcessUrl(string approvalProcessUrl) { DARABONBA_PTR_SET_VALUE(approvalProcessUrl_, approvalProcessUrl) };
 
 
     // beginTimestamp Field Functions 
@@ -9267,6 +9285,8 @@ namespace Models
     // 
     // > This parameter is returned only for change tracking instances of the new version.
     shared_ptr<string> appName_ {};
+    shared_ptr<int64_t> approvalProcessStatus_ {};
+    shared_ptr<string> approvalProcessUrl_ {};
     // The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
     shared_ptr<string> beginTimestamp_ {};
     // The binary logs.

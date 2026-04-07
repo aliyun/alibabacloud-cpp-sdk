@@ -281,7 +281,7 @@ namespace Dts20200101
       Models::CreateDedicatedClusterMonitorRuleResponse createDedicatedClusterMonitorRule(const Models::CreateDedicatedClusterMonitorRuleRequest &request);
 
       /**
-       * @summary 查看工作流任务结果
+       * @summary Creates a document parsing task.
        *
        * @param request CreateDocParserJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -290,7 +290,7 @@ namespace Dts20200101
       Models::CreateDocParserJobResponse createDocParserJobWithOptions(const Models::CreateDocParserJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看工作流任务结果
+       * @summary Creates a document parsing task.
        *
        * @param request CreateDocParserJobRequest
        * @return CreateDocParserJobResponse
@@ -560,7 +560,7 @@ namespace Dts20200101
       Models::DescribeChannelAccountResponse describeChannelAccount(const Models::DescribeChannelAccountRequest &request);
 
       /**
-       * @summary 请求所有数据校验任务数据
+       * @summary Verifies data migration tasks and data synchronization tasks
        *
        * @param request DescribeCheckJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -569,7 +569,7 @@ namespace Dts20200101
       Models::DescribeCheckJobsResponse describeCheckJobsWithOptions(const Models::DescribeCheckJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 请求所有数据校验任务数据
+       * @summary Verifies data migration tasks and data synchronization tasks
        *
        * @param request DescribeCheckJobsRequest
        * @return DescribeCheckJobsResponse
@@ -764,7 +764,7 @@ namespace Dts20200101
       Models::DescribeDedicatedClusterMonitorRuleResponse describeDedicatedClusterMonitorRule(const Models::DescribeDedicatedClusterMonitorRuleRequest &request);
 
       /**
-       * @summary 查看工作流任务结果
+       * @summary Retrieves the result of a document parsing task.
        *
        * @param request DescribeDocParserJobResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -773,7 +773,7 @@ namespace Dts20200101
       Models::DescribeDocParserJobResultResponse describeDocParserJobResultWithOptions(const Models::DescribeDocParserJobResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看工作流任务结果
+       * @summary Retrieves the result of a document parsing task.
        *
        * @param request DescribeDocParserJobResultRequest
        * @return DescribeDocParserJobResultResponse
@@ -781,7 +781,7 @@ namespace Dts20200101
       Models::DescribeDocParserJobResultResponse describeDocParserJobResult(const Models::DescribeDocParserJobResultRequest &request);
 
       /**
-       * @summary 查看工作流任务结果
+       * @summary Queries the execution status of a document parsing task.
        *
        * @param request DescribeDocParserJobStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -790,7 +790,7 @@ namespace Dts20200101
       Models::DescribeDocParserJobStatusResponse describeDocParserJobStatusWithOptions(const Models::DescribeDocParserJobStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看工作流任务结果
+       * @summary Queries the execution status of a document parsing task.
        *
        * @param request DescribeDocParserJobStatusRequest
        * @return DescribeDocParserJobStatusResponse
@@ -832,8 +832,7 @@ namespace Dts20200101
       Models::DescribeDtsJobConfigResponse describeDtsJobConfig(const Models::DescribeDtsJobConfigRequest &request);
 
       /**
-       * @summary The latency of incremental data migration or synchronization.
-       * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+       * @summary The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
        *
        * @param request DescribeDtsJobDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -842,8 +841,7 @@ namespace Dts20200101
       Models::DescribeDtsJobDetailResponse describeDtsJobDetailWithOptions(const Models::DescribeDtsJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The latency of incremental data migration or synchronization.
-       * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+       * @summary The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
        *
        * @param request DescribeDtsJobDetailRequest
        * @return DescribeDtsJobDetailResponse
@@ -942,7 +940,7 @@ namespace Dts20200101
       Models::DescribeFullProcessListResponse describeFullProcessList(const Models::DescribeFullProcessListRequest &request);
 
       /**
-       * @summary 查询GAD实例列表
+       * @summary Queries the GAD instances.
        *
        * @param request DescribeGadInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -951,7 +949,7 @@ namespace Dts20200101
       Models::DescribeGadInstancesResponse describeGadInstancesWithOptions(const Models::DescribeGadInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询GAD实例列表
+       * @summary Queries the GAD instances.
        *
        * @param request DescribeGadInstancesRequest
        * @return DescribeGadInstancesResponse
@@ -1078,7 +1076,7 @@ namespace Dts20200101
       Models::DescribeMigrationJobsResponse describeMigrationJobs(const Models::DescribeMigrationJobsRequest &request);
 
       /**
-       * @summary 查询预检查创建GAD订单任务结果
+       * @summary Queries the result of a precheck task before a GAD instance is created.
        *
        * @param request DescribePreCheckCreateGadOrderResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1087,7 +1085,7 @@ namespace Dts20200101
       Models::DescribePreCheckCreateGadOrderResultResponse describePreCheckCreateGadOrderResultWithOptions(const Models::DescribePreCheckCreateGadOrderResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询预检查创建GAD订单任务结果
+       * @summary Queries the result of a precheck task before a GAD instance is created.
        *
        * @param request DescribePreCheckCreateGadOrderResultRequest
        * @return DescribePreCheckCreateGadOrderResultResponse
@@ -1339,7 +1337,7 @@ namespace Dts20200101
       Models::DescribeTagValuesResponse describeTagValues(const Models::DescribeTagValuesRequest &request);
 
       /**
-       * @summary 移除从角色
+       * @summary Removes a secondary instance
        *
        * @param request DetachGadInstanceDbMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1348,7 +1346,7 @@ namespace Dts20200101
       Models::DetachGadInstanceDbMemberResponse detachGadInstanceDbMemberWithOptions(const Models::DetachGadInstanceDbMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除从角色
+       * @summary Removes a secondary instance
        *
        * @param request DetachGadInstanceDbMemberRequest
        * @return DetachGadInstanceDbMemberResponse
@@ -1662,7 +1660,7 @@ namespace Dts20200101
       Models::ModifyDynamicConfigResponse modifyDynamicConfig(const Models::ModifyDynamicConfigRequest &request);
 
       /**
-       * @summary 修改GAD实例名称
+       * @summary Modifies the name of a GAD instance.
        *
        * @param request ModifyGadInstanceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1671,7 +1669,7 @@ namespace Dts20200101
       Models::ModifyGadInstanceNameResponse modifyGadInstanceNameWithOptions(const Models::ModifyGadInstanceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改GAD实例名称
+       * @summary Modifies the name of a GAD instance.
        *
        * @param request ModifyGadInstanceNameRequest
        * @return ModifyGadInstanceNameResponse
@@ -1751,7 +1749,7 @@ namespace Dts20200101
       Models::ModifySynchronizationObjectResponse modifySynchronizationObject(const Models::ModifySynchronizationObjectRequest &request);
 
       /**
-       * @summary 预检查创建GAD订单
+       * @summary Prechecks before a GAD instance is created.
        *
        * @param request PreCheckCreateGadOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1760,7 +1758,7 @@ namespace Dts20200101
       Models::PreCheckCreateGadOrderResponse preCheckCreateGadOrderWithOptions(const Models::PreCheckCreateGadOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预检查创建GAD订单
+       * @summary Prechecks before a GAD instance is created.
        *
        * @param request PreCheckCreateGadOrderRequest
        * @return PreCheckCreateGadOrderResponse
@@ -1840,7 +1838,7 @@ namespace Dts20200101
       Models::ResetSynchronizationJobResponse resetSynchronizationJob(const Models::ResetSynchronizationJobRequest &request);
 
       /**
-       * @summary 调转双向任务的方向
+       * @summary Reverse the direction of a two-way synchronization task.
        *
        * @param request ReverseTwoWayDirectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1849,7 +1847,7 @@ namespace Dts20200101
       Models::ReverseTwoWayDirectionResponse reverseTwoWayDirectionWithOptions(const Models::ReverseTwoWayDirectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调转双向任务的方向
+       * @summary Reverse the direction of a two-way synchronization task.
        *
        * @param request ReverseTwoWayDirectionRequest
        * @return ReverseTwoWayDirectionResponse
@@ -2181,7 +2179,7 @@ namespace Dts20200101
       Models::SuspendSynchronizationJobResponse suspendSynchronizationJob(const Models::SuspendSynchronizationJobRequest &request);
 
       /**
-       * @summary 物理迁移任务切换上云
+       * @summary Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
        *
        * @param request SwitchPhysicalDtsJobToCloudRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2190,7 +2188,7 @@ namespace Dts20200101
       Models::SwitchPhysicalDtsJobToCloudResponse switchPhysicalDtsJobToCloudWithOptions(const Models::SwitchPhysicalDtsJobToCloudRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 物理迁移任务切换上云
+       * @summary Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
        *
        * @param request SwitchPhysicalDtsJobToCloudRequest
        * @return SwitchPhysicalDtsJobToCloudResponse
@@ -2340,8 +2338,8 @@ namespace Dts20200101
       Models::UpgradeTwoWayResponse upgradeTwoWay(const Models::UpgradeTwoWayRequest &request);
 
       /**
-       * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
-       * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+       * @summary If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+       * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
        *
        * @description The operation that you want to perform. Set the value to **WhiteIpList**.
        *
@@ -2352,8 +2350,8 @@ namespace Dts20200101
       Models::WhiteIpListResponse whiteIpListWithOptions(const Models::WhiteIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
-       * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+       * @summary If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+       * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
        *
        * @description The operation that you want to perform. Set the value to **WhiteIpList**.
        *

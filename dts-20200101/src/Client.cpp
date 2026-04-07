@@ -10,16 +10,16 @@
 #include <darabonba/http/Form.hpp>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
 using namespace AlibabaCloud::Dts20200101::Models;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 namespace AlibabaCloud
@@ -109,9 +109,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
-  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
-  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
-  Darabonba::Exception _lastException;
+  std::exception_ptr _lastExceptionPtr;
   int _retriesAttempted = 0;
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
@@ -131,29 +129,27 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
       request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
       shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-      _lastResponse  = response_;
 
       json respMap = nullptr;
       string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
       if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap["Error"]);
+        json err = json(respMap.value("Error", Darabonba::Json()));
         throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err["Code"])},
-          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
+          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
           {"data" , json({
             {"httpCode" , response_->getStatusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
+            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
           })}
         }));
       }
@@ -161,18 +157,17 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
       return Darabonba::Core::merge(respMap
       );
-    } catch (const Darabonba::Exception& ex) {
+    } catch (const Darabonba::DaraException& ex) {
+      _lastExceptionPtr = std::current_exception();
       _context = Darabonba::Policy::RetryPolicyContext(json({
         {"retriesAttempted" , _retriesAttempted},
-        {"lastRequest" , _lastRequest},
-        {"lastResponse" , _lastResponse},
         {"exception" , ex},
       }));
       continue;
     }
   }
 
-  throw *_context.getException();
+  std::rethrow_exception(_lastExceptionPtr);
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -1724,7 +1719,7 @@ CreateDedicatedClusterMonitorRuleResponse Client::createDedicatedClusterMonitorR
 }
 
 /**
- * @summary 查看工作流任务结果
+ * @summary Creates a document parsing task.
  *
  * @param request CreateDocParserJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1775,7 +1770,7 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
 }
 
 /**
- * @summary 查看工作流任务结果
+ * @summary Creates a document parsing task.
  *
  * @param request CreateDocParserJobRequest
  * @return CreateDocParserJobResponse
@@ -2886,7 +2881,7 @@ DescribeChannelAccountResponse Client::describeChannelAccount(const DescribeChan
 }
 
 /**
- * @summary 请求所有数据校验任务数据
+ * @summary Verifies data migration tasks and data synchronization tasks
  *
  * @param request DescribeCheckJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2941,7 +2936,7 @@ DescribeCheckJobsResponse Client::describeCheckJobsWithOptions(const DescribeChe
 }
 
 /**
- * @summary 请求所有数据校验任务数据
+ * @summary Verifies data migration tasks and data synchronization tasks
  *
  * @param request DescribeCheckJobsRequest
  * @return DescribeCheckJobsResponse
@@ -3734,7 +3729,7 @@ DescribeDedicatedClusterMonitorRuleResponse Client::describeDedicatedClusterMoni
 }
 
 /**
- * @summary 查看工作流任务结果
+ * @summary Retrieves the result of a document parsing task.
  *
  * @param request DescribeDocParserJobResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3777,7 +3772,7 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResultWithOptions
 }
 
 /**
- * @summary 查看工作流任务结果
+ * @summary Retrieves the result of a document parsing task.
  *
  * @param request DescribeDocParserJobResultRequest
  * @return DescribeDocParserJobResultResponse
@@ -3788,7 +3783,7 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResult(const Desc
 }
 
 /**
- * @summary 查看工作流任务结果
+ * @summary Queries the execution status of a document parsing task.
  *
  * @param request DescribeDocParserJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3831,7 +3826,7 @@ DescribeDocParserJobStatusResponse Client::describeDocParserJobStatusWithOptions
 }
 
 /**
- * @summary 查看工作流任务结果
+ * @summary Queries the execution status of a document parsing task.
  *
  * @param request DescribeDocParserJobStatusRequest
  * @return DescribeDocParserJobStatusResponse
@@ -3966,8 +3961,7 @@ DescribeDtsJobConfigResponse Client::describeDtsJobConfig(const DescribeDtsJobCo
 }
 
 /**
- * @summary The latency of incremental data migration or synchronization.
- * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+ * @summary The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
  *
  * @param request DescribeDtsJobDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4022,8 +4016,7 @@ DescribeDtsJobDetailResponse Client::describeDtsJobDetailWithOptions(const Descr
 }
 
 /**
- * @summary The latency of incremental data migration or synchronization.
- * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+ * @summary The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
  *
  * @param request DescribeDtsJobDetailRequest
  * @return DescribeDtsJobDetailResponse
@@ -4422,7 +4415,7 @@ DescribeFullProcessListResponse Client::describeFullProcessList(const DescribeFu
 }
 
 /**
- * @summary 查询GAD实例列表
+ * @summary Queries the GAD instances.
  *
  * @param request DescribeGadInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4485,7 +4478,7 @@ DescribeGadInstancesResponse Client::describeGadInstancesWithOptions(const Descr
 }
 
 /**
- * @summary 查询GAD实例列表
+ * @summary Queries the GAD instances.
  *
  * @param request DescribeGadInstancesRequest
  * @return DescribeGadInstancesResponse
@@ -4968,7 +4961,7 @@ DescribeMigrationJobsResponse Client::describeMigrationJobs(const DescribeMigrat
 }
 
 /**
- * @summary 查询预检查创建GAD订单任务结果
+ * @summary Queries the result of a precheck task before a GAD instance is created.
  *
  * @param request DescribePreCheckCreateGadOrderResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5015,7 +5008,7 @@ DescribePreCheckCreateGadOrderResultResponse Client::describePreCheckCreateGadOr
 }
 
 /**
- * @summary 查询预检查创建GAD订单任务结果
+ * @summary Queries the result of a precheck task before a GAD instance is created.
  *
  * @param request DescribePreCheckCreateGadOrderResultRequest
  * @return DescribePreCheckCreateGadOrderResultResponse
@@ -5966,7 +5959,7 @@ DescribeTagValuesResponse Client::describeTagValues(const DescribeTagValuesReque
 }
 
 /**
- * @summary 移除从角色
+ * @summary Removes a secondary instance
  *
  * @param request DetachGadInstanceDbMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6013,7 +6006,7 @@ DetachGadInstanceDbMemberResponse Client::detachGadInstanceDbMemberWithOptions(c
 }
 
 /**
- * @summary 移除从角色
+ * @summary Removes a secondary instance
  *
  * @param request DetachGadInstanceDbMemberRequest
  * @return DetachGadInstanceDbMemberResponse
@@ -7278,7 +7271,7 @@ ModifyDynamicConfigResponse Client::modifyDynamicConfig(const ModifyDynamicConfi
 }
 
 /**
- * @summary 修改GAD实例名称
+ * @summary Modifies the name of a GAD instance.
  *
  * @param request ModifyGadInstanceNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7325,7 +7318,7 @@ ModifyGadInstanceNameResponse Client::modifyGadInstanceNameWithOptions(const Mod
 }
 
 /**
- * @summary 修改GAD实例名称
+ * @summary Modifies the name of a GAD instance.
  *
  * @param request ModifyGadInstanceNameRequest
  * @return ModifyGadInstanceNameResponse
@@ -7602,7 +7595,7 @@ ModifySynchronizationObjectResponse Client::modifySynchronizationObject(const Mo
 }
 
 /**
- * @summary 预检查创建GAD订单
+ * @summary Prechecks before a GAD instance is created.
  *
  * @param request PreCheckCreateGadOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7677,7 +7670,7 @@ PreCheckCreateGadOrderResponse Client::preCheckCreateGadOrderWithOptions(const P
 }
 
 /**
- * @summary 预检查创建GAD订单
+ * @summary Prechecks before a GAD instance is created.
  *
  * @param request PreCheckCreateGadOrderRequest
  * @return PreCheckCreateGadOrderResponse
@@ -7932,7 +7925,7 @@ ResetSynchronizationJobResponse Client::resetSynchronizationJob(const ResetSynch
 }
 
 /**
- * @summary 调转双向任务的方向
+ * @summary Reverse the direction of a two-way synchronization task.
  *
  * @param request ReverseTwoWayDirectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7975,7 +7968,7 @@ ReverseTwoWayDirectionResponse Client::reverseTwoWayDirectionWithOptions(const R
 }
 
 /**
- * @summary 调转双向任务的方向
+ * @summary Reverse the direction of a two-way synchronization task.
  *
  * @param request ReverseTwoWayDirectionRequest
  * @return ReverseTwoWayDirectionResponse
@@ -9076,7 +9069,7 @@ SuspendSynchronizationJobResponse Client::suspendSynchronizationJob(const Suspen
 }
 
 /**
- * @summary 物理迁移任务切换上云
+ * @summary Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
  *
  * @param request SwitchPhysicalDtsJobToCloudRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9123,7 +9116,7 @@ SwitchPhysicalDtsJobToCloudResponse Client::switchPhysicalDtsJobToCloudWithOptio
 }
 
 /**
- * @summary 物理迁移任务切换上云
+ * @summary Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
  *
  * @param request SwitchPhysicalDtsJobToCloudRequest
  * @return SwitchPhysicalDtsJobToCloudResponse
@@ -9554,8 +9547,8 @@ UpgradeTwoWayResponse Client::upgradeTwoWay(const UpgradeTwoWayRequest &request)
 }
 
 /**
- * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
- * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+ * @summary If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+ * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
  *
  * @description The operation that you want to perform. Set the value to **WhiteIpList**.
  *
@@ -9648,8 +9641,8 @@ WhiteIpListResponse Client::whiteIpListWithOptions(const WhiteIpListRequest &req
 }
 
 /**
- * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
- * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+ * @summary If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+ * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
  *
  * @description The operation that you want to perform. Set the value to **WhiteIpList**.
  *

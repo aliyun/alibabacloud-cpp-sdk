@@ -268,54 +268,25 @@ namespace Models
 
 
       protected:
-        // The CPU utilization, in percentage.
         shared_ptr<int64_t> cpuUtilization_ {};
-        // The ID of the cluster.
         shared_ptr<string> dedicatedClusterId_ {};
-        // The name of the cluster.
         shared_ptr<string> dedicatedClusterName_ {};
-        // The disk usage.
         shared_ptr<int64_t> diskUtilization_ {};
-        // The ID of the DTS instance.
         shared_ptr<string> dtsInstanceID_ {};
-        // The number of DTS units (DUs).
         shared_ptr<int64_t> du_ {};
-        // The DU usage, in percentage.
         shared_ptr<int64_t> duUtilization_ {};
-        // The time when the cluster was created.
         shared_ptr<int64_t> gmtCreated_ {};
-        // The memory usage.
         shared_ptr<int64_t> memUtilization_ {};
-        // The number of nodes in the cluster.
         shared_ptr<int64_t> nodeCount_ {};
-        // The number of over-provisioned DUs.
         shared_ptr<int64_t> oversoldDu_ {};
-        // The ID of the region in which the DTS instance resides.
         shared_ptr<string> regionId_ {};
-        // The status of the cluster. Valid values:
-        // 
-        // *   **init**: The cluster is being initialized.
-        // *   **schedule**: The cluster is pending scheduling.
-        // *   **running**: The cluster is running.
-        // *   **upgrade**: The cluster is being upgraded.
-        // *   **downgrade**: The cluster is being downgraded.
-        // *   **locked**: The cluster is locked.
-        // *   **releasing**: The cluster is being released.
-        // *   **released**: The cluster is released.
         shared_ptr<string> state_ {};
-        // The total number of CPU cores.
         shared_ptr<int64_t> totalCpuCore_ {};
-        // The total disk capacity. Unit: GB.
         shared_ptr<int64_t> totalDiskGBSize_ {};
-        // The total memory capacity. Unit: GB.
         shared_ptr<int64_t> totalMemGBSize_ {};
-        // The number of used CPU cores.
         shared_ptr<int64_t> usedCpuCore_ {};
-        // The used disk capacity. Unit: GB.
         shared_ptr<int64_t> usedDiskGBSize_ {};
-        // The number of used DUs.
         shared_ptr<int64_t> usedDu_ {};
-        // The used memory capacity. Unit: GB.
         shared_ptr<int64_t> usedMemGBSize_ {};
       };
 
@@ -402,7 +373,6 @@ namespace Models
 
 
   protected:
-    // The statuses of all clusters.
     shared_ptr<ListDedicatedClusterResponseBody::DedicatedClusterStatusList> dedicatedClusterStatusList_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errCode_ {};

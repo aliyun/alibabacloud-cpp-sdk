@@ -88,6 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> precheckItems_ {};
+    // The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
     // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};

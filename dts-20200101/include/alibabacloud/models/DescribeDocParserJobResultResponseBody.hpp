@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ErrMessage, errMessage_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_TO_JSON(OuterFileUrl, outerFileUrl_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ErrMessage, errMessage_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_FROM_JSON(OuterFileUrl, outerFileUrl_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
@@ -90,7 +92,7 @@ namespace Models
 
     virtual bool empty() const override { return this->contentList_ == nullptr
         && this->dynamicCode_ == nullptr && this->dynamicMessage_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->fileUrl_ == nullptr
-        && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->outerFileUrl_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // contentList Field Functions 
     bool hasContentList() const { return this->contentList_ != nullptr;};
     void deleteContentList() { this->contentList_ = nullptr;};
@@ -142,6 +144,13 @@ namespace Models
     inline DescribeDocParserJobResultResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
+    // outerFileUrl Field Functions 
+    bool hasOuterFileUrl() const { return this->outerFileUrl_ != nullptr;};
+    void deleteOuterFileUrl() { this->outerFileUrl_ = nullptr;};
+    inline string getOuterFileUrl() const { DARABONBA_PTR_GET_DEFAULT(outerFileUrl_, "") };
+    inline DescribeDocParserJobResultResponseBody& setOuterFileUrl(string outerFileUrl) { DARABONBA_PTR_SET_VALUE(outerFileUrl_, outerFileUrl) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -164,6 +173,7 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     shared_ptr<string> fileUrl_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> outerFileUrl_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

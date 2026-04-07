@@ -115,13 +115,9 @@ namespace Models
 
 
       protected:
-        // The ID of the DTS instance.
         shared_ptr<string> resourceId_ {};
-        // The resource type. Valid value: **ALIYUN::DTS::INSTANCE**.
         shared_ptr<string> resourceType_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The tag value that corresponds to the tag key.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -198,7 +194,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // The collection of tags.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 
