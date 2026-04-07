@@ -134,6 +134,7 @@
 #include <alibabacloud/models/ListMetricMetaResponseBody.hpp>
 #include <alibabacloud/models/ListMetricMetaResponse.hpp>
 #include <alibabacloud/models/ListMigrationOperationsRequest.hpp>
+#include <alibabacloud/models/ListMigrationOperationsShrinkRequest.hpp>
 #include <alibabacloud/models/ListMigrationOperationsResponseBody.hpp>
 #include <alibabacloud/models/ListMigrationOperationsResponse.hpp>
 #include <alibabacloud/models/ListMigrationsRequest.hpp>

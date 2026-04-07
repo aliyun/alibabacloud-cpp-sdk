@@ -889,12 +889,12 @@ namespace RocketMQ20220801
       /**
        * @summary Queries a list of migration operations.
        *
-       * @param request ListMigrationOperationsRequest
+       * @param tmpReq ListMigrationOperationsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMigrationOperationsResponse
        */
-      Models::ListMigrationOperationsResponse listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListMigrationOperationsResponse listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of migration operations.

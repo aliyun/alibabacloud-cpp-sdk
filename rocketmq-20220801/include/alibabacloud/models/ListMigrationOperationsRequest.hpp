@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTMIGRATIONOPERATIONSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTMIGRATIONOPERATIONSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,15 +14,19 @@ namespace Models
   class ListMigrationOperationsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListMigrationOperationsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(businessStatus, businessStatus_);
       DARABONBA_PTR_TO_JSON(filter, filter_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(operationStatus, operationStatus_);
       DARABONBA_PTR_TO_JSON(operationType, operationType_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListMigrationOperationsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(businessStatus, businessStatus_);
       DARABONBA_PTR_FROM_JSON(filter, filter_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(operationStatus, operationStatus_);
       DARABONBA_PTR_FROM_JSON(operationType, operationType_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -37,8 +42,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->filter_ == nullptr
-        && this->instanceId_ == nullptr && this->operationType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->businessStatus_ == nullptr
+        && this->filter_ == nullptr && this->instanceId_ == nullptr && this->operationStatus_ == nullptr && this->operationType_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
+    // businessStatus Field Functions 
+    bool hasBusinessStatus() const { return this->businessStatus_ != nullptr;};
+    void deleteBusinessStatus() { this->businessStatus_ = nullptr;};
+    inline const vector<string> & getBusinessStatus() const { DARABONBA_PTR_GET_CONST(businessStatus_, vector<string>) };
+    inline vector<string> getBusinessStatus() { DARABONBA_PTR_GET(businessStatus_, vector<string>) };
+    inline ListMigrationOperationsRequest& setBusinessStatus(const vector<string> & businessStatus) { DARABONBA_PTR_SET_VALUE(businessStatus_, businessStatus) };
+    inline ListMigrationOperationsRequest& setBusinessStatus(vector<string> && businessStatus) { DARABONBA_PTR_SET_RVALUE(businessStatus_, businessStatus) };
+
+
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -51,6 +66,15 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListMigrationOperationsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // operationStatus Field Functions 
+    bool hasOperationStatus() const { return this->operationStatus_ != nullptr;};
+    void deleteOperationStatus() { this->operationStatus_ = nullptr;};
+    inline const vector<string> & getOperationStatus() const { DARABONBA_PTR_GET_CONST(operationStatus_, vector<string>) };
+    inline vector<string> getOperationStatus() { DARABONBA_PTR_GET(operationStatus_, vector<string>) };
+    inline ListMigrationOperationsRequest& setOperationStatus(const vector<string> & operationStatus) { DARABONBA_PTR_SET_VALUE(operationStatus_, operationStatus) };
+    inline ListMigrationOperationsRequest& setOperationStatus(vector<string> && operationStatus) { DARABONBA_PTR_SET_RVALUE(operationStatus_, operationStatus) };
 
 
     // operationType Field Functions 
@@ -75,8 +99,10 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<string>> businessStatus_ {};
     shared_ptr<string> filter_ {};
     shared_ptr<string> instanceId_ {};
+    shared_ptr<vector<string>> operationStatus_ {};
     // This parameter is required.
     shared_ptr<string> operationType_ {};
     // This parameter is required.

@@ -2407,20 +2407,38 @@ ListMetricMetaResponse Client::listMetricMeta(const ListMetricMetaRequest &reque
 /**
  * @summary Queries a list of migration operations.
  *
- * @param request ListMigrationOperationsRequest
+ * @param tmpReq ListMigrationOperationsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListMigrationOperationsResponse
  */
-ListMigrationOperationsResponse Client::listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const ListMigrationOperationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListMigrationOperationsResponse Client::listMigrationOperationsWithOptions(const string &migrationId, const string &stageType, const ListMigrationOperationsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListMigrationOperationsShrinkRequest request = ListMigrationOperationsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBusinessStatus()) {
+    request.setBusinessStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessStatus(), "businessStatus", "simple"));
+  }
+
+  if (!!tmpReq.hasOperationStatus()) {
+    request.setOperationStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOperationStatus(), "operationStatus", "simple"));
+  }
+
   json query = {};
+  if (!!request.hasBusinessStatusShrink()) {
+    query["businessStatus"] = request.getBusinessStatusShrink();
+  }
+
   if (!!request.hasFilter()) {
     query["filter"] = request.getFilter();
   }
 
   if (!!request.hasInstanceId()) {
     query["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOperationStatusShrink()) {
+    query["operationStatus"] = request.getOperationStatusShrink();
   }
 
   if (!!request.hasOperationType()) {
