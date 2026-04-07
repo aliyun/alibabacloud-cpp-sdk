@@ -12,9 +12,21 @@
 #include <alibabacloud/models/CreateApplicationVersionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateApplicationVersionResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationVersionResponse.hpp>
+#include <alibabacloud/models/CreateCloneVoiceRequest.hpp>
+#include <alibabacloud/models/CreateCloneVoiceResponseBody.hpp>
+#include <alibabacloud/models/CreateCloneVoiceResponse.hpp>
+#include <alibabacloud/models/CreateVariableRequest.hpp>
+#include <alibabacloud/models/CreateVariableResponseBody.hpp>
+#include <alibabacloud/models/CreateVariableResponse.hpp>
 #include <alibabacloud/models/DeleteApplicationRequest.hpp>
 #include <alibabacloud/models/DeleteApplicationResponseBody.hpp>
 #include <alibabacloud/models/DeleteApplicationResponse.hpp>
+#include <alibabacloud/models/DeleteCloneVoiceRequest.hpp>
+#include <alibabacloud/models/DeleteCloneVoiceResponseBody.hpp>
+#include <alibabacloud/models/DeleteCloneVoiceResponse.hpp>
+#include <alibabacloud/models/DeleteVariableRequest.hpp>
+#include <alibabacloud/models/DeleteVariableResponseBody.hpp>
+#include <alibabacloud/models/DeleteVariableResponse.hpp>
 #include <alibabacloud/models/GetApplicationRequest.hpp>
 #include <alibabacloud/models/GetApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationResponse.hpp>
@@ -24,6 +36,12 @@
 #include <alibabacloud/models/ListApplicationsRequest.hpp>
 #include <alibabacloud/models/ListApplicationsResponseBody.hpp>
 #include <alibabacloud/models/ListApplicationsResponse.hpp>
+#include <alibabacloud/models/ListCloneVoiceRequest.hpp>
+#include <alibabacloud/models/ListCloneVoiceResponseBody.hpp>
+#include <alibabacloud/models/ListCloneVoiceResponse.hpp>
+#include <alibabacloud/models/ListVariableRequest.hpp>
+#include <alibabacloud/models/ListVariableResponseBody.hpp>
+#include <alibabacloud/models/ListVariableResponse.hpp>
 #include <alibabacloud/models/PublishApplicationVersionRequest.hpp>
 #include <alibabacloud/models/PublishApplicationVersionResponseBody.hpp>
 #include <alibabacloud/models/PublishApplicationVersionResponse.hpp>
@@ -34,5 +52,11 @@
 #include <alibabacloud/models/UpdateApplicationVersionShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationVersionResponse.hpp>
+#include <alibabacloud/models/UpdateCloneVoiceRequest.hpp>
+#include <alibabacloud/models/UpdateCloneVoiceResponseBody.hpp>
+#include <alibabacloud/models/UpdateCloneVoiceResponse.hpp>
+#include <alibabacloud/models/UpdateVariableRequest.hpp>
+#include <alibabacloud/models/UpdateVariableResponseBody.hpp>
+#include <alibabacloud/models/UpdateVariableResponse.hpp>
 
 #endif

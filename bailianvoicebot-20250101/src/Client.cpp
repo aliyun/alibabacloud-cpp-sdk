@@ -49,6 +49,10 @@ BridgeWebCallResponse Client::bridgeWebCallWithOptions(const BridgeWebCallReques
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasAudioCodec()) {
+    query["AudioCodec"] = request.getAudioCodec();
+  }
+
   if (!!request.hasBusinessUnitId()) {
     query["BusinessUnitId"] = request.getBusinessUnitId();
   }
@@ -248,6 +252,110 @@ CreateApplicationVersionResponse Client::createApplicationVersion(const CreateAp
 }
 
 /**
+ * @summary 创建克隆音
+ *
+ * @param request CreateCloneVoiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloneVoiceResponse
+ */
+CreateCloneVoiceResponse Client::createCloneVoiceWithOptions(const CreateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasFileKey()) {
+    body["FileKey"] = request.getFileKey();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCloneVoice"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloneVoiceResponse>();
+}
+
+/**
+ * @summary 创建克隆音
+ *
+ * @param request CreateCloneVoiceRequest
+ * @return CreateCloneVoiceResponse
+ */
+CreateCloneVoiceResponse Client::createCloneVoice(const CreateCloneVoiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建变量
+ *
+ * @param request CreateVariableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVariableResponse
+ */
+CreateVariableResponse Client::createVariableWithOptions(const CreateVariableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVariable"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVariableResponse>();
+}
+
+/**
+ * @summary 创建变量
+ *
+ * @param request CreateVariableRequest
+ * @return CreateVariableResponse
+ */
+CreateVariableResponse Client::createVariable(const CreateVariableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVariableWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除应用
  *
  * @param request DeleteApplicationRequest
@@ -291,6 +399,98 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除场景
+ *
+ * @param request DeleteCloneVoiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloneVoiceResponse
+ */
+DeleteCloneVoiceResponse Client::deleteCloneVoiceWithOptions(const DeleteCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasCloneVoiceId()) {
+    body["CloneVoiceId"] = request.getCloneVoiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloneVoice"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloneVoiceResponse>();
+}
+
+/**
+ * @summary 删除场景
+ *
+ * @param request DeleteCloneVoiceRequest
+ * @return DeleteCloneVoiceResponse
+ */
+DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除变量
+ *
+ * @param request DeleteVariableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVariableResponse
+ */
+DeleteVariableResponse Client::deleteVariableWithOptions(const DeleteVariableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasVariableId()) {
+    body["VariableId"] = request.getVariableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteVariable"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVariableResponse>();
+}
+
+/**
+ * @summary 删除变量
+ *
+ * @param request DeleteVariableRequest
+ * @return DeleteVariableResponse
+ */
+DeleteVariableResponse Client::deleteVariable(const DeleteVariableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVariableWithOptions(request, runtime);
 }
 
 /**
@@ -437,6 +637,114 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 ListApplicationsResponse Client::listApplications(const ListApplicationsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request ListCloneVoiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloneVoiceResponse
+ */
+ListCloneVoiceResponse Client::listCloneVoiceWithOptions(const ListCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCloneVoice"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloneVoiceResponse>();
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request ListCloneVoiceRequest
+ * @return ListCloneVoiceResponse
+ */
+ListCloneVoiceResponse Client::listCloneVoice(const ListCloneVoiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取变量列表
+ *
+ * @param request ListVariableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVariableResponse
+ */
+ListVariableResponse Client::listVariableWithOptions(const ListVariableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchPattern()) {
+    body["SearchPattern"] = request.getSearchPattern();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListVariable"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVariableResponse>();
+}
+
+/**
+ * @summary 获取变量列表
+ *
+ * @param request ListVariableRequest
+ * @return ListVariableResponse
+ */
+ListVariableResponse Client::listVariable(const ListVariableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVariableWithOptions(request, runtime);
 }
 
 /**
@@ -629,6 +937,110 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
 UpdateApplicationVersionResponse Client::updateApplicationVersion(const UpdateApplicationVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateApplicationVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例
+ *
+ * @param request UpdateCloneVoiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCloneVoiceResponse
+ */
+UpdateCloneVoiceResponse Client::updateCloneVoiceWithOptions(const UpdateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasCloneVoiceId()) {
+    body["CloneVoiceId"] = request.getCloneVoiceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateCloneVoice"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCloneVoiceResponse>();
+}
+
+/**
+ * @summary 更新实例
+ *
+ * @param request UpdateCloneVoiceRequest
+ * @return UpdateCloneVoiceResponse
+ */
+UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新变量
+ *
+ * @param request UpdateVariableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVariableResponse
+ */
+UpdateVariableResponse Client::updateVariableWithOptions(const UpdateVariableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasVariableId()) {
+    body["VariableId"] = request.getVariableId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVariable"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVariableResponse>();
+}
+
+/**
+ * @summary 更新变量
+ *
+ * @param request UpdateVariableRequest
+ * @return UpdateVariableResponse
+ */
+UpdateVariableResponse Client::updateVariable(const UpdateVariableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVariableWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace BailianVoiceBot20250101

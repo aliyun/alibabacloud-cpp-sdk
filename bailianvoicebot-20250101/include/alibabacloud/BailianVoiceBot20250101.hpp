@@ -72,6 +72,40 @@ namespace BailianVoiceBot20250101
       Models::CreateApplicationVersionResponse createApplicationVersion(const Models::CreateApplicationVersionRequest &request);
 
       /**
+       * @summary 创建克隆音
+       *
+       * @param request CreateCloneVoiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCloneVoiceResponse
+       */
+      Models::CreateCloneVoiceResponse createCloneVoiceWithOptions(const Models::CreateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建克隆音
+       *
+       * @param request CreateCloneVoiceRequest
+       * @return CreateCloneVoiceResponse
+       */
+      Models::CreateCloneVoiceResponse createCloneVoice(const Models::CreateCloneVoiceRequest &request);
+
+      /**
+       * @summary 创建变量
+       *
+       * @param request CreateVariableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVariableResponse
+       */
+      Models::CreateVariableResponse createVariableWithOptions(const Models::CreateVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建变量
+       *
+       * @param request CreateVariableRequest
+       * @return CreateVariableResponse
+       */
+      Models::CreateVariableResponse createVariable(const Models::CreateVariableRequest &request);
+
+      /**
        * @summary 删除应用
        *
        * @param request DeleteApplicationRequest
@@ -87,6 +121,40 @@ namespace BailianVoiceBot20250101
        * @return DeleteApplicationResponse
        */
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
+
+      /**
+       * @summary 删除场景
+       *
+       * @param request DeleteCloneVoiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCloneVoiceResponse
+       */
+      Models::DeleteCloneVoiceResponse deleteCloneVoiceWithOptions(const Models::DeleteCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除场景
+       *
+       * @param request DeleteCloneVoiceRequest
+       * @return DeleteCloneVoiceResponse
+       */
+      Models::DeleteCloneVoiceResponse deleteCloneVoice(const Models::DeleteCloneVoiceRequest &request);
+
+      /**
+       * @summary 删除变量
+       *
+       * @param request DeleteVariableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVariableResponse
+       */
+      Models::DeleteVariableResponse deleteVariableWithOptions(const Models::DeleteVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除变量
+       *
+       * @param request DeleteVariableRequest
+       * @return DeleteVariableResponse
+       */
+      Models::DeleteVariableResponse deleteVariable(const Models::DeleteVariableRequest &request);
 
       /**
        * @summary Get应用
@@ -140,6 +208,40 @@ namespace BailianVoiceBot20250101
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
 
       /**
+       * @summary 获取实例详情
+       *
+       * @param request ListCloneVoiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCloneVoiceResponse
+       */
+      Models::ListCloneVoiceResponse listCloneVoiceWithOptions(const Models::ListCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例详情
+       *
+       * @param request ListCloneVoiceRequest
+       * @return ListCloneVoiceResponse
+       */
+      Models::ListCloneVoiceResponse listCloneVoice(const Models::ListCloneVoiceRequest &request);
+
+      /**
+       * @summary 获取变量列表
+       *
+       * @param request ListVariableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVariableResponse
+       */
+      Models::ListVariableResponse listVariableWithOptions(const Models::ListVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取变量列表
+       *
+       * @param request ListVariableRequest
+       * @return ListVariableResponse
+       */
+      Models::ListVariableResponse listVariable(const Models::ListVariableRequest &request);
+
+      /**
        * @summary 发布版本
        *
        * @param request PublishApplicationVersionRequest
@@ -189,6 +291,40 @@ namespace BailianVoiceBot20250101
        * @return UpdateApplicationVersionResponse
        */
       Models::UpdateApplicationVersionResponse updateApplicationVersion(const Models::UpdateApplicationVersionRequest &request);
+
+      /**
+       * @summary 更新实例
+       *
+       * @param request UpdateCloneVoiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCloneVoiceResponse
+       */
+      Models::UpdateCloneVoiceResponse updateCloneVoiceWithOptions(const Models::UpdateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新实例
+       *
+       * @param request UpdateCloneVoiceRequest
+       * @return UpdateCloneVoiceResponse
+       */
+      Models::UpdateCloneVoiceResponse updateCloneVoice(const Models::UpdateCloneVoiceRequest &request);
+
+      /**
+       * @summary 更新变量
+       *
+       * @param request UpdateVariableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVariableResponse
+       */
+      Models::UpdateVariableResponse updateVariableWithOptions(const Models::UpdateVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新变量
+       *
+       * @param request UpdateVariableRequest
+       * @return UpdateVariableResponse
+       */
+      Models::UpdateVariableResponse updateVariable(const Models::UpdateVariableRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace BailianVoiceBot20250101

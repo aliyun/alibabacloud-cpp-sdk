@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BridgeWebCallRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
+      DARABONBA_PTR_TO_JSON(AudioCodec, audioCodec_);
       DARABONBA_PTR_TO_JSON(BusinessUnitId, businessUnitId_);
       DARABONBA_PTR_TO_JSON(Caller, caller_);
       DARABONBA_PTR_TO_JSON(DeviceId, deviceId_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, BridgeWebCallRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
+      DARABONBA_PTR_FROM_JSON(AudioCodec, audioCodec_);
       DARABONBA_PTR_FROM_JSON(BusinessUnitId, businessUnitId_);
       DARABONBA_PTR_FROM_JSON(Caller, caller_);
       DARABONBA_PTR_FROM_JSON(DeviceId, deviceId_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->businessUnitId_ == nullptr && this->caller_ == nullptr && this->deviceId_ == nullptr && this->sampleRate_ == nullptr && this->sandbox_ == nullptr
-        && this->tags_ == nullptr && this->timeoutSeconds_ == nullptr; };
+        && this->audioCodec_ == nullptr && this->businessUnitId_ == nullptr && this->caller_ == nullptr && this->deviceId_ == nullptr && this->sampleRate_ == nullptr
+        && this->sandbox_ == nullptr && this->tags_ == nullptr && this->timeoutSeconds_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
     inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline BridgeWebCallRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+
+
+    // audioCodec Field Functions 
+    bool hasAudioCodec() const { return this->audioCodec_ != nullptr;};
+    void deleteAudioCodec() { this->audioCodec_ = nullptr;};
+    inline string getAudioCodec() const { DARABONBA_PTR_GET_DEFAULT(audioCodec_, "") };
+    inline BridgeWebCallRequest& setAudioCodec(string audioCodec) { DARABONBA_PTR_SET_VALUE(audioCodec_, audioCodec) };
 
 
     // businessUnitId Field Functions 
@@ -105,6 +114,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    shared_ptr<string> audioCodec_ {};
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
     shared_ptr<string> caller_ {};
