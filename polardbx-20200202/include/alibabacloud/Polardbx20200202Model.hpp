@@ -54,6 +54,9 @@
 #include <alibabacloud/models/CreateGdnInstanceRequest.hpp>
 #include <alibabacloud/models/CreateGdnInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateGdnInstanceResponse.hpp>
+#include <alibabacloud/models/CreateMem0Request.hpp>
+#include <alibabacloud/models/CreateMem0ResponseBody.hpp>
+#include <alibabacloud/models/CreateMem0Response.hpp>
 #include <alibabacloud/models/CreateRplInspectionTaskRequest.hpp>
 #include <alibabacloud/models/CreateRplInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateRplInspectionTaskResponse.hpp>
@@ -90,6 +93,9 @@
 #include <alibabacloud/models/DeleteGdnInstanceRequest.hpp>
 #include <alibabacloud/models/DeleteGdnInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeleteGdnInstanceResponse.hpp>
+#include <alibabacloud/models/DeleteMem0Request.hpp>
+#include <alibabacloud/models/DeleteMem0ResponseBody.hpp>
+#include <alibabacloud/models/DeleteMem0Response.hpp>
 #include <alibabacloud/models/DescribeAccountListRequest.hpp>
 #include <alibabacloud/models/DescribeAccountListResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccountListResponse.hpp>
@@ -201,6 +207,9 @@
 #include <alibabacloud/models/DescribeGdnInstancesRequest.hpp>
 #include <alibabacloud/models/DescribeGdnInstancesResponseBody.hpp>
 #include <alibabacloud/models/DescribeGdnInstancesResponse.hpp>
+#include <alibabacloud/models/DescribeMem0InfoRequest.hpp>
+#include <alibabacloud/models/DescribeMem0InfoResponseBody.hpp>
+#include <alibabacloud/models/DescribeMem0InfoResponse.hpp>
 #include <alibabacloud/models/DescribeOpenBackupSetRequest.hpp>
 #include <alibabacloud/models/DescribeOpenBackupSetResponseBody.hpp>
 #include <alibabacloud/models/DescribeOpenBackupSetResponse.hpp>

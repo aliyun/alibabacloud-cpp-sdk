@@ -1147,6 +1147,52 @@ CreateGdnInstanceResponse Client::createGdnInstance(const CreateGdnInstanceReque
 }
 
 /**
+ * @summary 创建mem0
+ *
+ * @param request CreateMem0Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMem0Response
+ */
+CreateMem0Response Client::createMem0WithOptions(const CreateMem0Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMem0"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMem0Response>();
+}
+
+/**
+ * @summary 创建mem0
+ *
+ * @param request CreateMem0Request
+ * @return CreateMem0Response
+ */
+CreateMem0Response Client::createMem0(const CreateMem0Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMem0WithOptions(request, runtime);
+}
+
+/**
  * @summary 创建评估预检任务
  *
  * @param request CreateRplInspectionTaskRequest
@@ -1810,6 +1856,52 @@ DeleteGdnInstanceResponse Client::deleteGdnInstanceWithOptions(const DeleteGdnIn
 DeleteGdnInstanceResponse Client::deleteGdnInstance(const DeleteGdnInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteGdnInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除mem0
+ *
+ * @param request DeleteMem0Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMem0Response
+ */
+DeleteMem0Response Client::deleteMem0WithOptions(const DeleteMem0Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMem0"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMem0Response>();
+}
+
+/**
+ * @summary 删除mem0
+ *
+ * @param request DeleteMem0Request
+ * @return DeleteMem0Response
+ */
+DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMem0WithOptions(request, runtime);
 }
 
 /**
@@ -3636,6 +3728,52 @@ DescribeGdnInstancesResponse Client::describeGdnInstancesWithOptions(const Descr
 DescribeGdnInstancesResponse Client::describeGdnInstances(const DescribeGdnInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeGdnInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询mem0实例信息
+ *
+ * @param request DescribeMem0InfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMem0InfoResponse
+ */
+DescribeMem0InfoResponse Client::describeMem0InfoWithOptions(const DescribeMem0InfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMem0Info"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMem0InfoResponse>();
+}
+
+/**
+ * @summary 查询mem0实例信息
+ *
+ * @param request DescribeMem0InfoRequest
+ * @return DescribeMem0InfoResponse
+ */
+DescribeMem0InfoResponse Client::describeMem0Info(const DescribeMem0InfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMem0InfoWithOptions(request, runtime);
 }
 
 /**

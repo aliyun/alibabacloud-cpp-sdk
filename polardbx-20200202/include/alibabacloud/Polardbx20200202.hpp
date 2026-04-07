@@ -278,6 +278,23 @@ namespace Polardbx20200202
       Models::CreateGdnInstanceResponse createGdnInstance(const Models::CreateGdnInstanceRequest &request);
 
       /**
+       * @summary 创建mem0
+       *
+       * @param request CreateMem0Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMem0Response
+       */
+      Models::CreateMem0Response createMem0WithOptions(const Models::CreateMem0Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建mem0
+       *
+       * @param request CreateMem0Request
+       * @return CreateMem0Response
+       */
+      Models::CreateMem0Response createMem0(const Models::CreateMem0Request &request);
+
+      /**
        * @summary 创建评估预检任务
        *
        * @param request CreateRplInspectionTaskRequest
@@ -468,6 +485,23 @@ namespace Polardbx20200202
        * @return DeleteGdnInstanceResponse
        */
       Models::DeleteGdnInstanceResponse deleteGdnInstance(const Models::DeleteGdnInstanceRequest &request);
+
+      /**
+       * @summary 删除mem0
+       *
+       * @param request DeleteMem0Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMem0Response
+       */
+      Models::DeleteMem0Response deleteMem0WithOptions(const Models::DeleteMem0Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除mem0
+       *
+       * @param request DeleteMem0Request
+       * @return DeleteMem0Response
+       */
+      Models::DeleteMem0Response deleteMem0(const Models::DeleteMem0Request &request);
 
       /**
        * @param request DescribeAccountListRequest
@@ -1065,6 +1099,23 @@ namespace Polardbx20200202
        * @return DescribeGdnInstancesResponse
        */
       Models::DescribeGdnInstancesResponse describeGdnInstances(const Models::DescribeGdnInstancesRequest &request);
+
+      /**
+       * @summary 查询mem0实例信息
+       *
+       * @param request DescribeMem0InfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMem0InfoResponse
+       */
+      Models::DescribeMem0InfoResponse describeMem0InfoWithOptions(const Models::DescribeMem0InfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询mem0实例信息
+       *
+       * @param request DescribeMem0InfoRequest
+       * @return DescribeMem0InfoResponse
+       */
+      Models::DescribeMem0InfoResponse describeMem0Info(const Models::DescribeMem0InfoRequest &request);
 
       /**
        * @summary 开放商业备份集
