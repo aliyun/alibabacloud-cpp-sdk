@@ -55,6 +55,23 @@ namespace VoiceNavigator20251111
       Models::CreateScriptResponse createScript(const Models::CreateScriptRequest &request);
 
       /**
+       * @summary 创建场景配置
+       *
+       * @param tmpReq CreateScriptVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateScriptVersionResponse
+       */
+      Models::CreateScriptVersionResponse createScriptVersionWithOptions(const Models::CreateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建场景配置
+       *
+       * @param request CreateScriptVersionRequest
+       * @return CreateScriptVersionResponse
+       */
+      Models::CreateScriptVersionResponse createScriptVersion(const Models::CreateScriptVersionRequest &request);
+
+      /**
        * @summary 创建变量
        *
        * @param request CreateVariableRequest
@@ -242,6 +259,23 @@ namespace VoiceNavigator20251111
       Models::ExportVocabularyResponse exportVocabulary(const Models::ExportVocabularyRequest &request);
 
       /**
+       * @summary 获取实例详情
+       *
+       * @param request GenerateFileUploadParamsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateFileUploadParamsResponse
+       */
+      Models::GenerateFileUploadParamsResponse generateFileUploadParamsWithOptions(const Models::GenerateFileUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例详情
+       *
+       * @param request GenerateFileUploadParamsRequest
+       * @return GenerateFileUploadParamsResponse
+       */
+      Models::GenerateFileUploadParamsResponse generateFileUploadParams(const Models::GenerateFileUploadParamsRequest &request);
+
+      /**
        * @summary 获取通话详情
        *
        * @param request GetCallDetailRecordRequest
@@ -259,6 +293,23 @@ namespace VoiceNavigator20251111
       Models::GetCallDetailRecordResponse getCallDetailRecord(const Models::GetCallDetailRecordRequest &request);
 
       /**
+       * @summary 获取实例实时指标
+       *
+       * @param request GetRealtimeInstanceStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRealtimeInstanceStatsResponse
+       */
+      Models::GetRealtimeInstanceStatsResponse getRealtimeInstanceStatsWithOptions(const Models::GetRealtimeInstanceStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例实时指标
+       *
+       * @param request GetRealtimeInstanceStatsRequest
+       * @return GetRealtimeInstanceStatsResponse
+       */
+      Models::GetRealtimeInstanceStatsResponse getRealtimeInstanceStats(const Models::GetRealtimeInstanceStatsRequest &request);
+
+      /**
        * @summary 获取录音
        *
        * @param request GetRecordingRequest
@@ -274,6 +325,23 @@ namespace VoiceNavigator20251111
        * @return GetRecordingResponse
        */
       Models::GetRecordingResponse getRecording(const Models::GetRecordingRequest &request);
+
+      /**
+       * @summary 获取实例详情
+       *
+       * @param request GetScriptRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScriptResponse
+       */
+      Models::GetScriptResponse getScriptWithOptions(const Models::GetScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例详情
+       *
+       * @param request GetScriptRequest
+       * @return GetScriptResponse
+       */
+      Models::GetScriptResponse getScript(const Models::GetScriptRequest &request);
 
       /**
        * @summary 获取MQ配置
@@ -342,6 +410,23 @@ namespace VoiceNavigator20251111
        * @return ListBackgroundMusicsResponse
        */
       Models::ListBackgroundMusicsResponse listBackgroundMusics(const Models::ListBackgroundMusicsRequest &request);
+
+      /**
+       * @summary 获取实例详情
+       *
+       * @param tmpReq ListCallDetailRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCallDetailRecordsResponse
+       */
+      Models::ListCallDetailRecordsResponse listCallDetailRecordsWithOptions(const Models::ListCallDetailRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例详情
+       *
+       * @param request ListCallDetailRecordsRequest
+       * @return ListCallDetailRecordsResponse
+       */
+      Models::ListCallDetailRecordsResponse listCallDetailRecords(const Models::ListCallDetailRecordsRequest &request);
 
       /**
        * @summary 获取实例详情

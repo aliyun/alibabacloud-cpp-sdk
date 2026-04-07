@@ -144,6 +144,98 @@ CreateScriptResponse Client::createScript(const CreateScriptRequest &request) {
 }
 
 /**
+ * @summary 创建场景配置
+ *
+ * @param tmpReq CreateScriptVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateScriptVersionResponse
+ */
+CreateScriptVersionResponse Client::createScriptVersionWithOptions(const CreateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateScriptVersionShrinkRequest request = CreateScriptVersionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInteractionConfig()) {
+    request.setInteractionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInteractionConfig(), "InteractionConfig", "json"));
+  }
+
+  if (!!tmpReq.hasLabelConfig()) {
+    request.setLabelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelConfig(), "LabelConfig", "json"));
+  }
+
+  if (!!tmpReq.hasScriptProfile()) {
+    request.setScriptProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScriptProfile(), "ScriptProfile", "json"));
+  }
+
+  if (!!tmpReq.hasSynthesizerConfig()) {
+    request.setSynthesizerConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSynthesizerConfig(), "SynthesizerConfig", "json"));
+  }
+
+  if (!!tmpReq.hasTranscriberConfig()) {
+    request.setTranscriberConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTranscriberConfig(), "TranscriberConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInteractionConfigShrink()) {
+    body["InteractionConfig"] = request.getInteractionConfigShrink();
+  }
+
+  if (!!request.hasLabelConfigShrink()) {
+    body["LabelConfig"] = request.getLabelConfigShrink();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasScriptProfileShrink()) {
+    body["ScriptProfile"] = request.getScriptProfileShrink();
+  }
+
+  if (!!request.hasSourceVersionId()) {
+    body["SourceVersionId"] = request.getSourceVersionId();
+  }
+
+  if (!!request.hasSynthesizerConfigShrink()) {
+    body["SynthesizerConfig"] = request.getSynthesizerConfigShrink();
+  }
+
+  if (!!request.hasTranscriberConfigShrink()) {
+    body["TranscriberConfig"] = request.getTranscriberConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateScriptVersion"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateScriptVersionResponse>();
+}
+
+/**
+ * @summary 创建场景配置
+ *
+ * @param request CreateScriptVersionRequest
+ * @return CreateScriptVersionResponse
+ */
+CreateScriptVersionResponse Client::createScriptVersion(const CreateScriptVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createScriptVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建变量
  *
  * @param request CreateVariableRequest
@@ -684,6 +776,56 @@ ExportVocabularyResponse Client::exportVocabulary(const ExportVocabularyRequest 
 }
 
 /**
+ * @summary 获取实例详情
+ *
+ * @param request GenerateFileUploadParamsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateFileUploadParamsResponse
+ */
+GenerateFileUploadParamsResponse Client::generateFileUploadParamsWithOptions(const GenerateFileUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessType()) {
+    body["BusinessType"] = request.getBusinessType();
+  }
+
+  if (!!request.hasFileName()) {
+    body["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GenerateFileUploadParams"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateFileUploadParamsResponse>();
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request GenerateFileUploadParamsRequest
+ * @return GenerateFileUploadParamsResponse
+ */
+GenerateFileUploadParamsResponse Client::generateFileUploadParams(const GenerateFileUploadParamsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateFileUploadParamsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取通话详情
  *
  * @param request GetCallDetailRecordRequest
@@ -730,6 +872,48 @@ GetCallDetailRecordResponse Client::getCallDetailRecord(const GetCallDetailRecor
 }
 
 /**
+ * @summary 获取实例实时指标
+ *
+ * @param request GetRealtimeInstanceStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRealtimeInstanceStatsResponse
+ */
+GetRealtimeInstanceStatsResponse Client::getRealtimeInstanceStatsWithOptions(const GetRealtimeInstanceStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetRealtimeInstanceStats"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRealtimeInstanceStatsResponse>();
+}
+
+/**
+ * @summary 获取实例实时指标
+ *
+ * @param request GetRealtimeInstanceStatsRequest
+ * @return GetRealtimeInstanceStatsResponse
+ */
+GetRealtimeInstanceStatsResponse Client::getRealtimeInstanceStats(const GetRealtimeInstanceStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRealtimeInstanceStatsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取录音
  *
  * @param request GetRecordingRequest
@@ -773,6 +957,52 @@ GetRecordingResponse Client::getRecordingWithOptions(const GetRecordingRequest &
 GetRecordingResponse Client::getRecording(const GetRecordingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getRecordingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request GetScriptRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScriptResponse
+ */
+GetScriptResponse Client::getScriptWithOptions(const GetScriptRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetScript"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScriptResponse>();
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request GetScriptRequest
+ * @return GetScriptResponse
+ */
+GetScriptResponse Client::getScript(const GetScriptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getScriptWithOptions(request, runtime);
 }
 
 /**
@@ -957,6 +1187,128 @@ ListBackgroundMusicsResponse Client::listBackgroundMusicsWithOptions(const ListB
 ListBackgroundMusicsResponse Client::listBackgroundMusics(const ListBackgroundMusicsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listBackgroundMusicsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param tmpReq ListCallDetailRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCallDetailRecordsResponse
+ */
+ListCallDetailRecordsResponse Client::listCallDetailRecordsWithOptions(const ListCallDetailRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListCallDetailRecordsShrinkRequest request = ListCallDetailRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDispositionCodes()) {
+    request.setDispositionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDispositionCodes(), "DispositionCodes", "json"));
+  }
+
+  if (!!tmpReq.hasDispositionReasons()) {
+    request.setDispositionReasonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDispositionReasons(), "DispositionReasons", "json"));
+  }
+
+  if (!!tmpReq.hasSessionIds()) {
+    request.setSessionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSessionIds(), "SessionIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAccessChannelId()) {
+    query["AccessChannelId"] = request.getAccessChannelId();
+  }
+
+  if (!!request.hasAccessChannelType()) {
+    query["AccessChannelType"] = request.getAccessChannelType();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasIssueResolved()) {
+    query["IssueResolved"] = request.getIssueResolved();
+  }
+
+  if (!!request.hasMaxTalkTurns()) {
+    query["MaxTalkTurns"] = request.getMaxTalkTurns();
+  }
+
+  if (!!request.hasMinTalkTurns()) {
+    query["MinTalkTurns"] = request.getMinTalkTurns();
+  }
+
+  json body = {};
+  if (!!request.hasCallee()) {
+    body["Callee"] = request.getCallee();
+  }
+
+  if (!!request.hasCaller()) {
+    body["Caller"] = request.getCaller();
+  }
+
+  if (!!request.hasDispositionCodesShrink()) {
+    body["DispositionCodes"] = request.getDispositionCodesShrink();
+  }
+
+  if (!!request.hasDispositionReasonsShrink()) {
+    body["DispositionReasons"] = request.getDispositionReasonsShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionIdsShrink()) {
+    body["SessionIds"] = request.getSessionIdsShrink();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListCallDetailRecords"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCallDetailRecordsResponse>();
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request ListCallDetailRecordsRequest
+ * @return ListCallDetailRecordsResponse
+ */
+ListCallDetailRecordsResponse Client::listCallDetailRecords(const ListCallDetailRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCallDetailRecordsWithOptions(request, runtime);
 }
 
 /**
