@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(DataSource, dataSourceShrink_);
+      DARABONBA_PTR_TO_JSON(DataSources, dataSourcesShrink_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
       DARABONBA_PTR_TO_JSON(ParentSessionId, parentSessionId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(DataSource, dataSourceShrink_);
+      DARABONBA_PTR_FROM_JSON(DataSources, dataSourcesShrink_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
       DARABONBA_PTR_FROM_JSON(ParentSessionId, parentSessionId_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->DMSUnit_ == nullptr && this->dataSourceShrink_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr && this->parentSessionId_ == nullptr
-        && this->question_ == nullptr && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfigShrink_ == nullptr && this->sessionId_ == nullptr; };
+        && this->DMSUnit_ == nullptr && this->dataSourceShrink_ == nullptr && this->dataSourcesShrink_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr
+        && this->parentSessionId_ == nullptr && this->question_ == nullptr && this->quotedMessage_ == nullptr && this->replyTo_ == nullptr && this->sessionConfigShrink_ == nullptr
+        && this->sessionId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -71,6 +74,13 @@ namespace Models
     void deleteDataSourceShrink() { this->dataSourceShrink_ = nullptr;};
     inline string getDataSourceShrink() const { DARABONBA_PTR_GET_DEFAULT(dataSourceShrink_, "") };
     inline SendChatMessageShrinkRequest& setDataSourceShrink(string dataSourceShrink) { DARABONBA_PTR_SET_VALUE(dataSourceShrink_, dataSourceShrink) };
+
+
+    // dataSourcesShrink Field Functions 
+    bool hasDataSourcesShrink() const { return this->dataSourcesShrink_ != nullptr;};
+    void deleteDataSourcesShrink() { this->dataSourcesShrink_ = nullptr;};
+    inline string getDataSourcesShrink() const { DARABONBA_PTR_GET_DEFAULT(dataSourcesShrink_, "") };
+    inline SendChatMessageShrinkRequest& setDataSourcesShrink(string dataSourcesShrink) { DARABONBA_PTR_SET_VALUE(dataSourcesShrink_, dataSourcesShrink) };
 
 
     // message Field Functions 
@@ -134,6 +144,7 @@ namespace Models
     shared_ptr<string> agentId_ {};
     shared_ptr<string> DMSUnit_ {};
     shared_ptr<string> dataSourceShrink_ {};
+    shared_ptr<string> dataSourcesShrink_ {};
     // This parameter is required.
     shared_ptr<string> message_ {};
     shared_ptr<string> messageType_ {};

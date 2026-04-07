@@ -3678,6 +3678,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
     request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSource(), "DataSource", "json"));
   }
 
+  if (!!tmpReq.hasDataSources()) {
+    request.setDataSourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSources(), "DataSources", "json"));
+  }
+
   if (!!tmpReq.hasSessionConfig()) {
     request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSessionConfig(), "SessionConfig", "json"));
   }
@@ -3693,6 +3697,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
 
   if (!!request.hasDataSourceShrink()) {
     query["DataSource"] = request.getDataSourceShrink();
+  }
+
+  if (!!request.hasDataSourcesShrink()) {
+    query["DataSources"] = request.getDataSourcesShrink();
   }
 
   if (!!request.hasMessage()) {

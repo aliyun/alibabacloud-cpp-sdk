@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_DMS20250414MODEL_HPP_
 #define ALIBABACLOUD_DMS20250414MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AgentServiceOrderSummaryVO.hpp>
+#include <alibabacloud/models/AgentServiceOrderVO.hpp>
 #include <alibabacloud/models/DLCatalog.hpp>
 #include <alibabacloud/models/DLColumn.hpp>
 #include <alibabacloud/models/DLDatabase.hpp>
@@ -17,6 +19,7 @@
 #include <alibabacloud/models/DLTable.hpp>
 #include <alibabacloud/models/DLTableInput.hpp>
 #include <alibabacloud/models/DLTablebaseInfo.hpp>
+#include <alibabacloud/models/DmsKnowledgeSearchOrderInfoDO.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>
 #include <alibabacloud/models/OneMetaDatabaseObject.hpp>

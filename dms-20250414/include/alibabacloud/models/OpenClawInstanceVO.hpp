@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(BasicAuthPassword, basicAuthPassword_);
       DARABONBA_PTR_TO_JSON(BasicAuthUsername, basicAuthUsername_);
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(InstanceRegion, instanceRegion_);
       DARABONBA_PTR_TO_JSON(LastActiveTime, lastActiveTime_);
+      DARABONBA_PTR_TO_JSON(LockTime, lockTime_);
       DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
       DARABONBA_PTR_TO_JSON(OpenclawToken, openclawToken_);
       DARABONBA_PTR_TO_JSON(OwnerUid, ownerUid_);
@@ -33,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StatusDesc, statusDesc_);
       DARABONBA_PTR_TO_JSON(StatusMessage, statusMessage_);
+      DARABONBA_PTR_TO_JSON(TrialExpireTime, trialExpireTime_);
       DARABONBA_PTR_TO_JSON(Variables, variables_);
     };
     friend void from_json(const Darabonba::Json& j, OpenClawInstanceVO& obj) { 
@@ -40,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(BasicAuthPassword, basicAuthPassword_);
       DARABONBA_PTR_FROM_JSON(BasicAuthUsername, basicAuthUsername_);
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
@@ -49,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(InstanceRegion, instanceRegion_);
       DARABONBA_PTR_FROM_JSON(LastActiveTime, lastActiveTime_);
+      DARABONBA_PTR_FROM_JSON(LockTime, lockTime_);
       DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
       DARABONBA_PTR_FROM_JSON(OpenclawToken, openclawToken_);
       DARABONBA_PTR_FROM_JSON(OwnerUid, ownerUid_);
@@ -56,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StatusDesc, statusDesc_);
       DARABONBA_PTR_FROM_JSON(StatusMessage, statusMessage_);
+      DARABONBA_PTR_FROM_JSON(TrialExpireTime, trialExpireTime_);
       DARABONBA_PTR_FROM_JSON(Variables, variables_);
     };
     OpenClawInstanceVO() = default ;
@@ -142,10 +148,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->aliyunAccountUid_ == nullptr
-        && this->authType_ == nullptr && this->basicAuthPassword_ == nullptr && this->basicAuthUsername_ == nullptr && this->cpu_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->imageInfo_ == nullptr && this->instanceDesc_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->instanceRegion_ == nullptr && this->lastActiveTime_ == nullptr && this->memorySize_ == nullptr && this->openclawToken_ == nullptr && this->ownerUid_ == nullptr
-        && this->publicDomain_ == nullptr && this->status_ == nullptr && this->statusDesc_ == nullptr && this->statusMessage_ == nullptr && this->variables_ == nullptr; };
+        && this->authType_ == nullptr && this->basicAuthPassword_ == nullptr && this->basicAuthUsername_ == nullptr && this->chargeType_ == nullptr && this->cpu_ == nullptr
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->imageInfo_ == nullptr && this->instanceDesc_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceRegion_ == nullptr && this->lastActiveTime_ == nullptr && this->lockTime_ == nullptr && this->memorySize_ == nullptr
+        && this->openclawToken_ == nullptr && this->ownerUid_ == nullptr && this->publicDomain_ == nullptr && this->status_ == nullptr && this->statusDesc_ == nullptr
+        && this->statusMessage_ == nullptr && this->trialExpireTime_ == nullptr && this->variables_ == nullptr; };
     // aliyunAccountUid Field Functions 
     bool hasAliyunAccountUid() const { return this->aliyunAccountUid_ != nullptr;};
     void deleteAliyunAccountUid() { this->aliyunAccountUid_ = nullptr;};
@@ -172,6 +179,13 @@ namespace Models
     void deleteBasicAuthUsername() { this->basicAuthUsername_ = nullptr;};
     inline string getBasicAuthUsername() const { DARABONBA_PTR_GET_DEFAULT(basicAuthUsername_, "") };
     inline OpenClawInstanceVO& setBasicAuthUsername(string basicAuthUsername) { DARABONBA_PTR_SET_VALUE(basicAuthUsername_, basicAuthUsername) };
+
+
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline OpenClawInstanceVO& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // cpu Field Functions 
@@ -239,6 +253,13 @@ namespace Models
     inline OpenClawInstanceVO& setLastActiveTime(string lastActiveTime) { DARABONBA_PTR_SET_VALUE(lastActiveTime_, lastActiveTime) };
 
 
+    // lockTime Field Functions 
+    bool hasLockTime() const { return this->lockTime_ != nullptr;};
+    void deleteLockTime() { this->lockTime_ = nullptr;};
+    inline string getLockTime() const { DARABONBA_PTR_GET_DEFAULT(lockTime_, "") };
+    inline OpenClawInstanceVO& setLockTime(string lockTime) { DARABONBA_PTR_SET_VALUE(lockTime_, lockTime) };
+
+
     // memorySize Field Functions 
     bool hasMemorySize() const { return this->memorySize_ != nullptr;};
     void deleteMemorySize() { this->memorySize_ = nullptr;};
@@ -288,6 +309,13 @@ namespace Models
     inline OpenClawInstanceVO& setStatusMessage(string statusMessage) { DARABONBA_PTR_SET_VALUE(statusMessage_, statusMessage) };
 
 
+    // trialExpireTime Field Functions 
+    bool hasTrialExpireTime() const { return this->trialExpireTime_ != nullptr;};
+    void deleteTrialExpireTime() { this->trialExpireTime_ = nullptr;};
+    inline string getTrialExpireTime() const { DARABONBA_PTR_GET_DEFAULT(trialExpireTime_, "") };
+    inline OpenClawInstanceVO& setTrialExpireTime(string trialExpireTime) { DARABONBA_PTR_SET_VALUE(trialExpireTime_, trialExpireTime) };
+
+
     // variables Field Functions 
     bool hasVariables() const { return this->variables_ != nullptr;};
     void deleteVariables() { this->variables_ = nullptr;};
@@ -300,6 +328,7 @@ namespace Models
     shared_ptr<string> authType_ {};
     shared_ptr<string> basicAuthPassword_ {};
     shared_ptr<string> basicAuthUsername_ {};
+    shared_ptr<string> chargeType_ {};
     shared_ptr<double> cpu_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
@@ -309,6 +338,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> instanceRegion_ {};
     shared_ptr<string> lastActiveTime_ {};
+    shared_ptr<string> lockTime_ {};
     shared_ptr<int32_t> memorySize_ {};
     shared_ptr<string> openclawToken_ {};
     shared_ptr<string> ownerUid_ {};
@@ -316,6 +346,7 @@ namespace Models
     shared_ptr<int32_t> status_ {};
     shared_ptr<string> statusDesc_ {};
     shared_ptr<string> statusMessage_ {};
+    shared_ptr<string> trialExpireTime_ {};
     shared_ptr<string> variables_ {};
   };
 
