@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RelatedSignName, relatedSignName_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SignList, signList_);
       DARABONBA_PTR_TO_JSON(TemplateCode, templateCode_);
       DARABONBA_PTR_TO_JSON(TemplateContent, templateContent_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RelatedSignName, relatedSignName_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SignList, signList_);
       DARABONBA_PTR_FROM_JSON(TemplateCode, templateCode_);
       DARABONBA_PTR_FROM_JSON(TemplateContent, templateContent_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
@@ -68,6 +70,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SignList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SignList& obj) { 
+        DARABONBA_PTR_TO_JSON(SignList, signList_);
+      };
+      friend void from_json(const Darabonba::Json& j, SignList& obj) { 
+        DARABONBA_PTR_FROM_JSON(SignList, signList_);
+      };
+      SignList() = default ;
+      SignList(const SignList &) = default ;
+      SignList(SignList &&) = default ;
+      SignList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SignList() = default ;
+      SignList& operator=(const SignList &) = default ;
+      SignList& operator=(SignList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->signList_ == nullptr; };
+      // signList Field Functions 
+      bool hasSignList() const { return this->signList_ != nullptr;};
+      void deleteSignList() { this->signList_ = nullptr;};
+      inline const vector<string> & getSignList() const { DARABONBA_PTR_GET_CONST(signList_, vector<string>) };
+      inline vector<string> getSignList() { DARABONBA_PTR_GET(signList_, vector<string>) };
+      inline SignList& setSignList(const vector<string> & signList) { DARABONBA_PTR_SET_VALUE(signList_, signList) };
+      inline SignList& setSignList(vector<string> && signList) { DARABONBA_PTR_SET_RVALUE(signList_, signList) };
+
+
+    protected:
+      shared_ptr<vector<string>> signList_ {};
+    };
+
     class MoreDataFileUrlList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const MoreDataFileUrlList& obj) { 
@@ -181,8 +216,8 @@ namespace Models
     virtual bool empty() const override { return this->applyScene_ == nullptr
         && this->auditInfo_ == nullptr && this->code_ == nullptr && this->createDate_ == nullptr && this->fileUrlList_ == nullptr && this->intlType_ == nullptr
         && this->message_ == nullptr && this->moreDataFileUrlList_ == nullptr && this->orderId_ == nullptr && this->relatedSignName_ == nullptr && this->remark_ == nullptr
-        && this->requestId_ == nullptr && this->templateCode_ == nullptr && this->templateContent_ == nullptr && this->templateName_ == nullptr && this->templateStatus_ == nullptr
-        && this->templateTag_ == nullptr && this->templateType_ == nullptr && this->variableAttribute_ == nullptr && this->vendorAuditStatus_ == nullptr; };
+        && this->requestId_ == nullptr && this->signList_ == nullptr && this->templateCode_ == nullptr && this->templateContent_ == nullptr && this->templateName_ == nullptr
+        && this->templateStatus_ == nullptr && this->templateTag_ == nullptr && this->templateType_ == nullptr && this->variableAttribute_ == nullptr && this->vendorAuditStatus_ == nullptr; };
     // applyScene Field Functions 
     bool hasApplyScene() const { return this->applyScene_ != nullptr;};
     void deleteApplyScene() { this->applyScene_ = nullptr;};
@@ -271,6 +306,15 @@ namespace Models
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSmsTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // signList Field Functions 
+    bool hasSignList() const { return this->signList_ != nullptr;};
+    void deleteSignList() { this->signList_ = nullptr;};
+    inline const GetSmsTemplateResponseBody::SignList & getSignList() const { DARABONBA_PTR_GET_CONST(signList_, GetSmsTemplateResponseBody::SignList) };
+    inline GetSmsTemplateResponseBody::SignList getSignList() { DARABONBA_PTR_GET(signList_, GetSmsTemplateResponseBody::SignList) };
+    inline GetSmsTemplateResponseBody& setSignList(const GetSmsTemplateResponseBody::SignList & signList) { DARABONBA_PTR_SET_VALUE(signList_, signList) };
+    inline GetSmsTemplateResponseBody& setSignList(GetSmsTemplateResponseBody::SignList && signList) { DARABONBA_PTR_SET_RVALUE(signList_, signList) };
 
 
     // templateCode Field Functions 
@@ -362,6 +406,7 @@ namespace Models
     shared_ptr<string> remark_ {};
     // The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting and issue定位.
     shared_ptr<string> requestId_ {};
+    shared_ptr<GetSmsTemplateResponseBody::SignList> signList_ {};
     // SMS template code.
     shared_ptr<string> templateCode_ {};
     // Content of the SMS template.

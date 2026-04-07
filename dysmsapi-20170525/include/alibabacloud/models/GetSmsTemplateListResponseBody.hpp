@@ -72,6 +72,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
           DARABONBA_PTR_TO_JSON(SignName, signName_);
           DARABONBA_PTR_TO_JSON(TemplateCode, templateCode_);
+          DARABONBA_PTR_TO_JSON(TemplateContent, templateContent_);
           DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
           DARABONBA_PTR_TO_JSON(TemplateTag, templateTag_);
           DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
@@ -83,6 +84,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
           DARABONBA_PTR_FROM_JSON(SignName, signName_);
           DARABONBA_PTR_FROM_JSON(TemplateCode, templateCode_);
+          DARABONBA_PTR_FROM_JSON(TemplateContent, templateContent_);
           DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
           DARABONBA_PTR_FROM_JSON(TemplateTag, templateTag_);
           DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
@@ -143,8 +145,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->auditStatus_ == nullptr
-        && this->gmtCreate_ == nullptr && this->signName_ == nullptr && this->templateCode_ == nullptr && this->templateName_ == nullptr && this->templateTag_ == nullptr
-        && this->templateType_ == nullptr && this->usableStateList_ == nullptr && this->workOrderId_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->signName_ == nullptr && this->templateCode_ == nullptr && this->templateContent_ == nullptr && this->templateName_ == nullptr
+        && this->templateTag_ == nullptr && this->templateType_ == nullptr && this->usableStateList_ == nullptr && this->workOrderId_ == nullptr; };
         // auditStatus Field Functions 
         bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
         void deleteAuditStatus() { this->auditStatus_ = nullptr;};
@@ -171,6 +173,13 @@ namespace Models
         void deleteTemplateCode() { this->templateCode_ = nullptr;};
         inline string getTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
         inline List& setTemplateCode(string templateCode) { DARABONBA_PTR_SET_VALUE(templateCode_, templateCode) };
+
+
+        // templateContent Field Functions 
+        bool hasTemplateContent() const { return this->templateContent_ != nullptr;};
+        void deleteTemplateContent() { this->templateContent_ = nullptr;};
+        inline string getTemplateContent() const { DARABONBA_PTR_GET_DEFAULT(templateContent_, "") };
+        inline List& setTemplateContent(string templateContent) { DARABONBA_PTR_SET_VALUE(templateContent_, templateContent) };
 
 
         // templateName Field Functions 
@@ -221,6 +230,8 @@ namespace Models
         shared_ptr<string> signName_ {};
         // 模板code
         shared_ptr<string> templateCode_ {};
+        // 模板内容
+        shared_ptr<string> templateContent_ {};
         // 模板名称
         shared_ptr<string> templateName_ {};
         // 模板标签
