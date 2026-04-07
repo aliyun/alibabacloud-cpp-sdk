@@ -61,6 +61,10 @@
 #include <alibabacloud/models/AddServiceSourceShrinkRequest.hpp>
 #include <alibabacloud/models/AddServiceSourceResponseBody.hpp>
 #include <alibabacloud/models/AddServiceSourceResponse.hpp>
+#include <alibabacloud/models/AddZooKeeperSaslUserRequest.hpp>
+#include <alibabacloud/models/AddZooKeeperSaslUserShrinkRequest.hpp>
+#include <alibabacloud/models/AddZooKeeperSaslUserResponseBody.hpp>
+#include <alibabacloud/models/AddZooKeeperSaslUserResponse.hpp>
 #include <alibabacloud/models/ApplyGatewayRouteRequest.hpp>
 #include <alibabacloud/models/ApplyGatewayRouteResponseBody.hpp>
 #include <alibabacloud/models/ApplyGatewayRouteResponse.hpp>
@@ -543,6 +547,9 @@
 #include <alibabacloud/models/ListZnodeChildrenRequest.hpp>
 #include <alibabacloud/models/ListZnodeChildrenResponseBody.hpp>
 #include <alibabacloud/models/ListZnodeChildrenResponse.hpp>
+#include <alibabacloud/models/ListZooKeeperSaslUserRequest.hpp>
+#include <alibabacloud/models/ListZooKeeperSaslUserResponseBody.hpp>
+#include <alibabacloud/models/ListZooKeeperSaslUserResponse.hpp>
 #include <alibabacloud/models/ModifyGovernanceKubernetesClusterRequest.hpp>
 #include <alibabacloud/models/ModifyGovernanceKubernetesClusterShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyGovernanceKubernetesClusterResponseBody.hpp>
@@ -625,6 +632,10 @@
 #include <alibabacloud/models/RemoveAuthPolicyRequest.hpp>
 #include <alibabacloud/models/RemoveAuthPolicyResponseBody.hpp>
 #include <alibabacloud/models/RemoveAuthPolicyResponse.hpp>
+#include <alibabacloud/models/RemoveZooKeeperSaslUserRequest.hpp>
+#include <alibabacloud/models/RemoveZooKeeperSaslUserShrinkRequest.hpp>
+#include <alibabacloud/models/RemoveZooKeeperSaslUserResponseBody.hpp>
+#include <alibabacloud/models/RemoveZooKeeperSaslUserResponse.hpp>
 #include <alibabacloud/models/RestartClusterRequest.hpp>
 #include <alibabacloud/models/RestartClusterResponseBody.hpp>
 #include <alibabacloud/models/RestartClusterResponse.hpp>
@@ -802,6 +813,10 @@
 #include <alibabacloud/models/UpdateZnodeRequest.hpp>
 #include <alibabacloud/models/UpdateZnodeResponseBody.hpp>
 #include <alibabacloud/models/UpdateZnodeResponse.hpp>
+#include <alibabacloud/models/UpdateZooKeeperSaslUserRequest.hpp>
+#include <alibabacloud/models/UpdateZooKeeperSaslUserShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateZooKeeperSaslUserResponseBody.hpp>
+#include <alibabacloud/models/UpdateZooKeeperSaslUserResponse.hpp>
 #include <alibabacloud/models/UpgradeClusterRequest.hpp>
 #include <alibabacloud/models/UpgradeClusterResponseBody.hpp>
 #include <alibabacloud/models/UpgradeClusterResponse.hpp>

@@ -1384,6 +1384,66 @@ AddServiceSourceResponse Client::addServiceSource(const AddServiceSourceRequest 
 }
 
 /**
+ * @summary 增加ZooKeeper Sasl 用户
+ *
+ * @param tmpReq AddZooKeeperSaslUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddZooKeeperSaslUserResponse
+ */
+AddZooKeeperSaslUserResponse Client::addZooKeeperSaslUserWithOptions(const AddZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddZooKeeperSaslUserShrinkRequest request = AddZooKeeperSaslUserShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSaslUser()) {
+    request.setSaslUserShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSaslUser(), "SaslUser", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasReload()) {
+    query["Reload"] = request.getReload();
+  }
+
+  if (!!request.hasSaslUserShrink()) {
+    query["SaslUser"] = request.getSaslUserShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddZooKeeperSaslUser"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddZooKeeperSaslUserResponse>();
+}
+
+/**
+ * @summary 增加ZooKeeper Sasl 用户
+ *
+ * @param request AddZooKeeperSaslUserRequest
+ * @return AddZooKeeperSaslUserResponse
+ */
+AddZooKeeperSaslUserResponse Client::addZooKeeperSaslUser(const AddZooKeeperSaslUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addZooKeeperSaslUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Publishes a route for a gateway.
  *
  * @param request ApplyGatewayRouteRequest
@@ -11014,6 +11074,52 @@ ListZnodeChildrenResponse Client::listZnodeChildren(const ListZnodeChildrenReque
 }
 
 /**
+ * @summary 列出所有ZooKeeper sasl用户
+ *
+ * @param request ListZooKeeperSaslUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListZooKeeperSaslUserResponse
+ */
+ListZooKeeperSaslUserResponse Client::listZooKeeperSaslUserWithOptions(const ListZooKeeperSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListZooKeeperSaslUser"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListZooKeeperSaslUserResponse>();
+}
+
+/**
+ * @summary 列出所有ZooKeeper sasl用户
+ *
+ * @param request ListZooKeeperSaslUserRequest
+ * @return ListZooKeeperSaslUserResponse
+ */
+ListZooKeeperSaslUserResponse Client::listZooKeeperSaslUser(const ListZooKeeperSaslUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listZooKeeperSaslUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the information about a cluster for which Microservice Governance is enabled.
  *
  * @param tmpReq ModifyGovernanceKubernetesClusterRequest
@@ -12485,6 +12591,66 @@ RemoveAuthPolicyResponse Client::removeAuthPolicyWithOptions(const RemoveAuthPol
 RemoveAuthPolicyResponse Client::removeAuthPolicy(const RemoveAuthPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeAuthPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除ZooKeeper sasl用户
+ *
+ * @param tmpReq RemoveZooKeeperSaslUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveZooKeeperSaslUserResponse
+ */
+RemoveZooKeeperSaslUserResponse Client::removeZooKeeperSaslUserWithOptions(const RemoveZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RemoveZooKeeperSaslUserShrinkRequest request = RemoveZooKeeperSaslUserShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUserNames()) {
+    request.setUserNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserNames(), "UserNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasReload()) {
+    query["Reload"] = request.getReload();
+  }
+
+  if (!!request.hasUserNamesShrink()) {
+    query["UserNames"] = request.getUserNamesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveZooKeeperSaslUser"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveZooKeeperSaslUserResponse>();
+}
+
+/**
+ * @summary 删除ZooKeeper sasl用户
+ *
+ * @param request RemoveZooKeeperSaslUserRequest
+ * @return RemoveZooKeeperSaslUserResponse
+ */
+RemoveZooKeeperSaslUserResponse Client::removeZooKeeperSaslUser(const RemoveZooKeeperSaslUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeZooKeeperSaslUserWithOptions(request, runtime);
 }
 
 /**
@@ -16555,6 +16721,66 @@ UpdateZnodeResponse Client::updateZnodeWithOptions(const UpdateZnodeRequest &req
 UpdateZnodeResponse Client::updateZnode(const UpdateZnodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateZnodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改ZooKeeper sasl 用户信息
+ *
+ * @param tmpReq UpdateZooKeeperSaslUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateZooKeeperSaslUserResponse
+ */
+UpdateZooKeeperSaslUserResponse Client::updateZooKeeperSaslUserWithOptions(const UpdateZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateZooKeeperSaslUserShrinkRequest request = UpdateZooKeeperSaslUserShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSaslUser()) {
+    request.setSaslUserShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSaslUser(), "SaslUser", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasReload()) {
+    query["Reload"] = request.getReload();
+  }
+
+  if (!!request.hasSaslUserShrink()) {
+    query["SaslUser"] = request.getSaslUserShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateZooKeeperSaslUser"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateZooKeeperSaslUserResponse>();
+}
+
+/**
+ * @summary 修改ZooKeeper sasl 用户信息
+ *
+ * @param request UpdateZooKeeperSaslUserRequest
+ * @return UpdateZooKeeperSaslUserResponse
+ */
+UpdateZooKeeperSaslUserResponse Client::updateZooKeeperSaslUser(const UpdateZooKeeperSaslUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateZooKeeperSaslUserWithOptions(request, runtime);
 }
 
 /**

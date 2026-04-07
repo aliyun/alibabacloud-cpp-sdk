@@ -276,6 +276,23 @@ namespace Mse20190531
       Models::AddServiceSourceResponse addServiceSource(const Models::AddServiceSourceRequest &request);
 
       /**
+       * @summary 增加ZooKeeper Sasl 用户
+       *
+       * @param tmpReq AddZooKeeperSaslUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddZooKeeperSaslUserResponse
+       */
+      Models::AddZooKeeperSaslUserResponse addZooKeeperSaslUserWithOptions(const Models::AddZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 增加ZooKeeper Sasl 用户
+       *
+       * @param request AddZooKeeperSaslUserRequest
+       * @return AddZooKeeperSaslUserResponse
+       */
+      Models::AddZooKeeperSaslUserResponse addZooKeeperSaslUser(const Models::AddZooKeeperSaslUserRequest &request);
+
+      /**
        * @summary Publishes a route for a gateway.
        *
        * @param request ApplyGatewayRouteRequest
@@ -3014,6 +3031,23 @@ namespace Mse20190531
       Models::ListZnodeChildrenResponse listZnodeChildren(const Models::ListZnodeChildrenRequest &request);
 
       /**
+       * @summary 列出所有ZooKeeper sasl用户
+       *
+       * @param request ListZooKeeperSaslUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListZooKeeperSaslUserResponse
+       */
+      Models::ListZooKeeperSaslUserResponse listZooKeeperSaslUserWithOptions(const Models::ListZooKeeperSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出所有ZooKeeper sasl用户
+       *
+       * @param request ListZooKeeperSaslUserRequest
+       * @return ListZooKeeperSaslUserResponse
+       */
+      Models::ListZooKeeperSaslUserResponse listZooKeeperSaslUser(const Models::ListZooKeeperSaslUserRequest &request);
+
+      /**
        * @summary Modifies the information about a cluster for which Microservice Governance is enabled.
        *
        * @param tmpReq ModifyGovernanceKubernetesClusterRequest
@@ -3471,6 +3505,23 @@ namespace Mse20190531
        * @return RemoveAuthPolicyResponse
        */
       Models::RemoveAuthPolicyResponse removeAuthPolicy(const Models::RemoveAuthPolicyRequest &request);
+
+      /**
+       * @summary 删除ZooKeeper sasl用户
+       *
+       * @param tmpReq RemoveZooKeeperSaslUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveZooKeeperSaslUserResponse
+       */
+      Models::RemoveZooKeeperSaslUserResponse removeZooKeeperSaslUserWithOptions(const Models::RemoveZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除ZooKeeper sasl用户
+       *
+       * @param request RemoveZooKeeperSaslUserRequest
+       * @return RemoveZooKeeperSaslUserResponse
+       */
+      Models::RemoveZooKeeperSaslUserResponse removeZooKeeperSaslUser(const Models::RemoveZooKeeperSaslUserRequest &request);
 
       /**
        * @summary Restarts a registry.
@@ -4409,6 +4460,23 @@ namespace Mse20190531
        * @return UpdateZnodeResponse
        */
       Models::UpdateZnodeResponse updateZnode(const Models::UpdateZnodeRequest &request);
+
+      /**
+       * @summary 修改ZooKeeper sasl 用户信息
+       *
+       * @param tmpReq UpdateZooKeeperSaslUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateZooKeeperSaslUserResponse
+       */
+      Models::UpdateZooKeeperSaslUserResponse updateZooKeeperSaslUserWithOptions(const Models::UpdateZooKeeperSaslUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改ZooKeeper sasl 用户信息
+       *
+       * @param request UpdateZooKeeperSaslUserRequest
+       * @return UpdateZooKeeperSaslUserResponse
+       */
+      Models::UpdateZooKeeperSaslUserResponse updateZooKeeperSaslUser(const Models::UpdateZooKeeperSaslUserRequest &request);
 
       /**
        * @summary Upgrades the version of a cluster.
