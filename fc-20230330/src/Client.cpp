@@ -2866,6 +2866,10 @@ PutScalingConfigResponse Client::putScalingConfig(const string &functionName, co
 ResumeSessionResponse Client::resumeSessionWithOptions(const string &functionName, const string &sessionId, const ResumeSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFileSystemOnly()) {
+    query["fileSystemOnly"] = request.getFileSystemOnly();
+  }
+
   if (!!request.hasQualifier()) {
     query["qualifier"] = request.getQualifier();
   }
