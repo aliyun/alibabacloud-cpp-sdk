@@ -20,10 +20,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialIdentifier, credentialIdentifier_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(credentialScenarioLabel, credentialScenarioLabel_);
+      DARABONBA_PTR_TO_JSON(credentialSharingScope, credentialSharingScope_);
       DARABONBA_PTR_TO_JSON(credentialSubjectId, credentialSubjectId_);
       DARABONBA_PTR_TO_JSON(credentialSubjectType, credentialSubjectType_);
       DARABONBA_PTR_TO_JSON(credentialType, credentialType_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(exclusiveUserId, exclusiveUserId_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
@@ -36,10 +38,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialIdentifier, credentialIdentifier_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(credentialScenarioLabel, credentialScenarioLabel_);
+      DARABONBA_PTR_FROM_JSON(credentialSharingScope, credentialSharingScope_);
       DARABONBA_PTR_FROM_JSON(credentialSubjectId, credentialSubjectId_);
       DARABONBA_PTR_FROM_JSON(credentialSubjectType, credentialSubjectType_);
       DARABONBA_PTR_FROM_JSON(credentialType, credentialType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(exclusiveUserId, exclusiveUserId_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
@@ -178,8 +182,8 @@ namespace Models
 
     virtual bool empty() const override { return this->createTime_ == nullptr
         && this->credentialContent_ == nullptr && this->credentialCreationType_ == nullptr && this->credentialId_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr
-        && this->credentialScenarioLabel_ == nullptr && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr && this->credentialType_ == nullptr && this->description_ == nullptr
-        && this->instanceId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->credentialScenarioLabel_ == nullptr && this->credentialSharingScope_ == nullptr && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr && this->credentialType_ == nullptr
+        && this->description_ == nullptr && this->exclusiveUserId_ == nullptr && this->instanceId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -231,6 +235,13 @@ namespace Models
     inline ObtainCredentialResponseBody& setCredentialScenarioLabel(string credentialScenarioLabel) { DARABONBA_PTR_SET_VALUE(credentialScenarioLabel_, credentialScenarioLabel) };
 
 
+    // credentialSharingScope Field Functions 
+    bool hasCredentialSharingScope() const { return this->credentialSharingScope_ != nullptr;};
+    void deleteCredentialSharingScope() { this->credentialSharingScope_ = nullptr;};
+    inline string getCredentialSharingScope() const { DARABONBA_PTR_GET_DEFAULT(credentialSharingScope_, "") };
+    inline ObtainCredentialResponseBody& setCredentialSharingScope(string credentialSharingScope) { DARABONBA_PTR_SET_VALUE(credentialSharingScope_, credentialSharingScope) };
+
+
     // credentialSubjectId Field Functions 
     bool hasCredentialSubjectId() const { return this->credentialSubjectId_ != nullptr;};
     void deleteCredentialSubjectId() { this->credentialSubjectId_ = nullptr;};
@@ -257,6 +268,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ObtainCredentialResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // exclusiveUserId Field Functions 
+    bool hasExclusiveUserId() const { return this->exclusiveUserId_ != nullptr;};
+    void deleteExclusiveUserId() { this->exclusiveUserId_ = nullptr;};
+    inline string getExclusiveUserId() const { DARABONBA_PTR_GET_DEFAULT(exclusiveUserId_, "") };
+    inline ObtainCredentialResponseBody& setExclusiveUserId(string exclusiveUserId) { DARABONBA_PTR_SET_VALUE(exclusiveUserId_, exclusiveUserId) };
 
 
     // instanceId Field Functions 
@@ -295,6 +313,8 @@ namespace Models
     shared_ptr<string> credentialName_ {};
     // 凭据的使用场景标签。
     shared_ptr<string> credentialScenarioLabel_ {};
+    // 凭据的共享范围。
+    shared_ptr<string> credentialSharingScope_ {};
     // 凭据所属的主体ID。
     shared_ptr<string> credentialSubjectId_ {};
     // 凭据所属的主体类型。
@@ -303,6 +323,8 @@ namespace Models
     shared_ptr<string> credentialType_ {};
     // 描述
     shared_ptr<string> description_ {};
+    // 凭据的专属账户ID。
+    shared_ptr<string> exclusiveUserId_ {};
     // EIAM实例ID。
     shared_ptr<string> instanceId_ {};
     // 凭据状态
