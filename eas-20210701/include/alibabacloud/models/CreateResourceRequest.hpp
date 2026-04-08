@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(SelfManagedResourceOptions, selfManagedResourceOptions_);
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
+      DARABONBA_PTR_TO_JSON(UsageMode, usageMode_);
       DARABONBA_PTR_TO_JSON(Zone, zone_);
     };
     friend void from_json(const Darabonba::Json& j, CreateResourceRequest& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(SelfManagedResourceOptions, selfManagedResourceOptions_);
       DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
+      DARABONBA_PTR_FROM_JSON(UsageMode, usageMode_);
       DARABONBA_PTR_FROM_JSON(Zone, zone_);
     };
     CreateResourceRequest() = default ;
@@ -198,7 +200,7 @@ namespace Models
 
     virtual bool empty() const override { return this->autoRenewal_ == nullptr
         && this->chargeType_ == nullptr && this->ecsInstanceCount_ == nullptr && this->ecsInstanceType_ == nullptr && this->labels_ == nullptr && this->resourceName_ == nullptr
-        && this->resourceType_ == nullptr && this->selfManagedResourceOptions_ == nullptr && this->systemDiskSize_ == nullptr && this->zone_ == nullptr; };
+        && this->resourceType_ == nullptr && this->selfManagedResourceOptions_ == nullptr && this->systemDiskSize_ == nullptr && this->usageMode_ == nullptr && this->zone_ == nullptr; };
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};
@@ -266,6 +268,13 @@ namespace Models
     inline CreateResourceRequest& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
+    // usageMode Field Functions 
+    bool hasUsageMode() const { return this->usageMode_ != nullptr;};
+    void deleteUsageMode() { this->usageMode_ = nullptr;};
+    inline string getUsageMode() const { DARABONBA_PTR_GET_DEFAULT(usageMode_, "") };
+    inline CreateResourceRequest& setUsageMode(string usageMode) { DARABONBA_PTR_SET_VALUE(usageMode_, usageMode) };
+
+
     // zone Field Functions 
     bool hasZone() const { return this->zone_ != nullptr;};
     void deleteZone() { this->zone_ = nullptr;};
@@ -308,6 +317,7 @@ namespace Models
     shared_ptr<CreateResourceRequest::SelfManagedResourceOptions> selfManagedResourceOptions_ {};
     // The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
     shared_ptr<int32_t> systemDiskSize_ {};
+    shared_ptr<string> usageMode_ {};
     // The ID of the zone in which the instance resides.
     shared_ptr<string> zone_ {};
   };

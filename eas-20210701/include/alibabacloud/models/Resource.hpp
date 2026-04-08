@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+      DARABONBA_PTR_TO_JSON(UsageMode, usageMode_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
     };
     friend void from_json(const Darabonba::Json& j, Resource& obj) { 
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+      DARABONBA_PTR_FROM_JSON(UsageMode, usageMode_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
     };
     Resource() = default ;
@@ -79,7 +81,7 @@ namespace Models
         && this->gpuCount_ == nullptr && this->gpuUsed_ == nullptr && this->instanceCount_ == nullptr && this->instanceMaxAllocatableCPU_ == nullptr && this->instanceMaxAllocatableGPU_ == nullptr
         && this->instanceMaxAllocatableMemory_ == nullptr && this->memory_ == nullptr && this->memoryUsed_ == nullptr && this->message_ == nullptr && this->postPaidInstanceCount_ == nullptr
         && this->prePaidInstanceCount_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->updateTime_ == nullptr && this->vendor_ == nullptr; };
+        && this->updateTime_ == nullptr && this->usageMode_ == nullptr && this->vendor_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -238,6 +240,13 @@ namespace Models
     inline Resource& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
+    // usageMode Field Functions 
+    bool hasUsageMode() const { return this->usageMode_ != nullptr;};
+    void deleteUsageMode() { this->usageMode_ = nullptr;};
+    inline string getUsageMode() const { DARABONBA_PTR_GET_DEFAULT(usageMode_, "") };
+    inline Resource& setUsageMode(string usageMode) { DARABONBA_PTR_SET_VALUE(usageMode_, usageMode) };
+
+
     // vendor Field Functions 
     bool hasVendor() const { return this->vendor_ != nullptr;};
     void deleteVendor() { this->vendor_ = nullptr;};
@@ -285,6 +294,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // The time when the instance was last updated.
     shared_ptr<string> updateTime_ {};
+    shared_ptr<string> usageMode_ {};
     // The vendor of the resource group instances.
     // 
     // Valid values:

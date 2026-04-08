@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceStatus, resourceStatus_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Sort, sort_);
+      DARABONBA_PTR_TO_JSON(UsageMode, usageMode_);
     };
     friend void from_json(const Darabonba::Json& j, ListResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Order, order_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceStatus, resourceStatus_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Sort, sort_);
+      DARABONBA_PTR_FROM_JSON(UsageMode, usageMode_);
     };
     ListResourcesRequest() = default ;
     ListResourcesRequest(const ListResourcesRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->order_ == nullptr
         && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceStatus_ == nullptr
-        && this->resourceType_ == nullptr && this->sort_ == nullptr; };
+        && this->resourceType_ == nullptr && this->sort_ == nullptr && this->usageMode_ == nullptr; };
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline ListResourcesRequest& setSort(string sort) { DARABONBA_PTR_SET_VALUE(sort_, sort) };
 
 
+    // usageMode Field Functions 
+    bool hasUsageMode() const { return this->usageMode_ != nullptr;};
+    void deleteUsageMode() { this->usageMode_ = nullptr;};
+    inline string getUsageMode() const { DARABONBA_PTR_GET_DEFAULT(usageMode_, "") };
+    inline ListResourcesRequest& setUsageMode(string usageMode) { DARABONBA_PTR_SET_VALUE(usageMode_, usageMode) };
+
+
   protected:
     // The sorting order. Valid values:
     // 
@@ -138,6 +147,7 @@ namespace Models
     // *   CpuUsed
     // *   ServiceCount
     shared_ptr<string> sort_ {};
+    shared_ptr<string> usageMode_ {};
   };
 
   } // namespace Models

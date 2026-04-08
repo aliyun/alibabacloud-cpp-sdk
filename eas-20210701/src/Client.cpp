@@ -651,6 +651,10 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
     body["SystemDiskSize"] = request.getSystemDiskSize();
   }
 
+  if (!!request.hasUsageMode()) {
+    body["UsageMode"] = request.getUsageMode();
+  }
+
   if (!!request.hasZone()) {
     body["Zone"] = request.getZone();
   }
@@ -3693,6 +3697,10 @@ ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesReques
 
   if (!!request.hasSort()) {
     query["Sort"] = request.getSort();
+  }
+
+  if (!!request.hasUsageMode()) {
+    query["UsageMode"] = request.getUsageMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
