@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->folderName_ != nullptr
-        && this->groupId_ != nullptr && this->parentId_ != nullptr && this->projectId_ != nullptr && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->folderName_ == nullptr
+        && this->groupId_ == nullptr && this->parentId_ == nullptr && this->projectId_ == nullptr && this->tenantId_ == nullptr; };
     // folderName Field Functions 
     bool hasFolderName() const { return this->folderName_ != nullptr;};
     void deleteFolderName() { this->folderName_ = nullptr;};
-    inline string folderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
+    inline string getFolderName() const { DARABONBA_PTR_GET_DEFAULT(folderName_, "") };
     inline CreateDataServiceFolderRequest& setFolderName(string folderName) { DARABONBA_PTR_SET_VALUE(folderName_, folderName) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CreateDataServiceFolderRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline int64_t parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, 0L) };
+    inline int64_t getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, 0L) };
     inline CreateDataServiceFolderRequest& setParentId(int64_t parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateDataServiceFolderRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline int64_t tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
+    inline int64_t getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
     inline CreateDataServiceFolderRequest& setTenantId(int64_t tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // The name of the folder.
     // 
     // This parameter is required.
-    std::shared_ptr<string> folderName_ = nullptr;
+    shared_ptr<string> folderName_ {};
     // The ID of the desired workflow to which the folder belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The ID of the desired parent folder of the folder. The ID of the root folder in a workflow is 0. The ID of the folder created by users in a workflow is greater than 0.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> parentId_ = nullptr;
+    shared_ptr<int64_t> parentId_ {};
     // The ID of the workspace.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The tenant ID.
-    std::shared_ptr<int64_t> tenantId_ = nullptr;
+    shared_ptr<int64_t> tenantId_ {};
   };
 
   } // namespace Models

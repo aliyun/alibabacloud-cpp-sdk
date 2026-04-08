@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->authorizedProjectId_ != nullptr && this->projectId_ != nullptr && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && this->authorizedProjectId_ == nullptr && this->projectId_ == nullptr && this->tenantId_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline int64_t apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, 0L) };
+    inline int64_t getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, 0L) };
     inline DeleteDataServiceApiAuthorityRequest& setApiId(int64_t apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // authorizedProjectId Field Functions 
     bool hasAuthorizedProjectId() const { return this->authorizedProjectId_ != nullptr;};
     void deleteAuthorizedProjectId() { this->authorizedProjectId_ = nullptr;};
-    inline int64_t authorizedProjectId() const { DARABONBA_PTR_GET_DEFAULT(authorizedProjectId_, 0L) };
+    inline int64_t getAuthorizedProjectId() const { DARABONBA_PTR_GET_DEFAULT(authorizedProjectId_, 0L) };
     inline DeleteDataServiceApiAuthorityRequest& setAuthorizedProjectId(int64_t authorizedProjectId) { DARABONBA_PTR_SET_VALUE(authorizedProjectId_, authorizedProjectId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline DeleteDataServiceApiAuthorityRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline int64_t tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
+    inline int64_t getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
     inline DeleteDataServiceApiAuthorityRequest& setTenantId(int64_t tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The API ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> apiId_ = nullptr;
+    shared_ptr<int64_t> apiId_ {};
     // The ID of the workspace from which you want to revoke the access permissions on the API.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> authorizedProjectId_ = nullptr;
+    shared_ptr<int64_t> authorizedProjectId_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The tenant ID. This parameter is deprecated.
-    std::shared_ptr<int64_t> tenantId_ = nullptr;
+    shared_ptr<int64_t> tenantId_ {};
   };
 
   } // namespace Models

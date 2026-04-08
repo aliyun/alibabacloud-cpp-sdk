@@ -35,39 +35,39 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkMessage_ != nullptr
-        && this->checkResult_ != nullptr && this->extensionCode_ != nullptr && this->messageId_ != nullptr; };
+    virtual bool empty() const override { return this->checkMessage_ == nullptr
+        && this->checkResult_ == nullptr && this->extensionCode_ == nullptr && this->messageId_ == nullptr; };
     // checkMessage Field Functions 
     bool hasCheckMessage() const { return this->checkMessage_ != nullptr;};
     void deleteCheckMessage() { this->checkMessage_ = nullptr;};
-    inline string checkMessage() const { DARABONBA_PTR_GET_DEFAULT(checkMessage_, "") };
+    inline string getCheckMessage() const { DARABONBA_PTR_GET_DEFAULT(checkMessage_, "") };
     inline CallbackExtensionRequest& setCheckMessage(string checkMessage) { DARABONBA_PTR_SET_VALUE(checkMessage_, checkMessage) };
 
 
     // checkResult Field Functions 
     bool hasCheckResult() const { return this->checkResult_ != nullptr;};
     void deleteCheckResult() { this->checkResult_ = nullptr;};
-    inline string checkResult() const { DARABONBA_PTR_GET_DEFAULT(checkResult_, "") };
+    inline string getCheckResult() const { DARABONBA_PTR_GET_DEFAULT(checkResult_, "") };
     inline CallbackExtensionRequest& setCheckResult(string checkResult) { DARABONBA_PTR_SET_VALUE(checkResult_, checkResult) };
 
 
     // extensionCode Field Functions 
     bool hasExtensionCode() const { return this->extensionCode_ != nullptr;};
     void deleteExtensionCode() { this->extensionCode_ = nullptr;};
-    inline string extensionCode() const { DARABONBA_PTR_GET_DEFAULT(extensionCode_, "") };
+    inline string getExtensionCode() const { DARABONBA_PTR_GET_DEFAULT(extensionCode_, "") };
     inline CallbackExtensionRequest& setExtensionCode(string extensionCode) { DARABONBA_PTR_SET_VALUE(extensionCode_, extensionCode) };
 
 
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline CallbackExtensionRequest& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
   protected:
     // The check message of the extension point event. If CheckResult is set to FAIL, you must provide the failure cause.
-    std::shared_ptr<string> checkMessage_ = nullptr;
+    shared_ptr<string> checkMessage_ {};
     // The check status of the extension point event. Valid values:
     // 
     // *   OK: The event passes the check.
@@ -75,15 +75,15 @@ namespace Models
     // *   WARN: The event passes the check, but an alert is reported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> checkResult_ = nullptr;
+    shared_ptr<string> checkResult_ {};
     // The unique code of the extension.
     // 
     // This parameter is required.
-    std::shared_ptr<string> extensionCode_ = nullptr;
+    shared_ptr<string> extensionCode_ {};
     // The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
     // 
     // This parameter is required.
-    std::shared_ptr<string> messageId_ = nullptr;
+    shared_ptr<string> messageId_ {};
   };
 
   } // namespace Models

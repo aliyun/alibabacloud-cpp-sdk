@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->tableGuid_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->tableGuid_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateMetaTableIntroWikiRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline UpdateMetaTableIntroWikiRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The details of the instructions on how to use the metatable.
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The GUID of the table. Specify the GUID in the odps.{projectName}.{tableName} format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
   };
 
   } // namespace Models

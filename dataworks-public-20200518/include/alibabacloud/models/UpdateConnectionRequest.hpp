@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionId_ != nullptr
-        && this->content_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->connectionId_ == nullptr
+        && this->content_ == nullptr && this->description_ == nullptr && this->envType_ == nullptr && this->status_ == nullptr; };
     // connectionId Field Functions 
     bool hasConnectionId() const { return this->connectionId_ != nullptr;};
     void deleteConnectionId() { this->connectionId_ = nullptr;};
-    inline int64_t connectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, 0L) };
+    inline int64_t getConnectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, 0L) };
     inline UpdateConnectionRequest& setConnectionId(int64_t connectionId) { DARABONBA_PTR_SET_VALUE(connectionId_, connectionId) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateConnectionRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateConnectionRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline int32_t envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
+    inline int32_t getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
     inline UpdateConnectionRequest& setEnvType(int32_t envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateConnectionRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The data source ID. You can call the [ListConnections](https://help.aliyun.com/document_detail/173911.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> connectionId_ = nullptr;
+    shared_ptr<int64_t> connectionId_ {};
     // The details of the data source. Examples of details of some common data sources:
     // 
     // *   odps
@@ -259,13 +259,13 @@ namespace Models
     //       "tag": "aliyun",
     //       "ownerId": "1212121212112"
     //     }
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The description of the data source.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
-    std::shared_ptr<int32_t> envType_ = nullptr;
+    shared_ptr<int32_t> envType_ {};
     // The status of the data source. Valid values: ENABLED and DISABLED. The value ENABLED indicates that the data source is in the normal state. The value DISABLED indicates that the data source is in an abnormal state.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

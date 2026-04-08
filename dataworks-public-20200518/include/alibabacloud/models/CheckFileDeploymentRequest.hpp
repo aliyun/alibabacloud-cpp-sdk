@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkDetailUrl_ != nullptr
-        && this->checkerInstanceId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->checkDetailUrl_ == nullptr
+        && this->checkerInstanceId_ == nullptr && this->status_ == nullptr; };
     // checkDetailUrl Field Functions 
     bool hasCheckDetailUrl() const { return this->checkDetailUrl_ != nullptr;};
     void deleteCheckDetailUrl() { this->checkDetailUrl_ = nullptr;};
-    inline string checkDetailUrl() const { DARABONBA_PTR_GET_DEFAULT(checkDetailUrl_, "") };
+    inline string getCheckDetailUrl() const { DARABONBA_PTR_GET_DEFAULT(checkDetailUrl_, "") };
     inline CheckFileDeploymentRequest& setCheckDetailUrl(string checkDetailUrl) { DARABONBA_PTR_SET_VALUE(checkDetailUrl_, checkDetailUrl) };
 
 
     // checkerInstanceId Field Functions 
     bool hasCheckerInstanceId() const { return this->checkerInstanceId_ != nullptr;};
     void deleteCheckerInstanceId() { this->checkerInstanceId_ = nullptr;};
-    inline string checkerInstanceId() const { DARABONBA_PTR_GET_DEFAULT(checkerInstanceId_, "") };
+    inline string getCheckerInstanceId() const { DARABONBA_PTR_GET_DEFAULT(checkerInstanceId_, "") };
     inline CheckFileDeploymentRequest& setCheckerInstanceId(string checkerInstanceId) { DARABONBA_PTR_SET_VALUE(checkerInstanceId_, checkerInstanceId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CheckFileDeploymentRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // This parameter is deprecated.
-    std::shared_ptr<string> checkDetailUrl_ = nullptr;
+    shared_ptr<string> checkDetailUrl_ {};
     // The ID of the instance to which the file checker belongs. You can obtain the ID from the CheckerInstanceId parameter in the check event logs returned by DataWorks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> checkerInstanceId_ = nullptr;
+    shared_ptr<string> checkerInstanceId_ {};
     // The check status of the file that you want to deploy. Valid values:
     // 
     // *   OK: The file passes the check.
@@ -70,7 +70,7 @@ namespace Models
     // *   FAIL: The file fails the check.
     // 
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

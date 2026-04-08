@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desensitizeData_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->desensitizeData_ == nullptr
+        && this->requestId_ == nullptr; };
     // desensitizeData Field Functions 
     bool hasDesensitizeData() const { return this->desensitizeData_ != nullptr;};
     void deleteDesensitizeData() { this->desensitizeData_ = nullptr;};
-    inline string desensitizeData() const { DARABONBA_PTR_GET_DEFAULT(desensitizeData_, "") };
+    inline string getDesensitizeData() const { DARABONBA_PTR_GET_DEFAULT(desensitizeData_, "") };
     inline DesensitizeDataResponseBody& setDesensitizeData(string desensitizeData) { DARABONBA_PTR_SET_VALUE(desensitizeData_, desensitizeData) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DesensitizeDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The data returned after masking.
-    std::shared_ptr<string> desensitizeData_ = nullptr;
+    shared_ptr<string> desensitizeData_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

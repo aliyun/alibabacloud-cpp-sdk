@@ -41,55 +41,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->dataSourceType_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr
-        && this->subType_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->dataSourceType_ == nullptr && this->description_ == nullptr && this->envType_ == nullptr && this->name_ == nullptr && this->projectId_ == nullptr
+        && this->subType_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateDataSourceRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // dataSourceType Field Functions 
     bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string dataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
+    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline CreateDataSourceRequest& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateDataSourceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline int32_t envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
+    inline int32_t getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
     inline CreateDataSourceRequest& setEnvType(int32_t envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateDataSourceRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateDataSourceRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // subType Field Functions 
     bool hasSubType() const { return this->subType_ != nullptr;};
     void deleteSubType() { this->subType_ = nullptr;};
-    inline string subType() const { DARABONBA_PTR_GET_DEFAULT(subType_, "") };
+    inline string getSubType() const { DARABONBA_PTR_GET_DEFAULT(subType_, "") };
     inline CreateDataSourceRequest& setSubType(string subType) { DARABONBA_PTR_SET_VALUE(subType_, subType) };
 
 
@@ -256,7 +256,7 @@ namespace Models
     //         }
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The type of the data source. Valid values:
     // 
     // *   odps
@@ -274,26 +274,26 @@ namespace Models
     // *   holo
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataSourceType_ = nullptr;
+    shared_ptr<string> dataSourceType_ {};
     // The description of the data source.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> envType_ = nullptr;
+    shared_ptr<int32_t> envType_ {};
     // The name of the data source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the DataWorks workspace to which the data source belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The subtype of the data source.
     // 
     // *   This parameter takes effect only if you set the DataSourceType parameter to rds.
     // *   If the DataSourceType parameter is set to rds, this parameter can be set to mysql, sqlserver, or postgresql.
-    std::shared_ptr<string> subType_ = nullptr;
+    shared_ptr<string> subType_ {};
   };
 
   } // namespace Models

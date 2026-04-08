@@ -29,19 +29,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sceneId_ != nullptr; };
+    virtual bool empty() const override { return this->sceneId_ == nullptr; };
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline int32_t sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, 0) };
-    inline DsgQueryDefaultTemplatesRequest& setSceneId(int32_t sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+    inline int64_t getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, 0L) };
+    inline DsgQueryDefaultTemplatesRequest& setSceneId(int64_t sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
   protected:
     // The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> sceneId_ = nullptr;
+    shared_ptr<int64_t> sceneId_ {};
   };
 
   } // namespace Models

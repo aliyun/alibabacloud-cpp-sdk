@@ -41,55 +41,55 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionType_ != nullptr
-        && this->content_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr
-        && this->subType_ != nullptr; };
+    virtual bool empty() const override { return this->connectionType_ == nullptr
+        && this->content_ == nullptr && this->description_ == nullptr && this->envType_ == nullptr && this->name_ == nullptr && this->projectId_ == nullptr
+        && this->subType_ == nullptr; };
     // connectionType Field Functions 
     bool hasConnectionType() const { return this->connectionType_ != nullptr;};
     void deleteConnectionType() { this->connectionType_ = nullptr;};
-    inline string connectionType() const { DARABONBA_PTR_GET_DEFAULT(connectionType_, "") };
+    inline string getConnectionType() const { DARABONBA_PTR_GET_DEFAULT(connectionType_, "") };
     inline CreateConnectionRequest& setConnectionType(string connectionType) { DARABONBA_PTR_SET_VALUE(connectionType_, connectionType) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateConnectionRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateConnectionRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline int32_t envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
+    inline int32_t getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
     inline CreateConnectionRequest& setEnvType(int32_t envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateConnectionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateConnectionRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // subType Field Functions 
     bool hasSubType() const { return this->subType_ != nullptr;};
     void deleteSubType() { this->subType_ = nullptr;};
-    inline string subType() const { DARABONBA_PTR_GET_DEFAULT(subType_, "") };
+    inline string getSubType() const { DARABONBA_PTR_GET_DEFAULT(subType_, "") };
     inline CreateConnectionRequest& setSubType(string subType) { DARABONBA_PTR_SET_VALUE(subType_, subType) };
 
 
@@ -111,7 +111,7 @@ namespace Models
     // *   holo
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectionType_ = nullptr;
+    shared_ptr<string> connectionType_ {};
     // The details of the data source. Examples of details of some common data sources:
     // 
     // *   odps
@@ -294,26 +294,26 @@ namespace Models
     //     }
     // 
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The description of the connection string.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The environment in which the data source is used. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> envType_ = nullptr;
+    shared_ptr<int32_t> envType_ {};
     // The name of the data source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the workspace with which the data source is associated. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The subtype of the connection string. This parameter is used for scenarios where a type includes subtypes. The following type and subtypes are supported:
     // 
     // *   Type: `rds`
     // *   Subtypes: `mysql`, `sqlserver`, and `postgresql`.
-    std::shared_ptr<string> subType_ = nullptr;
+    shared_ptr<string> subType_ {};
   };
 
   } // namespace Models

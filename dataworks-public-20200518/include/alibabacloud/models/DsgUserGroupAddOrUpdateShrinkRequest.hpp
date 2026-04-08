@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userGroupsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->userGroupsShrink_ == nullptr; };
     // userGroupsShrink Field Functions 
     bool hasUserGroupsShrink() const { return this->userGroupsShrink_ != nullptr;};
     void deleteUserGroupsShrink() { this->userGroupsShrink_ = nullptr;};
-    inline string userGroupsShrink() const { DARABONBA_PTR_GET_DEFAULT(userGroupsShrink_, "") };
+    inline string getUserGroupsShrink() const { DARABONBA_PTR_GET_DEFAULT(userGroupsShrink_, "") };
     inline DsgUserGroupAddOrUpdateShrinkRequest& setUserGroupsShrink(string userGroupsShrink) { DARABONBA_PTR_SET_VALUE(userGroupsShrink_, userGroupsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The information about the user group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userGroupsShrink_ = nullptr;
+    shared_ptr<string> userGroupsShrink_ {};
   };
 
   } // namespace Models

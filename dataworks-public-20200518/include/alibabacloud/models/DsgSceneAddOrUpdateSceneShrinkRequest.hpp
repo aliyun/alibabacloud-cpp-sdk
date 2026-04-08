@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->scenesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->scenesShrink_ == nullptr; };
     // scenesShrink Field Functions 
     bool hasScenesShrink() const { return this->scenesShrink_ != nullptr;};
     void deleteScenesShrink() { this->scenesShrink_ = nullptr;};
-    inline string scenesShrink() const { DARABONBA_PTR_GET_DEFAULT(scenesShrink_, "") };
+    inline string getScenesShrink() const { DARABONBA_PTR_GET_DEFAULT(scenesShrink_, "") };
     inline DsgSceneAddOrUpdateSceneShrinkRequest& setScenesShrink(string scenesShrink) { DARABONBA_PTR_SET_VALUE(scenesShrink_, scenesShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The information about the level-2 data masking scenario.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scenesShrink_ = nullptr;
+    shared_ptr<string> scenesShrink_ {};
   };
 
   } // namespace Models

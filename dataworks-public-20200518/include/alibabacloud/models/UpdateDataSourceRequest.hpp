@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->dataSourceId_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->dataSourceId_ == nullptr && this->description_ == nullptr && this->envType_ == nullptr && this->status_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateDataSourceRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline int64_t dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, 0L) };
+    inline int64_t getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, 0L) };
     inline UpdateDataSourceRequest& setDataSourceId(int64_t dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateDataSourceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline int32_t envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
+    inline int32_t getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, 0) };
     inline UpdateDataSourceRequest& setEnvType(int32_t envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateDataSourceRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -227,20 +227,20 @@ namespace Models
     //           "tag": "aliyun",
     //           "ownerId": "1212121212112"
     //         }
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The ID of the data source. You can call the [ListDataSources](https://help.aliyun.com/document_detail/2780072.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dataSourceId_ = nullptr;
+    shared_ptr<int64_t> dataSourceId_ {};
     // The description of the data source.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The environment in which the data source resides. Valid values:
     // 
     // *   0: development environment
     // *   1: production environment
-    std::shared_ptr<int32_t> envType_ = nullptr;
+    shared_ptr<int32_t> envType_ {};
     // The status of the data source. This parameter is deprecated. Do not use this parameter.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

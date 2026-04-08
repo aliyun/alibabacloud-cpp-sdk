@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->opSensitiveData_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->opSensitiveData_ == nullptr
+        && this->requestId_ == nullptr; };
     // opSensitiveData Field Functions 
     bool hasOpSensitiveData() const { return this->opSensitiveData_ != nullptr;};
     void deleteOpSensitiveData() { this->opSensitiveData_ = nullptr;};
-    inline string opSensitiveData() const { DARABONBA_PTR_GET_DEFAULT(opSensitiveData_, "") };
+    inline string getOpSensitiveData() const { DARABONBA_PTR_GET_DEFAULT(opSensitiveData_, "") };
     inline GetOpSensitiveDataResponseBody& setOpSensitiveData(string opSensitiveData) { DARABONBA_PTR_SET_VALUE(opSensitiveData_, opSensitiveData) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOpSensitiveDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -56,9 +56,9 @@ namespace Models
     // *   sql: the SQL statement that is executed.
     // *   opAccount: the account that is used to perform the operation.
     // *   opTime: the time when the operation was performed.
-    std::shared_ptr<string> opSensitiveData_ = nullptr;
+    shared_ptr<string> opSensitiveData_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

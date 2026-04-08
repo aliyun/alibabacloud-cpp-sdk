@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->levelId_ != nullptr
-        && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->levelId_ == nullptr
+        && this->projectId_ == nullptr; };
     // levelId Field Functions 
     bool hasLevelId() const { return this->levelId_ != nullptr;};
     void deleteLevelId() { this->levelId_ = nullptr;};
-    inline int64_t levelId() const { DARABONBA_PTR_GET_DEFAULT(levelId_, 0L) };
+    inline int64_t getLevelId() const { DARABONBA_PTR_GET_DEFAULT(levelId_, 0L) };
     inline DeleteTableLevelRequest& setLevelId(int64_t levelId) { DARABONBA_PTR_SET_VALUE(levelId_, levelId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline DeleteTableLevelRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the table level that you want to delete. You can call the ListTableLevel operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> levelId_ = nullptr;
+    shared_ptr<int64_t> levelId_ {};
     // The DataWorks workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

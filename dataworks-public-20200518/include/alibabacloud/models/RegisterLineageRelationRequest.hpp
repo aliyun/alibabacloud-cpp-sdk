@@ -30,12 +30,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lineageRelationRegisterVO_ != nullptr; };
+    virtual bool empty() const override { return this->lineageRelationRegisterVO_ == nullptr; };
     // lineageRelationRegisterVO Field Functions 
     bool hasLineageRelationRegisterVO() const { return this->lineageRelationRegisterVO_ != nullptr;};
     void deleteLineageRelationRegisterVO() { this->lineageRelationRegisterVO_ = nullptr;};
-    inline const LineageRelationRegisterVO & lineageRelationRegisterVO() const { DARABONBA_PTR_GET_CONST(lineageRelationRegisterVO_, LineageRelationRegisterVO) };
-    inline LineageRelationRegisterVO lineageRelationRegisterVO() { DARABONBA_PTR_GET(lineageRelationRegisterVO_, LineageRelationRegisterVO) };
+    inline const LineageRelationRegisterVO & getLineageRelationRegisterVO() const { DARABONBA_PTR_GET_CONST(lineageRelationRegisterVO_, LineageRelationRegisterVO) };
+    inline LineageRelationRegisterVO getLineageRelationRegisterVO() { DARABONBA_PTR_GET(lineageRelationRegisterVO_, LineageRelationRegisterVO) };
     inline RegisterLineageRelationRequest& setLineageRelationRegisterVO(const LineageRelationRegisterVO & lineageRelationRegisterVO) { DARABONBA_PTR_SET_VALUE(lineageRelationRegisterVO_, lineageRelationRegisterVO) };
     inline RegisterLineageRelationRequest& setLineageRelationRegisterVO(LineageRelationRegisterVO && lineageRelationRegisterVO) { DARABONBA_PTR_SET_RVALUE(lineageRelationRegisterVO_, lineageRelationRegisterVO) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The structure whose lineage you want to register to DataWorks.
     // 
     // This parameter is required.
-    std::shared_ptr<LineageRelationRegisterVO> lineageRelationRegisterVO_ = nullptr;
+    shared_ptr<LineageRelationRegisterVO> lineageRelationRegisterVO_ {};
   };
 
   } // namespace Models

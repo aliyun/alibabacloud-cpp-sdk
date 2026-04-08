@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTDATASERVICEAPITESTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListDataServiceApiTestResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,140 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->requestId_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiId, apiId_);
+        DARABONBA_PTR_TO_JSON(CostTime, costTime_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(ParamMap, paramMap_);
+        DARABONBA_PTR_TO_JSON(RetCode, retCode_);
+        DARABONBA_PTR_TO_JSON(RetResult, retResult_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(TestId, testId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
+        DARABONBA_PTR_FROM_JSON(CostTime, costTime_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(ParamMap, paramMap_);
+        DARABONBA_PTR_FROM_JSON(RetCode, retCode_);
+        DARABONBA_PTR_FROM_JSON(RetResult, retResult_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(TestId, testId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->apiId_ == nullptr
+        && this->costTime_ == nullptr && this->createTime_ == nullptr && this->paramMap_ == nullptr && this->retCode_ == nullptr && this->retResult_ == nullptr
+        && this->status_ == nullptr && this->testId_ == nullptr; };
+      // apiId Field Functions 
+      bool hasApiId() const { return this->apiId_ != nullptr;};
+      void deleteApiId() { this->apiId_ = nullptr;};
+      inline int64_t getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, 0L) };
+      inline Data& setApiId(int64_t apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
+
+
+      // costTime Field Functions 
+      bool hasCostTime() const { return this->costTime_ != nullptr;};
+      void deleteCostTime() { this->costTime_ = nullptr;};
+      inline int32_t getCostTime() const { DARABONBA_PTR_GET_DEFAULT(costTime_, 0) };
+      inline Data& setCostTime(int32_t costTime) { DARABONBA_PTR_SET_VALUE(costTime_, costTime) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+      inline Data& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // paramMap Field Functions 
+      bool hasParamMap() const { return this->paramMap_ != nullptr;};
+      void deleteParamMap() { this->paramMap_ = nullptr;};
+      inline string getParamMap() const { DARABONBA_PTR_GET_DEFAULT(paramMap_, "") };
+      inline Data& setParamMap(string paramMap) { DARABONBA_PTR_SET_VALUE(paramMap_, paramMap) };
+
+
+      // retCode Field Functions 
+      bool hasRetCode() const { return this->retCode_ != nullptr;};
+      void deleteRetCode() { this->retCode_ = nullptr;};
+      inline int64_t getRetCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, 0L) };
+      inline Data& setRetCode(int64_t retCode) { DARABONBA_PTR_SET_VALUE(retCode_, retCode) };
+
+
+      // retResult Field Functions 
+      bool hasRetResult() const { return this->retResult_ != nullptr;};
+      void deleteRetResult() { this->retResult_ = nullptr;};
+      inline string getRetResult() const { DARABONBA_PTR_GET_DEFAULT(retResult_, "") };
+      inline Data& setRetResult(string retResult) { DARABONBA_PTR_SET_VALUE(retResult_, retResult) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // testId Field Functions 
+      bool hasTestId() const { return this->testId_ != nullptr;};
+      void deleteTestId() { this->testId_ = nullptr;};
+      inline int64_t getTestId() const { DARABONBA_PTR_GET_DEFAULT(testId_, 0L) };
+      inline Data& setTestId(int64_t testId) { DARABONBA_PTR_SET_VALUE(testId_, testId) };
+
+
+    protected:
+      // The ID of the DataService Studio API on which the test is performed.
+      shared_ptr<int64_t> apiId_ {};
+      // The time that is consumed to complete the test.
+      shared_ptr<int32_t> costTime_ {};
+      // The time when the test was initiated.
+      shared_ptr<int64_t> createTime_ {};
+      // The request parameters configured for the test.
+      shared_ptr<string> paramMap_ {};
+      // The status code returned for the test. If the test is not complete, this parameter is not returned.
+      shared_ptr<int64_t> retCode_ {};
+      // The result returned for the test.
+      shared_ptr<string> retResult_ {};
+      // The status of the test. Valid values: RUNNING and FINISHED.
+      shared_ptr<string> status_ {};
+      // The ID of the test.
+      shared_ptr<int64_t> testId_ {};
+    };
+
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListDataServiceApiTestResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListDataServiceApiTestResponseBodyData>) };
-    inline vector<ListDataServiceApiTestResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListDataServiceApiTestResponseBodyData>) };
-    inline ListDataServiceApiTestResponseBody& setData(const vector<ListDataServiceApiTestResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListDataServiceApiTestResponseBody& setData(vector<ListDataServiceApiTestResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListDataServiceApiTestResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListDataServiceApiTestResponseBody::Data>) };
+    inline vector<ListDataServiceApiTestResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListDataServiceApiTestResponseBody::Data>) };
+    inline ListDataServiceApiTestResponseBody& setData(const vector<ListDataServiceApiTestResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListDataServiceApiTestResponseBody& setData(vector<ListDataServiceApiTestResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListDataServiceApiTestResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The list of test records.
-    std::shared_ptr<vector<ListDataServiceApiTestResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<ListDataServiceApiTestResponseBody::Data>> data_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

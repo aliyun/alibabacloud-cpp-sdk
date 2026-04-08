@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destEntityQualifiedName_ != nullptr
-        && this->relationshipGuid_ != nullptr && this->relationshipType_ != nullptr && this->srcEntityQualifiedName_ != nullptr; };
+    virtual bool empty() const override { return this->destEntityQualifiedName_ == nullptr
+        && this->relationshipGuid_ == nullptr && this->relationshipType_ == nullptr && this->srcEntityQualifiedName_ == nullptr; };
     // destEntityQualifiedName Field Functions 
     bool hasDestEntityQualifiedName() const { return this->destEntityQualifiedName_ != nullptr;};
     void deleteDestEntityQualifiedName() { this->destEntityQualifiedName_ = nullptr;};
-    inline string destEntityQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(destEntityQualifiedName_, "") };
+    inline string getDestEntityQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(destEntityQualifiedName_, "") };
     inline DeleteLineageRelationRequest& setDestEntityQualifiedName(string destEntityQualifiedName) { DARABONBA_PTR_SET_VALUE(destEntityQualifiedName_, destEntityQualifiedName) };
 
 
     // relationshipGuid Field Functions 
     bool hasRelationshipGuid() const { return this->relationshipGuid_ != nullptr;};
     void deleteRelationshipGuid() { this->relationshipGuid_ = nullptr;};
-    inline string relationshipGuid() const { DARABONBA_PTR_GET_DEFAULT(relationshipGuid_, "") };
+    inline string getRelationshipGuid() const { DARABONBA_PTR_GET_DEFAULT(relationshipGuid_, "") };
     inline DeleteLineageRelationRequest& setRelationshipGuid(string relationshipGuid) { DARABONBA_PTR_SET_VALUE(relationshipGuid_, relationshipGuid) };
 
 
     // relationshipType Field Functions 
     bool hasRelationshipType() const { return this->relationshipType_ != nullptr;};
     void deleteRelationshipType() { this->relationshipType_ = nullptr;};
-    inline string relationshipType() const { DARABONBA_PTR_GET_DEFAULT(relationshipType_, "") };
+    inline string getRelationshipType() const { DARABONBA_PTR_GET_DEFAULT(relationshipType_, "") };
     inline DeleteLineageRelationRequest& setRelationshipType(string relationshipType) { DARABONBA_PTR_SET_VALUE(relationshipType_, relationshipType) };
 
 
     // srcEntityQualifiedName Field Functions 
     bool hasSrcEntityQualifiedName() const { return this->srcEntityQualifiedName_ != nullptr;};
     void deleteSrcEntityQualifiedName() { this->srcEntityQualifiedName_ = nullptr;};
-    inline string srcEntityQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(srcEntityQualifiedName_, "") };
+    inline string getSrcEntityQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(srcEntityQualifiedName_, "") };
     inline DeleteLineageRelationRequest& setSrcEntityQualifiedName(string srcEntityQualifiedName) { DARABONBA_PTR_SET_VALUE(srcEntityQualifiedName_, srcEntityQualifiedName) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // Destination entity unique identifier
     // 
     // This parameter is required.
-    std::shared_ptr<string> destEntityQualifiedName_ = nullptr;
+    shared_ptr<string> destEntityQualifiedName_ {};
     // Lineage relationship unique identifier
-    std::shared_ptr<string> relationshipGuid_ = nullptr;
+    shared_ptr<string> relationshipGuid_ {};
     // Relationship type
-    std::shared_ptr<string> relationshipType_ = nullptr;
+    shared_ptr<string> relationshipType_ {};
     // Source entity unique identifier
     // 
     // This parameter is required.
-    std::shared_ptr<string> srcEntityQualifiedName_ = nullptr;
+    shared_ptr<string> srcEntityQualifiedName_ {};
   };
 
   } // namespace Models

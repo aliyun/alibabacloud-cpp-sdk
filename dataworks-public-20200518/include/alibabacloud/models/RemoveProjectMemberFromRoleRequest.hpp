@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->projectId_ != nullptr
-        && this->roleCode_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->projectId_ == nullptr
+        && this->roleCode_ == nullptr && this->userId_ == nullptr; };
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline RemoveProjectMemberFromRoleRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // roleCode Field Functions 
     bool hasRoleCode() const { return this->roleCode_ != nullptr;};
     void deleteRoleCode() { this->roleCode_ = nullptr;};
-    inline string roleCode() const { DARABONBA_PTR_GET_DEFAULT(roleCode_, "") };
+    inline string getRoleCode() const { DARABONBA_PTR_GET_DEFAULT(roleCode_, "") };
     inline RemoveProjectMemberFromRoleRequest& setRoleCode(string roleCode) { DARABONBA_PTR_SET_VALUE(roleCode_, roleCode) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline RemoveProjectMemberFromRoleRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The DataWorks workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The code of the role in the DataWorks workspace. You can call the ListProjectRoles operation to query the codes of all roles in a DataWorks workspace. Valid values:
     // 
     // *   role_project_owner: workspace owner
@@ -74,11 +74,11 @@ namespace Models
     // *   role_project_erd: model designer
     // 
     // This parameter is required.
-    std::shared_ptr<string> roleCode_ = nullptr;
+    shared_ptr<string> roleCode_ {};
     // The user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

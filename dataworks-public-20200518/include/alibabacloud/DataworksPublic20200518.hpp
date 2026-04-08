@@ -5,9 +5,9 @@
 #include <alibabacloud/DataworksPublic20200518Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/DataworksPublic20200518.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace DataworksPublic20200518
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -483,7 +483,7 @@ namespace DataworksPublic20200518
       Models::CreateFileResponse createFile(const Models::CreateFileRequest &request);
 
       /**
-       * @summary The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
+       * @summary The operation that you want to perform. Set the value to \\\\*\\\\*CreateFolder\\\\*\\\\*.
        *
        * @param request CreateFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -492,7 +492,7 @@ namespace DataworksPublic20200518
       Models::CreateFolderResponse createFolderWithOptions(const Models::CreateFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
+       * @summary The operation that you want to perform. Set the value to \\\\*\\\\*CreateFolder\\\\*\\\\*.
        *
        * @param request CreateFolderRequest
        * @return CreateFolderResponse
@@ -663,6 +663,8 @@ namespace DataworksPublic20200518
       Models::CreateProjectMemberResponse createProjectMember(const Models::CreateProjectMemberRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a partition filter expression.
        *
        * @param request CreateQualityEntityRequest
@@ -672,6 +674,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityEntityResponse createQualityEntityWithOptions(const Models::CreateQualityEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a partition filter expression.
        *
        * @param request CreateQualityEntityRequest
@@ -680,6 +684,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityEntityResponse createQualityEntity(const Models::CreateQualityEntityRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
+       *
        * @summary Creates a subscriber for a partition filter expression.
        *
        * @param request CreateQualityFollowerRequest
@@ -689,6 +695,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityFollowerResponse createQualityFollowerWithOptions(const Models::CreateQualityFollowerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
+       *
        * @summary Creates a subscriber for a partition filter expression.
        *
        * @param request CreateQualityFollowerRequest
@@ -697,6 +705,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityFollowerResponse createQualityFollower(const Models::CreateQualityFollowerRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Associates a node with a partition filter expression.
        *
        * @param request CreateQualityRelativeNodeRequest
@@ -706,6 +716,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityRelativeNodeResponse createQualityRelativeNodeWithOptions(const Models::CreateQualityRelativeNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Associates a node with a partition filter expression.
        *
        * @param request CreateQualityRelativeNodeRequest
@@ -714,6 +726,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityRelativeNodeResponse createQualityRelativeNode(const Models::CreateQualityRelativeNodeRequest &request);
 
       /**
+       * @deprecated OpenAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a monitoring rule.
        *
        * @param request CreateQualityRuleRequest
@@ -723,6 +737,8 @@ namespace DataworksPublic20200518
       Models::CreateQualityRuleResponse createQualityRuleWithOptions(const Models::CreateQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+       *
        * @summary Creates a monitoring rule.
        *
        * @param request CreateQualityRuleRequest
@@ -767,6 +783,8 @@ namespace DataworksPublic20200518
       Models::CreateResourceFileResponse createResourceFileAdvance(const Models::CreateResourceFileAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateTable is deprecated
+       *
        * @summary Creates a MaxCompute table or view.
        *
        * @param request CreateTableRequest
@@ -776,6 +794,8 @@ namespace DataworksPublic20200518
       Models::CreateTableResponse createTableWithOptions(const Models::CreateTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI CreateTable is deprecated
+       *
        * @summary Creates a MaxCompute table or view.
        *
        * @param request CreateTableRequest
@@ -784,7 +804,7 @@ namespace DataworksPublic20200518
       Models::CreateTableResponse createTable(const Models::CreateTableRequest &request);
 
       /**
-       * @summary Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Creates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request CreateTableLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -793,7 +813,7 @@ namespace DataworksPublic20200518
       Models::CreateTableLevelResponse createTableLevelWithOptions(const Models::CreateTableLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Creates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request CreateTableLevelRequest
        * @return CreateTableLevelResponse
@@ -852,6 +872,8 @@ namespace DataworksPublic20200518
       Models::DeleteBaselineResponse deleteBaseline(const Models::DeleteBaselineRequest &request);
 
       /**
+       * @summary Deletes a workflow.
+       *
        * @param request DeleteBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteBusinessResponse
@@ -859,6 +881,8 @@ namespace DataworksPublic20200518
       Models::DeleteBusinessResponse deleteBusinessWithOptions(const Models::DeleteBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a workflow.
+       *
        * @param request DeleteBusinessRequest
        * @return DeleteBusinessResponse
        */
@@ -1013,6 +1037,8 @@ namespace DataworksPublic20200518
       Models::DeleteFileResponse deleteFile(const Models::DeleteFileRequest &request);
 
       /**
+       * @summary Deletes a folder from DataStudio.
+       *
        * @param request DeleteFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteFolderResponse
@@ -1020,6 +1046,8 @@ namespace DataworksPublic20200518
       Models::DeleteFolderResponse deleteFolderWithOptions(const Models::DeleteFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a folder from DataStudio.
+       *
        * @param request DeleteFolderRequest
        * @return DeleteFolderResponse
        */
@@ -1132,6 +1160,8 @@ namespace DataworksPublic20200518
       Models::DeleteProjectMemberResponse deleteProjectMember(const Models::DeleteProjectMemberRequest &request);
 
       /**
+       * @deprecated OpenAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+       *
        * @summary Deletes a partition filter expression.
        *
        * @param request DeleteQualityEntityRequest
@@ -1141,6 +1171,8 @@ namespace DataworksPublic20200518
       Models::DeleteQualityEntityResponse deleteQualityEntityWithOptions(const Models::DeleteQualityEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+       *
        * @summary Deletes a partition filter expression.
        *
        * @param request DeleteQualityEntityRequest
@@ -1149,7 +1181,9 @@ namespace DataworksPublic20200518
       Models::DeleteQualityEntityResponse deleteQualityEntity(const Models::DeleteQualityEntityRequest &request);
 
       /**
-       * @summary Deletes a subscriber of a partition filter expression.
+       * @deprecated OpenAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead.
+       *
+       * @summary Calls DeleteQualityFollower to delete the subscribers of a partition expression.
        *
        * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
        *
@@ -1160,7 +1194,9 @@ namespace DataworksPublic20200518
       Models::DeleteQualityFollowerResponse deleteQualityFollowerWithOptions(const Models::DeleteQualityFollowerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a subscriber of a partition filter expression.
+       * @deprecated OpenAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead.
+       *
+       * @summary Calls DeleteQualityFollower to delete the subscribers of a partition expression.
        *
        * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
        *
@@ -1170,6 +1206,10 @@ namespace DataworksPublic20200518
       Models::DeleteQualityFollowerResponse deleteQualityFollower(const Models::DeleteQualityFollowerRequest &request);
 
       /**
+       * @deprecated OpenAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
+       * @summary Disassociates a node from a partition filter expression.
+       *
        * @param request DeleteQualityRelativeNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteQualityRelativeNodeResponse
@@ -1177,12 +1217,18 @@ namespace DataworksPublic20200518
       Models::DeleteQualityRelativeNodeResponse deleteQualityRelativeNodeWithOptions(const Models::DeleteQualityRelativeNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
+       * @summary Disassociates a node from a partition filter expression.
+       *
        * @param request DeleteQualityRelativeNodeRequest
        * @return DeleteQualityRelativeNodeResponse
        */
       Models::DeleteQualityRelativeNodeResponse deleteQualityRelativeNode(const Models::DeleteQualityRelativeNodeRequest &request);
 
       /**
+       * @deprecated OpenAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Deletes a monitoring rule.
        *
        * @param request DeleteQualityRuleRequest
@@ -1192,6 +1238,8 @@ namespace DataworksPublic20200518
       Models::DeleteQualityRuleResponse deleteQualityRuleWithOptions(const Models::DeleteQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Deletes a monitoring rule.
        *
        * @param request DeleteQualityRuleRequest
@@ -1234,6 +1282,10 @@ namespace DataworksPublic20200518
       Models::DeleteRemindResponse deleteRemind(const Models::DeleteRemindRequest &request);
 
       /**
+       * @deprecated OpenAPI DeleteTable is deprecated
+       *
+       * @summary Deletes a MaxCompute table.
+       *
        * @param request DeleteTableRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteTableResponse
@@ -1241,13 +1293,17 @@ namespace DataworksPublic20200518
       Models::DeleteTableResponse deleteTableWithOptions(const Models::DeleteTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DeleteTable is deprecated
+       *
+       * @summary Deletes a MaxCompute table.
+       *
        * @param request DeleteTableRequest
        * @return DeleteTableResponse
        */
       Models::DeleteTableResponse deleteTable(const Models::DeleteTableRequest &request);
 
       /**
-       * @summary Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Deletes a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request DeleteTableLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1256,7 +1312,7 @@ namespace DataworksPublic20200518
       Models::DeleteTableLevelResponse deleteTableLevelWithOptions(const Models::DeleteTableLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Deletes a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request DeleteTableLevelRequest
        * @return DeleteTableLevelResponse
@@ -1368,11 +1424,11 @@ namespace DataworksPublic20200518
       /**
        * @summary Queries a list of data masking rules.
        *
-       * @param request DsgDesensPlanQueryListRequest
+       * @param tmpReq DsgDesensPlanQueryListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DsgDesensPlanQueryListResponse
        */
-      Models::DsgDesensPlanQueryListResponse dsgDesensPlanQueryListWithOptions(const Models::DsgDesensPlanQueryListRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DsgDesensPlanQueryListResponse dsgDesensPlanQueryListWithOptions(const Models::DsgDesensPlanQueryListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of data masking rules.
@@ -1432,6 +1488,23 @@ namespace DataworksPublic20200518
        * @return DsgQueryDefaultTemplatesResponse
        */
       Models::DsgQueryDefaultTemplatesResponse dsgQueryDefaultTemplates(const Models::DsgQueryDefaultTemplatesRequest &request);
+
+      /**
+       * @summary Query the status of the masking switch.
+       *
+       * @param request DsgQueryDesensStatusListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DsgQueryDesensStatusListResponse
+       */
+      Models::DsgQueryDesensStatusListResponse dsgQueryDesensStatusListWithOptions(const Models::DsgQueryDesensStatusListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the status of the masking switch.
+       *
+       * @param request DsgQueryDesensStatusListRequest
+       * @return DsgQueryDesensStatusListResponse
+       */
+      Models::DsgQueryDesensStatusListResponse dsgQueryDesensStatusList(const Models::DsgQueryDesensStatusListRequest &request);
 
       /**
        * @summary Queries the identification results of sensitive data.
@@ -1544,6 +1617,23 @@ namespace DataworksPublic20200518
        * @return DsgStopSensIdentifyResponse
        */
       Models::DsgStopSensIdentifyResponse dsgStopSensIdentify(const Models::DsgStopSensIdentifyRequest &request);
+
+      /**
+       * @summary Updates the status of the masking switch.
+       *
+       * @param tmpReq DsgUpdateDesensStatusListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DsgUpdateDesensStatusListResponse
+       */
+      Models::DsgUpdateDesensStatusListResponse dsgUpdateDesensStatusListWithOptions(const Models::DsgUpdateDesensStatusListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the status of the masking switch.
+       *
+       * @param request DsgUpdateDesensStatusListRequest
+       * @return DsgUpdateDesensStatusListResponse
+       */
+      Models::DsgUpdateDesensStatusListResponse dsgUpdateDesensStatusList(const Models::DsgUpdateDesensStatusListRequest &request);
 
       /**
        * @summary Adds or modifies a user group.
@@ -1698,6 +1788,8 @@ namespace DataworksPublic20200518
       Models::EditRecognizeRuleResponse editRecognizeRule(const Models::EditRecognizeRuleRequest &request);
 
       /**
+       * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+       *
        * @param request EstablishRelationTableToBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EstablishRelationTableToBusinessResponse
@@ -1705,6 +1797,8 @@ namespace DataworksPublic20200518
       Models::EstablishRelationTableToBusinessResponse establishRelationTableToBusinessWithOptions(const Models::EstablishRelationTableToBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+       *
        * @param request EstablishRelationTableToBusinessRequest
        * @return EstablishRelationTableToBusinessResponse
        */
@@ -1872,6 +1966,8 @@ namespace DataworksPublic20200518
       Models::GetBusinessResponse getBusiness(const Models::GetBusinessRequest &request);
 
       /**
+       * @deprecated OpenAPI GetDDLJobStatus is deprecated
+       *
        * @summary Queries the status of a table creation, update, or deletion task.
        *
        * @param request GetDDLJobStatusRequest
@@ -1881,6 +1977,8 @@ namespace DataworksPublic20200518
       Models::GetDDLJobStatusResponse getDDLJobStatusWithOptions(const Models::GetDDLJobStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetDDLJobStatus is deprecated
+       *
        * @summary Queries the status of a table creation, update, or deletion task.
        *
        * @param request GetDDLJobStatusRequest
@@ -2544,6 +2642,8 @@ namespace DataworksPublic20200518
       Models::GetMetaTableColumnResponse getMetaTableColumn(const Models::GetMetaTableColumnRequest &request);
 
       /**
+       * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
+       *
        * @summary Queries the complete information about a table, including information about fields in the table.
        *
        * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
@@ -2555,6 +2655,8 @@ namespace DataworksPublic20200518
       Models::GetMetaTableFullInfoResponse getMetaTableFullInfoWithOptions(const Models::GetMetaTableFullInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
+       *
        * @summary Queries the complete information about a table, including information about fields in the table.
        *
        * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
@@ -2671,7 +2773,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableProducingTasksResponse getMetaTableProducingTasks(const Models::GetMetaTableProducingTasksRequest &request);
 
       /**
-       * @summary Queries the information about the themes and levels of a metatable.
+       * @summary Fetches topics and hierarchy metadata for tables
        *
        * @param request GetMetaTableThemeLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2680,7 +2782,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableThemeLevelResponse getMetaTableThemeLevelWithOptions(const Models::GetMetaTableThemeLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the themes and levels of a metatable.
+       * @summary Fetches topics and hierarchy metadata for tables
        *
        * @param request GetMetaTableThemeLevelRequest
        * @return GetMetaTableThemeLevelResponse
@@ -2938,6 +3040,10 @@ namespace DataworksPublic20200518
       Models::GetProjectDetailResponse getProjectDetail(const Models::GetProjectDetailRequest &request);
 
       /**
+       * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
+       * @summary Queries the information about a partition filter expression.
+       *
        * @param request GetQualityEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetQualityEntityResponse
@@ -2945,12 +3051,18 @@ namespace DataworksPublic20200518
       Models::GetQualityEntityResponse getQualityEntityWithOptions(const Models::GetQualityEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
+       * @summary Queries the information about a partition filter expression.
+       *
        * @param request GetQualityEntityRequest
        * @return GetQualityEntityResponse
        */
       Models::GetQualityEntityResponse getQualityEntity(const Models::GetQualityEntityRequest &request);
 
       /**
+       * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
+       *
        * @summary Queries the subscribers of a partition filter expression.
        *
        * @param request GetQualityFollowerRequest
@@ -2960,6 +3072,8 @@ namespace DataworksPublic20200518
       Models::GetQualityFollowerResponse getQualityFollowerWithOptions(const Models::GetQualityFollowerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
+       *
        * @summary Queries the subscribers of a partition filter expression.
        *
        * @param request GetQualityFollowerRequest
@@ -2968,6 +3082,8 @@ namespace DataworksPublic20200518
       Models::GetQualityFollowerResponse getQualityFollower(const Models::GetQualityFollowerRequest &request);
 
       /**
+       * @deprecated OpenAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
        * @summary Queries the information about a monitoring rule.
        *
        * @param request GetQualityRuleRequest
@@ -2977,6 +3093,8 @@ namespace DataworksPublic20200518
       Models::GetQualityRuleResponse getQualityRuleWithOptions(const Models::GetQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
        * @summary Queries the information about a monitoring rule.
        *
        * @param request GetQualityRuleRequest
@@ -3981,7 +4099,7 @@ namespace DataworksPublic20200518
       Models::ListNodesByOutputResponse listNodesByOutput(const Models::ListNodesByOutputRequest &request);
 
       /**
-       * @summary Views permission requests.
+       * @summary Queries a list of permission requests.
        *
        * @param request ListPermissionApplyOrdersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3990,7 +4108,7 @@ namespace DataworksPublic20200518
       Models::ListPermissionApplyOrdersResponse listPermissionApplyOrdersWithOptions(const Models::ListPermissionApplyOrdersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Views permission requests.
+       * @summary Queries a list of permission requests.
        *
        * @param request ListPermissionApplyOrdersRequest
        * @return ListPermissionApplyOrdersResponse
@@ -4097,6 +4215,8 @@ namespace DataworksPublic20200518
       Models::ListProjectsResponse listProjects(const Models::ListProjectsRequest &request);
 
       /**
+       * @deprecated OpenAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
        * @summary Queries a list of historical check results based on a partition filter expression.
        *
        * @description ****
@@ -4108,6 +4228,8 @@ namespace DataworksPublic20200518
       Models::ListQualityResultsByEntityResponse listQualityResultsByEntityWithOptions(const Models::ListQualityResultsByEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
        * @summary Queries a list of historical check results based on a partition filter expression.
        *
        * @description ****
@@ -4118,6 +4240,8 @@ namespace DataworksPublic20200518
       Models::ListQualityResultsByEntityResponse listQualityResultsByEntity(const Models::ListQualityResultsByEntityRequest &request);
 
       /**
+       * @deprecated OpenAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
        * @summary Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
        *
        * @param request ListQualityResultsByRuleRequest
@@ -4127,6 +4251,8 @@ namespace DataworksPublic20200518
       Models::ListQualityResultsByRuleResponse listQualityResultsByRuleWithOptions(const Models::ListQualityResultsByRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+       *
        * @summary Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
        *
        * @param request ListQualityResultsByRuleRequest
@@ -4135,6 +4261,8 @@ namespace DataworksPublic20200518
       Models::ListQualityResultsByRuleResponse listQualityResultsByRule(const Models::ListQualityResultsByRuleRequest &request);
 
       /**
+       * @deprecated OpenAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
        * @summary Queries monitoring rules based on a partition filter expression.
        *
        * @param request ListQualityRulesRequest
@@ -4144,6 +4272,8 @@ namespace DataworksPublic20200518
       Models::ListQualityRulesResponse listQualityRulesWithOptions(const Models::ListQualityRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+       *
        * @summary Queries monitoring rules based on a partition filter expression.
        *
        * @param request ListQualityRulesRequest
@@ -4254,7 +4384,7 @@ namespace DataworksPublic20200518
       Models::ListSuccessInstanceAmountResponse listSuccessInstanceAmount(const Models::ListSuccessInstanceAmountRequest &request);
 
       /**
-       * @summary Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Lists hierarchy levels. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request ListTableLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4263,7 +4393,7 @@ namespace DataworksPublic20200518
       Models::ListTableLevelResponse listTableLevelWithOptions(const Models::ListTableLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Lists hierarchy levels. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request ListTableLevelRequest
        * @return ListTableLevelResponse
@@ -4271,7 +4401,7 @@ namespace DataworksPublic20200518
       Models::ListTableLevelResponse listTableLevel(const Models::ListTableLevelRequest &request);
 
       /**
-       * @summary Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Lists table themes. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request ListTableThemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4280,7 +4410,7 @@ namespace DataworksPublic20200518
       Models::ListTableThemeResponse listTableThemeWithOptions(const Models::ListTableThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Lists table themes. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request ListTableThemeRequest
        * @return ListTableThemeResponse
@@ -4592,7 +4722,7 @@ namespace DataworksPublic20200518
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary Resumes a suspended instance.
+       * @summary Calls the ResumeInstance operation to resume a suspended instance.
        *
        * @param request ResumeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4601,7 +4731,7 @@ namespace DataworksPublic20200518
       Models::ResumeInstanceResponse resumeInstanceWithOptions(const Models::ResumeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes a suspended instance.
+       * @summary Calls the ResumeInstance operation to resume a suspended instance.
        *
        * @param request ResumeInstanceRequest
        * @return ResumeInstanceResponse
@@ -5342,7 +5472,9 @@ namespace DataworksPublic20200518
       Models::UpdateMetaCollectionResponse updateMetaCollection(const Models::UpdateMetaCollectionRequest &request);
 
       /**
-       * @summary Updates the metadata information about a table. Only MaxCompute tables are supported.
+       * @summary This operation updates the metadata of a table.
+       *
+       * @description This operation supports MaxCompute tables only.
        *
        * @param request UpdateMetaTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5351,7 +5483,9 @@ namespace DataworksPublic20200518
       Models::UpdateMetaTableResponse updateMetaTableWithOptions(const Models::UpdateMetaTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the metadata information about a table. Only MaxCompute tables are supported.
+       * @summary This operation updates the metadata of a table.
+       *
+       * @description This operation supports MaxCompute tables only.
        *
        * @param request UpdateMetaTableRequest
        * @return UpdateMetaTableResponse
@@ -5410,6 +5544,8 @@ namespace DataworksPublic20200518
       Models::UpdateNodeRunModeResponse updateNodeRunMode(const Models::UpdateNodeRunModeRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
+       *
        * @summary Updates a subscription relationship.
        *
        * @param request UpdateQualityFollowerRequest
@@ -5419,6 +5555,8 @@ namespace DataworksPublic20200518
       Models::UpdateQualityFollowerResponse updateQualityFollowerWithOptions(const Models::UpdateQualityFollowerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
+       *
        * @summary Updates a subscription relationship.
        *
        * @param request UpdateQualityFollowerRequest
@@ -5427,6 +5565,8 @@ namespace DataworksPublic20200518
       Models::UpdateQualityFollowerResponse updateQualityFollower(const Models::UpdateQualityFollowerRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Updates a monitoring rule.
        *
        * @param request UpdateQualityRuleRequest
@@ -5436,6 +5576,8 @@ namespace DataworksPublic20200518
       Models::UpdateQualityRuleResponse updateQualityRuleWithOptions(const Models::UpdateQualityRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+       *
        * @summary Updates a monitoring rule.
        *
        * @param request UpdateQualityRuleRequest
@@ -5461,6 +5603,8 @@ namespace DataworksPublic20200518
       Models::UpdateRemindResponse updateRemind(const Models::UpdateRemindRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateTable is deprecated
+       *
        * @summary Updates a MaxCompute table.
        *
        * @param request UpdateTableRequest
@@ -5470,6 +5614,8 @@ namespace DataworksPublic20200518
       Models::UpdateTableResponse updateTableWithOptions(const Models::UpdateTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateTable is deprecated
+       *
        * @summary Updates a MaxCompute table.
        *
        * @param request UpdateTableRequest
@@ -5478,6 +5624,8 @@ namespace DataworksPublic20200518
       Models::UpdateTableResponse updateTable(const Models::UpdateTableRequest &request);
 
       /**
+       * @deprecated OpenAPI UpdateTableAddColumn is deprecated
+       *
        * @summary Updates the fields in a MaxCompute table.
        *
        * @param request UpdateTableAddColumnRequest
@@ -5487,6 +5635,8 @@ namespace DataworksPublic20200518
       Models::UpdateTableAddColumnResponse updateTableAddColumnWithOptions(const Models::UpdateTableAddColumnRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI UpdateTableAddColumn is deprecated
+       *
        * @summary Updates the fields in a MaxCompute table.
        *
        * @param request UpdateTableAddColumnRequest
@@ -5495,7 +5645,7 @@ namespace DataworksPublic20200518
       Models::UpdateTableAddColumnResponse updateTableAddColumn(const Models::UpdateTableAddColumnRequest &request);
 
       /**
-       * @summary Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Updates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request UpdateTableLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5504,7 +5654,7 @@ namespace DataworksPublic20200518
       Models::UpdateTableLevelResponse updateTableLevelWithOptions(const Models::UpdateTableLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+       * @summary Updates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
        *
        * @param request UpdateTableLevelRequest
        * @return UpdateTableLevelResponse

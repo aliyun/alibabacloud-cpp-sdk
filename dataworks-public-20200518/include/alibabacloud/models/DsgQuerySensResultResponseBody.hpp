@@ -43,87 +43,87 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->dynamicErrorCode_ != nullptr && this->dynamicErrorMessage_ != nullptr && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->dynamicErrorCode_ == nullptr && this->dynamicErrorMessage_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->httpStatusCode_ == nullptr
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline     const Darabonba::Json & data() const { DARABONBA_GET(data_) };
-    Darabonba::Json & data() { DARABONBA_GET(data_) };
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
     inline DsgQuerySensResultResponseBody& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
-    inline DsgQuerySensResultResponseBody& setData(Darabonba::Json & data) { DARABONBA_SET_RVALUE(data_, data) };
+    inline DsgQuerySensResultResponseBody& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
 
 
     // dynamicErrorCode Field Functions 
     bool hasDynamicErrorCode() const { return this->dynamicErrorCode_ != nullptr;};
     void deleteDynamicErrorCode() { this->dynamicErrorCode_ = nullptr;};
-    inline string dynamicErrorCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicErrorCode_, "") };
+    inline string getDynamicErrorCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicErrorCode_, "") };
     inline DsgQuerySensResultResponseBody& setDynamicErrorCode(string dynamicErrorCode) { DARABONBA_PTR_SET_VALUE(dynamicErrorCode_, dynamicErrorCode) };
 
 
     // dynamicErrorMessage Field Functions 
     bool hasDynamicErrorMessage() const { return this->dynamicErrorMessage_ != nullptr;};
     void deleteDynamicErrorMessage() { this->dynamicErrorMessage_ = nullptr;};
-    inline string dynamicErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicErrorMessage_, "") };
+    inline string getDynamicErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicErrorMessage_, "") };
     inline DsgQuerySensResultResponseBody& setDynamicErrorMessage(string dynamicErrorMessage) { DARABONBA_PTR_SET_VALUE(dynamicErrorMessage_, dynamicErrorMessage) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline DsgQuerySensResultResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline DsgQuerySensResultResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DsgQuerySensResultResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DsgQuerySensResultResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DsgQuerySensResultResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The data returned.
-    Darabonba::Json data_ = nullptr;
+    Darabonba::Json data_ {};
     // The error code. The value is the same as that of ErrorCode.
-    std::shared_ptr<string> dynamicErrorCode_ = nullptr;
+    shared_ptr<string> dynamicErrorCode_ {};
     // The error message. The value is the same as that of ErrorMessage.
-    std::shared_ptr<string> dynamicErrorMessage_ = nullptr;
+    shared_ptr<string> dynamicErrorMessage_ {};
     // The error code.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The error message.
-    std::shared_ptr<string> errorMessage_ = nullptr;
+    shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

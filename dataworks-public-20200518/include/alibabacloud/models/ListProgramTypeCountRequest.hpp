@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->projectEnv_ != nullptr
-        && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->projectEnv_ == nullptr
+        && this->projectId_ == nullptr; };
     // projectEnv Field Functions 
     bool hasProjectEnv() const { return this->projectEnv_ != nullptr;};
     void deleteProjectEnv() { this->projectEnv_ = nullptr;};
-    inline string projectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
+    inline string getProjectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
     inline ListProgramTypeCountRequest& setProjectEnv(string projectEnv) { DARABONBA_PTR_SET_VALUE(projectEnv_, projectEnv) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ListProgramTypeCountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The environment of the workspace. Valid values: PROD and DEV.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectEnv_ = nullptr;
+    shared_ptr<string> projectEnv_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

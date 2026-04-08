@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->remindId_ != nullptr; };
+    virtual bool empty() const override { return this->remindId_ == nullptr; };
     // remindId Field Functions 
     bool hasRemindId() const { return this->remindId_ != nullptr;};
     void deleteRemindId() { this->remindId_ = nullptr;};
-    inline int64_t remindId() const { DARABONBA_PTR_GET_DEFAULT(remindId_, 0L) };
+    inline int64_t getRemindId() const { DARABONBA_PTR_GET_DEFAULT(remindId_, 0L) };
     inline GetRemindRequest& setRemindId(int64_t remindId) { DARABONBA_PTR_SET_VALUE(remindId_, remindId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The custom alert rule ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> remindId_ = nullptr;
+    shared_ptr<int64_t> remindId_ {};
   };
 
   } // namespace Models

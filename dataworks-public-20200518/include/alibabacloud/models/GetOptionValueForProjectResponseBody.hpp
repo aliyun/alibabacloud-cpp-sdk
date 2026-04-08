@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->optionValue_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->optionValue_ == nullptr
+        && this->requestId_ == nullptr; };
     // optionValue Field Functions 
     bool hasOptionValue() const { return this->optionValue_ != nullptr;};
     void deleteOptionValue() { this->optionValue_ = nullptr;};
-    inline string optionValue() const { DARABONBA_PTR_GET_DEFAULT(optionValue_, "") };
+    inline string getOptionValue() const { DARABONBA_PTR_GET_DEFAULT(optionValue_, "") };
     inline GetOptionValueForProjectResponseBody& setOptionValue(string optionValue) { DARABONBA_PTR_SET_VALUE(optionValue_, optionValue) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOptionValueForProjectResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The data returned In the example, cuNumber is a custom key.
-    std::shared_ptr<string> optionValue_ = nullptr;
+    shared_ptr<string> optionValue_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

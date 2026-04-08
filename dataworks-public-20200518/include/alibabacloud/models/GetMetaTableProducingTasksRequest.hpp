@@ -39,65 +39,65 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->dataSourceType_ != nullptr && this->dbName_ != nullptr && this->schemaName_ != nullptr && this->tableGuid_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->dataSourceType_ == nullptr && this->dbName_ == nullptr && this->schemaName_ == nullptr && this->tableGuid_ == nullptr && this->tableName_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetMetaTableProducingTasksRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dataSourceType Field Functions 
     bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string dataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
+    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline GetMetaTableProducingTasksRequest& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline GetMetaTableProducingTasksRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline GetMetaTableProducingTasksRequest& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline GetMetaTableProducingTasksRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline GetMetaTableProducingTasksRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
   protected:
     // The ID of the EMR cluster. This parameter takes effect only if the DataSourceType parameter is set to emr.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The type of the metatable. Valid values: odps and emr. The value odps indicates that the metatable is a MaxCompute metatable. The value emr indicates that the metatable is an E-MapReduce (EMR) metatable.
-    std::shared_ptr<string> dataSourceType_ = nullptr;
+    shared_ptr<string> dataSourceType_ {};
     // The name of the database.
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // The name of the schema.
-    std::shared_ptr<string> schemaName_ = nullptr;
+    shared_ptr<string> schemaName_ {};
     // The GUID of the MaxCompute metatable.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
     // The name of the metatable.
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

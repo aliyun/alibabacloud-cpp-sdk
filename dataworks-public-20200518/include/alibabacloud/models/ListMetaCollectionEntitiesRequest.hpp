@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collectionQualifiedName_ != nullptr
-        && this->entityType_ != nullptr && this->keyword_ != nullptr && this->nextToken_ != nullptr && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->collectionQualifiedName_ == nullptr
+        && this->entityType_ == nullptr && this->keyword_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr; };
     // collectionQualifiedName Field Functions 
     bool hasCollectionQualifiedName() const { return this->collectionQualifiedName_ != nullptr;};
     void deleteCollectionQualifiedName() { this->collectionQualifiedName_ = nullptr;};
-    inline string collectionQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(collectionQualifiedName_, "") };
+    inline string getCollectionQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(collectionQualifiedName_, "") };
     inline ListMetaCollectionEntitiesRequest& setCollectionQualifiedName(string collectionQualifiedName) { DARABONBA_PTR_SET_VALUE(collectionQualifiedName_, collectionQualifiedName) };
 
 
     // entityType Field Functions 
     bool hasEntityType() const { return this->entityType_ != nullptr;};
     void deleteEntityType() { this->entityType_ = nullptr;};
-    inline string entityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
+    inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
     inline ListMetaCollectionEntitiesRequest& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListMetaCollectionEntitiesRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListMetaCollectionEntitiesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListMetaCollectionEntitiesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -78,17 +78,17 @@ namespace Models
     // The unique identifier of the collection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> collectionQualifiedName_ = nullptr;
+    shared_ptr<string> collectionQualifiedName_ {};
     // The type of the entities.
     // 
     // For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
-    std::shared_ptr<string> entityType_ = nullptr;
+    shared_ptr<string> entityType_ {};
     // The search keyword.
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->opSeq_ != nullptr
-        && this->projectEnv_ != nullptr; };
+    virtual bool empty() const override { return this->opSeq_ == nullptr
+        && this->projectEnv_ == nullptr; };
     // opSeq Field Functions 
     bool hasOpSeq() const { return this->opSeq_ != nullptr;};
     void deleteOpSeq() { this->opSeq_ = nullptr;};
-    inline int64_t opSeq() const { DARABONBA_PTR_GET_DEFAULT(opSeq_, 0L) };
+    inline int64_t getOpSeq() const { DARABONBA_PTR_GET_DEFAULT(opSeq_, 0L) };
     inline ListDagsRequest& setOpSeq(int64_t opSeq) { DARABONBA_PTR_SET_VALUE(opSeq_, opSeq) };
 
 
     // projectEnv Field Functions 
     bool hasProjectEnv() const { return this->projectEnv_ != nullptr;};
     void deleteProjectEnv() { this->projectEnv_ = nullptr;};
-    inline string projectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
+    inline string getProjectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
     inline ListDagsRequest& setProjectEnv(string projectEnv) { DARABONBA_PTR_SET_VALUE(projectEnv_, projectEnv) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The sequence number that uniquely identifies the data backfill operation. You can call the [GetDag](https://help.aliyun.com/document_detail/189753.html) operation to query the sequence number.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> opSeq_ = nullptr;
+    shared_ptr<int64_t> opSeq_ {};
     // The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectEnv_ = nullptr;
+    shared_ptr<string> projectEnv_ {};
   };
 
   } // namespace Models

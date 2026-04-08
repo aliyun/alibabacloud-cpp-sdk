@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->qualifiedName_ != nullptr
-        && this->tagKeysShrink_ != nullptr; };
+    virtual bool empty() const override { return this->qualifiedName_ == nullptr
+        && this->tagKeysShrink_ == nullptr; };
     // qualifiedName Field Functions 
     bool hasQualifiedName() const { return this->qualifiedName_ != nullptr;};
     void deleteQualifiedName() { this->qualifiedName_ = nullptr;};
-    inline string qualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
+    inline string getQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
     inline RemoveEntityTagsShrinkRequest& setQualifiedName(string qualifiedName) { DARABONBA_PTR_SET_VALUE(qualifiedName_, qualifiedName) };
 
 
     // tagKeysShrink Field Functions 
     bool hasTagKeysShrink() const { return this->tagKeysShrink_ != nullptr;};
     void deleteTagKeysShrink() { this->tagKeysShrink_ = nullptr;};
-    inline string tagKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(tagKeysShrink_, "") };
+    inline string getTagKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(tagKeysShrink_, "") };
     inline RemoveEntityTagsShrinkRequest& setTagKeysShrink(string tagKeysShrink) { DARABONBA_PTR_SET_VALUE(tagKeysShrink_, tagKeysShrink) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
     // 
     // This parameter is required.
-    std::shared_ptr<string> qualifiedName_ = nullptr;
+    shared_ptr<string> qualifiedName_ {};
     // The tag keys.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagKeysShrink_ = nullptr;
+    shared_ptr<string> tagKeysShrink_ {};
   };
 
   } // namespace Models

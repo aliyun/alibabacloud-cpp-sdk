@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->tableGuid_ != nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && this->tableGuid_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline int64_t categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
+    inline int64_t getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
     inline DeleteFromMetaCategoryRequest& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline DeleteFromMetaCategoryRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the category.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> categoryId_ = nullptr;
+    shared_ptr<int64_t> categoryId_ {};
     // The GUID of the metatable.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
   };
 
   } // namespace Models

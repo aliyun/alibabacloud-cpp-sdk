@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSourceType_ != nullptr
-        && this->tableGuid_ != nullptr; };
+    virtual bool empty() const override { return this->dataSourceType_ == nullptr
+        && this->tableGuid_ == nullptr; };
     // dataSourceType Field Functions 
     bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string dataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
+    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline GetMetaTableThemeLevelRequest& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
 
 
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline GetMetaTableThemeLevelRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The type of the data source. Set the value to odps.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataSourceType_ = nullptr;
+    shared_ptr<string> dataSourceType_ {};
     // The GUID of the metatable. Specify the GUID in the format of odps.${projectName}.${tableName}.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
   };
 
   } // namespace Models

@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->idsShrink_ != nullptr
-        && this->sceneCode_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->idsShrink_ == nullptr
+        && this->sceneCode_ == nullptr && this->status_ == nullptr; };
     // idsShrink Field Functions 
     bool hasIdsShrink() const { return this->idsShrink_ != nullptr;};
     void deleteIdsShrink() { this->idsShrink_ = nullptr;};
-    inline string idsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
+    inline string getIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
     inline DsgDesensPlanUpdateStatusShrinkRequest& setIdsShrink(string idsShrink) { DARABONBA_PTR_SET_VALUE(idsShrink_, idsShrink) };
 
 
     // sceneCode Field Functions 
     bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
     void deleteSceneCode() { this->sceneCode_ = nullptr;};
-    inline string sceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
+    inline string getSceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
     inline DsgDesensPlanUpdateStatusShrinkRequest& setSceneCode(string sceneCode) { DARABONBA_PTR_SET_VALUE(sceneCode_, sceneCode) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline DsgDesensPlanUpdateStatusShrinkRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // A collection of IDs of the data masking rules of which the status you want to modify.
     // 
     // This parameter is required.
-    std::shared_ptr<string> idsShrink_ = nullptr;
+    shared_ptr<string> idsShrink_ {};
     // The code of the level-1 data masking scenario to which the rule belongs. Valid values:
     // 
     // *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
@@ -71,14 +71,14 @@ namespace Models
     // *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
     // 
     // This parameter is required.
-    std::shared_ptr<string> sceneCode_ = nullptr;
+    shared_ptr<string> sceneCode_ {};
     // The status of the data masking rule. Valid values:
     // 
     // *   0: expired
     // *   1: effective
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

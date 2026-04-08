@@ -63,140 +63,140 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertInterval_ != nullptr
-        && this->alertMethods_ != nullptr && this->alertTargets_ != nullptr && this->alertUnit_ != nullptr && this->baselineIds_ != nullptr && this->bizProcessIds_ != nullptr
-        && this->detail_ != nullptr && this->dndEnd_ != nullptr && this->maxAlertTimes_ != nullptr && this->nodeIds_ != nullptr && this->projectId_ != nullptr
-        && this->remindId_ != nullptr && this->remindName_ != nullptr && this->remindType_ != nullptr && this->remindUnit_ != nullptr && this->robotUrls_ != nullptr
-        && this->useFlag_ != nullptr && this->webhooks_ != nullptr; };
+    virtual bool empty() const override { return this->alertInterval_ == nullptr
+        && this->alertMethods_ == nullptr && this->alertTargets_ == nullptr && this->alertUnit_ == nullptr && this->baselineIds_ == nullptr && this->bizProcessIds_ == nullptr
+        && this->detail_ == nullptr && this->dndEnd_ == nullptr && this->maxAlertTimes_ == nullptr && this->nodeIds_ == nullptr && this->projectId_ == nullptr
+        && this->remindId_ == nullptr && this->remindName_ == nullptr && this->remindType_ == nullptr && this->remindUnit_ == nullptr && this->robotUrls_ == nullptr
+        && this->useFlag_ == nullptr && this->webhooks_ == nullptr; };
     // alertInterval Field Functions 
     bool hasAlertInterval() const { return this->alertInterval_ != nullptr;};
     void deleteAlertInterval() { this->alertInterval_ = nullptr;};
-    inline int32_t alertInterval() const { DARABONBA_PTR_GET_DEFAULT(alertInterval_, 0) };
+    inline int32_t getAlertInterval() const { DARABONBA_PTR_GET_DEFAULT(alertInterval_, 0) };
     inline UpdateRemindRequest& setAlertInterval(int32_t alertInterval) { DARABONBA_PTR_SET_VALUE(alertInterval_, alertInterval) };
 
 
     // alertMethods Field Functions 
     bool hasAlertMethods() const { return this->alertMethods_ != nullptr;};
     void deleteAlertMethods() { this->alertMethods_ = nullptr;};
-    inline string alertMethods() const { DARABONBA_PTR_GET_DEFAULT(alertMethods_, "") };
+    inline string getAlertMethods() const { DARABONBA_PTR_GET_DEFAULT(alertMethods_, "") };
     inline UpdateRemindRequest& setAlertMethods(string alertMethods) { DARABONBA_PTR_SET_VALUE(alertMethods_, alertMethods) };
 
 
     // alertTargets Field Functions 
     bool hasAlertTargets() const { return this->alertTargets_ != nullptr;};
     void deleteAlertTargets() { this->alertTargets_ = nullptr;};
-    inline string alertTargets() const { DARABONBA_PTR_GET_DEFAULT(alertTargets_, "") };
+    inline string getAlertTargets() const { DARABONBA_PTR_GET_DEFAULT(alertTargets_, "") };
     inline UpdateRemindRequest& setAlertTargets(string alertTargets) { DARABONBA_PTR_SET_VALUE(alertTargets_, alertTargets) };
 
 
     // alertUnit Field Functions 
     bool hasAlertUnit() const { return this->alertUnit_ != nullptr;};
     void deleteAlertUnit() { this->alertUnit_ = nullptr;};
-    inline string alertUnit() const { DARABONBA_PTR_GET_DEFAULT(alertUnit_, "") };
+    inline string getAlertUnit() const { DARABONBA_PTR_GET_DEFAULT(alertUnit_, "") };
     inline UpdateRemindRequest& setAlertUnit(string alertUnit) { DARABONBA_PTR_SET_VALUE(alertUnit_, alertUnit) };
 
 
     // baselineIds Field Functions 
     bool hasBaselineIds() const { return this->baselineIds_ != nullptr;};
     void deleteBaselineIds() { this->baselineIds_ = nullptr;};
-    inline string baselineIds() const { DARABONBA_PTR_GET_DEFAULT(baselineIds_, "") };
+    inline string getBaselineIds() const { DARABONBA_PTR_GET_DEFAULT(baselineIds_, "") };
     inline UpdateRemindRequest& setBaselineIds(string baselineIds) { DARABONBA_PTR_SET_VALUE(baselineIds_, baselineIds) };
 
 
     // bizProcessIds Field Functions 
     bool hasBizProcessIds() const { return this->bizProcessIds_ != nullptr;};
     void deleteBizProcessIds() { this->bizProcessIds_ = nullptr;};
-    inline string bizProcessIds() const { DARABONBA_PTR_GET_DEFAULT(bizProcessIds_, "") };
+    inline string getBizProcessIds() const { DARABONBA_PTR_GET_DEFAULT(bizProcessIds_, "") };
     inline UpdateRemindRequest& setBizProcessIds(string bizProcessIds) { DARABONBA_PTR_SET_VALUE(bizProcessIds_, bizProcessIds) };
 
 
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
-    inline string detail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
     inline UpdateRemindRequest& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
 
 
     // dndEnd Field Functions 
     bool hasDndEnd() const { return this->dndEnd_ != nullptr;};
     void deleteDndEnd() { this->dndEnd_ = nullptr;};
-    inline string dndEnd() const { DARABONBA_PTR_GET_DEFAULT(dndEnd_, "") };
+    inline string getDndEnd() const { DARABONBA_PTR_GET_DEFAULT(dndEnd_, "") };
     inline UpdateRemindRequest& setDndEnd(string dndEnd) { DARABONBA_PTR_SET_VALUE(dndEnd_, dndEnd) };
 
 
     // maxAlertTimes Field Functions 
     bool hasMaxAlertTimes() const { return this->maxAlertTimes_ != nullptr;};
     void deleteMaxAlertTimes() { this->maxAlertTimes_ = nullptr;};
-    inline int32_t maxAlertTimes() const { DARABONBA_PTR_GET_DEFAULT(maxAlertTimes_, 0) };
+    inline int32_t getMaxAlertTimes() const { DARABONBA_PTR_GET_DEFAULT(maxAlertTimes_, 0) };
     inline UpdateRemindRequest& setMaxAlertTimes(int32_t maxAlertTimes) { DARABONBA_PTR_SET_VALUE(maxAlertTimes_, maxAlertTimes) };
 
 
     // nodeIds Field Functions 
     bool hasNodeIds() const { return this->nodeIds_ != nullptr;};
     void deleteNodeIds() { this->nodeIds_ = nullptr;};
-    inline string nodeIds() const { DARABONBA_PTR_GET_DEFAULT(nodeIds_, "") };
+    inline string getNodeIds() const { DARABONBA_PTR_GET_DEFAULT(nodeIds_, "") };
     inline UpdateRemindRequest& setNodeIds(string nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline UpdateRemindRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // remindId Field Functions 
     bool hasRemindId() const { return this->remindId_ != nullptr;};
     void deleteRemindId() { this->remindId_ = nullptr;};
-    inline int64_t remindId() const { DARABONBA_PTR_GET_DEFAULT(remindId_, 0L) };
+    inline int64_t getRemindId() const { DARABONBA_PTR_GET_DEFAULT(remindId_, 0L) };
     inline UpdateRemindRequest& setRemindId(int64_t remindId) { DARABONBA_PTR_SET_VALUE(remindId_, remindId) };
 
 
     // remindName Field Functions 
     bool hasRemindName() const { return this->remindName_ != nullptr;};
     void deleteRemindName() { this->remindName_ = nullptr;};
-    inline string remindName() const { DARABONBA_PTR_GET_DEFAULT(remindName_, "") };
+    inline string getRemindName() const { DARABONBA_PTR_GET_DEFAULT(remindName_, "") };
     inline UpdateRemindRequest& setRemindName(string remindName) { DARABONBA_PTR_SET_VALUE(remindName_, remindName) };
 
 
     // remindType Field Functions 
     bool hasRemindType() const { return this->remindType_ != nullptr;};
     void deleteRemindType() { this->remindType_ = nullptr;};
-    inline string remindType() const { DARABONBA_PTR_GET_DEFAULT(remindType_, "") };
+    inline string getRemindType() const { DARABONBA_PTR_GET_DEFAULT(remindType_, "") };
     inline UpdateRemindRequest& setRemindType(string remindType) { DARABONBA_PTR_SET_VALUE(remindType_, remindType) };
 
 
     // remindUnit Field Functions 
     bool hasRemindUnit() const { return this->remindUnit_ != nullptr;};
     void deleteRemindUnit() { this->remindUnit_ = nullptr;};
-    inline string remindUnit() const { DARABONBA_PTR_GET_DEFAULT(remindUnit_, "") };
+    inline string getRemindUnit() const { DARABONBA_PTR_GET_DEFAULT(remindUnit_, "") };
     inline UpdateRemindRequest& setRemindUnit(string remindUnit) { DARABONBA_PTR_SET_VALUE(remindUnit_, remindUnit) };
 
 
     // robotUrls Field Functions 
     bool hasRobotUrls() const { return this->robotUrls_ != nullptr;};
     void deleteRobotUrls() { this->robotUrls_ = nullptr;};
-    inline string robotUrls() const { DARABONBA_PTR_GET_DEFAULT(robotUrls_, "") };
+    inline string getRobotUrls() const { DARABONBA_PTR_GET_DEFAULT(robotUrls_, "") };
     inline UpdateRemindRequest& setRobotUrls(string robotUrls) { DARABONBA_PTR_SET_VALUE(robotUrls_, robotUrls) };
 
 
     // useFlag Field Functions 
     bool hasUseFlag() const { return this->useFlag_ != nullptr;};
     void deleteUseFlag() { this->useFlag_ = nullptr;};
-    inline bool useFlag() const { DARABONBA_PTR_GET_DEFAULT(useFlag_, false) };
+    inline bool getUseFlag() const { DARABONBA_PTR_GET_DEFAULT(useFlag_, false) };
     inline UpdateRemindRequest& setUseFlag(bool useFlag) { DARABONBA_PTR_SET_VALUE(useFlag_, useFlag) };
 
 
     // webhooks Field Functions 
     bool hasWebhooks() const { return this->webhooks_ != nullptr;};
     void deleteWebhooks() { this->webhooks_ = nullptr;};
-    inline string webhooks() const { DARABONBA_PTR_GET_DEFAULT(webhooks_, "") };
+    inline string getWebhooks() const { DARABONBA_PTR_GET_DEFAULT(webhooks_, "") };
     inline UpdateRemindRequest& setWebhooks(string webhooks) { DARABONBA_PTR_SET_VALUE(webhooks_, webhooks) };
 
 
   protected:
     // The intervals at which alert notifications are sent. Unit: seconds. Minimum value: 1200. Default value: 1800.
-    std::shared_ptr<int32_t> alertInterval_ = nullptr;
+    shared_ptr<int32_t> alertInterval_ {};
     // The notification method. Valid values:
     // 
     // *   MAIL: Alert notifications are sent by email.
@@ -206,18 +206,18 @@ namespace Models
     // *   WEBHOOKS (WeCom or Lark chatbot): Alert notifications are sent by WeCom or Lark message. You can use this notification method only if the Webhooks parameter is configured.
     // 
     // Multiple notification methods are separated by commas (,).
-    std::shared_ptr<string> alertMethods_ = nullptr;
+    shared_ptr<string> alertMethods_ {};
     // The value format required by this parameter varies based on the value that you specify for the AlertUnit parameter. Take note of the following items:
     // 
     // *   If the AlertUnit parameter is set to OWNER, leave this parameter empty.
     // *   If the AlertUnit parameter is set to OTHER, set this parameter to the unique ID (UID) of the specified user. You can specify multiple UIDs. Separate them with commas (,). A maximum of 10 UIDs can be specified for receiving alert notifications.
-    std::shared_ptr<string> alertTargets_ = nullptr;
+    shared_ptr<string> alertTargets_ {};
     // The recipient to whom alert notifications are sent. Valid values: OWNER and OTHER. The value OWNER indicates that alert notifications are sent to the object owner. The value OTHER indicates that alert notifications are sent to a specified user.
-    std::shared_ptr<string> alertUnit_ = nullptr;
+    shared_ptr<string> alertUnit_ {};
     // The ID of the baseline to which the custom alert rule is applied. A maximum of 5 baselines can be specified for a custom alert rule. You can specify multiple IDs. Separate multiple IDs with commas (,). This parameter takes effect when you set the RemindUnit parameter to BASELINE.
-    std::shared_ptr<string> baselineIds_ = nullptr;
+    shared_ptr<string> baselineIds_ {};
     // The ID of the workflow to which the custom alert rule is applied. A maximum of 5 workflows can be specified for a custom alert rule. You can specify multiple IDs. Separate multiple IDs with commas (,). This parameter takes effect when you set the RemindUnit parameter to BIZPROCESS.
-    std::shared_ptr<string> bizProcessIds_ = nullptr;
+    shared_ptr<string> bizProcessIds_ {};
     // The details of the conditions that trigger an alert.
     // 
     // *   If the RemindType parameter is set to FINISHED, leave this parameter empty.
@@ -225,21 +225,21 @@ namespace Models
     // *   If the RemindType parameter is set to ERROR, leave this parameter empty.
     // *   If the RemindType parameter is set to CYCLE_UNFINISHED, set this parameter to key-value pairs in the JSON format. Example: {"1":"05:50","2":"06:50","3":"07:50","4":"08:50","5":"09:50","6":"10:50","7":"11:50","8":"12:50","9":"13:50","10":"14:50","11":"15:50","12":"16:50","13":"17:50","14":"18:50","15":"19:50","16":"20:50","17":"21:50","18":"22:50","19":"23:50","20":"24:50","21":"25:50"}. A key in the JSON string indicates the sequence number of a cycle. Valid values of keys: 1 to 288. A value in the JSON string indicates the time in point when a monitored instance times out in the relevant cycle. Values must be in the format of hh:mm. Valid values of hh: [0,47]. Valid values of mm: [0,59].
     // *   If the RemindType parameter is set to TIMEOUT, set this parameter to the timeout period. Unit: seconds. Example: 1800. This indicates that an alert notification is sent if the running duration of a monitored instance exceeds 30 minutes.
-    std::shared_ptr<string> detail_ = nullptr;
+    shared_ptr<string> detail_ {};
     // The end of the period during which no alert notifications are sent. Specify the time in the hh:mm format. Valid values of hh: [0,23]. Valid values of mm: [0,59].
-    std::shared_ptr<string> dndEnd_ = nullptr;
+    shared_ptr<string> dndEnd_ {};
     // The maximum number of alerts. Valid values: 1 to 10. Default value: 3.
-    std::shared_ptr<int32_t> maxAlertTimes_ = nullptr;
+    shared_ptr<int32_t> maxAlertTimes_ {};
     // The ID of the node to which the custom alert rule is applied. A maximum of 50 nodes can be specified for a custom alert rule. You can specify multiple IDs. Separate multiple IDs with commas (,). This parameter takes effect when you set the RemindUnit parameter to NODE.
-    std::shared_ptr<string> nodeIds_ = nullptr;
+    shared_ptr<string> nodeIds_ {};
     // The ID of the workspace to which the custom alert rule is applied. You can specify only one workspace for a custom alert rule. This parameter takes effect when you set the RemindUnit parameter to PROJECT.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The custom alert rule ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> remindId_ = nullptr;
+    shared_ptr<int64_t> remindId_ {};
     // The name of the custom alert rule. The name cannot exceed 128 characters in length.
-    std::shared_ptr<string> remindName_ = nullptr;
+    shared_ptr<string> remindName_ {};
     // The condition that triggers the alert rule. Valid values:
     // 
     // *   FINISHED: The system monitors an instance when it starts to run and sends an alert notification after the running of the instance is complete.
@@ -249,25 +249,25 @@ namespace Models
     // *   TIMEOUT: The system monitors an instance when it starts to run and sends an alert notification if the instance is still running after the specified period ends. In most cases, you can configure this trigger condition to monitor the running duration of node instances.
     // 
     // For more information, see [Manage custom alert rules](https://help.aliyun.com/document_detail/138172.html).
-    std::shared_ptr<string> remindType_ = nullptr;
+    shared_ptr<string> remindType_ {};
     // The type of the object to which the custom alert rule is applied. Valid values:
     // 
     // *   NODE
     // *   BASELINE
     // *   PROJECT
     // *   BIZPROCESS
-    std::shared_ptr<string> remindUnit_ = nullptr;
+    shared_ptr<string> remindUnit_ {};
     // The webhook URL of the DingTalk chatbot. You can specify multiple webhook URLs. Separate multiple webhook URLs with commas (,). If this parameter is set to undefined, the specified webhook URLs are cleared.
-    std::shared_ptr<string> robotUrls_ = nullptr;
+    shared_ptr<string> robotUrls_ {};
     // Specifies whether to enable the alert rule. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> useFlag_ = nullptr;
+    shared_ptr<bool> useFlag_ {};
     // The webhook URL of the WeCom or Lark chatbot. You can specify multiple webhook URLs. Separate multiple webhook URLs with commas (,). The value of AlertMethods must include WEBHOOKS. If this parameter is set to undefined, the specified webhook URLs are cleared.
     // 
     // Only DataWorks Enterprise Edition supports this parameter. The webhook URL-based alerting feature is supported in the following regions: China (Shanghai), China (Chengdu), China (Zhangjiakou), China (Beijing), China (Hangzhou), China (Shenzhen), China (Hong Kong), Germany (Frankfurt), and Singapore.
-    std::shared_ptr<string> webhooks_ = nullptr;
+    shared_ptr<string> webhooks_ {};
   };
 
   } // namespace Models

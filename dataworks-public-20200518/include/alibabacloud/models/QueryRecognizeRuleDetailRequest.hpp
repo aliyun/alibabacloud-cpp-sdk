@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sensitiveName_ != nullptr
-        && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->sensitiveName_ == nullptr
+        && this->tenantId_ == nullptr; };
     // sensitiveName Field Functions 
     bool hasSensitiveName() const { return this->sensitiveName_ != nullptr;};
     void deleteSensitiveName() { this->sensitiveName_ = nullptr;};
-    inline string sensitiveName() const { DARABONBA_PTR_GET_DEFAULT(sensitiveName_, "") };
+    inline string getSensitiveName() const { DARABONBA_PTR_GET_DEFAULT(sensitiveName_, "") };
     inline QueryRecognizeRuleDetailRequest& setSensitiveName(string sensitiveName) { DARABONBA_PTR_SET_VALUE(sensitiveName_, sensitiveName) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline QueryRecognizeRuleDetailRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the sensitive field. To obtain the name of the sensitive field, call the [QuerySensNodeInfo](https://help.aliyun.com/document_detail/2747189.html) operation or log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Data Category and Sensitivity Level page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sensitiveName_ = nullptr;
+    shared_ptr<string> sensitiveName_ {};
     // The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

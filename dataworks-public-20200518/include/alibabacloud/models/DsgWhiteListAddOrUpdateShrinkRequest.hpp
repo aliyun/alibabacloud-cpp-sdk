@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->whiteListsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->whiteListsShrink_ == nullptr; };
     // whiteListsShrink Field Functions 
     bool hasWhiteListsShrink() const { return this->whiteListsShrink_ != nullptr;};
     void deleteWhiteListsShrink() { this->whiteListsShrink_ = nullptr;};
-    inline string whiteListsShrink() const { DARABONBA_PTR_GET_DEFAULT(whiteListsShrink_, "") };
+    inline string getWhiteListsShrink() const { DARABONBA_PTR_GET_DEFAULT(whiteListsShrink_, "") };
     inline DsgWhiteListAddOrUpdateShrinkRequest& setWhiteListsShrink(string whiteListsShrink) { DARABONBA_PTR_SET_VALUE(whiteListsShrink_, whiteListsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // A collection of whitelists.
     // 
     // This parameter is required.
-    std::shared_ptr<string> whiteListsShrink_ = nullptr;
+    shared_ptr<string> whiteListsShrink_ {};
   };
 
   } // namespace Models

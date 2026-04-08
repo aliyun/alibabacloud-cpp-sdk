@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->envType_ != nullptr
-        && this->matchExpression_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->envType_ == nullptr
+        && this->matchExpression_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->tableName_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline GetQualityEntityRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // matchExpression Field Functions 
     bool hasMatchExpression() const { return this->matchExpression_ != nullptr;};
     void deleteMatchExpression() { this->matchExpression_ = nullptr;};
-    inline string matchExpression() const { DARABONBA_PTR_GET_DEFAULT(matchExpression_, "") };
+    inline string getMatchExpression() const { DARABONBA_PTR_GET_DEFAULT(matchExpression_, "") };
     inline GetQualityEntityRequest& setMatchExpression(string matchExpression) { DARABONBA_PTR_SET_VALUE(matchExpression_, matchExpression) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline GetQualityEntityRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetQualityEntityRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline GetQualityEntityRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
@@ -86,19 +86,19 @@ namespace Models
     // *   hybriddb_for_postgresql
     // 
     // This parameter is required.
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // The partition filter expression.
-    std::shared_ptr<string> matchExpression_ = nullptr;
+    shared_ptr<string> matchExpression_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The name of the compute engine instance or data source. You can obtain the name from data source configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // The name of the partitioned table. You can call the [GetMetaTablePartition](https://help.aliyun.com/document_detail/173923.html) operation to obtain the name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

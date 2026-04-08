@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizDate_ != nullptr
-        && this->projectEnv_ != nullptr && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->bizDate_ == nullptr
+        && this->projectEnv_ == nullptr && this->projectId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
-    inline string bizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, "") };
+    inline string getBizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, "") };
     inline GetInstanceStatusCountRequest& setBizDate(string bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
 
 
     // projectEnv Field Functions 
     bool hasProjectEnv() const { return this->projectEnv_ != nullptr;};
     void deleteProjectEnv() { this->projectEnv_ = nullptr;};
-    inline string projectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
+    inline string getProjectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
     inline GetInstanceStatusCountRequest& setProjectEnv(string projectEnv) { DARABONBA_PTR_SET_VALUE(projectEnv_, projectEnv) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline GetInstanceStatusCountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The data timestamp of instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizDate_ = nullptr;
+    shared_ptr<string> bizDate_ {};
     // The runtime environment. Valid values: PROD and DEV.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectEnv_ = nullptr;
+    shared_ptr<string> projectEnv_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

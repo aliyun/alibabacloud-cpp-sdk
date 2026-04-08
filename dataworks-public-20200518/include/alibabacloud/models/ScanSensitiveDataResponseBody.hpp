@@ -31,32 +31,32 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->sensitives_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->sensitives_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ScanSensitiveDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sensitives Field Functions 
     bool hasSensitives() const { return this->sensitives_ != nullptr;};
     void deleteSensitives() { this->sensitives_ = nullptr;};
-    inline     const Darabonba::Json & sensitives() const { DARABONBA_GET(sensitives_) };
-    Darabonba::Json & sensitives() { DARABONBA_GET(sensitives_) };
+    inline     const Darabonba::Json & getSensitives() const { DARABONBA_GET(sensitives_) };
+    Darabonba::Json & getSensitives() { DARABONBA_GET(sensitives_) };
     inline ScanSensitiveDataResponseBody& setSensitives(const Darabonba::Json & sensitives) { DARABONBA_SET_VALUE(sensitives_, sensitives) };
-    inline ScanSensitiveDataResponseBody& setSensitives(Darabonba::Json & sensitives) { DARABONBA_SET_RVALUE(sensitives_, sensitives) };
+    inline ScanSensitiveDataResponseBody& setSensitives(Darabonba::Json && sensitives) { DARABONBA_SET_RVALUE(sensitives_, sensitives) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The check result. sensDatas indicates the rules that are used to check the sensitive data. sensDatas includes the following parameters:
     // 
     // *   hitCount: the number of times that the sensitive data hits the rule.
     // *   ruleName: the name of the rule.
-    Darabonba::Json sensitives_ = nullptr;
+    Darabonba::Json sensitives_ {};
   };
 
   } // namespace Models

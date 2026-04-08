@@ -37,34 +37,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityType_ != nullptr
-        && this->nextToken_ != nullptr && this->pageSize_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->entityType_ == nullptr
+        && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->tags_ == nullptr; };
     // entityType Field Functions 
     bool hasEntityType() const { return this->entityType_ != nullptr;};
     void deleteEntityType() { this->entityType_ = nullptr;};
-    inline string entityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
+    inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
     inline ListEntitiesByTagsRequest& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListEntitiesByTagsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListEntitiesByTagsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<UserEntityTag> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<UserEntityTag>) };
-    inline vector<UserEntityTag> tags() { DARABONBA_PTR_GET(tags_, vector<UserEntityTag>) };
+    inline const vector<UserEntityTag> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<UserEntityTag>) };
+    inline vector<UserEntityTag> getTags() { DARABONBA_PTR_GET(tags_, vector<UserEntityTag>) };
     inline ListEntitiesByTagsRequest& setTags(const vector<UserEntityTag> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline ListEntitiesByTagsRequest& setTags(vector<UserEntityTag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
@@ -73,15 +73,15 @@ namespace Models
     // The type of the entity.
     // 
     // This parameter is required.
-    std::shared_ptr<string> entityType_ = nullptr;
+    shared_ptr<string> entityType_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The number of entries per page. Default value: 10. Valid values: 1 to 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The tags.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<UserEntityTag>> tags_ = nullptr;
+    shared_ptr<vector<UserEntityTag>> tags_ {};
   };
 
   } // namespace Models

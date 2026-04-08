@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineId_ != nullptr; };
+    virtual bool empty() const override { return this->baselineId_ == nullptr; };
     // baselineId Field Functions 
     bool hasBaselineId() const { return this->baselineId_ != nullptr;};
     void deleteBaselineId() { this->baselineId_ = nullptr;};
-    inline int64_t baselineId() const { DARABONBA_PTR_GET_DEFAULT(baselineId_, 0L) };
+    inline int64_t getBaselineId() const { DARABONBA_PTR_GET_DEFAULT(baselineId_, 0L) };
     inline GetBaselineConfigRequest& setBaselineId(int64_t baselineId) { DARABONBA_PTR_SET_VALUE(baselineId_, baselineId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The baseline ID. You can call the [GetNode](https://help.aliyun.com/document_detail/173977.html) operation to query the baseline ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> baselineId_ = nullptr;
+    shared_ptr<int64_t> baselineId_ {};
   };
 
   } // namespace Models

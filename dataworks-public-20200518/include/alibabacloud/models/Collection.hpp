@@ -45,82 +45,94 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collectionType_ != nullptr
-        && this->comment_ != nullptr && this->createTime_ != nullptr && this->level_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr
-        && this->ownerName_ != nullptr && this->qualifiedName_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->collectionType_ == nullptr
+        && this->comment_ == nullptr && this->createTime_ == nullptr && this->level_ == nullptr && this->name_ == nullptr && this->ownerId_ == nullptr
+        && this->ownerName_ == nullptr && this->qualifiedName_ == nullptr && this->updateTime_ == nullptr; };
     // collectionType Field Functions 
     bool hasCollectionType() const { return this->collectionType_ != nullptr;};
     void deleteCollectionType() { this->collectionType_ = nullptr;};
-    inline string collectionType() const { DARABONBA_PTR_GET_DEFAULT(collectionType_, "") };
+    inline string getCollectionType() const { DARABONBA_PTR_GET_DEFAULT(collectionType_, "") };
     inline Collection& setCollectionType(string collectionType) { DARABONBA_PTR_SET_VALUE(collectionType_, collectionType) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline Collection& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline Collection& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline int32_t level() const { DARABONBA_PTR_GET_DEFAULT(level_, 0) };
+    inline int32_t getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, 0) };
     inline Collection& setLevel(int32_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Collection& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline Collection& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // ownerName Field Functions 
     bool hasOwnerName() const { return this->ownerName_ != nullptr;};
     void deleteOwnerName() { this->ownerName_ = nullptr;};
-    inline string ownerName() const { DARABONBA_PTR_GET_DEFAULT(ownerName_, "") };
+    inline string getOwnerName() const { DARABONBA_PTR_GET_DEFAULT(ownerName_, "") };
     inline Collection& setOwnerName(string ownerName) { DARABONBA_PTR_SET_VALUE(ownerName_, ownerName) };
 
 
     // qualifiedName Field Functions 
     bool hasQualifiedName() const { return this->qualifiedName_ != nullptr;};
     void deleteQualifiedName() { this->qualifiedName_ = nullptr;};
-    inline string qualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
+    inline string getQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
     inline Collection& setQualifiedName(string qualifiedName) { DARABONBA_PTR_SET_VALUE(qualifiedName_, qualifiedName) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline int64_t updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+    inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
     inline Collection& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
-    std::shared_ptr<string> collectionType_ = nullptr;
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<int32_t> level_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> ownerName_ = nullptr;
-    std::shared_ptr<string> qualifiedName_ = nullptr;
-    std::shared_ptr<int64_t> updateTime_ = nullptr;
+    // The type of the collection. Valid values:
+    // 
+    // *   **ALBUM**: data album
+    // *   **ALBUM_CATEGORY**: category in a data album
+    shared_ptr<string> collectionType_ {};
+    // The remarks.
+    shared_ptr<string> comment_ {};
+    // The creation time.
+    shared_ptr<int64_t> createTime_ {};
+    // The level of the collection. This parameter takes effect only if the CollectionType parameter is set to ALBUM_CATEGORY. Maximum value: 4.
+    shared_ptr<int32_t> level_ {};
+    // The name of the collection.
+    shared_ptr<string> name_ {};
+    // The ID of the Alibaba Cloud account that is used by the collection owner.
+    shared_ptr<string> ownerId_ {};
+    // The name of the collection owner.
+    shared_ptr<string> ownerName_ {};
+    // The unique identifier of the collection.
+    shared_ptr<string> qualifiedName_ {};
+    // The update time.
+    shared_ptr<int64_t> updateTime_ {};
   };
 
   } // namespace Models

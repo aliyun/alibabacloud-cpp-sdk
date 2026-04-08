@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineId_ != nullptr
-        && this->bizdate_ != nullptr && this->inGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->baselineId_ == nullptr
+        && this->bizdate_ == nullptr && this->inGroupId_ == nullptr; };
     // baselineId Field Functions 
     bool hasBaselineId() const { return this->baselineId_ != nullptr;};
     void deleteBaselineId() { this->baselineId_ = nullptr;};
-    inline int64_t baselineId() const { DARABONBA_PTR_GET_DEFAULT(baselineId_, 0L) };
+    inline int64_t getBaselineId() const { DARABONBA_PTR_GET_DEFAULT(baselineId_, 0L) };
     inline GetBaselineKeyPathRequest& setBaselineId(int64_t baselineId) { DARABONBA_PTR_SET_VALUE(baselineId_, baselineId) };
 
 
     // bizdate Field Functions 
     bool hasBizdate() const { return this->bizdate_ != nullptr;};
     void deleteBizdate() { this->bizdate_ = nullptr;};
-    inline string bizdate() const { DARABONBA_PTR_GET_DEFAULT(bizdate_, "") };
+    inline string getBizdate() const { DARABONBA_PTR_GET_DEFAULT(bizdate_, "") };
     inline GetBaselineKeyPathRequest& setBizdate(string bizdate) { DARABONBA_PTR_SET_VALUE(bizdate_, bizdate) };
 
 
     // inGroupId Field Functions 
     bool hasInGroupId() const { return this->inGroupId_ != nullptr;};
     void deleteInGroupId() { this->inGroupId_ = nullptr;};
-    inline int32_t inGroupId() const { DARABONBA_PTR_GET_DEFAULT(inGroupId_, 0) };
+    inline int32_t getInGroupId() const { DARABONBA_PTR_GET_DEFAULT(inGroupId_, 0) };
     inline GetBaselineKeyPathRequest& setInGroupId(int32_t inGroupId) { DARABONBA_PTR_SET_VALUE(inGroupId_, inGroupId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The name of the event.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> baselineId_ = nullptr;
+    shared_ptr<int64_t> baselineId_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizdate_ = nullptr;
+    shared_ptr<string> bizdate_ {};
     // The ID of the event.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> inGroupId_ = nullptr;
+    shared_ptr<int32_t> inGroupId_ {};
   };
 
   } // namespace Models

@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->testId_ != nullptr; };
+    virtual bool empty() const override { return this->testId_ == nullptr; };
     // testId Field Functions 
     bool hasTestId() const { return this->testId_ != nullptr;};
     void deleteTestId() { this->testId_ = nullptr;};
-    inline int64_t testId() const { DARABONBA_PTR_GET_DEFAULT(testId_, 0L) };
+    inline int64_t getTestId() const { DARABONBA_PTR_GET_DEFAULT(testId_, 0L) };
     inline GetDataServiceApiTestRequest& setTestId(int64_t testId) { DARABONBA_PTR_SET_VALUE(testId_, testId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The Id of the test. TestDataServiceApi is executed asynchronously after the API is called and the test Id is returned. You can also use ListDataServiceApiTest to obtain the latest test Id.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> testId_ = nullptr;
+    shared_ptr<int64_t> testId_ {};
   };
 
   } // namespace Models

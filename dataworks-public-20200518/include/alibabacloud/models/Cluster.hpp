@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterBizId_ != nullptr
-        && this->clusterId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterBizId_ == nullptr
+        && this->clusterId_ == nullptr; };
     // clusterBizId Field Functions 
     bool hasClusterBizId() const { return this->clusterBizId_ != nullptr;};
     void deleteClusterBizId() { this->clusterBizId_ = nullptr;};
-    inline string clusterBizId() const { DARABONBA_PTR_GET_DEFAULT(clusterBizId_, "") };
+    inline string getClusterBizId() const { DARABONBA_PTR_GET_DEFAULT(clusterBizId_, "") };
     inline Cluster& setClusterBizId(string clusterBizId) { DARABONBA_PTR_SET_VALUE(clusterBizId_, clusterBizId) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline int64_t clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, 0L) };
+    inline int64_t getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, 0L) };
     inline Cluster& setClusterId(int64_t clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
   protected:
+    // The unique business identifier of the cluster.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> clusterBizId_ = nullptr;
+    shared_ptr<string> clusterBizId_ {};
+    // The ID of the cluster associated with DataWorks.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> clusterId_ = nullptr;
+    shared_ptr<int64_t> clusterId_ {};
   };
 
   } // namespace Models

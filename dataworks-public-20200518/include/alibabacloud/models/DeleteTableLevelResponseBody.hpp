@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deleteResult_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->deleteResult_ == nullptr
+        && this->requestId_ == nullptr; };
     // deleteResult Field Functions 
     bool hasDeleteResult() const { return this->deleteResult_ != nullptr;};
     void deleteDeleteResult() { this->deleteResult_ = nullptr;};
-    inline bool deleteResult() const { DARABONBA_PTR_GET_DEFAULT(deleteResult_, false) };
+    inline bool getDeleteResult() const { DARABONBA_PTR_GET_DEFAULT(deleteResult_, false) };
     inline DeleteTableLevelResponseBody& setDeleteResult(bool deleteResult) { DARABONBA_PTR_SET_VALUE(deleteResult_, deleteResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteTableLevelResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether the table level was deleted.
-    std::shared_ptr<bool> deleteResult_ = nullptr;
+    shared_ptr<bool> deleteResult_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

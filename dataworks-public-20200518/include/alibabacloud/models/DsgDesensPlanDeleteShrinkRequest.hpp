@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->idsShrink_ != nullptr
-        && this->sceneCode_ != nullptr; };
+    virtual bool empty() const override { return this->idsShrink_ == nullptr
+        && this->sceneCode_ == nullptr; };
     // idsShrink Field Functions 
     bool hasIdsShrink() const { return this->idsShrink_ != nullptr;};
     void deleteIdsShrink() { this->idsShrink_ = nullptr;};
-    inline string idsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
+    inline string getIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
     inline DsgDesensPlanDeleteShrinkRequest& setIdsShrink(string idsShrink) { DARABONBA_PTR_SET_VALUE(idsShrink_, idsShrink) };
 
 
     // sceneCode Field Functions 
     bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
     void deleteSceneCode() { this->sceneCode_ = nullptr;};
-    inline string sceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
+    inline string getSceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
     inline DsgDesensPlanDeleteShrinkRequest& setSceneCode(string sceneCode) { DARABONBA_PTR_SET_VALUE(sceneCode_, sceneCode) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // A collection of data masking rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> idsShrink_ = nullptr;
+    shared_ptr<string> idsShrink_ {};
     // The code of the level-1 data masking scenario to which the rule belongs. Valid values:
     // 
     // *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
@@ -62,7 +62,7 @@ namespace Models
     // *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
     // 
     // This parameter is required.
-    std::shared_ptr<string> sceneCode_ = nullptr;
+    shared_ptr<string> sceneCode_ {};
   };
 
   } // namespace Models

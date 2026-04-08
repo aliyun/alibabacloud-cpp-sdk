@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->recognizeRulesType_ != nullptr
-        && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->recognizeRulesType_ == nullptr
+        && this->tenantId_ == nullptr; };
     // recognizeRulesType Field Functions 
     bool hasRecognizeRulesType() const { return this->recognizeRulesType_ != nullptr;};
     void deleteRecognizeRulesType() { this->recognizeRulesType_ = nullptr;};
-    inline string recognizeRulesType() const { DARABONBA_PTR_GET_DEFAULT(recognizeRulesType_, "") };
+    inline string getRecognizeRulesType() const { DARABONBA_PTR_GET_DEFAULT(recognizeRulesType_, "") };
     inline QueryRecognizeDataByRuleTypeRequest& setRecognizeRulesType(string recognizeRulesType) { DARABONBA_PTR_SET_VALUE(recognizeRulesType_, recognizeRulesType) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline QueryRecognizeDataByRuleTypeRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
@@ -56,11 +56,11 @@ namespace Models
     // *   4: self-generated data identification model
     // 
     // This parameter is required.
-    std::shared_ptr<string> recognizeRulesType_ = nullptr;
+    shared_ptr<string> recognizeRulesType_ {};
     // The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

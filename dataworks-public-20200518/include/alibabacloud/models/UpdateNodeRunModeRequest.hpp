@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nodeId_ != nullptr
-        && this->projectEnv_ != nullptr && this->schedulerType_ != nullptr; };
+    virtual bool empty() const override { return this->nodeId_ == nullptr
+        && this->projectEnv_ == nullptr && this->schedulerType_ == nullptr; };
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline int64_t nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, 0L) };
+    inline int64_t getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, 0L) };
     inline UpdateNodeRunModeRequest& setNodeId(int64_t nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // projectEnv Field Functions 
     bool hasProjectEnv() const { return this->projectEnv_ != nullptr;};
     void deleteProjectEnv() { this->projectEnv_ = nullptr;};
-    inline string projectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
+    inline string getProjectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
     inline UpdateNodeRunModeRequest& setProjectEnv(string projectEnv) { DARABONBA_PTR_SET_VALUE(projectEnv_, projectEnv) };
 
 
     // schedulerType Field Functions 
     bool hasSchedulerType() const { return this->schedulerType_ != nullptr;};
     void deleteSchedulerType() { this->schedulerType_ = nullptr;};
-    inline int32_t schedulerType() const { DARABONBA_PTR_GET_DEFAULT(schedulerType_, 0) };
+    inline int32_t getSchedulerType() const { DARABONBA_PTR_GET_DEFAULT(schedulerType_, 0) };
     inline UpdateNodeRunModeRequest& setSchedulerType(int32_t schedulerType) { DARABONBA_PTR_SET_VALUE(schedulerType_, schedulerType) };
 
 
@@ -60,21 +60,21 @@ namespace Models
     // The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> nodeId_ = nullptr;
+    shared_ptr<int64_t> nodeId_ {};
     // The environment in which the node runs. Valid values: DEV and PROD. The value DEV indicates the development environment, and the value PROD indicates the production environment.
     // 
     // *   PROD
     // *   DEV
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectEnv_ = nullptr;
+    shared_ptr<string> projectEnv_ {};
     // The operation that you want to perform on the node. Valid values:
     // 
     // *   0: indicates that you want to unfreeze the node.
     // *   2: indicates that you want to freeze the node.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> schedulerType_ = nullptr;
+    shared_ptr<int32_t> schedulerType_ {};
   };
 
   } // namespace Models

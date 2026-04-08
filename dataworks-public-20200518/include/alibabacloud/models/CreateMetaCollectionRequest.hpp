@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collectionType_ != nullptr
-        && this->comment_ != nullptr && this->name_ != nullptr && this->parentQualifiedName_ != nullptr; };
+    virtual bool empty() const override { return this->collectionType_ == nullptr
+        && this->comment_ == nullptr && this->name_ == nullptr && this->parentQualifiedName_ == nullptr; };
     // collectionType Field Functions 
     bool hasCollectionType() const { return this->collectionType_ != nullptr;};
     void deleteCollectionType() { this->collectionType_ = nullptr;};
-    inline string collectionType() const { DARABONBA_PTR_GET_DEFAULT(collectionType_, "") };
+    inline string getCollectionType() const { DARABONBA_PTR_GET_DEFAULT(collectionType_, "") };
     inline CreateMetaCollectionRequest& setCollectionType(string collectionType) { DARABONBA_PTR_SET_VALUE(collectionType_, collectionType) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline CreateMetaCollectionRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateMetaCollectionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parentQualifiedName Field Functions 
     bool hasParentQualifiedName() const { return this->parentQualifiedName_ != nullptr;};
     void deleteParentQualifiedName() { this->parentQualifiedName_ = nullptr;};
-    inline string parentQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(parentQualifiedName_, "") };
+    inline string getParentQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(parentQualifiedName_, "") };
     inline CreateMetaCollectionRequest& setParentQualifiedName(string parentQualifiedName) { DARABONBA_PTR_SET_VALUE(parentQualifiedName_, parentQualifiedName) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The type of the collection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> collectionType_ = nullptr;
+    shared_ptr<string> collectionType_ {};
     // The comment of the collection. The comment must be 1 to 64 characters in length.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The name of the collection. The name must be 1 to 32 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The unique identifier of the parent collection.
-    std::shared_ptr<string> parentQualifiedName_ = nullptr;
+    shared_ptr<string> parentQualifiedName_ {};
   };
 
   } // namespace Models

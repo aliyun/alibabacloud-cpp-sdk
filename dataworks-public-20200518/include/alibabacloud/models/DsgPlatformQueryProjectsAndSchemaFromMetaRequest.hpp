@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->engineName_ != nullptr; };
+    virtual bool empty() const override { return this->engineName_ == nullptr; };
     // engineName Field Functions 
     bool hasEngineName() const { return this->engineName_ != nullptr;};
     void deleteEngineName() { this->engineName_ = nullptr;};
-    inline string engineName() const { DARABONBA_PTR_GET_DEFAULT(engineName_, "") };
+    inline string getEngineName() const { DARABONBA_PTR_GET_DEFAULT(engineName_, "") };
     inline DsgPlatformQueryProjectsAndSchemaFromMetaRequest& setEngineName(string engineName) { DARABONBA_PTR_SET_VALUE(engineName_, engineName) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   HOLO.POSTGRES
     // 
     // This parameter is required.
-    std::shared_ptr<string> engineName_ = nullptr;
+    shared_ptr<string> engineName_ {};
   };
 
   } // namespace Models

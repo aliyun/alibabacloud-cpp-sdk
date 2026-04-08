@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->projectIds_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->projectIds_ == nullptr
+        && this->requestId_ == nullptr; };
     // projectIds Field Functions 
     bool hasProjectIds() const { return this->projectIds_ != nullptr;};
     void deleteProjectIds() { this->projectIds_ = nullptr;};
-    inline const vector<int64_t> & projectIds() const { DARABONBA_PTR_GET_CONST(projectIds_, vector<int64_t>) };
-    inline vector<int64_t> projectIds() { DARABONBA_PTR_GET(projectIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getProjectIds() const { DARABONBA_PTR_GET_CONST(projectIds_, vector<int64_t>) };
+    inline vector<int64_t> getProjectIds() { DARABONBA_PTR_GET(projectIds_, vector<int64_t>) };
     inline ListProjectIdsResponseBody& setProjectIds(const vector<int64_t> & projectIds) { DARABONBA_PTR_SET_VALUE(projectIds_, projectIds) };
     inline ListProjectIdsResponseBody& setProjectIds(vector<int64_t> && projectIds) { DARABONBA_PTR_SET_RVALUE(projectIds_, projectIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListProjectIdsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the DataWorks workspaces. The IDs of the workspaces on which the desired Alibaba Cloud account has permissions were returned.
-    std::shared_ptr<vector<int64_t>> projectIds_ = nullptr;
+    shared_ptr<vector<int64_t>> projectIds_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

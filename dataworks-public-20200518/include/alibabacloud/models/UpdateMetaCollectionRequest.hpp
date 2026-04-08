@@ -33,38 +33,38 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->name_ != nullptr && this->qualifiedName_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && this->name_ == nullptr && this->qualifiedName_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline UpdateMetaCollectionRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateMetaCollectionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // qualifiedName Field Functions 
     bool hasQualifiedName() const { return this->qualifiedName_ != nullptr;};
     void deleteQualifiedName() { this->qualifiedName_ = nullptr;};
-    inline string qualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
+    inline string getQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
     inline UpdateMetaCollectionRequest& setQualifiedName(string qualifiedName) { DARABONBA_PTR_SET_VALUE(qualifiedName_, qualifiedName) };
 
 
   protected:
     // The comment of the collection. The comment must be 1 to 64 characters in length.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The name of the collection.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The unique identifier of the collection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> qualifiedName_ = nullptr;
+    shared_ptr<string> qualifiedName_ {};
   };
 
   } // namespace Models

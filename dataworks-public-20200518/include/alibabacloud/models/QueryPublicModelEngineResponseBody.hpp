@@ -32,29 +32,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->returnValue_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->returnValue_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryPublicModelEngineResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // returnValue Field Functions 
     bool hasReturnValue() const { return this->returnValue_ != nullptr;};
     void deleteReturnValue() { this->returnValue_ = nullptr;};
-    inline const vector<Darabonba::Json> & returnValue() const { DARABONBA_PTR_GET_CONST(returnValue_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> returnValue() { DARABONBA_PTR_GET(returnValue_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getReturnValue() const { DARABONBA_PTR_GET_CONST(returnValue_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getReturnValue() { DARABONBA_PTR_GET(returnValue_, vector<Darabonba::Json>) };
     inline QueryPublicModelEngineResponseBody& setReturnValue(const vector<Darabonba::Json> & returnValue) { DARABONBA_PTR_SET_VALUE(returnValue_, returnValue) };
     inline QueryPublicModelEngineResponseBody& setReturnValue(vector<Darabonba::Json> && returnValue) { DARABONBA_PTR_SET_RVALUE(returnValue_, returnValue) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The returned information about objects.
-    std::shared_ptr<vector<Darabonba::Json>> returnValue_ = nullptr;
+    shared_ptr<vector<Darabonba::Json>> returnValue_ {};
   };
 
   } // namespace Models

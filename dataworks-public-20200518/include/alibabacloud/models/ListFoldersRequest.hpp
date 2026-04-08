@@ -37,60 +37,60 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->parentFolderPath_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->parentFolderPath_ == nullptr && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListFoldersRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListFoldersRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // parentFolderPath Field Functions 
     bool hasParentFolderPath() const { return this->parentFolderPath_ != nullptr;};
     void deleteParentFolderPath() { this->parentFolderPath_ = nullptr;};
-    inline string parentFolderPath() const { DARABONBA_PTR_GET_DEFAULT(parentFolderPath_, "") };
+    inline string getParentFolderPath() const { DARABONBA_PTR_GET_DEFAULT(parentFolderPath_, "") };
     inline ListFoldersRequest& setParentFolderPath(string parentFolderPath) { DARABONBA_PTR_SET_VALUE(parentFolderPath_, parentFolderPath) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ListFoldersRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectIdentifier Field Functions 
     bool hasProjectIdentifier() const { return this->projectIdentifier_ != nullptr;};
     void deleteProjectIdentifier() { this->projectIdentifier_ = nullptr;};
-    inline string projectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
+    inline string getProjectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
     inline ListFoldersRequest& setProjectIdentifier(string projectIdentifier) { DARABONBA_PTR_SET_VALUE(projectIdentifier_, projectIdentifier) };
 
 
   protected:
-    // The page number.
+    // The error code.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    shared_ptr<int32_t> pageNumber_ {};
+    // Indicates whether the request was successful.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The path of the parent folder.
+    shared_ptr<int32_t> pageSize_ {};
+    // 0000-ABCD-EFG****
     // 
     // This parameter is required.
-    std::shared_ptr<string> parentFolderPath_ = nullptr;
-    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to obtain the workspace ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
-    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to obtain the workspace name. You must configure either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
-    std::shared_ptr<string> projectIdentifier_ = nullptr;
+    shared_ptr<string> parentFolderPath_ {};
+    // The error message.
+    shared_ptr<int64_t> projectId_ {};
+    // The request ID. You can troubleshoot issues based on the ID.
+    shared_ptr<string> projectIdentifier_ {};
   };
 
   } // namespace Models

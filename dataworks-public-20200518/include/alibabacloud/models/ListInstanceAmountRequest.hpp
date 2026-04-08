@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beginDate_ != nullptr
-        && this->endDate_ != nullptr && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->beginDate_ == nullptr
+        && this->endDate_ == nullptr && this->projectId_ == nullptr; };
     // beginDate Field Functions 
     bool hasBeginDate() const { return this->beginDate_ != nullptr;};
     void deleteBeginDate() { this->beginDate_ = nullptr;};
-    inline string beginDate() const { DARABONBA_PTR_GET_DEFAULT(beginDate_, "") };
+    inline string getBeginDate() const { DARABONBA_PTR_GET_DEFAULT(beginDate_, "") };
     inline ListInstanceAmountRequest& setBeginDate(string beginDate) { DARABONBA_PTR_SET_VALUE(beginDate_, beginDate) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline ListInstanceAmountRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ListInstanceAmountRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The beginning of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> beginDate_ = nullptr;
+    shared_ptr<string> beginDate_ {};
     // The end of the time range to query, accurate to the day. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Work space page to obtain the workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

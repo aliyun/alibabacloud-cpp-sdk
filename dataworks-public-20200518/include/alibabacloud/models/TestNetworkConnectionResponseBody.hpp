@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_TESTNETWORKCONNECTIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_TESTNETWORKCONNECTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/TestNetworkConnectionResponseBodyTaskList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,41 +33,88 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->success_ != nullptr && this->taskList_ != nullptr; };
+    class TaskList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TaskList& obj) { 
+        DARABONBA_PTR_TO_JSON(ConnectMessage, connectMessage_);
+        DARABONBA_PTR_TO_JSON(ConnectStatus, connectStatus_);
+      };
+      friend void from_json(const Darabonba::Json& j, TaskList& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConnectMessage, connectMessage_);
+        DARABONBA_PTR_FROM_JSON(ConnectStatus, connectStatus_);
+      };
+      TaskList() = default ;
+      TaskList(const TaskList &) = default ;
+      TaskList(TaskList &&) = default ;
+      TaskList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TaskList() = default ;
+      TaskList& operator=(const TaskList &) = default ;
+      TaskList& operator=(TaskList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->connectMessage_ == nullptr
+        && this->connectStatus_ == nullptr; };
+      // connectMessage Field Functions 
+      bool hasConnectMessage() const { return this->connectMessage_ != nullptr;};
+      void deleteConnectMessage() { this->connectMessage_ = nullptr;};
+      inline string getConnectMessage() const { DARABONBA_PTR_GET_DEFAULT(connectMessage_, "") };
+      inline TaskList& setConnectMessage(string connectMessage) { DARABONBA_PTR_SET_VALUE(connectMessage_, connectMessage) };
+
+
+      // connectStatus Field Functions 
+      bool hasConnectStatus() const { return this->connectStatus_ != nullptr;};
+      void deleteConnectStatus() { this->connectStatus_ = nullptr;};
+      inline bool getConnectStatus() const { DARABONBA_PTR_GET_DEFAULT(connectStatus_, false) };
+      inline TaskList& setConnectStatus(bool connectStatus) { DARABONBA_PTR_SET_VALUE(connectStatus_, connectStatus) };
+
+
+    protected:
+      // The reason why the data source and resource group failed the connectivity test. If data source and the resource group passed the connectivity test, this parameter is left empty.
+      shared_ptr<string> connectMessage_ {};
+      // The result of the connectivity test. Valid values:
+      // 
+      // *   true: The data source and the resource group passed the connectivity test.
+      // *   false: The data source and the resource group failed the connectivity test. You can troubleshoot issues based on the ConnectMessage parameter.
+      shared_ptr<bool> connectStatus_ {};
+    };
+
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->success_ == nullptr && this->taskList_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TestNetworkConnectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline TestNetworkConnectionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // taskList Field Functions 
     bool hasTaskList() const { return this->taskList_ != nullptr;};
     void deleteTaskList() { this->taskList_ = nullptr;};
-    inline const TestNetworkConnectionResponseBodyTaskList & taskList() const { DARABONBA_PTR_GET_CONST(taskList_, TestNetworkConnectionResponseBodyTaskList) };
-    inline TestNetworkConnectionResponseBodyTaskList taskList() { DARABONBA_PTR_GET(taskList_, TestNetworkConnectionResponseBodyTaskList) };
-    inline TestNetworkConnectionResponseBody& setTaskList(const TestNetworkConnectionResponseBodyTaskList & taskList) { DARABONBA_PTR_SET_VALUE(taskList_, taskList) };
-    inline TestNetworkConnectionResponseBody& setTaskList(TestNetworkConnectionResponseBodyTaskList && taskList) { DARABONBA_PTR_SET_RVALUE(taskList_, taskList) };
+    inline const TestNetworkConnectionResponseBody::TaskList & getTaskList() const { DARABONBA_PTR_GET_CONST(taskList_, TestNetworkConnectionResponseBody::TaskList) };
+    inline TestNetworkConnectionResponseBody::TaskList getTaskList() { DARABONBA_PTR_GET(taskList_, TestNetworkConnectionResponseBody::TaskList) };
+    inline TestNetworkConnectionResponseBody& setTaskList(const TestNetworkConnectionResponseBody::TaskList & taskList) { DARABONBA_PTR_SET_VALUE(taskList_, taskList) };
+    inline TestNetworkConnectionResponseBody& setTaskList(TestNetworkConnectionResponseBody::TaskList && taskList) { DARABONBA_PTR_SET_RVALUE(taskList_, taskList) };
 
 
   protected:
     // The request ID. You can locate logs and troubleshoot issues based on the ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // The information about the connectivity test.
-    std::shared_ptr<TestNetworkConnectionResponseBodyTaskList> taskList_ = nullptr;
+    shared_ptr<TestNetworkConnectionResponseBody::TaskList> taskList_ {};
   };
 
   } // namespace Models

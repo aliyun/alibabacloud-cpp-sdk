@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desensRulesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->desensRulesShrink_ == nullptr; };
     // desensRulesShrink Field Functions 
     bool hasDesensRulesShrink() const { return this->desensRulesShrink_ != nullptr;};
     void deleteDesensRulesShrink() { this->desensRulesShrink_ = nullptr;};
-    inline string desensRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(desensRulesShrink_, "") };
+    inline string getDesensRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(desensRulesShrink_, "") };
     inline DsgDesensPlanAddOrUpdateShrinkRequest& setDesensRulesShrink(string desensRulesShrink) { DARABONBA_PTR_SET_VALUE(desensRulesShrink_, desensRulesShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // A collection of data masking rules that you want to add or modify.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desensRulesShrink_ = nullptr;
+    shared_ptr<string> desensRulesShrink_ {};
   };
 
   } // namespace Models

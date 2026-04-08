@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->followerId_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr; };
+    virtual bool empty() const override { return this->followerId_ == nullptr
+        && this->projectId_ == nullptr && this->projectName_ == nullptr; };
     // followerId Field Functions 
     bool hasFollowerId() const { return this->followerId_ != nullptr;};
     void deleteFollowerId() { this->followerId_ = nullptr;};
-    inline int64_t followerId() const { DARABONBA_PTR_GET_DEFAULT(followerId_, 0L) };
+    inline int64_t getFollowerId() const { DARABONBA_PTR_GET_DEFAULT(followerId_, 0L) };
     inline DeleteQualityFollowerRequest& setFollowerId(int64_t followerId) { DARABONBA_PTR_SET_VALUE(followerId_, followerId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline DeleteQualityFollowerRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline DeleteQualityFollowerRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the subscription relationship between the partition filter expression and the subscriber. You can call the [GetQualityFollower](https://help.aliyun.com/document_detail/174000.html) operation to obtain the ID of the subscription relationship.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> followerId_ = nullptr;
+    shared_ptr<int64_t> followerId_ {};
     // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to obtain the workspace ID.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The name of the compute engine or data source for which the partition filter expression is configured. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the rule configuration page of Data Quality page to obtain the name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

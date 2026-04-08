@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collectionQualifiedName_ != nullptr
-        && this->entityQualifiedName_ != nullptr; };
+    virtual bool empty() const override { return this->collectionQualifiedName_ == nullptr
+        && this->entityQualifiedName_ == nullptr; };
     // collectionQualifiedName Field Functions 
     bool hasCollectionQualifiedName() const { return this->collectionQualifiedName_ != nullptr;};
     void deleteCollectionQualifiedName() { this->collectionQualifiedName_ = nullptr;};
-    inline string collectionQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(collectionQualifiedName_, "") };
+    inline string getCollectionQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(collectionQualifiedName_, "") };
     inline DeleteMetaCollectionEntityRequest& setCollectionQualifiedName(string collectionQualifiedName) { DARABONBA_PTR_SET_VALUE(collectionQualifiedName_, collectionQualifiedName) };
 
 
     // entityQualifiedName Field Functions 
     bool hasEntityQualifiedName() const { return this->entityQualifiedName_ != nullptr;};
     void deleteEntityQualifiedName() { this->entityQualifiedName_ = nullptr;};
-    inline string entityQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(entityQualifiedName_, "") };
+    inline string getEntityQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(entityQualifiedName_, "") };
     inline DeleteMetaCollectionEntityRequest& setEntityQualifiedName(string entityQualifiedName) { DARABONBA_PTR_SET_VALUE(entityQualifiedName_, entityQualifiedName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The unique identifier of the collection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> collectionQualifiedName_ = nullptr;
+    shared_ptr<string> collectionQualifiedName_ {};
     // The unique identifier of the entity.
     // 
     // This parameter is required.
-    std::shared_ptr<string> entityQualifiedName_ = nullptr;
+    shared_ptr<string> entityQualifiedName_ {};
   };
 
   } // namespace Models

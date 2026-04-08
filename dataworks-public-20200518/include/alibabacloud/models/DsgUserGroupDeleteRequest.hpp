@@ -30,19 +30,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ids_ != nullptr; };
+    virtual bool empty() const override { return this->ids_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline const vector<int64_t> & ids() const { DARABONBA_PTR_GET_CONST(ids_, vector<int64_t>) };
-    inline vector<int64_t> ids() { DARABONBA_PTR_GET(ids_, vector<int64_t>) };
+    inline const vector<int64_t> & getIds() const { DARABONBA_PTR_GET_CONST(ids_, vector<int64_t>) };
+    inline vector<int64_t> getIds() { DARABONBA_PTR_GET(ids_, vector<int64_t>) };
     inline DsgUserGroupDeleteRequest& setIds(const vector<int64_t> & ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
     inline DsgUserGroupDeleteRequest& setIds(vector<int64_t> && ids) { DARABONBA_PTR_SET_RVALUE(ids_, ids) };
 
 
   protected:
     // The information about the user group.
-    std::shared_ptr<vector<int64_t>> ids_ = nullptr;
+    shared_ptr<vector<int64_t>> ids_ {};
   };
 
   } // namespace Models

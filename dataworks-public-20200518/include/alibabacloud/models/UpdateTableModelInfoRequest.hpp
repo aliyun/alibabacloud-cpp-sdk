@@ -37,56 +37,56 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->firstLevelThemeId_ != nullptr
-        && this->levelId_ != nullptr && this->levelType_ != nullptr && this->secondLevelThemeId_ != nullptr && this->tableGuid_ != nullptr; };
+    virtual bool empty() const override { return this->firstLevelThemeId_ == nullptr
+        && this->levelId_ == nullptr && this->levelType_ == nullptr && this->secondLevelThemeId_ == nullptr && this->tableGuid_ == nullptr; };
     // firstLevelThemeId Field Functions 
     bool hasFirstLevelThemeId() const { return this->firstLevelThemeId_ != nullptr;};
     void deleteFirstLevelThemeId() { this->firstLevelThemeId_ = nullptr;};
-    inline int64_t firstLevelThemeId() const { DARABONBA_PTR_GET_DEFAULT(firstLevelThemeId_, 0L) };
+    inline int64_t getFirstLevelThemeId() const { DARABONBA_PTR_GET_DEFAULT(firstLevelThemeId_, 0L) };
     inline UpdateTableModelInfoRequest& setFirstLevelThemeId(int64_t firstLevelThemeId) { DARABONBA_PTR_SET_VALUE(firstLevelThemeId_, firstLevelThemeId) };
 
 
     // levelId Field Functions 
     bool hasLevelId() const { return this->levelId_ != nullptr;};
     void deleteLevelId() { this->levelId_ = nullptr;};
-    inline int64_t levelId() const { DARABONBA_PTR_GET_DEFAULT(levelId_, 0L) };
+    inline int64_t getLevelId() const { DARABONBA_PTR_GET_DEFAULT(levelId_, 0L) };
     inline UpdateTableModelInfoRequest& setLevelId(int64_t levelId) { DARABONBA_PTR_SET_VALUE(levelId_, levelId) };
 
 
     // levelType Field Functions 
     bool hasLevelType() const { return this->levelType_ != nullptr;};
     void deleteLevelType() { this->levelType_ = nullptr;};
-    inline int32_t levelType() const { DARABONBA_PTR_GET_DEFAULT(levelType_, 0) };
+    inline int32_t getLevelType() const { DARABONBA_PTR_GET_DEFAULT(levelType_, 0) };
     inline UpdateTableModelInfoRequest& setLevelType(int32_t levelType) { DARABONBA_PTR_SET_VALUE(levelType_, levelType) };
 
 
     // secondLevelThemeId Field Functions 
     bool hasSecondLevelThemeId() const { return this->secondLevelThemeId_ != nullptr;};
     void deleteSecondLevelThemeId() { this->secondLevelThemeId_ = nullptr;};
-    inline int64_t secondLevelThemeId() const { DARABONBA_PTR_GET_DEFAULT(secondLevelThemeId_, 0L) };
+    inline int64_t getSecondLevelThemeId() const { DARABONBA_PTR_GET_DEFAULT(secondLevelThemeId_, 0L) };
     inline UpdateTableModelInfoRequest& setSecondLevelThemeId(int64_t secondLevelThemeId) { DARABONBA_PTR_SET_VALUE(secondLevelThemeId_, secondLevelThemeId) };
 
 
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline UpdateTableModelInfoRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
   protected:
     // The ID of the first-level table folder.
-    std::shared_ptr<int64_t> firstLevelThemeId_ = nullptr;
+    shared_ptr<int64_t> firstLevelThemeId_ {};
     // The table level ID.
-    std::shared_ptr<int64_t> levelId_ = nullptr;
+    shared_ptr<int64_t> levelId_ {};
     // The type of the table level. Valid values: 1 and 2. The value 1 indicates the logical level. The value 2 indicates the physical level.
-    std::shared_ptr<int32_t> levelType_ = nullptr;
+    shared_ptr<int32_t> levelType_ {};
     // The ID of the second-level table folder.
-    std::shared_ptr<int64_t> secondLevelThemeId_ = nullptr;
+    shared_ptr<int64_t> secondLevelThemeId_ {};
     // The GUID of the table. Specify the GUID in the odps.{projectName}.{tableName} format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
   };
 
   } // namespace Models

@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->riskData_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->riskData_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOpRiskDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // riskData Field Functions 
     bool hasRiskData() const { return this->riskData_ != nullptr;};
     void deleteRiskData() { this->riskData_ = nullptr;};
-    inline string riskData() const { DARABONBA_PTR_GET_DEFAULT(riskData_, "") };
+    inline string getRiskData() const { DARABONBA_PTR_GET_DEFAULT(riskData_, "") };
     inline GetOpRiskDataResponseBody& setRiskData(string riskData) { DARABONBA_PTR_SET_VALUE(riskData_, riskData) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the high-risk sensitive data. The information includes totalCount and opRiskDatas. opRiskDatas includes the following parameters:
     // 
     // *   sensType: the type of the sensitive data
@@ -58,7 +58,7 @@ namespace Models
     // *   sql: the SQL statement that is executed
     // *   opAccount: the account that is used to perform the operation
     // *   opTime: the time when the operation was performed
-    std::shared_ptr<string> riskData_ = nullptr;
+    shared_ptr<string> riskData_ {};
   };
 
   } // namespace Models

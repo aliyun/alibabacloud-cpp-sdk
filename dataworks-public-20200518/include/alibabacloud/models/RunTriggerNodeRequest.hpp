@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->bizDate_ != nullptr && this->cycleTime_ != nullptr && this->nodeId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->bizDate_ == nullptr && this->cycleTime_ == nullptr && this->nodeId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline int64_t appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0L) };
+    inline int64_t getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0L) };
     inline RunTriggerNodeRequest& setAppId(int64_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
-    inline int64_t bizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
+    inline int64_t getBizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
     inline RunTriggerNodeRequest& setBizDate(int64_t bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
 
 
     // cycleTime Field Functions 
     bool hasCycleTime() const { return this->cycleTime_ != nullptr;};
     void deleteCycleTime() { this->cycleTime_ = nullptr;};
-    inline int64_t cycleTime() const { DARABONBA_PTR_GET_DEFAULT(cycleTime_, 0L) };
+    inline int64_t getCycleTime() const { DARABONBA_PTR_GET_DEFAULT(cycleTime_, 0L) };
     inline RunTriggerNodeRequest& setCycleTime(int64_t cycleTime) { DARABONBA_PTR_SET_VALUE(cycleTime_, cycleTime) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline int64_t nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, 0L) };
+    inline int64_t getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, 0L) };
     inline RunTriggerNodeRequest& setNodeId(int64_t nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The ID of the DataWorks workspace to which the manually triggered node belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> appId_ = nullptr;
+    shared_ptr<int64_t> appId_ {};
     // The data timestamp of the instance that is generated for the manually triggered node.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> bizDate_ = nullptr;
+    shared_ptr<int64_t> bizDate_ {};
     // The scheduling time to run the manually triggered node. Set the value to a 13-digit timestamp in milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> cycleTime_ = nullptr;
+    shared_ptr<int64_t> cycleTime_ {};
     // The ID of the manually triggered node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> nodeId_ = nullptr;
+    shared_ptr<int64_t> nodeId_ {};
   };
 
   } // namespace Models

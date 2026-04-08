@@ -39,47 +39,47 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessName_ != nullptr
-        && this->description_ != nullptr && this->owner_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->businessName_ == nullptr
+        && this->description_ == nullptr && this->owner_ == nullptr && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr && this->useType_ == nullptr; };
     // businessName Field Functions 
     bool hasBusinessName() const { return this->businessName_ != nullptr;};
     void deleteBusinessName() { this->businessName_ = nullptr;};
-    inline string businessName() const { DARABONBA_PTR_GET_DEFAULT(businessName_, "") };
+    inline string getBusinessName() const { DARABONBA_PTR_GET_DEFAULT(businessName_, "") };
     inline CreateBusinessRequest& setBusinessName(string businessName) { DARABONBA_PTR_SET_VALUE(businessName_, businessName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateBusinessRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline CreateBusinessRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateBusinessRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectIdentifier Field Functions 
     bool hasProjectIdentifier() const { return this->projectIdentifier_ != nullptr;};
     void deleteProjectIdentifier() { this->projectIdentifier_ = nullptr;};
-    inline string projectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
+    inline string getProjectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
     inline CreateBusinessRequest& setProjectIdentifier(string projectIdentifier) { DARABONBA_PTR_SET_VALUE(projectIdentifier_, projectIdentifier) };
 
 
     // useType Field Functions 
     bool hasUseType() const { return this->useType_ != nullptr;};
     void deleteUseType() { this->useType_ = nullptr;};
-    inline string useType() const { DARABONBA_PTR_GET_DEFAULT(useType_, "") };
+    inline string getUseType() const { DARABONBA_PTR_GET_DEFAULT(useType_, "") };
     inline CreateBusinessRequest& setUseType(string useType) { DARABONBA_PTR_SET_VALUE(useType_, useType) };
 
 
@@ -87,20 +87,20 @@ namespace Models
     // The name of the business process. The name of the business process in the same project must be unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> businessName_ = nullptr;
+    shared_ptr<string> businessName_ {};
     // The description of the business process.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The Alibaba Cloud account ID of the owner of the business process. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and hover over the user avatar on the right side of the top menu bar to view the account ID. If this parameter is empty, the caller\\"s Alibaba Cloud account ID is used by default.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace name. You must configure either this parameter or ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
-    std::shared_ptr<string> projectIdentifier_ = nullptr;
+    shared_ptr<string> projectIdentifier_ {};
     // The module to which the workflow belongs. Valid values:
     // 
     // *   NORMAL: The workflow belongs to auto triggered workflows.
     // *   MANUAL_BIZ: The workflow belongs to manually triggered workflows.
-    std::shared_ptr<string> useType_ = nullptr;
+    shared_ptr<string> useType_ {};
   };
 
   } // namespace Models

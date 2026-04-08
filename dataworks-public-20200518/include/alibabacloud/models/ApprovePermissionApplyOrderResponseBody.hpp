@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approveSuccess_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->approveSuccess_ == nullptr
+        && this->requestId_ == nullptr; };
     // approveSuccess Field Functions 
     bool hasApproveSuccess() const { return this->approveSuccess_ != nullptr;};
     void deleteApproveSuccess() { this->approveSuccess_ = nullptr;};
-    inline bool approveSuccess() const { DARABONBA_PTR_GET_DEFAULT(approveSuccess_, false) };
+    inline bool getApproveSuccess() const { DARABONBA_PTR_GET_DEFAULT(approveSuccess_, false) };
     inline ApprovePermissionApplyOrderResponseBody& setApproveSuccess(bool approveSuccess) { DARABONBA_PTR_SET_VALUE(approveSuccess_, approveSuccess) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ApprovePermissionApplyOrderResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether the permission request order is processed.
-    std::shared_ptr<bool> approveSuccess_ = nullptr;
+    shared_ptr<bool> approveSuccess_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

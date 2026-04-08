@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->topicId_ != nullptr; };
+    virtual bool empty() const override { return this->topicId_ == nullptr; };
     // topicId Field Functions 
     bool hasTopicId() const { return this->topicId_ != nullptr;};
     void deleteTopicId() { this->topicId_ = nullptr;};
-    inline int64_t topicId() const { DARABONBA_PTR_GET_DEFAULT(topicId_, 0L) };
+    inline int64_t getTopicId() const { DARABONBA_PTR_GET_DEFAULT(topicId_, 0L) };
     inline GetTopicRequest& setTopicId(int64_t topicId) { DARABONBA_PTR_SET_VALUE(topicId_, topicId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The event ID. You can call the [ListTopics](https://help.aliyun.com/document_detail/173973.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> topicId_ = nullptr;
+    shared_ptr<int64_t> topicId_ {};
   };
 
   } // namespace Models

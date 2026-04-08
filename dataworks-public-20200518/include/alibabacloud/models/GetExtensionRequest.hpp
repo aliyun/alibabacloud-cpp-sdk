@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->extensionCode_ != nullptr; };
+    virtual bool empty() const override { return this->extensionCode_ == nullptr; };
     // extensionCode Field Functions 
     bool hasExtensionCode() const { return this->extensionCode_ != nullptr;};
     void deleteExtensionCode() { this->extensionCode_ = nullptr;};
-    inline string extensionCode() const { DARABONBA_PTR_GET_DEFAULT(extensionCode_, "") };
+    inline string getExtensionCode() const { DARABONBA_PTR_GET_DEFAULT(extensionCode_, "") };
     inline GetExtensionRequest& setExtensionCode(string extensionCode) { DARABONBA_PTR_SET_VALUE(extensionCode_, extensionCode) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The unique code of the extension.
     // 
     // This parameter is required.
-    std::shared_ptr<string> extensionCode_ = nullptr;
+    shared_ptr<string> extensionCode_ {};
   };
 
   } // namespace Models

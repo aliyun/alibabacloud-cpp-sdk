@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approveAction_ != nullptr
-        && this->approveComment_ != nullptr && this->flowId_ != nullptr; };
+    virtual bool empty() const override { return this->approveAction_ == nullptr
+        && this->approveComment_ == nullptr && this->flowId_ == nullptr; };
     // approveAction Field Functions 
     bool hasApproveAction() const { return this->approveAction_ != nullptr;};
     void deleteApproveAction() { this->approveAction_ = nullptr;};
-    inline int32_t approveAction() const { DARABONBA_PTR_GET_DEFAULT(approveAction_, 0) };
+    inline int32_t getApproveAction() const { DARABONBA_PTR_GET_DEFAULT(approveAction_, 0) };
     inline ApprovePermissionApplyOrderRequest& setApproveAction(int32_t approveAction) { DARABONBA_PTR_SET_VALUE(approveAction_, approveAction) };
 
 
     // approveComment Field Functions 
     bool hasApproveComment() const { return this->approveComment_ != nullptr;};
     void deleteApproveComment() { this->approveComment_ = nullptr;};
-    inline string approveComment() const { DARABONBA_PTR_GET_DEFAULT(approveComment_, "") };
+    inline string getApproveComment() const { DARABONBA_PTR_GET_DEFAULT(approveComment_, "") };
     inline ApprovePermissionApplyOrderRequest& setApproveComment(string approveComment) { DARABONBA_PTR_SET_VALUE(approveComment_, approveComment) };
 
 
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
-    inline string flowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
     inline ApprovePermissionApplyOrderRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
@@ -72,15 +72,15 @@ namespace Models
     // *   5
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> approveAction_ = nullptr;
+    shared_ptr<int32_t> approveAction_ {};
     // The comment on the order.
     // 
     // This parameter is required.
-    std::shared_ptr<string> approveComment_ = nullptr;
+    shared_ptr<string> approveComment_ {};
     // The ID of the permission request order. You can call the ListPermissionApplyOrders operation to obtain the order ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowId_ = nullptr;
+    shared_ptr<string> flowId_ {};
   };
 
   } // namespace Models

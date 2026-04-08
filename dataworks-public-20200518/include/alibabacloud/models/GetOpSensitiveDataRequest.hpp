@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr
-        && this->name_ != nullptr && this->opType_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && this->name_ == nullptr && this->opType_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline GetOpSensitiveDataRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetOpSensitiveDataRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // opType Field Functions 
     bool hasOpType() const { return this->opType_ != nullptr;};
     void deleteOpType() { this->opType_ = nullptr;};
-    inline string opType() const { DARABONBA_PTR_GET_DEFAULT(opType_, "") };
+    inline string getOpType() const { DARABONBA_PTR_GET_DEFAULT(opType_, "") };
     inline GetOpSensitiveDataRequest& setOpType(string opType) { DARABONBA_PTR_SET_VALUE(opType_, opType) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetOpSensitiveDataRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetOpSensitiveDataRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The date on which access records were generated. Specify the value in the yyyyMMdd format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> date_ = nullptr;
+    shared_ptr<string> date_ {};
     // The parameters that you can configure to query the access records. Valid values:
     // 
     // *   dbType
@@ -92,20 +92,20 @@ namespace Models
     // You must configure the parameters based on the compute engine that you use in your business.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The operation that is performed on the data. Valid values:
     // 
     // *   SQL_SELECT: specifies the data access operation. For example, execute a SELECT statement to query data.
     // *   TUNNEL_DOWNLOAD: specifies the data download operation. For example, run a Tunnel command to download data.
-    std::shared_ptr<string> opType_ = nullptr;
+    shared_ptr<string> opType_ {};
     // The page number. Valid values: 1 to 1000.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Minimum value: 1. Maximum value: 1000.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

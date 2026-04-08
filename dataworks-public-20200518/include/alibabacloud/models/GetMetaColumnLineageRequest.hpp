@@ -45,93 +45,93 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->columnGuid_ != nullptr && this->columnName_ != nullptr && this->dataSourceType_ != nullptr && this->databaseName_ != nullptr && this->direction_ != nullptr
-        && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->columnGuid_ == nullptr && this->columnName_ == nullptr && this->dataSourceType_ == nullptr && this->databaseName_ == nullptr && this->direction_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->tableName_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetMetaColumnLineageRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // columnGuid Field Functions 
     bool hasColumnGuid() const { return this->columnGuid_ != nullptr;};
     void deleteColumnGuid() { this->columnGuid_ = nullptr;};
-    inline string columnGuid() const { DARABONBA_PTR_GET_DEFAULT(columnGuid_, "") };
+    inline string getColumnGuid() const { DARABONBA_PTR_GET_DEFAULT(columnGuid_, "") };
     inline GetMetaColumnLineageRequest& setColumnGuid(string columnGuid) { DARABONBA_PTR_SET_VALUE(columnGuid_, columnGuid) };
 
 
     // columnName Field Functions 
     bool hasColumnName() const { return this->columnName_ != nullptr;};
     void deleteColumnName() { this->columnName_ = nullptr;};
-    inline string columnName() const { DARABONBA_PTR_GET_DEFAULT(columnName_, "") };
+    inline string getColumnName() const { DARABONBA_PTR_GET_DEFAULT(columnName_, "") };
     inline GetMetaColumnLineageRequest& setColumnName(string columnName) { DARABONBA_PTR_SET_VALUE(columnName_, columnName) };
 
 
     // dataSourceType Field Functions 
     bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
     void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string dataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
+    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
     inline GetMetaColumnLineageRequest& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline GetMetaColumnLineageRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline GetMetaColumnLineageRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline GetMetaColumnLineageRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetMetaColumnLineageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline GetMetaColumnLineageRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
   protected:
     // The ID of the E-MapReduce (EMR) cluster. Configure this parameter only when you query data in an EMR compute engine instance.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The unique identifier of the field.
-    std::shared_ptr<string> columnGuid_ = nullptr;
+    shared_ptr<string> columnGuid_ {};
     // The name of the field.
-    std::shared_ptr<string> columnName_ = nullptr;
+    shared_ptr<string> columnName_ {};
     // The type of the data source. Valid values: odps and emr.
-    std::shared_ptr<string> dataSourceType_ = nullptr;
+    shared_ptr<string> dataSourceType_ {};
     // The name of the database.
-    std::shared_ptr<string> databaseName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
     // Specifies whether to query the ancestor or descendant lineage of the field. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
     // 
     // This parameter is required.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
+    shared_ptr<int32_t> pageNum_ {};
     // The number of entries to return on each page. Default value: 10. Maximum value: 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The name of the metatable.
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

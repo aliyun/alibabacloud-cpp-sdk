@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkResult_ != nullptr
-        && this->checkResultTip_ != nullptr && this->extensionCode_ != nullptr && this->messageId_ != nullptr; };
+    virtual bool empty() const override { return this->checkResult_ == nullptr
+        && this->checkResultTip_ == nullptr && this->extensionCode_ == nullptr && this->messageId_ == nullptr; };
     // checkResult Field Functions 
     bool hasCheckResult() const { return this->checkResult_ != nullptr;};
     void deleteCheckResult() { this->checkResult_ = nullptr;};
-    inline string checkResult() const { DARABONBA_PTR_GET_DEFAULT(checkResult_, "") };
+    inline string getCheckResult() const { DARABONBA_PTR_GET_DEFAULT(checkResult_, "") };
     inline UpdateWorkbenchEventResultRequest& setCheckResult(string checkResult) { DARABONBA_PTR_SET_VALUE(checkResult_, checkResult) };
 
 
     // checkResultTip Field Functions 
     bool hasCheckResultTip() const { return this->checkResultTip_ != nullptr;};
     void deleteCheckResultTip() { this->checkResultTip_ = nullptr;};
-    inline string checkResultTip() const { DARABONBA_PTR_GET_DEFAULT(checkResultTip_, "") };
+    inline string getCheckResultTip() const { DARABONBA_PTR_GET_DEFAULT(checkResultTip_, "") };
     inline UpdateWorkbenchEventResultRequest& setCheckResultTip(string checkResultTip) { DARABONBA_PTR_SET_VALUE(checkResultTip_, checkResultTip) };
 
 
     // extensionCode Field Functions 
     bool hasExtensionCode() const { return this->extensionCode_ != nullptr;};
     void deleteExtensionCode() { this->extensionCode_ = nullptr;};
-    inline string extensionCode() const { DARABONBA_PTR_GET_DEFAULT(extensionCode_, "") };
+    inline string getExtensionCode() const { DARABONBA_PTR_GET_DEFAULT(extensionCode_, "") };
     inline UpdateWorkbenchEventResultRequest& setExtensionCode(string extensionCode) { DARABONBA_PTR_SET_VALUE(extensionCode_, extensionCode) };
 
 
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline UpdateWorkbenchEventResultRequest& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The check result of the extension point event. Valid values: OK and Fail.
     // 
     // This parameter is required.
-    std::shared_ptr<string> checkResult_ = nullptr;
+    shared_ptr<string> checkResult_ {};
     // The cause of the check failure.
-    std::shared_ptr<string> checkResultTip_ = nullptr;
+    shared_ptr<string> checkResultTip_ {};
     // The code of the extension.
     // 
     // This parameter is required.
-    std::shared_ptr<string> extensionCode_ = nullptr;
+    shared_ptr<string> extensionCode_ {};
     // The ID of the message received when the related extension point event is triggered after you enable message subscription by using the OpenEvent module.
     // 
     // This parameter is required.
-    std::shared_ptr<string> messageId_ = nullptr;
+    shared_ptr<string> messageId_ {};
   };
 
   } // namespace Models

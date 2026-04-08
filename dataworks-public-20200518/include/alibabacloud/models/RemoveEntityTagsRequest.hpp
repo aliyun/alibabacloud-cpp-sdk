@@ -32,20 +32,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->qualifiedName_ != nullptr
-        && this->tagKeys_ != nullptr; };
+    virtual bool empty() const override { return this->qualifiedName_ == nullptr
+        && this->tagKeys_ == nullptr; };
     // qualifiedName Field Functions 
     bool hasQualifiedName() const { return this->qualifiedName_ != nullptr;};
     void deleteQualifiedName() { this->qualifiedName_ = nullptr;};
-    inline string qualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
+    inline string getQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
     inline RemoveEntityTagsRequest& setQualifiedName(string qualifiedName) { DARABONBA_PTR_SET_VALUE(qualifiedName_, qualifiedName) };
 
 
     // tagKeys Field Functions 
     bool hasTagKeys() const { return this->tagKeys_ != nullptr;};
     void deleteTagKeys() { this->tagKeys_ = nullptr;};
-    inline const vector<string> & tagKeys() const { DARABONBA_PTR_GET_CONST(tagKeys_, vector<string>) };
-    inline vector<string> tagKeys() { DARABONBA_PTR_GET(tagKeys_, vector<string>) };
+    inline const vector<string> & getTagKeys() const { DARABONBA_PTR_GET_CONST(tagKeys_, vector<string>) };
+    inline vector<string> getTagKeys() { DARABONBA_PTR_GET(tagKeys_, vector<string>) };
     inline RemoveEntityTagsRequest& setTagKeys(const vector<string> & tagKeys) { DARABONBA_PTR_SET_VALUE(tagKeys_, tagKeys) };
     inline RemoveEntityTagsRequest& setTagKeys(vector<string> && tagKeys) { DARABONBA_PTR_SET_RVALUE(tagKeys_, tagKeys) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
     // 
     // This parameter is required.
-    std::shared_ptr<string> qualifiedName_ = nullptr;
+    shared_ptr<string> qualifiedName_ {};
     // The tag keys.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> tagKeys_ = nullptr;
+    shared_ptr<vector<string>> tagKeys_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->migrationId_ != nullptr
-        && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->migrationId_ == nullptr
+        && this->projectId_ == nullptr; };
     // migrationId Field Functions 
     bool hasMigrationId() const { return this->migrationId_ != nullptr;};
     void deleteMigrationId() { this->migrationId_ = nullptr;};
-    inline int64_t migrationId() const { DARABONBA_PTR_GET_DEFAULT(migrationId_, 0L) };
+    inline int64_t getMigrationId() const { DARABONBA_PTR_GET_DEFAULT(migrationId_, 0L) };
     inline GetMigrationSummaryRequest& setMigrationId(int64_t migrationId) { DARABONBA_PTR_SET_VALUE(migrationId_, migrationId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline GetMigrationSummaryRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // You can call the [CreateImportMigration](https://help.aliyun.com/document_detail/2780280.html) operation to obtain the ID of the import task and call the [CreateExportMigration](https://help.aliyun.com/document_detail/2780281.html) operation to obtain the ID of the export task.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> migrationId_ = nullptr;
+    shared_ptr<int64_t> migrationId_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

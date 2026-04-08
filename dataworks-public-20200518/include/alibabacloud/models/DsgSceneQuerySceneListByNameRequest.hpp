@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sceneName_ != nullptr; };
+    virtual bool empty() const override { return this->sceneName_ == nullptr; };
     // sceneName Field Functions 
     bool hasSceneName() const { return this->sceneName_ != nullptr;};
     void deleteSceneName() { this->sceneName_ = nullptr;};
-    inline string sceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
+    inline string getSceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
     inline DsgSceneQuerySceneListByNameRequest& setSceneName(string sceneName) { DARABONBA_PTR_SET_VALUE(sceneName_, sceneName) };
 
 
   protected:
     // The name of the data masking scenario. A fuzzy match is performed in the platform based on a keyword to search for the data masking scenario.
-    std::shared_ptr<string> sceneName_ = nullptr;
+    shared_ptr<string> sceneName_ {};
   };
 
   } // namespace Models

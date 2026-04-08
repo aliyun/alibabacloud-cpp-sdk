@@ -95,249 +95,249 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedSettings_ != nullptr
-        && this->applyScheduleImmediately_ != nullptr && this->autoParsing_ != nullptr && this->autoRerunIntervalMillis_ != nullptr && this->autoRerunTimes_ != nullptr && this->connectionName_ != nullptr
-        && this->content_ != nullptr && this->createFolderIfNotExists_ != nullptr && this->cronExpress_ != nullptr && this->cycleType_ != nullptr && this->dependentNodeIdList_ != nullptr
-        && this->dependentType_ != nullptr && this->endEffectDate_ != nullptr && this->fileDescription_ != nullptr && this->fileFolderPath_ != nullptr && this->fileName_ != nullptr
-        && this->fileType_ != nullptr && this->ignoreParentSkipRunningProperty_ != nullptr && this->imageId_ != nullptr && this->inputList_ != nullptr && this->inputParameters_ != nullptr
-        && this->outputParameters_ != nullptr && this->owner_ != nullptr && this->paraValue_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr
-        && this->rerunMode_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceGroupIdentifier_ != nullptr && this->schedulerType_ != nullptr && this->startEffectDate_ != nullptr
-        && this->startImmediately_ != nullptr && this->stop_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->advancedSettings_ == nullptr
+        && this->applyScheduleImmediately_ == nullptr && this->autoParsing_ == nullptr && this->autoRerunIntervalMillis_ == nullptr && this->autoRerunTimes_ == nullptr && this->connectionName_ == nullptr
+        && this->content_ == nullptr && this->createFolderIfNotExists_ == nullptr && this->cronExpress_ == nullptr && this->cycleType_ == nullptr && this->dependentNodeIdList_ == nullptr
+        && this->dependentType_ == nullptr && this->endEffectDate_ == nullptr && this->fileDescription_ == nullptr && this->fileFolderPath_ == nullptr && this->fileName_ == nullptr
+        && this->fileType_ == nullptr && this->ignoreParentSkipRunningProperty_ == nullptr && this->imageId_ == nullptr && this->inputList_ == nullptr && this->inputParameters_ == nullptr
+        && this->outputParameters_ == nullptr && this->owner_ == nullptr && this->paraValue_ == nullptr && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr
+        && this->rerunMode_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdentifier_ == nullptr && this->schedulerType_ == nullptr && this->startEffectDate_ == nullptr
+        && this->startImmediately_ == nullptr && this->stop_ == nullptr && this->timeout_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
-    inline string advancedSettings() const { DARABONBA_PTR_GET_DEFAULT(advancedSettings_, "") };
+    inline string getAdvancedSettings() const { DARABONBA_PTR_GET_DEFAULT(advancedSettings_, "") };
     inline CreateFileRequest& setAdvancedSettings(string advancedSettings) { DARABONBA_PTR_SET_VALUE(advancedSettings_, advancedSettings) };
 
 
     // applyScheduleImmediately Field Functions 
     bool hasApplyScheduleImmediately() const { return this->applyScheduleImmediately_ != nullptr;};
     void deleteApplyScheduleImmediately() { this->applyScheduleImmediately_ = nullptr;};
-    inline bool applyScheduleImmediately() const { DARABONBA_PTR_GET_DEFAULT(applyScheduleImmediately_, false) };
+    inline bool getApplyScheduleImmediately() const { DARABONBA_PTR_GET_DEFAULT(applyScheduleImmediately_, false) };
     inline CreateFileRequest& setApplyScheduleImmediately(bool applyScheduleImmediately) { DARABONBA_PTR_SET_VALUE(applyScheduleImmediately_, applyScheduleImmediately) };
 
 
     // autoParsing Field Functions 
     bool hasAutoParsing() const { return this->autoParsing_ != nullptr;};
     void deleteAutoParsing() { this->autoParsing_ = nullptr;};
-    inline bool autoParsing() const { DARABONBA_PTR_GET_DEFAULT(autoParsing_, false) };
+    inline bool getAutoParsing() const { DARABONBA_PTR_GET_DEFAULT(autoParsing_, false) };
     inline CreateFileRequest& setAutoParsing(bool autoParsing) { DARABONBA_PTR_SET_VALUE(autoParsing_, autoParsing) };
 
 
     // autoRerunIntervalMillis Field Functions 
     bool hasAutoRerunIntervalMillis() const { return this->autoRerunIntervalMillis_ != nullptr;};
     void deleteAutoRerunIntervalMillis() { this->autoRerunIntervalMillis_ = nullptr;};
-    inline int32_t autoRerunIntervalMillis() const { DARABONBA_PTR_GET_DEFAULT(autoRerunIntervalMillis_, 0) };
+    inline int32_t getAutoRerunIntervalMillis() const { DARABONBA_PTR_GET_DEFAULT(autoRerunIntervalMillis_, 0) };
     inline CreateFileRequest& setAutoRerunIntervalMillis(int32_t autoRerunIntervalMillis) { DARABONBA_PTR_SET_VALUE(autoRerunIntervalMillis_, autoRerunIntervalMillis) };
 
 
     // autoRerunTimes Field Functions 
     bool hasAutoRerunTimes() const { return this->autoRerunTimes_ != nullptr;};
     void deleteAutoRerunTimes() { this->autoRerunTimes_ = nullptr;};
-    inline int32_t autoRerunTimes() const { DARABONBA_PTR_GET_DEFAULT(autoRerunTimes_, 0) };
+    inline int32_t getAutoRerunTimes() const { DARABONBA_PTR_GET_DEFAULT(autoRerunTimes_, 0) };
     inline CreateFileRequest& setAutoRerunTimes(int32_t autoRerunTimes) { DARABONBA_PTR_SET_VALUE(autoRerunTimes_, autoRerunTimes) };
 
 
     // connectionName Field Functions 
     bool hasConnectionName() const { return this->connectionName_ != nullptr;};
     void deleteConnectionName() { this->connectionName_ = nullptr;};
-    inline string connectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
+    inline string getConnectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
     inline CreateFileRequest& setConnectionName(string connectionName) { DARABONBA_PTR_SET_VALUE(connectionName_, connectionName) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateFileRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // createFolderIfNotExists Field Functions 
     bool hasCreateFolderIfNotExists() const { return this->createFolderIfNotExists_ != nullptr;};
     void deleteCreateFolderIfNotExists() { this->createFolderIfNotExists_ = nullptr;};
-    inline bool createFolderIfNotExists() const { DARABONBA_PTR_GET_DEFAULT(createFolderIfNotExists_, false) };
+    inline bool getCreateFolderIfNotExists() const { DARABONBA_PTR_GET_DEFAULT(createFolderIfNotExists_, false) };
     inline CreateFileRequest& setCreateFolderIfNotExists(bool createFolderIfNotExists) { DARABONBA_PTR_SET_VALUE(createFolderIfNotExists_, createFolderIfNotExists) };
 
 
     // cronExpress Field Functions 
     bool hasCronExpress() const { return this->cronExpress_ != nullptr;};
     void deleteCronExpress() { this->cronExpress_ = nullptr;};
-    inline string cronExpress() const { DARABONBA_PTR_GET_DEFAULT(cronExpress_, "") };
+    inline string getCronExpress() const { DARABONBA_PTR_GET_DEFAULT(cronExpress_, "") };
     inline CreateFileRequest& setCronExpress(string cronExpress) { DARABONBA_PTR_SET_VALUE(cronExpress_, cronExpress) };
 
 
     // cycleType Field Functions 
     bool hasCycleType() const { return this->cycleType_ != nullptr;};
     void deleteCycleType() { this->cycleType_ = nullptr;};
-    inline string cycleType() const { DARABONBA_PTR_GET_DEFAULT(cycleType_, "") };
+    inline string getCycleType() const { DARABONBA_PTR_GET_DEFAULT(cycleType_, "") };
     inline CreateFileRequest& setCycleType(string cycleType) { DARABONBA_PTR_SET_VALUE(cycleType_, cycleType) };
 
 
     // dependentNodeIdList Field Functions 
     bool hasDependentNodeIdList() const { return this->dependentNodeIdList_ != nullptr;};
     void deleteDependentNodeIdList() { this->dependentNodeIdList_ = nullptr;};
-    inline string dependentNodeIdList() const { DARABONBA_PTR_GET_DEFAULT(dependentNodeIdList_, "") };
+    inline string getDependentNodeIdList() const { DARABONBA_PTR_GET_DEFAULT(dependentNodeIdList_, "") };
     inline CreateFileRequest& setDependentNodeIdList(string dependentNodeIdList) { DARABONBA_PTR_SET_VALUE(dependentNodeIdList_, dependentNodeIdList) };
 
 
     // dependentType Field Functions 
     bool hasDependentType() const { return this->dependentType_ != nullptr;};
     void deleteDependentType() { this->dependentType_ = nullptr;};
-    inline string dependentType() const { DARABONBA_PTR_GET_DEFAULT(dependentType_, "") };
+    inline string getDependentType() const { DARABONBA_PTR_GET_DEFAULT(dependentType_, "") };
     inline CreateFileRequest& setDependentType(string dependentType) { DARABONBA_PTR_SET_VALUE(dependentType_, dependentType) };
 
 
     // endEffectDate Field Functions 
     bool hasEndEffectDate() const { return this->endEffectDate_ != nullptr;};
     void deleteEndEffectDate() { this->endEffectDate_ = nullptr;};
-    inline int64_t endEffectDate() const { DARABONBA_PTR_GET_DEFAULT(endEffectDate_, 0L) };
+    inline int64_t getEndEffectDate() const { DARABONBA_PTR_GET_DEFAULT(endEffectDate_, 0L) };
     inline CreateFileRequest& setEndEffectDate(int64_t endEffectDate) { DARABONBA_PTR_SET_VALUE(endEffectDate_, endEffectDate) };
 
 
     // fileDescription Field Functions 
     bool hasFileDescription() const { return this->fileDescription_ != nullptr;};
     void deleteFileDescription() { this->fileDescription_ = nullptr;};
-    inline string fileDescription() const { DARABONBA_PTR_GET_DEFAULT(fileDescription_, "") };
+    inline string getFileDescription() const { DARABONBA_PTR_GET_DEFAULT(fileDescription_, "") };
     inline CreateFileRequest& setFileDescription(string fileDescription) { DARABONBA_PTR_SET_VALUE(fileDescription_, fileDescription) };
 
 
     // fileFolderPath Field Functions 
     bool hasFileFolderPath() const { return this->fileFolderPath_ != nullptr;};
     void deleteFileFolderPath() { this->fileFolderPath_ = nullptr;};
-    inline string fileFolderPath() const { DARABONBA_PTR_GET_DEFAULT(fileFolderPath_, "") };
+    inline string getFileFolderPath() const { DARABONBA_PTR_GET_DEFAULT(fileFolderPath_, "") };
     inline CreateFileRequest& setFileFolderPath(string fileFolderPath) { DARABONBA_PTR_SET_VALUE(fileFolderPath_, fileFolderPath) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline int32_t fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, 0) };
+    inline int32_t getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, 0) };
     inline CreateFileRequest& setFileType(int32_t fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // ignoreParentSkipRunningProperty Field Functions 
     bool hasIgnoreParentSkipRunningProperty() const { return this->ignoreParentSkipRunningProperty_ != nullptr;};
     void deleteIgnoreParentSkipRunningProperty() { this->ignoreParentSkipRunningProperty_ = nullptr;};
-    inline bool ignoreParentSkipRunningProperty() const { DARABONBA_PTR_GET_DEFAULT(ignoreParentSkipRunningProperty_, false) };
+    inline bool getIgnoreParentSkipRunningProperty() const { DARABONBA_PTR_GET_DEFAULT(ignoreParentSkipRunningProperty_, false) };
     inline CreateFileRequest& setIgnoreParentSkipRunningProperty(bool ignoreParentSkipRunningProperty) { DARABONBA_PTR_SET_VALUE(ignoreParentSkipRunningProperty_, ignoreParentSkipRunningProperty) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline CreateFileRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // inputList Field Functions 
     bool hasInputList() const { return this->inputList_ != nullptr;};
     void deleteInputList() { this->inputList_ = nullptr;};
-    inline string inputList() const { DARABONBA_PTR_GET_DEFAULT(inputList_, "") };
+    inline string getInputList() const { DARABONBA_PTR_GET_DEFAULT(inputList_, "") };
     inline CreateFileRequest& setInputList(string inputList) { DARABONBA_PTR_SET_VALUE(inputList_, inputList) };
 
 
     // inputParameters Field Functions 
     bool hasInputParameters() const { return this->inputParameters_ != nullptr;};
     void deleteInputParameters() { this->inputParameters_ = nullptr;};
-    inline string inputParameters() const { DARABONBA_PTR_GET_DEFAULT(inputParameters_, "") };
+    inline string getInputParameters() const { DARABONBA_PTR_GET_DEFAULT(inputParameters_, "") };
     inline CreateFileRequest& setInputParameters(string inputParameters) { DARABONBA_PTR_SET_VALUE(inputParameters_, inputParameters) };
 
 
     // outputParameters Field Functions 
     bool hasOutputParameters() const { return this->outputParameters_ != nullptr;};
     void deleteOutputParameters() { this->outputParameters_ = nullptr;};
-    inline string outputParameters() const { DARABONBA_PTR_GET_DEFAULT(outputParameters_, "") };
+    inline string getOutputParameters() const { DARABONBA_PTR_GET_DEFAULT(outputParameters_, "") };
     inline CreateFileRequest& setOutputParameters(string outputParameters) { DARABONBA_PTR_SET_VALUE(outputParameters_, outputParameters) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline CreateFileRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // paraValue Field Functions 
     bool hasParaValue() const { return this->paraValue_ != nullptr;};
     void deleteParaValue() { this->paraValue_ = nullptr;};
-    inline string paraValue() const { DARABONBA_PTR_GET_DEFAULT(paraValue_, "") };
+    inline string getParaValue() const { DARABONBA_PTR_GET_DEFAULT(paraValue_, "") };
     inline CreateFileRequest& setParaValue(string paraValue) { DARABONBA_PTR_SET_VALUE(paraValue_, paraValue) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateFileRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectIdentifier Field Functions 
     bool hasProjectIdentifier() const { return this->projectIdentifier_ != nullptr;};
     void deleteProjectIdentifier() { this->projectIdentifier_ = nullptr;};
-    inline string projectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
+    inline string getProjectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
     inline CreateFileRequest& setProjectIdentifier(string projectIdentifier) { DARABONBA_PTR_SET_VALUE(projectIdentifier_, projectIdentifier) };
 
 
     // rerunMode Field Functions 
     bool hasRerunMode() const { return this->rerunMode_ != nullptr;};
     void deleteRerunMode() { this->rerunMode_ = nullptr;};
-    inline string rerunMode() const { DARABONBA_PTR_GET_DEFAULT(rerunMode_, "") };
+    inline string getRerunMode() const { DARABONBA_PTR_GET_DEFAULT(rerunMode_, "") };
     inline CreateFileRequest& setRerunMode(string rerunMode) { DARABONBA_PTR_SET_VALUE(rerunMode_, rerunMode) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline int64_t resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, 0L) };
+    inline int64_t getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, 0L) };
     inline CreateFileRequest& setResourceGroupId(int64_t resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceGroupIdentifier Field Functions 
     bool hasResourceGroupIdentifier() const { return this->resourceGroupIdentifier_ != nullptr;};
     void deleteResourceGroupIdentifier() { this->resourceGroupIdentifier_ = nullptr;};
-    inline string resourceGroupIdentifier() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupIdentifier_, "") };
+    inline string getResourceGroupIdentifier() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupIdentifier_, "") };
     inline CreateFileRequest& setResourceGroupIdentifier(string resourceGroupIdentifier) { DARABONBA_PTR_SET_VALUE(resourceGroupIdentifier_, resourceGroupIdentifier) };
 
 
     // schedulerType Field Functions 
     bool hasSchedulerType() const { return this->schedulerType_ != nullptr;};
     void deleteSchedulerType() { this->schedulerType_ = nullptr;};
-    inline string schedulerType() const { DARABONBA_PTR_GET_DEFAULT(schedulerType_, "") };
+    inline string getSchedulerType() const { DARABONBA_PTR_GET_DEFAULT(schedulerType_, "") };
     inline CreateFileRequest& setSchedulerType(string schedulerType) { DARABONBA_PTR_SET_VALUE(schedulerType_, schedulerType) };
 
 
     // startEffectDate Field Functions 
     bool hasStartEffectDate() const { return this->startEffectDate_ != nullptr;};
     void deleteStartEffectDate() { this->startEffectDate_ = nullptr;};
-    inline int64_t startEffectDate() const { DARABONBA_PTR_GET_DEFAULT(startEffectDate_, 0L) };
+    inline int64_t getStartEffectDate() const { DARABONBA_PTR_GET_DEFAULT(startEffectDate_, 0L) };
     inline CreateFileRequest& setStartEffectDate(int64_t startEffectDate) { DARABONBA_PTR_SET_VALUE(startEffectDate_, startEffectDate) };
 
 
     // startImmediately Field Functions 
     bool hasStartImmediately() const { return this->startImmediately_ != nullptr;};
     void deleteStartImmediately() { this->startImmediately_ = nullptr;};
-    inline bool startImmediately() const { DARABONBA_PTR_GET_DEFAULT(startImmediately_, false) };
+    inline bool getStartImmediately() const { DARABONBA_PTR_GET_DEFAULT(startImmediately_, false) };
     inline CreateFileRequest& setStartImmediately(bool startImmediately) { DARABONBA_PTR_SET_VALUE(startImmediately_, startImmediately) };
 
 
     // stop Field Functions 
     bool hasStop() const { return this->stop_ != nullptr;};
     void deleteStop() { this->stop_ = nullptr;};
-    inline bool stop() const { DARABONBA_PTR_GET_DEFAULT(stop_, false) };
+    inline bool getStop() const { DARABONBA_PTR_GET_DEFAULT(stop_, false) };
     inline CreateFileRequest& setStop(bool stop) { DARABONBA_PTR_SET_VALUE(stop_, stop) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline CreateFileRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
@@ -347,35 +347,35 @@ namespace Models
     // This parameter is valid only for an EMR Spark Streaming node or an EMR Streaming SQL node. This parameter corresponds to the Advanced Settings tab of the node in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
     // The value of this parameter must be in the JSON format.
-    std::shared_ptr<string> advancedSettings_ = nullptr;
+    shared_ptr<string> advancedSettings_ {};
     // Specifies whether scheduling configurations immediately take effect after the node is deployed.
-    std::shared_ptr<bool> applyScheduleImmediately_ = nullptr;
+    shared_ptr<bool> applyScheduleImmediately_ {};
     // Specifies whether to enable the automatic parsing feature for the file. Valid values:
     // 
     // *   true
     // *   false
     // 
     // This parameter corresponds to the Analyze Code parameter that is displayed after Same Cycle is selected in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<bool> autoParsing_ = nullptr;
+    shared_ptr<bool> autoParsing_ {};
     // The interval between automatic reruns after an error occurs. Unit: milliseconds. Maximum value: 1800000 (30 minutes).
     // 
     // This parameter corresponds to the Rerun Interval parameter that is displayed after the Auto Rerun upon Error check box is selected in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
     // The interval that you specify in the DataWorks console is measured in minutes. Pay attention to the conversion between the units of time when you call the operation.
-    std::shared_ptr<int32_t> autoRerunIntervalMillis_ = nullptr;
+    shared_ptr<int32_t> autoRerunIntervalMillis_ {};
     // The number of automatic reruns that are allowed after an error occurs. Maximum value: 10.
-    std::shared_ptr<int32_t> autoRerunTimes_ = nullptr;
+    shared_ptr<int32_t> autoRerunTimes_ {};
     // The name of the data source for which the node is run.
     // 
     // You can call the [UpdateDataSource](https://help.aliyun.com/document_detail/211432.html) operation to query the available data sources in the workspace.
-    std::shared_ptr<string> connectionName_ = nullptr;
+    shared_ptr<string> connectionName_ {};
     // The code for the file. The code format varies based on the file type. To view the code format for a specific file type, go to Operation Center, right-click a node of the file type, and then select View Code.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // Specifies whether to automatically create the directory that is specified by the FileFolderPath parameter if the directory does not exist. Valid values:
     // 
     // *   true: The system automatically creates the directory if the directory does not exist.
     // *   false: The system does not automatically create the directory if the directory does not exist. In this case, the call fails.
-    std::shared_ptr<bool> createFolderIfNotExists_ = nullptr;
+    shared_ptr<bool> createFolderIfNotExists_ {};
     // The CRON expression that represents the periodic scheduling policy of the node. This parameter corresponds to the Cron Expression parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the Scheduling Cycle and Scheduled time parameters in the DataWorks console, DataWorks generates the value of the Cron Expression parameter.
     // 
     // Examples:
@@ -392,13 +392,13 @@ namespace Models
     // 
     // *   The minimum interval specified in a CRON expression to schedule a node is 5 minutes.
     // *   The earliest time specified in a CRON expression to schedule a node every day is 00:05.
-    std::shared_ptr<string> cronExpress_ = nullptr;
+    shared_ptr<string> cronExpress_ {};
     // The type of the scheduling cycle of the node that corresponds to the file. Valid values: NOT_DAY and DAY. The value NOT_DAY indicates that the node is scheduled to run by minute or hour. The value DAY indicates that the node is scheduled to run by day, week, or month.
     // 
     // This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<string> cycleType_ = nullptr;
+    shared_ptr<string> cycleType_ {};
     // The IDs of the nodes that generate instances in the previous cycle on which the current node depends.
-    std::shared_ptr<string> dependentNodeIdList_ = nullptr;
+    shared_ptr<string> dependentNodeIdList_ {};
     // The type of the cross-cycle scheduling dependency of the node. Valid values:
     // 
     // *   SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
@@ -407,57 +407,57 @@ namespace Models
     // *   NONE: No cross-cycle scheduling dependency type is selected for the node.
     // *   USER_DEFINE_AND_SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle and the instances generated for one or more specified nodes in the previous cycle.
     // *   CHILD_AND_SELF: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle and the instance generated for the node in the previous cycle.
-    std::shared_ptr<string> dependentType_ = nullptr;
+    shared_ptr<string> dependentType_ {};
     // The end time of automatic scheduling. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // This parameter corresponds to the Validity Period parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<int64_t> endEffectDate_ = nullptr;
+    shared_ptr<int64_t> endEffectDate_ {};
     // The description of the file.
-    std::shared_ptr<string> fileDescription_ = nullptr;
+    shared_ptr<string> fileDescription_ {};
     // The path of the file.
-    std::shared_ptr<string> fileFolderPath_ = nullptr;
+    shared_ptr<string> fileFolderPath_ {};
     // The name of the file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The type of the code for the file. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
     // 
     // You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the type of the code for the file.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> fileType_ = nullptr;
+    shared_ptr<int32_t> fileType_ {};
     // Whether to use the last cycle empty run attribute. The values are as follows:
     // - true: The empty run attribute of the previous cycle is used.
     // - false: The empty run attribute of the previous cycle is not used.
-    std::shared_ptr<bool> ignoreParentSkipRunningProperty_ = nullptr;
-    // Custom image ID
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<bool> ignoreParentSkipRunningProperty_ {};
+    // The ID of the custom image.
+    shared_ptr<string> imageId_ {};
     // The output name of the parent file on which the current file depends. If you specify multiple output names, separate them with commas (,).
     // 
     // This parameter corresponds to the Output Name parameter under Parent Nodes in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<string> inputList_ = nullptr;
+    shared_ptr<string> inputList_ {};
     // The input parameters of the node. The value of this parameter must be in the JSON format. For more information about the input parameters, see the InputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
     // 
     // This parameter corresponds to the Input Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<string> inputParameters_ = nullptr;
+    shared_ptr<string> inputParameters_ {};
     // The output parameters of the node. The value of this parameter must be in the JSON format. For more information about the output parameters, see the OutputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
     // 
     // This parameter corresponds to the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<string> outputParameters_ = nullptr;
+    shared_ptr<string> outputParameters_ {};
     // The ID of the Alibaba Cloud account used by the file owner. If this parameter is not configured, the ID of the Alibaba Cloud account of the user who calls the operation is used.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The scheduling parameters of the node. Separate multiple parameters with spaces.
     // 
     // This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
-    std::shared_ptr<string> paraValue_ = nullptr;
+    shared_ptr<string> paraValue_ {};
     // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
     // 
     // You must configure this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace name.
     // 
     // You must configure this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
-    std::shared_ptr<string> projectIdentifier_ = nullptr;
+    shared_ptr<string> projectIdentifier_ {};
     // Specifies whether the node that corresponds to the file can be rerun. Valid values:
     // 
     // *   ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
@@ -465,41 +465,41 @@ namespace Models
     // *   ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
     // 
     // This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<string> rerunMode_ = nullptr;
+    shared_ptr<string> rerunMode_ {};
     // This parameter is deprecated. Do not use this parameter.
     // 
     // The identifier of the resource group that is used to run the node. This parameter corresponds to the Resource Group parameter in the Resource Group section of the Properties tab in the DataWorks console. You must configure one of the ResourceGroupId and ResourceGroupIdentifier parameters to determine the resource group that is used to run the node.
     // 
     // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace. When you call the operation, set the ResourceGroupType parameter to 1. The response parameter Id indicates the ID of an available resource group.
-    std::shared_ptr<int64_t> resourceGroupId_ = nullptr;
+    shared_ptr<int64_t> resourceGroupId_ {};
     // The identifier of the resource group that is used to run the node. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace. The **Identifier** parameter in the response of the operation indicates the identifier of an available resource group.
     // 
     // >  You must make sure that the available resource groups in the response of the ListResourceGroups operation are associated with the workspace for which you want to create a file by calling the CreateFile operation.
-    std::shared_ptr<string> resourceGroupIdentifier_ = nullptr;
+    shared_ptr<string> resourceGroupIdentifier_ {};
     // The scheduling type of the node. Valid values:
     // 
     // *   NORMAL: The node is an auto triggered node.
     // *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
     // *   PAUSE: The node is a paused node.
     // *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them
-    std::shared_ptr<string> schedulerType_ = nullptr;
+    shared_ptr<string> schedulerType_ {};
     // The start time of automatic scheduling. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // Configuring this parameter is equivalent to specifying a start time for the Validity Period parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<int64_t> startEffectDate_ = nullptr;
+    shared_ptr<int64_t> startEffectDate_ {};
     // Specifies whether to immediately run a node after the node is deployed.
     // 
     // This parameter is valid only for an EMR Spark Streaming node or an EMR Streaming SQL node. This parameter corresponds to the Start Method parameter in the Schedule section of the Configure tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<bool> startImmediately_ = nullptr;
+    shared_ptr<bool> startImmediately_ {};
     // Specifies whether to suspend the scheduling of the node. Valid values:
     // 
     // *   true
     // *   false
     // 
     // This parameter corresponds to the Recurrence parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    std::shared_ptr<bool> stop_ = nullptr;
+    shared_ptr<bool> stop_ {};
     // The timeout period.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

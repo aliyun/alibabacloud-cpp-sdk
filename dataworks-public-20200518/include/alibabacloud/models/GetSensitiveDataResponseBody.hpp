@@ -31,33 +31,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->sensitiveData_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->sensitiveData_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSensitiveDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sensitiveData Field Functions 
     bool hasSensitiveData() const { return this->sensitiveData_ != nullptr;};
     void deleteSensitiveData() { this->sensitiveData_ = nullptr;};
-    inline     const Darabonba::Json & sensitiveData() const { DARABONBA_GET(sensitiveData_) };
-    Darabonba::Json & sensitiveData() { DARABONBA_GET(sensitiveData_) };
+    inline     const Darabonba::Json & getSensitiveData() const { DARABONBA_GET(sensitiveData_) };
+    Darabonba::Json & getSensitiveData() { DARABONBA_GET(sensitiveData_) };
     inline GetSensitiveDataResponseBody& setSensitiveData(const Darabonba::Json & sensitiveData) { DARABONBA_SET_VALUE(sensitiveData_, sensitiveData) };
-    inline GetSensitiveDataResponseBody& setSensitiveData(Darabonba::Json & sensitiveData) { DARABONBA_SET_RVALUE(sensitiveData_, sensitiveData) };
+    inline GetSensitiveDataResponseBody& setSensitiveData(Darabonba::Json && sensitiveData) { DARABONBA_SET_RVALUE(sensitiveData_, sensitiveData) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the sensitive data returned. The information includes totalCount and sensDatas. sensDatas includes the following parameters:
     // 
     // *   guid: the ID of the metadata of the tenant. For example, the ID of the metadata in the MaxCompute compute engine is in the Project name.Table name.Column name format.
     // *   sensType: the type of the sensitive data.
     // *   sensLevel: the sensitivity level of the sensitive data
-    Darabonba::Json sensitiveData_ = nullptr;
+    Darabonba::Json sensitiveData_ {};
   };
 
   } // namespace Models

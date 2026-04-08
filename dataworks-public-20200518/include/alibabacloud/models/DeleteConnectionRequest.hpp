@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionId_ != nullptr; };
+    virtual bool empty() const override { return this->connectionId_ == nullptr; };
     // connectionId Field Functions 
     bool hasConnectionId() const { return this->connectionId_ != nullptr;};
     void deleteConnectionId() { this->connectionId_ = nullptr;};
-    inline int64_t connectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, 0L) };
+    inline int64_t getConnectionId() const { DARABONBA_PTR_GET_DEFAULT(connectionId_, 0L) };
     inline DeleteConnectionRequest& setConnectionId(int64_t connectionId) { DARABONBA_PTR_SET_VALUE(connectionId_, connectionId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The data source ID. You can call the [ListConnection](https://help.aliyun.com/document_detail/173911.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> connectionId_ = nullptr;
+    shared_ptr<int64_t> connectionId_ {};
   };
 
   } // namespace Models

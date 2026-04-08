@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->outputs_ != nullptr
-        && this->projectEnv_ != nullptr; };
+    virtual bool empty() const override { return this->outputs_ == nullptr
+        && this->projectEnv_ == nullptr; };
     // outputs Field Functions 
     bool hasOutputs() const { return this->outputs_ != nullptr;};
     void deleteOutputs() { this->outputs_ = nullptr;};
-    inline string outputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
+    inline string getOutputs() const { DARABONBA_PTR_GET_DEFAULT(outputs_, "") };
     inline SearchNodesByOutputRequest& setOutputs(string outputs) { DARABONBA_PTR_SET_VALUE(outputs_, outputs) };
 
 
     // projectEnv Field Functions 
     bool hasProjectEnv() const { return this->projectEnv_ != nullptr;};
     void deleteProjectEnv() { this->projectEnv_ = nullptr;};
-    inline string projectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
+    inline string getProjectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
     inline SearchNodesByOutputRequest& setProjectEnv(string projectEnv) { DARABONBA_PTR_SET_VALUE(projectEnv_, projectEnv) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The output names of the node. If you specify multiple output names, separate them with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputs_ = nullptr;
+    shared_ptr<string> outputs_ {};
     // The environment of Operation Center. Valid values: PROD and DEV.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectEnv_ = nullptr;
+    shared_ptr<string> projectEnv_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sensitiveId_ != nullptr
-        && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->sensitiveId_ == nullptr
+        && this->tenantId_ == nullptr; };
     // sensitiveId Field Functions 
     bool hasSensitiveId() const { return this->sensitiveId_ != nullptr;};
     void deleteSensitiveId() { this->sensitiveId_ = nullptr;};
-    inline string sensitiveId() const { DARABONBA_PTR_GET_DEFAULT(sensitiveId_, "") };
+    inline string getSensitiveId() const { DARABONBA_PTR_GET_DEFAULT(sensitiveId_, "") };
     inline DeleteRecognizeRuleRequest& setSensitiveId(string sensitiveId) { DARABONBA_PTR_SET_VALUE(sensitiveId_, sensitiveId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline DeleteRecognizeRuleRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the sensitive field. You can call the [QuerySensNodeInfo](https://help.aliyun.com/document_detail/2747189.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sensitiveId_ = nullptr;
+    shared_ptr<string> sensitiveId_ {};
     // The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

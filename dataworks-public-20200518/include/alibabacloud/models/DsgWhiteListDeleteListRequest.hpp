@@ -30,12 +30,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ids_ != nullptr; };
+    virtual bool empty() const override { return this->ids_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline const vector<int32_t> & ids() const { DARABONBA_PTR_GET_CONST(ids_, vector<int32_t>) };
-    inline vector<int32_t> ids() { DARABONBA_PTR_GET(ids_, vector<int32_t>) };
+    inline const vector<int32_t> & getIds() const { DARABONBA_PTR_GET_CONST(ids_, vector<int32_t>) };
+    inline vector<int32_t> getIds() { DARABONBA_PTR_GET(ids_, vector<int32_t>) };
     inline DsgWhiteListDeleteListRequest& setIds(const vector<int32_t> & ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
     inline DsgWhiteListDeleteListRequest& setIds(vector<int32_t> && ids) { DARABONBA_PTR_SET_RVALUE(ids_, ids) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the whitelists.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int32_t>> ids_ = nullptr;
+    shared_ptr<vector<int32_t>> ids_ {};
   };
 
   } // namespace Models

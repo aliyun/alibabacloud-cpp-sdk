@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->flowId_ != nullptr; };
+    virtual bool empty() const override { return this->flowId_ == nullptr; };
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
-    inline string flowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
     inline GetPermissionApplyOrderDetailRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the permission request order. You can call the [ListPermissionApplyOrders](https://help.aliyun.com/document_detail/211008.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowId_ = nullptr;
+    shared_ptr<string> flowId_ {};
   };
 
   } // namespace Models

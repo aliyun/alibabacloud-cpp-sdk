@@ -51,136 +51,136 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->fileDescription_ != nullptr && this->fileFolderPath_ != nullptr && this->fileName_ != nullptr && this->fileType_ != nullptr && this->originResourceName_ != nullptr
-        && this->owner_ != nullptr && this->projectId_ != nullptr && this->registerToCalcEngine_ != nullptr && this->resourceFile_ != nullptr && this->storageURL_ != nullptr
-        && this->uploadMode_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->fileDescription_ == nullptr && this->fileFolderPath_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->originResourceName_ == nullptr
+        && this->owner_ == nullptr && this->projectId_ == nullptr && this->registerToCalcEngine_ == nullptr && this->resourceFile_ == nullptr && this->storageURL_ == nullptr
+        && this->uploadMode_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateResourceFileRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // fileDescription Field Functions 
     bool hasFileDescription() const { return this->fileDescription_ != nullptr;};
     void deleteFileDescription() { this->fileDescription_ = nullptr;};
-    inline string fileDescription() const { DARABONBA_PTR_GET_DEFAULT(fileDescription_, "") };
+    inline string getFileDescription() const { DARABONBA_PTR_GET_DEFAULT(fileDescription_, "") };
     inline CreateResourceFileRequest& setFileDescription(string fileDescription) { DARABONBA_PTR_SET_VALUE(fileDescription_, fileDescription) };
 
 
     // fileFolderPath Field Functions 
     bool hasFileFolderPath() const { return this->fileFolderPath_ != nullptr;};
     void deleteFileFolderPath() { this->fileFolderPath_ = nullptr;};
-    inline string fileFolderPath() const { DARABONBA_PTR_GET_DEFAULT(fileFolderPath_, "") };
+    inline string getFileFolderPath() const { DARABONBA_PTR_GET_DEFAULT(fileFolderPath_, "") };
     inline CreateResourceFileRequest& setFileFolderPath(string fileFolderPath) { DARABONBA_PTR_SET_VALUE(fileFolderPath_, fileFolderPath) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateResourceFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline int32_t fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, 0) };
+    inline int32_t getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, 0) };
     inline CreateResourceFileRequest& setFileType(int32_t fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // originResourceName Field Functions 
     bool hasOriginResourceName() const { return this->originResourceName_ != nullptr;};
     void deleteOriginResourceName() { this->originResourceName_ = nullptr;};
-    inline string originResourceName() const { DARABONBA_PTR_GET_DEFAULT(originResourceName_, "") };
+    inline string getOriginResourceName() const { DARABONBA_PTR_GET_DEFAULT(originResourceName_, "") };
     inline CreateResourceFileRequest& setOriginResourceName(string originResourceName) { DARABONBA_PTR_SET_VALUE(originResourceName_, originResourceName) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline CreateResourceFileRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateResourceFileRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // registerToCalcEngine Field Functions 
     bool hasRegisterToCalcEngine() const { return this->registerToCalcEngine_ != nullptr;};
     void deleteRegisterToCalcEngine() { this->registerToCalcEngine_ = nullptr;};
-    inline bool registerToCalcEngine() const { DARABONBA_PTR_GET_DEFAULT(registerToCalcEngine_, false) };
+    inline bool getRegisterToCalcEngine() const { DARABONBA_PTR_GET_DEFAULT(registerToCalcEngine_, false) };
     inline CreateResourceFileRequest& setRegisterToCalcEngine(bool registerToCalcEngine) { DARABONBA_PTR_SET_VALUE(registerToCalcEngine_, registerToCalcEngine) };
 
 
     // resourceFile Field Functions 
     bool hasResourceFile() const { return this->resourceFile_ != nullptr;};
     void deleteResourceFile() { this->resourceFile_ = nullptr;};
-    inline string resourceFile() const { DARABONBA_PTR_GET_DEFAULT(resourceFile_, "") };
+    inline string getResourceFile() const { DARABONBA_PTR_GET_DEFAULT(resourceFile_, "") };
     inline CreateResourceFileRequest& setResourceFile(string resourceFile) { DARABONBA_PTR_SET_VALUE(resourceFile_, resourceFile) };
 
 
     // storageURL Field Functions 
     bool hasStorageURL() const { return this->storageURL_ != nullptr;};
     void deleteStorageURL() { this->storageURL_ = nullptr;};
-    inline string storageURL() const { DARABONBA_PTR_GET_DEFAULT(storageURL_, "") };
+    inline string getStorageURL() const { DARABONBA_PTR_GET_DEFAULT(storageURL_, "") };
     inline CreateResourceFileRequest& setStorageURL(string storageURL) { DARABONBA_PTR_SET_VALUE(storageURL_, storageURL) };
 
 
     // uploadMode Field Functions 
     bool hasUploadMode() const { return this->uploadMode_ != nullptr;};
     void deleteUploadMode() { this->uploadMode_ = nullptr;};
-    inline bool uploadMode() const { DARABONBA_PTR_GET_DEFAULT(uploadMode_, false) };
+    inline bool getUploadMode() const { DARABONBA_PTR_GET_DEFAULT(uploadMode_, false) };
     inline CreateResourceFileRequest& setUploadMode(bool uploadMode) { DARABONBA_PTR_SET_VALUE(uploadMode_, uploadMode) };
 
 
   protected:
     // The code for the file. The code format varies based on the file type. To view the code format for a specific file type, go to Operation Center, right-click a node of the file type, and then select View Code.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The description of the file.
-    std::shared_ptr<string> fileDescription_ = nullptr;
+    shared_ptr<string> fileDescription_ {};
     // The path of the file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileFolderPath_ = nullptr;
+    shared_ptr<string> fileFolderPath_ {};
     // The name of the file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The type of the code for the file. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
     // 
     // You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the type of the code for the file.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> fileType_ = nullptr;
+    shared_ptr<int32_t> fileType_ {};
     // The name of the original resource file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> originResourceName_ = nullptr;
+    shared_ptr<string> originResourceName_ {};
     // The Alibaba Cloud User ID of the file owner. If this parameter is empty, the caller\\"s Alibaba cloud user ID is used by default.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the operation is applied.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // Whether to synchronously Upload resources to the computing engine.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> registerToCalcEngine_ = nullptr;
+    shared_ptr<bool> registerToCalcEngine_ {};
     // The OSS URL for uploading files provided by POP.
-    std::shared_ptr<string> resourceFile_ = nullptr;
+    shared_ptr<string> resourceFile_ {};
     // The storage path of the resource file on the computing engine. Currently, only EMR and CDH use this field. EMR format is [oss | hdfs]:// path/to/object. CDH must be/user/admin/lib by default.
-    std::shared_ptr<string> storageURL_ = nullptr;
+    shared_ptr<string> storageURL_ {};
     // File resource Upload mode. Currently, only files of the File type of MaxCompute are valid. The values are as follows:
     // 
     // - true: The Resource mode that can be downloaded.
     // - false: The text mode for online editing.
-    std::shared_ptr<bool> uploadMode_ = nullptr;
+    shared_ptr<bool> uploadMode_ {};
   };
 
   } // namespace Models

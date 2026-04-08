@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lineageRelationRegisterVOShrink_ != nullptr; };
+    virtual bool empty() const override { return this->lineageRelationRegisterVOShrink_ == nullptr; };
     // lineageRelationRegisterVOShrink Field Functions 
     bool hasLineageRelationRegisterVOShrink() const { return this->lineageRelationRegisterVOShrink_ != nullptr;};
     void deleteLineageRelationRegisterVOShrink() { this->lineageRelationRegisterVOShrink_ = nullptr;};
-    inline string lineageRelationRegisterVOShrink() const { DARABONBA_PTR_GET_DEFAULT(lineageRelationRegisterVOShrink_, "") };
+    inline string getLineageRelationRegisterVOShrink() const { DARABONBA_PTR_GET_DEFAULT(lineageRelationRegisterVOShrink_, "") };
     inline RegisterLineageRelationShrinkRequest& setLineageRelationRegisterVOShrink(string lineageRelationRegisterVOShrink) { DARABONBA_PTR_SET_VALUE(lineageRelationRegisterVOShrink_, lineageRelationRegisterVOShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The structure whose lineage you want to register to DataWorks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> lineageRelationRegisterVOShrink_ = nullptr;
+    shared_ptr<string> lineageRelationRegisterVOShrink_ {};
   };
 
   } // namespace Models
