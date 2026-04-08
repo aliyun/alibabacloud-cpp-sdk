@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEAGENTRUNTIMEINPUT_HPP_
 #define ALIBABACLOUD_MODELS_CREATEAGENTRUNTIMEINPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ArmsConfiguration.hpp>
 #include <alibabacloud/models/CodeConfiguration.hpp>
 #include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <map>
@@ -23,6 +24,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateAgentRuntimeInput& obj) { 
       DARABONBA_PTR_TO_JSON(agentRuntimeName, agentRuntimeName_);
+      DARABONBA_PTR_TO_JSON(armsConfiguration, armsConfiguration_);
       DARABONBA_PTR_TO_JSON(artifactType, artifactType_);
       DARABONBA_PTR_TO_JSON(codeConfiguration, codeConfiguration_);
       DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
@@ -49,6 +51,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateAgentRuntimeInput& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
+      DARABONBA_PTR_FROM_JSON(armsConfiguration, armsConfiguration_);
       DARABONBA_PTR_FROM_JSON(artifactType, artifactType_);
       DARABONBA_PTR_FROM_JSON(codeConfiguration, codeConfiguration_);
       DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
@@ -85,16 +88,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialId_ == nullptr
-        && this->credentialName_ == nullptr && this->description_ == nullptr && this->diskSize_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr
-        && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr
-        && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->armsConfiguration_ == nullptr && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr
+        && this->credentialId_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr && this->diskSize_ == nullptr && this->environmentVariables_ == nullptr
+        && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr
+        && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->workspaceId_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
     inline string getAgentRuntimeName() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeName_, "") };
     inline CreateAgentRuntimeInput& setAgentRuntimeName(string agentRuntimeName) { DARABONBA_PTR_SET_VALUE(agentRuntimeName_, agentRuntimeName) };
+
+
+    // armsConfiguration Field Functions 
+    bool hasArmsConfiguration() const { return this->armsConfiguration_ != nullptr;};
+    void deleteArmsConfiguration() { this->armsConfiguration_ = nullptr;};
+    inline const ArmsConfiguration & getArmsConfiguration() const { DARABONBA_PTR_GET_CONST(armsConfiguration_, ArmsConfiguration) };
+    inline ArmsConfiguration getArmsConfiguration() { DARABONBA_PTR_GET(armsConfiguration_, ArmsConfiguration) };
+    inline CreateAgentRuntimeInput& setArmsConfiguration(const ArmsConfiguration & armsConfiguration) { DARABONBA_PTR_SET_VALUE(armsConfiguration_, armsConfiguration) };
+    inline CreateAgentRuntimeInput& setArmsConfiguration(ArmsConfiguration && armsConfiguration) { DARABONBA_PTR_SET_RVALUE(armsConfiguration_, armsConfiguration) };
 
 
     // artifactType Field Functions 
@@ -281,6 +293,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> agentRuntimeName_ {};
+    shared_ptr<ArmsConfiguration> armsConfiguration_ {};
     // 指定智能体运行时的部署类型，支持Code（代码模式）和Container（容器模式）
     // 
     // This parameter is required.
