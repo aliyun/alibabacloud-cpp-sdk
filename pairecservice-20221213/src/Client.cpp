@@ -3954,6 +3954,59 @@ DeleteTrafficControlTaskResponse Client::deleteTrafficControlTask(const string &
 }
 
 /**
+ * @summary 部署流量调控任务的flink code
+ *
+ * @param request DeployTrafficControlTaskCodeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeployTrafficControlTaskCodeResponse
+ */
+DeployTrafficControlTaskCodeResponse Client::deployTrafficControlTaskCodeWithOptions(const string &TrafficControlTaskId, const DeployTrafficControlTaskCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnvironment()) {
+    body["Environment"] = request.getEnvironment();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRetryDeploy()) {
+    body["RetryDeploy"] = request.getRetryDeploy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeployTrafficControlTaskCode"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/deploycode")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeployTrafficControlTaskCodeResponse>();
+}
+
+/**
+ * @summary 部署流量调控任务的flink code
+ *
+ * @param request DeployTrafficControlTaskCodeRequest
+ * @return DeployTrafficControlTaskCodeResponse
+ */
+DeployTrafficControlTaskCodeResponse Client::deployTrafficControlTaskCode(const string &TrafficControlTaskId, const DeployTrafficControlTaskCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deployTrafficControlTaskCodeWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+/**
  * @summary 生成算法定制脚本
  *
  * @param request GenerateAlgorithmCustomizationScriptRequest
@@ -8180,6 +8233,112 @@ QueryTrafficControlTargetItemReportDetailResponse Client::queryTrafficControlTar
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return queryTrafficControlTargetItemReportDetailWithOptions(TrafficControlTargetId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取流量调控任务部署的结果。
+ *
+ * @param request QueryTrafficControlTaskDeployResultRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryTrafficControlTaskDeployResultResponse
+ */
+QueryTrafficControlTaskDeployResultResponse Client::queryTrafficControlTaskDeployResultWithOptions(const string &TrafficControlTaskId, const QueryTrafficControlTaskDeployResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironment()) {
+    query["Environment"] = request.getEnvironment();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryTrafficControlTaskDeployResult"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/queryresult")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryTrafficControlTaskDeployResultResponse>();
+}
+
+/**
+ * @summary 获取流量调控任务部署的结果。
+ *
+ * @param request QueryTrafficControlTaskDeployResultRequest
+ * @return QueryTrafficControlTaskDeployResultResponse
+ */
+QueryTrafficControlTaskDeployResultResponse Client::queryTrafficControlTaskDeployResult(const string &TrafficControlTaskId, const QueryTrafficControlTaskDeployResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryTrafficControlTaskDeployResultWithOptions(TrafficControlTaskId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询流量调控任务单品调控报表。
+ *
+ * @param request QueryTrafficControlTaskItemReportRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryTrafficControlTaskItemReportResponse
+ */
+QueryTrafficControlTaskItemReportResponse Client::queryTrafficControlTaskItemReportWithOptions(const string &TrafficControlTaskId, const QueryTrafficControlTaskItemReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnvironment()) {
+    query["Environment"] = request.getEnvironment();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryTrafficControlTaskItemReport"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/trafficcontroltasks/" , Darabonba::Encode::Encoder::percentEncode(TrafficControlTaskId) , "/action/queryitemreport")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryTrafficControlTaskItemReportResponse>();
+}
+
+/**
+ * @summary 查询流量调控任务单品调控报表。
+ *
+ * @param request QueryTrafficControlTaskItemReportRequest
+ * @return QueryTrafficControlTaskItemReportResponse
+ */
+QueryTrafficControlTaskItemReportResponse Client::queryTrafficControlTaskItemReport(const string &TrafficControlTaskId, const QueryTrafficControlTaskItemReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryTrafficControlTaskItemReportWithOptions(TrafficControlTaskId, request, headers, runtime);
 }
 
 /**

@@ -1171,6 +1171,24 @@ namespace PaiRecService20221213
       Models::DeleteTrafficControlTaskResponse deleteTrafficControlTask(const string &TrafficControlTaskId, const Models::DeleteTrafficControlTaskRequest &request);
 
       /**
+       * @summary 部署流量调控任务的flink code
+       *
+       * @param request DeployTrafficControlTaskCodeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeployTrafficControlTaskCodeResponse
+       */
+      Models::DeployTrafficControlTaskCodeResponse deployTrafficControlTaskCodeWithOptions(const string &TrafficControlTaskId, const Models::DeployTrafficControlTaskCodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 部署流量调控任务的flink code
+       *
+       * @param request DeployTrafficControlTaskCodeRequest
+       * @return DeployTrafficControlTaskCodeResponse
+       */
+      Models::DeployTrafficControlTaskCodeResponse deployTrafficControlTaskCode(const string &TrafficControlTaskId, const Models::DeployTrafficControlTaskCodeRequest &request);
+
+      /**
        * @summary 生成算法定制脚本
        *
        * @param request GenerateAlgorithmCustomizationScriptRequest
@@ -2603,6 +2621,42 @@ namespace PaiRecService20221213
        * @return QueryTrafficControlTargetItemReportDetailResponse
        */
       Models::QueryTrafficControlTargetItemReportDetailResponse queryTrafficControlTargetItemReportDetail(const string &TrafficControlTargetId, const Models::QueryTrafficControlTargetItemReportDetailRequest &request);
+
+      /**
+       * @summary 获取流量调控任务部署的结果。
+       *
+       * @param request QueryTrafficControlTaskDeployResultRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryTrafficControlTaskDeployResultResponse
+       */
+      Models::QueryTrafficControlTaskDeployResultResponse queryTrafficControlTaskDeployResultWithOptions(const string &TrafficControlTaskId, const Models::QueryTrafficControlTaskDeployResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取流量调控任务部署的结果。
+       *
+       * @param request QueryTrafficControlTaskDeployResultRequest
+       * @return QueryTrafficControlTaskDeployResultResponse
+       */
+      Models::QueryTrafficControlTaskDeployResultResponse queryTrafficControlTaskDeployResult(const string &TrafficControlTaskId, const Models::QueryTrafficControlTaskDeployResultRequest &request);
+
+      /**
+       * @summary 查询流量调控任务单品调控报表。
+       *
+       * @param request QueryTrafficControlTaskItemReportRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryTrafficControlTaskItemReportResponse
+       */
+      Models::QueryTrafficControlTaskItemReportResponse queryTrafficControlTaskItemReportWithOptions(const string &TrafficControlTaskId, const Models::QueryTrafficControlTaskItemReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询流量调控任务单品调控报表。
+       *
+       * @param request QueryTrafficControlTaskItemReportRequest
+       * @return QueryTrafficControlTaskItemReportResponse
+       */
+      Models::QueryTrafficControlTaskItemReportResponse queryTrafficControlTaskItemReport(const string &TrafficControlTaskId, const Models::QueryTrafficControlTaskItemReportRequest &request);
 
       /**
        * @summary 发布流量调控任务

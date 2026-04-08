@@ -197,6 +197,9 @@
 #include <alibabacloud/models/DeleteTrafficControlTaskRequest.hpp>
 #include <alibabacloud/models/DeleteTrafficControlTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteTrafficControlTaskResponse.hpp>
+#include <alibabacloud/models/DeployTrafficControlTaskCodeRequest.hpp>
+#include <alibabacloud/models/DeployTrafficControlTaskCodeResponseBody.hpp>
+#include <alibabacloud/models/DeployTrafficControlTaskCodeResponse.hpp>
 #include <alibabacloud/models/GenerateAlgorithmCustomizationScriptRequest.hpp>
 #include <alibabacloud/models/GenerateAlgorithmCustomizationScriptResponseBody.hpp>
 #include <alibabacloud/models/GenerateAlgorithmCustomizationScriptResponse.hpp>
@@ -438,6 +441,12 @@
 #include <alibabacloud/models/QueryTrafficControlTargetItemReportDetailRequest.hpp>
 #include <alibabacloud/models/QueryTrafficControlTargetItemReportDetailResponseBody.hpp>
 #include <alibabacloud/models/QueryTrafficControlTargetItemReportDetailResponse.hpp>
+#include <alibabacloud/models/QueryTrafficControlTaskDeployResultRequest.hpp>
+#include <alibabacloud/models/QueryTrafficControlTaskDeployResultResponseBody.hpp>
+#include <alibabacloud/models/QueryTrafficControlTaskDeployResultResponse.hpp>
+#include <alibabacloud/models/QueryTrafficControlTaskItemReportRequest.hpp>
+#include <alibabacloud/models/QueryTrafficControlTaskItemReportResponseBody.hpp>
+#include <alibabacloud/models/QueryTrafficControlTaskItemReportResponse.hpp>
 #include <alibabacloud/models/ReleaseTrafficControlTaskRequest.hpp>
 #include <alibabacloud/models/ReleaseTrafficControlTaskResponseBody.hpp>
 #include <alibabacloud/models/ReleaseTrafficControlTaskResponse.hpp>
