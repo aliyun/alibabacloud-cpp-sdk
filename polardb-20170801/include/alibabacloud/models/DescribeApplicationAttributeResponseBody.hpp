@@ -292,9 +292,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PolarClawSaaSApplicationAttribute& obj) { 
         DARABONBA_PTR_TO_JSON(AuthCallbackURL, authCallbackURL_);
+        DARABONBA_PTR_TO_JSON(SupabaseClusterId, supabaseClusterId_);
       };
       friend void from_json(const Darabonba::Json& j, PolarClawSaaSApplicationAttribute& obj) { 
         DARABONBA_PTR_FROM_JSON(AuthCallbackURL, authCallbackURL_);
+        DARABONBA_PTR_FROM_JSON(SupabaseClusterId, supabaseClusterId_);
       };
       PolarClawSaaSApplicationAttribute() = default ;
       PolarClawSaaSApplicationAttribute(const PolarClawSaaSApplicationAttribute &) = default ;
@@ -307,7 +309,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->authCallbackURL_ == nullptr; };
+      virtual bool empty() const override { return this->authCallbackURL_ == nullptr
+        && this->supabaseClusterId_ == nullptr; };
       // authCallbackURL Field Functions 
       bool hasAuthCallbackURL() const { return this->authCallbackURL_ != nullptr;};
       void deleteAuthCallbackURL() { this->authCallbackURL_ = nullptr;};
@@ -315,8 +318,16 @@ namespace Models
       inline PolarClawSaaSApplicationAttribute& setAuthCallbackURL(string authCallbackURL) { DARABONBA_PTR_SET_VALUE(authCallbackURL_, authCallbackURL) };
 
 
+      // supabaseClusterId Field Functions 
+      bool hasSupabaseClusterId() const { return this->supabaseClusterId_ != nullptr;};
+      void deleteSupabaseClusterId() { this->supabaseClusterId_ = nullptr;};
+      inline string getSupabaseClusterId() const { DARABONBA_PTR_GET_DEFAULT(supabaseClusterId_, "") };
+      inline PolarClawSaaSApplicationAttribute& setSupabaseClusterId(string supabaseClusterId) { DARABONBA_PTR_SET_VALUE(supabaseClusterId_, supabaseClusterId) };
+
+
     protected:
       shared_ptr<string> authCallbackURL_ {};
+      shared_ptr<string> supabaseClusterId_ {};
     };
 
     class MemApplicationAttribute : public Darabonba::Model {

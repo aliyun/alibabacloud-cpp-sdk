@@ -1891,6 +1891,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["SecurityIPType"] = request.getSecurityIPType();
   }
 
+  if (!!request.hasSkillTemplateId()) {
+    query["SkillTemplateId"] = request.getSkillTemplateId();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.getTag();
   }

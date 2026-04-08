@@ -37,34 +37,44 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(AddressItems, addressItems_);
         DARABONBA_PTR_TO_JSON(AutoAddNewNodes, autoAddNewNodes_);
+        DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
         DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
         DARABONBA_PTR_TO_JSON(DBEndpointDescription, DBEndpointDescription_);
         DARABONBA_PTR_TO_JSON(DBEndpointId, DBEndpointId_);
         DARABONBA_PTR_TO_JSON(EndpointConfig, endpointConfig_);
         DARABONBA_PTR_TO_JSON(EndpointType, endpointType_);
+        DARABONBA_PTR_TO_JSON(NetType, netType_);
         DARABONBA_PTR_TO_JSON(NodeWithRoles, nodeWithRoles_);
         DARABONBA_PTR_TO_JSON(Nodes, nodes_);
         DARABONBA_PTR_TO_JSON(PolarSccTimeoutAction, polarSccTimeoutAction_);
         DARABONBA_PTR_TO_JSON(PolarSccWaitTimeout, polarSccWaitTimeout_);
+        DARABONBA_PTR_TO_JSON(Port, port_);
+        DARABONBA_PTR_TO_JSON(Protocol, protocol_);
         DARABONBA_PTR_TO_JSON(ReadWriteMode, readWriteMode_);
         DARABONBA_PTR_TO_JSON(SccMode, sccMode_);
         DARABONBA_PTR_TO_JSON(ServiceName, serviceName_);
+        DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(AddressItems, addressItems_);
         DARABONBA_PTR_FROM_JSON(AutoAddNewNodes, autoAddNewNodes_);
+        DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
         DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
         DARABONBA_PTR_FROM_JSON(DBEndpointDescription, DBEndpointDescription_);
         DARABONBA_PTR_FROM_JSON(DBEndpointId, DBEndpointId_);
         DARABONBA_PTR_FROM_JSON(EndpointConfig, endpointConfig_);
         DARABONBA_PTR_FROM_JSON(EndpointType, endpointType_);
+        DARABONBA_PTR_FROM_JSON(NetType, netType_);
         DARABONBA_PTR_FROM_JSON(NodeWithRoles, nodeWithRoles_);
         DARABONBA_PTR_FROM_JSON(Nodes, nodes_);
         DARABONBA_PTR_FROM_JSON(PolarSccTimeoutAction, polarSccTimeoutAction_);
         DARABONBA_PTR_FROM_JSON(PolarSccWaitTimeout, polarSccWaitTimeout_);
+        DARABONBA_PTR_FROM_JSON(Port, port_);
+        DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(ReadWriteMode, readWriteMode_);
         DARABONBA_PTR_FROM_JSON(SccMode, sccMode_);
         DARABONBA_PTR_FROM_JSON(ServiceName, serviceName_);
+        DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -208,9 +218,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->addressItems_ == nullptr
-        && this->autoAddNewNodes_ == nullptr && this->DBClusterId_ == nullptr && this->DBEndpointDescription_ == nullptr && this->DBEndpointId_ == nullptr && this->endpointConfig_ == nullptr
-        && this->endpointType_ == nullptr && this->nodeWithRoles_ == nullptr && this->nodes_ == nullptr && this->polarSccTimeoutAction_ == nullptr && this->polarSccWaitTimeout_ == nullptr
-        && this->readWriteMode_ == nullptr && this->sccMode_ == nullptr && this->serviceName_ == nullptr; };
+        && this->autoAddNewNodes_ == nullptr && this->connectionString_ == nullptr && this->DBClusterId_ == nullptr && this->DBEndpointDescription_ == nullptr && this->DBEndpointId_ == nullptr
+        && this->endpointConfig_ == nullptr && this->endpointType_ == nullptr && this->netType_ == nullptr && this->nodeWithRoles_ == nullptr && this->nodes_ == nullptr
+        && this->polarSccTimeoutAction_ == nullptr && this->polarSccWaitTimeout_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr && this->readWriteMode_ == nullptr
+        && this->sccMode_ == nullptr && this->serviceName_ == nullptr && this->VPCId_ == nullptr; };
       // addressItems Field Functions 
       bool hasAddressItems() const { return this->addressItems_ != nullptr;};
       void deleteAddressItems() { this->addressItems_ = nullptr;};
@@ -225,6 +236,13 @@ namespace Models
       void deleteAutoAddNewNodes() { this->autoAddNewNodes_ = nullptr;};
       inline string getAutoAddNewNodes() const { DARABONBA_PTR_GET_DEFAULT(autoAddNewNodes_, "") };
       inline Items& setAutoAddNewNodes(string autoAddNewNodes) { DARABONBA_PTR_SET_VALUE(autoAddNewNodes_, autoAddNewNodes) };
+
+
+      // connectionString Field Functions 
+      bool hasConnectionString() const { return this->connectionString_ != nullptr;};
+      void deleteConnectionString() { this->connectionString_ = nullptr;};
+      inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+      inline Items& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
 
 
       // DBClusterId Field Functions 
@@ -262,6 +280,13 @@ namespace Models
       inline Items& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
 
 
+      // netType Field Functions 
+      bool hasNetType() const { return this->netType_ != nullptr;};
+      void deleteNetType() { this->netType_ = nullptr;};
+      inline string getNetType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
+      inline Items& setNetType(string netType) { DARABONBA_PTR_SET_VALUE(netType_, netType) };
+
+
       // nodeWithRoles Field Functions 
       bool hasNodeWithRoles() const { return this->nodeWithRoles_ != nullptr;};
       void deleteNodeWithRoles() { this->nodeWithRoles_ = nullptr;};
@@ -290,6 +315,20 @@ namespace Models
       inline Items& setPolarSccWaitTimeout(string polarSccWaitTimeout) { DARABONBA_PTR_SET_VALUE(polarSccWaitTimeout_, polarSccWaitTimeout) };
 
 
+      // port Field Functions 
+      bool hasPort() const { return this->port_ != nullptr;};
+      void deletePort() { this->port_ = nullptr;};
+      inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+      inline Items& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline Items& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
       // readWriteMode Field Functions 
       bool hasReadWriteMode() const { return this->readWriteMode_ != nullptr;};
       void deleteReadWriteMode() { this->readWriteMode_ = nullptr;};
@@ -311,6 +350,13 @@ namespace Models
       inline Items& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
+      // VPCId Field Functions 
+      bool hasVPCId() const { return this->VPCId_ != nullptr;};
+      void deleteVPCId() { this->VPCId_ = nullptr;};
+      inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+      inline Items& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
+
+
     protected:
       // The details of the endpoint.
       shared_ptr<vector<Items::AddressItems>> addressItems_ {};
@@ -319,6 +365,7 @@ namespace Models
       // *   **Enable**
       // *   **Disable**
       shared_ptr<string> autoAddNewNodes_ {};
+      shared_ptr<string> connectionString_ {};
       // The ID of the cluster.
       shared_ptr<string> DBClusterId_ {};
       // The name of the endpoint.
@@ -351,6 +398,7 @@ namespace Models
       // *   **Primary**: the primary endpoint.
       // *   **Custom**: a custom cluster endpoint.
       shared_ptr<string> endpointType_ {};
+      shared_ptr<string> netType_ {};
       // The role name of each node in the endpoint. The role name of the primary node is **Writer**. Multiple read-only nodes can be associated with an endpoint. Therefore, the role name of each read-only node is suffixed with a number. For example, you can use **Reader1** and **Reader2** as the role names.
       // 
       // >  This parameter is valid only for PolarDB for PostgreSQL clusters and PolarDB for PostgreSQL (Compatible with Oracle)) clusters.
@@ -364,6 +412,8 @@ namespace Models
       shared_ptr<string> polarSccTimeoutAction_ {};
       // Global consistency timeout.
       shared_ptr<string> polarSccWaitTimeout_ {};
+      shared_ptr<string> port_ {};
+      shared_ptr<string> protocol_ {};
       // The read/write mode. Valid values:
       // 
       // *   **ReadWrite**: handles read and write requests. Automatic read/write splitting is enabled.
@@ -375,6 +425,7 @@ namespace Models
       // *   **off**: disabled
       shared_ptr<string> sccMode_ {};
       shared_ptr<string> serviceName_ {};
+      shared_ptr<string> VPCId_ {};
     };
 
     virtual bool empty() const override { return this->items_ == nullptr

@@ -44,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityIPArrayName, securityIPArrayName_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_TO_JSON(SecurityIPType, securityIPType_);
+      DARABONBA_PTR_TO_JSON(SkillTemplateId, skillTemplateId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TargetVersion, targetVersion_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -82,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityIPArrayName, securityIPArrayName_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_FROM_JSON(SecurityIPType, securityIPType_);
+      DARABONBA_PTR_FROM_JSON(SkillTemplateId, skillTemplateId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TargetVersion, targetVersion_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -436,8 +438,9 @@ namespace Models
         && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr
         && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->payType_ == nullptr
         && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->tag_ == nullptr
-        && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr
+        && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -654,6 +657,13 @@ namespace Models
     inline CreateApplicationRequest& setSecurityIPType(string securityIPType) { DARABONBA_PTR_SET_VALUE(securityIPType_, securityIPType) };
 
 
+    // skillTemplateId Field Functions 
+    bool hasSkillTemplateId() const { return this->skillTemplateId_ != nullptr;};
+    void deleteSkillTemplateId() { this->skillTemplateId_ = nullptr;};
+    inline string getSkillTemplateId() const { DARABONBA_PTR_GET_DEFAULT(skillTemplateId_, "") };
+    inline CreateApplicationRequest& setSkillTemplateId(string skillTemplateId) { DARABONBA_PTR_SET_VALUE(skillTemplateId_, skillTemplateId) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -731,6 +741,7 @@ namespace Models
     shared_ptr<string> securityIPArrayName_ {};
     shared_ptr<string> securityIPList_ {};
     shared_ptr<string> securityIPType_ {};
+    shared_ptr<string> skillTemplateId_ {};
     shared_ptr<vector<CreateApplicationRequest::Tag>> tag_ {};
     shared_ptr<string> targetVersion_ {};
     shared_ptr<string> usedTime_ {};
