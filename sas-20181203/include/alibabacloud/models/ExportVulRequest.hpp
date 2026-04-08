@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Necessity, necessity_);
       DARABONBA_PTR_TO_JSON(Path, path_);
       DARABONBA_PTR_TO_JSON(RaspDefend, raspDefend_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(SearchTags, searchTags_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Necessity, necessity_);
       DARABONBA_PTR_FROM_JSON(Path, path_);
       DARABONBA_PTR_FROM_JSON(RaspDefend, raspDefend_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(SearchTags, searchTags_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(Uuids, uuids_);
@@ -111,8 +113,8 @@ namespace Models
     virtual bool empty() const override { return this->aliasName_ == nullptr
         && this->attachTypes_ == nullptr && this->containerName_ == nullptr && this->createTsEnd_ == nullptr && this->createTsStart_ == nullptr && this->cveId_ == nullptr
         && this->dealed_ == nullptr && this->groupId_ == nullptr && this->imageName_ == nullptr && this->lang_ == nullptr && this->necessity_ == nullptr
-        && this->path_ == nullptr && this->raspDefend_ == nullptr && this->searchTags_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr
-        && this->vpcInstanceIds_ == nullptr && this->vulEntityList_ == nullptr; };
+        && this->path_ == nullptr && this->raspDefend_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->searchTags_ == nullptr && this->type_ == nullptr
+        && this->uuids_ == nullptr && this->vpcInstanceIds_ == nullptr && this->vulEntityList_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -204,6 +206,13 @@ namespace Models
     inline ExportVulRequest& setRaspDefend(int32_t raspDefend) { DARABONBA_PTR_SET_VALUE(raspDefend_, raspDefend) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ExportVulRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // searchTags Field Functions 
     bool hasSearchTags() const { return this->searchTags_ != nullptr;};
     void deleteSearchTags() { this->searchTags_ = nullptr;};
@@ -290,6 +299,7 @@ namespace Models
     // 
     // - **1**: yes.
     shared_ptr<int32_t> raspDefend_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The tag that is used to search for the vulnerabilities. Valid values:
     // 
     // *   Restart required

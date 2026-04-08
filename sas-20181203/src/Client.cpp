@@ -23902,6 +23902,10 @@ DescribeVulExportInfoResponse Client::describeVulExportInfoWithOptions(const Des
     query["ExportId"] = request.getExportId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -26222,6 +26226,10 @@ ExportVulResponse Client::exportVulWithOptions(const ExportVulRequest &request, 
 
   if (!!request.hasRaspDefend()) {
     query["RaspDefend"] = request.getRaspDefend();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.getResourceDirectoryAccountId();
   }
 
   if (!!request.hasSearchTags()) {
