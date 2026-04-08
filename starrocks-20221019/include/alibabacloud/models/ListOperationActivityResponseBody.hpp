@@ -49,14 +49,18 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(ActivityId, activityId_);
         DARABONBA_PTR_TO_JSON(ActivityStatus, activityStatus_);
+        DARABONBA_PTR_TO_JSON(ConsoleRetryCount, consoleRetryCount_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(ErrMessage, errMessage_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ActivityId, activityId_);
         DARABONBA_PTR_FROM_JSON(ActivityStatus, activityStatus_);
+        DARABONBA_PTR_FROM_JSON(ConsoleRetryCount, consoleRetryCount_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(ErrMessage, errMessage_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       };
@@ -72,7 +76,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->activityId_ == nullptr
-        && this->activityStatus_ == nullptr && this->endTime_ == nullptr && this->name_ == nullptr && this->startTime_ == nullptr; };
+        && this->activityStatus_ == nullptr && this->consoleRetryCount_ == nullptr && this->endTime_ == nullptr && this->errMessage_ == nullptr && this->name_ == nullptr
+        && this->startTime_ == nullptr; };
       // activityId Field Functions 
       bool hasActivityId() const { return this->activityId_ != nullptr;};
       void deleteActivityId() { this->activityId_ = nullptr;};
@@ -87,11 +92,25 @@ namespace Models
       inline Data& setActivityStatus(string activityStatus) { DARABONBA_PTR_SET_VALUE(activityStatus_, activityStatus) };
 
 
+      // consoleRetryCount Field Functions 
+      bool hasConsoleRetryCount() const { return this->consoleRetryCount_ != nullptr;};
+      void deleteConsoleRetryCount() { this->consoleRetryCount_ = nullptr;};
+      inline int32_t getConsoleRetryCount() const { DARABONBA_PTR_GET_DEFAULT(consoleRetryCount_, 0) };
+      inline Data& setConsoleRetryCount(int32_t consoleRetryCount) { DARABONBA_PTR_SET_VALUE(consoleRetryCount_, consoleRetryCount) };
+
+
       // endTime Field Functions 
       bool hasEndTime() const { return this->endTime_ != nullptr;};
       void deleteEndTime() { this->endTime_ = nullptr;};
       inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
       inline Data& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // errMessage Field Functions 
+      bool hasErrMessage() const { return this->errMessage_ != nullptr;};
+      void deleteErrMessage() { this->errMessage_ = nullptr;};
+      inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+      inline Data& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
       // name Field Functions 
@@ -111,7 +130,9 @@ namespace Models
     protected:
       shared_ptr<string> activityId_ {};
       shared_ptr<string> activityStatus_ {};
+      shared_ptr<int32_t> consoleRetryCount_ {};
       shared_ptr<int64_t> endTime_ {};
+      shared_ptr<string> errMessage_ {};
       shared_ptr<string> name_ {};
       shared_ptr<int64_t> startTime_ {};
     };

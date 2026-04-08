@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
         DARABONBA_PTR_TO_JSON(EnableAiFunction, enableAiFunction_);
         DARABONBA_PTR_TO_JSON(EnableAutoMinorVersionUpgrade, enableAutoMinorVersionUpgrade_);
+        DARABONBA_PTR_TO_JSON(EnableMultiAz, enableMultiAz_);
         DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
         DARABONBA_PTR_TO_JSON(EnabledAuditLoader, enabledAuditLoader_);
         DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
@@ -82,6 +83,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
         DARABONBA_PTR_FROM_JSON(EnableAiFunction, enableAiFunction_);
         DARABONBA_PTR_FROM_JSON(EnableAutoMinorVersionUpgrade, enableAutoMinorVersionUpgrade_);
+        DARABONBA_PTR_FROM_JSON(EnableMultiAz, enableMultiAz_);
         DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
         DARABONBA_PTR_FROM_JSON(EnabledAuditLoader, enabledAuditLoader_);
         DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
@@ -214,12 +216,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->aclId_ == nullptr
-        && this->architecture_ == nullptr && this->beginTime_ == nullptr && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr && this->enableSSL_ == nullptr
-        && this->enabledAuditLoader_ == nullptr && this->encrypted_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr && this->minorVersion_ == nullptr
-        && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr && this->sgId_ == nullptr
-        && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr; };
+        && this->architecture_ == nullptr && this->beginTime_ == nullptr && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr && this->enableMultiAz_ == nullptr
+        && this->enableSSL_ == nullptr && this->enabledAuditLoader_ == nullptr && this->encrypted_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr
+        && this->minorVersion_ == nullptr && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr
+        && this->sgId_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr; };
       // aclId Field Functions 
       bool hasAclId() const { return this->aclId_ != nullptr;};
       void deleteAclId() { this->aclId_ = nullptr;};
@@ -253,6 +255,13 @@ namespace Models
       void deleteEnableAutoMinorVersionUpgrade() { this->enableAutoMinorVersionUpgrade_ = nullptr;};
       inline bool getEnableAutoMinorVersionUpgrade() const { DARABONBA_PTR_GET_DEFAULT(enableAutoMinorVersionUpgrade_, false) };
       inline Data& setEnableAutoMinorVersionUpgrade(bool enableAutoMinorVersionUpgrade) { DARABONBA_PTR_SET_VALUE(enableAutoMinorVersionUpgrade_, enableAutoMinorVersionUpgrade) };
+
+
+      // enableMultiAz Field Functions 
+      bool hasEnableMultiAz() const { return this->enableMultiAz_ != nullptr;};
+      void deleteEnableMultiAz() { this->enableMultiAz_ = nullptr;};
+      inline bool getEnableMultiAz() const { DARABONBA_PTR_GET_DEFAULT(enableMultiAz_, false) };
+      inline Data& setEnableMultiAz(bool enableMultiAz) { DARABONBA_PTR_SET_VALUE(enableMultiAz_, enableMultiAz) };
 
 
       // enableSSL Field Functions 
@@ -440,6 +449,7 @@ namespace Models
       shared_ptr<int64_t> beginTime_ {};
       shared_ptr<bool> enableAiFunction_ {};
       shared_ptr<bool> enableAutoMinorVersionUpgrade_ {};
+      shared_ptr<bool> enableMultiAz_ {};
       shared_ptr<bool> enableSSL_ {};
       shared_ptr<bool> enabledAuditLoader_ {};
       shared_ptr<bool> encrypted_ {};

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DlfCatalogName, dlfCatalogName_);
       DARABONBA_PTR_TO_JSON(DlfCatalogType, dlfCatalogType_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
+      DARABONBA_PTR_TO_JSON(EnableMultiAz, enableMultiAz_);
       DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(FrontendNodeGroups, frontendNodeGroups_);
       DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DlfCatalogName, dlfCatalogName_);
       DARABONBA_PTR_FROM_JSON(DlfCatalogType, dlfCatalogType_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
+      DARABONBA_PTR_FROM_JSON(EnableMultiAz, enableMultiAz_);
       DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(FrontendNodeGroups, frontendNodeGroups_);
       DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
@@ -517,11 +519,12 @@ namespace Models
 
     virtual bool empty() const override { return this->adminPassword_ == nullptr
         && this->agentNodeGroup_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->backendNodeGroups_ == nullptr && this->clientToken_ == nullptr
-        && this->dlfCatalogName_ == nullptr && this->dlfCatalogType_ == nullptr && this->duration_ == nullptr && this->encrypted_ == nullptr && this->frontendNodeGroups_ == nullptr
-        && this->gatewayType_ == nullptr && this->instanceName_ == nullptr && this->kmsKeyId_ == nullptr && this->linkedRamUserName_ == nullptr && this->observerNodeGroups_ == nullptr
-        && this->ossAccessingRoleName_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->pricingCycle_ == nullptr && this->principalType_ == nullptr
-        && this->promotionOptionNo_ == nullptr && this->ramUserId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr
-        && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->dlfCatalogName_ == nullptr && this->dlfCatalogType_ == nullptr && this->duration_ == nullptr && this->enableMultiAz_ == nullptr && this->encrypted_ == nullptr
+        && this->frontendNodeGroups_ == nullptr && this->gatewayType_ == nullptr && this->instanceName_ == nullptr && this->kmsKeyId_ == nullptr && this->linkedRamUserName_ == nullptr
+        && this->observerNodeGroups_ == nullptr && this->ossAccessingRoleName_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->pricingCycle_ == nullptr
+        && this->principalType_ == nullptr && this->promotionOptionNo_ == nullptr && this->ramUserId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->runMode_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // adminPassword Field Functions 
     bool hasAdminPassword() const { return this->adminPassword_ != nullptr;};
     void deleteAdminPassword() { this->adminPassword_ = nullptr;};
@@ -587,6 +590,13 @@ namespace Models
     void deleteDuration() { this->duration_ = nullptr;};
     inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline CreateInstanceV1Request& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+    // enableMultiAz Field Functions 
+    bool hasEnableMultiAz() const { return this->enableMultiAz_ != nullptr;};
+    void deleteEnableMultiAz() { this->enableMultiAz_ = nullptr;};
+    inline bool getEnableMultiAz() const { DARABONBA_PTR_GET_DEFAULT(enableMultiAz_, false) };
+    inline CreateInstanceV1Request& setEnableMultiAz(bool enableMultiAz) { DARABONBA_PTR_SET_VALUE(enableMultiAz_, enableMultiAz) };
 
 
     // encrypted Field Functions 
@@ -762,6 +772,7 @@ namespace Models
     shared_ptr<string> dlfCatalogName_ {};
     shared_ptr<string> dlfCatalogType_ {};
     shared_ptr<int32_t> duration_ {};
+    shared_ptr<bool> enableMultiAz_ {};
     shared_ptr<bool> encrypted_ {};
     shared_ptr<vector<CreateInstanceV1Request::FrontendNodeGroups>> frontendNodeGroups_ {};
     shared_ptr<string> gatewayType_ {};

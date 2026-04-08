@@ -383,6 +383,10 @@ CreateInstanceV1Response Client::createInstanceV1WithOptions(const CreateInstanc
     body["Duration"] = request.getDuration();
   }
 
+  if (!!request.hasEnableMultiAz()) {
+    body["EnableMultiAz"] = request.getEnableMultiAz();
+  }
+
   if (!!request.hasEncrypted()) {
     body["Encrypted"] = request.getEncrypted();
   }
