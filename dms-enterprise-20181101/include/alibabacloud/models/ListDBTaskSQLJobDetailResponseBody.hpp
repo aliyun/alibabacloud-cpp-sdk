@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Log, log_);
         DARABONBA_PTR_TO_JSON(Logic, logic_);
         DARABONBA_PTR_TO_JSON(Skip, skip_);
+        DARABONBA_PTR_TO_JSON(SqlId, sqlId_);
         DARABONBA_PTR_TO_JSON(SqlType, sqlType_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Log, log_);
         DARABONBA_PTR_FROM_JSON(Logic, logic_);
         DARABONBA_PTR_FROM_JSON(Skip, skip_);
+        DARABONBA_PTR_FROM_JSON(SqlId, sqlId_);
         DARABONBA_PTR_FROM_JSON(SqlType, sqlType_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -87,8 +89,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->affectRows_ == nullptr
         && this->currentSql_ == nullptr && this->dbId_ == nullptr && this->endTime_ == nullptr && this->executeCount_ == nullptr && this->jobDetailId_ == nullptr
-        && this->jobId_ == nullptr && this->log_ == nullptr && this->logic_ == nullptr && this->skip_ == nullptr && this->sqlType_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->timeDelay_ == nullptr; };
+        && this->jobId_ == nullptr && this->log_ == nullptr && this->logic_ == nullptr && this->skip_ == nullptr && this->sqlId_ == nullptr
+        && this->sqlType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->timeDelay_ == nullptr; };
       // affectRows Field Functions 
       bool hasAffectRows() const { return this->affectRows_ != nullptr;};
       void deleteAffectRows() { this->affectRows_ = nullptr;};
@@ -159,6 +161,13 @@ namespace Models
       inline DBTaskSQLJobDetailList& setSkip(bool skip) { DARABONBA_PTR_SET_VALUE(skip_, skip) };
 
 
+      // sqlId Field Functions 
+      bool hasSqlId() const { return this->sqlId_ != nullptr;};
+      void deleteSqlId() { this->sqlId_ = nullptr;};
+      inline int64_t getSqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, 0L) };
+      inline DBTaskSQLJobDetailList& setSqlId(int64_t sqlId) { DARABONBA_PTR_SET_VALUE(sqlId_, sqlId) };
+
+
       // sqlType Field Functions 
       bool hasSqlType() const { return this->sqlType_ != nullptr;};
       void deleteSqlType() { this->sqlType_ = nullptr;};
@@ -214,6 +223,7 @@ namespace Models
       // *   **true**: The SQL statement was skipped.
       // *   **false**: The SQL statement was not skipped.
       shared_ptr<bool> skip_ {};
+      shared_ptr<int64_t> sqlId_ {};
       // The type of the SQL statement, such as DELETE, UPDATE, or ALTER_TABLE.
       shared_ptr<string> sqlType_ {};
       // The point in time when the SQL task started.
