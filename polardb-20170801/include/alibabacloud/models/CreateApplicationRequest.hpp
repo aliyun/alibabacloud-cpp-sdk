@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelBaseUrl, modelBaseUrl_);
       DARABONBA_PTR_TO_JSON(ModelFrom, modelFrom_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+      DARABONBA_PTR_TO_JSON(Parameters, parameters_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -73,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelBaseUrl, modelBaseUrl_);
       DARABONBA_PTR_FROM_JSON(ModelFrom, modelFrom_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+      DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -142,6 +144,48 @@ namespace Models
     protected:
       shared_ptr<string> key_ {};
       shared_ptr<string> value_ {};
+    };
+
+    class Parameters : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Parameters& obj) { 
+        DARABONBA_PTR_TO_JSON(ParameterName, parameterName_);
+        DARABONBA_PTR_TO_JSON(ParameterValue, parameterValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Parameters& obj) { 
+        DARABONBA_PTR_FROM_JSON(ParameterName, parameterName_);
+        DARABONBA_PTR_FROM_JSON(ParameterValue, parameterValue_);
+      };
+      Parameters() = default ;
+      Parameters(const Parameters &) = default ;
+      Parameters(Parameters &&) = default ;
+      Parameters(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Parameters() = default ;
+      Parameters& operator=(const Parameters &) = default ;
+      Parameters& operator=(Parameters &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->parameterName_ == nullptr
+        && this->parameterValue_ == nullptr; };
+      // parameterName Field Functions 
+      bool hasParameterName() const { return this->parameterName_ != nullptr;};
+      void deleteParameterName() { this->parameterName_ = nullptr;};
+      inline string getParameterName() const { DARABONBA_PTR_GET_DEFAULT(parameterName_, "") };
+      inline Parameters& setParameterName(string parameterName) { DARABONBA_PTR_SET_VALUE(parameterName_, parameterName) };
+
+
+      // parameterValue Field Functions 
+      bool hasParameterValue() const { return this->parameterValue_ != nullptr;};
+      void deleteParameterValue() { this->parameterValue_ = nullptr;};
+      inline string getParameterValue() const { DARABONBA_PTR_GET_DEFAULT(parameterValue_, "") };
+      inline Parameters& setParameterValue(string parameterValue) { DARABONBA_PTR_SET_VALUE(parameterValue_, parameterValue) };
+
+
+    protected:
+      shared_ptr<string> parameterName_ {};
+      shared_ptr<string> parameterValue_ {};
     };
 
     class MemApplicationSpec : public Darabonba::Model {
@@ -436,11 +480,11 @@ namespace Models
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr
         && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr && this->DBClusterId_ == nullptr
         && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr
-        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr
-        && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parameters_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
+        && this->skillTemplateId_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -587,6 +631,15 @@ namespace Models
     inline CreateApplicationRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+    // parameters Field Functions 
+    bool hasParameters() const { return this->parameters_ != nullptr;};
+    void deleteParameters() { this->parameters_ = nullptr;};
+    inline const vector<CreateApplicationRequest::Parameters> & getParameters() const { DARABONBA_PTR_GET_CONST(parameters_, vector<CreateApplicationRequest::Parameters>) };
+    inline vector<CreateApplicationRequest::Parameters> getParameters() { DARABONBA_PTR_GET(parameters_, vector<CreateApplicationRequest::Parameters>) };
+    inline CreateApplicationRequest& setParameters(const vector<CreateApplicationRequest::Parameters> & parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
+    inline CreateApplicationRequest& setParameters(vector<CreateApplicationRequest::Parameters> && parameters) { DARABONBA_PTR_SET_RVALUE(parameters_, parameters) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -731,6 +784,7 @@ namespace Models
     shared_ptr<string> modelBaseUrl_ {};
     shared_ptr<string> modelFrom_ {};
     shared_ptr<string> modelName_ {};
+    shared_ptr<vector<CreateApplicationRequest::Parameters>> parameters_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> period_ {};
     shared_ptr<string> polarFSInstanceId_ {};

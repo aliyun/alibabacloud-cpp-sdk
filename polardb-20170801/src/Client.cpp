@@ -1770,6 +1770,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     request.setMemApplicationSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMemApplicationSpec(), "MemApplicationSpec", "json"));
   }
 
+  if (!!tmpReq.hasParameters()) {
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
+  }
+
   json query = {};
   if (!!request.hasAIDBClusterId()) {
     query["AIDBClusterId"] = request.getAIDBClusterId();
@@ -1849,6 +1853,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasModelName()) {
     query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasParametersShrink()) {
+    query["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasPayType()) {

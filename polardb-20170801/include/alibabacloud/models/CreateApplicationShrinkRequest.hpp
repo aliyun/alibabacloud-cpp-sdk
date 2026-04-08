@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelBaseUrl, modelBaseUrl_);
       DARABONBA_PTR_TO_JSON(ModelFrom, modelFrom_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+      DARABONBA_PTR_TO_JSON(Parameters, parametersShrink_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -73,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelBaseUrl, modelBaseUrl_);
       DARABONBA_PTR_FROM_JSON(ModelFrom, modelFrom_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+      DARABONBA_PTR_FROM_JSON(Parameters, parametersShrink_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -148,11 +150,11 @@ namespace Models
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr
         && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->componentsShrink_ == nullptr && this->DBClusterId_ == nullptr
         && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpointsShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr && this->modelApi_ == nullptr
-        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr
-        && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parametersShrink_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
+        && this->skillTemplateId_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -291,6 +293,13 @@ namespace Models
     void deleteModelName() { this->modelName_ = nullptr;};
     inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline CreateApplicationShrinkRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+    // parametersShrink Field Functions 
+    bool hasParametersShrink() const { return this->parametersShrink_ != nullptr;};
+    void deleteParametersShrink() { this->parametersShrink_ = nullptr;};
+    inline string getParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
+    inline CreateApplicationShrinkRequest& setParametersShrink(string parametersShrink) { DARABONBA_PTR_SET_VALUE(parametersShrink_, parametersShrink) };
 
 
     // payType Field Functions 
@@ -437,6 +446,7 @@ namespace Models
     shared_ptr<string> modelBaseUrl_ {};
     shared_ptr<string> modelFrom_ {};
     shared_ptr<string> modelName_ {};
+    shared_ptr<string> parametersShrink_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> period_ {};
     shared_ptr<string> polarFSInstanceId_ {};
