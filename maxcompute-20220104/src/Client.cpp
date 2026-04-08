@@ -425,6 +425,111 @@ CreateMmsJobResponse Client::createMmsJob(const string &sourceId, const CreateMm
 }
 
 /**
+ * @summary CreateMmsTimer
+ *
+ * @param request CreateMmsTimerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMmsTimerResponse
+ */
+CreateMmsTimerResponse Client::createMmsTimerWithOptions(const string &sourceId, const CreateMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasColumnMapping()) {
+    body["columnMapping"] = request.getColumnMapping();
+  }
+
+  if (!!request.hasEnableDataMigration()) {
+    body["enableDataMigration"] = request.getEnableDataMigration();
+  }
+
+  if (!!request.hasEnableSchemaMigration()) {
+    body["enableSchemaMigration"] = request.getEnableSchemaMigration();
+  }
+
+  if (!!request.hasEnableVerification()) {
+    body["enableVerification"] = request.getEnableVerification();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasOthers()) {
+    body["others"] = request.getOthers();
+  }
+
+  if (!!request.hasPartitionFilters()) {
+    body["partitionFilters"] = request.getPartitionFilters();
+  }
+
+  if (!!request.hasPartitions()) {
+    body["partitions"] = request.getPartitions();
+  }
+
+  if (!!request.hasScheduleType()) {
+    body["scheduleType"] = request.getScheduleType();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasSrcDbName()) {
+    body["srcDbName"] = request.getSrcDbName();
+  }
+
+  if (!!request.hasTableBlackList()) {
+    body["tableBlackList"] = request.getTableBlackList();
+  }
+
+  if (!!request.hasTableMapping()) {
+    body["tableMapping"] = request.getTableMapping();
+  }
+
+  if (!!request.hasTableWhiteList()) {
+    body["tableWhiteList"] = request.getTableWhiteList();
+  }
+
+  if (!!request.hasTables()) {
+    body["tables"] = request.getTables();
+  }
+
+  if (!!request.hasValue()) {
+    body["value"] = request.getValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMmsTimer"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMmsTimerResponse>();
+}
+
+/**
+ * @summary CreateMmsTimer
+ *
+ * @param request CreateMmsTimerRequest
+ * @return CreateMmsTimerResponse
+ */
+CreateMmsTimerResponse Client::createMmsTimer(const string &sourceId, const CreateMmsTimerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMmsTimerWithOptions(sourceId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a package.
  *
  * @param request CreatePackageRequest
@@ -763,6 +868,42 @@ DeleteMmsJobResponse Client::deleteMmsJob(const string &sourceId, const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteMmsJobWithOptions(sourceId, jobId, headers, runtime);
+}
+
+/**
+ * @summary DeleteMmsTimer
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMmsTimerResponse
+ */
+DeleteMmsTimerResponse Client::deleteMmsTimerWithOptions(const string &sourceId, const string &timerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMmsTimer"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers/" , Darabonba::Encode::Encoder::percentEncode(timerId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMmsTimerResponse>();
+}
+
+/**
+ * @summary DeleteMmsTimer
+ *
+ * @return DeleteMmsTimerResponse
+ */
+DeleteMmsTimerResponse Client::deleteMmsTimer(const string &sourceId, const string &timerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMmsTimerWithOptions(sourceId, timerId, headers, runtime);
 }
 
 /**
@@ -1382,6 +1523,42 @@ GetMmsTaskResponse Client::getMmsTask(const string &sourceId, const string &task
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMmsTaskWithOptions(sourceId, taskId, headers, runtime);
+}
+
+/**
+ * @summary GetMmsTimer
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMmsTimerResponse
+ */
+GetMmsTimerResponse Client::getMmsTimerWithOptions(const string &sourceId, const string &timerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMmsTimer"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers/" , Darabonba::Encode::Encoder::percentEncode(timerId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMmsTimerResponse>();
+}
+
+/**
+ * @summary GetMmsTimer
+ *
+ * @return GetMmsTimerResponse
+ */
+GetMmsTimerResponse Client::getMmsTimer(const string &sourceId, const string &timerId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMmsTimerWithOptions(sourceId, timerId, headers, runtime);
 }
 
 /**
@@ -2724,6 +2901,55 @@ ListJobSnapshotInfosResponse Client::listJobSnapshotInfos(const ListJobSnapshotI
 }
 
 /**
+ * @summary ListMmsDataSourceConfigItems
+ *
+ * @param request ListMmsDataSourceConfigItemsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMmsDataSourceConfigItemsResponse
+ */
+ListMmsDataSourceConfigItemsResponse Client::listMmsDataSourceConfigItemsWithOptions(const ListMmsDataSourceConfigItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["lang"] = request.getLang();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["sourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMmsDataSourceConfigItems"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/configItems")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMmsDataSourceConfigItemsResponse>();
+}
+
+/**
+ * @summary ListMmsDataSourceConfigItems
+ *
+ * @param request ListMmsDataSourceConfigItemsRequest
+ * @return ListMmsDataSourceConfigItemsResponse
+ */
+ListMmsDataSourceConfigItemsResponse Client::listMmsDataSourceConfigItems(const ListMmsDataSourceConfigItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMmsDataSourceConfigItemsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of MaxCompute Migration Assist (MMA) data sources.
  *
  * @param request ListMmsDataSourcesRequest
@@ -3257,6 +3483,55 @@ ListMmsTasksResponse Client::listMmsTasks(const string &sourceId, const ListMmsT
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listMmsTasksWithOptions(sourceId, request, headers, runtime);
+}
+
+/**
+ * @summary ListMmsTimerLogs
+ *
+ * @param request ListMmsTimerLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMmsTimerLogsResponse
+ */
+ListMmsTimerLogsResponse Client::listMmsTimerLogsWithOptions(const string &sourceId, const string &timerId, const ListMmsTimerLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNum()) {
+    query["pageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMmsTimerLogs"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers/" , Darabonba::Encode::Encoder::percentEncode(timerId) , "/logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMmsTimerLogsResponse>();
+}
+
+/**
+ * @summary ListMmsTimerLogs
+ *
+ * @param request ListMmsTimerLogsRequest
+ * @return ListMmsTimerLogsResponse
+ */
+ListMmsTimerLogsResponse Client::listMmsTimerLogs(const string &sourceId, const string &timerId, const ListMmsTimerLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMmsTimerLogsWithOptions(sourceId, timerId, request, headers, runtime);
 }
 
 /**

@@ -121,6 +121,24 @@ namespace MaxCompute20220104
       Models::CreateMmsJobResponse createMmsJob(const string &sourceId, const Models::CreateMmsJobRequest &request);
 
       /**
+       * @summary CreateMmsTimer
+       *
+       * @param request CreateMmsTimerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMmsTimerResponse
+       */
+      Models::CreateMmsTimerResponse createMmsTimerWithOptions(const string &sourceId, const Models::CreateMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateMmsTimer
+       *
+       * @param request CreateMmsTimerRequest
+       * @return CreateMmsTimerResponse
+       */
+      Models::CreateMmsTimerResponse createMmsTimer(const string &sourceId, const Models::CreateMmsTimerRequest &request);
+
+      /**
        * @summary Creates a package.
        *
        * @param request CreatePackageRequest
@@ -257,6 +275,22 @@ namespace MaxCompute20220104
        * @return DeleteMmsJobResponse
        */
       Models::DeleteMmsJobResponse deleteMmsJob(const string &sourceId, const string &jobId);
+
+      /**
+       * @summary DeleteMmsTimer
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMmsTimerResponse
+       */
+      Models::DeleteMmsTimerResponse deleteMmsTimerWithOptions(const string &sourceId, const string &timerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteMmsTimer
+       *
+       * @return DeleteMmsTimerResponse
+       */
+      Models::DeleteMmsTimerResponse deleteMmsTimer(const string &sourceId, const string &timerId);
 
       /**
        * @summary Deletes a MaxCompute project.
@@ -507,6 +541,22 @@ namespace MaxCompute20220104
        * @return GetMmsTaskResponse
        */
       Models::GetMmsTaskResponse getMmsTask(const string &sourceId, const string &taskId);
+
+      /**
+       * @summary GetMmsTimer
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMmsTimerResponse
+       */
+      Models::GetMmsTimerResponse getMmsTimerWithOptions(const string &sourceId, const string &timerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetMmsTimer
+       *
+       * @return GetMmsTimerResponse
+       */
+      Models::GetMmsTimerResponse getMmsTimer(const string &sourceId, const string &timerId);
 
       /**
        * @summary Obtains the information about a package.
@@ -885,6 +935,24 @@ namespace MaxCompute20220104
       Models::ListJobSnapshotInfosResponse listJobSnapshotInfos(const Models::ListJobSnapshotInfosRequest &request);
 
       /**
+       * @summary ListMmsDataSourceConfigItems
+       *
+       * @param request ListMmsDataSourceConfigItemsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMmsDataSourceConfigItemsResponse
+       */
+      Models::ListMmsDataSourceConfigItemsResponse listMmsDataSourceConfigItemsWithOptions(const Models::ListMmsDataSourceConfigItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListMmsDataSourceConfigItems
+       *
+       * @param request ListMmsDataSourceConfigItemsRequest
+       * @return ListMmsDataSourceConfigItemsResponse
+       */
+      Models::ListMmsDataSourceConfigItemsResponse listMmsDataSourceConfigItems(const Models::ListMmsDataSourceConfigItemsRequest &request);
+
+      /**
        * @summary Queries a list of MaxCompute Migration Assist (MMA) data sources.
        *
        * @param request ListMmsDataSourcesRequest
@@ -1007,6 +1075,24 @@ namespace MaxCompute20220104
        * @return ListMmsTasksResponse
        */
       Models::ListMmsTasksResponse listMmsTasks(const string &sourceId, const Models::ListMmsTasksRequest &request);
+
+      /**
+       * @summary ListMmsTimerLogs
+       *
+       * @param request ListMmsTimerLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMmsTimerLogsResponse
+       */
+      Models::ListMmsTimerLogsResponse listMmsTimerLogsWithOptions(const string &sourceId, const string &timerId, const Models::ListMmsTimerLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListMmsTimerLogs
+       *
+       * @param request ListMmsTimerLogsRequest
+       * @return ListMmsTimerLogsResponse
+       */
+      Models::ListMmsTimerLogsResponse listMmsTimerLogs(const string &sourceId, const string &timerId, const Models::ListMmsTimerLogsRequest &request);
 
       /**
        * @summary Queries the packages in a MaxCompute project.

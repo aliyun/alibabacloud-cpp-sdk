@@ -16,6 +16,9 @@
 #include <alibabacloud/models/CreateMmsJobRequest.hpp>
 #include <alibabacloud/models/CreateMmsJobResponseBody.hpp>
 #include <alibabacloud/models/CreateMmsJobResponse.hpp>
+#include <alibabacloud/models/CreateMmsTimerRequest.hpp>
+#include <alibabacloud/models/CreateMmsTimerResponseBody.hpp>
+#include <alibabacloud/models/CreateMmsTimerResponse.hpp>
 #include <alibabacloud/models/CreatePackageRequest.hpp>
 #include <alibabacloud/models/CreatePackageResponseBody.hpp>
 #include <alibabacloud/models/CreatePackageResponse.hpp>
@@ -37,6 +40,8 @@
 #include <alibabacloud/models/DeleteMmsDataSourceResponse.hpp>
 #include <alibabacloud/models/DeleteMmsJobResponseBody.hpp>
 #include <alibabacloud/models/DeleteMmsJobResponse.hpp>
+#include <alibabacloud/models/DeleteMmsTimerResponseBody.hpp>
+#include <alibabacloud/models/DeleteMmsTimerResponse.hpp>
 #include <alibabacloud/models/DeleteProjectRequest.hpp>
 #include <alibabacloud/models/DeleteProjectResponseBody.hpp>
 #include <alibabacloud/models/DeleteProjectResponse.hpp>
@@ -73,6 +78,8 @@
 #include <alibabacloud/models/GetMmsTableResponse.hpp>
 #include <alibabacloud/models/GetMmsTaskResponseBody.hpp>
 #include <alibabacloud/models/GetMmsTaskResponse.hpp>
+#include <alibabacloud/models/GetMmsTimerResponseBody.hpp>
+#include <alibabacloud/models/GetMmsTimerResponse.hpp>
 #include <alibabacloud/models/GetPackageRequest.hpp>
 #include <alibabacloud/models/GetPackageResponseBody.hpp>
 #include <alibabacloud/models/GetPackageResponse.hpp>
@@ -138,6 +145,9 @@
 #include <alibabacloud/models/ListJobSnapshotInfosRequest.hpp>
 #include <alibabacloud/models/ListJobSnapshotInfosResponseBody.hpp>
 #include <alibabacloud/models/ListJobSnapshotInfosResponse.hpp>
+#include <alibabacloud/models/ListMmsDataSourceConfigItemsRequest.hpp>
+#include <alibabacloud/models/ListMmsDataSourceConfigItemsResponseBody.hpp>
+#include <alibabacloud/models/ListMmsDataSourceConfigItemsResponse.hpp>
 #include <alibabacloud/models/ListMmsDataSourcesRequest.hpp>
 #include <alibabacloud/models/ListMmsDataSourcesResponseBody.hpp>
 #include <alibabacloud/models/ListMmsDataSourcesResponse.hpp>
@@ -161,6 +171,9 @@
 #include <alibabacloud/models/ListMmsTasksRequest.hpp>
 #include <alibabacloud/models/ListMmsTasksResponseBody.hpp>
 #include <alibabacloud/models/ListMmsTasksResponse.hpp>
+#include <alibabacloud/models/ListMmsTimerLogsRequest.hpp>
+#include <alibabacloud/models/ListMmsTimerLogsResponseBody.hpp>
+#include <alibabacloud/models/ListMmsTimerLogsResponse.hpp>
 #include <alibabacloud/models/ListPackagesResponseBody.hpp>
 #include <alibabacloud/models/ListPackagesResponse.hpp>
 #include <alibabacloud/models/ListProjectUsersResponseBody.hpp>
