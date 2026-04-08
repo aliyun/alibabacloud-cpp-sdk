@@ -32,6 +32,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaintainEndtime, maintainEndtime_);
       DARABONBA_PTR_TO_JSON(MaintainStarttime, maintainStarttime_);
       DARABONBA_PTR_TO_JSON(MultiZone, multiZone_);
+      DARABONBA_PTR_TO_JSON(OTelBearerToken, OTelBearerToken_);
+      DARABONBA_PTR_TO_JSON(OTelGrafanaServiceStatus, OTelGrafanaServiceStatus_);
       DARABONBA_PTR_TO_JSON(ObjectStoreSize, objectStoreSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -67,6 +69,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaintainEndtime, maintainEndtime_);
       DARABONBA_PTR_FROM_JSON(MaintainStarttime, maintainStarttime_);
       DARABONBA_PTR_FROM_JSON(MultiZone, multiZone_);
+      DARABONBA_PTR_FROM_JSON(OTelBearerToken, OTelBearerToken_);
+      DARABONBA_PTR_FROM_JSON(OTelGrafanaServiceStatus, OTelGrafanaServiceStatus_);
       DARABONBA_PTR_FROM_JSON(ObjectStoreSize, objectStoreSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -597,10 +601,10 @@ namespace Models
         && this->chargeType_ == nullptr && this->configPatternType_ == nullptr && this->createTime_ == nullptr && this->DBClusterList_ == nullptr && this->DBInstanceId_ == nullptr
         && this->deployScheme_ == nullptr && this->description_ == nullptr && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr
         && this->expireTime_ == nullptr && this->gmtModified_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndtime_ == nullptr
-        && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr && this->serverless_ == nullptr && this->status_ == nullptr
-        && this->storageSize_ == nullptr && this->subDomain_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->OTelBearerToken_ == nullptr && this->OTelGrafanaServiceStatus_ == nullptr && this->objectStoreSize_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr
+        && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->subDomain_ == nullptr && this->tags_ == nullptr
+        && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // canUpgradeVersions Field Functions 
     bool hasCanUpgradeVersions() const { return this->canUpgradeVersions_ != nullptr;};
     void deleteCanUpgradeVersions() { this->canUpgradeVersions_ = nullptr;};
@@ -731,6 +735,20 @@ namespace Models
     inline vector<DescribeDBInstanceAttributeResponseBody::MultiZone> getMultiZone() { DARABONBA_PTR_GET(multiZone_, vector<DescribeDBInstanceAttributeResponseBody::MultiZone>) };
     inline DescribeDBInstanceAttributeResponseBody& setMultiZone(const vector<DescribeDBInstanceAttributeResponseBody::MultiZone> & multiZone) { DARABONBA_PTR_SET_VALUE(multiZone_, multiZone) };
     inline DescribeDBInstanceAttributeResponseBody& setMultiZone(vector<DescribeDBInstanceAttributeResponseBody::MultiZone> && multiZone) { DARABONBA_PTR_SET_RVALUE(multiZone_, multiZone) };
+
+
+    // OTelBearerToken Field Functions 
+    bool hasOTelBearerToken() const { return this->OTelBearerToken_ != nullptr;};
+    void deleteOTelBearerToken() { this->OTelBearerToken_ = nullptr;};
+    inline string getOTelBearerToken() const { DARABONBA_PTR_GET_DEFAULT(OTelBearerToken_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setOTelBearerToken(string OTelBearerToken) { DARABONBA_PTR_SET_VALUE(OTelBearerToken_, OTelBearerToken) };
+
+
+    // OTelGrafanaServiceStatus Field Functions 
+    bool hasOTelGrafanaServiceStatus() const { return this->OTelGrafanaServiceStatus_ != nullptr;};
+    void deleteOTelGrafanaServiceStatus() { this->OTelGrafanaServiceStatus_ = nullptr;};
+    inline string getOTelGrafanaServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(OTelGrafanaServiceStatus_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setOTelGrafanaServiceStatus(string OTelGrafanaServiceStatus) { DARABONBA_PTR_SET_VALUE(OTelGrafanaServiceStatus_, OTelGrafanaServiceStatus) };
 
 
     // objectStoreSize Field Functions 
@@ -879,6 +897,8 @@ namespace Models
     // The start time of the instance maintenance window.
     shared_ptr<string> maintainStarttime_ {};
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::MultiZone>> multiZone_ {};
+    shared_ptr<string> OTelBearerToken_ {};
+    shared_ptr<string> OTelGrafanaServiceStatus_ {};
     // The storage capacity of the instance.
     shared_ptr<int64_t> objectStoreSize_ {};
     // The Region ID.

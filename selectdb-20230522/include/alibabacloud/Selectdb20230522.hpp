@@ -55,7 +55,7 @@ namespace Selectdb20230522
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary SelectDB实例创建前检查
+       * @summary Performs a precheck before an ApsaraDB for SelectDB instance is created.
        *
        * @param request CheckCreateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Selectdb20230522
       Models::CheckCreateDBInstanceResponse checkCreateDBInstanceWithOptions(const Models::CheckCreateDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SelectDB实例创建前检查
+       * @summary Performs a precheck before an ApsaraDB for SelectDB instance is created.
        *
        * @param request CheckCreateDBInstanceRequest
        * @return CheckCreateDBInstanceResponse
@@ -89,7 +89,7 @@ namespace Selectdb20230522
       Models::CheckIpExistsInSecurityIpListResponse checkIpExistsInSecurityIpList(const Models::CheckIpExistsInSecurityIpListRequest &request);
 
       /**
-       * @summary 检查服务关联角色
+       * @summary Queries the service-linked role of ApsaraDB for SelectDB.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Selectdb20230522
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRoleWithOptions(const Models::CheckServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查服务关联角色
+       * @summary Queries the service-linked role of ApsaraDB for SelectDB.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @return CheckServiceLinkedRoleResponse
@@ -254,7 +254,7 @@ namespace Selectdb20230522
       Models::DeleteDBClusterBindingResponse deleteDBClusterBinding(const Models::DeleteDBClusterBindingRequest &request);
 
       /**
-       * @summary 删除DB实例
+       * @summary Deletes an ApsaraDB for SelectDB instance.
        *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +263,7 @@ namespace Selectdb20230522
       Models::DeleteDBInstanceResponse deleteDBInstanceWithOptions(const Models::DeleteDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除DB实例
+       * @summary Deletes an ApsaraDB for SelectDB instance.
        *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
@@ -577,7 +577,7 @@ namespace Selectdb20230522
       Models::ModifyBEClusterAttributeResponse modifyBEClusterAttribute(const Models::ModifyBEClusterAttributeRequest &request);
 
       /**
-       * @summary 集群变配
+       * @summary Scales a cluster in an ApsaraDB for SelectDB instance.
        *
        * @param request ModifyDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +586,7 @@ namespace Selectdb20230522
       Models::ModifyDBClusterResponse modifyDBClusterWithOptions(const Models::ModifyDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 集群变配
+       * @summary Scales a cluster in an ApsaraDB for SelectDB instance.
        *
        * @param request ModifyDBClusterRequest
        * @return ModifyDBClusterResponse
@@ -730,7 +730,7 @@ namespace Selectdb20230522
       Models::RestartDBClusterResponse restartDBCluster(const Models::RestartDBClusterRequest &request);
 
       /**
-       * @summary 暂停后恢复集群
+       * @summary Starts a cluster in an ApsaraDB for SelectDB instance.
        *
        * @param request StartBEClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -739,7 +739,7 @@ namespace Selectdb20230522
       Models::StartBEClusterResponse startBEClusterWithOptions(const Models::StartBEClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 暂停后恢复集群
+       * @summary Starts a cluster in an ApsaraDB for SelectDB instance.
        *
        * @param request StartBEClusterRequest
        * @return StartBEClusterResponse
@@ -747,7 +747,7 @@ namespace Selectdb20230522
       Models::StartBEClusterResponse startBECluster(const Models::StartBEClusterRequest &request);
 
       /**
-       * @summary 暂停BE集群
+       * @summary Stops a cluster in an ApsaraDB for SelectDB instance.
        *
        * @param request StopBEClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -756,7 +756,7 @@ namespace Selectdb20230522
       Models::StopBEClusterResponse stopBEClusterWithOptions(const Models::StopBEClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 暂停BE集群
+       * @summary Stops a cluster in an ApsaraDB for SelectDB instance.
        *
        * @param request StopBEClusterRequest
        * @return StopBEClusterResponse

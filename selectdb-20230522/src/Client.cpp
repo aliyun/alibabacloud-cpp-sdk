@@ -148,7 +148,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary SelectDB实例创建前检查
+ * @summary Performs a precheck before an ApsaraDB for SelectDB instance is created.
  *
  * @param request CheckCreateDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -243,7 +243,7 @@ CheckCreateDBInstanceResponse Client::checkCreateDBInstanceWithOptions(const Che
 }
 
 /**
- * @summary SelectDB实例创建前检查
+ * @summary Performs a precheck before an ApsaraDB for SelectDB instance is created.
  *
  * @param request CheckCreateDBInstanceRequest
  * @return CheckCreateDBInstanceResponse
@@ -292,7 +292,7 @@ CheckIpExistsInSecurityIpListResponse Client::checkIpExistsInSecurityIpList(cons
 }
 
 /**
- * @summary 检查服务关联角色
+ * @summary Queries the service-linked role of ApsaraDB for SelectDB.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -327,7 +327,7 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRoleWithOptions(const C
 }
 
 /**
- * @summary 检查服务关联角色
+ * @summary Queries the service-linked role of ApsaraDB for SelectDB.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @return CheckServiceLinkedRoleResponse
@@ -954,7 +954,7 @@ DeleteDBClusterBindingResponse Client::deleteDBClusterBinding(const DeleteDBClus
 }
 
 /**
- * @summary 删除DB实例
+ * @summary Deletes an ApsaraDB for SelectDB instance.
  *
  * @param request DeleteDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -995,7 +995,7 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 }
 
 /**
- * @summary 删除DB实例
+ * @summary Deletes an ApsaraDB for SelectDB instance.
  *
  * @param request DeleteDBInstanceRequest
  * @return DeleteDBInstanceResponse
@@ -1952,7 +1952,7 @@ ModifyBEClusterAttributeResponse Client::modifyBEClusterAttribute(const ModifyBE
 }
 
 /**
- * @summary 集群变配
+ * @summary Scales a cluster in an ApsaraDB for SelectDB instance.
  *
  * @param request ModifyDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2023,7 +2023,7 @@ ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBCluster
 }
 
 /**
- * @summary 集群变配
+ * @summary Scales a cluster in an ApsaraDB for SelectDB instance.
  *
  * @param request ModifyDBClusterRequest
  * @return ModifyDBClusterResponse
@@ -2508,7 +2508,7 @@ RestartDBClusterResponse Client::restartDBCluster(const RestartDBClusterRequest 
 }
 
 /**
- * @summary 暂停后恢复集群
+ * @summary Starts a cluster in an ApsaraDB for SelectDB instance.
  *
  * @param request StartBEClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2551,7 +2551,7 @@ StartBEClusterResponse Client::startBEClusterWithOptions(const StartBEClusterReq
 }
 
 /**
- * @summary 暂停后恢复集群
+ * @summary Starts a cluster in an ApsaraDB for SelectDB instance.
  *
  * @param request StartBEClusterRequest
  * @return StartBEClusterResponse
@@ -2562,7 +2562,7 @@ StartBEClusterResponse Client::startBECluster(const StartBEClusterRequest &reque
 }
 
 /**
- * @summary 暂停BE集群
+ * @summary Stops a cluster in an ApsaraDB for SelectDB instance.
  *
  * @param request StopBEClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2605,7 +2605,7 @@ StopBEClusterResponse Client::stopBEClusterWithOptions(const StopBEClusterReques
 }
 
 /**
- * @summary 暂停BE集群
+ * @summary Stops a cluster in an ApsaraDB for SelectDB instance.
  *
  * @param request StopBEClusterRequest
  * @return StopBEClusterResponse
