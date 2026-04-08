@@ -2,6 +2,10 @@
 - Update API CreateApplication: add request parameters Parameters.
 
 
+2026-04-08 Version: 5.10.3
+- Update API CreateApplication: add request parameters Parameters.
+
+
 2026-04-08 Version: 5.10.2
 - Update API CreateApplication: add request parameters SkillTemplateId.
 - Update API DescribeApplicationAttribute: add response parameters Body.PolarClawSaaSApplicationAttribute.SupabaseClusterId.
