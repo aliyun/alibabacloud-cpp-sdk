@@ -725,18 +725,20 @@ namespace APIG20240327
       /**
        * @summary Exports an HTTP API.
        *
+       * @param request ExportHttpApiRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ExportHttpApiResponse
        */
-      Models::ExportHttpApiResponse exportHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ExportHttpApiResponse exportHttpApiWithOptions(const string &httpApiId, const Models::ExportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Exports an HTTP API.
        *
+       * @param request ExportHttpApiRequest
        * @return ExportHttpApiResponse
        */
-      Models::ExportHttpApiResponse exportHttpApi(const string &httpApiId);
+      Models::ExportHttpApiResponse exportHttpApi(const string &httpApiId, const Models::ExportHttpApiRequest &request);
 
       /**
        * @summary Obtains the information of a consumer.
@@ -1175,6 +1177,24 @@ namespace APIG20240327
        * @return ListEnvironmentsResponse
        */
       Models::ListEnvironmentsResponse listEnvironments(const Models::ListEnvironmentsRequest &request);
+
+      /**
+       * @summary 获取网关外的服务信息
+       *
+       * @param request ListExternalServicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListExternalServicesResponse
+       */
+      Models::ListExternalServicesResponse listExternalServicesWithOptions(const string &gatewayId, const Models::ListExternalServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取网关外的服务信息
+       *
+       * @param request ListExternalServicesRequest
+       * @return ListExternalServicesResponse
+       */
+      Models::ListExternalServicesResponse listExternalServices(const string &gatewayId, const Models::ListExternalServicesRequest &request);
 
       /**
        * @summary Queries the feature parameter configurations of an instance.

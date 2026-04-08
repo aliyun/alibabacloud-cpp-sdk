@@ -2168,14 +2168,30 @@ DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
 /**
  * @summary Exports an HTTP API.
  *
+ * @param request ExportHttpApiRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ExportHttpApiResponse
  */
-ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, const ExportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExtensionConfig()) {
+    body["extensionConfig"] = request.getExtensionConfig();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasOperationIds()) {
+    body["operationIds"] = request.getOperationIds();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "ExportHttpApi"},
     {"version" , "2024-03-27"},
@@ -2193,12 +2209,13 @@ ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, 
 /**
  * @summary Exports an HTTP API.
  *
+ * @param request ExportHttpApiRequest
  * @return ExportHttpApiResponse
  */
-ExportHttpApiResponse Client::exportHttpApi(const string &httpApiId) {
+ExportHttpApiResponse Client::exportHttpApi(const string &httpApiId, const ExportHttpApiRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return exportHttpApiWithOptions(httpApiId, headers, runtime);
+  return exportHttpApiWithOptions(httpApiId, request, headers, runtime);
 }
 
 /**
@@ -3376,6 +3393,67 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listEnvironmentsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取网关外的服务信息
+ *
+ * @param request ListExternalServicesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListExternalServicesResponse
+ */
+ListExternalServicesResponse Client::listExternalServicesWithOptions(const string &gatewayId, const ListExternalServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImportableOnly()) {
+    query["importableOnly"] = request.getImportableOnly();
+  }
+
+  if (!!request.hasLimit()) {
+    query["limit"] = request.getLimit();
+  }
+
+  if (!!request.hasNameLike()) {
+    query["nameLike"] = request.getNameLike();
+  }
+
+  if (!!request.hasPaiWorkspaceId()) {
+    query["paiWorkspaceId"] = request.getPaiWorkspaceId();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["sourceType"] = request.getSourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListExternalServices"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/external-services")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListExternalServicesResponse>();
+}
+
+/**
+ * @summary 获取网关外的服务信息
+ *
+ * @param request ListExternalServicesRequest
+ * @return ListExternalServicesResponse
+ */
+ListExternalServicesResponse Client::listExternalServices(const string &gatewayId, const ListExternalServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listExternalServicesWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -5429,10 +5507,6 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
     body["backendConfig"] = request.getBackendConfig();
   }
 
-  if (!!request.hasDeployConfigs()) {
-    body["deployConfigs"] = request.getDeployConfigs();
-  }
-
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
   }
@@ -5451,10 +5525,6 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 
   if (!!request.hasMcpRouteConfig()) {
     body["mcpRouteConfig"] = request.getMcpRouteConfig();
-  }
-
-  if (!!request.hasName()) {
-    body["name"] = request.getName();
   }
 
   if (!!request.hasPolicyConfigs()) {

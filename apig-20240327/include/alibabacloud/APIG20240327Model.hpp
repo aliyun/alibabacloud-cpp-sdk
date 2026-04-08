@@ -3,7 +3,19 @@
 #define ALIBABACLOUD_APIG20240327MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AgentServiceConfig.hpp>
+#include <alibabacloud/models/AiPluginStatus.hpp>
+#include <alibabacloud/models/AiPolicyRedisConfig.hpp>
+#include <alibabacloud/models/AiCacheConfig.hpp>
+#include <alibabacloud/models/AiFallbackConfig.hpp>
+#include <alibabacloud/models/AiNetworkConfigSearchEngine.hpp>
+#include <alibabacloud/models/AiNetworkSearchConfig.hpp>
+#include <alibabacloud/models/AiSecurityGuardConfig.hpp>
 #include <alibabacloud/models/AiServiceConfig.hpp>
+#include <alibabacloud/models/AiStatisticsConfig.hpp>
+#include <alibabacloud/models/AiStatisticsPathField.hpp>
+#include <alibabacloud/models/AiTokenRateLimitConfigRule.hpp>
+#include <alibabacloud/models/AiTokenRateLimitConfig.hpp>
+#include <alibabacloud/models/AiToolSelectionConfig.hpp>
 #include <alibabacloud/models/AkSkIdentityConfig.hpp>
 #include <alibabacloud/models/ApiKeyIdentityConfig.hpp>
 #include <alibabacloud/models/ApiRouteConflictInfo.hpp>
@@ -22,6 +34,7 @@
 #include <alibabacloud/models/GatewayLogConfig.hpp>
 #include <alibabacloud/models/HttpApiApiInfoDeployCntMapValue.hpp>
 #include <alibabacloud/models/HttpApiMockContract.hpp>
+#include <alibabacloud/models/HttpApiPolicyConfigs.hpp>
 #include <alibabacloud/models/HttpApiDeployConfig.hpp>
 #include <alibabacloud/models/HttpApiVersionInfo.hpp>
 #include <alibabacloud/models/HttpApiApiInfo.hpp>
@@ -34,7 +47,6 @@
 #include <alibabacloud/models/HttpApiResponseContract.hpp>
 #include <alibabacloud/models/HttpApiOperation.hpp>
 #include <alibabacloud/models/HttpApiOperationInfo.hpp>
-#include <alibabacloud/models/HttpApiPolicyConfigs.hpp>
 #include <alibabacloud/models/HttpApiPublishRevisionInfo.hpp>
 #include <alibabacloud/models/HttpApiVersionConfig.hpp>
 #include <alibabacloud/models/HttpDubboTranscoder.hpp>
@@ -161,6 +173,7 @@
 #include <alibabacloud/models/DeployHttpApiResponse.hpp>
 #include <alibabacloud/models/DeployMcpServerResponseBody.hpp>
 #include <alibabacloud/models/DeployMcpServerResponse.hpp>
+#include <alibabacloud/models/ExportHttpApiRequest.hpp>
 #include <alibabacloud/models/ExportHttpApiResponseBody.hpp>
 #include <alibabacloud/models/ExportHttpApiResponse.hpp>
 #include <alibabacloud/models/GetConsumerResponseBody.hpp>
@@ -225,6 +238,9 @@
 #include <alibabacloud/models/ListEnvironmentsRequest.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponseBody.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponse.hpp>
+#include <alibabacloud/models/ListExternalServicesRequest.hpp>
+#include <alibabacloud/models/ListExternalServicesResponseBody.hpp>
+#include <alibabacloud/models/ListExternalServicesResponse.hpp>
 #include <alibabacloud/models/ListGatewayFeaturesResponseBody.hpp>
 #include <alibabacloud/models/ListGatewayFeaturesResponse.hpp>
 #include <alibabacloud/models/ListGatewaysRequest.hpp>
