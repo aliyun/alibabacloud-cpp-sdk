@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->userSessionToken_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->userSessionToken_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateUserSessionTokenResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // userSessionToken Field Functions 
     bool hasUserSessionToken() const { return this->userSessionToken_ != nullptr;};
     void deleteUserSessionToken() { this->userSessionToken_ = nullptr;};
-    inline string userSessionToken() const { DARABONBA_PTR_GET_DEFAULT(userSessionToken_, "") };
+    inline string getUserSessionToken() const { DARABONBA_PTR_GET_DEFAULT(userSessionToken_, "") };
     inline GenerateUserSessionTokenResponseBody& setUserSessionToken(string userSessionToken) { DARABONBA_PTR_SET_VALUE(userSessionToken_, userSessionToken) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Token.
-    std::shared_ptr<string> userSessionToken_ = nullptr;
+    shared_ptr<string> userSessionToken_ {};
   };
 
   } // namespace Models

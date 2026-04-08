@@ -36,6 +36,32 @@ namespace Appflow20230904
        * @return GenerateUserSessionTokenResponse
        */
       Models::GenerateUserSessionTokenResponse generateUserSessionToken(const Models::GenerateUserSessionTokenRequest &request);
+
+      /**
+       * @summary 运行连接器的执行动作
+       *
+       * @param tmpReq InvokeActionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeActionResponse
+       */
+      FutureGenerator<Models::InvokeActionResponse> invokeActionWithSSE(const Models::InvokeActionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 运行连接器的执行动作
+       *
+       * @param tmpReq InvokeActionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeActionResponse
+       */
+      Models::InvokeActionResponse invokeActionWithOptions(const Models::InvokeActionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 运行连接器的执行动作
+       *
+       * @param request InvokeActionRequest
+       * @return InvokeActionResponse
+       */
+      Models::InvokeActionResponse invokeAction(const Models::InvokeActionRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Appflow20230904

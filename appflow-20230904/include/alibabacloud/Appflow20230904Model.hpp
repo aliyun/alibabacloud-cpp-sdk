@@ -5,5 +5,9 @@
 #include <alibabacloud/models/GenerateUserSessionTokenRequest.hpp>
 #include <alibabacloud/models/GenerateUserSessionTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateUserSessionTokenResponse.hpp>
+#include <alibabacloud/models/InvokeActionRequest.hpp>
+#include <alibabacloud/models/InvokeActionShrinkRequest.hpp>
+#include <alibabacloud/models/InvokeActionResponseBody.hpp>
+#include <alibabacloud/models/InvokeActionResponse.hpp>
 
 #endif

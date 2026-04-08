@@ -41,74 +41,74 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chatbotId_ != nullptr
-        && this->expireSecond_ != nullptr && this->extraInfo_ != nullptr && this->integrateId_ != nullptr && this->userAvatar_ != nullptr && this->userId_ != nullptr
-        && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->chatbotId_ == nullptr
+        && this->expireSecond_ == nullptr && this->extraInfo_ == nullptr && this->integrateId_ == nullptr && this->userAvatar_ == nullptr && this->userId_ == nullptr
+        && this->userName_ == nullptr; };
     // chatbotId Field Functions 
     bool hasChatbotId() const { return this->chatbotId_ != nullptr;};
     void deleteChatbotId() { this->chatbotId_ = nullptr;};
-    inline string chatbotId() const { DARABONBA_PTR_GET_DEFAULT(chatbotId_, "") };
+    inline string getChatbotId() const { DARABONBA_PTR_GET_DEFAULT(chatbotId_, "") };
     inline GenerateUserSessionTokenRequest& setChatbotId(string chatbotId) { DARABONBA_PTR_SET_VALUE(chatbotId_, chatbotId) };
 
 
     // expireSecond Field Functions 
     bool hasExpireSecond() const { return this->expireSecond_ != nullptr;};
     void deleteExpireSecond() { this->expireSecond_ = nullptr;};
-    inline int64_t expireSecond() const { DARABONBA_PTR_GET_DEFAULT(expireSecond_, 0L) };
+    inline int64_t getExpireSecond() const { DARABONBA_PTR_GET_DEFAULT(expireSecond_, 0L) };
     inline GenerateUserSessionTokenRequest& setExpireSecond(int64_t expireSecond) { DARABONBA_PTR_SET_VALUE(expireSecond_, expireSecond) };
 
 
     // extraInfo Field Functions 
     bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
     void deleteExtraInfo() { this->extraInfo_ = nullptr;};
-    inline string extraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
+    inline string getExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
     inline GenerateUserSessionTokenRequest& setExtraInfo(string extraInfo) { DARABONBA_PTR_SET_VALUE(extraInfo_, extraInfo) };
 
 
     // integrateId Field Functions 
     bool hasIntegrateId() const { return this->integrateId_ != nullptr;};
     void deleteIntegrateId() { this->integrateId_ = nullptr;};
-    inline string integrateId() const { DARABONBA_PTR_GET_DEFAULT(integrateId_, "") };
+    inline string getIntegrateId() const { DARABONBA_PTR_GET_DEFAULT(integrateId_, "") };
     inline GenerateUserSessionTokenRequest& setIntegrateId(string integrateId) { DARABONBA_PTR_SET_VALUE(integrateId_, integrateId) };
 
 
     // userAvatar Field Functions 
     bool hasUserAvatar() const { return this->userAvatar_ != nullptr;};
     void deleteUserAvatar() { this->userAvatar_ = nullptr;};
-    inline string userAvatar() const { DARABONBA_PTR_GET_DEFAULT(userAvatar_, "") };
+    inline string getUserAvatar() const { DARABONBA_PTR_GET_DEFAULT(userAvatar_, "") };
     inline GenerateUserSessionTokenRequest& setUserAvatar(string userAvatar) { DARABONBA_PTR_SET_VALUE(userAvatar_, userAvatar) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GenerateUserSessionTokenRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline GenerateUserSessionTokenRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
     // AI Assistant ID
-    std::shared_ptr<string> chatbotId_ = nullptr;
+    shared_ptr<string> chatbotId_ {};
     // Expiration Time, in seconds, default 24 hours
-    std::shared_ptr<int64_t> expireSecond_ = nullptr;
-    std::shared_ptr<string> extraInfo_ = nullptr;
+    shared_ptr<int64_t> expireSecond_ {};
+    shared_ptr<string> extraInfo_ {};
     // Integration ID
-    std::shared_ptr<string> integrateId_ = nullptr;
+    shared_ptr<string> integrateId_ {};
     // User Avatar (URL)
-    std::shared_ptr<string> userAvatar_ = nullptr;
+    shared_ptr<string> userAvatar_ {};
     // User ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // User Nickname
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models
