@@ -520,6 +520,90 @@ CreateIdpDepartmentResponse Client::createIdpDepartment(const CreateIdpDepartmen
 }
 
 /**
+ * @summary 创建内网访问诊断任务
+ *
+ * @param tmpReq CreatePADiagnosisTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePADiagnosisTaskResponse
+ */
+CreatePADiagnosisTaskResponse Client::createPADiagnosisTaskWithOptions(const CreatePADiagnosisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePADiagnosisTaskShrinkRequest request = CreatePADiagnosisTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUdpExtraConfigs()) {
+    request.setUdpExtraConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUdpExtraConfigs(), "UdpExtraConfigs", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDevTag()) {
+    body["DevTag"] = request.getDevTag();
+  }
+
+  if (!!request.hasDiagnoseType()) {
+    body["DiagnoseType"] = request.getDiagnoseType();
+  }
+
+  if (!!request.hasHost()) {
+    body["Host"] = request.getHost();
+  }
+
+  if (!!request.hasPopId()) {
+    body["PopId"] = request.getPopId();
+  }
+
+  if (!!request.hasPopMode()) {
+    body["PopMode"] = request.getPopMode();
+  }
+
+  if (!!request.hasPort()) {
+    body["Port"] = request.getPort();
+  }
+
+  if (!!request.hasProtocol()) {
+    body["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasUdpExtraConfigsShrink()) {
+    body["UdpExtraConfigs"] = request.getUdpExtraConfigsShrink();
+  }
+
+  if (!!request.hasUserGroupId()) {
+    body["UserGroupId"] = request.getUserGroupId();
+  }
+
+  if (!!request.hasUsername()) {
+    body["Username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreatePADiagnosisTask"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePADiagnosisTaskResponse>();
+}
+
+/**
+ * @summary 创建内网访问诊断任务
+ *
+ * @param request CreatePADiagnosisTaskRequest
+ * @return CreatePADiagnosisTaskResponse
+ */
+CreatePADiagnosisTaskResponse Client::createPADiagnosisTask(const CreatePADiagnosisTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPADiagnosisTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an office application within the current Alibaba Cloud account.
  *
  * @description By default, you can create a maximum of 500 office applications.
@@ -2449,6 +2533,44 @@ GetIdpConfigResponse Client::getIdpConfigWithOptions(const GetIdpConfigRequest &
 GetIdpConfigResponse Client::getIdpConfig(const GetIdpConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getIdpConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询内网访问诊断任务详情
+ *
+ * @param request GetPADiagnosisTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPADiagnosisTaskResponse
+ */
+GetPADiagnosisTaskResponse Client::getPADiagnosisTaskWithOptions(const GetPADiagnosisTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPADiagnosisTask"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPADiagnosisTaskResponse>();
+}
+
+/**
+ * @summary 查询内网访问诊断任务详情
+ *
+ * @param request GetPADiagnosisTaskRequest
+ * @return GetPADiagnosisTaskResponse
+ */
+GetPADiagnosisTaskResponse Client::getPADiagnosisTask(const GetPADiagnosisTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPADiagnosisTaskWithOptions(request, runtime);
 }
 
 /**

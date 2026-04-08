@@ -62,6 +62,10 @@
 #include <alibabacloud/models/CreateIdpDepartmentRequest.hpp>
 #include <alibabacloud/models/CreateIdpDepartmentResponseBody.hpp>
 #include <alibabacloud/models/CreateIdpDepartmentResponse.hpp>
+#include <alibabacloud/models/CreatePADiagnosisTaskRequest.hpp>
+#include <alibabacloud/models/CreatePADiagnosisTaskShrinkRequest.hpp>
+#include <alibabacloud/models/CreatePADiagnosisTaskResponseBody.hpp>
+#include <alibabacloud/models/CreatePADiagnosisTaskResponse.hpp>
 #include <alibabacloud/models/CreatePrivateAccessApplicationRequest.hpp>
 #include <alibabacloud/models/CreatePrivateAccessApplicationShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePrivateAccessApplicationResponseBody.hpp>
@@ -171,6 +175,9 @@
 #include <alibabacloud/models/GetIdpConfigRequest.hpp>
 #include <alibabacloud/models/GetIdpConfigResponseBody.hpp>
 #include <alibabacloud/models/GetIdpConfigResponse.hpp>
+#include <alibabacloud/models/GetPADiagnosisTaskRequest.hpp>
+#include <alibabacloud/models/GetPADiagnosisTaskResponseBody.hpp>
+#include <alibabacloud/models/GetPADiagnosisTaskResponse.hpp>
 #include <alibabacloud/models/GetPrivateAccessApplicationRequest.hpp>
 #include <alibabacloud/models/GetPrivateAccessApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetPrivateAccessApplicationResponse.hpp>

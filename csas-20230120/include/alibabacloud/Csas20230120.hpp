@@ -157,6 +157,23 @@ namespace Csas20230120
       Models::CreateIdpDepartmentResponse createIdpDepartment(const Models::CreateIdpDepartmentRequest &request);
 
       /**
+       * @summary 创建内网访问诊断任务
+       *
+       * @param tmpReq CreatePADiagnosisTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePADiagnosisTaskResponse
+       */
+      Models::CreatePADiagnosisTaskResponse createPADiagnosisTaskWithOptions(const Models::CreatePADiagnosisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建内网访问诊断任务
+       *
+       * @param request CreatePADiagnosisTaskRequest
+       * @return CreatePADiagnosisTaskResponse
+       */
+      Models::CreatePADiagnosisTaskResponse createPADiagnosisTask(const Models::CreatePADiagnosisTaskRequest &request);
+
+      /**
        * @summary Creates an office application within the current Alibaba Cloud account.
        *
        * @description By default, you can create a maximum of 500 office applications.
@@ -760,6 +777,23 @@ namespace Csas20230120
        * @return GetIdpConfigResponse
        */
       Models::GetIdpConfigResponse getIdpConfig(const Models::GetIdpConfigRequest &request);
+
+      /**
+       * @summary 查询内网访问诊断任务详情
+       *
+       * @param request GetPADiagnosisTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPADiagnosisTaskResponse
+       */
+      Models::GetPADiagnosisTaskResponse getPADiagnosisTaskWithOptions(const Models::GetPADiagnosisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询内网访问诊断任务详情
+       *
+       * @param request GetPADiagnosisTaskRequest
+       * @return GetPADiagnosisTaskResponse
+       */
+      Models::GetPADiagnosisTaskResponse getPADiagnosisTask(const Models::GetPADiagnosisTaskRequest &request);
 
       /**
        * @summary Queries the details of the office applications that belong to the current Alibaba Cloud account.
