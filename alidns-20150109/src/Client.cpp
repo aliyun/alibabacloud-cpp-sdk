@@ -6202,6 +6202,10 @@ DescribeGtmRecoveryPlansResponse Client::describeGtmRecoveryPlans(const Describe
 DescribeInstanceDomainsResponse Client::describeInstanceDomainsWithOptions(const DescribeInstanceDomainsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDomainKeywords()) {
+    query["DomainKeywords"] = request.getDomainKeywords();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }

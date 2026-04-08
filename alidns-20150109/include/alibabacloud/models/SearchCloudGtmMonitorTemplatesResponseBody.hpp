@@ -62,6 +62,7 @@ namespace Models
       class Template : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Template& obj) { 
+          DARABONBA_PTR_TO_JSON(CloudGtmMonitorTemplateId, cloudGtmMonitorTemplateId_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
           DARABONBA_PTR_TO_JSON(EvaluationCount, evaluationCount_);
@@ -79,6 +80,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(UpdateTimestamp, updateTimestamp_);
         };
         friend void from_json(const Darabonba::Json& j, Template& obj) { 
+          DARABONBA_PTR_FROM_JSON(CloudGtmMonitorTemplateId, cloudGtmMonitorTemplateId_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
           DARABONBA_PTR_FROM_JSON(EvaluationCount, evaluationCount_);
@@ -242,10 +244,17 @@ namespace Models
           shared_ptr<vector<IspCityNodes::IspCityNode>> ispCityNode_ {};
         };
 
-        virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->createTimestamp_ == nullptr && this->evaluationCount_ == nullptr && this->extendInfo_ == nullptr && this->failureRate_ == nullptr && this->interval_ == nullptr
-        && this->ipVersion_ == nullptr && this->ispCityNodes_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->remark_ == nullptr
-        && this->templateId_ == nullptr && this->timeout_ == nullptr && this->updateTime_ == nullptr && this->updateTimestamp_ == nullptr; };
+        virtual bool empty() const override { return this->cloudGtmMonitorTemplateId_ == nullptr
+        && this->createTime_ == nullptr && this->createTimestamp_ == nullptr && this->evaluationCount_ == nullptr && this->extendInfo_ == nullptr && this->failureRate_ == nullptr
+        && this->interval_ == nullptr && this->ipVersion_ == nullptr && this->ispCityNodes_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr
+        && this->remark_ == nullptr && this->templateId_ == nullptr && this->timeout_ == nullptr && this->updateTime_ == nullptr && this->updateTimestamp_ == nullptr; };
+        // cloudGtmMonitorTemplateId Field Functions 
+        bool hasCloudGtmMonitorTemplateId() const { return this->cloudGtmMonitorTemplateId_ != nullptr;};
+        void deleteCloudGtmMonitorTemplateId() { this->cloudGtmMonitorTemplateId_ = nullptr;};
+        inline string getCloudGtmMonitorTemplateId() const { DARABONBA_PTR_GET_DEFAULT(cloudGtmMonitorTemplateId_, "") };
+        inline Template& setCloudGtmMonitorTemplateId(string cloudGtmMonitorTemplateId) { DARABONBA_PTR_SET_VALUE(cloudGtmMonitorTemplateId_, cloudGtmMonitorTemplateId) };
+
+
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -354,6 +363,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> cloudGtmMonitorTemplateId_ {};
         shared_ptr<string> createTime_ {};
         shared_ptr<int64_t> createTimestamp_ {};
         shared_ptr<int32_t> evaluationCount_ {};

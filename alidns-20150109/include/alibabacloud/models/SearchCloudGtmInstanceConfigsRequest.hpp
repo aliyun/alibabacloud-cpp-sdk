@@ -156,8 +156,12 @@ namespace Models
     // The ID of the Global Traffic Manager (GTM) 3.0 instance.
     shared_ptr<string> instanceId_ {};
     // Current page number, starting from 1, default is 1.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // Remarks for the domain instance.
     shared_ptr<string> remark_ {};

@@ -106,8 +106,12 @@ namespace Models
     // Instance name, used to distinguish the business purpose of the instance.
     shared_ptr<string> instanceName_ {};
     // Current page number, starting from **1**, default is **1**.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };
 

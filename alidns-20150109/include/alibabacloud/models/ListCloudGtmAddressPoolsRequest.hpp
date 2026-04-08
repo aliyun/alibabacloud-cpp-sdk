@@ -124,8 +124,12 @@ namespace Models
     // *   disable: The address pool is disabled.
     shared_ptr<string> enableStatus_ {};
     // Current page number, starting at **1**, default is **1**.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The additional description of the address pool.
     shared_ptr<string> remark_ {};
