@@ -111,84 +111,112 @@ namespace EiamDeveloperapi20220225
       Models::CreateUserResponse createUser(const string &instanceId, const string &applicationId, const Models::CreateUserRequest &request);
 
       /**
+       * @summary 创建账户专属凭据。
+       *
+       * @param request CreateUserExclusiveCredentialRequest
+       * @param headers CreateUserExclusiveCredentialHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserExclusiveCredentialResponse
+       */
+      Models::CreateUserExclusiveCredentialResponse createUserExclusiveCredentialWithOptions(const string &instanceId, const Models::CreateUserExclusiveCredentialRequest &request, const Models::CreateUserExclusiveCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建账户专属凭据。
+       *
+       * @param request CreateUserExclusiveCredentialRequest
+       * @return CreateUserExclusiveCredentialResponse
+       */
+      Models::CreateUserExclusiveCredentialResponse createUserExclusiveCredential(const string &instanceId, const Models::CreateUserExclusiveCredentialRequest &request);
+
+      /**
        * @summary Deletes a group.
        *
+       * @param request DeleteGroupRequest
        * @param headers DeleteGroupHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGroupResponse
        */
-      Models::DeleteGroupResponse deleteGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const Models::DeleteGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteGroupResponse deleteGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const Models::DeleteGroupRequest &request, const Models::DeleteGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a group.
        *
+       * @param request DeleteGroupRequest
        * @return DeleteGroupResponse
        */
-      Models::DeleteGroupResponse deleteGroup(const string &instanceId, const string &applicationId, const string &groupId);
+      Models::DeleteGroupResponse deleteGroup(const string &instanceId, const string &applicationId, const string &groupId, const Models::DeleteGroupRequest &request);
 
       /**
        * @summary Deletes an organizational unit.
        *
+       * @param request DeleteOrganizationalUnitRequest
        * @param headers DeleteOrganizationalUnitHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteOrganizationalUnitResponse
        */
-      Models::DeleteOrganizationalUnitResponse deleteOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::DeleteOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteOrganizationalUnitResponse deleteOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::DeleteOrganizationalUnitRequest &request, const Models::DeleteOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes an organizational unit.
        *
+       * @param request DeleteOrganizationalUnitRequest
        * @return DeleteOrganizationalUnitResponse
        */
-      Models::DeleteOrganizationalUnitResponse deleteOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId);
+      Models::DeleteOrganizationalUnitResponse deleteOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::DeleteOrganizationalUnitRequest &request);
 
       /**
        * @summary Deletes an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request DeleteUserRequest
        * @param headers DeleteUserHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteUserResponse
        */
-      Models::DeleteUserResponse deleteUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::DeleteUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteUserResponse deleteUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::DeleteUserRequest &request, const Models::DeleteUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request DeleteUserRequest
        * @return DeleteUserResponse
        */
-      Models::DeleteUserResponse deleteUser(const string &instanceId, const string &applicationId, const string &userId);
+      Models::DeleteUserResponse deleteUser(const string &instanceId, const string &applicationId, const string &userId, const Models::DeleteUserRequest &request);
 
       /**
        * @summary Disables an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request DisableUserRequest
        * @param headers DisableUserHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableUserResponse
        */
-      Models::DisableUserResponse disableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::DisableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DisableUserResponse disableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::DisableUserRequest &request, const Models::DisableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Disables an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request DisableUserRequest
        * @return DisableUserResponse
        */
-      Models::DisableUserResponse disableUser(const string &instanceId, const string &applicationId, const string &userId);
+      Models::DisableUserResponse disableUser(const string &instanceId, const string &applicationId, const string &userId, const Models::DisableUserRequest &request);
 
       /**
        * @summary Enables an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request EnableUserRequest
        * @param headers EnableUserHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableUserResponse
        */
-      Models::EnableUserResponse enableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::EnableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::EnableUserResponse enableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::EnableUserRequest &request, const Models::EnableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Enables an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request EnableUserRequest
        * @return EnableUserResponse
        */
-      Models::EnableUserResponse enableUser(const string &instanceId, const string &applicationId, const string &userId);
+      Models::EnableUserResponse enableUser(const string &instanceId, const string &applicationId, const string &userId, const Models::EnableUserRequest &request);
 
       /**
        * @summary 拉取一个有效的OAuth认证令牌。
@@ -290,11 +318,12 @@ namespace EiamDeveloperapi20220225
        * @description > 
        * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
        *
+       * @param request GetApplicationProvisioningScopeRequest
        * @param headers GetApplicationProvisioningScopeHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetApplicationProvisioningScopeResponse
        */
-      Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScopeWithOptions(const string &instanceId, const string &applicationId, const Models::GetApplicationProvisioningScopeHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScopeWithOptions(const string &instanceId, const string &applicationId, const Models::GetApplicationProvisioningScopeRequest &request, const Models::GetApplicationProvisioningScopeHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the synchronization scope of an application in an instance.
@@ -302,41 +331,46 @@ namespace EiamDeveloperapi20220225
        * @description > 
        * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
        *
+       * @param request GetApplicationProvisioningScopeRequest
        * @return GetApplicationProvisioningScopeResponse
        */
-      Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(const string &instanceId, const string &applicationId);
+      Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(const string &instanceId, const string &applicationId, const Models::GetApplicationProvisioningScopeRequest &request);
 
       /**
        * @summary Queries the details of a group.
        *
+       * @param request GetGroupRequest
        * @param headers GetGroupHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetGroupResponse
        */
-      Models::GetGroupResponse getGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const Models::GetGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetGroupResponse getGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const Models::GetGroupRequest &request, const Models::GetGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the details of a group.
        *
+       * @param request GetGroupRequest
        * @return GetGroupResponse
        */
-      Models::GetGroupResponse getGroup(const string &instanceId, const string &applicationId, const string &groupId);
+      Models::GetGroupResponse getGroup(const string &instanceId, const string &applicationId, const string &groupId, const Models::GetGroupRequest &request);
 
       /**
        * @summary Queries the information of an organizational unit.
        *
+       * @param request GetOrganizationalUnitRequest
        * @param headers GetOrganizationalUnitHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetOrganizationalUnitResponse
        */
-      Models::GetOrganizationalUnitResponse getOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::GetOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetOrganizationalUnitResponse getOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::GetOrganizationalUnitRequest &request, const Models::GetOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the information of an organizational unit.
        *
+       * @param request GetOrganizationalUnitRequest
        * @return GetOrganizationalUnitResponse
        */
-      Models::GetOrganizationalUnitResponse getOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId);
+      Models::GetOrganizationalUnitResponse getOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::GetOrganizationalUnitRequest &request);
 
       /**
        * @summary Obtains the ID of an organizational unit based on the external ID
@@ -359,18 +393,20 @@ namespace EiamDeveloperapi20220225
       /**
        * @summary Queries the details of an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request GetUserRequest
        * @param headers GetUserHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUserResponse
        */
-      Models::GetUserResponse getUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::GetUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetUserResponse getUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::GetUserRequest &request, const Models::GetUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the details of an Employee Identity and Access Management (EIAM) account.
        *
+       * @param request GetUserRequest
        * @return GetUserResponse
        */
-      Models::GetUserResponse getUser(const string &instanceId, const string &applicationId, const string &userId);
+      Models::GetUserResponse getUser(const string &instanceId, const string &applicationId, const string &userId, const Models::GetUserRequest &request);
 
       /**
        * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account by email address.
@@ -447,18 +483,20 @@ namespace EiamDeveloperapi20220225
       /**
        * @summary Queries the information of a user by using the user token.
        *
+       * @param request GetUserInfoRequest
        * @param headers GetUserInfoHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUserInfoResponse
        */
-      Models::GetUserInfoResponse getUserInfoWithOptions(const string &instanceId, const string &applicationId, const Models::GetUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetUserInfoResponse getUserInfoWithOptions(const string &instanceId, const string &applicationId, const Models::GetUserInfoRequest &request, const Models::GetUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the information of a user by using the user token.
        *
+       * @param request GetUserInfoRequest
        * @return GetUserInfoResponse
        */
-      Models::GetUserInfoResponse getUserInfo(const string &instanceId, const string &applicationId);
+      Models::GetUserInfoResponse getUserInfo(const string &instanceId, const string &applicationId, const Models::GetUserInfoRequest &request);
 
       /**
        * @summary 列举认证令牌。
@@ -517,18 +555,20 @@ namespace EiamDeveloperapi20220225
       /**
        * @summary Queries the information of all the parent organizational units of an organizational unit.
        *
+       * @param request ListOrganizationalUnitParentIdsRequest
        * @param headers ListOrganizationalUnitParentIdsHeaders
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListOrganizationalUnitParentIdsResponse
        */
-      Models::ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIdsWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::ListOrganizationalUnitParentIdsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIdsWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::ListOrganizationalUnitParentIdsRequest &request, const Models::ListOrganizationalUnitParentIdsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the information of all the parent organizational units of an organizational unit.
        *
+       * @param request ListOrganizationalUnitParentIdsRequest
        * @return ListOrganizationalUnitParentIdsResponse
        */
-      Models::ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIds(const string &instanceId, const string &applicationId, const string &organizationalUnitId);
+      Models::ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIds(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::ListOrganizationalUnitParentIdsRequest &request);
 
       /**
        * @summary Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.

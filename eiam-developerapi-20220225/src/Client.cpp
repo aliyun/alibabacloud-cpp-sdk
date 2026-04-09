@@ -372,13 +372,89 @@ CreateUserResponse Client::createUser(const string &instanceId, const string &ap
 }
 
 /**
+ * @summary 创建账户专属凭据。
+ *
+ * @param request CreateUserExclusiveCredentialRequest
+ * @param headers CreateUserExclusiveCredentialHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserExclusiveCredentialResponse
+ */
+CreateUserExclusiveCredentialResponse Client::createUserExclusiveCredentialWithOptions(const string &instanceId, const CreateUserExclusiveCredentialRequest &request, const CreateUserExclusiveCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCredentialContent()) {
+    body["credentialContent"] = request.getCredentialContent();
+  }
+
+  if (!!request.hasCredentialIdentifier()) {
+    body["credentialIdentifier"] = request.getCredentialIdentifier();
+  }
+
+  if (!!request.hasCredentialName()) {
+    body["credentialName"] = request.getCredentialName();
+  }
+
+  if (!!request.hasCredentialScenarioLabel()) {
+    body["credentialScenarioLabel"] = request.getCredentialScenarioLabel();
+  }
+
+  if (!!request.hasCredentialType()) {
+    body["credentialType"] = request.getCredentialType();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateUserExclusiveCredential"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/credentials/_/actions/createUserExclusive")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<CreateUserExclusiveCredentialResponse>();
+}
+
+/**
+ * @summary 创建账户专属凭据。
+ *
+ * @param request CreateUserExclusiveCredentialRequest
+ * @return CreateUserExclusiveCredentialResponse
+ */
+CreateUserExclusiveCredentialResponse Client::createUserExclusiveCredential(const string &instanceId, const CreateUserExclusiveCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  CreateUserExclusiveCredentialHeaders headers = CreateUserExclusiveCredentialHeaders();
+  return createUserExclusiveCredentialWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a group.
  *
+ * @param request DeleteGroupRequest
  * @param headers DeleteGroupHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGroupResponse
  */
-DeleteGroupResponse Client::deleteGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const DeleteGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteGroupResponse Client::deleteGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const DeleteGroupRequest &request, const DeleteGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -408,22 +484,25 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const string &instanceId, con
 /**
  * @summary Deletes a group.
  *
+ * @param request DeleteGroupRequest
  * @return DeleteGroupResponse
  */
-DeleteGroupResponse Client::deleteGroup(const string &instanceId, const string &applicationId, const string &groupId) {
+DeleteGroupResponse Client::deleteGroup(const string &instanceId, const string &applicationId, const string &groupId, const DeleteGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   DeleteGroupHeaders headers = DeleteGroupHeaders();
-  return deleteGroupWithOptions(instanceId, applicationId, groupId, headers, runtime);
+  return deleteGroupWithOptions(instanceId, applicationId, groupId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes an organizational unit.
  *
+ * @param request DeleteOrganizationalUnitRequest
  * @param headers DeleteOrganizationalUnitHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteOrganizationalUnitResponse
  */
-DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const DeleteOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const DeleteOrganizationalUnitRequest &request, const DeleteOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -453,22 +532,25 @@ DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnitWithOptions(con
 /**
  * @summary Deletes an organizational unit.
  *
+ * @param request DeleteOrganizationalUnitRequest
  * @return DeleteOrganizationalUnitResponse
  */
-DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId) {
+DeleteOrganizationalUnitResponse Client::deleteOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const DeleteOrganizationalUnitRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   DeleteOrganizationalUnitHeaders headers = DeleteOrganizationalUnitHeaders();
-  return deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+  return deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request DeleteUserRequest
  * @param headers DeleteUserHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteUserResponse
  */
-DeleteUserResponse Client::deleteUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const DeleteUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteUserResponse Client::deleteUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const DeleteUserRequest &request, const DeleteUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -498,22 +580,25 @@ DeleteUserResponse Client::deleteUserWithOptions(const string &instanceId, const
 /**
  * @summary Deletes an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request DeleteUserRequest
  * @return DeleteUserResponse
  */
-DeleteUserResponse Client::deleteUser(const string &instanceId, const string &applicationId, const string &userId) {
+DeleteUserResponse Client::deleteUser(const string &instanceId, const string &applicationId, const string &userId, const DeleteUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   DeleteUserHeaders headers = DeleteUserHeaders();
-  return deleteUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  return deleteUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 
 /**
  * @summary Disables an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request DisableUserRequest
  * @param headers DisableUserHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return DisableUserResponse
  */
-DisableUserResponse Client::disableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const DisableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+DisableUserResponse Client::disableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const DisableUserRequest &request, const DisableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -543,22 +628,25 @@ DisableUserResponse Client::disableUserWithOptions(const string &instanceId, con
 /**
  * @summary Disables an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request DisableUserRequest
  * @return DisableUserResponse
  */
-DisableUserResponse Client::disableUser(const string &instanceId, const string &applicationId, const string &userId) {
+DisableUserResponse Client::disableUser(const string &instanceId, const string &applicationId, const string &userId, const DisableUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   DisableUserHeaders headers = DisableUserHeaders();
-  return disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  return disableUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 
 /**
  * @summary Enables an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request EnableUserRequest
  * @param headers EnableUserHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableUserResponse
  */
-EnableUserResponse Client::enableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const EnableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+EnableUserResponse Client::enableUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const EnableUserRequest &request, const EnableUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -588,12 +676,13 @@ EnableUserResponse Client::enableUserWithOptions(const string &instanceId, const
 /**
  * @summary Enables an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request EnableUserRequest
  * @return EnableUserResponse
  */
-EnableUserResponse Client::enableUser(const string &instanceId, const string &applicationId, const string &userId) {
+EnableUserResponse Client::enableUser(const string &instanceId, const string &applicationId, const string &userId, const EnableUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   EnableUserHeaders headers = EnableUserHeaders();
-  return enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  return enableUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 
 /**
@@ -981,11 +1070,13 @@ GenerateTokenByAuthorizationServerResponse Client::generateTokenByAuthorizationS
  * @description > 
  * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
  *
+ * @param request GetApplicationProvisioningScopeRequest
  * @param headers GetApplicationProvisioningScopeHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetApplicationProvisioningScopeResponse
  */
-GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScopeWithOptions(const string &instanceId, const string &applicationId, const GetApplicationProvisioningScopeHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScopeWithOptions(const string &instanceId, const string &applicationId, const GetApplicationProvisioningScopeRequest &request, const GetApplicationProvisioningScopeHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -1018,22 +1109,25 @@ GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScopeW
  * @description > 
  * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
  *
+ * @param request GetApplicationProvisioningScopeRequest
  * @return GetApplicationProvisioningScopeResponse
  */
-GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScope(const string &instanceId, const string &applicationId) {
+GetApplicationProvisioningScopeResponse Client::getApplicationProvisioningScope(const string &instanceId, const string &applicationId, const GetApplicationProvisioningScopeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetApplicationProvisioningScopeHeaders headers = GetApplicationProvisioningScopeHeaders();
-  return getApplicationProvisioningScopeWithOptions(instanceId, applicationId, headers, runtime);
+  return getApplicationProvisioningScopeWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 /**
  * @summary Queries the details of a group.
  *
+ * @param request GetGroupRequest
  * @param headers GetGroupHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetGroupResponse
  */
-GetGroupResponse Client::getGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const GetGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+GetGroupResponse Client::getGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const GetGroupRequest &request, const GetGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -1063,22 +1157,25 @@ GetGroupResponse Client::getGroupWithOptions(const string &instanceId, const str
 /**
  * @summary Queries the details of a group.
  *
+ * @param request GetGroupRequest
  * @return GetGroupResponse
  */
-GetGroupResponse Client::getGroup(const string &instanceId, const string &applicationId, const string &groupId) {
+GetGroupResponse Client::getGroup(const string &instanceId, const string &applicationId, const string &groupId, const GetGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetGroupHeaders headers = GetGroupHeaders();
-  return getGroupWithOptions(instanceId, applicationId, groupId, headers, runtime);
+  return getGroupWithOptions(instanceId, applicationId, groupId, request, headers, runtime);
 }
 
 /**
  * @summary Queries the information of an organizational unit.
  *
+ * @param request GetOrganizationalUnitRequest
  * @param headers GetOrganizationalUnitHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetOrganizationalUnitResponse
  */
-GetOrganizationalUnitResponse Client::getOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const GetOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+GetOrganizationalUnitResponse Client::getOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const GetOrganizationalUnitRequest &request, const GetOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -1108,12 +1205,13 @@ GetOrganizationalUnitResponse Client::getOrganizationalUnitWithOptions(const str
 /**
  * @summary Queries the information of an organizational unit.
  *
+ * @param request GetOrganizationalUnitRequest
  * @return GetOrganizationalUnitResponse
  */
-GetOrganizationalUnitResponse Client::getOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId) {
+GetOrganizationalUnitResponse Client::getOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const GetOrganizationalUnitRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetOrganizationalUnitHeaders headers = GetOrganizationalUnitHeaders();
-  return getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+  return getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
 }
 
 /**
@@ -1181,11 +1279,13 @@ GetOrganizationalUnitIdByExternalIdResponse Client::getOrganizationalUnitIdByExt
 /**
  * @summary Queries the details of an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request GetUserRequest
  * @param headers GetUserHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUserResponse
  */
-GetUserResponse Client::getUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const GetUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+GetUserResponse Client::getUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const GetUserRequest &request, const GetUserHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -1215,12 +1315,13 @@ GetUserResponse Client::getUserWithOptions(const string &instanceId, const strin
 /**
  * @summary Queries the details of an Employee Identity and Access Management (EIAM) account.
  *
+ * @param request GetUserRequest
  * @return GetUserResponse
  */
-GetUserResponse Client::getUser(const string &instanceId, const string &applicationId, const string &userId) {
+GetUserResponse Client::getUser(const string &instanceId, const string &applicationId, const string &userId, const GetUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetUserHeaders headers = GetUserHeaders();
-  return getUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  return getUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 
 /**
@@ -1450,11 +1551,13 @@ GetUserIdByUsernameResponse Client::getUserIdByUsername(const string &instanceId
 /**
  * @summary Queries the information of a user by using the user token.
  *
+ * @param request GetUserInfoRequest
  * @param headers GetUserInfoHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUserInfoResponse
  */
-GetUserInfoResponse Client::getUserInfoWithOptions(const string &instanceId, const string &applicationId, const GetUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+GetUserInfoResponse Client::getUserInfoWithOptions(const string &instanceId, const string &applicationId, const GetUserInfoRequest &request, const GetUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -1484,12 +1587,13 @@ GetUserInfoResponse Client::getUserInfoWithOptions(const string &instanceId, con
 /**
  * @summary Queries the information of a user by using the user token.
  *
+ * @param request GetUserInfoRequest
  * @return GetUserInfoResponse
  */
-GetUserInfoResponse Client::getUserInfo(const string &instanceId, const string &applicationId) {
+GetUserInfoResponse Client::getUserInfo(const string &instanceId, const string &applicationId, const GetUserInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetUserInfoHeaders headers = GetUserInfoHeaders();
-  return getUserInfoWithOptions(instanceId, applicationId, headers, runtime);
+  return getUserInfoWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 /**
@@ -1689,11 +1793,13 @@ ListGroupsForUserResponse Client::listGroupsForUser(const string &instanceId, co
 /**
  * @summary Queries the information of all the parent organizational units of an organizational unit.
  *
+ * @param request ListOrganizationalUnitParentIdsRequest
  * @param headers ListOrganizationalUnitParentIdsHeaders
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListOrganizationalUnitParentIdsResponse
  */
-ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIdsWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const ListOrganizationalUnitParentIdsHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIdsWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const ListOrganizationalUnitParentIdsRequest &request, const ListOrganizationalUnitParentIdsHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.getCommonHeaders();
@@ -1723,12 +1829,13 @@ ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIdsW
 /**
  * @summary Queries the information of all the parent organizational units of an organizational unit.
  *
+ * @param request ListOrganizationalUnitParentIdsRequest
  * @return ListOrganizationalUnitParentIdsResponse
  */
-ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIds(const string &instanceId, const string &applicationId, const string &organizationalUnitId) {
+ListOrganizationalUnitParentIdsResponse Client::listOrganizationalUnitParentIds(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const ListOrganizationalUnitParentIdsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   ListOrganizationalUnitParentIdsHeaders headers = ListOrganizationalUnitParentIdsHeaders();
-  return listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+  return listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
 }
 
 /**
