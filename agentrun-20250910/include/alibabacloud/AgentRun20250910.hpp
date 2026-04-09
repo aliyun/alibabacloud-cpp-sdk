@@ -327,248 +327,276 @@ namespace AgentRun20250910
        *
        * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
        *
+       * @param request DeleteAgentRuntimeRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAgentRuntimeResponse
        */
-      Models::DeleteAgentRuntimeResponse deleteAgentRuntimeWithOptions(const string &agentRuntimeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteAgentRuntimeResponse deleteAgentRuntimeWithOptions(const string &agentRuntimeId, const Models::DeleteAgentRuntimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除智能体运行时
        *
        * @description 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
        *
+       * @param request DeleteAgentRuntimeRequest
        * @return DeleteAgentRuntimeResponse
        */
-      Models::DeleteAgentRuntimeResponse deleteAgentRuntime(const string &agentRuntimeId);
+      Models::DeleteAgentRuntimeResponse deleteAgentRuntime(const string &agentRuntimeId, const Models::DeleteAgentRuntimeRequest &request);
 
       /**
        * @summary Delete an agent runtime endpoint
        *
+       * @param request DeleteAgentRuntimeEndpointRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAgentRuntimeEndpointResponse
        */
-      Models::DeleteAgentRuntimeEndpointResponse deleteAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteAgentRuntimeEndpointResponse deleteAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::DeleteAgentRuntimeEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete an agent runtime endpoint
        *
+       * @param request DeleteAgentRuntimeEndpointRequest
        * @return DeleteAgentRuntimeEndpointResponse
        */
-      Models::DeleteAgentRuntimeEndpointResponse deleteAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId);
+      Models::DeleteAgentRuntimeEndpointResponse deleteAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::DeleteAgentRuntimeEndpointRequest &request);
 
       /**
        * @summary 删除浏览器实例
        *
        * @description 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
        *
+       * @param request DeleteBrowserRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteBrowserResponse
        */
-      Models::DeleteBrowserResponse deleteBrowserWithOptions(const string &browserId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteBrowserResponse deleteBrowserWithOptions(const string &browserId, const Models::DeleteBrowserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除浏览器实例
        *
        * @description 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
        *
+       * @param request DeleteBrowserRequest
        * @return DeleteBrowserResponse
        */
-      Models::DeleteBrowserResponse deleteBrowser(const string &browserId);
+      Models::DeleteBrowserResponse deleteBrowser(const string &browserId, const Models::DeleteBrowserRequest &request);
 
       /**
        * @summary 删除代码解释器
        *
        * @description 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
        *
+       * @param request DeleteCodeInterpreterRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCodeInterpreterResponse
        */
-      Models::DeleteCodeInterpreterResponse deleteCodeInterpreterWithOptions(const string &codeInterpreterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteCodeInterpreterResponse deleteCodeInterpreterWithOptions(const string &codeInterpreterId, const Models::DeleteCodeInterpreterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除代码解释器
        *
        * @description 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
        *
+       * @param request DeleteCodeInterpreterRequest
        * @return DeleteCodeInterpreterResponse
        */
-      Models::DeleteCodeInterpreterResponse deleteCodeInterpreter(const string &codeInterpreterId);
+      Models::DeleteCodeInterpreterResponse deleteCodeInterpreter(const string &codeInterpreterId, const Models::DeleteCodeInterpreterRequest &request);
 
       /**
        * @summary Delete a credential
        *
+       * @param request DeleteCredentialRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCredentialResponse
        */
-      Models::DeleteCredentialResponse deleteCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteCredentialResponse deleteCredentialWithOptions(const string &credentialName, const Models::DeleteCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete a credential
        *
+       * @param request DeleteCredentialRequest
        * @return DeleteCredentialResponse
        */
-      Models::DeleteCredentialResponse deleteCredential(const string &credentialName);
+      Models::DeleteCredentialResponse deleteCredential(const string &credentialName, const Models::DeleteCredentialRequest &request);
 
       /**
        * @summary Delete a custom domain
        *
+       * @param request DeleteCustomDomainRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCustomDomainResponse
        */
-      Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const Models::DeleteCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete a custom domain
        *
+       * @param request DeleteCustomDomainRequest
        * @return DeleteCustomDomainResponse
        */
-      Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName);
+      Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName, const Models::DeleteCustomDomainRequest &request);
 
       /**
        * @summary 删除知识库
        *
+       * @param request DeleteKnowledgeBaseRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteKnowledgeBaseResponse
        */
-      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBaseWithOptions(const string &knowledgeBaseName, const Models::DeleteKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除知识库
        *
+       * @param request DeleteKnowledgeBaseRequest
        * @return DeleteKnowledgeBaseResponse
        */
-      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const string &knowledgeBaseName);
+      Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const string &knowledgeBaseName, const Models::DeleteKnowledgeBaseRequest &request);
 
       /**
        * @summary 删除记忆存储
        *
+       * @param request DeleteMemoryCollectionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMemoryCollectionResponse
        */
-      Models::DeleteMemoryCollectionResponse deleteMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteMemoryCollectionResponse deleteMemoryCollectionWithOptions(const string &memoryCollectionName, const Models::DeleteMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除记忆存储
        *
+       * @param request DeleteMemoryCollectionRequest
        * @return DeleteMemoryCollectionResponse
        */
-      Models::DeleteMemoryCollectionResponse deleteMemoryCollection(const string &memoryCollectionName);
+      Models::DeleteMemoryCollectionResponse deleteMemoryCollection(const string &memoryCollectionName, const Models::DeleteMemoryCollectionRequest &request);
 
       /**
        * @summary 删除模型
        *
+       * @param request DeleteModelProxyRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteModelProxyResponse
        */
-      Models::DeleteModelProxyResponse deleteModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteModelProxyResponse deleteModelProxyWithOptions(const string &modelProxyName, const Models::DeleteModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除模型
        *
+       * @param request DeleteModelProxyRequest
        * @return DeleteModelProxyResponse
        */
-      Models::DeleteModelProxyResponse deleteModelProxy(const string &modelProxyName);
+      Models::DeleteModelProxyResponse deleteModelProxy(const string &modelProxyName, const Models::DeleteModelProxyRequest &request);
 
       /**
        * @summary 删除模型
        *
+       * @param request DeleteModelServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteModelServiceResponse
        */
-      Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const string &modelServiceName, const Models::DeleteModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除模型
        *
+       * @param request DeleteModelServiceRequest
        * @return DeleteModelServiceResponse
        */
-      Models::DeleteModelServiceResponse deleteModelService(const string &modelServiceName);
+      Models::DeleteModelServiceResponse deleteModelService(const string &modelServiceName, const Models::DeleteModelServiceRequest &request);
 
       /**
        * @summary 删除Sandbox
        *
+       * @param request DeleteSandboxRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteSandboxResponse
        */
-      Models::DeleteSandboxResponse deleteSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteSandboxResponse deleteSandboxWithOptions(const string &sandboxId, const Models::DeleteSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除Sandbox
        *
+       * @param request DeleteSandboxRequest
        * @return DeleteSandboxResponse
        */
-      Models::DeleteSandboxResponse deleteSandbox(const string &sandboxId);
+      Models::DeleteSandboxResponse deleteSandbox(const string &sandboxId, const Models::DeleteSandboxRequest &request);
 
       /**
        * @summary 删除模板
        *
        * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
        *
+       * @param request DeleteTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteTemplateResponse
        */
-      Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &templateName, const Models::DeleteTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除模板
        *
        * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
        *
+       * @param request DeleteTemplateRequest
        * @return DeleteTemplateResponse
        */
-      Models::DeleteTemplateResponse deleteTemplate(const string &templateName);
+      Models::DeleteTemplateResponse deleteTemplate(const string &templateName, const Models::DeleteTemplateRequest &request);
 
       /**
        * @summary 删除工具
        *
        * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
        *
+       * @param request DeleteToolRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteToolResponse
        */
-      Models::DeleteToolResponse deleteToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteToolResponse deleteToolWithOptions(const string &toolName, const Models::DeleteToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除工具
        *
        * @description 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
        *
+       * @param request DeleteToolRequest
        * @return DeleteToolResponse
        */
-      Models::DeleteToolResponse deleteTool(const string &toolName);
+      Models::DeleteToolResponse deleteTool(const string &toolName, const Models::DeleteToolRequest &request);
 
       /**
        * @summary 删除工作空间
        *
        * @description 删除工作空间
        *
+       * @param request DeleteWorkspaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteWorkspaceResponse
        */
-      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除工作空间
        *
        * @description 删除工作空间
        *
+       * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
        */
-      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId);
+      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId, const Models::DeleteWorkspaceRequest &request);
 
       /**
        * @summary Get access token for a resource
@@ -613,250 +641,278 @@ namespace AgentRun20250910
       /**
        * @summary Get an agent runtime endpoint
        *
+       * @param request GetAgentRuntimeEndpointRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAgentRuntimeEndpointResponse
        */
-      Models::GetAgentRuntimeEndpointResponse getAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetAgentRuntimeEndpointResponse getAgentRuntimeEndpointWithOptions(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::GetAgentRuntimeEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get an agent runtime endpoint
        *
+       * @param request GetAgentRuntimeEndpointRequest
        * @return GetAgentRuntimeEndpointResponse
        */
-      Models::GetAgentRuntimeEndpointResponse getAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId);
+      Models::GetAgentRuntimeEndpointResponse getAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::GetAgentRuntimeEndpointRequest &request);
 
       /**
        * @summary 获取浏览器实例详情
        *
        * @description 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
        *
+       * @param request GetBrowserRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBrowserResponse
        */
-      Models::GetBrowserResponse getBrowserWithOptions(const string &browserId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetBrowserResponse getBrowserWithOptions(const string &browserId, const Models::GetBrowserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取浏览器实例详情
        *
        * @description 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
        *
+       * @param request GetBrowserRequest
        * @return GetBrowserResponse
        */
-      Models::GetBrowserResponse getBrowser(const string &browserId);
+      Models::GetBrowserResponse getBrowser(const string &browserId, const Models::GetBrowserRequest &request);
 
       /**
        * @summary 获取代码解释器详情
        *
        * @description 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
        *
+       * @param request GetCodeInterpreterRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCodeInterpreterResponse
        */
-      Models::GetCodeInterpreterResponse getCodeInterpreterWithOptions(const string &codeInterpreterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetCodeInterpreterResponse getCodeInterpreterWithOptions(const string &codeInterpreterId, const Models::GetCodeInterpreterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取代码解释器详情
        *
        * @description 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
        *
+       * @param request GetCodeInterpreterRequest
        * @return GetCodeInterpreterResponse
        */
-      Models::GetCodeInterpreterResponse getCodeInterpreter(const string &codeInterpreterId);
+      Models::GetCodeInterpreterResponse getCodeInterpreter(const string &codeInterpreterId, const Models::GetCodeInterpreterRequest &request);
 
       /**
        * @summary Get a credential
        *
+       * @param request GetCredentialRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCredentialResponse
        */
-      Models::GetCredentialResponse getCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetCredentialResponse getCredentialWithOptions(const string &credentialName, const Models::GetCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get a credential
        *
+       * @param request GetCredentialRequest
        * @return GetCredentialResponse
        */
-      Models::GetCredentialResponse getCredential(const string &credentialName);
+      Models::GetCredentialResponse getCredential(const string &credentialName, const Models::GetCredentialRequest &request);
 
       /**
        * @summary 获取自定义域名详情
        *
+       * @param request GetCustomDomainRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCustomDomainResponse
        */
-      Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const Models::GetCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取自定义域名详情
        *
+       * @param request GetCustomDomainRequest
        * @return GetCustomDomainResponse
        */
-      Models::GetCustomDomainResponse getCustomDomain(const string &domainName);
+      Models::GetCustomDomainResponse getCustomDomain(const string &domainName, const Models::GetCustomDomainRequest &request);
 
       /**
        * @summary 获取知识库
        *
+       * @param request GetKnowledgeBaseRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetKnowledgeBaseResponse
        */
-      Models::GetKnowledgeBaseResponse getKnowledgeBaseWithOptions(const string &knowledgeBaseName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetKnowledgeBaseResponse getKnowledgeBaseWithOptions(const string &knowledgeBaseName, const Models::GetKnowledgeBaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取知识库
        *
+       * @param request GetKnowledgeBaseRequest
        * @return GetKnowledgeBaseResponse
        */
-      Models::GetKnowledgeBaseResponse getKnowledgeBase(const string &knowledgeBaseName);
+      Models::GetKnowledgeBaseResponse getKnowledgeBase(const string &knowledgeBaseName, const Models::GetKnowledgeBaseRequest &request);
 
       /**
        * @summary 查询记忆存储详情
        *
+       * @param request GetMemoryCollectionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMemoryCollectionResponse
        */
-      Models::GetMemoryCollectionResponse getMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetMemoryCollectionResponse getMemoryCollectionWithOptions(const string &memoryCollectionName, const Models::GetMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询记忆存储详情
        *
+       * @param request GetMemoryCollectionRequest
        * @return GetMemoryCollectionResponse
        */
-      Models::GetMemoryCollectionResponse getMemoryCollection(const string &memoryCollectionName);
+      Models::GetMemoryCollectionResponse getMemoryCollection(const string &memoryCollectionName, const Models::GetMemoryCollectionRequest &request);
 
       /**
        * @summary 查看model
        *
+       * @param request GetModelProxyRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetModelProxyResponse
        */
-      Models::GetModelProxyResponse getModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetModelProxyResponse getModelProxyWithOptions(const string &modelProxyName, const Models::GetModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看model
        *
+       * @param request GetModelProxyRequest
        * @return GetModelProxyResponse
        */
-      Models::GetModelProxyResponse getModelProxy(const string &modelProxyName);
+      Models::GetModelProxyResponse getModelProxy(const string &modelProxyName, const Models::GetModelProxyRequest &request);
 
       /**
        * @summary 查看model
        *
+       * @param request GetModelServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetModelServiceResponse
        */
-      Models::GetModelServiceResponse getModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetModelServiceResponse getModelServiceWithOptions(const string &modelServiceName, const Models::GetModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看model
        *
+       * @param request GetModelServiceRequest
        * @return GetModelServiceResponse
        */
-      Models::GetModelServiceResponse getModelService(const string &modelServiceName);
+      Models::GetModelServiceResponse getModelService(const string &modelServiceName, const Models::GetModelServiceRequest &request);
 
       /**
        * @summary 获取沙箱
        *
        * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
        *
+       * @param request GetSandboxRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSandboxResponse
        */
-      Models::GetSandboxResponse getSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetSandboxResponse getSandboxWithOptions(const string &sandboxId, const Models::GetSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取沙箱
        *
        * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
        *
+       * @param request GetSandboxRequest
        * @return GetSandboxResponse
        */
-      Models::GetSandboxResponse getSandbox(const string &sandboxId);
+      Models::GetSandboxResponse getSandbox(const string &sandboxId, const Models::GetSandboxRequest &request);
 
       /**
        * @summary 获取模板
        *
        * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
        *
+       * @param request GetTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTemplateResponse
        */
-      Models::GetTemplateResponse getTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetTemplateResponse getTemplateWithOptions(const string &templateName, const Models::GetTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取模板
        *
        * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
        *
+       * @param request GetTemplateRequest
        * @return GetTemplateResponse
        */
-      Models::GetTemplateResponse getTemplate(const string &templateName);
+      Models::GetTemplateResponse getTemplate(const string &templateName, const Models::GetTemplateRequest &request);
 
       /**
        * @summary 获取工具详情
        *
        * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
        *
+       * @param request GetToolRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetToolResponse
        */
-      Models::GetToolResponse getToolWithOptions(const string &toolName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetToolResponse getToolWithOptions(const string &toolName, const Models::GetToolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取工具详情
        *
        * @description 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
        *
+       * @param request GetToolRequest
        * @return GetToolResponse
        */
-      Models::GetToolResponse getTool(const string &toolName);
+      Models::GetToolResponse getTool(const string &toolName, const Models::GetToolRequest &request);
 
       /**
        * @summary 查看工作空间
        *
        * @description 查看工作空间
        *
+       * @param request GetWorkspaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetWorkspaceResponse
        */
-      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const Models::GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查看工作空间
        *
        * @description 查看工作空间
        *
+       * @param request GetWorkspaceRequest
        * @return GetWorkspaceResponse
        */
-      Models::GetWorkspaceResponse getWorkspace(const string &workspaceId);
+      Models::GetWorkspaceResponse getWorkspace(const string &workspaceId, const Models::GetWorkspaceRequest &request);
 
       /**
        * @summary 获取工作空间下的发现端点
        *
+       * @param request GetWorkspaceDiscoveryEndpointsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetWorkspaceDiscoveryEndpointsResponse
        */
-      Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpointsWithOptions(const string &workspaceId, const Models::GetWorkspaceDiscoveryEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取工作空间下的发现端点
        *
+       * @param request GetWorkspaceDiscoveryEndpointsRequest
        * @return GetWorkspaceDiscoveryEndpointsResponse
        */
-      Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpoints(const string &workspaceId);
+      Models::GetWorkspaceDiscoveryEndpointsResponse getWorkspaceDiscoveryEndpoints(const string &workspaceId, const Models::GetWorkspaceDiscoveryEndpointsRequest &request);
 
       /**
        * @summary Retrieve the list of access endpoints for an agent runtime
@@ -1183,20 +1239,22 @@ namespace AgentRun20250910
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
+       * @param request PauseSandboxRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return PauseSandboxResponse
        */
-      Models::PauseSandboxResponse pauseSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::PauseSandboxResponse pauseSandboxWithOptions(const string &sandboxId, const Models::PauseSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 暂停沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
+       * @param request PauseSandboxRequest
        * @return PauseSandboxResponse
        */
-      Models::PauseSandboxResponse pauseSandbox(const string &sandboxId);
+      Models::PauseSandboxResponse pauseSandbox(const string &sandboxId, const Models::PauseSandboxRequest &request);
 
       /**
        * @summary 发布运行时版本
@@ -1223,54 +1281,60 @@ namespace AgentRun20250910
       /**
        * @summary 恢复沙箱
        *
+       * @param request ResumeSandboxRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ResumeSandboxResponse
        */
-      Models::ResumeSandboxResponse resumeSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ResumeSandboxResponse resumeSandboxWithOptions(const string &sandboxId, const Models::ResumeSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 恢复沙箱
        *
+       * @param request ResumeSandboxRequest
        * @return ResumeSandboxResponse
        */
-      Models::ResumeSandboxResponse resumeSandbox(const string &sandboxId);
+      Models::ResumeSandboxResponse resumeSandbox(const string &sandboxId, const Models::ResumeSandboxRequest &request);
 
       /**
        * @summary 停止沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
+       * @param request StopSandboxRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopSandboxResponse
        */
-      Models::StopSandboxResponse stopSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StopSandboxResponse stopSandboxWithOptions(const string &sandboxId, const Models::StopSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 停止沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
+       * @param request StopSandboxRequest
        * @return StopSandboxResponse
        */
-      Models::StopSandboxResponse stopSandbox(const string &sandboxId);
+      Models::StopSandboxResponse stopSandbox(const string &sandboxId, const Models::StopSandboxRequest &request);
 
       /**
        * @summary Stop the TemplateMCP service.
        *
+       * @param request StopTemplateMCPRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopTemplateMCPResponse
        */
-      Models::StopTemplateMCPResponse stopTemplateMCPWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StopTemplateMCPResponse stopTemplateMCPWithOptions(const string &templateName, const Models::StopTemplateMCPRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Stop the TemplateMCP service.
        *
+       * @param request StopTemplateMCPRequest
        * @return StopTemplateMCPResponse
        */
-      Models::StopTemplateMCPResponse stopTemplateMCP(const string &templateName);
+      Models::StopTemplateMCPResponse stopTemplateMCP(const string &templateName, const Models::StopTemplateMCPRequest &request);
 
       /**
        * @summary 更新智能体运行时
