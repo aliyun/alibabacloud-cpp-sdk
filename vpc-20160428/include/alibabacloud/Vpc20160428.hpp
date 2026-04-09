@@ -5386,7 +5386,7 @@ namespace Vpc20160428
       Models::DescribeVpnRouteEntriesResponse describeVpnRouteEntries(const Models::DescribeVpnRouteEntriesRequest &request);
 
       /**
-       * @summary Queries the log of an SSL server.
+       * @summary Queries the log entries of an SSL server.
        *
        * @param request DescribeVpnSslServerLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5395,7 +5395,7 @@ namespace Vpc20160428
       Models::DescribeVpnSslServerLogsResponse describeVpnSslServerLogsWithOptions(const Models::DescribeVpnSslServerLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log of an SSL server.
+       * @summary Queries the log entries of an SSL server.
        *
        * @param request DescribeVpnSslServerLogsRequest
        * @return DescribeVpnSslServerLogsResponse
@@ -6079,7 +6079,6 @@ namespace Vpc20160428
       /**
        * @summary Queries the most recent region list.
        *
-       * @param request ListGeographicSubRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListGeographicSubRegionsResponse
        */
@@ -7601,7 +7600,7 @@ namespace Vpc20160428
       Models::ModifyVpnConnectionAttributeResponse modifyVpnConnectionAttribute(const Models::ModifyVpnConnectionAttributeRequest &request);
 
       /**
-       * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+       * @summary Modifies the name and description of a VPN gateway.
        *
        * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
        *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -7615,7 +7614,7 @@ namespace Vpc20160428
       Models::ModifyVpnGatewayAttributeResponse modifyVpnGatewayAttributeWithOptions(const Models::ModifyVpnGatewayAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+       * @summary Modifies the name and description of a VPN gateway.
        *
        * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
        *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.

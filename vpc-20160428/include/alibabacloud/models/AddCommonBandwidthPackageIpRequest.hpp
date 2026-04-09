@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AddCommonBandwidthPackageIpRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(IpInstanceId, ipInstanceId_);
       DARABONBA_PTR_TO_JSON(IpType, ipType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AddCommonBandwidthPackageIpRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(IpInstanceId, ipInstanceId_);
       DARABONBA_PTR_FROM_JSON(IpType, ipType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
-        && this->clientToken_ == nullptr && this->ipInstanceId_ == nullptr && this->ipType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->ipInstanceId_ == nullptr && this->ipType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AddCommonBandwidthPackageIpRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline AddCommonBandwidthPackageIpRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // ipInstanceId Field Functions 
@@ -115,6 +124,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
     shared_ptr<string> clientToken_ {};
+    shared_ptr<bool> dryRun_ {};
     // This parameter is required.
     shared_ptr<string> ipInstanceId_ {};
     shared_ptr<string> ipType_ {};

@@ -303,6 +303,10 @@ AddCommonBandwidthPackageIpResponse Client::addCommonBandwidthPackageIpWithOptio
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasIpInstanceId()) {
     query["IpInstanceId"] = request.getIpInstanceId();
   }
@@ -5634,6 +5638,10 @@ CreateIpv6EgressOnlyRuleResponse Client::createIpv6EgressOnlyRuleWithOptions(con
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -5728,6 +5736,10 @@ CreateIpv6GatewayResponse Client::createIpv6GatewayWithOptions(const CreateIpv6G
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasName()) {
@@ -11356,6 +11368,10 @@ DeleteIpv6EgressOnlyRuleResponse Client::deleteIpv6EgressOnlyRuleWithOptions(con
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpv6EgressOnlyRuleId()) {
@@ -20276,7 +20292,7 @@ DescribeVpnRouteEntriesResponse Client::describeVpnRouteEntries(const DescribeVp
 }
 
 /**
- * @summary Queries the log of an SSL server.
+ * @summary Queries the log entries of an SSL server.
  *
  * @param request DescribeVpnSslServerLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20351,7 +20367,7 @@ DescribeVpnSslServerLogsResponse Client::describeVpnSslServerLogsWithOptions(con
 }
 
 /**
- * @summary Queries the log of an SSL server.
+ * @summary Queries the log entries of an SSL server.
  *
  * @param request DescribeVpnSslServerLogsRequest
  * @return DescribeVpnSslServerLogsResponse
@@ -22758,7 +22774,6 @@ ListGatewayRouteTableEntriesResponse Client::listGatewayRouteTableEntries(const 
 /**
  * @summary Queries the most recent region list.
  *
- * @param request ListGeographicSubRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGeographicSubRegionsResponse
  */
@@ -29029,7 +29044,7 @@ ModifyVpnConnectionAttributeResponse Client::modifyVpnConnectionAttribute(const 
 }
 
 /**
- * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+ * @summary Modifies the name and description of a VPN gateway.
  *
  * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
  *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -29101,7 +29116,7 @@ ModifyVpnGatewayAttributeResponse Client::modifyVpnGatewayAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+ * @summary Modifies the name and description of a VPN gateway.
  *
  * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
  *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
@@ -30483,6 +30498,10 @@ RemoveCommonBandwidthPackageIpResponse Client::removeCommonBandwidthPackageIpWit
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpInstanceId()) {
