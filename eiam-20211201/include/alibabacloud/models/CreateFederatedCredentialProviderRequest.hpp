@@ -14,6 +14,7 @@ namespace Models
   class CreateFederatedCredentialProviderRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateFederatedCredentialProviderRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CloudIdPProviderConfig, cloudIdPProviderConfig_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(FederatedCredentialProviderName, federatedCredentialProviderName_);
       DARABONBA_PTR_TO_JSON(FederatedCredentialProviderType, federatedCredentialProviderType_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PrivateCaProviderConfig, privateCaProviderConfig_);
     };
     friend void from_json(const Darabonba::Json& j, CreateFederatedCredentialProviderRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloudIdPProviderConfig, cloudIdPProviderConfig_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FederatedCredentialProviderName, federatedCredentialProviderName_);
       DARABONBA_PTR_FROM_JSON(FederatedCredentialProviderType, federatedCredentialProviderType_);
@@ -344,9 +346,49 @@ namespace Models
       shared_ptr<string> trustCondition_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->federatedCredentialProviderName_ == nullptr && this->federatedCredentialProviderType_ == nullptr && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->oidcProviderConfig_ == nullptr
-        && this->pkcs7ProviderConfig_ == nullptr && this->privateCaProviderConfig_ == nullptr; };
+    class CloudIdPProviderConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CloudIdPProviderConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(IdentityProviderId, identityProviderId_);
+      };
+      friend void from_json(const Darabonba::Json& j, CloudIdPProviderConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(IdentityProviderId, identityProviderId_);
+      };
+      CloudIdPProviderConfig() = default ;
+      CloudIdPProviderConfig(const CloudIdPProviderConfig &) = default ;
+      CloudIdPProviderConfig(CloudIdPProviderConfig &&) = default ;
+      CloudIdPProviderConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CloudIdPProviderConfig() = default ;
+      CloudIdPProviderConfig& operator=(const CloudIdPProviderConfig &) = default ;
+      CloudIdPProviderConfig& operator=(CloudIdPProviderConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->identityProviderId_ == nullptr; };
+      // identityProviderId Field Functions 
+      bool hasIdentityProviderId() const { return this->identityProviderId_ != nullptr;};
+      void deleteIdentityProviderId() { this->identityProviderId_ = nullptr;};
+      inline string getIdentityProviderId() const { DARABONBA_PTR_GET_DEFAULT(identityProviderId_, "") };
+      inline CloudIdPProviderConfig& setIdentityProviderId(string identityProviderId) { DARABONBA_PTR_SET_VALUE(identityProviderId_, identityProviderId) };
+
+
+    protected:
+      shared_ptr<string> identityProviderId_ {};
+    };
+
+    virtual bool empty() const override { return this->cloudIdPProviderConfig_ == nullptr
+        && this->description_ == nullptr && this->federatedCredentialProviderName_ == nullptr && this->federatedCredentialProviderType_ == nullptr && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr
+        && this->oidcProviderConfig_ == nullptr && this->pkcs7ProviderConfig_ == nullptr && this->privateCaProviderConfig_ == nullptr; };
+    // cloudIdPProviderConfig Field Functions 
+    bool hasCloudIdPProviderConfig() const { return this->cloudIdPProviderConfig_ != nullptr;};
+    void deleteCloudIdPProviderConfig() { this->cloudIdPProviderConfig_ = nullptr;};
+    inline const CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig & getCloudIdPProviderConfig() const { DARABONBA_PTR_GET_CONST(cloudIdPProviderConfig_, CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig) };
+    inline CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig getCloudIdPProviderConfig() { DARABONBA_PTR_GET(cloudIdPProviderConfig_, CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig) };
+    inline CreateFederatedCredentialProviderRequest& setCloudIdPProviderConfig(const CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig & cloudIdPProviderConfig) { DARABONBA_PTR_SET_VALUE(cloudIdPProviderConfig_, cloudIdPProviderConfig) };
+    inline CreateFederatedCredentialProviderRequest& setCloudIdPProviderConfig(CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig && cloudIdPProviderConfig) { DARABONBA_PTR_SET_RVALUE(cloudIdPProviderConfig_, cloudIdPProviderConfig) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -410,6 +452,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
     // 联邦凭证提供方描述
     shared_ptr<string> description_ {};
     // 联邦凭证提供方名称

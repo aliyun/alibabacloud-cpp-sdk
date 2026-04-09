@@ -1857,6 +1857,10 @@ CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredent
     query["CredentialScenarioLabel"] = request.getCredentialScenarioLabel();
   }
 
+  if (!!request.hasCredentialSharingScope()) {
+    query["CredentialSharingScope"] = request.getCredentialSharingScope();
+  }
+
   if (!!request.hasCredentialSubjectId()) {
     query["CredentialSubjectId"] = request.getCredentialSubjectId();
   }
@@ -1871,6 +1875,10 @@ CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredent
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExclusiveUserId()) {
+    query["ExclusiveUserId"] = request.getExclusiveUserId();
   }
 
   if (!!request.hasInstanceId()) {
@@ -2233,6 +2241,10 @@ CreateDomainProxyTokenResponse Client::createDomainProxyToken(const CreateDomain
 CreateFederatedCredentialProviderResponse Client::createFederatedCredentialProviderWithOptions(const CreateFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudIdPProviderConfig()) {
+    query["CloudIdPProviderConfig"] = request.getCloudIdPProviderConfig();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }
@@ -11261,6 +11273,10 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
     query["CredentialIds"] = request.getCredentialIds();
   }
 
+  if (!!request.hasCredentialSharingScopes()) {
+    query["CredentialSharingScopes"] = request.getCredentialSharingScopes();
+  }
+
   if (!!request.hasCredentialTypes()) {
     query["CredentialTypes"] = request.getCredentialTypes();
   }
@@ -11570,7 +11586,6 @@ ListEiamInstancesResponse Client::listEiamInstances(const ListEiamInstancesReque
 /**
  * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
  *
- * @param request ListEiamRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListEiamRegionsResponse
  */
@@ -12175,7 +12190,6 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 /**
  * @summary Get a list of regions that support network access endpoints.
  *
- * @param request ListNetworkAccessEndpointAvailableRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListNetworkAccessEndpointAvailableRegionsResponse
  */
@@ -12656,7 +12670,6 @@ ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnits
 /**
  * @summary Queries a list of supported Alibaba Cloud regions.
  *
- * @param request ListRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionsResponse
  */

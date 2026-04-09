@@ -3900,7 +3900,6 @@ namespace Eiam20211201
       /**
        * @summary Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
        *
-       * @param request ListEiamRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListEiamRegionsResponse
        */
@@ -4086,7 +4085,6 @@ namespace Eiam20211201
       /**
        * @summary Get a list of regions that support network access endpoints.
        *
-       * @param request ListNetworkAccessEndpointAvailableRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListNetworkAccessEndpointAvailableRegionsResponse
        */
@@ -4238,7 +4236,6 @@ namespace Eiam20211201
       /**
        * @summary Queries a list of supported Alibaba Cloud regions.
        *
-       * @param request ListRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRegionsResponse
        */

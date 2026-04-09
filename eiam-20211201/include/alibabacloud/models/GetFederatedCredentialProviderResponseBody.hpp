@@ -35,6 +35,7 @@ namespace Models
     class FederatedCredentialProvider : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const FederatedCredentialProvider& obj) { 
+        DARABONBA_PTR_TO_JSON(CloudIdPProviderConfig, cloudIdPProviderConfig_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(FederatedCredentialProviderId, federatedCredentialProviderId_);
@@ -49,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, FederatedCredentialProvider& obj) { 
+        DARABONBA_PTR_FROM_JSON(CloudIdPProviderConfig, cloudIdPProviderConfig_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(FederatedCredentialProviderId, federatedCredentialProviderId_);
@@ -534,10 +536,50 @@ namespace Models
         shared_ptr<string> trustCondition_ {};
       };
 
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->federatedCredentialProviderId_ == nullptr && this->federatedCredentialProviderName_ == nullptr && this->federatedCredentialProviderType_ == nullptr && this->instanceId_ == nullptr
-        && this->networkAccessEndpointId_ == nullptr && this->oidcProviderConfig_ == nullptr && this->pkcs7ProviderConfig_ == nullptr && this->privateCaProviderConfig_ == nullptr && this->status_ == nullptr
-        && this->updateTime_ == nullptr; };
+      class CloudIdPProviderConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CloudIdPProviderConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(IdentityProviderId, identityProviderId_);
+        };
+        friend void from_json(const Darabonba::Json& j, CloudIdPProviderConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(IdentityProviderId, identityProviderId_);
+        };
+        CloudIdPProviderConfig() = default ;
+        CloudIdPProviderConfig(const CloudIdPProviderConfig &) = default ;
+        CloudIdPProviderConfig(CloudIdPProviderConfig &&) = default ;
+        CloudIdPProviderConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CloudIdPProviderConfig() = default ;
+        CloudIdPProviderConfig& operator=(const CloudIdPProviderConfig &) = default ;
+        CloudIdPProviderConfig& operator=(CloudIdPProviderConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->identityProviderId_ == nullptr; };
+        // identityProviderId Field Functions 
+        bool hasIdentityProviderId() const { return this->identityProviderId_ != nullptr;};
+        void deleteIdentityProviderId() { this->identityProviderId_ = nullptr;};
+        inline string getIdentityProviderId() const { DARABONBA_PTR_GET_DEFAULT(identityProviderId_, "") };
+        inline CloudIdPProviderConfig& setIdentityProviderId(string identityProviderId) { DARABONBA_PTR_SET_VALUE(identityProviderId_, identityProviderId) };
+
+
+      protected:
+        shared_ptr<string> identityProviderId_ {};
+      };
+
+      virtual bool empty() const override { return this->cloudIdPProviderConfig_ == nullptr
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->federatedCredentialProviderId_ == nullptr && this->federatedCredentialProviderName_ == nullptr && this->federatedCredentialProviderType_ == nullptr
+        && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->oidcProviderConfig_ == nullptr && this->pkcs7ProviderConfig_ == nullptr && this->privateCaProviderConfig_ == nullptr
+        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+      // cloudIdPProviderConfig Field Functions 
+      bool hasCloudIdPProviderConfig() const { return this->cloudIdPProviderConfig_ != nullptr;};
+      void deleteCloudIdPProviderConfig() { this->cloudIdPProviderConfig_ = nullptr;};
+      inline const FederatedCredentialProvider::CloudIdPProviderConfig & getCloudIdPProviderConfig() const { DARABONBA_PTR_GET_CONST(cloudIdPProviderConfig_, FederatedCredentialProvider::CloudIdPProviderConfig) };
+      inline FederatedCredentialProvider::CloudIdPProviderConfig getCloudIdPProviderConfig() { DARABONBA_PTR_GET(cloudIdPProviderConfig_, FederatedCredentialProvider::CloudIdPProviderConfig) };
+      inline FederatedCredentialProvider& setCloudIdPProviderConfig(const FederatedCredentialProvider::CloudIdPProviderConfig & cloudIdPProviderConfig) { DARABONBA_PTR_SET_VALUE(cloudIdPProviderConfig_, cloudIdPProviderConfig) };
+      inline FederatedCredentialProvider& setCloudIdPProviderConfig(FederatedCredentialProvider::CloudIdPProviderConfig && cloudIdPProviderConfig) { DARABONBA_PTR_SET_RVALUE(cloudIdPProviderConfig_, cloudIdPProviderConfig) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -629,6 +671,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<FederatedCredentialProvider::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
       // 创建时间
       shared_ptr<int64_t> createTime_ {};
       // 描述
