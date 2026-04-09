@@ -2392,7 +2392,6 @@ namespace ICE20201109
       /**
        * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
        *
-       * @param request GenerateKMSDataKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateKMSDataKeyResponse
        */
@@ -2604,7 +2603,6 @@ namespace ICE20201109
       /**
        * @summary 获取内容分析搜索配置
        *
-       * @param request GetContentAnalyzeConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetContentAnalyzeConfigResponse
        */
@@ -2729,7 +2727,6 @@ namespace ICE20201109
       /**
        * @summary 获取用户默认存储地址
        *
-       * @param request GetDefaultStorageLocationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDefaultStorageLocationResponse
        */
@@ -2813,7 +2810,6 @@ namespace ICE20201109
       /**
        * @summary Queries event callback configurations.
        *
-       * @param request GetEventCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetEventCallbackResponse
        */
@@ -3072,7 +3068,6 @@ namespace ICE20201109
       /**
        * @summary Retrieves all regions where MediaConnect is available.
        *
-       * @param request GetMediaConnectAvailableRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMediaConnectAvailableRegionResponse
        */
@@ -6157,6 +6152,23 @@ namespace ICE20201109
        * @return StopRtcRobotInstanceResponse
        */
       Models::StopRtcRobotInstanceResponse stopRtcRobotInstance(const Models::StopRtcRobotInstanceRequest &request);
+
+      /**
+       * @summary 扣减用户积分
+       *
+       * @param request SubYikeUserCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubYikeUserCreditResponse
+       */
+      Models::SubYikeUserCreditResponse subYikeUserCreditWithOptions(const Models::SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 扣减用户积分
+       *
+       * @param request SubYikeUserCreditRequest
+       * @return SubYikeUserCreditResponse
+       */
+      Models::SubYikeUserCreditResponse subYikeUserCredit(const Models::SubYikeUserCreditRequest &request);
 
       /**
        * @summary Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.

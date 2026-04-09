@@ -6768,7 +6768,6 @@ GenerateAIAgentCallResponse Client::generateAIAgentCall(const GenerateAIAgentCal
 /**
  * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
  *
- * @param request GenerateKMSDataKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateKMSDataKeyResponse
  */
@@ -7315,7 +7314,6 @@ GetChannelResponse Client::getChannel(const GetChannelRequest &request) {
 /**
  * @summary 获取内容分析搜索配置
  *
- * @param request GetContentAnalyzeConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetContentAnalyzeConfigResponse
  */
@@ -7540,7 +7538,6 @@ GetCustomizedVoiceJobResponse Client::getCustomizedVoiceJob(const GetCustomizedV
 /**
  * @summary 获取用户默认存储地址
  *
- * @param request GetDefaultStorageLocationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDefaultStorageLocationResponse
  */
@@ -7745,7 +7742,6 @@ GetEditingProjectMaterialsResponse Client::getEditingProjectMaterials(const GetE
 /**
  * @summary Queries event callback configurations.
  *
- * @param request GetEventCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetEventCallbackResponse
  */
@@ -8374,7 +8370,6 @@ GetLiveTranscodeTemplateResponse Client::getLiveTranscodeTemplate(const GetLiveT
 /**
  * @summary Retrieves all regions where MediaConnect is available.
  *
- * @param request GetMediaConnectAvailableRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMediaConnectAvailableRegionResponse
  */
@@ -17494,6 +17489,52 @@ StopRtcRobotInstanceResponse Client::stopRtcRobotInstanceWithOptions(const StopR
 StopRtcRobotInstanceResponse Client::stopRtcRobotInstance(const StopRtcRobotInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopRtcRobotInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 扣减用户积分
+ *
+ * @param request SubYikeUserCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubYikeUserCreditResponse
+ */
+SubYikeUserCreditResponse Client::subYikeUserCreditWithOptions(const SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredit()) {
+    query["Credit"] = request.getCredit();
+  }
+
+  if (!!request.hasYikeUserId()) {
+    query["YikeUserId"] = request.getYikeUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubYikeUserCredit"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubYikeUserCreditResponse>();
+}
+
+/**
+ * @summary 扣减用户积分
+ *
+ * @param request SubYikeUserCreditRequest
+ * @return SubYikeUserCreditResponse
+ */
+SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return subYikeUserCreditWithOptions(request, runtime);
 }
 
 /**

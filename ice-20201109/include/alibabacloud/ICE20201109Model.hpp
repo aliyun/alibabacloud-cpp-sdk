@@ -1017,6 +1017,9 @@
 #include <alibabacloud/models/StopRtcRobotInstanceRequest.hpp>
 #include <alibabacloud/models/StopRtcRobotInstanceResponseBody.hpp>
 #include <alibabacloud/models/StopRtcRobotInstanceResponse.hpp>
+#include <alibabacloud/models/SubYikeUserCreditRequest.hpp>
+#include <alibabacloud/models/SubYikeUserCreditResponseBody.hpp>
+#include <alibabacloud/models/SubYikeUserCreditResponse.hpp>
 #include <alibabacloud/models/SubmitAIAgentVideoAuditTaskRequest.hpp>
 #include <alibabacloud/models/SubmitAIAgentVideoAuditTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitAIAgentVideoAuditTaskResponseBody.hpp>
