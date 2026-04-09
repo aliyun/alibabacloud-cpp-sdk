@@ -56,6 +56,7 @@
 #include <alibabacloud/models/GenDocQaResultRequest.hpp>
 #include <alibabacloud/models/GenDocQaResultResponseBody.hpp>
 #include <alibabacloud/models/GenDocQaResultResponse.hpp>
+#include <alibabacloud/models/GetAppConfigRequest.hpp>
 #include <alibabacloud/models/GetAppConfigResponseBody.hpp>
 #include <alibabacloud/models/GetAppConfigResponse.hpp>
 #include <alibabacloud/models/GetChatQuestionRespRequest.hpp>

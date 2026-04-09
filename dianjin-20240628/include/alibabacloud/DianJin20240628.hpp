@@ -330,18 +330,20 @@ namespace DianJin20240628
       /**
        * @summary 获取app配置
        *
+       * @param request GetAppConfigRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAppConfigResponse
        */
-      Models::GetAppConfigResponse getAppConfigWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetAppConfigResponse getAppConfigWithOptions(const string &workspaceId, const Models::GetAppConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取app配置
        *
+       * @param request GetAppConfigRequest
        * @return GetAppConfigResponse
        */
-      Models::GetAppConfigResponse getAppConfig(const string &workspaceId);
+      Models::GetAppConfigResponse getAppConfig(const string &workspaceId, const Models::GetAppConfigRequest &request);
 
       /**
        * @summary 获取问答结果
