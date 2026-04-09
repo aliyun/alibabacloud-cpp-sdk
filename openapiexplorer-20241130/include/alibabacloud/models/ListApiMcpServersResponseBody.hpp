@@ -155,13 +155,9 @@ namespace Models
 
 
       protected:
-        // The connection information for the streamable HTTP protocol. This protocol is recommended.
         shared_ptr<string> mcp_ {};
-        // The connection information for the Server-Sent Events (SSE) protocol.
         shared_ptr<string> sse_ {};
-        // The endpoint for the streamable HTTP protocol in a VPC.
         shared_ptr<string> vpcMcp_ {};
-        // The endpoint for the SSE protocol in a VPC.
         shared_ptr<string> vpcSse_ {};
       };
 
@@ -230,21 +226,10 @@ namespace Models
 
 
       protected:
-        // Specifies whether to execute tasks asynchronously. If this parameter is set to true, the system immediately proceeds to the next task after a task is initiated, without waiting for each resource operation to complete.
         shared_ptr<bool> async_ {};
-        // The code for the Terraform tool. For more information, see [HCL language overview](https://www.alibabacloud.com/help/en/terraform/terraform-configuration-and-hcl-language-overview).
         shared_ptr<string> code_ {};
-        // The description of the Terraform tool.
         shared_ptr<string> description_ {};
-        // The deletion policy. After a task is executed, the system applies one of the following cleanup policies to temporary resources based on the task execution status.
-        // 
-        // - NEVER: Does not delete any created resources, regardless of whether the task succeeds or fails.
-        // 
-        // - ALWAYS: Immediately destroys all related resources after execution, regardless of whether the task succeeds or fails.
-        // 
-        // - ON_FAILURE: Deletes related resources only if the task fails. If the task succeeds, the resources are retained.
         shared_ptr<string> destroyPolicy_ {};
-        // The name of the Terraform tool.
         shared_ptr<string> name_ {};
       };
 
@@ -286,13 +271,7 @@ namespace Models
 
 
       protected:
-        // The name of the system MCP service.
         shared_ptr<string> name_ {};
-        // The product code.
-        // 
-        // - Call the GetRequestLog operation and obtain the product code from the response.
-        // 
-        // - Find the product code from the URL of the OpenAPI Portal. For example, the URL for the OpenAPI Portal of Short Message Service is https\\://api.alibabacloud.com/product/Dysmsapi. The product code is Dysmsapi.
         shared_ptr<string> product_ {};
       };
 
@@ -368,11 +347,8 @@ namespace Models
 
 
         protected:
-          // The description of the parameter.
           shared_ptr<string> description_ {};
-          // The parameter name.
           shared_ptr<string> name_ {};
-          // Specifies whether the parameter is required.
           shared_ptr<bool> required_ {};
         };
 
@@ -409,13 +385,9 @@ namespace Models
 
 
       protected:
-        // A list of parameters that the prompt supports.
         shared_ptr<vector<Prompts::Arguments>> arguments_ {};
-        // The content of the prompt. Variables are specified in the \\`{{xxx}}\\` format. \\`xxx\\` is a variable that must be defined in the \\`arguments\\` parameter.
         shared_ptr<string> content_ {};
-        // The description of the prompt.
         shared_ptr<string> description_ {};
-        // The name of the prompt.
         shared_ptr<string> name_ {};
       };
 
@@ -468,15 +440,8 @@ namespace Models
 
 
       protected:
-        // The POP version of the API that is exposed to the MCP server.
         shared_ptr<string> apiVersion_ {};
-        // The product code.
-        // 
-        // - Call the GetRequestLog operation and obtain the product code from the response.
-        // 
-        // - Find the product code from the URL of the OpenAPI Portal. For example, the URL for the OpenAPI Portal of Short Message Service is https\\://api.alibabacloud.com/product/Dysmsapi. The product code is Dysmsapi.
         shared_ptr<string> product_ {};
-        // A list of API name matching rules.
         shared_ptr<vector<string>> selectors_ {};
       };
 
@@ -551,9 +516,7 @@ namespace Models
 
 
         protected:
-          // The parameter name. Only top-level parameter names are supported. For ROA-style APIs, you can specify parameters such as \\`body.xx\\`. You cannot set values for nested parameters.
           shared_ptr<string> key_ {};
-          // The value of the parameter.
           Darabonba::Json value_ {};
         };
 
@@ -612,23 +575,12 @@ namespace Models
 
 
       protected:
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The API metadata in JSON format, which can be used to overwrite the \\`summary\\` and \\`parameters\\` fields. For an example of the format, see https\\://api.alibabacloud.com/meta/v1/products/Ecs/versions/2014-05-26/apis/DescribeInstances/api.json.
         shared_ptr<string> apiOverrideJson_ {};
-        // The POP version of the API that is exposed to the MCP server.
         shared_ptr<string> apiVersion_ {};
-        // A list of constant input parameters. These parameters are not included in the output during API parameter parsing.
         shared_ptr<vector<AdditionalApiDescriptions::ConstParameters>> constParameters_ {};
-        // Specifies whether to return the schema of the response parameters. Returning the schema increases the size of the API MCP server. The default value is null, which means the schema is not returned.
         shared_ptr<bool> enableOutputSchema_ {};
-        // Specifies whether to return the command-line interface (CLI) command for execution. In this mode, the API call is not executed. Instead, the corresponding CLI command is returned. This mode is suitable for long-running tasks executed using the Alibaba Cloud CLI.
         shared_ptr<bool> executeCliCommand_ {};
-        // The product code.
-        // 
-        // - Call the GetRequestLog operation and obtain the product code from the response.
-        // 
-        // - Find the product code from the URL of the OpenAPI Portal. For example, the URL for the OpenAPI Portal of Short Message Service is https\\://api.alibabacloud.com/product/Dysmsapi. The product code is Dysmsapi.
         shared_ptr<string> product_ {};
       };
 
@@ -809,55 +761,27 @@ namespace Models
 
 
     protected:
-      // A list of supplementary API descriptions.
       shared_ptr<vector<ApiMcpServers::AdditionalApiDescriptions>> additionalApiDescriptions_ {};
-      // A list of API information.
       shared_ptr<vector<ApiMcpServers::Apis>> apis_ {};
-      // The extra policy for role assumption when multi-account access is enabled. If this policy is specified, the permissions for the role assumption are based on this policy and overwrite the permissions that are defined for the role.
       shared_ptr<string> assumeRoleExtraPolicy_ {};
-      // The name of the RAM role in the destination account that is assumed for cross-account operations when multi-account access is enabled.
       shared_ptr<string> assumeRoleName_ {};
-      // The time when the API MCP server was created.
       shared_ptr<string> createTime_ {};
-      // The description of the API MCP server.
       shared_ptr<string> description_ {};
-      // Specifies whether to enable multi-account access.
       shared_ptr<bool> enableAssumeRole_ {};
-      // Specifies whether to enable a custom VPC whitelist. If this parameter is disabled, the account-level configuration is used.
       shared_ptr<bool> enableCustomVpcWhitelist_ {};
-      // The ID of the API MCP service.
       shared_ptr<string> id_ {};
-      // The MCP instruction. It prompts the large language model on how to use the MCP. The client must support the \\`Instructions\\` field of the standard MCP protocol.
       shared_ptr<string> instructions_ {};
-      // The language of the API reference for the API MCP service. You can select Chinese or English. The language of the prompt can affect the response from the AI.
       shared_ptr<string> language_ {};
-      // The name of the MCP server. The name must be 3 to 64 characters in length. It can contain lowercase letters and digits, and cannot start with a digit. The name must be unique within the same Alibaba Cloud account.
       shared_ptr<string> name_ {};
-      // The custom OAuth client ID that is used for a custom OAuth configuration.
-      // 
-      // ``Only web and native applications are supported. The OAuth scope must include `/acs/mcp-server`.``
       shared_ptr<string> oauthClientId_ {};
-      // A list of prompt configurations.
       shared_ptr<vector<ApiMcpServers::Prompts>> prompts_ {};
-      // Specifies whether to enable access over the Internet.
       shared_ptr<string> publicAccess_ {};
-      // The type of the API MCP service.
-      // 
-      // - custom: a custom service
-      // 
-      // - system: a system service
       shared_ptr<string> sourceType_ {};
-      // A list of system MCP services.
       shared_ptr<ApiMcpServers::SystemMcpServerInfo> systemMcpServerInfo_ {};
-      // A list of system tools.
       shared_ptr<vector<string>> systemTools_ {};
-      // A list of Terraform tools.
       shared_ptr<vector<ApiMcpServers::TerraformTools>> terraformTools_ {};
-      // The time when the API MCP server was last updated.
       shared_ptr<string> updateTime_ {};
-      // The connection information for the API MCP service.
       shared_ptr<ApiMcpServers::Urls> urls_ {};
-      // The VPC whitelist that specifies the allowed source VPCs after Internet access is disabled. If this parameter is not set or is left empty, the source is not restricted.
       shared_ptr<vector<string>> vpcWhitelists_ {};
     };
 
@@ -901,17 +825,10 @@ namespace Models
 
 
   protected:
-    // The list of queried API MCP servers.
     shared_ptr<vector<ListApiMcpServersResponseBody::ApiMcpServers>> apiMcpServers_ {};
-    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The paging cursor.
-    // 
-    // > If this parameter is not empty, more data is available.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -87,17 +87,11 @@ namespace Models
 
 
   protected:
-    // The ID of your Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // Specifies whether to enable public network access for all API MCP Servers, including system MCP Servers, under your account. By default, this feature is enabled. If you disable it, you can access the servers only through VPC domain names.
     shared_ptr<bool> enablePublicAccess_ {};
-    // The time when the configuration was created.
     shared_ptr<string> gmtCreate_ {};
-    // The time when the configuration was last updated.
     shared_ptr<string> gmtModified_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The whitelist of source VPCs that are allowed to send requests after public network access is disabled. If you do not set this parameter or leave it empty, requests from all sources are allowed.
     shared_ptr<vector<string>> vpcWhitelists_ {};
   };
 

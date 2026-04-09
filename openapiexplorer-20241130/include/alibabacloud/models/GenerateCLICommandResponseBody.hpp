@@ -57,9 +57,7 @@ namespace Models
 
 
   protected:
-    // CLI command.
     shared_ptr<string> cli_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> unifiedCli_ {};
   };

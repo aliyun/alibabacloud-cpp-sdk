@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable public network access for all API MCP Servers in your account, including the system MCP Server. By default, public network access is enabled. If you disable it, you can only access the servers through their VPC domain names.
     shared_ptr<bool> enablePublicAccess_ {};
-    // The VPC whitelist. After disabling public network access, use this parameter to specify allowed source VPCs. If you do not set this parameter or leave it empty, all source VPCs are allowed.
     shared_ptr<vector<string>> vpcWhitelists_ {};
   };
 

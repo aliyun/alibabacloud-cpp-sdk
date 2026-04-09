@@ -57,13 +57,8 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to start the next query. Set this parameter to the NextToken value returned by the last API call.
-    // 
-    // > Do not specify this parameter for the first query. If a query does not return all results, pass the NextToken value from the previous response to the next query to continue.
     shared_ptr<string> nextToken_ {};
-    // The number of entries to skip.
     shared_ptr<int32_t> skip_ {};
   };
 

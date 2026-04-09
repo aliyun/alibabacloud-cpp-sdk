@@ -41,6 +41,9 @@
 #include <alibabacloud/models/ListApiMcpServersRequest.hpp>
 #include <alibabacloud/models/ListApiMcpServersResponseBody.hpp>
 #include <alibabacloud/models/ListApiMcpServersResponse.hpp>
+#include <alibabacloud/models/ListProductsRequest.hpp>
+#include <alibabacloud/models/ListProductsResponseBody.hpp>
+#include <alibabacloud/models/ListProductsResponse.hpp>
 #include <alibabacloud/models/UpdateApiMcpServerRequest.hpp>
 #include <alibabacloud/models/UpdateApiMcpServerResponseBody.hpp>
 #include <alibabacloud/models/UpdateApiMcpServerResponse.hpp>

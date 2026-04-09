@@ -40,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
+ * @summary 验证 Terraform HCL 语法
  *
  * @param request ApiMcpServerValidateHclRequest
  * @param headers map
@@ -73,7 +73,7 @@ ApiMcpServerValidateHclResponse Client::apiMcpServerValidateHclWithOptions(const
 }
 
 /**
- * @summary Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
+ * @summary 验证 Terraform HCL 语法
  *
  * @param request ApiMcpServerValidateHclRequest
  * @return ApiMcpServerValidateHclResponse
@@ -85,7 +85,7 @@ ApiMcpServerValidateHclResponse Client::apiMcpServerValidateHcl(const ApiMcpServ
 }
 
 /**
- * @summary Creates an API MCP service.
+ * @summary 创建ApiMcpServer
  *
  * @param request CreateApiMcpServerRequest
  * @param headers map
@@ -182,7 +182,7 @@ CreateApiMcpServerResponse Client::createApiMcpServerWithOptions(const CreateApi
 }
 
 /**
- * @summary Creates an API MCP service.
+ * @summary 创建ApiMcpServer
  *
  * @param request CreateApiMcpServerRequest
  * @return CreateApiMcpServerResponse
@@ -194,7 +194,7 @@ CreateApiMcpServerResponse Client::createApiMcpServer(const CreateApiMcpServerRe
 }
 
 /**
- * @summary Deletes an API MCP service.
+ * @summary 删除ApiMcpServer
  *
  * @param request DeleteApiMcpServerRequest
  * @param headers map
@@ -231,7 +231,7 @@ DeleteApiMcpServerResponse Client::deleteApiMcpServerWithOptions(const DeleteApi
 }
 
 /**
- * @summary Deletes an API MCP service.
+ * @summary 删除ApiMcpServer
  *
  * @param request DeleteApiMcpServerRequest
  * @return DeleteApiMcpServerResponse
@@ -243,7 +243,7 @@ DeleteApiMcpServerResponse Client::deleteApiMcpServer(const DeleteApiMcpServerRe
 }
 
 /**
- * @summary Generates an Alibaba Cloud CLI command dynamically.
+ * @summary 动态生成Aliyun CLI命令
  *
  * @param tmpReq GenerateCLICommandRequest
  * @param headers map
@@ -306,7 +306,7 @@ GenerateCLICommandResponse Client::generateCLICommandWithOptions(const GenerateC
 }
 
 /**
- * @summary Generates an Alibaba Cloud CLI command dynamically.
+ * @summary 动态生成Aliyun CLI命令
  *
  * @param request GenerateCLICommandRequest
  * @return GenerateCLICommandResponse
@@ -318,7 +318,7 @@ GenerateCLICommandResponse Client::generateCLICommand(const GenerateCLICommandRe
 }
 
 /**
- * @summary Retrieves the OpenAPI metadata for an API in a product.
+ * @summary 获取产品相关接口的开放元数据
  *
  * @param request GetApiDefinitionRequest
  * @param headers map
@@ -359,7 +359,7 @@ GetApiDefinitionResponse Client::getApiDefinitionWithOptions(const GetApiDefinit
 }
 
 /**
- * @summary Retrieves the OpenAPI metadata for an API in a product.
+ * @summary 获取产品相关接口的开放元数据
  *
  * @param request GetApiDefinitionRequest
  * @return GetApiDefinitionResponse
@@ -371,7 +371,7 @@ GetApiDefinitionResponse Client::getApiDefinition(const GetApiDefinitionRequest 
 }
 
 /**
- * @summary Retrieves the details of a specific API MCP service.
+ * @summary 查询 ApiMcpServer
  *
  * @param request GetApiMcpServerRequest
  * @param headers map
@@ -404,7 +404,7 @@ GetApiMcpServerResponse Client::getApiMcpServerWithOptions(const GetApiMcpServer
 }
 
 /**
- * @summary Retrieves the details of a specific API MCP service.
+ * @summary 查询 ApiMcpServer
  *
  * @param request GetApiMcpServerRequest
  * @return GetApiMcpServerResponse
@@ -416,7 +416,7 @@ GetApiMcpServerResponse Client::getApiMcpServer(const GetApiMcpServerRequest &re
 }
 
 /**
- * @summary Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
+ * @summary 查询用户全局API MCP Server配置
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -441,7 +441,7 @@ GetApiMcpServerUserConfigResponse Client::getApiMcpServerUserConfigWithOptions(c
 }
 
 /**
- * @summary Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
+ * @summary 查询用户全局API MCP Server配置
  *
  * @return GetApiMcpServerUserConfigResponse
  */
@@ -513,9 +513,9 @@ GetErrorCodeSolutionsResponse Client::getErrorCodeSolutions(const GetErrorCodeSo
 }
 
 /**
- * @summary Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
+ * @summary Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
  *
- * @description This API does not support authorization.
+ * @description Permissions on this API cannot be granted to other members.
  *
  * @param request GetOwnRequestLogRequest
  * @param headers map
@@ -548,9 +548,9 @@ GetOwnRequestLogResponse Client::getOwnRequestLogWithOptions(const GetOwnRequest
 }
 
 /**
- * @summary Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
+ * @summary Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
  *
- * @description This API does not support authorization.
+ * @description Permissions on this API cannot be granted to other members.
  *
  * @param request GetOwnRequestLogRequest
  * @return GetOwnRequestLogResponse
@@ -562,7 +562,7 @@ GetOwnRequestLogResponse Client::getOwnRequestLog(const GetOwnRequestLogRequest 
 }
 
 /**
- * @summary Retrieves the endpoint information for a product.
+ * @summary 获取产品的接入点信息
  *
  * @param request GetProductEndpointsRequest
  * @param headers map
@@ -595,7 +595,7 @@ GetProductEndpointsResponse Client::getProductEndpointsWithOptions(const GetProd
 }
 
 /**
- * @summary Retrieves the endpoint information for a product.
+ * @summary 获取产品的接入点信息
  *
  * @param request GetProductEndpointsRequest
  * @return GetProductEndpointsResponse
@@ -607,9 +607,9 @@ GetProductEndpointsResponse Client::getProductEndpoints(const GetProductEndpoint
 }
 
 /**
- * @summary Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
+ * @summary Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
  *
- * @description You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
+ * @description You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
  *
  * @param request GetRequestLogRequest
  * @param headers map
@@ -642,9 +642,9 @@ GetRequestLogResponse Client::getRequestLogWithOptions(const GetRequestLogReques
 }
 
 /**
- * @summary Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
+ * @summary Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
  *
- * @description You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
+ * @description You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
  *
  * @param request GetRequestLogRequest
  * @return GetRequestLogResponse
@@ -656,7 +656,7 @@ GetRequestLogResponse Client::getRequestLog(const GetRequestLogRequest &request)
 }
 
 /**
- * @summary Retrieves the OpenAPI metadata for a product.
+ * @summary 获取产品的开放元数据
  *
  * @param request ListApiDefinitionsRequest
  * @param headers map
@@ -693,7 +693,7 @@ ListApiDefinitionsResponse Client::listApiDefinitionsWithOptions(const ListApiDe
 }
 
 /**
- * @summary Retrieves the OpenAPI metadata for a product.
+ * @summary 获取产品的开放元数据
  *
  * @param request ListApiDefinitionsRequest
  * @return ListApiDefinitionsResponse
@@ -705,7 +705,7 @@ ListApiDefinitionsResponse Client::listApiDefinitions(const ListApiDefinitionsRe
 }
 
 /**
- * @summary Lists the system tools supported by the MCP service.
+ * @summary 查询系统工具列表
  *
  * @param request ListApiMcpServerSystemToolsRequest
  * @param headers map
@@ -746,7 +746,7 @@ ListApiMcpServerSystemToolsResponse Client::listApiMcpServerSystemToolsWithOptio
 }
 
 /**
- * @summary Lists the system tools supported by the MCP service.
+ * @summary 查询系统工具列表
  *
  * @param request ListApiMcpServerSystemToolsRequest
  * @return ListApiMcpServerSystemToolsResponse
@@ -758,7 +758,7 @@ ListApiMcpServerSystemToolsResponse Client::listApiMcpServerSystemTools(const Li
 }
 
 /**
- * @summary This operation queries a list of all API MCP servers in an Alibaba Cloud account.
+ * @summary 列出资源ApiMcpServer
  *
  * @param request ListApiMcpServersRequest
  * @param headers map
@@ -827,7 +827,7 @@ ListApiMcpServersResponse Client::listApiMcpServersWithOptions(const ListApiMcpS
 }
 
 /**
- * @summary This operation queries a list of all API MCP servers in an Alibaba Cloud account.
+ * @summary 列出资源ApiMcpServer
  *
  * @param request ListApiMcpServersRequest
  * @return ListApiMcpServersResponse
@@ -839,7 +839,52 @@ ListApiMcpServersResponse Client::listApiMcpServers(const ListApiMcpServersReque
 }
 
 /**
- * @summary Updates an API MCP service.
+ * @summary 列举云产品
+ *
+ * @param request ListProductsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProductsResponse
+ */
+ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["filter"] = request.getFilter();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProducts"},
+    {"version" , "2024-11-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/listProducts")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProductsResponse>();
+}
+
+/**
+ * @summary 列举云产品
+ *
+ * @param request ListProductsRequest
+ * @return ListProductsResponse
+ */
+ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listProductsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新UpdateApiMcpServer
  *
  * @param request UpdateApiMcpServerRequest
  * @param headers map
@@ -938,7 +983,7 @@ UpdateApiMcpServerResponse Client::updateApiMcpServerWithOptions(const UpdateApi
 }
 
 /**
- * @summary Updates an API MCP service.
+ * @summary 更新UpdateApiMcpServer
  *
  * @param request UpdateApiMcpServerRequest
  * @return UpdateApiMcpServerResponse
@@ -950,7 +995,7 @@ UpdateApiMcpServerResponse Client::updateApiMcpServer(const UpdateApiMcpServerRe
 }
 
 /**
- * @summary Updates the global API MCP Server configuration for a user.
+ * @summary 修改用户全局API MCP Server配置
  *
  * @param request UpdateApiMcpServerUserConfigRequest
  * @param headers map
@@ -987,7 +1032,7 @@ UpdateApiMcpServerUserConfigResponse Client::updateApiMcpServerUserConfigWithOpt
 }
 
 /**
- * @summary Updates the global API MCP Server configuration for a user.
+ * @summary 修改用户全局API MCP Server配置
  *
  * @param request UpdateApiMcpServerUserConfigRequest
  * @return UpdateApiMcpServerUserConfigResponse

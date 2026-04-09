@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The request ID of the log to query. The ID is the unique identifier (UUID) of an API request and must be in uppercase.
+    // The request ID returned by the API for which you want to query the log. The value is the universally unique identifiers (UUID) of the API request and must be uppercase.
     // 
     // This parameter is required.
     shared_ptr<string> logRequestId_ {};

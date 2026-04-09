@@ -103,19 +103,12 @@ namespace Models
 
 
   protected:
-    // The diagnostic report of the code.
     Darabonba::Json diagnosticReport_ {};
-    // The list of error messages.
     shared_ptr<vector<string>> errors_ {};
-    // The unique identifier of the Terraform HCL code.
     shared_ptr<string> hash_ {};
-    // Indicates whether the code is valid.
     shared_ptr<bool> isValid_ {};
-    // The list of parameters.
     shared_ptr<vector<Darabonba::Json>> parameters_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of warning messages.
     shared_ptr<vector<string>> warnings_ {};
   };
 

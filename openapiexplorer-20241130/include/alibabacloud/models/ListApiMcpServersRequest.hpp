@@ -121,31 +121,15 @@ namespace Models
 
 
   protected:
-    // The time when the API MCP server was created.
     shared_ptr<string> createTime_ {};
-    // The description of the API MCP service.
     shared_ptr<string> description_ {};
-    // The ID of the API MCP service.
     shared_ptr<string> id_ {};
-    // The search keyword. Supports fuzzy search by API name and exact search by API ID.
     shared_ptr<string> keyword_ {};
-    // The language of the API reference for the API MCP service. The language of the prompt can affect the response from the AI. Valid values: \\`ZH_CN\\`, \\`EN_US\\`.
     shared_ptr<string> language_ {};
-    // The maximum number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query. Set this parameter to the \\`nextToken\\` value that was returned from the previous API call.
-    // 
-    // > This parameter is not required for the first query. If a query does not return all results, pass the \\`nextToken\\` value from the previous query to continue.
     shared_ptr<string> nextToken_ {};
-    // The number of data entries to skip.
     shared_ptr<int32_t> skip_ {};
-    // The type of the API MCP service.
-    // 
-    // - custom: a custom service
-    // 
-    // - system: a system service
     shared_ptr<string> sourceType_ {};
-    // The time when the API MCP server was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

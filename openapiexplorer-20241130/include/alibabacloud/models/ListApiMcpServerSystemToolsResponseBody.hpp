@@ -76,9 +76,7 @@ namespace Models
 
 
     protected:
-      // The description of the system tool.
       shared_ptr<string> description_ {};
-      // The name of the system tool.
       shared_ptr<string> name_ {};
     };
 
@@ -122,17 +120,10 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The NextToken value. Use this value to retrieve more results.
-    // 
-    // > If this parameter is not returned, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of system tools.
     shared_ptr<vector<ListApiMcpServerSystemToolsResponseBody::SystemTools>> systemTools_ {};
-    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

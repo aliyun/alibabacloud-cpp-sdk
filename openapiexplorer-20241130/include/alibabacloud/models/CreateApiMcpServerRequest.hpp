@@ -127,21 +127,10 @@ namespace Models
 
 
     protected:
-      // Specifies whether to execute the task asynchronously. If set to true, the system immediately proceeds to the next task after initiating a task execution, without waiting for each resource operation to complete.
       shared_ptr<bool> async_ {};
-      // The code of the Terraform tool. For more information, see [HCL language overview](https://www.alibabacloud.com/help/en/terraform/terraform-configuration-and-hcl-language-overview).
       shared_ptr<string> code_ {};
-      // The description of the Terraform tool.
       shared_ptr<string> description_ {};
-      // The deletion policy. After a task is executed, the system applies the following cleanup policy to temporary resources based on the task execution status.
-      // 
-      // - NEVER: Does not delete any created resources, regardless of whether the task execution succeeds or fails.
-      // 
-      // - ALWAYS: Immediately destroys all related resources after the task is executed, regardless of whether the execution succeeds or fails.
-      // 
-      // - ON_FAILURE: Deletes related resources only when the task execution fails. If the task execution succeeds, the resources are retained.
       shared_ptr<string> destroyPolicy_ {};
-      // The name of the Terraform tool.
       shared_ptr<string> name_ {};
     };
 
@@ -217,11 +206,8 @@ namespace Models
 
 
       protected:
-        // The description of the parameter.
         shared_ptr<string> description_ {};
-        // The parameter name.
         shared_ptr<string> name_ {};
-        // Specifies whether the parameter is required.
         shared_ptr<bool> required_ {};
       };
 
@@ -258,13 +244,9 @@ namespace Models
 
 
     protected:
-      // The list of parameters supported by the prompt.
       shared_ptr<vector<Prompts::Arguments>> arguments_ {};
-      // The content of the prompt. Variables are specified in the {{xxx}} format. xxx is a variable that must be defined in the arguments parameter.
       shared_ptr<string> content_ {};
-      // The description.
       shared_ptr<string> description_ {};
-      // The prompt name.
       shared_ptr<string> name_ {};
     };
 
@@ -317,20 +299,10 @@ namespace Models
 
 
     protected:
-      // The POP version of the API that is exposed to the MCP server.
-      // 
       // This parameter is required.
       shared_ptr<string> apiVersion_ {};
-      // The product code.
-      // 
-      // - Call the GetRequestLog operation to obtain the product code from the response.
-      // 
-      // - Find the product code from the URL of the product in OpenAPI Portal. For example, the URL of Short Message Service in OpenAPI Portal is https\\://api.alibabacloud.com/product/Dysmsapi. The product code is Dysmsapi.
-      // 
       // This parameter is required.
       shared_ptr<string> product_ {};
-      // The list of API name matching rules. This parameter cannot be empty.
-      // 
       // This parameter is required.
       shared_ptr<vector<string>> selectors_ {};
     };
@@ -406,9 +378,7 @@ namespace Models
 
 
       protected:
-        // The parameter name. Only first-level parameter names are supported. For ROA-style APIs, you can set the parameter to body.xx. You cannot set values that exceed the top-level parameters.
         shared_ptr<string> key_ {};
-        // The value of the parameter.
         Darabonba::Json value_ {};
       };
 
@@ -467,23 +437,12 @@ namespace Models
 
 
     protected:
-      // The API name.
       shared_ptr<string> apiName_ {};
-      // The API metadata in JSON format. For more information about the format, see https\\://api.aliyun.com/meta/v1/products/Ecs/versions/2014-05-26/apis/DescribeInstances/api.json. You can overwrite the summary and parameters.
       shared_ptr<string> apiOverrideJson_ {};
-      // The POP version of the API that is exposed to the MCP server.
       shared_ptr<string> apiVersion_ {};
-      // The list of constant input parameters. These parameters are not included in the output during API parameter parsing.
       shared_ptr<vector<AdditionalApiDescriptions::ConstParameters>> constParameters_ {};
-      // Specifies whether to return the schema of the response parameters. Returning the schema increases the size of the entire API MCP server. The default value is null, which means the schema is not returned.
       shared_ptr<bool> enableOutputSchema_ {};
-      // Specifies whether to return the command-line interface (CLI) command for execution. In this mode, the API call is not executed. Instead, the corresponding CLI command is returned. This is suitable for long-running tasks that need to be executed using Alibaba Cloud CLI.
       shared_ptr<bool> executeCliCommand_ {};
-      // The product code.
-      // 
-      // - Call the GetRequestLog operation to obtain the product code from the response.
-      // 
-      // - Find the product code from the URL of the product in OpenAPI Portal. For example, the URL of Short Message Service in OpenAPI Portal is https\\://api.alibabacloud.com/product/Dysmsapi. The product code is Dysmsapi.
       shared_ptr<string> product_ {};
     };
 
@@ -624,45 +583,24 @@ namespace Models
 
 
   protected:
-    // The list of supplementary API descriptions.
     shared_ptr<vector<CreateApiMcpServerRequest::AdditionalApiDescriptions>> additionalApiDescriptions_ {};
-    // The list of APIs to add. This parameter cannot be empty.
-    // 
     // This parameter is required.
     shared_ptr<vector<CreateApiMcpServerRequest::Apis>> apis_ {};
-    // An additional policy for role assumption when multi-account access is enabled. If this policy exists, the permissions for role assumption are based on this policy, which overwrites the permissions defined for the role itself.
     shared_ptr<string> assumeRoleExtraPolicy_ {};
-    // The name of the RAM role in the destination account that is assumed for cross-account operations when multi-account access is enabled.
     shared_ptr<string> assumeRoleName_ {};
-    // Ensures the idempotence of the request. Generate a parameter value from your client to make sure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. Use a universally unique identifier (UUID). The token expires in three days.
     shared_ptr<string> clientToken_ {};
-    // The description of the API MCP service.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable multi-account access.
     shared_ptr<bool> enableAssumeRole_ {};
-    // Specifies whether to enable a custom VPC whitelist. If not enabled, the account-level configuration is used.
     shared_ptr<bool> enableCustomVpcWhitelist_ {};
-    // The MCP instruction. It prompts the large language model on how to use the MCP. The client must support the Instructions field of the standard MCP protocol.
     shared_ptr<string> instructions_ {};
-    // The language of the API documentation for the API MCP service. You can select Chinese or English API documentation. The prompts in different languages may affect the AI\\"s response.
     shared_ptr<string> language_ {};
-    // The name of the MCP server. The name must be 3 to 64 characters in length and can contain only lowercase letters, digits, underscores (_), and hyphens (-). It cannot start with a digit. The name must be unique within the same Alibaba Cloud account.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The custom OAuth client ID when you select a custom OAuth configuration.
-    // 
-    // `Only web and native applications are supported. The OAuth scope must include /acs/mcp-server.`
     shared_ptr<string> oauthClientId_ {};
-    // The list of prompt configurations.
     shared_ptr<vector<CreateApiMcpServerRequest::Prompts>> prompts_ {};
-    // Specifies whether to enable public network access.
     shared_ptr<string> publicAccess_ {};
-    // The list of system tools.
     shared_ptr<vector<string>> systemTools_ {};
-    // The list of Terraform tools.
     shared_ptr<vector<CreateApiMcpServerRequest::TerraformTools>> terraformTools_ {};
-    // The VPC whitelist that restricts the source of access after public network access is disabled. If you do not set this parameter or leave it empty, the source is not restricted.
     shared_ptr<vector<string>> vpcWhitelists_ {};
   };
 

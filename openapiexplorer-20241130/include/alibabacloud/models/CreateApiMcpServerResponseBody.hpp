@@ -89,13 +89,9 @@ namespace Models
 
 
     protected:
-      // The connection information for the streamable HTTP protocol. This is the recommended protocol.
       shared_ptr<string> mcp_ {};
-      // The connection information for the Server-Sent Events (SSE) protocol.
       shared_ptr<string> sse_ {};
-      // The endpoint of the streamable HTTP protocol in a VPC.
       shared_ptr<string> vpcMcp_ {};
-      // The endpoint of the SSE protocol in a VPC.
       shared_ptr<string> vpcSse_ {};
     };
 
@@ -125,11 +121,8 @@ namespace Models
 
 
   protected:
-    // The ID of the successfully created API MCP service.
     shared_ptr<string> id_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The connection information for the API MCP service.
     shared_ptr<CreateApiMcpServerResponseBody::Urls> urls_ {};
   };
 

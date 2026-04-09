@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The response information.
+        // The response body.
         shared_ptr<string> responseBody_ {};
         // The type of the response body. Valid values: JSON, XML, and HTML.
         shared_ptr<string> responseBodyFormat_ {};
@@ -236,21 +236,19 @@ namespace Models
 
 
       protected:
-        // The ID of the caller\\"s account.
+        // The account ID of the caller.
         shared_ptr<string> callerAccountId_ {};
         // The IP address of the caller.
         shared_ptr<string> callerIp_ {};
-        // The type of the caller.
+        // The type of the caller. Valid values:
         // 
-        // 1. customer: Alibaba Cloud account
-        // 
-        // 2. sub: RAM user
-        // 
-        // 3. AssumedRoleUser: A temporary identity that is created using a Security Token Service (STS) token.
+        // 1.  customer: an Alibaba Cloud account
+        // 2.  sub: a RAM user
+        // 3.  AssumedRoleUser: a user that uses a temporary Security Token Service (STS) token
         shared_ptr<string> callerType_ {};
         // The ID of the Alibaba Cloud account.
         shared_ptr<string> masterAccountId_ {};
-        // The user agent.
+        // The information about the user agent.
         shared_ptr<string> userAgent_ {};
       };
 
@@ -345,9 +343,9 @@ namespace Models
 
 
         protected:
-          // The Chinese name of the product.
+          // The product name in Chinese.
           shared_ptr<string> cnName_ {};
-          // The English name of the product.
+          // The product name in English.
           shared_ptr<string> enName_ {};
         };
 
@@ -389,9 +387,9 @@ namespace Models
 
 
         protected:
-          // The link to the API reference on the Alibaba Cloud International Website (www\\.alibabacloud.com).
+          // The documentation URL on the international site (alibabacloud.com).
           shared_ptr<string> alibabacloudSite_ {};
-          // The link to the API reference on the Alibaba Cloud China Website (www\\.aliyun.com).
+          // The documentation URL on the China site (aliyun.com).
           shared_ptr<string> aliyunSite_ {};
         };
 
@@ -479,19 +477,19 @@ namespace Models
 
 
         protected:
-          // The specific operation that is denied.
+          // The operation that the operator does not have permissions to perform.
           shared_ptr<string> authAction_ {};
           // The identity.
           shared_ptr<string> authPrincipalDisplayName_ {};
-          // The UID of the Alibaba Cloud account to which the current identity belongs.
+          // The ID of the Alibaba Cloud account to which the current identity belongs.
           shared_ptr<string> authPrincipalOwnerId_ {};
           // The identity type of the operator.
           shared_ptr<string> authPrincipalType_ {};
-          // The encoded diagnostic message. To obtain more diagnostic information, call the DecodeDiagnosticMessage operation of RAM.
+          // The information after encoding, which can be used for troubleshooting. You can call the DecodeDiagnosticMessage operation of Resource Access Management (RAM) for further diagnostics.
           shared_ptr<string> encodedDiagnosticMessage_ {};
-          // The reason why the access is denied.
+          // The cause of the permission-related error.
           shared_ptr<string> noPermissionType_ {};
-          // The type of the policy that denies the access.
+          // The type of the policy that causes the permission-related error.
           shared_ptr<string> policyType_ {};
         };
 
@@ -633,41 +631,41 @@ namespace Models
 
 
       protected:
-        // The details of the access denied error. This field is returned only if an authentication error occurs for the specified request ID.
+        // The error message returned if the operator does not have the required permissions. This parameter is available only if an authentication error is reported for the request ID.
         shared_ptr<BasicInfo::AccessDeniedDetail> accessDeniedDetail_ {};
-        // The name of the API that was called.
+        // The name of the API.
         shared_ptr<string> api_ {};
-        // The API reference information.
+        // The information about the API documentation.
         shared_ptr<BasicInfo::ApiDoc> apiDoc_ {};
-        // The API style. Valid values: ROA and RPC.
+        // The API style. Valid values: roa and rpc.
         shared_ptr<string> apiStyle_ {};
-        // The API version.
+        // The version of the API.
         shared_ptr<string> apiVersion_ {};
-        // The endpoint of the area where the endpoint is deployed.
+        // The endpoint of the service region.
         shared_ptr<string> endpoint_ {};
-        // The error code in the log. This field is empty if no error is reported for the request.
+        // The error code in the log. This parameter is left empty if no error is reported in the API call.
         shared_ptr<string> errorCode_ {};
-        // The error message in the log. This field is empty if no error is reported for the request.
+        // The error message in the log. This parameter is left empty if no error is reported in the API call.
         shared_ptr<string> errorMessage_ {};
-        // The time when the gateway received the request. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The time when the gateway receives the request. Indicate the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
         shared_ptr<string> gatewayProcessTime_ {};
-        // The HTTP request method. Examples: GET, PUT, and POST.
+        // The HTTP request method. Valid values: GET, PUT, and POST.
         shared_ptr<string> httpMethod_ {};
         // The HTTP status code in the log.
         shared_ptr<string> httpStatusCode_ {};
-        // The request ID that you specified.
+        // The request ID.
         shared_ptr<string> logRequestId_ {};
         // The product code.
         shared_ptr<string> product_ {};
-        // The product name, which includes the Chinese and English names.
+        // The product name, which includes the Chinese name and English name.
         shared_ptr<BasicInfo::ProductName> productName_ {};
-        // The ID of the area where the endpoint is deployed.
+        // The service region ID.
         shared_ptr<string> regionId_ {};
-        // The time that elapses from when the gateway receives a request to when it returns a response. Unit: milliseconds (ms).
+        // The duration from when the gateway receives the request to when the client receives a response. Unit: milliseconds.
         shared_ptr<string> requestDuration_ {};
-        // The time when the request was initiated. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The time when the request is initiated. Indicate the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
         shared_ptr<string> sdkRequestTime_ {};
-        // The result of the throttling check. FC.PASS: The request was not blocked by the throttling check and no rate limiting occurred. FC.DENY: The request was blocked by the throttling check and rate limiting occurred.
+        // The throttling result. Valid values: FC.PASS: The task is not blocked by throttling. FC.DENY: The task is blocked by throttling.
         shared_ptr<string> throttlingResult_ {};
       };
 
@@ -718,25 +716,19 @@ namespace Models
 
 
       protected:
-        // The authentication type.
+        // The authentication type. Valid values:
         // 
-        // - AK: An AccessKey pair, which can be a permanent AccessKey pair, a temporary AccessKey pair, or an STS token.
-        // 
-        // - PRIVATEKEY: An AccessKey pair that uses asymmetric key encryption.
-        // 
-        // - BEARERTOKEN: An identity verification mechanism that is widely used in the OAuth 2.0 framework and cloud services.
-        // 
-        // - CUSTOM_SPI: An efficient and secure authentication method that is used for the delivery and management of Software as a Service (SaaS) products in Alibaba Cloud Marketplace.
-        // 
-        // - Anonymous: Anonymous access.
-        // 
-        // - DPS: Similar to an AccessKey pair, but uses a signature algorithm that is different from the official Alibaba Cloud algorithm. This method is specific to certain products.
+        // *   AK: includes a permanent AccessKey pair, a temporary AccessKey pair, and a STS token.
+        // *   PRIVATEKEY: an AccessKey pair for an asymmetric cryptography algorithm.
+        // *   BEARETOKEN: an authentication mechanism that is widely used in the OAuth 2.0 framework and cloud services.
+        // *   CUSTOM_SPI: an efficient and secure authentication method that is suitable for the delivery and management of Software as a Service (SaaS) services in Alibaba Cloud Marketplace.
+        // *   Anonymous: anonymous access.
+        // *   DPS: an authentication method that is similar to AK. Its signature algorithm is different from that of Alibaba Cloud services and is exclusive to specific products.
         shared_ptr<string> authenticationType_ {};
-        // The signature method.
+        // The signature algorithm. Valid values:
         // 
-        // - HMAC-SHA1: The request is signed using the HMAC-SHA1 algorithm.
-        // 
-        // - HMAC-SHA256: The request is signed using the HMAC-SHA256 algorithm.
+        // *   HMAC-SHA1
+        // *   HMAC-SHA256
         shared_ptr<string> signatureMethod_ {};
         // The signature version.
         shared_ptr<string> signatureVersion_ {};
@@ -792,13 +784,13 @@ namespace Models
     protected:
       // The authentication information.
       shared_ptr<LogInfo::AuthenticationInfo> authenticationInfo_ {};
-      // The basic information about the API request.
+      // The basic information about the log of the API call.
       shared_ptr<LogInfo::BasicInfo> basicInfo_ {};
       // The information about the caller.
       shared_ptr<LogInfo::CallerInfo> callerInfo_ {};
-      // The request parameter information.
+      // The information about the request parameters.
       shared_ptr<vector<LogInfo::Parameters>> parameters_ {};
-      // The response information that corresponds to the request.
+      // The information that is returned for the request.
       shared_ptr<LogInfo::Responses> responses_ {};
     };
 
@@ -821,9 +813,9 @@ namespace Models
 
 
   protected:
-    // The details of the API request log.
+    // The detailed information about the log of the API call.
     shared_ptr<GetRequestLogResponseBody::LogInfo> logInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

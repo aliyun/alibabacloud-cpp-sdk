@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The content of the Terraform HCL code. For more information, see [HCL language overview](https://www.alibabacloud.com/help/en/terraform/terraform-configuration-and-hcl-language-overview).
     shared_ptr<string> code_ {};
   };
 
