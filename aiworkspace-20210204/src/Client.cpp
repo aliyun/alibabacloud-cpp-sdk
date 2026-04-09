@@ -260,11 +260,13 @@ AddImageLabelsResponse Client::addImageLabels(const string &ImageId, const AddIm
 /**
  * @summary Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
  *
+ * @param request AddMemberRoleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddMemberRoleResponse
  */
-AddMemberRoleResponse Client::addMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+AddMemberRoleResponse Client::addMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const AddMemberRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -285,12 +287,13 @@ AddMemberRoleResponse Client::addMemberRoleWithOptions(const string &WorkspaceId
 /**
  * @summary Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
  *
+ * @param request AddMemberRoleRequest
  * @return AddMemberRoleResponse
  */
-AddMemberRoleResponse Client::addMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName) {
+AddMemberRoleResponse Client::addMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName, const AddMemberRoleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return addMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, headers, runtime);
+  return addMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, request, headers, runtime);
 }
 
 /**
@@ -1723,11 +1726,13 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResource(const string &Wo
 /**
  * @summary Deletes a code source based on the provided ID.
  *
+ * @param request DeleteCodeSourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteCodeSourceResponse
  */
-DeleteCodeSourceResponse Client::deleteCodeSourceWithOptions(const string &CodeSourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteCodeSourceResponse Client::deleteCodeSourceWithOptions(const string &CodeSourceId, const DeleteCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1748,12 +1753,13 @@ DeleteCodeSourceResponse Client::deleteCodeSourceWithOptions(const string &CodeS
 /**
  * @summary Deletes a code source based on the provided ID.
  *
+ * @param request DeleteCodeSourceRequest
  * @return DeleteCodeSourceResponse
  */
-DeleteCodeSourceResponse Client::deleteCodeSource(const string &CodeSourceId) {
+DeleteCodeSourceResponse Client::deleteCodeSource(const string &CodeSourceId, const DeleteCodeSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteCodeSourceWithOptions(CodeSourceId, headers, runtime);
+  return deleteCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
 }
 
 /**
@@ -1808,11 +1814,13 @@ DeleteConfigResponse Client::deleteConfig(const string &WorkspaceId, const strin
 /**
  * @summary Deletes a connection.
  *
+ * @param request DeleteConnectionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteConnectionResponse
  */
-DeleteConnectionResponse Client::deleteConnectionWithOptions(const string &ConnectionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteConnectionResponse Client::deleteConnectionWithOptions(const string &ConnectionId, const DeleteConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1833,22 +1841,25 @@ DeleteConnectionResponse Client::deleteConnectionWithOptions(const string &Conne
 /**
  * @summary Deletes a connection.
  *
+ * @param request DeleteConnectionRequest
  * @return DeleteConnectionResponse
  */
-DeleteConnectionResponse Client::deleteConnection(const string &ConnectionId) {
+DeleteConnectionResponse Client::deleteConnection(const string &ConnectionId, const DeleteConnectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteConnectionWithOptions(ConnectionId, headers, runtime);
+  return deleteConnectionWithOptions(ConnectionId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a dataset.
  *
+ * @param request DeleteDatasetRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDatasetResponse
  */
-DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &DatasetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &DatasetId, const DeleteDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1869,12 +1880,13 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &DatasetId, 
 /**
  * @summary Deletes a dataset.
  *
+ * @param request DeleteDatasetRequest
  * @return DeleteDatasetResponse
  */
-DeleteDatasetResponse Client::deleteDataset(const string &DatasetId) {
+DeleteDatasetResponse Client::deleteDataset(const string &DatasetId, const DeleteDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDatasetWithOptions(DatasetId, headers, runtime);
+  return deleteDatasetWithOptions(DatasetId, request, headers, runtime);
 }
 
 /**
@@ -1933,11 +1945,13 @@ DeleteDatasetFileMetasResponse Client::deleteDatasetFileMetas(const string &Data
 /**
  * @summary Deletes a dataset job.
  *
+ * @param request DeleteDatasetJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDatasetJobResponse
  */
-DeleteDatasetJobResponse Client::deleteDatasetJobWithOptions(const string &DatasetId, const string &DatasetJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDatasetJobResponse Client::deleteDatasetJobWithOptions(const string &DatasetId, const string &DatasetJobId, const DeleteDatasetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1958,12 +1972,13 @@ DeleteDatasetJobResponse Client::deleteDatasetJobWithOptions(const string &Datas
 /**
  * @summary Deletes a dataset job.
  *
+ * @param request DeleteDatasetJobRequest
  * @return DeleteDatasetJobResponse
  */
-DeleteDatasetJobResponse Client::deleteDatasetJob(const string &DatasetId, const string &DatasetJobId) {
+DeleteDatasetJobResponse Client::deleteDatasetJob(const string &DatasetId, const string &DatasetJobId, const DeleteDatasetJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDatasetJobWithOptions(DatasetId, DatasetJobId, headers, runtime);
+  return deleteDatasetJobWithOptions(DatasetId, DatasetJobId, request, headers, runtime);
 }
 
 /**
@@ -2059,11 +2074,13 @@ DeleteDatasetLabelsResponse Client::deleteDatasetLabels(const string &DatasetId,
 /**
  * @summary Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
  *
+ * @param request DeleteDatasetVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDatasetVersionResponse
  */
-DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const DeleteDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2084,12 +2101,13 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const strin
 /**
  * @summary Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
  *
+ * @param request DeleteDatasetVersionRequest
  * @return DeleteDatasetVersionResponse
  */
-DeleteDatasetVersionResponse Client::deleteDatasetVersion(const string &DatasetId, const string &VersionName) {
+DeleteDatasetVersionResponse Client::deleteDatasetVersion(const string &DatasetId, const string &VersionName, const DeleteDatasetVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+  return deleteDatasetVersionWithOptions(DatasetId, VersionName, request, headers, runtime);
 }
 
 /**
@@ -2140,11 +2158,13 @@ DeleteDatasetVersionLabelsResponse Client::deleteDatasetVersionLabels(const stri
 /**
  * @summary Deletes an experiment.
  *
+ * @param request DeleteExperimentRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteExperimentResponse
  */
-DeleteExperimentResponse Client::deleteExperimentWithOptions(const string &ExperimentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteExperimentResponse Client::deleteExperimentWithOptions(const string &ExperimentId, const DeleteExperimentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2165,22 +2185,25 @@ DeleteExperimentResponse Client::deleteExperimentWithOptions(const string &Exper
 /**
  * @summary Deletes an experiment.
  *
+ * @param request DeleteExperimentRequest
  * @return DeleteExperimentResponse
  */
-DeleteExperimentResponse Client::deleteExperiment(const string &ExperimentId) {
+DeleteExperimentResponse Client::deleteExperiment(const string &ExperimentId, const DeleteExperimentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteExperimentWithOptions(ExperimentId, headers, runtime);
+  return deleteExperimentWithOptions(ExperimentId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes an experiment tag.
  *
+ * @param request DeleteExperimentLabelRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteExperimentLabelResponse
  */
-DeleteExperimentLabelResponse Client::deleteExperimentLabelWithOptions(const string &ExperimentId, const string &Key, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteExperimentLabelResponse Client::deleteExperimentLabelWithOptions(const string &ExperimentId, const string &Key, const DeleteExperimentLabelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2201,12 +2224,13 @@ DeleteExperimentLabelResponse Client::deleteExperimentLabelWithOptions(const str
 /**
  * @summary Deletes an experiment tag.
  *
+ * @param request DeleteExperimentLabelRequest
  * @return DeleteExperimentLabelResponse
  */
-DeleteExperimentLabelResponse Client::deleteExperimentLabel(const string &ExperimentId, const string &Key) {
+DeleteExperimentLabelResponse Client::deleteExperimentLabel(const string &ExperimentId, const string &Key, const DeleteExperimentLabelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteExperimentLabelWithOptions(ExperimentId, Key, headers, runtime);
+  return deleteExperimentLabelWithOptions(ExperimentId, Key, request, headers, runtime);
 }
 
 /**
@@ -2257,11 +2281,13 @@ DeleteMembersResponse Client::deleteMembers(const string &WorkspaceId, const Del
 /**
  * @summary Deletes a model.
  *
+ * @param request DeleteModelRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteModelResponse
  */
-DeleteModelResponse Client::deleteModelWithOptions(const string &ModelId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteModelResponse Client::deleteModelWithOptions(const string &ModelId, const DeleteModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2282,12 +2308,13 @@ DeleteModelResponse Client::deleteModelWithOptions(const string &ModelId, const 
 /**
  * @summary Deletes a model.
  *
+ * @param request DeleteModelRequest
  * @return DeleteModelResponse
  */
-DeleteModelResponse Client::deleteModel(const string &ModelId) {
+DeleteModelResponse Client::deleteModel(const string &ModelId, const DeleteModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteModelWithOptions(ModelId, headers, runtime);
+  return deleteModelWithOptions(ModelId, request, headers, runtime);
 }
 
 /**
@@ -2338,11 +2365,13 @@ DeleteModelLabelsResponse Client::deleteModelLabels(const string &ModelId, const
 /**
  * @summary Deletes a model version.
  *
+ * @param request DeleteModelVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteModelVersionResponse
  */
-DeleteModelVersionResponse Client::deleteModelVersionWithOptions(const string &ModelId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteModelVersionResponse Client::deleteModelVersionWithOptions(const string &ModelId, const string &VersionName, const DeleteModelVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2363,12 +2392,13 @@ DeleteModelVersionResponse Client::deleteModelVersionWithOptions(const string &M
 /**
  * @summary Deletes a model version.
  *
+ * @param request DeleteModelVersionRequest
  * @return DeleteModelVersionResponse
  */
-DeleteModelVersionResponse Client::deleteModelVersion(const string &ModelId, const string &VersionName) {
+DeleteModelVersionResponse Client::deleteModelVersion(const string &ModelId, const string &VersionName, const DeleteModelVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteModelVersionWithOptions(ModelId, VersionName, headers, runtime);
+  return deleteModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
 }
 
 /**
@@ -2419,11 +2449,13 @@ DeleteModelVersionLabelsResponse Client::deleteModelVersionLabels(const string &
 /**
  * @summary Deletes a run.
  *
+ * @param request DeleteRunRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteRunResponse
  */
-DeleteRunResponse Client::deleteRunWithOptions(const string &RunId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteRunResponse Client::deleteRunWithOptions(const string &RunId, const DeleteRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2444,22 +2476,25 @@ DeleteRunResponse Client::deleteRunWithOptions(const string &RunId, const map<st
 /**
  * @summary Deletes a run.
  *
+ * @param request DeleteRunRequest
  * @return DeleteRunResponse
  */
-DeleteRunResponse Client::deleteRun(const string &RunId) {
+DeleteRunResponse Client::deleteRun(const string &RunId, const DeleteRunRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteRunWithOptions(RunId, headers, runtime);
+  return deleteRunWithOptions(RunId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a tag that is added to a run.
  *
+ * @param request DeleteRunLabelRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteRunLabelResponse
  */
-DeleteRunLabelResponse Client::deleteRunLabelWithOptions(const string &RunId, const string &Key, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteRunLabelResponse Client::deleteRunLabelWithOptions(const string &RunId, const string &Key, const DeleteRunLabelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2480,12 +2515,13 @@ DeleteRunLabelResponse Client::deleteRunLabelWithOptions(const string &RunId, co
 /**
  * @summary Deletes a tag that is added to a run.
  *
+ * @param request DeleteRunLabelRequest
  * @return DeleteRunLabelResponse
  */
-DeleteRunLabelResponse Client::deleteRunLabel(const string &RunId, const string &Key) {
+DeleteRunLabelResponse Client::deleteRunLabel(const string &RunId, const string &Key, const DeleteRunLabelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteRunLabelWithOptions(RunId, Key, headers, runtime);
+  return deleteRunLabelWithOptions(RunId, Key, request, headers, runtime);
 }
 
 /**
@@ -2540,11 +2576,13 @@ DeleteUserConfigResponse Client::deleteUserConfig(const string &CategoryName, co
 /**
  * @summary Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
  *
+ * @param request DeleteWorkspaceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteWorkspaceResponse
  */
-DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &WorkspaceId, const DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2565,12 +2603,13 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &Workspa
 /**
  * @summary Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
  *
+ * @param request DeleteWorkspaceRequest
  * @return DeleteWorkspaceResponse
  */
-DeleteWorkspaceResponse Client::deleteWorkspace(const string &WorkspaceId) {
+DeleteWorkspaceResponse Client::deleteWorkspace(const string &WorkspaceId, const DeleteWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteWorkspaceWithOptions(WorkspaceId, headers, runtime);
+  return deleteWorkspaceWithOptions(WorkspaceId, request, headers, runtime);
 }
 
 /**
@@ -2641,11 +2680,13 @@ DeleteWorkspaceResourceResponse Client::deleteWorkspaceResource(const string &Wo
 /**
  * @summary Obtains the details of a code source.
  *
+ * @param request GetCodeSourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCodeSourceResponse
  */
-GetCodeSourceResponse Client::getCodeSourceWithOptions(const string &CodeSourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetCodeSourceResponse Client::getCodeSourceWithOptions(const string &CodeSourceId, const GetCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2666,12 +2707,13 @@ GetCodeSourceResponse Client::getCodeSourceWithOptions(const string &CodeSourceI
 /**
  * @summary Obtains the details of a code source.
  *
+ * @param request GetCodeSourceRequest
  * @return GetCodeSourceResponse
  */
-GetCodeSourceResponse Client::getCodeSource(const string &CodeSourceId) {
+GetCodeSourceResponse Client::getCodeSource(const string &CodeSourceId, const GetCodeSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getCodeSourceWithOptions(CodeSourceId, headers, runtime);
+  return getCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
 }
 
 /**
@@ -2775,11 +2817,13 @@ GetConnectionResponse Client::getConnection(const string &ConnectionId, const Ge
 /**
  * @summary Obtains a dataset.
  *
+ * @param request GetDatasetRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDatasetResponse
  */
-GetDatasetResponse Client::getDatasetWithOptions(const string &DatasetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetDatasetResponse Client::getDatasetWithOptions(const string &DatasetId, const GetDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2800,12 +2844,13 @@ GetDatasetResponse Client::getDatasetWithOptions(const string &DatasetId, const 
 /**
  * @summary Obtains a dataset.
  *
+ * @param request GetDatasetRequest
  * @return GetDatasetResponse
  */
-GetDatasetResponse Client::getDataset(const string &DatasetId) {
+GetDatasetResponse Client::getDataset(const string &DatasetId, const GetDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getDatasetWithOptions(DatasetId, headers, runtime);
+  return getDatasetWithOptions(DatasetId, request, headers, runtime);
 }
 
 /**
@@ -3011,11 +3056,13 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfig(const string &DatasetId,
 /**
  * @summary Obtains the information about a specified version of a dataset.
  *
+ * @param request GetDatasetVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDatasetVersionResponse
  */
-GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const GetDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3036,12 +3083,13 @@ GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const string &Dat
 /**
  * @summary Obtains the information about a specified version of a dataset.
  *
+ * @param request GetDatasetVersionRequest
  * @return GetDatasetVersionResponse
  */
-GetDatasetVersionResponse Client::getDatasetVersion(const string &DatasetId, const string &VersionName) {
+GetDatasetVersionResponse Client::getDatasetVersion(const string &DatasetId, const string &VersionName, const GetDatasetVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+  return getDatasetVersionWithOptions(DatasetId, VersionName, request, headers, runtime);
 }
 
 /**
@@ -3231,11 +3279,13 @@ GetMemberResponse Client::getMember(const string &WorkspaceId, const GetMemberRe
 /**
  * @summary Obtains the details of a specified model.
  *
+ * @param request GetModelRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetModelResponse
  */
-GetModelResponse Client::getModelWithOptions(const string &ModelId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetModelResponse Client::getModelWithOptions(const string &ModelId, const GetModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3256,22 +3306,25 @@ GetModelResponse Client::getModelWithOptions(const string &ModelId, const map<st
 /**
  * @summary Obtains the details of a specified model.
  *
+ * @param request GetModelRequest
  * @return GetModelResponse
  */
-GetModelResponse Client::getModel(const string &ModelId) {
+GetModelResponse Client::getModel(const string &ModelId, const GetModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getModelWithOptions(ModelId, headers, runtime);
+  return getModelWithOptions(ModelId, request, headers, runtime);
 }
 
 /**
  * @summary Queries a model version.
  *
+ * @param request GetModelVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetModelVersionResponse
  */
-GetModelVersionResponse Client::getModelVersionWithOptions(const string &ModelId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetModelVersionResponse Client::getModelVersionWithOptions(const string &ModelId, const string &VersionName, const GetModelVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3292,12 +3345,13 @@ GetModelVersionResponse Client::getModelVersionWithOptions(const string &ModelId
 /**
  * @summary Queries a model version.
  *
+ * @param request GetModelVersionRequest
  * @return GetModelVersionResponse
  */
-GetModelVersionResponse Client::getModelVersion(const string &ModelId, const string &VersionName) {
+GetModelVersionResponse Client::getModelVersion(const string &ModelId, const string &VersionName, const GetModelVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getModelVersionWithOptions(ModelId, VersionName, headers, runtime);
+  return getModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
 }
 
 /**
@@ -4522,6 +4576,10 @@ ListMembersResponse Client::listMembersWithOptions(const string &WorkspaceId, co
     query["Roles"] = request.getRoles();
   }
 
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -4755,11 +4813,13 @@ ListModelsResponse Client::listModels(const ListModelsRequest &request) {
 /**
  * @summary Lists the permissions that a user has in a workspace.
  *
+ * @param request ListPermissionsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPermissionsResponse
  */
-ListPermissionsResponse Client::listPermissionsWithOptions(const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListPermissionsResponse Client::listPermissionsWithOptions(const string &WorkspaceId, const ListPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4780,12 +4840,13 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const string &Workspa
 /**
  * @summary Lists the permissions that a user has in a workspace.
  *
+ * @param request ListPermissionsRequest
  * @return ListPermissionsResponse
  */
-ListPermissionsResponse Client::listPermissions(const string &WorkspaceId) {
+ListPermissionsResponse Client::listPermissions(const string &WorkspaceId, const ListPermissionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listPermissionsWithOptions(WorkspaceId, headers, runtime);
+  return listPermissionsWithOptions(WorkspaceId, request, headers, runtime);
 }
 
 /**
@@ -5372,11 +5433,13 @@ LogRunMetricsResponse Client::logRunMetrics(const string &RunId, const LogRunMet
 /**
  * @summary Publishes a private code source to a workspace to make the code source publicly accessible.
  *
+ * @param request PublishCodeSourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return PublishCodeSourceResponse
  */
-PublishCodeSourceResponse Client::publishCodeSourceWithOptions(const string &CodeSourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+PublishCodeSourceResponse Client::publishCodeSourceWithOptions(const string &CodeSourceId, const PublishCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -5397,22 +5460,25 @@ PublishCodeSourceResponse Client::publishCodeSourceWithOptions(const string &Cod
 /**
  * @summary Publishes a private code source to a workspace to make the code source publicly accessible.
  *
+ * @param request PublishCodeSourceRequest
  * @return PublishCodeSourceResponse
  */
-PublishCodeSourceResponse Client::publishCodeSource(const string &CodeSourceId) {
+PublishCodeSourceResponse Client::publishCodeSource(const string &CodeSourceId, const PublishCodeSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return publishCodeSourceWithOptions(CodeSourceId, headers, runtime);
+  return publishCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
 }
 
 /**
  * @summary Publishes a private dataset in a workspace.
  *
+ * @param request PublishDatasetRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return PublishDatasetResponse
  */
-PublishDatasetResponse Client::publishDatasetWithOptions(const string &DatasetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+PublishDatasetResponse Client::publishDatasetWithOptions(const string &DatasetId, const PublishDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -5433,22 +5499,25 @@ PublishDatasetResponse Client::publishDatasetWithOptions(const string &DatasetId
 /**
  * @summary Publishes a private dataset in a workspace.
  *
+ * @param request PublishDatasetRequest
  * @return PublishDatasetResponse
  */
-PublishDatasetResponse Client::publishDataset(const string &DatasetId) {
+PublishDatasetResponse Client::publishDataset(const string &DatasetId, const PublishDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return publishDatasetWithOptions(DatasetId, headers, runtime);
+  return publishDatasetWithOptions(DatasetId, request, headers, runtime);
 }
 
 /**
  * @summary Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
  *
+ * @param request PublishImageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return PublishImageResponse
  */
-PublishImageResponse Client::publishImageWithOptions(const string &ImageId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+PublishImageResponse Client::publishImageWithOptions(const string &ImageId, const PublishImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -5469,22 +5538,25 @@ PublishImageResponse Client::publishImageWithOptions(const string &ImageId, cons
 /**
  * @summary Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
  *
+ * @param request PublishImageRequest
  * @return PublishImageResponse
  */
-PublishImageResponse Client::publishImage(const string &ImageId) {
+PublishImageResponse Client::publishImage(const string &ImageId, const PublishImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return publishImageWithOptions(ImageId, headers, runtime);
+  return publishImageWithOptions(ImageId, request, headers, runtime);
 }
 
 /**
  * @summary Removes an image.
  *
+ * @param request RemoveImageRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveImageResponse
  */
-RemoveImageResponse Client::removeImageWithOptions(const string &ImageId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+RemoveImageResponse Client::removeImageWithOptions(const string &ImageId, const RemoveImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -5505,22 +5577,25 @@ RemoveImageResponse Client::removeImageWithOptions(const string &ImageId, const 
 /**
  * @summary Removes an image.
  *
+ * @param request RemoveImageRequest
  * @return RemoveImageResponse
  */
-RemoveImageResponse Client::removeImage(const string &ImageId) {
+RemoveImageResponse Client::removeImage(const string &ImageId, const RemoveImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return removeImageWithOptions(ImageId, headers, runtime);
+  return removeImageWithOptions(ImageId, request, headers, runtime);
 }
 
 /**
  * @summary Removes an image tag.
  *
+ * @param request RemoveImageLabelsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveImageLabelsResponse
  */
-RemoveImageLabelsResponse Client::removeImageLabelsWithOptions(const string &ImageId, const string &LabelKey, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+RemoveImageLabelsResponse Client::removeImageLabelsWithOptions(const string &ImageId, const string &LabelKey, const RemoveImageLabelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -5541,22 +5616,25 @@ RemoveImageLabelsResponse Client::removeImageLabelsWithOptions(const string &Ima
 /**
  * @summary Removes an image tag.
  *
+ * @param request RemoveImageLabelsRequest
  * @return RemoveImageLabelsResponse
  */
-RemoveImageLabelsResponse Client::removeImageLabels(const string &ImageId, const string &LabelKey) {
+RemoveImageLabelsResponse Client::removeImageLabels(const string &ImageId, const string &LabelKey, const RemoveImageLabelsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return removeImageLabelsWithOptions(ImageId, LabelKey, headers, runtime);
+  return removeImageLabelsWithOptions(ImageId, LabelKey, request, headers, runtime);
 }
 
 /**
  * @summary Removes a member role.
  *
+ * @param request RemoveMemberRoleRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RemoveMemberRoleResponse
  */
-RemoveMemberRoleResponse Client::removeMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+RemoveMemberRoleResponse Client::removeMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const RemoveMemberRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -5577,12 +5655,13 @@ RemoveMemberRoleResponse Client::removeMemberRoleWithOptions(const string &Works
 /**
  * @summary Removes a member role.
  *
+ * @param request RemoveMemberRoleRequest
  * @return RemoveMemberRoleResponse
  */
-RemoveMemberRoleResponse Client::removeMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName) {
+RemoveMemberRoleResponse Client::removeMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName, const RemoveMemberRoleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return removeMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, headers, runtime);
+  return removeMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, request, headers, runtime);
 }
 
 /**

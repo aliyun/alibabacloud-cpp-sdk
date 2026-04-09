@@ -81,18 +81,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
        *
+       * @param request AddMemberRoleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddMemberRoleResponse
        */
-      Models::AddMemberRoleResponse addMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::AddMemberRoleResponse addMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const Models::AddMemberRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
        *
+       * @param request AddMemberRoleRequest
        * @return AddMemberRoleResponse
        */
-      Models::AddMemberRoleResponse addMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName);
+      Models::AddMemberRoleResponse addMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName, const Models::AddMemberRoleRequest &request);
 
       /**
        * @summary Changes the resource group to which a resource belongs based on the ID.
@@ -483,18 +485,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a code source based on the provided ID.
        *
+       * @param request DeleteCodeSourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCodeSourceResponse
        */
-      Models::DeleteCodeSourceResponse deleteCodeSourceWithOptions(const string &CodeSourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteCodeSourceResponse deleteCodeSourceWithOptions(const string &CodeSourceId, const Models::DeleteCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a code source based on the provided ID.
        *
+       * @param request DeleteCodeSourceRequest
        * @return DeleteCodeSourceResponse
        */
-      Models::DeleteCodeSourceResponse deleteCodeSource(const string &CodeSourceId);
+      Models::DeleteCodeSourceResponse deleteCodeSource(const string &CodeSourceId, const Models::DeleteCodeSourceRequest &request);
 
       /**
        * @summary Deletes workspace configurations.
@@ -517,34 +521,38 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a connection.
        *
+       * @param request DeleteConnectionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteConnectionResponse
        */
-      Models::DeleteConnectionResponse deleteConnectionWithOptions(const string &ConnectionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteConnectionResponse deleteConnectionWithOptions(const string &ConnectionId, const Models::DeleteConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a connection.
        *
+       * @param request DeleteConnectionRequest
        * @return DeleteConnectionResponse
        */
-      Models::DeleteConnectionResponse deleteConnection(const string &ConnectionId);
+      Models::DeleteConnectionResponse deleteConnection(const string &ConnectionId, const Models::DeleteConnectionRequest &request);
 
       /**
        * @summary Deletes a dataset.
        *
+       * @param request DeleteDatasetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDatasetResponse
        */
-      Models::DeleteDatasetResponse deleteDatasetWithOptions(const string &DatasetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDatasetResponse deleteDatasetWithOptions(const string &DatasetId, const Models::DeleteDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a dataset.
        *
+       * @param request DeleteDatasetRequest
        * @return DeleteDatasetResponse
        */
-      Models::DeleteDatasetResponse deleteDataset(const string &DatasetId);
+      Models::DeleteDatasetResponse deleteDataset(const string &DatasetId, const Models::DeleteDatasetRequest &request);
 
       /**
        * @summary Deletes the metadata records of multiple files in a dataset at a time.
@@ -567,18 +575,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a dataset job.
        *
+       * @param request DeleteDatasetJobRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDatasetJobResponse
        */
-      Models::DeleteDatasetJobResponse deleteDatasetJobWithOptions(const string &DatasetId, const string &DatasetJobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDatasetJobResponse deleteDatasetJobWithOptions(const string &DatasetId, const string &DatasetJobId, const Models::DeleteDatasetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a dataset job.
        *
+       * @param request DeleteDatasetJobRequest
        * @return DeleteDatasetJobResponse
        */
-      Models::DeleteDatasetJobResponse deleteDatasetJob(const string &DatasetId, const string &DatasetJobId);
+      Models::DeleteDatasetJobResponse deleteDatasetJob(const string &DatasetId, const string &DatasetJobId, const Models::DeleteDatasetJobRequest &request);
 
       /**
        * @summary Deletes a job configuration for a dataset.
@@ -619,18 +629,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
        *
+       * @param request DeleteDatasetVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDatasetVersionResponse
        */
-      Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const Models::DeleteDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
        *
+       * @param request DeleteDatasetVersionRequest
        * @return DeleteDatasetVersionResponse
        */
-      Models::DeleteDatasetVersionResponse deleteDatasetVersion(const string &DatasetId, const string &VersionName);
+      Models::DeleteDatasetVersionResponse deleteDatasetVersion(const string &DatasetId, const string &VersionName, const Models::DeleteDatasetVersionRequest &request);
 
       /**
        * @summary Deletes tags for a dataset version.
@@ -653,34 +665,38 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes an experiment.
        *
+       * @param request DeleteExperimentRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteExperimentResponse
        */
-      Models::DeleteExperimentResponse deleteExperimentWithOptions(const string &ExperimentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteExperimentResponse deleteExperimentWithOptions(const string &ExperimentId, const Models::DeleteExperimentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes an experiment.
        *
+       * @param request DeleteExperimentRequest
        * @return DeleteExperimentResponse
        */
-      Models::DeleteExperimentResponse deleteExperiment(const string &ExperimentId);
+      Models::DeleteExperimentResponse deleteExperiment(const string &ExperimentId, const Models::DeleteExperimentRequest &request);
 
       /**
        * @summary Deletes an experiment tag.
        *
+       * @param request DeleteExperimentLabelRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteExperimentLabelResponse
        */
-      Models::DeleteExperimentLabelResponse deleteExperimentLabelWithOptions(const string &ExperimentId, const string &Key, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteExperimentLabelResponse deleteExperimentLabelWithOptions(const string &ExperimentId, const string &Key, const Models::DeleteExperimentLabelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes an experiment tag.
        *
+       * @param request DeleteExperimentLabelRequest
        * @return DeleteExperimentLabelResponse
        */
-      Models::DeleteExperimentLabelResponse deleteExperimentLabel(const string &ExperimentId, const string &Key);
+      Models::DeleteExperimentLabelResponse deleteExperimentLabel(const string &ExperimentId, const string &Key, const Models::DeleteExperimentLabelRequest &request);
 
       /**
        * @summary Deletes a member from a workspace.
@@ -703,18 +719,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a model.
        *
+       * @param request DeleteModelRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteModelResponse
        */
-      Models::DeleteModelResponse deleteModelWithOptions(const string &ModelId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteModelResponse deleteModelWithOptions(const string &ModelId, const Models::DeleteModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a model.
        *
+       * @param request DeleteModelRequest
        * @return DeleteModelResponse
        */
-      Models::DeleteModelResponse deleteModel(const string &ModelId);
+      Models::DeleteModelResponse deleteModel(const string &ModelId, const Models::DeleteModelRequest &request);
 
       /**
        * @summary Deletes the labels of a model.
@@ -737,18 +755,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a model version.
        *
+       * @param request DeleteModelVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteModelVersionResponse
        */
-      Models::DeleteModelVersionResponse deleteModelVersionWithOptions(const string &ModelId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteModelVersionResponse deleteModelVersionWithOptions(const string &ModelId, const string &VersionName, const Models::DeleteModelVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a model version.
        *
+       * @param request DeleteModelVersionRequest
        * @return DeleteModelVersionResponse
        */
-      Models::DeleteModelVersionResponse deleteModelVersion(const string &ModelId, const string &VersionName);
+      Models::DeleteModelVersionResponse deleteModelVersion(const string &ModelId, const string &VersionName, const Models::DeleteModelVersionRequest &request);
 
       /**
        * @summary Delete a model version tag.
@@ -771,34 +791,38 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a run.
        *
+       * @param request DeleteRunRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteRunResponse
        */
-      Models::DeleteRunResponse deleteRunWithOptions(const string &RunId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteRunResponse deleteRunWithOptions(const string &RunId, const Models::DeleteRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a run.
        *
+       * @param request DeleteRunRequest
        * @return DeleteRunResponse
        */
-      Models::DeleteRunResponse deleteRun(const string &RunId);
+      Models::DeleteRunResponse deleteRun(const string &RunId, const Models::DeleteRunRequest &request);
 
       /**
        * @summary Deletes a tag that is added to a run.
        *
+       * @param request DeleteRunLabelRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteRunLabelResponse
        */
-      Models::DeleteRunLabelResponse deleteRunLabelWithOptions(const string &RunId, const string &Key, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteRunLabelResponse deleteRunLabelWithOptions(const string &RunId, const string &Key, const Models::DeleteRunLabelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a tag that is added to a run.
        *
+       * @param request DeleteRunLabelRequest
        * @return DeleteRunLabelResponse
        */
-      Models::DeleteRunLabelResponse deleteRunLabel(const string &RunId, const string &Key);
+      Models::DeleteRunLabelResponse deleteRunLabel(const string &RunId, const string &Key, const Models::DeleteRunLabelRequest &request);
 
       /**
        * @summary Deletes user configurations.
@@ -821,18 +845,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
        *
+       * @param request DeleteWorkspaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteWorkspaceResponse
        */
-      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &WorkspaceId, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
        *
+       * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
        */
-      Models::DeleteWorkspaceResponse deleteWorkspace(const string &WorkspaceId);
+      Models::DeleteWorkspaceResponse deleteWorkspace(const string &WorkspaceId, const Models::DeleteWorkspaceRequest &request);
 
       /**
        * @summary Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
@@ -855,18 +881,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Obtains the details of a code source.
        *
+       * @param request GetCodeSourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCodeSourceResponse
        */
-      Models::GetCodeSourceResponse getCodeSourceWithOptions(const string &CodeSourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetCodeSourceResponse getCodeSourceWithOptions(const string &CodeSourceId, const Models::GetCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains the details of a code source.
        *
+       * @param request GetCodeSourceRequest
        * @return GetCodeSourceResponse
        */
-      Models::GetCodeSourceResponse getCodeSource(const string &CodeSourceId);
+      Models::GetCodeSourceResponse getCodeSource(const string &CodeSourceId, const Models::GetCodeSourceRequest &request);
 
       /**
        * @summary Obtains a workspace configuration item.
@@ -907,18 +935,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Obtains a dataset.
        *
+       * @param request GetDatasetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDatasetResponse
        */
-      Models::GetDatasetResponse getDatasetWithOptions(const string &DatasetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDatasetResponse getDatasetWithOptions(const string &DatasetId, const Models::GetDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains a dataset.
        *
+       * @param request GetDatasetRequest
        * @return GetDatasetResponse
        */
-      Models::GetDatasetResponse getDataset(const string &DatasetId);
+      Models::GetDatasetResponse getDataset(const string &DatasetId, const Models::GetDatasetRequest &request);
 
       /**
        * @summary Queries the metadata records of specific files in a dataset.
@@ -995,18 +1025,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Obtains the information about a specified version of a dataset.
        *
+       * @param request GetDatasetVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDatasetVersionResponse
        */
-      Models::GetDatasetVersionResponse getDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDatasetVersionResponse getDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const Models::GetDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains the information about a specified version of a dataset.
        *
+       * @param request GetDatasetVersionRequest
        * @return GetDatasetVersionResponse
        */
-      Models::GetDatasetVersionResponse getDatasetVersion(const string &DatasetId, const string &VersionName);
+      Models::GetDatasetVersionResponse getDatasetVersion(const string &DatasetId, const string &VersionName, const Models::GetDatasetVersionRequest &request);
 
       /**
        * @summary Queries information about the default workspace.
@@ -1083,34 +1115,38 @@ namespace AIWorkSpace20210204
       /**
        * @summary Obtains the details of a specified model.
        *
+       * @param request GetModelRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetModelResponse
        */
-      Models::GetModelResponse getModelWithOptions(const string &ModelId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetModelResponse getModelWithOptions(const string &ModelId, const Models::GetModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains the details of a specified model.
        *
+       * @param request GetModelRequest
        * @return GetModelResponse
        */
-      Models::GetModelResponse getModel(const string &ModelId);
+      Models::GetModelResponse getModel(const string &ModelId, const Models::GetModelRequest &request);
 
       /**
        * @summary Queries a model version.
        *
+       * @param request GetModelVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetModelVersionResponse
        */
-      Models::GetModelVersionResponse getModelVersionWithOptions(const string &ModelId, const string &VersionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetModelVersionResponse getModelVersionWithOptions(const string &ModelId, const string &VersionName, const Models::GetModelVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a model version.
        *
+       * @param request GetModelVersionRequest
        * @return GetModelVersionResponse
        */
-      Models::GetModelVersionResponse getModelVersion(const string &ModelId, const string &VersionName);
+      Models::GetModelVersionResponse getModelVersion(const string &ModelId, const string &VersionName, const Models::GetModelVersionRequest &request);
 
       /**
        * @summary Obtains permissions on a workspace.
@@ -1439,18 +1475,20 @@ namespace AIWorkSpace20210204
       /**
        * @summary Lists the permissions that a user has in a workspace.
        *
+       * @param request ListPermissionsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPermissionsResponse
        */
-      Models::ListPermissionsResponse listPermissionsWithOptions(const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListPermissionsResponse listPermissionsWithOptions(const string &WorkspaceId, const Models::ListPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Lists the permissions that a user has in a workspace.
        *
+       * @param request ListPermissionsRequest
        * @return ListPermissionsResponse
        */
-      Models::ListPermissionsResponse listPermissions(const string &WorkspaceId);
+      Models::ListPermissionsResponse listPermissions(const string &WorkspaceId, const Models::ListPermissionsRequest &request);
 
       /**
        * @summary 列举产品
@@ -1621,98 +1659,110 @@ namespace AIWorkSpace20210204
       /**
        * @summary Publishes a private code source to a workspace to make the code source publicly accessible.
        *
+       * @param request PublishCodeSourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return PublishCodeSourceResponse
        */
-      Models::PublishCodeSourceResponse publishCodeSourceWithOptions(const string &CodeSourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::PublishCodeSourceResponse publishCodeSourceWithOptions(const string &CodeSourceId, const Models::PublishCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Publishes a private code source to a workspace to make the code source publicly accessible.
        *
+       * @param request PublishCodeSourceRequest
        * @return PublishCodeSourceResponse
        */
-      Models::PublishCodeSourceResponse publishCodeSource(const string &CodeSourceId);
+      Models::PublishCodeSourceResponse publishCodeSource(const string &CodeSourceId, const Models::PublishCodeSourceRequest &request);
 
       /**
        * @summary Publishes a private dataset in a workspace.
        *
+       * @param request PublishDatasetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return PublishDatasetResponse
        */
-      Models::PublishDatasetResponse publishDatasetWithOptions(const string &DatasetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::PublishDatasetResponse publishDatasetWithOptions(const string &DatasetId, const Models::PublishDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Publishes a private dataset in a workspace.
        *
+       * @param request PublishDatasetRequest
        * @return PublishDatasetResponse
        */
-      Models::PublishDatasetResponse publishDataset(const string &DatasetId);
+      Models::PublishDatasetResponse publishDataset(const string &DatasetId, const Models::PublishDatasetRequest &request);
 
       /**
        * @summary Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
        *
+       * @param request PublishImageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return PublishImageResponse
        */
-      Models::PublishImageResponse publishImageWithOptions(const string &ImageId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::PublishImageResponse publishImageWithOptions(const string &ImageId, const Models::PublishImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
        *
+       * @param request PublishImageRequest
        * @return PublishImageResponse
        */
-      Models::PublishImageResponse publishImage(const string &ImageId);
+      Models::PublishImageResponse publishImage(const string &ImageId, const Models::PublishImageRequest &request);
 
       /**
        * @summary Removes an image.
        *
+       * @param request RemoveImageRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveImageResponse
        */
-      Models::RemoveImageResponse removeImageWithOptions(const string &ImageId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::RemoveImageResponse removeImageWithOptions(const string &ImageId, const Models::RemoveImageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Removes an image.
        *
+       * @param request RemoveImageRequest
        * @return RemoveImageResponse
        */
-      Models::RemoveImageResponse removeImage(const string &ImageId);
+      Models::RemoveImageResponse removeImage(const string &ImageId, const Models::RemoveImageRequest &request);
 
       /**
        * @summary Removes an image tag.
        *
+       * @param request RemoveImageLabelsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveImageLabelsResponse
        */
-      Models::RemoveImageLabelsResponse removeImageLabelsWithOptions(const string &ImageId, const string &LabelKey, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::RemoveImageLabelsResponse removeImageLabelsWithOptions(const string &ImageId, const string &LabelKey, const Models::RemoveImageLabelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Removes an image tag.
        *
+       * @param request RemoveImageLabelsRequest
        * @return RemoveImageLabelsResponse
        */
-      Models::RemoveImageLabelsResponse removeImageLabels(const string &ImageId, const string &LabelKey);
+      Models::RemoveImageLabelsResponse removeImageLabels(const string &ImageId, const string &LabelKey, const Models::RemoveImageLabelsRequest &request);
 
       /**
        * @summary Removes a member role.
        *
+       * @param request RemoveMemberRoleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RemoveMemberRoleResponse
        */
-      Models::RemoveMemberRoleResponse removeMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::RemoveMemberRoleResponse removeMemberRoleWithOptions(const string &WorkspaceId, const string &MemberId, const string &RoleName, const Models::RemoveMemberRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Removes a member role.
        *
+       * @param request RemoveMemberRoleRequest
        * @return RemoveMemberRoleResponse
        */
-      Models::RemoveMemberRoleResponse removeMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName);
+      Models::RemoveMemberRoleResponse removeMemberRole(const string &WorkspaceId, const string &MemberId, const string &RoleName, const Models::RemoveMemberRoleRequest &request);
 
       /**
        * @summary Updates a experiment tag.

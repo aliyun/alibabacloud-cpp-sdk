@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Roles, roles_);
+      DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ListMembersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(MemberName, memberName_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Roles, roles_);
+      DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
     ListMembersRequest() = default ;
     ListMembersRequest(const ListMembersRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->memberName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->roles_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->roles_ == nullptr && this->userId_ == nullptr; };
     // memberName Field Functions 
     bool hasMemberName() const { return this->memberName_ != nullptr;};
     void deleteMemberName() { this->memberName_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline ListMembersRequest& setRoles(string roles) { DARABONBA_PTR_SET_VALUE(roles_, roles) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline ListMembersRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
   protected:
     // The member name. Fuzzy match is supported.
     shared_ptr<string> memberName_ {};
@@ -82,6 +91,7 @@ namespace Models
     // *   PAI.WorkspaceGuest: guest
     // *   PAI.WorkspaceOwner: owner
     shared_ptr<string> roles_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models
