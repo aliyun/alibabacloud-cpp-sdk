@@ -118,6 +118,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
     body["DebuggerConfigContent"] = request.getDebuggerConfigContent();
   }
 
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
   if (!!request.hasDisplayName()) {
     body["DisplayName"] = request.getDisplayName();
   }
@@ -346,11 +350,13 @@ CreateTensorboardResponse Client::createTensorboard(const CreateTensorboardReque
 /**
  * @summary Deletes a completed or stopped job.
  *
+ * @param request DeleteJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteJobResponse
  */
-DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const DeleteJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -371,12 +377,13 @@ DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const map<st
 /**
  * @summary Deletes a completed or stopped job.
  *
+ * @param request DeleteJobRequest
  * @return DeleteJobResponse
  */
-DeleteJobResponse Client::deleteJob(const string &JobId) {
+DeleteJobResponse Client::deleteJob(const string &JobId, const DeleteJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteJobWithOptions(JobId, headers, runtime);
+  return deleteJobWithOptions(JobId, request, headers, runtime);
 }
 
 /**
@@ -1203,6 +1210,10 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
     query["Caller"] = request.getCaller();
   }
 
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
   if (!!request.hasDisplayName()) {
     query["DisplayName"] = request.getDisplayName();
   }
@@ -1530,11 +1541,13 @@ StartTensorboardResponse Client::startTensorboard(const string &TensorboardId, c
 /**
  * @summary Stops a running job.
  *
+ * @param request StopJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopJobResponse
  */
-StopJobResponse Client::stopJobWithOptions(const string &JobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+StopJobResponse Client::stopJobWithOptions(const string &JobId, const StopJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1555,12 +1568,13 @@ StopJobResponse Client::stopJobWithOptions(const string &JobId, const map<string
 /**
  * @summary Stops a running job.
  *
+ * @param request StopJobRequest
  * @return StopJobResponse
  */
-StopJobResponse Client::stopJob(const string &JobId) {
+StopJobResponse Client::stopJob(const string &JobId, const StopJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return stopJobWithOptions(JobId, headers, runtime);
+  return stopJobWithOptions(JobId, request, headers, runtime);
 }
 
 /**
@@ -1621,6 +1635,10 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
   json body = {};
   if (!!request.hasAccessibility()) {
     body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasJobSpecs()) {

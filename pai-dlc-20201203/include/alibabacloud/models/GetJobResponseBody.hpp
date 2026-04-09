@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(CustomEnvs, customEnvs_);
       DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(ElasticSpec, elasticSpec_);
@@ -75,6 +76,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(CustomEnvs, customEnvs_);
       DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(ElasticSpec, elasticSpec_);
@@ -967,14 +969,14 @@ namespace Models
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->clusterId_ == nullptr && this->codeSource_ == nullptr && this->credentialConfig_ == nullptr && this->customEnvs_ == nullptr && this->dataSources_ == nullptr
-        && this->displayName_ == nullptr && this->duration_ == nullptr && this->elasticSpec_ == nullptr && this->enabledDebugger_ == nullptr && this->envs_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtFailedTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtRunningTime_ == nullptr && this->gmtStoppedTime_ == nullptr
-        && this->gmtSubmittedTime_ == nullptr && this->gmtSuccessedTime_ == nullptr && this->jobId_ == nullptr && this->jobReplicaStatuses_ == nullptr && this->jobSpecs_ == nullptr
-        && this->jobType_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
-        && this->requestId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr && this->restartRecord_ == nullptr
-        && this->restartTimes_ == nullptr && this->roleSystemEnvs_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr && this->statusHistory_ == nullptr
-        && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr
-        && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->duration_ == nullptr && this->elasticSpec_ == nullptr && this->enabledDebugger_ == nullptr
+        && this->envs_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtFailedTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtRunningTime_ == nullptr
+        && this->gmtStoppedTime_ == nullptr && this->gmtSubmittedTime_ == nullptr && this->gmtSuccessedTime_ == nullptr && this->jobId_ == nullptr && this->jobReplicaStatuses_ == nullptr
+        && this->jobSpecs_ == nullptr && this->jobType_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr
+        && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr
+        && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr && this->roleSystemEnvs_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr
+        && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr
+        && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -1023,6 +1025,13 @@ namespace Models
     inline vector<GetJobResponseBody::DataSources> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<GetJobResponseBody::DataSources>) };
     inline GetJobResponseBody& setDataSources(const vector<GetJobResponseBody::DataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
     inline GetJobResponseBody& setDataSources(vector<GetJobResponseBody::DataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline GetJobResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
@@ -1335,6 +1344,7 @@ namespace Models
     shared_ptr<vector<GetJobResponseBody::CustomEnvs>> customEnvs_ {};
     // The data sources.
     shared_ptr<vector<GetJobResponseBody::DataSources>> dataSources_ {};
+    shared_ptr<string> description_ {};
     // The job name.
     shared_ptr<string> displayName_ {};
     // The duration of the job (seconds).

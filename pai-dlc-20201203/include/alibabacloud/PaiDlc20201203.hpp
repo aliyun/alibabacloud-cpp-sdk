@@ -63,18 +63,20 @@ namespace PaiDlc20201203
       /**
        * @summary Deletes a completed or stopped job.
        *
+       * @param request DeleteJobRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteJobResponse
        */
-      Models::DeleteJobResponse deleteJobWithOptions(const string &JobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteJobResponse deleteJobWithOptions(const string &JobId, const Models::DeleteJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a completed or stopped job.
        *
+       * @param request DeleteJobRequest
        * @return DeleteJobResponse
        */
-      Models::DeleteJobResponse deleteJob(const string &JobId);
+      Models::DeleteJobResponse deleteJob(const string &JobId, const Models::DeleteJobRequest &request);
 
       /**
        * @summary Deletes a stopped TensorBoard.
@@ -411,18 +413,20 @@ namespace PaiDlc20201203
       /**
        * @summary Stops a running job.
        *
+       * @param request StopJobRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopJobResponse
        */
-      Models::StopJobResponse stopJobWithOptions(const string &JobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StopJobResponse stopJobWithOptions(const string &JobId, const Models::StopJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Stops a running job.
        *
+       * @param request StopJobRequest
        * @return StopJobResponse
        */
-      Models::StopJobResponse stopJob(const string &JobId);
+      Models::StopJobResponse stopJob(const string &JobId, const Models::StopJobRequest &request);
 
       /**
        * @summary Stops a TensorBoard instance.

@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CustomEnvs, customEnvs_);
       DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
       DARABONBA_PTR_TO_JSON(DebuggerConfigContent, debuggerConfigContent_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
       DARABONBA_PTR_TO_JSON(ElasticSpec, elasticSpec_);
       DARABONBA_PTR_TO_JSON(Envs, envs_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CustomEnvs, customEnvs_);
       DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
       DARABONBA_PTR_FROM_JSON(DebuggerConfigContent, debuggerConfigContent_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
       DARABONBA_PTR_FROM_JSON(ElasticSpec, elasticSpec_);
       DARABONBA_PTR_FROM_JSON(Envs, envs_);
@@ -406,10 +408,10 @@ namespace Models
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->codeSource_ == nullptr && this->credentialConfig_ == nullptr && this->customEnvs_ == nullptr && this->dataSources_ == nullptr && this->debuggerConfigContent_ == nullptr
-        && this->displayName_ == nullptr && this->elasticSpec_ == nullptr && this->envs_ == nullptr && this->jobMaxRunningTimeMinutes_ == nullptr && this->jobSpecs_ == nullptr
-        && this->jobType_ == nullptr && this->options_ == nullptr && this->priority_ == nullptr && this->resourceId_ == nullptr && this->settings_ == nullptr
-        && this->successPolicy_ == nullptr && this->templateId_ == nullptr && this->templateVersion_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr
-        && this->userCommand_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->elasticSpec_ == nullptr && this->envs_ == nullptr && this->jobMaxRunningTimeMinutes_ == nullptr
+        && this->jobSpecs_ == nullptr && this->jobType_ == nullptr && this->options_ == nullptr && this->priority_ == nullptr && this->resourceId_ == nullptr
+        && this->settings_ == nullptr && this->successPolicy_ == nullptr && this->templateId_ == nullptr && this->templateVersion_ == nullptr && this->thirdpartyLibDir_ == nullptr
+        && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -458,6 +460,13 @@ namespace Models
     void deleteDebuggerConfigContent() { this->debuggerConfigContent_ = nullptr;};
     inline string getDebuggerConfigContent() const { DARABONBA_PTR_GET_DEFAULT(debuggerConfigContent_, "") };
     inline CreateJobRequest& setDebuggerConfigContent(string debuggerConfigContent) { DARABONBA_PTR_SET_VALUE(debuggerConfigContent_, debuggerConfigContent) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CreateJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
@@ -613,6 +622,7 @@ namespace Models
     shared_ptr<vector<CreateJobRequest::DataSources>> dataSources_ {};
     // This parameter is not supported.
     shared_ptr<string> debuggerConfigContent_ {};
+    shared_ptr<string> description_ {};
     // The job name. The name must be in the following format:
     // 
     // *   The name must be 1 to 256 characters in length.

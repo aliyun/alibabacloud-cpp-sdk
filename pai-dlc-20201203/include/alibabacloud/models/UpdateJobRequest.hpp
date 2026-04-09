@@ -16,11 +16,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
     };
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->jobSpecs_ == nullptr && this->priority_ == nullptr; };
+        && this->description_ == nullptr && this->jobSpecs_ == nullptr && this->priority_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline UpdateJobRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline UpdateJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // jobSpecs Field Functions 
@@ -66,6 +75,7 @@ namespace Models
     // *   PUBLIC: The job is visible to all members in the workspace.
     // *   PRIVATE: The job is visible only to you and the administrator of the workspace.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<string> description_ {};
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
     // The job priority. Valid values: 1 to 9.
     // 

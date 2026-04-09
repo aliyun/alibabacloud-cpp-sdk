@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(BusinessUserId, businessUserId_);
       DARABONBA_PTR_TO_JSON(Caller, caller_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
       DARABONBA_PTR_TO_JSON(DisplayNameSearchMode, displayNameSearchMode_);
       DARABONBA_PTR_TO_JSON(EnableAssignNode, enableAssignNode_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(BusinessUserId, businessUserId_);
       DARABONBA_PTR_FROM_JSON(Caller, caller_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
       DARABONBA_PTR_FROM_JSON(DisplayNameSearchMode, displayNameSearchMode_);
       DARABONBA_PTR_FROM_JSON(EnableAssignNode, enableAssignNode_);
@@ -98,13 +100,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->displayName_ == nullptr && this->displayNameSearchMode_ == nullptr && this->enableAssignNode_ == nullptr
-        && this->endTime_ == nullptr && this->fromAllWorkspaces_ == nullptr && this->imageSearch_ == nullptr && this->jobId_ == nullptr && this->jobIds_ == nullptr
-        && this->jobType_ == nullptr && this->numericRangeField_ == nullptr && this->numericRangeMax_ == nullptr && this->numericRangeMin_ == nullptr && this->order_ == nullptr
-        && this->oversoldInfo_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr && this->pipelineId_ == nullptr
-        && this->reasonSearch_ == nullptr && this->resourceId_ == nullptr && this->resourceQuotaName_ == nullptr && this->showOwn_ == nullptr && this->sortBy_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->tagsShrink_ == nullptr && this->templateId_ == nullptr && this->timeRangeField_ == nullptr
-        && this->userCommandSearch_ == nullptr && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->displayNameSearchMode_ == nullptr
+        && this->enableAssignNode_ == nullptr && this->endTime_ == nullptr && this->fromAllWorkspaces_ == nullptr && this->imageSearch_ == nullptr && this->jobId_ == nullptr
+        && this->jobIds_ == nullptr && this->jobType_ == nullptr && this->numericRangeField_ == nullptr && this->numericRangeMax_ == nullptr && this->numericRangeMin_ == nullptr
+        && this->order_ == nullptr && this->oversoldInfo_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr
+        && this->pipelineId_ == nullptr && this->reasonSearch_ == nullptr && this->resourceId_ == nullptr && this->resourceQuotaName_ == nullptr && this->showOwn_ == nullptr
+        && this->sortBy_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tagsShrink_ == nullptr && this->templateId_ == nullptr
+        && this->timeRangeField_ == nullptr && this->userCommandSearch_ == nullptr && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -124,6 +126,13 @@ namespace Models
     void deleteCaller() { this->caller_ = nullptr;};
     inline string getCaller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
     inline ListJobsShrinkRequest& setCaller(string caller) { DARABONBA_PTR_SET_VALUE(caller_, caller) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline ListJobsShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
@@ -360,6 +369,7 @@ namespace Models
     shared_ptr<string> businessUserId_ {};
     // The caller.
     shared_ptr<string> caller_ {};
+    shared_ptr<string> description_ {};
     // The job name. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. For example, if you enter test, test-job1, job-test, job-test2, or job-test can be matched, and job-t1 cannot be matched. The default value null indicates any job name.
     shared_ptr<string> displayName_ {};
     shared_ptr<string> displayNameSearchMode_ {};
