@@ -13,6 +13,7 @@ namespace Models
   class ListDatasetsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDatasetsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_TO_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_TO_JSON(DatasetType, datasetType_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatasetsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
       DARABONBA_PTR_FROM_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_FROM_JSON(DatasetType, datasetType_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetId_ == nullptr
-        && this->datasetName_ == nullptr && this->datasetType_ == nullptr && this->endTime_ == nullptr && this->includeConfig_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->searchDatasetEnable_ == nullptr && this->startTime_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->datasetDescription_ == nullptr
+        && this->datasetId_ == nullptr && this->datasetName_ == nullptr && this->datasetType_ == nullptr && this->endTime_ == nullptr && this->includeConfig_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchDatasetEnable_ == nullptr && this->startTime_ == nullptr && this->workspaceId_ == nullptr; };
+    // datasetDescription Field Functions 
+    bool hasDatasetDescription() const { return this->datasetDescription_ != nullptr;};
+    void deleteDatasetDescription() { this->datasetDescription_ = nullptr;};
+    inline string getDatasetDescription() const { DARABONBA_PTR_GET_DEFAULT(datasetDescription_, "") };
+    inline ListDatasetsRequest& setDatasetDescription(string datasetDescription) { DARABONBA_PTR_SET_VALUE(datasetDescription_, datasetDescription) };
+
+
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
@@ -121,6 +130,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> datasetDescription_ {};
     shared_ptr<int64_t> datasetId_ {};
     shared_ptr<string> datasetName_ {};
     shared_ptr<string> datasetType_ {};

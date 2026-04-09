@@ -14,6 +14,7 @@ namespace Models
   class CreateDatasetRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDatasetRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessLevel, accessLevel_);
       DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_TO_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_TO_JSON(DatasetName, datasetName_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDatasetRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessLevel, accessLevel_);
       DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
       DARABONBA_PTR_FROM_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_FROM_JSON(DatasetName, datasetName_);
@@ -693,9 +695,16 @@ namespace Models
       shared_ptr<vector<DatasetConfig::SearchSourceConfigs>> searchSourceConfigs_ {};
     };
 
-    virtual bool empty() const override { return this->datasetConfig_ == nullptr
-        && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr && this->datasetType_ == nullptr && this->documentHandleConfig_ == nullptr && this->invokeType_ == nullptr
-        && this->searchDatasetEnable_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->accessLevel_ == nullptr
+        && this->datasetConfig_ == nullptr && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr && this->datasetType_ == nullptr && this->documentHandleConfig_ == nullptr
+        && this->invokeType_ == nullptr && this->searchDatasetEnable_ == nullptr && this->workspaceId_ == nullptr; };
+    // accessLevel Field Functions 
+    bool hasAccessLevel() const { return this->accessLevel_ != nullptr;};
+    void deleteAccessLevel() { this->accessLevel_ = nullptr;};
+    inline string getAccessLevel() const { DARABONBA_PTR_GET_DEFAULT(accessLevel_, "") };
+    inline CreateDatasetRequest& setAccessLevel(string accessLevel) { DARABONBA_PTR_SET_VALUE(accessLevel_, accessLevel) };
+
+
     // datasetConfig Field Functions 
     bool hasDatasetConfig() const { return this->datasetConfig_ != nullptr;};
     void deleteDatasetConfig() { this->datasetConfig_ = nullptr;};
@@ -757,6 +766,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessLevel_ {};
     shared_ptr<CreateDatasetRequest::DatasetConfig> datasetConfig_ {};
     shared_ptr<string> datasetDescription_ {};
     // This parameter is required.

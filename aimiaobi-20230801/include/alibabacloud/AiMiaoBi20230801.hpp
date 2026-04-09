@@ -259,6 +259,23 @@ namespace AiMiaoBi20230801
       Models::ConfirmAndPostProcessAuditNoteResponse confirmAndPostProcessAuditNote(const Models::ConfirmAndPostProcessAuditNoteRequest &request);
 
       /**
+       * @summary 用户数据集权限-批量添加
+       *
+       * @param tmpReq CreateDataPermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataPermissionsResponse
+       */
+      Models::CreateDataPermissionsResponse createDataPermissionsWithOptions(const Models::CreateDataPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户数据集权限-批量添加
+       *
+       * @param request CreateDataPermissionsRequest
+       * @return CreateDataPermissionsResponse
+       */
+      Models::CreateDataPermissionsResponse createDataPermissions(const Models::CreateDataPermissionsRequest &request);
+
+      /**
        * @summary 数据集管理-创建
        *
        * @param tmpReq CreateDatasetRequest
@@ -410,6 +427,23 @@ namespace AiMiaoBi20230801
        * @return DeleteCustomTopicViewPointByIdResponse
        */
       Models::DeleteCustomTopicViewPointByIdResponse deleteCustomTopicViewPointById(const Models::DeleteCustomTopicViewPointByIdRequest &request);
+
+      /**
+       * @summary 用户数据集权限-批量删除
+       *
+       * @param tmpReq DeleteDataPermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataPermissionsResponse
+       */
+      Models::DeleteDataPermissionsResponse deleteDataPermissionsWithOptions(const Models::DeleteDataPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户数据集权限-批量删除
+       *
+       * @param request DeleteDataPermissionsRequest
+       * @return DeleteDataPermissionsResponse
+       */
+      Models::DeleteDataPermissionsResponse deleteDataPermissions(const Models::DeleteDataPermissionsRequest &request);
 
       /**
        * @summary 数据集管理-删除
@@ -1872,6 +1906,23 @@ namespace AiMiaoBi20230801
        * @return ListCustomViewPointsResponse
        */
       Models::ListCustomViewPointsResponse listCustomViewPoints(const Models::ListCustomViewPointsRequest &request);
+
+      /**
+       * @summary 用户数据集权限-列表
+       *
+       * @param request ListDataPermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataPermissionsResponse
+       */
+      Models::ListDataPermissionsResponse listDataPermissionsWithOptions(const Models::ListDataPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户数据集权限-列表
+       *
+       * @param request ListDataPermissionsRequest
+       * @return ListDataPermissionsResponse
+       */
+      Models::ListDataPermissionsResponse listDataPermissions(const Models::ListDataPermissionsRequest &request);
 
       /**
        * @summary 查询数据集文档列表

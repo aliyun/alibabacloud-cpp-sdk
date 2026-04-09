@@ -43,6 +43,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessLevel, accessLevel_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CreateUser, createUser_);
         DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfig_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SearchDatasetEnable, searchDatasetEnable_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessLevel, accessLevel_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CreateUser, createUser_);
         DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfig_);
@@ -724,9 +726,16 @@ namespace Models
         shared_ptr<vector<DatasetConfig::SearchSourceConfigs>> searchSourceConfigs_ {};
       };
 
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->createUser_ == nullptr && this->datasetConfig_ == nullptr && this->datasetDescription_ == nullptr && this->datasetId_ == nullptr && this->datasetName_ == nullptr
-        && this->datasetType_ == nullptr && this->documentHandleConfig_ == nullptr && this->searchDatasetEnable_ == nullptr; };
+      virtual bool empty() const override { return this->accessLevel_ == nullptr
+        && this->createTime_ == nullptr && this->createUser_ == nullptr && this->datasetConfig_ == nullptr && this->datasetDescription_ == nullptr && this->datasetId_ == nullptr
+        && this->datasetName_ == nullptr && this->datasetType_ == nullptr && this->documentHandleConfig_ == nullptr && this->searchDatasetEnable_ == nullptr; };
+      // accessLevel Field Functions 
+      bool hasAccessLevel() const { return this->accessLevel_ != nullptr;};
+      void deleteAccessLevel() { this->accessLevel_ = nullptr;};
+      inline string getAccessLevel() const { DARABONBA_PTR_GET_DEFAULT(accessLevel_, "") };
+      inline Data& setAccessLevel(string accessLevel) { DARABONBA_PTR_SET_VALUE(accessLevel_, accessLevel) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -795,6 +804,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> accessLevel_ {};
       shared_ptr<string> createTime_ {};
       shared_ptr<string> createUser_ {};
       shared_ptr<Data::DatasetConfig> datasetConfig_ {};

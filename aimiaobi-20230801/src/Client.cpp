@@ -939,6 +939,66 @@ ConfirmAndPostProcessAuditNoteResponse Client::confirmAndPostProcessAuditNote(co
 }
 
 /**
+ * @summary 用户数据集权限-批量添加
+ *
+ * @param tmpReq CreateDataPermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataPermissionsResponse
+ */
+CreateDataPermissionsResponse Client::createDataPermissionsWithOptions(const CreateDataPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDataPermissionsShrinkRequest request = CreateDataPermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPermissionUserInfos()) {
+    request.setPermissionUserInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPermissionUserInfos(), "PermissionUserInfos", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDataId()) {
+    body["DataId"] = request.getDataId();
+  }
+
+  if (!!request.hasDataType()) {
+    body["DataType"] = request.getDataType();
+  }
+
+  if (!!request.hasPermissionUserInfosShrink()) {
+    body["PermissionUserInfos"] = request.getPermissionUserInfosShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateDataPermissions"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataPermissionsResponse>();
+}
+
+/**
+ * @summary 用户数据集权限-批量添加
+ *
+ * @param request CreateDataPermissionsRequest
+ * @return CreateDataPermissionsResponse
+ */
+CreateDataPermissionsResponse Client::createDataPermissions(const CreateDataPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataPermissionsWithOptions(request, runtime);
+}
+
+/**
  * @summary 数据集管理-创建
  *
  * @param tmpReq CreateDatasetRequest
@@ -958,6 +1018,10 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
   }
 
   json body = {};
+  if (!!request.hasAccessLevel()) {
+    body["AccessLevel"] = request.getAccessLevel();
+  }
+
   if (!!request.hasDatasetConfigShrink()) {
     body["DatasetConfig"] = request.getDatasetConfigShrink();
   }
@@ -1436,6 +1500,58 @@ DeleteCustomTopicViewPointByIdResponse Client::deleteCustomTopicViewPointByIdWit
 DeleteCustomTopicViewPointByIdResponse Client::deleteCustomTopicViewPointById(const DeleteCustomTopicViewPointByIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomTopicViewPointByIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 用户数据集权限-批量删除
+ *
+ * @param tmpReq DeleteDataPermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataPermissionsResponse
+ */
+DeleteDataPermissionsResponse Client::deleteDataPermissionsWithOptions(const DeleteDataPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteDataPermissionsShrinkRequest request = DeleteDataPermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasIds()) {
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasIdsShrink()) {
+    body["Ids"] = request.getIdsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataPermissions"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataPermissionsResponse>();
+}
+
+/**
+ * @summary 用户数据集权限-批量删除
+ *
+ * @param request DeleteDataPermissionsRequest
+ * @return DeleteDataPermissionsResponse
+ */
+DeleteDataPermissionsResponse Client::deleteDataPermissions(const DeleteDataPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataPermissionsWithOptions(request, runtime);
 }
 
 /**
@@ -5979,6 +6095,64 @@ ListCustomViewPointsResponse Client::listCustomViewPoints(const ListCustomViewPo
 }
 
 /**
+ * @summary 用户数据集权限-列表
+ *
+ * @param request ListDataPermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataPermissionsResponse
+ */
+ListDataPermissionsResponse Client::listDataPermissionsWithOptions(const ListDataPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDataId()) {
+    body["DataId"] = request.getDataId();
+  }
+
+  if (!!request.hasDataType()) {
+    body["DataType"] = request.getDataType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDataPermissions"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataPermissionsResponse>();
+}
+
+/**
+ * @summary 用户数据集权限-列表
+ *
+ * @param request ListDataPermissionsRequest
+ * @return ListDataPermissionsResponse
+ */
+ListDataPermissionsResponse Client::listDataPermissions(const ListDataPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataPermissionsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询数据集文档列表
  *
  * @param tmpReq ListDatasetDocumentsRequest
@@ -6148,6 +6322,10 @@ ListDatasetDocumentsResponse Client::listDatasetDocuments(const ListDatasetDocum
 ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDatasetDescription()) {
+    body["DatasetDescription"] = request.getDatasetDescription();
+  }
+
   if (!!request.hasDatasetId()) {
     body["DatasetId"] = request.getDatasetId();
   }
@@ -14921,6 +15099,10 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
   }
 
   json body = {};
+  if (!!request.hasAccessLevel()) {
+    body["AccessLevel"] = request.getAccessLevel();
+  }
+
   if (!!request.hasDatasetConfigShrink()) {
     body["DatasetConfig"] = request.getDatasetConfigShrink();
   }

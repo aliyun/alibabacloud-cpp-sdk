@@ -13,6 +13,7 @@ namespace Models
   class UpdateDatasetShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDatasetShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessLevel, accessLevel_);
       DARABONBA_PTR_TO_JSON(DatasetConfig, datasetConfigShrink_);
       DARABONBA_PTR_TO_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDatasetShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessLevel, accessLevel_);
       DARABONBA_PTR_FROM_JSON(DatasetConfig, datasetConfigShrink_);
       DARABONBA_PTR_FROM_JSON(DatasetDescription, datasetDescription_);
       DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasetConfigShrink_ == nullptr
-        && this->datasetDescription_ == nullptr && this->datasetId_ == nullptr && this->searchDatasetEnable_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->accessLevel_ == nullptr
+        && this->datasetConfigShrink_ == nullptr && this->datasetDescription_ == nullptr && this->datasetId_ == nullptr && this->searchDatasetEnable_ == nullptr && this->workspaceId_ == nullptr; };
+    // accessLevel Field Functions 
+    bool hasAccessLevel() const { return this->accessLevel_ != nullptr;};
+    void deleteAccessLevel() { this->accessLevel_ = nullptr;};
+    inline string getAccessLevel() const { DARABONBA_PTR_GET_DEFAULT(accessLevel_, "") };
+    inline UpdateDatasetShrinkRequest& setAccessLevel(string accessLevel) { DARABONBA_PTR_SET_VALUE(accessLevel_, accessLevel) };
+
+
     // datasetConfigShrink Field Functions 
     bool hasDatasetConfigShrink() const { return this->datasetConfigShrink_ != nullptr;};
     void deleteDatasetConfigShrink() { this->datasetConfigShrink_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessLevel_ {};
     shared_ptr<string> datasetConfigShrink_ {};
     shared_ptr<string> datasetDescription_ {};
     shared_ptr<int64_t> datasetId_ {};

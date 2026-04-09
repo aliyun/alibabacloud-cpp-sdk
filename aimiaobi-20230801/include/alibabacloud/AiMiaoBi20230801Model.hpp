@@ -58,6 +58,10 @@
 #include <alibabacloud/models/ConfirmAndPostProcessAuditNoteRequest.hpp>
 #include <alibabacloud/models/ConfirmAndPostProcessAuditNoteResponseBody.hpp>
 #include <alibabacloud/models/ConfirmAndPostProcessAuditNoteResponse.hpp>
+#include <alibabacloud/models/CreateDataPermissionsRequest.hpp>
+#include <alibabacloud/models/CreateDataPermissionsShrinkRequest.hpp>
+#include <alibabacloud/models/CreateDataPermissionsResponseBody.hpp>
+#include <alibabacloud/models/CreateDataPermissionsResponse.hpp>
 #include <alibabacloud/models/CreateDatasetRequest.hpp>
 #include <alibabacloud/models/CreateDatasetShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDatasetResponseBody.hpp>
@@ -88,6 +92,10 @@
 #include <alibabacloud/models/DeleteCustomTopicViewPointByIdRequest.hpp>
 #include <alibabacloud/models/DeleteCustomTopicViewPointByIdResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomTopicViewPointByIdResponse.hpp>
+#include <alibabacloud/models/DeleteDataPermissionsRequest.hpp>
+#include <alibabacloud/models/DeleteDataPermissionsShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteDataPermissionsResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataPermissionsResponse.hpp>
 #include <alibabacloud/models/DeleteDatasetRequest.hpp>
 #include <alibabacloud/models/DeleteDatasetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDatasetResponse.hpp>
@@ -362,6 +370,9 @@
 #include <alibabacloud/models/ListCustomViewPointsShrinkRequest.hpp>
 #include <alibabacloud/models/ListCustomViewPointsResponseBody.hpp>
 #include <alibabacloud/models/ListCustomViewPointsResponse.hpp>
+#include <alibabacloud/models/ListDataPermissionsRequest.hpp>
+#include <alibabacloud/models/ListDataPermissionsResponseBody.hpp>
+#include <alibabacloud/models/ListDataPermissionsResponse.hpp>
 #include <alibabacloud/models/ListDatasetDocumentsRequest.hpp>
 #include <alibabacloud/models/ListDatasetDocumentsShrinkRequest.hpp>
 #include <alibabacloud/models/ListDatasetDocumentsResponseBody.hpp>
