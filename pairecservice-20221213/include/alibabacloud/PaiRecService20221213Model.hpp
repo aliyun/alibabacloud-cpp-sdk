@@ -150,6 +150,7 @@
 #include <alibabacloud/models/DeleteExperimentGroupRequest.hpp>
 #include <alibabacloud/models/DeleteExperimentGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteExperimentGroupResponse.hpp>
+#include <alibabacloud/models/DeleteInstanceResourceRequest.hpp>
 #include <alibabacloud/models/DeleteInstanceResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteInstanceResourceResponse.hpp>
 #include <alibabacloud/models/DeleteLaboratoryRequest.hpp>
@@ -236,10 +237,13 @@
 #include <alibabacloud/models/GetFeatureConsistencyCheckJobConfigRequest.hpp>
 #include <alibabacloud/models/GetFeatureConsistencyCheckJobConfigResponseBody.hpp>
 #include <alibabacloud/models/GetFeatureConsistencyCheckJobConfigResponse.hpp>
+#include <alibabacloud/models/GetInstanceRequest.hpp>
 #include <alibabacloud/models/GetInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceResponse.hpp>
+#include <alibabacloud/models/GetInstanceResourceRequest.hpp>
 #include <alibabacloud/models/GetInstanceResourceResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceResourceResponse.hpp>
+#include <alibabacloud/models/GetInstanceResourceTableRequest.hpp>
 #include <alibabacloud/models/GetInstanceResourceTableResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceResourceTableResponse.hpp>
 #include <alibabacloud/models/GetLaboratoryRequest.hpp>

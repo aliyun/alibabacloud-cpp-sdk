@@ -13,11 +13,16 @@ namespace Models
   class CreateABMetricRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateABMetricRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AggregationByUser, aggregationByUser_);
       DARABONBA_PTR_TO_JSON(Definition, definition_);
+      DARABONBA_PTR_TO_JSON(Denominator, denominator_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IsBinomialDistribution, isBinomialDistribution_);
       DARABONBA_PTR_TO_JSON(LeftMetricId, leftMetricId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NeedSignificance, needSignificance_);
+      DARABONBA_PTR_TO_JSON(Numerator, numerator_);
       DARABONBA_PTR_TO_JSON(Operator, operator_);
       DARABONBA_PTR_TO_JSON(Realtime, realtime_);
       DARABONBA_PTR_TO_JSON(ResultResourceId, resultResourceId_);
@@ -28,11 +33,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateABMetricRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AggregationByUser, aggregationByUser_);
       DARABONBA_PTR_FROM_JSON(Definition, definition_);
+      DARABONBA_PTR_FROM_JSON(Denominator, denominator_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IsBinomialDistribution, isBinomialDistribution_);
       DARABONBA_PTR_FROM_JSON(LeftMetricId, leftMetricId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NeedSignificance, needSignificance_);
+      DARABONBA_PTR_FROM_JSON(Numerator, numerator_);
       DARABONBA_PTR_FROM_JSON(Operator, operator_);
       DARABONBA_PTR_FROM_JSON(Realtime, realtime_);
       DARABONBA_PTR_FROM_JSON(ResultResourceId, resultResourceId_);
@@ -53,15 +63,30 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->definition_ == nullptr
-        && this->description_ == nullptr && this->instanceId_ == nullptr && this->leftMetricId_ == nullptr && this->name_ == nullptr && this->operator_ == nullptr
+    virtual bool empty() const override { return this->aggregationByUser_ == nullptr
+        && this->definition_ == nullptr && this->denominator_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->isBinomialDistribution_ == nullptr
+        && this->leftMetricId_ == nullptr && this->name_ == nullptr && this->needSignificance_ == nullptr && this->numerator_ == nullptr && this->operator_ == nullptr
         && this->realtime_ == nullptr && this->resultResourceId_ == nullptr && this->rightMetricId_ == nullptr && this->sceneId_ == nullptr && this->statisticsCycle_ == nullptr
         && this->tableMetaId_ == nullptr && this->type_ == nullptr; };
+    // aggregationByUser Field Functions 
+    bool hasAggregationByUser() const { return this->aggregationByUser_ != nullptr;};
+    void deleteAggregationByUser() { this->aggregationByUser_ = nullptr;};
+    inline bool getAggregationByUser() const { DARABONBA_PTR_GET_DEFAULT(aggregationByUser_, false) };
+    inline CreateABMetricRequest& setAggregationByUser(bool aggregationByUser) { DARABONBA_PTR_SET_VALUE(aggregationByUser_, aggregationByUser) };
+
+
     // definition Field Functions 
     bool hasDefinition() const { return this->definition_ != nullptr;};
     void deleteDefinition() { this->definition_ = nullptr;};
     inline string getDefinition() const { DARABONBA_PTR_GET_DEFAULT(definition_, "") };
     inline CreateABMetricRequest& setDefinition(string definition) { DARABONBA_PTR_SET_VALUE(definition_, definition) };
+
+
+    // denominator Field Functions 
+    bool hasDenominator() const { return this->denominator_ != nullptr;};
+    void deleteDenominator() { this->denominator_ = nullptr;};
+    inline string getDenominator() const { DARABONBA_PTR_GET_DEFAULT(denominator_, "") };
+    inline CreateABMetricRequest& setDenominator(string denominator) { DARABONBA_PTR_SET_VALUE(denominator_, denominator) };
 
 
     // description Field Functions 
@@ -78,6 +103,13 @@ namespace Models
     inline CreateABMetricRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // isBinomialDistribution Field Functions 
+    bool hasIsBinomialDistribution() const { return this->isBinomialDistribution_ != nullptr;};
+    void deleteIsBinomialDistribution() { this->isBinomialDistribution_ = nullptr;};
+    inline bool getIsBinomialDistribution() const { DARABONBA_PTR_GET_DEFAULT(isBinomialDistribution_, false) };
+    inline CreateABMetricRequest& setIsBinomialDistribution(bool isBinomialDistribution) { DARABONBA_PTR_SET_VALUE(isBinomialDistribution_, isBinomialDistribution) };
+
+
     // leftMetricId Field Functions 
     bool hasLeftMetricId() const { return this->leftMetricId_ != nullptr;};
     void deleteLeftMetricId() { this->leftMetricId_ = nullptr;};
@@ -90,6 +122,20 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateABMetricRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // needSignificance Field Functions 
+    bool hasNeedSignificance() const { return this->needSignificance_ != nullptr;};
+    void deleteNeedSignificance() { this->needSignificance_ = nullptr;};
+    inline bool getNeedSignificance() const { DARABONBA_PTR_GET_DEFAULT(needSignificance_, false) };
+    inline CreateABMetricRequest& setNeedSignificance(bool needSignificance) { DARABONBA_PTR_SET_VALUE(needSignificance_, needSignificance) };
+
+
+    // numerator Field Functions 
+    bool hasNumerator() const { return this->numerator_ != nullptr;};
+    void deleteNumerator() { this->numerator_ = nullptr;};
+    inline string getNumerator() const { DARABONBA_PTR_GET_DEFAULT(numerator_, "") };
+    inline CreateABMetricRequest& setNumerator(string numerator) { DARABONBA_PTR_SET_VALUE(numerator_, numerator) };
 
 
     // operator Field Functions 
@@ -149,15 +195,20 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> aggregationByUser_ {};
     // This parameter is required.
     shared_ptr<string> definition_ {};
+    shared_ptr<string> denominator_ {};
     // This parameter is required.
     shared_ptr<string> description_ {};
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<bool> isBinomialDistribution_ {};
     shared_ptr<string> leftMetricId_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};
+    shared_ptr<bool> needSignificance_ {};
+    shared_ptr<string> numerator_ {};
     shared_ptr<string> operator_ {};
     // This parameter is required.
     shared_ptr<bool> realtime_ {};

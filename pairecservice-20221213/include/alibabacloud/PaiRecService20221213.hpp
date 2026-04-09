@@ -887,18 +887,20 @@ namespace PaiRecService20221213
       /**
        * @summary 删除指定实例下的指定配置资源。
        *
+       * @param request DeleteInstanceResourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteInstanceResourceResponse
        */
-      Models::DeleteInstanceResourceResponse deleteInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteInstanceResourceResponse deleteInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const Models::DeleteInstanceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除指定实例下的指定配置资源。
        *
+       * @param request DeleteInstanceResourceRequest
        * @return DeleteInstanceResourceResponse
        */
-      Models::DeleteInstanceResourceResponse deleteInstanceResource(const string &InstanceId, const string &ResourceId);
+      Models::DeleteInstanceResourceResponse deleteInstanceResource(const string &InstanceId, const string &ResourceId, const Models::DeleteInstanceResourceRequest &request);
 
       /**
        * @summary 删除实验室。
@@ -1407,50 +1409,56 @@ namespace PaiRecService20221213
       /**
        * @summary 获取指定推荐全链路深度定制开发平台实例信息。
        *
+       * @param request GetInstanceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceResponse
        */
-      Models::GetInstanceResponse getInstanceWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetInstanceResponse getInstanceWithOptions(const string &InstanceId, const Models::GetInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取指定推荐全链路深度定制开发平台实例信息。
        *
+       * @param request GetInstanceRequest
        * @return GetInstanceResponse
        */
-      Models::GetInstanceResponse getInstance(const string &InstanceId);
+      Models::GetInstanceResponse getInstance(const string &InstanceId, const Models::GetInstanceRequest &request);
 
       /**
        * @summary 获取指定实例下指定资源的详细信息。
        *
+       * @param request GetInstanceResourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceResourceResponse
        */
-      Models::GetInstanceResourceResponse getInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetInstanceResourceResponse getInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const Models::GetInstanceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取指定实例下指定资源的详细信息。
        *
+       * @param request GetInstanceResourceRequest
        * @return GetInstanceResourceResponse
        */
-      Models::GetInstanceResourceResponse getInstanceResource(const string &InstanceId, const string &ResourceId);
+      Models::GetInstanceResourceResponse getInstanceResource(const string &InstanceId, const string &ResourceId, const Models::GetInstanceResourceRequest &request);
 
       /**
        * @summary 获取数据源下指定表的详细信息。
        *
+       * @param request GetInstanceResourceTableRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceResourceTableResponse
        */
-      Models::GetInstanceResourceTableResponse getInstanceResourceTableWithOptions(const string &InstanceId, const string &ResourceId, const string &TableName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetInstanceResourceTableResponse getInstanceResourceTableWithOptions(const string &InstanceId, const string &ResourceId, const string &TableName, const Models::GetInstanceResourceTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取数据源下指定表的详细信息。
        *
+       * @param request GetInstanceResourceTableRequest
        * @return GetInstanceResourceTableResponse
        */
-      Models::GetInstanceResourceTableResponse getInstanceResourceTable(const string &InstanceId, const string &ResourceId, const string &TableName);
+      Models::GetInstanceResourceTableResponse getInstanceResourceTable(const string &InstanceId, const string &ResourceId, const string &TableName, const Models::GetInstanceResourceTableRequest &request);
 
       /**
        * @summary 获取实验室详细信息。

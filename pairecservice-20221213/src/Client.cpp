@@ -675,8 +675,16 @@ CompareSampleConsistencyJobResponse Client::compareSampleConsistencyJob(const st
 CreateABMetricResponse Client::createABMetricWithOptions(const CreateABMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAggregationByUser()) {
+    body["AggregationByUser"] = request.getAggregationByUser();
+  }
+
   if (!!request.hasDefinition()) {
     body["Definition"] = request.getDefinition();
+  }
+
+  if (!!request.hasDenominator()) {
+    body["Denominator"] = request.getDenominator();
   }
 
   if (!!request.hasDescription()) {
@@ -687,12 +695,24 @@ CreateABMetricResponse Client::createABMetricWithOptions(const CreateABMetricReq
     body["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasIsBinomialDistribution()) {
+    body["IsBinomialDistribution"] = request.getIsBinomialDistribution();
+  }
+
   if (!!request.hasLeftMetricId()) {
     body["LeftMetricId"] = request.getLeftMetricId();
   }
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNeedSignificance()) {
+    body["NeedSignificance"] = request.getNeedSignificance();
+  }
+
+  if (!!request.hasNumerator()) {
+    body["Numerator"] = request.getNumerator();
   }
 
   if (!!request.hasOperator()) {
@@ -3245,11 +3265,13 @@ DeleteExperimentGroupResponse Client::deleteExperimentGroup(const string &Experi
 /**
  * @summary 删除指定实例下的指定配置资源。
  *
+ * @param request DeleteInstanceResourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteInstanceResourceResponse
  */
-DeleteInstanceResourceResponse Client::deleteInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteInstanceResourceResponse Client::deleteInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const DeleteInstanceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3270,12 +3292,13 @@ DeleteInstanceResourceResponse Client::deleteInstanceResourceWithOptions(const s
 /**
  * @summary 删除指定实例下的指定配置资源。
  *
+ * @param request DeleteInstanceResourceRequest
  * @return DeleteInstanceResourceResponse
  */
-DeleteInstanceResourceResponse Client::deleteInstanceResource(const string &InstanceId, const string &ResourceId) {
+DeleteInstanceResourceResponse Client::deleteInstanceResource(const string &InstanceId, const string &ResourceId, const DeleteInstanceResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteInstanceResourceWithOptions(InstanceId, ResourceId, headers, runtime);
+  return deleteInstanceResourceWithOptions(InstanceId, ResourceId, request, headers, runtime);
 }
 
 /**
@@ -4561,11 +4584,13 @@ GetFeatureConsistencyCheckJobConfigResponse Client::getFeatureConsistencyCheckJo
 /**
  * @summary 获取指定推荐全链路深度定制开发平台实例信息。
  *
+ * @param request GetInstanceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceResponse
  */
-GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, const GetInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4586,22 +4611,25 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, con
 /**
  * @summary 获取指定推荐全链路深度定制开发平台实例信息。
  *
+ * @param request GetInstanceRequest
  * @return GetInstanceResponse
  */
-GetInstanceResponse Client::getInstance(const string &InstanceId) {
+GetInstanceResponse Client::getInstance(const string &InstanceId, const GetInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getInstanceWithOptions(InstanceId, headers, runtime);
+  return getInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 /**
  * @summary 获取指定实例下指定资源的详细信息。
  *
+ * @param request GetInstanceResourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceResourceResponse
  */
-GetInstanceResourceResponse Client::getInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetInstanceResourceResponse Client::getInstanceResourceWithOptions(const string &InstanceId, const string &ResourceId, const GetInstanceResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4622,22 +4650,25 @@ GetInstanceResourceResponse Client::getInstanceResourceWithOptions(const string 
 /**
  * @summary 获取指定实例下指定资源的详细信息。
  *
+ * @param request GetInstanceResourceRequest
  * @return GetInstanceResourceResponse
  */
-GetInstanceResourceResponse Client::getInstanceResource(const string &InstanceId, const string &ResourceId) {
+GetInstanceResourceResponse Client::getInstanceResource(const string &InstanceId, const string &ResourceId, const GetInstanceResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getInstanceResourceWithOptions(InstanceId, ResourceId, headers, runtime);
+  return getInstanceResourceWithOptions(InstanceId, ResourceId, request, headers, runtime);
 }
 
 /**
  * @summary 获取数据源下指定表的详细信息。
  *
+ * @param request GetInstanceResourceTableRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceResourceTableResponse
  */
-GetInstanceResourceTableResponse Client::getInstanceResourceTableWithOptions(const string &InstanceId, const string &ResourceId, const string &TableName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetInstanceResourceTableResponse Client::getInstanceResourceTableWithOptions(const string &InstanceId, const string &ResourceId, const string &TableName, const GetInstanceResourceTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4658,12 +4689,13 @@ GetInstanceResourceTableResponse Client::getInstanceResourceTableWithOptions(con
 /**
  * @summary 获取数据源下指定表的详细信息。
  *
+ * @param request GetInstanceResourceTableRequest
  * @return GetInstanceResourceTableResponse
  */
-GetInstanceResourceTableResponse Client::getInstanceResourceTable(const string &InstanceId, const string &ResourceId, const string &TableName) {
+GetInstanceResourceTableResponse Client::getInstanceResourceTable(const string &InstanceId, const string &ResourceId, const string &TableName, const GetInstanceResourceTableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getInstanceResourceTableWithOptions(InstanceId, ResourceId, TableName, headers, runtime);
+  return getInstanceResourceTableWithOptions(InstanceId, ResourceId, TableName, request, headers, runtime);
 }
 
 /**
@@ -8953,8 +8985,16 @@ TerminateFeatureConsistencyCheckJobResponse Client::terminateFeatureConsistencyC
 UpdateABMetricResponse Client::updateABMetricWithOptions(const string &ABMetricId, const UpdateABMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAggregationByUser()) {
+    body["AggregationByUser"] = request.getAggregationByUser();
+  }
+
   if (!!request.hasDefinition()) {
     body["Definition"] = request.getDefinition();
+  }
+
+  if (!!request.hasDenominator()) {
+    body["Denominator"] = request.getDenominator();
   }
 
   if (!!request.hasDescription()) {
@@ -8965,12 +9005,24 @@ UpdateABMetricResponse Client::updateABMetricWithOptions(const string &ABMetricI
     body["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasIsBinomialDistribution()) {
+    body["IsBinomialDistribution"] = request.getIsBinomialDistribution();
+  }
+
   if (!!request.hasLeftMetricId()) {
     body["LeftMetricId"] = request.getLeftMetricId();
   }
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNeedSignificance()) {
+    body["NeedSignificance"] = request.getNeedSignificance();
+  }
+
+  if (!!request.hasNumerator()) {
+    body["Numerator"] = request.getNumerator();
   }
 
   if (!!request.hasOperator()) {
