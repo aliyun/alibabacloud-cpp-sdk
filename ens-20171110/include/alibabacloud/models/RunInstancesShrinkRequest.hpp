@@ -56,6 +56,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UniqueSuffix, uniqueSuffix_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VpdId, vpdId_);
+      DARABONBA_PTR_TO_JSON(VpdVSwitchIds, vpdVSwitchIdsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, RunInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
@@ -100,6 +102,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(UniqueSuffix, uniqueSuffix_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VpdId, vpdId_);
+      DARABONBA_PTR_FROM_JSON(VpdVSwitchIds, vpdVSwitchIdsShrink_);
     };
     RunInstancesShrinkRequest() = default ;
     RunInstancesShrinkRequest(const RunInstancesShrinkRequest &) = default ;
@@ -165,7 +169,7 @@ namespace Models
         && this->passwordInherit_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->publicIpIdentification_ == nullptr
         && this->scheduleAreaLevel_ == nullptr && this->schedulingPriceStrategy_ == nullptr && this->schedulingStrategy_ == nullptr && this->securityId_ == nullptr && this->spotDuration_ == nullptr
         && this->spotStrategy_ == nullptr && this->systemDiskShrink_ == nullptr && this->tag_ == nullptr && this->uniqueSuffix_ == nullptr && this->userData_ == nullptr
-        && this->vSwitchId_ == nullptr; };
+        && this->vSwitchId_ == nullptr && this->vpdId_ == nullptr && this->vpdVSwitchIdsShrink_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -462,6 +466,20 @@ namespace Models
     inline RunInstancesShrinkRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
+    // vpdId Field Functions 
+    bool hasVpdId() const { return this->vpdId_ != nullptr;};
+    void deleteVpdId() { this->vpdId_ = nullptr;};
+    inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+    inline RunInstancesShrinkRequest& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
+
+
+    // vpdVSwitchIdsShrink Field Functions 
+    bool hasVpdVSwitchIdsShrink() const { return this->vpdVSwitchIdsShrink_ != nullptr;};
+    void deleteVpdVSwitchIdsShrink() { this->vpdVSwitchIdsShrink_ = nullptr;};
+    inline string getVpdVSwitchIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(vpdVSwitchIdsShrink_, "") };
+    inline RunInstancesShrinkRequest& setVpdVSwitchIdsShrink(string vpdVSwitchIdsShrink) { DARABONBA_PTR_SET_VALUE(vpdVSwitchIdsShrink_, vpdVSwitchIdsShrink) };
+
+
   protected:
     // The number of instances that you want to create. Valid values: 1 to 100.
     shared_ptr<int64_t> amount_ {};
@@ -625,6 +643,8 @@ namespace Models
     // 
     // >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs.
     shared_ptr<string> vSwitchId_ {};
+    shared_ptr<string> vpdId_ {};
+    shared_ptr<string> vpdVSwitchIdsShrink_ {};
   };
 
   } // namespace Models

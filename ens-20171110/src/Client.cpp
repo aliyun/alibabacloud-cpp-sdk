@@ -5922,7 +5922,6 @@ DescribeApplicationResponse Client::describeApplication(const DescribeApplicatio
 /**
  * @summary Queries the resources that can be created.
  *
- * @param request DescribeAvailableResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAvailableResourceResponse
  */
@@ -5955,7 +5954,6 @@ DescribeAvailableResourceResponse Client::describeAvailableResource() {
 /**
  * @summary Queries the specifications of resources that you can purchase when you create an instance.
  *
- * @param request DescribeAvailableResourceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAvailableResourceInfoResponse
  */
@@ -5988,7 +5986,6 @@ DescribeAvailableResourceInfoResponse Client::describeAvailableResourceInfo() {
 /**
  * @summary Queries available bandwidth metering methods.
  *
- * @param request DescribeBandWithdChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeBandWithdChargeTypeResponse
  */
@@ -6075,7 +6072,6 @@ DescribeBandwitdhByInternetChargeTypeResponse Client::describeBandwitdhByInterne
 /**
  * @summary Queries the available resources in a region.
  *
- * @param request DescribeCloudDiskAvailableResourceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCloudDiskAvailableResourceInfoResponse
  */
@@ -6940,7 +6936,6 @@ DescribeDisksResponse Client::describeDisks(const DescribeDisksRequest &request)
 /**
  * @summary Queries the specifications of resources that you can purchase when you create an instance.
  *
- * @param request DescribeElbAvailableResourceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeElbAvailableResourceInfoResponse
  */
@@ -7193,7 +7188,6 @@ DescribeEnsNetDistrictResponse Client::describeEnsNetDistrict(const DescribeEnsN
 /**
  * @summary Queries the supported network levels.
  *
- * @param request DescribeEnsNetLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeEnsNetLevelResponse
  */
@@ -8834,7 +8828,6 @@ DescribeInstanceSDGStatusResponse Client::describeInstanceSDGStatus(const Descri
 /**
  * @summary Queries the instance specifications that you can purchase.
  *
- * @param request DescribeInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstanceSpecResponse
  */
@@ -8867,7 +8860,6 @@ DescribeInstanceSpecResponse Client::describeInstanceSpec() {
 /**
  * @summary Queries the specifications of instance types.
  *
- * @param request DescribeInstanceTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstanceTypesResponse
  */
@@ -9049,6 +9041,14 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 
   if (!!request.hasVSwitchId()) {
     query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpdId()) {
+    query["VpdId"] = request.getVpdId();
+  }
+
+  if (!!request.hasVpdVSwitchId()) {
+    query["VpdVSwitchId"] = request.getVpdVSwitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9684,7 +9684,6 @@ DescribeMountTargetsResponse Client::describeMountTargets(const DescribeMountTar
 /**
  * @summary Queries the specifications of resources that you can purchase when you create a NAS.
  *
- * @param request DescribeNASAvailableResourceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeNASAvailableResourceInfoResponse
  */
@@ -10341,7 +10340,6 @@ DescribeRegionResourceResponse Client::describeRegionResource(const DescribeRegi
 /**
  * @summary Queries the specifications of resources that you can purchase.
  *
- * @param request DescribeReservedResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeReservedResourceResponse
  */
@@ -12496,7 +12494,6 @@ ImportKeyPairResponse Client::importKeyPair(const ImportKeyPairRequest &request)
 /**
  * @summary Create a service-linked role (SLR) for ENS for the current user to manage resources.
  *
- * @param request InitializeENSECKServiceRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return InitializeENSECKServiceRoleResponse
  */
@@ -12905,7 +12902,6 @@ ListAICPublicKeysResponse Client::listAICPublicKeys(const ListAICPublicKeysReque
 /**
  * @summary Querying the details of a cluster component
  *
- * @param request ListAddonsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAddonsResponse
  */
@@ -13166,7 +13162,6 @@ ListObjectsResponse Client::listObjects(const ListObjectsRequest &request) {
 /**
  * @summary Lists all service capabilities.
  *
- * @param request ListProductAbilitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListProductAbilitiesResponse
  */
@@ -16539,6 +16534,10 @@ RunInstancesResponse Client::runInstancesWithOptions(const RunInstancesRequest &
     request.setSystemDiskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSystemDisk(), "SystemDisk", "json"));
   }
 
+  if (!!tmpReq.hasVpdVSwitchIds()) {
+    request.setVpdVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVpdVSwitchIds(), "VpdVSwitchIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasAmount()) {
     query["Amount"] = request.getAmount();
@@ -16706,6 +16705,14 @@ RunInstancesResponse Client::runInstancesWithOptions(const RunInstancesRequest &
 
   if (!!request.hasVSwitchId()) {
     query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpdId()) {
+    query["VpdId"] = request.getVpdId();
+  }
+
+  if (!!request.hasVpdVSwitchIdsShrink()) {
+    query["VpdVSwitchIds"] = request.getVpdVSwitchIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

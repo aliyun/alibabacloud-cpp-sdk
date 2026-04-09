@@ -1931,7 +1931,6 @@ namespace Ens20171110
       /**
        * @summary Queries the resources that can be created.
        *
-       * @param request DescribeAvailableResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAvailableResourceResponse
        */
@@ -1947,7 +1946,6 @@ namespace Ens20171110
       /**
        * @summary Queries the specifications of resources that you can purchase when you create an instance.
        *
-       * @param request DescribeAvailableResourceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAvailableResourceInfoResponse
        */
@@ -1963,7 +1961,6 @@ namespace Ens20171110
       /**
        * @summary Queries available bandwidth metering methods.
        *
-       * @param request DescribeBandWithdChargeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeBandWithdChargeTypeResponse
        */
@@ -1996,7 +1993,6 @@ namespace Ens20171110
       /**
        * @summary Queries the available resources in a region.
        *
-       * @param request DescribeCloudDiskAvailableResourceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCloudDiskAvailableResourceInfoResponse
        */
@@ -2292,7 +2288,6 @@ namespace Ens20171110
       /**
        * @summary Queries the specifications of resources that you can purchase when you create an instance.
        *
-       * @param request DescribeElbAvailableResourceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeElbAvailableResourceInfoResponse
        */
@@ -2376,7 +2371,6 @@ namespace Ens20171110
       /**
        * @summary Queries the supported network levels.
        *
-       * @param request DescribeEnsNetLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeEnsNetLevelResponse
        */
@@ -2934,7 +2928,6 @@ namespace Ens20171110
       /**
        * @summary Queries the instance specifications that you can purchase.
        *
-       * @param request DescribeInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstanceSpecResponse
        */
@@ -2950,7 +2943,6 @@ namespace Ens20171110
       /**
        * @summary Queries the specifications of instance types.
        *
-       * @param request DescribeInstanceTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstanceTypesResponse
        */
@@ -3254,7 +3246,6 @@ namespace Ens20171110
       /**
        * @summary Queries the specifications of resources that you can purchase when you create a NAS.
        *
-       * @param request DescribeNASAvailableResourceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeNASAvailableResourceInfoResponse
        */
@@ -3469,7 +3460,6 @@ namespace Ens20171110
       /**
        * @summary Queries the specifications of resources that you can purchase.
        *
-       * @param request DescribeReservedResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeReservedResourceResponse
        */
@@ -4208,7 +4198,6 @@ namespace Ens20171110
       /**
        * @summary Create a service-linked role (SLR) for ENS for the current user to manage resources.
        *
-       * @param request InitializeENSECKServiceRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return InitializeENSECKServiceRoleResponse
        */
@@ -4355,7 +4344,6 @@ namespace Ens20171110
       /**
        * @summary Querying the details of a cluster component
        *
-       * @param request ListAddonsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAddonsResponse
        */
@@ -4439,7 +4427,6 @@ namespace Ens20171110
       /**
        * @summary Lists all service capabilities.
        *
-       * @param request ListProductAbilitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListProductAbilitiesResponse
        */

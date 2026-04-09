@@ -592,6 +592,8 @@ namespace Models
               DARABONBA_PTR_TO_JSON(PrimaryIpAddress, primaryIpAddress_);
               DARABONBA_PTR_TO_JSON(PrivateIpSets, privateIpSets_);
               DARABONBA_PTR_TO_JSON(Type, type_);
+              DARABONBA_PTR_TO_JSON(VpdId, vpdId_);
+              DARABONBA_PTR_TO_JSON(VpdVSwitchId, vpdVSwitchId_);
             };
             friend void from_json(const Darabonba::Json& j, NetworkInterfacesItem& obj) { 
               DARABONBA_PTR_FROM_JSON(Ipv6Sets, ipv6Sets_);
@@ -600,6 +602,8 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(PrimaryIpAddress, primaryIpAddress_);
               DARABONBA_PTR_FROM_JSON(PrivateIpSets, privateIpSets_);
               DARABONBA_PTR_FROM_JSON(Type, type_);
+              DARABONBA_PTR_FROM_JSON(VpdId, vpdId_);
+              DARABONBA_PTR_FROM_JSON(VpdVSwitchId, vpdVSwitchId_);
             };
             NetworkInterfacesItem() = default ;
             NetworkInterfacesItem(const NetworkInterfacesItem &) = default ;
@@ -752,7 +756,8 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->ipv6Sets_ == nullptr
-        && this->macAddress_ == nullptr && this->networkInterfaceId_ == nullptr && this->primaryIpAddress_ == nullptr && this->privateIpSets_ == nullptr && this->type_ == nullptr; };
+        && this->macAddress_ == nullptr && this->networkInterfaceId_ == nullptr && this->primaryIpAddress_ == nullptr && this->privateIpSets_ == nullptr && this->type_ == nullptr
+        && this->vpdId_ == nullptr && this->vpdVSwitchId_ == nullptr; };
             // ipv6Sets Field Functions 
             bool hasIpv6Sets() const { return this->ipv6Sets_ != nullptr;};
             void deleteIpv6Sets() { this->ipv6Sets_ = nullptr;};
@@ -799,6 +804,20 @@ namespace Models
             inline NetworkInterfacesItem& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+            // vpdId Field Functions 
+            bool hasVpdId() const { return this->vpdId_ != nullptr;};
+            void deleteVpdId() { this->vpdId_ = nullptr;};
+            inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+            inline NetworkInterfacesItem& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
+
+
+            // vpdVSwitchId Field Functions 
+            bool hasVpdVSwitchId() const { return this->vpdVSwitchId_ != nullptr;};
+            void deleteVpdVSwitchId() { this->vpdVSwitchId_ = nullptr;};
+            inline string getVpdVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vpdVSwitchId_, "") };
+            inline NetworkInterfacesItem& setVpdVSwitchId(string vpdVSwitchId) { DARABONBA_PTR_SET_VALUE(vpdVSwitchId_, vpdVSwitchId) };
+
+
           protected:
             shared_ptr<NetworkInterfacesItem::Ipv6Sets> ipv6Sets_ {};
             shared_ptr<string> macAddress_ {};
@@ -806,6 +825,8 @@ namespace Models
             shared_ptr<string> primaryIpAddress_ {};
             shared_ptr<NetworkInterfacesItem::PrivateIpSets> privateIpSets_ {};
             shared_ptr<string> type_ {};
+            shared_ptr<string> vpdId_ {};
+            shared_ptr<string> vpdVSwitchId_ {};
           };
 
           virtual bool empty() const override { return this->networkInterfaces_ == nullptr; };

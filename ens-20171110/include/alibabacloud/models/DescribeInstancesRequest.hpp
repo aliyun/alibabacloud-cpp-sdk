@@ -35,6 +35,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VpdId, vpdId_);
+      DARABONBA_PTR_TO_JSON(VpdVSwitchId, vpdVSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EipAddresses, eipAddresses_);
@@ -58,6 +60,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VpdId, vpdId_);
+      DARABONBA_PTR_FROM_JSON(VpdVSwitchId, vpdVSwitchId_);
     };
     DescribeInstancesRequest() = default ;
     DescribeInstancesRequest(const DescribeInstancesRequest &) = default ;
@@ -118,7 +122,8 @@ namespace Models
         && this->ensRegionId_ == nullptr && this->ensRegionIds_ == nullptr && this->ensServiceId_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr
         && this->instanceIds_ == nullptr && this->instanceName_ == nullptr && this->instanceResourceType_ == nullptr && this->instanceType_ == nullptr && this->intranetIp_ == nullptr
         && this->networkId_ == nullptr && this->orderByParams_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchKey_ == nullptr
-        && this->securityGroupId_ == nullptr && this->serviceStatus_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->securityGroupId_ == nullptr && this->serviceStatus_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpdId_ == nullptr && this->vpdVSwitchId_ == nullptr; };
     // eipAddresses Field Functions 
     bool hasEipAddresses() const { return this->eipAddresses_ != nullptr;};
     void deleteEipAddresses() { this->eipAddresses_ = nullptr;};
@@ -272,6 +277,20 @@ namespace Models
     inline DescribeInstancesRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
+    // vpdId Field Functions 
+    bool hasVpdId() const { return this->vpdId_ != nullptr;};
+    void deleteVpdId() { this->vpdId_ = nullptr;};
+    inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+    inline DescribeInstancesRequest& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
+
+
+    // vpdVSwitchId Field Functions 
+    bool hasVpdVSwitchId() const { return this->vpdVSwitchId_ != nullptr;};
+    void deleteVpdVSwitchId() { this->vpdVSwitchId_ = nullptr;};
+    inline string getVpdVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vpdVSwitchId_, "") };
+    inline DescribeInstancesRequest& setVpdVSwitchId(string vpdVSwitchId) { DARABONBA_PTR_SET_VALUE(vpdVSwitchId_, vpdVSwitchId) };
+
+
   protected:
     shared_ptr<vector<string>> eipAddresses_ {};
     // The region ID.
@@ -329,6 +348,8 @@ namespace Models
     shared_ptr<vector<DescribeInstancesRequest::Tags>> tags_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
+    shared_ptr<string> vpdId_ {};
+    shared_ptr<string> vpdVSwitchId_ {};
   };
 
   } // namespace Models
