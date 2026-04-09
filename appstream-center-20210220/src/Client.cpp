@@ -46,23 +46,23 @@ ClientUserLogoutResponse Client::clientUserLogoutWithOptions(const ClientUserLog
   request.validate();
   json query = {};
   if (!!request.hasClientId()) {
-    query["ClientId"] = request.clientId();
+    query["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasLoginToken()) {
-    query["LoginToken"] = request.loginToken();
+    query["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasOfficeSiteId()) {
-    query["OfficeSiteId"] = request.officeSiteId();
+    query["OfficeSiteId"] = request.getOfficeSiteId();
   }
 
   if (!!request.hasProfileRegion()) {
-    query["ProfileRegion"] = request.profileRegion();
+    query["ProfileRegion"] = request.getProfileRegion();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -79,7 +79,7 @@ ClientUserLogoutResponse Client::clientUserLogoutWithOptions(const ClientUserLog
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ClientUserLogoutResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<ClientUserLogoutResponse>();
 }
 
 /**
@@ -94,7 +94,7 @@ ClientUserLogoutResponse Client::clientUserLogout(const ClientUserLogoutRequest 
 }
 
 /**
- * @summary 身份认证查询接口
+ * @summary Queries the information about identity providers by logon identifier.
  *
  * @param tmpReq FindIdpListByLoginIdentifierRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -105,45 +105,45 @@ FindIdpListByLoginIdentifierResponse Client::findIdpListByLoginIdentifierWithOpt
   FindIdpListByLoginIdentifierShrinkRequest request = FindIdpListByLoginIdentifierShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAvailableFeatures()) {
-    request.setAvailableFeaturesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures(), "AvailableFeatures", "json"));
+    request.setAvailableFeaturesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAvailableFeatures(), "AvailableFeatures", "json"));
   }
 
   json query = {};
   if (!!request.hasAvailableFeaturesShrink()) {
-    query["AvailableFeatures"] = request.availableFeaturesShrink();
+    query["AvailableFeatures"] = request.getAvailableFeaturesShrink();
   }
 
   if (!!request.hasClientIp()) {
-    query["ClientIp"] = request.clientIp();
+    query["ClientIp"] = request.getClientIp();
   }
 
   json body = {};
   if (!!request.hasClientChannel()) {
-    body["ClientChannel"] = request.clientChannel();
+    body["ClientChannel"] = request.getClientChannel();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasLoginIdentifier()) {
-    body["LoginIdentifier"] = request.loginIdentifier();
+    body["LoginIdentifier"] = request.getLoginIdentifier();
   }
 
   if (!!request.hasSupportTypes()) {
-    body["SupportTypes"] = request.supportTypes();
+    body["SupportTypes"] = request.getSupportTypes();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -161,11 +161,11 @@ FindIdpListByLoginIdentifierResponse Client::findIdpListByLoginIdentifierWithOpt
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<FindIdpListByLoginIdentifierResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<FindIdpListByLoginIdentifierResponse>();
 }
 
 /**
- * @summary 身份认证查询接口
+ * @summary Queries the information about identity providers by logon identifier.
  *
  * @param request FindIdpListByLoginIdentifierRequest
  * @return FindIdpListByLoginIdentifierResponse
@@ -176,7 +176,7 @@ FindIdpListByLoginIdentifierResponse Client::findIdpListByLoginIdentifier(const 
 }
 
 /**
- * @summary GetLoginToken
+ * @summary Queries a logon token using an enterprise identifier.
  *
  * @param tmpReq GetLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -187,160 +187,160 @@ GetLoginTokenResponse Client::getLoginTokenWithOptions(const GetLoginTokenReques
   GetLoginTokenShrinkRequest request = GetLoginTokenShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAvailableFeatures()) {
-    request.setAvailableFeaturesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures(), "AvailableFeatures", "json"));
+    request.setAvailableFeaturesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAvailableFeatures(), "AvailableFeatures", "json"));
   }
 
   json query = {};
   if (!!request.hasAreaSite()) {
-    query["AreaSite"] = request.areaSite();
+    query["AreaSite"] = request.getAreaSite();
   }
 
   if (!!request.hasAuthenticationCode()) {
-    query["AuthenticationCode"] = request.authenticationCode();
+    query["AuthenticationCode"] = request.getAuthenticationCode();
   }
 
   if (!!request.hasAvailableFeaturesShrink()) {
-    query["AvailableFeatures"] = request.availableFeaturesShrink();
+    query["AvailableFeatures"] = request.getAvailableFeaturesShrink();
   }
 
   if (!!request.hasChannel()) {
-    query["Channel"] = request.channel();
+    query["Channel"] = request.getChannel();
   }
 
   if (!!request.hasClientId()) {
-    query["ClientId"] = request.clientId();
+    query["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientName()) {
-    query["ClientName"] = request.clientName();
+    query["ClientName"] = request.getClientName();
   }
 
   if (!!request.hasClientOS()) {
-    query["ClientOS"] = request.clientOS();
+    query["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientType()) {
-    query["ClientType"] = request.clientType();
+    query["ClientType"] = request.getClientType();
   }
 
   if (!!request.hasClientVersion()) {
-    query["ClientVersion"] = request.clientVersion();
+    query["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasCurrentStage()) {
-    query["CurrentStage"] = request.currentStage();
+    query["CurrentStage"] = request.getCurrentStage();
   }
 
   if (!!request.hasDirectoryId()) {
-    query["DirectoryId"] = request.directoryId();
+    query["DirectoryId"] = request.getDirectoryId();
   }
 
   if (!!request.hasEncryptedFingerPrintData()) {
-    query["EncryptedFingerPrintData"] = request.encryptedFingerPrintData();
+    query["EncryptedFingerPrintData"] = request.getEncryptedFingerPrintData();
   }
 
   if (!!request.hasEncryptedKey()) {
-    query["EncryptedKey"] = request.encryptedKey();
+    query["EncryptedKey"] = request.getEncryptedKey();
   }
 
   if (!!request.hasEncryptedPassword()) {
-    query["EncryptedPassword"] = request.encryptedPassword();
+    query["EncryptedPassword"] = request.getEncryptedPassword();
   }
 
   if (!!request.hasEndUserId()) {
-    query["EndUserId"] = request.endUserId();
+    query["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasFingerPrintData()) {
-    query["FingerPrintData"] = request.fingerPrintData();
+    query["FingerPrintData"] = request.getFingerPrintData();
   }
 
   if (!!request.hasIdpId()) {
-    query["IdpId"] = request.idpId();
+    query["IdpId"] = request.getIdpId();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasKeepAlive()) {
-    query["KeepAlive"] = request.keepAlive();
+    query["KeepAlive"] = request.getKeepAlive();
   }
 
   if (!!request.hasKeepAliveToken()) {
-    query["KeepAliveToken"] = request.keepAliveToken();
+    query["KeepAliveToken"] = request.getKeepAliveToken();
   }
 
   if (!!request.hasLoginIdentifier()) {
-    query["LoginIdentifier"] = request.loginIdentifier();
+    query["LoginIdentifier"] = request.getLoginIdentifier();
   }
 
   if (!!request.hasLoginName()) {
-    query["LoginName"] = request.loginName();
+    query["LoginName"] = request.getLoginName();
   }
 
   if (!!request.hasMfaType()) {
-    query["MfaType"] = request.mfaType();
+    query["MfaType"] = request.getMfaType();
   }
 
   if (!!request.hasNetworkType()) {
-    query["NetworkType"] = request.networkType();
+    query["NetworkType"] = request.getNetworkType();
   }
 
   if (!!request.hasNewPassword()) {
-    query["NewPassword"] = request.newPassword();
+    query["NewPassword"] = request.getNewPassword();
   }
 
   if (!!request.hasOfficeSiteId()) {
-    query["OfficeSiteId"] = request.officeSiteId();
+    query["OfficeSiteId"] = request.getOfficeSiteId();
   }
 
   if (!!request.hasOldPassword()) {
-    query["OldPassword"] = request.oldPassword();
+    query["OldPassword"] = request.getOldPassword();
   }
 
   if (!!request.hasPassword()) {
-    query["Password"] = request.password();
+    query["Password"] = request.getPassword();
   }
 
   if (!!request.hasPhone()) {
-    query["Phone"] = request.phone();
+    query["Phone"] = request.getPhone();
   }
 
   if (!!request.hasPhoneVerifyCode()) {
-    query["PhoneVerifyCode"] = request.phoneVerifyCode();
+    query["PhoneVerifyCode"] = request.getPhoneVerifyCode();
   }
 
   if (!!request.hasProfileRegion()) {
-    query["ProfileRegion"] = request.profileRegion();
+    query["ProfileRegion"] = request.getProfileRegion();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasSsoExtendsCookies()) {
-    query["SsoExtendsCookies"] = request.ssoExtendsCookies();
+    query["SsoExtendsCookies"] = request.getSsoExtendsCookies();
   }
 
   if (!!request.hasSsoSessionToken()) {
-    query["SsoSessionToken"] = request.ssoSessionToken();
+    query["SsoSessionToken"] = request.getSsoSessionToken();
   }
 
   if (!!request.hasTokenCode()) {
-    query["TokenCode"] = request.tokenCode();
+    query["TokenCode"] = request.getTokenCode();
   }
 
   if (!!request.hasUmidToken()) {
-    query["UmidToken"] = request.umidToken();
+    query["UmidToken"] = request.getUmidToken();
   }
 
   if (!!request.hasUuid()) {
-    query["Uuid"] = request.uuid();
+    query["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -357,11 +357,11 @@ GetLoginTokenResponse Client::getLoginTokenWithOptions(const GetLoginTokenReques
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<GetLoginTokenResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<GetLoginTokenResponse>();
 }
 
 /**
- * @summary GetLoginToken
+ * @summary Queries a logon token using an enterprise identifier.
  *
  * @param request GetLoginTokenRequest
  * @return GetLoginTokenResponse
@@ -372,7 +372,7 @@ GetLoginTokenResponse Client::getLoginToken(const GetLoginTokenRequest &request)
 }
 
 /**
- * @summary 获取无影StsToken
+ * @summary Obtains an STS token.
  *
  * @param request GetStsTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -382,27 +382,27 @@ GetStsTokenResponse Client::getStsTokenWithOptions(const GetStsTokenRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAuthCode()) {
-    body["AuthCode"] = request.authCode();
+    body["AuthCode"] = request.getAuthCode();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -419,11 +419,11 @@ GetStsTokenResponse Client::getStsTokenWithOptions(const GetStsTokenRequest &req
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<GetStsTokenResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<GetStsTokenResponse>();
 }
 
 /**
- * @summary 获取无影StsToken
+ * @summary Obtains an STS token.
  *
  * @param request GetStsTokenRequest
  * @return GetStsTokenResponse
@@ -434,6 +434,8 @@ GetStsTokenResponse Client::getStsToken(const GetStsTokenRequest &request) {
 }
 
 /**
+ * @summary Refreshes a logon token.
+ *
  * @param request RefreshLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RefreshLoginTokenResponse
@@ -442,39 +444,39 @@ RefreshLoginTokenResponse Client::refreshLoginTokenWithOptions(const RefreshLogi
   request.validate();
   json query = {};
   if (!!request.hasClientId()) {
-    query["ClientId"] = request.clientId();
+    query["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientType()) {
-    query["ClientType"] = request.clientType();
+    query["ClientType"] = request.getClientType();
   }
 
   if (!!request.hasEndUserId()) {
-    query["EndUserId"] = request.endUserId();
+    query["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginIdentifier()) {
-    query["LoginIdentifier"] = request.loginIdentifier();
+    query["LoginIdentifier"] = request.getLoginIdentifier();
   }
 
   if (!!request.hasLoginToken()) {
-    query["LoginToken"] = request.loginToken();
+    query["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasOfficeSiteId()) {
-    query["OfficeSiteId"] = request.officeSiteId();
+    query["OfficeSiteId"] = request.getOfficeSiteId();
   }
 
   if (!!request.hasProfileRegion()) {
-    query["ProfileRegion"] = request.profileRegion();
+    query["ProfileRegion"] = request.getProfileRegion();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasUuid()) {
-    query["Uuid"] = request.uuid();
+    query["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -491,10 +493,12 @@ RefreshLoginTokenResponse Client::refreshLoginTokenWithOptions(const RefreshLogi
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<RefreshLoginTokenResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<RefreshLoginTokenResponse>();
 }
 
 /**
+ * @summary Refreshes a logon token.
+ *
  * @param request RefreshLoginTokenRequest
  * @return RefreshLoginTokenResponse
  */

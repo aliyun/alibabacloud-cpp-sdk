@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authCode_ == nullptr
-        && return this->clientId_ == nullptr && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->uuid_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientIp_ == nullptr && this->clientOS_ == nullptr && this->clientVersion_ == nullptr && this->uuid_ == nullptr; };
     // authCode Field Functions 
     bool hasAuthCode() const { return this->authCode_ != nullptr;};
     void deleteAuthCode() { this->authCode_ = nullptr;};
-    inline string authCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
+    inline string getAuthCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
     inline GetStsTokenRequest& setAuthCode(string authCode) { DARABONBA_PTR_SET_VALUE(authCode_, authCode) };
 
 
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline GetStsTokenRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
-    inline string clientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+    inline string getClientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
     inline GetStsTokenRequest& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
 
 
     // clientOS Field Functions 
     bool hasClientOS() const { return this->clientOS_ != nullptr;};
     void deleteClientOS() { this->clientOS_ = nullptr;};
-    inline string clientOS() const { DARABONBA_PTR_GET_DEFAULT(clientOS_, "") };
+    inline string getClientOS() const { DARABONBA_PTR_GET_DEFAULT(clientOS_, "") };
     inline GetStsTokenRequest& setClientOS(string clientOS) { DARABONBA_PTR_SET_VALUE(clientOS_, clientOS) };
 
 
     // clientVersion Field Functions 
     bool hasClientVersion() const { return this->clientVersion_ != nullptr;};
     void deleteClientVersion() { this->clientVersion_ = nullptr;};
-    inline string clientVersion() const { DARABONBA_PTR_GET_DEFAULT(clientVersion_, "") };
+    inline string getClientVersion() const { DARABONBA_PTR_GET_DEFAULT(clientVersion_, "") };
     inline GetStsTokenRequest& setClientVersion(string clientVersion) { DARABONBA_PTR_SET_VALUE(clientVersion_, clientVersion) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline GetStsTokenRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> authCode_ = nullptr;
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> clientIp_ = nullptr;
-    std::shared_ptr<string> clientOS_ = nullptr;
-    std::shared_ptr<string> clientVersion_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> authCode_ {};
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> clientIp_ {};
+    shared_ptr<string> clientOS_ {};
+    shared_ptr<string> clientVersion_ {};
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

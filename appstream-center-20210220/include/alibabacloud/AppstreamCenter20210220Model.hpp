@@ -19,13 +19,5 @@
 #include <alibabacloud/models/RefreshLoginTokenRequest.hpp>
 #include <alibabacloud/models/RefreshLoginTokenResponseBody.hpp>
 #include <alibabacloud/models/RefreshLoginTokenResponse.hpp>
-#include <alibabacloud/models/FindIdpListByLoginIdentifierResponseBodyIdpInfos.hpp>
-#include <alibabacloud/models/FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo.hpp>
-#include <alibabacloud/models/FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyMfaTypeList.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyPasswordStrategy.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyRiskVerifyInfo.hpp>
-#include <alibabacloud/models/GetLoginTokenResponseBodyTenantInfos.hpp>
-#include <alibabacloud/models/GetStsTokenResponseBodyStsTokenModel.hpp>
 
 #endif

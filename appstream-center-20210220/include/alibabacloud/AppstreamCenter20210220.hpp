@@ -38,7 +38,7 @@ namespace AppstreamCenter20210220
       Models::ClientUserLogoutResponse clientUserLogout(const Models::ClientUserLogoutRequest &request);
 
       /**
-       * @summary 身份认证查询接口
+       * @summary Queries the information about identity providers by logon identifier.
        *
        * @param tmpReq FindIdpListByLoginIdentifierRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AppstreamCenter20210220
       Models::FindIdpListByLoginIdentifierResponse findIdpListByLoginIdentifierWithOptions(const Models::FindIdpListByLoginIdentifierRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 身份认证查询接口
+       * @summary Queries the information about identity providers by logon identifier.
        *
        * @param request FindIdpListByLoginIdentifierRequest
        * @return FindIdpListByLoginIdentifierResponse
@@ -55,7 +55,7 @@ namespace AppstreamCenter20210220
       Models::FindIdpListByLoginIdentifierResponse findIdpListByLoginIdentifier(const Models::FindIdpListByLoginIdentifierRequest &request);
 
       /**
-       * @summary GetLoginToken
+       * @summary Queries a logon token using an enterprise identifier.
        *
        * @param tmpReq GetLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace AppstreamCenter20210220
       Models::GetLoginTokenResponse getLoginTokenWithOptions(const Models::GetLoginTokenRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetLoginToken
+       * @summary Queries a logon token using an enterprise identifier.
        *
        * @param request GetLoginTokenRequest
        * @return GetLoginTokenResponse
@@ -72,7 +72,7 @@ namespace AppstreamCenter20210220
       Models::GetLoginTokenResponse getLoginToken(const Models::GetLoginTokenRequest &request);
 
       /**
-       * @summary 获取无影StsToken
+       * @summary Obtains an STS token.
        *
        * @param request GetStsTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace AppstreamCenter20210220
       Models::GetStsTokenResponse getStsTokenWithOptions(const Models::GetStsTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取无影StsToken
+       * @summary Obtains an STS token.
        *
        * @param request GetStsTokenRequest
        * @return GetStsTokenResponse
@@ -89,6 +89,8 @@ namespace AppstreamCenter20210220
       Models::GetStsTokenResponse getStsToken(const Models::GetStsTokenRequest &request);
 
       /**
+       * @summary Refreshes a logon token.
+       *
        * @param request RefreshLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RefreshLoginTokenResponse
@@ -96,6 +98,8 @@ namespace AppstreamCenter20210220
       Models::RefreshLoginTokenResponse refreshLoginTokenWithOptions(const Models::RefreshLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Refreshes a logon token.
+       *
        * @param request RefreshLoginTokenRequest
        * @return RefreshLoginTokenResponse
        */

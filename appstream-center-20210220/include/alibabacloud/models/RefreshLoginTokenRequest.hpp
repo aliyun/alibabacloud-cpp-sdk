@@ -46,84 +46,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->clientType_ == nullptr && return this->endUserId_ == nullptr && return this->loginIdentifier_ == nullptr && return this->loginToken_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->profileRegion_ == nullptr && return this->sessionId_ == nullptr && return this->uuid_ == nullptr; };
+        && this->clientType_ == nullptr && this->endUserId_ == nullptr && this->loginIdentifier_ == nullptr && this->loginToken_ == nullptr && this->officeSiteId_ == nullptr
+        && this->profileRegion_ == nullptr && this->sessionId_ == nullptr && this->uuid_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline RefreshLoginTokenRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientType Field Functions 
     bool hasClientType() const { return this->clientType_ != nullptr;};
     void deleteClientType() { this->clientType_ = nullptr;};
-    inline string clientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, "") };
+    inline string getClientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, "") };
     inline RefreshLoginTokenRequest& setClientType(string clientType) { DARABONBA_PTR_SET_VALUE(clientType_, clientType) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline RefreshLoginTokenRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // loginIdentifier Field Functions 
     bool hasLoginIdentifier() const { return this->loginIdentifier_ != nullptr;};
     void deleteLoginIdentifier() { this->loginIdentifier_ = nullptr;};
-    inline string loginIdentifier() const { DARABONBA_PTR_GET_DEFAULT(loginIdentifier_, "") };
+    inline string getLoginIdentifier() const { DARABONBA_PTR_GET_DEFAULT(loginIdentifier_, "") };
     inline RefreshLoginTokenRequest& setLoginIdentifier(string loginIdentifier) { DARABONBA_PTR_SET_VALUE(loginIdentifier_, loginIdentifier) };
 
 
     // loginToken Field Functions 
     bool hasLoginToken() const { return this->loginToken_ != nullptr;};
     void deleteLoginToken() { this->loginToken_ = nullptr;};
-    inline string loginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
+    inline string getLoginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
     inline RefreshLoginTokenRequest& setLoginToken(string loginToken) { DARABONBA_PTR_SET_VALUE(loginToken_, loginToken) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline RefreshLoginTokenRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // profileRegion Field Functions 
     bool hasProfileRegion() const { return this->profileRegion_ != nullptr;};
     void deleteProfileRegion() { this->profileRegion_ = nullptr;};
-    inline string profileRegion() const { DARABONBA_PTR_GET_DEFAULT(profileRegion_, "") };
+    inline string getProfileRegion() const { DARABONBA_PTR_GET_DEFAULT(profileRegion_, "") };
     inline RefreshLoginTokenRequest& setProfileRegion(string profileRegion) { DARABONBA_PTR_SET_VALUE(profileRegion_, profileRegion) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline RefreshLoginTokenRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline RefreshLoginTokenRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> clientType_ = nullptr;
-    std::shared_ptr<string> endUserId_ = nullptr;
-    std::shared_ptr<string> loginIdentifier_ = nullptr;
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> clientType_ {};
+    shared_ptr<string> endUserId_ {};
+    shared_ptr<string> loginIdentifier_ {};
     // This parameter is required.
-    std::shared_ptr<string> loginToken_ = nullptr;
-    std::shared_ptr<string> officeSiteId_ = nullptr;
-    std::shared_ptr<string> profileRegion_ = nullptr;
+    shared_ptr<string> loginToken_ {};
+    shared_ptr<string> officeSiteId_ {};
+    shared_ptr<string> profileRegion_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models
