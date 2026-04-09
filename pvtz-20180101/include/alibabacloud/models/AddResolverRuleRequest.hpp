@@ -270,8 +270,6 @@ namespace Models
     // Default value: en.
     shared_ptr<string> lang_ {};
     // The name of the forwarding rule. You can name the rule based on your business requirements.
-    // 
-    // This parameter is required.
     shared_ptr<string> name_ {};
     // The type of the forwarding rule. The parameter value can only be OUTBOUND, which indicates that DNS requests are forwarded to one or more external IP addresses.
     // 

@@ -184,18 +184,10 @@ namespace Models
 
 
           protected:
-            // The region ID of the VPC.
             shared_ptr<string> regionId_ {};
-            // The name of the region to which the VPC belongs.
             shared_ptr<string> regionName_ {};
-            // The VPC ID. The unique ID of the VPC.
             shared_ptr<string> vpcId_ {};
-            // The VPC name.
             shared_ptr<string> vpcName_ {};
-            // The VPC type. Valid values:
-            // 
-            // *   STANDARD: standard VPC
-            // *   EDS: Elastic Desktop Service (EDS) workspace VPC
             shared_ptr<string> vpcType_ {};
           };
 
@@ -332,56 +324,21 @@ namespace Models
 
 
       protected:
-        // The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The creator of the zone.
         shared_ptr<string> creator_ {};
-        // The operator type.
         shared_ptr<string> creatorType_ {};
-        // The logical location of the built-in authoritative module in which the zone is added. Valid values:
-        // 
-        // *   NORMAL_ZONE: regular module
-        // *   FAST_ZONE: acceleration module
         shared_ptr<string> dnsGroup_ {};
-        // Indicates whether the zone is being removed to another logical location. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> dnsGroupChanging_ {};
-        // Indicates whether the zone is a reverse lookup zone. Valid values:
-        // 
-        // *   true
-        // *   false
         shared_ptr<bool> isPtr_ {};
-        // The number of Domain Name System (DNS) records added for the zone.
         shared_ptr<int32_t> recordCount_ {};
-        // The description of the zone.
         shared_ptr<string> remark_ {};
-        // The time when the zone was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
-        // The time when the zone was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> updateTimestamp_ {};
-        // The VPCs associated with the zone.
         shared_ptr<Zone::Vpcs> vpcs_ {};
-        // The zone ID. This ID uniquely identifies the zone.
         shared_ptr<string> zoneId_ {};
-        // The zone name.
         shared_ptr<string> zoneName_ {};
-        // The type of the cloud service.
-        // 
-        // 
-        // **Valid values:**
-        // 
-        // *   If ZoneType is set to AUTH_ZONE, no value is returned for this parameter.
-        // 
-        // *   If ZoneType is set to CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
         shared_ptr<string> zoneTag_ {};
-        // The zone type. Valid values:
-        // 
-        // *   AUTH_ZONE: authoritative zone
-        // *   CLOUD_PRODUCT_ZONE: authoritative zone for cloud services
         shared_ptr<string> zoneType_ {};
       };
 
@@ -420,7 +377,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The zones.
     shared_ptr<DescribeZoneVpcTreeResponseBody::Zones> zones_ {};
   };
 

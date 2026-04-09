@@ -198,44 +198,18 @@ namespace Models
 
 
       protected:
-        // The operation content.
         shared_ptr<string> content_ {};
-        // The operator ID.
         shared_ptr<string> creatorId_ {};
-        // The subtype of the operator. Valid values:
-        // 
-        // *   CUSTOMER: Alibaba Cloud account
-        // *   SUB: RAM user
-        // *   STS: assumed role that obtains the Security Token Service (STS) token of a RAM role
-        // *   OTHER: other types
         shared_ptr<string> creatorSubType_ {};
-        // The operator type. No value or **USER** is returned for this parameter.
         shared_ptr<string> creatorType_ {};
-        // The operator ID.
         shared_ptr<string> creatorUserId_ {};
-        // The unique ID of the zone, user-defined line, forwarding rule, outbound endpoint, or inbound endpoint.
         shared_ptr<string> entityId_ {};
-        // The name of the object on which the operation was performed, such as the domain name, user-defined line, cache retention domain name, forwarding rule, outbound endpoint, or inbound endpoint.
         shared_ptr<string> entityName_ {};
-        // The ID of the operation log.
         shared_ptr<int64_t> id_ {};
-        // The specific operation performed on the object, such as adding, deleting, modifying, or associating the object.
         shared_ptr<string> operAction_ {};
-        // The public IP address of the operator terminal. If the IP address of the operator terminal is a private IP address, the value of this parameter is the public IP address to which the private IP address is mapped after network address translation (NAT).
         shared_ptr<string> operIp_ {};
-        // The type of the object on which the operation was performed. Valid values:
-        // 
-        // *   **PV_ZONE**: the built-in authoritative zone
-        // *   **PV_RECORD**: the DNS record
-        // *   **RESOLVER_RULE**: the forwarding rule
-        // *   **CUSTOM_LINE**: the user-defined line
-        // *   **RESOLVER_ENDPOINT**: the outbound endpoint
-        // *   **INBOUND_ENDPOINT**: the inbound endpoint
-        // *   **CACHE_RESERVE_DOMAIN**: the cache retention domain name
         shared_ptr<string> operObject_ {};
-        // The time when the operation is performed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> operTime_ {};
-        // The time when the operation was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> operTimestamp_ {};
       };
 
@@ -300,7 +274,6 @@ namespace Models
 
 
   protected:
-    // The operation logs.
     shared_ptr<DescribeChangeLogsResponseBody::ChangeLogs> changeLogs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

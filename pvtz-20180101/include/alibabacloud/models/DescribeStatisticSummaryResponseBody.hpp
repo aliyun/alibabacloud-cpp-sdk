@@ -102,15 +102,8 @@ namespace Models
 
 
       protected:
-        // The business type. Valid values:
-        // 
-        // *   AUTH_ZONE: authoritative zone
-        // *   RESOLVER_RULE: forwarding rule
-        // *   INBOUND: inbound endpoint
         shared_ptr<string> bizType_ {};
-        // The number of DNS requests on the previous day.
         shared_ptr<int64_t> requestCount_ {};
-        // The zone name.
         shared_ptr<string> zoneName_ {};
       };
 
@@ -221,20 +214,11 @@ namespace Models
 
 
       protected:
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The name of the region.
         shared_ptr<string> regionName_ {};
-        // The number of DNS requests on the previous day.
         shared_ptr<int64_t> requestCount_ {};
-        // The tunnel ID.
         shared_ptr<string> tunnelId_ {};
-        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The VPC type. Valid values:
-        // 
-        // *   STANDARD: standard VPC
-        // *   EDS: Elastic Desktop Service (EDS) workspace VPC
         shared_ptr<string> vpcType_ {};
       };
 
@@ -291,9 +275,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The top three VPCs with the largest number of DNS requests.
     shared_ptr<DescribeStatisticSummaryResponseBody::VpcRequestTops> vpcRequestTops_ {};
-    // The top three zones with the largest number of DNS requests.
     shared_ptr<DescribeStatisticSummaryResponseBody::ZoneRequestTops> zoneRequestTops_ {};
   };
 

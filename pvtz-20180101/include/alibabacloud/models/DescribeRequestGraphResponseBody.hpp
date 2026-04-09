@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The number of DNS requests.
         shared_ptr<int64_t> requestCount_ {};
-        // The time when the data was collected. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> time_ {};
-        // The time when the data was collected. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -139,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The details of the DNS requests.
     shared_ptr<DescribeRequestGraphResponseBody::RequestDetails> requestDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

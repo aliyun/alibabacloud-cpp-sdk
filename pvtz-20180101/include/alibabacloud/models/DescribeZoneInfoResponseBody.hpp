@@ -163,20 +163,11 @@ namespace Models
 
 
       protected:
-        // The region ID of the VPC.
         shared_ptr<string> regionId_ {};
-        // The name of the region where the VPC resides.
         shared_ptr<string> regionName_ {};
-        // The VPC ID. This ID uniquely identifies the VPC.
         shared_ptr<string> vpcId_ {};
-        // The VPC name.
         shared_ptr<string> vpcName_ {};
-        // The VPC type. Valid values:
-        // 
-        // *   STANDARD: standard VPC
-        // *   EDS: Elastic Desktop Service (EDS) workspace VPC
         shared_ptr<string> vpcType_ {};
-        // The user ID to which the VPC belongs. If null is returned, the VPC belongs to the current user.
         shared_ptr<int64_t> vpcUserId_ {};
       };
 
@@ -437,7 +428,6 @@ namespace Models
 
   protected:
     shared_ptr<DescribeZoneInfoResponseBody::BindEdgeDnsClusters> bindEdgeDnsClusters_ {};
-    // The VPCs associated with the zone.
     shared_ptr<DescribeZoneInfoResponseBody::BindVpcs> bindVpcs_ {};
     // The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};

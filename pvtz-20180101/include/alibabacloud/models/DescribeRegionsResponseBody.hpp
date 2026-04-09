@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The display name of the region, which varies based on the current language.
         shared_ptr<string> localName_ {};
-        // The endpoint of the service in the region.
         shared_ptr<string> regionEndpoint_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The region name.
         shared_ptr<string> regionName_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // The regions.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -165,9 +165,7 @@ namespace Models
 
 
       protected:
-        // The synchronized region IDs.
         shared_ptr<EcsRegion::RegionIds> regionIds_ {};
-        // The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
         shared_ptr<int64_t> userId_ {};
       };
 
@@ -234,9 +232,7 @@ namespace Models
 
 
   protected:
-    // The synchronized regions where the ECS instances are deployed.
     shared_ptr<DescribeSyncEcsHostTaskResponseBody::EcsRegions> ecsRegions_ {};
-    // The synchronized region IDs of the ECS instances.
     shared_ptr<DescribeSyncEcsHostTaskResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

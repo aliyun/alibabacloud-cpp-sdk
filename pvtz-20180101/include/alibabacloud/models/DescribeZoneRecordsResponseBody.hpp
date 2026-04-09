@@ -216,46 +216,20 @@ namespace Models
 
 
       protected:
-        // The time when the DNS record was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The resolution line.
         shared_ptr<string> line_ {};
-        // The priority of the mail exchanger (MX) record.
         shared_ptr<int32_t> priority_ {};
-        // The ID of the DNS record.
         shared_ptr<int64_t> recordId_ {};
-        // The description of the DNS record.
         shared_ptr<string> remark_ {};
-        // The hostname.
         shared_ptr<string> rr_ {};
-        // The state of the DNS record. Valid values:
-        // 
-        // *   ENABLE: The DNS record is enabled.
-        // *   DISABLE: The DNS record is disabled.
         shared_ptr<string> status_ {};
-        // The time to live (TTL) period.
         shared_ptr<int32_t> ttl_ {};
-        // The type of the DNS record. Valid values:
-        // 
-        // *   **A**: An A record points a domain name to an IPv4 address.
-        // *   **AAAA**: An AAAA record points a domain name to an IPv6 address.
-        // *   **CNAME**: A canonical name (CNAME) record points a domain name to another domain name.
-        // *   **TXT**: A text (TXT) record usually serves as a Sender Policy Framework (SPF) record to prevent email spam. The record value of the TXT record can be up to 255 characters in length.
-        // *   **MX**: A mail exchanger (MX) record points a domain name to a mail server address.
-        // *   **PTR**: A pointer (PTR) points an IP address to a domain name.
-        // *   **SRV**: A service (SRV) record specifies a server that hosts a specific service.
         shared_ptr<string> type_ {};
-        // The time when the DNS record was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
-        // The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> updateTimestamp_ {};
-        // The record value.
         shared_ptr<string> value_ {};
-        // The weight value of the address. You can set a different weight value for each address. This way, addresses are returned based on the weight values for DNS requests. A weight value must be an integer that ranges from 1 to 100.
         shared_ptr<int32_t> weight_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -324,7 +298,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The DNS records.
     shared_ptr<DescribeZoneRecordsResponseBody::Records> records_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

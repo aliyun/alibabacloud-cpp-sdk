@@ -214,34 +214,16 @@ namespace Models
 
 
       protected:
-        // The time when the custom line was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the custom line was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The creator of the custom line.
         shared_ptr<string> creator_ {};
-        // The type of the creator for the custom line. Valid values:
-        // 
-        // *   CUSTOM: Alibaba Cloud account
-        // *   SUB: RAM user
-        // *   STS: assumed role that obtains the Security Token Service (STS) token of a RAM role
-        // *   OTHER: other roles
         shared_ptr<string> creatorSubType_ {};
-        // The role of the creator for the custom line. Valid values:
-        // 
-        // *   USER: user
-        // *   SYSTEM: system
         shared_ptr<string> creatorType_ {};
         shared_ptr<string> dnsCategory_ {};
-        // The IPv4 CIDR blocks.
         shared_ptr<CustomLine::Ipv4s> ipv4s_ {};
-        // The unique ID of the custom line.
         shared_ptr<string> lineId_ {};
-        // The name of the custom line.
         shared_ptr<string> name_ {};
-        // The time when the custom line was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
-        // The time when the custom line was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> updateTimestamp_ {};
       };
 
@@ -306,7 +288,6 @@ namespace Models
 
 
   protected:
-    // The custom lines.
     shared_ptr<DescribeCustomLinesResponseBody::CustomLines> customLines_ {};
     // The page number. Pages start from page **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

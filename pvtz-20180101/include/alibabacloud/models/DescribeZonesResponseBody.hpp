@@ -171,9 +171,7 @@ namespace Models
 
 
           protected:
-            // The key of tag N added to the zone.
             shared_ptr<string> key_ {};
-            // The value of tag N added to the zone.
             shared_ptr<string> value_ {};
           };
 
@@ -332,65 +330,24 @@ namespace Models
 
 
       protected:
-        // The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The creator of the zone.
         shared_ptr<string> creator_ {};
-        // The account type. Valid values:
-        // 
-        // *   **CUSTOMER**: Alibaba Cloud account
-        // *   **SUB**: RAM user
-        // *   **STS**: assumed role that obtains the Security Token Service (STS) token of a RAM role
-        // *   **OTHER**: other types
         shared_ptr<string> creatorSubType_ {};
-        // The logical location type of the built-in authoritative module in which the zone is added. Valid values:
-        // 
-        // *   **NORMAL_ZONE**: regular module
-        // *   **FAST_ZONE**: acceleration module
         shared_ptr<string> dnsGroup_ {};
-        // Indicates whether the zone is being removed to another logical location. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> dnsGroupChanging_ {};
-        // Indicates whether the zone is a reverse lookup zone. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isPtr_ {};
-        // Indicates whether the recursive resolution proxy for subdomain names is enabled. Valid values:
-        // 
-        // *   **ZONE**: The recursive resolution proxy for subdomain names is disabled. In this case, NXDOMAIN is returned if the queried domain name does not exist in the zone.
-        // *   **RECORD**: The recursive resolution proxy for subdomain names is enabled. In this case, if the queried domain name does not exist in the zone, DNS requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
         shared_ptr<string> proxyPattern_ {};
-        // The number of Domain Name System (DNS) records added in the zone.
         shared_ptr<int32_t> recordCount_ {};
-        // The description of the zone.
         shared_ptr<string> remark_ {};
-        // The ID of the resource group to which the zone belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags added to the zone.
         shared_ptr<Zone::ResourceTags> resourceTags_ {};
         shared_ptr<string> slaveDnsStatus_ {};
-        // The time when the zone was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> updateTime_ {};
-        // The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
         shared_ptr<int64_t> updateTimestamp_ {};
-        // The zone ID. This ID uniquely identifies the zone.
         shared_ptr<string> zoneId_ {};
-        // The name of the zone.
         shared_ptr<string> zoneName_ {};
-        // The type of the cloud service. Valid values:
-        // 
-        // *   If ZoneType is set to AUTH_ZONE, no value is returned for this parameter.
-        // *   If ZoneType is set to CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
         shared_ptr<string> zoneTag_ {};
-        // The zone type. Valid values:
-        // 
-        // *   **AUTH_ZONE**: authoritative zone
-        // *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
         shared_ptr<string> zoneType_ {};
       };
 
@@ -465,7 +422,6 @@ namespace Models
     shared_ptr<int32_t> totalItems_ {};
     // The total number of returned pages.
     shared_ptr<int32_t> totalPages_ {};
-    // The zones.
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };
 
