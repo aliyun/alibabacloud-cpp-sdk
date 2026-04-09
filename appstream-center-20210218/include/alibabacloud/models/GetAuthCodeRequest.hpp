@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(Policy, policy_);
+      DARABONBA_PTR_TO_JSON(TokenType, tokenType_);
     };
     friend void from_json(const Darabonba::Json& j, GetAuthCodeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoCreateUser, autoCreateUser_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(Policy, policy_);
+      DARABONBA_PTR_FROM_JSON(TokenType, tokenType_);
     };
     GetAuthCodeRequest() = default ;
     GetAuthCodeRequest(const GetAuthCodeRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoCreateUser_ == nullptr
-        && this->endUserId_ == nullptr && this->externalUserId_ == nullptr && this->policy_ == nullptr; };
+        && this->endUserId_ == nullptr && this->externalUserId_ == nullptr && this->policy_ == nullptr && this->tokenType_ == nullptr; };
     // autoCreateUser Field Functions 
     bool hasAutoCreateUser() const { return this->autoCreateUser_ != nullptr;};
     void deleteAutoCreateUser() { this->autoCreateUser_ = nullptr;};
@@ -65,11 +67,19 @@ namespace Models
     inline GetAuthCodeRequest& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
+    // tokenType Field Functions 
+    bool hasTokenType() const { return this->tokenType_ != nullptr;};
+    void deleteTokenType() { this->tokenType_ = nullptr;};
+    inline string getTokenType() const { DARABONBA_PTR_GET_DEFAULT(tokenType_, "") };
+    inline GetAuthCodeRequest& setTokenType(string tokenType) { DARABONBA_PTR_SET_VALUE(tokenType_, tokenType) };
+
+
   protected:
     shared_ptr<bool> autoCreateUser_ {};
     shared_ptr<string> endUserId_ {};
     shared_ptr<string> externalUserId_ {};
     shared_ptr<string> policy_ {};
+    shared_ptr<string> tokenType_ {};
   };
 
   } // namespace Models

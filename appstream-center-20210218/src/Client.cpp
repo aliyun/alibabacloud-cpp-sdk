@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 登录token主动失效
+ * @summary Manually invalidates a logon token.
  *
  * @param request ExpireLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +79,7 @@ ExpireLoginTokenResponse Client::expireLoginTokenWithOptions(const ExpireLoginTo
 }
 
 /**
- * @summary 登录token主动失效
+ * @summary Manually invalidates a logon token.
  *
  * @param request ExpireLoginTokenRequest
  * @return ExpireLoginTokenResponse
@@ -90,7 +90,7 @@ ExpireLoginTokenResponse Client::expireLoginToken(const ExpireLoginTokenRequest 
 }
 
 /**
- * @summary 获取授权码
+ * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
  *
  * @param request GetAuthCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -98,6 +98,11 @@ ExpireLoginTokenResponse Client::expireLoginToken(const ExpireLoginTokenRequest 
  */
 GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasTokenType()) {
+    query["TokenType"] = request.getTokenType();
+  }
+
   json body = {};
   if (!!request.hasAutoCreateUser()) {
     body["AutoCreateUser"] = request.getAutoCreateUser();
@@ -116,8 +121,9 @@ GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &req
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "GetAuthCode"},
     {"version" , "2021-02-18"},
@@ -133,7 +139,7 @@ GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &req
 }
 
 /**
- * @summary 获取授权码
+ * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
  *
  * @param request GetAuthCodeRequest
  * @return GetAuthCodeResponse

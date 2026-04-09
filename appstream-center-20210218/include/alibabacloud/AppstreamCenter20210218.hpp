@@ -21,7 +21,7 @@ namespace AppstreamCenter20210218
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 登录token主动失效
+       * @summary Manually invalidates a logon token.
        *
        * @param request ExpireLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AppstreamCenter20210218
       Models::ExpireLoginTokenResponse expireLoginTokenWithOptions(const Models::ExpireLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 登录token主动失效
+       * @summary Manually invalidates a logon token.
        *
        * @param request ExpireLoginTokenRequest
        * @return ExpireLoginTokenResponse
@@ -38,7 +38,7 @@ namespace AppstreamCenter20210218
       Models::ExpireLoginTokenResponse expireLoginToken(const Models::ExpireLoginTokenRequest &request);
 
       /**
-       * @summary 获取授权码
+       * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
        *
        * @param request GetAuthCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AppstreamCenter20210218
       Models::GetAuthCodeResponse getAuthCodeWithOptions(const Models::GetAuthCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取授权码
+       * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
        *
        * @param request GetAuthCodeRequest
        * @return GetAuthCodeResponse
