@@ -127,11 +127,13 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
@@ -2481,6 +2483,78 @@ CreateNodeResponse Client::createNode(const CreateNodeRequest &request) {
 }
 
 /**
+ * @summary 创建参数。
+ *
+ * @param tmpReq CreateParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateParameterResponse
+ */
+CreateParameterResponse Client::createParameterWithOptions(const CreateParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateParameterShrinkRequest request = CreateParameterShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProperties()) {
+    request.setPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProperties(), "Properties", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasPropertiesShrink()) {
+    body["Properties"] = request.getPropertiesShrink();
+  }
+
+  if (!!request.hasScope()) {
+    body["Scope"] = request.getScope();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateParameter"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateParameterResponse>();
+}
+
+/**
+ * @summary 创建参数。
+ *
+ * @param request CreateParameterRequest
+ * @return CreateParameterResponse
+ */
+CreateParameterResponse Client::createParameter(const CreateParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createParameterWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a deployment process for entities in the Data Studio (new version).
  *
  * @description >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
@@ -2806,7 +2880,7 @@ CreateResourceResponse Client::createResourceAdvance(const CreateResourceAdvance
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2978,7 +3052,7 @@ CreateResourceFileResponse Client::createResourceFileAdvance(const CreateResourc
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -4572,6 +4646,48 @@ DeleteNodeResponse Client::deleteNodeWithOptions(const DeleteNodeRequest &reques
 DeleteNodeResponse Client::deleteNode(const DeleteNodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteNodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除参数。
+ *
+ * @param request DeleteParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteParameterResponse
+ */
+DeleteParameterResponse Client::deleteParameterWithOptions(const DeleteParameterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteParameter"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteParameterResponse>();
+}
+
+/**
+ * @summary 删除参数。
+ *
+ * @param request DeleteParameterRequest
+ * @return DeleteParameterResponse
+ */
+DeleteParameterResponse Client::deleteParameter(const DeleteParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteParameterWithOptions(request, runtime);
 }
 
 /**
@@ -6825,6 +6941,48 @@ GetNodeResponse Client::getNode(const GetNodeRequest &request) {
 }
 
 /**
+ * @summary 根据参数ID获取参数的详细信息。
+ *
+ * @param request GetParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetParameterResponse
+ */
+GetParameterResponse Client::getParameterWithOptions(const GetParameterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetParameter"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetParameterResponse>();
+}
+
+/**
+ * @summary 根据参数ID获取参数的详细信息。
+ *
+ * @param request GetParameterRequest
+ * @return GetParameterResponse
+ */
+GetParameterResponse Client::getParameter(const GetParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getParameterWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
@@ -7722,7 +7880,7 @@ ImportCertificateResponse Client::importCertificateAdvance(const ImportCertifica
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -8189,7 +8347,6 @@ ListComputeResourcesResponse Client::listComputeResources(const ListComputeResou
 /**
  * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
  *
- * @param request ListCrawlerTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCrawlerTypesResponse
  */
@@ -10085,6 +10242,144 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
 ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询参数版本列表。
+ *
+ * @param request ListParameterVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListParameterVersionsResponse
+ */
+ListParameterVersionsResponse Client::listParameterVersionsWithOptions(const ListParameterVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListParameterVersions"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListParameterVersionsResponse>();
+}
+
+/**
+ * @summary 查询参数版本列表。
+ *
+ * @param request ListParameterVersionsRequest
+ * @return ListParameterVersionsResponse
+ */
+ListParameterVersionsResponse Client::listParameterVersions(const ListParameterVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listParameterVersionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询参数列表。
+ *
+ * @param tmpReq ListParametersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListParametersResponse
+ */
+ListParametersResponse Client::listParametersWithOptions(const ListParametersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListParametersShrinkRequest request = ListParametersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasIds()) {
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
+  }
+
+  if (!!tmpReq.hasNames()) {
+    request.setNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNames(), "Names", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasIdsShrink()) {
+    body["Ids"] = request.getIdsShrink();
+  }
+
+  if (!!request.hasNamesShrink()) {
+    body["Names"] = request.getNamesShrink();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasScope()) {
+    body["Scope"] = request.getScope();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListParameters"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListParametersResponse>();
+}
+
+/**
+ * @summary 查询参数列表。
+ *
+ * @param request ListParametersRequest
+ * @return ListParametersResponse
+ */
+ListParametersResponse Client::listParameters(const ListParametersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listParametersWithOptions(request, runtime);
 }
 
 /**
@@ -12225,6 +12520,52 @@ RevokeMemberProjectRolesResponse Client::revokeMemberProjectRolesWithOptions(con
 RevokeMemberProjectRolesResponse Client::revokeMemberProjectRoles(const RevokeMemberProjectRolesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeMemberProjectRolesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 回滚参数版本。
+ *
+ * @param request RollbackParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackParameterResponse
+ */
+RollbackParameterResponse Client::rollbackParameterWithOptions(const RollbackParameterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasRollbackVersion()) {
+    body["RollbackVersion"] = request.getRollbackVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RollbackParameter"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackParameterResponse>();
+}
+
+/**
+ * @summary 回滚参数版本。
+ *
+ * @param request RollbackParameterRequest
+ * @return RollbackParameterResponse
+ */
+RollbackParameterResponse Client::rollbackParameter(const RollbackParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rollbackParameterWithOptions(request, runtime);
 }
 
 /**
@@ -14556,6 +14897,66 @@ UpdateNodeResponse Client::updateNode(const UpdateNodeRequest &request) {
 }
 
 /**
+ * @summary 更新参数。
+ *
+ * @param tmpReq UpdateParameterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateParameterResponse
+ */
+UpdateParameterResponse Client::updateParameterWithOptions(const UpdateParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateParameterShrinkRequest request = UpdateParameterShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProperties()) {
+    request.setPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProperties(), "Properties", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasPropertiesShrink()) {
+    body["Properties"] = request.getPropertiesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateParameter"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateParameterResponse>();
+}
+
+/**
+ * @summary 更新参数。
+ *
+ * @param request UpdateParameterRequest
+ * @return UpdateParameterResponse
+ */
+UpdateParameterResponse Client::updateParameter(const UpdateParameterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateParameterWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates a DataWorks workspace.
  *
  * @param request UpdateProjectRequest
@@ -14745,7 +15146,7 @@ UpdateResourceResponse Client::updateResourceAdvance(const UpdateResourceAdvance
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},

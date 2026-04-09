@@ -138,6 +138,10 @@
 #include <alibabacloud/models/CreateNodeRequest.hpp>
 #include <alibabacloud/models/CreateNodeResponseBody.hpp>
 #include <alibabacloud/models/CreateNodeResponse.hpp>
+#include <alibabacloud/models/CreateParameterRequest.hpp>
+#include <alibabacloud/models/CreateParameterShrinkRequest.hpp>
+#include <alibabacloud/models/CreateParameterResponseBody.hpp>
+#include <alibabacloud/models/CreateParameterResponse.hpp>
 #include <alibabacloud/models/CreatePipelineRunRequest.hpp>
 #include <alibabacloud/models/CreatePipelineRunShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePipelineRunResponseBody.hpp>
@@ -251,6 +255,9 @@
 #include <alibabacloud/models/DeleteNodeRequest.hpp>
 #include <alibabacloud/models/DeleteNodeResponseBody.hpp>
 #include <alibabacloud/models/DeleteNodeResponse.hpp>
+#include <alibabacloud/models/DeleteParameterRequest.hpp>
+#include <alibabacloud/models/DeleteParameterResponseBody.hpp>
+#include <alibabacloud/models/DeleteParameterResponse.hpp>
 #include <alibabacloud/models/DeleteProjectRequest.hpp>
 #include <alibabacloud/models/DeleteProjectResponseBody.hpp>
 #include <alibabacloud/models/DeleteProjectResponse.hpp>
@@ -397,6 +404,9 @@
 #include <alibabacloud/models/GetNodeRequest.hpp>
 #include <alibabacloud/models/GetNodeResponseBody.hpp>
 #include <alibabacloud/models/GetNodeResponse.hpp>
+#include <alibabacloud/models/GetParameterRequest.hpp>
+#include <alibabacloud/models/GetParameterResponseBody.hpp>
+#include <alibabacloud/models/GetParameterResponse.hpp>
 #include <alibabacloud/models/GetPartitionRequest.hpp>
 #include <alibabacloud/models/GetPartitionResponseBody.hpp>
 #include <alibabacloud/models/GetPartitionResponse.hpp>
@@ -599,6 +609,13 @@
 #include <alibabacloud/models/ListNodesRequest.hpp>
 #include <alibabacloud/models/ListNodesResponseBody.hpp>
 #include <alibabacloud/models/ListNodesResponse.hpp>
+#include <alibabacloud/models/ListParameterVersionsRequest.hpp>
+#include <alibabacloud/models/ListParameterVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListParameterVersionsResponse.hpp>
+#include <alibabacloud/models/ListParametersRequest.hpp>
+#include <alibabacloud/models/ListParametersShrinkRequest.hpp>
+#include <alibabacloud/models/ListParametersResponseBody.hpp>
+#include <alibabacloud/models/ListParametersResponse.hpp>
 #include <alibabacloud/models/ListPartitionsRequest.hpp>
 #include <alibabacloud/models/ListPartitionsResponseBody.hpp>
 #include <alibabacloud/models/ListPartitionsResponse.hpp>
@@ -725,6 +742,9 @@
 #include <alibabacloud/models/RevokeMemberProjectRolesShrinkRequest.hpp>
 #include <alibabacloud/models/RevokeMemberProjectRolesResponseBody.hpp>
 #include <alibabacloud/models/RevokeMemberProjectRolesResponse.hpp>
+#include <alibabacloud/models/RollbackParameterRequest.hpp>
+#include <alibabacloud/models/RollbackParameterResponseBody.hpp>
+#include <alibabacloud/models/RollbackParameterResponse.hpp>
 #include <alibabacloud/models/SetSuccessTaskInstancesRequest.hpp>
 #include <alibabacloud/models/SetSuccessTaskInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/SetSuccessTaskInstancesResponseBody.hpp>
@@ -848,6 +868,10 @@
 #include <alibabacloud/models/UpdateNodeRequest.hpp>
 #include <alibabacloud/models/UpdateNodeResponseBody.hpp>
 #include <alibabacloud/models/UpdateNodeResponse.hpp>
+#include <alibabacloud/models/UpdateParameterRequest.hpp>
+#include <alibabacloud/models/UpdateParameterShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateParameterResponseBody.hpp>
+#include <alibabacloud/models/UpdateParameterResponse.hpp>
 #include <alibabacloud/models/UpdateProjectRequest.hpp>
 #include <alibabacloud/models/UpdateProjectResponseBody.hpp>
 #include <alibabacloud/models/UpdateProjectResponse.hpp>

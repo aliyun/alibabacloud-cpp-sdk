@@ -690,6 +690,23 @@ namespace DataworksPublic20240518
       Models::CreateNodeResponse createNode(const Models::CreateNodeRequest &request);
 
       /**
+       * @summary 创建参数。
+       *
+       * @param tmpReq CreateParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateParameterResponse
+       */
+      Models::CreateParameterResponse createParameterWithOptions(const Models::CreateParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建参数。
+       *
+       * @param request CreateParameterRequest
+       * @return CreateParameterResponse
+       */
+      Models::CreateParameterResponse createParameter(const Models::CreateParameterRequest &request);
+
+      /**
        * @summary Creates a deployment process for entities in the Data Studio (new version).
        *
        * @description >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
@@ -1391,6 +1408,23 @@ namespace DataworksPublic20240518
        * @return DeleteNodeResponse
        */
       Models::DeleteNodeResponse deleteNode(const Models::DeleteNodeRequest &request);
+
+      /**
+       * @summary 删除参数。
+       *
+       * @param request DeleteParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteParameterResponse
+       */
+      Models::DeleteParameterResponse deleteParameterWithOptions(const Models::DeleteParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除参数。
+       *
+       * @param request DeleteParameterRequest
+       * @return DeleteParameterResponse
+       */
+      Models::DeleteParameterResponse deleteParameter(const Models::DeleteParameterRequest &request);
 
       /**
        * @summary Deletes a DataWorks workspace.
@@ -2339,6 +2373,23 @@ namespace DataworksPublic20240518
       Models::GetNodeResponse getNode(const Models::GetNodeRequest &request);
 
       /**
+       * @summary 根据参数ID获取参数的详细信息。
+       *
+       * @param request GetParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetParameterResponse
+       */
+      Models::GetParameterResponse getParameterWithOptions(const Models::GetParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据参数ID获取参数的详细信息。
+       *
+       * @param request GetParameterRequest
+       * @return GetParameterResponse
+       */
+      Models::GetParameterResponse getParameter(const Models::GetParameterRequest &request);
+
+      /**
        * @summary Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
@@ -2872,7 +2923,6 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
        *
-       * @param request ListCrawlerTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCrawlerTypesResponse
        */
@@ -3598,6 +3648,40 @@ namespace DataworksPublic20240518
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
+       * @summary 查询参数版本列表。
+       *
+       * @param request ListParameterVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListParameterVersionsResponse
+       */
+      Models::ListParameterVersionsResponse listParameterVersionsWithOptions(const Models::ListParameterVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询参数版本列表。
+       *
+       * @param request ListParameterVersionsRequest
+       * @return ListParameterVersionsResponse
+       */
+      Models::ListParameterVersionsResponse listParameterVersions(const Models::ListParameterVersionsRequest &request);
+
+      /**
+       * @summary 查询参数列表。
+       *
+       * @param tmpReq ListParametersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListParametersResponse
+       */
+      Models::ListParametersResponse listParametersWithOptions(const Models::ListParametersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询参数列表。
+       *
+       * @param request ListParametersRequest
+       * @return ListParametersResponse
+       */
+      Models::ListParametersResponse listParameters(const Models::ListParametersRequest &request);
+
+      /**
        * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
        *
        * @param request ListPartitionsRequest
@@ -4289,6 +4373,23 @@ namespace DataworksPublic20240518
       Models::RevokeMemberProjectRolesResponse revokeMemberProjectRoles(const Models::RevokeMemberProjectRolesRequest &request);
 
       /**
+       * @summary 回滚参数版本。
+       *
+       * @param request RollbackParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RollbackParameterResponse
+       */
+      Models::RollbackParameterResponse rollbackParameterWithOptions(const Models::RollbackParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 回滚参数版本。
+       *
+       * @param request RollbackParameterRequest
+       * @return RollbackParameterResponse
+       */
+      Models::RollbackParameterResponse rollbackParameter(const Models::RollbackParameterRequest &request);
+
+      /**
        * @summary Sets the statuses of multiple instances to successful at a time.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -4972,6 +5073,23 @@ namespace DataworksPublic20240518
        * @return UpdateNodeResponse
        */
       Models::UpdateNodeResponse updateNode(const Models::UpdateNodeRequest &request);
+
+      /**
+       * @summary 更新参数。
+       *
+       * @param tmpReq UpdateParameterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateParameterResponse
+       */
+      Models::UpdateParameterResponse updateParameterWithOptions(const Models::UpdateParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新参数。
+       *
+       * @param request UpdateParameterRequest
+       * @return UpdateParameterResponse
+       */
+      Models::UpdateParameterResponse updateParameter(const Models::UpdateParameterRequest &request);
 
       /**
        * @summary Updates a DataWorks workspace.
