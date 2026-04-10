@@ -226,6 +226,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
   tmpReq.validate();
   CreateAppInstanceShrinkRequest request = CreateAppInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasComponents()) {
+    request.setComponentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComponents(), "Components", "json"));
+  }
+
   if (!!tmpReq.hasDBInstanceConfig()) {
     request.setDBInstanceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDBInstanceConfig(), "DBInstanceConfig", "json"));
   }
@@ -241,6 +245,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasComponentsShrink()) {
+    query["Components"] = request.getComponentsShrink();
   }
 
   if (!!request.hasDBInstanceConfigShrink()) {
@@ -507,6 +515,10 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
     query["ReportLanguage"] = request.getReportLanguage();
   }
 
+  if (!!request.hasReportRegionId()) {
+    query["ReportRegionId"] = request.getReportRegionId();
+  }
+
   if (!!request.hasReportType()) {
     query["ReportType"] = request.getReportType();
   }
@@ -575,6 +587,10 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 
   if (!!request.hasReportLanguage()) {
     query["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasReportRegionId()) {
+    query["ReportRegionId"] = request.getReportRegionId();
   }
 
   if (!!request.hasReportType()) {
@@ -1506,6 +1522,72 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(cons
 }
 
 /**
+ * @summary 查询沙箱模板列表
+ *
+ * @param request DescribeSandboxTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSandboxTemplatesResponse
+ */
+DescribeSandboxTemplatesResponse Client::describeSandboxTemplatesWithOptions(const DescribeSandboxTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSandboxTemplates"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSandboxTemplatesResponse>();
+}
+
+/**
+ * @summary 查询沙箱模板列表
+ *
+ * @param request DescribeSandboxTemplatesRequest
+ * @return DescribeSandboxTemplatesResponse
+ */
+DescribeSandboxTemplatesResponse Client::describeSandboxTemplates(const DescribeSandboxTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSandboxTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the history conversations of a user.
  *
  * @param request GetConversationsRequest
@@ -1966,7 +2048,6 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 /**
  * @summary Queries the custom agent tools of the user.
  *
- * @param request ListCustomAgentToolsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCustomAgentToolsResponse
  */

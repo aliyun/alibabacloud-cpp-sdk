@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppType, appType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(Components, componentsShrink_);
       DARABONBA_PTR_TO_JSON(DBInstanceConfig, DBInstanceConfigShrink_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppType, appType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(Components, componentsShrink_);
       DARABONBA_PTR_FROM_JSON(DBInstanceConfig, DBInstanceConfigShrink_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
@@ -58,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && this->appType_ == nullptr && this->clientToken_ == nullptr && this->DBInstanceConfigShrink_ == nullptr && this->DBInstanceName_ == nullptr && this->dashboardPassword_ == nullptr
-        && this->dashboardUsername_ == nullptr && this->databasePassword_ == nullptr && this->initializeWithExistingData_ == nullptr && this->instanceClass_ == nullptr && this->publicEndpointEnabled_ == nullptr
-        && this->publicNetworkAccessEnabled_ == nullptr && this->RAGEnabled_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->appType_ == nullptr && this->clientToken_ == nullptr && this->componentsShrink_ == nullptr && this->DBInstanceConfigShrink_ == nullptr && this->DBInstanceName_ == nullptr
+        && this->dashboardPassword_ == nullptr && this->dashboardUsername_ == nullptr && this->databasePassword_ == nullptr && this->initializeWithExistingData_ == nullptr && this->instanceClass_ == nullptr
+        && this->publicEndpointEnabled_ == nullptr && this->publicNetworkAccessEnabled_ == nullptr && this->RAGEnabled_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -80,6 +82,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateAppInstanceShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // componentsShrink Field Functions 
+    bool hasComponentsShrink() const { return this->componentsShrink_ != nullptr;};
+    void deleteComponentsShrink() { this->componentsShrink_ = nullptr;};
+    inline string getComponentsShrink() const { DARABONBA_PTR_GET_DEFAULT(componentsShrink_, "") };
+    inline CreateAppInstanceShrinkRequest& setComponentsShrink(string componentsShrink) { DARABONBA_PTR_SET_VALUE(componentsShrink_, componentsShrink) };
 
 
     // DBInstanceConfigShrink Field Functions 
@@ -175,6 +184,7 @@ namespace Models
     shared_ptr<string> appType_ {};
     // The name of the new AI application.
     shared_ptr<string> clientToken_ {};
+    shared_ptr<string> componentsShrink_ {};
     // A reserved parameter.
     shared_ptr<string> DBInstanceConfigShrink_ {};
     // The instance type. Only **rdsai.supabase.basic** is supported.

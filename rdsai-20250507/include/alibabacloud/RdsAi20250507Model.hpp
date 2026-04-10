@@ -76,6 +76,9 @@
 #include <alibabacloud/models/DescribeInstanceStorageConfigRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceStorageConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceStorageConfigResponse.hpp>
+#include <alibabacloud/models/DescribeSandboxTemplatesRequest.hpp>
+#include <alibabacloud/models/DescribeSandboxTemplatesResponseBody.hpp>
+#include <alibabacloud/models/DescribeSandboxTemplatesResponse.hpp>
 #include <alibabacloud/models/GetConversationsRequest.hpp>
 #include <alibabacloud/models/GetConversationsResponseBody.hpp>
 #include <alibabacloud/models/GetConversationsResponse.hpp>

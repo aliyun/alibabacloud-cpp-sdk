@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEAPPINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEAPPINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppType, appType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(Components, components_);
       DARABONBA_PTR_TO_JSON(DBInstanceConfig, DBInstanceConfig_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
@@ -33,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppType, appType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(Components, components_);
       DARABONBA_PTR_FROM_JSON(DBInstanceConfig, DBInstanceConfig_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
@@ -109,10 +112,41 @@ namespace Models
       shared_ptr<string> payType_ {};
     };
 
+    class Components : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Components& obj) { 
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Components& obj) { 
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Components() = default ;
+      Components(const Components &) = default ;
+      Components(Components &&) = default ;
+      Components(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Components() = default ;
+      Components& operator=(const Components &) = default ;
+      Components& operator=(Components &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->type_ == nullptr; };
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Components& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->appName_ == nullptr
-        && this->appType_ == nullptr && this->clientToken_ == nullptr && this->DBInstanceConfig_ == nullptr && this->DBInstanceName_ == nullptr && this->dashboardPassword_ == nullptr
-        && this->dashboardUsername_ == nullptr && this->databasePassword_ == nullptr && this->initializeWithExistingData_ == nullptr && this->instanceClass_ == nullptr && this->publicEndpointEnabled_ == nullptr
-        && this->publicNetworkAccessEnabled_ == nullptr && this->RAGEnabled_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->appType_ == nullptr && this->clientToken_ == nullptr && this->components_ == nullptr && this->DBInstanceConfig_ == nullptr && this->DBInstanceName_ == nullptr
+        && this->dashboardPassword_ == nullptr && this->dashboardUsername_ == nullptr && this->databasePassword_ == nullptr && this->initializeWithExistingData_ == nullptr && this->instanceClass_ == nullptr
+        && this->publicEndpointEnabled_ == nullptr && this->publicNetworkAccessEnabled_ == nullptr && this->RAGEnabled_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -132,6 +166,15 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateAppInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // components Field Functions 
+    bool hasComponents() const { return this->components_ != nullptr;};
+    void deleteComponents() { this->components_ = nullptr;};
+    inline const vector<CreateAppInstanceRequest::Components> & getComponents() const { DARABONBA_PTR_GET_CONST(components_, vector<CreateAppInstanceRequest::Components>) };
+    inline vector<CreateAppInstanceRequest::Components> getComponents() { DARABONBA_PTR_GET(components_, vector<CreateAppInstanceRequest::Components>) };
+    inline CreateAppInstanceRequest& setComponents(const vector<CreateAppInstanceRequest::Components> & components) { DARABONBA_PTR_SET_VALUE(components_, components) };
+    inline CreateAppInstanceRequest& setComponents(vector<CreateAppInstanceRequest::Components> && components) { DARABONBA_PTR_SET_RVALUE(components_, components) };
 
 
     // DBInstanceConfig Field Functions 
@@ -229,6 +272,7 @@ namespace Models
     shared_ptr<string> appType_ {};
     // The name of the new AI application.
     shared_ptr<string> clientToken_ {};
+    shared_ptr<vector<CreateAppInstanceRequest::Components>> components_ {};
     // A reserved parameter.
     shared_ptr<CreateAppInstanceRequest::DBInstanceConfig> DBInstanceConfig_ {};
     // The instance type. Only **rdsai.supabase.basic** is supported.

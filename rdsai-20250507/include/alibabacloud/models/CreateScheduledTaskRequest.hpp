@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
+      DARABONBA_PTR_TO_JSON(ReportRegionId, reportRegionId_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(TimeRange, timeRange_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
+      DARABONBA_PTR_FROM_JSON(ReportRegionId, reportRegionId_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(TimeRange, timeRange_);
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
         && this->frequency_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr
-        && this->reportType_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->reportRegionId_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     void deleteReportLanguage() { this->reportLanguage_ = nullptr;};
     inline string getReportLanguage() const { DARABONBA_PTR_GET_DEFAULT(reportLanguage_, "") };
     inline CreateScheduledTaskRequest& setReportLanguage(string reportLanguage) { DARABONBA_PTR_SET_VALUE(reportLanguage_, reportLanguage) };
+
+
+    // reportRegionId Field Functions 
+    bool hasReportRegionId() const { return this->reportRegionId_ != nullptr;};
+    void deleteReportRegionId() { this->reportRegionId_ = nullptr;};
+    inline string getReportRegionId() const { DARABONBA_PTR_GET_DEFAULT(reportRegionId_, "") };
+    inline CreateScheduledTaskRequest& setReportRegionId(string reportRegionId) { DARABONBA_PTR_SET_VALUE(reportRegionId_, reportRegionId) };
 
 
     // reportType Field Functions 
@@ -134,6 +143,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> reportLanguage_ {};
+    shared_ptr<string> reportRegionId_ {};
     shared_ptr<string> reportType_ {};
     // The time when the inspection task is executed. Specify the time in the ISO 8601 standard in the HH:mm:ssZ format. The time must be in UTC. Default value: 02:00 AM.
     shared_ptr<string> startTime_ {};

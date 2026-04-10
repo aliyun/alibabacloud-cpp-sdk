@@ -531,6 +531,23 @@ namespace RdsAi20250507
       Models::DescribeInstanceStorageConfigResponse describeInstanceStorageConfig(const Models::DescribeInstanceStorageConfigRequest &request);
 
       /**
+       * @summary 查询沙箱模板列表
+       *
+       * @param request DescribeSandboxTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSandboxTemplatesResponse
+       */
+      Models::DescribeSandboxTemplatesResponse describeSandboxTemplatesWithOptions(const Models::DescribeSandboxTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询沙箱模板列表
+       *
+       * @param request DescribeSandboxTemplatesRequest
+       * @return DescribeSandboxTemplatesResponse
+       */
+      Models::DescribeSandboxTemplatesResponse describeSandboxTemplates(const Models::DescribeSandboxTemplatesRequest &request);
+
+      /**
        * @summary Queries the history conversations of a user.
        *
        * @param request GetConversationsRequest
@@ -686,7 +703,6 @@ namespace RdsAi20250507
       /**
        * @summary Queries the custom agent tools of the user.
        *
-       * @param request ListCustomAgentToolsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCustomAgentToolsResponse
        */
