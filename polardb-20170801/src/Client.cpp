@@ -12576,7 +12576,6 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 /**
  * @summary 查询资源包列表
  *
- * @param request DescribeResourcePackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeResourcePackagesResponse
  */
@@ -20537,6 +20536,72 @@ RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonalWithOptio
 RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonal(const RevokeAccountPrivilegeZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeAccountPrivilegeZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 检索记忆
+ *
+ * @param request SearchMemoriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchMemoriesResponse
+ */
+SearchMemoriesResponse Client::searchMemoriesWithOptions(const SearchMemoriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasCreateTimeBegin()) {
+    query["CreateTimeBegin"] = request.getCreateTimeBegin();
+  }
+
+  if (!!request.hasCreateTimeEnd()) {
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
+  }
+
+  if (!!request.hasMemoryAgentId()) {
+    query["MemoryAgentId"] = request.getMemoryAgentId();
+  }
+
+  if (!!request.hasMemoryUserId()) {
+    query["MemoryUserId"] = request.getMemoryUserId();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchMemories"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchMemoriesResponse>();
+}
+
+/**
+ * @summary 检索记忆
+ *
+ * @param request SearchMemoriesRequest
+ * @return SearchMemoriesResponse
+ */
+SearchMemoriesResponse Client::searchMemories(const SearchMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchMemoriesWithOptions(request, runtime);
 }
 
 /**

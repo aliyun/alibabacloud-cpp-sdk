@@ -866,6 +866,9 @@
 #include <alibabacloud/models/RevokeAccountPrivilegeZonalRequest.hpp>
 #include <alibabacloud/models/RevokeAccountPrivilegeZonalResponseBody.hpp>
 #include <alibabacloud/models/RevokeAccountPrivilegeZonalResponse.hpp>
+#include <alibabacloud/models/SearchMemoriesRequest.hpp>
+#include <alibabacloud/models/SearchMemoriesResponseBody.hpp>
+#include <alibabacloud/models/SearchMemoriesResponse.hpp>
 #include <alibabacloud/models/SetPolarFsFileQuotaRequest.hpp>
 #include <alibabacloud/models/SetPolarFsFileQuotaResponseBody.hpp>
 #include <alibabacloud/models/SetPolarFsFileQuotaResponse.hpp>

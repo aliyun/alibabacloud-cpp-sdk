@@ -3209,7 +3209,6 @@ namespace Polardb20170801
       /**
        * @summary 查询资源包列表
        *
-       * @param request DescribeResourcePackagesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeResourcePackagesResponse
        */
@@ -5125,6 +5124,23 @@ namespace Polardb20170801
        * @return RevokeAccountPrivilegeZonalResponse
        */
       Models::RevokeAccountPrivilegeZonalResponse revokeAccountPrivilegeZonal(const Models::RevokeAccountPrivilegeZonalRequest &request);
+
+      /**
+       * @summary 检索记忆
+       *
+       * @param request SearchMemoriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchMemoriesResponse
+       */
+      Models::SearchMemoriesResponse searchMemoriesWithOptions(const Models::SearchMemoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检索记忆
+       *
+       * @param request SearchMemoriesRequest
+       * @return SearchMemoriesResponse
+       */
+      Models::SearchMemoriesResponse searchMemories(const Models::SearchMemoriesRequest &request);
 
       /**
        * @summary 为目录应用配额规则

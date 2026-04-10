@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoUpgradeMinorVersion, autoUpgradeMinorVersion_);
       DARABONBA_PTR_TO_JSON(BlktagTotal, blktagTotal_);
       DARABONBA_PTR_TO_JSON(BlktagUsed, blktagUsed_);
+      DARABONBA_PTR_TO_JSON(Branch, branch_);
       DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(CompressStorageMode, compressStorageMode_);
@@ -91,6 +92,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoUpgradeMinorVersion, autoUpgradeMinorVersion_);
       DARABONBA_PTR_FROM_JSON(BlktagTotal, blktagTotal_);
       DARABONBA_PTR_FROM_JSON(BlktagUsed, blktagUsed_);
+      DARABONBA_PTR_FROM_JSON(Branch, branch_);
       DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(CompressStorageMode, compressStorageMode_);
@@ -569,21 +571,157 @@ namespace Models
       shared_ptr<string> zoneId_ {};
     };
 
+    class Branch : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Branch& obj) { 
+        DARABONBA_PTR_TO_JSON(BranchLsn, branchLsn_);
+        DARABONBA_PTR_TO_JSON(BranchTime, branchTime_);
+        DARABONBA_PTR_TO_JSON(ChildBranch, childBranch_);
+        DARABONBA_PTR_TO_JSON(ParentInsName, parentInsName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Branch& obj) { 
+        DARABONBA_PTR_FROM_JSON(BranchLsn, branchLsn_);
+        DARABONBA_PTR_FROM_JSON(BranchTime, branchTime_);
+        DARABONBA_PTR_FROM_JSON(ChildBranch, childBranch_);
+        DARABONBA_PTR_FROM_JSON(ParentInsName, parentInsName_);
+      };
+      Branch() = default ;
+      Branch(const Branch &) = default ;
+      Branch(Branch &&) = default ;
+      Branch(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Branch() = default ;
+      Branch& operator=(const Branch &) = default ;
+      Branch& operator=(Branch &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ChildBranch : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ChildBranch& obj) { 
+          DARABONBA_PTR_TO_JSON(BranchLsn, branchLsn_);
+          DARABONBA_PTR_TO_JSON(BranchTime, branchTime_);
+          DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
+          DARABONBA_PTR_TO_JSON(HasChild, hasChild_);
+          DARABONBA_PTR_TO_JSON(InsName, insName_);
+        };
+        friend void from_json(const Darabonba::Json& j, ChildBranch& obj) { 
+          DARABONBA_PTR_FROM_JSON(BranchLsn, branchLsn_);
+          DARABONBA_PTR_FROM_JSON(BranchTime, branchTime_);
+          DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
+          DARABONBA_PTR_FROM_JSON(HasChild, hasChild_);
+          DARABONBA_PTR_FROM_JSON(InsName, insName_);
+        };
+        ChildBranch() = default ;
+        ChildBranch(const ChildBranch &) = default ;
+        ChildBranch(ChildBranch &&) = default ;
+        ChildBranch(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ChildBranch() = default ;
+        ChildBranch& operator=(const ChildBranch &) = default ;
+        ChildBranch& operator=(ChildBranch &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->branchLsn_ == nullptr
+        && this->branchTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->hasChild_ == nullptr && this->insName_ == nullptr; };
+        // branchLsn Field Functions 
+        bool hasBranchLsn() const { return this->branchLsn_ != nullptr;};
+        void deleteBranchLsn() { this->branchLsn_ = nullptr;};
+        inline string getBranchLsn() const { DARABONBA_PTR_GET_DEFAULT(branchLsn_, "") };
+        inline ChildBranch& setBranchLsn(string branchLsn) { DARABONBA_PTR_SET_VALUE(branchLsn_, branchLsn) };
+
+
+        // branchTime Field Functions 
+        bool hasBranchTime() const { return this->branchTime_ != nullptr;};
+        void deleteBranchTime() { this->branchTime_ = nullptr;};
+        inline string getBranchTime() const { DARABONBA_PTR_GET_DEFAULT(branchTime_, "") };
+        inline ChildBranch& setBranchTime(string branchTime) { DARABONBA_PTR_SET_VALUE(branchTime_, branchTime) };
+
+
+        // DBClusterDescription Field Functions 
+        bool hasDBClusterDescription() const { return this->DBClusterDescription_ != nullptr;};
+        void deleteDBClusterDescription() { this->DBClusterDescription_ = nullptr;};
+        inline string getDBClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(DBClusterDescription_, "") };
+        inline ChildBranch& setDBClusterDescription(string DBClusterDescription) { DARABONBA_PTR_SET_VALUE(DBClusterDescription_, DBClusterDescription) };
+
+
+        // hasChild Field Functions 
+        bool hasHasChild() const { return this->hasChild_ != nullptr;};
+        void deleteHasChild() { this->hasChild_ = nullptr;};
+        inline bool getHasChild() const { DARABONBA_PTR_GET_DEFAULT(hasChild_, false) };
+        inline ChildBranch& setHasChild(bool hasChild) { DARABONBA_PTR_SET_VALUE(hasChild_, hasChild) };
+
+
+        // insName Field Functions 
+        bool hasInsName() const { return this->insName_ != nullptr;};
+        void deleteInsName() { this->insName_ = nullptr;};
+        inline string getInsName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
+        inline ChildBranch& setInsName(string insName) { DARABONBA_PTR_SET_VALUE(insName_, insName) };
+
+
+      protected:
+        shared_ptr<string> branchLsn_ {};
+        shared_ptr<string> branchTime_ {};
+        shared_ptr<string> DBClusterDescription_ {};
+        shared_ptr<bool> hasChild_ {};
+        shared_ptr<string> insName_ {};
+      };
+
+      virtual bool empty() const override { return this->branchLsn_ == nullptr
+        && this->branchTime_ == nullptr && this->childBranch_ == nullptr && this->parentInsName_ == nullptr; };
+      // branchLsn Field Functions 
+      bool hasBranchLsn() const { return this->branchLsn_ != nullptr;};
+      void deleteBranchLsn() { this->branchLsn_ = nullptr;};
+      inline string getBranchLsn() const { DARABONBA_PTR_GET_DEFAULT(branchLsn_, "") };
+      inline Branch& setBranchLsn(string branchLsn) { DARABONBA_PTR_SET_VALUE(branchLsn_, branchLsn) };
+
+
+      // branchTime Field Functions 
+      bool hasBranchTime() const { return this->branchTime_ != nullptr;};
+      void deleteBranchTime() { this->branchTime_ = nullptr;};
+      inline string getBranchTime() const { DARABONBA_PTR_GET_DEFAULT(branchTime_, "") };
+      inline Branch& setBranchTime(string branchTime) { DARABONBA_PTR_SET_VALUE(branchTime_, branchTime) };
+
+
+      // childBranch Field Functions 
+      bool hasChildBranch() const { return this->childBranch_ != nullptr;};
+      void deleteChildBranch() { this->childBranch_ = nullptr;};
+      inline const vector<Branch::ChildBranch> & getChildBranch() const { DARABONBA_PTR_GET_CONST(childBranch_, vector<Branch::ChildBranch>) };
+      inline vector<Branch::ChildBranch> getChildBranch() { DARABONBA_PTR_GET(childBranch_, vector<Branch::ChildBranch>) };
+      inline Branch& setChildBranch(const vector<Branch::ChildBranch> & childBranch) { DARABONBA_PTR_SET_VALUE(childBranch_, childBranch) };
+      inline Branch& setChildBranch(vector<Branch::ChildBranch> && childBranch) { DARABONBA_PTR_SET_RVALUE(childBranch_, childBranch) };
+
+
+      // parentInsName Field Functions 
+      bool hasParentInsName() const { return this->parentInsName_ != nullptr;};
+      void deleteParentInsName() { this->parentInsName_ = nullptr;};
+      inline string getParentInsName() const { DARABONBA_PTR_GET_DEFAULT(parentInsName_, "") };
+      inline Branch& setParentInsName(string parentInsName) { DARABONBA_PTR_SET_VALUE(parentInsName_, parentInsName) };
+
+
+    protected:
+      shared_ptr<string> branchLsn_ {};
+      shared_ptr<string> branchTime_ {};
+      shared_ptr<vector<Branch::ChildBranch>> childBranch_ {};
+      shared_ptr<string> parentInsName_ {};
+    };
+
     virtual bool empty() const override { return this->aiCreatingTime_ == nullptr
         && this->aiType_ == nullptr && this->architecture_ == nullptr && this->autoUpgradeMinorVersion_ == nullptr && this->blktagTotal_ == nullptr && this->blktagUsed_ == nullptr
-        && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->compressStorageMode_ == nullptr && this->compressStorageUsed_ == nullptr && this->creationTime_ == nullptr
-        && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterNetworkType_ == nullptr && this->DBClusterStatus_ == nullptr && this->DBNodes_ == nullptr
-        && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->DBVersionStatus_ == nullptr && this->dataLevel1BackupChainSize_ == nullptr && this->dataSyncMode_ == nullptr
-        && this->deletionLock_ == nullptr && this->engine_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->hasCompleteStandbyRes_ == nullptr
-        && this->hotStandbyCluster_ == nullptr && this->imciAutoIndex_ == nullptr && this->imperceptibleSwitch_ == nullptr && this->inodeTotal_ == nullptr && this->inodeUsed_ == nullptr
-        && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainTime_ == nullptr && this->orca_ == nullptr
-        && this->payType_ == nullptr && this->provisionedIops_ == nullptr && this->proxyCpuCores_ == nullptr && this->proxyServerlessType_ == nullptr && this->proxyStandardCpuCores_ == nullptr
-        && this->proxyStatus_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->restoreDataPoint_ == nullptr && this->restoreType_ == nullptr && this->rowCompression_ == nullptr && this->SQLSize_ == nullptr && this->searchClusterStatus_ == nullptr
-        && this->searchCompressStorageUsed_ == nullptr && this->searchStorageUsed_ == nullptr && this->serverlessType_ == nullptr && this->sourceDBCluster_ == nullptr && this->sourceRegionId_ == nullptr
-        && this->standbyHAMode_ == nullptr && this->storageMax_ == nullptr && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr
-        && this->storageUsed_ == nullptr && this->strictConsistency_ == nullptr && this->subCategory_ == nullptr && this->supportInstantSwitchWithImci_ == nullptr && this->tags_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->branch_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->compressStorageMode_ == nullptr && this->compressStorageUsed_ == nullptr
+        && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterNetworkType_ == nullptr && this->DBClusterStatus_ == nullptr
+        && this->DBNodes_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->DBVersionStatus_ == nullptr && this->dataLevel1BackupChainSize_ == nullptr
+        && this->dataSyncMode_ == nullptr && this->deletionLock_ == nullptr && this->engine_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
+        && this->hasCompleteStandbyRes_ == nullptr && this->hotStandbyCluster_ == nullptr && this->imciAutoIndex_ == nullptr && this->imperceptibleSwitch_ == nullptr && this->inodeTotal_ == nullptr
+        && this->inodeUsed_ == nullptr && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainTime_ == nullptr
+        && this->orca_ == nullptr && this->payType_ == nullptr && this->provisionedIops_ == nullptr && this->proxyCpuCores_ == nullptr && this->proxyServerlessType_ == nullptr
+        && this->proxyStandardCpuCores_ == nullptr && this->proxyStatus_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->restoreDataPoint_ == nullptr && this->restoreType_ == nullptr && this->rowCompression_ == nullptr && this->SQLSize_ == nullptr
+        && this->searchClusterStatus_ == nullptr && this->searchCompressStorageUsed_ == nullptr && this->searchStorageUsed_ == nullptr && this->serverlessType_ == nullptr && this->sourceDBCluster_ == nullptr
+        && this->sourceRegionId_ == nullptr && this->standbyHAMode_ == nullptr && this->storageMax_ == nullptr && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr
+        && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->strictConsistency_ == nullptr && this->subCategory_ == nullptr && this->supportInstantSwitchWithImci_ == nullptr
+        && this->tags_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneIds_ == nullptr; };
     // aiCreatingTime Field Functions 
     bool hasAiCreatingTime() const { return this->aiCreatingTime_ != nullptr;};
     void deleteAiCreatingTime() { this->aiCreatingTime_ = nullptr;};
@@ -624,6 +762,15 @@ namespace Models
     void deleteBlktagUsed() { this->blktagUsed_ = nullptr;};
     inline int64_t getBlktagUsed() const { DARABONBA_PTR_GET_DEFAULT(blktagUsed_, 0L) };
     inline DescribeDBClusterAttributeResponseBody& setBlktagUsed(int64_t blktagUsed) { DARABONBA_PTR_SET_VALUE(blktagUsed_, blktagUsed) };
+
+
+    // branch Field Functions 
+    bool hasBranch() const { return this->branch_ != nullptr;};
+    void deleteBranch() { this->branch_ = nullptr;};
+    inline const DescribeDBClusterAttributeResponseBody::Branch & getBranch() const { DARABONBA_PTR_GET_CONST(branch_, DescribeDBClusterAttributeResponseBody::Branch) };
+    inline DescribeDBClusterAttributeResponseBody::Branch getBranch() { DARABONBA_PTR_GET(branch_, DescribeDBClusterAttributeResponseBody::Branch) };
+    inline DescribeDBClusterAttributeResponseBody& setBranch(const DescribeDBClusterAttributeResponseBody::Branch & branch) { DARABONBA_PTR_SET_VALUE(branch_, branch) };
+    inline DescribeDBClusterAttributeResponseBody& setBranch(DescribeDBClusterAttributeResponseBody::Branch && branch) { DARABONBA_PTR_SET_RVALUE(branch_, branch) };
 
 
     // burstingEnabled Field Functions 
@@ -1092,6 +1239,7 @@ namespace Models
     shared_ptr<int64_t> blktagTotal_ {};
     // Current blktag usage.
     shared_ptr<int64_t> blktagUsed_ {};
+    shared_ptr<DescribeDBClusterAttributeResponseBody::Branch> branch_ {};
     shared_ptr<string> burstingEnabled_ {};
     // [Product Series](https://help.aliyun.com/document_detail/183258.html), with values as follows:
     // * **Normal**: Cluster Edition
