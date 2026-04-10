@@ -1708,7 +1708,7 @@ namespace Ecs20140526
       Models::CreatePhysicalConnectionResponse createPhysicalConnection(const Models::CreatePhysicalConnectionRequest &request);
 
       /**
-       * @summary 创建运维窗口
+       * @summary Create an O\\\\\\&M window. If you set the TargetResource parameter in the O\\\\\\&M window to the associated ECS instance and need to schedule O\\\\\\&M to avoid potential hardware problems, the execution time is set based on the interval set by the TimePeriod parameter in the O\\\\\\&M window. When the execution time of an O\\\\\\&M event is reached, the platform automatically executes the response O\\\\\\&M operation based on the type of the O\\\\\\&M event.
        *
        * @param tmpReq CreatePlanMaintenanceWindowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1717,7 +1717,7 @@ namespace Ecs20140526
       Models::CreatePlanMaintenanceWindowResponse createPlanMaintenanceWindowWithOptions(const Models::CreatePlanMaintenanceWindowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建运维窗口
+       * @summary Create an O\\\\\\&M window. If you set the TargetResource parameter in the O\\\\\\&M window to the associated ECS instance and need to schedule O\\\\\\&M to avoid potential hardware problems, the execution time is set based on the interval set by the TimePeriod parameter in the O\\\\\\&M window. When the execution time of an O\\\\\\&M event is reached, the platform automatically executes the response O\\\\\\&M operation based on the type of the O\\\\\\&M event.
        *
        * @param request CreatePlanMaintenanceWindowRequest
        * @return CreatePlanMaintenanceWindowResponse
@@ -4430,7 +4430,7 @@ namespace Ecs20140526
       Models::DescribeInvocationResultsResponse describeInvocationResults(const Models::DescribeInvocationResultsRequest &request);
 
       /**
-       * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
+       * @summary The command type.
        *
        * @description DescribeInvocations
        *
@@ -4441,7 +4441,7 @@ namespace Ecs20140526
       Models::DescribeInvocationsResponse describeInvocationsWithOptions(const Models::DescribeInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
+       * @summary The command type.
        *
        * @description DescribeInvocations
        *
@@ -6786,7 +6786,7 @@ namespace Ecs20140526
       Models::ModifyBandwidthPackageSpecResponse modifyBandwidthPackageSpec(const Models::ModifyBandwidthPackageSpecRequest &request);
 
       /**
-       * @summary Modifies the information of a capacity reservation, including the name, description, release mode, and the total number of Elastic Compute Service (ECS) instances for which capacity is reserved.
+       * @summary Modifies the information about a capacity reservation, including the name, description, expiration method, and the total number of ECS instances that can be reserved.
        *
        * @param request ModifyCapacityReservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6795,7 +6795,7 @@ namespace Ecs20140526
       Models::ModifyCapacityReservationResponse modifyCapacityReservationWithOptions(const Models::ModifyCapacityReservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information of a capacity reservation, including the name, description, release mode, and the total number of Elastic Compute Service (ECS) instances for which capacity is reserved.
+       * @summary Modifies the information about a capacity reservation, including the name, description, expiration method, and the total number of ECS instances that can be reserved.
        *
        * @param request ModifyCapacityReservationRequest
        * @return ModifyCapacityReservationResponse

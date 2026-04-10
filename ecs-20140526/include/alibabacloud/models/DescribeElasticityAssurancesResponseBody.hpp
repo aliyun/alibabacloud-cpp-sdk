@@ -306,7 +306,9 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const AllocatedResource& obj) { 
               DARABONBA_PTR_TO_JSON(AvailableAmount, availableAmount_);
               DARABONBA_PTR_TO_JSON(ElasticityAssuranceUsages, elasticityAssuranceUsages_);
+              DARABONBA_PTR_TO_JSON(FailedAmount, failedAmount_);
               DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+              DARABONBA_PTR_TO_JSON(LockedAmount, lockedAmount_);
               DARABONBA_PTR_TO_JSON(TotalAmount, totalAmount_);
               DARABONBA_PTR_TO_JSON(UsedAmount, usedAmount_);
               DARABONBA_PTR_TO_JSON(zoneId, zoneId_);
@@ -314,7 +316,9 @@ namespace Models
             friend void from_json(const Darabonba::Json& j, AllocatedResource& obj) { 
               DARABONBA_PTR_FROM_JSON(AvailableAmount, availableAmount_);
               DARABONBA_PTR_FROM_JSON(ElasticityAssuranceUsages, elasticityAssuranceUsages_);
+              DARABONBA_PTR_FROM_JSON(FailedAmount, failedAmount_);
               DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+              DARABONBA_PTR_FROM_JSON(LockedAmount, lockedAmount_);
               DARABONBA_PTR_FROM_JSON(TotalAmount, totalAmount_);
               DARABONBA_PTR_FROM_JSON(UsedAmount, usedAmount_);
               DARABONBA_PTR_FROM_JSON(zoneId, zoneId_);
@@ -416,7 +420,8 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->availableAmount_ == nullptr
-        && this->elasticityAssuranceUsages_ == nullptr && this->instanceType_ == nullptr && this->totalAmount_ == nullptr && this->usedAmount_ == nullptr && this->zoneId_ == nullptr; };
+        && this->elasticityAssuranceUsages_ == nullptr && this->failedAmount_ == nullptr && this->instanceType_ == nullptr && this->lockedAmount_ == nullptr && this->totalAmount_ == nullptr
+        && this->usedAmount_ == nullptr && this->zoneId_ == nullptr; };
             // availableAmount Field Functions 
             bool hasAvailableAmount() const { return this->availableAmount_ != nullptr;};
             void deleteAvailableAmount() { this->availableAmount_ = nullptr;};
@@ -433,11 +438,25 @@ namespace Models
             inline AllocatedResource& setElasticityAssuranceUsages(AllocatedResource::ElasticityAssuranceUsages && elasticityAssuranceUsages) { DARABONBA_PTR_SET_RVALUE(elasticityAssuranceUsages_, elasticityAssuranceUsages) };
 
 
+            // failedAmount Field Functions 
+            bool hasFailedAmount() const { return this->failedAmount_ != nullptr;};
+            void deleteFailedAmount() { this->failedAmount_ = nullptr;};
+            inline int32_t getFailedAmount() const { DARABONBA_PTR_GET_DEFAULT(failedAmount_, 0) };
+            inline AllocatedResource& setFailedAmount(int32_t failedAmount) { DARABONBA_PTR_SET_VALUE(failedAmount_, failedAmount) };
+
+
             // instanceType Field Functions 
             bool hasInstanceType() const { return this->instanceType_ != nullptr;};
             void deleteInstanceType() { this->instanceType_ = nullptr;};
             inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
             inline AllocatedResource& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+            // lockedAmount Field Functions 
+            bool hasLockedAmount() const { return this->lockedAmount_ != nullptr;};
+            void deleteLockedAmount() { this->lockedAmount_ = nullptr;};
+            inline int32_t getLockedAmount() const { DARABONBA_PTR_GET_DEFAULT(lockedAmount_, 0) };
+            inline AllocatedResource& setLockedAmount(int32_t lockedAmount) { DARABONBA_PTR_SET_VALUE(lockedAmount_, lockedAmount) };
 
 
             // totalAmount Field Functions 
@@ -464,7 +483,9 @@ namespace Models
           protected:
             shared_ptr<int32_t> availableAmount_ {};
             shared_ptr<AllocatedResource::ElasticityAssuranceUsages> elasticityAssuranceUsages_ {};
+            shared_ptr<int32_t> failedAmount_ {};
             shared_ptr<string> instanceType_ {};
+            shared_ptr<int32_t> lockedAmount_ {};
             shared_ptr<int32_t> totalAmount_ {};
             shared_ptr<int32_t> usedAmount_ {};
             shared_ptr<string> zoneId_ {};

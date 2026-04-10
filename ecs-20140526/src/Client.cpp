@@ -6293,7 +6293,7 @@ CreatePhysicalConnectionResponse Client::createPhysicalConnection(const CreatePh
 }
 
 /**
- * @summary 创建运维窗口
+ * @summary Create an O\\\\\\&M window. If you set the TargetResource parameter in the O\\\\\\&M window to the associated ECS instance and need to schedule O\\\\\\&M to avoid potential hardware problems, the execution time is set based on the interval set by the TimePeriod parameter in the O\\\\\\&M window. When the execution time of an O\\\\\\&M event is reached, the platform automatically executes the response O\\\\\\&M operation based on the type of the O\\\\\\&M event.
  *
  * @param tmpReq CreatePlanMaintenanceWindowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6354,7 +6354,7 @@ CreatePlanMaintenanceWindowResponse Client::createPlanMaintenanceWindowWithOptio
 }
 
 /**
- * @summary 创建运维窗口
+ * @summary Create an O\\\\\\&M window. If you set the TargetResource parameter in the O\\\\\\&M window to the associated ECS instance and need to schedule O\\\\\\&M to avoid potential hardware problems, the execution time is set based on the interval set by the TimePeriod parameter in the O\\\\\\&M window. When the execution time of an O\\\\\\&M event is reached, the platform automatically executes the response O\\\\\\&M operation based on the type of the O\\\\\\&M event.
  *
  * @param request CreatePlanMaintenanceWindowRequest
  * @return CreatePlanMaintenanceWindowResponse
@@ -16271,7 +16271,7 @@ DescribeInvocationResultsResponse Client::describeInvocationResults(const Descri
 }
 
 /**
- * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
+ * @summary The command type.
  *
  * @description DescribeInvocations
  *
@@ -16388,7 +16388,7 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @summary Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
+ * @summary The command type.
  *
  * @description DescribeInvocations
  *
@@ -24243,7 +24243,7 @@ ModifyBandwidthPackageSpecResponse Client::modifyBandwidthPackageSpec(const Modi
 }
 
 /**
- * @summary Modifies the information of a capacity reservation, including the name, description, release mode, and the total number of Elastic Compute Service (ECS) instances for which capacity is reserved.
+ * @summary Modifies the information about a capacity reservation, including the name, description, expiration method, and the total number of ECS instances that can be reserved.
  *
  * @param request ModifyCapacityReservationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24318,7 +24318,7 @@ ModifyCapacityReservationResponse Client::modifyCapacityReservationWithOptions(c
 }
 
 /**
- * @summary Modifies the information of a capacity reservation, including the name, description, release mode, and the total number of Elastic Compute Service (ECS) instances for which capacity is reserved.
+ * @summary Modifies the information about a capacity reservation, including the name, description, expiration method, and the total number of ECS instances that can be reserved.
  *
  * @param request ModifyCapacityReservationRequest
  * @return ModifyCapacityReservationResponse
