@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeviceToken, deviceToken_);
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, FaceGuardRiskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(DeviceToken, deviceToken_);
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     FaceGuardRiskRequest() = default ;
     FaceGuardRiskRequest(const FaceGuardRiskRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->deviceToken_ == nullptr && this->merchantBizId_ == nullptr && this->productCode_ == nullptr; };
+        && this->deviceToken_ == nullptr && this->merchantBizId_ == nullptr && this->productCode_ == nullptr && this->type_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline FaceGuardRiskRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline FaceGuardRiskRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     // The unique ID of the current business authentication. It is used with FACE_GUARD for verification during queries.
     shared_ptr<string> bizId_ {};
@@ -74,6 +83,7 @@ namespace Models
     shared_ptr<string> merchantBizId_ {};
     // The product code. Set this to the static field **FACE_GUARD**.
     shared_ptr<string> productCode_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

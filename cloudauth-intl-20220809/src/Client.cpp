@@ -68,11 +68,13 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
@@ -261,7 +263,7 @@ AddFaceRecordResponse Client::addFaceRecordAdvance(const AddFaceRecordAdvanceReq
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1073,7 +1075,7 @@ CredentialVerifyIntlResponse Client::credentialVerifyIntlAdvance(const Credentia
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1297,7 +1299,7 @@ DeepfakeDetectIntlStreamResponse Client::deepfakeDetectIntlStreamAdvance(const D
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1789,7 +1791,7 @@ DocOcrV2Response Client::docOcrV2Advance(const DocOcrV2AdvanceRequest &request, 
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2125,7 +2127,7 @@ EkycVerifyV2Response Client::ekycVerifyV2Advance(const EkycVerifyV2AdvanceReques
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2148,7 +2150,7 @@ EkycVerifyV2Response Client::ekycVerifyV2Advance(const EkycVerifyV2AdvanceReques
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2370,7 +2372,7 @@ FaceCompareV2Response Client::faceCompareV2Advance(const FaceCompareV2AdvanceReq
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2393,7 +2395,7 @@ FaceCompareV2Response Client::faceCompareV2Advance(const FaceCompareV2AdvanceReq
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2621,6 +2623,10 @@ FaceGuardRiskResponse Client::faceGuardRiskWithOptions(const FaceGuardRiskReques
 
   if (!!request.hasProductCode()) {
     query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3166,7 +3172,6 @@ InitializeResponse Client::initialize(const InitializeRequest &request) {
 /**
  * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
  *
- * @param request KeepaliveIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return KeepaliveIntlResponse
  */

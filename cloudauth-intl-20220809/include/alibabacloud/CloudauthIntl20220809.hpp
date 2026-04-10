@@ -646,7 +646,6 @@ namespace CloudauthIntl20220809
       /**
        * @summary If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
        *
-       * @param request KeepaliveIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return KeepaliveIntlResponse
        */
