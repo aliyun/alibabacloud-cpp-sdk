@@ -1012,6 +1012,76 @@ EvictTaskResponse Client::evictTask(const string &workspaceId, const EvictTaskRe
 }
 
 /**
+ * @summary 兑换权益
+ *
+ * @param request ExchangeEntitlementRequest
+ * @param headers ExchangeEntitlementHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExchangeEntitlementResponse
+ */
+ExchangeEntitlementResponse Client::exchangeEntitlementWithOptions(const string &workspaceId, const string &tenantId, const ExchangeEntitlementRequest &request, const ExchangeEntitlementHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["externalUserId"] = request.getExternalUserId();
+  }
+
+  if (!!request.hasKeyHash()) {
+    body["keyHash"] = request.getKeyHash();
+  }
+
+  if (!!request.hasRequestId()) {
+    body["requestId"] = request.getRequestId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.getUserName();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.getXLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExchangeEntitlement"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/v1/tenants/" , Darabonba::Encode::Encoder::percentEncode(tenantId) , "/redeem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExchangeEntitlementResponse>();
+}
+
+/**
+ * @summary 兑换权益
+ *
+ * @param request ExchangeEntitlementRequest
+ * @return ExchangeEntitlementResponse
+ */
+ExchangeEntitlementResponse Client::exchangeEntitlement(const string &workspaceId, const string &tenantId, const ExchangeEntitlementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ExchangeEntitlementHeaders headers = ExchangeEntitlementHeaders();
+  return exchangeEntitlementWithOptions(workspaceId, tenantId, request, headers, runtime);
+}
+
+/**
  * @summary 根据文档解析问答QA
  *
  * @param request GenDocQaResultRequest
@@ -1998,6 +2068,64 @@ GetTaskStatusResponse Client::getTaskStatus(const string &workspaceId, const Get
 }
 
 /**
+ * @summary 查询用量明细
+ *
+ * @param request GetUsageRequest
+ * @param headers GetUsageHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUsageResponse
+ */
+GetUsageResponse Client::getUsageWithOptions(const string &workspaceId, const string &tenantId, const GetUsageRequest &request, const GetUsageHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExternalUserId()) {
+    query["externalUserId"] = request.getExternalUserId();
+  }
+
+  if (!!request.hasRedemptionOrderNo()) {
+    query["redemptionOrderNo"] = request.getRedemptionOrderNo();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.getXLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUsage"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/v1/tenants/" , Darabonba::Encode::Encoder::percentEncode(tenantId) , "/usage")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUsageResponse>();
+}
+
+/**
+ * @summary 查询用量明细
+ *
+ * @param request GetUsageRequest
+ * @return GetUsageResponse
+ */
+GetUsageResponse Client::getUsage(const string &workspaceId, const string &tenantId, const GetUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetUsageHeaders headers = GetUsageHeaders();
+  return getUsageWithOptions(workspaceId, tenantId, request, headers, runtime);
+}
+
+/**
  * @summary 获取视频生成任务结果
  *
  * @param request GetVideoCreationTaskResultRequest
@@ -2147,6 +2275,126 @@ PreviewDocumentResponse Client::previewDocument(const string &workspaceId, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return previewDocumentWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询兑换记录
+ *
+ * @param request QueryApiKeysRequest
+ * @param headers QueryApiKeysHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryApiKeysResponse
+ */
+QueryApiKeysResponse Client::queryApiKeysWithOptions(const string &workspaceId, const string &tenantId, const QueryApiKeysRequest &request, const QueryApiKeysHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExternalUserId()) {
+    query["externalUserId"] = request.getExternalUserId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.getXLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryApiKeys"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/v1/tenants/" , Darabonba::Encode::Encoder::percentEncode(tenantId) , "/apikeys")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryApiKeysResponse>();
+}
+
+/**
+ * @summary 查询兑换记录
+ *
+ * @param request QueryApiKeysRequest
+ * @return QueryApiKeysResponse
+ */
+QueryApiKeysResponse Client::queryApiKeys(const string &workspaceId, const string &tenantId, const QueryApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  QueryApiKeysHeaders headers = QueryApiKeysHeaders();
+  return queryApiKeysWithOptions(workspaceId, tenantId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询兑换记录
+ *
+ * @param request QueryRedemptionRecordsRequest
+ * @param headers QueryRedemptionRecordsHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryRedemptionRecordsResponse
+ */
+QueryRedemptionRecordsResponse Client::queryRedemptionRecordsWithOptions(const string &workspaceId, const string &tenantId, const QueryRedemptionRecordsRequest &request, const QueryRedemptionRecordsHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExternalUserId()) {
+    query["externalUserId"] = request.getExternalUserId();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRedemptionOrderNo()) {
+    query["redemptionOrderNo"] = request.getRedemptionOrderNo();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.getXLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryRedemptionRecords"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/v1/tenants/" , Darabonba::Encode::Encoder::percentEncode(tenantId) , "/redemption-records")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryRedemptionRecordsResponse>();
+}
+
+/**
+ * @summary 查询兑换记录
+ *
+ * @param request QueryRedemptionRecordsRequest
+ * @return QueryRedemptionRecordsResponse
+ */
+QueryRedemptionRecordsResponse Client::queryRedemptionRecords(const string &workspaceId, const string &tenantId, const QueryRedemptionRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  QueryRedemptionRecordsHeaders headers = QueryRedemptionRecordsHeaders();
+  return queryRedemptionRecordsWithOptions(workspaceId, tenantId, request, headers, runtime);
 }
 
 /**

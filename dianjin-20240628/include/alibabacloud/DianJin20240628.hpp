@@ -310,6 +310,24 @@ namespace DianJin20240628
       Models::EvictTaskResponse evictTask(const string &workspaceId, const Models::EvictTaskRequest &request);
 
       /**
+       * @summary 兑换权益
+       *
+       * @param request ExchangeEntitlementRequest
+       * @param headers ExchangeEntitlementHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExchangeEntitlementResponse
+       */
+      Models::ExchangeEntitlementResponse exchangeEntitlementWithOptions(const string &workspaceId, const string &tenantId, const Models::ExchangeEntitlementRequest &request, const Models::ExchangeEntitlementHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 兑换权益
+       *
+       * @param request ExchangeEntitlementRequest
+       * @return ExchangeEntitlementResponse
+       */
+      Models::ExchangeEntitlementResponse exchangeEntitlement(const string &workspaceId, const string &tenantId, const Models::ExchangeEntitlementRequest &request);
+
+      /**
        * @summary 根据文档解析问答QA
        *
        * @param request GenDocQaResultRequest
@@ -652,6 +670,24 @@ namespace DianJin20240628
       Models::GetTaskStatusResponse getTaskStatus(const string &workspaceId, const Models::GetTaskStatusRequest &request);
 
       /**
+       * @summary 查询用量明细
+       *
+       * @param request GetUsageRequest
+       * @param headers GetUsageHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUsageResponse
+       */
+      Models::GetUsageResponse getUsageWithOptions(const string &workspaceId, const string &tenantId, const Models::GetUsageRequest &request, const Models::GetUsageHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用量明细
+       *
+       * @param request GetUsageRequest
+       * @return GetUsageResponse
+       */
+      Models::GetUsageResponse getUsage(const string &workspaceId, const string &tenantId, const Models::GetUsageRequest &request);
+
+      /**
        * @summary 获取视频生成任务结果
        *
        * @param request GetVideoCreationTaskResultRequest
@@ -704,6 +740,42 @@ namespace DianJin20240628
        * @return PreviewDocumentResponse
        */
       Models::PreviewDocumentResponse previewDocument(const string &workspaceId, const Models::PreviewDocumentRequest &request);
+
+      /**
+       * @summary 查询兑换记录
+       *
+       * @param request QueryApiKeysRequest
+       * @param headers QueryApiKeysHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryApiKeysResponse
+       */
+      Models::QueryApiKeysResponse queryApiKeysWithOptions(const string &workspaceId, const string &tenantId, const Models::QueryApiKeysRequest &request, const Models::QueryApiKeysHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询兑换记录
+       *
+       * @param request QueryApiKeysRequest
+       * @return QueryApiKeysResponse
+       */
+      Models::QueryApiKeysResponse queryApiKeys(const string &workspaceId, const string &tenantId, const Models::QueryApiKeysRequest &request);
+
+      /**
+       * @summary 查询兑换记录
+       *
+       * @param request QueryRedemptionRecordsRequest
+       * @param headers QueryRedemptionRecordsHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryRedemptionRecordsResponse
+       */
+      Models::QueryRedemptionRecordsResponse queryRedemptionRecordsWithOptions(const string &workspaceId, const string &tenantId, const Models::QueryRedemptionRecordsRequest &request, const Models::QueryRedemptionRecordsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询兑换记录
+       *
+       * @param request QueryRedemptionRecordsRequest
+       * @return QueryRedemptionRecordsResponse
+       */
+      Models::QueryRedemptionRecordsResponse queryRedemptionRecords(const string &workspaceId, const string &tenantId, const Models::QueryRedemptionRecordsRequest &request);
 
       /**
        * @summary 重新索引

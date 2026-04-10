@@ -53,6 +53,10 @@
 #include <alibabacloud/models/EvictTaskRequest.hpp>
 #include <alibabacloud/models/EvictTaskResponseBody.hpp>
 #include <alibabacloud/models/EvictTaskResponse.hpp>
+#include <alibabacloud/models/ExchangeEntitlementHeaders.hpp>
+#include <alibabacloud/models/ExchangeEntitlementRequest.hpp>
+#include <alibabacloud/models/ExchangeEntitlementResponseBody.hpp>
+#include <alibabacloud/models/ExchangeEntitlementResponse.hpp>
 #include <alibabacloud/models/GenDocQaResultRequest.hpp>
 #include <alibabacloud/models/GenDocQaResultResponseBody.hpp>
 #include <alibabacloud/models/GenDocQaResultResponse.hpp>
@@ -111,6 +115,10 @@
 #include <alibabacloud/models/GetTaskStatusRequest.hpp>
 #include <alibabacloud/models/GetTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/GetTaskStatusResponse.hpp>
+#include <alibabacloud/models/GetUsageHeaders.hpp>
+#include <alibabacloud/models/GetUsageRequest.hpp>
+#include <alibabacloud/models/GetUsageResponseBody.hpp>
+#include <alibabacloud/models/GetUsageResponse.hpp>
 #include <alibabacloud/models/GetVideoCreationTaskResultHeaders.hpp>
 #include <alibabacloud/models/GetVideoCreationTaskResultRequest.hpp>
 #include <alibabacloud/models/GetVideoCreationTaskResultResponseBody.hpp>
@@ -121,6 +129,14 @@
 #include <alibabacloud/models/PreviewDocumentRequest.hpp>
 #include <alibabacloud/models/PreviewDocumentResponseBody.hpp>
 #include <alibabacloud/models/PreviewDocumentResponse.hpp>
+#include <alibabacloud/models/QueryApiKeysHeaders.hpp>
+#include <alibabacloud/models/QueryApiKeysRequest.hpp>
+#include <alibabacloud/models/QueryApiKeysResponseBody.hpp>
+#include <alibabacloud/models/QueryApiKeysResponse.hpp>
+#include <alibabacloud/models/QueryRedemptionRecordsHeaders.hpp>
+#include <alibabacloud/models/QueryRedemptionRecordsRequest.hpp>
+#include <alibabacloud/models/QueryRedemptionRecordsResponseBody.hpp>
+#include <alibabacloud/models/QueryRedemptionRecordsResponse.hpp>
 #include <alibabacloud/models/ReIndexRequest.hpp>
 #include <alibabacloud/models/ReIndexResponseBody.hpp>
 #include <alibabacloud/models/ReIndexResponse.hpp>
