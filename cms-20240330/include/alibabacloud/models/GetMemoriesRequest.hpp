@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetMemoriesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(agentId, agentId_);
       DARABONBA_PTR_TO_JSON(appId, appId_);
+      DARABONBA_ANY_TO_JSON(filters, filters_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetMemoriesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentId, agentId_);
       DARABONBA_PTR_FROM_JSON(appId, appId_);
+      DARABONBA_ANY_FROM_JSON(filters, filters_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->appId_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->runId_ == nullptr && this->userId_ == nullptr; };
+        && this->appId_ == nullptr && this->filters_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->runId_ == nullptr
+        && this->userId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -53,6 +56,15 @@ namespace Models
     void deleteAppId() { this->appId_ = nullptr;};
     inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetMemoriesRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // filters Field Functions 
+    bool hasFilters() const { return this->filters_ != nullptr;};
+    void deleteFilters() { this->filters_ = nullptr;};
+    inline     const Darabonba::Json & getFilters() const { DARABONBA_GET(filters_) };
+    Darabonba::Json & getFilters() { DARABONBA_GET(filters_) };
+    inline GetMemoriesRequest& setFilters(const Darabonba::Json & filters) { DARABONBA_SET_VALUE(filters_, filters) };
+    inline GetMemoriesRequest& setFilters(Darabonba::Json && filters) { DARABONBA_SET_RVALUE(filters_, filters) };
 
 
     // page Field Functions 
@@ -86,6 +98,7 @@ namespace Models
   protected:
     shared_ptr<string> agentId_ {};
     shared_ptr<string> appId_ {};
+    Darabonba::Json filters_ {};
     shared_ptr<int32_t> page_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> runId_ {};

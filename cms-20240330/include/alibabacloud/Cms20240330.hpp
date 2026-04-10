@@ -251,18 +251,20 @@ namespace Cms20240330
       /**
        * @summary Create storage related to EntityStore
        *
+       * @param request CreateEntityStoreRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateEntityStoreResponse
        */
-      Models::CreateEntityStoreResponse createEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateEntityStoreResponse createEntityStoreWithOptions(const string &workspaceName, const Models::CreateEntityStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Create storage related to EntityStore
        *
+       * @param request CreateEntityStoreRequest
        * @return CreateEntityStoreResponse
        */
-      Models::CreateEntityStoreResponse createEntityStore(const string &workspaceName);
+      Models::CreateEntityStoreResponse createEntityStore(const string &workspaceName, const Models::CreateEntityStoreRequest &request);
 
       /**
        * @summary Create Access Center Policy
@@ -387,18 +389,20 @@ namespace Cms20240330
       /**
        * @summary 创建应用可观测实例
        *
+       * @param request CreateServiceObservabilityRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateServiceObservabilityResponse
        */
-      Models::CreateServiceObservabilityResponse createServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateServiceObservabilityResponse createServiceObservabilityWithOptions(const string &workspace, const string &type, const Models::CreateServiceObservabilityRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创建应用可观测实例
        *
+       * @param request CreateServiceObservabilityRequest
        * @return CreateServiceObservabilityResponse
        */
-      Models::CreateServiceObservabilityResponse createServiceObservability(const string &workspace, const string &type);
+      Models::CreateServiceObservabilityResponse createServiceObservability(const string &workspace, const string &type, const Models::CreateServiceObservabilityRequest &request);
 
       /**
        * @summary 创建会话
@@ -479,18 +483,20 @@ namespace Cms20240330
       /**
        * @summary Delete Aggregation Task Group
        *
+       * @param request DeleteAggTaskGroupRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAggTaskGroupResponse
        */
-      Models::DeleteAggTaskGroupResponse deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteAggTaskGroupResponse deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const Models::DeleteAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete Aggregation Task Group
        *
+       * @param request DeleteAggTaskGroupRequest
        * @return DeleteAggTaskGroupResponse
        */
-      Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId);
+      Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId, const Models::DeleteAggTaskGroupRequest &request);
 
       /**
        * @summary 删除Webhook
@@ -513,18 +519,20 @@ namespace Cms20240330
       /**
        * @summary 删除业务链路
        *
+       * @param request DeleteBizTraceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteBizTraceResponse
        */
-      Models::DeleteBizTraceResponse deleteBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteBizTraceResponse deleteBizTraceWithOptions(const string &bizTraceId, const Models::DeleteBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除业务链路
        *
+       * @param request DeleteBizTraceRequest
        * @return DeleteBizTraceResponse
        */
-      Models::DeleteBizTraceResponse deleteBizTrace(const string &bizTraceId);
+      Models::DeleteBizTraceResponse deleteBizTrace(const string &bizTraceId, const Models::DeleteBizTraceRequest &request);
 
       /**
        * @summary 删除云资源中心
@@ -545,82 +553,92 @@ namespace Cms20240330
       /**
        * @summary 删除数据集
        *
+       * @param request DeleteDatasetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDatasetResponse
        */
-      Models::DeleteDatasetResponse deleteDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDatasetResponse deleteDatasetWithOptions(const string &workspace, const string &datasetName, const Models::DeleteDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除数据集
        *
+       * @param request DeleteDatasetRequest
        * @return DeleteDatasetResponse
        */
-      Models::DeleteDatasetResponse deleteDataset(const string &workspace, const string &datasetName);
+      Models::DeleteDatasetResponse deleteDataset(const string &workspace, const string &datasetName, const Models::DeleteDatasetRequest &request);
 
       /**
        * @summary 删除数据投递任务
        *
+       * @param request DeleteDeliveryTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDeliveryTaskResponse
        */
-      Models::DeleteDeliveryTaskResponse deleteDeliveryTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDeliveryTaskResponse deleteDeliveryTaskWithOptions(const string &taskId, const Models::DeleteDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除数据投递任务
        *
+       * @param request DeleteDeliveryTaskRequest
        * @return DeleteDeliveryTaskResponse
        */
-      Models::DeleteDeliveryTaskResponse deleteDeliveryTask(const string &taskId);
+      Models::DeleteDeliveryTaskResponse deleteDeliveryTask(const string &taskId, const Models::DeleteDeliveryTaskRequest &request);
 
       /**
        * @summary 删除DigitalEmployee
        *
+       * @param request DeleteDigitalEmployeeRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDigitalEmployeeResponse
        */
-      Models::DeleteDigitalEmployeeResponse deleteDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDigitalEmployeeResponse deleteDigitalEmployeeWithOptions(const string &name, const Models::DeleteDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除DigitalEmployee
        *
+       * @param request DeleteDigitalEmployeeRequest
        * @return DeleteDigitalEmployeeResponse
        */
-      Models::DeleteDigitalEmployeeResponse deleteDigitalEmployee(const string &name);
+      Models::DeleteDigitalEmployeeResponse deleteDigitalEmployee(const string &name, const Models::DeleteDigitalEmployeeRequest &request);
 
       /**
        * @summary 删除技能
        *
+       * @param request DeleteDigitalEmployeeSkillRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDigitalEmployeeSkillResponse
        */
-      Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const Models::DeleteDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除技能
        *
+       * @param request DeleteDigitalEmployeeSkillRequest
        * @return DeleteDigitalEmployeeSkillResponse
        */
-      Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkill(const string &name, const string &skillName);
+      Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkill(const string &name, const string &skillName, const Models::DeleteDigitalEmployeeSkillRequest &request);
 
       /**
        * @summary Delete EntityStore related storage
        *
+       * @param request DeleteEntityStoreRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteEntityStoreResponse
        */
-      Models::DeleteEntityStoreResponse deleteEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteEntityStoreResponse deleteEntityStoreWithOptions(const string &workspaceName, const Models::DeleteEntityStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete EntityStore related storage
        *
+       * @param request DeleteEntityStoreRequest
        * @return DeleteEntityStoreResponse
        */
-      Models::DeleteEntityStoreResponse deleteEntityStore(const string &workspaceName);
+      Models::DeleteEntityStoreResponse deleteEntityStore(const string &workspaceName, const Models::DeleteEntityStoreRequest &request);
 
       /**
        * @summary Delete Access Center Policy
@@ -661,142 +679,158 @@ namespace Cms20240330
       /**
        * @summary 删除记忆
        *
+       * @param request DeleteMemoryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMemoryResponse
        */
-      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::DeleteMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除记忆
        *
+       * @param request DeleteMemoryRequest
        * @return DeleteMemoryResponse
        */
-      Models::DeleteMemoryResponse deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId);
+      Models::DeleteMemoryResponse deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::DeleteMemoryRequest &request);
 
       /**
        * @summary 删除记忆库
        *
+       * @param request DeleteMemoryStoreRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMemoryStoreResponse
        */
-      Models::DeleteMemoryStoreResponse deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteMemoryStoreResponse deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除记忆库
        *
+       * @param request DeleteMemoryStoreRequest
        * @return DeleteMemoryStoreResponse
        */
-      Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspace, const string &memoryStoreName);
+      Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoryStoreRequest &request);
 
       /**
        * @summary Delete prom instance
        *
        * @description Delete a Prometheus instance.
        *
+       * @param request DeletePrometheusInstanceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeletePrometheusInstanceResponse
        */
-      Models::DeletePrometheusInstanceResponse deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeletePrometheusInstanceResponse deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const Models::DeletePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete prom instance
        *
        * @description Delete a Prometheus instance.
        *
+       * @param request DeletePrometheusInstanceRequest
        * @return DeletePrometheusInstanceResponse
        */
-      Models::DeletePrometheusInstanceResponse deletePrometheusInstance(const string &prometheusInstanceId);
+      Models::DeletePrometheusInstanceResponse deletePrometheusInstance(const string &prometheusInstanceId, const Models::DeletePrometheusInstanceRequest &request);
 
       /**
        * @summary Delete prometheus view instance
        *
        * @description Delete prometheus view instance.
        *
+       * @param request DeletePrometheusViewRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeletePrometheusViewResponse
        */
-      Models::DeletePrometheusViewResponse deletePrometheusViewWithOptions(const string &prometheusViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeletePrometheusViewResponse deletePrometheusViewWithOptions(const string &prometheusViewId, const Models::DeletePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete prometheus view instance
        *
        * @description Delete prometheus view instance.
        *
+       * @param request DeletePrometheusViewRequest
        * @return DeletePrometheusViewResponse
        */
-      Models::DeletePrometheusViewResponse deletePrometheusView(const string &prometheusViewId);
+      Models::DeletePrometheusViewResponse deletePrometheusView(const string &prometheusViewId, const Models::DeletePrometheusViewRequest &request);
 
       /**
        * @summary 删除 Prometheus 虚拟实例
        *
+       * @param request DeletePrometheusVirtualInstanceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeletePrometheusVirtualInstanceResponse
        */
-      Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const Models::DeletePrometheusVirtualInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除 Prometheus 虚拟实例
        *
+       * @param request DeletePrometheusVirtualInstanceRequest
        * @return DeletePrometheusVirtualInstanceResponse
        */
-      Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstance(const string &prometheusInstanceId);
+      Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstance(const string &prometheusInstanceId, const Models::DeletePrometheusVirtualInstanceRequest &request);
 
       /**
        * @summary Delete Service
        *
+       * @param request DeleteServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteServiceResponse
        */
-      Models::DeleteServiceResponse deleteServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteServiceResponse deleteServiceWithOptions(const string &workspace, const string &serviceId, const Models::DeleteServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete Service
        *
+       * @param request DeleteServiceRequest
        * @return DeleteServiceResponse
        */
-      Models::DeleteServiceResponse deleteService(const string &workspace, const string &serviceId);
+      Models::DeleteServiceResponse deleteService(const string &workspace, const string &serviceId, const Models::DeleteServiceRequest &request);
 
       /**
        * @summary 删除会话
        *
+       * @param request DeleteThreadRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteThreadResponse
        */
-      Models::DeleteThreadResponse deleteThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteThreadResponse deleteThreadWithOptions(const string &name, const string &threadId, const Models::DeleteThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除会话
        *
+       * @param request DeleteThreadRequest
        * @return DeleteThreadResponse
        */
-      Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId);
+      Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId, const Models::DeleteThreadRequest &request);
 
       /**
        * @summary Delete Umodel configuration information
        *
        * @description Delete the Umodel under the specified workspace
        *
+       * @param request DeleteUmodelRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteUmodelResponse
        */
-      Models::DeleteUmodelResponse deleteUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteUmodelResponse deleteUmodelWithOptions(const string &workspace, const Models::DeleteUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete Umodel configuration information
        *
        * @description Delete the Umodel under the specified workspace
        *
+       * @param request DeleteUmodelRequest
        * @return DeleteUmodelResponse
        */
-      Models::DeleteUmodelResponse deleteUmodel(const string &workspace);
+      Models::DeleteUmodelResponse deleteUmodel(const string &workspace, const Models::DeleteUmodelRequest &request);
 
       /**
        * @summary 删除Umodel配置信息
@@ -841,18 +875,20 @@ namespace Cms20240330
       /**
        * @summary Delete Workspace
        *
+       * @param request DeleteWorkspaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteWorkspaceResponse
        */
-      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceName, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Delete Workspace
        *
+       * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
        */
-      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName);
+      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName, const Models::DeleteWorkspaceRequest &request);
 
       /**
        * @summary 查询地域信息列表
@@ -929,18 +965,20 @@ namespace Cms20240330
       /**
        * @summary Check addon release (view connection status)
        *
+       * @param request GetAddonReleaseRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAddonReleaseResponse
        */
-      Models::GetAddonReleaseResponse getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetAddonReleaseResponse getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const Models::GetAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Check addon release (view connection status)
        *
+       * @param request GetAddonReleaseRequest
        * @return GetAddonReleaseResponse
        */
-      Models::GetAddonReleaseResponse getAddonRelease(const string &releaseName, const string &policyId);
+      Models::GetAddonReleaseResponse getAddonRelease(const string &releaseName, const string &policyId, const Models::GetAddonReleaseRequest &request);
 
       /**
        * @summary 插件schema详情(Addon)
@@ -963,34 +1001,38 @@ namespace Cms20240330
       /**
        * @summary Describes the aggregation task group
        *
+       * @param request GetAggTaskGroupRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAggTaskGroupResponse
        */
-      Models::GetAggTaskGroupResponse getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetAggTaskGroupResponse getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const Models::GetAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Describes the aggregation task group
        *
+       * @param request GetAggTaskGroupRequest
        * @return GetAggTaskGroupResponse
        */
-      Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId);
+      Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId, const Models::GetAggTaskGroupRequest &request);
 
       /**
        * @summary 查询业务链路
        *
+       * @param request GetBizTraceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBizTraceResponse
        */
-      Models::GetBizTraceResponse getBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetBizTraceResponse getBizTraceWithOptions(const string &bizTraceId, const Models::GetBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询业务链路
        *
+       * @param request GetBizTraceRequest
        * @return GetBizTraceResponse
        */
-      Models::GetBizTraceResponse getBizTrace(const string &bizTraceId);
+      Models::GetBizTraceResponse getBizTrace(const string &bizTraceId, const Models::GetBizTraceRequest &request);
 
       /**
        * @summary 查询云资源中心
@@ -1047,50 +1089,56 @@ namespace Cms20240330
       /**
        * @summary 查询数据集
        *
+       * @param request GetDatasetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDatasetResponse
        */
-      Models::GetDatasetResponse getDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDatasetResponse getDatasetWithOptions(const string &workspace, const string &datasetName, const Models::GetDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询数据集
        *
+       * @param request GetDatasetRequest
        * @return GetDatasetResponse
        */
-      Models::GetDatasetResponse getDataset(const string &workspace, const string &datasetName);
+      Models::GetDatasetResponse getDataset(const string &workspace, const string &datasetName, const Models::GetDatasetRequest &request);
 
       /**
        * @summary 获取数据投递任务详情
        *
+       * @param request GetDeliveryTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDeliveryTaskResponse
        */
-      Models::GetDeliveryTaskResponse getDeliveryTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDeliveryTaskResponse getDeliveryTaskWithOptions(const string &taskId, const Models::GetDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取数据投递任务详情
        *
+       * @param request GetDeliveryTaskRequest
        * @return GetDeliveryTaskResponse
        */
-      Models::GetDeliveryTaskResponse getDeliveryTask(const string &taskId);
+      Models::GetDeliveryTaskResponse getDeliveryTask(const string &taskId, const Models::GetDeliveryTaskRequest &request);
 
       /**
        * @summary 查询 DigitalEmployee
        *
+       * @param request GetDigitalEmployeeRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDigitalEmployeeResponse
        */
-      Models::GetDigitalEmployeeResponse getDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDigitalEmployeeResponse getDigitalEmployeeWithOptions(const string &name, const Models::GetDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询 DigitalEmployee
        *
+       * @param request GetDigitalEmployeeRequest
        * @return GetDigitalEmployeeResponse
        */
-      Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name);
+      Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name, const Models::GetDigitalEmployeeRequest &request);
 
       /**
        * @summary 获取技能详情
@@ -1113,18 +1161,20 @@ namespace Cms20240330
       /**
        * @summary Get EntityStore related storage information
        *
+       * @param request GetEntityStoreRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetEntityStoreResponse
        */
-      Models::GetEntityStoreResponse getEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetEntityStoreResponse getEntityStoreWithOptions(const string &workspaceName, const Models::GetEntityStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get EntityStore related storage information
        *
+       * @param request GetEntityStoreRequest
        * @return GetEntityStoreResponse
        */
-      Models::GetEntityStoreResponse getEntityStore(const string &workspaceName);
+      Models::GetEntityStoreResponse getEntityStore(const string &workspaceName, const Models::GetEntityStoreRequest &request);
 
       /**
        * @summary Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
@@ -1147,18 +1197,20 @@ namespace Cms20240330
       /**
        * @summary Query the list of access center policies
        *
+       * @param request GetIntegrationPolicyRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetIntegrationPolicyResponse
        */
-      Models::GetIntegrationPolicyResponse getIntegrationPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetIntegrationPolicyResponse getIntegrationPolicyWithOptions(const string &policyId, const Models::GetIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Query the list of access center policies
        *
+       * @param request GetIntegrationPolicyRequest
        * @return GetIntegrationPolicyResponse
        */
-      Models::GetIntegrationPolicyResponse getIntegrationPolicy(const string &policyId);
+      Models::GetIntegrationPolicyResponse getIntegrationPolicy(const string &policyId, const Models::GetIntegrationPolicyRequest &request);
 
       /**
        * @summary 查询接入中心在CS的版本
@@ -1199,50 +1251,56 @@ namespace Cms20240330
       /**
        * @summary 查询记忆
        *
+       * @param request GetMemoryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMemoryResponse
        */
-      Models::GetMemoryResponse getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetMemoryResponse getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::GetMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询记忆
        *
+       * @param request GetMemoryRequest
        * @return GetMemoryResponse
        */
-      Models::GetMemoryResponse getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId);
+      Models::GetMemoryResponse getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::GetMemoryRequest &request);
 
       /**
        * @summary 查询记忆历史记录
        *
+       * @param request GetMemoryHistoryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMemoryHistoryResponse
        */
-      Models::GetMemoryHistoryResponse getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetMemoryHistoryResponse getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::GetMemoryHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询记忆历史记录
        *
+       * @param request GetMemoryHistoryRequest
        * @return GetMemoryHistoryResponse
        */
-      Models::GetMemoryHistoryResponse getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId);
+      Models::GetMemoryHistoryResponse getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId, const Models::GetMemoryHistoryRequest &request);
 
       /**
        * @summary 查询记忆库
        *
+       * @param request GetMemoryStoreRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMemoryStoreResponse
        */
-      Models::GetMemoryStoreResponse getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetMemoryStoreResponse getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const Models::GetMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询记忆库
        *
+       * @param request GetMemoryStoreRequest
        * @return GetMemoryStoreResponse
        */
-      Models::GetMemoryStoreResponse getMemoryStore(const string &workspace, const string &memoryStoreName);
+      Models::GetMemoryStoreResponse getMemoryStore(const string &workspace, const string &memoryStoreName, const Models::GetMemoryStoreRequest &request);
 
       /**
        * @summary Query the instance in a specified environment
@@ -1309,50 +1367,56 @@ namespace Cms20240330
       /**
        * @summary Query Service
        *
+       * @param request GetServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetServiceResponse
        */
-      Models::GetServiceResponse getServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetServiceResponse getServiceWithOptions(const string &workspace, const string &serviceId, const Models::GetServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Query Service
        *
+       * @param request GetServiceRequest
        * @return GetServiceResponse
        */
-      Models::GetServiceResponse getService(const string &workspace, const string &serviceId);
+      Models::GetServiceResponse getService(const string &workspace, const string &serviceId, const Models::GetServiceRequest &request);
 
       /**
        * @summary Get Application Observability Instance
        *
+       * @param request GetServiceObservabilityRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetServiceObservabilityResponse
        */
-      Models::GetServiceObservabilityResponse getServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetServiceObservabilityResponse getServiceObservabilityWithOptions(const string &workspace, const string &type, const Models::GetServiceObservabilityRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get Application Observability Instance
        *
+       * @param request GetServiceObservabilityRequest
        * @return GetServiceObservabilityResponse
        */
-      Models::GetServiceObservabilityResponse getServiceObservability(const string &workspace, const string &type);
+      Models::GetServiceObservabilityResponse getServiceObservability(const string &workspace, const string &type, const Models::GetServiceObservabilityRequest &request);
 
       /**
        * @summary 获取会话
        *
+       * @param request GetThreadRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetThreadResponse
        */
-      Models::GetThreadResponse getThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetThreadResponse getThreadWithOptions(const string &name, const string &threadId, const Models::GetThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取会话
        *
+       * @param request GetThreadRequest
        * @return GetThreadResponse
        */
-      Models::GetThreadResponse getThread(const string &name, const string &threadId);
+      Models::GetThreadResponse getThread(const string &name, const string &threadId, const Models::GetThreadRequest &request);
 
       /**
        * @summary 获取会话数据
@@ -1377,36 +1441,40 @@ namespace Cms20240330
        *
        * @description Get Umodel configuration information
        *
+       * @param request GetUmodelRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUmodelResponse
        */
-      Models::GetUmodelResponse getUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetUmodelResponse getUmodelWithOptions(const string &workspace, const Models::GetUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get Umodel configuration information
        *
        * @description Get Umodel configuration information
        *
+       * @param request GetUmodelRequest
        * @return GetUmodelResponse
        */
-      Models::GetUmodelResponse getUmodel(const string &workspace);
+      Models::GetUmodelResponse getUmodel(const string &workspace, const Models::GetUmodelRequest &request);
 
       /**
        * @summary 获取Umodel配置信息
        *
+       * @param request GetUmodelCommonSchemaRefRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUmodelCommonSchemaRefResponse
        */
-      Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRefWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRefWithOptions(const string &workspace, const Models::GetUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取Umodel配置信息
        *
+       * @param request GetUmodelCommonSchemaRefRequest
        * @return GetUmodelCommonSchemaRefResponse
        */
-      Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRef(const string &workspace);
+      Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRef(const string &workspace, const Models::GetUmodelCommonSchemaRefRequest &request);
 
       /**
        * @summary Retrieve associated Umodel graph data
@@ -1433,18 +1501,20 @@ namespace Cms20240330
       /**
        * @summary Get Workspace
        *
+       * @param request GetWorkspaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetWorkspaceResponse
        */
-      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceName, const Models::GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get Workspace
        *
+       * @param request GetWorkspaceRequest
        * @return GetWorkspaceResponse
        */
-      Models::GetWorkspaceResponse getWorkspace(const string &workspaceName);
+      Models::GetWorkspaceResponse getWorkspace(const string &workspaceName, const Models::GetWorkspaceRequest &request);
 
       /**
        * @summary List of addon releases
@@ -1597,18 +1667,20 @@ namespace Cms20240330
       /**
        * @summary 列出技能版本
        *
+       * @param request ListDigitalEmployeeSkillVersionsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDigitalEmployeeSkillVersionsResponse
        */
-      Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const Models::ListDigitalEmployeeSkillVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 列出技能版本
        *
+       * @param request ListDigitalEmployeeSkillVersionsRequest
        * @return ListDigitalEmployeeSkillVersionsResponse
        */
-      Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersions(const string &name, const string &skillName);
+      Models::ListDigitalEmployeeSkillVersionsResponse listDigitalEmployeeSkillVersions(const string &name, const string &skillName, const Models::ListDigitalEmployeeSkillVersionsRequest &request);
 
       /**
        * @summary 列出技能
@@ -1671,18 +1743,20 @@ namespace Cms20240330
       /**
        * @summary 策略addon列表
        *
+       * @param request ListIntegrationPolicyAddonsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIntegrationPolicyAddonsResponse
        */
-      Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddonsWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddonsWithOptions(const string &policyId, const Models::ListIntegrationPolicyAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 策略addon列表
        *
+       * @param request ListIntegrationPolicyAddonsRequest
        * @return ListIntegrationPolicyAddonsResponse
        */
-      Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddons(const string &policyId);
+      Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddons(const string &policyId, const Models::ListIntegrationPolicyAddonsRequest &request);
 
       /**
        * @summary 获取接入中心策略的存储要求信息
@@ -1987,6 +2061,24 @@ namespace Cms20240330
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
+       * @summary 管理告警规则
+       *
+       * @param tmpReq ManageAlertRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ManageAlertRulesResponse
+       */
+      Models::ManageAlertRulesResponse manageAlertRulesWithOptions(const Models::ManageAlertRulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 管理告警规则
+       *
+       * @param request ManageAlertRulesRequest
+       * @return ManageAlertRulesResponse
+       */
+      Models::ManageAlertRulesResponse manageAlertRules(const Models::ManageAlertRulesRequest &request);
+
+      /**
        * @summary Create Workspace
        *
        * @param request PutWorkspaceRequest
@@ -2003,6 +2095,24 @@ namespace Cms20240330
        * @return PutWorkspaceResponse
        */
       Models::PutWorkspaceResponse putWorkspace(const string &workspaceName, const Models::PutWorkspaceRequest &request);
+
+      /**
+       * @summary 查询告警规则
+       *
+       * @param tmpReq QueryAlertRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAlertRulesResponse
+       */
+      Models::QueryAlertRulesResponse queryAlertRulesWithOptions(const Models::QueryAlertRulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询告警规则
+       *
+       * @param request QueryAlertRulesRequest
+       * @return QueryAlertRulesResponse
+       */
+      Models::QueryAlertRulesResponse queryAlertRules(const Models::QueryAlertRulesRequest &request);
 
       /**
        * @summary 搜索记忆

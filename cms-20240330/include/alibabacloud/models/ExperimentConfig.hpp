@@ -16,6 +16,7 @@ namespace Models
   class ExperimentConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ExperimentConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(endpointConnectorId, endpointConnectorId_);
       DARABONBA_PTR_TO_JSON(label, label_);
       DARABONBA_PTR_TO_JSON(modelName, modelName_);
       DARABONBA_PTR_TO_JSON(modelParameters, modelParameters_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(promptTemplate, promptTemplate_);
     };
     friend void from_json(const Darabonba::Json& j, ExperimentConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(endpointConnectorId, endpointConnectorId_);
       DARABONBA_PTR_FROM_JSON(label, label_);
       DARABONBA_PTR_FROM_JSON(modelName, modelName_);
       DARABONBA_PTR_FROM_JSON(modelParameters, modelParameters_);
@@ -42,8 +44,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->label_ == nullptr
-        && this->modelName_ == nullptr && this->modelParameters_ == nullptr && this->modelProvider_ == nullptr && this->name_ == nullptr && this->promptTemplate_ == nullptr; };
+    virtual bool empty() const override { return this->endpointConnectorId_ == nullptr
+        && this->label_ == nullptr && this->modelName_ == nullptr && this->modelParameters_ == nullptr && this->modelProvider_ == nullptr && this->name_ == nullptr
+        && this->promptTemplate_ == nullptr; };
+    // endpointConnectorId Field Functions 
+    bool hasEndpointConnectorId() const { return this->endpointConnectorId_ != nullptr;};
+    void deleteEndpointConnectorId() { this->endpointConnectorId_ = nullptr;};
+    inline string getEndpointConnectorId() const { DARABONBA_PTR_GET_DEFAULT(endpointConnectorId_, "") };
+    inline ExperimentConfig& setEndpointConnectorId(string endpointConnectorId) { DARABONBA_PTR_SET_VALUE(endpointConnectorId_, endpointConnectorId) };
+
+
     // label Field Functions 
     bool hasLabel() const { return this->label_ != nullptr;};
     void deleteLabel() { this->label_ = nullptr;};
@@ -91,6 +101,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> endpointConnectorId_ {};
     shared_ptr<string> label_ {};
     shared_ptr<string> modelName_ {};
     shared_ptr<ModelParameters> modelParameters_ {};

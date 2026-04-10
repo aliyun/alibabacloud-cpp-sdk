@@ -43,7 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(hash, hash_);
         DARABONBA_PTR_TO_JSON(id, id_);
         DARABONBA_PTR_TO_JSON(memory, memory_);
-        DARABONBA_PTR_TO_JSON(metadata, metadata_);
+        DARABONBA_ANY_TO_JSON(metadata, metadata_);
         DARABONBA_PTR_TO_JSON(role, role_);
         DARABONBA_PTR_TO_JSON(runId, runId_);
         DARABONBA_PTR_TO_JSON(score, score_);
@@ -57,7 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(hash, hash_);
         DARABONBA_PTR_FROM_JSON(id, id_);
         DARABONBA_PTR_FROM_JSON(memory, memory_);
-        DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+        DARABONBA_ANY_FROM_JSON(metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(role, role_);
         DARABONBA_PTR_FROM_JSON(runId, runId_);
         DARABONBA_PTR_FROM_JSON(score, score_);
@@ -124,8 +124,10 @@ namespace Models
       // metadata Field Functions 
       bool hasMetadata() const { return this->metadata_ != nullptr;};
       void deleteMetadata() { this->metadata_ = nullptr;};
-      inline string getMetadata() const { DARABONBA_PTR_GET_DEFAULT(metadata_, "") };
-      inline Results& setMetadata(string metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
+      inline       const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+      Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
+      inline Results& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
+      inline Results& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
 
 
       // role Field Functions 
@@ -170,7 +172,7 @@ namespace Models
       shared_ptr<string> hash_ {};
       shared_ptr<string> id_ {};
       shared_ptr<string> memory_ {};
-      shared_ptr<string> metadata_ {};
+      Darabonba::Json metadata_ {};
       shared_ptr<string> role_ {};
       shared_ptr<string> runId_ {};
       shared_ptr<double> score_ {};

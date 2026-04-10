@@ -933,11 +933,13 @@ CreateDigitalEmployeeSkillResponse Client::createDigitalEmployeeSkill(const stri
 /**
  * @summary Create storage related to EntityStore
  *
+ * @param request CreateEntityStoreRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateEntityStoreResponse
  */
-CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &workspaceName, const CreateEntityStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -958,12 +960,13 @@ CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &wor
 /**
  * @summary Create storage related to EntityStore
  *
+ * @param request CreateEntityStoreRequest
  * @return CreateEntityStoreResponse
  */
-CreateEntityStoreResponse Client::createEntityStore(const string &workspaceName) {
+CreateEntityStoreResponse Client::createEntityStore(const string &workspaceName, const CreateEntityStoreRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return createEntityStoreWithOptions(workspaceName, headers, runtime);
+  return createEntityStoreWithOptions(workspaceName, request, headers, runtime);
 }
 
 /**
@@ -1407,11 +1410,13 @@ CreateServiceResponse Client::createService(const string &workspace, const Creat
 /**
  * @summary 创建应用可观测实例
  *
+ * @param request CreateServiceObservabilityRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateServiceObservabilityResponse
  */
-CreateServiceObservabilityResponse Client::createServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+CreateServiceObservabilityResponse Client::createServiceObservabilityWithOptions(const string &workspace, const string &type, const CreateServiceObservabilityRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1432,12 +1437,13 @@ CreateServiceObservabilityResponse Client::createServiceObservabilityWithOptions
 /**
  * @summary 创建应用可观测实例
  *
+ * @param request CreateServiceObservabilityRequest
  * @return CreateServiceObservabilityResponse
  */
-CreateServiceObservabilityResponse Client::createServiceObservability(const string &workspace, const string &type) {
+CreateServiceObservabilityResponse Client::createServiceObservability(const string &workspace, const string &type, const CreateServiceObservabilityRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return createServiceObservabilityWithOptions(workspace, type, headers, runtime);
+  return createServiceObservabilityWithOptions(workspace, type, request, headers, runtime);
 }
 
 /**
@@ -1647,11 +1653,13 @@ DeleteAddonReleaseResponse Client::deleteAddonRelease(const string &policyId, co
 /**
  * @summary Delete Aggregation Task Group
  *
+ * @param request DeleteAggTaskGroupRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAggTaskGroupResponse
  */
-DeleteAggTaskGroupResponse Client::deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteAggTaskGroupResponse Client::deleteAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const DeleteAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1672,12 +1680,13 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroupWithOptions(const string &i
 /**
  * @summary Delete Aggregation Task Group
  *
+ * @param request DeleteAggTaskGroupRequest
  * @return DeleteAggTaskGroupResponse
  */
-DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, const string &groupId) {
+DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, const string &groupId, const DeleteAggTaskGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+  return deleteAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
 }
 
 /**
@@ -1734,11 +1743,13 @@ DeleteAlertWebhooksResponse Client::deleteAlertWebhooks(const DeleteAlertWebhook
 /**
  * @summary 删除业务链路
  *
+ * @param request DeleteBizTraceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteBizTraceResponse
  */
-DeleteBizTraceResponse Client::deleteBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteBizTraceResponse Client::deleteBizTraceWithOptions(const string &bizTraceId, const DeleteBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1759,12 +1770,13 @@ DeleteBizTraceResponse Client::deleteBizTraceWithOptions(const string &bizTraceI
 /**
  * @summary 删除业务链路
  *
+ * @param request DeleteBizTraceRequest
  * @return DeleteBizTraceResponse
  */
-DeleteBizTraceResponse Client::deleteBizTrace(const string &bizTraceId) {
+DeleteBizTraceResponse Client::deleteBizTrace(const string &bizTraceId, const DeleteBizTraceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteBizTraceWithOptions(bizTraceId, headers, runtime);
+  return deleteBizTraceWithOptions(bizTraceId, request, headers, runtime);
 }
 
 /**
@@ -1806,11 +1818,13 @@ DeleteCloudResourceResponse Client::deleteCloudResource() {
 /**
  * @summary 删除数据集
  *
+ * @param request DeleteDatasetRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDatasetResponse
  */
-DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &workspace, const string &datasetName, const DeleteDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1831,22 +1845,25 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &workspace, 
 /**
  * @summary 删除数据集
  *
+ * @param request DeleteDatasetRequest
  * @return DeleteDatasetResponse
  */
-DeleteDatasetResponse Client::deleteDataset(const string &workspace, const string &datasetName) {
+DeleteDatasetResponse Client::deleteDataset(const string &workspace, const string &datasetName, const DeleteDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDatasetWithOptions(workspace, datasetName, headers, runtime);
+  return deleteDatasetWithOptions(workspace, datasetName, request, headers, runtime);
 }
 
 /**
  * @summary 删除数据投递任务
  *
+ * @param request DeleteDeliveryTaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDeliveryTaskResponse
  */
-DeleteDeliveryTaskResponse Client::deleteDeliveryTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDeliveryTaskResponse Client::deleteDeliveryTaskWithOptions(const string &taskId, const DeleteDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1867,22 +1884,25 @@ DeleteDeliveryTaskResponse Client::deleteDeliveryTaskWithOptions(const string &t
 /**
  * @summary 删除数据投递任务
  *
+ * @param request DeleteDeliveryTaskRequest
  * @return DeleteDeliveryTaskResponse
  */
-DeleteDeliveryTaskResponse Client::deleteDeliveryTask(const string &taskId) {
+DeleteDeliveryTaskResponse Client::deleteDeliveryTask(const string &taskId, const DeleteDeliveryTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDeliveryTaskWithOptions(taskId, headers, runtime);
+  return deleteDeliveryTaskWithOptions(taskId, request, headers, runtime);
 }
 
 /**
  * @summary 删除DigitalEmployee
  *
+ * @param request DeleteDigitalEmployeeRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDigitalEmployeeResponse
  */
-DeleteDigitalEmployeeResponse Client::deleteDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDigitalEmployeeResponse Client::deleteDigitalEmployeeWithOptions(const string &name, const DeleteDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1903,22 +1923,25 @@ DeleteDigitalEmployeeResponse Client::deleteDigitalEmployeeWithOptions(const str
 /**
  * @summary 删除DigitalEmployee
  *
+ * @param request DeleteDigitalEmployeeRequest
  * @return DeleteDigitalEmployeeResponse
  */
-DeleteDigitalEmployeeResponse Client::deleteDigitalEmployee(const string &name) {
+DeleteDigitalEmployeeResponse Client::deleteDigitalEmployee(const string &name, const DeleteDigitalEmployeeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDigitalEmployeeWithOptions(name, headers, runtime);
+  return deleteDigitalEmployeeWithOptions(name, request, headers, runtime);
 }
 
 /**
  * @summary 删除技能
  *
+ * @param request DeleteDigitalEmployeeSkillRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDigitalEmployeeSkillResponse
  */
-DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkillWithOptions(const string &name, const string &skillName, const DeleteDigitalEmployeeSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1939,22 +1962,25 @@ DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkillWithOptions
 /**
  * @summary 删除技能
  *
+ * @param request DeleteDigitalEmployeeSkillRequest
  * @return DeleteDigitalEmployeeSkillResponse
  */
-DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkill(const string &name, const string &skillName) {
+DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkill(const string &name, const string &skillName, const DeleteDigitalEmployeeSkillRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteDigitalEmployeeSkillWithOptions(name, skillName, headers, runtime);
+  return deleteDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
 }
 
 /**
  * @summary Delete EntityStore related storage
  *
+ * @param request DeleteEntityStoreRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteEntityStoreResponse
  */
-DeleteEntityStoreResponse Client::deleteEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteEntityStoreResponse Client::deleteEntityStoreWithOptions(const string &workspaceName, const DeleteEntityStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1975,12 +2001,13 @@ DeleteEntityStoreResponse Client::deleteEntityStoreWithOptions(const string &wor
 /**
  * @summary Delete EntityStore related storage
  *
+ * @param request DeleteEntityStoreRequest
  * @return DeleteEntityStoreResponse
  */
-DeleteEntityStoreResponse Client::deleteEntityStore(const string &workspaceName) {
+DeleteEntityStoreResponse Client::deleteEntityStore(const string &workspaceName, const DeleteEntityStoreRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteEntityStoreWithOptions(workspaceName, headers, runtime);
+  return deleteEntityStoreWithOptions(workspaceName, request, headers, runtime);
 }
 
 /**
@@ -2088,11 +2115,13 @@ DeleteMemoriesResponse Client::deleteMemories(const string &workspace, const str
 /**
  * @summary 删除记忆
  *
+ * @param request DeleteMemoryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMemoryResponse
  */
-DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const DeleteMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2113,22 +2142,25 @@ DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspace, co
 /**
  * @summary 删除记忆
  *
+ * @param request DeleteMemoryRequest
  * @return DeleteMemoryResponse
  */
-DeleteMemoryResponse Client::deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId) {
+DeleteMemoryResponse Client::deleteMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const DeleteMemoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteMemoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+  return deleteMemoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
 }
 
 /**
  * @summary 删除记忆库
  *
+ * @param request DeleteMemoryStoreRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMemoryStoreResponse
  */
-DeleteMemoryStoreResponse Client::deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteMemoryStoreResponse Client::deleteMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const DeleteMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2149,12 +2181,13 @@ DeleteMemoryStoreResponse Client::deleteMemoryStoreWithOptions(const string &wor
 /**
  * @summary 删除记忆库
  *
+ * @param request DeleteMemoryStoreRequest
  * @return DeleteMemoryStoreResponse
  */
-DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspace, const string &memoryStoreName) {
+DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspace, const string &memoryStoreName, const DeleteMemoryStoreRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteMemoryStoreWithOptions(workspace, memoryStoreName, headers, runtime);
+  return deleteMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
 }
 
 /**
@@ -2162,11 +2195,13 @@ DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspace, con
  *
  * @description Delete a Prometheus instance.
  *
+ * @param request DeletePrometheusInstanceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeletePrometheusInstanceResponse
  */
-DeletePrometheusInstanceResponse Client::deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeletePrometheusInstanceResponse Client::deletePrometheusInstanceWithOptions(const string &prometheusInstanceId, const DeletePrometheusInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2189,12 +2224,13 @@ DeletePrometheusInstanceResponse Client::deletePrometheusInstanceWithOptions(con
  *
  * @description Delete a Prometheus instance.
  *
+ * @param request DeletePrometheusInstanceRequest
  * @return DeletePrometheusInstanceResponse
  */
-DeletePrometheusInstanceResponse Client::deletePrometheusInstance(const string &prometheusInstanceId) {
+DeletePrometheusInstanceResponse Client::deletePrometheusInstance(const string &prometheusInstanceId, const DeletePrometheusInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deletePrometheusInstanceWithOptions(prometheusInstanceId, headers, runtime);
+  return deletePrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
 }
 
 /**
@@ -2202,11 +2238,13 @@ DeletePrometheusInstanceResponse Client::deletePrometheusInstance(const string &
  *
  * @description Delete prometheus view instance.
  *
+ * @param request DeletePrometheusViewRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeletePrometheusViewResponse
  */
-DeletePrometheusViewResponse Client::deletePrometheusViewWithOptions(const string &prometheusViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeletePrometheusViewResponse Client::deletePrometheusViewWithOptions(const string &prometheusViewId, const DeletePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2229,22 +2267,25 @@ DeletePrometheusViewResponse Client::deletePrometheusViewWithOptions(const strin
  *
  * @description Delete prometheus view instance.
  *
+ * @param request DeletePrometheusViewRequest
  * @return DeletePrometheusViewResponse
  */
-DeletePrometheusViewResponse Client::deletePrometheusView(const string &prometheusViewId) {
+DeletePrometheusViewResponse Client::deletePrometheusView(const string &prometheusViewId, const DeletePrometheusViewRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deletePrometheusViewWithOptions(prometheusViewId, headers, runtime);
+  return deletePrometheusViewWithOptions(prometheusViewId, request, headers, runtime);
 }
 
 /**
  * @summary 删除 Prometheus 虚拟实例
  *
+ * @param request DeletePrometheusVirtualInstanceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeletePrometheusVirtualInstanceResponse
  */
-DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstanceWithOptions(const string &prometheusInstanceId, const DeletePrometheusVirtualInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2265,22 +2306,25 @@ DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstanceW
 /**
  * @summary 删除 Prometheus 虚拟实例
  *
+ * @param request DeletePrometheusVirtualInstanceRequest
  * @return DeletePrometheusVirtualInstanceResponse
  */
-DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstance(const string &prometheusInstanceId) {
+DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstance(const string &prometheusInstanceId, const DeletePrometheusVirtualInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId, headers, runtime);
+  return deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
 }
 
 /**
  * @summary Delete Service
  *
+ * @param request DeleteServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteServiceResponse
  */
-DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, const string &serviceId, const DeleteServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2301,22 +2345,25 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, 
 /**
  * @summary Delete Service
  *
+ * @param request DeleteServiceRequest
  * @return DeleteServiceResponse
  */
-DeleteServiceResponse Client::deleteService(const string &workspace, const string &serviceId) {
+DeleteServiceResponse Client::deleteService(const string &workspace, const string &serviceId, const DeleteServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteServiceWithOptions(workspace, serviceId, headers, runtime);
+  return deleteServiceWithOptions(workspace, serviceId, request, headers, runtime);
 }
 
 /**
  * @summary 删除会话
  *
+ * @param request DeleteThreadRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteThreadResponse
  */
-DeleteThreadResponse Client::deleteThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteThreadResponse Client::deleteThreadWithOptions(const string &name, const string &threadId, const DeleteThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2337,12 +2384,13 @@ DeleteThreadResponse Client::deleteThreadWithOptions(const string &name, const s
 /**
  * @summary 删除会话
  *
+ * @param request DeleteThreadRequest
  * @return DeleteThreadResponse
  */
-DeleteThreadResponse Client::deleteThread(const string &name, const string &threadId) {
+DeleteThreadResponse Client::deleteThread(const string &name, const string &threadId, const DeleteThreadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteThreadWithOptions(name, threadId, headers, runtime);
+  return deleteThreadWithOptions(name, threadId, request, headers, runtime);
 }
 
 /**
@@ -2350,11 +2398,13 @@ DeleteThreadResponse Client::deleteThread(const string &name, const string &thre
  *
  * @description Delete the Umodel under the specified workspace
  *
+ * @param request DeleteUmodelRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteUmodelResponse
  */
-DeleteUmodelResponse Client::deleteUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteUmodelResponse Client::deleteUmodelWithOptions(const string &workspace, const DeleteUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2377,12 +2427,13 @@ DeleteUmodelResponse Client::deleteUmodelWithOptions(const string &workspace, co
  *
  * @description Delete the Umodel under the specified workspace
  *
+ * @param request DeleteUmodelRequest
  * @return DeleteUmodelResponse
  */
-DeleteUmodelResponse Client::deleteUmodel(const string &workspace) {
+DeleteUmodelResponse Client::deleteUmodel(const string &workspace, const DeleteUmodelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteUmodelWithOptions(workspace, headers, runtime);
+  return deleteUmodelWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -2490,11 +2541,13 @@ DeleteUmodelDataResponse Client::deleteUmodelData(const string &workspace, const
 /**
  * @summary Delete Workspace
  *
+ * @param request DeleteWorkspaceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteWorkspaceResponse
  */
-DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspaceName, const DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2515,12 +2568,13 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspa
 /**
  * @summary Delete Workspace
  *
+ * @param request DeleteWorkspaceRequest
  * @return DeleteWorkspaceResponse
  */
-DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName) {
+DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName, const DeleteWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteWorkspaceWithOptions(workspaceName, headers, runtime);
+  return deleteWorkspaceWithOptions(workspaceName, request, headers, runtime);
 }
 
 /**
@@ -2722,11 +2776,13 @@ GetAddonCodeTemplateResponse Client::getAddonCodeTemplate(const string &addonNam
 /**
  * @summary Check addon release (view connection status)
  *
+ * @param request GetAddonReleaseRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAddonReleaseResponse
  */
-GetAddonReleaseResponse Client::getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetAddonReleaseResponse Client::getAddonReleaseWithOptions(const string &releaseName, const string &policyId, const GetAddonReleaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2747,12 +2803,13 @@ GetAddonReleaseResponse Client::getAddonReleaseWithOptions(const string &release
 /**
  * @summary Check addon release (view connection status)
  *
+ * @param request GetAddonReleaseRequest
  * @return GetAddonReleaseResponse
  */
-GetAddonReleaseResponse Client::getAddonRelease(const string &releaseName, const string &policyId) {
+GetAddonReleaseResponse Client::getAddonRelease(const string &releaseName, const string &policyId, const GetAddonReleaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getAddonReleaseWithOptions(releaseName, policyId, headers, runtime);
+  return getAddonReleaseWithOptions(releaseName, policyId, request, headers, runtime);
 }
 
 /**
@@ -2811,11 +2868,13 @@ GetAddonSchemaResponse Client::getAddonSchema(const string &addonName, const Get
 /**
  * @summary Describes the aggregation task group
  *
+ * @param request GetAggTaskGroupRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAggTaskGroupResponse
  */
-GetAggTaskGroupResponse Client::getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetAggTaskGroupResponse Client::getAggTaskGroupWithOptions(const string &instanceId, const string &groupId, const GetAggTaskGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2836,22 +2895,25 @@ GetAggTaskGroupResponse Client::getAggTaskGroupWithOptions(const string &instanc
 /**
  * @summary Describes the aggregation task group
  *
+ * @param request GetAggTaskGroupRequest
  * @return GetAggTaskGroupResponse
  */
-GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const string &groupId) {
+GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const string &groupId, const GetAggTaskGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+  return getAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
 }
 
 /**
  * @summary 查询业务链路
  *
+ * @param request GetBizTraceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBizTraceResponse
  */
-GetBizTraceResponse Client::getBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetBizTraceResponse Client::getBizTraceWithOptions(const string &bizTraceId, const GetBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2872,12 +2934,13 @@ GetBizTraceResponse Client::getBizTraceWithOptions(const string &bizTraceId, con
 /**
  * @summary 查询业务链路
  *
+ * @param request GetBizTraceRequest
  * @return GetBizTraceResponse
  */
-GetBizTraceResponse Client::getBizTrace(const string &bizTraceId) {
+GetBizTraceResponse Client::getBizTrace(const string &bizTraceId, const GetBizTraceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getBizTraceWithOptions(bizTraceId, headers, runtime);
+  return getBizTraceWithOptions(bizTraceId, request, headers, runtime);
 }
 
 /**
@@ -3021,11 +3084,13 @@ GetCmsServiceResponse Client::getCmsService(const GetCmsServiceRequest &request)
 /**
  * @summary 查询数据集
  *
+ * @param request GetDatasetRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDatasetResponse
  */
-GetDatasetResponse Client::getDatasetWithOptions(const string &workspace, const string &datasetName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetDatasetResponse Client::getDatasetWithOptions(const string &workspace, const string &datasetName, const GetDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3046,22 +3111,25 @@ GetDatasetResponse Client::getDatasetWithOptions(const string &workspace, const 
 /**
  * @summary 查询数据集
  *
+ * @param request GetDatasetRequest
  * @return GetDatasetResponse
  */
-GetDatasetResponse Client::getDataset(const string &workspace, const string &datasetName) {
+GetDatasetResponse Client::getDataset(const string &workspace, const string &datasetName, const GetDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getDatasetWithOptions(workspace, datasetName, headers, runtime);
+  return getDatasetWithOptions(workspace, datasetName, request, headers, runtime);
 }
 
 /**
  * @summary 获取数据投递任务详情
  *
+ * @param request GetDeliveryTaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDeliveryTaskResponse
  */
-GetDeliveryTaskResponse Client::getDeliveryTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetDeliveryTaskResponse Client::getDeliveryTaskWithOptions(const string &taskId, const GetDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3082,22 +3150,25 @@ GetDeliveryTaskResponse Client::getDeliveryTaskWithOptions(const string &taskId,
 /**
  * @summary 获取数据投递任务详情
  *
+ * @param request GetDeliveryTaskRequest
  * @return GetDeliveryTaskResponse
  */
-GetDeliveryTaskResponse Client::getDeliveryTask(const string &taskId) {
+GetDeliveryTaskResponse Client::getDeliveryTask(const string &taskId, const GetDeliveryTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getDeliveryTaskWithOptions(taskId, headers, runtime);
+  return getDeliveryTaskWithOptions(taskId, request, headers, runtime);
 }
 
 /**
  * @summary 查询 DigitalEmployee
  *
+ * @param request GetDigitalEmployeeRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDigitalEmployeeResponse
  */
-GetDigitalEmployeeResponse Client::getDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetDigitalEmployeeResponse Client::getDigitalEmployeeWithOptions(const string &name, const GetDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3118,12 +3189,13 @@ GetDigitalEmployeeResponse Client::getDigitalEmployeeWithOptions(const string &n
 /**
  * @summary 查询 DigitalEmployee
  *
+ * @param request GetDigitalEmployeeRequest
  * @return GetDigitalEmployeeResponse
  */
-GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name) {
+GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name, const GetDigitalEmployeeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getDigitalEmployeeWithOptions(name, headers, runtime);
+  return getDigitalEmployeeWithOptions(name, request, headers, runtime);
 }
 
 /**
@@ -3174,11 +3246,13 @@ GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkill(const string &na
 /**
  * @summary Get EntityStore related storage information
  *
+ * @param request GetEntityStoreRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetEntityStoreResponse
  */
-GetEntityStoreResponse Client::getEntityStoreWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetEntityStoreResponse Client::getEntityStoreWithOptions(const string &workspaceName, const GetEntityStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3199,12 +3273,13 @@ GetEntityStoreResponse Client::getEntityStoreWithOptions(const string &workspace
 /**
  * @summary Get EntityStore related storage information
  *
+ * @param request GetEntityStoreRequest
  * @return GetEntityStoreResponse
  */
-GetEntityStoreResponse Client::getEntityStore(const string &workspaceName) {
+GetEntityStoreResponse Client::getEntityStore(const string &workspaceName, const GetEntityStoreRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getEntityStoreWithOptions(workspaceName, headers, runtime);
+  return getEntityStoreWithOptions(workspaceName, request, headers, runtime);
 }
 
 /**
@@ -3272,11 +3347,13 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 /**
  * @summary Query the list of access center policies
  *
+ * @param request GetIntegrationPolicyRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetIntegrationPolicyResponse
  */
-GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const string &policyId, const GetIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3297,12 +3374,13 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const strin
 /**
  * @summary Query the list of access center policies
  *
+ * @param request GetIntegrationPolicyRequest
  * @return GetIntegrationPolicyResponse
  */
-GetIntegrationPolicyResponse Client::getIntegrationPolicy(const string &policyId) {
+GetIntegrationPolicyResponse Client::getIntegrationPolicy(const string &policyId, const GetIntegrationPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getIntegrationPolicyWithOptions(policyId, headers, runtime);
+  return getIntegrationPolicyWithOptions(policyId, request, headers, runtime);
 }
 
 /**
@@ -3373,6 +3451,10 @@ GetMemoriesResponse Client::getMemoriesWithOptions(const string &workspace, cons
     body["appId"] = request.getAppId();
   }
 
+  if (!!request.hasFilters()) {
+    body["filters"] = request.getFilters();
+  }
+
   if (!!request.hasPage()) {
     body["page"] = request.getPage();
   }
@@ -3422,11 +3504,13 @@ GetMemoriesResponse Client::getMemories(const string &workspace, const string &m
 /**
  * @summary 查询记忆
  *
+ * @param request GetMemoryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMemoryResponse
  */
-GetMemoryResponse Client::getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetMemoryResponse Client::getMemoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const GetMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3447,22 +3531,25 @@ GetMemoryResponse Client::getMemoryWithOptions(const string &workspace, const st
 /**
  * @summary 查询记忆
  *
+ * @param request GetMemoryRequest
  * @return GetMemoryResponse
  */
-GetMemoryResponse Client::getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId) {
+GetMemoryResponse Client::getMemory(const string &workspace, const string &memoryStoreName, const string &memoryId, const GetMemoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getMemoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+  return getMemoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
 }
 
 /**
  * @summary 查询记忆历史记录
  *
+ * @param request GetMemoryHistoryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMemoryHistoryResponse
  */
-GetMemoryHistoryResponse Client::getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetMemoryHistoryResponse Client::getMemoryHistoryWithOptions(const string &workspace, const string &memoryStoreName, const string &memoryId, const GetMemoryHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3483,22 +3570,25 @@ GetMemoryHistoryResponse Client::getMemoryHistoryWithOptions(const string &works
 /**
  * @summary 查询记忆历史记录
  *
+ * @param request GetMemoryHistoryRequest
  * @return GetMemoryHistoryResponse
  */
-GetMemoryHistoryResponse Client::getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId) {
+GetMemoryHistoryResponse Client::getMemoryHistory(const string &workspace, const string &memoryStoreName, const string &memoryId, const GetMemoryHistoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getMemoryHistoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+  return getMemoryHistoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
 }
 
 /**
  * @summary 查询记忆库
  *
+ * @param request GetMemoryStoreRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMemoryStoreResponse
  */
-GetMemoryStoreResponse Client::getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetMemoryStoreResponse Client::getMemoryStoreWithOptions(const string &workspace, const string &memoryStoreName, const GetMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3519,12 +3609,13 @@ GetMemoryStoreResponse Client::getMemoryStoreWithOptions(const string &workspace
 /**
  * @summary 查询记忆库
  *
+ * @param request GetMemoryStoreRequest
  * @return GetMemoryStoreResponse
  */
-GetMemoryStoreResponse Client::getMemoryStore(const string &workspace, const string &memoryStoreName) {
+GetMemoryStoreResponse Client::getMemoryStore(const string &workspace, const string &memoryStoreName, const GetMemoryStoreRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getMemoryStoreWithOptions(workspace, memoryStoreName, headers, runtime);
+  return getMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
 }
 
 /**
@@ -3681,11 +3772,13 @@ GetPrometheusViewResponse Client::getPrometheusView(const string &prometheusView
 /**
  * @summary Query Service
  *
+ * @param request GetServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetServiceResponse
  */
-GetServiceResponse Client::getServiceWithOptions(const string &workspace, const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetServiceResponse Client::getServiceWithOptions(const string &workspace, const string &serviceId, const GetServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3706,22 +3799,25 @@ GetServiceResponse Client::getServiceWithOptions(const string &workspace, const 
 /**
  * @summary Query Service
  *
+ * @param request GetServiceRequest
  * @return GetServiceResponse
  */
-GetServiceResponse Client::getService(const string &workspace, const string &serviceId) {
+GetServiceResponse Client::getService(const string &workspace, const string &serviceId, const GetServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getServiceWithOptions(workspace, serviceId, headers, runtime);
+  return getServiceWithOptions(workspace, serviceId, request, headers, runtime);
 }
 
 /**
  * @summary Get Application Observability Instance
  *
+ * @param request GetServiceObservabilityRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetServiceObservabilityResponse
  */
-GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const string &workspace, const string &type, const GetServiceObservabilityRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3742,22 +3838,25 @@ GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const
 /**
  * @summary Get Application Observability Instance
  *
+ * @param request GetServiceObservabilityRequest
  * @return GetServiceObservabilityResponse
  */
-GetServiceObservabilityResponse Client::getServiceObservability(const string &workspace, const string &type) {
+GetServiceObservabilityResponse Client::getServiceObservability(const string &workspace, const string &type, const GetServiceObservabilityRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getServiceObservabilityWithOptions(workspace, type, headers, runtime);
+  return getServiceObservabilityWithOptions(workspace, type, request, headers, runtime);
 }
 
 /**
  * @summary 获取会话
  *
+ * @param request GetThreadRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetThreadResponse
  */
-GetThreadResponse Client::getThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetThreadResponse Client::getThreadWithOptions(const string &name, const string &threadId, const GetThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3778,12 +3877,13 @@ GetThreadResponse Client::getThreadWithOptions(const string &name, const string 
 /**
  * @summary 获取会话
  *
+ * @param request GetThreadRequest
  * @return GetThreadResponse
  */
-GetThreadResponse Client::getThread(const string &name, const string &threadId) {
+GetThreadResponse Client::getThread(const string &name, const string &threadId, const GetThreadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getThreadWithOptions(name, threadId, headers, runtime);
+  return getThreadWithOptions(name, threadId, request, headers, runtime);
 }
 
 /**
@@ -3840,11 +3940,13 @@ GetThreadDataResponse Client::getThreadData(const string &name, const string &th
  *
  * @description Get Umodel configuration information
  *
+ * @param request GetUmodelRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUmodelResponse
  */
-GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const GetUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3867,22 +3969,25 @@ GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const ma
  *
  * @description Get Umodel configuration information
  *
+ * @param request GetUmodelRequest
  * @return GetUmodelResponse
  */
-GetUmodelResponse Client::getUmodel(const string &workspace) {
+GetUmodelResponse Client::getUmodel(const string &workspace, const GetUmodelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getUmodelWithOptions(workspace, headers, runtime);
+  return getUmodelWithOptions(workspace, request, headers, runtime);
 }
 
 /**
  * @summary 获取Umodel配置信息
  *
+ * @param request GetUmodelCommonSchemaRefRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUmodelCommonSchemaRefResponse
  */
-GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRefWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRefWithOptions(const string &workspace, const GetUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3903,12 +4008,13 @@ GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRefWithOptions(con
 /**
  * @summary 获取Umodel配置信息
  *
+ * @param request GetUmodelCommonSchemaRefRequest
  * @return GetUmodelCommonSchemaRefResponse
  */
-GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRef(const string &workspace) {
+GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRef(const string &workspace, const GetUmodelCommonSchemaRefRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getUmodelCommonSchemaRefWithOptions(workspace, headers, runtime);
+  return getUmodelCommonSchemaRefWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -3969,11 +4075,13 @@ GetUmodelDataResponse Client::getUmodelData(const string &workspace, const GetUm
 /**
  * @summary Get Workspace
  *
+ * @param request GetWorkspaceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetWorkspaceResponse
  */
-GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceName, const GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3994,12 +4102,13 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceName
 /**
  * @summary Get Workspace
  *
+ * @param request GetWorkspaceRequest
  * @return GetWorkspaceResponse
  */
-GetWorkspaceResponse Client::getWorkspace(const string &workspaceName) {
+GetWorkspaceResponse Client::getWorkspace(const string &workspaceName, const GetWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getWorkspaceWithOptions(workspaceName, headers, runtime);
+  return getWorkspaceWithOptions(workspaceName, request, headers, runtime);
 }
 
 /**
@@ -4501,11 +4610,13 @@ ListDeliveryTasksResponse Client::listDeliveryTasks(const ListDeliveryTasksReque
 /**
  * @summary 列出技能版本
  *
+ * @param request ListDigitalEmployeeSkillVersionsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDigitalEmployeeSkillVersionsResponse
  */
-ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersionsWithOptions(const string &name, const string &skillName, const ListDigitalEmployeeSkillVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4526,12 +4637,13 @@ ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersion
 /**
  * @summary 列出技能版本
  *
+ * @param request ListDigitalEmployeeSkillVersionsRequest
  * @return ListDigitalEmployeeSkillVersionsResponse
  */
-ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersions(const string &name, const string &skillName) {
+ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersions(const string &name, const string &skillName, const ListDigitalEmployeeSkillVersionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listDigitalEmployeeSkillVersionsWithOptions(name, skillName, headers, runtime);
+  return listDigitalEmployeeSkillVersionsWithOptions(name, skillName, request, headers, runtime);
 }
 
 /**
@@ -4772,11 +4884,13 @@ ListIntegrationPoliciesResponse Client::listIntegrationPolicies(const ListIntegr
 /**
  * @summary 策略addon列表
  *
+ * @param request ListIntegrationPolicyAddonsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIntegrationPolicyAddonsResponse
  */
-ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddonsWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddonsWithOptions(const string &policyId, const ListIntegrationPolicyAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4797,12 +4911,13 @@ ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddonsWithOptio
 /**
  * @summary 策略addon列表
  *
+ * @param request ListIntegrationPolicyAddonsRequest
  * @return ListIntegrationPolicyAddonsResponse
  */
-ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddons(const string &policyId) {
+ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddons(const string &policyId, const ListIntegrationPolicyAddonsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listIntegrationPolicyAddonsWithOptions(policyId, headers, runtime);
+  return listIntegrationPolicyAddonsWithOptions(policyId, request, headers, runtime);
 }
 
 /**
@@ -5753,6 +5868,57 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
+ * @summary 管理告警规则
+ *
+ * @param tmpReq ManageAlertRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ManageAlertRulesResponse
+ */
+ManageAlertRulesResponse Client::manageAlertRulesWithOptions(const ManageAlertRulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ManageAlertRulesShrinkRequest request = ManageAlertRulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ManageAlertRules"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/manageAlertRules")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ManageAlertRulesResponse>();
+}
+
+/**
+ * @summary 管理告警规则
+ *
+ * @param request ManageAlertRulesRequest
+ * @return ManageAlertRulesResponse
+ */
+ManageAlertRulesResponse Client::manageAlertRules(const ManageAlertRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return manageAlertRulesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Create Workspace
  *
  * @param request PutWorkspaceRequest
@@ -5806,6 +5972,71 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 }
 
 /**
+ * @summary 查询告警规则
+ *
+ * @param tmpReq QueryAlertRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAlertRulesResponse
+ */
+QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryAlertRulesShrinkRequest request = QueryAlertRulesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryAlertRules"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/queryAlertRules")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAlertRulesResponse>();
+}
+
+/**
+ * @summary 查询告警规则
+ *
+ * @param request QueryAlertRulesRequest
+ * @return QueryAlertRulesResponse
+ */
+QueryAlertRulesResponse Client::queryAlertRules(const QueryAlertRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryAlertRulesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 搜索记忆
  *
  * @param request SearchMemoriesRequest
@@ -5824,8 +6055,8 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspace
     body["appId"] = request.getAppId();
   }
 
-  if (!!request.hasMetadata()) {
-    body["metadata"] = request.getMetadata();
+  if (!!request.hasFilters()) {
+    body["filters"] = request.getFilters();
   }
 
   if (!!request.hasQuery()) {
@@ -5836,8 +6067,16 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspace
     body["rerank"] = request.getRerank();
   }
 
+  if (!!request.hasRetrieveLevel()) {
+    body["retrieveLevel"] = request.getRetrieveLevel();
+  }
+
   if (!!request.hasRunId()) {
     body["runId"] = request.getRunId();
+  }
+
+  if (!!request.hasThreshold()) {
+    body["threshold"] = request.getThreshold();
   }
 
   if (!!request.hasTopK()) {
