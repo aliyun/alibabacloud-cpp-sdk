@@ -32682,7 +32682,7 @@ UpdateDhcpOptionsSetAttributeResponse Client::updateDhcpOptionsSetAttribute(cons
 }
 
 /**
- * @summary 修改增强型VPN实例属性
+ * @summary Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
  *
  * @param request UpdateEnhancedVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32749,7 +32749,7 @@ UpdateEnhancedVpnGatewayResponse Client::updateEnhancedVpnGatewayWithOptions(con
 }
 
 /**
- * @summary 修改增强型VPN实例属性
+ * @summary Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
  *
  * @param request UpdateEnhancedVpnGatewayRequest
  * @return UpdateEnhancedVpnGatewayResponse

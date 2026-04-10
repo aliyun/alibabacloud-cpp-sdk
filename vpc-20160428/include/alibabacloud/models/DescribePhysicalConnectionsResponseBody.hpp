@@ -76,6 +76,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(HasReservationData, hasReservationData_);
           DARABONBA_PTR_TO_JSON(LineOperator, lineOperator_);
           DARABONBA_PTR_TO_JSON(LoaStatus, loaStatus_);
+          DARABONBA_PTR_TO_JSON(MacsecKeys, macsecKeys_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(OpticalModuleModel, opticalModuleModel_);
           DARABONBA_PTR_TO_JSON(OrderMode, orderMode_);
@@ -117,6 +118,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(HasReservationData, hasReservationData_);
           DARABONBA_PTR_FROM_JSON(LineOperator, lineOperator_);
           DARABONBA_PTR_FROM_JSON(LoaStatus, loaStatus_);
+          DARABONBA_PTR_FROM_JSON(MacsecKeys, macsecKeys_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(OpticalModuleModel, opticalModuleModel_);
           DARABONBA_PTR_FROM_JSON(OrderMode, orderMode_);
@@ -227,15 +229,120 @@ namespace Models
           shared_ptr<vector<Tags::TagsItem>> tags_ {};
         };
 
+        class MacsecKeys : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const MacsecKeys& obj) { 
+            DARABONBA_PTR_TO_JSON(MacsecKey, macsecKey_);
+          };
+          friend void from_json(const Darabonba::Json& j, MacsecKeys& obj) { 
+            DARABONBA_PTR_FROM_JSON(MacsecKey, macsecKey_);
+          };
+          MacsecKeys() = default ;
+          MacsecKeys(const MacsecKeys &) = default ;
+          MacsecKeys(MacsecKeys &&) = default ;
+          MacsecKeys(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~MacsecKeys() = default ;
+          MacsecKeys& operator=(const MacsecKeys &) = default ;
+          MacsecKeys& operator=(MacsecKeys &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class MacsecKey : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const MacsecKey& obj) { 
+              DARABONBA_PTR_TO_JSON(Cak, cak_);
+              DARABONBA_PTR_TO_JSON(CipherSuite, cipherSuite_);
+              DARABONBA_PTR_TO_JSON(Ckn, ckn_);
+              DARABONBA_PTR_TO_JSON(StartOn, startOn_);
+              DARABONBA_PTR_TO_JSON(Status, status_);
+            };
+            friend void from_json(const Darabonba::Json& j, MacsecKey& obj) { 
+              DARABONBA_PTR_FROM_JSON(Cak, cak_);
+              DARABONBA_PTR_FROM_JSON(CipherSuite, cipherSuite_);
+              DARABONBA_PTR_FROM_JSON(Ckn, ckn_);
+              DARABONBA_PTR_FROM_JSON(StartOn, startOn_);
+              DARABONBA_PTR_FROM_JSON(Status, status_);
+            };
+            MacsecKey() = default ;
+            MacsecKey(const MacsecKey &) = default ;
+            MacsecKey(MacsecKey &&) = default ;
+            MacsecKey(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~MacsecKey() = default ;
+            MacsecKey& operator=(const MacsecKey &) = default ;
+            MacsecKey& operator=(MacsecKey &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->cak_ == nullptr
+        && this->cipherSuite_ == nullptr && this->ckn_ == nullptr && this->startOn_ == nullptr && this->status_ == nullptr; };
+            // cak Field Functions 
+            bool hasCak() const { return this->cak_ != nullptr;};
+            void deleteCak() { this->cak_ = nullptr;};
+            inline string getCak() const { DARABONBA_PTR_GET_DEFAULT(cak_, "") };
+            inline MacsecKey& setCak(string cak) { DARABONBA_PTR_SET_VALUE(cak_, cak) };
+
+
+            // cipherSuite Field Functions 
+            bool hasCipherSuite() const { return this->cipherSuite_ != nullptr;};
+            void deleteCipherSuite() { this->cipherSuite_ = nullptr;};
+            inline string getCipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, "") };
+            inline MacsecKey& setCipherSuite(string cipherSuite) { DARABONBA_PTR_SET_VALUE(cipherSuite_, cipherSuite) };
+
+
+            // ckn Field Functions 
+            bool hasCkn() const { return this->ckn_ != nullptr;};
+            void deleteCkn() { this->ckn_ = nullptr;};
+            inline string getCkn() const { DARABONBA_PTR_GET_DEFAULT(ckn_, "") };
+            inline MacsecKey& setCkn(string ckn) { DARABONBA_PTR_SET_VALUE(ckn_, ckn) };
+
+
+            // startOn Field Functions 
+            bool hasStartOn() const { return this->startOn_ != nullptr;};
+            void deleteStartOn() { this->startOn_ = nullptr;};
+            inline string getStartOn() const { DARABONBA_PTR_GET_DEFAULT(startOn_, "") };
+            inline MacsecKey& setStartOn(string startOn) { DARABONBA_PTR_SET_VALUE(startOn_, startOn) };
+
+
+            // status Field Functions 
+            bool hasStatus() const { return this->status_ != nullptr;};
+            void deleteStatus() { this->status_ = nullptr;};
+            inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+            inline MacsecKey& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+          protected:
+            shared_ptr<string> cak_ {};
+            shared_ptr<string> cipherSuite_ {};
+            shared_ptr<string> ckn_ {};
+            shared_ptr<string> startOn_ {};
+            shared_ptr<string> status_ {};
+          };
+
+          virtual bool empty() const override { return this->macsecKey_ == nullptr; };
+          // macsecKey Field Functions 
+          bool hasMacsecKey() const { return this->macsecKey_ != nullptr;};
+          void deleteMacsecKey() { this->macsecKey_ = nullptr;};
+          inline const vector<MacsecKeys::MacsecKey> & getMacsecKey() const { DARABONBA_PTR_GET_CONST(macsecKey_, vector<MacsecKeys::MacsecKey>) };
+          inline vector<MacsecKeys::MacsecKey> getMacsecKey() { DARABONBA_PTR_GET(macsecKey_, vector<MacsecKeys::MacsecKey>) };
+          inline MacsecKeys& setMacsecKey(const vector<MacsecKeys::MacsecKey> & macsecKey) { DARABONBA_PTR_SET_VALUE(macsecKey_, macsecKey) };
+          inline MacsecKeys& setMacsecKey(vector<MacsecKeys::MacsecKey> && macsecKey) { DARABONBA_PTR_SET_RVALUE(macsecKey_, macsecKey) };
+
+
+        protected:
+          shared_ptr<vector<MacsecKeys::MacsecKey>> macsecKey_ {};
+        };
+
         virtual bool empty() const override { return this->accessPointId_ == nullptr
         && this->accessPointType_ == nullptr && this->adDetailLocation_ == nullptr && this->adLocation_ == nullptr && this->bandwidth_ == nullptr && this->businessStatus_ == nullptr
         && this->chargeType_ == nullptr && this->circuitCode_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->enabledTime_ == nullptr
         && this->endTime_ == nullptr && this->expectSpec_ == nullptr && this->hasReservationData_ == nullptr && this->lineOperator_ == nullptr && this->loaStatus_ == nullptr
-        && this->name_ == nullptr && this->opticalModuleModel_ == nullptr && this->orderMode_ == nullptr && this->parentPhysicalConnectionAliUid_ == nullptr && this->parentPhysicalConnectionId_ == nullptr
-        && this->peerLocation_ == nullptr && this->physicalConnectionId_ == nullptr && this->portNumber_ == nullptr && this->portType_ == nullptr && this->productType_ == nullptr
-        && this->qosId_ == nullptr && this->redundantPhysicalConnectionId_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationInternetChargeType_ == nullptr && this->reservationOrderType_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->type_ == nullptr
-        && this->virtualPhysicalConnectionCount_ == nullptr && this->vlanId_ == nullptr && this->vpconnStatus_ == nullptr; };
+        && this->macsecKeys_ == nullptr && this->name_ == nullptr && this->opticalModuleModel_ == nullptr && this->orderMode_ == nullptr && this->parentPhysicalConnectionAliUid_ == nullptr
+        && this->parentPhysicalConnectionId_ == nullptr && this->peerLocation_ == nullptr && this->physicalConnectionId_ == nullptr && this->portNumber_ == nullptr && this->portType_ == nullptr
+        && this->productType_ == nullptr && this->qosId_ == nullptr && this->redundantPhysicalConnectionId_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationInternetChargeType_ == nullptr
+        && this->reservationOrderType_ == nullptr && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->type_ == nullptr && this->virtualPhysicalConnectionCount_ == nullptr && this->vlanId_ == nullptr && this->vpconnStatus_ == nullptr; };
         // accessPointId Field Functions 
         bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
         void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -346,6 +453,15 @@ namespace Models
         void deleteLoaStatus() { this->loaStatus_ = nullptr;};
         inline string getLoaStatus() const { DARABONBA_PTR_GET_DEFAULT(loaStatus_, "") };
         inline PhysicalConnectionType& setLoaStatus(string loaStatus) { DARABONBA_PTR_SET_VALUE(loaStatus_, loaStatus) };
+
+
+        // macsecKeys Field Functions 
+        bool hasMacsecKeys() const { return this->macsecKeys_ != nullptr;};
+        void deleteMacsecKeys() { this->macsecKeys_ = nullptr;};
+        inline const PhysicalConnectionType::MacsecKeys & getMacsecKeys() const { DARABONBA_PTR_GET_CONST(macsecKeys_, PhysicalConnectionType::MacsecKeys) };
+        inline PhysicalConnectionType::MacsecKeys getMacsecKeys() { DARABONBA_PTR_GET(macsecKeys_, PhysicalConnectionType::MacsecKeys) };
+        inline PhysicalConnectionType& setMacsecKeys(const PhysicalConnectionType::MacsecKeys & macsecKeys) { DARABONBA_PTR_SET_VALUE(macsecKeys_, macsecKeys) };
+        inline PhysicalConnectionType& setMacsecKeys(PhysicalConnectionType::MacsecKeys && macsecKeys) { DARABONBA_PTR_SET_RVALUE(macsecKeys_, macsecKeys) };
 
 
         // name Field Functions 
@@ -528,6 +644,7 @@ namespace Models
         shared_ptr<string> hasReservationData_ {};
         shared_ptr<string> lineOperator_ {};
         shared_ptr<string> loaStatus_ {};
+        shared_ptr<PhysicalConnectionType::MacsecKeys> macsecKeys_ {};
         shared_ptr<string> name_ {};
         shared_ptr<string> opticalModuleModel_ {};
         shared_ptr<string> orderMode_ {};

@@ -8662,7 +8662,7 @@ namespace Vpc20160428
       Models::UpdateDhcpOptionsSetAttributeResponse updateDhcpOptionsSetAttribute(const Models::UpdateDhcpOptionsSetAttributeRequest &request);
 
       /**
-       * @summary 修改增强型VPN实例属性
+       * @summary Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
        *
        * @param request UpdateEnhancedVpnGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8671,7 +8671,7 @@ namespace Vpc20160428
       Models::UpdateEnhancedVpnGatewayResponse updateEnhancedVpnGatewayWithOptions(const Models::UpdateEnhancedVpnGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改增强型VPN实例属性
+       * @summary Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
        *
        * @param request UpdateEnhancedVpnGatewayRequest
        * @return UpdateEnhancedVpnGatewayResponse
