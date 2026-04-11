@@ -619,6 +619,10 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
     query["InstanceGroupSpec"] = request.getInstanceGroupSpec();
   }
 
+  if (!!request.hasInstanceVersion()) {
+    query["InstanceVersion"] = request.getInstanceVersion();
+  }
+
   if (!!request.hasIpv6Bandwidth()) {
     query["Ipv6Bandwidth"] = request.getIpv6Bandwidth();
   }
@@ -1693,6 +1697,10 @@ DescribeAndroidInstanceGroupsResponse Client::describeAndroidInstanceGroupsWithO
     query["InstanceGroupName"] = request.getInstanceGroupName();
   }
 
+  if (!!request.hasInstanceVersion()) {
+    query["InstanceVersion"] = request.getInstanceVersion();
+  }
+
   if (!!request.hasKeyPairId()) {
     query["KeyPairId"] = request.getKeyPairId();
   }
@@ -1795,6 +1803,10 @@ DescribeAndroidInstancesResponse Client::describeAndroidInstancesWithOptions(con
     query["InstanceGroupName"] = request.getInstanceGroupName();
   }
 
+  if (!!request.hasInstanceVersion()) {
+    query["InstanceVersion"] = request.getInstanceVersion();
+  }
+
   if (!!request.hasKeyPairId()) {
     query["KeyPairId"] = request.getKeyPairId();
   }
@@ -1829,6 +1841,14 @@ DescribeAndroidInstancesResponse Client::describeAndroidInstancesWithOptions(con
 
   if (!!request.hasSaleMode()) {
     query["SaleMode"] = request.getSaleMode();
+  }
+
+  if (!!request.hasSortKey()) {
+    query["SortKey"] = request.getSortKey();
+  }
+
+  if (!!request.hasSortType()) {
+    query["SortType"] = request.getSortType();
   }
 
   if (!!request.hasStatus()) {
@@ -3261,6 +3281,10 @@ FetchFileResponse Client::fetchFileWithOptions(const FetchFileRequest &request, 
   json query = {};
   if (!!request.hasAndroidInstanceIdList()) {
     query["AndroidInstanceIdList"] = request.getAndroidInstanceIdList();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasSourceFilePath()) {
@@ -5019,6 +5043,10 @@ SendFileResponse Client::sendFileWithOptions(const SendFileRequest &request, con
 
   if (!!request.hasAutoInstall()) {
     query["AutoInstall"] = request.getAutoInstall();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasSourceFilePath()) {

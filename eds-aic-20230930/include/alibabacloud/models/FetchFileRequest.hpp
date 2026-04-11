@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const FetchFileRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AndroidInstanceIdList, androidInstanceIdList_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(SourceFilePath, sourceFilePath_);
       DARABONBA_PTR_TO_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_TO_JSON(UploadType, uploadType_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, FetchFileRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AndroidInstanceIdList, androidInstanceIdList_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(SourceFilePath, sourceFilePath_);
       DARABONBA_PTR_FROM_JSON(UploadEndpoint, uploadEndpoint_);
       DARABONBA_PTR_FROM_JSON(UploadType, uploadType_);
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && this->sourceFilePath_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr && this->uploadUrl_ == nullptr; };
+        && this->clientToken_ == nullptr && this->sourceFilePath_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr && this->uploadUrl_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline vector<string> getAndroidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
     inline FetchFileRequest& setAndroidInstanceIdList(const vector<string> & androidInstanceIdList) { DARABONBA_PTR_SET_VALUE(androidInstanceIdList_, androidInstanceIdList) };
     inline FetchFileRequest& setAndroidInstanceIdList(vector<string> && androidInstanceIdList) { DARABONBA_PTR_SET_RVALUE(androidInstanceIdList_, androidInstanceIdList) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline FetchFileRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // sourceFilePath Field Functions 
@@ -82,6 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> androidInstanceIdList_ {};
+    shared_ptr<string> clientToken_ {};
     // The path to the file that you want to pull from the cloud phone instance.
     // 
     // This parameter is required.

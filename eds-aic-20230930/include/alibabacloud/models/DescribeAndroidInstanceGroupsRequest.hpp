@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_TO_JSON(InstanceGroupName, instanceGroupName_);
+      DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_TO_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupName, instanceGroupName_);
+      DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_FROM_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -93,8 +95,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->chargeType_ == nullptr && this->instanceGroupIds_ == nullptr && this->instanceGroupName_ == nullptr && this->keyPairId_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->saleMode_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->chargeType_ == nullptr && this->instanceGroupIds_ == nullptr && this->instanceGroupName_ == nullptr && this->instanceVersion_ == nullptr && this->keyPairId_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->saleMode_ == nullptr && this->status_ == nullptr
+        && this->tags_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -123,6 +126,13 @@ namespace Models
     void deleteInstanceGroupName() { this->instanceGroupName_ = nullptr;};
     inline string getInstanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupName_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setInstanceGroupName(string instanceGroupName) { DARABONBA_PTR_SET_VALUE(instanceGroupName_, instanceGroupName) };
+
+
+    // instanceVersion Field Functions 
+    bool hasInstanceVersion() const { return this->instanceVersion_ != nullptr;};
+    void deleteInstanceVersion() { this->instanceVersion_ = nullptr;};
+    inline string getInstanceVersion() const { DARABONBA_PTR_GET_DEFAULT(instanceVersion_, "") };
+    inline DescribeAndroidInstanceGroupsRequest& setInstanceVersion(string instanceVersion) { DARABONBA_PTR_SET_VALUE(instanceVersion_, instanceVersion) };
 
 
     // keyPairId Field Functions 
@@ -190,6 +200,7 @@ namespace Models
     shared_ptr<vector<string>> instanceGroupIds_ {};
     // The name of the instance group. Instance groups support fuzzy search by name.
     shared_ptr<string> instanceGroupName_ {};
+    shared_ptr<string> instanceVersion_ {};
     // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
     // The maximum number of entries per page. Value range: 0 to 100. Default value: 100.

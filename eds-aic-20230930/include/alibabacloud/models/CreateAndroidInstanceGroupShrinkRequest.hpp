@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceGroupName, instanceGroupName_);
       DARABONBA_PTR_TO_JSON(InstanceGroupSpec, instanceGroupSpec_);
+      DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_TO_JSON(Ipv6Bandwidth, ipv6Bandwidth_);
       DARABONBA_PTR_TO_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_TO_JSON(NetworkInfo, networkInfoShrink_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupName, instanceGroupName_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupSpec, instanceGroupSpec_);
+      DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_FROM_JSON(Ipv6Bandwidth, ipv6Bandwidth_);
       DARABONBA_PTR_FROM_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_FROM_JSON(NetworkInfo, networkInfoShrink_);
@@ -131,10 +133,10 @@ namespace Models
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizRegionId_ == nullptr
         && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->enableIpv6_ == nullptr && this->gpuAcceleration_ == nullptr && this->imageId_ == nullptr
-        && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->keyPairId_ == nullptr && this->networkInfoShrink_ == nullptr
-        && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->saleMode_ == nullptr && this->streamMode_ == nullptr
-        && this->tag_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr && this->instanceVersion_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->keyPairId_ == nullptr
+        && this->networkInfoShrink_ == nullptr && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->paidCallBackUrl_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->saleMode_ == nullptr
+        && this->streamMode_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -224,6 +226,13 @@ namespace Models
     void deleteInstanceGroupSpec() { this->instanceGroupSpec_ = nullptr;};
     inline string getInstanceGroupSpec() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupSpec_, "") };
     inline CreateAndroidInstanceGroupShrinkRequest& setInstanceGroupSpec(string instanceGroupSpec) { DARABONBA_PTR_SET_VALUE(instanceGroupSpec_, instanceGroupSpec) };
+
+
+    // instanceVersion Field Functions 
+    bool hasInstanceVersion() const { return this->instanceVersion_ != nullptr;};
+    void deleteInstanceVersion() { this->instanceVersion_ = nullptr;};
+    inline string getInstanceVersion() const { DARABONBA_PTR_GET_DEFAULT(instanceVersion_, "") };
+    inline CreateAndroidInstanceGroupShrinkRequest& setInstanceVersion(string instanceVersion) { DARABONBA_PTR_SET_VALUE(instanceVersion_, instanceVersion) };
 
 
     // ipv6Bandwidth Field Functions 
@@ -401,6 +410,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceGroupSpec_ {};
+    shared_ptr<string> instanceVersion_ {};
     // >  This parameter is not publicly available.
     shared_ptr<int32_t> ipv6Bandwidth_ {};
     // The ID of the key pair. When you create an instance group and specify a valid key pair ID, all cloud phone instances within the group will automatically be bound to that key pair upon creation. This eliminates the need to manually bind key pairs to individual cloud phone instances.

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_TO_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_TO_JSON(InstanceGroupName, instanceGroupName_);
+      DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_TO_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -32,6 +33,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PrivateIpAddress, privateIpAddress_);
       DARABONBA_PTR_TO_JSON(QosRuleIds, qosRuleIds_);
       DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
+      DARABONBA_PTR_TO_JSON(SortKey, sortKey_);
+      DARABONBA_PTR_TO_JSON(SortType, sortType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
@@ -45,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupIds, instanceGroupIds_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupName, instanceGroupName_);
+      DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_FROM_JSON(KeyPairId, keyPairId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -54,6 +58,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PrivateIpAddress, privateIpAddress_);
       DARABONBA_PTR_FROM_JSON(QosRuleIds, qosRuleIds_);
       DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
+      DARABONBA_PTR_FROM_JSON(SortKey, sortKey_);
+      DARABONBA_PTR_FROM_JSON(SortType, sortType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
@@ -114,9 +120,10 @@ namespace Models
 
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
         && this->androidInstanceName_ == nullptr && this->appManagePolicyId_ == nullptr && this->authorizedUserId_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr
-        && this->instanceGroupId_ == nullptr && this->instanceGroupIds_ == nullptr && this->instanceGroupName_ == nullptr && this->keyPairId_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->officeSiteIds_ == nullptr && this->privateIpAddress_ == nullptr
-        && this->qosRuleIds_ == nullptr && this->saleMode_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr; };
+        && this->instanceGroupId_ == nullptr && this->instanceGroupIds_ == nullptr && this->instanceGroupName_ == nullptr && this->instanceVersion_ == nullptr && this->keyPairId_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->officeSiteIds_ == nullptr
+        && this->privateIpAddress_ == nullptr && this->qosRuleIds_ == nullptr && this->saleMode_ == nullptr && this->sortKey_ == nullptr && this->sortType_ == nullptr
+        && this->status_ == nullptr && this->tag_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
@@ -182,6 +189,13 @@ namespace Models
     void deleteInstanceGroupName() { this->instanceGroupName_ = nullptr;};
     inline string getInstanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupName_, "") };
     inline DescribeAndroidInstancesRequest& setInstanceGroupName(string instanceGroupName) { DARABONBA_PTR_SET_VALUE(instanceGroupName_, instanceGroupName) };
+
+
+    // instanceVersion Field Functions 
+    bool hasInstanceVersion() const { return this->instanceVersion_ != nullptr;};
+    void deleteInstanceVersion() { this->instanceVersion_ = nullptr;};
+    inline string getInstanceVersion() const { DARABONBA_PTR_GET_DEFAULT(instanceVersion_, "") };
+    inline DescribeAndroidInstancesRequest& setInstanceVersion(string instanceVersion) { DARABONBA_PTR_SET_VALUE(instanceVersion_, instanceVersion) };
 
 
     // keyPairId Field Functions 
@@ -251,6 +265,20 @@ namespace Models
     inline DescribeAndroidInstancesRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
+    // sortKey Field Functions 
+    bool hasSortKey() const { return this->sortKey_ != nullptr;};
+    void deleteSortKey() { this->sortKey_ = nullptr;};
+    inline string getSortKey() const { DARABONBA_PTR_GET_DEFAULT(sortKey_, "") };
+    inline DescribeAndroidInstancesRequest& setSortKey(string sortKey) { DARABONBA_PTR_SET_VALUE(sortKey_, sortKey) };
+
+
+    // sortType Field Functions 
+    bool hasSortType() const { return this->sortType_ != nullptr;};
+    void deleteSortType() { this->sortType_ = nullptr;};
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline DescribeAndroidInstancesRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -289,6 +317,7 @@ namespace Models
     shared_ptr<vector<string>> instanceGroupIds_ {};
     // The name of the instance group.
     shared_ptr<string> instanceGroupName_ {};
+    shared_ptr<string> instanceVersion_ {};
     // The ID of the bound key pair.
     shared_ptr<string> keyPairId_ {};
     // The maximum number of entries per page. Valid values: 1 to 100. Default value: 100.
@@ -309,6 +338,8 @@ namespace Models
     // *   Instance: the standard mode.
     // *   Node: the node mode.
     shared_ptr<string> saleMode_ {};
+    shared_ptr<string> sortKey_ {};
+    shared_ptr<string> sortType_ {};
     // The state of the instance.
     // 
     // Valid values:
