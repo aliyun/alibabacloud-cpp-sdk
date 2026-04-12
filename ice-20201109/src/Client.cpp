@@ -10232,6 +10232,48 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJob(const GetYikeStoryboar
 }
 
 /**
+ * @summary 获取一刻子用户信息
+ *
+ * @param request GetYikeUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeUserResponse
+ */
+GetYikeUserResponse Client::getYikeUserWithOptions(const GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetYikeUser"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeUserResponse>();
+}
+
+/**
+ * @summary 获取一刻子用户信息
+ *
+ * @param request GetYikeUserRequest
+ * @return GetYikeUserResponse
+ */
+GetYikeUserResponse Client::getYikeUser(const GetYikeUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeUserWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询一刻用户积分
  *
  * @param request GetYikeUserCreditRequest

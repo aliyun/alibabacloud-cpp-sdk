@@ -3802,6 +3802,23 @@ namespace ICE20201109
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
 
       /**
+       * @summary 获取一刻子用户信息
+       *
+       * @param request GetYikeUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeUserResponse
+       */
+      Models::GetYikeUserResponse getYikeUserWithOptions(const Models::GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻子用户信息
+       *
+       * @param request GetYikeUserRequest
+       * @return GetYikeUserResponse
+       */
+      Models::GetYikeUserResponse getYikeUser(const Models::GetYikeUserRequest &request);
+
+      /**
        * @summary 查询一刻用户积分
        *
        * @param request GetYikeUserCreditRequest

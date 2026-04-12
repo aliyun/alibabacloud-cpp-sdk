@@ -646,6 +646,9 @@
 #include <alibabacloud/models/GetYikeStoryboardJobRequest.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobResponse.hpp>
+#include <alibabacloud/models/GetYikeUserRequest.hpp>
+#include <alibabacloud/models/GetYikeUserResponseBody.hpp>
+#include <alibabacloud/models/GetYikeUserResponse.hpp>
 #include <alibabacloud/models/GetYikeUserCreditRequest.hpp>
 #include <alibabacloud/models/GetYikeUserCreditResponseBody.hpp>
 #include <alibabacloud/models/GetYikeUserCreditResponse.hpp>
