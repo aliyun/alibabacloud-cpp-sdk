@@ -292,10 +292,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PolarClawSaaSApplicationAttribute& obj) { 
         DARABONBA_PTR_TO_JSON(AuthCallbackURL, authCallbackURL_);
+        DARABONBA_PTR_TO_JSON(AuthProviders, authProviders_);
         DARABONBA_PTR_TO_JSON(SupabaseClusterId, supabaseClusterId_);
       };
       friend void from_json(const Darabonba::Json& j, PolarClawSaaSApplicationAttribute& obj) { 
         DARABONBA_PTR_FROM_JSON(AuthCallbackURL, authCallbackURL_);
+        DARABONBA_PTR_FROM_JSON(AuthProviders, authProviders_);
         DARABONBA_PTR_FROM_JSON(SupabaseClusterId, supabaseClusterId_);
       };
       PolarClawSaaSApplicationAttribute() = default ;
@@ -310,12 +312,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->authCallbackURL_ == nullptr
-        && this->supabaseClusterId_ == nullptr; };
+        && this->authProviders_ == nullptr && this->supabaseClusterId_ == nullptr; };
       // authCallbackURL Field Functions 
       bool hasAuthCallbackURL() const { return this->authCallbackURL_ != nullptr;};
       void deleteAuthCallbackURL() { this->authCallbackURL_ = nullptr;};
       inline string getAuthCallbackURL() const { DARABONBA_PTR_GET_DEFAULT(authCallbackURL_, "") };
       inline PolarClawSaaSApplicationAttribute& setAuthCallbackURL(string authCallbackURL) { DARABONBA_PTR_SET_VALUE(authCallbackURL_, authCallbackURL) };
+
+
+      // authProviders Field Functions 
+      bool hasAuthProviders() const { return this->authProviders_ != nullptr;};
+      void deleteAuthProviders() { this->authProviders_ = nullptr;};
+      inline const vector<string> & getAuthProviders() const { DARABONBA_PTR_GET_CONST(authProviders_, vector<string>) };
+      inline vector<string> getAuthProviders() { DARABONBA_PTR_GET(authProviders_, vector<string>) };
+      inline PolarClawSaaSApplicationAttribute& setAuthProviders(const vector<string> & authProviders) { DARABONBA_PTR_SET_VALUE(authProviders_, authProviders) };
+      inline PolarClawSaaSApplicationAttribute& setAuthProviders(vector<string> && authProviders) { DARABONBA_PTR_SET_RVALUE(authProviders_, authProviders) };
 
 
       // supabaseClusterId Field Functions 
@@ -327,6 +338,7 @@ namespace Models
 
     protected:
       shared_ptr<string> authCallbackURL_ {};
+      shared_ptr<vector<string>> authProviders_ {};
       shared_ptr<string> supabaseClusterId_ {};
     };
 
