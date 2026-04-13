@@ -40,6 +40,24 @@ namespace IaCService20210806
       Models::AddSharedAccountsResponse addSharedAccounts(const Models::AddSharedAccountsRequest &request);
 
       /**
+       * @summary 将参数集关联资源
+       *
+       * @param request AssociateDetectConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssociateDetectConfigResponse
+       */
+      Models::AssociateDetectConfigResponse associateDetectConfigWithOptions(const Models::AssociateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将参数集关联资源
+       *
+       * @param request AssociateDetectConfigRequest
+       * @return AssociateDetectConfigResponse
+       */
+      Models::AssociateDetectConfigResponse associateDetectConfig(const Models::AssociateDetectConfigRequest &request);
+
+      /**
        * @summary 分组关联
        *
        * @param request AssociateGroupRequest
@@ -92,6 +110,24 @@ namespace IaCService20210806
        * @return CancelResourceExportTaskResponse
        */
       Models::CancelResourceExportTaskResponse cancelResourceExportTask(const string &exportTaskId, const Models::CancelResourceExportTaskRequest &request);
+
+      /**
+       * @summary 创建偏差检测配置
+       *
+       * @param request CreateDetectConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDetectConfigResponse
+       */
+      Models::CreateDetectConfigResponse createDetectConfigWithOptions(const Models::CreateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建偏差检测配置
+       *
+       * @param request CreateDetectConfigRequest
+       * @return CreateDetectConfigResponse
+       */
+      Models::CreateDetectConfigResponse createDetectConfig(const Models::CreateDetectConfigRequest &request);
 
       /**
        * @summary 创建分组
@@ -274,148 +310,238 @@ namespace IaCService20210806
       Models::CreateTaskResponse createTask(const Models::CreateTaskRequest &request);
 
       /**
+       * @summary 删除偏差检测配置
+       *
+       * @param request DeleteDetectConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDetectConfigResponse
+       */
+      Models::DeleteDetectConfigResponse deleteDetectConfigWithOptions(const string &detectConfigId, const Models::DeleteDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除偏差检测配置
+       *
+       * @param request DeleteDetectConfigRequest
+       * @return DeleteDetectConfigResponse
+       */
+      Models::DeleteDetectConfigResponse deleteDetectConfig(const string &detectConfigId, const Models::DeleteDetectConfigRequest &request);
+
+      /**
        * @summary 删除分组
        *
+       * @param request DeleteGroupRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGroupResponse
        */
-      Models::DeleteGroupResponse deleteGroupWithOptions(const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteGroupResponse deleteGroupWithOptions(const string &groupId, const Models::DeleteGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除分组
        *
+       * @param request DeleteGroupRequest
        * @return DeleteGroupResponse
        */
-      Models::DeleteGroupResponse deleteGroup(const string &groupId);
+      Models::DeleteGroupResponse deleteGroup(const string &groupId, const Models::DeleteGroupRequest &request);
 
       /**
        * @summary 删除模板
        *
+       * @param request DeleteModuleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteModuleResponse
        */
-      Models::DeleteModuleResponse deleteModuleWithOptions(const string &moduleId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteModuleResponse deleteModuleWithOptions(const string &moduleId, const Models::DeleteModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除模板
        *
+       * @param request DeleteModuleRequest
        * @return DeleteModuleResponse
        */
-      Models::DeleteModuleResponse deleteModule(const string &moduleId);
+      Models::DeleteModuleResponse deleteModule(const string &moduleId, const Models::DeleteModuleRequest &request);
 
       /**
        * @summary 删除参数集
        *
+       * @param request DeleteParameterSetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteParameterSetResponse
        */
-      Models::DeleteParameterSetResponse deleteParameterSetWithOptions(const string &parameterSetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteParameterSetResponse deleteParameterSetWithOptions(const string &parameterSetId, const Models::DeleteParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除参数集
        *
+       * @param request DeleteParameterSetRequest
        * @return DeleteParameterSetResponse
        */
-      Models::DeleteParameterSetResponse deleteParameterSet(const string &parameterSetId);
+      Models::DeleteParameterSetResponse deleteParameterSet(const string &parameterSetId, const Models::DeleteParameterSetRequest &request);
 
       /**
        * @summary 删除项目
        *
+       * @param request DeleteProjectRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteProjectResponse
        */
-      Models::DeleteProjectResponse deleteProjectWithOptions(const string &projectId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteProjectResponse deleteProjectWithOptions(const string &projectId, const Models::DeleteProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除项目
        *
+       * @param request DeleteProjectRequest
        * @return DeleteProjectResponse
        */
-      Models::DeleteProjectResponse deleteProject(const string &projectId);
+      Models::DeleteProjectResponse deleteProject(const string &projectId, const Models::DeleteProjectRequest &request);
 
       /**
        * @summary 删除RegistryModule
        *
+       * @param request DeleteRegistryModuleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteRegistryModuleResponse
        */
-      Models::DeleteRegistryModuleResponse deleteRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteRegistryModuleResponse deleteRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::DeleteRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除RegistryModule
        *
+       * @param request DeleteRegistryModuleRequest
        * @return DeleteRegistryModuleResponse
        */
-      Models::DeleteRegistryModuleResponse deleteRegistryModule(const string &namespaceName, const string &moduleName);
+      Models::DeleteRegistryModuleResponse deleteRegistryModule(const string &namespaceName, const string &moduleName, const Models::DeleteRegistryModuleRequest &request);
 
       /**
        * @summary 删除RegistryModule版本
        *
+       * @param request DeleteRegistryModuleVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteRegistryModuleVersionResponse
        */
-      Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const Models::DeleteRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除RegistryModule版本
        *
+       * @param request DeleteRegistryModuleVersionRequest
        * @return DeleteRegistryModuleVersionResponse
        */
-      Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version);
+      Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version, const Models::DeleteRegistryModuleVersionRequest &request);
 
       /**
        * @summary 删除工作空间
        *
+       * @param request DeleteRegistryNamespaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteRegistryNamespaceResponse
        */
-      Models::DeleteRegistryNamespaceResponse deleteRegistryNamespaceWithOptions(const string &namespaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteRegistryNamespaceResponse deleteRegistryNamespaceWithOptions(const string &namespaceName, const Models::DeleteRegistryNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除工作空间
        *
+       * @param request DeleteRegistryNamespaceRequest
        * @return DeleteRegistryNamespaceResponse
        */
-      Models::DeleteRegistryNamespaceResponse deleteRegistryNamespace(const string &namespaceName);
+      Models::DeleteRegistryNamespaceResponse deleteRegistryNamespace(const string &namespaceName, const Models::DeleteRegistryNamespaceRequest &request);
 
       /**
        * @summary 删除资源导出任务
        *
+       * @param request DeleteResourceExportTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteResourceExportTaskResponse
        */
-      Models::DeleteResourceExportTaskResponse deleteResourceExportTaskWithOptions(const string &exportTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteResourceExportTaskResponse deleteResourceExportTaskWithOptions(const string &exportTaskId, const Models::DeleteResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除资源导出任务
        *
+       * @param request DeleteResourceExportTaskRequest
        * @return DeleteResourceExportTaskResponse
        */
-      Models::DeleteResourceExportTaskResponse deleteResourceExportTask(const string &exportTaskId);
+      Models::DeleteResourceExportTaskResponse deleteResourceExportTask(const string &exportTaskId, const Models::DeleteResourceExportTaskRequest &request);
+
+      /**
+       * @summary 删除资源栈
+       *
+       * @param request DeleteStackRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStackResponse
+       */
+      Models::DeleteStackResponse deleteStackWithOptions(const string &stackId, const Models::DeleteStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除资源栈
+       *
+       * @param request DeleteStackRequest
+       * @return DeleteStackResponse
+       */
+      Models::DeleteStackResponse deleteStack(const string &stackId, const Models::DeleteStackRequest &request);
 
       /**
        * @summary 删除任务
        *
+       * @param request DeleteTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteTaskResponse
        */
-      Models::DeleteTaskResponse deleteTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteTaskResponse deleteTaskWithOptions(const string &taskId, const Models::DeleteTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除任务
        *
+       * @param request DeleteTaskRequest
        * @return DeleteTaskResponse
        */
-      Models::DeleteTaskResponse deleteTask(const string &taskId);
+      Models::DeleteTaskResponse deleteTask(const string &taskId, const Models::DeleteTaskRequest &request);
+
+      /**
+       * @summary 发起状态文件一致性检测
+       *
+       * @param request DetectTerraformStateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetectTerraformStateResponse
+       */
+      Models::DetectTerraformStateResponse detectTerraformStateWithOptions(const Models::DetectTerraformStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发起状态文件一致性检测
+       *
+       * @param request DetectTerraformStateRequest
+       * @return DetectTerraformStateResponse
+       */
+      Models::DetectTerraformStateResponse detectTerraformState(const Models::DetectTerraformStateRequest &request);
+
+      /**
+       * @summary 解除参数集关联资源关系
+       *
+       * @param request DissociateDetectConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DissociateDetectConfigResponse
+       */
+      Models::DissociateDetectConfigResponse dissociateDetectConfigWithOptions(const Models::DissociateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解除参数集关联资源关系
+       *
+       * @param request DissociateDetectConfigRequest
+       * @return DissociateDetectConfigResponse
+       */
+      Models::DissociateDetectConfigResponse dissociateDetectConfig(const Models::DissociateDetectConfigRequest &request);
 
       /**
        * @summary 取消关联分组
@@ -562,36 +688,58 @@ namespace IaCService20210806
       Models::GenerateModuleResponse generateModule(const Models::GenerateModuleRequest &request);
 
       /**
+       * @summary 偏差检测配置详情
+       *
+       * @param request GetDetectConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDetectConfigResponse
+       */
+      Models::GetDetectConfigResponse getDetectConfigWithOptions(const string &detectConfigId, const Models::GetDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 偏差检测配置详情
+       *
+       * @param request GetDetectConfigRequest
+       * @return GetDetectConfigResponse
+       */
+      Models::GetDetectConfigResponse getDetectConfig(const string &detectConfigId, const Models::GetDetectConfigRequest &request);
+
+      /**
        * @summary 获取Terraform运行结果
        *
+       * @param request GetExecuteStateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetExecuteStateResponse
        */
-      Models::GetExecuteStateResponse getExecuteStateWithOptions(const string &stateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetExecuteStateResponse getExecuteStateWithOptions(const string &stateId, const Models::GetExecuteStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取Terraform运行结果
        *
+       * @param request GetExecuteStateRequest
        * @return GetExecuteStateResponse
        */
-      Models::GetExecuteStateResponse getExecuteState(const string &stateId);
+      Models::GetExecuteStateResponse getExecuteState(const string &stateId, const Models::GetExecuteStateRequest &request);
 
       /**
        * @summary 查询分组
        *
+       * @param request GetGroupRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetGroupResponse
        */
-      Models::GetGroupResponse getGroupWithOptions(const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetGroupResponse getGroupWithOptions(const string &groupId, const Models::GetGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询分组
        *
+       * @param request GetGroupRequest
        * @return GetGroupResponse
        */
-      Models::GetGroupResponse getGroup(const string &groupId);
+      Models::GetGroupResponse getGroup(const string &groupId, const Models::GetGroupRequest &request);
 
       /**
        * @summary 作业详情
@@ -614,114 +762,128 @@ namespace IaCService20210806
       /**
        * @summary Get Module Details
        *
+       * @param request GetModuleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetModuleResponse
        */
-      Models::GetModuleResponse getModuleWithOptions(const string &moduleId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetModuleResponse getModuleWithOptions(const string &moduleId, const Models::GetModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Get Module Details
        *
+       * @param request GetModuleRequest
        * @return GetModuleResponse
        */
-      Models::GetModuleResponse getModule(const string &moduleId);
+      Models::GetModuleResponse getModule(const string &moduleId, const Models::GetModuleRequest &request);
 
       /**
        * @summary 模板版本详情
        *
+       * @param request GetModuleVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetModuleVersionResponse
        */
-      Models::GetModuleVersionResponse getModuleVersionWithOptions(const string &moduleId, const string &moduleVersion, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetModuleVersionResponse getModuleVersionWithOptions(const string &moduleId, const string &moduleVersion, const Models::GetModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 模板版本详情
        *
+       * @param request GetModuleVersionRequest
        * @return GetModuleVersionResponse
        */
-      Models::GetModuleVersionResponse getModuleVersion(const string &moduleId, const string &moduleVersion);
+      Models::GetModuleVersionResponse getModuleVersion(const string &moduleId, const string &moduleVersion, const Models::GetModuleVersionRequest &request);
 
       /**
        * @summary 参数集详情
        *
+       * @param request GetParameterSetRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetParameterSetResponse
        */
-      Models::GetParameterSetResponse getParameterSetWithOptions(const string &parameterSetId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetParameterSetResponse getParameterSetWithOptions(const string &parameterSetId, const Models::GetParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 参数集详情
        *
+       * @param request GetParameterSetRequest
        * @return GetParameterSetResponse
        */
-      Models::GetParameterSetResponse getParameterSet(const string &parameterSetId);
+      Models::GetParameterSetResponse getParameterSet(const string &parameterSetId, const Models::GetParameterSetRequest &request);
 
       /**
        * @summary 查询项目
        *
+       * @param request GetProjectRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetProjectResponse
        */
-      Models::GetProjectResponse getProjectWithOptions(const string &projectId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetProjectResponse getProjectWithOptions(const string &projectId, const Models::GetProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询项目
        *
+       * @param request GetProjectRequest
        * @return GetProjectResponse
        */
-      Models::GetProjectResponse getProject(const string &projectId);
+      Models::GetProjectResponse getProject(const string &projectId, const Models::GetProjectRequest &request);
 
       /**
        * @summary 获取RegistryModule信息
        *
+       * @param request GetRegistryModuleRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRegistryModuleResponse
        */
-      Models::GetRegistryModuleResponse getRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetRegistryModuleResponse getRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::GetRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取RegistryModule信息
        *
+       * @param request GetRegistryModuleRequest
        * @return GetRegistryModuleResponse
        */
-      Models::GetRegistryModuleResponse getRegistryModule(const string &namespaceName, const string &moduleName);
+      Models::GetRegistryModuleResponse getRegistryModule(const string &namespaceName, const string &moduleName, const Models::GetRegistryModuleRequest &request);
 
       /**
        * @summary 获取RegistryModule版本信息
        *
+       * @param request GetRegistryModuleVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRegistryModuleVersionResponse
        */
-      Models::GetRegistryModuleVersionResponse getRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetRegistryModuleVersionResponse getRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const Models::GetRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取RegistryModule版本信息
        *
+       * @param request GetRegistryModuleVersionRequest
        * @return GetRegistryModuleVersionResponse
        */
-      Models::GetRegistryModuleVersionResponse getRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version);
+      Models::GetRegistryModuleVersionResponse getRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version, const Models::GetRegistryModuleVersionRequest &request);
 
       /**
        * @summary 获取工作空间信息
        *
+       * @param request GetRegistryNamespaceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRegistryNamespaceResponse
        */
-      Models::GetRegistryNamespaceResponse getRegistryNamespaceWithOptions(const string &namespaceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetRegistryNamespaceResponse getRegistryNamespaceWithOptions(const string &namespaceName, const Models::GetRegistryNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取工作空间信息
        *
+       * @param request GetRegistryNamespaceRequest
        * @return GetRegistryNamespaceResponse
        */
-      Models::GetRegistryNamespaceResponse getRegistryNamespace(const string &namespaceName);
+      Models::GetRegistryNamespaceResponse getRegistryNamespace(const string &namespaceName, const Models::GetRegistryNamespaceRequest &request);
 
       /**
        * @summary 查询导出任务详情
@@ -760,36 +922,112 @@ namespace IaCService20210806
       Models::GetResourceTypeResponse getResourceType(const string &resourceType, const Models::GetResourceTypeRequest &request);
 
       /**
+       * @summary 部署详情接口
+       *
+       * @param request GetStackDeploymentsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStackDeploymentsResponse
+       */
+      Models::GetStackDeploymentsResponse getStackDeploymentsWithOptions(const string &stackId, const Models::GetStackDeploymentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 部署详情接口
+       *
+       * @param request GetStackDeploymentsRequest
+       * @return GetStackDeploymentsResponse
+       */
+      Models::GetStackDeploymentsResponse getStackDeployments(const string &stackId, const Models::GetStackDeploymentsRequest &request);
+
+      /**
        * @summary 获取资源栈部署结果
        *
+       * @param request GetStackExecutionResultRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetStackExecutionResultResponse
        */
-      Models::GetStackExecutionResultResponse getStackExecutionResultWithOptions(const string &triggerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetStackExecutionResultResponse getStackExecutionResultWithOptions(const string &triggerId, const Models::GetStackExecutionResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取资源栈部署结果
        *
+       * @param request GetStackExecutionResultRequest
        * @return GetStackExecutionResultResponse
        */
-      Models::GetStackExecutionResultResponse getStackExecutionResult(const string &triggerId);
+      Models::GetStackExecutionResultResponse getStackExecutionResult(const string &triggerId, const Models::GetStackExecutionResultRequest &request);
 
       /**
        * @summary 查询任务详情
        *
+       * @param request GetTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTaskResponse
        */
-      Models::GetTaskResponse getTaskWithOptions(const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetTaskResponse getTaskWithOptions(const string &taskId, const Models::GetTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询任务详情
        *
+       * @param request GetTaskRequest
        * @return GetTaskResponse
        */
-      Models::GetTaskResponse getTask(const string &taskId);
+      Models::GetTaskResponse getTask(const string &taskId, const Models::GetTaskRequest &request);
+
+      /**
+       * @summary 获取状态文件检测结果
+       *
+       * @param request GetTerraformStateDetectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTerraformStateDetectionResponse
+       */
+      Models::GetTerraformStateDetectionResponse getTerraformStateDetectionWithOptions(const string &detectionId, const Models::GetTerraformStateDetectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取状态文件检测结果
+       *
+       * @param request GetTerraformStateDetectionRequest
+       * @return GetTerraformStateDetectionResponse
+       */
+      Models::GetTerraformStateDetectionResponse getTerraformStateDetection(const string &detectionId, const Models::GetTerraformStateDetectionRequest &request);
+
+      /**
+       * @summary 关联到资源的偏差检测配置列表
+       *
+       * @param request ListDetectConfigRelationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDetectConfigRelationsResponse
+       */
+      Models::ListDetectConfigRelationsResponse listDetectConfigRelationsWithOptions(const Models::ListDetectConfigRelationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关联到资源的偏差检测配置列表
+       *
+       * @param request ListDetectConfigRelationsRequest
+       * @return ListDetectConfigRelationsResponse
+       */
+      Models::ListDetectConfigRelationsResponse listDetectConfigRelations(const Models::ListDetectConfigRelationsRequest &request);
+
+      /**
+       * @summary 偏差检测配置列表
+       *
+       * @param request ListDetectConfigsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDetectConfigsResponse
+       */
+      Models::ListDetectConfigsResponse listDetectConfigsWithOptions(const Models::ListDetectConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 偏差检测配置列表
+       *
+       * @param request ListDetectConfigsRequest
+       * @return ListDetectConfigsResponse
+       */
+      Models::ListDetectConfigsResponse listDetectConfigs(const Models::ListDetectConfigsRequest &request);
 
       /**
        * @summary 获取Explorer的egistryModule版本示例列表
@@ -1240,6 +1478,24 @@ namespace IaCService20210806
        * @return TriggerStackExecutionResponse
        */
       Models::TriggerStackExecutionResponse triggerStackExecution(const Models::TriggerStackExecutionRequest &request);
+
+      /**
+       * @summary 更新偏差检测配置
+       *
+       * @param request UpdateDetectConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDetectConfigResponse
+       */
+      Models::UpdateDetectConfigResponse updateDetectConfigWithOptions(const string &detectConfigId, const Models::UpdateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新偏差检测配置
+       *
+       * @param request UpdateDetectConfigRequest
+       * @return UpdateDetectConfigResponse
+       */
+      Models::UpdateDetectConfigResponse updateDetectConfig(const string &detectConfigId, const Models::UpdateDetectConfigRequest &request);
 
       /**
        * @summary 修改ExplorerModule
