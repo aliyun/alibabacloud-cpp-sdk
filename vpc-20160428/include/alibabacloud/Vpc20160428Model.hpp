@@ -59,6 +59,9 @@
 #include <alibabacloud/models/AssociateHaVipRequest.hpp>
 #include <alibabacloud/models/AssociateHaVipResponseBody.hpp>
 #include <alibabacloud/models/AssociateHaVipResponse.hpp>
+#include <alibabacloud/models/AssociateMacSecKeyRequest.hpp>
+#include <alibabacloud/models/AssociateMacSecKeyResponseBody.hpp>
+#include <alibabacloud/models/AssociateMacSecKeyResponse.hpp>
 #include <alibabacloud/models/AssociateNetworkAclRequest.hpp>
 #include <alibabacloud/models/AssociateNetworkAclResponseBody.hpp>
 #include <alibabacloud/models/AssociateNetworkAclResponse.hpp>
@@ -714,6 +717,9 @@
 #include <alibabacloud/models/DisableVpcClassicLinkRequest.hpp>
 #include <alibabacloud/models/DisableVpcClassicLinkResponseBody.hpp>
 #include <alibabacloud/models/DisableVpcClassicLinkResponse.hpp>
+#include <alibabacloud/models/DisassociateMacSecKeyRequest.hpp>
+#include <alibabacloud/models/DisassociateMacSecKeyResponseBody.hpp>
+#include <alibabacloud/models/DisassociateMacSecKeyResponse.hpp>
 #include <alibabacloud/models/DissociateRouteTableFromGatewayRequest.hpp>
 #include <alibabacloud/models/DissociateRouteTableFromGatewayResponseBody.hpp>
 #include <alibabacloud/models/DissociateRouteTableFromGatewayResponse.hpp>

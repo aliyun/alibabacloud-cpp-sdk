@@ -490,6 +490,23 @@ namespace Vpc20160428
       Models::AssociateHaVipResponse associateHaVip(const Models::AssociateHaVipRequest &request);
 
       /**
+       * @summary 关联MACSec配置到物理专线
+       *
+       * @param request AssociateMacSecKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssociateMacSecKeyResponse
+       */
+      Models::AssociateMacSecKeyResponse associateMacSecKeyWithOptions(const Models::AssociateMacSecKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关联MACSec配置到物理专线
+       *
+       * @param request AssociateMacSecKeyRequest
+       * @return AssociateMacSecKeyResponse
+       */
+      Models::AssociateMacSecKeyResponse associateMacSecKey(const Models::AssociateMacSecKeyRequest &request);
+
+      /**
        * @summary Associates a network access control list (ACL) with a vSwitch.
        *
        * @description ## [](#)Description
@@ -5510,6 +5527,23 @@ namespace Vpc20160428
        * @return DisableVpcClassicLinkResponse
        */
       Models::DisableVpcClassicLinkResponse disableVpcClassicLink(const Models::DisableVpcClassicLinkRequest &request);
+
+      /**
+       * @summary 取消关联MACSec配置到物理专线
+       *
+       * @param request DisassociateMacSecKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisassociateMacSecKeyResponse
+       */
+      Models::DisassociateMacSecKeyResponse disassociateMacSecKeyWithOptions(const Models::DisassociateMacSecKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消关联MACSec配置到物理专线
+       *
+       * @param request DisassociateMacSecKeyRequest
+       * @return DisassociateMacSecKeyResponse
+       */
+      Models::DisassociateMacSecKeyResponse disassociateMacSecKey(const Models::DisassociateMacSecKeyRequest &request);
 
       /**
        * @summary Disassociates a gateway route table from an IPv4 gateway.

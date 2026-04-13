@@ -1802,6 +1802,64 @@ AssociateHaVipResponse Client::associateHaVip(const AssociateHaVipRequest &reque
 }
 
 /**
+ * @summary 关联MACSec配置到物理专线
+ *
+ * @param request AssociateMacSecKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssociateMacSecKeyResponse
+ */
+AssociateMacSecKeyResponse Client::associateMacSecKeyWithOptions(const AssociateMacSecKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCak()) {
+    query["Cak"] = request.getCak();
+  }
+
+  if (!!request.hasCipherSuite()) {
+    query["CipherSuite"] = request.getCipherSuite();
+  }
+
+  if (!!request.hasCkn()) {
+    query["Ckn"] = request.getCkn();
+  }
+
+  if (!!request.hasPhysicalConnectionId()) {
+    query["PhysicalConnectionId"] = request.getPhysicalConnectionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AssociateMacSecKey"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssociateMacSecKeyResponse>();
+}
+
+/**
+ * @summary 关联MACSec配置到物理专线
+ *
+ * @param request AssociateMacSecKeyRequest
+ * @return AssociateMacSecKeyResponse
+ */
+AssociateMacSecKeyResponse Client::associateMacSecKey(const AssociateMacSecKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return associateMacSecKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Associates a network access control list (ACL) with a vSwitch.
  *
  * @description ## [](#)Description
@@ -20733,6 +20791,56 @@ DisableVpcClassicLinkResponse Client::disableVpcClassicLinkWithOptions(const Dis
 DisableVpcClassicLinkResponse Client::disableVpcClassicLink(const DisableVpcClassicLinkRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableVpcClassicLinkWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消关联MACSec配置到物理专线
+ *
+ * @param request DisassociateMacSecKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisassociateMacSecKeyResponse
+ */
+DisassociateMacSecKeyResponse Client::disassociateMacSecKeyWithOptions(const DisassociateMacSecKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCkn()) {
+    query["Ckn"] = request.getCkn();
+  }
+
+  if (!!request.hasPhysicalConnectionId()) {
+    query["PhysicalConnectionId"] = request.getPhysicalConnectionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisassociateMacSecKey"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisassociateMacSecKeyResponse>();
+}
+
+/**
+ * @summary 取消关联MACSec配置到物理专线
+ *
+ * @param request DisassociateMacSecKeyRequest
+ * @return DisassociateMacSecKeyResponse
+ */
+DisassociateMacSecKeyResponse Client::disassociateMacSecKey(const DisassociateMacSecKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disassociateMacSecKeyWithOptions(request, runtime);
 }
 
 /**
