@@ -81,6 +81,9 @@
 #include <alibabacloud/models/DeleteSystemPropertyTemplatesRequest.hpp>
 #include <alibabacloud/models/DeleteSystemPropertyTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DeleteSystemPropertyTemplatesResponse.hpp>
+#include <alibabacloud/models/DescribeAgentTaskRequest.hpp>
+#include <alibabacloud/models/DescribeAgentTaskResponseBody.hpp>
+#include <alibabacloud/models/DescribeAgentTaskResponse.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponse.hpp>
@@ -243,6 +246,9 @@
 #include <alibabacloud/models/ResetAndroidInstancesInGroupRequest.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupResponseBody.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupResponse.hpp>
+#include <alibabacloud/models/RunAgentTaskRequest.hpp>
+#include <alibabacloud/models/RunAgentTaskResponseBody.hpp>
+#include <alibabacloud/models/RunAgentTaskResponse.hpp>
 #include <alibabacloud/models/RunCommandRequest.hpp>
 #include <alibabacloud/models/RunCommandResponseBody.hpp>
 #include <alibabacloud/models/RunCommandResponse.hpp>

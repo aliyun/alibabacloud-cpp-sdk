@@ -507,6 +507,23 @@ namespace EdsAic20230930
       Models::DeleteSystemPropertyTemplatesResponse deleteSystemPropertyTemplates(const Models::DeleteSystemPropertyTemplatesRequest &request);
 
       /**
+       * @summary 查询具体Task的相关信息
+       *
+       * @param request DescribeAgentTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAgentTaskResponse
+       */
+      Models::DescribeAgentTaskResponse describeAgentTaskWithOptions(const Models::DescribeAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询具体Task的相关信息
+       *
+       * @param request DescribeAgentTaskRequest
+       * @return DescribeAgentTaskResponse
+       */
+      Models::DescribeAgentTaskResponse describeAgentTask(const Models::DescribeAgentTaskRequest &request);
+
+      /**
        * @summary Queries the details of an instance group.
        *
        * @param request DescribeAndroidInstanceGroupsRequest
@@ -1466,6 +1483,23 @@ namespace EdsAic20230930
        * @return ResetAndroidInstancesInGroupResponse
        */
       Models::ResetAndroidInstancesInGroupResponse resetAndroidInstancesInGroup(const Models::ResetAndroidInstancesInGroupRequest &request);
+
+      /**
+       * @summary 触发云手机内的 Agent 执行 AI 自动化任务。
+       *
+       * @param request RunAgentTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunAgentTaskResponse
+       */
+      Models::RunAgentTaskResponse runAgentTaskWithOptions(const Models::RunAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 触发云手机内的 Agent 执行 AI 自动化任务。
+       *
+       * @param request RunAgentTaskRequest
+       * @return RunAgentTaskResponse
+       */
+      Models::RunAgentTaskResponse runAgentTask(const Models::RunAgentTaskRequest &request);
 
       /**
        * @summary Executes a command on a cloud phone instance.

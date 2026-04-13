@@ -1672,6 +1672,48 @@ DeleteSystemPropertyTemplatesResponse Client::deleteSystemPropertyTemplates(cons
 }
 
 /**
+ * @summary 查询具体Task的相关信息
+ *
+ * @param request DescribeAgentTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAgentTaskResponse
+ */
+DescribeAgentTaskResponse Client::describeAgentTaskWithOptions(const DescribeAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskIds()) {
+    query["TaskIds"] = request.getTaskIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAgentTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAgentTaskResponse>();
+}
+
+/**
+ * @summary 查询具体Task的相关信息
+ *
+ * @param request DescribeAgentTaskRequest
+ * @return DescribeAgentTaskResponse
+ */
+DescribeAgentTaskResponse Client::describeAgentTask(const DescribeAgentTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAgentTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of an instance group.
  *
  * @param request DescribeAndroidInstanceGroupsRequest
@@ -4911,6 +4953,64 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroupWithOpt
 ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroup(const ResetAndroidInstancesInGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetAndroidInstancesInGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 触发云手机内的 Agent 执行 AI 自动化任务。
+ *
+ * @param request RunAgentTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunAgentTaskResponse
+ */
+RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizRegionId()) {
+    query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasMaxSteps()) {
+    query["MaxSteps"] = request.getMaxSteps();
+  }
+
+  if (!!request.hasTimeoutSeconds()) {
+    query["TimeoutSeconds"] = request.getTimeoutSeconds();
+  }
+
+  if (!!request.hasUserPrompt()) {
+    query["UserPrompt"] = request.getUserPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RunAgentTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunAgentTaskResponse>();
+}
+
+/**
+ * @summary 触发云手机内的 Agent 执行 AI 自动化任务。
+ *
+ * @param request RunAgentTaskRequest
+ * @return RunAgentTaskResponse
+ */
+RunAgentTaskResponse Client::runAgentTask(const RunAgentTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runAgentTaskWithOptions(request, runtime);
 }
 
 /**
