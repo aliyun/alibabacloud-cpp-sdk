@@ -97,9 +97,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Rerank& obj) { 
         DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+        DARABONBA_PTR_TO_JSON(RerankInstruct, rerankInstruct_);
+        DARABONBA_PTR_TO_JSON(RerankMode, rerankMode_);
       };
       friend void from_json(const Darabonba::Json& j, Rerank& obj) { 
         DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+        DARABONBA_PTR_FROM_JSON(RerankInstruct, rerankInstruct_);
+        DARABONBA_PTR_FROM_JSON(RerankMode, rerankMode_);
       };
       Rerank() = default ;
       Rerank(const Rerank &) = default ;
@@ -112,12 +116,27 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->modelName_ == nullptr; };
+      virtual bool empty() const override { return this->modelName_ == nullptr
+        && this->rerankInstruct_ == nullptr && this->rerankMode_ == nullptr; };
       // modelName Field Functions 
       bool hasModelName() const { return this->modelName_ != nullptr;};
       void deleteModelName() { this->modelName_ = nullptr;};
       inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
       inline Rerank& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+      // rerankInstruct Field Functions 
+      bool hasRerankInstruct() const { return this->rerankInstruct_ != nullptr;};
+      void deleteRerankInstruct() { this->rerankInstruct_ = nullptr;};
+      inline string getRerankInstruct() const { DARABONBA_PTR_GET_DEFAULT(rerankInstruct_, "") };
+      inline Rerank& setRerankInstruct(string rerankInstruct) { DARABONBA_PTR_SET_VALUE(rerankInstruct_, rerankInstruct) };
+
+
+      // rerankMode Field Functions 
+      bool hasRerankMode() const { return this->rerankMode_ != nullptr;};
+      void deleteRerankMode() { this->rerankMode_ = nullptr;};
+      inline string getRerankMode() const { DARABONBA_PTR_GET_DEFAULT(rerankMode_, "") };
+      inline Rerank& setRerankMode(string rerankMode) { DARABONBA_PTR_SET_VALUE(rerankMode_, rerankMode) };
 
 
     protected:
@@ -126,6 +145,8 @@ namespace Models
       // *   gte-rerank-hybrid: Recommended official model.
       // *   gte-rerank
       shared_ptr<string> modelName_ {};
+      shared_ptr<string> rerankInstruct_ {};
+      shared_ptr<string> rerankMode_ {};
     };
 
     class QueryHistory : public Darabonba::Model {

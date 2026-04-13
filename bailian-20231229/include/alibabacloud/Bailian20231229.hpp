@@ -99,6 +99,24 @@ namespace Bailian20231229
       Models::AddFilesFromAuthorizedOssResponse addFilesFromAuthorizedOss(const string &WorkspaceId, const Models::AddFilesFromAuthorizedOssRequest &request);
 
       /**
+       * @summary 添加表格
+       *
+       * @param tmpReq AddTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddTableResponse
+       */
+      Models::AddTableResponse addTableWithOptions(const string &WorkspaceId, const Models::AddTableRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加表格
+       *
+       * @param request AddTableRequest
+       * @return AddTableResponse
+       */
+      Models::AddTableResponse addTable(const string &WorkspaceId, const Models::AddTableRequest &request);
+
+      /**
        * @summary Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
        *
        * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
@@ -277,34 +295,38 @@ namespace Bailian20231229
       /**
        * @summary 删除智能体
        *
+       * @param request DeleteAgentRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAgentResponse
        */
-      Models::DeleteAgentResponse deleteAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteAgentResponse deleteAgentWithOptions(const string &workspaceId, const string &appCode, const Models::DeleteAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除智能体
        *
+       * @param request DeleteAgentRequest
        * @return DeleteAgentResponse
        */
-      Models::DeleteAgentResponse deleteAgent(const string &workspaceId, const string &appCode);
+      Models::DeleteAgentResponse deleteAgent(const string &workspaceId, const string &appCode, const Models::DeleteAgentRequest &request);
 
       /**
        * @summary Deletes a specified category permanently.
        *
+       * @param request DeleteCategoryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCategoryResponse
        */
-      Models::DeleteCategoryResponse deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteCategoryResponse deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const Models::DeleteCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a specified category permanently.
        *
+       * @param request DeleteCategoryRequest
        * @return DeleteCategoryResponse
        */
-      Models::DeleteCategoryResponse deleteCategory(const string &CategoryId, const string &WorkspaceId);
+      Models::DeleteCategoryResponse deleteCategory(const string &CategoryId, const string &WorkspaceId, const Models::DeleteCategoryRequest &request);
 
       /**
        * @summary Deletes a specified text chunk from a knowledge base. The deleted chunk cannot be retrieved or recalled.
@@ -347,18 +369,20 @@ namespace Bailian20231229
       /**
        * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
+       * @param request DeleteFileRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteFileResponse
        */
-      Models::DeleteFileResponse deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteFileResponse deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const Models::DeleteFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
+       * @param request DeleteFileRequest
        * @return DeleteFileResponse
        */
-      Models::DeleteFileResponse deleteFile(const string &FileId, const string &WorkspaceId);
+      Models::DeleteFileResponse deleteFile(const string &FileId, const string &WorkspaceId, const Models::DeleteFileRequest &request);
 
       /**
        * @summary Deletes a specified knowledge base permanently.
@@ -423,50 +447,56 @@ namespace Bailian20231229
       /**
        * @summary 删除memory
        *
+       * @param request DeleteMemoryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMemoryResponse
        */
-      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspaceId, const string &memoryId, const Models::DeleteMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除memory
        *
+       * @param request DeleteMemoryRequest
        * @return DeleteMemoryResponse
        */
-      Models::DeleteMemoryResponse deleteMemory(const string &workspaceId, const string &memoryId);
+      Models::DeleteMemoryResponse deleteMemory(const string &workspaceId, const string &memoryId, const Models::DeleteMemoryRequest &request);
 
       /**
        * @summary 删除记忆Node
        *
+       * @param request DeleteMemoryNodeRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMemoryNodeResponse
        */
-      Models::DeleteMemoryNodeResponse deleteMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteMemoryNodeResponse deleteMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const Models::DeleteMemoryNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除记忆Node
        *
+       * @param request DeleteMemoryNodeRequest
        * @return DeleteMemoryNodeResponse
        */
-      Models::DeleteMemoryNodeResponse deleteMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId);
+      Models::DeleteMemoryNodeResponse deleteMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const Models::DeleteMemoryNodeRequest &request);
 
       /**
        * @summary Deletes a prompt template based on the template ID.
        *
+       * @param request DeletePromptTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeletePromptTemplateResponse
        */
-      Models::DeletePromptTemplateResponse deletePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeletePromptTemplateResponse deletePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const Models::DeletePromptTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a prompt template based on the template ID.
        *
+       * @param request DeletePromptTemplateRequest
        * @return DeletePromptTemplateResponse
        */
-      Models::DeletePromptTemplateResponse deletePromptTemplate(const string &workspaceId, const string &promptTemplateId);
+      Models::DeletePromptTemplateResponse deletePromptTemplate(const string &workspaceId, const string &promptTemplateId, const Models::DeletePromptTemplateRequest &request);
 
       /**
        * @summary Obtains the basic information of a document, including the document name, type, and status.
@@ -476,11 +506,12 @@ namespace Bailian20231229
        * *   This operation is idempotent.
        * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
        *
+       * @param request DescribeFileRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeFileResponse
        */
-      Models::DescribeFileResponse describeFileWithOptions(const string &WorkspaceId, const string &FileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeFileResponse describeFileWithOptions(const string &WorkspaceId, const string &FileId, const Models::DescribeFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains the basic information of a document, including the document name, type, and status.
@@ -490,9 +521,10 @@ namespace Bailian20231229
        * *   This operation is idempotent.
        * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
        *
+       * @param request DescribeFileRequest
        * @return DescribeFileResponse
        */
-      Models::DescribeFileResponse describeFile(const string &WorkspaceId, const string &FileId);
+      Models::DescribeFileResponse describeFile(const string &WorkspaceId, const string &FileId, const Models::DescribeFileRequest &request);
 
       /**
        * @summary 查询支付宝打赏状态
@@ -595,34 +627,38 @@ namespace Bailian20231229
       /**
        * @summary 获取memory
        *
+       * @param request GetMemoryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMemoryResponse
        */
-      Models::GetMemoryResponse getMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetMemoryResponse getMemoryWithOptions(const string &workspaceId, const string &memoryId, const Models::GetMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取memory
        *
+       * @param request GetMemoryRequest
        * @return GetMemoryResponse
        */
-      Models::GetMemoryResponse getMemory(const string &workspaceId, const string &memoryId);
+      Models::GetMemoryResponse getMemory(const string &workspaceId, const string &memoryId, const Models::GetMemoryRequest &request);
 
       /**
        * @summary 获取记忆Node
        *
+       * @param request GetMemoryNodeRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMemoryNodeResponse
        */
-      Models::GetMemoryNodeResponse getMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetMemoryNodeResponse getMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const Models::GetMemoryNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取记忆Node
        *
+       * @param request GetMemoryNodeRequest
        * @return GetMemoryNodeResponse
        */
-      Models::GetMemoryNodeResponse getMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId);
+      Models::GetMemoryNodeResponse getMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const Models::GetMemoryNodeRequest &request);
 
       /**
        * @summary Queries the data parsing settings in a specified category.
@@ -645,34 +681,38 @@ namespace Bailian20231229
       /**
        * @summary Obtains a prompt template based on the template ID.
        *
+       * @param request GetPromptTemplateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetPromptTemplateResponse
        */
-      Models::GetPromptTemplateResponse getPromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetPromptTemplateResponse getPromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const Models::GetPromptTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains a prompt template based on the template ID.
        *
+       * @param request GetPromptTemplateRequest
        * @return GetPromptTemplateResponse
        */
-      Models::GetPromptTemplateResponse getPromptTemplate(const string &workspaceId, const string &promptTemplateId);
+      Models::GetPromptTemplateResponse getPromptTemplate(const string &workspaceId, const string &promptTemplateId, const Models::GetPromptTemplateRequest &request);
 
       /**
        * @summary 获取发布态智能体应用
        *
+       * @param request GetPublishedAgentRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetPublishedAgentResponse
        */
-      Models::GetPublishedAgentResponse getPublishedAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetPublishedAgentResponse getPublishedAgentWithOptions(const string &workspaceId, const string &appCode, const Models::GetPublishedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取发布态智能体应用
        *
+       * @param request GetPublishedAgentRequest
        * @return GetPublishedAgentResponse
        */
-      Models::GetPublishedAgentResponse getPublishedAgent(const string &workspaceId, const string &appCode);
+      Models::GetPublishedAgentResponse getPublishedAgent(const string &workspaceId, const string &appCode, const Models::GetPublishedAgentRequest &request);
 
       /**
        * @summary 高代码部署服务
@@ -1141,6 +1181,24 @@ namespace Bailian20231229
        * @return UpdatePromptTemplateResponse
        */
       Models::UpdatePromptTemplateResponse updatePromptTemplate(const string &workspaceId, const string &promptTemplateId, const Models::UpdatePromptTemplateRequest &request);
+
+      /**
+       * @summary 从oss上传table
+       *
+       * @param request UpdateTableFromAuthorizedOssRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTableFromAuthorizedOssResponse
+       */
+      Models::UpdateTableFromAuthorizedOssResponse updateTableFromAuthorizedOssWithOptions(const string &WorkspaceId, const string &TableId, const Models::UpdateTableFromAuthorizedOssRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从oss上传table
+       *
+       * @param request UpdateTableFromAuthorizedOssRequest
+       * @return UpdateTableFromAuthorizedOssResponse
+       */
+      Models::UpdateTableFromAuthorizedOssResponse updateTableFromAuthorizedOss(const string &WorkspaceId, const string &TableId, const Models::UpdateTableFromAuthorizedOssRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Bailian20231229

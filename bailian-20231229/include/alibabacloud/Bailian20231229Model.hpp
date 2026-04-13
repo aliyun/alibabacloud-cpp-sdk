@@ -13,6 +13,10 @@
 #include <alibabacloud/models/AddFilesFromAuthorizedOssShrinkRequest.hpp>
 #include <alibabacloud/models/AddFilesFromAuthorizedOssResponseBody.hpp>
 #include <alibabacloud/models/AddFilesFromAuthorizedOssResponse.hpp>
+#include <alibabacloud/models/AddTableRequest.hpp>
+#include <alibabacloud/models/AddTableShrinkRequest.hpp>
+#include <alibabacloud/models/AddTableResponseBody.hpp>
+#include <alibabacloud/models/AddTableResponse.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseRequest.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseResponseBody.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseResponse.hpp>
@@ -40,14 +44,17 @@
 #include <alibabacloud/models/CreatePromptTemplateRequest.hpp>
 #include <alibabacloud/models/CreatePromptTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreatePromptTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteAgentRequest.hpp>
 #include <alibabacloud/models/DeleteAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgentResponse.hpp>
+#include <alibabacloud/models/DeleteCategoryRequest.hpp>
 #include <alibabacloud/models/DeleteCategoryResponseBody.hpp>
 #include <alibabacloud/models/DeleteCategoryResponse.hpp>
 #include <alibabacloud/models/DeleteChunkRequest.hpp>
 #include <alibabacloud/models/DeleteChunkShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteChunkResponseBody.hpp>
 #include <alibabacloud/models/DeleteChunkResponse.hpp>
+#include <alibabacloud/models/DeleteFileRequest.hpp>
 #include <alibabacloud/models/DeleteFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteFileResponse.hpp>
 #include <alibabacloud/models/DeleteIndexRequest.hpp>
@@ -57,12 +64,16 @@
 #include <alibabacloud/models/DeleteIndexDocumentShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteIndexDocumentResponseBody.hpp>
 #include <alibabacloud/models/DeleteIndexDocumentResponse.hpp>
+#include <alibabacloud/models/DeleteMemoryRequest.hpp>
 #include <alibabacloud/models/DeleteMemoryResponseBody.hpp>
 #include <alibabacloud/models/DeleteMemoryResponse.hpp>
+#include <alibabacloud/models/DeleteMemoryNodeRequest.hpp>
 #include <alibabacloud/models/DeleteMemoryNodeResponseBody.hpp>
 #include <alibabacloud/models/DeleteMemoryNodeResponse.hpp>
+#include <alibabacloud/models/DeletePromptTemplateRequest.hpp>
 #include <alibabacloud/models/DeletePromptTemplateResponseBody.hpp>
 #include <alibabacloud/models/DeletePromptTemplateResponse.hpp>
+#include <alibabacloud/models/DescribeFileRequest.hpp>
 #include <alibabacloud/models/DescribeFileResponseBody.hpp>
 #include <alibabacloud/models/DescribeFileResponse.hpp>
 #include <alibabacloud/models/GetAlipayTransferStatusRequest.hpp>
@@ -80,15 +91,19 @@
 #include <alibabacloud/models/GetIndexMonitorRequest.hpp>
 #include <alibabacloud/models/GetIndexMonitorResponseBody.hpp>
 #include <alibabacloud/models/GetIndexMonitorResponse.hpp>
+#include <alibabacloud/models/GetMemoryRequest.hpp>
 #include <alibabacloud/models/GetMemoryResponseBody.hpp>
 #include <alibabacloud/models/GetMemoryResponse.hpp>
+#include <alibabacloud/models/GetMemoryNodeRequest.hpp>
 #include <alibabacloud/models/GetMemoryNodeResponseBody.hpp>
 #include <alibabacloud/models/GetMemoryNodeResponse.hpp>
 #include <alibabacloud/models/GetParseSettingsRequest.hpp>
 #include <alibabacloud/models/GetParseSettingsResponseBody.hpp>
 #include <alibabacloud/models/GetParseSettingsResponse.hpp>
+#include <alibabacloud/models/GetPromptTemplateRequest.hpp>
 #include <alibabacloud/models/GetPromptTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetPromptTemplateResponse.hpp>
+#include <alibabacloud/models/GetPublishedAgentRequest.hpp>
 #include <alibabacloud/models/GetPublishedAgentResponseBody.hpp>
 #include <alibabacloud/models/GetPublishedAgentResponse.hpp>
 #include <alibabacloud/models/HighCodeDeployRequest.hpp>
@@ -162,5 +177,8 @@
 #include <alibabacloud/models/UpdatePromptTemplateRequest.hpp>
 #include <alibabacloud/models/UpdatePromptTemplateResponseBody.hpp>
 #include <alibabacloud/models/UpdatePromptTemplateResponse.hpp>
+#include <alibabacloud/models/UpdateTableFromAuthorizedOssRequest.hpp>
+#include <alibabacloud/models/UpdateTableFromAuthorizedOssResponseBody.hpp>
+#include <alibabacloud/models/UpdateTableFromAuthorizedOssResponse.hpp>
 
 #endif

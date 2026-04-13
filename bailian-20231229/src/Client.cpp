@@ -264,6 +264,65 @@ AddFilesFromAuthorizedOssResponse Client::addFilesFromAuthorizedOss(const string
 }
 
 /**
+ * @summary 添加表格
+ *
+ * @param tmpReq AddTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddTableResponse
+ */
+AddTableResponse Client::addTableWithOptions(const string &WorkspaceId, const AddTableRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddTableShrinkRequest request = AddTableShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTableColumns()) {
+    request.setTableColumnsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableColumns(), "TableColumns", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
+  if (!!request.hasTableColumnsShrink()) {
+    body["TableColumns"] = request.getTableColumnsShrink();
+  }
+
+  if (!!request.hasTableName()) {
+    body["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddTable"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/table")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddTableResponse>();
+}
+
+/**
+ * @summary 添加表格
+ *
+ * @param request AddTableRequest
+ * @return AddTableResponse
+ */
+AddTableResponse Client::addTable(const string &WorkspaceId, const AddTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addTableWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
  *
  * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
@@ -603,8 +662,16 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     query["OverlapSize"] = request.getOverlapSize();
   }
 
+  if (!!request.hasRerankInstruct()) {
+    query["RerankInstruct"] = request.getRerankInstruct();
+  }
+
   if (!!request.hasRerankMinScore()) {
     query["RerankMinScore"] = request.getRerankMinScore();
+  }
+
+  if (!!request.hasRerankMode()) {
+    query["RerankMode"] = request.getRerankMode();
   }
 
   if (!!request.hasRerankModelName()) {
@@ -872,11 +939,13 @@ CreatePromptTemplateResponse Client::createPromptTemplate(const string &workspac
 /**
  * @summary 删除智能体
  *
+ * @param request DeleteAgentRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAgentResponse
  */
-DeleteAgentResponse Client::deleteAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteAgentResponse Client::deleteAgentWithOptions(const string &workspaceId, const string &appCode, const DeleteAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -897,22 +966,25 @@ DeleteAgentResponse Client::deleteAgentWithOptions(const string &workspaceId, co
 /**
  * @summary 删除智能体
  *
+ * @param request DeleteAgentRequest
  * @return DeleteAgentResponse
  */
-DeleteAgentResponse Client::deleteAgent(const string &workspaceId, const string &appCode) {
+DeleteAgentResponse Client::deleteAgent(const string &workspaceId, const string &appCode, const DeleteAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteAgentWithOptions(workspaceId, appCode, headers, runtime);
+  return deleteAgentWithOptions(workspaceId, appCode, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a specified category permanently.
  *
+ * @param request DeleteCategoryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteCategoryResponse
  */
-DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryId, const string &WorkspaceId, const DeleteCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -933,12 +1005,13 @@ DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryI
 /**
  * @summary Deletes a specified category permanently.
  *
+ * @param request DeleteCategoryRequest
  * @return DeleteCategoryResponse
  */
-DeleteCategoryResponse Client::deleteCategory(const string &CategoryId, const string &WorkspaceId) {
+DeleteCategoryResponse Client::deleteCategory(const string &CategoryId, const string &WorkspaceId, const DeleteCategoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteCategoryWithOptions(CategoryId, WorkspaceId, headers, runtime);
+  return deleteCategoryWithOptions(CategoryId, WorkspaceId, request, headers, runtime);
 }
 
 /**
@@ -1019,11 +1092,13 @@ DeleteChunkResponse Client::deleteChunk(const string &WorkspaceId, const DeleteC
 /**
  * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
+ * @param request DeleteFileRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteFileResponse
  */
-DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const string &WorkspaceId, const DeleteFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1044,12 +1119,13 @@ DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const str
 /**
  * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
+ * @param request DeleteFileRequest
  * @return DeleteFileResponse
  */
-DeleteFileResponse Client::deleteFile(const string &FileId, const string &WorkspaceId) {
+DeleteFileResponse Client::deleteFile(const string &FileId, const string &WorkspaceId, const DeleteFileRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteFileWithOptions(FileId, WorkspaceId, headers, runtime);
+  return deleteFileWithOptions(FileId, WorkspaceId, request, headers, runtime);
 }
 
 /**
@@ -1179,11 +1255,13 @@ DeleteIndexDocumentResponse Client::deleteIndexDocument(const string &WorkspaceI
 /**
  * @summary 删除memory
  *
+ * @param request DeleteMemoryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMemoryResponse
  */
-DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, const string &memoryId, const DeleteMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1204,22 +1282,25 @@ DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, 
 /**
  * @summary 删除memory
  *
+ * @param request DeleteMemoryRequest
  * @return DeleteMemoryResponse
  */
-DeleteMemoryResponse Client::deleteMemory(const string &workspaceId, const string &memoryId) {
+DeleteMemoryResponse Client::deleteMemory(const string &workspaceId, const string &memoryId, const DeleteMemoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+  return deleteMemoryWithOptions(workspaceId, memoryId, request, headers, runtime);
 }
 
 /**
  * @summary 删除记忆Node
  *
+ * @param request DeleteMemoryNodeRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMemoryNodeResponse
  */
-DeleteMemoryNodeResponse Client::deleteMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteMemoryNodeResponse Client::deleteMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const DeleteMemoryNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1240,22 +1321,25 @@ DeleteMemoryNodeResponse Client::deleteMemoryNodeWithOptions(const string &works
 /**
  * @summary 删除记忆Node
  *
+ * @param request DeleteMemoryNodeRequest
  * @return DeleteMemoryNodeResponse
  */
-DeleteMemoryNodeResponse Client::deleteMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId) {
+DeleteMemoryNodeResponse Client::deleteMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const DeleteMemoryNodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+  return deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a prompt template based on the template ID.
  *
+ * @param request DeletePromptTemplateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeletePromptTemplateResponse
  */
-DeletePromptTemplateResponse Client::deletePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeletePromptTemplateResponse Client::deletePromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const DeletePromptTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1276,12 +1360,13 @@ DeletePromptTemplateResponse Client::deletePromptTemplateWithOptions(const strin
 /**
  * @summary Deletes a prompt template based on the template ID.
  *
+ * @param request DeletePromptTemplateRequest
  * @return DeletePromptTemplateResponse
  */
-DeletePromptTemplateResponse Client::deletePromptTemplate(const string &workspaceId, const string &promptTemplateId) {
+DeletePromptTemplateResponse Client::deletePromptTemplate(const string &workspaceId, const string &promptTemplateId, const DeletePromptTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deletePromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+  return deletePromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
 }
 
 /**
@@ -1292,11 +1377,13 @@ DeletePromptTemplateResponse Client::deletePromptTemplate(const string &workspac
  * *   This operation is idempotent.
  * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
  *
+ * @param request DescribeFileRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeFileResponse
  */
-DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, const string &FileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, const string &FileId, const DescribeFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1322,12 +1409,13 @@ DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, 
  * *   This operation is idempotent.
  * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
  *
+ * @param request DescribeFileRequest
  * @return DescribeFileResponse
  */
-DescribeFileResponse Client::describeFile(const string &WorkspaceId, const string &FileId) {
+DescribeFileResponse Client::describeFile(const string &WorkspaceId, const string &FileId, const DescribeFileRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeFileWithOptions(WorkspaceId, FileId, headers, runtime);
+  return describeFileWithOptions(WorkspaceId, FileId, request, headers, runtime);
 }
 
 /**
@@ -1594,11 +1682,13 @@ GetIndexMonitorResponse Client::getIndexMonitor(const string &WorkspaceId, const
 /**
  * @summary 获取memory
  *
+ * @param request GetMemoryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMemoryResponse
  */
-GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const string &memoryId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const string &memoryId, const GetMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1619,22 +1709,25 @@ GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const 
 /**
  * @summary 获取memory
  *
+ * @param request GetMemoryRequest
  * @return GetMemoryResponse
  */
-GetMemoryResponse Client::getMemory(const string &workspaceId, const string &memoryId) {
+GetMemoryResponse Client::getMemory(const string &workspaceId, const string &memoryId, const GetMemoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+  return getMemoryWithOptions(workspaceId, memoryId, request, headers, runtime);
 }
 
 /**
  * @summary 获取记忆Node
  *
+ * @param request GetMemoryNodeRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMemoryNodeResponse
  */
-GetMemoryNodeResponse Client::getMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetMemoryNodeResponse Client::getMemoryNodeWithOptions(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const GetMemoryNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1655,12 +1748,13 @@ GetMemoryNodeResponse Client::getMemoryNodeWithOptions(const string &workspaceId
 /**
  * @summary 获取记忆Node
  *
+ * @param request GetMemoryNodeRequest
  * @return GetMemoryNodeResponse
  */
-GetMemoryNodeResponse Client::getMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId) {
+GetMemoryNodeResponse Client::getMemoryNode(const string &workspaceId, const string &memoryId, const string &memoryNodeId, const GetMemoryNodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+  return getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
 }
 
 /**
@@ -1711,11 +1805,13 @@ GetParseSettingsResponse Client::getParseSettings(const string &WorkspaceId, con
 /**
  * @summary Obtains a prompt template based on the template ID.
  *
+ * @param request GetPromptTemplateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPromptTemplateResponse
  */
-GetPromptTemplateResponse Client::getPromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetPromptTemplateResponse Client::getPromptTemplateWithOptions(const string &workspaceId, const string &promptTemplateId, const GetPromptTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1736,22 +1832,25 @@ GetPromptTemplateResponse Client::getPromptTemplateWithOptions(const string &wor
 /**
  * @summary Obtains a prompt template based on the template ID.
  *
+ * @param request GetPromptTemplateRequest
  * @return GetPromptTemplateResponse
  */
-GetPromptTemplateResponse Client::getPromptTemplate(const string &workspaceId, const string &promptTemplateId) {
+GetPromptTemplateResponse Client::getPromptTemplate(const string &workspaceId, const string &promptTemplateId, const GetPromptTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getPromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+  return getPromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
 }
 
 /**
  * @summary 获取发布态智能体应用
  *
+ * @param request GetPublishedAgentRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPublishedAgentResponse
  */
-GetPublishedAgentResponse Client::getPublishedAgentWithOptions(const string &workspaceId, const string &appCode, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetPublishedAgentResponse Client::getPublishedAgentWithOptions(const string &workspaceId, const string &appCode, const GetPublishedAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1772,12 +1871,13 @@ GetPublishedAgentResponse Client::getPublishedAgentWithOptions(const string &wor
 /**
  * @summary 获取发布态智能体应用
  *
+ * @param request GetPublishedAgentRequest
  * @return GetPublishedAgentResponse
  */
-GetPublishedAgentResponse Client::getPublishedAgent(const string &workspaceId, const string &appCode) {
+GetPublishedAgentResponse Client::getPublishedAgent(const string &workspaceId, const string &appCode, const GetPublishedAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getPublishedAgentWithOptions(workspaceId, appCode, headers, runtime);
+  return getPublishedAgentWithOptions(workspaceId, appCode, request, headers, runtime);
 }
 
 /**
@@ -3206,6 +3306,63 @@ UpdatePromptTemplateResponse Client::updatePromptTemplate(const string &workspac
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updatePromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
+}
+
+/**
+ * @summary 从oss上传table
+ *
+ * @param request UpdateTableFromAuthorizedOssRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTableFromAuthorizedOssResponse
+ */
+UpdateTableFromAuthorizedOssResponse Client::updateTableFromAuthorizedOssWithOptions(const string &WorkspaceId, const string &TableId, const UpdateTableFromAuthorizedOssRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasOssBucket()) {
+    body["OssBucket"] = request.getOssBucket();
+  }
+
+  if (!!request.hasOssKey()) {
+    body["OssKey"] = request.getOssKey();
+  }
+
+  if (!!request.hasOssRegionId()) {
+    body["OssRegionId"] = request.getOssRegionId();
+  }
+
+  if (!!request.hasUpdateMode()) {
+    body["UpdateMode"] = request.getUpdateMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTableFromAuthorizedOss"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/table/fromoss/" , Darabonba::Encode::Encoder::percentEncode(TableId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTableFromAuthorizedOssResponse>();
+}
+
+/**
+ * @summary 从oss上传table
+ *
+ * @param request UpdateTableFromAuthorizedOssRequest
+ * @return UpdateTableFromAuthorizedOssResponse
+ */
+UpdateTableFromAuthorizedOssResponse Client::updateTableFromAuthorizedOss(const string &WorkspaceId, const string &TableId, const UpdateTableFromAuthorizedOssRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateTableFromAuthorizedOssWithOptions(WorkspaceId, TableId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Bailian20231229

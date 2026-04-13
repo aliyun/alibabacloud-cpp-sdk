@@ -23,7 +23,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableRewrite, enableRewrite_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OverlapSize, overlapSize_);
+      DARABONBA_PTR_TO_JSON(RerankInstruct, rerankInstruct_);
       DARABONBA_PTR_TO_JSON(RerankMinScore, rerankMinScore_);
+      DARABONBA_PTR_TO_JSON(RerankMode, rerankMode_);
       DARABONBA_PTR_TO_JSON(RerankModelName, rerankModelName_);
       DARABONBA_PTR_TO_JSON(Separator, separator_);
       DARABONBA_PTR_TO_JSON(SinkInstanceId, sinkInstanceId_);
@@ -57,7 +59,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableRewrite, enableRewrite_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OverlapSize, overlapSize_);
+      DARABONBA_PTR_FROM_JSON(RerankInstruct, rerankInstruct_);
       DARABONBA_PTR_FROM_JSON(RerankMinScore, rerankMinScore_);
+      DARABONBA_PTR_FROM_JSON(RerankMode, rerankMode_);
       DARABONBA_PTR_FROM_JSON(RerankModelName, rerankModelName_);
       DARABONBA_PTR_FROM_JSON(Separator, separator_);
       DARABONBA_PTR_FROM_JSON(SinkInstanceId, sinkInstanceId_);
@@ -93,12 +97,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryIdsShrink_ == nullptr
         && this->chunkSize_ == nullptr && this->columnsShrink_ == nullptr && this->createIndexType_ == nullptr && this->description_ == nullptr && this->documentIdsShrink_ == nullptr
-        && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->rerankMinScore_ == nullptr
-        && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr
-        && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIdsShrink_ == nullptr && this->channelType_ == nullptr && this->chunkMode_ == nullptr
-        && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr && this->enableHeaders_ == nullptr && this->knowledgeScene_ == nullptr
-        && this->knowledgeType_ == nullptr && this->metaExtractColumnsShrink_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr
-        && this->table_ == nullptr; };
+        && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->rerankInstruct_ == nullptr
+        && this->rerankMinScore_ == nullptr && this->rerankMode_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr
+        && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->tableIdsShrink_ == nullptr
+        && this->channelType_ == nullptr && this->chunkMode_ == nullptr && this->connectId_ == nullptr && this->database_ == nullptr && this->datasourceCode_ == nullptr
+        && this->enableHeaders_ == nullptr && this->knowledgeScene_ == nullptr && this->knowledgeType_ == nullptr && this->metaExtractColumnsShrink_ == nullptr && this->pipelineCommercialCu_ == nullptr
+        && this->pipelineCommercialType_ == nullptr && this->pipelineRetrieveRateLimitStrategy_ == nullptr && this->table_ == nullptr; };
     // categoryIdsShrink Field Functions 
     bool hasCategoryIdsShrink() const { return this->categoryIdsShrink_ != nullptr;};
     void deleteCategoryIdsShrink() { this->categoryIdsShrink_ = nullptr;};
@@ -169,11 +173,25 @@ namespace Models
     inline CreateIndexShrinkRequest& setOverlapSize(int32_t overlapSize) { DARABONBA_PTR_SET_VALUE(overlapSize_, overlapSize) };
 
 
+    // rerankInstruct Field Functions 
+    bool hasRerankInstruct() const { return this->rerankInstruct_ != nullptr;};
+    void deleteRerankInstruct() { this->rerankInstruct_ = nullptr;};
+    inline string getRerankInstruct() const { DARABONBA_PTR_GET_DEFAULT(rerankInstruct_, "") };
+    inline CreateIndexShrinkRequest& setRerankInstruct(string rerankInstruct) { DARABONBA_PTR_SET_VALUE(rerankInstruct_, rerankInstruct) };
+
+
     // rerankMinScore Field Functions 
     bool hasRerankMinScore() const { return this->rerankMinScore_ != nullptr;};
     void deleteRerankMinScore() { this->rerankMinScore_ = nullptr;};
     inline double getRerankMinScore() const { DARABONBA_PTR_GET_DEFAULT(rerankMinScore_, 0.0) };
     inline CreateIndexShrinkRequest& setRerankMinScore(double rerankMinScore) { DARABONBA_PTR_SET_VALUE(rerankMinScore_, rerankMinScore) };
+
+
+    // rerankMode Field Functions 
+    bool hasRerankMode() const { return this->rerankMode_ != nullptr;};
+    void deleteRerankMode() { this->rerankMode_ = nullptr;};
+    inline string getRerankMode() const { DARABONBA_PTR_GET_DEFAULT(rerankMode_, "") };
+    inline CreateIndexShrinkRequest& setRerankMode(string rerankMode) { DARABONBA_PTR_SET_VALUE(rerankMode_, rerankMode) };
 
 
     // rerankModelName Field Functions 
@@ -363,10 +381,12 @@ namespace Models
     // 
     // > `OverlapSize` must be less than `ChunkSize`. Otherwise, chunking errors may occur.
     shared_ptr<int32_t> overlapSize_ {};
+    shared_ptr<string> rerankInstruct_ {};
     // The similarity threshold. Only chunks with a similarity score higher than this value can be recalled. This parameter is used to filter chunks returned by the re-rank model. Valid values: 0.01 to 1.00.
     // 
     // Default value: 0.01.
     shared_ptr<double> rerankMinScore_ {};
+    shared_ptr<string> rerankMode_ {};
     // The re-ranking model used in the knowledge base. The re-rank model is a scoring system outside the knowledge base. It calculates the similarity score of the query and text chunks in the knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. Valid values:
     // 
     // *   gte-rerank-hybrid
