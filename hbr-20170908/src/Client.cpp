@@ -3885,7 +3885,6 @@ DescribeRecoverableOtsInstancesResponse Client::describeRecoverableOtsInstances(
 /**
  * @summary Queries available regions.
  *
- * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
  */
@@ -4861,6 +4860,10 @@ ListProtectedResourcesResponse Client::listProtectedResourcesWithOptions(const L
     query["CreatedByProduct"] = request.getCreatedByProduct();
   }
 
+  if (!!request.hasHasSnapshot()) {
+    query["HasSnapshot"] = request.getHasSnapshot();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }
@@ -4912,7 +4915,6 @@ ListProtectedResourcesResponse Client::listProtectedResources(const ListProtecte
 /**
  * @summary Activates Cloud Backup.
  *
- * @param request OpenHbrServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenHbrServiceResponse
  */

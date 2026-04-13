@@ -1105,7 +1105,6 @@ namespace Hbr20170908
       /**
        * @summary Queries available regions.
        *
-       * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
        */
@@ -1440,7 +1439,6 @@ namespace Hbr20170908
       /**
        * @summary Activates Cloud Backup.
        *
-       * @param request OpenHbrServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return OpenHbrServiceResponse
        */

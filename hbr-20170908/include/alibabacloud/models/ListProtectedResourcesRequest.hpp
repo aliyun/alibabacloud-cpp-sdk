@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListProtectedResourcesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreatedByProduct, createdByProduct_);
+      DARABONBA_PTR_TO_JSON(HasSnapshot, hasSnapshot_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListProtectedResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreatedByProduct, createdByProduct_);
+      DARABONBA_PTR_FROM_JSON(HasSnapshot, hasSnapshot_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdByProduct_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceId_ == nullptr && this->skip_ == nullptr && this->sourceType_ == nullptr; };
+        && this->hasSnapshot_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceId_ == nullptr && this->skip_ == nullptr
+        && this->sourceType_ == nullptr; };
     // createdByProduct Field Functions 
     bool hasCreatedByProduct() const { return this->createdByProduct_ != nullptr;};
     void deleteCreatedByProduct() { this->createdByProduct_ = nullptr;};
     inline string getCreatedByProduct() const { DARABONBA_PTR_GET_DEFAULT(createdByProduct_, "") };
     inline ListProtectedResourcesRequest& setCreatedByProduct(string createdByProduct) { DARABONBA_PTR_SET_VALUE(createdByProduct_, createdByProduct) };
+
+
+    // hasSnapshot Field Functions 
+    bool hasHasSnapshot() const { return this->hasSnapshot_ != nullptr;};
+    void deleteHasSnapshot() { this->hasSnapshot_ = nullptr;};
+    inline bool getHasSnapshot() const { DARABONBA_PTR_GET_DEFAULT(hasSnapshot_, false) };
+    inline ListProtectedResourcesRequest& setHasSnapshot(bool hasSnapshot) { DARABONBA_PTR_SET_VALUE(hasSnapshot_, hasSnapshot) };
 
 
     // maxResults Field Functions 
@@ -85,6 +95,7 @@ namespace Models
 
   protected:
     shared_ptr<string> createdByProduct_ {};
+    shared_ptr<bool> hasSnapshot_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> resourceId_ {};

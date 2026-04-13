@@ -47,20 +47,24 @@ namespace Models
     class ProtectedResources : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ProtectedResources& obj) { 
+        DARABONBA_PTR_TO_JSON(BackupPlanCount, backupPlanCount_);
         DARABONBA_PTR_TO_JSON(CreatedByProduct, createdByProduct_);
         DARABONBA_PTR_TO_JSON(ProtectedDataSize, protectedDataSize_);
         DARABONBA_PTR_TO_JSON(ProtectedResourceId, protectedResourceId_);
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+        DARABONBA_PTR_TO_JSON(ResourceRegionId, resourceRegionId_);
         DARABONBA_PTR_TO_JSON(SnapshotCount, snapshotCount_);
         DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       };
       friend void from_json(const Darabonba::Json& j, ProtectedResources& obj) { 
+        DARABONBA_PTR_FROM_JSON(BackupPlanCount, backupPlanCount_);
         DARABONBA_PTR_FROM_JSON(CreatedByProduct, createdByProduct_);
         DARABONBA_PTR_FROM_JSON(ProtectedDataSize, protectedDataSize_);
         DARABONBA_PTR_FROM_JSON(ProtectedResourceId, protectedResourceId_);
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+        DARABONBA_PTR_FROM_JSON(ResourceRegionId, resourceRegionId_);
         DARABONBA_PTR_FROM_JSON(SnapshotCount, snapshotCount_);
         DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       };
@@ -75,9 +79,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createdByProduct_ == nullptr
-        && this->protectedDataSize_ == nullptr && this->protectedResourceId_ == nullptr && this->resourceId_ == nullptr && this->resourceOwnerId_ == nullptr && this->snapshotCount_ == nullptr
-        && this->sourceType_ == nullptr; };
+      virtual bool empty() const override { return this->backupPlanCount_ == nullptr
+        && this->createdByProduct_ == nullptr && this->protectedDataSize_ == nullptr && this->protectedResourceId_ == nullptr && this->resourceId_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->resourceRegionId_ == nullptr && this->snapshotCount_ == nullptr && this->sourceType_ == nullptr; };
+      // backupPlanCount Field Functions 
+      bool hasBackupPlanCount() const { return this->backupPlanCount_ != nullptr;};
+      void deleteBackupPlanCount() { this->backupPlanCount_ = nullptr;};
+      inline int64_t getBackupPlanCount() const { DARABONBA_PTR_GET_DEFAULT(backupPlanCount_, 0L) };
+      inline ProtectedResources& setBackupPlanCount(int64_t backupPlanCount) { DARABONBA_PTR_SET_VALUE(backupPlanCount_, backupPlanCount) };
+
+
       // createdByProduct Field Functions 
       bool hasCreatedByProduct() const { return this->createdByProduct_ != nullptr;};
       void deleteCreatedByProduct() { this->createdByProduct_ = nullptr;};
@@ -113,6 +124,13 @@ namespace Models
       inline ProtectedResources& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+      // resourceRegionId Field Functions 
+      bool hasResourceRegionId() const { return this->resourceRegionId_ != nullptr;};
+      void deleteResourceRegionId() { this->resourceRegionId_ = nullptr;};
+      inline string getResourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
+      inline ProtectedResources& setResourceRegionId(string resourceRegionId) { DARABONBA_PTR_SET_VALUE(resourceRegionId_, resourceRegionId) };
+
+
       // snapshotCount Field Functions 
       bool hasSnapshotCount() const { return this->snapshotCount_ != nullptr;};
       void deleteSnapshotCount() { this->snapshotCount_ = nullptr;};
@@ -128,11 +146,13 @@ namespace Models
 
 
     protected:
+      shared_ptr<int64_t> backupPlanCount_ {};
       shared_ptr<string> createdByProduct_ {};
       shared_ptr<int64_t> protectedDataSize_ {};
       shared_ptr<string> protectedResourceId_ {};
       shared_ptr<string> resourceId_ {};
       shared_ptr<int64_t> resourceOwnerId_ {};
+      shared_ptr<string> resourceRegionId_ {};
       shared_ptr<int64_t> snapshotCount_ {};
       shared_ptr<string> sourceType_ {};
     };
