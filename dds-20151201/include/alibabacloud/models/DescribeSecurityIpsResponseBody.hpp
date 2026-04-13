@@ -100,11 +100,8 @@ namespace Models
 
 
       protected:
-        // The attribute of the IP address whitelist.
         shared_ptr<string> securityIpGroupAttribute_ {};
-        // The name of the IP whitelist.
         shared_ptr<string> securityIpGroupName_ {};
-        // The name of the IP whitelist.
         shared_ptr<string> securityIpList_ {};
       };
 
@@ -150,7 +147,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the information of IP whitelists.
     shared_ptr<DescribeSecurityIpsResponseBody::SecurityIpGroups> securityIpGroups_ {};
     // The IP addresses in the default whitelist.
     shared_ptr<string> securityIps_ {};

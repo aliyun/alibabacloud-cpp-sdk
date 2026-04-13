@@ -170,25 +170,15 @@ namespace Models
 
 
       protected:
-        // The username of the database account that performs the operation.
         shared_ptr<string> accountName_ {};
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The number of documents that are scanned during the operation.
         shared_ptr<int64_t> docsExamined_ {};
-        // The start time of the operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> executionStartTime_ {};
-        // The host IP address that is used to connect to the database.
         shared_ptr<string> hostAddress_ {};
-        // The number of rows involved in index scans.
         shared_ptr<int64_t> keysExamined_ {};
-        // The execution time of the statement. Unit: milliseconds.
         shared_ptr<string> queryTimes_ {};
-        // The number of rows returned by the SQL statement.
         shared_ptr<int64_t> returnRowCounts_ {};
-        // The SQL statement that is executed during the slow operation.
         shared_ptr<string> SQLText_ {};
-        // The name of the collection.
         shared_ptr<string> tableName_ {};
       };
 
@@ -255,7 +245,6 @@ namespace Models
   protected:
     // The database engine.
     shared_ptr<string> engine_ {};
-    // An array that consists of the information about each slow query.
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
     // The page number of the returned page. The value is a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

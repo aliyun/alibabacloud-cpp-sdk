@@ -19,7 +19,7 @@ namespace Dds20151201
 AlibabaCloud::Dds20151201::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-qingdao" , "mongodb.aliyuncs.com"},
+    {"cn-qingdao" , "mongodb.cn-qingdao.aliyuncs.com"},
     {"cn-beijing" , "mongodb.aliyuncs.com"},
     {"cn-zhangjiakou" , "mongodb.cn-zhangjiakou.aliyuncs.com"},
     {"cn-huhehaote" , "mongodb.cn-huhehaote.aliyuncs.com"},
@@ -47,7 +47,7 @@ AlibabaCloud::Dds20151201::Client::Client(Config &config): OpenApiClient(config)
     {"cn-shenzhen-finance-1" , "mongodb.cn-shenzhen-finance-1.aliyuncs.com"},
     {"cn-north-2-gov-1" , "mongodb.cn-north-2-gov-1.aliyuncs.com"},
     {"ap-northeast-2-pop" , "mongodb.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "mongodb.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "mongodb.cn-beijing-finance-1.aliyuncs.com"},
     {"cn-beijing-finance-pop" , "mongodb.aliyuncs.com"},
     {"cn-beijing-gov-1" , "mongodb.aliyuncs.com"},
     {"cn-beijing-nu16-b01" , "mongodb.aliyuncs.com"},
@@ -97,6 +97,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+ *
  * @param request AllocateDBInstanceSrvNetworkAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AllocateDBInstanceSrvNetworkAddressResponse
@@ -150,6 +152,8 @@ AllocateDBInstanceSrvNetworkAddressResponse Client::allocateDBInstanceSrvNetwork
 }
 
 /**
+ * @summary Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+ *
  * @param request AllocateDBInstanceSrvNetworkAddressRequest
  * @return AllocateDBInstanceSrvNetworkAddressResponse
  */
@@ -359,7 +363,7 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasks(const Canc
 }
 
 /**
- * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+ * @summary Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
  *
  * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
  *
@@ -412,7 +416,7 @@ CheckCloudResourceAuthorizedResponse Client::checkCloudResourceAuthorizedWithOpt
 }
 
 /**
- * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+ * @summary Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
  *
  * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
  *
@@ -529,7 +533,7 @@ CheckRecoveryConditionResponse Client::checkRecoveryCondition(const CheckRecover
 }
 
 /**
- * @summary Queries whether a service-linked role is created.
+ * @summary Checks whether a service-linked role (SLR) is created for an instance.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -568,7 +572,7 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRoleWithOptions(const C
 }
 
 /**
- * @summary Queries whether a service-linked role is created.
+ * @summary Checks whether a service-linked role (SLR) is created for an instance.
  *
  * @param request CheckServiceLinkedRoleRequest
  * @return CheckServiceLinkedRoleResponse
@@ -1469,7 +1473,7 @@ CreateShardingDBInstanceResponse Client::createShardingDBInstance(const CreateSh
 }
 
 /**
- * @summary 删除MongoDB备份集
+ * @summary Deletes the backup set of MongoDB.
  *
  * @param request DeleteBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1520,7 +1524,7 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 }
 
 /**
- * @summary 删除MongoDB备份集
+ * @summary Deletes the backup set of MongoDB.
  *
  * @param request DeleteBackupRequest
  * @return DeleteBackupResponse
@@ -2003,6 +2007,8 @@ DescribeActiveOperationTaskCountResponse Client::describeActiveOperationTaskCoun
 }
 
 /**
+ * @summary Query maintenance task types and task quantities.
+ *
  * @param request DescribeActiveOperationTaskRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeActiveOperationTaskRegionResponse
@@ -2052,6 +2058,8 @@ DescribeActiveOperationTaskRegionResponse Client::describeActiveOperationTaskReg
 }
 
 /**
+ * @summary Query maintenance task types and task quantities.
+ *
  * @param request DescribeActiveOperationTaskRegionRequest
  * @return DescribeActiveOperationTaskRegionResponse
  */
@@ -2593,7 +2601,7 @@ DescribeAvailabilityZonesResponse Client::describeAvailabilityZones(const Descri
 }
 
 /**
- * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+ * @summary Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
  *
  * @param request DescribeAvailableEngineVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2640,7 +2648,7 @@ DescribeAvailableEngineVersionResponse Client::describeAvailableEngineVersionWit
 }
 
 /**
- * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+ * @summary Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
  *
  * @param request DescribeAvailableEngineVersionRequest
  * @return DescribeAvailableEngineVersionResponse
@@ -2909,7 +2917,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+ * @summary Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
  *
  * @param request DescribeBackupStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2964,7 +2972,7 @@ DescribeBackupStorageResponse Client::describeBackupStorageWithOptions(const Des
 }
 
 /**
- * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+ * @summary Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
  *
  * @param request DescribeBackupStorageRequest
  * @return DescribeBackupStorageResponse
@@ -3136,6 +3144,104 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeBackupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries binary log files bound to an ApsaraDB for MongoDB instance.
+ *
+ * @param request DescribeBinlogFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBinlogFilesResponse
+ */
+DescribeBinlogFilesResponse Client::describeBinlogFilesWithOptions(const DescribeBinlogFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBinlogId()) {
+    query["BinlogId"] = request.getBinlogId();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasDestRegion()) {
+    query["DestRegion"] = request.getDestRegion();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasNodeId()) {
+    query["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSrcRegion()) {
+    query["SrcRegion"] = request.getSrcRegion();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBinlogFiles"},
+    {"version" , "2015-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBinlogFilesResponse>();
+}
+
+/**
+ * @summary Queries binary log files bound to an ApsaraDB for MongoDB instance.
+ *
+ * @param request DescribeBinlogFilesRequest
+ * @return DescribeBinlogFilesResponse
+ */
+DescribeBinlogFilesResponse Client::describeBinlogFiles(const DescribeBinlogFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBinlogFilesWithOptions(request, runtime);
 }
 
 /**
@@ -3675,7 +3781,7 @@ DescribeDBInstanceSSLResponse Client::describeDBInstanceSSL(const DescribeDBInst
 }
 
 /**
- * @summary 查看规格信息详情
+ * @summary Queries the specifications of an ApsaraDB for MongoDB instance.
  *
  * @param request DescribeDBInstanceSpecInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3726,7 +3832,7 @@ DescribeDBInstanceSpecInfoResponse Client::describeDBInstanceSpecInfoWithOptions
 }
 
 /**
- * @summary 查看规格信息详情
+ * @summary Queries the specifications of an ApsaraDB for MongoDB instance.
  *
  * @param request DescribeDBInstanceSpecInfoRequest
  * @return DescribeDBInstanceSpecInfoResponse
@@ -5669,7 +5775,7 @@ DescribeRoleZoneInfoResponse Client::describeRoleZoneInfo(const DescribeRoleZone
 }
 
 /**
- * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+ * @summary Queries the operational logs of an ApsaraDB for MongoDB instance.
  *
  * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
  * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
@@ -5767,7 +5873,7 @@ DescribeRunningLogRecordsResponse Client::describeRunningLogRecordsWithOptions(c
 }
 
 /**
- * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+ * @summary Queries the operational logs of an ApsaraDB for MongoDB instance.
  *
  * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
  * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
@@ -5781,7 +5887,7 @@ DescribeRunningLogRecordsResponse Client::describeRunningLogRecords(const Descri
 }
 
 /**
- * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+ * @summary Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
  *
  * @param request DescribeSecurityGroupConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5828,7 +5934,7 @@ DescribeSecurityGroupConfigurationResponse Client::describeSecurityGroupConfigur
 }
 
 /**
- * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+ * @summary Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
  *
  * @param request DescribeSecurityGroupConfigurationRequest
  * @return DescribeSecurityGroupConfigurationResponse
@@ -6779,6 +6885,8 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
+ * @summary Modifies the O\\\\\\&M task configurations for an instance.
+ *
  * @param request ModifyActiveOperationMaintenanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyActiveOperationMaintenanceConfigResponse
@@ -6840,6 +6948,8 @@ ModifyActiveOperationMaintenanceConfigResponse Client::modifyActiveOperationMain
 }
 
 /**
+ * @summary Modifies the O\\\\\\&M task configurations for an instance.
+ *
  * @param request ModifyActiveOperationMaintenanceConfigRequest
  * @return ModifyActiveOperationMaintenanceConfigResponse
  */
@@ -6849,7 +6959,7 @@ ModifyActiveOperationMaintenanceConfigResponse Client::modifyActiveOperationMain
 }
 
 /**
- * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+ * @summary Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
  *
  * @param request ModifyActiveOperationTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6908,7 +7018,7 @@ ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions
 }
 
 /**
- * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+ * @summary Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
  *
  * @param request ModifyActiveOperationTasksRequest
  * @return ModifyActiveOperationTasksResponse
@@ -7017,6 +7127,10 @@ ModifyAuditPolicyResponse Client::modifyAuditPolicyWithOptions(const ModifyAudit
     query["DBInstanceId"] = request.getDBInstanceId();
   }
 
+  if (!!request.hasHotStoragePeriod()) {
+    query["HotStoragePeriod"] = request.getHotStoragePeriod();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.getOwnerAccount();
   }
@@ -7073,7 +7187,7 @@ ModifyAuditPolicyResponse Client::modifyAuditPolicy(const ModifyAuditPolicyReque
 }
 
 /**
- * @summary 修改MongoDB备份集的过期时间
+ * @summary Modifies the expiration time of MongoDB backup sets
  *
  * @param request ModifyBackupExpireTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7128,7 +7242,7 @@ ModifyBackupExpireTimeResponse Client::modifyBackupExpireTimeWithOptions(const M
 }
 
 /**
- * @summary 修改MongoDB备份集的过期时间
+ * @summary Modifies the expiration time of MongoDB backup sets
  *
  * @param request ModifyBackupExpireTimeRequest
  * @return ModifyBackupExpireTimeResponse
@@ -7281,6 +7395,8 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
+ * @summary Modifies existing release protection configurations.
+ *
  * @param request ModifyDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDBInstanceAttributeResponse
@@ -7330,6 +7446,8 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttributeWithOptions(c
 }
 
 /**
+ * @summary Modifies existing release protection configurations.
+ *
  * @param request ModifyDBInstanceAttributeRequest
  * @return ModifyDBInstanceAttributeResponse
  */
@@ -7339,7 +7457,7 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttribute(const Modify
 }
 
 /**
- * @summary 修改实例配置
+ * @summary Modifies the configurations of an ApsaraDB for MongoDB instance.
  *
  * @param request ModifyDBInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7394,7 +7512,7 @@ ModifyDBInstanceConfigResponse Client::modifyDBInstanceConfigWithOptions(const M
 }
 
 /**
- * @summary 修改实例配置
+ * @summary Modifies the configurations of an ApsaraDB for MongoDB instance.
  *
  * @param request ModifyDBInstanceConfigRequest
  * @return ModifyDBInstanceConfigResponse
@@ -7426,6 +7544,14 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
     query["DBInstanceId"] = request.getDBInstanceId();
   }
 
+  if (!!request.hasForceModifySuffix()) {
+    query["ForceModifySuffix"] = request.getForceModifySuffix();
+  }
+
+  if (!!request.hasNetworkType()) {
+    query["NetworkType"] = request.getNetworkType();
+  }
+
   if (!!request.hasNewConnectionString()) {
     query["NewConnectionString"] = request.getNewConnectionString();
   }
@@ -7444,6 +7570,10 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPortModifyOnly()) {
+    query["PortModifyOnly"] = request.getPortModifyOnly();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -9135,7 +9265,7 @@ ModifySecurityIpsResponse Client::modifySecurityIps(const ModifySecurityIpsReque
 }
 
 /**
- * @summary 修改MongoDB实例的SRV连接地址
+ * @summary Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
  *
  * @param request ModifySrvNetworkAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9190,7 +9320,7 @@ ModifySrvNetworkAddressResponse Client::modifySrvNetworkAddressWithOptions(const
 }
 
 /**
- * @summary 修改MongoDB实例的SRV连接地址
+ * @summary Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
  *
  * @param request ModifySrvNetworkAddressRequest
  * @return ModifySrvNetworkAddressResponse

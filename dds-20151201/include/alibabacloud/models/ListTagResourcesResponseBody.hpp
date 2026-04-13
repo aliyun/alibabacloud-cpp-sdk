@@ -109,13 +109,9 @@ namespace Models
 
 
       protected:
-        // The ID of the resource. It is the ID of the ApsaraDB for MongoDB instance.
         shared_ptr<string> resourceId_ {};
-        // The resource type. The return value is fixed to **ALIYUN: KVSTORE: INSTANCE**, indicating an ApsaraDB for MongoDB instance.
         shared_ptr<string> resourceType_ {};
-        // The key of the tag.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -165,7 +161,6 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Details about the tags of the instance.
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };
 

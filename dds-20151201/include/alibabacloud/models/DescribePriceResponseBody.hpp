@@ -251,21 +251,13 @@ namespace Models
 
 
           protected:
-            // The additional activity information.
             Darabonba::Json activityExtInfo_ {};
-            // The sub-type of the promotion.
             shared_ptr<string> derivedPromType_ {};
-            // The discount amount.
             shared_ptr<double> finalPromFee_ {};
-            // The code of the coupon.
             shared_ptr<string> optionCode_ {};
-            // The sub-type of the promotion.
             shared_ptr<string> promType_ {};
-            // The coupon code.
             shared_ptr<string> promotionCode_ {};
-            // The promotion ID.
             shared_ptr<int64_t> promotionId_ {};
-            // The name of the promotional activity.
             shared_ptr<string> promotionName_ {};
           };
 
@@ -485,25 +477,15 @@ namespace Models
 
 
           protected:
-            // The activity type.
             shared_ptr<string> activityCategory_ {};
-            // The additional activity information.
             Darabonba::Json activityExtInfo_ {};
-            // The amount that can be deducted by using the coupon.
             shared_ptr<double> canPromFee_ {};
-            // The promotion type.
             shared_ptr<string> optionCode_ {};
-            // The promotion name.
             shared_ptr<string> promotionName_ {};
-            // The promotion ID.
             shared_ptr<string> promotionOptionNo_ {};
-            // The promotion IDs.
             shared_ptr<OptionalPromotion::PromotionRuleIdList> promotionRuleIdList_ {};
-            // Indicates whether
             shared_ptr<bool> selected_ {};
-            // Indicates whether the discount is displayed.
             shared_ptr<bool> show_ {};
-            // The specification codes of the product.
             shared_ptr<OptionalPromotion::TargetArticleItemCodes> targetArticleItemCodes_ {};
           };
 
@@ -707,21 +689,13 @@ namespace Models
 
 
               protected:
-                // The additional promotion information.
                 Darabonba::Json activityExtInfo_ {};
-                // The sub-type of the promotion.
                 shared_ptr<string> derivedPromType_ {};
-                // The discount amount.
                 shared_ptr<double> finalPromFee_ {};
-                // The code of the commodity to which the coupon can be applied.
                 shared_ptr<string> optionCode_ {};
-                // The sub-type of the promotion.
                 shared_ptr<string> promType_ {};
-                // The coupon code.
                 shared_ptr<string> promotionCode_ {};
-                // The ID of the promotional activity.
                 shared_ptr<int64_t> promotionId_ {};
-                // The promotional activity name.
                 shared_ptr<string> promotionName_ {};
               };
 
@@ -814,13 +788,9 @@ namespace Models
 
 
               protected:
-                // The attribute code.
                 shared_ptr<string> code_ {};
-                // The attribute name.
                 shared_ptr<string> name_ {};
-                // The attribute type.
                 shared_ptr<string> type_ {};
-                // The attribute value.
                 shared_ptr<string> value_ {};
               };
 
@@ -940,23 +910,14 @@ namespace Models
 
 
             protected:
-              // The price reduction rate.
               shared_ptr<double> cheapRate_ {};
-              // The new total price displayed on the official website.
               shared_ptr<double> cheapStandAmount_ {};
-              // The price difference displayed in the total order amount.
               shared_ptr<double> differential_ {};
-              // The name of the price difference.
               shared_ptr<string> differentialName_ {};
-              // Indicates whether the contract promotion is hit.
               shared_ptr<bool> isContractActivity_ {};
-              // Indicates whether the price reduction rate is displayed.
               shared_ptr<string> isShow_ {};
-              // The list price.
               shared_ptr<double> listPrice_ {};
-              // The monthly price.
               shared_ptr<double> monthPrice_ {};
-              // The original total price displayed on the official website.
               shared_ptr<double> originalStandAmount_ {};
             };
 
@@ -1098,40 +1059,23 @@ namespace Models
 
 
           protected:
-            // Indicates whether the contract promotion is hit.
             shared_ptr<bool> contractActivity_ {};
-            // The cycle fee of the module.
             shared_ptr<string> cycleFee_ {};
-            // The activity information.
             shared_ptr<ModuleInstanceItem::DepreciateInfo> depreciateInfo_ {};
-            // The discount.
             shared_ptr<string> discountFee_ {};
-            // The module attributes.
             shared_ptr<ModuleInstanceItem::ModuleAttrs> moduleAttrs_ {};
-            // The module code.
             shared_ptr<string> moduleCode_ {};
-            // The module ID
             shared_ptr<int64_t> moduleId_ {};
-            // The module name.
             shared_ptr<string> moduleName_ {};
-            // Indicates whether the order is paid.
             shared_ptr<bool> needOrderPay_ {};
-            // The actual amount paid.
             shared_ptr<double> payFee_ {};
-            // Indicates whether the item is billed.
             shared_ptr<bool> pricingModule_ {};
-            // The promotion details.
             shared_ptr<ModuleInstanceItem::PromDetailList> promDetailList_ {};
-            // The discounted price.
             shared_ptr<double> standDiscountPrice_ {};
-            // The discount.
             shared_ptr<double> standPrice_ {};
-            // The original price of the product.
             shared_ptr<double> totalProductFee_ {};
             shared_ptr<string> unitPriceUnit4Buy_ {};
-            // The price type.
             shared_ptr<string> priceType_ {};
-            // The unit of the price.
             shared_ptr<string> priceUnit_ {};
           };
 
@@ -1307,19 +1251,12 @@ namespace Models
 
 
           protected:
-            // The activity ID.
             shared_ptr<int64_t> activityId_ {};
-            // The activity name.
             shared_ptr<string> activityName_ {};
-            // The price after the promotion.
             shared_ptr<double> finalFee_ {};
-            // The total discount amount.
             shared_ptr<double> finalPromFee_ {};
-            // The promotion ID.
             shared_ptr<string> optionCode_ {};
-            // The promotion IDs.
             shared_ptr<ContractActivity::OptionIds> optionIds_ {};
-            // The original price.
             shared_ptr<double> prodFee_ {};
           };
 
@@ -1406,27 +1343,16 @@ namespace Models
 
 
         protected:
-          // The price reduction rate.
           shared_ptr<double> cheapRate_ {};
-          // The new total price displayed on the official website.
           shared_ptr<double> cheapStandAmount_ {};
-          // The activity information.
           shared_ptr<DepreciateInfo::ContractActivity> contractActivity_ {};
-          // The price difference displayed in the total order amount.
           shared_ptr<double> differential_ {};
-          // The name of the price difference.
           shared_ptr<string> differentialName_ {};
-          // Indicates whether the contract promotion is hit.
           shared_ptr<bool> isContractActivity_ {};
-          // Indicates whether the price reduction rate is displayed.
           shared_ptr<string> isShow_ {};
-          // The list price.
           shared_ptr<double> listPrice_ {};
-          // The monthly price.
           shared_ptr<double> monthPrice_ {};
-          // The original total price displayed on the official website.
           shared_ptr<double> originalStandAmount_ {};
-          // The start time of the activity.
           shared_ptr<string> startTime_ {};
         };
 
@@ -1543,33 +1469,19 @@ namespace Models
 
 
       protected:
-        // Indicates whether the contract promotion is hit.
         shared_ptr<bool> contractActivity_ {};
-        // The price reduction information.
         shared_ptr<SubOrder::DepreciateInfo> depreciateInfo_ {};
-        // The discount amount of the order.
         shared_ptr<string> discountAmount_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the contract promotion is hit.
         shared_ptr<bool> isContractActivity_ {};
-        // Indicates whether the discount is hit.
         shared_ptr<string> isNewOfficialActivity_ {};
-        // The configuration item of the instance in the order.
         shared_ptr<SubOrder::ModuleInstance> moduleInstance_ {};
-        // The promotional options that can be configured.
         shared_ptr<SubOrder::OptionalPromotions> optionalPromotions_ {};
-        // The original price of the order.
         shared_ptr<string> originalAmount_ {};
-        // The promotion details.
         shared_ptr<SubOrder::PromDetailList> promDetailList_ {};
-        // The activity rules.
         shared_ptr<SubOrder::RuleIds> ruleIds_ {};
-        // The discount.
         shared_ptr<double> standDiscountPrice_ {};
-        // The discount.
         shared_ptr<double> standPrice_ {};
-        // The actual price of the order.
         shared_ptr<string> tradeAmount_ {};
       };
 
@@ -1653,11 +1565,8 @@ namespace Models
 
 
       protected:
-        // The rule name.
         shared_ptr<string> name_ {};
-        // The rule ID.
         shared_ptr<int64_t> ruleDescId_ {};
-        // The rule title.
         shared_ptr<string> title_ {};
       };
 
@@ -1925,7 +1834,6 @@ namespace Models
           shared_ptr<double> finalPromFee_ {};
           // The promotion ID.
           shared_ptr<string> optionCode_ {};
-          // The promotion IDs.
           shared_ptr<ContractActivity::OptionIds> optionIds_ {};
           // The original price.
           shared_ptr<double> prodFee_ {};
@@ -2052,8 +1960,10 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Coupon& obj) { 
             DARABONBA_PTR_TO_JSON(ActivityCategory, activityCategory_);
+            DARABONBA_ANY_TO_JSON(ActivityExtInfo, activityExtInfo_);
             DARABONBA_PTR_TO_JSON(CouponNo, couponNo_);
             DARABONBA_PTR_TO_JSON(Description, description_);
+            DARABONBA_PTR_TO_JSON(Effective, effective_);
             DARABONBA_PTR_TO_JSON(IsSelected, isSelected_);
             DARABONBA_PTR_TO_JSON(Name, name_);
             DARABONBA_PTR_TO_JSON(OptionCode, optionCode_);
@@ -2062,8 +1972,10 @@ namespace Models
           };
           friend void from_json(const Darabonba::Json& j, Coupon& obj) { 
             DARABONBA_PTR_FROM_JSON(ActivityCategory, activityCategory_);
+            DARABONBA_ANY_FROM_JSON(ActivityExtInfo, activityExtInfo_);
             DARABONBA_PTR_FROM_JSON(CouponNo, couponNo_);
             DARABONBA_PTR_FROM_JSON(Description, description_);
+            DARABONBA_PTR_FROM_JSON(Effective, effective_);
             DARABONBA_PTR_FROM_JSON(IsSelected, isSelected_);
             DARABONBA_PTR_FROM_JSON(Name, name_);
             DARABONBA_PTR_FROM_JSON(OptionCode, optionCode_);
@@ -2115,13 +2027,22 @@ namespace Models
           };
 
           virtual bool empty() const override { return this->activityCategory_ == nullptr
-        && this->couponNo_ == nullptr && this->description_ == nullptr && this->isSelected_ == nullptr && this->name_ == nullptr && this->optionCode_ == nullptr
-        && this->promotionOptionCode_ == nullptr && this->promotionRuleIdList_ == nullptr; };
+        && this->activityExtInfo_ == nullptr && this->couponNo_ == nullptr && this->description_ == nullptr && this->effective_ == nullptr && this->isSelected_ == nullptr
+        && this->name_ == nullptr && this->optionCode_ == nullptr && this->promotionOptionCode_ == nullptr && this->promotionRuleIdList_ == nullptr; };
           // activityCategory Field Functions 
           bool hasActivityCategory() const { return this->activityCategory_ != nullptr;};
           void deleteActivityCategory() { this->activityCategory_ = nullptr;};
           inline string getActivityCategory() const { DARABONBA_PTR_GET_DEFAULT(activityCategory_, "") };
           inline Coupon& setActivityCategory(string activityCategory) { DARABONBA_PTR_SET_VALUE(activityCategory_, activityCategory) };
+
+
+          // activityExtInfo Field Functions 
+          bool hasActivityExtInfo() const { return this->activityExtInfo_ != nullptr;};
+          void deleteActivityExtInfo() { this->activityExtInfo_ = nullptr;};
+          inline           const Darabonba::Json & getActivityExtInfo() const { DARABONBA_GET(activityExtInfo_) };
+          Darabonba::Json & getActivityExtInfo() { DARABONBA_GET(activityExtInfo_) };
+          inline Coupon& setActivityExtInfo(const Darabonba::Json & activityExtInfo) { DARABONBA_SET_VALUE(activityExtInfo_, activityExtInfo) };
+          inline Coupon& setActivityExtInfo(Darabonba::Json && activityExtInfo) { DARABONBA_SET_RVALUE(activityExtInfo_, activityExtInfo) };
 
 
           // couponNo Field Functions 
@@ -2136,6 +2057,13 @@ namespace Models
           void deleteDescription() { this->description_ = nullptr;};
           inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
           inline Coupon& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+          // effective Field Functions 
+          bool hasEffective() const { return this->effective_ != nullptr;};
+          void deleteEffective() { this->effective_ = nullptr;};
+          inline bool getEffective() const { DARABONBA_PTR_GET_DEFAULT(effective_, false) };
+          inline Coupon& setEffective(bool effective) { DARABONBA_PTR_SET_VALUE(effective_, effective) };
 
 
           // isSelected Field Functions 
@@ -2176,27 +2104,15 @@ namespace Models
 
 
         protected:
-          // The activity type of the coupon. Valid values:
-          // 
-          // *   **payondemand**: subscription
-          // *   **payasyougo**: pay-as-you-go
           shared_ptr<string> activityCategory_ {};
-          // The coupon ID.
+          Darabonba::Json activityExtInfo_ {};
           shared_ptr<string> couponNo_ {};
-          // The description of the coupon.
           shared_ptr<string> description_ {};
-          // Indicates whether the coupon was selected. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          shared_ptr<bool> effective_ {};
           shared_ptr<string> isSelected_ {};
-          // The coupon name.
           shared_ptr<string> name_ {};
-          // The code of the coupon.
           shared_ptr<string> optionCode_ {};
-          // The promotional option code.
           shared_ptr<string> promotionOptionCode_ {};
-          // The IDs of the rules that correspond to the coupon.
           shared_ptr<Coupon::PromotionRuleIdList> promotionRuleIdList_ {};
         };
 
@@ -2349,7 +2265,6 @@ namespace Models
       shared_ptr<string> code_ {};
       // Indicates whether the contract promotion is hit.
       shared_ptr<bool> contractActivity_ {};
-      // The information of coupons.
       shared_ptr<Order::Coupons> coupons_ {};
       // The currency.
       shared_ptr<string> currency_ {};
@@ -2367,7 +2282,6 @@ namespace Models
       shared_ptr<string> originalAmount_ {};
       // The promotional activity that is hit.
       shared_ptr<string> promDetailList_ {};
-      // The rules of the order.
       shared_ptr<Order::RuleIds> ruleIds_ {};
       // Indicates whether the discount information is displayed.
       shared_ptr<bool> showDiscountInfo_ {};
@@ -2439,9 +2353,7 @@ namespace Models
     shared_ptr<string> orderParams_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The promotion rules.
     shared_ptr<DescribePriceResponseBody::Rules> rules_ {};
-    // The coupon rules.
     shared_ptr<DescribePriceResponseBody::SubOrders> subOrders_ {};
     // The ID of the trace.
     shared_ptr<string> traceId_ {};

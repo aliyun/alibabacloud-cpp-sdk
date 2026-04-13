@@ -137,9 +137,7 @@ namespace Models
 
 
           protected:
-            // The date and time when the metric value was generated.
             shared_ptr<string> date_ {};
-            // The value of the performance metric.
             shared_ptr<string> value_ {};
           };
 
@@ -190,15 +188,9 @@ namespace Models
 
 
       protected:
-        // The performance metrics that are returned.
         shared_ptr<string> key_ {};
-        // The details of the performance metric values.
         shared_ptr<PerformanceKey::PerformanceValues> performanceValues_ {};
-        // The unit of the performance metric.
         shared_ptr<string> unit_ {};
-        // The format of the performance metric value. If the performance metric contains multiple fields, the fields are separated with ampersands ( &).
-        // 
-        // For example, if you query disk space usage, the returned value of the **ValueFormat** parameter is **ins_size\\&data_size\\&log_size**.
         shared_ptr<string> valueFormat_ {};
       };
 
@@ -251,7 +243,6 @@ namespace Models
   protected:
     // The end of the queried time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The details of performance metrics.
     shared_ptr<DescribeDBInstancePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

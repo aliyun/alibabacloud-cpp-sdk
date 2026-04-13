@@ -57,6 +57,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
           DARABONBA_PTR_TO_JSON(CapacityUnit, capacityUnit_);
           DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+          DARABONBA_PTR_TO_JSON(ColdDataEnabled, coldDataEnabled_);
           DARABONBA_PTR_TO_JSON(ConfigserverList, configserverList_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(CurrentKernelVersion, currentKernelVersion_);
@@ -115,6 +116,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
           DARABONBA_PTR_FROM_JSON(CapacityUnit, capacityUnit_);
           DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+          DARABONBA_PTR_FROM_JSON(ColdDataEnabled, coldDataEnabled_);
           DARABONBA_PTR_FROM_JSON(ConfigserverList, configserverList_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(CurrentKernelVersion, currentKernelVersion_);
@@ -237,9 +239,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -424,38 +424,19 @@ namespace Models
 
 
           protected:
-            // The endpoint of the shard node.
             shared_ptr<string> connectString_ {};
-            // The minor version of the current MongoDB kernel.
             shared_ptr<string> currentKernelVersion_ {};
-            // The lock status of the shard node. Valid values:
-            // 
-            // *   **Unlock**: The instance is not locked.
-            // *   **ManualLock**: The instance is manually locked.
-            // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-            // *   **LockByRestoration**: The instance is automatically locked before a rollback.
-            // *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
             shared_ptr<string> lockMode_ {};
-            // The maximum number of connections to the shard node.
             shared_ptr<int32_t> maxConnections_ {};
-            // The maximum MBPS of the shard node.
             shared_ptr<string> maxDiskMbps_ {};
-            // The maximum IOPS of the shard node.
             shared_ptr<int32_t> maxIOPS_ {};
-            // The instance type of the shard node.
             shared_ptr<string> nodeClass_ {};
-            // The name of the shard node.
             shared_ptr<string> nodeDescription_ {};
-            // The ID of the shard node.
             shared_ptr<string> nodeId_ {};
-            // The storage capacity of the shard node. Unit: GB.
             shared_ptr<int32_t> nodeStorage_ {};
-            // The port number that is used to connect to the shard node.
             shared_ptr<int32_t> port_ {};
-            // The number of read-only nodes in the shard node. Valid values: **0** to **5**. The value must be an integer.
             shared_ptr<int32_t> readonlyReplicas_ {};
             shared_ptr<string> replicaSetName_ {};
-            // The status of the shard node. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
             shared_ptr<string> status_ {};
           };
 
@@ -576,31 +557,12 @@ namespace Models
 
 
           protected:
-            // The endpoint of the node.
             shared_ptr<string> connectionDomain_ {};
-            // The port number that is used to connect to the node.
             shared_ptr<string> connectionPort_ {};
-            // The network type of the instance. Valid values:
-            // 
-            // *   **Classic**: classic network
-            // *   **VPC**: VPC
             shared_ptr<string> networkType_ {};
-            // The role of the node. Valid values:
-            // 
-            // *   **Primary**
-            // *   **Secondary**
             shared_ptr<string> replicaSetRole_ {};
-            // The instance ID.
-            // 
-            // >  This parameter is returned if the network type of the instance is VPC.
             shared_ptr<string> VPCCloudInstanceId_ {};
-            // The VPC ID of the instance.
-            // 
-            // >  This parameter is returned if the network type of the instance is VPC.
             shared_ptr<string> VPCId_ {};
-            // The vSwitch ID of the instance.
-            // 
-            // >  This parameter is returned if the network type of the instance is virtual private cloud (VPC).
             shared_ptr<string> vSwitchId_ {};
           };
 
@@ -785,43 +747,19 @@ namespace Models
 
 
           protected:
-            // The endpoint of the mongos node.
             shared_ptr<string> connectSting_ {};
-            // The endpoint of the mongos node.
             shared_ptr<string> connectString_ {};
-            // The minor version of the current MongoDB kernel.
             shared_ptr<string> currentKernelVersion_ {};
-            // The lock status of the instance. Valid values:
-            // 
-            // *   **Unlock**: The instance is not locked.
-            // *   **ManualLock**: The instance is manually locked.
-            // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-            // *   **LockByRestoration**: The instance is automatically locked before a rollback.
-            // *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
             shared_ptr<string> lockMode_ {};
-            // The maximum number of connections to the mongos node.
             shared_ptr<int32_t> maxConnections_ {};
-            // The maximum IOPS of the mongos node.
             shared_ptr<int32_t> maxIOPS_ {};
-            // The instance type of the mongos node.
             shared_ptr<string> nodeClass_ {};
-            // The name of the mongos node.
             shared_ptr<string> nodeDescription_ {};
-            // The ID of the mongos node.
             shared_ptr<string> nodeId_ {};
-            // The port number that is used to connect to the mongos node.
             shared_ptr<int32_t> port_ {};
-            // The status of the mongos node. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
             shared_ptr<string> status_ {};
-            // The VPC ID of the instance.
-            // 
-            // >  This parameter is returned if the network type of the instance is VPC.
             shared_ptr<string> VPCId_ {};
-            // The vSwitch ID of the instance.
-            // 
-            // >  This parameter is returned if the network type of the instance is VPC.
             shared_ptr<string> vSwitchId_ {};
-            // The ID of the mongos node.
             shared_ptr<string> vpcCloudInstanceId_ {};
           };
 
@@ -978,33 +916,16 @@ namespace Models
 
 
           protected:
-            // The endpoint of the Configserver node.
             shared_ptr<string> connectString_ {};
-            // The minor version of the current MongoDB kernel.
             shared_ptr<string> currentKernelVersion_ {};
-            // The lock status of the Configserver node. Valid values:
-            // 
-            // *   **Unlock**: The instance is not locked.
-            // *   **ManualLock**: The instance is manually locked.
-            // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-            // *   **LockByRestoration**: The instance is automatically locked before a rollback.
-            // *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
             shared_ptr<string> lockMode_ {};
-            // The maximum number of connections to the Configserver node.
             shared_ptr<int32_t> maxConnections_ {};
-            // The maximum IOPS of the Configserver node.
             shared_ptr<int32_t> maxIOPS_ {};
-            // The instance type of the Configserver node.
             shared_ptr<string> nodeClass_ {};
-            // The name of the Configserver node.
             shared_ptr<string> nodeDescription_ {};
-            // The ID of the Configserver node.
             shared_ptr<string> nodeId_ {};
-            // The storage capacity of the Configserver node. Unit: GB.
             shared_ptr<int32_t> nodeStorage_ {};
-            // The port number that is used to connect to the Configserver node.
             shared_ptr<int32_t> port_ {};
-            // The status of the Configserver node. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
             shared_ptr<string> status_ {};
           };
 
@@ -1023,17 +944,18 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->burstingEnabled_ == nullptr
-        && this->capacityUnit_ == nullptr && this->chargeType_ == nullptr && this->configserverList_ == nullptr && this->creationTime_ == nullptr && this->currentKernelVersion_ == nullptr
-        && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceOrderStatus_ == nullptr && this->DBInstanceReleaseProtection_ == nullptr
-        && this->DBInstanceStatus_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceType_ == nullptr && this->destroyTime_ == nullptr && this->disasterRecoveryInfo_ == nullptr
-        && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr
-        && this->hiddenZoneId_ == nullptr && this->kindCode_ == nullptr && this->lastDowngradeTime_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr
-        && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr && this->maxMBPS_ == nullptr && this->mongosList_ == nullptr
-        && this->networkType_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr && this->readonlyReplicas_ == nullptr && this->regionId_ == nullptr
-        && this->replacateId_ == nullptr && this->replicaSetName_ == nullptr && this->replicaSets_ == nullptr && this->replicationFactor_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeStorage_ == nullptr && this->secondaryZoneId_ == nullptr && this->shardList_ == nullptr
-        && this->storageEngine_ == nullptr && this->storageType_ == nullptr && this->syncPercent_ == nullptr && this->tags_ == nullptr && this->useClusterBackup_ == nullptr
-        && this->VPCCloudInstanceIds_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcAuthMode_ == nullptr && this->zoneId_ == nullptr; };
+        && this->capacityUnit_ == nullptr && this->chargeType_ == nullptr && this->coldDataEnabled_ == nullptr && this->configserverList_ == nullptr && this->creationTime_ == nullptr
+        && this->currentKernelVersion_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceOrderStatus_ == nullptr
+        && this->DBInstanceReleaseProtection_ == nullptr && this->DBInstanceStatus_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceType_ == nullptr && this->destroyTime_ == nullptr
+        && this->disasterRecoveryInfo_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
+        && this->expireTime_ == nullptr && this->hiddenZoneId_ == nullptr && this->kindCode_ == nullptr && this->lastDowngradeTime_ == nullptr && this->lockMode_ == nullptr
+        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr && this->maxMBPS_ == nullptr
+        && this->mongosList_ == nullptr && this->networkType_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr && this->readonlyReplicas_ == nullptr
+        && this->regionId_ == nullptr && this->replacateId_ == nullptr && this->replicaSetName_ == nullptr && this->replicaSets_ == nullptr && this->replicationFactor_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeStorage_ == nullptr && this->secondaryZoneId_ == nullptr
+        && this->shardList_ == nullptr && this->storageEngine_ == nullptr && this->storageType_ == nullptr && this->syncPercent_ == nullptr && this->tags_ == nullptr
+        && this->useClusterBackup_ == nullptr && this->VPCCloudInstanceIds_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcAuthMode_ == nullptr
+        && this->zoneId_ == nullptr; };
         // burstingEnabled Field Functions 
         bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
         void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
@@ -1053,6 +975,13 @@ namespace Models
         void deleteChargeType() { this->chargeType_ = nullptr;};
         inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
         inline DBInstance& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+        // coldDataEnabled Field Functions 
+        bool hasColdDataEnabled() const { return this->coldDataEnabled_ != nullptr;};
+        void deleteColdDataEnabled() { this->coldDataEnabled_ = nullptr;};
+        inline bool getColdDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(coldDataEnabled_, false) };
+        inline DBInstance& setColdDataEnabled(bool coldDataEnabled) { DARABONBA_PTR_SET_VALUE(coldDataEnabled_, coldDataEnabled) };
 
 
         // configserverList Field Functions 
@@ -1437,240 +1366,62 @@ namespace Models
 
 
       protected:
-        // Indicates whether performance burst is enabled for the ESSD AutoPL disk.
         shared_ptr<bool> burstingEnabled_ {};
-        // The read and write throughput consumed by the instance.
         shared_ptr<string> capacityUnit_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **PrePaid**: subscription
-        // *   **PostPaid**: pay-as-you-go
         shared_ptr<string> chargeType_ {};
-        // The details of the ConfigServer node.
-        // 
-        // >  This parameter is returned if the instance is a sharded cluster instance.
+        shared_ptr<bool> coldDataEnabled_ {};
         shared_ptr<DBInstance::ConfigserverList> configserverList_ {};
-        // The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The minor version of the current database in the instance.
         shared_ptr<string> currentKernelVersion_ {};
-        // The instance type of the instance.
         shared_ptr<string> DBInstanceClass_ {};
-        // The name of the instance.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The status of the orders generated for the instance. Valid values:
-        // 
-        // *   **all_completed**: All orders are being produced or complete.
-        // *   **order_unpaid**: The instance has unpaid orders.
-        // *   **order_wait_for_produce**: Orders are being delivered for production.
-        // 
-        // >  The order production process includes the following steps: place an order, pay for an order, deliver an order for production, produce an order, and complete the production.
-        // 
-        // *   If an order is in the **order_wait_for_produce** state for a long time, an error occurs when the order is being delivered for production. The system will automatically retry.
-        // *   The instance status changes only when the order is in the producing and complete state, such as changing configurations and running.
         shared_ptr<string> DBInstanceOrderStatus_ {};
-        // Indicates whether release protection is enabled for the instance. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> DBInstanceReleaseProtection_ {};
-        // The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The storage capacity of the instance.
         shared_ptr<int32_t> DBInstanceStorage_ {};
-        // The architecture of the instance. Valid values:
-        // 
-        // *   **replicate**: replica set instance
-        // *   **sharding**: sharded cluster instance
         shared_ptr<string> DBInstanceType_ {};
-        // The time when the instance data was destroyed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> destroyTime_ {};
         shared_ptr<string> disasterRecoveryInfo_ {};
-        // Indicates whether disk encryption is enabled.
         shared_ptr<bool> encrypted_ {};
-        // The Key Management Service (KMS) key used for disk encryption.
         shared_ptr<string> encryptionKey_ {};
-        // The database engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version of the instance.
-        // 
-        // *   **6.0**
-        // *   **5.0**
-        // *   **4.4**
-        // *   **4.2**
-        // *   **4.0**
         shared_ptr<string> engineVersion_ {};
-        // The time when the subscription instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
-        // 
-        // >  This parameter is returned if the instance is a subscription instance.
         shared_ptr<string> expireTime_ {};
-        // The ID of the secondary zone 2 of the instance. Valid values:
-        // 
-        // *   **cn-hangzhou-g**: Hangzhou Zone G
-        // *   **cn-hangzhou-h**: Hangzhou Zone H
-        // *   **cn-hangzhou-i**: Hangzhou Zone I
-        // *   **cn-hongkong-b**: Hongkong Zone B
-        // *   **cn-hongkong-c**: Hongkong Zone C
-        // *   **cn-hongkong-d**: Hongkong Zone D
-        // *   **cn-wulanchabu-a**: Ulanqab Zone A
-        // *   **cn-wulanchabu-b**: Ulanqab Zone B
-        // *   **cn-wulanchabu-c**: Ulanqab Zone C
-        // *   **ap-southeast-1a**: Singapore Zone A
-        // *   **ap-southeast-1b**: Singapore Zone B
-        // *   **ap-southeast-1c**: Singapore Zone C
-        // *   **ap-southeast-5a**: Jakarta Zone A
-        // *   **ap-southeast-5b**: Jakarta Zone B
-        // *   **ap-southeast-5c**: Jakarta Zone C
-        // *   **eu-central-1a**: Frankfurt Zone A
-        // *   **eu-central-1b**: Frankfurt Zone B
-        // *   **eu-central-1c**: Frankfurt Zone C
-        // 
-        // > 
-        // 
-        // *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-        // 
-        // *   This parameter is returned only if you use the China site (aliyun.com).
         shared_ptr<string> hiddenZoneId_ {};
-        // The kind code of the instance. Valid values:
-        // 
-        // *   **0**: physical machine
-        // *   **1**: Elastic Compute Service (ECS) instance
-        // *   **2**: Docker cluster
-        // *   **18**: Kubernetes cluster
         shared_ptr<string> kindCode_ {};
-        // The date when the last downgrade operation was performed on the instance.
         shared_ptr<string> lastDowngradeTime_ {};
-        // The lock status of the instance. Valid values:
-        // 
-        // *   **Unlock**: The instance is not locked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-        // *   **LockByRestoration**: The instance is automatically locked before the instance is rolled back.
-        // *   **LockByDiskQuota**: The instance is automatically locked after the storage space is exhausted.
-        // *   **Released**: The instance is released.
         shared_ptr<string> lockMode_ {};
-        // The end time of the maintenance window. The time follows the ISO 8601 standard in the *HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> maintainEndTime_ {};
-        // The start time of the maintenance window. The time follows the ISO 8601 standard in the *HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> maintainStartTime_ {};
-        // The maximum number of connections to the instance.
         shared_ptr<int32_t> maxConnections_ {};
-        // The maximum IOPS of the instance.
         shared_ptr<int32_t> maxIOPS_ {};
-        // The maximum MBPS of the instance.
         shared_ptr<int32_t> maxMBPS_ {};
-        // The details of the mongos node.
-        // 
-        // >  This parameter is returned if the instance is a sharded cluster instance.
         shared_ptr<DBInstance::MongosList> mongosList_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Classic**: classic network
-        // *   **VPC**: VPC
         shared_ptr<string> networkType_ {};
-        // The access protocol type of the instance. Valid values:
-        // 
-        // *   **mongodb**
-        // *   **dynamodb**
-        // 
-        // >  This parameter is returned if the instance is a sharded cluster instance.
         shared_ptr<string> protocolType_ {};
-        // The provisioned performance of the ESSD AutoPL disk.
         shared_ptr<int64_t> provisionedIops_ {};
-        // The number of read-only nodes in the instance.
         shared_ptr<string> readonlyReplicas_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The logical ID of the replica set instance.
-        // 
-        // >  ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica set instances.
         shared_ptr<string> replacateId_ {};
-        // The name of the replica set instance.
-        // 
-        // >  This parameter is returned if the instance is a replica set instance.
         shared_ptr<string> replicaSetName_ {};
-        // The information of the replica set instance.
-        // 
-        // >  This parameter is returned if the instance is a replica set instance.
         shared_ptr<DBInstance::ReplicaSets> replicaSets_ {};
-        // The number of nodes in the instance.
-        // 
-        // >  This parameter is returned if the instance is a replica set instance.
         shared_ptr<string> replicationFactor_ {};
-        // The ID of the resource group to which the instance belongs.
-        // 
-        // >  This parameter is returned only if you use the China site (aliyun.com).
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<string> searchNodeClass_ {};
         shared_ptr<int32_t> searchNodeCount_ {};
         shared_ptr<int32_t> searchNodeStorage_ {};
-        // The ID of the secondary zone 1 of the instance. Valid values:
-        // 
-        // *   **cn-hangzhou-g**: Hangzhou Zone G
-        // *   **cn-hangzhou-h**: Hangzhou Zone H
-        // *   **cn-hangzhou-i**: Hangzhou Zone I
-        // *   **cn-hongkong-b**: Hongkong Zone B
-        // *   **cn-hongkong-c**: Hongkong Zone C
-        // *   **cn-hongkong-d**: Hongkong Zone D
-        // *   **cn-wulanchabu-a**: Ulanqab Zone A
-        // *   **cn-wulanchabu-b**: Ulanqab Zone B
-        // *   **cn-wulanchabu-c**: Ulanqab Zone C
-        // *   **ap-southeast-1a**: Singapore Zone A
-        // *   **ap-southeast-1b**: Singapore Zone B
-        // *   **ap-southeast-1c**: Singapore Zone C
-        // *   **ap-southeast-5a**: Jakarta Zone A
-        // *   **ap-southeast-5b**: Jakarta Zone B
-        // *   **ap-southeast-5c**: Jakarta Zone C
-        // *   **eu-central-1a**: Frankfurt Zone A
-        // *   **eu-central-1b**: Frankfurt Zone B
-        // *   **eu-central-1c**: Frankfurt Zone C
-        // 
-        // > 
-        // 
-        // *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-        // 
-        // *   This parameter is returned only if you use the China site (aliyun.com).
         shared_ptr<string> secondaryZoneId_ {};
-        // The details of the shard node.
-        // 
-        // >  This parameter is returned if the instance is a sharded cluster instance.
         shared_ptr<DBInstance::ShardList> shardList_ {};
-        // The storage engine of the instance.
         shared_ptr<string> storageEngine_ {};
-        // The storage type of the instance. Valid values:
-        // 
-        // **cloud_essd1**: ESSD PL1 **cloud_essd2**: ESSD PL2 **cloud_essd3**: ESSD PL3 **local_ssd**: local SSD **cloud_essd_dbfs_s**: DBFS disk
         shared_ptr<string> storageType_ {};
-        // The progress of data synchronization in percentage. When you are changing the configurations of the instance, you must synchronize the data of the instance. You can obtain the data synchronization progress based on the value returned for this parameter.
         shared_ptr<string> syncPercent_ {};
-        // The details of the instance tags.
         shared_ptr<DBInstance::Tags> tags_ {};
-        // Indicates whether the cluster backup mode is enabled. Valid values:
-        // 
-        // *   **true**: The cluster backup mode is enabled.
-        // *   **false**: The cluster backup mode is disabled.
         shared_ptr<bool> useClusterBackup_ {};
-        // The instance ID.
-        // 
-        // >  This parameter is returned if the network type of the instance is VPC.
         shared_ptr<string> VPCCloudInstanceIds_ {};
-        // The VPC ID of the instance.
-        // 
-        // >  This parameter is returned if the network type of the instance is VPC.
         shared_ptr<string> VPCId_ {};
-        // The vSwitch ID of the instance.
-        // 
-        // >  This parameter is returned if the network type of the instance is VPC.
         shared_ptr<string> vSwitchId_ {};
-        // Indicates whether password-free access within the VPC is enabled. Valid values:
-        // 
-        // *   **Open**: Password-free access within the VPC is enabled.
-        // *   **Close**: Password-free access within the VPC is disabled, and you must use a password for access.
-        // *   **NotSupport**: Password-free access within the VPC is not supported.
         shared_ptr<string> vpcAuthMode_ {};
-        // The ID of the zone in which the instance resides.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -1707,7 +1458,6 @@ namespace Models
 
 
   protected:
-    // The instance details.
     shared_ptr<DescribeDBInstanceAttributeResponseBody::DBInstances> DBInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -116,24 +116,10 @@ namespace Models
 
 
       protected:
-        // The description of the account.
         shared_ptr<string> accountDescription_ {};
-        // The name of the account.
         shared_ptr<string> accountName_ {};
-        // The status of the account. Valid values:
-        // 
-        // *   **Unavailable**
-        // *   **Available**
         shared_ptr<string> accountStatus_ {};
-        // The role of the account. Valid values:
-        // 
-        // *   **db**: shard node
-        // *   **cs**: Configserver node
-        // *   **mongos**: mongos node
-        // *   **logic**: sharded cluster instance
-        // *   **normal**: replica set instance
         shared_ptr<string> characterType_ {};
-        // The ID of the instance to which the account belongs.
         shared_ptr<string> DBInstanceId_ {};
       };
 
@@ -170,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The details of the account.
     shared_ptr<DescribeAccountsResponseBody::Accounts> accounts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

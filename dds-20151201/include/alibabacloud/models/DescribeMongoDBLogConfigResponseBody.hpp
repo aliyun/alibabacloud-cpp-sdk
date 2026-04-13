@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMongoDBLogConfigResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(EnableAudit, enableAudit_);
+      DARABONBA_PTR_TO_JSON(HotTtlForV2Standard, hotTtlForV2Standard_);
       DARABONBA_PTR_TO_JSON(IsEtlMetaExist, isEtlMetaExist_);
       DARABONBA_PTR_TO_JSON(IsUserProjectLogstoreExist, isUserProjectLogstoreExist_);
       DARABONBA_PTR_TO_JSON(PreserveStorageForStandard, preserveStorageForStandard_);
@@ -22,12 +23,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(TtlForStandard, ttlForStandard_);
       DARABONBA_PTR_TO_JSON(TtlForTrail, ttlForTrail_);
+      DARABONBA_PTR_TO_JSON(TtlForV2Standard, ttlForV2Standard_);
       DARABONBA_PTR_TO_JSON(UsedStorageForStandard, usedStorageForStandard_);
       DARABONBA_PTR_TO_JSON(UsedStorageForTrail, usedStorageForTrail_);
       DARABONBA_PTR_TO_JSON(UserProjectName, userProjectName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMongoDBLogConfigResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(EnableAudit, enableAudit_);
+      DARABONBA_PTR_FROM_JSON(HotTtlForV2Standard, hotTtlForV2Standard_);
       DARABONBA_PTR_FROM_JSON(IsEtlMetaExist, isEtlMetaExist_);
       DARABONBA_PTR_FROM_JSON(IsUserProjectLogstoreExist, isUserProjectLogstoreExist_);
       DARABONBA_PTR_FROM_JSON(PreserveStorageForStandard, preserveStorageForStandard_);
@@ -36,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(TtlForStandard, ttlForStandard_);
       DARABONBA_PTR_FROM_JSON(TtlForTrail, ttlForTrail_);
+      DARABONBA_PTR_FROM_JSON(TtlForV2Standard, ttlForV2Standard_);
       DARABONBA_PTR_FROM_JSON(UsedStorageForStandard, usedStorageForStandard_);
       DARABONBA_PTR_FROM_JSON(UsedStorageForTrail, usedStorageForTrail_);
       DARABONBA_PTR_FROM_JSON(UserProjectName, userProjectName_);
@@ -52,14 +56,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableAudit_ == nullptr
-        && this->isEtlMetaExist_ == nullptr && this->isUserProjectLogstoreExist_ == nullptr && this->preserveStorageForStandard_ == nullptr && this->preserveStorageForTrail_ == nullptr && this->requestId_ == nullptr
-        && this->serviceType_ == nullptr && this->ttlForStandard_ == nullptr && this->ttlForTrail_ == nullptr && this->usedStorageForStandard_ == nullptr && this->usedStorageForTrail_ == nullptr
-        && this->userProjectName_ == nullptr; };
+        && this->hotTtlForV2Standard_ == nullptr && this->isEtlMetaExist_ == nullptr && this->isUserProjectLogstoreExist_ == nullptr && this->preserveStorageForStandard_ == nullptr && this->preserveStorageForTrail_ == nullptr
+        && this->requestId_ == nullptr && this->serviceType_ == nullptr && this->ttlForStandard_ == nullptr && this->ttlForTrail_ == nullptr && this->ttlForV2Standard_ == nullptr
+        && this->usedStorageForStandard_ == nullptr && this->usedStorageForTrail_ == nullptr && this->userProjectName_ == nullptr; };
     // enableAudit Field Functions 
     bool hasEnableAudit() const { return this->enableAudit_ != nullptr;};
     void deleteEnableAudit() { this->enableAudit_ = nullptr;};
     inline bool getEnableAudit() const { DARABONBA_PTR_GET_DEFAULT(enableAudit_, false) };
     inline DescribeMongoDBLogConfigResponseBody& setEnableAudit(bool enableAudit) { DARABONBA_PTR_SET_VALUE(enableAudit_, enableAudit) };
+
+
+    // hotTtlForV2Standard Field Functions 
+    bool hasHotTtlForV2Standard() const { return this->hotTtlForV2Standard_ != nullptr;};
+    void deleteHotTtlForV2Standard() { this->hotTtlForV2Standard_ = nullptr;};
+    inline int64_t getHotTtlForV2Standard() const { DARABONBA_PTR_GET_DEFAULT(hotTtlForV2Standard_, 0L) };
+    inline DescribeMongoDBLogConfigResponseBody& setHotTtlForV2Standard(int64_t hotTtlForV2Standard) { DARABONBA_PTR_SET_VALUE(hotTtlForV2Standard_, hotTtlForV2Standard) };
 
 
     // isEtlMetaExist Field Functions 
@@ -118,6 +129,13 @@ namespace Models
     inline DescribeMongoDBLogConfigResponseBody& setTtlForTrail(int64_t ttlForTrail) { DARABONBA_PTR_SET_VALUE(ttlForTrail_, ttlForTrail) };
 
 
+    // ttlForV2Standard Field Functions 
+    bool hasTtlForV2Standard() const { return this->ttlForV2Standard_ != nullptr;};
+    void deleteTtlForV2Standard() { this->ttlForV2Standard_ = nullptr;};
+    inline int64_t getTtlForV2Standard() const { DARABONBA_PTR_GET_DEFAULT(ttlForV2Standard_, 0L) };
+    inline DescribeMongoDBLogConfigResponseBody& setTtlForV2Standard(int64_t ttlForV2Standard) { DARABONBA_PTR_SET_VALUE(ttlForV2Standard_, ttlForV2Standard) };
+
+
     // usedStorageForStandard Field Functions 
     bool hasUsedStorageForStandard() const { return this->usedStorageForStandard_ != nullptr;};
     void deleteUsedStorageForStandard() { this->usedStorageForStandard_ = nullptr;};
@@ -145,6 +163,7 @@ namespace Models
     // *   **true**: The audit log feature is enabled.
     // *   **false**: The audit log feature is disabled.
     shared_ptr<bool> enableAudit_ {};
+    shared_ptr<int64_t> hotTtlForV2Standard_ {};
     // Indicates whether a rule to distribute logs to Logtail is created. For more information, see [Logtail overview](https://help.aliyun.com/document_detail/28979.html). Valid values:
     // 
     // *   **1**: A rule to distribute logs to Logtail is created.
@@ -170,6 +189,7 @@ namespace Models
     shared_ptr<int64_t> ttlForStandard_ {};
     // The retention period for the free trial edition of the audit log feature.
     shared_ptr<int64_t> ttlForTrail_ {};
+    shared_ptr<int64_t> ttlForV2Standard_ {};
     // The used storage capacity for the formal edition of the audit log feature. Unit: bytes.
     shared_ptr<int64_t> usedStorageForStandard_ {};
     // The used storage capacity for the free trial edition of the audit log feature. Unit: bytes.

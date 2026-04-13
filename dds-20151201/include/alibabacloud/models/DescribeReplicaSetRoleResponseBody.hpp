@@ -14,11 +14,13 @@ namespace Models
   class DescribeReplicaSetRoleResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeReplicaSetRoleResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ConnectionStringSuffix, connectionStringSuffix_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(ReplicaSets, replicaSets_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeReplicaSetRoleResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConnectionStringSuffix, connectionStringSuffix_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(ReplicaSets, replicaSets_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -137,26 +139,12 @@ namespace Models
 
 
       protected:
-        // The endpoint of the node.
         shared_ptr<string> connectionDomain_ {};
-        // The port number that is used to connect to the node.
         shared_ptr<string> connectionPort_ {};
-        // The connection type of the node.
         shared_ptr<string> connectionType_ {};
-        // The remaining duration of the classic network endpoint. Unit: seconds.
         shared_ptr<string> expiredTime_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **VPC**: the virtual private cloud (VPC)
-        // *   **Classic**: the classic network
-        // *   **Public**: the Internet
         shared_ptr<string> networkType_ {};
-        // The role of the node in the replica set instance. Valid values:
-        // 
-        // *   **Primary**
-        // *   **Secondary**
         shared_ptr<string> replicaSetRole_ {};
-        // The role ID of the node.
         shared_ptr<string> roleId_ {};
       };
 
@@ -174,8 +162,15 @@ namespace Models
       shared_ptr<vector<ReplicaSets::ReplicaSet>> replicaSet_ {};
     };
 
-    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->replicaSets_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->connectionStringSuffix_ == nullptr
+        && this->DBInstanceId_ == nullptr && this->replicaSets_ == nullptr && this->requestId_ == nullptr; };
+    // connectionStringSuffix Field Functions 
+    bool hasConnectionStringSuffix() const { return this->connectionStringSuffix_ != nullptr;};
+    void deleteConnectionStringSuffix() { this->connectionStringSuffix_ = nullptr;};
+    inline string getConnectionStringSuffix() const { DARABONBA_PTR_GET_DEFAULT(connectionStringSuffix_, "") };
+    inline DescribeReplicaSetRoleResponseBody& setConnectionStringSuffix(string connectionStringSuffix) { DARABONBA_PTR_SET_VALUE(connectionStringSuffix_, connectionStringSuffix) };
+
+
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -200,9 +195,9 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> connectionStringSuffix_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The details of the roles of the replica set instance.
     shared_ptr<DescribeReplicaSetRoleResponseBody::ReplicaSets> replicaSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

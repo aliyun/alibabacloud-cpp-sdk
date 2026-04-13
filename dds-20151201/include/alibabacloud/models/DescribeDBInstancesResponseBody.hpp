@@ -191,9 +191,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -295,15 +293,10 @@ namespace Models
 
 
           protected:
-            // The instance type of the shard node.
             shared_ptr<string> nodeClass_ {};
-            // The description of the shard node.
             shared_ptr<string> nodeDescription_ {};
-            // The ID of the shard node.
             shared_ptr<string> nodeId_ {};
-            // The storage capacity of the shard node. Unit: GB.
             shared_ptr<int32_t> nodeStorage_ {};
-            // The number of read-only nodes in the shard node. Valid values: **0** to **5**.
             shared_ptr<int32_t> readonlyReplicas_ {};
           };
 
@@ -387,11 +380,8 @@ namespace Models
 
 
           protected:
-            // The instance type of the mongos node.
             shared_ptr<string> nodeClass_ {};
-            // The description of the mongos node.
             shared_ptr<string> nodeDescription_ {};
-            // The ID of the mongos node.
             shared_ptr<string> nodeId_ {};
           };
 
@@ -633,159 +623,35 @@ namespace Models
 
 
       protected:
-        // The backup retention policy configured for the instance. Valid values:
-        // 
-        // *   **0**: All backup sets of the instance are immediately deleted when the instance is released.
-        // *   **1**: A backup set of the instance is automatically backed up and retained for a long period of time when the instance is released.
-        // *   **2**: All backup sets of the instance are automatically backed up and retained for a long period of time when the instance is released.
         shared_ptr<int32_t> backupRetentionPolicy_ {};
-        // The I/O throughput consumed by the instance.
-        // 
-        // >  This parameter is required only when the instance is a serverless instance.
         shared_ptr<string> capacityUnit_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   **PrePaid**: subscription
-        // *   **PostPaid:** pay-as-you-go
         shared_ptr<string> chargeType_ {};
-        // The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The instance type of the instance.
         shared_ptr<string> DBInstanceClass_ {};
-        // The description of the instance.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The storage capacity of the instance.
         shared_ptr<int32_t> DBInstanceStorage_ {};
-        // The architecture of the instance.
-        // 
-        // *   **sharding**: sharded cluster instance
-        // *   **replicate**: replica set or standalone instance
         shared_ptr<string> DBInstanceType_ {};
-        // The time when the instance data is destroyed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > *   For a subscription instance, the computing resources of the instance are released on the 16th day after expiration, and the data of the instance is retained for seven days. The data is deleted on the 23th day after expiration and cannot be restored.
-        // > *   For a pay-as-you-go instance, the computing resources of the instance are released on the 16th day after the payment becomes overdue, and the data of the instance is retained for seven days. The data is deleted on the 23th day after the payment becomes overdue and cannot be restored.
         shared_ptr<string> destroyTime_ {};
-        // The engine of the instance.
         shared_ptr<string> engine_ {};
-        // The database engine version of the instance. Valid values:
-        // 
-        // *   **7.0**
-        // *   **6.0**
-        // *   **5.0**
-        // *   **4.4**
-        // *   **4.2**
-        // *   **4.0**
-        // *   **3.4**
         shared_ptr<string> engineVersion_ {};
-        // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> expireTime_ {};
-        // The secondary zone 2 of the instance in the multi-zone deployment. Valid values:
-        // 
-        // *   **cn-hangzhou-g**: Hangzhou Zone G
-        // *   **cn-hangzhou-h**: Hangzhou Zone H
-        // *   **cn-hangzhou-i**: Hangzhou Zone I
-        // *   **cn-hongkong-b**: Hong Kong Zone B
-        // *   **cn-hongkong-c**: Hong Kong Zone C
-        // *   **cn-hongkong-d**: Hong Kong Zone D
-        // *   **cn-wulanchabu-a**: Ulanqab Zone A
-        // *   **cn-wulanchabu-b**: Ulanqab Zone B
-        // *   **cn-wulanchabu-c**: Ulanqab Zone C
-        // *   **ap-southeast-1a**: Singapore Zone A
-        // *   **ap-southeast-1b**: Singapore Zone B
-        // *   **ap-southeast-1c**: Singapore Zone C
-        // *   **ap-southeast-5a**: Jakarta Zone A
-        // *   **ap-southeast-5b**: Jakarta Zone B
-        // *   **ap-southeast-5c**: Jakarta Zone C
-        // *   **eu-central-1a**: Frankfurt Zone A
-        // *   **eu-central-1b**: Frankfurt Zone B
-        // *   **eu-central-1c**: Frankfurt Zone C
-        // 
-        // > *   This parameter is returned only when the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses the multi-zone deployment.
-        // > *   This parameter is returned only if you use the China site (aliyun.com).
         shared_ptr<string> hiddenZoneId_ {};
-        // The kind code of the instance. Valid values:
-        // 
-        // *   **0**: physical machine
-        // *   **1**: Elastic Compute Service (ECS) instance
-        // *   **2**: Docker cluster
-        // *   **18**: Kubernetes cluster
         shared_ptr<string> kindCode_ {};
-        // The date when the last downgrade operation was performed.
         shared_ptr<string> lastDowngradeTime_ {};
-        // The lock status of the instance. Valid values:
-        // 
-        // *   **Unlock**: The cluster is unlocked.
-        // *   **ManualLock**: The instance is manually locked.
-        // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-        // *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
-        // *   **LockByDiskQuota**: The instance is automatically locked after the storage space is exhausted.
-        // *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
         shared_ptr<string> lockMode_ {};
-        // The details of the mongos node.
-        // 
-        // >  This parameter is returned if the instance is a sharded cluster instance.
         shared_ptr<DBInstance::MongosList> mongosList_ {};
-        // The network type of the instance. Valid values:
-        // 
-        // *   **Classic**: classic network
-        // *   **VPC**: VPC
         shared_ptr<string> networkType_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The time when the instance was released.
         shared_ptr<string> releaseTime_ {};
-        // The number of nodes in the instance.
-        // 
-        // >  This parameter is returned if the instance is a replica set instance.
         shared_ptr<string> replicationFactor_ {};
-        // The ID of the resource group to which the instance belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The secondary zone 1 of the instance in the multi-zone deployment. Valid values:
-        // 
-        // *   **cn-hangzhou-g**: Hangzhou Zone G
-        // *   **cn-hangzhou-h**: Hangzhou Zone H
-        // *   **cn-hangzhou-i**: Hangzhou Zone I
-        // *   **cn-hongkong-b**: Hong Kong Zone B
-        // *   **cn-hongkong-c**: Hong Kong Zone C
-        // *   **cn-hongkong-d**: Hong Kong Zone D
-        // *   **cn-wulanchabu-a**: Ulanqab Zone A
-        // *   **cn-wulanchabu-b**: Ulanqab Zone B
-        // *   **cn-wulanchabu-c**: Ulanqab Zone C
-        // *   **ap-southeast-1a**: Singapore Zone A
-        // *   **ap-southeast-1b**: Singapore Zone B
-        // *   **ap-southeast-1c**: Singapore Zone C
-        // *   **ap-southeast-5a**: Jakarta Zone A
-        // *   **ap-southeast-5b**: Jakarta Zone B
-        // *   **ap-southeast-5c**: Jakarta Zone C
-        // *   **eu-central-1a**: Frankfurt Zone A
-        // *   **eu-central-1b**: Frankfurt Zone B
-        // *   **eu-central-1c**: Frankfurt Zone C
-        // 
-        // > *   This parameter is returned only when the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses the multi-zone deployment.
-        // > *   This parameter is returned only if you use the China site (aliyun.com).
         shared_ptr<string> secondaryZoneId_ {};
-        // The details of the shard node.
-        // 
-        // >  This parameter is returned if the instance is a sharded cluster instance.
         shared_ptr<DBInstance::ShardList> shardList_ {};
-        // The storage type of the instance. Valid values:
-        // 
-        // *   **cloud_essd**: Enterprise SSD (ESSD)
-        // *   **local_ssd**: local SSD
         shared_ptr<string> storageType_ {};
-        // The details of the tag.
         shared_ptr<DBInstance::Tags> tags_ {};
-        // Indicates whether password-free access over virtual private cloud (VPC) is enabled. Valid values:
-        // 
-        // *   **Open**: Password-free access over VPC is enabled.
-        // *   **Close**: Password-free access over VPC is disabled.
         shared_ptr<string> vpcAuthMode_ {};
-        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -843,7 +709,6 @@ namespace Models
 
 
   protected:
-    // The details of the instance.
     shared_ptr<DescribeDBInstancesResponseBody::DBInstances> DBInstances_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -325,11 +325,8 @@ namespace Models
 
 
                             protected:
-                              // The maximum storage capacity. Unit: GB.
                               shared_ptr<int32_t> max_ {};
-                              // The minimum storage capacity. Unit: GB.
                               shared_ptr<int32_t> min_ {};
-                              // The step size for adjusting the storage capacity. Unit: GB.
                               shared_ptr<int32_t> step_ {};
                             };
 
@@ -359,11 +356,8 @@ namespace Models
 
 
                           protected:
-                            // The storage capacity range of the instance.
                             shared_ptr<AvailableResource::DBInstanceStorageRange> DBInstanceStorageRange_ {};
-                            // The instance family.
                             shared_ptr<string> instanceClass_ {};
-                            // The type of the instance.
                             shared_ptr<string> instanceClassRemark_ {};
                           };
 
@@ -407,11 +401,8 @@ namespace Models
 
 
                       protected:
-                        // The details of the available resources.
                         shared_ptr<SupportedNodeType::AvailableResources> availableResources_ {};
-                        // The network type of the instance.
                         shared_ptr<string> networkTypes_ {};
-                        // The number of nodes in the instance.
                         shared_ptr<string> nodeType_ {};
                       };
 
@@ -448,9 +439,7 @@ namespace Models
 
 
                   protected:
-                    // The storage engine of the instance.
                     shared_ptr<string> engine_ {};
-                    // The supported instance types.
                     shared_ptr<SupportedEngine::SupportedNodeTypes> supportedNodeTypes_ {};
                   };
 
@@ -487,9 +476,7 @@ namespace Models
 
 
               protected:
-                // The supported storage engines.
                 shared_ptr<SupportedEngineVersion::SupportedEngines> supportedEngines_ {};
-                // The database engine version of the instance.
                 shared_ptr<string> version_ {};
               };
 
@@ -533,11 +520,8 @@ namespace Models
 
 
           protected:
-            // The ID of the region.
             shared_ptr<string> regionId_ {};
-            // The supported storage engine versions.
             shared_ptr<AvailableZone::SupportedEngineVersions> supportedEngineVersions_ {};
-            // The ID of the zone.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -574,12 +558,7 @@ namespace Models
 
 
       protected:
-        // The available zones.
         shared_ptr<SupportedDBType::AvailableZones> availableZones_ {};
-        // The architecture of the instance. Valid values:
-        // 
-        // *   **normal**: replica set instance
-        // *   **sharding**: sharded cluster instance
         shared_ptr<string> dbType_ {};
       };
 
@@ -618,7 +597,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The supported database types.
     shared_ptr<DescribeAvailableResourceResponseBody::SupportedDBTypes> supportedDBTypes_ {};
   };
 

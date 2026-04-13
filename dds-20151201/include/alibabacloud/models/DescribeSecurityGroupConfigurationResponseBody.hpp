@@ -98,14 +98,8 @@ namespace Models
 
 
       protected:
-        // The network type of the ECS security group. Valid values:
-        // 
-        // *   **vpc**
-        // *   **classic**
         shared_ptr<string> netType_ {};
-        // The region ID of the ECS security group.
         shared_ptr<string> regionId_ {};
-        // The ID of the ECS security group.
         shared_ptr<string> securityGroupId_ {};
       };
 
@@ -142,7 +136,6 @@ namespace Models
 
 
   protected:
-    // Details about the ECS security groups.
     shared_ptr<DescribeSecurityGroupConfigurationResponseBody::Items> items_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

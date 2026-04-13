@@ -187,48 +187,17 @@ namespace Models
 
 
       protected:
-        // The time of instance creation, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
         shared_ptr<string> creationTime_ {};
-        // The description of the instance.
         shared_ptr<string> DBInstanceDescription_ {};
-        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
         shared_ptr<string> DBInstanceStatus_ {};
-        // The architecture of the instance. Valid values:
-        // 
-        // *   **sharding**: sharded cluster instance
-        // *   **replicate**: replica set or standalone instance
         shared_ptr<string> DBInstanceType_ {};
-        // The database engine version of the instance. Valid values:
-        // 
-        // *   **7.0**
-        // *   **6.0**
-        // *   **5.0**
-        // *   **4.4**
-        // *   **4.2**
-        // *   **4.0**
-        // *   **3.4**
         shared_ptr<string> engineVersion_ {};
-        // The secondary availability zone 2 for the instance when implementing multi-AZ deployment.
         shared_ptr<string> hiddenZoneId_ {};
-        // Specifies whether the instance is deleted. Valid values:
-        // 
-        // *   **0**: not deleted
-        // *   **1**: deleted
         shared_ptr<int32_t> isDeleted_ {};
-        // The locked state of the instance, value description:
-        // - Unlock: Normal.
-        // - ManualLock: Manually triggered lock.
-        // - LockByExpiration: Automatically locked due to expiration.
-        // - LockByRestoration: Automatically locked before restoration.
-        // - LockByDiskQuota: Automatically locked due to disk quota exceeded.
         shared_ptr<string> lockMode_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
-        // The secondary availability zone 1 for the instance when implementing multi-AZ deployment.
         shared_ptr<string> secondaryZoneId_ {};
-        // The zone ID of the instance.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -286,7 +255,6 @@ namespace Models
 
 
   protected:
-    // DB instances list.
     shared_ptr<DescribeRestoreDBInstanceListResponseBody::DBInstances> DBInstances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

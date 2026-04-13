@@ -131,23 +131,11 @@ namespace Models
 
 
       protected:
-        // The value range of modifiable parameters.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether the parameter is modifiable.
-        // 
-        // *   **false**: The parameter cannot be modified.
-        // *   **true**: The parameter can be modified.
         shared_ptr<bool> forceModify_ {};
-        // Indicates whether a restart is required for parameter modifications to take effect.
-        // 
-        // *   **false**: A restart is not required. Parameter modifications immediately take effect.
-        // *   **true**: A restart is required for parameter modifications to take effect.
         shared_ptr<bool> forceRestart_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The default value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -211,7 +199,6 @@ namespace Models
     shared_ptr<string> engineVersion_ {};
     // The number of parameters that are supported by the instance.
     shared_ptr<string> parameterCount_ {};
-    // Details about the parameter templates.
     shared_ptr<DescribeParameterTemplatesResponseBody::Parameters> parameters_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -122,24 +122,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-renewal is enabled for the instance. Valid values:
-        // 
-        // *   **true**: Auto-renewal is enabled for the instance.
-        // *   **false**: Auto-renewal is disabled for the instance.
         shared_ptr<string> autoRenew_ {};
-        // The category of the instance. Valid values:
-        // 
-        // *   **replicate**: the standalone or replica set instance
-        // *   **sharding**: the sharded cluster instance
         shared_ptr<string> DBInstanceType_ {};
-        // The ID of the instance.
         shared_ptr<string> dbInstanceId_ {};
-        // The auto-renewal period. Unit: months.
-        // 
-        // > * This parameter is ruturned only when the returned value of the **AutoRenew** parameter is **true**.
-        // > * You can call the [ModifyInstanceAutoRenewalAttribute](https://help.aliyun.com/document_detail/145979.html) operation to modify the auto-renewal period.
         shared_ptr<string> duration_ {};
-        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
       };
 
@@ -197,7 +183,6 @@ namespace Models
 
 
   protected:
-    // Details about returned entries.
     shared_ptr<DescribeInstanceAutoRenewalAttributeResponseBody::Items> items_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> itemsNumbers_ {};

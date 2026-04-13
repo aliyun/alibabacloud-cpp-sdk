@@ -233,62 +233,22 @@ namespace Models
 
 
       protected:
-        // The name of the database that has been backed up.
         shared_ptr<string> backupDBNames_ {};
-        // The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, an empty string is returned.
         shared_ptr<string> backupDownloadURL_ {};
-        // The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> backupEndTime_ {};
         shared_ptr<string> backupExpireTime_ {};
-        // The ID of the backup set.
         shared_ptr<string> backupId_ {};
-        // The internal download URL of the backup set.
-        // 
-        // >  You can use the URL to download the specified backup set on an Elastic Compute Service (ECS) instance that is in the same virtual private cloud (VPC) as the ApsaraDB for MongoDB instance.
         shared_ptr<string> backupIntranetDownloadURL_ {};
-        // The ID of the backup task.
         shared_ptr<string> backupJobId_ {};
-        // The method that is used to generate the backup set. Valid values:
-        // 
-        // *   **Snapshot**
-        // *   **Physical**
-        // *   **Logical**
         shared_ptr<string> backupMethod_ {};
-        // The backup mode of the backup set. Valid values:
-        // 
-        // *   **Automated**
-        // *   **Manual**
         shared_ptr<string> backupMode_ {};
-        // The name of the backup set. The parameter is invalid.
         shared_ptr<string> backupName_ {};
-        // The backup granularity. The parameter is invalid.
         shared_ptr<string> backupScale_ {};
-        // The size of the backup set. Unit: bytes.
         shared_ptr<int64_t> backupSize_ {};
-        // The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
-        // The status of the backup task. Valid values:
-        // 
-        // *   **Success**: The backup task is successful.
-        // *   **Failed**: The backup task failed.
         shared_ptr<string> backupStatus_ {};
-        // The backup type. Valid values:
-        // 
-        // *   **FullBackup**
-        // *   **IncrementalBackup**
         shared_ptr<string> backupType_ {};
-        // Version of the backuped instance.
-        // 
-        // *   **6.0**
-        // *   **5.0**
-        // *   **4.4**
-        // *   **4.2**
-        // *   **4.0**
-        // *   **3.4**
         shared_ptr<string> engineVersion_ {};
-        // Availability of the backup set.
-        // - 0: unavailable
-        // - 1: available
         shared_ptr<bool> isAvail_ {};
       };
 
@@ -346,7 +306,6 @@ namespace Models
 
 
   protected:
-    // The details of the backup set.
     shared_ptr<DescribeBackupsResponseBody::Backups> backups_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

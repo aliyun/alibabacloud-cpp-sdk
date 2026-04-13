@@ -142,19 +142,8 @@ namespace Models
 
 
           protected:
-            // Indicates whether a virtual private cloud (VPC) is supported. Valid values:
-            // 
-            // *   **true**: VPC is supported.
-            // *   **false**: VPC is not supported.
             shared_ptr<bool> vpcEnabled_ {};
-            // The zone ID.
             shared_ptr<string> zoneId_ {};
-            // The name of the zone.
-            // 
-            // The value of the ZoneName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the ZoneId parameter in the response is **cn-hangzhou-h**, the following values are returned for the ZoneName parameter:
-            // 
-            // *   If the value of the **AcceptLanguage** parameter is **zh**, the value **H** is returned for the ZoneName parameter.
-            // *   If the value of the **AcceptLanguage** parameter is **en**, the value **Hangzhou Zone H** is returned for the ZoneName parameter.
             shared_ptr<string> zoneName_ {};
           };
 
@@ -205,22 +194,9 @@ namespace Models
 
 
       protected:
-        // The public endpoint of the region.
-        // 
-        // For example, if the value of the RegionId parameter in the response is cn-hangzhou, the following value is returned for the EndPoint parameter:
-        // 
-        // *   mongodb.aliyuncs.com
         shared_ptr<string> endPoint_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The name of the region.
-        // 
-        // The value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the RegionId parameter in the response is **cn-hangzhou**, the following values are returned for the LocalName parameter:
-        // 
-        // *   If the value of the **AcceptLanguage** parameter is **zh**, the value **华东1（杭州）** is returned for the LocalName parameter.
-        // *   If the value of the **AcceptLanguage** parameter is **en**, the value **China (Hangzhou)** is returned for the LocalName parameter.
         shared_ptr<string> regionName_ {};
-        // The zones.
         shared_ptr<DdsRegion::Zones> zones_ {};
       };
 
@@ -257,7 +233,6 @@ namespace Models
 
 
   protected:
-    // The regions.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

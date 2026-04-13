@@ -116,26 +116,10 @@ namespace Models
 
 
       protected:
-        // The ID of the node.
         shared_ptr<string> insName_ {};
-        // The type of the node. Valid values:
-        // 
-        // *   **normal**
-        // *   **configServer**
-        // *   **shard**
-        // *   **mongos**
-        // 
-        // > Valid value for replica set instances: **normal**. Valid values for sharded cluster instances: **configServer**, **shard**, and **mongos**.
         shared_ptr<string> nodeType_ {};
-        // The role ID.
         shared_ptr<string> roleId_ {};
-        // The role of the node. Valid values:
-        // 
-        // *   **Primary**
-        // *   **Secondary**
-        // *   **Hidden**
         shared_ptr<string> roleType_ {};
-        // The zone ID of the node.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -174,7 +158,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of nodes in the zone.
     shared_ptr<DescribeRoleZoneInfoResponseBody::ZoneInfos> zoneInfos_ {};
   };
 

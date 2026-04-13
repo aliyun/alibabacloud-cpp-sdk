@@ -15,22 +15,28 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceConnectionStringRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentConnectionString, currentConnectionString_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(ForceModifySuffix, forceModifySuffix_);
+      DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(NewConnectionString, newConnectionString_);
       DARABONBA_PTR_TO_JSON(NewPort, newPort_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PortModifyOnly, portModifyOnly_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceConnectionStringRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentConnectionString, currentConnectionString_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(ForceModifySuffix, forceModifySuffix_);
+      DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(NewConnectionString, newConnectionString_);
       DARABONBA_PTR_FROM_JSON(NewPort, newPort_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PortModifyOnly, portModifyOnly_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
     };
@@ -46,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentConnectionString_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->newConnectionString_ == nullptr && this->newPort_ == nullptr && this->nodeId_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->forceModifySuffix_ == nullptr && this->networkType_ == nullptr && this->newConnectionString_ == nullptr && this->newPort_ == nullptr
+        && this->nodeId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->portModifyOnly_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr; };
     // currentConnectionString Field Functions 
     bool hasCurrentConnectionString() const { return this->currentConnectionString_ != nullptr;};
     void deleteCurrentConnectionString() { this->currentConnectionString_ = nullptr;};
@@ -60,6 +67,20 @@ namespace Models
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifyDBInstanceConnectionStringRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // forceModifySuffix Field Functions 
+    bool hasForceModifySuffix() const { return this->forceModifySuffix_ != nullptr;};
+    void deleteForceModifySuffix() { this->forceModifySuffix_ = nullptr;};
+    inline bool getForceModifySuffix() const { DARABONBA_PTR_GET_DEFAULT(forceModifySuffix_, false) };
+    inline ModifyDBInstanceConnectionStringRequest& setForceModifySuffix(bool forceModifySuffix) { DARABONBA_PTR_SET_VALUE(forceModifySuffix_, forceModifySuffix) };
+
+
+    // networkType Field Functions 
+    bool hasNetworkType() const { return this->networkType_ != nullptr;};
+    void deleteNetworkType() { this->networkType_ = nullptr;};
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline ModifyDBInstanceConnectionStringRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
     // newConnectionString Field Functions 
@@ -97,6 +118,13 @@ namespace Models
     inline ModifyDBInstanceConnectionStringRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // portModifyOnly Field Functions 
+    bool hasPortModifyOnly() const { return this->portModifyOnly_ != nullptr;};
+    void deletePortModifyOnly() { this->portModifyOnly_ = nullptr;};
+    inline bool getPortModifyOnly() const { DARABONBA_PTR_GET_DEFAULT(portModifyOnly_, false) };
+    inline ModifyDBInstanceConnectionStringRequest& setPortModifyOnly(bool portModifyOnly) { DARABONBA_PTR_SET_VALUE(portModifyOnly_, portModifyOnly) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -113,8 +141,6 @@ namespace Models
 
   protected:
     // The current endpoint that is to be modified.
-    // 
-    // This parameter is required.
     shared_ptr<string> currentConnectionString_ {};
     // The instance ID.
     // 
@@ -122,11 +148,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    shared_ptr<bool> forceModifySuffix_ {};
+    shared_ptr<string> networkType_ {};
     // The new endpoint. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
     // 
     // > You need only to specify the prefix of the endpoint. The content other than the prefix cannot be modified.
-    // 
-    // This parameter is required.
     shared_ptr<string> newConnectionString_ {};
     // The new port number of the instance. The port number must be within the range from 1000 to 65535.
     // 
@@ -138,6 +164,7 @@ namespace Models
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<bool> portModifyOnly_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

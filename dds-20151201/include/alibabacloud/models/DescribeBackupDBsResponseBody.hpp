@@ -85,7 +85,6 @@ namespace Models
 
 
       protected:
-        // The name of the database.
         shared_ptr<string> DBName_ {};
       };
 
@@ -143,7 +142,6 @@ namespace Models
 
 
   protected:
-    // The details of the databases.
     shared_ptr<DescribeBackupDBsResponseBody::Databases> databases_ {};
     // The page number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};

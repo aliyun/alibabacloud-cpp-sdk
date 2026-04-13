@@ -115,13 +115,9 @@ namespace Models
 
 
       protected:
-        // The category of the log entry.
         shared_ptr<string> category_ {};
-        // The connection information of the log entry.
         shared_ptr<string> connInfo_ {};
-        // The content of the log entry.
         shared_ptr<string> content_ {};
-        // The time when the log entry was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
       };
 
@@ -188,7 +184,6 @@ namespace Models
   protected:
     // The database engine.
     shared_ptr<string> engine_ {};
-    // Details about the operational log entries.
     shared_ptr<DescribeRunningLogRecordsResponseBody::Items> items_ {};
     // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};

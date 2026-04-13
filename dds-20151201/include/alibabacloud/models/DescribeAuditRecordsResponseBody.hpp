@@ -159,23 +159,14 @@ namespace Models
 
 
       protected:
-        // The account of the database.
         shared_ptr<string> accountName_ {};
-        // The name of the database.
         shared_ptr<string> DBName_ {};
-        // The time when the statement was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> executeTime_ {};
-        // The IP addresses of the client.
         shared_ptr<string> hostAddress_ {};
-        // The number of SQL audit log entries that are returned.
         shared_ptr<int64_t> returnRowCounts_ {};
-        // The statement that was executed.
         shared_ptr<string> syntax_ {};
-        // The name of the collection.
         shared_ptr<string> tableName_ {};
-        // The ID of the thread.
         shared_ptr<string> threadID_ {};
-        // The duration of the statement execution. Unit: microseconds.
         shared_ptr<int64_t> totalExecutionTimes_ {};
       };
 
@@ -233,7 +224,6 @@ namespace Models
 
 
   protected:
-    // An array that consists of the information of audit log entries.
     shared_ptr<DescribeAuditRecordsResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

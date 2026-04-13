@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AuditLogSwitchSource, auditLogSwitchSource_);
       DARABONBA_PTR_TO_JSON(AuditStatus, auditStatus_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(HotStoragePeriod, hotStoragePeriod_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AuditLogSwitchSource, auditLogSwitchSource_);
       DARABONBA_PTR_FROM_JSON(AuditStatus, auditStatus_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(HotStoragePeriod, hotStoragePeriod_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auditLogSwitchSource_ == nullptr
-        && this->auditStatus_ == nullptr && this->DBInstanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->serviceType_ == nullptr && this->storagePeriod_ == nullptr; };
+        && this->auditStatus_ == nullptr && this->DBInstanceId_ == nullptr && this->hotStoragePeriod_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->serviceType_ == nullptr && this->storagePeriod_ == nullptr; };
     // auditLogSwitchSource Field Functions 
     bool hasAuditLogSwitchSource() const { return this->auditLogSwitchSource_ != nullptr;};
     void deleteAuditLogSwitchSource() { this->auditLogSwitchSource_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifyAuditPolicyRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // hotStoragePeriod Field Functions 
+    bool hasHotStoragePeriod() const { return this->hotStoragePeriod_ != nullptr;};
+    void deleteHotStoragePeriod() { this->hotStoragePeriod_ = nullptr;};
+    inline int32_t getHotStoragePeriod() const { DARABONBA_PTR_GET_DEFAULT(hotStoragePeriod_, 0) };
+    inline ModifyAuditPolicyRequest& setHotStoragePeriod(int32_t hotStoragePeriod) { DARABONBA_PTR_SET_VALUE(hotStoragePeriod_, hotStoragePeriod) };
 
 
     // ownerAccount Field Functions 
@@ -125,6 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    shared_ptr<int32_t> hotStoragePeriod_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -21,6 +21,8 @@ namespace Dds20151201
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+       *
        * @param request AllocateDBInstanceSrvNetworkAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AllocateDBInstanceSrvNetworkAddressResponse
@@ -28,6 +30,8 @@ namespace Dds20151201
       Models::AllocateDBInstanceSrvNetworkAddressResponse allocateDBInstanceSrvNetworkAddressWithOptions(const Models::AllocateDBInstanceSrvNetworkAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+       *
        * @param request AllocateDBInstanceSrvNetworkAddressRequest
        * @return AllocateDBInstanceSrvNetworkAddressResponse
        */
@@ -87,7 +91,7 @@ namespace Dds20151201
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasks(const Models::CancelActiveOperationTasksRequest &request);
 
       /**
-       * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+       * @summary Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
        *
        * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
        *
@@ -98,7 +102,7 @@ namespace Dds20151201
       Models::CheckCloudResourceAuthorizedResponse checkCloudResourceAuthorizedWithOptions(const Models::CheckCloudResourceAuthorizedRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+       * @summary Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
        *
        * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
        *
@@ -131,7 +135,7 @@ namespace Dds20151201
       Models::CheckRecoveryConditionResponse checkRecoveryCondition(const Models::CheckRecoveryConditionRequest &request);
 
       /**
-       * @summary Queries whether a service-linked role is created.
+       * @summary Checks whether a service-linked role (SLR) is created for an instance.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -140,7 +144,7 @@ namespace Dds20151201
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRoleWithOptions(const Models::CheckServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether a service-linked role is created.
+       * @summary Checks whether a service-linked role (SLR) is created for an instance.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @return CheckServiceLinkedRoleResponse
@@ -318,7 +322,7 @@ namespace Dds20151201
       Models::CreateShardingDBInstanceResponse createShardingDBInstance(const Models::CreateShardingDBInstanceRequest &request);
 
       /**
-       * @summary 删除MongoDB备份集
+       * @summary Deletes the backup set of MongoDB.
        *
        * @param request DeleteBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -327,7 +331,7 @@ namespace Dds20151201
       Models::DeleteBackupResponse deleteBackupWithOptions(const Models::DeleteBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除MongoDB备份集
+       * @summary Deletes the backup set of MongoDB.
        *
        * @param request DeleteBackupRequest
        * @return DeleteBackupResponse
@@ -476,6 +480,8 @@ namespace Dds20151201
       Models::DescribeActiveOperationTaskCountResponse describeActiveOperationTaskCount(const Models::DescribeActiveOperationTaskCountRequest &request);
 
       /**
+       * @summary Query maintenance task types and task quantities.
+       *
        * @param request DescribeActiveOperationTaskRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeActiveOperationTaskRegionResponse
@@ -483,6 +489,8 @@ namespace Dds20151201
       Models::DescribeActiveOperationTaskRegionResponse describeActiveOperationTaskRegionWithOptions(const Models::DescribeActiveOperationTaskRegionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query maintenance task types and task quantities.
+       *
        * @param request DescribeActiveOperationTaskRegionRequest
        * @return DescribeActiveOperationTaskRegionResponse
        */
@@ -623,7 +631,7 @@ namespace Dds20151201
       Models::DescribeAvailabilityZonesResponse describeAvailabilityZones(const Models::DescribeAvailabilityZonesRequest &request);
 
       /**
-       * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+       * @summary Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
        *
        * @param request DescribeAvailableEngineVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -632,7 +640,7 @@ namespace Dds20151201
       Models::DescribeAvailableEngineVersionResponse describeAvailableEngineVersionWithOptions(const Models::DescribeAvailableEngineVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+       * @summary Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
        *
        * @param request DescribeAvailableEngineVersionRequest
        * @return DescribeAvailableEngineVersionResponse
@@ -707,7 +715,7 @@ namespace Dds20151201
       Models::DescribeBackupPolicyResponse describeBackupPolicy(const Models::DescribeBackupPolicyRequest &request);
 
       /**
-       * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+       * @summary Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
        *
        * @param request DescribeBackupStorageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -716,7 +724,7 @@ namespace Dds20151201
       Models::DescribeBackupStorageResponse describeBackupStorageWithOptions(const Models::DescribeBackupStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+       * @summary Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
        *
        * @param request DescribeBackupStorageRequest
        * @return DescribeBackupStorageResponse
@@ -756,6 +764,23 @@ namespace Dds20151201
        * @return DescribeBackupsResponse
        */
       Models::DescribeBackupsResponse describeBackups(const Models::DescribeBackupsRequest &request);
+
+      /**
+       * @summary Queries binary log files bound to an ApsaraDB for MongoDB instance.
+       *
+       * @param request DescribeBinlogFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBinlogFilesResponse
+       */
+      Models::DescribeBinlogFilesResponse describeBinlogFilesWithOptions(const Models::DescribeBinlogFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries binary log files bound to an ApsaraDB for MongoDB instance.
+       *
+       * @param request DescribeBinlogFilesRequest
+       * @return DescribeBinlogFilesResponse
+       */
+      Models::DescribeBinlogFilesResponse describeBinlogFiles(const Models::DescribeBinlogFilesRequest &request);
 
       /**
        * @summary Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
@@ -903,7 +928,7 @@ namespace Dds20151201
       Models::DescribeDBInstanceSSLResponse describeDBInstanceSSL(const Models::DescribeDBInstanceSSLRequest &request);
 
       /**
-       * @summary 查看规格信息详情
+       * @summary Queries the specifications of an ApsaraDB for MongoDB instance.
        *
        * @param request DescribeDBInstanceSpecInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -912,7 +937,7 @@ namespace Dds20151201
       Models::DescribeDBInstanceSpecInfoResponse describeDBInstanceSpecInfoWithOptions(const Models::DescribeDBInstanceSpecInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看规格信息详情
+       * @summary Queries the specifications of an ApsaraDB for MongoDB instance.
        *
        * @param request DescribeDBInstanceSpecInfoRequest
        * @return DescribeDBInstanceSpecInfoResponse
@@ -1422,7 +1447,7 @@ namespace Dds20151201
       Models::DescribeRoleZoneInfoResponse describeRoleZoneInfo(const Models::DescribeRoleZoneInfoRequest &request);
 
       /**
-       * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+       * @summary Queries the operational logs of an ApsaraDB for MongoDB instance.
        *
        * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
        * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
@@ -1434,7 +1459,7 @@ namespace Dds20151201
       Models::DescribeRunningLogRecordsResponse describeRunningLogRecordsWithOptions(const Models::DescribeRunningLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+       * @summary Queries the operational logs of an ApsaraDB for MongoDB instance.
        *
        * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
        * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
@@ -1445,7 +1470,7 @@ namespace Dds20151201
       Models::DescribeRunningLogRecordsResponse describeRunningLogRecords(const Models::DescribeRunningLogRecordsRequest &request);
 
       /**
-       * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+       * @summary Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
        *
        * @param request DescribeSecurityGroupConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1454,7 +1479,7 @@ namespace Dds20151201
       Models::DescribeSecurityGroupConfigurationResponse describeSecurityGroupConfigurationWithOptions(const Models::DescribeSecurityGroupConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+       * @summary Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
        *
        * @param request DescribeSecurityGroupConfigurationRequest
        * @return DescribeSecurityGroupConfigurationResponse
@@ -1714,6 +1739,8 @@ namespace Dds20151201
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
+       * @summary Modifies the O\\\\\\&M task configurations for an instance.
+       *
        * @param request ModifyActiveOperationMaintenanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyActiveOperationMaintenanceConfigResponse
@@ -1721,13 +1748,15 @@ namespace Dds20151201
       Models::ModifyActiveOperationMaintenanceConfigResponse modifyActiveOperationMaintenanceConfigWithOptions(const Models::ModifyActiveOperationMaintenanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies the O\\\\\\&M task configurations for an instance.
+       *
        * @param request ModifyActiveOperationMaintenanceConfigRequest
        * @return ModifyActiveOperationMaintenanceConfigResponse
        */
       Models::ModifyActiveOperationMaintenanceConfigResponse modifyActiveOperationMaintenanceConfig(const Models::ModifyActiveOperationMaintenanceConfigRequest &request);
 
       /**
-       * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+       * @summary Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
        *
        * @param request ModifyActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1736,7 +1765,7 @@ namespace Dds20151201
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasksWithOptions(const Models::ModifyActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+       * @summary Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
        *
        * @param request ModifyActiveOperationTasksRequest
        * @return ModifyActiveOperationTasksResponse
@@ -1792,7 +1821,7 @@ namespace Dds20151201
       Models::ModifyAuditPolicyResponse modifyAuditPolicy(const Models::ModifyAuditPolicyRequest &request);
 
       /**
-       * @summary 修改MongoDB备份集的过期时间
+       * @summary Modifies the expiration time of MongoDB backup sets
        *
        * @param request ModifyBackupExpireTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1801,7 +1830,7 @@ namespace Dds20151201
       Models::ModifyBackupExpireTimeResponse modifyBackupExpireTimeWithOptions(const Models::ModifyBackupExpireTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改MongoDB备份集的过期时间
+       * @summary Modifies the expiration time of MongoDB backup sets
        *
        * @param request ModifyBackupExpireTimeRequest
        * @return ModifyBackupExpireTimeResponse
@@ -1830,6 +1859,8 @@ namespace Dds20151201
       Models::ModifyBackupPolicyResponse modifyBackupPolicy(const Models::ModifyBackupPolicyRequest &request);
 
       /**
+       * @summary Modifies existing release protection configurations.
+       *
        * @param request ModifyDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyDBInstanceAttributeResponse
@@ -1837,13 +1868,15 @@ namespace Dds20151201
       Models::ModifyDBInstanceAttributeResponse modifyDBInstanceAttributeWithOptions(const Models::ModifyDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies existing release protection configurations.
+       *
        * @param request ModifyDBInstanceAttributeRequest
        * @return ModifyDBInstanceAttributeResponse
        */
       Models::ModifyDBInstanceAttributeResponse modifyDBInstanceAttribute(const Models::ModifyDBInstanceAttributeRequest &request);
 
       /**
-       * @summary 修改实例配置
+       * @summary Modifies the configurations of an ApsaraDB for MongoDB instance.
        *
        * @param request ModifyDBInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1852,7 +1885,7 @@ namespace Dds20151201
       Models::ModifyDBInstanceConfigResponse modifyDBInstanceConfigWithOptions(const Models::ModifyDBInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例配置
+       * @summary Modifies the configurations of an ApsaraDB for MongoDB instance.
        *
        * @param request ModifyDBInstanceConfigRequest
        * @return ModifyDBInstanceConfigResponse
@@ -2333,7 +2366,7 @@ namespace Dds20151201
       Models::ModifySecurityIpsResponse modifySecurityIps(const Models::ModifySecurityIpsRequest &request);
 
       /**
-       * @summary 修改MongoDB实例的SRV连接地址
+       * @summary Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
        *
        * @param request ModifySrvNetworkAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2342,7 +2375,7 @@ namespace Dds20151201
       Models::ModifySrvNetworkAddressResponse modifySrvNetworkAddressWithOptions(const Models::ModifySrvNetworkAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改MongoDB实例的SRV连接地址
+       * @summary Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
        *
        * @param request ModifySrvNetworkAddressRequest
        * @return ModifySrvNetworkAddressResponse

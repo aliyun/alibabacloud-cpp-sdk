@@ -141,29 +141,12 @@ namespace Models
 
 
       protected:
-        // 实例的角色类型，取值说明：
-        // 
-        // - **db**：shard角色。
-        // - **cs**：config server角色。
-        // - **mongos**：mongos角色。
         shared_ptr<string> characterType_ {};
-        // The valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether a restart is required for parameter modifications to take effect. Valid values:
-        // 
-        // *   **false**: A restart is not required. Modifications take effect immediately.
-        // *   **true**: A restart is required for parameter modifications to take effect.
         shared_ptr<string> forceRestart_ {};
-        // Indicates whether the parameter value can be modified. Valid values:
-        // 
-        // *   **false**: The parameter value cannot be modified.
-        // *   **true**: The parameter value can be modified.
         shared_ptr<string> modifiableStatus_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -274,23 +257,11 @@ namespace Models
 
 
       protected:
-        // The valid values of the parameter.
         shared_ptr<string> checkingCode_ {};
-        // Indicates whether a restart is required for parameter modifications to take effect. Valid values:
-        // 
-        // *   **false**: A restart is not required. Modifications take effect immediately.
-        // *   **true**: A restart is required for parameter modifications to take effect.
         shared_ptr<bool> forceRestart_ {};
-        // Indicates whether the parameter value can be modified. Valid values:
-        // 
-        // *   **false**: The parameter value cannot be modified.
-        // *   **true**: The parameter value can be modified.
         shared_ptr<bool> modifiableStatus_ {};
-        // The description of the parameter.
         shared_ptr<string> parameterDescription_ {};
-        // The name of the parameter.
         shared_ptr<string> parameterName_ {};
-        // The value of the parameter.
         shared_ptr<string> parameterValue_ {};
       };
 
@@ -350,7 +321,6 @@ namespace Models
 
 
   protected:
-    // The parameter settings in the configuration template.
     shared_ptr<DescribeParametersResponseBody::ConfigParameters> configParameters_ {};
     // The database engine of the instance. Default value: **mongodb**.
     shared_ptr<string> engine_ {};
@@ -358,7 +328,6 @@ namespace Models
     shared_ptr<string> engineVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The settings of the parameters that have taken effect.
     shared_ptr<DescribeParametersResponseBody::RunningParameters> runningParameters_ {};
   };
 

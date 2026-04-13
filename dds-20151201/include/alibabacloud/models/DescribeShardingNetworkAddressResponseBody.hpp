@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeShardingNetworkAddressResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CompatibleConnections, compatibleConnections_);
+      DARABONBA_PTR_TO_JSON(ConnectionStringSuffix, connectionStringSuffix_);
       DARABONBA_PTR_TO_JSON(NetworkAddresses, networkAddresses_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeShardingNetworkAddressResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CompatibleConnections, compatibleConnections_);
+      DARABONBA_PTR_FROM_JSON(ConnectionStringSuffix, connectionStringSuffix_);
       DARABONBA_PTR_FROM_JSON(NetworkAddresses, networkAddresses_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -183,47 +185,17 @@ namespace Models
 
 
       protected:
-        // The public endpoint type. Valid values:
-        // 
-        // *   **SRV**
-        // *   **Normal**
         shared_ptr<string> connectionType_ {};
-        // The remaining duration of the classic network endpoint. Unit: seconds.
         shared_ptr<string> expiredTime_ {};
-        // The IP address of the instance.
         shared_ptr<string> IPAddress_ {};
-        // The connection string of the instance.
         shared_ptr<string> networkAddress_ {};
-        // The network type of the instance.
-        // 
-        // *   **VPC**: virtual private cloud
-        // *   **Classic**: classic network
-        // *   **Public**: the Internet
         shared_ptr<string> networkType_ {};
-        // The ID of the mongos node.
         shared_ptr<string> nodeId_ {};
-        // The type of the node. Valid values:
-        // 
-        // *   **mongos**: mongos node
-        // *   **shard**: shard node
-        // *   **configserver**: Configserver node
         shared_ptr<string> nodeType_ {};
-        // The port that is used to connect to the instance.
         shared_ptr<string> port_ {};
-        // The role of the node. Valid values:
-        // 
-        // *   Primary
-        // *   Secondary
         shared_ptr<string> role_ {};
-        // Txt record which can be used to store MongoDB-related meta data, such as version, configuration parameters and etc. With the combination of txt record and other technology, for example SRV record, the MongoDB client can complete the complex service discovery and configuration passing.
         shared_ptr<string> txtRecord_ {};
-        // The VPC ID of the instance.
-        // 
-        // >  This parameter is returned when the network type is **VPC**.
         shared_ptr<string> VPCId_ {};
-        // The ID of the vSwitch in the VPC.
-        // 
-        // >  This parameter is returned when the network type is **VPC**.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -344,27 +316,12 @@ namespace Models
 
 
       protected:
-        // The remaining duration of the classic network endpoint. Unit: seconds.
         shared_ptr<string> expiredTime_ {};
-        // The IP address of the instance.
         shared_ptr<string> IPAddress_ {};
-        // The endpoint of the instance.
         shared_ptr<string> networkAddress_ {};
-        // The network type of the instance.
-        // 
-        // *   **VPC**: virtual private cloud
-        // *   **Classic**: classic network
-        // *   **Public**: the Internet
         shared_ptr<string> networkType_ {};
-        // The port that is used to connect to the instance.
         shared_ptr<string> port_ {};
-        // The VPC ID of the instance.
-        // 
-        // >  This parameter is returned when the network type is **VPC**.
         shared_ptr<string> VPCId_ {};
-        // The ID of the vSwitch in the Virtual Private Cloud (VPC).
-        // 
-        // >  This parameter is returned when the network type is **VPC**.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -383,7 +340,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->compatibleConnections_ == nullptr
-        && this->networkAddresses_ == nullptr && this->requestId_ == nullptr; };
+        && this->connectionStringSuffix_ == nullptr && this->networkAddresses_ == nullptr && this->requestId_ == nullptr; };
     // compatibleConnections Field Functions 
     bool hasCompatibleConnections() const { return this->compatibleConnections_ != nullptr;};
     void deleteCompatibleConnections() { this->compatibleConnections_ = nullptr;};
@@ -391,6 +348,13 @@ namespace Models
     inline DescribeShardingNetworkAddressResponseBody::CompatibleConnections getCompatibleConnections() { DARABONBA_PTR_GET(compatibleConnections_, DescribeShardingNetworkAddressResponseBody::CompatibleConnections) };
     inline DescribeShardingNetworkAddressResponseBody& setCompatibleConnections(const DescribeShardingNetworkAddressResponseBody::CompatibleConnections & compatibleConnections) { DARABONBA_PTR_SET_VALUE(compatibleConnections_, compatibleConnections) };
     inline DescribeShardingNetworkAddressResponseBody& setCompatibleConnections(DescribeShardingNetworkAddressResponseBody::CompatibleConnections && compatibleConnections) { DARABONBA_PTR_SET_RVALUE(compatibleConnections_, compatibleConnections) };
+
+
+    // connectionStringSuffix Field Functions 
+    bool hasConnectionStringSuffix() const { return this->connectionStringSuffix_ != nullptr;};
+    void deleteConnectionStringSuffix() { this->connectionStringSuffix_ = nullptr;};
+    inline string getConnectionStringSuffix() const { DARABONBA_PTR_GET_DEFAULT(connectionStringSuffix_, "") };
+    inline DescribeShardingNetworkAddressResponseBody& setConnectionStringSuffix(string connectionStringSuffix) { DARABONBA_PTR_SET_VALUE(connectionStringSuffix_, connectionStringSuffix) };
 
 
     // networkAddresses Field Functions 
@@ -410,9 +374,8 @@ namespace Models
 
 
   protected:
-    // The endpoints of DynamoDB-compatible instances.
     shared_ptr<DescribeShardingNetworkAddressResponseBody::CompatibleConnections> compatibleConnections_ {};
-    // The endpoints of the ApsaraDB for MongoDB sharded cluster instance.
+    shared_ptr<string> connectionStringSuffix_ {};
     shared_ptr<DescribeShardingNetworkAddressResponseBody::NetworkAddresses> networkAddresses_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

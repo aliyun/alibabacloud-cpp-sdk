@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The version number.
         shared_ptr<string> kernelVersion_ {};
-        // The release notes.
         shared_ptr<string> releaseNote_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The list of the version release notes.
     shared_ptr<DescribeKernelReleaseNotesResponseBody::ReleaseNotes> releaseNotes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
