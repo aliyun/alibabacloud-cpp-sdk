@@ -14,15 +14,21 @@ namespace Models
   class QueryVideoCognitionJobResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryVideoCognitionJobResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Input, input_);
       DARABONBA_PTR_TO_JSON(JobStatus, jobStatus_);
+      DARABONBA_PTR_TO_JSON(Params, params_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Results, results_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, QueryVideoCognitionJobResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Input, input_);
       DARABONBA_PTR_FROM_JSON(JobStatus, jobStatus_);
+      DARABONBA_PTR_FROM_JSON(Params, params_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Results, results_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
     QueryVideoCognitionJobResponseBody() = default ;
@@ -111,13 +117,72 @@ namespace Models
       shared_ptr<vector<Results::Result>> result_ {};
     };
 
-    virtual bool empty() const override { return this->jobStatus_ == nullptr
-        && this->requestId_ == nullptr && this->results_ == nullptr && this->userData_ == nullptr; };
+    class Input : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Input& obj) { 
+        DARABONBA_PTR_TO_JSON(Media, media_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Input& obj) { 
+        DARABONBA_PTR_FROM_JSON(Media, media_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Input() = default ;
+      Input(const Input &) = default ;
+      Input(Input &&) = default ;
+      Input(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Input() = default ;
+      Input& operator=(const Input &) = default ;
+      Input& operator=(Input &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->media_ == nullptr
+        && this->type_ == nullptr; };
+      // media Field Functions 
+      bool hasMedia() const { return this->media_ != nullptr;};
+      void deleteMedia() { this->media_ = nullptr;};
+      inline string getMedia() const { DARABONBA_PTR_GET_DEFAULT(media_, "") };
+      inline Input& setMedia(string media) { DARABONBA_PTR_SET_VALUE(media_, media) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Input& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<string> media_ {};
+      shared_ptr<string> type_ {};
+    };
+
+    virtual bool empty() const override { return this->input_ == nullptr
+        && this->jobStatus_ == nullptr && this->params_ == nullptr && this->requestId_ == nullptr && this->results_ == nullptr && this->templateId_ == nullptr
+        && this->userData_ == nullptr; };
+    // input Field Functions 
+    bool hasInput() const { return this->input_ != nullptr;};
+    void deleteInput() { this->input_ = nullptr;};
+    inline const QueryVideoCognitionJobResponseBody::Input & getInput() const { DARABONBA_PTR_GET_CONST(input_, QueryVideoCognitionJobResponseBody::Input) };
+    inline QueryVideoCognitionJobResponseBody::Input getInput() { DARABONBA_PTR_GET(input_, QueryVideoCognitionJobResponseBody::Input) };
+    inline QueryVideoCognitionJobResponseBody& setInput(const QueryVideoCognitionJobResponseBody::Input & input) { DARABONBA_PTR_SET_VALUE(input_, input) };
+    inline QueryVideoCognitionJobResponseBody& setInput(QueryVideoCognitionJobResponseBody::Input && input) { DARABONBA_PTR_SET_RVALUE(input_, input) };
+
+
     // jobStatus Field Functions 
     bool hasJobStatus() const { return this->jobStatus_ != nullptr;};
     void deleteJobStatus() { this->jobStatus_ = nullptr;};
     inline string getJobStatus() const { DARABONBA_PTR_GET_DEFAULT(jobStatus_, "") };
     inline QueryVideoCognitionJobResponseBody& setJobStatus(string jobStatus) { DARABONBA_PTR_SET_VALUE(jobStatus_, jobStatus) };
+
+
+    // params Field Functions 
+    bool hasParams() const { return this->params_ != nullptr;};
+    void deleteParams() { this->params_ = nullptr;};
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline QueryVideoCognitionJobResponseBody& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // requestId Field Functions 
@@ -136,6 +201,13 @@ namespace Models
     inline QueryVideoCognitionJobResponseBody& setResults(QueryVideoCognitionJobResponseBody::Results && results) { DARABONBA_PTR_SET_RVALUE(results_, results) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline QueryVideoCognitionJobResponseBody& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
@@ -144,6 +216,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<QueryVideoCognitionJobResponseBody::Input> input_ {};
     // The status of the task. Valid values:
     // 
     // *   **Success**
@@ -151,9 +224,11 @@ namespace Models
     // *   **Processing**
     // *   **Submitted**
     shared_ptr<string> jobStatus_ {};
+    shared_ptr<string> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<QueryVideoCognitionJobResponseBody::Results> results_ {};
+    shared_ptr<string> templateId_ {};
     // The user-defined data.
     shared_ptr<string> userData_ {};
   };
