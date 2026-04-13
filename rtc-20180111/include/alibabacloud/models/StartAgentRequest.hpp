@@ -393,9 +393,11 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const BackChannelConfig& obj) { 
           DARABONBA_PTR_TO_JSON(UserTurnEnd, userTurnEnd_);
+          DARABONBA_PTR_TO_JSON(Version, version_);
         };
         friend void from_json(const Darabonba::Json& j, BackChannelConfig& obj) { 
           DARABONBA_PTR_FROM_JSON(UserTurnEnd, userTurnEnd_);
+          DARABONBA_PTR_FROM_JSON(Version, version_);
         };
         BackChannelConfig() = default ;
         BackChannelConfig(const BackChannelConfig &) = default ;
@@ -408,7 +410,8 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->userTurnEnd_ == nullptr; };
+        virtual bool empty() const override { return this->userTurnEnd_ == nullptr
+        && this->version_ == nullptr; };
         // userTurnEnd Field Functions 
         bool hasUserTurnEnd() const { return this->userTurnEnd_ != nullptr;};
         void deleteUserTurnEnd() { this->userTurnEnd_ = nullptr;};
@@ -416,8 +419,16 @@ namespace Models
         inline BackChannelConfig& setUserTurnEnd(bool userTurnEnd) { DARABONBA_PTR_SET_VALUE(userTurnEnd_, userTurnEnd) };
 
 
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+        inline BackChannelConfig& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
       protected:
         shared_ptr<bool> userTurnEnd_ {};
+        shared_ptr<int32_t> version_ {};
       };
 
       class AmbientSoundConfig : public Darabonba::Model {

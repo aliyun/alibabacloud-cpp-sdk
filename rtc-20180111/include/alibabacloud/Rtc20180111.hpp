@@ -344,7 +344,6 @@ namespace Rtc20180111
       /**
        * @summary 列出系统支持的事件回调
        *
-       * @param request DescribeAllCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAllCallbackResponse
        */
