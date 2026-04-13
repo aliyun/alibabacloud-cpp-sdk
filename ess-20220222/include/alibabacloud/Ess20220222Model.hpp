@@ -99,6 +99,9 @@
 #include <alibabacloud/models/DescribeAlertConfigurationRequest.hpp>
 #include <alibabacloud/models/DescribeAlertConfigurationResponseBody.hpp>
 #include <alibabacloud/models/DescribeAlertConfigurationResponse.hpp>
+#include <alibabacloud/models/DescribeCandidateInstanceTypeRequest.hpp>
+#include <alibabacloud/models/DescribeCandidateInstanceTypeResponseBody.hpp>
+#include <alibabacloud/models/DescribeCandidateInstanceTypeResponse.hpp>
 #include <alibabacloud/models/DescribeDiagnoseReportsRequest.hpp>
 #include <alibabacloud/models/DescribeDiagnoseReportsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiagnoseReportsResponse.hpp>

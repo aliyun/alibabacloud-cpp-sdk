@@ -949,6 +949,23 @@ namespace Ess20220222
       Models::DescribeAlertConfigurationResponse describeAlertConfiguration(const Models::DescribeAlertConfigurationRequest &request);
 
       /**
+       * @summary 查询备选规格
+       *
+       * @param request DescribeCandidateInstanceTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCandidateInstanceTypeResponse
+       */
+      Models::DescribeCandidateInstanceTypeResponse describeCandidateInstanceTypeWithOptions(const Models::DescribeCandidateInstanceTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询备选规格
+       *
+       * @param request DescribeCandidateInstanceTypeRequest
+       * @return DescribeCandidateInstanceTypeResponse
+       */
+      Models::DescribeCandidateInstanceTypeResponse describeCandidateInstanceType(const Models::DescribeCandidateInstanceTypeRequest &request);
+
+      /**
        * @summary Queries the diagnostic reports.
        *
        * @param request DescribeDiagnoseReportsRequest

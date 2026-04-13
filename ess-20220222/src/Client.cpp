@@ -3208,6 +3208,108 @@ DescribeAlertConfigurationResponse Client::describeAlertConfiguration(const Desc
 }
 
 /**
+ * @summary 查询备选规格
+ *
+ * @param request DescribeCandidateInstanceTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCandidateInstanceTypeResponse
+ */
+DescribeCandidateInstanceTypeResponse Client::describeCandidateInstanceTypeWithOptions(const DescribeCandidateInstanceTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowCrossAz()) {
+    query["AllowCrossAz"] = request.getAllowCrossAz();
+  }
+
+  if (!!request.hasAllowDifferentGeneration()) {
+    query["AllowDifferentGeneration"] = request.getAllowDifferentGeneration();
+  }
+
+  if (!!request.hasDataDiskCategories()) {
+    query["DataDiskCategories"] = request.getDataDiskCategories();
+  }
+
+  if (!!request.hasImageFamily()) {
+    query["ImageFamily"] = request.getImageFamily();
+  }
+
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasImageName()) {
+    query["ImageName"] = request.getImageName();
+  }
+
+  if (!!request.hasInstanceTypes()) {
+    query["InstanceTypes"] = request.getInstanceTypes();
+  }
+
+  if (!!request.hasIpv6AddressCount()) {
+    query["Ipv6AddressCount"] = request.getIpv6AddressCount();
+  }
+
+  if (!!request.hasMaxPrice()) {
+    query["MaxPrice"] = request.getMaxPrice();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSpotStrategy()) {
+    query["SpotStrategy"] = request.getSpotStrategy();
+  }
+
+  if (!!request.hasSystemDiskCategories()) {
+    query["SystemDiskCategories"] = request.getSystemDiskCategories();
+  }
+
+  if (!!request.hasZoneIds()) {
+    query["ZoneIds"] = request.getZoneIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCandidateInstanceType"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCandidateInstanceTypeResponse>();
+}
+
+/**
+ * @summary 查询备选规格
+ *
+ * @param request DescribeCandidateInstanceTypeRequest
+ * @return DescribeCandidateInstanceTypeResponse
+ */
+DescribeCandidateInstanceTypeResponse Client::describeCandidateInstanceType(const DescribeCandidateInstanceTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCandidateInstanceTypeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the diagnostic reports.
  *
  * @param request DescribeDiagnoseReportsRequest

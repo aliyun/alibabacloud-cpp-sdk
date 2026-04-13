@@ -42,6 +42,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ResourcePools& obj) { 
         DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(ElasticStrength, elasticStrength_);
         DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(InventoryHealth, inventoryHealth_);
         DARABONBA_PTR_TO_JSON(Msg, msg_);
@@ -52,6 +53,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, ResourcePools& obj) { 
         DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(ElasticStrength, elasticStrength_);
         DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(InventoryHealth, inventoryHealth_);
         DARABONBA_PTR_FROM_JSON(Msg, msg_);
@@ -150,13 +152,20 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->code_ == nullptr
-        && this->instanceType_ == nullptr && this->inventoryHealth_ == nullptr && this->msg_ == nullptr && this->status_ == nullptr && this->strength_ == nullptr
-        && this->vSwitchIds_ == nullptr && this->zoneId_ == nullptr; };
+        && this->elasticStrength_ == nullptr && this->instanceType_ == nullptr && this->inventoryHealth_ == nullptr && this->msg_ == nullptr && this->status_ == nullptr
+        && this->strength_ == nullptr && this->vSwitchIds_ == nullptr && this->zoneId_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
       inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
       inline ResourcePools& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // elasticStrength Field Functions 
+      bool hasElasticStrength() const { return this->elasticStrength_ != nullptr;};
+      void deleteElasticStrength() { this->elasticStrength_ = nullptr;};
+      inline string getElasticStrength() const { DARABONBA_PTR_GET_DEFAULT(elasticStrength_, "") };
+      inline ResourcePools& setElasticStrength(string elasticStrength) { DARABONBA_PTR_SET_VALUE(elasticStrength_, elasticStrength) };
 
 
       // instanceType Field Functions 
@@ -215,6 +224,7 @@ namespace Models
     protected:
       // The error code returned when the scaling strength is the weakest.
       shared_ptr<string> code_ {};
+      shared_ptr<string> elasticStrength_ {};
       // The instance type of the resource pool.
       shared_ptr<string> instanceType_ {};
       // The inventory health.
@@ -263,6 +273,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const ResourcePools& obj) { 
           DARABONBA_PTR_TO_JSON(Code, code_);
+          DARABONBA_PTR_TO_JSON(ElasticStrength, elasticStrength_);
           DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_TO_JSON(InventoryHealth, inventoryHealth_);
           DARABONBA_PTR_TO_JSON(Msg, msg_);
@@ -273,6 +284,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, ResourcePools& obj) { 
           DARABONBA_PTR_FROM_JSON(Code, code_);
+          DARABONBA_PTR_FROM_JSON(ElasticStrength, elasticStrength_);
           DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_FROM_JSON(InventoryHealth, inventoryHealth_);
           DARABONBA_PTR_FROM_JSON(Msg, msg_);
@@ -371,13 +383,20 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->code_ == nullptr
-        && this->instanceType_ == nullptr && this->inventoryHealth_ == nullptr && this->msg_ == nullptr && this->status_ == nullptr && this->strength_ == nullptr
-        && this->vSwitchIds_ == nullptr && this->zoneId_ == nullptr; };
+        && this->elasticStrength_ == nullptr && this->instanceType_ == nullptr && this->inventoryHealth_ == nullptr && this->msg_ == nullptr && this->status_ == nullptr
+        && this->strength_ == nullptr && this->vSwitchIds_ == nullptr && this->zoneId_ == nullptr; };
         // code Field Functions 
         bool hasCode() const { return this->code_ != nullptr;};
         void deleteCode() { this->code_ = nullptr;};
         inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
         inline ResourcePools& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+        // elasticStrength Field Functions 
+        bool hasElasticStrength() const { return this->elasticStrength_ != nullptr;};
+        void deleteElasticStrength() { this->elasticStrength_ = nullptr;};
+        inline string getElasticStrength() const { DARABONBA_PTR_GET_DEFAULT(elasticStrength_, "") };
+        inline ResourcePools& setElasticStrength(string elasticStrength) { DARABONBA_PTR_SET_VALUE(elasticStrength_, elasticStrength) };
 
 
         // instanceType Field Functions 
@@ -436,6 +455,7 @@ namespace Models
       protected:
         // The error code returned when the scaling strength is the weakest.
         shared_ptr<string> code_ {};
+        shared_ptr<string> elasticStrength_ {};
         // The instance type of the resource pool.
         shared_ptr<string> instanceType_ {};
         // The inventory health.
