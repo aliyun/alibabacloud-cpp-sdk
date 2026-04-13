@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->instance_ == nullptr && return this->success_ == nullptr; };
+        && this->instance_ == nullptr && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
-    inline const InstanceDetail & instance() const { DARABONBA_PTR_GET_CONST(instance_, InstanceDetail) };
-    inline InstanceDetail instance() { DARABONBA_PTR_GET(instance_, InstanceDetail) };
+    inline const InstanceDetail & getInstance() const { DARABONBA_PTR_GET_CONST(instance_, InstanceDetail) };
+    inline InstanceDetail getInstance() { DARABONBA_PTR_GET(instance_, InstanceDetail) };
     inline GetInstanceResponseBody& setInstance(const InstanceDetail & instance) { DARABONBA_PTR_SET_VALUE(instance_, instance) };
     inline GetInstanceResponseBody& setInstance(InstanceDetail && instance) { DARABONBA_PTR_SET_RVALUE(instance_, instance) };
 
@@ -55,14 +55,14 @@ namespace Models
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetInstanceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<InstanceDetail> instance_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<InstanceDetail> instance_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

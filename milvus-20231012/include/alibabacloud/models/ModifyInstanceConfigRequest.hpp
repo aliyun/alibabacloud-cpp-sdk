@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->reason_ == nullptr && return this->userConfig_ == nullptr; };
+        && this->reason_ == nullptr && this->userConfig_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyInstanceConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline ModifyInstanceConfigRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // userConfig Field Functions 
     bool hasUserConfig() const { return this->userConfig_ != nullptr;};
     void deleteUserConfig() { this->userConfig_ = nullptr;};
-    inline string userConfig() const { DARABONBA_PTR_GET_DEFAULT(userConfig_, "") };
+    inline string getUserConfig() const { DARABONBA_PTR_GET_DEFAULT(userConfig_, "") };
     inline ModifyInstanceConfigRequest& setUserConfig(string userConfig) { DARABONBA_PTR_SET_VALUE(userConfig_, userConfig) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The reason for the update.
     // 
     // This parameter is required.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // User-defined configuration.
-    std::shared_ptr<string> userConfig_ = nullptr;
+    shared_ptr<string> userConfig_ {};
   };
 
   } // namespace Models

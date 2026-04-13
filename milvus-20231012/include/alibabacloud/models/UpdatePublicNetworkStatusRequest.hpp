@@ -36,52 +36,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidr_ == nullptr
-        && return this->componentType_ == nullptr && return this->instanceId_ == nullptr && return this->publicNetworkEnabled_ == nullptr; };
+        && this->componentType_ == nullptr && this->instanceId_ == nullptr && this->publicNetworkEnabled_ == nullptr; };
     // cidr Field Functions 
     bool hasCidr() const { return this->cidr_ != nullptr;};
     void deleteCidr() { this->cidr_ = nullptr;};
-    inline string cidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
+    inline string getCidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
     inline UpdatePublicNetworkStatusRequest& setCidr(string cidr) { DARABONBA_PTR_SET_VALUE(cidr_, cidr) };
 
 
     // componentType Field Functions 
     bool hasComponentType() const { return this->componentType_ != nullptr;};
     void deleteComponentType() { this->componentType_ = nullptr;};
-    inline string componentType() const { DARABONBA_PTR_GET_DEFAULT(componentType_, "") };
+    inline string getComponentType() const { DARABONBA_PTR_GET_DEFAULT(componentType_, "") };
     inline UpdatePublicNetworkStatusRequest& setComponentType(string componentType) { DARABONBA_PTR_SET_VALUE(componentType_, componentType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdatePublicNetworkStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // publicNetworkEnabled Field Functions 
     bool hasPublicNetworkEnabled() const { return this->publicNetworkEnabled_ != nullptr;};
     void deletePublicNetworkEnabled() { this->publicNetworkEnabled_ = nullptr;};
-    inline bool publicNetworkEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicNetworkEnabled_, false) };
+    inline bool getPublicNetworkEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicNetworkEnabled_, false) };
     inline UpdatePublicNetworkStatusRequest& setPublicNetworkEnabled(bool publicNetworkEnabled) { DARABONBA_PTR_SET_VALUE(publicNetworkEnabled_, publicNetworkEnabled) };
 
 
   protected:
     // The CIDR blocks.
-    std::shared_ptr<string> cidr_ = nullptr;
+    shared_ptr<string> cidr_ {};
     // The component type. Valid values:
     // 
     // *   Proxy
     // 
     // This parameter is required.
-    std::shared_ptr<string> componentType_ = nullptr;
+    shared_ptr<string> componentType_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Enable /disable the Internet.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> publicNetworkEnabled_ = nullptr;
+    shared_ptr<bool> publicNetworkEnabled_ {};
   };
 
   } // namespace Models

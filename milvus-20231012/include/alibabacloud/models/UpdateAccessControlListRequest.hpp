@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclId_ == nullptr
-        && return this->cidr_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->cidr_ == nullptr && this->instanceId_ == nullptr; };
     // aclId Field Functions 
     bool hasAclId() const { return this->aclId_ != nullptr;};
     void deleteAclId() { this->aclId_ = nullptr;};
-    inline string aclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
+    inline string getAclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
     inline UpdateAccessControlListRequest& setAclId(string aclId) { DARABONBA_PTR_SET_VALUE(aclId_, aclId) };
 
 
     // cidr Field Functions 
     bool hasCidr() const { return this->cidr_ != nullptr;};
     void deleteCidr() { this->cidr_ = nullptr;};
-    inline string cidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
+    inline string getCidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
     inline UpdateAccessControlListRequest& setCidr(string cidr) { DARABONBA_PTR_SET_VALUE(cidr_, cidr) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateAccessControlListRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // The ID of public network access control
-    std::shared_ptr<string> aclId_ = nullptr;
+    shared_ptr<string> aclId_ {};
     // The CIDR blocks.
-    std::shared_ptr<string> cidr_ = nullptr;
+    shared_ptr<string> cidr_ {};
     // The ID of the instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models
