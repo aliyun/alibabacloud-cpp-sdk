@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CHATDETAIL_HPP_
 #define ALIBABACLOUD_MODELS_CHATDETAIL_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ChatDetailUserInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,36 +33,78 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class UserInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const UserInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Role, role_);
+      };
+      friend void from_json(const Darabonba::Json& j, UserInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Role, role_);
+      };
+      UserInfo() = default ;
+      UserInfo(const UserInfo &) = default ;
+      UserInfo(UserInfo &&) = default ;
+      UserInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~UserInfo() = default ;
+      UserInfo& operator=(const UserInfo &) = default ;
+      UserInfo& operator=(UserInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->role_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline UserInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // role Field Functions 
+      bool hasRole() const { return this->role_ != nullptr;};
+      void deleteRole() { this->role_ = nullptr;};
+      inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+      inline UserInfo& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
+
+
+    protected:
+      shared_ptr<string> name_ {};
+      shared_ptr<string> role_ {};
+    };
+
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->gmtCreateTime_ == nullptr && return this->userInfo_ == nullptr; };
+        && this->gmtCreateTime_ == nullptr && this->userInfo_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline ChatDetail& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline ChatDetail& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // userInfo Field Functions 
     bool hasUserInfo() const { return this->userInfo_ != nullptr;};
     void deleteUserInfo() { this->userInfo_ = nullptr;};
-    inline const ChatDetailUserInfo & userInfo() const { DARABONBA_PTR_GET_CONST(userInfo_, ChatDetailUserInfo) };
-    inline ChatDetailUserInfo userInfo() { DARABONBA_PTR_GET(userInfo_, ChatDetailUserInfo) };
-    inline ChatDetail& setUserInfo(const ChatDetailUserInfo & userInfo) { DARABONBA_PTR_SET_VALUE(userInfo_, userInfo) };
-    inline ChatDetail& setUserInfo(ChatDetailUserInfo && userInfo) { DARABONBA_PTR_SET_RVALUE(userInfo_, userInfo) };
+    inline const ChatDetail::UserInfo & getUserInfo() const { DARABONBA_PTR_GET_CONST(userInfo_, ChatDetail::UserInfo) };
+    inline ChatDetail::UserInfo getUserInfo() { DARABONBA_PTR_GET(userInfo_, ChatDetail::UserInfo) };
+    inline ChatDetail& setUserInfo(const ChatDetail::UserInfo & userInfo) { DARABONBA_PTR_SET_VALUE(userInfo_, userInfo) };
+    inline ChatDetail& setUserInfo(ChatDetail::UserInfo && userInfo) { DARABONBA_PTR_SET_RVALUE(userInfo_, userInfo) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<ChatDetailUserInfo> userInfo_ = nullptr;
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<ChatDetail::UserInfo> userInfo_ {};
   };
 
   } // namespace Models

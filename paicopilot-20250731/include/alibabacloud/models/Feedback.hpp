@@ -46,83 +46,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chatId_ == nullptr
-        && return this->feedbackAction_ == nullptr && return this->feedbackId_ == nullptr && return this->feedbackMessage_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModified_ == nullptr
-        && return this->ownerId_ == nullptr && return this->sessionId_ == nullptr && return this->userId_ == nullptr; };
+        && this->feedbackAction_ == nullptr && this->feedbackId_ == nullptr && this->feedbackMessage_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModified_ == nullptr
+        && this->ownerId_ == nullptr && this->sessionId_ == nullptr && this->userId_ == nullptr; };
     // chatId Field Functions 
     bool hasChatId() const { return this->chatId_ != nullptr;};
     void deleteChatId() { this->chatId_ = nullptr;};
-    inline string chatId() const { DARABONBA_PTR_GET_DEFAULT(chatId_, "") };
+    inline string getChatId() const { DARABONBA_PTR_GET_DEFAULT(chatId_, "") };
     inline Feedback& setChatId(string chatId) { DARABONBA_PTR_SET_VALUE(chatId_, chatId) };
 
 
     // feedbackAction Field Functions 
     bool hasFeedbackAction() const { return this->feedbackAction_ != nullptr;};
     void deleteFeedbackAction() { this->feedbackAction_ = nullptr;};
-    inline string feedbackAction() const { DARABONBA_PTR_GET_DEFAULT(feedbackAction_, "") };
+    inline string getFeedbackAction() const { DARABONBA_PTR_GET_DEFAULT(feedbackAction_, "") };
     inline Feedback& setFeedbackAction(string feedbackAction) { DARABONBA_PTR_SET_VALUE(feedbackAction_, feedbackAction) };
 
 
     // feedbackId Field Functions 
     bool hasFeedbackId() const { return this->feedbackId_ != nullptr;};
     void deleteFeedbackId() { this->feedbackId_ = nullptr;};
-    inline string feedbackId() const { DARABONBA_PTR_GET_DEFAULT(feedbackId_, "") };
+    inline string getFeedbackId() const { DARABONBA_PTR_GET_DEFAULT(feedbackId_, "") };
     inline Feedback& setFeedbackId(string feedbackId) { DARABONBA_PTR_SET_VALUE(feedbackId_, feedbackId) };
 
 
     // feedbackMessage Field Functions 
     bool hasFeedbackMessage() const { return this->feedbackMessage_ != nullptr;};
     void deleteFeedbackMessage() { this->feedbackMessage_ = nullptr;};
-    inline string feedbackMessage() const { DARABONBA_PTR_GET_DEFAULT(feedbackMessage_, "") };
+    inline string getFeedbackMessage() const { DARABONBA_PTR_GET_DEFAULT(feedbackMessage_, "") };
     inline Feedback& setFeedbackMessage(string feedbackMessage) { DARABONBA_PTR_SET_VALUE(feedbackMessage_, feedbackMessage) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline Feedback& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline Feedback& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline Feedback& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline Feedback& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline Feedback& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> chatId_ = nullptr;
-    std::shared_ptr<string> feedbackAction_ = nullptr;
-    std::shared_ptr<string> feedbackId_ = nullptr;
-    std::shared_ptr<string> feedbackMessage_ = nullptr;
+    shared_ptr<string> chatId_ {};
+    shared_ptr<string> feedbackAction_ {};
+    shared_ptr<string> feedbackId_ {};
+    shared_ptr<string> feedbackMessage_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
+    shared_ptr<string> gmtCreateTime_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
-    std::shared_ptr<string> gmtModified_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
+    shared_ptr<string> ownerId_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models
