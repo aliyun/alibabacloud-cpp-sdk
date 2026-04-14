@@ -29,9 +29,5 @@
 #include <alibabacloud/models/UnbindRequest.hpp>
 #include <alibabacloud/models/UnbindResponseBody.hpp>
 #include <alibabacloud/models/UnbindResponse.hpp>
-#include <alibabacloud/models/GetConnectionTicketResponseBodyBindQueueInfo.hpp>
-#include <alibabacloud/models/GetConnectionTicketResponseBodyPolicy.hpp>
-#include <alibabacloud/models/ListPublishedAppInfoResponseBodyAppModels.hpp>
-#include <alibabacloud/models/ListRunningAppsResponseBodyRunningCloudApps.hpp>
 
 #endif

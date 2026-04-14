@@ -56,126 +56,126 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appInstanceGroupId_ == nullptr && return this->appInstanceId_ == nullptr && return this->appInstancePersistentId_ == nullptr && return this->clientId_ == nullptr && return this->clientIp_ == nullptr
-        && return this->clientOS_ == nullptr && return this->clientVersion_ == nullptr && return this->endUserId_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr
-        && return this->productType_ == nullptr && return this->sessionId_ == nullptr && return this->tenantId_ == nullptr; };
+        && this->appInstanceGroupId_ == nullptr && this->appInstanceId_ == nullptr && this->appInstancePersistentId_ == nullptr && this->clientId_ == nullptr && this->clientIp_ == nullptr
+        && this->clientOS_ == nullptr && this->clientVersion_ == nullptr && this->endUserId_ == nullptr && this->loginRegionId_ == nullptr && this->loginToken_ == nullptr
+        && this->productType_ == nullptr && this->sessionId_ == nullptr && this->tenantId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UnbindRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline UnbindRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // appInstanceId Field Functions 
     bool hasAppInstanceId() const { return this->appInstanceId_ != nullptr;};
     void deleteAppInstanceId() { this->appInstanceId_ = nullptr;};
-    inline string appInstanceId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceId_, "") };
+    inline string getAppInstanceId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceId_, "") };
     inline UnbindRequest& setAppInstanceId(string appInstanceId) { DARABONBA_PTR_SET_VALUE(appInstanceId_, appInstanceId) };
 
 
     // appInstancePersistentId Field Functions 
     bool hasAppInstancePersistentId() const { return this->appInstancePersistentId_ != nullptr;};
     void deleteAppInstancePersistentId() { this->appInstancePersistentId_ = nullptr;};
-    inline string appInstancePersistentId() const { DARABONBA_PTR_GET_DEFAULT(appInstancePersistentId_, "") };
+    inline string getAppInstancePersistentId() const { DARABONBA_PTR_GET_DEFAULT(appInstancePersistentId_, "") };
     inline UnbindRequest& setAppInstancePersistentId(string appInstancePersistentId) { DARABONBA_PTR_SET_VALUE(appInstancePersistentId_, appInstancePersistentId) };
 
 
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline UnbindRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};
-    inline string clientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+    inline string getClientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
     inline UnbindRequest& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
 
 
     // clientOS Field Functions 
     bool hasClientOS() const { return this->clientOS_ != nullptr;};
     void deleteClientOS() { this->clientOS_ = nullptr;};
-    inline string clientOS() const { DARABONBA_PTR_GET_DEFAULT(clientOS_, "") };
+    inline string getClientOS() const { DARABONBA_PTR_GET_DEFAULT(clientOS_, "") };
     inline UnbindRequest& setClientOS(string clientOS) { DARABONBA_PTR_SET_VALUE(clientOS_, clientOS) };
 
 
     // clientVersion Field Functions 
     bool hasClientVersion() const { return this->clientVersion_ != nullptr;};
     void deleteClientVersion() { this->clientVersion_ = nullptr;};
-    inline string clientVersion() const { DARABONBA_PTR_GET_DEFAULT(clientVersion_, "") };
+    inline string getClientVersion() const { DARABONBA_PTR_GET_DEFAULT(clientVersion_, "") };
     inline UnbindRequest& setClientVersion(string clientVersion) { DARABONBA_PTR_SET_VALUE(clientVersion_, clientVersion) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline UnbindRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // loginRegionId Field Functions 
     bool hasLoginRegionId() const { return this->loginRegionId_ != nullptr;};
     void deleteLoginRegionId() { this->loginRegionId_ = nullptr;};
-    inline string loginRegionId() const { DARABONBA_PTR_GET_DEFAULT(loginRegionId_, "") };
+    inline string getLoginRegionId() const { DARABONBA_PTR_GET_DEFAULT(loginRegionId_, "") };
     inline UnbindRequest& setLoginRegionId(string loginRegionId) { DARABONBA_PTR_SET_VALUE(loginRegionId_, loginRegionId) };
 
 
     // loginToken Field Functions 
     bool hasLoginToken() const { return this->loginToken_ != nullptr;};
     void deleteLoginToken() { this->loginToken_ = nullptr;};
-    inline string loginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
+    inline string getLoginToken() const { DARABONBA_PTR_GET_DEFAULT(loginToken_, "") };
     inline UnbindRequest& setLoginToken(string loginToken) { DARABONBA_PTR_SET_VALUE(loginToken_, loginToken) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline UnbindRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline UnbindRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline int64_t tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
+    inline int64_t getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, 0L) };
     inline UnbindRequest& setTenantId(int64_t tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
-    std::shared_ptr<string> appInstanceId_ = nullptr;
-    std::shared_ptr<string> appInstancePersistentId_ = nullptr;
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> clientIp_ = nullptr;
-    std::shared_ptr<string> clientOS_ = nullptr;
-    std::shared_ptr<string> clientVersion_ = nullptr;
-    std::shared_ptr<string> endUserId_ = nullptr;
-    std::shared_ptr<string> loginRegionId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
+    shared_ptr<string> appInstanceId_ {};
+    shared_ptr<string> appInstancePersistentId_ {};
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> clientIp_ {};
+    shared_ptr<string> clientOS_ {};
+    shared_ptr<string> clientVersion_ {};
+    shared_ptr<string> endUserId_ {};
+    shared_ptr<string> loginRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> loginToken_ = nullptr;
+    shared_ptr<string> loginToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<int64_t> tenantId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<int64_t> tenantId_ {};
   };
 
   } // namespace Models

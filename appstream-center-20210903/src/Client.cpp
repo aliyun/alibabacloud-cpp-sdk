@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 获取连接信息
+ * @summary Queries the credential used to connect to an app instance.
  *
  * @param request GetConnectionTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46,103 +46,103 @@ GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConn
   request.validate();
   json body = {};
   if (!!request.hasAccessType()) {
-    body["AccessType"] = request.accessType();
+    body["AccessType"] = request.getAccessType();
   }
 
   if (!!request.hasAppId()) {
-    body["AppId"] = request.appId();
+    body["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasAppInstanceId()) {
-    body["AppInstanceId"] = request.appInstanceId();
+    body["AppInstanceId"] = request.getAppInstanceId();
   }
 
   if (!!request.hasAppPolicyId()) {
-    body["AppPolicyId"] = request.appPolicyId();
+    body["AppPolicyId"] = request.getAppPolicyId();
   }
 
   if (!!request.hasAppVersion()) {
-    body["AppVersion"] = request.appVersion();
+    body["AppVersion"] = request.getAppVersion();
   }
 
   if (!!request.hasAutoConnectInQueue()) {
-    body["AutoConnectInQueue"] = request.autoConnectInQueue();
+    body["AutoConnectInQueue"] = request.getAutoConnectInQueue();
   }
 
   if (!!request.hasBizRegionId()) {
-    body["BizRegionId"] = request.bizRegionId();
+    body["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientType()) {
-    body["ClientType"] = request.clientType();
+    body["ClientType"] = request.getClientType();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasConnectionProperties()) {
-    body["ConnectionProperties"] = request.connectionProperties();
+    body["ConnectionProperties"] = request.getConnectionProperties();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasEnvironmentConfig()) {
-    body["EnvironmentConfig"] = request.environmentConfig();
+    body["EnvironmentConfig"] = request.getEnvironmentConfig();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasParam()) {
-    body["Param"] = request.param();
+    body["Param"] = request.getParam();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTenantId()) {
-    body["TenantId"] = request.tenantId();
+    body["TenantId"] = request.getTenantId();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -159,11 +159,11 @@ GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConn
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<GetConnectionTicketResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<GetConnectionTicketResponse>();
 }
 
 /**
- * @summary 获取连接信息
+ * @summary Queries the credential used to connect to an app instance.
  *
  * @param request GetConnectionTicketRequest
  * @return GetConnectionTicketResponse
@@ -174,7 +174,7 @@ GetConnectionTicketResponse Client::getConnectionTicket(const GetConnectionTicke
 }
 
 /**
- * @summary 已上架应用列表
+ * @summary Queries information about published apps.
  *
  * @param request ListPublishedAppInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -184,63 +184,63 @@ ListPublishedAppInfoResponse Client::listPublishedAppInfoWithOptions(const ListP
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasBizRegionId()) {
-    query["BizRegionId"] = request.bizRegionId();
+    query["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasCategoryId()) {
-    query["CategoryId"] = request.categoryId();
+    query["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasCategoryType()) {
-    query["CategoryType"] = request.categoryType();
+    query["CategoryType"] = request.getCategoryType();
   }
 
   if (!!request.hasClientId()) {
-    query["ClientId"] = request.clientId();
+    query["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    query["ClientIp"] = request.clientIp();
+    query["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    query["ClientOS"] = request.clientOS();
+    query["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    query["ClientVersion"] = request.clientVersion();
+    query["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    query["EndUserId"] = request.endUserId();
+    query["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    query["LoginRegionId"] = request.loginRegionId();
+    query["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    query["LoginToken"] = request.loginToken();
+    query["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasOrderParam()) {
-    query["OrderParam"] = request.orderParam();
+    query["OrderParam"] = request.getOrderParam();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasSortType()) {
-    query["SortType"] = request.sortType();
+    query["SortType"] = request.getSortType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -257,11 +257,11 @@ ListPublishedAppInfoResponse Client::listPublishedAppInfoWithOptions(const ListP
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ListPublishedAppInfoResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<ListPublishedAppInfoResponse>();
 }
 
 /**
- * @summary 已上架应用列表
+ * @summary Queries information about published apps.
  *
  * @param request ListPublishedAppInfoRequest
  * @return ListPublishedAppInfoResponse
@@ -272,7 +272,7 @@ ListPublishedAppInfoResponse Client::listPublishedAppInfo(const ListPublishedApp
 }
 
 /**
- * @summary 运行中应用列表
+ * @summary Queries running apps.
  *
  * @param request ListRunningAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -282,51 +282,51 @@ ListRunningAppsResponse Client::listRunningAppsWithOptions(const ListRunningApps
   request.validate();
   json query = {};
   if (!!request.hasBizRegionId()) {
-    query["BizRegionId"] = request.bizRegionId();
+    query["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientId()) {
-    query["ClientId"] = request.clientId();
+    query["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    query["ClientIp"] = request.clientIp();
+    query["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    query["ClientOS"] = request.clientOS();
+    query["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    query["ClientVersion"] = request.clientVersion();
+    query["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    query["EndUserId"] = request.endUserId();
+    query["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    query["LoginRegionId"] = request.loginRegionId();
+    query["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    query["LoginToken"] = request.loginToken();
+    query["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTenantId()) {
-    query["TenantId"] = request.tenantId();
+    query["TenantId"] = request.getTenantId();
   }
 
   if (!!request.hasUuid()) {
-    query["Uuid"] = request.uuid();
+    query["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -343,11 +343,11 @@ ListRunningAppsResponse Client::listRunningAppsWithOptions(const ListRunningApps
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ListRunningAppsResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<ListRunningAppsResponse>();
 }
 
 /**
- * @summary 运行中应用列表
+ * @summary Queries running apps.
  *
  * @param request ListRunningAppsRequest
  * @return ListRunningAppsResponse
@@ -358,7 +358,7 @@ ListRunningAppsResponse Client::listRunningApps(const ListRunningAppsRequest &re
 }
 
 /**
- * @summary 重置应用资源
+ * @summary Resets app resources.
  *
  * @param request ResetAppResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -368,55 +368,55 @@ ResetAppResourcesResponse Client::resetAppResourcesWithOptions(const ResetAppRes
   request.validate();
   json body = {};
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasBizRegionId()) {
-    body["BizRegionId"] = request.bizRegionId();
+    body["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceIds()) {
-    body["ResourceIds"] = request.resourceIds();
+    body["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -433,11 +433,11 @@ ResetAppResourcesResponse Client::resetAppResourcesWithOptions(const ResetAppRes
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ResetAppResourcesResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<ResetAppResourcesResponse>();
 }
 
 /**
- * @summary 重置应用资源
+ * @summary Resets app resources.
  *
  * @param request ResetAppResourcesRequest
  * @return ResetAppResourcesResponse
@@ -448,7 +448,7 @@ ResetAppResourcesResponse Client::resetAppResources(const ResetAppResourcesReque
 }
 
 /**
- * @summary 重启应用资源
+ * @summary Restarts app resources.
  *
  * @param request RestartAppResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -458,55 +458,55 @@ RestartAppResourcesResponse Client::restartAppResourcesWithOptions(const Restart
   request.validate();
   json body = {};
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasBizRegionId()) {
-    body["BizRegionId"] = request.bizRegionId();
+    body["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceIds()) {
-    body["ResourceIds"] = request.resourceIds();
+    body["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -523,11 +523,11 @@ RestartAppResourcesResponse Client::restartAppResourcesWithOptions(const Restart
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<RestartAppResourcesResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<RestartAppResourcesResponse>();
 }
 
 /**
- * @summary 重启应用资源
+ * @summary Restarts app resources.
  *
  * @param request RestartAppResourcesRequest
  * @return RestartAppResourcesResponse
@@ -538,7 +538,7 @@ RestartAppResourcesResponse Client::restartAppResources(const RestartAppResource
 }
 
 /**
- * @summary 启动应用资源
+ * @summary Starts app resources.
  *
  * @param request StartAppResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -548,55 +548,55 @@ StartAppResourcesResponse Client::startAppResourcesWithOptions(const StartAppRes
   request.validate();
   json body = {};
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasBizRegionId()) {
-    body["BizRegionId"] = request.bizRegionId();
+    body["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceIds()) {
-    body["ResourceIds"] = request.resourceIds();
+    body["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -613,11 +613,11 @@ StartAppResourcesResponse Client::startAppResourcesWithOptions(const StartAppRes
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<StartAppResourcesResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<StartAppResourcesResponse>();
 }
 
 /**
- * @summary 启动应用资源
+ * @summary Starts app resources.
  *
  * @param request StartAppResourcesRequest
  * @return StartAppResourcesResponse
@@ -628,7 +628,7 @@ StartAppResourcesResponse Client::startAppResources(const StartAppResourcesReque
 }
 
 /**
- * @summary 停止应用
+ * @summary Stops a specific app.
  *
  * @param request StopAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -638,87 +638,87 @@ StopAppResponse Client::stopAppWithOptions(const StopAppRequest &request, const 
   request.validate();
   json body = {};
   if (!!request.hasAliUid()) {
-    body["AliUid"] = request.aliUid();
+    body["AliUid"] = request.getAliUid();
   }
 
   if (!!request.hasApiType()) {
-    body["ApiType"] = request.apiType();
+    body["ApiType"] = request.getApiType();
   }
 
   if (!!request.hasAppId()) {
-    body["AppId"] = request.appId();
+    body["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasAppInstanceId()) {
-    body["AppInstanceId"] = request.appInstanceId();
+    body["AppInstanceId"] = request.getAppInstanceId();
   }
 
   if (!!request.hasBizRegionId()) {
-    body["BizRegionId"] = request.bizRegionId();
+    body["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientChannel()) {
-    body["ClientChannel"] = request.clientChannel();
+    body["ClientChannel"] = request.getClientChannel();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasForceStop()) {
-    body["ForceStop"] = request.forceStop();
+    body["ForceStop"] = request.getForceStop();
   }
 
   if (!!request.hasIdpId()) {
-    body["IdpId"] = request.idpId();
+    body["IdpId"] = request.getIdpId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   if (!!request.hasWyId()) {
-    body["WyId"] = request.wyId();
+    body["WyId"] = request.getWyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -735,11 +735,11 @@ StopAppResponse Client::stopAppWithOptions(const StopAppRequest &request, const 
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<StopAppResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<StopAppResponse>();
 }
 
 /**
- * @summary 停止应用
+ * @summary Stops a specific app.
  *
  * @param request StopAppRequest
  * @return StopAppResponse
@@ -750,7 +750,7 @@ StopAppResponse Client::stopApp(const StopAppRequest &request) {
 }
 
 /**
- * @summary 关闭应用资源
+ * @summary Stops app resources.
  *
  * @param request StopAppResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -760,55 +760,55 @@ StopAppResourcesResponse Client::stopAppResourcesWithOptions(const StopAppResour
   request.validate();
   json body = {};
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasBizRegionId()) {
-    body["BizRegionId"] = request.bizRegionId();
+    body["BizRegionId"] = request.getBizRegionId();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceIds()) {
-    body["ResourceIds"] = request.resourceIds();
+    body["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -825,11 +825,11 @@ StopAppResourcesResponse Client::stopAppResourcesWithOptions(const StopAppResour
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<StopAppResourcesResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<StopAppResourcesResponse>();
 }
 
 /**
- * @summary 关闭应用资源
+ * @summary Stops app resources.
  *
  * @param request StopAppResourcesRequest
  * @return StopAppResourcesResponse
@@ -840,7 +840,7 @@ StopAppResourcesResponse Client::stopAppResources(const StopAppResourcesRequest 
 }
 
 /**
- * @summary 解绑实例
+ * @summary Unbinds an app instance from a user.
  *
  * @param request UnbindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -850,59 +850,59 @@ UnbindResponse Client::unbindWithOptions(const UnbindRequest &request, const Dar
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["AppId"] = request.appId();
+    body["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppInstanceGroupId()) {
-    body["AppInstanceGroupId"] = request.appInstanceGroupId();
+    body["AppInstanceGroupId"] = request.getAppInstanceGroupId();
   }
 
   if (!!request.hasAppInstanceId()) {
-    body["AppInstanceId"] = request.appInstanceId();
+    body["AppInstanceId"] = request.getAppInstanceId();
   }
 
   if (!!request.hasAppInstancePersistentId()) {
-    body["AppInstancePersistentId"] = request.appInstancePersistentId();
+    body["AppInstancePersistentId"] = request.getAppInstancePersistentId();
   }
 
   if (!!request.hasClientId()) {
-    body["ClientId"] = request.clientId();
+    body["ClientId"] = request.getClientId();
   }
 
   if (!!request.hasClientIp()) {
-    body["ClientIp"] = request.clientIp();
+    body["ClientIp"] = request.getClientIp();
   }
 
   if (!!request.hasClientOS()) {
-    body["ClientOS"] = request.clientOS();
+    body["ClientOS"] = request.getClientOS();
   }
 
   if (!!request.hasClientVersion()) {
-    body["ClientVersion"] = request.clientVersion();
+    body["ClientVersion"] = request.getClientVersion();
   }
 
   if (!!request.hasEndUserId()) {
-    body["EndUserId"] = request.endUserId();
+    body["EndUserId"] = request.getEndUserId();
   }
 
   if (!!request.hasLoginRegionId()) {
-    body["LoginRegionId"] = request.loginRegionId();
+    body["LoginRegionId"] = request.getLoginRegionId();
   }
 
   if (!!request.hasLoginToken()) {
-    body["LoginToken"] = request.loginToken();
+    body["LoginToken"] = request.getLoginToken();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTenantId()) {
-    body["TenantId"] = request.tenantId();
+    body["TenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -919,11 +919,11 @@ UnbindResponse Client::unbindWithOptions(const UnbindRequest &request, const Dar
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<UnbindResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<UnbindResponse>();
 }
 
 /**
- * @summary 解绑实例
+ * @summary Unbinds an app instance from a user.
  *
  * @param request UnbindRequest
  * @return UnbindResponse

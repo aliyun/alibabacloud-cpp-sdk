@@ -21,7 +21,7 @@ namespace AppstreamCenter20210903
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 获取连接信息
+       * @summary Queries the credential used to connect to an app instance.
        *
        * @param request GetConnectionTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AppstreamCenter20210903
       Models::GetConnectionTicketResponse getConnectionTicketWithOptions(const Models::GetConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取连接信息
+       * @summary Queries the credential used to connect to an app instance.
        *
        * @param request GetConnectionTicketRequest
        * @return GetConnectionTicketResponse
@@ -38,7 +38,7 @@ namespace AppstreamCenter20210903
       Models::GetConnectionTicketResponse getConnectionTicket(const Models::GetConnectionTicketRequest &request);
 
       /**
-       * @summary 已上架应用列表
+       * @summary Queries information about published apps.
        *
        * @param request ListPublishedAppInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AppstreamCenter20210903
       Models::ListPublishedAppInfoResponse listPublishedAppInfoWithOptions(const Models::ListPublishedAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 已上架应用列表
+       * @summary Queries information about published apps.
        *
        * @param request ListPublishedAppInfoRequest
        * @return ListPublishedAppInfoResponse
@@ -55,7 +55,7 @@ namespace AppstreamCenter20210903
       Models::ListPublishedAppInfoResponse listPublishedAppInfo(const Models::ListPublishedAppInfoRequest &request);
 
       /**
-       * @summary 运行中应用列表
+       * @summary Queries running apps.
        *
        * @param request ListRunningAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace AppstreamCenter20210903
       Models::ListRunningAppsResponse listRunningAppsWithOptions(const Models::ListRunningAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运行中应用列表
+       * @summary Queries running apps.
        *
        * @param request ListRunningAppsRequest
        * @return ListRunningAppsResponse
@@ -72,7 +72,7 @@ namespace AppstreamCenter20210903
       Models::ListRunningAppsResponse listRunningApps(const Models::ListRunningAppsRequest &request);
 
       /**
-       * @summary 重置应用资源
+       * @summary Resets app resources.
        *
        * @param request ResetAppResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace AppstreamCenter20210903
       Models::ResetAppResourcesResponse resetAppResourcesWithOptions(const Models::ResetAppResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置应用资源
+       * @summary Resets app resources.
        *
        * @param request ResetAppResourcesRequest
        * @return ResetAppResourcesResponse
@@ -89,7 +89,7 @@ namespace AppstreamCenter20210903
       Models::ResetAppResourcesResponse resetAppResources(const Models::ResetAppResourcesRequest &request);
 
       /**
-       * @summary 重启应用资源
+       * @summary Restarts app resources.
        *
        * @param request RestartAppResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace AppstreamCenter20210903
       Models::RestartAppResourcesResponse restartAppResourcesWithOptions(const Models::RestartAppResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启应用资源
+       * @summary Restarts app resources.
        *
        * @param request RestartAppResourcesRequest
        * @return RestartAppResourcesResponse
@@ -106,7 +106,7 @@ namespace AppstreamCenter20210903
       Models::RestartAppResourcesResponse restartAppResources(const Models::RestartAppResourcesRequest &request);
 
       /**
-       * @summary 启动应用资源
+       * @summary Starts app resources.
        *
        * @param request StartAppResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace AppstreamCenter20210903
       Models::StartAppResourcesResponse startAppResourcesWithOptions(const Models::StartAppResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动应用资源
+       * @summary Starts app resources.
        *
        * @param request StartAppResourcesRequest
        * @return StartAppResourcesResponse
@@ -123,7 +123,7 @@ namespace AppstreamCenter20210903
       Models::StartAppResourcesResponse startAppResources(const Models::StartAppResourcesRequest &request);
 
       /**
-       * @summary 停止应用
+       * @summary Stops a specific app.
        *
        * @param request StopAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace AppstreamCenter20210903
       Models::StopAppResponse stopAppWithOptions(const Models::StopAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止应用
+       * @summary Stops a specific app.
        *
        * @param request StopAppRequest
        * @return StopAppResponse
@@ -140,7 +140,7 @@ namespace AppstreamCenter20210903
       Models::StopAppResponse stopApp(const Models::StopAppRequest &request);
 
       /**
-       * @summary 关闭应用资源
+       * @summary Stops app resources.
        *
        * @param request StopAppResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace AppstreamCenter20210903
       Models::StopAppResourcesResponse stopAppResourcesWithOptions(const Models::StopAppResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭应用资源
+       * @summary Stops app resources.
        *
        * @param request StopAppResourcesRequest
        * @return StopAppResourcesResponse
@@ -157,7 +157,7 @@ namespace AppstreamCenter20210903
       Models::StopAppResourcesResponse stopAppResources(const Models::StopAppResourcesRequest &request);
 
       /**
-       * @summary 解绑实例
+       * @summary Unbinds an app instance from a user.
        *
        * @param request UnbindRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace AppstreamCenter20210903
       Models::UnbindResponse unbindWithOptions(const Models::UnbindRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑实例
+       * @summary Unbinds an app instance from a user.
        *
        * @param request UnbindRequest
        * @return UnbindResponse
