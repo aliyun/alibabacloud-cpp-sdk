@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CONTAINERCONFIGURATION_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/RegistryConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(image, image_);
       DARABONBA_PTR_TO_JSON(imageRegistryType, imageRegistryType_);
       DARABONBA_PTR_TO_JSON(port, port_);
+      DARABONBA_PTR_TO_JSON(registryConfig, registryConfig_);
     };
     friend void from_json(const Darabonba::Json& j, ContainerConfiguration& obj) { 
       DARABONBA_PTR_FROM_JSON(acrInstanceId, acrInstanceId_);
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(image, image_);
       DARABONBA_PTR_FROM_JSON(imageRegistryType, imageRegistryType_);
       DARABONBA_PTR_FROM_JSON(port, port_);
+      DARABONBA_PTR_FROM_JSON(registryConfig, registryConfig_);
     };
     ContainerConfiguration() = default ;
     ContainerConfiguration(const ContainerConfiguration &) = default ;
@@ -39,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrInstanceId_ == nullptr
-        && this->command_ == nullptr && this->image_ == nullptr && this->imageRegistryType_ == nullptr && this->port_ == nullptr; };
+        && this->command_ == nullptr && this->image_ == nullptr && this->imageRegistryType_ == nullptr && this->port_ == nullptr && this->registryConfig_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -77,6 +80,15 @@ namespace Models
     inline ContainerConfiguration& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
+    // registryConfig Field Functions 
+    bool hasRegistryConfig() const { return this->registryConfig_ != nullptr;};
+    void deleteRegistryConfig() { this->registryConfig_ = nullptr;};
+    inline const RegistryConfig & getRegistryConfig() const { DARABONBA_PTR_GET_CONST(registryConfig_, RegistryConfig) };
+    inline RegistryConfig getRegistryConfig() { DARABONBA_PTR_GET(registryConfig_, RegistryConfig) };
+    inline ContainerConfiguration& setRegistryConfig(const RegistryConfig & registryConfig) { DARABONBA_PTR_SET_VALUE(registryConfig_, registryConfig) };
+    inline ContainerConfiguration& setRegistryConfig(RegistryConfig && registryConfig) { DARABONBA_PTR_SET_RVALUE(registryConfig_, registryConfig) };
+
+
   protected:
     // 阿里云容器镜像服务（ACR）的实例ID或名称
     shared_ptr<string> acrInstanceId_ {};
@@ -86,6 +98,8 @@ namespace Models
     // 容器镜像的来源类型，支持ACR（阿里云容器镜像服务）、ACREE（阿里云容器镜像服务企业版）、CUSTOM（自定义镜像仓库）
     shared_ptr<string> imageRegistryType_ {};
     shared_ptr<int32_t> port_ {};
+    // 自定义镜像仓库的配置信息，当imageRegistryType为CUSTOM时使用
+    shared_ptr<RegistryConfig> registryConfig_ {};
   };
 
   } // namespace Models

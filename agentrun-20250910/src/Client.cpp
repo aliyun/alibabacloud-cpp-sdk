@@ -2070,6 +2070,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
     query["status"] = request.getStatus();
   }
 
+  if (!!request.hasSystemTags()) {
+    query["systemTags"] = request.getSystemTags();
+  }
+
   if (!!request.hasWorkspaceId()) {
     query["workspaceId"] = request.getWorkspaceId();
   }

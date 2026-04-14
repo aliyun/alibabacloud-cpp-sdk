@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(searchMode, searchMode_);
       DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(systemTags, systemTags_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       DARABONBA_PTR_TO_JSON(workspaceIds, workspaceIds_);
     };
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(searchMode, searchMode_);
       DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(systemTags, systemTags_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       DARABONBA_PTR_FROM_JSON(workspaceIds, workspaceIds_);
     };
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
         && this->discoveryResourceGroupId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->searchMode_ == nullptr
-        && this->status_ == nullptr && this->workspaceId_ == nullptr && this->workspaceIds_ == nullptr; };
+        && this->status_ == nullptr && this->systemTags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceIds_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline ListAgentRuntimesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // systemTags Field Functions 
+    bool hasSystemTags() const { return this->systemTags_ != nullptr;};
+    void deleteSystemTags() { this->systemTags_ = nullptr;};
+    inline string getSystemTags() const { DARABONBA_PTR_GET_DEFAULT(systemTags_, "") };
+    inline ListAgentRuntimesRequest& setSystemTags(string systemTags) { DARABONBA_PTR_SET_VALUE(systemTags_, systemTags) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -125,6 +134,8 @@ namespace Models
     shared_ptr<string> searchMode_ {};
     // 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配
     shared_ptr<string> status_ {};
+    // 根据系统标签进行过滤，多个标签用逗号分隔，支持精确匹配
+    shared_ptr<string> systemTags_ {};
     // 根据工作空间ID进行过滤，用于资源隔离和权限管理
     shared_ptr<string> workspaceId_ {};
     shared_ptr<string> workspaceIds_ {};

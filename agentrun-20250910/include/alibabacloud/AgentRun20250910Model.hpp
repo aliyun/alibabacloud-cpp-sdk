@@ -5,6 +5,10 @@
 #include <alibabacloud/models/AccessDeniedDetail.hpp>
 #include <alibabacloud/models/AgentEndpointConfig.hpp>
 #include <alibabacloud/models/CodeConfiguration.hpp>
+#include <alibabacloud/models/RegistryAuthConfig.hpp>
+#include <alibabacloud/models/RegistryCertConfig.hpp>
+#include <alibabacloud/models/RegistryNetworkConfig.hpp>
+#include <alibabacloud/models/RegistryConfig.hpp>
 #include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/HealthCheckConfiguration.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
@@ -62,6 +66,9 @@
 #include <alibabacloud/models/CodeInterpreterSessionOut.hpp>
 #include <alibabacloud/models/CodeInterpreterSessionListOut.hpp>
 #include <alibabacloud/models/CommonResult.hpp>
+#include <alibabacloud/models/ConvertFlowDSLData.hpp>
+#include <alibabacloud/models/ConvertFlowDSLInput.hpp>
+#include <alibabacloud/models/ConvertFlowDSLResult.hpp>
 #include <alibabacloud/models/ScalingConfig.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeEndpointInput.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeInput.hpp>

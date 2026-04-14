@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(statuses, statuses_);
+      DARABONBA_PTR_TO_JSON(systemTags, systemTags_);
     };
     friend void from_json(const Darabonba::Json& j, ListAgentRuntimesInput& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(statuses, statuses_);
+      DARABONBA_PTR_FROM_JSON(systemTags, systemTags_);
     };
     ListAgentRuntimesInput() = default ;
     ListAgentRuntimesInput(const ListAgentRuntimesInput &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->statuses_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->statuses_ == nullptr && this->systemTags_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -68,6 +70,15 @@ namespace Models
     inline ListAgentRuntimesInput& setStatuses(vector<string> && statuses) { DARABONBA_PTR_SET_RVALUE(statuses_, statuses) };
 
 
+    // systemTags Field Functions 
+    bool hasSystemTags() const { return this->systemTags_ != nullptr;};
+    void deleteSystemTags() { this->systemTags_ = nullptr;};
+    inline const vector<string> & getSystemTags() const { DARABONBA_PTR_GET_CONST(systemTags_, vector<string>) };
+    inline vector<string> getSystemTags() { DARABONBA_PTR_GET(systemTags_, vector<string>) };
+    inline ListAgentRuntimesInput& setSystemTags(const vector<string> & systemTags) { DARABONBA_PTR_SET_VALUE(systemTags_, systemTags) };
+    inline ListAgentRuntimesInput& setSystemTags(vector<string> && systemTags) { DARABONBA_PTR_SET_RVALUE(systemTags_, systemTags) };
+
+
   protected:
     // 按名称过滤
     shared_ptr<string> agentRuntimeName_ {};
@@ -77,6 +88,8 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // 按状态过滤
     shared_ptr<vector<string>> statuses_ {};
+    // 按系统标签过滤
+    shared_ptr<vector<string>> systemTags_ {};
   };
 
   } // namespace Models
