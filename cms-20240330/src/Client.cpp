@@ -1298,6 +1298,10 @@ CreatePrometheusVirtualInstanceResponse Client::createPrometheusVirtualInstanceW
     body["namespace"] = request.getNamespace();
   }
 
+  if (!!request.hasTenantId()) {
+    body["tenantId"] = request.getTenantId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -5557,6 +5561,10 @@ ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstancesWit
   json query = {};
   if (!!request.hasNamespace()) {
     query["namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

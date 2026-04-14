@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreatePrometheusVirtualInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
+      DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePrometheusVirtualInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
+      DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
     CreatePrometheusVirtualInstanceRequest() = default ;
     CreatePrometheusVirtualInstanceRequest(const CreatePrometheusVirtualInstanceRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->namespace_ == nullptr; };
+    virtual bool empty() const override { return this->namespace_ == nullptr
+        && this->tenantId_ == nullptr; };
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
@@ -37,11 +40,19 @@ namespace Models
     inline CreatePrometheusVirtualInstanceRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline CreatePrometheusVirtualInstanceRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
   protected:
     // Each cloud product can only create one virtual instance in each region.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models
