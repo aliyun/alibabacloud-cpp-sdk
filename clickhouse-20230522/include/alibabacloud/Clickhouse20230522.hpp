@@ -448,7 +448,6 @@ namespace Clickhouse20230522
       /**
        * @summary 查询云数据库ClickHouse所有地域和可用区的信息
        *
-       * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
        */

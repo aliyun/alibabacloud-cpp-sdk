@@ -1361,6 +1361,10 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
     query["Tags"] = request.getTags();
   }
 
+  if (!!request.hasVpcIds()) {
+    query["VpcIds"] = request.getVpcIds();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1520,7 +1524,6 @@ DescribeProcessListResponse Client::describeProcessList(const DescribeProcessLis
 /**
  * @summary 查询云数据库ClickHouse所有地域和可用区的信息
  *
- * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
  */

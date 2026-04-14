@@ -170,6 +170,7 @@ namespace Models
 
   protected:
     shared_ptr<UpdateWhitelistTemplateResponseBody::Data> data_ {};
+    // Request ID。
     shared_ptr<string> requestId_ {};
   };
 

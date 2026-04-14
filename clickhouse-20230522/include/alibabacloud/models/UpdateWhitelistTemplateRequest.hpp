@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // RegionId
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // This parameter is required.

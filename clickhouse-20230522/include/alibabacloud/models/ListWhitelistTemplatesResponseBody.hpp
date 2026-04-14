@@ -242,6 +242,7 @@ namespace Models
 
   protected:
     shared_ptr<ListWhitelistTemplatesResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

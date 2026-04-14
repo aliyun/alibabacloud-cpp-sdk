@@ -68,6 +68,8 @@ namespace Models
   protected:
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
+    // RegionId
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> templateName_ {};

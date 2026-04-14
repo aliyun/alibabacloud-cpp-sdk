@@ -180,6 +180,7 @@ namespace Models
 
   protected:
     shared_ptr<GetWhitelistTemplateResponseBody::Data> data_ {};
+    // Request ID。
     shared_ptr<string> requestId_ {};
   };
 

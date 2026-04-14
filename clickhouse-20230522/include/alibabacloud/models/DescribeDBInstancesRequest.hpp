@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(VpcIds, vpcIds_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceIds, DBInstanceIds_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(VpcIds, vpcIds_);
     };
     DescribeDBInstancesRequest() = default ;
     DescribeDBInstancesRequest(const DescribeDBInstancesRequest &) = default ;
@@ -88,7 +90,7 @@ namespace Models
 
     virtual bool empty() const override { return this->DBInstanceIds_ == nullptr
         && this->DBInstanceStatus_ == nullptr && this->description_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->tags_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->vpcIds_ == nullptr; };
     // DBInstanceIds Field Functions 
     bool hasDBInstanceIds() const { return this->DBInstanceIds_ != nullptr;};
     void deleteDBInstanceIds() { this->DBInstanceIds_ = nullptr;};
@@ -147,6 +149,13 @@ namespace Models
     inline DescribeDBInstancesRequest& setTags(vector<DescribeDBInstancesRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // vpcIds Field Functions 
+    bool hasVpcIds() const { return this->vpcIds_ != nullptr;};
+    void deleteVpcIds() { this->vpcIds_ = nullptr;};
+    inline string getVpcIds() const { DARABONBA_PTR_GET_DEFAULT(vpcIds_, "") };
+    inline DescribeDBInstancesRequest& setVpcIds(string vpcIds) { DARABONBA_PTR_SET_VALUE(vpcIds_, vpcIds) };
+
+
   protected:
     // The cluster IDs. Separate multiple cluster IDs with commas (,).
     shared_ptr<string> DBInstanceIds_ {};
@@ -163,6 +172,7 @@ namespace Models
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<vector<DescribeDBInstancesRequest::Tags>> tags_ {};
+    shared_ptr<string> vpcIds_ {};
   };
 
   } // namespace Models

@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EngineMinorVersion, engineMinorVersion_);
         DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_TO_JSON(LangfuseInstanceIds, langfuseInstanceIds_);
         DARABONBA_PTR_TO_JSON(LatestEngineMinorVersion, latestEngineMinorVersion_);
         DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
         DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
@@ -90,6 +91,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EngineMinorVersion, engineMinorVersion_);
         DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_FROM_JSON(LangfuseInstanceIds, langfuseInstanceIds_);
         DARABONBA_PTR_FROM_JSON(LatestEngineMinorVersion, latestEngineMinorVersion_);
         DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
         DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
@@ -262,12 +264,12 @@ namespace Models
       virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->bid_ == nullptr && this->category_ == nullptr && this->chargeType_ == nullptr && this->clickObserveServiceStatus_ == nullptr && this->createTime_ == nullptr
         && this->DBInstanceId_ == nullptr && this->deletionProtection_ == nullptr && this->deploySchema_ == nullptr && this->description_ == nullptr && this->disabledPorts_ == nullptr
-        && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->latestEngineMinorVersion_ == nullptr
-        && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->multiZones_ == nullptr
-        && this->nodeCount_ == nullptr && this->nodeScaleMax_ == nullptr && this->nodeScaleMin_ == nullptr && this->nodes_ == nullptr && this->objectStoreSize_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->status_ == nullptr
-        && this->storageQuota_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->langfuseInstanceIds_ == nullptr
+        && this->latestEngineMinorVersion_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
+        && this->multiZones_ == nullptr && this->nodeCount_ == nullptr && this->nodeScaleMax_ == nullptr && this->nodeScaleMin_ == nullptr && this->nodes_ == nullptr
+        && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr
+        && this->status_ == nullptr && this->storageQuota_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -371,6 +373,15 @@ namespace Models
       void deleteExpireTime() { this->expireTime_ = nullptr;};
       inline string getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
       inline Data& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+      // langfuseInstanceIds Field Functions 
+      bool hasLangfuseInstanceIds() const { return this->langfuseInstanceIds_ != nullptr;};
+      void deleteLangfuseInstanceIds() { this->langfuseInstanceIds_ = nullptr;};
+      inline const vector<string> & getLangfuseInstanceIds() const { DARABONBA_PTR_GET_CONST(langfuseInstanceIds_, vector<string>) };
+      inline vector<string> getLangfuseInstanceIds() { DARABONBA_PTR_GET(langfuseInstanceIds_, vector<string>) };
+      inline Data& setLangfuseInstanceIds(const vector<string> & langfuseInstanceIds) { DARABONBA_PTR_SET_VALUE(langfuseInstanceIds_, langfuseInstanceIds) };
+      inline Data& setLangfuseInstanceIds(vector<string> && langfuseInstanceIds) { DARABONBA_PTR_SET_RVALUE(langfuseInstanceIds_, langfuseInstanceIds) };
 
 
       // latestEngineMinorVersion Field Functions 
@@ -576,6 +587,7 @@ namespace Models
       // 
       // >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
       shared_ptr<string> expireTime_ {};
+      shared_ptr<vector<string>> langfuseInstanceIds_ {};
       // The latest minor engine version.
       shared_ptr<string> latestEngineMinorVersion_ {};
       // The lock mode of the cluster.
