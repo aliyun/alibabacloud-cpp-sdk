@@ -310,6 +310,7 @@ namespace Models
     shared_ptr<bool> backendEnable_ {};
     // Specifies whether to enable backend services.
     shared_ptr<string> backendId_ {};
+    // The constant parameters sent by API Gateway to the backend service.
     shared_ptr<string> constantParameters_ {};
     // The description of the API. The description can be up to 180 characters in length.
     shared_ptr<string> description_ {};
@@ -320,7 +321,11 @@ namespace Models
     // *   HEADER : supported only in the Header parameter
     // *   HEADER_QUERY: supported in the Header or Query parameter
     shared_ptr<bool> disableInternet_ {};
+    // The sample error codes returned by the backend service.
+    // 
+    // For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
     shared_ptr<string> errorCodeSamples_ {};
+    // The sample error response from the backend service. This value is used only to generate documents. It does not affect the returned result.
     shared_ptr<string> failResultSample_ {};
     // *   Specifies whether to set DisableInternet to **true** to limit API calls to within the VPC.
     // *   If you set DisableInternet to **false**, the limit if lifted.
@@ -338,11 +343,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestConfig_ {};
+    // The parameters of API requests sent by the consumer to API Gateway.
+    // 
+    // For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
     shared_ptr<string> requestParameters_ {};
     // *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
     // *   If you set **ForceNonceCheck** to **false**, the check is not performed. If you do not set this parameter, the original value is used.
     shared_ptr<string> resultBodyModel_ {};
+    // The descriptions of API responses.
     shared_ptr<string> resultDescriptions_ {};
+    // The sample response that is returned from the backend service. This value is used only to generate documents. It does not affect the actually returned result.
     shared_ptr<string> resultSample_ {};
     // The sample response from the backend service.
     shared_ptr<string> resultType_ {};
@@ -351,8 +361,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceConfig_ {};
+    // The parameters of API requests sent by API Gateway to the back-end service.
+    // 
+    // For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
     shared_ptr<string> serviceParameters_ {};
+    // The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the back-end service.
+    // 
+    // For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
     shared_ptr<string> serviceParametersMap_ {};
+    // The system parameters sent by API Gateway to the backend service.
     shared_ptr<string> systemParameters_ {};
     // Specifies whether the API is public. Valid values:
     // 

@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -238,23 +236,14 @@ namespace Models
 
 
       protected:
-        // The time when the model was created.
         shared_ptr<string> createdTime_ {};
-        // The description of the model definition.
         shared_ptr<string> description_ {};
-        // The ID of the API group to which the model belongs.
         shared_ptr<string> groupId_ {};
-        // The ID of the model.
         shared_ptr<string> modelId_ {};
-        // The name of the model.
         shared_ptr<string> modelName_ {};
-        // The URI of the model.
         shared_ptr<string> modelRef_ {};
-        // The time when the model was last modified.
         shared_ptr<string> modifiedTime_ {};
-        // The definition of the model.
         shared_ptr<string> schema_ {};
-        // The tags of the model.
         shared_ptr<ModelDetail::Tags> tags_ {};
       };
 
@@ -312,7 +301,6 @@ namespace Models
 
 
   protected:
-    // The returned information about models. It is an array consisting of ModelDetail data.
     shared_ptr<DescribeModelsResponseBody::ModelDetails> modelDetails_ {};
     // The page number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};

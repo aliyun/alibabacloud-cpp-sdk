@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // API Id
         shared_ptr<string> apiId_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The ID of the runtime environment.
         shared_ptr<string> stageId_ {};
       };
 
@@ -139,7 +136,6 @@ namespace Models
 
 
   protected:
-    // API operations
     shared_ptr<RemoveVpcAccessResponseBody::Apis> apis_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

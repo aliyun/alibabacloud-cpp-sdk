@@ -205,37 +205,19 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The description, which can be up to 200 characters in length.
         shared_ptr<string> description_ {};
-        // The ID of the API group to which the API belongs.
         shared_ptr<string> groupId_ {};
-        // The name of the API group to which the API belongs.
         shared_ptr<string> groupName_ {};
-        // The instance ID or IP address in the VPC access authorization.
         shared_ptr<string> instanceId_ {};
-        // The HTTP request method of the API.
         shared_ptr<string> method_ {};
-        // The request path of the API.
         shared_ptr<string> path_ {};
-        // The port number.
         shared_ptr<int32_t> port_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The environment ID.
         shared_ptr<string> stageId_ {};
-        // The environment to which the API is published. Valid values:
-        // 
-        // *   **RELEASE**: the production environment
-        // *   **PRE**: the staging environment
-        // *   **TEST**: the test environment
         shared_ptr<string> stageName_ {};
-        // vpc id
         shared_ptr<string> vpcId_ {};
-        // The name of the VPC access authorization.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -293,7 +275,6 @@ namespace Models
 
 
   protected:
-    // The returned API information. It is an array consisting of ApiInfo data.
     shared_ptr<DescribeApisByVpcAccessResponseBody::ApiVpcAccessInfos> apiVpcAccessInfos_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

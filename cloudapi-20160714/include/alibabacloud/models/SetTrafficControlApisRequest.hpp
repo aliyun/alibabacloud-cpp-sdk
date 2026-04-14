@@ -83,7 +83,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
     // The name of the runtime environment. Valid values:
     // 

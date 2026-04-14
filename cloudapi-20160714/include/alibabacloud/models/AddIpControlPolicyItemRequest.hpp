@@ -82,7 +82,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ipControlId_ {};
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
   };
 

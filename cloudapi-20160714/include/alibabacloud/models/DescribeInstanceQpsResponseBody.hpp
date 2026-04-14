@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The monitoring time. The time follows the ISO 8601 standard. Format: YYYY-MM-DDThh:mm:ssZ
         shared_ptr<string> itemTime_ {};
-        // The number of requests sent to the APIs in the instance.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The list of requests sent to the APIs in the instance.
     shared_ptr<DescribeInstanceQpsResponseBody::InstanceQps> instanceQps_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

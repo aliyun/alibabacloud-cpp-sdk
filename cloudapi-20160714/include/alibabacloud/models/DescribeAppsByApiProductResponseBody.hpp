@@ -131,17 +131,11 @@ namespace Models
 
 
       protected:
-        // The application ID.
         shared_ptr<int64_t> appId_ {};
-        // The application name.
         shared_ptr<string> appName_ {};
-        // The expiration time of the authorization. The time is in GMT. An empty value indicates that the authorization does not expire.
         shared_ptr<string> authValidTime_ {};
-        // The time when the authorization was created. The time is in GMT.
         shared_ptr<string> authorizedTime_ {};
-        // The authorization description.
         shared_ptr<string> description_ {};
-        // The extended information.
         shared_ptr<string> extend_ {};
       };
 
@@ -199,7 +193,6 @@ namespace Models
 
 
   protected:
-    // The information about authorized applications.
     shared_ptr<DescribeAppsByApiProductResponseBody::AuthorizedApps> authorizedApps_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

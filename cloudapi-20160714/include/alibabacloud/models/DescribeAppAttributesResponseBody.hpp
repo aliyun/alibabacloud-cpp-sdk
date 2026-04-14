@@ -147,9 +147,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> key_ {};
-            // The value of the tag.
             shared_ptr<string> value_ {};
           };
 
@@ -229,20 +227,13 @@ namespace Models
 
 
       protected:
-        // The ID of the app.
         shared_ptr<int64_t> appId_ {};
-        // The name of the app.
         shared_ptr<string> appName_ {};
-        // The creation time (UTC) of the app.
         shared_ptr<string> createdTime_ {};
-        // The description of the app.
         shared_ptr<string> description_ {};
         shared_ptr<bool> disabled_ {};
-        // 扩展信息
         shared_ptr<string> extend_ {};
-        // The modification time (UTC) of the app.
         shared_ptr<string> modifiedTime_ {};
-        // The tags.
         shared_ptr<AppAttribute::Tags> tags_ {};
       };
 
@@ -300,7 +291,6 @@ namespace Models
 
 
   protected:
-    // The returned app information. It is an array that consists of AppAttribute data.
     shared_ptr<DescribeAppAttributesResponseBody::Apps> apps_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -141,19 +141,12 @@ namespace Models
 
 
       protected:
-        // The creation time of the key.
         shared_ptr<string> createdTime_ {};
-        // The last modification time of the key.
         shared_ptr<string> modifiedTime_ {};
-        // The region where the key is located.
         shared_ptr<string> regionId_ {};
-        // The ID of the backend signature key.
         shared_ptr<string> signatureId_ {};
-        // The Key value of the backend signature key.
         shared_ptr<string> signatureKey_ {};
-        // The name of the backend signature key.
         shared_ptr<string> signatureName_ {};
-        // The Secret value of the backend signature key.
         shared_ptr<string> signatureSecret_ {};
       };
 
@@ -217,7 +210,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned signature information. It is an array consisting of SignatureInfo data.
     shared_ptr<DescribeSignaturesResponseBody::SignatureInfos> signatureInfos_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};

@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // The ID of the application.
         shared_ptr<string> appId_ {};
-        // The IP addresses or CIDR blocks.
         shared_ptr<string> cidrIp_ {};
-        // The time when the policy was created. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The time when the policy was modified. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The ID of the policy.
         shared_ptr<string> policyItemId_ {};
       };
 
@@ -188,7 +183,6 @@ namespace Models
 
 
   protected:
-    // The information about policies. The information is an array of IpControlPolicyItem data.
     shared_ptr<DescribeIpControlPolicyItemsResponseBody::IpControlPolicyItems> ipControlPolicyItems_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -75,7 +75,6 @@ namespace Models
 
 
   protected:
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
     // The ID of the signature key that you want to manage.
     // 

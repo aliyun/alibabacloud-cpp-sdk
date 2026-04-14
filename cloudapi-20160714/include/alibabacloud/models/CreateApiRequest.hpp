@@ -355,6 +355,9 @@ namespace Models
     shared_ptr<bool> backendEnable_ {};
     // Specifies whether to enable backend services.
     shared_ptr<string> backendId_ {};
+    // The parameters of API requests sent by API Gateway to the backend service.
+    // 
+    // For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
     shared_ptr<string> constantParameters_ {};
     // The description of the API. The description can be up to 180 characters in length.
     shared_ptr<string> description_ {};
@@ -365,7 +368,11 @@ namespace Models
     // *   **HEADER**: AppCode can be placed in the Header parameter for authentication.
     // *   **HEADER_QUERY**: AppCode can be placed in the Header or Query parameter for authentication.
     shared_ptr<bool> disableInternet_ {};
+    // The return description of the API.
     shared_ptr<string> errorCodeSamples_ {};
+    // The sample error codes returned by the backend service.
+    // 
+    // For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).(Support up to 16KB)
     shared_ptr<string> failResultSample_ {};
     // *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
     // *   If you set **DisableInternet** to **false**, the limit is lifted. The default value is false when you create an API.
@@ -385,11 +392,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> requestConfig_ {};
+    // The common parameters of APIs in JSON format.
     shared_ptr<string> requestParameters_ {};
     // *   Specifies whether to set **ForceNonceCheck** to **true** to force the check of X-Ca-Nonce during the request. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent replay attacks.
     // *   If you set **ForceNonceCheck** to **false**, the check is not performed. The default value is false when you create an API.
     shared_ptr<string> resultBodyModel_ {};
+    // The switch status of ACL. Valid values:- **on** and **off**.
     shared_ptr<string> resultDescriptions_ {};
+    // An example of a response returned by the backend service. This value is used only to generate documentation. The actually returned result shall prevail.(Support up to 32KB)
     shared_ptr<string> resultSample_ {};
     // The sample response from the backend service.
     shared_ptr<string> resultType_ {};
@@ -400,8 +410,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceConfig_ {};
+    // The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+    // 
+    // For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
     shared_ptr<string> serviceParameters_ {};
+    // The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML. Default value: JSON.
     shared_ptr<string> serviceParametersMap_ {};
+    // The parameters of the API.
     shared_ptr<string> systemParameters_ {};
     // The list of tags.
     shared_ptr<vector<CreateApiRequest::Tag>> tag_ {};

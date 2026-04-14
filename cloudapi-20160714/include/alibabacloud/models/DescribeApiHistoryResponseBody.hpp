@@ -182,15 +182,10 @@ namespace Models
 
 
       protected:
-        // The sample value.
         shared_ptr<string> demoValue_ {};
-        // The description.
         shared_ptr<string> description_ {};
-        // The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
         shared_ptr<string> location_ {};
-        // The system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
         shared_ptr<string> parameterName_ {};
-        // The mapped parameter name in the backend service.
         shared_ptr<string> serviceParameterName_ {};
       };
 
@@ -265,9 +260,7 @@ namespace Models
 
 
       protected:
-        // The corresponding frontend parameter name. The value must be contained in RequestParametersObject and match RequestParam.ApiParameterName.
         shared_ptr<string> requestParameterName_ {};
-        // The mapped parameter name in the backend service.
         shared_ptr<string> serviceParameterName_ {};
       };
 
@@ -351,11 +344,8 @@ namespace Models
 
 
       protected:
-        // The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
         shared_ptr<string> location_ {};
-        // The data type of the parameter. Valid values: STRING, NUMBER, and BOOLEAN.
         shared_ptr<string> parameterType_ {};
-        // The mapped parameter name in the backend service.
         shared_ptr<string> serviceParameterName_ {};
       };
 
@@ -632,9 +622,7 @@ namespace Models
 
 
         protected:
-          // The HTTP headers.
           shared_ptr<string> headerName_ {};
-          // The values of the HTTP headers.
           shared_ptr<string> headerValue_ {};
         };
 
@@ -1030,7 +1018,6 @@ namespace Models
       // *   TRUE: The Mock mode is enabled.
       // *   FALSE: The Mock mode is not enabled.
       shared_ptr<string> mock_ {};
-      // The simulated Headers.
       shared_ptr<ServiceConfig::MockHeaders> mockHeaders_ {};
       // The result returned when the Mock mode is enabled.
       shared_ptr<string> mockResult_ {};
@@ -1173,21 +1160,13 @@ namespace Models
 
 
       protected:
-        // The subnode description.
         shared_ptr<string> description_ {};
-        // Indicates whether a subnode exists.
         shared_ptr<bool> hasChild_ {};
-        // The result ID.
         shared_ptr<string> id_ {};
-        // The primary key of the result.
         shared_ptr<string> key_ {};
-        // Indicates whether the parameter is required.
         shared_ptr<bool> mandatory_ {};
-        // The result name.
         shared_ptr<string> name_ {};
-        // The ID of the parent node.
         shared_ptr<string> pid_ {};
-        // The result type.
         shared_ptr<string> type_ {};
       };
 
@@ -1400,39 +1379,22 @@ namespace Models
 
 
       protected:
-        // The name of the parameter in the API request.
         shared_ptr<string> apiParameterName_ {};
-        // The type of the array element.
         shared_ptr<string> arrayItemsType_ {};
-        // The default value.
         shared_ptr<string> defaultValue_ {};
-        // The sample value.
         shared_ptr<string> demoValue_ {};
-        // The parameter description.
         shared_ptr<string> description_ {};
-        // The order in which the parameter is sorted in the document.
         shared_ptr<int32_t> docOrder_ {};
-        // Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
         shared_ptr<string> docShow_ {};
-        // The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
         shared_ptr<string> enumValue_ {};
-        // JSON scheme
         shared_ptr<string> jsonScheme_ {};
-        // The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
         shared_ptr<string> location_ {};
-        // The maximum parameter length when **ParameterType** is set to String.
         shared_ptr<int64_t> maxLength_ {};
-        // The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
         shared_ptr<int64_t> maxValue_ {};
-        // The minimum parameter length when **ParameterType** is set to String.
         shared_ptr<int64_t> minLength_ {};
-        // The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
         shared_ptr<int64_t> minValue_ {};
-        // The data type of the parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
         shared_ptr<string> parameterType_ {};
-        // The regular expression that is used for parameter validation when **ParameterType** is set to String.
         shared_ptr<string> regularExpression_ {};
-        // Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
         shared_ptr<string> required_ {};
       };
 
@@ -1700,11 +1662,8 @@ namespace Models
 
 
       protected:
-        // The returned error code.
         shared_ptr<string> code_ {};
-        // The error description.
         shared_ptr<string> description_ {};
-        // The returned error message.
         shared_ptr<string> message_ {};
       };
 
@@ -1806,15 +1765,10 @@ namespace Models
 
 
       protected:
-        // The sample value.
         shared_ptr<string> demoValue_ {};
-        // The parameter description.
         shared_ptr<string> description_ {};
-        // The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
         shared_ptr<string> location_ {};
-        // The parameter name.
         shared_ptr<string> parameterName_ {};
-        // The mapped parameter name in the backend service.
         shared_ptr<string> serviceParameterName_ {};
       };
 
@@ -1907,13 +1861,9 @@ namespace Models
 
 
       protected:
-        // The value of the constant parameter.
         shared_ptr<string> constantValue_ {};
-        // The parameter description.
         shared_ptr<string> description_ {};
-        // The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
         shared_ptr<string> location_ {};
-        // The mapped parameter name in the backend service.
         shared_ptr<string> serviceParameterName_ {};
       };
 
@@ -2292,9 +2242,7 @@ namespace Models
     shared_ptr<DescribeApiHistoryResponseBody::BackendConfig> backendConfig_ {};
     // Specifies whether to enable backend services.
     shared_ptr<bool> backendEnable_ {};
-    // The constant parameters.
     shared_ptr<DescribeApiHistoryResponseBody::ConstantParameters> constantParameters_ {};
-    // The custom system parameters.
     shared_ptr<DescribeApiHistoryResponseBody::CustomSystemParameters> customSystemParameters_ {};
     // The publishing time (UTC) of the API.
     shared_ptr<string> deployedTime_ {};
@@ -2303,9 +2251,6 @@ namespace Models
     // *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
     // *   If you set **DisableInternet** to **false**, the limit is lifted. The default value is false when you create an API.
     shared_ptr<bool> disableInternet_ {};
-    // The sample error codes returned by the backend service.
-    // 
-    // For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
     shared_ptr<DescribeApiHistoryResponseBody::ErrorCodeSamples> errorCodeSamples_ {};
     // The sample error response from the backend service.
     shared_ptr<string> failResultSample_ {};
@@ -2328,13 +2273,9 @@ namespace Models
     shared_ptr<DescribeApiHistoryResponseBody::RequestConfig> requestConfig_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The parameters of API requests sent by the consumer to API Gateway.
-    // 
-    // For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
     shared_ptr<DescribeApiHistoryResponseBody::RequestParameters> requestParameters_ {};
     // The return description of the API.
     shared_ptr<string> resultBodyModel_ {};
-    // The return description of the API.
     shared_ptr<DescribeApiHistoryResponseBody::ResultDescriptions> resultDescriptions_ {};
     // The sample response.
     shared_ptr<string> resultSample_ {};
@@ -2342,13 +2283,7 @@ namespace Models
     shared_ptr<string> resultType_ {};
     // The information about a backend service call.
     shared_ptr<DescribeApiHistoryResponseBody::ServiceConfig> serviceConfig_ {};
-    // The parameters of API requests sent by API Gateway to the backend service.
-    // 
-    // For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
     shared_ptr<DescribeApiHistoryResponseBody::ServiceParameters> serviceParameters_ {};
-    // The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
-    // 
-    // For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
     shared_ptr<DescribeApiHistoryResponseBody::ServiceParametersMap> serviceParametersMap_ {};
     // The environment in which the API is requested. Valid values:
     // 
@@ -2358,7 +2293,6 @@ namespace Models
     shared_ptr<string> stageName_ {};
     // The invocation status of the API.
     shared_ptr<string> status_ {};
-    // The common parameters of the APIs, in JSON format.
     shared_ptr<DescribeApiHistoryResponseBody::SystemParameters> systemParameters_ {};
     // Specifies whether to make the API public. Valid values:
     // 

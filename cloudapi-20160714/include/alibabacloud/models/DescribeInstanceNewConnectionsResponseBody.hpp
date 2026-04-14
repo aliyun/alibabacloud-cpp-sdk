@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The monitoring time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
         shared_ptr<string> itemTime_ {};
-        // The number of new connections in the instance.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The list of new connections in the instance.
     shared_ptr<DescribeInstanceNewConnectionsResponseBody::InstanceNewConnections> instanceNewConnections_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

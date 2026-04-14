@@ -219,9 +219,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the instance.
             shared_ptr<string> key_ {};
-            // The tag value of the instance.
             shared_ptr<string> value_ {};
           };
 
@@ -347,13 +345,9 @@ namespace Models
 
 
           protected:
-            // The CIDR block of the vSwitch.
             shared_ptr<string> cidrBlock_ {};
-            // The security group ID. Services in the same security group can access each other.
             shared_ptr<string> securityGroupId_ {};
-            // The vSwitch ID.
             shared_ptr<string> vswitchId_ {};
-            // The zone ID.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -428,9 +422,7 @@ namespace Models
 
 
           protected:
-            // The variable name.
             shared_ptr<string> localName_ {};
-            // The variable value.
             shared_ptr<string> value_ {};
           };
 
@@ -775,117 +767,49 @@ namespace Models
 
 
       protected:
-        // The ACL ID.
         shared_ptr<string> aclId_ {};
-        // The name of the access control list (ACL).
         shared_ptr<string> aclName_ {};
-        // Indicates whether the ACL is enabled. Valid values:
-        // 
-        // *   **on**
-        // *   **off**
         shared_ptr<string> aclStatus_ {};
-        // The ACL type. Valid values:
-        // 
-        // *   black: blacklist
-        // *   white: whitelist
         shared_ptr<string> aclType_ {};
-        // The egress IP address.
         shared_ptr<string> classicEgressAddress_ {};
-        // The internal CIDR block of the user\\"s VPC that can be accessed if the instance is a VPC integration instance.
         shared_ptr<string> connectCidrBlocks_ {};
-        // The ID of the user\\"s VPC if the instance is a VPC integration instance.
         shared_ptr<string> connectVpcId_ {};
-        // The time when the instance was created.
         shared_ptr<string> createdTime_ {};
-        // The type of the dedicated instance. Valid values:
-        // 
-        // *   vpc_connect: VPC integration instance
-        // *   normal: conventional dedicated instance
         shared_ptr<string> dedicatedInstanceType_ {};
-        // Indicates whether outbound IPv6 traffic is supported.
         shared_ptr<bool> egressIpv6Enable_ {};
-        // The time when the instance expires.
         shared_ptr<string> expiredTime_ {};
-        // The HTTPS security policy.
         shared_ptr<string> httpsPolicies_ {};
-        // The ID of the IPv6 ACL.
         shared_ptr<string> IPV6AclId_ {};
-        // The name of the IPv6 ACL.
         shared_ptr<string> IPV6AclName_ {};
-        // Indicates whether the IPv6 ACL is enabled. Valid values:
-        // 
-        // *   **on**
-        // *   **off**
         shared_ptr<string> IPV6AclStatus_ {};
-        // The type of the IPv6 ACL. Valid values:
-        // 
-        // *   black: blacklist
-        // *   white: whitelist
         shared_ptr<string> IPV6AclType_ {};
-        // The billing method of the instance. Valid values:
-        // 
-        // *   PrePaid: subscription
-        // *   PayAsYouGo: pay-as-you-go
         shared_ptr<string> instanceChargeType_ {};
-        // The CIDR block of the dedicated instance.
-        // 
-        // *   172.16.0.0/12
-        // *   192.168.0.0/16
         shared_ptr<string> instanceCidrBlock_ {};
-        // The ID of the cluster to which the dedicated instance cluster belongs.
         shared_ptr<string> instanceClusterId_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The requests per second (RPS) limit on the instance.
         shared_ptr<int32_t> instanceRpsLimit_ {};
-        // The instance specification.
         shared_ptr<string> instanceSpec_ {};
-        // The instance specification details.
         shared_ptr<InstanceAttribute::InstanceSpecAttributes> instanceSpecAttributes_ {};
-        // The instance type. Valid values:
-        // 
-        // *   VPC_SHARED: shared instance (VPC)
-        // *   VPC_DEDICATED: dedicated instance (VPC)
         shared_ptr<string> instanceType_ {};
-        // The outbound public IP address.
         shared_ptr<string> internetEgressAddress_ {};
-        // The internal CIDR block that is allowed to access the API Gateway instance.
         shared_ptr<string> intranetSegments_ {};
-        // The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> maintainEndTime_ {};
-        // The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
         shared_ptr<string> maintainStartTime_ {};
-        // The network information of the user\\"s VPC if the instance is a VPC integration instance.
         shared_ptr<InstanceAttribute::NetworkInterfaceAttributes> networkInterfaceAttributes_ {};
-        // The new VPC egress CIDR block.
         shared_ptr<string> newVpcEgressAddress_ {};
-        // The private DNS list.
         shared_ptr<InstanceAttribute::PrivateDnsList> privateDnsList_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The instance status.
         shared_ptr<string> status_ {};
-        // Indicates whether IPv6 traffic is supported.
         shared_ptr<bool> supportIpv6_ {};
-        // The tags of the instance.
         shared_ptr<InstanceAttribute::Tags> tags_ {};
-        // The user VPC ID.
         shared_ptr<string> userVpcId_ {};
-        // The user vSwitch ID.
         shared_ptr<string> userVswitchId_ {};
-        // The VPC egress CIDR block.
         shared_ptr<string> vpcEgressAddress_ {};
-        // Indicates whether VPC access is enabled.
         shared_ptr<bool> vpcIntranetEnable_ {};
-        // The ID of the account to which the VPC-based instance belongs.
         shared_ptr<int64_t> vpcOwnerId_ {};
-        // Indicates whether virtual private cloud (VPC) Server Load Balancer (SLB) is enabled.
         shared_ptr<bool> vpcSlbIntranetEnable_ {};
-        // The zone ID.
         shared_ptr<string> zoneId_ {};
-        // The zone.
         shared_ptr<string> zoneLocalName_ {};
       };
 
@@ -943,7 +867,6 @@ namespace Models
 
 
   protected:
-    // The information about the instances.
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

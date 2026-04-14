@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The point in time.
         shared_ptr<string> itemTime_ {};
-        // The number of requests at the specified point in time.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The number of requests directed to the API group.
     shared_ptr<DescribeGroupQpsResponseBody::GroupQps> groupQps_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

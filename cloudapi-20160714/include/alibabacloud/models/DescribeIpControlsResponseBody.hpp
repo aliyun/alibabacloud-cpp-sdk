@@ -141,19 +141,12 @@ namespace Models
 
 
       protected:
-        // The time when the ACL was created. The time is displayed in UTC.
         shared_ptr<string> createTime_ {};
-        // The description of the ACL.
         shared_ptr<string> description_ {};
-        // The ID of the ACL.
         shared_ptr<string> ipControlId_ {};
-        // The name of the ACL.
         shared_ptr<string> ipControlName_ {};
-        // The type of the ACL.
         shared_ptr<string> ipControlType_ {};
-        // The time when the ACL was modified. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The ID of the region in which the ACL is deployed.
         shared_ptr<string> regionId_ {};
       };
 
@@ -211,7 +204,6 @@ namespace Models
 
 
   protected:
-    // The information about the ACL. The information is an array that consists of IpControlInfo data. The information does not include specific policies.
     shared_ptr<DescribeIpControlsResponseBody::IpControlInfos> ipControlInfos_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

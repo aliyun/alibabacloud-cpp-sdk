@@ -127,13 +127,9 @@ namespace Models
 
 
       protected:
-        // The error message returned if the call fails.
         shared_ptr<string> errorMessage_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The instance status.
         shared_ptr<string> status_ {};
       };
 
@@ -540,7 +536,6 @@ namespace Models
     shared_ptr<string> instanceClusterType_ {};
     // The cluster version.
     shared_ptr<string> instanceClusterVersion_ {};
-    // The dedicated instances contained in the cluster.
     shared_ptr<DescribeInstanceClusterInfoResponseBody::InstanceList> instanceList_ {};
     // The time when the cluster was last modified.
     shared_ptr<string> modifiedTime_ {};

@@ -150,21 +150,13 @@ namespace Models
 
 
       protected:
-        // The time when the plug-in was created. The time is displayed in UTC.
         shared_ptr<string> createdTime_ {};
-        // The plug-in description.
         shared_ptr<string> description_ {};
-        // The time when the plug-in was last modified. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The definition statement of the plug-in.
         shared_ptr<string> pluginData_ {};
-        // The plug-in ID.
         shared_ptr<string> pluginId_ {};
-        // The plug-in name.
         shared_ptr<string> pluginName_ {};
-        // The plug-in type.
         shared_ptr<string> pluginType_ {};
-        // The region where the plug-in resides.
         shared_ptr<string> regionId_ {};
       };
 
@@ -226,7 +218,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The plug-in information. The information is an array that consists of PluginAttribute data.
     shared_ptr<DescribePluginsByApiResponseBody::Plugins> plugins_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

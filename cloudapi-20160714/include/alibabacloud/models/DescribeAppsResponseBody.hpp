@@ -104,11 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the app.
         shared_ptr<int64_t> appId_ {};
-        // The name of the app.
         shared_ptr<string> appName_ {};
-        // The description of the app.
         shared_ptr<string> description_ {};
       };
 
@@ -166,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The returned app information. It is an array consisting of AppItem data.
     shared_ptr<DescribeAppsResponseBody::Apps> apps_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

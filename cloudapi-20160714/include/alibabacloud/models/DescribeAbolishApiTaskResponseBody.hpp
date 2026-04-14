@@ -144,24 +144,13 @@ namespace Models
 
 
       protected:
-        // The unpublishing status.
         shared_ptr<string> abolishStatus_ {};
-        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The ID of the API.
         shared_ptr<string> apiUid_ {};
-        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the API group.
         shared_ptr<string> groupName_ {};
-        // The ID of the runtime environment.
         shared_ptr<string> stageId_ {};
-        // The name of the runtime environment. Valid values:
-        // 
-        // *   **RELEASE**
-        // *   **TEST**
         shared_ptr<string> stageName_ {};
       };
 
@@ -198,7 +187,6 @@ namespace Models
 
 
   protected:
-    // The result returned.
     shared_ptr<DescribeAbolishApiTaskResponseBody::ApiAbolishResults> apiAbolishResults_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -177,33 +177,16 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // The HTTP method of the API request.
         shared_ptr<string> apiMethod_ {};
-        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The request path of the API.
         shared_ptr<string> apiPath_ {};
-        // The publising time (UTC) of the API.
         shared_ptr<string> deployedTime_ {};
-        // The description of the API.
         shared_ptr<string> description_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the group to which the API belongs.
         shared_ptr<string> groupName_ {};
-        // The region where the API is located.
         shared_ptr<string> regionId_ {};
-        // The name of the runtime environment. Valid values:
-        // 
-        // *   **RELEASE**
-        // *   **TEST**
         shared_ptr<string> stageName_ {};
-        // Indicates whether the API is public. Valid values:
-        // 
-        // *   **PUBLIC**
-        // *   **PRIVATE**
         shared_ptr<string> visibility_ {};
       };
 
@@ -261,7 +244,6 @@ namespace Models
 
 
   protected:
-    // The returned API information. It is an array consisting of DeployedApiItem data.
     shared_ptr<DescribeDeployedApisResponseBody::DeployedApis> deployedApis_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

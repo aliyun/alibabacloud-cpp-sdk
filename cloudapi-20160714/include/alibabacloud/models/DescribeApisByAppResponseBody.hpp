@@ -205,36 +205,19 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The validity period of the authorization.
         shared_ptr<string> authVaildTime_ {};
-        // The authorization source.
         shared_ptr<string> authorizationSource_ {};
-        // The time when the authorization was created.
         shared_ptr<string> createdTime_ {};
-        // The authorization description.
         shared_ptr<string> description_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the API group.
         shared_ptr<string> groupName_ {};
-        // The HTTP method of the API.
         shared_ptr<string> method_ {};
-        // The authorizer. Valid values:
-        // 
-        // *   **PROVIDER**: API owner
-        // *   **CONSUMER**: API caller
         shared_ptr<string> operator_ {};
-        // The request path of the API.
         shared_ptr<string> path_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The environment alias.
         shared_ptr<string> stageAlias_ {};
-        // The environment name.
         shared_ptr<string> stageName_ {};
       };
 
@@ -292,7 +275,6 @@ namespace Models
 
 
   protected:
-    // The API authorizations.
     shared_ptr<DescribeApisByAppResponseBody::AppApiRelationInfos> appApiRelationInfos_ {};
     // The number of pages to return the results on.
     shared_ptr<int32_t> pageNumber_ {};

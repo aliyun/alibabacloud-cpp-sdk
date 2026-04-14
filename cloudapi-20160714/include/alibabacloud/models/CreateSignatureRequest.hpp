@@ -66,7 +66,6 @@ namespace Models
 
 
   protected:
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
     // The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
     // 

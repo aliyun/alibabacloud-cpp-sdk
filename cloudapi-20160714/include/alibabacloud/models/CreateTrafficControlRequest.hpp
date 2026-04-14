@@ -102,7 +102,6 @@ namespace Models
     shared_ptr<int32_t> appDefault_ {};
     // The description of the throttling policy.
     shared_ptr<string> description_ {};
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
     // The name of the throttling policy. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It cannot start with an underscore.
     // 

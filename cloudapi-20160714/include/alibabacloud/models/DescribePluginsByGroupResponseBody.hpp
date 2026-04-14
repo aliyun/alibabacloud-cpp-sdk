@@ -150,21 +150,13 @@ namespace Models
 
 
       protected:
-        // Creation time, in GMT
         shared_ptr<string> createdTime_ {};
-        // Plugin description
         shared_ptr<string> description_ {};
-        // Last modified time, in GMT
         shared_ptr<string> modifiedTime_ {};
-        // Plugin definition statement
         shared_ptr<string> pluginData_ {};
-        // Plugin ID
         shared_ptr<string> pluginId_ {};
-        // Plugin name
         shared_ptr<string> pluginName_ {};
-        // Plugin type
         shared_ptr<string> pluginType_ {};
-        // 插件所在Region
         shared_ptr<string> regionId_ {};
       };
 
@@ -226,7 +218,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // Pagination parameter: number of items per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Returns information about the plugins
     shared_ptr<DescribePluginsByGroupResponseBody::Plugins> plugins_ {};
     // Request ID
     shared_ptr<string> requestId_ {};

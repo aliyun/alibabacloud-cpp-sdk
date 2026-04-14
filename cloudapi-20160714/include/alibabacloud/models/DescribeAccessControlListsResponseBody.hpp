@@ -104,13 +104,8 @@ namespace Models
 
 
       protected:
-        // The ID of the access control policy.
         shared_ptr<string> aclId_ {};
-        // The name of the access control policy.
         shared_ptr<string> aclName_ {};
-        // 访问控制策略组的IP版本。
-        // - **IPv4**。
-        // - **IPv6**。
         shared_ptr<string> addressIPVersion_ {};
       };
 
@@ -168,7 +163,6 @@ namespace Models
 
 
   protected:
-    // The ACLs.
     shared_ptr<DescribeAccessControlListsResponseBody::Acls> acls_ {};
     // The page number of the current page.
     shared_ptr<int32_t> pageNumber_ {};

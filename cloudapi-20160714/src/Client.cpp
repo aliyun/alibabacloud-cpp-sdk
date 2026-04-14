@@ -892,7 +892,7 @@ CreateApiResponse Client::createApi(const CreateApiRequest &request) {
 }
 
 /**
- * @summary 创建API分组
+ * @summary Creates an API group.
  *
  * @param request CreateApiGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -943,7 +943,7 @@ CreateApiGroupResponse Client::createApiGroupWithOptions(const CreateApiGroupReq
 }
 
 /**
- * @summary 创建API分组
+ * @summary Creates an API group.
  *
  * @param request CreateApiGroupRequest
  * @return CreateApiGroupResponse
@@ -1024,7 +1024,7 @@ CreateApiStageVariableResponse Client::createApiStageVariable(const CreateApiSta
 }
 
 /**
- * @summary Creates an application for calling APIs in API Gateway.
+ * @summary Creates an app for API Gateway.
  *
  * @description *   This operation is intended for API callers.
  * *   Each application has a key-value pair which is used for identity verification when you call an API.
@@ -1090,7 +1090,7 @@ CreateAppResponse Client::createAppWithOptions(const CreateAppRequest &request, 
 }
 
 /**
- * @summary Creates an application for calling APIs in API Gateway.
+ * @summary Creates an app for API Gateway.
  *
  * @description *   This operation is intended for API callers.
  * *   Each application has a key-value pair which is used for identity verification when you call an API.
@@ -1270,7 +1270,7 @@ CreateBackendResponse Client::createBackend(const CreateBackendRequest &request)
 }
 
 /**
- * @summary 创建后端服务在环境上的配置
+ * @summary Creates a backend service configuration in an environment.
  *
  * @param request CreateBackendModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1321,7 +1321,7 @@ CreateBackendModelResponse Client::createBackendModelWithOptions(const CreateBac
 }
 
 /**
- * @summary 创建后端服务在环境上的配置
+ * @summary Creates a backend service configuration in an environment.
  *
  * @param request CreateBackendModelRequest
  * @return CreateBackendModelResponse
@@ -1390,7 +1390,7 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary 创建自定义数据集条目
+ * @summary Creates a data entry in a custom dataset.
  *
  * @param request CreateDatasetItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1437,7 +1437,7 @@ CreateDatasetItemResponse Client::createDatasetItemWithOptions(const CreateDatas
 }
 
 /**
- * @summary 创建自定义数据集条目
+ * @summary Creates a data entry in a custom dataset.
  *
  * @param request CreateDatasetItemRequest
  * @return CreateDatasetItemResponse
@@ -1542,7 +1542,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 创建内网域名
+ * @summary Grants an internal second-level domain name to an API group.
  *
  * @param request CreateIntranetDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1577,7 +1577,7 @@ CreateIntranetDomainResponse Client::createIntranetDomainWithOptions(const Creat
 }
 
 /**
- * @summary 创建内网域名
+ * @summary Grants an internal second-level domain name to an API group.
  *
  * @param request CreateIntranetDomainRequest
  * @return CreateIntranetDomainResponse
@@ -2428,7 +2428,7 @@ DeleteApiStageVariableResponse Client::deleteApiStageVariable(const DeleteApiSta
 }
 
 /**
- * @summary Deletes an application.
+ * @summary Deletes a specified app.
  *
  * @description *   This operation is intended for API callers.
  * *   After an application is deleted, the application and its API authorization cannot be restored.
@@ -2471,7 +2471,7 @@ DeleteAppResponse Client::deleteAppWithOptions(const DeleteAppRequest &request, 
 }
 
 /**
- * @summary Deletes an application.
+ * @summary Deletes a specified app.
  *
  * @description *   This operation is intended for API callers.
  * *   After an application is deleted, the application and its API authorization cannot be restored.
@@ -2678,7 +2678,7 @@ DeleteBackendModelResponse Client::deleteBackendModel(const DeleteBackendModelRe
 }
 
 /**
- * @summary 删除自定义数据集
+ * @summary Deletes a custom dataset.
  *
  * @param request DeleteDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2713,7 +2713,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
 }
 
 /**
- * @summary 删除自定义数据集
+ * @summary Deletes a custom dataset.
  *
  * @param request DeleteDatasetRequest
  * @return DeleteDatasetResponse
@@ -2986,7 +2986,7 @@ DeleteIpControlResponse Client::deleteIpControl(const DeleteIpControlRequest &re
 }
 
 /**
- * @summary Delete the specified log configuration.
+ * @summary Deletes a log configuration.
  *
  * @param request DeleteLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3021,7 +3021,7 @@ DeleteLogConfigResponse Client::deleteLogConfigWithOptions(const DeleteLogConfig
 }
 
 /**
- * @summary Delete the specified log configuration.
+ * @summary Deletes a log configuration.
  *
  * @param request DeleteLogConfigRequest
  * @return DeleteLogConfigResponse
@@ -3408,7 +3408,7 @@ DeleteTrafficSpecialControlResponse Client::deleteTrafficSpecialControl(const De
 }
 
 /**
- * @summary Publishes an API to an environment.
+ * @summary Publishes an API to a specified environment.
  *
  * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
  * *   An API is published to a cluster in under 5 seconds.
@@ -3459,7 +3459,7 @@ DeployApiResponse Client::deployApiWithOptions(const DeployApiRequest &request, 
 }
 
 /**
- * @summary Publishes an API to an environment.
+ * @summary Publishes an API to a specified environment.
  *
  * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
  * *   An API is published to a cluster in under 5 seconds.
@@ -3474,7 +3474,7 @@ DeployApiResponse Client::deployApi(const DeployApiRequest &request) {
 }
 
 /**
- * @summary 查询批量下线API任务
+ * @summary Queries the progress of an API unpublishing task.
  *
  * @param request DescribeAbolishApiTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3509,7 +3509,7 @@ DescribeAbolishApiTaskResponse Client::describeAbolishApiTaskWithOptions(const D
 }
 
 /**
- * @summary 查询批量下线API任务
+ * @summary Queries the progress of an API unpublishing task.
  *
  * @param request DescribeAbolishApiTaskRequest
  * @return DescribeAbolishApiTaskResponse
@@ -5100,7 +5100,7 @@ DescribeApisByVpcAccessResponse Client::describeApisByVpcAccess(const DescribeAp
 }
 
 /**
- * @summary Queries APIs by application. The environment information is also returned.
+ * @summary Queries APIs by application and returns the result by environment.
  *
  * @param request DescribeApisWithStageNameIntegratedByAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5163,7 +5163,7 @@ DescribeApisWithStageNameIntegratedByAppResponse Client::describeApisWithStageNa
 }
 
 /**
- * @summary Queries APIs by application. The environment information is also returned.
+ * @summary Queries APIs by application and returns the result by environment.
  *
  * @param request DescribeApisWithStageNameIntegratedByAppRequest
  * @return DescribeApisWithStageNameIntegratedByAppResponse
@@ -7173,6 +7173,14 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
     query["Language"] = request.getLanguage();
   }
 
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
   if (!!request.hasSecurityToken()) {
     query["SecurityToken"] = request.getSecurityToken();
   }
@@ -7648,7 +7656,7 @@ DescribePluginGroupsResponse Client::describePluginGroups(const DescribePluginGr
 }
 
 /**
- * @summary 查询插件列表
+ * @summary Describes the plug-in modes supported by API Gateway.
  *
  * @param request DescribePluginSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7683,7 +7691,7 @@ DescribePluginSchemasResponse Client::describePluginSchemasWithOptions(const Des
 }
 
 /**
- * @summary 查询插件列表
+ * @summary Describes the plug-in modes supported by API Gateway.
  *
  * @param request DescribePluginSchemasRequest
  * @return DescribePluginSchemasResponse
@@ -7820,7 +7828,7 @@ DescribePluginsResponse Client::describePlugins(const DescribePluginsRequest &re
 }
 
 /**
- * @summary Queries the plug-ins that are bound to a running API in an environment.
+ * @summary Queries the plug-ins that are bound to a running API in a specified environment.
  *
  * @description *   This operation is intended for API callers.
  * *   This operation supports pagination.
@@ -7874,7 +7882,7 @@ DescribePluginsByApiResponse Client::describePluginsByApiWithOptions(const Descr
 }
 
 /**
- * @summary Queries the plug-ins that are bound to a running API in an environment.
+ * @summary Queries the plug-ins that are bound to a running API in a specified environment.
  *
  * @description *   This operation is intended for API callers.
  * *   This operation supports pagination.
@@ -8042,7 +8050,7 @@ DescribePurchasedApiGroupsResponse Client::describePurchasedApiGroups(const Desc
 }
 
 /**
- * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+ * @summary Queries the APIs purchased in the Alibaba Cloud Marketplace.
  *
  * @param request DescribePurchasedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8101,7 +8109,7 @@ DescribePurchasedApisResponse Client::describePurchasedApisWithOptions(const Des
 }
 
 /**
- * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+ * @summary Queries the APIs purchased in the Alibaba Cloud Marketplace.
  *
  * @param request DescribePurchasedApisRequest
  * @return DescribePurchasedApisResponse
@@ -8512,7 +8520,7 @@ DescribeTrafficControlsByApiResponse Client::describeTrafficControlsByApi(const 
 }
 
 /**
- * @summary 查询批量更新API后端元定结果
+ * @summary Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
  *
  * @param request DescribeUpdateBackendTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8547,7 +8555,7 @@ DescribeUpdateBackendTaskResponse Client::describeUpdateBackendTaskWithOptions(c
 }
 
 /**
- * @summary 查询批量更新API后端元定结果
+ * @summary Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
  *
  * @param request DescribeUpdateBackendTaskRequest
  * @return DescribeUpdateBackendTaskResponse
@@ -8558,7 +8566,7 @@ DescribeUpdateBackendTaskResponse Client::describeUpdateBackendTask(const Descri
 }
 
 /**
- * @summary 查询更新VPC授权的任务
+ * @summary Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
  *
  * @param request DescribeUpdateVpcInfoTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8593,7 +8601,7 @@ DescribeUpdateVpcInfoTaskResponse Client::describeUpdateVpcInfoTaskWithOptions(c
 }
 
 /**
- * @summary 查询更新VPC授权的任务
+ * @summary Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
  *
  * @param request DescribeUpdateVpcInfoTaskRequest
  * @return DescribeUpdateVpcInfoTaskResponse
@@ -8832,7 +8840,7 @@ DetachGroupPluginResponse Client::detachGroupPlugin(const DetachGroupPluginReque
 }
 
 /**
- * @summary 解绑插件
+ * @summary Unbinds a plug-in from an API.
  *
  * @param request DetachPluginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8879,7 +8887,7 @@ DetachPluginResponse Client::detachPluginWithOptions(const DetachPluginRequest &
 }
 
 /**
- * @summary 解绑插件
+ * @summary Unbinds a plug-in from an API.
  *
  * @param request DetachPluginRequest
  * @return DetachPluginResponse
@@ -9130,7 +9138,7 @@ EnableInstanceAccessControlResponse Client::enableInstanceAccessControl(const En
 }
 
 /**
- * @summary 导出OAS
+ * @summary Exports APIs based on OpenAPI Specification (OAS).
  *
  * @param tmpReq ExportOASRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9195,7 +9203,7 @@ ExportOASResponse Client::exportOASWithOptions(const ExportOASRequest &tmpReq, c
 }
 
 /**
- * @summary 导出OAS
+ * @summary Exports APIs based on OpenAPI Specification (OAS).
  *
  * @param request ExportOASRequest
  * @return ExportOASResponse
@@ -9206,7 +9214,7 @@ ExportOASResponse Client::exportOAS(const ExportOASRequest &request) {
 }
 
 /**
- * @summary Imports APIs based on the OAS standard.
+ * @summary Imports OpenAPI Specification (OAS)-compliant data to create an API.
  *
  * @param request ImportOASRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9275,7 +9283,7 @@ ImportOASResponse Client::importOASWithOptions(const ImportOASRequest &request, 
 }
 
 /**
- * @summary Imports APIs based on the OAS standard.
+ * @summary Imports OpenAPI Specification (OAS)-compliant data to create an API.
  *
  * @param request ImportOASRequest
  * @return ImportOASResponse
@@ -9662,7 +9670,7 @@ ModifyApiResponse Client::modifyApi(const ModifyApiRequest &request) {
 }
 
 /**
- * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+ * @summary This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
  *
  * @param request ModifyApiConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9833,7 +9841,7 @@ ModifyApiConfigurationResponse Client::modifyApiConfigurationWithOptions(const M
 }
 
 /**
- * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+ * @summary This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
  *
  * @param request ModifyApiConfigurationRequest
  * @return ModifyApiConfigurationResponse
@@ -10208,7 +10216,7 @@ ModifyAppResponse Client::modifyApp(const ModifyAppRequest &request) {
 }
 
 /**
- * @summary 修改后端服务
+ * @summary Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
  *
  * @param request ModifyBackendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10255,7 +10263,7 @@ ModifyBackendResponse Client::modifyBackendWithOptions(const ModifyBackendReques
 }
 
 /**
- * @summary 修改后端服务
+ * @summary Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
  *
  * @param request ModifyBackendRequest
  * @return ModifyBackendResponse
@@ -10266,7 +10274,7 @@ ModifyBackendResponse Client::modifyBackend(const ModifyBackendRequest &request)
 }
 
 /**
- * @summary 修改后端服务在环境上的定义
+ * @summary Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
  *
  * @param request ModifyBackendModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10321,7 +10329,7 @@ ModifyBackendModelResponse Client::modifyBackendModelWithOptions(const ModifyBac
 }
 
 /**
- * @summary 修改后端服务在环境上的定义
+ * @summary Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
  *
  * @param request ModifyBackendModelRequest
  * @return ModifyBackendModelResponse
@@ -10386,7 +10394,7 @@ ModifyDatasetResponse Client::modifyDataset(const ModifyDatasetRequest &request)
 }
 
 /**
- * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+ * @summary Modifies the timeout period and description of a data entry in a custom dataset.
  *
  * @param request ModifyDatasetItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10433,7 +10441,7 @@ ModifyDatasetItemResponse Client::modifyDatasetItemWithOptions(const ModifyDatas
 }
 
 /**
- * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+ * @summary Modifies the timeout period and description of a data entry in a custom dataset.
  *
  * @param request ModifyDatasetItemRequest
  * @return ModifyDatasetItemResponse
@@ -11162,7 +11170,7 @@ ModifyTrafficControlResponse Client::modifyTrafficControl(const ModifyTrafficCon
 }
 
 /**
- * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+ * @summary Modifies the information of a VPC access authorization and updates the metadata of the associated API.
  *
  * @param request ModifyVpcAccessAndUpdateApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11225,7 +11233,7 @@ ModifyVpcAccessAndUpdateApisResponse Client::modifyVpcAccessAndUpdateApisWithOpt
 }
 
 /**
- * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+ * @summary Modifies the information of a VPC access authorization and updates the metadata of the associated API.
  *
  * @param request ModifyVpcAccessAndUpdateApisRequest
  * @return ModifyVpcAccessAndUpdateApisResponse
@@ -11236,9 +11244,8 @@ ModifyVpcAccessAndUpdateApisResponse Client::modifyVpcAccessAndUpdateApis(const 
 }
 
 /**
- * @summary 开通API网关服务
+ * @summary Activates the API Gateway service.
  *
- * @param request OpenApiGatewayServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenApiGatewayServiceResponse
  */
@@ -11259,7 +11266,7 @@ OpenApiGatewayServiceResponse Client::openApiGatewayServiceWithOptions(const Dar
 }
 
 /**
- * @summary 开通API网关服务
+ * @summary Activates the API Gateway service.
  *
  * @return OpenApiGatewayServiceResponse
  */
@@ -11375,7 +11382,7 @@ ReactivateDomainResponse Client::reactivateDomain(const ReactivateDomainRequest 
 }
 
 /**
- * @summary 删除访问控制策略中IP条目
+ * @summary This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
  *
  * @param request RemoveAccessControlListEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11414,7 +11421,7 @@ RemoveAccessControlListEntryResponse Client::removeAccessControlListEntryWithOpt
 }
 
 /**
- * @summary 删除访问控制策略中IP条目
+ * @summary This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
  *
  * @param request RemoveAccessControlListEntryRequest
  * @return RemoveAccessControlListEntryResponse
@@ -11549,7 +11556,7 @@ RemoveApisAuthoritiesResponse Client::removeApisAuthorities(const RemoveApisAuth
 }
 
 /**
- * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+ * @summary Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
  *
  * @description *   This operation is intended for API providers and callers.
  * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
@@ -11599,7 +11606,7 @@ RemoveAppsAuthoritiesResponse Client::removeAppsAuthoritiesWithOptions(const Rem
 }
 
 /**
- * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+ * @summary Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
  *
  * @description *   This operation is intended for API providers and callers.
  * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
@@ -11859,7 +11866,7 @@ RemoveTrafficControlApisResponse Client::removeTrafficControlApis(const RemoveTr
 }
 
 /**
- * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+ * @summary Deletes a VPC access authorization without unpublishing the associated APIs.
  *
  * @description *   This API is intended for API providers.
  * *   Revokes the permissions of API Gateway to access your VPC instance.
@@ -11910,7 +11917,7 @@ RemoveVpcAccessResponse Client::removeVpcAccessWithOptions(const RemoveVpcAccess
 }
 
 /**
- * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+ * @summary Deletes a VPC access authorization without unpublishing the associated APIs.
  *
  * @description *   This API is intended for API providers.
  * *   Revokes the permissions of API Gateway to access your VPC instance.
@@ -11925,7 +11932,7 @@ RemoveVpcAccessResponse Client::removeVpcAccess(const RemoveVpcAccessRequest &re
 }
 
 /**
- * @summary 删除VPC授权并下线关联API
+ * @summary Deletes a VPC access authorization and unpublishes the associated API.
  *
  * @param request RemoveVpcAccessAndAbolishApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11972,7 +11979,7 @@ RemoveVpcAccessAndAbolishApisResponse Client::removeVpcAccessAndAbolishApisWithO
 }
 
 /**
- * @summary 删除VPC授权并下线关联API
+ * @summary Deletes a VPC access authorization and unpublishes the associated API.
  *
  * @param request RemoveVpcAccessAndAbolishApisRequest
  * @return RemoveVpcAccessAndAbolishApisResponse
@@ -12033,7 +12040,7 @@ ResetAppCodeResponse Client::resetAppCode(const ResetAppCodeRequest &request) {
 }
 
 /**
- * @summary Resets the key of an application.
+ * @summary Resets the key for an app.
  *
  * @description *   This operation is intended for API callers.
  * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
@@ -12080,7 +12087,7 @@ ResetAppSecretResponse Client::resetAppSecretWithOptions(const ResetAppSecretReq
 }
 
 /**
- * @summary Resets the key of an application.
+ * @summary Resets the key for an app.
  *
  * @description *   This operation is intended for API callers.
  * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
@@ -12095,7 +12102,7 @@ ResetAppSecretResponse Client::resetAppSecret(const ResetAppSecretRequest &reque
 }
 
 /**
- * @summary 根据APP生成SDK
+ * @summary Generates an SDK by application.
  *
  * @param request SdkGenerateByAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12134,7 +12141,7 @@ SdkGenerateByAppResponse Client::sdkGenerateByAppWithOptions(const SdkGenerateBy
 }
 
 /**
- * @summary 根据APP生成SDK
+ * @summary Generates an SDK by application.
  *
  * @param request SdkGenerateByAppRequest
  * @return SdkGenerateByAppResponse
@@ -12195,7 +12202,7 @@ SdkGenerateByAppForRegionResponse Client::sdkGenerateByAppForRegion(const SdkGen
 }
 
 /**
- * @summary 根据分组生成SDK
+ * @summary Generates an SDK by API group.
  *
  * @param request SdkGenerateByGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12234,7 +12241,7 @@ SdkGenerateByGroupResponse Client::sdkGenerateByGroupWithOptions(const SdkGenera
 }
 
 /**
- * @summary 根据分组生成SDK
+ * @summary Generates an SDK by API group.
  *
  * @param request SdkGenerateByGroupRequest
  * @return SdkGenerateByGroupResponse
@@ -12245,7 +12252,7 @@ SdkGenerateByGroupResponse Client::sdkGenerateByGroup(const SdkGenerateByGroupRe
 }
 
 /**
- * @summary 修改访问控制策略的名称
+ * @summary This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
  *
  * @param request SetAccessControlListAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12284,7 +12291,7 @@ SetAccessControlListAttributeResponse Client::setAccessControlListAttributeWithO
 }
 
 /**
- * @summary 修改访问控制策略的名称
+ * @summary This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
  *
  * @param request SetAccessControlListAttributeRequest
  * @return SetAccessControlListAttributeResponse
@@ -13203,7 +13210,7 @@ SwitchApiResponse Client::switchApi(const SwitchApiRequest &request) {
 }
 
 /**
- * @summary Creates a tag-resource relationship.
+ * @summary Adds user tags to resources.
  *
  * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
  * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
@@ -13252,7 +13259,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates a tag-resource relationship.
+ * @summary Adds user tags to resources.
  *
  * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
  * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.

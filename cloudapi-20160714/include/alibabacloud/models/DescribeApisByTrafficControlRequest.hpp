@@ -70,7 +70,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
     // The ID of the throttling policy that you want to query.
     // 

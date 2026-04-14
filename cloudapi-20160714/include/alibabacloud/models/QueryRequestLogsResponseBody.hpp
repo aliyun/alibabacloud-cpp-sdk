@@ -475,93 +475,49 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The application name.
         shared_ptr<string> appName_ {};
-        // The time when API Gateway finished forwarding the request to the backend service.
         shared_ptr<int64_t> backendRequestEnd_ {};
-        // The time when API Gateway started to forward the request to the backend service.
         shared_ptr<int64_t> backendRequestStart_ {};
-        // The time when API Gateway finished receiving the response from the backend service.
         shared_ptr<int64_t> backendResponseEnd_ {};
-        // The time when API Gateway started to receive the response from the backend service.
         shared_ptr<int64_t> backendResponseStart_ {};
-        // The IP address of the client that sends the request.
         shared_ptr<string> clientIp_ {};
-        // The X-Ca-Nonce header included in the request from the client.
         shared_ptr<string> clientNonce_ {};
-        // The application ID that is used by the caller.
         shared_ptr<string> consumerAppId_ {};
-        // The App Key that is used by the caller.
         shared_ptr<string> consumerAppKey_ {};
-        // The custom trace ID.
         shared_ptr<string> customTraceId_ {};
-        // The requested domain name in the request.
         shared_ptr<string> domain_ {};
-        // The error code that is returned.
         shared_ptr<string> errorCode_ {};
-        // The error message returned if the call fails.
         shared_ptr<string> errorMessage_ {};
-        // The specific error message returned by the backend service.
         shared_ptr<string> exception_ {};
-        // The time when API Gateway finished receiving the request.
         shared_ptr<int64_t> frontRequestEnd_ {};
-        // The time when API Gateway started to receive the request.
         shared_ptr<int64_t> frontRequestStart_ {};
-        // The time when API Gateway finished forwarding the response to the client.
         shared_ptr<int64_t> frontResponseEnd_ {};
-        // The time when API Gateway started to forward the response to the client.
         shared_ptr<int64_t> frontResponseStart_ {};
-        // The ID of the API group to which the API belongs.
         shared_ptr<string> groupId_ {};
-        // The name of the API group to which the API belongs.
         shared_ptr<string> groupName_ {};
-        // The HTTP method that is used to send the request.
         shared_ptr<string> httpMethod_ {};
-        // The path of the request.
         shared_ptr<string> httpPath_ {};
-        // The initial request ID when API Gateway calls an API. For example, if API-1 calls API-2, the initialRequestId parameter in the log of API-2 indicates the ID of the request from API-1.
         shared_ptr<string> initialRequestId_ {};
-        // The ID of the API Gateway instance to which the API belongs.
         shared_ptr<string> instanceId_ {};
-        // The JSON web token (JWT) claims. The claims can be configured at the group level.
         shared_ptr<string> jwtClaims_ {};
-        // The region in which the instance resides.
         shared_ptr<string> region_ {};
-        // The request body. A request body cannot exceed 1,024 bytes in size.
         shared_ptr<string> requestBody_ {};
-        // The request headers.
         shared_ptr<string> requestHeaders_ {};
-        // The request ID.
         shared_ptr<string> requestId_ {};
-        // The protocol used by the client to send the request. Valid values: HTTP, HTTPS, and WS.
         shared_ptr<string> requestProtocol_ {};
-        // The query string for the request.
         shared_ptr<string> requestQueryString_ {};
-        // The size of the request. Unit: bytes.
         shared_ptr<string> requestSize_ {};
-        // The request time, in UTC.
         shared_ptr<string> requestTime_ {};
-        // The response body. A response body cannot exceed 1,024 bytes in size.
         shared_ptr<string> responseBody_ {};
-        // The headers in the API response.
         shared_ptr<string> responseHeaders_ {};
-        // The size of returned data. Unit: bytes.
         shared_ptr<string> responseSize_ {};
-        // The total time consumed to access the backend resources. The total time includes the time consumed to request a connection to the resources, the time consumed to establish the connection, and the time consumed to call the backend service. Unit: milliseconds.
         shared_ptr<string> serviceLatency_ {};
-        // The ID of the API environment.
         shared_ptr<string> stageId_ {};
-        // The name of the API environment.
         shared_ptr<string> stageName_ {};
-        // The status code returned.
         shared_ptr<string> statusCode_ {};
-        // The total time consumed by the request. Unit: milliseconds.
         shared_ptr<string> totalLatency_ {};
-        // The plug-in hit by the request and the relevant context.
         shared_ptr<string> plugin_ {};
       };
 
@@ -600,7 +556,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The request logs.
     shared_ptr<QueryRequestLogsResponseBody::RequestLogs> requestLogs_ {};
   };
 

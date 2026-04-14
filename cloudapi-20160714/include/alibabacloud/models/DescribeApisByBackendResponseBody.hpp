@@ -141,19 +141,12 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The description of the API.
         shared_ptr<string> description_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the API group.
         shared_ptr<string> groupName_ {};
-        // The request method of the API.
         shared_ptr<string> method_ {};
-        // The request path of the API.
         shared_ptr<string> path_ {};
       };
 
@@ -211,7 +204,6 @@ namespace Models
 
 
   protected:
-    // The information about the returned API list.
     shared_ptr<DescribeApisByBackendResponseBody::ApiInfoList> apiInfoList_ {};
     // The number of the current page.
     shared_ptr<int32_t> pageNumber_ {};

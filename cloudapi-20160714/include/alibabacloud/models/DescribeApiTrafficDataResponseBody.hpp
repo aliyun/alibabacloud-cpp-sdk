@@ -91,9 +91,7 @@ namespace Models
 
 
       protected:
-        // The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
         shared_ptr<string> itemTime_ {};
-        // The value corresponding to the monitoring metric.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -168,9 +166,7 @@ namespace Models
 
 
       protected:
-        // The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
         shared_ptr<string> itemTime_ {};
-        // The value corresponding to the monitoring metric.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -216,9 +212,7 @@ namespace Models
 
 
   protected:
-    // The returned downlink traffic data of API calls. It is an array consisting of MonitorItem data.
     shared_ptr<DescribeApiTrafficDataResponseBody::CallDownloads> callDownloads_ {};
-    // The returned uplink traffic data of API calls. It is an array consisting of MonitorItem data.
     shared_ptr<DescribeApiTrafficDataResponseBody::CallUploads> callUploads_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

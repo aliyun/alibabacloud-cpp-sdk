@@ -159,27 +159,14 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The API description.
         shared_ptr<string> description_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the API group to which the API belongs.
         shared_ptr<string> groupName_ {};
-        // The request method of the API.
         shared_ptr<string> method_ {};
-        // The request path of the API.
         shared_ptr<string> path_ {};
-        // The ID of the region where the API is deployed.
         shared_ptr<string> regionId_ {};
-        // The environment to which the API is published. Valid values:
-        // 
-        // *   **RELEASE**: the production environment
-        // *   **PRE**: the staging environment
-        // *   **TEST**: the test environment
         shared_ptr<string> stageName_ {};
       };
 
@@ -237,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The information about the returned APIs.
     shared_ptr<DescribeApiProductApisResponseBody::ApiInfoList> apiInfoList_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

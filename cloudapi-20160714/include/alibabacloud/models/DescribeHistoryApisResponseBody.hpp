@@ -177,30 +177,16 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The time when the API was published. The time is displayed in UTC.
         shared_ptr<string> deployedTime_ {};
-        // The API description.
         shared_ptr<string> description_ {};
-        // The API group ID.
         shared_ptr<string> groupId_ {};
-        // The name of the API group to which the API belongs.
         shared_ptr<string> groupName_ {};
-        // The historical version of the API definition.
         shared_ptr<string> historyVersion_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The environment alias.
         shared_ptr<string> stageAlias_ {};
-        // The environment name. Valid values:
-        // 
-        // *   **RELEASE**
-        // *   **TEST**
         shared_ptr<string> stageName_ {};
-        // Indicates whether an API version is effective. Valid values: ONLINE and OFFLINE.
         shared_ptr<string> status_ {};
       };
 
@@ -258,7 +244,6 @@ namespace Models
 
 
   protected:
-    // The returned API information. It is an array consisting of ApiHisItems.
     shared_ptr<DescribeHistoryApisResponseBody::ApiHisItems> apiHisItems_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

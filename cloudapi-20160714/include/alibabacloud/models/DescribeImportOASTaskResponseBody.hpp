@@ -120,21 +120,10 @@ namespace Models
 
 
       protected:
-        // The cause of the failure if the model fails to be imported.
         shared_ptr<string> errorMessage_ {};
-        // The API group ID.
         shared_ptr<string> groupId_ {};
-        // The ID of the imported model.
         shared_ptr<string> modelId_ {};
-        // The model name.
         shared_ptr<string> modelName_ {};
-        // The execution status of the subtask. Valid values:
-        // 
-        // *   RUNNING
-        // *   WAIT
-        // *   OVER
-        // *   FAIL
-        // *   CANCEL
         shared_ptr<string> updateStatus_ {};
       };
 
@@ -264,27 +253,13 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The API description.
         shared_ptr<string> description_ {};
-        // The cause of the failure if the API fails to be imported.
         shared_ptr<string> errorMessage_ {};
-        // The API group ID.
         shared_ptr<string> groupId_ {};
-        // The HTTP request HTTP method of the API.
         shared_ptr<string> method_ {};
-        // The request path of the API.
         shared_ptr<string> path_ {};
-        // The execution status of the subtask. Valid values:
-        // 
-        // *   RUNNING
-        // *   WAIT
-        // *   OVER
-        // *   FAIL
-        // *   CANCEL
         shared_ptr<string> updateStatus_ {};
       };
 
@@ -337,21 +312,7 @@ namespace Models
 
 
   protected:
-    // The execution status of the subtask. Valid values:
-    // 
-    // *   RUNNING
-    // *   WAIT
-    // *   OVER
-    // *   FAIL
-    // *   CANCEL
     shared_ptr<DescribeImportOASTaskResponseBody::ApiResults> apiResults_ {};
-    // The execution status of the subtask. Valid values:
-    // 
-    // *   RUNNING
-    // *   WAIT
-    // *   OVER
-    // *   FAIL
-    // *   CANCEL
     shared_ptr<DescribeImportOASTaskResponseBody::ModelResults> modelResults_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

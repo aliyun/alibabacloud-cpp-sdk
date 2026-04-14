@@ -191,9 +191,7 @@ namespace Models
 
 
               protected:
-                // The AppId or user account corresponding to SpecialType.
                 shared_ptr<string> specialKey_ {};
-                // The throttling value.
                 shared_ptr<int32_t> trafficValue_ {};
               };
 
@@ -230,12 +228,7 @@ namespace Models
 
 
           protected:
-            // The type of the special throttling policy. Valid values:
-            // 
-            // *   **APP**
-            // *   **USER**
             shared_ptr<string> specialType_ {};
-            // The returned information about a special throttling policy. It is an array consisting of Special data.
             shared_ptr<SpecialPolicy::Specials> specials_ {};
           };
 
@@ -329,29 +322,15 @@ namespace Models
 
 
       protected:
-        // The default throttling value for each API.
         shared_ptr<int32_t> apiDefault_ {};
-        // The default throttling value for each app.
         shared_ptr<int32_t> appDefault_ {};
-        // The creation time (UTC) of the throttling policy.
         shared_ptr<string> createdTime_ {};
-        // The description of the throttling policy.
         shared_ptr<string> description_ {};
-        // The last modification time (UTC) of the throttling policy.
         shared_ptr<string> modifiedTime_ {};
-        // The returned information about a special throttling policy. It is an array consisting of SpecialPolicy data.
         shared_ptr<TrafficControl::SpecialPolicies> specialPolicies_ {};
-        // The ID of the throttling policy.
         shared_ptr<string> trafficControlId_ {};
-        // The name of the throttling policy.
         shared_ptr<string> trafficControlName_ {};
-        // The unit to be used in the throttling policy. Valid values:
-        // 
-        // *   MINUTE
-        // *   HOUR
-        // *   DAY
         shared_ptr<string> trafficControlUnit_ {};
-        // The default throttling value for each user.
         shared_ptr<int32_t> userDefault_ {};
       };
 
@@ -417,7 +396,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The returned throttling policy information. It is an array consisting of TrafficControl data.
     shared_ptr<DescribeTrafficControlsResponseBody::TrafficControls> trafficControls_ {};
   };
 

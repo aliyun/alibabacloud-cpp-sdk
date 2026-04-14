@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The binding time of the policy.
         shared_ptr<string> boundTime_ {};
-        // The ID of the throttling policy.
         shared_ptr<string> trafficControlItemId_ {};
-        // The name of the throttling policy.
         shared_ptr<string> trafficControlItemName_ {};
       };
 
@@ -141,7 +138,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned throttling policy information. It is an array consisting of TrafficControlItem data.
     shared_ptr<DescribeTrafficControlsByApiResponseBody::TrafficControlItems> trafficControlItems_ {};
   };
 

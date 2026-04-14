@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The time when the backend signature key was bound.
         shared_ptr<string> boundTime_ {};
-        // The ID of the backend signature key.
         shared_ptr<string> signatureId_ {};
-        // The name of the backend signature key.
         shared_ptr<string> signatureName_ {};
       };
 
@@ -188,7 +183,6 @@ namespace Models
 
 
   protected:
-    // The returned signature key information. It is an array consisting of ApiSignatureItem data.
     shared_ptr<DescribeApiSignaturesResponseBody::ApiSignatures> apiSignatures_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

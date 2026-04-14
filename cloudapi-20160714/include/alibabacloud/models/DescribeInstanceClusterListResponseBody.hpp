@@ -150,21 +150,13 @@ namespace Models
 
 
       protected:
-        // The time when the cluster was created. The time is displayed in UTC.
         shared_ptr<string> createdTime_ {};
-        // The cluster description.
         shared_ptr<string> description_ {};
-        // The cluster ID.
         shared_ptr<string> instanceClusterId_ {};
-        // The cluster name.
         shared_ptr<string> instanceClusterName_ {};
-        // The cluster status.
         shared_ptr<string> instanceClusterStatus_ {};
-        // The cluster type.
         shared_ptr<string> instanceClusterType_ {};
-        // The time when the cluster was last modified. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The region ID of the cluster.
         shared_ptr<string> regionId_ {};
       };
 
@@ -222,7 +214,6 @@ namespace Models
 
 
   protected:
-    // The instance cluster list.
     shared_ptr<DescribeInstanceClusterListResponseBody::InstanceClusters> instanceClusters_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

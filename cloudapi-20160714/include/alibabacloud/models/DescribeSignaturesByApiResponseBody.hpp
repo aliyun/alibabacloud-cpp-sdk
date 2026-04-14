@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The time when the key was bound.
         shared_ptr<string> boundTime_ {};
-        // The ID of the backend signature key.
         shared_ptr<string> signatureId_ {};
-        // The name of the backend signature key.
         shared_ptr<string> signatureName_ {};
       };
 
@@ -141,7 +138,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned signature key information. It is an array consisting of SignatureItem data.
     shared_ptr<DescribeSignaturesByApiResponseBody::Signatures> signatures_ {};
   };
 

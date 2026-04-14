@@ -275,7 +275,7 @@ namespace CloudAPI20160714
       Models::CreateApiResponse createApi(const Models::CreateApiRequest &request);
 
       /**
-       * @summary 创建API分组
+       * @summary Creates an API group.
        *
        * @param request CreateApiGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -284,7 +284,7 @@ namespace CloudAPI20160714
       Models::CreateApiGroupResponse createApiGroupWithOptions(const Models::CreateApiGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建API分组
+       * @summary Creates an API group.
        *
        * @param request CreateApiGroupRequest
        * @return CreateApiGroupResponse
@@ -313,7 +313,7 @@ namespace CloudAPI20160714
       Models::CreateApiStageVariableResponse createApiStageVariable(const Models::CreateApiStageVariableRequest &request);
 
       /**
-       * @summary Creates an application for calling APIs in API Gateway.
+       * @summary Creates an app for API Gateway.
        *
        * @description *   This operation is intended for API callers.
        * *   Each application has a key-value pair which is used for identity verification when you call an API.
@@ -329,7 +329,7 @@ namespace CloudAPI20160714
       Models::CreateAppResponse createAppWithOptions(const Models::CreateAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application for calling APIs in API Gateway.
+       * @summary Creates an app for API Gateway.
        *
        * @description *   This operation is intended for API callers.
        * *   Each application has a key-value pair which is used for identity verification when you call an API.
@@ -395,7 +395,7 @@ namespace CloudAPI20160714
       Models::CreateBackendResponse createBackend(const Models::CreateBackendRequest &request);
 
       /**
-       * @summary 创建后端服务在环境上的配置
+       * @summary Creates a backend service configuration in an environment.
        *
        * @param request CreateBackendModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +404,7 @@ namespace CloudAPI20160714
       Models::CreateBackendModelResponse createBackendModelWithOptions(const Models::CreateBackendModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建后端服务在环境上的配置
+       * @summary Creates a backend service configuration in an environment.
        *
        * @param request CreateBackendModelRequest
        * @return CreateBackendModelResponse
@@ -429,7 +429,7 @@ namespace CloudAPI20160714
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary 创建自定义数据集条目
+       * @summary Creates a data entry in a custom dataset.
        *
        * @param request CreateDatasetItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +438,7 @@ namespace CloudAPI20160714
       Models::CreateDatasetItemResponse createDatasetItemWithOptions(const Models::CreateDatasetItemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义数据集条目
+       * @summary Creates a data entry in a custom dataset.
        *
        * @param request CreateDatasetItemRequest
        * @return CreateDatasetItemResponse
@@ -463,7 +463,7 @@ namespace CloudAPI20160714
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建内网域名
+       * @summary Grants an internal second-level domain name to an API group.
        *
        * @param request CreateIntranetDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +472,7 @@ namespace CloudAPI20160714
       Models::CreateIntranetDomainResponse createIntranetDomainWithOptions(const Models::CreateIntranetDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建内网域名
+       * @summary Grants an internal second-level domain name to an API group.
        *
        * @param request CreateIntranetDomainRequest
        * @return CreateIntranetDomainResponse
@@ -794,7 +794,7 @@ namespace CloudAPI20160714
       Models::DeleteApiStageVariableResponse deleteApiStageVariable(const Models::DeleteApiStageVariableRequest &request);
 
       /**
-       * @summary Deletes an application.
+       * @summary Deletes a specified app.
        *
        * @description *   This operation is intended for API callers.
        * *   After an application is deleted, the application and its API authorization cannot be restored.
@@ -807,7 +807,7 @@ namespace CloudAPI20160714
       Models::DeleteAppResponse deleteAppWithOptions(const Models::DeleteAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application.
+       * @summary Deletes a specified app.
        *
        * @description *   This operation is intended for API callers.
        * *   After an application is deleted, the application and its API authorization cannot be restored.
@@ -887,7 +887,7 @@ namespace CloudAPI20160714
       Models::DeleteBackendModelResponse deleteBackendModel(const Models::DeleteBackendModelRequest &request);
 
       /**
-       * @summary 删除自定义数据集
+       * @summary Deletes a custom dataset.
        *
        * @param request DeleteDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +896,7 @@ namespace CloudAPI20160714
       Models::DeleteDatasetResponse deleteDatasetWithOptions(const Models::DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义数据集
+       * @summary Deletes a custom dataset.
        *
        * @param request DeleteDatasetRequest
        * @return DeleteDatasetResponse
@@ -1005,7 +1005,7 @@ namespace CloudAPI20160714
       Models::DeleteIpControlResponse deleteIpControl(const Models::DeleteIpControlRequest &request);
 
       /**
-       * @summary Delete the specified log configuration.
+       * @summary Deletes a log configuration.
        *
        * @param request DeleteLogConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1014,7 +1014,7 @@ namespace CloudAPI20160714
       Models::DeleteLogConfigResponse deleteLogConfigWithOptions(const Models::DeleteLogConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete the specified log configuration.
+       * @summary Deletes a log configuration.
        *
        * @param request DeleteLogConfigRequest
        * @return DeleteLogConfigResponse
@@ -1171,7 +1171,7 @@ namespace CloudAPI20160714
       Models::DeleteTrafficSpecialControlResponse deleteTrafficSpecialControl(const Models::DeleteTrafficSpecialControlRequest &request);
 
       /**
-       * @summary Publishes an API to an environment.
+       * @summary Publishes an API to a specified environment.
        *
        * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
        * *   An API is published to a cluster in under 5 seconds.
@@ -1184,7 +1184,7 @@ namespace CloudAPI20160714
       Models::DeployApiResponse deployApiWithOptions(const Models::DeployApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes an API to an environment.
+       * @summary Publishes an API to a specified environment.
        *
        * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
        * *   An API is published to a cluster in under 5 seconds.
@@ -1196,7 +1196,7 @@ namespace CloudAPI20160714
       Models::DeployApiResponse deployApi(const Models::DeployApiRequest &request);
 
       /**
-       * @summary 查询批量下线API任务
+       * @summary Queries the progress of an API unpublishing task.
        *
        * @param request DescribeAbolishApiTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1205,7 @@ namespace CloudAPI20160714
       Models::DescribeAbolishApiTaskResponse describeAbolishApiTaskWithOptions(const Models::DescribeAbolishApiTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询批量下线API任务
+       * @summary Queries the progress of an API unpublishing task.
        *
        * @param request DescribeAbolishApiTaskRequest
        * @return DescribeAbolishApiTaskResponse
@@ -1740,7 +1740,7 @@ namespace CloudAPI20160714
       Models::DescribeApisByVpcAccessResponse describeApisByVpcAccess(const Models::DescribeApisByVpcAccessRequest &request);
 
       /**
-       * @summary Queries APIs by application. The environment information is also returned.
+       * @summary Queries APIs by application and returns the result by environment.
        *
        * @param request DescribeApisWithStageNameIntegratedByAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1749,7 +1749,7 @@ namespace CloudAPI20160714
       Models::DescribeApisWithStageNameIntegratedByAppResponse describeApisWithStageNameIntegratedByAppWithOptions(const Models::DescribeApisWithStageNameIntegratedByAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries APIs by application. The environment information is also returned.
+       * @summary Queries APIs by application and returns the result by environment.
        *
        * @param request DescribeApisWithStageNameIntegratedByAppRequest
        * @return DescribeApisWithStageNameIntegratedByAppResponse
@@ -2525,7 +2525,7 @@ namespace CloudAPI20160714
       Models::DescribePluginGroupsResponse describePluginGroups(const Models::DescribePluginGroupsRequest &request);
 
       /**
-       * @summary 查询插件列表
+       * @summary Describes the plug-in modes supported by API Gateway.
        *
        * @param request DescribePluginSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2534,7 +2534,7 @@ namespace CloudAPI20160714
       Models::DescribePluginSchemasResponse describePluginSchemasWithOptions(const Models::DescribePluginSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询插件列表
+       * @summary Describes the plug-in modes supported by API Gateway.
        *
        * @param request DescribePluginSchemasRequest
        * @return DescribePluginSchemasResponse
@@ -2586,7 +2586,7 @@ namespace CloudAPI20160714
       Models::DescribePluginsResponse describePlugins(const Models::DescribePluginsRequest &request);
 
       /**
-       * @summary Queries the plug-ins that are bound to a running API in an environment.
+       * @summary Queries the plug-ins that are bound to a running API in a specified environment.
        *
        * @description *   This operation is intended for API callers.
        * *   This operation supports pagination.
@@ -2598,7 +2598,7 @@ namespace CloudAPI20160714
       Models::DescribePluginsByApiResponse describePluginsByApiWithOptions(const Models::DescribePluginsByApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the plug-ins that are bound to a running API in an environment.
+       * @summary Queries the plug-ins that are bound to a running API in a specified environment.
        *
        * @description *   This operation is intended for API callers.
        * *   This operation supports pagination.
@@ -2660,7 +2660,7 @@ namespace CloudAPI20160714
       Models::DescribePurchasedApiGroupsResponse describePurchasedApiGroups(const Models::DescribePurchasedApiGroupsRequest &request);
 
       /**
-       * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+       * @summary Queries the APIs purchased in the Alibaba Cloud Marketplace.
        *
        * @param request DescribePurchasedApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2669,7 +2669,7 @@ namespace CloudAPI20160714
       Models::DescribePurchasedApisResponse describePurchasedApisWithOptions(const Models::DescribePurchasedApisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+       * @summary Queries the APIs purchased in the Alibaba Cloud Marketplace.
        *
        * @param request DescribePurchasedApisRequest
        * @return DescribePurchasedApisResponse
@@ -2830,7 +2830,7 @@ namespace CloudAPI20160714
       Models::DescribeTrafficControlsByApiResponse describeTrafficControlsByApi(const Models::DescribeTrafficControlsByApiRequest &request);
 
       /**
-       * @summary 查询批量更新API后端元定结果
+       * @summary Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
        *
        * @param request DescribeUpdateBackendTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2839,7 +2839,7 @@ namespace CloudAPI20160714
       Models::DescribeUpdateBackendTaskResponse describeUpdateBackendTaskWithOptions(const Models::DescribeUpdateBackendTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询批量更新API后端元定结果
+       * @summary Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
        *
        * @param request DescribeUpdateBackendTaskRequest
        * @return DescribeUpdateBackendTaskResponse
@@ -2847,7 +2847,7 @@ namespace CloudAPI20160714
       Models::DescribeUpdateBackendTaskResponse describeUpdateBackendTask(const Models::DescribeUpdateBackendTaskRequest &request);
 
       /**
-       * @summary 查询更新VPC授权的任务
+       * @summary Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
        *
        * @param request DescribeUpdateVpcInfoTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2856,7 +2856,7 @@ namespace CloudAPI20160714
       Models::DescribeUpdateVpcInfoTaskResponse describeUpdateVpcInfoTaskWithOptions(const Models::DescribeUpdateVpcInfoTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询更新VPC授权的任务
+       * @summary Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
        *
        * @param request DescribeUpdateVpcInfoTaskRequest
        * @return DescribeUpdateVpcInfoTaskResponse
@@ -2932,7 +2932,7 @@ namespace CloudAPI20160714
       Models::DetachGroupPluginResponse detachGroupPlugin(const Models::DetachGroupPluginRequest &request);
 
       /**
-       * @summary 解绑插件
+       * @summary Unbinds a plug-in from an API.
        *
        * @param request DetachPluginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2941,7 +2941,7 @@ namespace CloudAPI20160714
       Models::DetachPluginResponse detachPluginWithOptions(const Models::DetachPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑插件
+       * @summary Unbinds a plug-in from an API.
        *
        * @param request DetachPluginRequest
        * @return DetachPluginResponse
@@ -3017,7 +3017,7 @@ namespace CloudAPI20160714
       Models::EnableInstanceAccessControlResponse enableInstanceAccessControl(const Models::EnableInstanceAccessControlRequest &request);
 
       /**
-       * @summary 导出OAS
+       * @summary Exports APIs based on OpenAPI Specification (OAS).
        *
        * @param tmpReq ExportOASRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3026,7 +3026,7 @@ namespace CloudAPI20160714
       Models::ExportOASResponse exportOASWithOptions(const Models::ExportOASRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出OAS
+       * @summary Exports APIs based on OpenAPI Specification (OAS).
        *
        * @param request ExportOASRequest
        * @return ExportOASResponse
@@ -3034,7 +3034,7 @@ namespace CloudAPI20160714
       Models::ExportOASResponse exportOAS(const Models::ExportOASRequest &request);
 
       /**
-       * @summary Imports APIs based on the OAS standard.
+       * @summary Imports OpenAPI Specification (OAS)-compliant data to create an API.
        *
        * @param request ImportOASRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3043,7 +3043,7 @@ namespace CloudAPI20160714
       Models::ImportOASResponse importOASWithOptions(const Models::ImportOASRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports APIs based on the OAS standard.
+       * @summary Imports OpenAPI Specification (OAS)-compliant data to create an API.
        *
        * @param request ImportOASRequest
        * @return ImportOASResponse
@@ -3157,7 +3157,7 @@ namespace CloudAPI20160714
       Models::ModifyApiResponse modifyApi(const Models::ModifyApiRequest &request);
 
       /**
-       * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+       * @summary This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
        *
        * @param request ModifyApiConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3166,7 +3166,7 @@ namespace CloudAPI20160714
       Models::ModifyApiConfigurationResponse modifyApiConfigurationWithOptions(const Models::ModifyApiConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+       * @summary This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
        *
        * @param request ModifyApiConfigurationRequest
        * @return ModifyApiConfigurationResponse
@@ -3273,7 +3273,7 @@ namespace CloudAPI20160714
       Models::ModifyAppResponse modifyApp(const Models::ModifyAppRequest &request);
 
       /**
-       * @summary 修改后端服务
+       * @summary Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
        *
        * @param request ModifyBackendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3282,7 +3282,7 @@ namespace CloudAPI20160714
       Models::ModifyBackendResponse modifyBackendWithOptions(const Models::ModifyBackendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改后端服务
+       * @summary Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
        *
        * @param request ModifyBackendRequest
        * @return ModifyBackendResponse
@@ -3290,7 +3290,7 @@ namespace CloudAPI20160714
       Models::ModifyBackendResponse modifyBackend(const Models::ModifyBackendRequest &request);
 
       /**
-       * @summary 修改后端服务在环境上的定义
+       * @summary Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
        *
        * @param request ModifyBackendModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3299,7 +3299,7 @@ namespace CloudAPI20160714
       Models::ModifyBackendModelResponse modifyBackendModelWithOptions(const Models::ModifyBackendModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改后端服务在环境上的定义
+       * @summary Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
        *
        * @param request ModifyBackendModelRequest
        * @return ModifyBackendModelResponse
@@ -3324,7 +3324,7 @@ namespace CloudAPI20160714
       Models::ModifyDatasetResponse modifyDataset(const Models::ModifyDatasetRequest &request);
 
       /**
-       * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+       * @summary Modifies the timeout period and description of a data entry in a custom dataset.
        *
        * @param request ModifyDatasetItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3333,7 +3333,7 @@ namespace CloudAPI20160714
       Models::ModifyDatasetItemResponse modifyDatasetItemWithOptions(const Models::ModifyDatasetItemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+       * @summary Modifies the timeout period and description of a data entry in a custom dataset.
        *
        * @param request ModifyDatasetItemRequest
        * @return ModifyDatasetItemResponse
@@ -3566,7 +3566,7 @@ namespace CloudAPI20160714
       Models::ModifyTrafficControlResponse modifyTrafficControl(const Models::ModifyTrafficControlRequest &request);
 
       /**
-       * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+       * @summary Modifies the information of a VPC access authorization and updates the metadata of the associated API.
        *
        * @param request ModifyVpcAccessAndUpdateApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3575,7 +3575,7 @@ namespace CloudAPI20160714
       Models::ModifyVpcAccessAndUpdateApisResponse modifyVpcAccessAndUpdateApisWithOptions(const Models::ModifyVpcAccessAndUpdateApisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+       * @summary Modifies the information of a VPC access authorization and updates the metadata of the associated API.
        *
        * @param request ModifyVpcAccessAndUpdateApisRequest
        * @return ModifyVpcAccessAndUpdateApisResponse
@@ -3583,16 +3583,15 @@ namespace CloudAPI20160714
       Models::ModifyVpcAccessAndUpdateApisResponse modifyVpcAccessAndUpdateApis(const Models::ModifyVpcAccessAndUpdateApisRequest &request);
 
       /**
-       * @summary 开通API网关服务
+       * @summary Activates the API Gateway service.
        *
-       * @param request OpenApiGatewayServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return OpenApiGatewayServiceResponse
        */
       Models::OpenApiGatewayServiceResponse openApiGatewayServiceWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通API网关服务
+       * @summary Activates the API Gateway service.
        *
        * @return OpenApiGatewayServiceResponse
        */
@@ -3643,7 +3642,7 @@ namespace CloudAPI20160714
       Models::ReactivateDomainResponse reactivateDomain(const Models::ReactivateDomainRequest &request);
 
       /**
-       * @summary 删除访问控制策略中IP条目
+       * @summary This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
        *
        * @param request RemoveAccessControlListEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3652,7 +3651,7 @@ namespace CloudAPI20160714
       Models::RemoveAccessControlListEntryResponse removeAccessControlListEntryWithOptions(const Models::RemoveAccessControlListEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除访问控制策略中IP条目
+       * @summary This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
        *
        * @param request RemoveAccessControlListEntryRequest
        * @return RemoveAccessControlListEntryResponse
@@ -3700,7 +3699,7 @@ namespace CloudAPI20160714
       Models::RemoveApisAuthoritiesResponse removeApisAuthorities(const Models::RemoveApisAuthoritiesRequest &request);
 
       /**
-       * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+       * @summary Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
        *
        * @description *   This operation is intended for API providers and callers.
        * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
@@ -3712,7 +3711,7 @@ namespace CloudAPI20160714
       Models::RemoveAppsAuthoritiesResponse removeAppsAuthoritiesWithOptions(const Models::RemoveAppsAuthoritiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+       * @summary Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
        *
        * @description *   This operation is intended for API providers and callers.
        * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
@@ -3813,7 +3812,7 @@ namespace CloudAPI20160714
       Models::RemoveTrafficControlApisResponse removeTrafficControlApis(const Models::RemoveTrafficControlApisRequest &request);
 
       /**
-       * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+       * @summary Deletes a VPC access authorization without unpublishing the associated APIs.
        *
        * @description *   This API is intended for API providers.
        * *   Revokes the permissions of API Gateway to access your VPC instance.
@@ -3826,7 +3825,7 @@ namespace CloudAPI20160714
       Models::RemoveVpcAccessResponse removeVpcAccessWithOptions(const Models::RemoveVpcAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+       * @summary Deletes a VPC access authorization without unpublishing the associated APIs.
        *
        * @description *   This API is intended for API providers.
        * *   Revokes the permissions of API Gateway to access your VPC instance.
@@ -3838,7 +3837,7 @@ namespace CloudAPI20160714
       Models::RemoveVpcAccessResponse removeVpcAccess(const Models::RemoveVpcAccessRequest &request);
 
       /**
-       * @summary 删除VPC授权并下线关联API
+       * @summary Deletes a VPC access authorization and unpublishes the associated API.
        *
        * @param request RemoveVpcAccessAndAbolishApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3847,7 +3846,7 @@ namespace CloudAPI20160714
       Models::RemoveVpcAccessAndAbolishApisResponse removeVpcAccessAndAbolishApisWithOptions(const Models::RemoveVpcAccessAndAbolishApisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除VPC授权并下线关联API
+       * @summary Deletes a VPC access authorization and unpublishes the associated API.
        *
        * @param request RemoveVpcAccessAndAbolishApisRequest
        * @return RemoveVpcAccessAndAbolishApisResponse
@@ -3872,7 +3871,7 @@ namespace CloudAPI20160714
       Models::ResetAppCodeResponse resetAppCode(const Models::ResetAppCodeRequest &request);
 
       /**
-       * @summary Resets the key of an application.
+       * @summary Resets the key for an app.
        *
        * @description *   This operation is intended for API callers.
        * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
@@ -3885,7 +3884,7 @@ namespace CloudAPI20160714
       Models::ResetAppSecretResponse resetAppSecretWithOptions(const Models::ResetAppSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the key of an application.
+       * @summary Resets the key for an app.
        *
        * @description *   This operation is intended for API callers.
        * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
@@ -3897,7 +3896,7 @@ namespace CloudAPI20160714
       Models::ResetAppSecretResponse resetAppSecret(const Models::ResetAppSecretRequest &request);
 
       /**
-       * @summary 根据APP生成SDK
+       * @summary Generates an SDK by application.
        *
        * @param request SdkGenerateByAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3906,7 +3905,7 @@ namespace CloudAPI20160714
       Models::SdkGenerateByAppResponse sdkGenerateByAppWithOptions(const Models::SdkGenerateByAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据APP生成SDK
+       * @summary Generates an SDK by application.
        *
        * @param request SdkGenerateByAppRequest
        * @return SdkGenerateByAppResponse
@@ -3931,7 +3930,7 @@ namespace CloudAPI20160714
       Models::SdkGenerateByAppForRegionResponse sdkGenerateByAppForRegion(const Models::SdkGenerateByAppForRegionRequest &request);
 
       /**
-       * @summary 根据分组生成SDK
+       * @summary Generates an SDK by API group.
        *
        * @param request SdkGenerateByGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3940,7 +3939,7 @@ namespace CloudAPI20160714
       Models::SdkGenerateByGroupResponse sdkGenerateByGroupWithOptions(const Models::SdkGenerateByGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据分组生成SDK
+       * @summary Generates an SDK by API group.
        *
        * @param request SdkGenerateByGroupRequest
        * @return SdkGenerateByGroupResponse
@@ -3948,7 +3947,7 @@ namespace CloudAPI20160714
       Models::SdkGenerateByGroupResponse sdkGenerateByGroup(const Models::SdkGenerateByGroupRequest &request);
 
       /**
-       * @summary 修改访问控制策略的名称
+       * @summary This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
        *
        * @param request SetAccessControlListAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3957,7 +3956,7 @@ namespace CloudAPI20160714
       Models::SetAccessControlListAttributeResponse setAccessControlListAttributeWithOptions(const Models::SetAccessControlListAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改访问控制策略的名称
+       * @summary This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
        *
        * @param request SetAccessControlListAttributeRequest
        * @return SetAccessControlListAttributeResponse
@@ -4245,7 +4244,7 @@ namespace CloudAPI20160714
       Models::SwitchApiResponse switchApi(const Models::SwitchApiRequest &request);
 
       /**
-       * @summary Creates a tag-resource relationship.
+       * @summary Adds user tags to resources.
        *
        * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
        * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
@@ -4260,7 +4259,7 @@ namespace CloudAPI20160714
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a tag-resource relationship.
+       * @summary Adds user tags to resources.
        *
        * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
        * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.

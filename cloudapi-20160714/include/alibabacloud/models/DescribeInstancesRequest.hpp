@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(Language, language_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
@@ -85,7 +89,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->enableTagAuthorization_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->language_ == nullptr && this->securityToken_ == nullptr && this->tag_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->language_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->securityToken_ == nullptr && this->tag_ == nullptr; };
     // enableTagAuthorization Field Functions 
     bool hasEnableTagAuthorization() const { return this->enableTagAuthorization_ != nullptr;};
     void deleteEnableTagAuthorization() { this->enableTagAuthorization_ = nullptr;};
@@ -112,6 +117,20 @@ namespace Models
     void deleteLanguage() { this->language_ = nullptr;};
     inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline DescribeInstancesRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeInstancesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // securityToken Field Functions 
@@ -142,6 +161,8 @@ namespace Models
     // *   zh: Chinese
     // *   ja: Japanese
     shared_ptr<string> language_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> securityToken_ {};
     // The tag that is bound to the instance.
     shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};

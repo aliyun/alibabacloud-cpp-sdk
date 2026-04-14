@@ -149,9 +149,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag.
             shared_ptr<string> key_ {};
-            // The value of the tag.
             shared_ptr<string> value_ {};
           };
 
@@ -238,23 +236,14 @@ namespace Models
 
 
       protected:
-        // The creation time (UTC) of the plug-in.
         shared_ptr<string> createdTime_ {};
-        // The plug-in description.
         shared_ptr<string> description_ {};
-        // The last modification time (UTC) of the plug-in.
         shared_ptr<string> modifiedTime_ {};
-        // The definition statement of the plug-in.
         shared_ptr<string> pluginData_ {};
-        // The ID of the plug-in.
         shared_ptr<string> pluginId_ {};
-        // The name of the plug-in.
         shared_ptr<string> pluginName_ {};
-        // The type of the plug-in.
         shared_ptr<string> pluginType_ {};
-        // The region where the plug-in is located.
         shared_ptr<string> regionId_ {};
-        // The tags.
         shared_ptr<PluginAttribute::Tags> tags_ {};
       };
 
@@ -316,7 +305,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The returned information about the plug-in. It is an array consisting of PluginAttribute data.
     shared_ptr<DescribePluginsResponseBody::Plugins> plugins_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

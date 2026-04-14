@@ -113,13 +113,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether the operation is CREATE or MODIFY.
         shared_ptr<string> apiOperation_ {};
-        // The UID of the successfully imported API.
         shared_ptr<string> apiUid_ {};
-        // The HTTP method configured when the API is created.
         shared_ptr<string> httpMethod_ {};
-        // The request path configured when the API is created.
         shared_ptr<string> path_ {};
       };
 
@@ -212,13 +208,9 @@ namespace Models
 
 
       protected:
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the model.
         shared_ptr<string> modelName_ {};
-        // The model operation
         shared_ptr<string> modelOperation_ {};
-        // The UID of the model.
         shared_ptr<string> modelUid_ {};
       };
 
@@ -302,11 +294,8 @@ namespace Models
 
 
       protected:
-        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the model.
         shared_ptr<string> modelName_ {};
       };
 
@@ -390,11 +379,8 @@ namespace Models
 
 
       protected:
-        // The error message returned when the API is created.
         shared_ptr<string> errorMsg_ {};
-        // The HTTP method configured when the API is created.
         shared_ptr<string> httpMethod_ {};
-        // The request path configured when the API is created.
         shared_ptr<string> path_ {};
       };
 
@@ -458,15 +444,11 @@ namespace Models
 
 
   protected:
-    // The APIs that failed to be created based on the Swagger-compliant data imported this time.
     shared_ptr<ImportSwaggerResponseBody::Failed> failed_ {};
-    // The models that failed to be imported through the Swagger-compliant data this time.
     shared_ptr<ImportSwaggerResponseBody::ModelFailed> modelFailed_ {};
-    // The models that were imported through the Swagger-compliant data this time.
     shared_ptr<ImportSwaggerResponseBody::ModelSuccess> modelSuccess_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The APIs that are created based on the Swagger-compliant data imported this time.
     shared_ptr<ImportSwaggerResponseBody::Success> success_ {};
   };
 

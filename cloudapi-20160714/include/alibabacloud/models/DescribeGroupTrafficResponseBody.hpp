@@ -98,14 +98,8 @@ namespace Models
 
 
       protected:
-        // The metric. Valid values:
-        // 
-        // *   inbound: traffic consumed by requests
-        // *   outbound: traffic consumed by responses
         shared_ptr<string> item_ {};
-        // The corresponding time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
         shared_ptr<string> itemTime_ {};
-        // The traffic volume per second.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -144,7 +138,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The traffic information per second.
     shared_ptr<DescribeGroupTrafficResponseBody::TrafficPerSecond> trafficPerSecond_ {};
   };
 

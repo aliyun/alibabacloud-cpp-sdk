@@ -98,15 +98,8 @@ namespace Models
 
 
       protected:
-        // The metric. Valid values:
-        // 
-        // *   InstanceMaxConnection: the maximum number of connections
-        // *   InstanceInactiveConnection: the number of inactive connections
-        // *   InstanceActiveConnection: the number of active connections
         shared_ptr<string> item_ {};
-        // The monitoring time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
         shared_ptr<string> itemTime_ {};
-        // The number of concurrent connections in the instance.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -143,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The list of concurrent connections in the instance.
     shared_ptr<DescribeInstanceSlbConnectResponseBody::InstanceSlbConnect> instanceSlbConnect_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

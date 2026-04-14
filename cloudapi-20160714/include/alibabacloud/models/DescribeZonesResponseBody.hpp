@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The name of the zone.
         shared_ptr<string> localName_ {};
-        // The ID of the zone.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -130,7 +128,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The zones available in the current region.
     shared_ptr<DescribeZonesResponseBody::Zones> zones_ {};
   };
 

@@ -116,18 +116,10 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiUid_ {};
-        // The deployment status of the API.
         shared_ptr<string> deployedStatus_ {};
-        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The runtime environment of the API. Valid values:
-        // 
-        // *   **RELEASE**
-        // *   **TEST**
         shared_ptr<string> stageName_ {};
       };
 
@@ -164,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The returned result.
     shared_ptr<DescribeDeployApiTaskResponseBody::DeployedResults> deployedResults_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The description.
         shared_ptr<string> description_ {};
-        // The document anchor point.
         shared_ptr<string> documentAnchor_ {};
-        // The ID of the document.
         shared_ptr<string> documentId_ {};
-        // The sample.
         shared_ptr<string> sample_ {};
-        // The title of the plug-in template title.
         shared_ptr<string> title_ {};
       };
 
@@ -163,7 +158,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The templates.
     shared_ptr<DescribePluginTemplatesResponseBody::Templates> templates_ {};
   };
 

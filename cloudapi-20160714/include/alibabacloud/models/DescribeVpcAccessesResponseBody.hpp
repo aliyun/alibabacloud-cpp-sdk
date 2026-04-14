@@ -151,9 +151,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -247,25 +245,15 @@ namespace Models
 
 
       protected:
-        // The time when the authorization was created.
         shared_ptr<string> createdTime_ {};
-        // The description of the VPC access authorization.
         shared_ptr<string> description_ {};
-        // The ID of an Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
         shared_ptr<string> instanceId_ {};
-        // The name of the authorization.
         shared_ptr<string> name_ {};
-        // The port number that corresponds to the instance.
         shared_ptr<int32_t> port_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The tags.
         shared_ptr<VpcAccessAttribute::Tags> tags_ {};
-        // The ID of the VPC access authorization.
         shared_ptr<string> vpcAccessId_ {};
-        // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The host of the backend service.
         shared_ptr<string> vpcTargetHostName_ {};
       };
 
@@ -331,7 +319,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the VPC access authorization. The information is an array consisting of VpcAccessAttribute data.
     shared_ptr<DescribeVpcAccessesResponseBody::VpcAccessAttributes> vpcAccessAttributes_ {};
   };
 

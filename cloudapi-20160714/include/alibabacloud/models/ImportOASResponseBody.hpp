@@ -152,13 +152,9 @@ namespace Models
 
 
       protected:
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the model.
         shared_ptr<string> modelName_ {};
-        // The operation of the model. Valid values: CREATE and MODIFY.
         shared_ptr<string> modelOperation_ {};
-        // The UID of the model.
         shared_ptr<string> modelUid_ {};
       };
 
@@ -251,13 +247,9 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // Indicates that the operation is CREATE or MODIFY.
         shared_ptr<string> apiOperation_ {};
-        // The HTTP method configured when you created the API.
         shared_ptr<string> httpMethod_ {};
-        // The request path configured when you created the API.
         shared_ptr<string> path_ {};
       };
 
@@ -341,11 +333,8 @@ namespace Models
 
 
       protected:
-        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the model.
         shared_ptr<string> modelName_ {};
       };
 
@@ -429,11 +418,8 @@ namespace Models
 
 
       protected:
-        // The error message.
         shared_ptr<string> errorMsg_ {};
-        // The HTTP method configured when you created the API.
         shared_ptr<string> httpMethod_ {};
-        // The request path configured when you created the API.
         shared_ptr<string> path_ {};
       };
 
@@ -556,21 +542,15 @@ namespace Models
 
 
   protected:
-    // The error messages that appear due to the invalid data in the imported file.
     shared_ptr<ImportOASResponseBody::ErrorMessages> errorMessages_ {};
-    // The APIs that failed to pass the precheck.
     shared_ptr<ImportOASResponseBody::FailedApis> failedApis_ {};
-    // The information about the models that failed to pass the precheck.
     shared_ptr<ImportOASResponseBody::FailedModels> failedModels_ {};
     // The ID of the asynchronous API import task that was generated during the import operation. This ID is used to query the execution status of the API import task.
     shared_ptr<string> operationId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the APIs that have passed the precheck.
     shared_ptr<ImportOASResponseBody::SuccessApis> successApis_ {};
-    // The information about the models that have passed the precheck.
     shared_ptr<ImportOASResponseBody::SuccessModels> successModels_ {};
-    // The warning messages that appear due to the invalid data in the imported file.
     shared_ptr<ImportOASResponseBody::WarningMessages> warningMessages_ {};
   };
 

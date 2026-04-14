@@ -159,29 +159,14 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // The name of the API
         shared_ptr<string> apiName_ {};
-        // The binding time of the API.
         shared_ptr<string> boundTime_ {};
-        // The description of the API.
         shared_ptr<string> description_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the group to which an API belongs.
         shared_ptr<string> groupName_ {};
-        // The region where the API is located.
         shared_ptr<string> regionId_ {};
-        // The name of the runtime environment. Valid values:
-        // 
-        // *   **RELEASE**
-        // *   **TEST**
         shared_ptr<string> stageName_ {};
-        // Indicates whether the API is public. Valid values:
-        // 
-        // *   **PUBLIC**
-        // *   **PRIVATE**
         shared_ptr<string> visibility_ {};
       };
 
@@ -239,7 +224,6 @@ namespace Models
 
 
   protected:
-    // The returned API information. It is an array consisting of ApiInfo data.
     shared_ptr<DescribeApisByTrafficControlResponseBody::ApiInfos> apiInfos_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

@@ -116,15 +116,10 @@ namespace Models
 
 
       protected:
-        // The application AppCode.
         shared_ptr<string> appCode_ {};
-        // The application AppKey.
         shared_ptr<string> appKey_ {};
-        // The application AppSecret.
         shared_ptr<string> appSecret_ {};
-        // The time when the AppKey was created.
         shared_ptr<string> createdTime_ {};
-        // The time when the AppSecret was last modified. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
       };
 
@@ -161,7 +156,6 @@ namespace Models
 
 
   protected:
-    // The associated security policy information.
     shared_ptr<DescribeAppSecuritiesResponseBody::AppSecuritys> appSecuritys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The HTTP status code returned.
         shared_ptr<string> itemTime_ {};
-        // The corresponding value.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The HTTP status codes.
     shared_ptr<DescribeInstanceHttpCodeResponseBody::InstanceHttpCode> instanceHttpCode_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

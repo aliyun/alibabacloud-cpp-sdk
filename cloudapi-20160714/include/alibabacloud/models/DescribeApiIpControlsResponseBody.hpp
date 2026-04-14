@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // The ID of the API.
         shared_ptr<string> apiId_ {};
-        // The name of the API.
         shared_ptr<string> apiName_ {};
-        // The time of binding.
         shared_ptr<string> boundTime_ {};
-        // The ID of the ACL.
         shared_ptr<string> ipControlId_ {};
-        // The name of the ACL.
         shared_ptr<string> ipControlName_ {};
       };
 
@@ -188,7 +183,6 @@ namespace Models
 
 
   protected:
-    // The information about the ACLs. The information is an array of ApiIpControlItem data.
     shared_ptr<DescribeApiIpControlsResponseBody::ApiIpControls> apiIpControls_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};

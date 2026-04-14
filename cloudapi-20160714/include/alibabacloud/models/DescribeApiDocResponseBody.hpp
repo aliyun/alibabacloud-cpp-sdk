@@ -261,39 +261,22 @@ namespace Models
 
 
       protected:
-        // The name of the parameter in the API request.
         shared_ptr<string> apiParameterName_ {};
-        // The type of the array element.
         shared_ptr<string> arrayItemsType_ {};
-        // The default value.
         shared_ptr<string> defaultValue_ {};
-        // The example value.
         shared_ptr<string> demoValue_ {};
-        // The parameter description.
         shared_ptr<string> description_ {};
-        // The order in which the parameter is sorted in the document.
         shared_ptr<int32_t> docOrder_ {};
-        // Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
         shared_ptr<string> docShow_ {};
-        // The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
         shared_ptr<string> enumValue_ {};
-        // JSON scheme
         shared_ptr<string> jsonScheme_ {};
-        // The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
         shared_ptr<string> location_ {};
-        // The maximum length.
         shared_ptr<int64_t> maxLength_ {};
-        // The maximum value.
         shared_ptr<int64_t> maxValue_ {};
-        // The minimum length.
         shared_ptr<int64_t> minLength_ {};
-        // The minimum value.
         shared_ptr<int64_t> minValue_ {};
-        // The data type of the parameter.
         shared_ptr<string> parameterType_ {};
-        // The regular expression that is used for parameter validation when **ParameterType** is set to String.
         shared_ptr<string> regularExpression_ {};
-        // Indicates whether the parameter is required.
         shared_ptr<string> required_ {};
       };
 
@@ -483,11 +466,8 @@ namespace Models
 
 
       protected:
-        // The returned error code.
         shared_ptr<string> code_ {};
-        // The error description.
         shared_ptr<string> description_ {};
-        // The returned error message.
         shared_ptr<string> message_ {};
       };
 
@@ -663,7 +643,6 @@ namespace Models
     // *   Specifies whether to set **DisableInternet** to **true** to limit API calls to within the VPC.
     // *   If you set **DisableInternet** to **false**, the limit is lifted. The default value is false when you create an API.
     shared_ptr<bool> disableInternet_ {};
-    // The sample error codes returned by the backend service.
     shared_ptr<DescribeApiDocResponseBody::ErrorCodeSamples> errorCodeSamples_ {};
     // The sample error response from the backend service.
     shared_ptr<string> failResultSample_ {};
@@ -680,7 +659,6 @@ namespace Models
     shared_ptr<DescribeApiDocResponseBody::RequestConfig> requestConfig_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned frontend input parameters in the API. It is an array consisting of RequestParameter data.
     shared_ptr<DescribeApiDocResponseBody::RequestParameters> requestParameters_ {};
     // The sample response.
     shared_ptr<string> resultSample_ {};

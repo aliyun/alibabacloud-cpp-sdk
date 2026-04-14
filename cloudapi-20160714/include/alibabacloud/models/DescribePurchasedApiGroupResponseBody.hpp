@@ -91,7 +91,6 @@ namespace Models
 
 
       protected:
-        // The domain name.
         shared_ptr<string> domainName_ {};
       };
 
@@ -173,7 +172,6 @@ namespace Models
   protected:
     // The description of the API group.
     shared_ptr<string> description_ {};
-    // The list of domain names.
     shared_ptr<DescribePurchasedApiGroupResponseBody::Domains> domains_ {};
     // The ID of the API group.
     shared_ptr<string> groupId_ {};

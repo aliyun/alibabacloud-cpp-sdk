@@ -85,7 +85,6 @@ namespace Models
 
 
       protected:
-        // The ID of the API product.
         shared_ptr<string> apiProductId_ {};
       };
 
@@ -143,7 +142,6 @@ namespace Models
 
 
   protected:
-    // The information about API products.
     shared_ptr<DescribeApiProductsByAppResponseBody::ApiProductInfoList> apiProductInfoList_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

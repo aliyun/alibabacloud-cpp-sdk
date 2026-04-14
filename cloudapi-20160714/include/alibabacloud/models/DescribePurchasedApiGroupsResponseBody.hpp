@@ -168,28 +168,15 @@ namespace Models
 
 
       protected:
-        // The billing method.
         shared_ptr<string> billingType_ {};
-        // The description of the API group.
         shared_ptr<string> description_ {};
-        // The time when the API group expires.
         shared_ptr<string> expireTime_ {};
-        // The ID of the API group.
         shared_ptr<string> groupId_ {};
-        // The name of the API group.
         shared_ptr<string> groupName_ {};
-        // The maximum number of calls.
         shared_ptr<int64_t> invokeTimesMax_ {};
-        // The current number of calls.
         shared_ptr<int64_t> invokeTimesNow_ {};
-        // The time when the API group was purchased.
         shared_ptr<string> purchasedTime_ {};
-        // The ID of the region where the API group is located.
         shared_ptr<string> regionId_ {};
-        // The status of the API group.
-        // 
-        // *   **NORMAL**: The API group is normal.
-        // *   **DELETE**: The API group is deleted.
         shared_ptr<string> status_ {};
       };
 
@@ -251,7 +238,6 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The attributes of the API group.
     shared_ptr<DescribePurchasedApiGroupsResponseBody::PurchasedApiGroupAttributes> purchasedApiGroupAttributes_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

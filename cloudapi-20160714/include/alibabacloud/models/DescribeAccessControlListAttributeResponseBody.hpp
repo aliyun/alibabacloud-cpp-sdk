@@ -95,9 +95,7 @@ namespace Models
 
 
       protected:
-        // The entry description.
         shared_ptr<string> aclEntryComment_ {};
-        // The ACL entry.
         shared_ptr<string> aclEntryIp_ {};
       };
 
@@ -155,7 +153,6 @@ namespace Models
 
 
   protected:
-    // The information about the access control policy.
     shared_ptr<DescribeAccessControlListAttributeResponseBody::AclEntrys> aclEntrys_ {};
     // The ID of the access control policy.
     shared_ptr<string> aclId_ {};

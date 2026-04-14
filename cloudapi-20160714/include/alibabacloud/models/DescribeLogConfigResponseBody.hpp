@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // The log type.
         shared_ptr<string> logType_ {};
-        // The region ID of the Logstore.
         shared_ptr<string> regionId_ {};
-        // The name of the Logstore in Log Service.
         shared_ptr<string> slsLogStore_ {};
-        // The name of the Log Service project.
         shared_ptr<string> slsProject_ {};
       };
 
@@ -150,7 +146,6 @@ namespace Models
 
 
   protected:
-    // Info of the log config.
     shared_ptr<DescribeLogConfigResponseBody::LogInfos> logInfos_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

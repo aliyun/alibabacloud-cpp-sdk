@@ -97,7 +97,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
     shared_ptr<string> securityToken_ {};
     // The tag keys of the resource.
     shared_ptr<vector<string>> tagKey_ {};

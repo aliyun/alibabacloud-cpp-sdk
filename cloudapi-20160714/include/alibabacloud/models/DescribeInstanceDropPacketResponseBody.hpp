@@ -98,14 +98,8 @@ namespace Models
 
 
       protected:
-        // The metric. Valid values:
-        // 
-        // *   InstanceDropPacketRX: the number of inbound packets dropped in the instance per second.
-        // *   InstanceDropPacketTX: the number of outbound packets dropped in the instance per second.
         shared_ptr<string> item_ {};
-        // The monitoring time. The time follows the ISO 8601 standard. Format: YYYY-MM-DDThh:mm:ssZ
         shared_ptr<string> itemTime_ {};
-        // The number of dropped packets in the instance.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -142,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The list of dropped packets in the instance.
     shared_ptr<DescribeInstanceDropPacketResponseBody::InstanceDropPacket> instanceDropPacket_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

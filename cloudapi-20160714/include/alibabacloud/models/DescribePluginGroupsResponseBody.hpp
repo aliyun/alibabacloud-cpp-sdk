@@ -141,23 +141,12 @@ namespace Models
 
 
       protected:
-        // API root path
         shared_ptr<string> basePath_ {};
-        // Description
         shared_ptr<string> description_ {};
-        // API group ID
         shared_ptr<string> groupId_ {};
-        // API group name
         shared_ptr<string> groupName_ {};
-        // Region ID where the API group is located
         shared_ptr<string> regionId_ {};
-        // Stage name Alias
         shared_ptr<string> stageAlias_ {};
-        // Environment name, possible values:
-        // 
-        // - **RELEASE**: Production
-        // - **PRE**: Pre-release
-        // - **TEST**: Testing
         shared_ptr<string> stageName_ {};
       };
 
@@ -215,7 +204,6 @@ namespace Models
 
 
   protected:
-    // Collection of group information
     shared_ptr<DescribePluginGroupsResponseBody::GroupSummarys> groupSummarys_ {};
     // Pagination parameter: current page number
     shared_ptr<int32_t> pageNumber_ {};

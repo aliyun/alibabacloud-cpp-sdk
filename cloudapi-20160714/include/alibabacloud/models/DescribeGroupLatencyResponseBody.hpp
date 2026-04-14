@@ -98,14 +98,8 @@ namespace Models
 
 
       protected:
-        // The metric. Valid values:
-        // 
-        // *   latency: the backend processing latency
-        // *   gatewayLatency: the API Gateway processing latency
         shared_ptr<string> item_ {};
-        // The point in time when the latency data was collected. The format is YYYY-MM-DDThh:mm:ssZ.
         shared_ptr<string> itemTime_ {};
-        // The latency. Unit: ms.
         shared_ptr<string> itemValue_ {};
       };
 
@@ -142,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The latency information.
     shared_ptr<DescribeGroupLatencyResponseBody::LatencyPacket> latencyPacket_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

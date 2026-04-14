@@ -107,13 +107,9 @@ namespace Models
 
 
       protected:
-        // Examples
         shared_ptr<string> demoValue_ {};
-        // The description of a parameter.
         shared_ptr<string> description_ {};
-        // The name of the parameter.
         shared_ptr<string> paramName_ {};
-        // The type of the parameter.
         shared_ptr<string> paramType_ {};
       };
 
@@ -152,7 +148,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned information about system parameters. It is an array that consists of SystemParam data.
     shared_ptr<DescribeSystemParametersResponseBody::SystemParams> systemParams_ {};
   };
 

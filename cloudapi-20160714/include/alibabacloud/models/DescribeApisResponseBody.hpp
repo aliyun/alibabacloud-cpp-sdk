@@ -157,9 +157,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
             shared_ptr<string> tagValue_ {};
           };
 
@@ -243,15 +241,8 @@ namespace Models
 
 
           protected:
-            // The deployment status. Valid values: DEPLOYED and NONDEPLOYED.
             shared_ptr<string> deployedStatus_ {};
-            // The deployed version.
             shared_ptr<string> effectiveVersion_ {};
-            // Stage Name:
-            // 
-            // *   **RELEASE**: production environment
-            // *   **PRE**: staging environment
-            // *   **TEST**: test environment
             shared_ptr<string> stageName_ {};
           };
 
@@ -369,34 +360,18 @@ namespace Models
 
 
       protected:
-        // The API ID.
         shared_ptr<string> apiId_ {};
-        // The HTTP method of the API request.
         shared_ptr<string> apiMethod_ {};
-        // The API name.
         shared_ptr<string> apiName_ {};
-        // The request path of the API.
         shared_ptr<string> apiPath_ {};
-        // The time when the API was created. The time is displayed in UTC.
         shared_ptr<string> createdTime_ {};
-        // The API publishing statuses.
         shared_ptr<ApiSummary::DeployedInfos> deployedInfos_ {};
-        // The API description.
         shared_ptr<string> description_ {};
-        // The API group ID.
         shared_ptr<string> groupId_ {};
-        // The name of the API group to which the API belongs.
         shared_ptr<string> groupName_ {};
-        // The time when the API was modified. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The ID of the region to which the API belongs.
         shared_ptr<string> regionId_ {};
-        // The tags that are added to the APIs.
         shared_ptr<ApiSummary::TagList> tagList_ {};
-        // Indicates whether the API is public. Valid values:
-        // 
-        // *   **PUBLIC**: The API is public.
-        // *   **PRIVATE**: The API is private.
         shared_ptr<string> visibility_ {};
       };
 
@@ -454,7 +429,6 @@ namespace Models
 
 
   protected:
-    // The queried API definitions.
     shared_ptr<DescribeApisResponseBody::ApiSummarys> apiSummarys_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
