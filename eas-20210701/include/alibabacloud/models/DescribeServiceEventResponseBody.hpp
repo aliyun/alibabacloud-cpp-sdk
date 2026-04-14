@@ -43,12 +43,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Events& obj) { 
         DARABONBA_PTR_TO_JSON(Message, message_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(Resource, resource_);
         DARABONBA_PTR_TO_JSON(Time, time_);
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Events& obj) { 
         DARABONBA_PTR_FROM_JSON(Message, message_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(Resource, resource_);
         DARABONBA_PTR_FROM_JSON(Time, time_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
       };
@@ -64,7 +66,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->message_ == nullptr
-        && this->reason_ == nullptr && this->time_ == nullptr && this->type_ == nullptr; };
+        && this->reason_ == nullptr && this->resource_ == nullptr && this->time_ == nullptr && this->type_ == nullptr; };
       // message Field Functions 
       bool hasMessage() const { return this->message_ != nullptr;};
       void deleteMessage() { this->message_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
       void deleteReason() { this->reason_ = nullptr;};
       inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
       inline Events& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
+      // resource Field Functions 
+      bool hasResource() const { return this->resource_ != nullptr;};
+      void deleteResource() { this->resource_ = nullptr;};
+      inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+      inline Events& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
 
 
       // time Field Functions 
@@ -98,6 +107,7 @@ namespace Models
       shared_ptr<string> message_ {};
       // The cause of the event. The information about the change in the service status is returned.
       shared_ptr<string> reason_ {};
+      shared_ptr<string> resource_ {};
       // The time when the event occurred. The time must be in UTC.
       shared_ptr<string> time_ {};
       // The event type. Valid values:

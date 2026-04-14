@@ -59,18 +59,20 @@ namespace Eas20210701
       /**
        * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
        *
+       * @param request CommitServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return CommitServiceResponse
        */
-      Models::CommitServiceResponse commitServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::CommitServiceResponse commitServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::CommitServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
        *
+       * @param request CommitServiceRequest
        * @return CommitServiceResponse
        */
-      Models::CommitServiceResponse commitService(const string &ClusterId, const string &ServiceName);
+      Models::CommitServiceResponse commitService(const string &ClusterId, const string &ServiceName, const Models::CommitServiceRequest &request);
 
       /**
        * @summary Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
@@ -389,50 +391,56 @@ namespace Eas20210701
       /**
        * @summary Deletes a stress testing task.
        *
+       * @param request DeleteBenchmarkTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteBenchmarkTaskResponse
        */
-      Models::DeleteBenchmarkTaskResponse deleteBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteBenchmarkTaskResponse deleteBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const Models::DeleteBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a stress testing task.
        *
+       * @param request DeleteBenchmarkTaskRequest
        * @return DeleteBenchmarkTaskResponse
        */
-      Models::DeleteBenchmarkTaskResponse deleteBenchmarkTask(const string &ClusterId, const string &TaskName);
+      Models::DeleteBenchmarkTaskResponse deleteBenchmarkTask(const string &ClusterId, const string &TaskName, const Models::DeleteBenchmarkTaskRequest &request);
 
       /**
        * @summary 删除故障注入任务
        *
+       * @param request DeleteFaultInjectionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteFaultInjectionResponse
        */
-      Models::DeleteFaultInjectionResponse deleteFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteFaultInjectionResponse deleteFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const Models::DeleteFaultInjectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 删除故障注入任务
        *
+       * @param request DeleteFaultInjectionRequest
        * @return DeleteFaultInjectionResponse
        */
-      Models::DeleteFaultInjectionResponse deleteFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType);
+      Models::DeleteFaultInjectionResponse deleteFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const Models::DeleteFaultInjectionRequest &request);
 
       /**
        * @summary Deletes a private gateway.
        *
+       * @param request DeleteGatewayRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGatewayResponse
        */
-      Models::DeleteGatewayResponse deleteGatewayWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteGatewayResponse deleteGatewayWithOptions(const string &ClusterId, const string &GatewayId, const Models::DeleteGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a private gateway.
        *
+       * @param request DeleteGatewayRequest
        * @return DeleteGatewayResponse
        */
-      Models::DeleteGatewayResponse deleteGateway(const string &ClusterId, const string &GatewayId);
+      Models::DeleteGatewayResponse deleteGateway(const string &ClusterId, const string &GatewayId, const Models::DeleteGatewayRequest &request);
 
       /**
        * @summary Deletes an internal endpoint of a private gateway.
@@ -491,34 +499,38 @@ namespace Eas20210701
       /**
        * @summary Deletes a resource group that contains no resources or instances.
        *
+       * @param request DeleteResourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteResourceResponse
        */
-      Models::DeleteResourceResponse deleteResourceWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteResourceResponse deleteResourceWithOptions(const string &ClusterId, const string &ResourceId, const Models::DeleteResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a resource group that contains no resources or instances.
        *
+       * @param request DeleteResourceRequest
        * @return DeleteResourceResponse
        */
-      Models::DeleteResourceResponse deleteResource(const string &ClusterId, const string &ResourceId);
+      Models::DeleteResourceResponse deleteResource(const string &ClusterId, const string &ResourceId, const Models::DeleteResourceRequest &request);
 
       /**
        * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
        *
+       * @param request DeleteResourceDLinkRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteResourceDLinkResponse
        */
-      Models::DeleteResourceDLinkResponse deleteResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteResourceDLinkResponse deleteResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const Models::DeleteResourceDLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
        *
+       * @param request DeleteResourceDLinkRequest
        * @return DeleteResourceDLinkResponse
        */
-      Models::DeleteResourceDLinkResponse deleteResourceDLink(const string &ClusterId, const string &ResourceId);
+      Models::DeleteResourceDLinkResponse deleteResourceDLink(const string &ClusterId, const string &ResourceId, const Models::DeleteResourceDLinkRequest &request);
 
       /**
        * @summary Deletes the tags of an instance in a resource group.
@@ -559,66 +571,74 @@ namespace Eas20210701
       /**
        * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
        *
+       * @param request DeleteResourceLogRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteResourceLogResponse
        */
-      Models::DeleteResourceLogResponse deleteResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteResourceLogResponse deleteResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const Models::DeleteResourceLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
        *
+       * @param request DeleteResourceLogRequest
        * @return DeleteResourceLogResponse
        */
-      Models::DeleteResourceLogResponse deleteResourceLog(const string &ClusterId, const string &ResourceId);
+      Models::DeleteResourceLogResponse deleteResourceLog(const string &ClusterId, const string &ResourceId, const Models::DeleteResourceLogRequest &request);
 
       /**
        * @summary Deletes a service.
        *
+       * @param request DeleteServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteServiceResponse
        */
-      Models::DeleteServiceResponse deleteServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteServiceResponse deleteServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a service.
        *
+       * @param request DeleteServiceRequest
        * @return DeleteServiceResponse
        */
-      Models::DeleteServiceResponse deleteService(const string &ClusterId, const string &ServiceName);
+      Models::DeleteServiceResponse deleteService(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceRequest &request);
 
       /**
        * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
        *
+       * @param request DeleteServiceAutoScalerRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteServiceAutoScalerResponse
        */
-      Models::DeleteServiceAutoScalerResponse deleteServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteServiceAutoScalerResponse deleteServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceAutoScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
        *
+       * @param request DeleteServiceAutoScalerRequest
        * @return DeleteServiceAutoScalerResponse
        */
-      Models::DeleteServiceAutoScalerResponse deleteServiceAutoScaler(const string &ClusterId, const string &ServiceName);
+      Models::DeleteServiceAutoScalerResponse deleteServiceAutoScaler(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceAutoScalerRequest &request);
 
       /**
        * @summary Disables the Cronscaler feature for a service.
        *
+       * @param request DeleteServiceCronScalerRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteServiceCronScalerResponse
        */
-      Models::DeleteServiceCronScalerResponse deleteServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteServiceCronScalerResponse deleteServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceCronScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Disables the Cronscaler feature for a service.
        *
+       * @param request DeleteServiceCronScalerRequest
        * @return DeleteServiceCronScalerResponse
        */
-      Models::DeleteServiceCronScalerResponse deleteServiceCronScaler(const string &ClusterId, const string &ServiceName);
+      Models::DeleteServiceCronScalerResponse deleteServiceCronScaler(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceCronScalerRequest &request);
 
       /**
        * @summary Restarts the instances of a service.
@@ -659,50 +679,56 @@ namespace Eas20210701
       /**
        * @summary Disables the traffic mirroring feature for a service.
        *
+       * @param request DeleteServiceMirrorRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteServiceMirrorResponse
        */
-      Models::DeleteServiceMirrorResponse deleteServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteServiceMirrorResponse deleteServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceMirrorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Disables the traffic mirroring feature for a service.
        *
+       * @param request DeleteServiceMirrorRequest
        * @return DeleteServiceMirrorResponse
        */
-      Models::DeleteServiceMirrorResponse deleteServiceMirror(const string &ClusterId, const string &ServiceName);
+      Models::DeleteServiceMirrorResponse deleteServiceMirror(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceMirrorRequest &request);
 
       /**
        * @summary Deletes a virtual resource group that contains no resources or instances.
        *
+       * @param request DeleteVirtualResourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteVirtualResourceResponse
        */
-      Models::DeleteVirtualResourceResponse deleteVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteVirtualResourceResponse deleteVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const Models::DeleteVirtualResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a virtual resource group that contains no resources or instances.
        *
+       * @param request DeleteVirtualResourceRequest
        * @return DeleteVirtualResourceResponse
        */
-      Models::DeleteVirtualResourceResponse deleteVirtualResource(const string &ClusterId, const string &VirtualResourceId);
+      Models::DeleteVirtualResourceResponse deleteVirtualResource(const string &ClusterId, const string &VirtualResourceId, const Models::DeleteVirtualResourceRequest &request);
 
       /**
        * @summary Queries details about the configurations of a stress testing task.
        *
+       * @param request DescribeBenchmarkTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeBenchmarkTaskResponse
        */
-      Models::DescribeBenchmarkTaskResponse describeBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeBenchmarkTaskResponse describeBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const Models::DescribeBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries details about the configurations of a stress testing task.
        *
+       * @param request DescribeBenchmarkTaskRequest
        * @return DescribeBenchmarkTaskResponse
        */
-      Models::DescribeBenchmarkTaskResponse describeBenchmarkTask(const string &ClusterId, const string &TaskName);
+      Models::DescribeBenchmarkTaskResponse describeBenchmarkTask(const string &ClusterId, const string &TaskName, const Models::DescribeBenchmarkTaskRequest &request);
 
       /**
        * @summary Queries the report of a stress testing task.
@@ -725,50 +751,56 @@ namespace Eas20210701
       /**
        * @summary Queries the details of a private gateway.
        *
+       * @param request DescribeGatewayRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGatewayResponse
        */
-      Models::DescribeGatewayResponse describeGatewayWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeGatewayResponse describeGatewayWithOptions(const string &ClusterId, const string &GatewayId, const Models::DescribeGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the details of a private gateway.
        *
+       * @param request DescribeGatewayRequest
        * @return DescribeGatewayResponse
        */
-      Models::DescribeGatewayResponse describeGateway(const string &ClusterId, const string &GatewayId);
+      Models::DescribeGatewayResponse describeGateway(const string &ClusterId, const string &GatewayId, const Models::DescribeGatewayRequest &request);
 
       /**
        * @summary Queries the information about a service group.
        *
+       * @param request DescribeGroupRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGroupResponse
        */
-      Models::DescribeGroupResponse describeGroupWithOptions(const string &ClusterId, const string &GroupName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeGroupResponse describeGroupWithOptions(const string &ClusterId, const string &GroupName, const Models::DescribeGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the information about a service group.
        *
+       * @param request DescribeGroupRequest
        * @return DescribeGroupResponse
        */
-      Models::DescribeGroupResponse describeGroup(const string &ClusterId, const string &GroupName);
+      Models::DescribeGroupResponse describeGroup(const string &ClusterId, const string &GroupName, const Models::DescribeGroupRequest &request);
 
       /**
        * @summary Obtains a list of endpoints of service groups.
        *
+       * @param request DescribeGroupEndpointsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGroupEndpointsResponse
        */
-      Models::DescribeGroupEndpointsResponse describeGroupEndpointsWithOptions(const string &ClusterId, const string &GroupName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeGroupEndpointsResponse describeGroupEndpointsWithOptions(const string &ClusterId, const string &GroupName, const Models::DescribeGroupEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains a list of endpoints of service groups.
        *
+       * @param request DescribeGroupEndpointsRequest
        * @return DescribeGroupEndpointsResponse
        */
-      Models::DescribeGroupEndpointsResponse describeGroupEndpoints(const string &ClusterId, const string &GroupName);
+      Models::DescribeGroupEndpointsResponse describeGroupEndpoints(const string &ClusterId, const string &GroupName, const Models::DescribeGroupEndpointsRequest &request);
 
       /**
        * @summary Queries a list of instance types for an available instance in a shared resource group.
@@ -807,130 +839,146 @@ namespace Eas20210701
       /**
        * @summary Queries the information about a resource group.
        *
+       * @param request DescribeResourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeResourceResponse
        */
-      Models::DescribeResourceResponse describeResourceWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeResourceResponse describeResourceWithOptions(const string &ClusterId, const string &ResourceId, const Models::DescribeResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the information about a resource group.
        *
+       * @param request DescribeResourceRequest
        * @return DescribeResourceResponse
        */
-      Models::DescribeResourceResponse describeResource(const string &ClusterId, const string &ResourceId);
+      Models::DescribeResourceResponse describeResource(const string &ClusterId, const string &ResourceId, const Models::DescribeResourceRequest &request);
 
       /**
        * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
        *
+       * @param request DescribeResourceDLinkRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeResourceDLinkResponse
        */
-      Models::DescribeResourceDLinkResponse describeResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeResourceDLinkResponse describeResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const Models::DescribeResourceDLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
        *
+       * @param request DescribeResourceDLinkRequest
        * @return DescribeResourceDLinkResponse
        */
-      Models::DescribeResourceDLinkResponse describeResourceDLink(const string &ClusterId, const string &ResourceId);
+      Models::DescribeResourceDLinkResponse describeResourceDLink(const string &ClusterId, const string &ResourceId, const Models::DescribeResourceDLinkRequest &request);
 
       /**
        * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
        *
+       * @param request DescribeResourceLogRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeResourceLogResponse
        */
-      Models::DescribeResourceLogResponse describeResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeResourceLogResponse describeResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const Models::DescribeResourceLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
        *
+       * @param request DescribeResourceLogRequest
        * @return DescribeResourceLogResponse
        */
-      Models::DescribeResourceLogResponse describeResourceLog(const string &ClusterId, const string &ResourceId);
+      Models::DescribeResourceLogResponse describeResourceLog(const string &ClusterId, const string &ResourceId, const Models::DescribeResourceLogRequest &request);
 
       /**
        * @summary Queries the details about a service.
        *
+       * @param request DescribeServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceResponse
        */
-      Models::DescribeServiceResponse describeServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceResponse describeServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the details about a service.
        *
+       * @param request DescribeServiceRequest
        * @return DescribeServiceResponse
        */
-      Models::DescribeServiceResponse describeService(const string &ClusterId, const string &ServiceName);
+      Models::DescribeServiceResponse describeService(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceRequest &request);
 
       /**
        * @summary Queries information about the Autoscaler configurations of a service.
        *
+       * @param request DescribeServiceAutoScalerRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceAutoScalerResponse
        */
-      Models::DescribeServiceAutoScalerResponse describeServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceAutoScalerResponse describeServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceAutoScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries information about the Autoscaler configurations of a service.
        *
+       * @param request DescribeServiceAutoScalerRequest
        * @return DescribeServiceAutoScalerResponse
        */
-      Models::DescribeServiceAutoScalerResponse describeServiceAutoScaler(const string &ClusterId, const string &ServiceName);
+      Models::DescribeServiceAutoScalerResponse describeServiceAutoScaler(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceAutoScalerRequest &request);
 
       /**
        * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
        *
+       * @param request DescribeServiceCronScalerRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceCronScalerResponse
        */
-      Models::DescribeServiceCronScalerResponse describeServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceCronScalerResponse describeServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceCronScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
        *
+       * @param request DescribeServiceCronScalerRequest
        * @return DescribeServiceCronScalerResponse
        */
-      Models::DescribeServiceCronScalerResponse describeServiceCronScaler(const string &ClusterId, const string &ServiceName);
+      Models::DescribeServiceCronScalerResponse describeServiceCronScaler(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceCronScalerRequest &request);
 
       /**
        * @summary Queries the diagnostics details of a service.
        *
+       * @param request DescribeServiceDiagnosisRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceDiagnosisResponse
        */
-      Models::DescribeServiceDiagnosisResponse describeServiceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceDiagnosisResponse describeServiceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the diagnostics details of a service.
        *
+       * @param request DescribeServiceDiagnosisRequest
        * @return DescribeServiceDiagnosisResponse
        */
-      Models::DescribeServiceDiagnosisResponse describeServiceDiagnosis(const string &ClusterId, const string &ServiceName);
+      Models::DescribeServiceDiagnosisResponse describeServiceDiagnosis(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceDiagnosisRequest &request);
 
       /**
        * @summary Obtains a list of service endpoints.
        *
+       * @param request DescribeServiceEndpointsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceEndpointsResponse
        */
-      Models::DescribeServiceEndpointsResponse describeServiceEndpointsWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceEndpointsResponse describeServiceEndpointsWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains a list of service endpoints.
        *
+       * @param request DescribeServiceEndpointsRequest
        * @return DescribeServiceEndpointsResponse
        */
-      Models::DescribeServiceEndpointsResponse describeServiceEndpoints(const string &ClusterId, const string &ServiceName);
+      Models::DescribeServiceEndpointsResponse describeServiceEndpoints(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceEndpointsRequest &request);
 
       /**
        * @summary Queries information about recent service deployment events.
@@ -953,18 +1001,20 @@ namespace Eas20210701
       /**
        * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
        *
+       * @param request DescribeServiceInstanceDiagnosisRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceInstanceDiagnosisResponse
        */
-      Models::DescribeServiceInstanceDiagnosisResponse describeServiceInstanceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceInstanceDiagnosisResponse describeServiceInstanceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::DescribeServiceInstanceDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
        *
+       * @param request DescribeServiceInstanceDiagnosisRequest
        * @return DescribeServiceInstanceDiagnosisResponse
        */
-      Models::DescribeServiceInstanceDiagnosisResponse describeServiceInstanceDiagnosis(const string &ClusterId, const string &ServiceName, const string &InstanceName);
+      Models::DescribeServiceInstanceDiagnosisResponse describeServiceInstanceDiagnosis(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::DescribeServiceInstanceDiagnosisRequest &request);
 
       /**
        * @summary Queries the information about the logs of a service.
@@ -987,18 +1037,20 @@ namespace Eas20210701
       /**
        * @summary Queries details about the traffic mirroring settings of a service.
        *
+       * @param request DescribeServiceMirrorRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeServiceMirrorResponse
        */
-      Models::DescribeServiceMirrorResponse describeServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeServiceMirrorResponse describeServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceMirrorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries details about the traffic mirroring settings of a service.
        *
+       * @param request DescribeServiceMirrorRequest
        * @return DescribeServiceMirrorResponse
        */
-      Models::DescribeServiceMirrorResponse describeServiceMirror(const string &ClusterId, const string &ServiceName);
+      Models::DescribeServiceMirrorResponse describeServiceMirror(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceMirrorRequest &request);
 
       /**
        * @summary Obtains the logon-free URL of the service.
@@ -1039,18 +1091,20 @@ namespace Eas20210701
       /**
        * @summary Views the details of a virtual resource group.
        *
+       * @param request DescribeVirtualResourceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVirtualResourceResponse
        */
-      Models::DescribeVirtualResourceResponse describeVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeVirtualResourceResponse describeVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const Models::DescribeVirtualResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Views the details of a virtual resource group.
        *
+       * @param request DescribeVirtualResourceRequest
        * @return DescribeVirtualResourceResponse
        */
-      Models::DescribeVirtualResourceResponse describeVirtualResource(const string &ClusterId, const string &VirtualResourceId);
+      Models::DescribeVirtualResourceResponse describeVirtualResource(const string &ClusterId, const string &VirtualResourceId, const Models::DescribeVirtualResourceRequest &request);
 
       /**
        * @summary Unbinds a custom domain name from a private gateway.
@@ -1145,34 +1199,38 @@ namespace Eas20210701
       /**
        * @summary Queries a list of custom domain names of a private gateway.
        *
+       * @param request ListGatewayDomainsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListGatewayDomainsResponse
        */
-      Models::ListGatewayDomainsResponse listGatewayDomainsWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListGatewayDomainsResponse listGatewayDomainsWithOptions(const string &ClusterId, const string &GatewayId, const Models::ListGatewayDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of custom domain names of a private gateway.
        *
+       * @param request ListGatewayDomainsRequest
        * @return ListGatewayDomainsResponse
        */
-      Models::ListGatewayDomainsResponse listGatewayDomains(const string &ClusterId, const string &GatewayId);
+      Models::ListGatewayDomainsResponse listGatewayDomains(const string &ClusterId, const string &GatewayId, const Models::ListGatewayDomainsRequest &request);
 
       /**
        * @summary Queries a list of the internal endpoints of a private gateway.
        *
+       * @param request ListGatewayIntranetLinkedVpcRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListGatewayIntranetLinkedVpcResponse
        */
-      Models::ListGatewayIntranetLinkedVpcResponse listGatewayIntranetLinkedVpcWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListGatewayIntranetLinkedVpcResponse listGatewayIntranetLinkedVpcWithOptions(const string &ClusterId, const string &GatewayId, const Models::ListGatewayIntranetLinkedVpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of the internal endpoints of a private gateway.
        *
+       * @param request ListGatewayIntranetLinkedVpcRequest
        * @return ListGatewayIntranetLinkedVpcResponse
        */
-      Models::ListGatewayIntranetLinkedVpcResponse listGatewayIntranetLinkedVpc(const string &ClusterId, const string &GatewayId);
+      Models::ListGatewayIntranetLinkedVpcResponse listGatewayIntranetLinkedVpc(const string &ClusterId, const string &GatewayId, const Models::ListGatewayIntranetLinkedVpcRequest &request);
 
       /**
        * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
@@ -1195,18 +1253,20 @@ namespace Eas20210701
       /**
        * @summary Obtains the zones supported by a gateway within an intranet.
        *
+       * @param request ListGatewayIntranetSupportedZoneRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListGatewayIntranetSupportedZoneResponse
        */
-      Models::ListGatewayIntranetSupportedZoneResponse listGatewayIntranetSupportedZoneWithOptions(const string &GatewayId, const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListGatewayIntranetSupportedZoneResponse listGatewayIntranetSupportedZoneWithOptions(const string &GatewayId, const string &ClusterId, const Models::ListGatewayIntranetSupportedZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains the zones supported by a gateway within an intranet.
        *
+       * @param request ListGatewayIntranetSupportedZoneRequest
        * @return ListGatewayIntranetSupportedZoneResponse
        */
-      Models::ListGatewayIntranetSupportedZoneResponse listGatewayIntranetSupportedZone(const string &GatewayId, const string &ClusterId);
+      Models::ListGatewayIntranetSupportedZoneResponse listGatewayIntranetSupportedZone(const string &GatewayId, const string &ClusterId, const Models::ListGatewayIntranetSupportedZoneRequest &request);
 
       /**
        * @summary Queries created service groups.
@@ -1305,34 +1365,38 @@ namespace Eas20210701
       /**
        * @summary Queries the containers of a service.
        *
+       * @param request ListServiceContainersRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListServiceContainersResponse
        */
-      Models::ListServiceContainersResponse listServiceContainersWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListServiceContainersResponse listServiceContainersWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::ListServiceContainersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the containers of a service.
        *
+       * @param request ListServiceContainersRequest
        * @return ListServiceContainersResponse
        */
-      Models::ListServiceContainersResponse listServiceContainers(const string &ClusterId, const string &ServiceName, const string &InstanceName);
+      Models::ListServiceContainersResponse listServiceContainers(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::ListServiceContainersRequest &request);
 
       /**
        * @summary 获取故障注入信息
        *
+       * @param request ListServiceInstanceFaultInjectionInfoRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListServiceInstanceFaultInjectionInfoResponse
        */
-      Models::ListServiceInstanceFaultInjectionInfoResponse listServiceInstanceFaultInjectionInfoWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListServiceInstanceFaultInjectionInfoResponse listServiceInstanceFaultInjectionInfoWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::ListServiceInstanceFaultInjectionInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取故障注入信息
        *
+       * @param request ListServiceInstanceFaultInjectionInfoRequest
        * @return ListServiceInstanceFaultInjectionInfoResponse
        */
-      Models::ListServiceInstanceFaultInjectionInfoResponse listServiceInstanceFaultInjectionInfo(const string &ClusterId, const string &ServiceName, const string &InstanceName);
+      Models::ListServiceInstanceFaultInjectionInfoResponse listServiceInstanceFaultInjectionInfo(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::ListServiceInstanceFaultInjectionInfoRequest &request);
 
       /**
        * @summary Queries instances of a service.
@@ -1443,18 +1507,20 @@ namespace Eas20210701
       /**
        * @summary Resets tenant configurations.
        *
+       * @param request ReinstallTenantAddonRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ReinstallTenantAddonResponse
        */
-      Models::ReinstallTenantAddonResponse reinstallTenantAddonWithOptions(const string &ClusterId, const string &TenantAddonName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ReinstallTenantAddonResponse reinstallTenantAddonWithOptions(const string &ClusterId, const string &TenantAddonName, const Models::ReinstallTenantAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Resets tenant configurations.
        *
+       * @param request ReinstallTenantAddonRequest
        * @return ReinstallTenantAddonResponse
        */
-      Models::ReinstallTenantAddonResponse reinstallTenantAddon(const string &ClusterId, const string &TenantAddonName);
+      Models::ReinstallTenantAddonResponse reinstallTenantAddon(const string &ClusterId, const string &TenantAddonName, const Models::ReinstallTenantAddonRequest &request);
 
       /**
        * @summary Switch the traffic state or weight of the service.
@@ -1477,18 +1543,20 @@ namespace Eas20210701
       /**
        * @summary Restarts a service.
        *
+       * @param request RestartServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RestartServiceResponse
        */
-      Models::RestartServiceResponse restartServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::RestartServiceResponse restartServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::RestartServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Restarts a service.
        *
+       * @param request RestartServiceRequest
        * @return RestartServiceResponse
        */
-      Models::RestartServiceResponse restartService(const string &ClusterId, const string &ServiceName);
+      Models::RestartServiceResponse restartService(const string &ClusterId, const string &ServiceName, const Models::RestartServiceRequest &request);
 
       /**
        * @summary 伸缩服务
@@ -1511,66 +1579,74 @@ namespace Eas20210701
       /**
        * @summary Starts a stress testing task.
        *
+       * @param request StartBenchmarkTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartBenchmarkTaskResponse
        */
-      Models::StartBenchmarkTaskResponse startBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StartBenchmarkTaskResponse startBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const Models::StartBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Starts a stress testing task.
        *
+       * @param request StartBenchmarkTaskRequest
        * @return StartBenchmarkTaskResponse
        */
-      Models::StartBenchmarkTaskResponse startBenchmarkTask(const string &ClusterId, const string &TaskName);
+      Models::StartBenchmarkTaskResponse startBenchmarkTask(const string &ClusterId, const string &TaskName, const Models::StartBenchmarkTaskRequest &request);
 
       /**
        * @summary Starts a service.
        *
+       * @param request StartServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartServiceResponse
        */
-      Models::StartServiceResponse startServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StartServiceResponse startServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::StartServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Starts a service.
        *
+       * @param request StartServiceRequest
        * @return StartServiceResponse
        */
-      Models::StartServiceResponse startService(const string &ClusterId, const string &ServiceName);
+      Models::StartServiceResponse startService(const string &ClusterId, const string &ServiceName, const Models::StartServiceRequest &request);
 
       /**
        * @summary Stops a stress testing task.
        *
+       * @param request StopBenchmarkTaskRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopBenchmarkTaskResponse
        */
-      Models::StopBenchmarkTaskResponse stopBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StopBenchmarkTaskResponse stopBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const Models::StopBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Stops a stress testing task.
        *
+       * @param request StopBenchmarkTaskRequest
        * @return StopBenchmarkTaskResponse
        */
-      Models::StopBenchmarkTaskResponse stopBenchmarkTask(const string &ClusterId, const string &TaskName);
+      Models::StopBenchmarkTaskResponse stopBenchmarkTask(const string &ClusterId, const string &TaskName, const Models::StopBenchmarkTaskRequest &request);
 
       /**
        * @summary Stops a running service.
        *
+       * @param request StopServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopServiceResponse
        */
-      Models::StopServiceResponse stopServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::StopServiceResponse stopServiceWithOptions(const string &ClusterId, const string &ServiceName, const Models::StopServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Stops a running service.
        *
+       * @param request StopServiceRequest
        * @return StopServiceResponse
        */
-      Models::StopServiceResponse stopService(const string &ClusterId, const string &ServiceName);
+      Models::StopServiceResponse stopService(const string &ClusterId, const string &ServiceName, const Models::StopServiceRequest &request);
 
       /**
        * @summary Updates an application service.

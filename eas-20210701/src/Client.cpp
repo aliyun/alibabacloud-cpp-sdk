@@ -159,11 +159,13 @@ CloneServiceResponse Client::cloneService(const string &ClusterId, const string 
 /**
  * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
  *
+ * @param request CommitServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return CommitServiceResponse
  */
-CommitServiceResponse Client::commitServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+CommitServiceResponse Client::commitServiceWithOptions(const string &ClusterId, const string &ServiceName, const CommitServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -184,12 +186,13 @@ CommitServiceResponse Client::commitServiceWithOptions(const string &ClusterId, 
 /**
  * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
  *
+ * @param request CommitServiceRequest
  * @return CommitServiceResponse
  */
-CommitServiceResponse Client::commitService(const string &ClusterId, const string &ServiceName) {
+CommitServiceResponse Client::commitService(const string &ClusterId, const string &ServiceName, const CommitServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return commitServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
@@ -1192,11 +1195,13 @@ DeleteAclPolicyResponse Client::deleteAclPolicy(const string &ClusterId, const s
 /**
  * @summary Deletes a stress testing task.
  *
+ * @param request DeleteBenchmarkTaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteBenchmarkTaskResponse
  */
-DeleteBenchmarkTaskResponse Client::deleteBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteBenchmarkTaskResponse Client::deleteBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const DeleteBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1217,22 +1222,25 @@ DeleteBenchmarkTaskResponse Client::deleteBenchmarkTaskWithOptions(const string 
 /**
  * @summary Deletes a stress testing task.
  *
+ * @param request DeleteBenchmarkTaskRequest
  * @return DeleteBenchmarkTaskResponse
  */
-DeleteBenchmarkTaskResponse Client::deleteBenchmarkTask(const string &ClusterId, const string &TaskName) {
+DeleteBenchmarkTaskResponse Client::deleteBenchmarkTask(const string &ClusterId, const string &TaskName, const DeleteBenchmarkTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return deleteBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
 }
 
 /**
  * @summary 删除故障注入任务
  *
+ * @param request DeleteFaultInjectionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteFaultInjectionResponse
  */
-DeleteFaultInjectionResponse Client::deleteFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteFaultInjectionResponse Client::deleteFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const DeleteFaultInjectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1253,22 +1261,25 @@ DeleteFaultInjectionResponse Client::deleteFaultInjectionWithOptions(const strin
 /**
  * @summary 删除故障注入任务
  *
+ * @param request DeleteFaultInjectionRequest
  * @return DeleteFaultInjectionResponse
  */
-DeleteFaultInjectionResponse Client::deleteFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType) {
+DeleteFaultInjectionResponse Client::deleteFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const DeleteFaultInjectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, FaultType, headers, runtime);
+  return deleteFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, FaultType, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a private gateway.
  *
+ * @param request DeleteGatewayRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGatewayResponse
  */
-DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &ClusterId, const string &GatewayId, const DeleteGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1289,12 +1300,13 @@ DeleteGatewayResponse Client::deleteGatewayWithOptions(const string &ClusterId, 
 /**
  * @summary Deletes a private gateway.
  *
+ * @param request DeleteGatewayRequest
  * @return DeleteGatewayResponse
  */
-DeleteGatewayResponse Client::deleteGateway(const string &ClusterId, const string &GatewayId) {
+DeleteGatewayResponse Client::deleteGateway(const string &ClusterId, const string &GatewayId, const DeleteGatewayRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
+  return deleteGatewayWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 /**
@@ -1455,11 +1467,13 @@ DeleteGatewayLabelResponse Client::deleteGatewayLabel(const string &ClusterId, c
 /**
  * @summary Deletes a resource group that contains no resources or instances.
  *
+ * @param request DeleteResourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteResourceResponse
  */
-DeleteResourceResponse Client::deleteResourceWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteResourceResponse Client::deleteResourceWithOptions(const string &ClusterId, const string &ResourceId, const DeleteResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1480,22 +1494,25 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const string &ClusterId
 /**
  * @summary Deletes a resource group that contains no resources or instances.
  *
+ * @param request DeleteResourceRequest
  * @return DeleteResourceResponse
  */
-DeleteResourceResponse Client::deleteResource(const string &ClusterId, const string &ResourceId) {
+DeleteResourceResponse Client::deleteResource(const string &ClusterId, const string &ResourceId, const DeleteResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteResourceWithOptions(ClusterId, ResourceId, headers, runtime);
+  return deleteResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
  * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
  *
+ * @param request DeleteResourceDLinkRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteResourceDLinkResponse
  */
-DeleteResourceDLinkResponse Client::deleteResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteResourceDLinkResponse Client::deleteResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const DeleteResourceDLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1516,12 +1533,13 @@ DeleteResourceDLinkResponse Client::deleteResourceDLinkWithOptions(const string 
 /**
  * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
  *
+ * @param request DeleteResourceDLinkRequest
  * @return DeleteResourceDLinkResponse
  */
-DeleteResourceDLinkResponse Client::deleteResourceDLink(const string &ClusterId, const string &ResourceId) {
+DeleteResourceDLinkResponse Client::deleteResourceDLink(const string &ClusterId, const string &ResourceId, const DeleteResourceDLinkRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+  return deleteResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
@@ -1647,11 +1665,13 @@ DeleteResourceInstancesResponse Client::deleteResourceInstances(const string &Cl
 /**
  * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
  *
+ * @param request DeleteResourceLogRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteResourceLogResponse
  */
-DeleteResourceLogResponse Client::deleteResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteResourceLogResponse Client::deleteResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const DeleteResourceLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1672,22 +1692,25 @@ DeleteResourceLogResponse Client::deleteResourceLogWithOptions(const string &Clu
 /**
  * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
  *
+ * @param request DeleteResourceLogRequest
  * @return DeleteResourceLogResponse
  */
-DeleteResourceLogResponse Client::deleteResourceLog(const string &ClusterId, const string &ResourceId) {
+DeleteResourceLogResponse Client::deleteResourceLog(const string &ClusterId, const string &ResourceId, const DeleteResourceLogRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
+  return deleteResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a service.
  *
+ * @param request DeleteServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteServiceResponse
  */
-DeleteServiceResponse Client::deleteServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteServiceResponse Client::deleteServiceWithOptions(const string &ClusterId, const string &ServiceName, const DeleteServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1708,22 +1731,25 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &ClusterId, 
 /**
  * @summary Deletes a service.
  *
+ * @param request DeleteServiceRequest
  * @return DeleteServiceResponse
  */
-DeleteServiceResponse Client::deleteService(const string &ClusterId, const string &ServiceName) {
+DeleteServiceResponse Client::deleteService(const string &ClusterId, const string &ServiceName, const DeleteServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
  *
+ * @param request DeleteServiceAutoScalerRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteServiceAutoScalerResponse
  */
-DeleteServiceAutoScalerResponse Client::deleteServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteServiceAutoScalerResponse Client::deleteServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const DeleteServiceAutoScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1744,22 +1770,25 @@ DeleteServiceAutoScalerResponse Client::deleteServiceAutoScalerWithOptions(const
 /**
  * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
  *
+ * @param request DeleteServiceAutoScalerRequest
  * @return DeleteServiceAutoScalerResponse
  */
-DeleteServiceAutoScalerResponse Client::deleteServiceAutoScaler(const string &ClusterId, const string &ServiceName) {
+DeleteServiceAutoScalerResponse Client::deleteServiceAutoScaler(const string &ClusterId, const string &ServiceName, const DeleteServiceAutoScalerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Disables the Cronscaler feature for a service.
  *
+ * @param request DeleteServiceCronScalerRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteServiceCronScalerResponse
  */
-DeleteServiceCronScalerResponse Client::deleteServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteServiceCronScalerResponse Client::deleteServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const DeleteServiceCronScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1780,12 +1809,13 @@ DeleteServiceCronScalerResponse Client::deleteServiceCronScalerWithOptions(const
 /**
  * @summary Disables the Cronscaler feature for a service.
  *
+ * @param request DeleteServiceCronScalerRequest
  * @return DeleteServiceCronScalerResponse
  */
-DeleteServiceCronScalerResponse Client::deleteServiceCronScaler(const string &ClusterId, const string &ServiceName) {
+DeleteServiceCronScalerResponse Client::deleteServiceCronScaler(const string &ClusterId, const string &ServiceName, const DeleteServiceCronScalerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
@@ -1907,11 +1937,13 @@ DeleteServiceLabelResponse Client::deleteServiceLabel(const string &ClusterId, c
 /**
  * @summary Disables the traffic mirroring feature for a service.
  *
+ * @param request DeleteServiceMirrorRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteServiceMirrorResponse
  */
-DeleteServiceMirrorResponse Client::deleteServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteServiceMirrorResponse Client::deleteServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const DeleteServiceMirrorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1932,22 +1964,25 @@ DeleteServiceMirrorResponse Client::deleteServiceMirrorWithOptions(const string 
 /**
  * @summary Disables the traffic mirroring feature for a service.
  *
+ * @param request DeleteServiceMirrorRequest
  * @return DeleteServiceMirrorResponse
  */
-DeleteServiceMirrorResponse Client::deleteServiceMirror(const string &ClusterId, const string &ServiceName) {
+DeleteServiceMirrorResponse Client::deleteServiceMirror(const string &ClusterId, const string &ServiceName, const DeleteServiceMirrorRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a virtual resource group that contains no resources or instances.
  *
+ * @param request DeleteVirtualResourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteVirtualResourceResponse
  */
-DeleteVirtualResourceResponse Client::deleteVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteVirtualResourceResponse Client::deleteVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const DeleteVirtualResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1968,22 +2003,25 @@ DeleteVirtualResourceResponse Client::deleteVirtualResourceWithOptions(const str
 /**
  * @summary Deletes a virtual resource group that contains no resources or instances.
  *
+ * @param request DeleteVirtualResourceRequest
  * @return DeleteVirtualResourceResponse
  */
-DeleteVirtualResourceResponse Client::deleteVirtualResource(const string &ClusterId, const string &VirtualResourceId) {
+DeleteVirtualResourceResponse Client::deleteVirtualResource(const string &ClusterId, const string &VirtualResourceId, const DeleteVirtualResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
+  return deleteVirtualResourceWithOptions(ClusterId, VirtualResourceId, request, headers, runtime);
 }
 
 /**
  * @summary Queries details about the configurations of a stress testing task.
  *
+ * @param request DescribeBenchmarkTaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeBenchmarkTaskResponse
  */
-DescribeBenchmarkTaskResponse Client::describeBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeBenchmarkTaskResponse Client::describeBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const DescribeBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2004,12 +2042,13 @@ DescribeBenchmarkTaskResponse Client::describeBenchmarkTaskWithOptions(const str
 /**
  * @summary Queries details about the configurations of a stress testing task.
  *
+ * @param request DescribeBenchmarkTaskRequest
  * @return DescribeBenchmarkTaskResponse
  */
-DescribeBenchmarkTaskResponse Client::describeBenchmarkTask(const string &ClusterId, const string &TaskName) {
+DescribeBenchmarkTaskResponse Client::describeBenchmarkTask(const string &ClusterId, const string &TaskName, const DescribeBenchmarkTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return describeBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
 }
 
 /**
@@ -2060,11 +2099,13 @@ DescribeBenchmarkTaskReportResponse Client::describeBenchmarkTaskReport(const st
 /**
  * @summary Queries the details of a private gateway.
  *
+ * @param request DescribeGatewayRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGatewayResponse
  */
-DescribeGatewayResponse Client::describeGatewayWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeGatewayResponse Client::describeGatewayWithOptions(const string &ClusterId, const string &GatewayId, const DescribeGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2085,22 +2126,25 @@ DescribeGatewayResponse Client::describeGatewayWithOptions(const string &Cluster
 /**
  * @summary Queries the details of a private gateway.
  *
+ * @param request DescribeGatewayRequest
  * @return DescribeGatewayResponse
  */
-DescribeGatewayResponse Client::describeGateway(const string &ClusterId, const string &GatewayId) {
+DescribeGatewayResponse Client::describeGateway(const string &ClusterId, const string &GatewayId, const DescribeGatewayRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
+  return describeGatewayWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 /**
  * @summary Queries the information about a service group.
  *
+ * @param request DescribeGroupRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGroupResponse
  */
-DescribeGroupResponse Client::describeGroupWithOptions(const string &ClusterId, const string &GroupName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeGroupResponse Client::describeGroupWithOptions(const string &ClusterId, const string &GroupName, const DescribeGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2121,22 +2165,25 @@ DescribeGroupResponse Client::describeGroupWithOptions(const string &ClusterId, 
 /**
  * @summary Queries the information about a service group.
  *
+ * @param request DescribeGroupRequest
  * @return DescribeGroupResponse
  */
-DescribeGroupResponse Client::describeGroup(const string &ClusterId, const string &GroupName) {
+DescribeGroupResponse Client::describeGroup(const string &ClusterId, const string &GroupName, const DescribeGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
+  return describeGroupWithOptions(ClusterId, GroupName, request, headers, runtime);
 }
 
 /**
  * @summary Obtains a list of endpoints of service groups.
  *
+ * @param request DescribeGroupEndpointsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGroupEndpointsResponse
  */
-DescribeGroupEndpointsResponse Client::describeGroupEndpointsWithOptions(const string &ClusterId, const string &GroupName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeGroupEndpointsResponse Client::describeGroupEndpointsWithOptions(const string &ClusterId, const string &GroupName, const DescribeGroupEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2157,12 +2204,13 @@ DescribeGroupEndpointsResponse Client::describeGroupEndpointsWithOptions(const s
 /**
  * @summary Obtains a list of endpoints of service groups.
  *
+ * @param request DescribeGroupEndpointsRequest
  * @return DescribeGroupEndpointsResponse
  */
-DescribeGroupEndpointsResponse Client::describeGroupEndpoints(const string &ClusterId, const string &GroupName) {
+DescribeGroupEndpointsResponse Client::describeGroupEndpoints(const string &ClusterId, const string &GroupName, const DescribeGroupEndpointsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
+  return describeGroupEndpointsWithOptions(ClusterId, GroupName, request, headers, runtime);
 }
 
 /**
@@ -2263,11 +2311,13 @@ DescribeRegionsResponse Client::describeRegions() {
 /**
  * @summary Queries the information about a resource group.
  *
+ * @param request DescribeResourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeResourceResponse
  */
-DescribeResourceResponse Client::describeResourceWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeResourceResponse Client::describeResourceWithOptions(const string &ClusterId, const string &ResourceId, const DescribeResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2288,22 +2338,25 @@ DescribeResourceResponse Client::describeResourceWithOptions(const string &Clust
 /**
  * @summary Queries the information about a resource group.
  *
+ * @param request DescribeResourceRequest
  * @return DescribeResourceResponse
  */
-DescribeResourceResponse Client::describeResource(const string &ClusterId, const string &ResourceId) {
+DescribeResourceResponse Client::describeResource(const string &ClusterId, const string &ResourceId, const DescribeResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeResourceWithOptions(ClusterId, ResourceId, headers, runtime);
+  return describeResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
  * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
  *
+ * @param request DescribeResourceDLinkRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeResourceDLinkResponse
  */
-DescribeResourceDLinkResponse Client::describeResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeResourceDLinkResponse Client::describeResourceDLinkWithOptions(const string &ClusterId, const string &ResourceId, const DescribeResourceDLinkRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2324,22 +2377,25 @@ DescribeResourceDLinkResponse Client::describeResourceDLinkWithOptions(const str
 /**
  * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
  *
+ * @param request DescribeResourceDLinkRequest
  * @return DescribeResourceDLinkResponse
  */
-DescribeResourceDLinkResponse Client::describeResourceDLink(const string &ClusterId, const string &ResourceId) {
+DescribeResourceDLinkResponse Client::describeResourceDLink(const string &ClusterId, const string &ResourceId, const DescribeResourceDLinkRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+  return describeResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
  * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
  *
+ * @param request DescribeResourceLogRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeResourceLogResponse
  */
-DescribeResourceLogResponse Client::describeResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeResourceLogResponse Client::describeResourceLogWithOptions(const string &ClusterId, const string &ResourceId, const DescribeResourceLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2360,22 +2416,25 @@ DescribeResourceLogResponse Client::describeResourceLogWithOptions(const string 
 /**
  * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
  *
+ * @param request DescribeResourceLogRequest
  * @return DescribeResourceLogResponse
  */
-DescribeResourceLogResponse Client::describeResourceLog(const string &ClusterId, const string &ResourceId) {
+DescribeResourceLogResponse Client::describeResourceLog(const string &ClusterId, const string &ResourceId, const DescribeResourceLogRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
+  return describeResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
  * @summary Queries the details about a service.
  *
+ * @param request DescribeServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceResponse
  */
-DescribeServiceResponse Client::describeServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceResponse Client::describeServiceWithOptions(const string &ClusterId, const string &ServiceName, const DescribeServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2396,22 +2455,25 @@ DescribeServiceResponse Client::describeServiceWithOptions(const string &Cluster
 /**
  * @summary Queries the details about a service.
  *
+ * @param request DescribeServiceRequest
  * @return DescribeServiceResponse
  */
-DescribeServiceResponse Client::describeService(const string &ClusterId, const string &ServiceName) {
+DescribeServiceResponse Client::describeService(const string &ClusterId, const string &ServiceName, const DescribeServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Queries information about the Autoscaler configurations of a service.
  *
+ * @param request DescribeServiceAutoScalerRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceAutoScalerResponse
  */
-DescribeServiceAutoScalerResponse Client::describeServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceAutoScalerResponse Client::describeServiceAutoScalerWithOptions(const string &ClusterId, const string &ServiceName, const DescribeServiceAutoScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2432,22 +2494,25 @@ DescribeServiceAutoScalerResponse Client::describeServiceAutoScalerWithOptions(c
 /**
  * @summary Queries information about the Autoscaler configurations of a service.
  *
+ * @param request DescribeServiceAutoScalerRequest
  * @return DescribeServiceAutoScalerResponse
  */
-DescribeServiceAutoScalerResponse Client::describeServiceAutoScaler(const string &ClusterId, const string &ServiceName) {
+DescribeServiceAutoScalerResponse Client::describeServiceAutoScaler(const string &ClusterId, const string &ServiceName, const DescribeServiceAutoScalerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
  *
+ * @param request DescribeServiceCronScalerRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceCronScalerResponse
  */
-DescribeServiceCronScalerResponse Client::describeServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceCronScalerResponse Client::describeServiceCronScalerWithOptions(const string &ClusterId, const string &ServiceName, const DescribeServiceCronScalerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2468,22 +2533,25 @@ DescribeServiceCronScalerResponse Client::describeServiceCronScalerWithOptions(c
 /**
  * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
  *
+ * @param request DescribeServiceCronScalerRequest
  * @return DescribeServiceCronScalerResponse
  */
-DescribeServiceCronScalerResponse Client::describeServiceCronScaler(const string &ClusterId, const string &ServiceName) {
+DescribeServiceCronScalerResponse Client::describeServiceCronScaler(const string &ClusterId, const string &ServiceName, const DescribeServiceCronScalerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Queries the diagnostics details of a service.
  *
+ * @param request DescribeServiceDiagnosisRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceDiagnosisResponse
  */
-DescribeServiceDiagnosisResponse Client::describeServiceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceDiagnosisResponse Client::describeServiceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const DescribeServiceDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2504,22 +2572,25 @@ DescribeServiceDiagnosisResponse Client::describeServiceDiagnosisWithOptions(con
 /**
  * @summary Queries the diagnostics details of a service.
  *
+ * @param request DescribeServiceDiagnosisRequest
  * @return DescribeServiceDiagnosisResponse
  */
-DescribeServiceDiagnosisResponse Client::describeServiceDiagnosis(const string &ClusterId, const string &ServiceName) {
+DescribeServiceDiagnosisResponse Client::describeServiceDiagnosis(const string &ClusterId, const string &ServiceName, const DescribeServiceDiagnosisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceDiagnosisWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Obtains a list of service endpoints.
  *
+ * @param request DescribeServiceEndpointsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceEndpointsResponse
  */
-DescribeServiceEndpointsResponse Client::describeServiceEndpointsWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceEndpointsResponse Client::describeServiceEndpointsWithOptions(const string &ClusterId, const string &ServiceName, const DescribeServiceEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2540,12 +2611,13 @@ DescribeServiceEndpointsResponse Client::describeServiceEndpointsWithOptions(con
 /**
  * @summary Obtains a list of service endpoints.
  *
+ * @param request DescribeServiceEndpointsRequest
  * @return DescribeServiceEndpointsResponse
  */
-DescribeServiceEndpointsResponse Client::describeServiceEndpoints(const string &ClusterId, const string &ServiceName) {
+DescribeServiceEndpointsResponse Client::describeServiceEndpoints(const string &ClusterId, const string &ServiceName, const DescribeServiceEndpointsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceEndpointsWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceEndpointsWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
@@ -2616,11 +2688,13 @@ DescribeServiceEventResponse Client::describeServiceEvent(const string &ClusterI
 /**
  * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
  *
+ * @param request DescribeServiceInstanceDiagnosisRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceInstanceDiagnosisResponse
  */
-DescribeServiceInstanceDiagnosisResponse Client::describeServiceInstanceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceInstanceDiagnosisResponse Client::describeServiceInstanceDiagnosisWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const DescribeServiceInstanceDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2641,12 +2715,13 @@ DescribeServiceInstanceDiagnosisResponse Client::describeServiceInstanceDiagnosi
 /**
  * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
  *
+ * @param request DescribeServiceInstanceDiagnosisRequest
  * @return DescribeServiceInstanceDiagnosisResponse
  */
-DescribeServiceInstanceDiagnosisResponse Client::describeServiceInstanceDiagnosis(const string &ClusterId, const string &ServiceName, const string &InstanceName) {
+DescribeServiceInstanceDiagnosisResponse Client::describeServiceInstanceDiagnosis(const string &ClusterId, const string &ServiceName, const string &InstanceName, const DescribeServiceInstanceDiagnosisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+  return describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
 }
 
 /**
@@ -2729,11 +2804,13 @@ DescribeServiceLogResponse Client::describeServiceLog(const string &ClusterId, c
 /**
  * @summary Queries details about the traffic mirroring settings of a service.
  *
+ * @param request DescribeServiceMirrorRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeServiceMirrorResponse
  */
-DescribeServiceMirrorResponse Client::describeServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeServiceMirrorResponse Client::describeServiceMirrorWithOptions(const string &ClusterId, const string &ServiceName, const DescribeServiceMirrorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2754,12 +2831,13 @@ DescribeServiceMirrorResponse Client::describeServiceMirrorWithOptions(const str
 /**
  * @summary Queries details about the traffic mirroring settings of a service.
  *
+ * @param request DescribeServiceMirrorRequest
  * @return DescribeServiceMirrorResponse
  */
-DescribeServiceMirrorResponse Client::describeServiceMirror(const string &ClusterId, const string &ServiceName) {
+DescribeServiceMirrorResponse Client::describeServiceMirror(const string &ClusterId, const string &ServiceName, const DescribeServiceMirrorRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
@@ -2867,11 +2945,13 @@ DescribeSpotDiscountHistoryResponse Client::describeSpotDiscountHistory(const De
 /**
  * @summary Views the details of a virtual resource group.
  *
+ * @param request DescribeVirtualResourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVirtualResourceResponse
  */
-DescribeVirtualResourceResponse Client::describeVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DescribeVirtualResourceResponse Client::describeVirtualResourceWithOptions(const string &ClusterId, const string &VirtualResourceId, const DescribeVirtualResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2892,12 +2972,13 @@ DescribeVirtualResourceResponse Client::describeVirtualResourceWithOptions(const
 /**
  * @summary Views the details of a virtual resource group.
  *
+ * @param request DescribeVirtualResourceRequest
  * @return DescribeVirtualResourceResponse
  */
-DescribeVirtualResourceResponse Client::describeVirtualResource(const string &ClusterId, const string &VirtualResourceId) {
+DescribeVirtualResourceResponse Client::describeVirtualResource(const string &ClusterId, const string &VirtualResourceId, const DescribeVirtualResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return describeVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
+  return describeVirtualResourceWithOptions(ClusterId, VirtualResourceId, request, headers, runtime);
 }
 
 /**
@@ -3216,11 +3297,13 @@ ListGatewayResponse Client::listGateway(const ListGatewayRequest &request) {
 /**
  * @summary Queries a list of custom domain names of a private gateway.
  *
+ * @param request ListGatewayDomainsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGatewayDomainsResponse
  */
-ListGatewayDomainsResponse Client::listGatewayDomainsWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListGatewayDomainsResponse Client::listGatewayDomainsWithOptions(const string &ClusterId, const string &GatewayId, const ListGatewayDomainsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3241,22 +3324,25 @@ ListGatewayDomainsResponse Client::listGatewayDomainsWithOptions(const string &C
 /**
  * @summary Queries a list of custom domain names of a private gateway.
  *
+ * @param request ListGatewayDomainsRequest
  * @return ListGatewayDomainsResponse
  */
-ListGatewayDomainsResponse Client::listGatewayDomains(const string &ClusterId, const string &GatewayId) {
+ListGatewayDomainsResponse Client::listGatewayDomains(const string &ClusterId, const string &GatewayId, const ListGatewayDomainsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listGatewayDomainsWithOptions(ClusterId, GatewayId, headers, runtime);
+  return listGatewayDomainsWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 /**
  * @summary Queries a list of the internal endpoints of a private gateway.
  *
+ * @param request ListGatewayIntranetLinkedVpcRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGatewayIntranetLinkedVpcResponse
  */
-ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpcWithOptions(const string &ClusterId, const string &GatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpcWithOptions(const string &ClusterId, const string &GatewayId, const ListGatewayIntranetLinkedVpcRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3277,12 +3363,13 @@ ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpcWithOpt
 /**
  * @summary Queries a list of the internal endpoints of a private gateway.
  *
+ * @param request ListGatewayIntranetLinkedVpcRequest
  * @return ListGatewayIntranetLinkedVpcResponse
  */
-ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpc(const string &ClusterId, const string &GatewayId) {
+ListGatewayIntranetLinkedVpcResponse Client::listGatewayIntranetLinkedVpc(const string &ClusterId, const string &GatewayId, const ListGatewayIntranetLinkedVpcRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, headers, runtime);
+  return listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 /**
@@ -3333,11 +3420,13 @@ ListGatewayIntranetLinkedVpcPeerResponse Client::listGatewayIntranetLinkedVpcPee
 /**
  * @summary Obtains the zones supported by a gateway within an intranet.
  *
+ * @param request ListGatewayIntranetSupportedZoneRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGatewayIntranetSupportedZoneResponse
  */
-ListGatewayIntranetSupportedZoneResponse Client::listGatewayIntranetSupportedZoneWithOptions(const string &GatewayId, const string &ClusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListGatewayIntranetSupportedZoneResponse Client::listGatewayIntranetSupportedZoneWithOptions(const string &GatewayId, const string &ClusterId, const ListGatewayIntranetSupportedZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3358,12 +3447,13 @@ ListGatewayIntranetSupportedZoneResponse Client::listGatewayIntranetSupportedZon
 /**
  * @summary Obtains the zones supported by a gateway within an intranet.
  *
+ * @param request ListGatewayIntranetSupportedZoneRequest
  * @return ListGatewayIntranetSupportedZoneResponse
  */
-ListGatewayIntranetSupportedZoneResponse Client::listGatewayIntranetSupportedZone(const string &GatewayId, const string &ClusterId) {
+ListGatewayIntranetSupportedZoneResponse Client::listGatewayIntranetSupportedZone(const string &GatewayId, const string &ClusterId, const ListGatewayIntranetSupportedZoneRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, headers, runtime);
+  return listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, request, headers, runtime);
 }
 
 /**
@@ -3736,11 +3826,13 @@ ListResourcesResponse Client::listResources(const ListResourcesRequest &request)
 /**
  * @summary Queries the containers of a service.
  *
+ * @param request ListServiceContainersRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListServiceContainersResponse
  */
-ListServiceContainersResponse Client::listServiceContainersWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListServiceContainersResponse Client::listServiceContainersWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const ListServiceContainersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3761,22 +3853,25 @@ ListServiceContainersResponse Client::listServiceContainersWithOptions(const str
 /**
  * @summary Queries the containers of a service.
  *
+ * @param request ListServiceContainersRequest
  * @return ListServiceContainersResponse
  */
-ListServiceContainersResponse Client::listServiceContainers(const string &ClusterId, const string &ServiceName, const string &InstanceName) {
+ListServiceContainersResponse Client::listServiceContainers(const string &ClusterId, const string &ServiceName, const string &InstanceName, const ListServiceContainersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+  return listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
 }
 
 /**
  * @summary 获取故障注入信息
  *
+ * @param request ListServiceInstanceFaultInjectionInfoRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListServiceInstanceFaultInjectionInfoResponse
  */
-ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultInjectionInfoWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultInjectionInfoWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const ListServiceInstanceFaultInjectionInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -3797,12 +3892,13 @@ ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultIn
 /**
  * @summary 获取故障注入信息
  *
+ * @param request ListServiceInstanceFaultInjectionInfoRequest
  * @return ListServiceInstanceFaultInjectionInfoResponse
  */
-ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultInjectionInfo(const string &ClusterId, const string &ServiceName, const string &InstanceName) {
+ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultInjectionInfo(const string &ClusterId, const string &ServiceName, const string &InstanceName, const ListServiceInstanceFaultInjectionInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listServiceInstanceFaultInjectionInfoWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+  return listServiceInstanceFaultInjectionInfoWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
 }
 
 /**
@@ -4279,11 +4375,13 @@ MigrateResourceInstanceResponse Client::migrateResourceInstance(const string &Cl
 /**
  * @summary Resets tenant configurations.
  *
+ * @param request ReinstallTenantAddonRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReinstallTenantAddonResponse
  */
-ReinstallTenantAddonResponse Client::reinstallTenantAddonWithOptions(const string &ClusterId, const string &TenantAddonName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ReinstallTenantAddonResponse Client::reinstallTenantAddonWithOptions(const string &ClusterId, const string &TenantAddonName, const ReinstallTenantAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4304,12 +4402,13 @@ ReinstallTenantAddonResponse Client::reinstallTenantAddonWithOptions(const strin
 /**
  * @summary Resets tenant configurations.
  *
+ * @param request ReinstallTenantAddonRequest
  * @return ReinstallTenantAddonResponse
  */
-ReinstallTenantAddonResponse Client::reinstallTenantAddon(const string &ClusterId, const string &TenantAddonName) {
+ReinstallTenantAddonResponse Client::reinstallTenantAddon(const string &ClusterId, const string &TenantAddonName, const ReinstallTenantAddonRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, headers, runtime);
+  return reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, request, headers, runtime);
 }
 
 /**
@@ -4364,11 +4463,13 @@ ReleaseServiceResponse Client::releaseService(const string &ClusterId, const str
 /**
  * @summary Restarts a service.
  *
+ * @param request RestartServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RestartServiceResponse
  */
-RestartServiceResponse Client::restartServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+RestartServiceResponse Client::restartServiceWithOptions(const string &ClusterId, const string &ServiceName, const RestartServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4389,12 +4490,13 @@ RestartServiceResponse Client::restartServiceWithOptions(const string &ClusterId
 /**
  * @summary Restarts a service.
  *
+ * @param request RestartServiceRequest
  * @return RestartServiceResponse
  */
-RestartServiceResponse Client::restartService(const string &ClusterId, const string &ServiceName) {
+RestartServiceResponse Client::restartService(const string &ClusterId, const string &ServiceName, const RestartServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return restartServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
@@ -4449,11 +4551,13 @@ ScaleServiceResponse Client::scaleService(const string &ClusterId, const string 
 /**
  * @summary Starts a stress testing task.
  *
+ * @param request StartBenchmarkTaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartBenchmarkTaskResponse
  */
-StartBenchmarkTaskResponse Client::startBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+StartBenchmarkTaskResponse Client::startBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const StartBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4474,22 +4578,25 @@ StartBenchmarkTaskResponse Client::startBenchmarkTaskWithOptions(const string &C
 /**
  * @summary Starts a stress testing task.
  *
+ * @param request StartBenchmarkTaskRequest
  * @return StartBenchmarkTaskResponse
  */
-StartBenchmarkTaskResponse Client::startBenchmarkTask(const string &ClusterId, const string &TaskName) {
+StartBenchmarkTaskResponse Client::startBenchmarkTask(const string &ClusterId, const string &TaskName, const StartBenchmarkTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return startBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return startBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
 }
 
 /**
  * @summary Starts a service.
  *
+ * @param request StartServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartServiceResponse
  */
-StartServiceResponse Client::startServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+StartServiceResponse Client::startServiceWithOptions(const string &ClusterId, const string &ServiceName, const StartServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4510,22 +4617,25 @@ StartServiceResponse Client::startServiceWithOptions(const string &ClusterId, co
 /**
  * @summary Starts a service.
  *
+ * @param request StartServiceRequest
  * @return StartServiceResponse
  */
-StartServiceResponse Client::startService(const string &ClusterId, const string &ServiceName) {
+StartServiceResponse Client::startService(const string &ClusterId, const string &ServiceName, const StartServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return startServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return startServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
  * @summary Stops a stress testing task.
  *
+ * @param request StopBenchmarkTaskRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopBenchmarkTaskResponse
  */
-StopBenchmarkTaskResponse Client::stopBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+StopBenchmarkTaskResponse Client::stopBenchmarkTaskWithOptions(const string &ClusterId, const string &TaskName, const StopBenchmarkTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4546,22 +4656,25 @@ StopBenchmarkTaskResponse Client::stopBenchmarkTaskWithOptions(const string &Clu
 /**
  * @summary Stops a stress testing task.
  *
+ * @param request StopBenchmarkTaskRequest
  * @return StopBenchmarkTaskResponse
  */
-StopBenchmarkTaskResponse Client::stopBenchmarkTask(const string &ClusterId, const string &TaskName) {
+StopBenchmarkTaskResponse Client::stopBenchmarkTask(const string &ClusterId, const string &TaskName, const StopBenchmarkTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return stopBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return stopBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
 }
 
 /**
  * @summary Stops a running service.
  *
+ * @param request StopServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopServiceResponse
  */
-StopServiceResponse Client::stopServiceWithOptions(const string &ClusterId, const string &ServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+StopServiceResponse Client::stopServiceWithOptions(const string &ClusterId, const string &ServiceName, const StopServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -4582,12 +4695,13 @@ StopServiceResponse Client::stopServiceWithOptions(const string &ClusterId, cons
 /**
  * @summary Stops a running service.
  *
+ * @param request StopServiceRequest
  * @return StopServiceResponse
  */
-StopServiceResponse Client::stopService(const string &ClusterId, const string &ServiceName) {
+StopServiceResponse Client::stopService(const string &ClusterId, const string &ServiceName, const StopServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return stopServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 /**
