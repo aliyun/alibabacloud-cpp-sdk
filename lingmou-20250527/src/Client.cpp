@@ -453,6 +453,14 @@ CreateChatConfigResponse Client::createChatConfig(const CreateChatConfigRequest 
 CreateChatSessionResponse Client::createChatSessionWithOptions(const string &id, const CreateChatSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAppId()) {
+    query["appId"] = request.getAppId();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["deviceId"] = request.getDeviceId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["instanceId"] = request.getInstanceId();
   }

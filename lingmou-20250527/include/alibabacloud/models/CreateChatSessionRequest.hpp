@@ -13,11 +13,15 @@ namespace Models
   class CreateChatSessionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateChatSessionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(appId, appId_);
+      DARABONBA_PTR_TO_JSON(deviceId, deviceId_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(license, license_);
       DARABONBA_PTR_TO_JSON(platform, platform_);
     };
     friend void from_json(const Darabonba::Json& j, CreateChatSessionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(appId, appId_);
+      DARABONBA_PTR_FROM_JSON(deviceId, deviceId_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(license, license_);
       DARABONBA_PTR_FROM_JSON(platform, platform_);
@@ -33,8 +37,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->license_ == nullptr && this->platform_ == nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->deviceId_ == nullptr && this->instanceId_ == nullptr && this->license_ == nullptr && this->platform_ == nullptr; };
+    // appId Field Functions 
+    bool hasAppId() const { return this->appId_ != nullptr;};
+    void deleteAppId() { this->appId_ = nullptr;};
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline CreateChatSessionRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // deviceId Field Functions 
+    bool hasDeviceId() const { return this->deviceId_ != nullptr;};
+    void deleteDeviceId() { this->deviceId_ = nullptr;};
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline CreateChatSessionRequest& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -57,6 +75,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> deviceId_ {};
     // 需要在[数字人实时交互服务](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.457876812ETi6y&commodityCode=avatar_2dchat_public_cn)购买完成对应的服务购买，当前有可用的服务时，前往阿里云-[我的订单](https://billing-cost.console.aliyun.com/order/list)页面对应订单详情下进行查询
     // 
     // This parameter is required.
