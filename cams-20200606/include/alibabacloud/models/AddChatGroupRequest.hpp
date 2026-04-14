@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
       DARABONBA_PTR_TO_JSON(CustSpaceId, custSpaceId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(GroupLink, groupLink_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
       DARABONBA_PTR_FROM_JSON(CustSpaceId, custSpaceId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(GroupLink, groupLink_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessNumber_ == nullptr
-        && this->channelType_ == nullptr && this->custSpaceId_ == nullptr && this->description_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->subject_ == nullptr; };
+        && this->channelType_ == nullptr && this->custSpaceId_ == nullptr && this->description_ == nullptr && this->groupLink_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->subject_ == nullptr; };
     // businessNumber Field Functions 
     bool hasBusinessNumber() const { return this->businessNumber_ != nullptr;};
     void deleteBusinessNumber() { this->businessNumber_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AddChatGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // groupLink Field Functions 
+    bool hasGroupLink() const { return this->groupLink_ != nullptr;};
+    void deleteGroupLink() { this->groupLink_ = nullptr;};
+    inline string getGroupLink() const { DARABONBA_PTR_GET_DEFAULT(groupLink_, "") };
+    inline AddChatGroupRequest& setGroupLink(string groupLink) { DARABONBA_PTR_SET_VALUE(groupLink_, groupLink) };
 
 
     // ownerId Field Functions 
@@ -109,10 +118,10 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> groupLink_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // This parameter is required.
     shared_ptr<string> subject_ {};
   };
 

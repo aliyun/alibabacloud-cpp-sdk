@@ -54,7 +54,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CompanyRegisteredCountry, companyRegisteredCountry_);
         DARABONBA_PTR_TO_JSON(CompanyTel, companyTel_);
         DARABONBA_PTR_TO_JSON(CompleteAddressOfHeadquarters, completeAddressOfHeadquarters_);
+        DARABONBA_PTR_TO_JSON(ContactEmail, contactEmail_);
         DARABONBA_PTR_TO_JSON(ContactMail, contactMail_);
+        DARABONBA_PTR_TO_JSON(ContactName, contactName_);
+        DARABONBA_PTR_TO_JSON(ContactPhone, contactPhone_);
+        DARABONBA_PTR_TO_JSON(ContactPosition, contactPosition_);
         DARABONBA_PTR_TO_JSON(EnableAutoReply, enableAutoReply_);
         DARABONBA_PTR_TO_JSON(IndustryDescription, industryDescription_);
         DARABONBA_PTR_TO_JSON(IndustryInvolved, industryInvolved_);
@@ -81,7 +85,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CompanyRegisteredCountry, companyRegisteredCountry_);
         DARABONBA_PTR_FROM_JSON(CompanyTel, companyTel_);
         DARABONBA_PTR_FROM_JSON(CompleteAddressOfHeadquarters, completeAddressOfHeadquarters_);
+        DARABONBA_PTR_FROM_JSON(ContactEmail, contactEmail_);
         DARABONBA_PTR_FROM_JSON(ContactMail, contactMail_);
+        DARABONBA_PTR_FROM_JSON(ContactName, contactName_);
+        DARABONBA_PTR_FROM_JSON(ContactPhone, contactPhone_);
+        DARABONBA_PTR_FROM_JSON(ContactPosition, contactPosition_);
         DARABONBA_PTR_FROM_JSON(EnableAutoReply, enableAutoReply_);
         DARABONBA_PTR_FROM_JSON(IndustryDescription, industryDescription_);
         DARABONBA_PTR_FROM_JSON(IndustryInvolved, industryInvolved_);
@@ -194,9 +202,10 @@ namespace Models
       virtual bool empty() const override { return this->ageLimit_ == nullptr
         && this->businessAccountName_ == nullptr && this->businessLicenseRegistrationNumber_ == nullptr && this->companyAddress_ == nullptr && this->companyEnglishName_ == nullptr && this->companyLegalName_ == nullptr
         && this->companyLegalPerson_ == nullptr && this->companyProfile_ == nullptr && this->companyRegisteredCountry_ == nullptr && this->companyTel_ == nullptr && this->completeAddressOfHeadquarters_ == nullptr
-        && this->contactMail_ == nullptr && this->enableAutoReply_ == nullptr && this->industryDescription_ == nullptr && this->industryInvolved_ == nullptr && this->letterGuarantee_ == nullptr
-        && this->logo_ == nullptr && this->messageDestinationCountry_ == nullptr && this->messageDestinationInternationalCountry_ == nullptr && this->messageDialogueIntroduction_ == nullptr && this->messageEnableDate_ == nullptr
-        && this->messageSessionName_ == nullptr && this->otherLetterGuarantee_ == nullptr && this->replyContent_ == nullptr && this->webAddress_ == nullptr; };
+        && this->contactEmail_ == nullptr && this->contactMail_ == nullptr && this->contactName_ == nullptr && this->contactPhone_ == nullptr && this->contactPosition_ == nullptr
+        && this->enableAutoReply_ == nullptr && this->industryDescription_ == nullptr && this->industryInvolved_ == nullptr && this->letterGuarantee_ == nullptr && this->logo_ == nullptr
+        && this->messageDestinationCountry_ == nullptr && this->messageDestinationInternationalCountry_ == nullptr && this->messageDialogueIntroduction_ == nullptr && this->messageEnableDate_ == nullptr && this->messageSessionName_ == nullptr
+        && this->otherLetterGuarantee_ == nullptr && this->replyContent_ == nullptr && this->webAddress_ == nullptr; };
       // ageLimit Field Functions 
       bool hasAgeLimit() const { return this->ageLimit_ != nullptr;};
       void deleteAgeLimit() { this->ageLimit_ = nullptr;};
@@ -278,11 +287,39 @@ namespace Models
       inline AuditRecord& setCompleteAddressOfHeadquarters(string completeAddressOfHeadquarters) { DARABONBA_PTR_SET_VALUE(completeAddressOfHeadquarters_, completeAddressOfHeadquarters) };
 
 
+      // contactEmail Field Functions 
+      bool hasContactEmail() const { return this->contactEmail_ != nullptr;};
+      void deleteContactEmail() { this->contactEmail_ = nullptr;};
+      inline string getContactEmail() const { DARABONBA_PTR_GET_DEFAULT(contactEmail_, "") };
+      inline AuditRecord& setContactEmail(string contactEmail) { DARABONBA_PTR_SET_VALUE(contactEmail_, contactEmail) };
+
+
       // contactMail Field Functions 
       bool hasContactMail() const { return this->contactMail_ != nullptr;};
       void deleteContactMail() { this->contactMail_ = nullptr;};
       inline string getContactMail() const { DARABONBA_PTR_GET_DEFAULT(contactMail_, "") };
       inline AuditRecord& setContactMail(string contactMail) { DARABONBA_PTR_SET_VALUE(contactMail_, contactMail) };
+
+
+      // contactName Field Functions 
+      bool hasContactName() const { return this->contactName_ != nullptr;};
+      void deleteContactName() { this->contactName_ = nullptr;};
+      inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+      inline AuditRecord& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
+
+
+      // contactPhone Field Functions 
+      bool hasContactPhone() const { return this->contactPhone_ != nullptr;};
+      void deleteContactPhone() { this->contactPhone_ = nullptr;};
+      inline string getContactPhone() const { DARABONBA_PTR_GET_DEFAULT(contactPhone_, "") };
+      inline AuditRecord& setContactPhone(string contactPhone) { DARABONBA_PTR_SET_VALUE(contactPhone_, contactPhone) };
+
+
+      // contactPosition Field Functions 
+      bool hasContactPosition() const { return this->contactPosition_ != nullptr;};
+      void deleteContactPosition() { this->contactPosition_ = nullptr;};
+      inline string getContactPosition() const { DARABONBA_PTR_GET_DEFAULT(contactPosition_, "") };
+      inline AuditRecord& setContactPosition(string contactPosition) { DARABONBA_PTR_SET_VALUE(contactPosition_, contactPosition) };
 
 
       // enableAutoReply Field Functions 
@@ -394,7 +431,11 @@ namespace Models
       shared_ptr<string> companyRegisteredCountry_ {};
       shared_ptr<vector<AuditRecord::CompanyTel>> companyTel_ {};
       shared_ptr<string> completeAddressOfHeadquarters_ {};
+      shared_ptr<string> contactEmail_ {};
       shared_ptr<string> contactMail_ {};
+      shared_ptr<string> contactName_ {};
+      shared_ptr<string> contactPhone_ {};
+      shared_ptr<string> contactPosition_ {};
       shared_ptr<string> enableAutoReply_ {};
       shared_ptr<string> industryDescription_ {};
       shared_ptr<string> industryInvolved_ {};

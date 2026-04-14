@@ -65,21 +65,31 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const List& obj) { 
           DARABONBA_PTR_TO_JSON(BusinessNumber, businessNumber_);
+          DARABONBA_PTR_TO_JSON(BusinessRole, businessRole_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(GmtModifier, gmtModifier_);
           DARABONBA_PTR_TO_JSON(GroupId, groupId_);
+          DARABONBA_PTR_TO_JSON(GroupLink, groupLink_);
           DARABONBA_PTR_TO_JSON(GroupStatus, groupStatus_);
+          DARABONBA_PTR_TO_JSON(GroupType, groupType_);
           DARABONBA_PTR_TO_JSON(InviteLink, inviteLink_);
           DARABONBA_PTR_TO_JSON(ProfilePictureFile, profilePictureFile_);
           DARABONBA_PTR_TO_JSON(Subject, subject_);
+          DARABONBA_PTR_TO_JSON(TotalParticipantCount, totalParticipantCount_);
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(BusinessNumber, businessNumber_);
+          DARABONBA_PTR_FROM_JSON(BusinessRole, businessRole_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(GmtModifier, gmtModifier_);
           DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
+          DARABONBA_PTR_FROM_JSON(GroupLink, groupLink_);
           DARABONBA_PTR_FROM_JSON(GroupStatus, groupStatus_);
+          DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
           DARABONBA_PTR_FROM_JSON(InviteLink, inviteLink_);
           DARABONBA_PTR_FROM_JSON(ProfilePictureFile, profilePictureFile_);
           DARABONBA_PTR_FROM_JSON(Subject, subject_);
+          DARABONBA_PTR_FROM_JSON(TotalParticipantCount, totalParticipantCount_);
         };
         List() = default ;
         List(const List &) = default ;
@@ -93,13 +103,21 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->businessNumber_ == nullptr
-        && this->description_ == nullptr && this->groupId_ == nullptr && this->groupStatus_ == nullptr && this->inviteLink_ == nullptr && this->profilePictureFile_ == nullptr
-        && this->subject_ == nullptr; };
+        && this->businessRole_ == nullptr && this->description_ == nullptr && this->gmtModifier_ == nullptr && this->groupId_ == nullptr && this->groupLink_ == nullptr
+        && this->groupStatus_ == nullptr && this->groupType_ == nullptr && this->inviteLink_ == nullptr && this->profilePictureFile_ == nullptr && this->subject_ == nullptr
+        && this->totalParticipantCount_ == nullptr; };
         // businessNumber Field Functions 
         bool hasBusinessNumber() const { return this->businessNumber_ != nullptr;};
         void deleteBusinessNumber() { this->businessNumber_ = nullptr;};
         inline string getBusinessNumber() const { DARABONBA_PTR_GET_DEFAULT(businessNumber_, "") };
         inline List& setBusinessNumber(string businessNumber) { DARABONBA_PTR_SET_VALUE(businessNumber_, businessNumber) };
+
+
+        // businessRole Field Functions 
+        bool hasBusinessRole() const { return this->businessRole_ != nullptr;};
+        void deleteBusinessRole() { this->businessRole_ = nullptr;};
+        inline string getBusinessRole() const { DARABONBA_PTR_GET_DEFAULT(businessRole_, "") };
+        inline List& setBusinessRole(string businessRole) { DARABONBA_PTR_SET_VALUE(businessRole_, businessRole) };
 
 
         // description Field Functions 
@@ -109,6 +127,13 @@ namespace Models
         inline List& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+        // gmtModifier Field Functions 
+        bool hasGmtModifier() const { return this->gmtModifier_ != nullptr;};
+        void deleteGmtModifier() { this->gmtModifier_ = nullptr;};
+        inline int64_t getGmtModifier() const { DARABONBA_PTR_GET_DEFAULT(gmtModifier_, 0L) };
+        inline List& setGmtModifier(int64_t gmtModifier) { DARABONBA_PTR_SET_VALUE(gmtModifier_, gmtModifier) };
+
+
         // groupId Field Functions 
         bool hasGroupId() const { return this->groupId_ != nullptr;};
         void deleteGroupId() { this->groupId_ = nullptr;};
@@ -116,11 +141,25 @@ namespace Models
         inline List& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
+        // groupLink Field Functions 
+        bool hasGroupLink() const { return this->groupLink_ != nullptr;};
+        void deleteGroupLink() { this->groupLink_ = nullptr;};
+        inline string getGroupLink() const { DARABONBA_PTR_GET_DEFAULT(groupLink_, "") };
+        inline List& setGroupLink(string groupLink) { DARABONBA_PTR_SET_VALUE(groupLink_, groupLink) };
+
+
         // groupStatus Field Functions 
         bool hasGroupStatus() const { return this->groupStatus_ != nullptr;};
         void deleteGroupStatus() { this->groupStatus_ = nullptr;};
         inline string getGroupStatus() const { DARABONBA_PTR_GET_DEFAULT(groupStatus_, "") };
         inline List& setGroupStatus(string groupStatus) { DARABONBA_PTR_SET_VALUE(groupStatus_, groupStatus) };
+
+
+        // groupType Field Functions 
+        bool hasGroupType() const { return this->groupType_ != nullptr;};
+        void deleteGroupType() { this->groupType_ = nullptr;};
+        inline string getGroupType() const { DARABONBA_PTR_GET_DEFAULT(groupType_, "") };
+        inline List& setGroupType(string groupType) { DARABONBA_PTR_SET_VALUE(groupType_, groupType) };
 
 
         // inviteLink Field Functions 
@@ -144,14 +183,26 @@ namespace Models
         inline List& setSubject(string subject) { DARABONBA_PTR_SET_VALUE(subject_, subject) };
 
 
+        // totalParticipantCount Field Functions 
+        bool hasTotalParticipantCount() const { return this->totalParticipantCount_ != nullptr;};
+        void deleteTotalParticipantCount() { this->totalParticipantCount_ = nullptr;};
+        inline int64_t getTotalParticipantCount() const { DARABONBA_PTR_GET_DEFAULT(totalParticipantCount_, 0L) };
+        inline List& setTotalParticipantCount(int64_t totalParticipantCount) { DARABONBA_PTR_SET_VALUE(totalParticipantCount_, totalParticipantCount) };
+
+
       protected:
         shared_ptr<string> businessNumber_ {};
+        shared_ptr<string> businessRole_ {};
         shared_ptr<string> description_ {};
+        shared_ptr<int64_t> gmtModifier_ {};
         shared_ptr<string> groupId_ {};
+        shared_ptr<string> groupLink_ {};
         shared_ptr<string> groupStatus_ {};
+        shared_ptr<string> groupType_ {};
         shared_ptr<string> inviteLink_ {};
         shared_ptr<string> profilePictureFile_ {};
         shared_ptr<string> subject_ {};
+        shared_ptr<int64_t> totalParticipantCount_ {};
       };
 
       virtual bool empty() const override { return this->list_ == nullptr
