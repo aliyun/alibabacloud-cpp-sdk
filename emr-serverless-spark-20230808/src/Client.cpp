@@ -488,6 +488,77 @@ CreateLivyComputeTokenResponse Client::createLivyComputeToken(const string &work
 }
 
 /**
+ * @summary 创建网络服务
+ *
+ * @param request CreateNetworkServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNetworkServiceResponse
+ */
+CreateNetworkServiceResponse Client::createNetworkServiceWithOptions(const string &workspaceId, const CreateNetworkServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    body["securityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  if (!!request.hasVpcId()) {
+    body["vpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasVswitchIds()) {
+    body["vswitchIds"] = request.getVswitchIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateNetworkService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/networkServices")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNetworkServiceResponse>();
+}
+
+/**
+ * @summary 创建网络服务
+ *
+ * @param request CreateNetworkServiceRequest
+ * @return CreateNetworkServiceResponse
+ */
+CreateNetworkServiceResponse Client::createNetworkService(const string &workspaceId, const CreateNetworkServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createNetworkServiceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a workflow.
  *
  * @param tmpReq CreateProcessDefinitionWithScheduleRequest
@@ -2572,6 +2643,51 @@ ListMembersResponse Client::listMembers(const string &workspaceId, const ListMem
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listMembersWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查看网络服务列表
+ *
+ * @param request ListNetworkServicesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNetworkServicesResponse
+ */
+ListNetworkServicesResponse Client::listNetworkServicesWithOptions(const string &workspaceId, const ListNetworkServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNetworkServices"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/networkServices")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNetworkServicesResponse>();
+}
+
+/**
+ * @summary 查看网络服务列表
+ *
+ * @param request ListNetworkServicesRequest
+ * @return ListNetworkServicesResponse
+ */
+ListNetworkServicesResponse Client::listNetworkServices(const string &workspaceId, const ListNetworkServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listNetworkServicesWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

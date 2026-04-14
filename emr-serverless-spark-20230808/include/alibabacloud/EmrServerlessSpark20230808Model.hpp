@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/Credential.hpp>
 #include <alibabacloud/models/Artifact.hpp>
+#include <alibabacloud/models/CacheCluster.hpp>
 #include <alibabacloud/models/Category.hpp>
 #include <alibabacloud/models/Configuration.hpp>
 #include <alibabacloud/models/ConfigurationOverrides.hpp>
@@ -41,6 +42,9 @@
 #include <alibabacloud/models/CreateLivyComputeTokenRequest.hpp>
 #include <alibabacloud/models/CreateLivyComputeTokenResponseBody.hpp>
 #include <alibabacloud/models/CreateLivyComputeTokenResponse.hpp>
+#include <alibabacloud/models/CreateNetworkServiceRequest.hpp>
+#include <alibabacloud/models/CreateNetworkServiceResponseBody.hpp>
+#include <alibabacloud/models/CreateNetworkServiceResponse.hpp>
 #include <alibabacloud/models/CreateProcessDefinitionWithScheduleRequest.hpp>
 #include <alibabacloud/models/CreateProcessDefinitionWithScheduleShrinkRequest.hpp>
 #include <alibabacloud/models/CreateProcessDefinitionWithScheduleResponseBody.hpp>
@@ -147,6 +151,9 @@
 #include <alibabacloud/models/ListMembersRequest.hpp>
 #include <alibabacloud/models/ListMembersResponseBody.hpp>
 #include <alibabacloud/models/ListMembersResponse.hpp>
+#include <alibabacloud/models/ListNetworkServicesRequest.hpp>
+#include <alibabacloud/models/ListNetworkServicesResponseBody.hpp>
+#include <alibabacloud/models/ListNetworkServicesResponse.hpp>
 #include <alibabacloud/models/ListRayClusterRequest.hpp>
 #include <alibabacloud/models/ListRayClusterResponseBody.hpp>
 #include <alibabacloud/models/ListRayClusterResponse.hpp>

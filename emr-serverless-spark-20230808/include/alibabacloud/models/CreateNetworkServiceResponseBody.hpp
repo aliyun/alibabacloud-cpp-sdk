@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATENETWORKSERVICERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATENETWORKSERVICERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace EmrServerlessSpark20230808
+{
+namespace Models
+{
+  class CreateNetworkServiceResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateNetworkServiceResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(operationId, operationId_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateNetworkServiceResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(operationId, operationId_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+    };
+    CreateNetworkServiceResponseBody() = default ;
+    CreateNetworkServiceResponseBody(const CreateNetworkServiceResponseBody &) = default ;
+    CreateNetworkServiceResponseBody(CreateNetworkServiceResponseBody &&) = default ;
+    CreateNetworkServiceResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateNetworkServiceResponseBody() = default ;
+    CreateNetworkServiceResponseBody& operator=(const CreateNetworkServiceResponseBody &) = default ;
+    CreateNetworkServiceResponseBody& operator=(CreateNetworkServiceResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->operationId_ == nullptr
+        && this->requestId_ == nullptr; };
+    // operationId Field Functions 
+    bool hasOperationId() const { return this->operationId_ != nullptr;};
+    void deleteOperationId() { this->operationId_ = nullptr;};
+    inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+    inline CreateNetworkServiceResponseBody& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateNetworkServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    // Workspace Id。
+    shared_ptr<string> operationId_ {};
+    // 请求ID。
+    shared_ptr<string> requestId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace EmrServerlessSpark20230808
+#endif

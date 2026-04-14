@@ -147,6 +147,24 @@ namespace EmrServerlessSpark20230808
       Models::CreateLivyComputeTokenResponse createLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const Models::CreateLivyComputeTokenRequest &request);
 
       /**
+       * @summary 创建网络服务
+       *
+       * @param request CreateNetworkServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNetworkServiceResponse
+       */
+      Models::CreateNetworkServiceResponse createNetworkServiceWithOptions(const string &workspaceId, const Models::CreateNetworkServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建网络服务
+       *
+       * @param request CreateNetworkServiceRequest
+       * @return CreateNetworkServiceResponse
+       */
+      Models::CreateNetworkServiceResponse createNetworkService(const string &workspaceId, const Models::CreateNetworkServiceRequest &request);
+
+      /**
        * @summary Creates a workflow.
        *
        * @param tmpReq CreateProcessDefinitionWithScheduleRequest
@@ -783,6 +801,24 @@ namespace EmrServerlessSpark20230808
        * @return ListMembersResponse
        */
       Models::ListMembersResponse listMembers(const string &workspaceId, const Models::ListMembersRequest &request);
+
+      /**
+       * @summary 查看网络服务列表
+       *
+       * @param request ListNetworkServicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNetworkServicesResponse
+       */
+      Models::ListNetworkServicesResponse listNetworkServicesWithOptions(const string &workspaceId, const Models::ListNetworkServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看网络服务列表
+       *
+       * @param request ListNetworkServicesRequest
+       * @return ListNetworkServicesResponse
+       */
+      Models::ListNetworkServicesResponse listNetworkServices(const string &workspaceId, const Models::ListNetworkServicesRequest &request);
 
       /**
        * @summary 列出Ray集群
