@@ -167,10 +167,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const KnowledgeConfigList& obj) { 
           DARABONBA_PTR_TO_JSON(AccessType, accessType_);
+          DARABONBA_PTR_TO_JSON(KbUuid, kbUuid_);
           DARABONBA_PTR_TO_JSON(McpServerId, mcpServerId_);
         };
         friend void from_json(const Darabonba::Json& j, KnowledgeConfigList& obj) { 
           DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
+          DARABONBA_PTR_FROM_JSON(KbUuid, kbUuid_);
           DARABONBA_PTR_FROM_JSON(McpServerId, mcpServerId_);
         };
         KnowledgeConfigList() = default ;
@@ -185,12 +187,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->mcpServerId_ == nullptr; };
+        && this->kbUuid_ == nullptr && this->mcpServerId_ == nullptr; };
         // accessType Field Functions 
         bool hasAccessType() const { return this->accessType_ != nullptr;};
         void deleteAccessType() { this->accessType_ = nullptr;};
         inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
         inline KnowledgeConfigList& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
+        // kbUuid Field Functions 
+        bool hasKbUuid() const { return this->kbUuid_ != nullptr;};
+        void deleteKbUuid() { this->kbUuid_ = nullptr;};
+        inline string getKbUuid() const { DARABONBA_PTR_GET_DEFAULT(kbUuid_, "") };
+        inline KnowledgeConfigList& setKbUuid(string kbUuid) { DARABONBA_PTR_SET_VALUE(kbUuid_, kbUuid) };
 
 
         // mcpServerId Field Functions 
@@ -202,6 +211,7 @@ namespace Models
 
       protected:
         shared_ptr<string> accessType_ {};
+        shared_ptr<string> kbUuid_ {};
         shared_ptr<string> mcpServerId_ {};
       };
 

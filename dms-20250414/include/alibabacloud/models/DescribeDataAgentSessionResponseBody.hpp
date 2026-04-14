@@ -87,6 +87,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(EnableSearch, enableSearch_);
           DARABONBA_PTR_TO_JSON(EncryptKey, encryptKey_);
           DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
+          DARABONBA_PTR_TO_JSON(KbUuidList, kbUuidList_);
           DARABONBA_PTR_TO_JSON(Language, language_);
           DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
           DARABONBA_PTR_TO_JSON(Mode, mode_);
@@ -100,6 +101,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(EnableSearch, enableSearch_);
           DARABONBA_PTR_FROM_JSON(EncryptKey, encryptKey_);
           DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
+          DARABONBA_PTR_FROM_JSON(KbUuidList, kbUuidList_);
           DARABONBA_PTR_FROM_JSON(Language, language_);
           DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
           DARABONBA_PTR_FROM_JSON(Mode, mode_);
@@ -119,8 +121,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->encryptKey_ == nullptr && this->encryptType_ == nullptr && this->language_ == nullptr
-        && this->mcpServerIds_ == nullptr && this->mode_ == nullptr && this->reportPageWidth_ == nullptr && this->reportWaterMark_ == nullptr && this->userOssBucket_ == nullptr; };
+        && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->encryptKey_ == nullptr && this->encryptType_ == nullptr && this->kbUuidList_ == nullptr
+        && this->language_ == nullptr && this->mcpServerIds_ == nullptr && this->mode_ == nullptr && this->reportPageWidth_ == nullptr && this->reportWaterMark_ == nullptr
+        && this->userOssBucket_ == nullptr; };
         // customAgentId Field Functions 
         bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
         void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -154,6 +157,15 @@ namespace Models
         void deleteEncryptType() { this->encryptType_ = nullptr;};
         inline string getEncryptType() const { DARABONBA_PTR_GET_DEFAULT(encryptType_, "") };
         inline SessionConfig& setEncryptType(string encryptType) { DARABONBA_PTR_SET_VALUE(encryptType_, encryptType) };
+
+
+        // kbUuidList Field Functions 
+        bool hasKbUuidList() const { return this->kbUuidList_ != nullptr;};
+        void deleteKbUuidList() { this->kbUuidList_ = nullptr;};
+        inline const vector<string> & getKbUuidList() const { DARABONBA_PTR_GET_CONST(kbUuidList_, vector<string>) };
+        inline vector<string> getKbUuidList() { DARABONBA_PTR_GET(kbUuidList_, vector<string>) };
+        inline SessionConfig& setKbUuidList(const vector<string> & kbUuidList) { DARABONBA_PTR_SET_VALUE(kbUuidList_, kbUuidList) };
+        inline SessionConfig& setKbUuidList(vector<string> && kbUuidList) { DARABONBA_PTR_SET_RVALUE(kbUuidList_, kbUuidList) };
 
 
         // language Field Functions 
@@ -206,6 +218,7 @@ namespace Models
         shared_ptr<bool> enableSearch_ {};
         shared_ptr<string> encryptKey_ {};
         shared_ptr<string> encryptType_ {};
+        shared_ptr<vector<string>> kbUuidList_ {};
         shared_ptr<string> language_ {};
         shared_ptr<vector<string>> mcpServerIds_ {};
         shared_ptr<string> mode_ {};
