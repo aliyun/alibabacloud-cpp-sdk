@@ -13,6 +13,7 @@ namespace Models
   class ListDeploymentsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDeploymentsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(DeploymentId, deploymentId_);
       DARABONBA_PTR_TO_JSON(DeploymentStatus, deploymentStatus_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDeploymentsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(DeploymentId, deploymentId_);
       DARABONBA_PTR_FROM_JSON(DeploymentStatus, deploymentStatus_);
@@ -57,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->creator_ == nullptr
-        && this->deploymentId_ == nullptr && this->deploymentStatus_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->operationType_ == nullptr
-        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceId_ == nullptr && this->resourceSnapshotId_ == nullptr
-        && this->resourceType_ == nullptr && this->serviceName_ == nullptr && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && this->creator_ == nullptr && this->deploymentId_ == nullptr && this->deploymentStatus_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->operationType_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceId_ == nullptr
+        && this->resourceSnapshotId_ == nullptr && this->resourceType_ == nullptr && this->serviceName_ == nullptr && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
+    // accessibility Field Functions 
+    bool hasAccessibility() const { return this->accessibility_ != nullptr;};
+    void deleteAccessibility() { this->accessibility_ = nullptr;};
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline ListDeploymentsRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
@@ -167,6 +176,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessibility_ {};
     // The creator ID.
     shared_ptr<string> creator_ {};
     // Deployment job ID.

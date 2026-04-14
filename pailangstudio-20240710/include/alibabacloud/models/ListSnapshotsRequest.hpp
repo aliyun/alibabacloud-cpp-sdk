@@ -13,6 +13,7 @@ namespace Models
   class ListSnapshotsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListSnapshotsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_TO_JSON(CreationType, creationType_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListSnapshotsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(CreationType, creationType_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -53,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->creationType_ == nullptr
-        && this->creator_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->snapshotId_ == nullptr && this->snapshotResourceId_ == nullptr && this->snapshotResourceType_ == nullptr && this->snapshotStatus_ == nullptr
-        && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->accessibility_ == nullptr
+        && this->creationType_ == nullptr && this->creator_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->snapshotId_ == nullptr && this->snapshotResourceId_ == nullptr && this->snapshotResourceType_ == nullptr
+        && this->snapshotStatus_ == nullptr && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
+    // accessibility Field Functions 
+    bool hasAccessibility() const { return this->accessibility_ != nullptr;};
+    void deleteAccessibility() { this->accessibility_ = nullptr;};
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline ListSnapshotsRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
     // creationType Field Functions 
     bool hasCreationType() const { return this->creationType_ != nullptr;};
     void deleteCreationType() { this->creationType_ = nullptr;};
@@ -149,6 +158,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessibility_ {};
     // The creation type of the snapshot. To query multiple types at the same time, separate them with commas.
     shared_ptr<string> creationType_ {};
     // The creator ID.

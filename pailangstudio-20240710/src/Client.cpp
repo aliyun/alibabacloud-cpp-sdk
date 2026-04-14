@@ -942,6 +942,10 @@ GetSnapshotResponse Client::getSnapshot(const string &SnapshotId, const GetSnaps
 ListDeploymentsResponse Client::listDeploymentsWithOptions(const ListDeploymentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasCreator()) {
     query["Creator"] = request.getCreator();
   }
@@ -1104,6 +1108,10 @@ ListKnowledgeBaseChunksResponse Client::listKnowledgeBaseChunks(const string &Kn
 ListKnowledgeBaseJobsResponse Client::listKnowledgeBaseJobsWithOptions(const string &KnowledgeBaseId, const ListKnowledgeBaseJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasJobAction()) {
     query["JobAction"] = request.getJobAction();
   }
@@ -1185,6 +1193,10 @@ ListKnowledgeBaseJobsResponse Client::listKnowledgeBaseJobs(const string &Knowle
 ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowledgeBasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasCreator()) {
     query["Creator"] = request.getCreator();
   }
@@ -1270,6 +1282,10 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 ListRuntimesResponse Client::listRuntimesWithOptions(const ListRuntimesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasCreator()) {
     query["Creator"] = request.getCreator();
   }
@@ -1363,6 +1379,10 @@ ListRuntimesResponse Client::listRuntimes(const ListRuntimesRequest &request) {
 ListSnapshotsResponse Client::listSnapshotsWithOptions(const ListSnapshotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
   if (!!request.hasCreationType()) {
     query["CreationType"] = request.getCreationType();
   }
