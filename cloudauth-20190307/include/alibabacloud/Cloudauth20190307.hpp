@@ -634,7 +634,6 @@ namespace Cloudauth20190307
        * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
        * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
        *
-       * @param request DescribeAntAndCloudAuthUserStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAntAndCloudAuthUserStatusResponse
        */
@@ -773,7 +772,7 @@ namespace Cloudauth20190307
       Models::DescribeFaceVerifyResponse describeFaceVerify(const Models::DescribeFaceVerifyRequest &request);
 
       /**
-       * @summary 查询任务导出记录
+       * @summary Query export task records
        *
        * @param request DescribeInfoCheckExportRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -782,7 +781,7 @@ namespace Cloudauth20190307
       Models::DescribeInfoCheckExportRecordResponse describeInfoCheckExportRecordWithOptions(const Models::DescribeInfoCheckExportRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询任务导出记录
+       * @summary Query export task records
        *
        * @param request DescribeInfoCheckExportRecordRequest
        * @return DescribeInfoCheckExportRecordResponse
@@ -859,7 +858,7 @@ namespace Cloudauth20190307
       Models::DescribeListFaceVerifyInfosResponse describeListFaceVerifyInfos(const Models::DescribeListFaceVerifyInfosRequest &request);
 
       /**
-       * @summary 查询页面元数据
+       * @summary Query Page Metadata
        *
        * @param request DescribeMetaSearchPageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -868,7 +867,7 @@ namespace Cloudauth20190307
       Models::DescribeMetaSearchPageListResponse describeMetaSearchPageListWithOptions(const Models::DescribeMetaSearchPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询页面元数据
+       * @summary Query Page Metadata
        *
        * @param request DescribeMetaSearchPageListRequest
        * @return DescribeMetaSearchPageListResponse
@@ -876,7 +875,7 @@ namespace Cloudauth20190307
       Models::DescribeMetaSearchPageListResponse describeMetaSearchPageList(const Models::DescribeMetaSearchPageListRequest &request);
 
       /**
-       * @summary 查询认证统计信息
+       * @summary Query Authentication Statistics
        *
        * @param request DescribeMetaStatisticsListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -885,7 +884,7 @@ namespace Cloudauth20190307
       Models::DescribeMetaStatisticsListResponse describeMetaStatisticsListWithOptions(const Models::DescribeMetaStatisticsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询认证统计信息
+       * @summary Query Authentication Statistics
        *
        * @param request DescribeMetaStatisticsListRequest
        * @return DescribeMetaStatisticsListResponse
@@ -893,7 +892,7 @@ namespace Cloudauth20190307
       Models::DescribeMetaStatisticsListResponse describeMetaStatisticsList(const Models::DescribeMetaStatisticsListRequest &request);
 
       /**
-       * @summary 查询认证统计页面
+       * @summary Query Authentication Statistics Page
        *
        * @param request DescribeMetaStatisticsPageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -902,7 +901,7 @@ namespace Cloudauth20190307
       Models::DescribeMetaStatisticsPageListResponse describeMetaStatisticsPageListWithOptions(const Models::DescribeMetaStatisticsPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询认证统计页面
+       * @summary Query Authentication Statistics Page
        *
        * @param request DescribeMetaStatisticsPageListRequest
        * @return DescribeMetaStatisticsPageListResponse
@@ -958,7 +957,6 @@ namespace Cloudauth20190307
       /**
        * @summary Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
        *
-       * @param request DescribeOssUploadTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeOssUploadTokenResponse
        */
@@ -993,7 +991,6 @@ namespace Cloudauth20190307
        *
        * @description Request Method: Only supports sending requests via HTTPS POST method.
        *
-       * @param request DescribePageSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribePageSettingResponse
        */
@@ -1013,7 +1010,6 @@ namespace Cloudauth20190307
        *
        * @description Request Method: Supports sending requests via HTTPS GET/POST methods.
        *
-       * @param request DescribeProductCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeProductCodeResponse
        */
@@ -2135,9 +2131,7 @@ namespace Cloudauth20190307
       /**
        * @summary Update Ant Blockchain Transaction Scenario
        *
-       * @description Update the information of a financial-level authentication scenario based on the scenario ID.
-       * - Service address: cloudauth.aliyuncs.com.
-       * - Request method: HTTPS POST.
+       * @description Content of the uploaded verification file.
        *
        * @param request UpdateAntCloudAuthSceneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2148,9 +2142,7 @@ namespace Cloudauth20190307
       /**
        * @summary Update Ant Blockchain Transaction Scenario
        *
-       * @description Update the information of a financial-level authentication scenario based on the scenario ID.
-       * - Service address: cloudauth.aliyuncs.com.
-       * - Request method: HTTPS POST.
+       * @description Content of the uploaded verification file.
        *
        * @param request UpdateAntCloudAuthSceneRequest
        * @return UpdateAntCloudAuthSceneResponse

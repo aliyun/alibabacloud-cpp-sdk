@@ -240,11 +240,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // End date of the query. The format is a Unix timestamp, in milliseconds.
+    // End time of the query. Format is Unix timestamp, in milliseconds.
     shared_ptr<string> endDate_ {};
-    // Whether there is device risk (pass true if root = 1 or simulator = 1 or virtual_video = 1).
+    // Whether there is a device risk (pass true if root = 1 or simulator = 1 or virtual_video = 1).
     shared_ptr<bool> hasDeviceRisk_ {};
-    // Liveness detection model.
+    // Model for liveness detection.
     shared_ptr<string> model_ {};
     // Unique identifier for the customer request.
     shared_ptr<string> outerOrderNo_ {};
@@ -258,10 +258,25 @@ namespace Models
     shared_ptr<string> passed_ {};
     // Product code.
     shared_ptr<string> productCode_ {};
+    // Business scenario risk
+    // - **0**: No risk
+    // - **1**: Risk present
     shared_ptr<int32_t> riskBizScenario_ {};
+    // Device risk:
+    // - **0**: No risk
+    // - **1**: Risk present
     shared_ptr<int32_t> riskDevice_ {};
+    // DeviceToken risk:
+    // - **0**: No risk
+    // - **1**: Risk present
     shared_ptr<int32_t> riskDeviceToken_ {};
+    // General risk
+    // - **0**: No risk
+    // - **1**: Risk present
     shared_ptr<int32_t> riskGeneric_ {};
+    // Large model mining risk
+    // - **0**: No risk
+    // - **1**: Risk present
     shared_ptr<int32_t> riskModelMining_ {};
     // Whether it is rooted (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
     shared_ptr<int32_t> root_ {};
@@ -269,7 +284,7 @@ namespace Models
     shared_ptr<string> sceneId_ {};
     // Whether it is a simulator (pass 1 if selected, otherwise do not pass; corresponds to device label risk type).
     shared_ptr<int32_t> simulator_ {};
-    // Start date of the query.
+    // Start time of the query.
     shared_ptr<string> startDate_ {};
     // Result Code. For detailed values, please refer to: [SubCode Explanation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
     shared_ptr<string> subCode_ {};

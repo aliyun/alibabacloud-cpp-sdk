@@ -39,10 +39,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ResultObject& obj) { 
         DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
+        DARABONBA_PTR_TO_JSON(IspName, ispName_);
         DARABONBA_PTR_TO_JSON(SubCode, subCode_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
         DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
+        DARABONBA_PTR_FROM_JSON(IspName, ispName_);
         DARABONBA_PTR_FROM_JSON(SubCode, subCode_);
       };
       ResultObject() = default ;
@@ -57,12 +59,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bizCode_ == nullptr
-        && this->subCode_ == nullptr; };
+        && this->ispName_ == nullptr && this->subCode_ == nullptr; };
       // bizCode Field Functions 
       bool hasBizCode() const { return this->bizCode_ != nullptr;};
       void deleteBizCode() { this->bizCode_ = nullptr;};
       inline string getBizCode() const { DARABONBA_PTR_GET_DEFAULT(bizCode_, "") };
       inline ResultObject& setBizCode(string bizCode) { DARABONBA_PTR_SET_VALUE(bizCode_, bizCode) };
+
+
+      // ispName Field Functions 
+      bool hasIspName() const { return this->ispName_ != nullptr;};
+      void deleteIspName() { this->ispName_ = nullptr;};
+      inline string getIspName() const { DARABONBA_PTR_GET_DEFAULT(ispName_, "") };
+      inline ResultObject& setIspName(string ispName) { DARABONBA_PTR_SET_VALUE(ispName_, ispName) };
 
 
       // subCode Field Functions 
@@ -74,6 +83,7 @@ namespace Models
 
     protected:
       shared_ptr<string> bizCode_ {};
+      shared_ptr<string> ispName_ {};
       shared_ptr<string> subCode_ {};
     };
 

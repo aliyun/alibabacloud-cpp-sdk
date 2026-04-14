@@ -10,15 +10,15 @@
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::Cloudauth20190307::Models;
@@ -52,9 +52,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
-  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
-  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
-  Darabonba::Exception _lastException;
+  std::exception_ptr _lastExceptionPtr;
   int _retriesAttempted = 0;
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
@@ -70,33 +68,33 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
       request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
       shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-      _lastResponse  = response_;
 
       json respMap = nullptr;
       string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
       if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap["Error"]);
+        json err = json(respMap.value("Error", Darabonba::Json()));
         throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err["Code"])},
-          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
+          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
           {"data" , json({
             {"httpCode" , response_->getStatusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
+            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
           })}
         }));
       }
@@ -104,18 +102,17 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
       return Darabonba::Core::merge(respMap
       );
-    } catch (const Darabonba::Exception& ex) {
+    } catch (const Darabonba::DaraException& ex) {
+      _lastExceptionPtr = std::current_exception();
       _context = Darabonba::Policy::RetryPolicyContext(json({
         {"retriesAttempted" , _retriesAttempted},
-        {"lastRequest" , _lastRequest},
-        {"lastResponse" , _lastResponse},
         {"exception" , ex},
       }));
       continue;
     }
   }
 
-  throw *_context.getException();
+  std::rethrow_exception(_lastExceptionPtr);
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -692,7 +689,7 @@ ContrastFaceVerifyResponse Client::contrastFaceVerifyAdvance(const ContrastFaceV
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1244,7 +1241,7 @@ CredentialProductVerifyV2Response Client::credentialProductVerifyV2Advance(const
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1542,7 +1539,7 @@ CredentialVerifyV2Response Client::credentialVerifyV2Advance(const CredentialVer
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2114,7 +2111,6 @@ DeleteWhitelistSettingResponse Client::deleteWhitelistSetting(const DeleteWhitel
  * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
  * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
  *
- * @param request DescribeAntAndCloudAuthUserStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAntAndCloudAuthUserStatusResponse
  */
@@ -2468,7 +2464,7 @@ DescribeFaceVerifyResponse Client::describeFaceVerify(const DescribeFaceVerifyRe
 }
 
 /**
- * @summary 查询任务导出记录
+ * @summary Query export task records
  *
  * @param request DescribeInfoCheckExportRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2515,7 +2511,7 @@ DescribeInfoCheckExportRecordResponse Client::describeInfoCheckExportRecordWithO
 }
 
 /**
- * @summary 查询任务导出记录
+ * @summary Query export task records
  *
  * @param request DescribeInfoCheckExportRecordRequest
  * @return DescribeInfoCheckExportRecordResponse
@@ -2706,7 +2702,7 @@ DescribeListFaceVerifyInfosResponse Client::describeListFaceVerifyInfos(const De
 }
 
 /**
- * @summary 查询页面元数据
+ * @summary Query Page Metadata
  *
  * @param request DescribeMetaSearchPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2789,7 +2785,7 @@ DescribeMetaSearchPageListResponse Client::describeMetaSearchPageListWithOptions
 }
 
 /**
- * @summary 查询页面元数据
+ * @summary Query Page Metadata
  *
  * @param request DescribeMetaSearchPageListRequest
  * @return DescribeMetaSearchPageListResponse
@@ -2800,7 +2796,7 @@ DescribeMetaSearchPageListResponse Client::describeMetaSearchPageList(const Desc
 }
 
 /**
- * @summary 查询认证统计信息
+ * @summary Query Authentication Statistics
  *
  * @param request DescribeMetaStatisticsListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2839,7 +2835,7 @@ DescribeMetaStatisticsListResponse Client::describeMetaStatisticsListWithOptions
 }
 
 /**
- * @summary 查询认证统计信息
+ * @summary Query Authentication Statistics
  *
  * @param request DescribeMetaStatisticsListRequest
  * @return DescribeMetaStatisticsListResponse
@@ -2850,7 +2846,7 @@ DescribeMetaStatisticsListResponse Client::describeMetaStatisticsList(const Desc
 }
 
 /**
- * @summary 查询认证统计页面
+ * @summary Query Authentication Statistics Page
  *
  * @param request DescribeMetaStatisticsPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2897,7 +2893,7 @@ DescribeMetaStatisticsPageListResponse Client::describeMetaStatisticsPageListWit
 }
 
 /**
- * @summary 查询认证统计页面
+ * @summary Query Authentication Statistics Page
  *
  * @param request DescribeMetaStatisticsPageListRequest
  * @return DescribeMetaStatisticsPageListResponse
@@ -3010,7 +3006,6 @@ DescribeOssStatusV2Response Client::describeOssStatusV2(const DescribeOssStatusV
 /**
  * @summary Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
  *
- * @param request DescribeOssUploadTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeOssUploadTokenResponse
  */
@@ -3107,7 +3102,6 @@ DescribePageFaceVerifyDataResponse Client::describePageFaceVerifyData(const Desc
  *
  * @description Request Method: Only supports sending requests via HTTPS POST method.
  *
- * @param request DescribePageSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePageSettingResponse
  */
@@ -3144,7 +3138,6 @@ DescribePageSettingResponse Client::describePageSetting() {
  *
  * @description Request Method: Supports sending requests via HTTPS GET/POST methods.
  *
- * @param request DescribeProductCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProductCodeResponse
  */
@@ -4540,7 +4533,7 @@ Id2MetaVerifyWithOCRResponse Client::id2MetaVerifyWithOCRAdvance(const Id2MetaVe
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -4563,7 +4556,7 @@ Id2MetaVerifyWithOCRResponse Client::id2MetaVerifyWithOCRAdvance(const Id2MetaVe
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -4715,7 +4708,7 @@ Id3MetaVerifyResponse Client::id3MetaVerifyAdvance(const Id3MetaVerifyAdvanceReq
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -4859,7 +4852,7 @@ Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCRAdvance(const Id3MetaVe
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -4882,7 +4875,7 @@ Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCRAdvance(const Id3MetaVe
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -6677,9 +6670,7 @@ RemoveWhiteListSettingResponse Client::removeWhiteListSetting(const RemoveWhiteL
 /**
  * @summary Update Ant Blockchain Transaction Scenario
  *
- * @description Update the information of a financial-level authentication scenario based on the scenario ID.
- * - Service address: cloudauth.aliyuncs.com.
- * - Request method: HTTPS POST.
+ * @description Content of the uploaded verification file.
  *
  * @param request UpdateAntCloudAuthSceneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6756,9 +6747,7 @@ UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const
 /**
  * @summary Update Ant Blockchain Transaction Scenario
  *
- * @description Update the information of a financial-level authentication scenario based on the scenario ID.
- * - Service address: cloudauth.aliyuncs.com.
- * - Request method: HTTPS POST.
+ * @description Content of the uploaded verification file.
  *
  * @param request UpdateAntCloudAuthSceneRequest
  * @return UpdateAntCloudAuthSceneResponse

@@ -140,36 +140,41 @@ namespace Models
 
 
   protected:
-    // Whether to enable binding to a mini program:
-    // - **Y**: Enable
-    // - **N (default)**: Do not enable
-    // >Notice: If enabling the binding of a mini program, please ensure all parameters for the mini program are passed.
+    // Update Ant Blockchain Transaction Scenario
     shared_ptr<string> bindMiniProgram_ {};
-    // Content of the uploaded verification file.
+    // Whether to enable binding with a mini program:
+    // - **Y**: Enable
+    // - **N (default)**: Disable
+    // >Notice: If you enable binding with a mini program, please ensure that all parameters for the mini program are passed.
     shared_ptr<string> checkFileBody_ {};
-    // Name of the uploaded verification file.
+    // Scenario name.
     shared_ptr<string> checkFileName_ {};
+    // Name of the uploaded verification file.
     shared_ptr<string> deviceRiskPlus_ {};
-    // Mini program name.
+    // System-defined parameter. Value: **UpdateAntCloudAuthScene**.
     shared_ptr<string> miniProgramName_ {};
-    // Binding mini program platform:
+    // Currently meaningless, can be omitted.
+    shared_ptr<string> platform_ {};
+    // Mini program name.
+    shared_ptr<int64_t> returnPicCount_ {};
+    // Platform for binding the mini program:
     // - **WECHAT**: WeChat
     // - **ALIPAY**: Alipay
     // - **TIKTOK**: TikTok
-    shared_ptr<string> platform_ {};
-    shared_ptr<int64_t> returnPicCount_ {};
     shared_ptr<int64_t> returnVideoLength_ {};
-    // Scenario ID.
+    // Update Financial-Level Authentication Scenario
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};
-    // Scenario name.
+    // Update the information of a financial-level authentication scenario based on the scenario ID.
+    // - Service address: cloudauth.aliyuncs.com.
+    // - Request method: HTTPS POST.
     shared_ptr<string> sceneName_ {};
-    // Currently meaningless, can be omitted.
+    // Update Ant Blockchain Transaction Scenario
     shared_ptr<int32_t> status_ {};
-    // Whether to enable delivering the authentication files generated during the authentication process to the user\\"s OSS:
-    // - **Y**: Enable
-    // - **N (default)**: Disable
+    // Update the information of a financial-level authentication scenario based on the scenario ID.
+    // - Service address: cloudauth.aliyuncs.com.
+    // - Request method: HTTPS POST.
     shared_ptr<string> storeImage_ {};
   };
 

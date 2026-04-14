@@ -260,35 +260,35 @@ namespace Models
       protected:
         // Desensitized name.
         shared_ptr<string> certName_ {};
-        // Face guard label.
+        // Facial bodyguard label.
         shared_ptr<string> deviceRisk_ {};
-        // Whether it is a face attack:
-        // - **T**: Yes
-        // - **F**: No
+        // 是否是人脸攻击：
+        // - **T**：是
+        // - **F**：否
         shared_ptr<string> faceAttack_ {};
-        // Face attack score, with a range of 0~1. A value closer to 1 indicates a higher likelihood of an attack.
+        // Face attack score, ranging from 0 to 1, with values closer to 1 indicating a higher likelihood of an attack.
         shared_ptr<float> faceAttackScore_ {};
-        // Whether the face is occluded, T if yes, F otherwise.
+        // Whether the face is occluded. T if occluded, otherwise F.
         shared_ptr<string> faceOcclusion_ {};
         // Face-to-ID card comparison score.
         shared_ptr<float> idCardVerifyScore_ {};
-        // The OSS bucket for the photo.
+        // Photo OSS bucket.
         shared_ptr<string> ossBucketName_ {};
         // OCR ID card face file name.
         shared_ptr<string> ossIdFaceObjectName_ {};
         // OCR ID card national emblem file name.
         shared_ptr<string> ossIdNationalEmblemObjectName_ {};
-        // The name of the stored object.
+        // Storage object name.
         shared_ptr<string> ossObjectName_ {};
         // Liveness face quality score.
         shared_ptr<float> qualityScore_ {};
         // Face comparison score.
         shared_ptr<float> verifyScore_ {};
-        // List of ASR texts.
+        // ASR text list.
         shared_ptr<vector<string>> asrTexts_ {};
-        // List of OSS file names for screen recording files.
+        // Screen recording file OSS name list.
         shared_ptr<vector<string>> screenVideoObjectNames_ {};
-        // List of OSS file names for audio files.
+        // Audio file OSS name list.
         shared_ptr<vector<string>> voiceObjectNames_ {};
       };
 
@@ -433,28 +433,43 @@ namespace Models
 
 
     protected:
-      // Desensitized ID number.
+      // Desensitized ID card number.
       shared_ptr<string> certNo_ {};
-      // Certification ID.
+      // Authentication ID.
       shared_ptr<string> certifyId_ {};
       // Extended information.
       shared_ptr<Items::ExtInfo> extInfo_ {};
-      // Verification time of this authentication.
+      // Verification time for this authentication.
       shared_ptr<string> gmtVerify_ {};
       // Liveness detection scheme.
       shared_ptr<string> model_ {};
       // Unique identifier for the customer request.
       shared_ptr<string> outerOrderNo_ {};
-      // Whether the certification passed. Values:
+      // Whether the authentication passed. Values:
       // - **T**: Passed.
       // - **F**: Not passed.
       shared_ptr<string> passed_ {};
       // Product code.
       shared_ptr<string> productCode_ {};
+      // Business scenario risk:
+      // - **0**: No risk
+      // - **1**: Risk present
       shared_ptr<int32_t> riskBizScenario_ {};
+      // Device risk:
+      // - **0**: No risk
+      // - **1**: Risk present
       shared_ptr<int32_t> riskDevice_ {};
+      // DeviceToken risk:
+      // - **0**: No risk
+      // - **1**: Risk present
       shared_ptr<int32_t> riskDeviceToken_ {};
+      // General risk:
+      // - **0**: No risk
+      // - **1**: Risk present
       shared_ptr<int32_t> riskGeneric_ {};
+      // Large model mining risk:
+      // - **0**: No risk
+      // - **1**: Risk present
       shared_ptr<int32_t> riskModelMining_ {};
       // Whether it is root (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
       shared_ptr<int32_t> root_ {};
@@ -466,7 +481,7 @@ namespace Models
       shared_ptr<string> subCode_ {};
       // User ID.
       shared_ptr<string> userId_ {};
-      // Whether it is a virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
+      // Whether it is virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
       shared_ptr<int32_t> virtualVideo_ {};
     };
 
@@ -523,7 +538,7 @@ namespace Models
     shared_ptr<vector<DescribeVerifySearchPageListResponseBody::Items>> items_ {};
     // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of this request.
+    // ID of the current request.
     shared_ptr<string> requestId_ {};
     // Total number of pages.
     shared_ptr<int32_t> totalCount_ {};

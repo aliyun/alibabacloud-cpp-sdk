@@ -157,13 +157,9 @@ namespace Models
 
 
           protected:
-            // Height of the face rectangle.
             shared_ptr<int32_t> height_ {};
-            // Distance from the top-left corner of the face rectangle to the left edge of the original image, in pixels.
             shared_ptr<int32_t> left_ {};
-            // Distance from the top-left corner of the face rectangle to the top edge of the original image, in pixels.
             shared_ptr<int32_t> top_ {};
-            // Width of the face rectangle.
             shared_ptr<int32_t> width_ {};
           };
 
@@ -238,9 +234,7 @@ namespace Models
 
 
             protected:
-              // Smile threshold.
               shared_ptr<float> threshold_ {};
-              // Smile score.
               shared_ptr<float> value_ {};
             };
 
@@ -291,11 +285,8 @@ namespace Models
 
 
             protected:
-              // Pitch angle, in degrees.
               shared_ptr<float> pitchAngle_ {};
-              // Roll angle, in degrees.
               shared_ptr<float> rollAngle_ {};
-              // Yaw angle, in degrees.
               shared_ptr<float> yawAngle_ {};
             };
 
@@ -363,34 +354,13 @@ namespace Models
 
 
           protected:
-            // Face blur level, with higher values indicating more blurriness. Typically, a value ≥2.0 is considered quite blurry. It is recommended to adjust based on actual business data testing.
             shared_ptr<float> blur_ {};
-            // A score ranging from 0 to 100. The higher the score, the better the quality. It is recommended to consider a score of 50 or above as acceptable quality.
             shared_ptr<float> facequal_ {};
-            // Whether it is a human face. Values:
-            // 
-            // - **None**: Not a human face
-            // - **Face**: Human face
-            // - **Profile**: Profile (head turned left or right by more than 30°)
-            // 
-            // > If no face is detected, the `faceInfos` in the response will be empty; here, `None` means that a face was detected but is considered to be a cartoon, pet, etc.
             shared_ptr<string> facetype_ {};
-            // Whether wearing glasses. Values:
-            // 
-            // - **None**: Not wearing glasses
-            // - **Wear**: Wearing regular glasses
-            // - **Sunglass**: Wearing sunglasses
             shared_ptr<string> glasses_ {};
-            // Face pose.
             shared_ptr<FaceAttributes::Headpose> headpose_ {};
-            // A score ranging from 0 to 100. The higher the score, the more complete the face. It is recommended to consider a score of 70 or above as acceptable completeness.
             shared_ptr<int32_t> integrity_ {};
-            // Whether wearing a mask. Values:
-            // 
-            // - Wear: Wearing a mask.
-            // - None: Not wearing a mask.
             shared_ptr<string> respirator_ {};
-            // Whether smiling.
             shared_ptr<FaceAttributes::Smiling> smiling_ {};
           };
 
@@ -415,9 +385,7 @@ namespace Models
 
 
         protected:
-          // Face attributes.
           shared_ptr<FaceAttributesDetectInfo::FaceAttributes> faceAttributes_ {};
-          // Position of the face in the original image.
           shared_ptr<FaceAttributesDetectInfo::FaceRect> faceRect_ {};
         };
 
@@ -461,7 +429,6 @@ namespace Models
 
 
     protected:
-      // Face detection results.
       shared_ptr<Data::FaceInfos> faceInfos_ {};
       // Original image height, in pixels.
       shared_ptr<int32_t> imgHeight_ {};

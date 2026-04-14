@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // Authorization start date.
         shared_ptr<string> beginDay_ {};
-        // Corresponds to the BizType in the request.
         shared_ptr<string> bizType_ {};
-        // Corresponds to the DeviceId in the request.
         shared_ptr<string> deviceId_ {};
-        // Authorization expiration date.
         shared_ptr<string> expiredDay_ {};
-        // Corresponds to the UserDeviceId in the request.
         shared_ptr<string> userDeviceId_ {};
       };
 
@@ -190,7 +185,6 @@ namespace Models
   protected:
     // The current page number being queried.
     shared_ptr<int32_t> currentPage_ {};
-    // Array of device information.
     shared_ptr<DescribeDeviceInfoResponseBody::DeviceInfoList> deviceInfoList_ {};
     // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};

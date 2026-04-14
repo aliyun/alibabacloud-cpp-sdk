@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // Content of the uploaded verification file.
     shared_ptr<string> requestId_ {};
   };
 
