@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
+      DARABONBA_PTR_TO_JSON(KnowledgeApplicationSpec, knowledgeApplicationSpec_);
       DARABONBA_PTR_TO_JSON(MemApplicationSpec, memApplicationSpec_);
       DARABONBA_PTR_TO_JSON(ModelApi, modelApi_);
       DARABONBA_PTR_TO_JSON(ModelApiKey, modelApiKey_);
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
+      DARABONBA_PTR_FROM_JSON(KnowledgeApplicationSpec, knowledgeApplicationSpec_);
       DARABONBA_PTR_FROM_JSON(MemApplicationSpec, memApplicationSpec_);
       DARABONBA_PTR_FROM_JSON(ModelApi, modelApi_);
       DARABONBA_PTR_FROM_JSON(ModelApiKey, modelApiKey_);
@@ -311,6 +313,58 @@ namespace Models
       shared_ptr<int32_t> shard_ {};
     };
 
+    class KnowledgeApplicationSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const KnowledgeApplicationSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
+        DARABONBA_PTR_TO_JSON(DbPassword, dbPassword_);
+        DARABONBA_PTR_TO_JSON(LlmModel, llmModel_);
+      };
+      friend void from_json(const Darabonba::Json& j, KnowledgeApplicationSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
+        DARABONBA_PTR_FROM_JSON(DbPassword, dbPassword_);
+        DARABONBA_PTR_FROM_JSON(LlmModel, llmModel_);
+      };
+      KnowledgeApplicationSpec() = default ;
+      KnowledgeApplicationSpec(const KnowledgeApplicationSpec &) = default ;
+      KnowledgeApplicationSpec(KnowledgeApplicationSpec &&) = default ;
+      KnowledgeApplicationSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~KnowledgeApplicationSpec() = default ;
+      KnowledgeApplicationSpec& operator=(const KnowledgeApplicationSpec &) = default ;
+      KnowledgeApplicationSpec& operator=(KnowledgeApplicationSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dashboardPassword_ == nullptr
+        && this->dbPassword_ == nullptr && this->llmModel_ == nullptr; };
+      // dashboardPassword Field Functions 
+      bool hasDashboardPassword() const { return this->dashboardPassword_ != nullptr;};
+      void deleteDashboardPassword() { this->dashboardPassword_ = nullptr;};
+      inline string getDashboardPassword() const { DARABONBA_PTR_GET_DEFAULT(dashboardPassword_, "") };
+      inline KnowledgeApplicationSpec& setDashboardPassword(string dashboardPassword) { DARABONBA_PTR_SET_VALUE(dashboardPassword_, dashboardPassword) };
+
+
+      // dbPassword Field Functions 
+      bool hasDbPassword() const { return this->dbPassword_ != nullptr;};
+      void deleteDbPassword() { this->dbPassword_ = nullptr;};
+      inline string getDbPassword() const { DARABONBA_PTR_GET_DEFAULT(dbPassword_, "") };
+      inline KnowledgeApplicationSpec& setDbPassword(string dbPassword) { DARABONBA_PTR_SET_VALUE(dbPassword_, dbPassword) };
+
+
+      // llmModel Field Functions 
+      bool hasLlmModel() const { return this->llmModel_ != nullptr;};
+      void deleteLlmModel() { this->llmModel_ = nullptr;};
+      inline string getLlmModel() const { DARABONBA_PTR_GET_DEFAULT(llmModel_, "") };
+      inline KnowledgeApplicationSpec& setLlmModel(string llmModel) { DARABONBA_PTR_SET_VALUE(llmModel_, llmModel) };
+
+
+    protected:
+      shared_ptr<string> dashboardPassword_ {};
+      shared_ptr<string> dbPassword_ {};
+      shared_ptr<string> llmModel_ {};
+    };
+
     class Endpoints : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Endpoints& obj) { 
@@ -479,12 +533,12 @@ namespace Models
     virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr
         && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr && this->DBClusterId_ == nullptr
-        && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr
-        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parameters_ == nullptr
-        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
-        && this->skillTemplateId_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->knowledgeApplicationSpec_ == nullptr && this->memApplicationSpec_ == nullptr
+        && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr
+        && this->parameters_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr
+        && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -585,6 +639,15 @@ namespace Models
     inline vector<CreateApplicationRequest::Endpoints> getEndpoints() { DARABONBA_PTR_GET(endpoints_, vector<CreateApplicationRequest::Endpoints>) };
     inline CreateApplicationRequest& setEndpoints(const vector<CreateApplicationRequest::Endpoints> & endpoints) { DARABONBA_PTR_SET_VALUE(endpoints_, endpoints) };
     inline CreateApplicationRequest& setEndpoints(vector<CreateApplicationRequest::Endpoints> && endpoints) { DARABONBA_PTR_SET_RVALUE(endpoints_, endpoints) };
+
+
+    // knowledgeApplicationSpec Field Functions 
+    bool hasKnowledgeApplicationSpec() const { return this->knowledgeApplicationSpec_ != nullptr;};
+    void deleteKnowledgeApplicationSpec() { this->knowledgeApplicationSpec_ = nullptr;};
+    inline const CreateApplicationRequest::KnowledgeApplicationSpec & getKnowledgeApplicationSpec() const { DARABONBA_PTR_GET_CONST(knowledgeApplicationSpec_, CreateApplicationRequest::KnowledgeApplicationSpec) };
+    inline CreateApplicationRequest::KnowledgeApplicationSpec getKnowledgeApplicationSpec() { DARABONBA_PTR_GET(knowledgeApplicationSpec_, CreateApplicationRequest::KnowledgeApplicationSpec) };
+    inline CreateApplicationRequest& setKnowledgeApplicationSpec(const CreateApplicationRequest::KnowledgeApplicationSpec & knowledgeApplicationSpec) { DARABONBA_PTR_SET_VALUE(knowledgeApplicationSpec_, knowledgeApplicationSpec) };
+    inline CreateApplicationRequest& setKnowledgeApplicationSpec(CreateApplicationRequest::KnowledgeApplicationSpec && knowledgeApplicationSpec) { DARABONBA_PTR_SET_RVALUE(knowledgeApplicationSpec_, knowledgeApplicationSpec) };
 
 
     // memApplicationSpec Field Functions 
@@ -778,6 +841,7 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
+    shared_ptr<CreateApplicationRequest::KnowledgeApplicationSpec> knowledgeApplicationSpec_ {};
     shared_ptr<CreateApplicationRequest::MemApplicationSpec> memApplicationSpec_ {};
     shared_ptr<string> modelApi_ {};
     shared_ptr<string> modelApiKey_ {};

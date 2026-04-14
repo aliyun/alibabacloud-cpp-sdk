@@ -1766,6 +1766,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     request.setEndpointsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEndpoints(), "Endpoints", "json"));
   }
 
+  if (!!tmpReq.hasKnowledgeApplicationSpec()) {
+    request.setKnowledgeApplicationSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeApplicationSpec(), "KnowledgeApplicationSpec", "json"));
+  }
+
   if (!!tmpReq.hasMemApplicationSpec()) {
     request.setMemApplicationSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMemApplicationSpec(), "MemApplicationSpec", "json"));
   }
@@ -1829,6 +1833,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasEndpointsShrink()) {
     query["Endpoints"] = request.getEndpointsShrink();
+  }
+
+  if (!!request.hasKnowledgeApplicationSpecShrink()) {
+    query["KnowledgeApplicationSpec"] = request.getKnowledgeApplicationSpecShrink();
   }
 
   if (!!request.hasMemApplicationSpecShrink()) {

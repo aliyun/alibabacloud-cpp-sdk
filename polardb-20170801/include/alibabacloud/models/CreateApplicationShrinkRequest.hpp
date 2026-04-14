@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpointsShrink_);
+      DARABONBA_PTR_TO_JSON(KnowledgeApplicationSpec, knowledgeApplicationSpecShrink_);
       DARABONBA_PTR_TO_JSON(MemApplicationSpec, memApplicationSpecShrink_);
       DARABONBA_PTR_TO_JSON(ModelApi, modelApi_);
       DARABONBA_PTR_TO_JSON(ModelApiKey, modelApiKey_);
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpointsShrink_);
+      DARABONBA_PTR_FROM_JSON(KnowledgeApplicationSpec, knowledgeApplicationSpecShrink_);
       DARABONBA_PTR_FROM_JSON(MemApplicationSpec, memApplicationSpecShrink_);
       DARABONBA_PTR_FROM_JSON(ModelApi, modelApi_);
       DARABONBA_PTR_FROM_JSON(ModelApiKey, modelApiKey_);
@@ -149,12 +151,12 @@ namespace Models
     virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
         && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr
         && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->componentsShrink_ == nullptr && this->DBClusterId_ == nullptr
-        && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpointsShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr && this->modelApi_ == nullptr
-        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parametersShrink_ == nullptr
-        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
-        && this->skillTemplateId_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->description_ == nullptr && this->dryRun_ == nullptr && this->endpointsShrink_ == nullptr && this->knowledgeApplicationSpecShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr
+        && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr
+        && this->parametersShrink_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr
+        && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -251,6 +253,13 @@ namespace Models
     void deleteEndpointsShrink() { this->endpointsShrink_ = nullptr;};
     inline string getEndpointsShrink() const { DARABONBA_PTR_GET_DEFAULT(endpointsShrink_, "") };
     inline CreateApplicationShrinkRequest& setEndpointsShrink(string endpointsShrink) { DARABONBA_PTR_SET_VALUE(endpointsShrink_, endpointsShrink) };
+
+
+    // knowledgeApplicationSpecShrink Field Functions 
+    bool hasKnowledgeApplicationSpecShrink() const { return this->knowledgeApplicationSpecShrink_ != nullptr;};
+    void deleteKnowledgeApplicationSpecShrink() { this->knowledgeApplicationSpecShrink_ = nullptr;};
+    inline string getKnowledgeApplicationSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(knowledgeApplicationSpecShrink_, "") };
+    inline CreateApplicationShrinkRequest& setKnowledgeApplicationSpecShrink(string knowledgeApplicationSpecShrink) { DARABONBA_PTR_SET_VALUE(knowledgeApplicationSpecShrink_, knowledgeApplicationSpecShrink) };
 
 
     // memApplicationSpecShrink Field Functions 
@@ -440,6 +449,7 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> endpointsShrink_ {};
+    shared_ptr<string> knowledgeApplicationSpecShrink_ {};
     shared_ptr<string> memApplicationSpecShrink_ {};
     shared_ptr<string> modelApi_ {};
     shared_ptr<string> modelApiKey_ {};
