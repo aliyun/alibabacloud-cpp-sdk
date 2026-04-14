@@ -2527,6 +2527,24 @@ namespace Aliding20230426
       Models::GetRunningTasksResponse getRunningTasks(const Models::GetRunningTasksRequest &request);
 
       /**
+       * @summary 查询群信息
+       *
+       * @param tmpReq GetScenegroupRequest
+       * @param tmpHeader GetScenegroupHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScenegroupResponse
+       */
+      Models::GetScenegroupResponse getScenegroupWithOptions(const Models::GetScenegroupRequest &tmpReq, const Models::GetScenegroupHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询群信息
+       *
+       * @param request GetScenegroupRequest
+       * @return GetScenegroupResponse
+       */
+      Models::GetScenegroupResponse getScenegroup(const Models::GetScenegroupRequest &request);
+
+      /**
        * @summary 获取用户忙闲信息
        *
        * @param tmpReq GetScheduleRequest

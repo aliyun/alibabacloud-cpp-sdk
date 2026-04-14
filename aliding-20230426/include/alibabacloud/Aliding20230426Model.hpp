@@ -805,6 +805,12 @@
 #include <alibabacloud/models/GetRunningTasksRequest.hpp>
 #include <alibabacloud/models/GetRunningTasksResponseBody.hpp>
 #include <alibabacloud/models/GetRunningTasksResponse.hpp>
+#include <alibabacloud/models/GetScenegroupHeaders.hpp>
+#include <alibabacloud/models/GetScenegroupShrinkHeaders.hpp>
+#include <alibabacloud/models/GetScenegroupRequest.hpp>
+#include <alibabacloud/models/GetScenegroupShrinkRequest.hpp>
+#include <alibabacloud/models/GetScenegroupResponseBody.hpp>
+#include <alibabacloud/models/GetScenegroupResponse.hpp>
 #include <alibabacloud/models/GetScheduleHeaders.hpp>
 #include <alibabacloud/models/GetScheduleShrinkHeaders.hpp>
 #include <alibabacloud/models/GetScheduleRequest.hpp>

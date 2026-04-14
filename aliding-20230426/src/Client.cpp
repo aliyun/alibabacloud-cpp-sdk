@@ -11692,6 +11692,76 @@ GetRunningTasksResponse Client::getRunningTasks(const GetRunningTasksRequest &re
 }
 
 /**
+ * @summary 查询群信息
+ *
+ * @param tmpReq GetScenegroupRequest
+ * @param tmpHeader GetScenegroupHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScenegroupResponse
+ */
+GetScenegroupResponse Client::getScenegroupWithOptions(const GetScenegroupRequest &tmpReq, const GetScenegroupHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetScenegroupShrinkRequest request = GetScenegroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetScenegroupShrinkHeaders headers = GetScenegroupShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOpenConversationId()) {
+    body["OpenConversationId"] = request.getOpenConversationId();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetScenegroup"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/getScenegroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScenegroupResponse>();
+}
+
+/**
+ * @summary 查询群信息
+ *
+ * @param request GetScenegroupRequest
+ * @return GetScenegroupResponse
+ */
+GetScenegroupResponse Client::getScenegroup(const GetScenegroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetScenegroupHeaders headers = GetScenegroupHeaders();
+  return getScenegroupWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取用户忙闲信息
  *
  * @param tmpReq GetScheduleRequest
