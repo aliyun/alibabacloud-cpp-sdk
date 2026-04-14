@@ -1479,7 +1479,7 @@ namespace Slb20140515
       Models::SetDomainExtensionAttributeResponse setDomainExtensionAttribute(const Models::SetDomainExtensionAttributeRequest &request);
 
       /**
-       * @summary Enables or disables the whitelist of a specified listener.
+       * @summary Enables or disables the whitelist of a listener.
        *
        * @param request SetListenerAccessControlStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1488,7 +1488,7 @@ namespace Slb20140515
       Models::SetListenerAccessControlStatusResponse setListenerAccessControlStatusWithOptions(const Models::SetListenerAccessControlStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the whitelist of a specified listener.
+       * @summary Enables or disables the whitelist of a listener.
        *
        * @param request SetListenerAccessControlStatusRequest
        * @return SetListenerAccessControlStatusResponse
@@ -1561,7 +1561,7 @@ namespace Slb20140515
       Models::SetLoadBalancerHTTPSListenerAttributeResponse setLoadBalancerHTTPSListenerAttribute(const Models::SetLoadBalancerHTTPSListenerAttributeRequest &request);
 
       /**
-       * @summary Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+       * @summary Enable or disable the configuration read-only mode for a Classic Load Balancer (CLB) instance.
        *
        * @param request SetLoadBalancerModificationProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1570,7 +1570,7 @@ namespace Slb20140515
       Models::SetLoadBalancerModificationProtectionResponse setLoadBalancerModificationProtectionWithOptions(const Models::SetLoadBalancerModificationProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+       * @summary Enable or disable the configuration read-only mode for a Classic Load Balancer (CLB) instance.
        *
        * @param request SetLoadBalancerModificationProtectionRequest
        * @return SetLoadBalancerModificationProtectionResponse

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainExtensionId_ == nullptr
-        && return this->listenerPort_ == nullptr && return this->requestId_ == nullptr; };
+        && this->listenerPort_ == nullptr && this->requestId_ == nullptr; };
     // domainExtensionId Field Functions 
     bool hasDomainExtensionId() const { return this->domainExtensionId_ != nullptr;};
     void deleteDomainExtensionId() { this->domainExtensionId_ = nullptr;};
-    inline string domainExtensionId() const { DARABONBA_PTR_GET_DEFAULT(domainExtensionId_, "") };
+    inline string getDomainExtensionId() const { DARABONBA_PTR_GET_DEFAULT(domainExtensionId_, "") };
     inline CreateDomainExtensionResponseBody& setDomainExtensionId(string domainExtensionId) { DARABONBA_PTR_SET_VALUE(domainExtensionId_, domainExtensionId) };
 
 
     // listenerPort Field Functions 
     bool hasListenerPort() const { return this->listenerPort_ != nullptr;};
     void deleteListenerPort() { this->listenerPort_ = nullptr;};
-    inline int32_t listenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
+    inline int32_t getListenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
     inline CreateDomainExtensionResponseBody& setListenerPort(int32_t listenerPort) { DARABONBA_PTR_SET_VALUE(listenerPort_, listenerPort) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDomainExtensionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the additional domain name.
-    std::shared_ptr<string> domainExtensionId_ = nullptr;
+    shared_ptr<string> domainExtensionId_ {};
     // The frontend port that is used by the SLB instance.
-    std::shared_ptr<int32_t> listenerPort_ = nullptr;
+    shared_ptr<int32_t> listenerPort_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

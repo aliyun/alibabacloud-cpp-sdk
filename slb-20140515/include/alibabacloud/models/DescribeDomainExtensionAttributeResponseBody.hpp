@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->domainExtensionId_ == nullptr && return this->listenerPort_ == nullptr && return this->loadBalancerId_ == nullptr && return this->requestId_ == nullptr && return this->serverCertificateId_ == nullptr; };
+        && this->domainExtensionId_ == nullptr && this->listenerPort_ == nullptr && this->loadBalancerId_ == nullptr && this->requestId_ == nullptr && this->serverCertificateId_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DescribeDomainExtensionAttributeResponseBody& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // domainExtensionId Field Functions 
     bool hasDomainExtensionId() const { return this->domainExtensionId_ != nullptr;};
     void deleteDomainExtensionId() { this->domainExtensionId_ = nullptr;};
-    inline string domainExtensionId() const { DARABONBA_PTR_GET_DEFAULT(domainExtensionId_, "") };
+    inline string getDomainExtensionId() const { DARABONBA_PTR_GET_DEFAULT(domainExtensionId_, "") };
     inline DescribeDomainExtensionAttributeResponseBody& setDomainExtensionId(string domainExtensionId) { DARABONBA_PTR_SET_VALUE(domainExtensionId_, domainExtensionId) };
 
 
     // listenerPort Field Functions 
     bool hasListenerPort() const { return this->listenerPort_ != nullptr;};
     void deleteListenerPort() { this->listenerPort_ = nullptr;};
-    inline int32_t listenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
+    inline int32_t getListenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
     inline DescribeDomainExtensionAttributeResponseBody& setListenerPort(int32_t listenerPort) { DARABONBA_PTR_SET_VALUE(listenerPort_, listenerPort) };
 
 
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline DescribeDomainExtensionAttributeResponseBody& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainExtensionAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serverCertificateId Field Functions 
     bool hasServerCertificateId() const { return this->serverCertificateId_ != nullptr;};
     void deleteServerCertificateId() { this->serverCertificateId_ = nullptr;};
-    inline string serverCertificateId() const { DARABONBA_PTR_GET_DEFAULT(serverCertificateId_, "") };
+    inline string getServerCertificateId() const { DARABONBA_PTR_GET_DEFAULT(serverCertificateId_, "") };
     inline DescribeDomainExtensionAttributeResponseBody& setServerCertificateId(string serverCertificateId) { DARABONBA_PTR_SET_VALUE(serverCertificateId_, serverCertificateId) };
 
 
   protected:
     // The domain name.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The ID of the additional certificate.
-    std::shared_ptr<string> domainExtensionId_ = nullptr;
+    shared_ptr<string> domainExtensionId_ {};
     // The frontend port of the HTTPS listener that is configured for the SLB instance. Valid values: **1** to **65535**.
-    std::shared_ptr<int32_t> listenerPort_ = nullptr;
+    shared_ptr<int32_t> listenerPort_ {};
     // The ID of the SLB instance.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the server certificate used by the domain name.
-    std::shared_ptr<string> serverCertificateId_ = nullptr;
+    shared_ptr<string> serverCertificateId_ {};
   };
 
   } // namespace Models

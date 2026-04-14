@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessControlStatus_ == nullptr
-        && return this->requestId_ == nullptr && return this->sourceItems_ == nullptr; };
+        && this->requestId_ == nullptr && this->sourceItems_ == nullptr; };
     // accessControlStatus Field Functions 
     bool hasAccessControlStatus() const { return this->accessControlStatus_ != nullptr;};
     void deleteAccessControlStatus() { this->accessControlStatus_ = nullptr;};
-    inline string accessControlStatus() const { DARABONBA_PTR_GET_DEFAULT(accessControlStatus_, "") };
+    inline string getAccessControlStatus() const { DARABONBA_PTR_GET_DEFAULT(accessControlStatus_, "") };
     inline DescribeListenerAccessControlAttributeResponseBody& setAccessControlStatus(string accessControlStatus) { DARABONBA_PTR_SET_VALUE(accessControlStatus_, accessControlStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeListenerAccessControlAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sourceItems Field Functions 
     bool hasSourceItems() const { return this->sourceItems_ != nullptr;};
     void deleteSourceItems() { this->sourceItems_ = nullptr;};
-    inline string sourceItems() const { DARABONBA_PTR_GET_DEFAULT(sourceItems_, "") };
+    inline string getSourceItems() const { DARABONBA_PTR_GET_DEFAULT(sourceItems_, "") };
     inline DescribeListenerAccessControlAttributeResponseBody& setSourceItems(string sourceItems) { DARABONBA_PTR_SET_VALUE(sourceItems_, sourceItems) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   **open_white_list**: the whitelist is enabled.
     // *   **close**: the whitelist is disabled.
-    std::shared_ptr<string> accessControlStatus_ = nullptr;
+    shared_ptr<string> accessControlStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The queried ACLs.
-    std::shared_ptr<string> sourceItems_ = nullptr;
+    shared_ptr<string> sourceItems_ {};
   };
 
   } // namespace Models
