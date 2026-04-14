@@ -195,57 +195,37 @@ namespace Models
 
 
   protected:
-    // The sender address.
+    // Sender address.
     // 
-    // > If you omit this parameter, the query returns data for all sender addresses. This parameter is required if you specify the `TagName` parameter.
+    // > If not filled, it represents all addresses; if TagName is provided, this parameter must not be empty.
     shared_ptr<string> accountName_ {};
-    // The ID of the configuration set.
     shared_ptr<string> configSetId_ {};
-    // The dedicated IP address to query.
-    // 
-    // If this parameter is omitted, data for all dedicated IPs is returned.
     shared_ptr<string> dedicatedIp_ {};
-    // The ID of the dedicated IP pool to query.
-    // 
-    // If this parameter is omitted, data for all IP pools is returned.
     shared_ptr<string> dedicatedIpPoolId_ {};
     shared_ptr<string> domain_ {};
-    // The end date of the query. The duration between the StartTime and EndTime cannot exceed 7 days. The format is `yyyy-MM-dd`.
+    // End time, the span between start and end time cannot exceed 7 days. Format: yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The Email Service Provider (ESP) to query. Valid values are:
-    // 
-    // - gmail.com
-    // 
-    // - yahoo.com
-    // 
-    // - outlook.com
-    // 
-    // - icloud.com
-    // 
-    // - Others: Any ESP not listed above.
-    // 
-    // If you omit this parameter, the query returns data for all ESPs.
     shared_ptr<string> esp_ {};
-    // Set this to 0 for the first query. For subsequent queries, set it to 1 to perform a paged query in chronological order. (This field is deprecated)
+    // For the first query, set to 0; for subsequent queries, fixed at 1. 1 indicates pagination in ascending order by time. (This field is deprecated)
     shared_ptr<string> offset_ {};
-    // Used for pagination. Do not set this parameter for the first query. For subsequent queries, set this parameter to the `OffsetCreateTime` value returned in the previous response. (This field is deprecated)
+    // Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
     shared_ptr<string> offsetCreateTime_ {};
     // (This field is deprecated)
     shared_ptr<string> offsetCreateTimeDesc_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number to return.
+    // Page number
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.
+    // Page size
     shared_ptr<string> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start date of the query. The date must be within the last 30 days. The format is `yyyy-MM-dd`.
+    // Start time, which cannot be earlier than 30 days. Format: yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The tag name.
+    // Tag name
     shared_ptr<string> tagName_ {};
     // (This field is deprecated)
     shared_ptr<string> total_ {};

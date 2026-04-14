@@ -126,9 +126,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-renewal is enabled.
+        // Whether auto-renewal is enabled
         shared_ptr<bool> autoRenewal_ {};
-        // Indicates whether emails have been sent.
+        // Whether an email has been sent
         shared_ptr<bool> hasSendMail_ {};
         shared_ptr<string> lastWarmUpTypeChangedTime_ {};
       };
@@ -216,25 +216,25 @@ namespace Models
 
 
     protected:
-      // The expiration time.
+      // Expiration time
       shared_ptr<string> expiredTime_ {};
-      // The IP address ID. This is the same as the purchased instance ID.
+      // IP ID, consistent with the purchased instance ID
       shared_ptr<string> id_ {};
-      // The ID of the purchased instance.
+      // Purchased instance ID
       shared_ptr<string> instanceId_ {};
-      // The IP address.
+      // IP address
       shared_ptr<string> ip_ {};
-      // The extended information.
+      // Extended information
       shared_ptr<Ips::IpExt> ipExt_ {};
-      // The name of the IP pool to which the IP address belongs.
+      // Name of the IP pool
       shared_ptr<string> ipPoolName_ {};
-      // The purchase time.
+      // Purchase time
       shared_ptr<string> startTime_ {};
-      // The status of the IP address.
+      // IP status
       shared_ptr<string> status_ {};
-      // The prefetch status.
+      // Warm-up status
       shared_ptr<string> warmupStatus_ {};
-      // The prefetch method.
+      // Warm-up method
       shared_ptr<string> warmupType_ {};
       shared_ptr<string> zoneId_ {};
     };
@@ -286,17 +286,17 @@ namespace Models
 
 
   protected:
-    // The current page number.
+    // Current page
     shared_ptr<int32_t> currentPage_ {};
-    // Indicates whether the next page exists.
+    // Whether there is a next page
     shared_ptr<bool> hasMore_ {};
-    // The list of IP addresses.
+    // IP list
     shared_ptr<vector<DedicatedIpListResponseBody::Ips>> ips_ {};
-    // The number of entries per page.
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The total number of purchased IP addresses.
+    // Total amount of purchased IP data
     shared_ptr<int32_t> totalCounts_ {};
   };
 

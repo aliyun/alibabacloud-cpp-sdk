@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(DomainStatus, domainStatus_);
       DARABONBA_PTR_TO_JSON(DomainType, domainType_);
+      DARABONBA_PTR_TO_JSON(DomainVersion, domainVersion_);
       DARABONBA_PTR_TO_JSON(HostRecord, hostRecord_);
       DARABONBA_PTR_TO_JSON(IcpStatus, icpStatus_);
       DARABONBA_PTR_TO_JSON(MxAuthStatus, mxAuthStatus_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(DomainStatus, domainStatus_);
       DARABONBA_PTR_FROM_JSON(DomainType, domainType_);
+      DARABONBA_PTR_FROM_JSON(DomainVersion, domainVersion_);
       DARABONBA_PTR_FROM_JSON(HostRecord, hostRecord_);
       DARABONBA_PTR_FROM_JSON(IcpStatus, icpStatus_);
       DARABONBA_PTR_FROM_JSON(MxAuthStatus, mxAuthStatus_);
@@ -91,9 +93,9 @@ namespace Models
         && this->cnameConfirmStatus_ == nullptr && this->cnameRecord_ == nullptr && this->createTime_ == nullptr && this->defaultDomain_ == nullptr && this->dkimAuthStatus_ == nullptr
         && this->dkimPublicKey_ == nullptr && this->dkimRR_ == nullptr && this->dkimRsaLength_ == nullptr && this->dmarcAuthStatus_ == nullptr && this->dmarcHostRecord_ == nullptr
         && this->dmarcRecord_ == nullptr && this->dnsDmarc_ == nullptr && this->dnsMx_ == nullptr && this->dnsSpf_ == nullptr && this->dnsTxt_ == nullptr
-        && this->domainId_ == nullptr && this->domainName_ == nullptr && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->hostRecord_ == nullptr
-        && this->icpStatus_ == nullptr && this->mxAuthStatus_ == nullptr && this->mxRecord_ == nullptr && this->requestId_ == nullptr && this->spfAuthStatus_ == nullptr
-        && this->spfRecord_ == nullptr && this->spfRecordV2_ == nullptr && this->tlDomainName_ == nullptr && this->tracefRecord_ == nullptr; };
+        && this->domainId_ == nullptr && this->domainName_ == nullptr && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->domainVersion_ == nullptr
+        && this->hostRecord_ == nullptr && this->icpStatus_ == nullptr && this->mxAuthStatus_ == nullptr && this->mxRecord_ == nullptr && this->requestId_ == nullptr
+        && this->spfAuthStatus_ == nullptr && this->spfRecord_ == nullptr && this->spfRecordV2_ == nullptr && this->tlDomainName_ == nullptr && this->tracefRecord_ == nullptr; };
     // cnameAuthStatus Field Functions 
     bool hasCnameAuthStatus() const { return this->cnameAuthStatus_ != nullptr;};
     void deleteCnameAuthStatus() { this->cnameAuthStatus_ = nullptr;};
@@ -234,6 +236,13 @@ namespace Models
     inline DescDomainResponseBody& setDomainType(string domainType) { DARABONBA_PTR_SET_VALUE(domainType_, domainType) };
 
 
+    // domainVersion Field Functions 
+    bool hasDomainVersion() const { return this->domainVersion_ != nullptr;};
+    void deleteDomainVersion() { this->domainVersion_ = nullptr;};
+    inline int32_t getDomainVersion() const { DARABONBA_PTR_GET_DEFAULT(domainVersion_, 0) };
+    inline DescDomainResponseBody& setDomainVersion(int32_t domainVersion) { DARABONBA_PTR_SET_VALUE(domainVersion_, domainVersion) };
+
+
     // hostRecord Field Functions 
     bool hasHostRecord() const { return this->hostRecord_ != nullptr;};
     void deleteHostRecord() { this->hostRecord_ = nullptr;};
@@ -305,70 +314,70 @@ namespace Models
 
 
   protected:
-    // The CNAME authentication flag. 0: Succeeded. 1: Failed.
+    // CNAME verification flag, 0 for success, 1 for failure.
     shared_ptr<string> cnameAuthStatus_ {};
-    // Indicates whether the CNAME host record was modified. A value of 1 means the record was modified. Reverting to the original value is also considered a modification. A value of 0 means the record was not modified.
+    // Indicates whether the CNAME host record has been modified, 1 for modified (reverting to the original value also counts as modification), 0 for not modified.
     shared_ptr<string> cnameConfirmStatus_ {};
-    // The custom part of the CNAME host record.
+    // Custom part of the CNAME host record
     shared_ptr<string> cnameRecord_ {};
-    // The time when the domain name was created.
+    // Creation time
     shared_ptr<string> createTime_ {};
-    // Indicates whether the domain name is the default domain name.
+    // Whether it is the default domain,
     // 
-    // Value: 0 (No). This field is deprecated.
+    // Value: 0 No (this field is deprecated)
     shared_ptr<string> defaultDomain_ {};
-    // The DKIM authentication flag. Indicates if the DKIM record in your DNS settings passed verification. 0: Passed. 1: Not passed.
+    // DKIM verification flag, indicating whether the DKIM record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
     shared_ptr<string> dkimAuthStatus_ {};
-    // The DKIM public key. This is the value of the DKIM record to configure in your DNS settings.
+    // DKIM public key value, the value that users need to set for the DKIM record in DNS
     shared_ptr<string> dkimPublicKey_ {};
-    // The DKIM host record. This is the key of the DKIM record to configure in your DNS settings.
+    // DKIM host record, the key that the user needs to set in the DNS for the DKIM record
     shared_ptr<string> dkimRR_ {};
     shared_ptr<int32_t> dkimRsaLength_ {};
-    // The DMARC authentication flag. Indicates if the DMARC record in your DNS settings passed verification. 0: Passed. 1: Not passed.
+    // DMARC verification flag, indicating whether the DMARC record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
     shared_ptr<int32_t> dmarcAuthStatus_ {};
-    // The DMARC host record value.
+    // DMARC host record value
     shared_ptr<string> dmarcHostRecord_ {};
-    // The DMARC record value.
+    // DMARC record value
     shared_ptr<string> dmarcRecord_ {};
-    // The DMARC record value parsed from the public domain name.
+    // DMARC record value resolved through the public domain name
     shared_ptr<string> dnsDmarc_ {};
-    // The MX record value parsed from the public domain name.
+    // MX record value resolved from the public network domain
     shared_ptr<string> dnsMx_ {};
-    // The SPF record value parsed from the public domain name.
+    // SPF record value resolved from the public network domain
     shared_ptr<string> dnsSpf_ {};
-    // The ownership record value parsed from the public domain name.
+    // Ownership record value resolved from the public network domain
     shared_ptr<string> dnsTxt_ {};
-    // The domain name ID.
+    // Domain ID
     shared_ptr<string> domainId_ {};
-    // The domain name.
+    // Domain name
     shared_ptr<string> domainName_ {};
-    // The domain status. This indicates whether the domain name passed authentication. Valid values:
+    // Domain status. Indicates whether the verification was successful, with values:
     // 
-    // - **0**: Active. The domain name passed authentication.
-    // 
-    // - **1**: Inactive. The domain name failed authentication.
+    // - **0**: Available, verified successfully
+    // - **1**: Unavailable, verification failed
     shared_ptr<string> domainStatus_ {};
-    // The ownership record provided by the Direct Mail console.
+    // Ownership record provided by the email push console
     shared_ptr<string> domainType_ {};
-    // The host record.
+    shared_ptr<int32_t> domainVersion_ {};
+    // Host record
     shared_ptr<string> hostRecord_ {};
-    // The ICP filing status. **1** indicates that the domain name has an ICP filing. **0** indicates that the domain name does not have an ICP filing.
+    // Filing status. **1** indicates filed, **0** indicates not filed.
     shared_ptr<string> icpStatus_ {};
-    // The MX authentication flag. 0: Succeeded. 1: Failed.
+    // MX verification flag, 0 for success, 1 for failure.
     shared_ptr<string> mxAuthStatus_ {};
-    // The MX record value provided by the Direct Mail console.
+    // MX record value provided by the email push console
     shared_ptr<string> mxRecord_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The SPF authentication flag. 0: Succeeded. 1: Failed.
+    // SPF verification flag, 0 for success, 1 for failure.
     shared_ptr<string> spfAuthStatus_ {};
-    // The SPF record value provided by the Direct Mail console.
+    // SPF record value provided by the email push console
     shared_ptr<string> spfRecord_ {};
-    // The SPF record. This field replaces the \\`spfRecord\\` field. You can directly display the value of this field without needing to calculate it from the response.
+    // SPF record. Previously, the SPF display content needed to be calculated by the calling end based on the spfRecord in the response. The new field spfRecordV2 replaces spfRecord, and the calling end can directly display this field after obtaining it;
     shared_ptr<string> spfRecordV2_ {};
-    // The primary domain name.
+    // Primary domain
     shared_ptr<string> tlDomainName_ {};
-    // The CNAME record value provided by the Direct Mail console.
+    // CNAME record value provided by the email push console
     shared_ptr<string> tracefRecord_ {};
   };
 

@@ -83,17 +83,12 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The selector field in the DKIM protocol, used to identify a specific public key. It is recommended to leave it blank, as the system will automatically generate it based on cluster information. If the user specifies it manually, for example, if the sending domain is "sub.example.com" and dkimSelector is set to "default", then the host record will be "default._domainkey.sub"
-    // Constraints:
-    // 
-    // 1. The length must not exceed 60 characters.
-    // 
-    // 2. It must consist of visible characters only.
-    // 
-    // 3. It cannot start with a hyphen (-).
-    // 
-    // 4. It cannot end with a hyphen (-).
-    // 
-    // 5. It cannot contain any of the following characters: _ :;/!\\*\\~.@#$%^&()+=[{]}|?<>,\\""
+    // Constraints: 
+    // 1. The length must not exceed 60 characters. 
+    // 2. It must consist of visible characters only. 
+    // 3. It cannot start with a hyphen (-). 
+    // 4. It cannot end with a hyphen (-). 
+    // 5. It cannot contain any of the following characters: _ :;/!*~.@#$%^&()+=[{]}|?<>,\\""
     shared_ptr<string> dkimSelector_ {};
   };
 

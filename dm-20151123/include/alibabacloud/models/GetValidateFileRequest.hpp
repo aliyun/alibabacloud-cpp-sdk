@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The file ID returned after the task is submitted.
     shared_ptr<string> fileId_ {};
   };
 

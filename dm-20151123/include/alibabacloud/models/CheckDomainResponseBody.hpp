@@ -51,7 +51,6 @@ namespace Models
     // Domain status. Indicates whether the verification was successful, with values as follows:
     // 
     // - **0**: Available, verified successfully
-    // 
     // - **1**: Unavailable, verification failed
     shared_ptr<int32_t> domainStatus_ {};
     // Request ID

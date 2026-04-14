@@ -262,19 +262,18 @@ namespace Models
 
 
   protected:
-    // Used for pagination. Do not set this parameter for the first request. For subsequent requests, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated.)
+    // Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
     shared_ptr<string> offsetCreateTime_ {};
-    // (This field is deprecated.)
+    // (This field is deprecated)
     shared_ptr<string> offsetCreateTimeDesc_ {};
-    // The current page number.
+    // Current page number
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // Number of items per page
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier for the request.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The total number of matching records.
+    // Total number of items
     shared_ptr<int32_t> total_ {};
-    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
     shared_ptr<GetTrackListResponseBody::Data> data_ {};
   };

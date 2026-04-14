@@ -130,43 +130,24 @@ namespace Models
 
 
   protected:
-    // The sender address. If you do not specify this parameter, statistics for all sender addresses are returned.
+    // Sending address. If not filled, it represents all addresses.
     shared_ptr<string> accountName_ {};
-    // If you use Dedicated IPs, use this parameter to filter statistics by a specific Dedicated IP.
-    // 
-    // If you do not specify this parameter, statistics for all dedicated IPs that match the other criteria are returned.
     shared_ptr<string> dedicatedIp_ {};
-    // If you use Dedicated IPs, specify the ID of the dedicated IP pool to query.
-    // 
-    // If you do not specify this parameter, statistics for all resources are returned.
     shared_ptr<string> dedicatedIpPoolId_ {};
     shared_ptr<string> domain_ {};
-    // The end time for the query. The time range between `StartTime` and `EndTime` cannot exceed 7 days. The format must be `YYYY-MM-DD`.
+    // End time, which cannot exceed 7 days from the start time, in the format yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // If you use Dedicated IPs, use this parameter to filter statistics by a specific Email Service Provider (ESP). Valid values are:
-    // 
-    // - `gmail.com`
-    // 
-    // - `yahoo.com`
-    // 
-    // - `outlook.com`
-    // 
-    // - `icloud.com`
-    // 
-    // - `others` (matches data for all other ESPs)
-    // 
-    // If you do not specify this parameter, statistics for all ESPs are returned.
     shared_ptr<string> esp_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time for the query. The date cannot be more than 30 days in the past. The format must be `YYYY-MM-DD`.
+    // Start time, in the format yyyy-MM-dd.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The email tag. If you do not specify this parameter, statistics for all tags are returned.
+    // Email tag. If not filled, it represents all tags.
     shared_ptr<string> tagName_ {};
   };
 

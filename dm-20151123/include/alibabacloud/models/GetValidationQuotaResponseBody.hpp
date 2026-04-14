@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total available quota.
     shared_ptr<int32_t> totalQuota_ {};
-    // The used quota.
     shared_ptr<int32_t> usedQuota_ {};
   };
 

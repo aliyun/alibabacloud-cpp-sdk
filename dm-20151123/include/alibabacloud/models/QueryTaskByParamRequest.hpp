@@ -94,16 +94,16 @@ namespace Models
 
 
   protected:
-    // The keyword for the query. If you leave this blank, all tasks are returned.
+    // Keyword, defaults to all information
     shared_ptr<string> keyWord_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: 1.
+    // Current page number, default is 1
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Default value: 10.
+    // Page size, default is 10
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The task status. If you leave this blank, tasks in all states are returned.
+    // Status, defaults to all statuses
     shared_ptr<int32_t> status_ {};
   };
 

@@ -68,11 +68,13 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
@@ -126,7 +128,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加IP防护信息
+ * @summary Add IP Protection Information
  *
  * @param request AddIpfilterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -169,7 +171,7 @@ AddIpfilterResponse Client::addIpfilterWithOptions(const AddIpfilterRequest &req
 }
 
 /**
- * @summary 添加IP防护信息
+ * @summary Add IP Protection Information
  *
  * @param request AddIpfilterRequest
  * @return AddIpfilterResponse
@@ -234,7 +236,7 @@ ApproveReplyMailAddressResponse Client::approveReplyMailAddress(const ApproveRep
 }
 
 /**
- * @summary Sends a batch of emails.
+ * @summary Batch Send Emails
  *
  * @param request BatchSendMailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +327,7 @@ BatchSendMailResponse Client::batchSendMailWithOptions(const BatchSendMailReques
 }
 
 /**
- * @summary Sends a batch of emails.
+ * @summary Batch Send Emails
  *
  * @param request BatchSendMailRequest
  * @return BatchSendMailResponse
@@ -552,7 +554,7 @@ CheckReplyToMailAddressResponse Client::checkReplyToMailAddress(const CheckReply
 }
 
 /**
- * @summary Disassociates a sender address from a configuration set.
+ * @summary 配置集取消关联发信地址
  *
  * @param request ConfigSetCancelRelationFromAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -587,7 +589,7 @@ ConfigSetCancelRelationFromAddressResponse Client::configSetCancelRelationFromAd
 }
 
 /**
- * @summary Disassociates a sender address from a configuration set.
+ * @summary 配置集取消关联发信地址
  *
  * @param request ConfigSetCancelRelationFromAddressRequest
  * @return ConfigSetCancelRelationFromAddressResponse
@@ -598,7 +600,7 @@ ConfigSetCancelRelationFromAddressResponse Client::configSetCancelRelationFromAd
 }
 
 /**
- * @summary Creates a configuration set. You can create up to 100 configuration sets.
+ * @summary 配置集创建
  *
  * @param request ConfigSetCreateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +639,7 @@ ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreate
 }
 
 /**
- * @summary Creates a configuration set. You can create up to 100 configuration sets.
+ * @summary 配置集创建
  *
  * @param request ConfigSetCreateRequest
  * @return ConfigSetCreateResponse
@@ -648,7 +650,7 @@ ConfigSetCreateResponse Client::configSetCreate(const ConfigSetCreateRequest &re
 }
 
 /**
- * @summary Deletes configuration sets.
+ * @summary 删除配置集
  *
  * @param request ConfigSetDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -683,7 +685,7 @@ ConfigSetDeleteResponse Client::configSetDeleteWithOptions(const ConfigSetDelete
 }
 
 /**
- * @summary Deletes configuration sets.
+ * @summary 删除配置集
  *
  * @param request ConfigSetDeleteRequest
  * @return ConfigSetDeleteResponse
@@ -694,7 +696,7 @@ ConfigSetDeleteResponse Client::configSetDelete(const ConfigSetDeleteRequest &re
 }
 
 /**
- * @summary Retrieves the details of a configuration set.
+ * @summary 配置集详情
  *
  * @param request ConfigSetDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -725,7 +727,7 @@ ConfigSetDetailResponse Client::configSetDetailWithOptions(const ConfigSetDetail
 }
 
 /**
- * @summary Retrieves the details of a configuration set.
+ * @summary 配置集详情
  *
  * @param request ConfigSetDetailRequest
  * @return ConfigSetDetailResponse
@@ -736,7 +738,7 @@ ConfigSetDetailResponse Client::configSetDetail(const ConfigSetDetailRequest &re
 }
 
 /**
- * @summary Lists configuration sets.
+ * @summary 配置集列表
  *
  * @param request ConfigSetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +781,7 @@ ConfigSetListResponse Client::configSetListWithOptions(const ConfigSetListReques
 }
 
 /**
- * @summary Lists configuration sets.
+ * @summary 配置集列表
  *
  * @param request ConfigSetListRequest
  * @return ConfigSetListResponse
@@ -790,7 +792,7 @@ ConfigSetListResponse Client::configSetList(const ConfigSetListRequest &request)
 }
 
 /**
- * @summary Associates a configuration set with a sender address.
+ * @summary 配置集关联发信地址
  *
  * @param request ConfigSetRelationFromAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -825,7 +827,7 @@ ConfigSetRelationFromAddressResponse Client::configSetRelationFromAddressWithOpt
 }
 
 /**
- * @summary Associates a configuration set with a sender address.
+ * @summary 配置集关联发信地址
  *
  * @param request ConfigSetRelationFromAddressRequest
  * @return ConfigSetRelationFromAddressResponse
@@ -836,7 +838,7 @@ ConfigSetRelationFromAddressResponse Client::configSetRelationFromAddress(const 
 }
 
 /**
- * @summary Updates a configuration set.
+ * @summary 配置集更新
  *
  * @param request ConfigSetUpdateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -879,7 +881,7 @@ ConfigSetUpdateResponse Client::configSetUpdateWithOptions(const ConfigSetUpdate
 }
 
 /**
- * @summary Updates a configuration set.
+ * @summary 配置集更新
  *
  * @param request ConfigSetUpdateRequest
  * @return ConfigSetUpdateResponse
@@ -1072,7 +1074,7 @@ CreateReceiverResponse Client::createReceiver(const CreateReceiverRequest &reque
 }
 
 /**
- * @summary Creates a tag.
+ * @summary Create Tag
  *
  * @param request CreateTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1119,7 +1121,7 @@ CreateTagResponse Client::createTagWithOptions(const CreateTagRequest &request, 
 }
 
 /**
- * @summary Creates a tag.
+ * @summary Create Tag
  *
  * @param request CreateTagRequest
  * @return CreateTagResponse
@@ -1184,7 +1186,7 @@ CreateUserSuppressionResponse Client::createUserSuppression(const CreateUserSupp
 }
 
 /**
- * @summary Sets auto-renewal for a dedicated IP address.
+ * @summary Set Dedicated IP Auto Renewal
  *
  * @param request DedicatedIpAutoRenewalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1219,7 +1221,7 @@ DedicatedIpAutoRenewalResponse Client::dedicatedIpAutoRenewalWithOptions(const D
 }
 
 /**
- * @summary Sets auto-renewal for a dedicated IP address.
+ * @summary Set Dedicated IP Auto Renewal
  *
  * @param request DedicatedIpAutoRenewalRequest
  * @return DedicatedIpAutoRenewalResponse
@@ -1230,7 +1232,7 @@ DedicatedIpAutoRenewalResponse Client::dedicatedIpAutoRenewal(const DedicatedIpA
 }
 
 /**
- * @summary Updates the prefetch method for a dedicated IP address.
+ * @summary Change the warmup method for a dedicated IP
  *
  * @param request DedicatedIpChangeWarmupTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1265,7 +1267,7 @@ DedicatedIpChangeWarmupTypeResponse Client::dedicatedIpChangeWarmupTypeWithOptio
 }
 
 /**
- * @summary Updates the prefetch method for a dedicated IP address.
+ * @summary Change the warmup method for a dedicated IP
  *
  * @param request DedicatedIpChangeWarmupTypeRequest
  * @return DedicatedIpChangeWarmupTypeResponse
@@ -1276,7 +1278,7 @@ DedicatedIpChangeWarmupTypeResponse Client::dedicatedIpChangeWarmupType(const De
 }
 
 /**
- * @summary Queries the IP addresses that you have purchased.
+ * @summary Dedicated IP User IP List
  *
  * @param request DedicatedIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1315,7 +1317,7 @@ DedicatedIpListResponse Client::dedicatedIpListWithOptions(const DedicatedIpList
 }
 
 /**
- * @summary Queries the IP addresses that you have purchased.
+ * @summary Dedicated IP User IP List
  *
  * @param request DedicatedIpListRequest
  * @return DedicatedIpListResponse
@@ -1326,9 +1328,8 @@ DedicatedIpListResponse Client::dedicatedIpList(const DedicatedIpListRequest &re
 }
 
 /**
- * @summary Lists the IP addresses that are not assigned to any IP pool. This operation is used for IP pool configuration.
+ * @summary Purchased Independent IPs Not Added to Pool
  *
- * @param request DedicatedIpNonePoolListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DedicatedIpNonePoolListResponse
  */
@@ -1349,7 +1350,7 @@ DedicatedIpNonePoolListResponse Client::dedicatedIpNonePoolListWithOptions(const
 }
 
 /**
- * @summary Lists the IP addresses that are not assigned to any IP pool. This operation is used for IP pool configuration.
+ * @summary Purchased Independent IPs Not Added to Pool
  *
  * @return DedicatedIpNonePoolListResponse
  */
@@ -1359,7 +1360,7 @@ DedicatedIpNonePoolListResponse Client::dedicatedIpNonePoolList() {
 }
 
 /**
- * @summary Creates a dedicated IP pool.
+ * @summary Creation of Independent IP Pool
  *
  * @param request DedicatedIpPoolCreateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1394,7 +1395,7 @@ DedicatedIpPoolCreateResponse Client::dedicatedIpPoolCreateWithOptions(const Ded
 }
 
 /**
- * @summary Creates a dedicated IP pool.
+ * @summary Creation of Independent IP Pool
  *
  * @param request DedicatedIpPoolCreateRequest
  * @return DedicatedIpPoolCreateResponse
@@ -1405,7 +1406,7 @@ DedicatedIpPoolCreateResponse Client::dedicatedIpPoolCreate(const DedicatedIpPoo
 }
 
 /**
- * @summary Deletes a dedicated IP pool.
+ * @summary Dedicated IP Pool Deletion
  *
  * @param request DedicatedIpPoolDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1436,7 +1437,7 @@ DedicatedIpPoolDeleteResponse Client::dedicatedIpPoolDeleteWithOptions(const Ded
 }
 
 /**
- * @summary Deletes a dedicated IP pool.
+ * @summary Dedicated IP Pool Deletion
  *
  * @param request DedicatedIpPoolDeleteRequest
  * @return DedicatedIpPoolDeleteResponse
@@ -1447,7 +1448,7 @@ DedicatedIpPoolDeleteResponse Client::dedicatedIpPoolDelete(const DedicatedIpPoo
 }
 
 /**
- * @summary Lists IP pools.
+ * @summary Dedicated IP Pool List
  *
  * @param request DedicatedIpPoolListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1494,7 +1495,7 @@ DedicatedIpPoolListResponse Client::dedicatedIpPoolListWithOptions(const Dedicat
 }
 
 /**
- * @summary Lists IP pools.
+ * @summary Dedicated IP Pool List
  *
  * @param request DedicatedIpPoolListRequest
  * @return DedicatedIpPoolListResponse
@@ -1505,7 +1506,7 @@ DedicatedIpPoolListResponse Client::dedicatedIpPoolList(const DedicatedIpPoolLis
 }
 
 /**
- * @summary Updates an IP pool.
+ * @summary Update of dedicated IP Pool
  *
  * @param request DedicatedIpPoolUpdateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1544,7 +1545,7 @@ DedicatedIpPoolUpdateResponse Client::dedicatedIpPoolUpdateWithOptions(const Ded
 }
 
 /**
- * @summary Updates an IP pool.
+ * @summary Update of dedicated IP Pool
  *
  * @param request DedicatedIpPoolUpdateRequest
  * @return DedicatedIpPoolUpdateResponse
@@ -1941,7 +1942,7 @@ DeleteTagResponse Client::deleteTag(const DeleteTagRequest &request) {
 }
 
 /**
- * @summary Deletes the verification file after the verification process is complete.
+ * @summary 删除批量校验任务的结果文件
  *
  * @param request DeleteValidateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1972,7 +1973,7 @@ DeleteValidateFileResponse Client::deleteValidateFileWithOptions(const DeleteVal
 }
 
 /**
- * @summary Deletes the verification file after the verification process is complete.
+ * @summary 删除批量校验任务的结果文件
  *
  * @param request DeleteValidateFileRequest
  * @return DeleteValidateFileResponse
@@ -1983,7 +1984,7 @@ DeleteValidateFileResponse Client::deleteValidateFile(const DeleteValidateFileRe
 }
 
 /**
- * @summary Retrieves account information.
+ * @summary Retrieve account information.
  *
  * @param request DescAccountSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2022,7 +2023,7 @@ DescAccountSummaryResponse Client::descAccountSummaryWithOptions(const DescAccou
 }
 
 /**
- * @summary Retrieves account information.
+ * @summary Retrieve account information.
  *
  * @param request DescAccountSummaryRequest
  * @return DescAccountSummaryResponse
@@ -2033,7 +2034,7 @@ DescAccountSummaryResponse Client::descAccountSummary(const DescAccountSummaryRe
 }
 
 /**
- * @summary You can configure domain names.
+ * @summary Get Domain Details
  *
  * @param request DescDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2080,7 +2081,7 @@ DescDomainResponse Client::descDomainWithOptions(const DescDomainRequest &reques
 }
 
 /**
- * @summary You can configure domain names.
+ * @summary Get Domain Details
  *
  * @param request DescDomainRequest
  * @return DescDomainResponse
@@ -2091,9 +2092,7 @@ DescDomainResponse Client::descDomain(const DescDomainRequest &request) {
 }
 
 /**
- * @summary Views the information about a template.
- *
- * @description You can call this operation to view the information about a template.
+ * @summary 查看模板信息
  *
  * @param request DescTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2140,9 +2139,7 @@ DescTemplateResponse Client::descTemplateWithOptions(const DescTemplateRequest &
 }
 
 /**
- * @summary Views the information about a template.
- *
- * @description You can call this operation to view the information about a template.
+ * @summary 查看模板信息
  *
  * @param request DescTemplateRequest
  * @return DescTemplateResponse
@@ -2249,7 +2246,7 @@ GetDedicatedIpWarmUpInfoResponse Client::getDedicatedIpWarmUpInfo(const GetDedic
 }
 
 /**
- * @summary 获取IP保护信息
+ * @summary Get IP Protection Information
  *
  * @param request GetIpProtectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2288,7 +2285,7 @@ GetIpProtectionResponse Client::getIpProtectionWithOptions(const GetIpProtection
 }
 
 /**
- * @summary 获取IP保护信息
+ * @summary Get IP Protection Information
  *
  * @param request GetIpProtectionRequest
  * @return GetIpProtectionResponse
@@ -2351,7 +2348,6 @@ GetIpfilterListResponse Client::getIpfilterList(const GetIpfilterListRequest &re
 /**
  * @summary 获取sendify免登链接
  *
- * @param request GetSendifyAutoLoginURLRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSendifyAutoLoginURLResponse
  */
@@ -2384,7 +2380,6 @@ GetSendifyAutoLoginURLResponse Client::getSendifyAutoLoginURL() {
 /**
  * @summary 免费试用Sendify
  *
- * @param request GetSendifyInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSendifyInfoResponse
  */
@@ -2465,7 +2460,7 @@ GetSuppressionListLevelResponse Client::getSuppressionListLevel(const GetSuppres
 }
 
 /**
- * @summary Email Tracking retrieves data on sent emails.
+ * @summary Get tracking information
  *
  * @param request GetTrackListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2564,7 +2559,7 @@ GetTrackListResponse Client::getTrackListWithOptions(const GetTrackListRequest &
 }
 
 /**
- * @summary Email Tracking retrieves data on sent emails.
+ * @summary Get tracking information
  *
  * @param request GetTrackListRequest
  * @return GetTrackListResponse
@@ -2575,7 +2570,7 @@ GetTrackListResponse Client::getTrackList(const GetTrackListRequest &request) {
 }
 
 /**
- * @summary Retrieves email tracking data that meets specified conditions.
+ * @summary Get tracking information based on the sender address and tag name
  *
  * @param request GetTrackListByMailFromAndTagNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2670,7 +2665,7 @@ GetTrackListByMailFromAndTagNameResponse Client::getTrackListByMailFromAndTagNam
 }
 
 /**
- * @summary Retrieves email tracking data that meets specified conditions.
+ * @summary Get tracking information based on the sender address and tag name
  *
  * @param request GetTrackListByMailFromAndTagNameRequest
  * @return GetTrackListByMailFromAndTagNameResponse
@@ -2681,9 +2676,8 @@ GetTrackListByMailFromAndTagNameResponse Client::getTrackListByMailFromAndTagNam
 }
 
 /**
- * @summary 获取账号详情
+ * @summary Get Account Details
  *
- * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUserResponse
  */
@@ -2704,7 +2698,7 @@ GetUserResponse Client::getUserWithOptions(const Darabonba::RuntimeOptions &runt
 }
 
 /**
- * @summary 获取账号详情
+ * @summary Get Account Details
  *
  * @return GetUserResponse
  */
@@ -2714,7 +2708,7 @@ GetUserResponse Client::getUser() {
 }
 
 /**
- * @summary Retrieves the results file of a batch validation task.
+ * @summary 获取批量校验任务的结果文件
  *
  * @param request GetValidateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2745,7 +2739,7 @@ GetValidateFileResponse Client::getValidateFileWithOptions(const GetValidateFile
 }
 
 /**
- * @summary Retrieves the results file of a batch validation task.
+ * @summary 获取批量校验任务的结果文件
  *
  * @param request GetValidateFileRequest
  * @return GetValidateFileResponse
@@ -2756,7 +2750,7 @@ GetValidateFileResponse Client::getValidateFile(const GetValidateFileRequest &re
 }
 
 /**
- * @summary Retrieves the status of a validation file.
+ * @summary 获取批量校验任务的状态
  *
  * @param request GetValidateFileStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2787,7 +2781,7 @@ GetValidateFileStatusResponse Client::getValidateFileStatusWithOptions(const Get
 }
 
 /**
- * @summary Retrieves the status of a validation file.
+ * @summary 获取批量校验任务的状态
  *
  * @param request GetValidateFileStatusRequest
  * @return GetValidateFileStatusResponse
@@ -2798,9 +2792,8 @@ GetValidateFileStatusResponse Client::getValidateFileStatus(const GetValidateFil
 }
 
 /**
- * @summary Retrieves the email validation quota.
+ * @summary 获取电子邮件校验额度
  *
- * @param request GetValidationQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetValidationQuotaResponse
  */
@@ -2821,7 +2814,7 @@ GetValidationQuotaResponse Client::getValidationQuotaWithOptions(const Darabonba
 }
 
 /**
- * @summary Retrieves the email validation quota.
+ * @summary 获取电子邮件校验额度
  *
  * @return GetValidationQuotaResponse
  */
@@ -2831,9 +2824,7 @@ GetValidationQuotaResponse Client::getValidationQuota() {
 }
 
 /**
- * @summary Queries the email sending blacklist.
- *
- * @description Queries data about unsubscribes or spam reports.
+ * @summary 获取发信的黑名单列表
  *
  * @param request ListBlockSendingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2888,9 +2879,7 @@ ListBlockSendingResponse Client::listBlockSendingWithOptions(const ListBlockSend
 }
 
 /**
- * @summary Queries the email sending blacklist.
- *
- * @description Queries data about unsubscribes or spam reports.
+ * @summary 获取发信的黑名单列表
  *
  * @param request ListBlockSendingRequest
  * @return ListBlockSendingResponse
@@ -2979,7 +2968,7 @@ ListUserSuppressionResponse Client::listUserSuppression(const ListUserSuppressio
 }
 
 /**
- * @summary Retrieves a list of uploaded validation files.
+ * @summary 获取上传的校验文件的列表
  *
  * @param request ListValidateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3026,7 +3015,7 @@ ListValidateFileResponse Client::listValidateFileWithOptions(const ListValidateF
 }
 
 /**
- * @summary Retrieves a list of uploaded validation files.
+ * @summary 获取上传的校验文件的列表
  *
  * @param request ListValidateFileRequest
  * @return ListValidateFileResponse
@@ -3221,7 +3210,6 @@ ModifyTagResponse Client::modifyTag(const ModifyTagRequest &request) {
 /**
  * @summary 免费试用Sendify
  *
- * @param request OpenSendifyTrialServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenSendifyTrialServiceResponse
  */
@@ -3392,7 +3380,7 @@ QueryInvalidAddressResponse Client::queryInvalidAddress(const QueryInvalidAddres
 }
 
 /**
- * @summary Queries a list of sender addresses.
+ * @summary Query the list of sending addresses.
  *
  * @param request QueryMailAddressByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3447,7 +3435,7 @@ QueryMailAddressByParamResponse Client::queryMailAddressByParamWithOptions(const
 }
 
 /**
- * @summary Queries a list of sender addresses.
+ * @summary Query the list of sending addresses.
  *
  * @param request QueryMailAddressByParamRequest
  * @return QueryMailAddressByParamResponse
@@ -3458,7 +3446,7 @@ QueryMailAddressByParamResponse Client::queryMailAddressByParam(const QueryMailA
 }
 
 /**
- * @summary Query the recipient list.
+ * @summary Query the details of the recipient list
  *
  * @param request QueryReceiverByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3513,7 +3501,7 @@ QueryReceiverByParamResponse Client::queryReceiverByParamWithOptions(const Query
 }
 
 /**
- * @summary Query the recipient list.
+ * @summary Query the details of the recipient list
  *
  * @param request QueryReceiverByParamRequest
  * @return QueryReceiverByParamResponse
@@ -3652,7 +3640,7 @@ QueryTagByParamResponse Client::queryTagByParam(const QueryTagByParamRequest &re
 }
 
 /**
- * @summary Queries tasks based on specified parameters.
+ * @summary Query task list
  *
  * @param request QueryTaskByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3707,7 +3695,7 @@ QueryTaskByParamResponse Client::queryTaskByParamWithOptions(const QueryTaskByPa
 }
 
 /**
- * @summary Queries tasks based on specified parameters.
+ * @summary Query task list
  *
  * @param request QueryTaskByParamRequest
  * @return QueryTaskByParamResponse
@@ -3718,9 +3706,7 @@ QueryTaskByParamResponse Client::queryTaskByParam(const QueryTaskByParamRequest 
 }
 
 /**
- * @summary Performs a paged query to retrieve a list of templates.
- *
- * @description Performs a paged query to retrieve a list of templates.
+ * @summary 查询模板信息
  *
  * @param request QueryTemplateByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3779,9 +3765,7 @@ QueryTemplateByParamResponse Client::queryTemplateByParamWithOptions(const Query
 }
 
 /**
- * @summary Performs a paged query to retrieve a list of templates.
- *
- * @description Performs a paged query to retrieve a list of templates.
+ * @summary 查询模板信息
  *
  * @param request QueryTemplateByParamRequest
  * @return QueryTemplateByParamResponse
@@ -3792,7 +3776,7 @@ QueryTemplateByParamResponse Client::queryTemplateByParam(const QueryTemplateByP
 }
 
 /**
- * @summary Deletes system-identified and manually added addresses from the user-level suppression list.
+ * @summary Delete User\\"s Invalid Addresses
  *
  * @param request RemoveUserSuppressionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3835,7 +3819,7 @@ RemoveUserSuppressionResponse Client::removeUserSuppressionWithOptions(const Rem
 }
 
 /**
- * @summary Deletes system-identified and manually added addresses from the user-level suppression list.
+ * @summary Delete User\\"s Invalid Addresses
  *
  * @param request RemoveUserSuppressionRequest
  * @return RemoveUserSuppressionResponse
@@ -3846,7 +3830,7 @@ RemoveUserSuppressionResponse Client::removeUserSuppression(const RemoveUserSupp
 }
 
 /**
- * @summary Create a single recipient.
+ * @summary Create a Single Recipient
  *
  * @param request SaveReceiverDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3897,7 +3881,7 @@ SaveReceiverDetailResponse Client::saveReceiverDetailWithOptions(const SaveRecei
 }
 
 /**
- * @summary Create a single recipient.
+ * @summary Create a Single Recipient
  *
  * @param request SaveReceiverDetailRequest
  * @return SaveReceiverDetailResponse
@@ -3908,7 +3892,7 @@ SaveReceiverDetailResponse Client::saveReceiverDetail(const SaveReceiverDetailRe
 }
 
 /**
- * @summary You can send a test email.
+ * @summary Send Template Test Email
  *
  * @param request SendTestByTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3983,7 +3967,7 @@ SendTestByTemplateResponse Client::sendTestByTemplateWithOptions(const SendTestB
 }
 
 /**
- * @summary You can send a test email.
+ * @summary Send Template Test Email
  *
  * @param request SendTestByTemplateRequest
  * @return SendTestByTemplateResponse
@@ -3994,7 +3978,7 @@ SendTestByTemplateResponse Client::sendTestByTemplate(const SendTestByTemplateRe
 }
 
 /**
- * @summary You can upload the list of addresses to be verified.
+ * @summary 提交批量校验任务
  *
  * @param request SendValidateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4041,7 +4025,7 @@ SendValidateFileResponse Client::sendValidateFileWithOptions(const SendValidateF
 }
 
 /**
- * @summary You can upload the list of addresses to be verified.
+ * @summary 提交批量校验任务
  *
  * @param request SendValidateFileRequest
  * @return SendValidateFileResponse
@@ -4121,7 +4105,7 @@ SendValidateFileResponse Client::sendValidateFileAdvance(const SendValidateFileA
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -4138,7 +4122,7 @@ SendValidateFileResponse Client::sendValidateFileAdvance(const SendValidateFileA
 }
 
 /**
- * @summary Retrieves sending statistics that match specified criteria.
+ * @summary Retrieve Sending Data under Specified Conditions
  *
  * @param request SenderStatisticsByTagNameAndBatchIDRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4209,7 +4193,7 @@ SenderStatisticsByTagNameAndBatchIDResponse Client::senderStatisticsByTagNameAnd
 }
 
 /**
- * @summary Retrieves sending statistics that match specified criteria.
+ * @summary Retrieve Sending Data under Specified Conditions
  *
  * @param request SenderStatisticsByTagNameAndBatchIDRequest
  * @return SenderStatisticsByTagNameAndBatchIDResponse
@@ -4220,7 +4204,7 @@ SenderStatisticsByTagNameAndBatchIDResponse Client::senderStatisticsByTagNameAnd
 }
 
 /**
- * @summary Queries sending details.
+ * @summary Query Delivery Result Details
  *
  * @param request SenderStatisticsDetailByParamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4299,7 +4283,7 @@ SenderStatisticsDetailByParamResponse Client::senderStatisticsDetailByParamWithO
 }
 
 /**
- * @summary Queries sending details.
+ * @summary Query Delivery Result Details
  *
  * @param request SenderStatisticsDetailByParamRequest
  * @return SenderStatisticsDetailByParamResponse
@@ -4364,7 +4348,7 @@ SetSuppressionListLevelResponse Client::setSuppressionListLevel(const SetSuppres
 }
 
 /**
- * @summary Sends a single email.
+ * @summary API for Sending Emails
  *
  * @param tmpReq SingleSendMailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4491,7 +4475,7 @@ SingleSendMailResponse Client::singleSendMailWithOptions(const SingleSendMailReq
 }
 
 /**
- * @summary Sends a single email.
+ * @summary API for Sending Emails
  *
  * @param request SingleSendMailRequest
  * @return SingleSendMailResponse
@@ -4574,7 +4558,7 @@ SingleSendMailResponse Client::singleSendMailAdvance(const SingleSendMailAdvance
           {"contentType" , ""}
         }));
         ossHeader = json({
-          {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+          {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
           {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
           {"policy" , authResponseBody.at("EncodedPolicy")},
           {"Signature" , authResponseBody.at("Signature")},
@@ -4596,7 +4580,7 @@ SingleSendMailResponse Client::singleSendMailAdvance(const SingleSendMailAdvance
 }
 
 /**
- * @summary Removes sending restrictions caused by unsubscribes or complaints.
+ * @summary Lift sending restrictions due to unsubscription, reporting, etc.
  *
  * @param request UnblockSendingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4635,7 +4619,7 @@ UnblockSendingResponse Client::unblockSendingWithOptions(const UnblockSendingReq
 }
 
 /**
- * @summary Removes sending restrictions caused by unsubscribes or complaints.
+ * @summary Lift sending restrictions due to unsubscription, reporting, etc.
  *
  * @param request UnblockSendingRequest
  * @return UnblockSendingResponse
@@ -4700,7 +4684,7 @@ UpdateIpProtectionResponse Client::updateIpProtection(const UpdateIpProtectionRe
 }
 
 /**
- * @summary 更新帐号信息
+ * @summary Update account information
  *
  * @param tmpReq UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4737,7 +4721,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &tmpReq
 }
 
 /**
- * @summary 更新帐号信息
+ * @summary Update account information
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse
@@ -4748,7 +4732,7 @@ UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
 }
 
 /**
- * @summary Validates an email address.
+ * @summary 校验电子邮件地址
  *
  * @param request ValidateEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4787,7 +4771,7 @@ ValidateEmailResponse Client::validateEmailWithOptions(const ValidateEmailReques
 }
 
 /**
- * @summary Validates an email address.
+ * @summary 校验电子邮件地址
  *
  * @param request ValidateEmailRequest
  * @return ValidateEmailResponse

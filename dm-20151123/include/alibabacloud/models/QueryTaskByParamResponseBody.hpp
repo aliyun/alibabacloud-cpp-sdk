@@ -265,13 +265,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // Current page number
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<QueryTaskByParamResponseBody::Data> data_ {};
   };

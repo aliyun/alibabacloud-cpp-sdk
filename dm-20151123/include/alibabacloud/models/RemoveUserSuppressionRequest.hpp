@@ -69,11 +69,6 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the suppressed address. To specify multiple IDs, separate them with commas (,). Call the ListUserSuppression operation to obtain the suppression ID.
-    // 
-    // You can enter multiple values, separated by a comma ",".
-    // 
-    // You can call ListUserSuppression to obtain the SuppressionId.
     shared_ptr<string> suppressionIds_ {};
   };
 

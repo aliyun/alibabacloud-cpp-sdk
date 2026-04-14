@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // The domain name ID. Obtain this ID by calling the QueryDomainByParam operation.
+    // Domain ID. Can be obtained through QueryDomainByParam.
     // 
     // This parameter is required.
     shared_ptr<int32_t> domainId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to perform real-time DNS parsing.
+    // Determines whether to perform real-time DNS resolution
     shared_ptr<bool> requireRealTimeDnsRecords_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -140,31 +140,31 @@ namespace Models
 
 
   protected:
-    // The sender address. The length cannot exceed 60 characters.
+    // Sender address, with a maximum length of 60 characters
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The birthday. The length cannot exceed 30 characters.
+    // Birthday, with a maximum length of 30 characters
     shared_ptr<string> birthday_ {};
-    // The recipient email address. The length cannot exceed 60 characters.
+    // Recipient address, with a maximum length of 60 characters
     // 
     // This parameter is required.
     shared_ptr<string> email_ {};
-    // The gender. The length cannot exceed 30 characters.
+    // Gender, with a maximum length of 30 characters
     shared_ptr<string> gender_ {};
-    // The mobile number. The length cannot exceed 30 characters.
+    // Mobile, with a maximum length of 30 characters
     shared_ptr<string> mobile_ {};
-    // The nickname. The length cannot exceed 30 characters.
+    // NickName, with a maximum length of 30 characters
     shared_ptr<string> nickName_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The template ID.
+    // Template ID
     // 
     // This parameter is required.
     shared_ptr<int32_t> templateId_ {};
     shared_ptr<string> templateParams_ {};
-    // The user name. The length cannot exceed 30 characters.
+    // UserName, with a maximum length of 30 characters
     shared_ptr<string> userName_ {};
   };
 

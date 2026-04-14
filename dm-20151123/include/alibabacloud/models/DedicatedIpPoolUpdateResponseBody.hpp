@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the IP pool.
+    // IP pool ID
     shared_ptr<string> id_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

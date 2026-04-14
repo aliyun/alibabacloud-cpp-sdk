@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // IP Address/IP Range/IP Segment
+    // 
     // This parameter is required.
     shared_ptr<string> ipAddress_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -75,24 +75,14 @@ namespace Models
 
 
   protected:
-    // The column that contains the email addresses in the file. The index starts from 1.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> addressColumn_ {};
-    // The name of the file that contains the list of email addresses.
-    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The URL of the file that contains the list of email addresses.
-    // 
     // This parameter is required.
     shared_ptr<Darabonba::IStream> fileUrlObject_ {};
-    // Specifies whether the first row is a table header.
-    // 
     // This parameter is required.
     shared_ptr<bool> hasHeaderRow_ {};
-    // Specifies whether to remove duplicate email addresses in the output file.
-    // 
     // This parameter is required.
     shared_ptr<bool> removeDuplicate_ {};
   };

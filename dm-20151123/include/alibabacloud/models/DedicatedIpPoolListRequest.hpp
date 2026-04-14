@@ -75,13 +75,12 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return all entries.
     shared_ptr<bool> all_ {};
-    // The keyword to search for IP pools by name.
+    // Search keyword for the name
     shared_ptr<string> keyword_ {};
-    // The page number to return, starting from 1.
+    // Page index, starting from 1
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page.
+    // Number of items per page
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> poolId_ {};
   };

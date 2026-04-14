@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // The description. The description can be up to 50 characters long.
     shared_ptr<string> description_ {};
-    // The ID of the configuration set. This parameter is required.
     shared_ptr<string> id_ {};
-    // The ID of the associated IP pool. This parameter is optional.
     shared_ptr<string> ipPoolId_ {};
-    // The name of the configuration. This parameter is required. The name must be unique and can be up to 50 characters long.
     shared_ptr<string> name_ {};
   };
 

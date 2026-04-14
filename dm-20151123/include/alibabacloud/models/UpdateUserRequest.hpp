@@ -57,6 +57,7 @@ namespace Models
 
 
     protected:
+      // Whether EventBridge is enabled
       shared_ptr<bool> enableEventbridge_ {};
     };
 
@@ -71,6 +72,7 @@ namespace Models
 
 
   protected:
+    // User Information
     shared_ptr<UpdateUserRequest::User> user_ {};
   };
 

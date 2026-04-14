@@ -149,39 +149,33 @@ namespace Models
 
 
   protected:
-    // The sender address. If you leave this parameter empty, emails from all sender addresses are queried.
+    // Sending address. If not filled, it represents all addresses.
     // 
-    // > You can leave **AccountName**, **TagName**, and **ToAddress** empty. You can specify a value for only one of these parameters at a time.
+    // > **AccountName**, **TagName**, and **ToAddress** can all be left unfilled. If any are filled, only one of these parameters can be passed; you cannot pass a combination of two or more.
     shared_ptr<string> accountName_ {};
-    // The ID of the configuration set.
     shared_ptr<string> configSetId_ {};
-    // The end time. The time range between the start time and the end time cannot exceed 30 days. The format is yyyy-MM-dd HH:mm.
+    // End time. The span between start and end times cannot exceed 30 days, format: yyyy-MM-dd HH:mm.
     shared_ptr<string> endTime_ {};
-    // The ID of the independent IP address pool.
     shared_ptr<string> ipPoolId_ {};
-    // The number of results to return. The value can range from 1 to 100.
+    // Specifies the number of results to return in this request. Range is 1~100.
     shared_ptr<int32_t> length_ {};
-    // The offset for this request, used for paging. If more results are available, set the \\`NextStart\\` parameter in your next request to this return value.
+    // Used for pagination. Specifies the offset for this request. If there are more results, set this returned value to the NextStart in the next request.
     shared_ptr<string> nextStart_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time. The time range between the start time and the end time cannot exceed 30 days. The format is yyyy-MM-dd HH:mm.
+    // Start time. The span between start and end times cannot exceed 30 days, format: yyyy-MM-dd HH:mm
     shared_ptr<string> startTime_ {};
-    // The delivery status. If you leave this parameter empty, emails in all delivery statuses are queried. Valid values:
+    // Delivery result. If not filled, it represents all statuses. Values:
     // 
-    // - 0: delivered successfully
-    // 
-    // - 2: invalid address
-    // 
-    // - 3: spam
-    // 
-    // - 4: failed
+    // - 0: Success
+    // - 2: Invalid Address
+    // - 3: Spam
+    // - 4: Failure
     shared_ptr<int32_t> status_ {};
-    // The email tag. If you leave this parameter empty, emails with all tags are queried.
-    // When you send an email using SMTP, specify the \\`TagName\\` and its value for the \\`X-AliDM-Trace\\` field. For more information, see the examples for email tracking.
+    // Email tag. If not filled, it represents all tags.
     shared_ptr<string> tagName_ {};
-    // The recipient address. If you leave this parameter empty, emails sent to all recipient addresses are queried.
+    // Recipient address. If not filled, it represents all recipient addresses.
     shared_ptr<string> toAddress_ {};
   };
 

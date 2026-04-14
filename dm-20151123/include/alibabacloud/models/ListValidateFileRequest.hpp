@@ -75,18 +75,11 @@ namespace Models
 
 
   protected:
-    // The end time. The time is in UTC and follows the RFC 3339 format.
-    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // A keyword in the file name.
     shared_ptr<string> fileKeyword_ {};
-    // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time. The time is in UTC and follows the RFC 3339 format.
-    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

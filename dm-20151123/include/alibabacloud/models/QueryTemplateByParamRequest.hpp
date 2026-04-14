@@ -103,18 +103,13 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated. It is retained for historical compatibility.
     shared_ptr<int32_t> fromType_ {};
-    // The keyword of the template name. By default, a paged query is performed for all templates.
     shared_ptr<string> keyWord_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // This parameter is deprecated. It is retained for historical compatibility.
     shared_ptr<int32_t> status_ {};
   };
 

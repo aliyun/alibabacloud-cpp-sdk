@@ -78,9 +78,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The description of the tag.
+    // Tag description
     shared_ptr<string> tagDescription_ {};
-    // The tag name. The name must be 1 to 128 characters long and can contain letters, digits, and underscores (_).
+    // Tag name. Limitations: 1-50 characters, allowing English letters, numbers, and underscores.
     // 
     // This parameter is required.
     shared_ptr<string> tagName_ {};

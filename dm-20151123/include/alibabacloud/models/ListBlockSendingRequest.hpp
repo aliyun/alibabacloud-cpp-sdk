@@ -94,26 +94,13 @@ namespace Models
 
 
   protected:
-    // The start of the time range to query blocked emails.
     shared_ptr<int32_t> beginTime_ {};
-    // The recipient email address.
     shared_ptr<string> blockEmail_ {};
-    // The type of block.
-    // 
-    // - UNSUB: Unsubscribe
-    // 
-    // - REPORT: Spam report
-    // 
     // This parameter is required.
     shared_ptr<string> blockType_ {};
-    // The end of the time range to query blocked emails.
     shared_ptr<int32_t> endTime_ {};
-    // The maximum number of entries to return.<br>
-    // Valid values: 1 to 500.<br>
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the query. If you do not specify this parameter, the query starts from the beginning of the results.
     shared_ptr<string> nextToken_ {};
-    // The sender email address.
     shared_ptr<string> senderEmail_ {};
   };
 

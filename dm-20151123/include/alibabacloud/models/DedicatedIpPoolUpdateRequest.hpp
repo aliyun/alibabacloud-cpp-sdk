@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the purchased IP instances. Separate multiple IDs with commas. Obtain these IDs from the response of the DedicatedIpNonePoolList operation.
+    // Purchased IP instance IDs, separated by commas; sourced from the DedicatedIpNonePoolList API\\"s returned IP purchase instance IDs
     shared_ptr<string> buyResourceIds_ {};
-    // The ID of the IP pool.
+    // IP pool ID
     shared_ptr<string> id_ {};
-    // Specifies whether to change the associated IP addresses. Set this parameter to true.
+    // Whether to change the associated IP, enter true
     shared_ptr<bool> updateResource_ {};
   };
 

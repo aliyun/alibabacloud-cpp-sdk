@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // User Information
     shared_ptr<string> userShrink_ {};
   };
 

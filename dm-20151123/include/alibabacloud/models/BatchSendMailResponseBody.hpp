@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The event ID.
+    // Event ID
     shared_ptr<string> envId_ {};
-    // The request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

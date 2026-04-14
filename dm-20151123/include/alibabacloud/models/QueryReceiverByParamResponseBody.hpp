@@ -214,13 +214,13 @@ namespace Models
 
 
   protected:
-    // Used for paging. If more results are available, set this value as the NextStart parameter in your next request.
+    // Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
     shared_ptr<string> nextStart_ {};
-    // Number of entries per page.
+    // Number of items displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // Total number of entries.
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<QueryReceiverByParamResponseBody::Data> data_ {};
   };

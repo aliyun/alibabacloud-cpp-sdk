@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the configuration sets. Separate multiple IDs with commas. This parameter is required.
     shared_ptr<string> ids_ {};
-    // Specifies whether to force delete the associations with sender addresses.
     shared_ptr<bool> isForce_ {};
   };
 

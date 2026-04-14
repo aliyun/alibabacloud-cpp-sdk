@@ -94,20 +94,19 @@ namespace Models
 
 
   protected:
-    // The email address. The length is 1 to 60 characters. It supports digits, letters, periods (.), hyphens (-), and at signs (@).
+    // Email address, length 1-60, supports numbers, letters, ., -, @.
     shared_ptr<string> keyWord_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The current page number. The default value is 1.
+    // Current page number, default: 1
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. The default value is 10.
+    // Page size, default: 10
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the sender address. Valid values:
+    // Sending address type. Values:
     // 
-    // - batch: batch emails
-    // 
-    // - trigger: triggered emails
+    // - batch: bulk email
+    // - trigger: triggered email
     shared_ptr<string> sendtype_ {};
   };
 

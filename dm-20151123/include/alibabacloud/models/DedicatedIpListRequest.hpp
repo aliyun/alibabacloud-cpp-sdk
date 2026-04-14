@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The keyword for searching IP addresses.
+    // IP search keyword
     shared_ptr<string> keyword_ {};
-    // The page number. The value starts from 1.
+    // Pagination index, starting from 1
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page.
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
   };
 

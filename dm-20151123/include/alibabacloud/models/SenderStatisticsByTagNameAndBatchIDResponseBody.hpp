@@ -186,11 +186,10 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // The total count of data records.
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
-    // Contains the statistical data.
     shared_ptr<SenderStatisticsByTagNameAndBatchIDResponseBody::Data> data_ {};
   };
 
