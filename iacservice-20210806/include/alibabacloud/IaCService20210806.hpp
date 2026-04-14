@@ -292,6 +292,24 @@ namespace IaCService20210806
       Models::CreateResourceExportTaskResponse createResourceExportTask(const Models::CreateResourceExportTaskRequest &request);
 
       /**
+       * @summary 创建资源栈
+       *
+       * @param request CreateStackRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStackResponse
+       */
+      Models::CreateStackResponse createStackWithOptions(const Models::CreateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建资源栈
+       *
+       * @param request CreateStackRequest
+       * @return CreateStackResponse
+       */
+      Models::CreateStackResponse createStack(const Models::CreateStackRequest &request);
+
+      /**
        * @summary 创建任务
        *
        * @param request CreateTaskRequest
@@ -922,6 +940,24 @@ namespace IaCService20210806
       Models::GetResourceTypeResponse getResourceType(const string &resourceType, const Models::GetResourceTypeRequest &request);
 
       /**
+       * @summary 获取资源栈
+       *
+       * @param request GetStackRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStackResponse
+       */
+      Models::GetStackResponse getStackWithOptions(const string &stackId, const Models::GetStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取资源栈
+       *
+       * @param request GetStackRequest
+       * @return GetStackResponse
+       */
+      Models::GetStackResponse getStack(const string &stackId, const Models::GetStackRequest &request);
+
+      /**
        * @summary 部署详情接口
        *
        * @param request GetStackDeploymentsRequest
@@ -1354,6 +1390,42 @@ namespace IaCService20210806
       Models::ListResourcesResponse listResources(const Models::ListResourcesRequest &request);
 
       /**
+       * @summary 查询资源栈配置列表
+       *
+       * @param request ListStackConfigsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStackConfigsResponse
+       */
+      Models::ListStackConfigsResponse listStackConfigsWithOptions(const string &stackId, const Models::ListStackConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资源栈配置列表
+       *
+       * @param request ListStackConfigsRequest
+       * @return ListStackConfigsResponse
+       */
+      Models::ListStackConfigsResponse listStackConfigs(const string &stackId, const Models::ListStackConfigsRequest &request);
+
+      /**
+       * @summary 列举资源栈
+       *
+       * @param request ListStacksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListStacksResponse
+       */
+      Models::ListStacksResponse listStacksWithOptions(const Models::ListStacksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举资源栈
+       *
+       * @param request ListStacksRequest
+       * @return ListStacksResponse
+       */
+      Models::ListStacksResponse listStacks(const Models::ListStacksRequest &request);
+
+      /**
        * @summary 任务列表
        *
        * @param tmpReq ListTasksRequest
@@ -1640,6 +1712,24 @@ namespace IaCService20210806
        * @return UpdateResourceExportTaskAttributeResponse
        */
       Models::UpdateResourceExportTaskAttributeResponse updateResourceExportTaskAttribute(const string &exportTaskId, const Models::UpdateResourceExportTaskAttributeRequest &request);
+
+      /**
+       * @summary 更新资源栈
+       *
+       * @param request UpdateStackRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStackResponse
+       */
+      Models::UpdateStackResponse updateStackWithOptions(const string &stackId, const Models::UpdateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新资源栈
+       *
+       * @param request UpdateStackRequest
+       * @return UpdateStackResponse
+       */
+      Models::UpdateStackResponse updateStack(const string &stackId, const Models::UpdateStackRequest &request);
 
       /**
        * @summary 修改任务

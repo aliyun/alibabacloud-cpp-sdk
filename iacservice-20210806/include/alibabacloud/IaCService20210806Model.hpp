@@ -49,6 +49,9 @@
 #include <alibabacloud/models/CreateResourceExportTaskRequest.hpp>
 #include <alibabacloud/models/CreateResourceExportTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateResourceExportTaskResponse.hpp>
+#include <alibabacloud/models/CreateStackRequest.hpp>
+#include <alibabacloud/models/CreateStackResponseBody.hpp>
+#include <alibabacloud/models/CreateStackResponse.hpp>
 #include <alibabacloud/models/CreateTaskRequest.hpp>
 #include <alibabacloud/models/CreateTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateTaskResponse.hpp>
@@ -154,6 +157,9 @@
 #include <alibabacloud/models/GetResourceTypeRequest.hpp>
 #include <alibabacloud/models/GetResourceTypeResponseBody.hpp>
 #include <alibabacloud/models/GetResourceTypeResponse.hpp>
+#include <alibabacloud/models/GetStackRequest.hpp>
+#include <alibabacloud/models/GetStackResponseBody.hpp>
+#include <alibabacloud/models/GetStackResponse.hpp>
 #include <alibabacloud/models/GetStackDeploymentsRequest.hpp>
 #include <alibabacloud/models/GetStackDeploymentsResponseBody.hpp>
 #include <alibabacloud/models/GetStackDeploymentsResponse.hpp>
@@ -230,6 +236,12 @@
 #include <alibabacloud/models/ListResourcesRequest.hpp>
 #include <alibabacloud/models/ListResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListResourcesResponse.hpp>
+#include <alibabacloud/models/ListStackConfigsRequest.hpp>
+#include <alibabacloud/models/ListStackConfigsResponseBody.hpp>
+#include <alibabacloud/models/ListStackConfigsResponse.hpp>
+#include <alibabacloud/models/ListStacksRequest.hpp>
+#include <alibabacloud/models/ListStacksResponseBody.hpp>
+#include <alibabacloud/models/ListStacksResponse.hpp>
 #include <alibabacloud/models/ListTasksRequest.hpp>
 #include <alibabacloud/models/ListTasksShrinkRequest.hpp>
 #include <alibabacloud/models/ListTasksResponseBody.hpp>
@@ -280,6 +292,9 @@
 #include <alibabacloud/models/UpdateResourceExportTaskAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateResourceExportTaskAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateResourceExportTaskAttributeResponse.hpp>
+#include <alibabacloud/models/UpdateStackRequest.hpp>
+#include <alibabacloud/models/UpdateStackResponseBody.hpp>
+#include <alibabacloud/models/UpdateStackResponse.hpp>
 #include <alibabacloud/models/UpdateTaskAttributeRequest.hpp>
 #include <alibabacloud/models/UpdateTaskAttributeResponseBody.hpp>
 #include <alibabacloud/models/UpdateTaskAttributeResponse.hpp>

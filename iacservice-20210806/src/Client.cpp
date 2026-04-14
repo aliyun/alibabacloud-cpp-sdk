@@ -984,6 +984,75 @@ CreateResourceExportTaskResponse Client::createResourceExportTask(const CreateRe
 }
 
 /**
+ * @summary 创建资源栈
+ *
+ * @param request CreateStackRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStackResponse
+ */
+CreateStackResponse Client::createStackWithOptions(const CreateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasRamRole()) {
+    body["ramRole"] = request.getRamRole();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  if (!!request.hasSourcePath()) {
+    body["sourcePath"] = request.getSourcePath();
+  }
+
+  if (!!request.hasWorkingDirectory()) {
+    body["workingDirectory"] = request.getWorkingDirectory();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateStack"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStackResponse>();
+}
+
+/**
+ * @summary 创建资源栈
+ *
+ * @param request CreateStackRequest
+ * @return CreateStackResponse
+ */
+CreateStackResponse Client::createStack(const CreateStackRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createStackWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建任务
  *
  * @param request CreateTaskRequest
@@ -2587,6 +2656,45 @@ GetResourceTypeResponse Client::getResourceType(const string &resourceType, cons
 }
 
 /**
+ * @summary 获取资源栈
+ *
+ * @param request GetStackRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStackResponse
+ */
+GetStackResponse Client::getStackWithOptions(const string &stackId, const GetStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStack"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks/" , Darabonba::Encode::Encoder::percentEncode(stackId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStackResponse>();
+}
+
+/**
+ * @summary 获取资源栈
+ *
+ * @param request GetStackRequest
+ * @return GetStackResponse
+ */
+GetStackResponse Client::getStack(const string &stackId, const GetStackRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getStackWithOptions(stackId, request, headers, runtime);
+}
+
+/**
  * @summary 部署详情接口
  *
  * @param request GetStackDeploymentsRequest
@@ -4009,6 +4117,128 @@ ListResourcesResponse Client::listResources(const ListResourcesRequest &request)
 }
 
 /**
+ * @summary 查询资源栈配置列表
+ *
+ * @param request ListStackConfigsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListStackConfigsResponse
+ */
+ListStackConfigsResponse Client::listStackConfigsWithOptions(const string &stackId, const ListStackConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListStackConfigs"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks/" , Darabonba::Encode::Encoder::percentEncode(stackId) , "/configs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListStackConfigsResponse>();
+}
+
+/**
+ * @summary 查询资源栈配置列表
+ *
+ * @param request ListStackConfigsRequest
+ * @return ListStackConfigsResponse
+ */
+ListStackConfigsResponse Client::listStackConfigs(const string &stackId, const ListStackConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listStackConfigsWithOptions(stackId, request, headers, runtime);
+}
+
+/**
+ * @summary 列举资源栈
+ *
+ * @param request ListStacksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListStacksResponse
+ */
+ListStacksResponse Client::listStacksWithOptions(const ListStacksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListStacks"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListStacksResponse>();
+}
+
+/**
+ * @summary 列举资源栈
+ *
+ * @param request ListStacksRequest
+ * @return ListStacksResponse
+ */
+ListStacksResponse Client::listStacks(const ListStacksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listStacksWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 任务列表
  *
  * @param tmpReq ListTasksRequest
@@ -5022,6 +5252,71 @@ UpdateResourceExportTaskAttributeResponse Client::updateResourceExportTaskAttrib
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateResourceExportTaskAttributeWithOptions(exportTaskId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新资源栈
+ *
+ * @param request UpdateStackRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStackResponse
+ */
+UpdateStackResponse Client::updateStackWithOptions(const string &stackId, const UpdateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasRamRole()) {
+    body["ramRole"] = request.getRamRole();
+  }
+
+  if (!!request.hasSourcePath()) {
+    body["sourcePath"] = request.getSourcePath();
+  }
+
+  if (!!request.hasWorkingDirectory()) {
+    body["workingDirectory"] = request.getWorkingDirectory();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateStack"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/stacks/" , Darabonba::Encode::Encoder::percentEncode(stackId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStackResponse>();
+}
+
+/**
+ * @summary 更新资源栈
+ *
+ * @param request UpdateStackRequest
+ * @return UpdateStackResponse
+ */
+UpdateStackResponse Client::updateStack(const string &stackId, const UpdateStackRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateStackWithOptions(stackId, request, headers, runtime);
 }
 
 /**
