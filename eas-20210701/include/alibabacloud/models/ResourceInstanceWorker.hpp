@@ -86,8 +86,8 @@ namespace Models
     // memoryLimit Field Functions 
     bool hasMemoryLimit() const { return this->memoryLimit_ != nullptr;};
     void deleteMemoryLimit() { this->memoryLimit_ = nullptr;};
-    inline int32_t getMemoryLimit() const { DARABONBA_PTR_GET_DEFAULT(memoryLimit_, 0) };
-    inline ResourceInstanceWorker& setMemoryLimit(int32_t memoryLimit) { DARABONBA_PTR_SET_VALUE(memoryLimit_, memoryLimit) };
+    inline int64_t getMemoryLimit() const { DARABONBA_PTR_GET_DEFAULT(memoryLimit_, 0L) };
+    inline ResourceInstanceWorker& setMemoryLimit(int64_t memoryLimit) { DARABONBA_PTR_SET_VALUE(memoryLimit_, memoryLimit) };
 
 
     // memoryRquest Field Functions 
@@ -114,8 +114,8 @@ namespace Models
     // restartCount Field Functions 
     bool hasRestartCount() const { return this->restartCount_ != nullptr;};
     void deleteRestartCount() { this->restartCount_ = nullptr;};
-    inline int32_t getRestartCount() const { DARABONBA_PTR_GET_DEFAULT(restartCount_, 0) };
-    inline ResourceInstanceWorker& setRestartCount(int32_t restartCount) { DARABONBA_PTR_SET_VALUE(restartCount_, restartCount) };
+    inline int64_t getRestartCount() const { DARABONBA_PTR_GET_DEFAULT(restartCount_, 0L) };
+    inline ResourceInstanceWorker& setRestartCount(int64_t restartCount) { DARABONBA_PTR_SET_VALUE(restartCount_, restartCount) };
 
 
     // serviceName Field Functions 
@@ -149,7 +149,7 @@ namespace Models
     // The number of GPUs that you applied for.
     shared_ptr<int32_t> gpuRequest_ {};
     // The maximum memory size.
-    shared_ptr<int32_t> memoryLimit_ {};
+    shared_ptr<int64_t> memoryLimit_ {};
     // The memory size that you applied for.
     shared_ptr<int32_t> memoryRquest_ {};
     // The name of the service instance.
@@ -157,7 +157,7 @@ namespace Models
     // Indicates whether the instance worker is ready.
     shared_ptr<bool> ready_ {};
     // The number of times the instance worker restarted.
-    shared_ptr<int32_t> restartCount_ {};
+    shared_ptr<int64_t> restartCount_ {};
     // The service name.
     shared_ptr<string> serviceName_ {};
     // The time when the instance worker started.
