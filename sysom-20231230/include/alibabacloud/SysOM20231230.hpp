@@ -57,6 +57,34 @@ namespace SysOM20231230
       Models::CheckInstanceSupportResponse checkInstanceSupport(const Models::CheckInstanceSupportRequest &request);
 
       /**
+       * @summary cpu高agent流式接口
+       *
+       * @param request CpuHighAgentStreamResponseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CpuHighAgentStreamResponseResponse
+       */
+      FutureGenerator<Models::CpuHighAgentStreamResponseResponse> cpuHighAgentStreamResponseWithSSE(const Models::CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary cpu高agent流式接口
+       *
+       * @param request CpuHighAgentStreamResponseRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CpuHighAgentStreamResponseResponse
+       */
+      Models::CpuHighAgentStreamResponseResponse cpuHighAgentStreamResponseWithOptions(const Models::CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary cpu高agent流式接口
+       *
+       * @param request CpuHighAgentStreamResponseRequest
+       * @return CpuHighAgentStreamResponseResponse
+       */
+      Models::CpuHighAgentStreamResponseResponse cpuHighAgentStreamResponse(const Models::CpuHighAgentStreamResponseRequest &request);
+
+      /**
        * @summary 新增推送告警的策略
        *
        * @param request CreateAlertStrategyRequest
@@ -821,7 +849,7 @@ namespace SysOM20231230
       Models::ListDiagnosisResponse listDiagnosis(const Models::ListDiagnosisRequest &request);
 
       /**
-       * @summary 获取一定时间内集群节点/Pod健康度列表
+       * @summary Obtain a list of cluster node or pod health degrees within a specified time period.
        *
        * @param request ListInstanceHealthRequest
        * @param headers map
@@ -831,7 +859,7 @@ namespace SysOM20231230
       Models::ListInstanceHealthResponse listInstanceHealthWithOptions(const Models::ListInstanceHealthRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一定时间内集群节点/Pod健康度列表
+       * @summary Obtain a list of cluster node or pod health degrees within a specified time period.
        *
        * @param request ListInstanceHealthRequest
        * @return ListInstanceHealthResponse

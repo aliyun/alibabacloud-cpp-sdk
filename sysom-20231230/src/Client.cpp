@@ -139,6 +139,98 @@ CheckInstanceSupportResponse Client::checkInstanceSupport(const CheckInstanceSup
 }
 
 /**
+ * @summary cpu高agent流式接口
+ *
+ * @param request CpuHighAgentStreamResponseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CpuHighAgentStreamResponseResponse
+ */
+FutureGenerator<CpuHighAgentStreamResponseResponse> Client::cpuHighAgentStreamResponseWithSSE(const CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLlmParamString()) {
+    body["llmParamString"] = request.getLlmParamString();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CpuHighAgentStreamResponse"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/highCpuAgent/streamResponse")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<CpuHighAgentStreamResponseResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary cpu高agent流式接口
+ *
+ * @param request CpuHighAgentStreamResponseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CpuHighAgentStreamResponseResponse
+ */
+CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponseWithOptions(const CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLlmParamString()) {
+    body["llmParamString"] = request.getLlmParamString();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CpuHighAgentStreamResponse"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/highCpuAgent/streamResponse")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CpuHighAgentStreamResponseResponse>();
+}
+
+/**
+ * @summary cpu高agent流式接口
+ *
+ * @param request CpuHighAgentStreamResponseRequest
+ * @return CpuHighAgentStreamResponseResponse
+ */
+CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponse(const CpuHighAgentStreamResponseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cpuHighAgentStreamResponseWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 新增推送告警的策略
  *
  * @param request CreateAlertStrategyRequest
@@ -435,16 +527,18 @@ FutureGenerator<GenerateCopilotStreamResponseResponse> Client::generateCopilotSt
   }).get<map<string, string>>());
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<GenerateCopilotStreamResponseResponse>();
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<GenerateCopilotStreamResponseResponse>();
 return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
   }
 }
 
@@ -2555,7 +2649,7 @@ ListDiagnosisResponse Client::listDiagnosis(const ListDiagnosisRequest &request)
 }
 
 /**
- * @summary 获取一定时间内集群节点/Pod健康度列表
+ * @summary Obtain a list of cluster node or pod health degrees within a specified time period.
  *
  * @param request ListInstanceHealthRequest
  * @param headers map
@@ -2608,7 +2702,7 @@ ListInstanceHealthResponse Client::listInstanceHealthWithOptions(const ListInsta
 }
 
 /**
- * @summary 获取一定时间内集群节点/Pod健康度列表
+ * @summary Obtain a list of cluster node or pod health degrees within a specified time period.
  *
  * @param request ListInstanceHealthRequest
  * @return ListInstanceHealthResponse

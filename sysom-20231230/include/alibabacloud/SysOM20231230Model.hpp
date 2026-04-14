@@ -8,6 +8,9 @@
 #include <alibabacloud/models/CheckInstanceSupportRequest.hpp>
 #include <alibabacloud/models/CheckInstanceSupportResponseBody.hpp>
 #include <alibabacloud/models/CheckInstanceSupportResponse.hpp>
+#include <alibabacloud/models/CpuHighAgentStreamResponseRequest.hpp>
+#include <alibabacloud/models/CpuHighAgentStreamResponseResponseBody.hpp>
+#include <alibabacloud/models/CpuHighAgentStreamResponseResponse.hpp>
 #include <alibabacloud/models/CreateAlertStrategyRequest.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponse.hpp>

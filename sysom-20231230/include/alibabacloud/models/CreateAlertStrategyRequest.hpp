@@ -40,10 +40,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Strategy& obj) { 
         DARABONBA_PTR_TO_JSON(clusters, clusters_);
+        DARABONBA_PTR_TO_JSON(destinations, destinations_);
         DARABONBA_PTR_TO_JSON(items, items_);
       };
       friend void from_json(const Darabonba::Json& j, Strategy& obj) { 
         DARABONBA_PTR_FROM_JSON(clusters, clusters_);
+        DARABONBA_PTR_FROM_JSON(destinations, destinations_);
         DARABONBA_PTR_FROM_JSON(items, items_);
       };
       Strategy() = default ;
@@ -58,7 +60,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->clusters_ == nullptr
-        && this->items_ == nullptr; };
+        && this->destinations_ == nullptr && this->items_ == nullptr; };
       // clusters Field Functions 
       bool hasClusters() const { return this->clusters_ != nullptr;};
       void deleteClusters() { this->clusters_ = nullptr;};
@@ -66,6 +68,15 @@ namespace Models
       inline vector<string> getClusters() { DARABONBA_PTR_GET(clusters_, vector<string>) };
       inline Strategy& setClusters(const vector<string> & clusters) { DARABONBA_PTR_SET_VALUE(clusters_, clusters) };
       inline Strategy& setClusters(vector<string> && clusters) { DARABONBA_PTR_SET_RVALUE(clusters_, clusters) };
+
+
+      // destinations Field Functions 
+      bool hasDestinations() const { return this->destinations_ != nullptr;};
+      void deleteDestinations() { this->destinations_ = nullptr;};
+      inline const vector<int32_t> & getDestinations() const { DARABONBA_PTR_GET_CONST(destinations_, vector<int32_t>) };
+      inline vector<int32_t> getDestinations() { DARABONBA_PTR_GET(destinations_, vector<int32_t>) };
+      inline Strategy& setDestinations(const vector<int32_t> & destinations) { DARABONBA_PTR_SET_VALUE(destinations_, destinations) };
+      inline Strategy& setDestinations(vector<int32_t> && destinations) { DARABONBA_PTR_SET_RVALUE(destinations_, destinations) };
 
 
       // items Field Functions 
@@ -79,6 +90,7 @@ namespace Models
 
     protected:
       shared_ptr<vector<string>> clusters_ {};
+      shared_ptr<vector<int32_t>> destinations_ {};
       shared_ptr<vector<string>> items_ {};
     };
 

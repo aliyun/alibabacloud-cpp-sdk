@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GENERATECOPILOTSTREAMRESPONSERESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_GENERATECOPILOTSTREAMRESPONSERESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_CPUHIGHAGENTSTREAMRESPONSERESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_CPUHIGHAGENTSTREAMRESPONSERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/GenerateCopilotStreamResponseResponseBody.hpp>
+#include <alibabacloud/models/CpuHighAgentStreamResponseResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,29 +12,29 @@ namespace SysOM20231230
 {
 namespace Models
 {
-  class GenerateCopilotStreamResponseResponse : public Darabonba::Model {
+  class CpuHighAgentStreamResponseResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GenerateCopilotStreamResponseResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const CpuHighAgentStreamResponseResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(event, event_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, GenerateCopilotStreamResponseResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, CpuHighAgentStreamResponseResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(event, event_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    GenerateCopilotStreamResponseResponse() = default ;
-    GenerateCopilotStreamResponseResponse(const GenerateCopilotStreamResponseResponse &) = default ;
-    GenerateCopilotStreamResponseResponse(GenerateCopilotStreamResponseResponse &&) = default ;
-    GenerateCopilotStreamResponseResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GenerateCopilotStreamResponseResponse() = default ;
-    GenerateCopilotStreamResponseResponse& operator=(const GenerateCopilotStreamResponseResponse &) = default ;
-    GenerateCopilotStreamResponseResponse& operator=(GenerateCopilotStreamResponseResponse &&) = default ;
+    CpuHighAgentStreamResponseResponse() = default ;
+    CpuHighAgentStreamResponseResponse(const CpuHighAgentStreamResponseResponse &) = default ;
+    CpuHighAgentStreamResponseResponse(CpuHighAgentStreamResponseResponse &&) = default ;
+    CpuHighAgentStreamResponseResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CpuHighAgentStreamResponseResponse() = default ;
+    CpuHighAgentStreamResponseResponse& operator=(const CpuHighAgentStreamResponseResponse &) = default ;
+    CpuHighAgentStreamResponseResponse& operator=(CpuHighAgentStreamResponseResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -46,38 +46,38 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline GenerateCopilotStreamResponseResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline GenerateCopilotStreamResponseResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline CpuHighAgentStreamResponseResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline CpuHighAgentStreamResponseResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline GenerateCopilotStreamResponseResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline CpuHighAgentStreamResponseResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
-    inline GenerateCopilotStreamResponseResponse& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+    inline CpuHighAgentStreamResponseResponse& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // event Field Functions 
     bool hasEvent() const { return this->event_ != nullptr;};
     void deleteEvent() { this->event_ = nullptr;};
     inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
-    inline GenerateCopilotStreamResponseResponse& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+    inline CpuHighAgentStreamResponseResponse& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const GenerateCopilotStreamResponseResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, GenerateCopilotStreamResponseResponseBody) };
-    inline GenerateCopilotStreamResponseResponseBody getBody() { DARABONBA_PTR_GET(body_, GenerateCopilotStreamResponseResponseBody) };
-    inline GenerateCopilotStreamResponseResponse& setBody(const GenerateCopilotStreamResponseResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline GenerateCopilotStreamResponseResponse& setBody(GenerateCopilotStreamResponseResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const CpuHighAgentStreamResponseResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, CpuHighAgentStreamResponseResponseBody) };
+    inline CpuHighAgentStreamResponseResponseBody getBody() { DARABONBA_PTR_GET(body_, CpuHighAgentStreamResponseResponseBody) };
+    inline CpuHighAgentStreamResponseResponse& setBody(const CpuHighAgentStreamResponseResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline CpuHighAgentStreamResponseResponse& setBody(CpuHighAgentStreamResponseResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<int32_t> statusCode_ {};
     shared_ptr<string> id_ {};
     shared_ptr<string> event_ {};
-    shared_ptr<GenerateCopilotStreamResponseResponseBody> body_ {};
+    shared_ptr<CpuHighAgentStreamResponseResponseBody> body_ {};
   };
 
   } // namespace Models
