@@ -379,11 +379,13 @@ CreateVpcBindingResponse Client::createVpcBinding(const string &functionName, co
 /**
  * @summary Deletes an alias.
  *
+ * @param request DeleteAliasRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAliasResponse
  */
-DeleteAliasResponse Client::deleteAliasWithOptions(const string &functionName, const string &aliasName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteAliasResponse Client::deleteAliasWithOptions(const string &functionName, const string &aliasName, const DeleteAliasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -404,12 +406,13 @@ DeleteAliasResponse Client::deleteAliasWithOptions(const string &functionName, c
 /**
  * @summary Deletes an alias.
  *
+ * @param request DeleteAliasRequest
  * @return DeleteAliasResponse
  */
-DeleteAliasResponse Client::deleteAlias(const string &functionName, const string &aliasName) {
+DeleteAliasResponse Client::deleteAlias(const string &functionName, const string &aliasName, const DeleteAliasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteAliasWithOptions(functionName, aliasName, headers, runtime);
+  return deleteAliasWithOptions(functionName, aliasName, request, headers, runtime);
 }
 
 /**
@@ -460,11 +463,13 @@ DeleteAsyncInvokeConfigResponse Client::deleteAsyncInvokeConfig(const string &fu
 /**
  * @summary Deletes a concurrency configuration.
  *
+ * @param request DeleteConcurrencyConfigRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteConcurrencyConfigResponse
  */
-DeleteConcurrencyConfigResponse Client::deleteConcurrencyConfigWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteConcurrencyConfigResponse Client::deleteConcurrencyConfigWithOptions(const string &functionName, const DeleteConcurrencyConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -485,22 +490,25 @@ DeleteConcurrencyConfigResponse Client::deleteConcurrencyConfigWithOptions(const
 /**
  * @summary Deletes a concurrency configuration.
  *
+ * @param request DeleteConcurrencyConfigRequest
  * @return DeleteConcurrencyConfigResponse
  */
-DeleteConcurrencyConfigResponse Client::deleteConcurrencyConfig(const string &functionName) {
+DeleteConcurrencyConfigResponse Client::deleteConcurrencyConfig(const string &functionName, const DeleteConcurrencyConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteConcurrencyConfigWithOptions(functionName, headers, runtime);
+  return deleteConcurrencyConfigWithOptions(functionName, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a custom domain name.
  *
+ * @param request DeleteCustomDomainRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteCustomDomainResponse
  */
-DeleteCustomDomainResponse Client::deleteCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteCustomDomainResponse Client::deleteCustomDomainWithOptions(const string &domainName, const DeleteCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -521,22 +529,25 @@ DeleteCustomDomainResponse Client::deleteCustomDomainWithOptions(const string &d
 /**
  * @summary Deletes a custom domain name.
  *
+ * @param request DeleteCustomDomainRequest
  * @return DeleteCustomDomainResponse
  */
-DeleteCustomDomainResponse Client::deleteCustomDomain(const string &domainName) {
+DeleteCustomDomainResponse Client::deleteCustomDomain(const string &domainName, const DeleteCustomDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteCustomDomainWithOptions(domainName, headers, runtime);
+  return deleteCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a function.
  *
+ * @param request DeleteFunctionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteFunctionResponse
  */
-DeleteFunctionResponse Client::deleteFunctionWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteFunctionResponse Client::deleteFunctionWithOptions(const string &functionName, const DeleteFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -557,22 +568,25 @@ DeleteFunctionResponse Client::deleteFunctionWithOptions(const string &functionN
 /**
  * @summary Deletes a function.
  *
+ * @param request DeleteFunctionRequest
  * @return DeleteFunctionResponse
  */
-DeleteFunctionResponse Client::deleteFunction(const string &functionName) {
+DeleteFunctionResponse Client::deleteFunction(const string &functionName, const DeleteFunctionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteFunctionWithOptions(functionName, headers, runtime);
+  return deleteFunctionWithOptions(functionName, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a function version.
  *
+ * @param request DeleteFunctionVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteFunctionVersionResponse
  */
-DeleteFunctionVersionResponse Client::deleteFunctionVersionWithOptions(const string &functionName, const string &versionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteFunctionVersionResponse Client::deleteFunctionVersionWithOptions(const string &functionName, const string &versionId, const DeleteFunctionVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -593,22 +607,25 @@ DeleteFunctionVersionResponse Client::deleteFunctionVersionWithOptions(const str
 /**
  * @summary Deletes a function version.
  *
+ * @param request DeleteFunctionVersionRequest
  * @return DeleteFunctionVersionResponse
  */
-DeleteFunctionVersionResponse Client::deleteFunctionVersion(const string &functionName, const string &versionId) {
+DeleteFunctionVersionResponse Client::deleteFunctionVersion(const string &functionName, const string &versionId, const DeleteFunctionVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
+  return deleteFunctionVersionWithOptions(functionName, versionId, request, headers, runtime);
 }
 
 /**
  * @summary Deletes a layer version.
  *
+ * @param request DeleteLayerVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteLayerVersionResponse
  */
-DeleteLayerVersionResponse Client::deleteLayerVersionWithOptions(const string &layerName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteLayerVersionResponse Client::deleteLayerVersionWithOptions(const string &layerName, const string &version, const DeleteLayerVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -629,12 +646,13 @@ DeleteLayerVersionResponse Client::deleteLayerVersionWithOptions(const string &l
 /**
  * @summary Deletes a layer version.
  *
+ * @param request DeleteLayerVersionRequest
  * @return DeleteLayerVersionResponse
  */
-DeleteLayerVersionResponse Client::deleteLayerVersion(const string &layerName, const string &version) {
+DeleteLayerVersionResponse Client::deleteLayerVersion(const string &layerName, const string &version, const DeleteLayerVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteLayerVersionWithOptions(layerName, version, headers, runtime);
+  return deleteLayerVersionWithOptions(layerName, version, request, headers, runtime);
 }
 
 /**
@@ -775,11 +793,13 @@ DeleteSessionResponse Client::deleteSession(const string &functionName, const st
 /**
  * @summary Deletes a trigger.
  *
+ * @param request DeleteTriggerRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteTriggerResponse
  */
-DeleteTriggerResponse Client::deleteTriggerWithOptions(const string &functionName, const string &triggerName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteTriggerResponse Client::deleteTriggerWithOptions(const string &functionName, const string &triggerName, const DeleteTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -800,22 +820,25 @@ DeleteTriggerResponse Client::deleteTriggerWithOptions(const string &functionNam
 /**
  * @summary Deletes a trigger.
  *
+ * @param request DeleteTriggerRequest
  * @return DeleteTriggerResponse
  */
-DeleteTriggerResponse Client::deleteTrigger(const string &functionName, const string &triggerName) {
+DeleteTriggerResponse Client::deleteTrigger(const string &functionName, const string &triggerName, const DeleteTriggerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
+  return deleteTriggerWithOptions(functionName, triggerName, request, headers, runtime);
 }
 
 /**
  * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
  *
+ * @param request DeleteVpcBindingRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteVpcBindingResponse
  */
-DeleteVpcBindingResponse Client::deleteVpcBindingWithOptions(const string &functionName, const string &vpcId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+DeleteVpcBindingResponse Client::deleteVpcBindingWithOptions(const string &functionName, const string &vpcId, const DeleteVpcBindingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -836,12 +859,13 @@ DeleteVpcBindingResponse Client::deleteVpcBindingWithOptions(const string &funct
 /**
  * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
  *
+ * @param request DeleteVpcBindingRequest
  * @return DeleteVpcBindingResponse
  */
-DeleteVpcBindingResponse Client::deleteVpcBinding(const string &functionName, const string &vpcId) {
+DeleteVpcBindingResponse Client::deleteVpcBinding(const string &functionName, const string &vpcId, const DeleteVpcBindingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
+  return deleteVpcBindingWithOptions(functionName, vpcId, request, headers, runtime);
 }
 
 /**
@@ -945,11 +969,13 @@ DisableFunctionInvocationResponse Client::disableFunctionInvocation(const string
 /**
  * @summary The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
  *
+ * @param request EnableFunctionInvocationRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableFunctionInvocationResponse
  */
-EnableFunctionInvocationResponse Client::enableFunctionInvocationWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+EnableFunctionInvocationResponse Client::enableFunctionInvocationWithOptions(const string &functionName, const EnableFunctionInvocationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -970,22 +996,25 @@ EnableFunctionInvocationResponse Client::enableFunctionInvocationWithOptions(con
 /**
  * @summary The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
  *
+ * @param request EnableFunctionInvocationRequest
  * @return EnableFunctionInvocationResponse
  */
-EnableFunctionInvocationResponse Client::enableFunctionInvocation(const string &functionName) {
+EnableFunctionInvocationResponse Client::enableFunctionInvocation(const string &functionName, const EnableFunctionInvocationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return enableFunctionInvocationWithOptions(functionName, headers, runtime);
+  return enableFunctionInvocationWithOptions(functionName, request, headers, runtime);
 }
 
 /**
  * @summary Queries information about an alias.
  *
+ * @param request GetAliasRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAliasResponse
  */
-GetAliasResponse Client::getAliasWithOptions(const string &functionName, const string &aliasName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetAliasResponse Client::getAliasWithOptions(const string &functionName, const string &aliasName, const GetAliasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1006,12 +1035,13 @@ GetAliasResponse Client::getAliasWithOptions(const string &functionName, const s
 /**
  * @summary Queries information about an alias.
  *
+ * @param request GetAliasRequest
  * @return GetAliasResponse
  */
-GetAliasResponse Client::getAlias(const string &functionName, const string &aliasName) {
+GetAliasResponse Client::getAlias(const string &functionName, const string &aliasName, const GetAliasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getAliasWithOptions(functionName, aliasName, headers, runtime);
+  return getAliasWithOptions(functionName, aliasName, request, headers, runtime);
 }
 
 /**
@@ -1107,11 +1137,13 @@ GetAsyncTaskResponse Client::getAsyncTask(const string &functionName, const stri
 /**
  * @summary Obtains a concurrency configuration.
  *
+ * @param request GetConcurrencyConfigRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetConcurrencyConfigResponse
  */
-GetConcurrencyConfigResponse Client::getConcurrencyConfigWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetConcurrencyConfigResponse Client::getConcurrencyConfigWithOptions(const string &functionName, const GetConcurrencyConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1132,22 +1164,25 @@ GetConcurrencyConfigResponse Client::getConcurrencyConfigWithOptions(const strin
 /**
  * @summary Obtains a concurrency configuration.
  *
+ * @param request GetConcurrencyConfigRequest
  * @return GetConcurrencyConfigResponse
  */
-GetConcurrencyConfigResponse Client::getConcurrencyConfig(const string &functionName) {
+GetConcurrencyConfigResponse Client::getConcurrencyConfig(const string &functionName, const GetConcurrencyConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getConcurrencyConfigWithOptions(functionName, headers, runtime);
+  return getConcurrencyConfigWithOptions(functionName, request, headers, runtime);
 }
 
 /**
  * @summary Queries information about a custom domain name.
  *
+ * @param request GetCustomDomainRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCustomDomainResponse
  */
-GetCustomDomainResponse Client::getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetCustomDomainResponse Client::getCustomDomainWithOptions(const string &domainName, const GetCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1168,12 +1203,13 @@ GetCustomDomainResponse Client::getCustomDomainWithOptions(const string &domainN
 /**
  * @summary Queries information about a custom domain name.
  *
+ * @param request GetCustomDomainRequest
  * @return GetCustomDomainResponse
  */
-GetCustomDomainResponse Client::getCustomDomain(const string &domainName) {
+GetCustomDomainResponse Client::getCustomDomain(const string &domainName, const GetCustomDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getCustomDomainWithOptions(domainName, headers, runtime);
+  return getCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 /**
@@ -1269,11 +1305,13 @@ GetFunctionCodeResponse Client::getFunctionCode(const string &functionName, cons
 /**
  * @summary Queries versions of a layer.
  *
+ * @param request GetLayerVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLayerVersionResponse
  */
-GetLayerVersionResponse Client::getLayerVersionWithOptions(const string &layerName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetLayerVersionResponse Client::getLayerVersionWithOptions(const string &layerName, const string &version, const GetLayerVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1294,22 +1332,25 @@ GetLayerVersionResponse Client::getLayerVersionWithOptions(const string &layerNa
 /**
  * @summary Queries versions of a layer.
  *
+ * @param request GetLayerVersionRequest
  * @return GetLayerVersionResponse
  */
-GetLayerVersionResponse Client::getLayerVersion(const string &layerName, const string &version) {
+GetLayerVersionResponse Client::getLayerVersion(const string &layerName, const string &version, const GetLayerVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getLayerVersionWithOptions(layerName, version, headers, runtime);
+  return getLayerVersionWithOptions(layerName, version, request, headers, runtime);
 }
 
 /**
  * @summary Obtain version information of a layer by using ARNs.
  *
+ * @param request GetLayerVersionByArnRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLayerVersionByArnResponse
  */
-GetLayerVersionByArnResponse Client::getLayerVersionByArnWithOptions(const string &arn, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetLayerVersionByArnResponse Client::getLayerVersionByArnWithOptions(const string &arn, const GetLayerVersionByArnRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1330,12 +1371,13 @@ GetLayerVersionByArnResponse Client::getLayerVersionByArnWithOptions(const strin
 /**
  * @summary Obtain version information of a layer by using ARNs.
  *
+ * @param request GetLayerVersionByArnRequest
  * @return GetLayerVersionByArnResponse
  */
-GetLayerVersionByArnResponse Client::getLayerVersionByArn(const string &arn) {
+GetLayerVersionByArnResponse Client::getLayerVersionByArn(const string &arn, const GetLayerVersionByArnRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getLayerVersionByArnWithOptions(arn, headers, runtime);
+  return getLayerVersionByArnWithOptions(arn, request, headers, runtime);
 }
 
 /**
@@ -1476,11 +1518,13 @@ GetSessionResponse Client::getSession(const string &functionName, const string &
 /**
  * @summary Queries information about a trigger.
  *
+ * @param request GetTriggerRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTriggerResponse
  */
-GetTriggerResponse Client::getTriggerWithOptions(const string &functionName, const string &triggerName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+GetTriggerResponse Client::getTriggerWithOptions(const string &functionName, const string &triggerName, const GetTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1501,12 +1545,13 @@ GetTriggerResponse Client::getTriggerWithOptions(const string &functionName, con
 /**
  * @summary Queries information about a trigger.
  *
+ * @param request GetTriggerRequest
  * @return GetTriggerResponse
  */
-GetTriggerResponse Client::getTrigger(const string &functionName, const string &triggerName) {
+GetTriggerResponse Client::getTrigger(const string &functionName, const string &triggerName, const GetTriggerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return getTriggerWithOptions(functionName, triggerName, headers, runtime);
+  return getTriggerWithOptions(functionName, triggerName, request, headers, runtime);
 }
 
 /**
@@ -2510,11 +2555,13 @@ ListTriggersResponse Client::listTriggers(const string &functionName, const List
 /**
  * @summary Queries a list of existing VPC connections.
  *
+ * @param request ListVpcBindingsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListVpcBindingsResponse
  */
-ListVpcBindingsResponse Client::listVpcBindingsWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListVpcBindingsResponse Client::listVpcBindingsWithOptions(const string &functionName, const ListVpcBindingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -2535,12 +2582,13 @@ ListVpcBindingsResponse Client::listVpcBindingsWithOptions(const string &functio
 /**
  * @summary Queries a list of existing VPC connections.
  *
+ * @param request ListVpcBindingsRequest
  * @return ListVpcBindingsResponse
  */
-ListVpcBindingsResponse Client::listVpcBindings(const string &functionName) {
+ListVpcBindingsResponse Client::listVpcBindings(const string &functionName, const ListVpcBindingsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listVpcBindingsWithOptions(functionName, headers, runtime);
+  return listVpcBindingsWithOptions(functionName, request, headers, runtime);
 }
 
 /**

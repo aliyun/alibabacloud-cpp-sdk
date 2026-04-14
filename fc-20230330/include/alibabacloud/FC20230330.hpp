@@ -179,18 +179,20 @@ namespace FC20230330
       /**
        * @summary Deletes an alias.
        *
+       * @param request DeleteAliasRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAliasResponse
        */
-      Models::DeleteAliasResponse deleteAliasWithOptions(const string &functionName, const string &aliasName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteAliasResponse deleteAliasWithOptions(const string &functionName, const string &aliasName, const Models::DeleteAliasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes an alias.
        *
+       * @param request DeleteAliasRequest
        * @return DeleteAliasResponse
        */
-      Models::DeleteAliasResponse deleteAlias(const string &functionName, const string &aliasName);
+      Models::DeleteAliasResponse deleteAlias(const string &functionName, const string &aliasName, const Models::DeleteAliasRequest &request);
 
       /**
        * @summary Deletes an asynchronous invocation configuration.
@@ -213,82 +215,92 @@ namespace FC20230330
       /**
        * @summary Deletes a concurrency configuration.
        *
+       * @param request DeleteConcurrencyConfigRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteConcurrencyConfigResponse
        */
-      Models::DeleteConcurrencyConfigResponse deleteConcurrencyConfigWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteConcurrencyConfigResponse deleteConcurrencyConfigWithOptions(const string &functionName, const Models::DeleteConcurrencyConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a concurrency configuration.
        *
+       * @param request DeleteConcurrencyConfigRequest
        * @return DeleteConcurrencyConfigResponse
        */
-      Models::DeleteConcurrencyConfigResponse deleteConcurrencyConfig(const string &functionName);
+      Models::DeleteConcurrencyConfigResponse deleteConcurrencyConfig(const string &functionName, const Models::DeleteConcurrencyConfigRequest &request);
 
       /**
        * @summary Deletes a custom domain name.
        *
+       * @param request DeleteCustomDomainRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCustomDomainResponse
        */
-      Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteCustomDomainResponse deleteCustomDomainWithOptions(const string &domainName, const Models::DeleteCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a custom domain name.
        *
+       * @param request DeleteCustomDomainRequest
        * @return DeleteCustomDomainResponse
        */
-      Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName);
+      Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName, const Models::DeleteCustomDomainRequest &request);
 
       /**
        * @summary Deletes a function.
        *
+       * @param request DeleteFunctionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteFunctionResponse
        */
-      Models::DeleteFunctionResponse deleteFunctionWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteFunctionResponse deleteFunctionWithOptions(const string &functionName, const Models::DeleteFunctionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a function.
        *
+       * @param request DeleteFunctionRequest
        * @return DeleteFunctionResponse
        */
-      Models::DeleteFunctionResponse deleteFunction(const string &functionName);
+      Models::DeleteFunctionResponse deleteFunction(const string &functionName, const Models::DeleteFunctionRequest &request);
 
       /**
        * @summary Deletes a function version.
        *
+       * @param request DeleteFunctionVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteFunctionVersionResponse
        */
-      Models::DeleteFunctionVersionResponse deleteFunctionVersionWithOptions(const string &functionName, const string &versionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteFunctionVersionResponse deleteFunctionVersionWithOptions(const string &functionName, const string &versionId, const Models::DeleteFunctionVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a function version.
        *
+       * @param request DeleteFunctionVersionRequest
        * @return DeleteFunctionVersionResponse
        */
-      Models::DeleteFunctionVersionResponse deleteFunctionVersion(const string &functionName, const string &versionId);
+      Models::DeleteFunctionVersionResponse deleteFunctionVersion(const string &functionName, const string &versionId, const Models::DeleteFunctionVersionRequest &request);
 
       /**
        * @summary Deletes a layer version.
        *
+       * @param request DeleteLayerVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteLayerVersionResponse
        */
-      Models::DeleteLayerVersionResponse deleteLayerVersionWithOptions(const string &layerName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteLayerVersionResponse deleteLayerVersionWithOptions(const string &layerName, const string &version, const Models::DeleteLayerVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a layer version.
        *
+       * @param request DeleteLayerVersionRequest
        * @return DeleteLayerVersionResponse
        */
-      Models::DeleteLayerVersionResponse deleteLayerVersion(const string &layerName, const string &version);
+      Models::DeleteLayerVersionResponse deleteLayerVersion(const string &layerName, const string &version, const Models::DeleteLayerVersionRequest &request);
 
       /**
        * @summary Deletes a provisioned configuration.
@@ -347,34 +359,38 @@ namespace FC20230330
       /**
        * @summary Deletes a trigger.
        *
+       * @param request DeleteTriggerRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteTriggerResponse
        */
-      Models::DeleteTriggerResponse deleteTriggerWithOptions(const string &functionName, const string &triggerName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteTriggerResponse deleteTriggerWithOptions(const string &functionName, const string &triggerName, const Models::DeleteTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes a trigger.
        *
+       * @param request DeleteTriggerRequest
        * @return DeleteTriggerResponse
        */
-      Models::DeleteTriggerResponse deleteTrigger(const string &functionName, const string &triggerName);
+      Models::DeleteTriggerResponse deleteTrigger(const string &functionName, const string &triggerName, const Models::DeleteTriggerRequest &request);
 
       /**
        * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
        *
+       * @param request DeleteVpcBindingRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteVpcBindingResponse
        */
-      Models::DeleteVpcBindingResponse deleteVpcBindingWithOptions(const string &functionName, const string &vpcId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteVpcBindingResponse deleteVpcBindingWithOptions(const string &functionName, const string &vpcId, const Models::DeleteVpcBindingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
        *
+       * @param request DeleteVpcBindingRequest
        * @return DeleteVpcBindingResponse
        */
-      Models::DeleteVpcBindingResponse deleteVpcBinding(const string &functionName, const string &vpcId);
+      Models::DeleteVpcBindingResponse deleteVpcBinding(const string &functionName, const string &vpcId, const Models::DeleteVpcBindingRequest &request);
 
       /**
        * @summary Queries the regions where Function Compute 3.0 is available.
@@ -419,34 +435,38 @@ namespace FC20230330
       /**
        * @summary The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
        *
+       * @param request EnableFunctionInvocationRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableFunctionInvocationResponse
        */
-      Models::EnableFunctionInvocationResponse enableFunctionInvocationWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::EnableFunctionInvocationResponse enableFunctionInvocationWithOptions(const string &functionName, const Models::EnableFunctionInvocationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
        *
+       * @param request EnableFunctionInvocationRequest
        * @return EnableFunctionInvocationResponse
        */
-      Models::EnableFunctionInvocationResponse enableFunctionInvocation(const string &functionName);
+      Models::EnableFunctionInvocationResponse enableFunctionInvocation(const string &functionName, const Models::EnableFunctionInvocationRequest &request);
 
       /**
        * @summary Queries information about an alias.
        *
+       * @param request GetAliasRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAliasResponse
        */
-      Models::GetAliasResponse getAliasWithOptions(const string &functionName, const string &aliasName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetAliasResponse getAliasWithOptions(const string &functionName, const string &aliasName, const Models::GetAliasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries information about an alias.
        *
+       * @param request GetAliasRequest
        * @return GetAliasResponse
        */
-      Models::GetAliasResponse getAlias(const string &functionName, const string &aliasName);
+      Models::GetAliasResponse getAlias(const string &functionName, const string &aliasName, const Models::GetAliasRequest &request);
 
       /**
        * @summary Gets asynchronous invocation configurations of a function.
@@ -487,34 +507,38 @@ namespace FC20230330
       /**
        * @summary Obtains a concurrency configuration.
        *
+       * @param request GetConcurrencyConfigRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetConcurrencyConfigResponse
        */
-      Models::GetConcurrencyConfigResponse getConcurrencyConfigWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetConcurrencyConfigResponse getConcurrencyConfigWithOptions(const string &functionName, const Models::GetConcurrencyConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtains a concurrency configuration.
        *
+       * @param request GetConcurrencyConfigRequest
        * @return GetConcurrencyConfigResponse
        */
-      Models::GetConcurrencyConfigResponse getConcurrencyConfig(const string &functionName);
+      Models::GetConcurrencyConfigResponse getConcurrencyConfig(const string &functionName, const Models::GetConcurrencyConfigRequest &request);
 
       /**
        * @summary Queries information about a custom domain name.
        *
+       * @param request GetCustomDomainRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCustomDomainResponse
        */
-      Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetCustomDomainResponse getCustomDomainWithOptions(const string &domainName, const Models::GetCustomDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries information about a custom domain name.
        *
+       * @param request GetCustomDomainRequest
        * @return GetCustomDomainResponse
        */
-      Models::GetCustomDomainResponse getCustomDomain(const string &domainName);
+      Models::GetCustomDomainResponse getCustomDomain(const string &domainName, const Models::GetCustomDomainRequest &request);
 
       /**
        * @summary http://pre.hhht/#vpc
@@ -555,34 +579,38 @@ namespace FC20230330
       /**
        * @summary Queries versions of a layer.
        *
+       * @param request GetLayerVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetLayerVersionResponse
        */
-      Models::GetLayerVersionResponse getLayerVersionWithOptions(const string &layerName, const string &version, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetLayerVersionResponse getLayerVersionWithOptions(const string &layerName, const string &version, const Models::GetLayerVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries versions of a layer.
        *
+       * @param request GetLayerVersionRequest
        * @return GetLayerVersionResponse
        */
-      Models::GetLayerVersionResponse getLayerVersion(const string &layerName, const string &version);
+      Models::GetLayerVersionResponse getLayerVersion(const string &layerName, const string &version, const Models::GetLayerVersionRequest &request);
 
       /**
        * @summary Obtain version information of a layer by using ARNs.
        *
+       * @param request GetLayerVersionByArnRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetLayerVersionByArnResponse
        */
-      Models::GetLayerVersionByArnResponse getLayerVersionByArnWithOptions(const string &arn, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetLayerVersionByArnResponse getLayerVersionByArnWithOptions(const string &arn, const Models::GetLayerVersionByArnRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Obtain version information of a layer by using ARNs.
        *
+       * @param request GetLayerVersionByArnRequest
        * @return GetLayerVersionByArnResponse
        */
-      Models::GetLayerVersionByArnResponse getLayerVersionByArn(const string &arn);
+      Models::GetLayerVersionByArnResponse getLayerVersionByArn(const string &arn, const Models::GetLayerVersionByArnRequest &request);
 
       /**
        * @summary Queries provisioned configurations.
@@ -641,18 +669,20 @@ namespace FC20230330
       /**
        * @summary Queries information about a trigger.
        *
+       * @param request GetTriggerRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTriggerResponse
        */
-      Models::GetTriggerResponse getTriggerWithOptions(const string &functionName, const string &triggerName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GetTriggerResponse getTriggerWithOptions(const string &functionName, const string &triggerName, const Models::GetTriggerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries information about a trigger.
        *
+       * @param request GetTriggerRequest
        * @return GetTriggerResponse
        */
-      Models::GetTriggerResponse getTrigger(const string &functionName, const string &triggerName);
+      Models::GetTriggerResponse getTrigger(const string &functionName, const string &triggerName, const Models::GetTriggerRequest &request);
 
       /**
        * @summary Invokes a function.
@@ -949,18 +979,20 @@ namespace FC20230330
       /**
        * @summary Queries a list of existing VPC connections.
        *
+       * @param request ListVpcBindingsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListVpcBindingsResponse
        */
-      Models::ListVpcBindingsResponse listVpcBindingsWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListVpcBindingsResponse listVpcBindingsWithOptions(const string &functionName, const Models::ListVpcBindingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of existing VPC connections.
        *
+       * @param request ListVpcBindingsRequest
        * @return ListVpcBindingsResponse
        */
-      Models::ListVpcBindingsResponse listVpcBindings(const string &functionName);
+      Models::ListVpcBindingsResponse listVpcBindings(const string &functionName, const Models::ListVpcBindingsRequest &request);
 
       /**
        * @summary 暂停/保存会话

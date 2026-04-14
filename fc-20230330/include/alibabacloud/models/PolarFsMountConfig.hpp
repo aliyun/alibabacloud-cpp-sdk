@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const PolarFsMountConfig& obj) { 
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(mountDir, mountDir_);
+      DARABONBA_PTR_TO_JSON(readOnly, readOnly_);
       DARABONBA_PTR_TO_JSON(remoteDir, remoteDir_);
     };
     friend void from_json(const Darabonba::Json& j, PolarFsMountConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(mountDir, mountDir_);
+      DARABONBA_PTR_FROM_JSON(readOnly, readOnly_);
       DARABONBA_PTR_FROM_JSON(remoteDir, remoteDir_);
     };
     PolarFsMountConfig() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->mountDir_ == nullptr && this->remoteDir_ == nullptr; };
+        && this->mountDir_ == nullptr && this->readOnly_ == nullptr && this->remoteDir_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline PolarFsMountConfig& setMountDir(string mountDir) { DARABONBA_PTR_SET_VALUE(mountDir_, mountDir) };
 
 
+    // readOnly Field Functions 
+    bool hasReadOnly() const { return this->readOnly_ != nullptr;};
+    void deleteReadOnly() { this->readOnly_ = nullptr;};
+    inline bool getReadOnly() const { DARABONBA_PTR_GET_DEFAULT(readOnly_, false) };
+    inline PolarFsMountConfig& setReadOnly(bool readOnly) { DARABONBA_PTR_SET_VALUE(readOnly_, readOnly) };
+
+
     // remoteDir Field Functions 
     bool hasRemoteDir() const { return this->remoteDir_ != nullptr;};
     void deleteRemoteDir() { this->remoteDir_ = nullptr;};
@@ -59,6 +68,7 @@ namespace Models
   protected:
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> mountDir_ {};
+    shared_ptr<bool> readOnly_ {};
     shared_ptr<string> remoteDir_ {};
   };
 
