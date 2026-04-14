@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBProxyEndpointId, DBProxyEndpointId_);
       DARABONBA_PTR_TO_JSON(DBProxyEngineType, DBProxyEngineType_);
       DARABONBA_PTR_TO_JSON(DbEndpointAliases, dbEndpointAliases_);
+      DARABONBA_PTR_TO_JSON(DbEndpointCostThresholdForDuckdb, dbEndpointCostThresholdForDuckdb_);
       DARABONBA_PTR_TO_JSON(DbEndpointMinSlaveCount, dbEndpointMinSlaveCount_);
       DARABONBA_PTR_TO_JSON(DbEndpointOperator, dbEndpointOperator_);
       DARABONBA_PTR_TO_JSON(DbEndpointReadWriteMode, dbEndpointReadWriteMode_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBProxyEndpointId, DBProxyEndpointId_);
       DARABONBA_PTR_FROM_JSON(DBProxyEngineType, DBProxyEngineType_);
       DARABONBA_PTR_FROM_JSON(DbEndpointAliases, dbEndpointAliases_);
+      DARABONBA_PTR_FROM_JSON(DbEndpointCostThresholdForDuckdb, dbEndpointCostThresholdForDuckdb_);
       DARABONBA_PTR_FROM_JSON(DbEndpointMinSlaveCount, dbEndpointMinSlaveCount_);
       DARABONBA_PTR_FROM_JSON(DbEndpointOperator, dbEndpointOperator_);
       DARABONBA_PTR_FROM_JSON(DbEndpointReadWriteMode, dbEndpointReadWriteMode_);
@@ -71,9 +73,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->causalConsistReadTimeout_ == nullptr
         && this->configDBProxyFeatures_ == nullptr && this->DBInstanceId_ == nullptr && this->DBProxyEndpointId_ == nullptr && this->DBProxyEngineType_ == nullptr && this->dbEndpointAliases_ == nullptr
-        && this->dbEndpointMinSlaveCount_ == nullptr && this->dbEndpointOperator_ == nullptr && this->dbEndpointReadWriteMode_ == nullptr && this->dbEndpointType_ == nullptr && this->effectiveSpecificTime_ == nullptr
-        && this->effectiveTime_ == nullptr && this->ownerId_ == nullptr && this->readOnlyInstanceDistributionType_ == nullptr && this->readOnlyInstanceMaxDelayTime_ == nullptr && this->readOnlyInstanceWeight_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->dbEndpointCostThresholdForDuckdb_ == nullptr && this->dbEndpointMinSlaveCount_ == nullptr && this->dbEndpointOperator_ == nullptr && this->dbEndpointReadWriteMode_ == nullptr && this->dbEndpointType_ == nullptr
+        && this->effectiveSpecificTime_ == nullptr && this->effectiveTime_ == nullptr && this->ownerId_ == nullptr && this->readOnlyInstanceDistributionType_ == nullptr && this->readOnlyInstanceMaxDelayTime_ == nullptr
+        && this->readOnlyInstanceWeight_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr; };
     // causalConsistReadTimeout Field Functions 
     bool hasCausalConsistReadTimeout() const { return this->causalConsistReadTimeout_ != nullptr;};
     void deleteCausalConsistReadTimeout() { this->causalConsistReadTimeout_ = nullptr;};
@@ -114,6 +117,13 @@ namespace Models
     void deleteDbEndpointAliases() { this->dbEndpointAliases_ = nullptr;};
     inline string getDbEndpointAliases() const { DARABONBA_PTR_GET_DEFAULT(dbEndpointAliases_, "") };
     inline ModifyDBProxyEndpointRequest& setDbEndpointAliases(string dbEndpointAliases) { DARABONBA_PTR_SET_VALUE(dbEndpointAliases_, dbEndpointAliases) };
+
+
+    // dbEndpointCostThresholdForDuckdb Field Functions 
+    bool hasDbEndpointCostThresholdForDuckdb() const { return this->dbEndpointCostThresholdForDuckdb_ != nullptr;};
+    void deleteDbEndpointCostThresholdForDuckdb() { this->dbEndpointCostThresholdForDuckdb_ = nullptr;};
+    inline string getDbEndpointCostThresholdForDuckdb() const { DARABONBA_PTR_GET_DEFAULT(dbEndpointCostThresholdForDuckdb_, "") };
+    inline ModifyDBProxyEndpointRequest& setDbEndpointCostThresholdForDuckdb(string dbEndpointCostThresholdForDuckdb) { DARABONBA_PTR_SET_VALUE(dbEndpointCostThresholdForDuckdb_, dbEndpointCostThresholdForDuckdb) };
 
 
     // dbEndpointMinSlaveCount Field Functions 
@@ -258,6 +268,7 @@ namespace Models
     shared_ptr<string> DBProxyEngineType_ {};
     // The description of the proxy terminal.
     shared_ptr<string> dbEndpointAliases_ {};
+    shared_ptr<string> dbEndpointCostThresholdForDuckdb_ {};
     // The minimum number of reserved instances.
     shared_ptr<string> dbEndpointMinSlaveCount_ {};
     // The type of operation that you want to perform. Valid values:

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRCDisksRequest& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     DescribeRCDisksRequest() = default ;
@@ -85,7 +87,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->diskIds_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->tag_ == nullptr; };
+        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr
+        && this->tag_ == nullptr; };
     // diskIds Field Functions 
     bool hasDiskIds() const { return this->diskIds_ != nullptr;};
     void deleteDiskIds() { this->diskIds_ = nullptr;};
@@ -121,6 +124,13 @@ namespace Models
     inline DescribeRCDisksRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DescribeRCDisksRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -143,6 +153,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> status_ {};
     // The list of the tags.
     shared_ptr<vector<DescribeRCDisksRequest::Tag>> tag_ {};
   };

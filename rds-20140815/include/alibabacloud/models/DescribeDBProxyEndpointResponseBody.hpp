@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBProxyConnectString, DBProxyConnectString_);
       DARABONBA_PTR_TO_JSON(DBProxyConnectStringNetType, DBProxyConnectStringNetType_);
       DARABONBA_PTR_TO_JSON(DBProxyConnectStringPort, DBProxyConnectStringPort_);
+      DARABONBA_PTR_TO_JSON(DBProxyEndpointCostThresholdForDuckdb, DBProxyEndpointCostThresholdForDuckdb_);
       DARABONBA_PTR_TO_JSON(DBProxyEndpointId, DBProxyEndpointId_);
       DARABONBA_PTR_TO_JSON(DBProxyEndpointMinSlaveCount, DBProxyEndpointMinSlaveCount_);
       DARABONBA_PTR_TO_JSON(DBProxyEngineType, DBProxyEngineType_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBProxyConnectString, DBProxyConnectString_);
       DARABONBA_PTR_FROM_JSON(DBProxyConnectStringNetType, DBProxyConnectStringNetType_);
       DARABONBA_PTR_FROM_JSON(DBProxyConnectStringPort, DBProxyConnectStringPort_);
+      DARABONBA_PTR_FROM_JSON(DBProxyEndpointCostThresholdForDuckdb, DBProxyEndpointCostThresholdForDuckdb_);
       DARABONBA_PTR_FROM_JSON(DBProxyEndpointId, DBProxyEndpointId_);
       DARABONBA_PTR_FROM_JSON(DBProxyEndpointMinSlaveCount, DBProxyEndpointMinSlaveCount_);
       DARABONBA_PTR_FROM_JSON(DBProxyEngineType, DBProxyEngineType_);
@@ -237,10 +239,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->causalConsistReadTimeout_ == nullptr
-        && this->DBProxyConnectString_ == nullptr && this->DBProxyConnectStringNetType_ == nullptr && this->DBProxyConnectStringPort_ == nullptr && this->DBProxyEndpointId_ == nullptr && this->DBProxyEndpointMinSlaveCount_ == nullptr
-        && this->DBProxyEngineType_ == nullptr && this->DBProxyFeatures_ == nullptr && this->DBProxyNodes_ == nullptr && this->dbProxyEndpointAliases_ == nullptr && this->dbProxyEndpointReadWriteMode_ == nullptr
-        && this->dbProxyEndpointVpcId_ == nullptr && this->dbProxyEndpointVswitchId_ == nullptr && this->dbProxyEndpointZoneId_ == nullptr && this->endpointConnectItems_ == nullptr && this->readOnlyInstanceDistributionType_ == nullptr
-        && this->readOnlyInstanceMaxDelayTime_ == nullptr && this->readOnlyInstanceWeight_ == nullptr && this->requestId_ == nullptr; };
+        && this->DBProxyConnectString_ == nullptr && this->DBProxyConnectStringNetType_ == nullptr && this->DBProxyConnectStringPort_ == nullptr && this->DBProxyEndpointCostThresholdForDuckdb_ == nullptr && this->DBProxyEndpointId_ == nullptr
+        && this->DBProxyEndpointMinSlaveCount_ == nullptr && this->DBProxyEngineType_ == nullptr && this->DBProxyFeatures_ == nullptr && this->DBProxyNodes_ == nullptr && this->dbProxyEndpointAliases_ == nullptr
+        && this->dbProxyEndpointReadWriteMode_ == nullptr && this->dbProxyEndpointVpcId_ == nullptr && this->dbProxyEndpointVswitchId_ == nullptr && this->dbProxyEndpointZoneId_ == nullptr && this->endpointConnectItems_ == nullptr
+        && this->readOnlyInstanceDistributionType_ == nullptr && this->readOnlyInstanceMaxDelayTime_ == nullptr && this->readOnlyInstanceWeight_ == nullptr && this->requestId_ == nullptr; };
     // causalConsistReadTimeout Field Functions 
     bool hasCausalConsistReadTimeout() const { return this->causalConsistReadTimeout_ != nullptr;};
     void deleteCausalConsistReadTimeout() { this->causalConsistReadTimeout_ = nullptr;};
@@ -267,6 +269,13 @@ namespace Models
     void deleteDBProxyConnectStringPort() { this->DBProxyConnectStringPort_ = nullptr;};
     inline string getDBProxyConnectStringPort() const { DARABONBA_PTR_GET_DEFAULT(DBProxyConnectStringPort_, "") };
     inline DescribeDBProxyEndpointResponseBody& setDBProxyConnectStringPort(string DBProxyConnectStringPort) { DARABONBA_PTR_SET_VALUE(DBProxyConnectStringPort_, DBProxyConnectStringPort) };
+
+
+    // DBProxyEndpointCostThresholdForDuckdb Field Functions 
+    bool hasDBProxyEndpointCostThresholdForDuckdb() const { return this->DBProxyEndpointCostThresholdForDuckdb_ != nullptr;};
+    void deleteDBProxyEndpointCostThresholdForDuckdb() { this->DBProxyEndpointCostThresholdForDuckdb_ = nullptr;};
+    inline string getDBProxyEndpointCostThresholdForDuckdb() const { DARABONBA_PTR_GET_DEFAULT(DBProxyEndpointCostThresholdForDuckdb_, "") };
+    inline DescribeDBProxyEndpointResponseBody& setDBProxyEndpointCostThresholdForDuckdb(string DBProxyEndpointCostThresholdForDuckdb) { DARABONBA_PTR_SET_VALUE(DBProxyEndpointCostThresholdForDuckdb_, DBProxyEndpointCostThresholdForDuckdb) };
 
 
     // DBProxyEndpointId Field Functions 
@@ -390,6 +399,7 @@ namespace Models
     shared_ptr<string> DBProxyConnectStringNetType_ {};
     // The port number that is associated with the proxy endpoint.
     shared_ptr<string> DBProxyConnectStringPort_ {};
+    shared_ptr<string> DBProxyEndpointCostThresholdForDuckdb_ {};
     // The ID of the proxy endpoint.
     shared_ptr<string> DBProxyEndpointId_ {};
     // The minimum number of reserved instances.

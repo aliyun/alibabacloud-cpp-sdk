@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_TO_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CreateAckEdgeParam, createAckEdgeParam_);
       DARABONBA_PTR_TO_JSON(CreateExtraParam, createExtraParam_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_FROM_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CreateAckEdgeParam, createAckEdgeParam_);
       DARABONBA_PTR_FROM_JSON(CreateExtraParam, createExtraParam_);
@@ -387,15 +389,15 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->acuType_ == nullptr
-        && this->amount_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr
-        && this->createAckEdgeParam_ == nullptr && this->createExtraParam_ == nullptr && this->createMode_ == nullptr && this->dataDisk_ == nullptr && this->deletionProtection_ == nullptr
-        && this->deploymentSetId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
-        && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
-        && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->networkOptions_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr
-        && this->spotStrategy_ == nullptr && this->supportCase_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr && this->userData_ == nullptr
-        && this->userDataInBase64_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->amount_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->businessInfo_ == nullptr
+        && this->clientToken_ == nullptr && this->createAckEdgeParam_ == nullptr && this->createExtraParam_ == nullptr && this->createMode_ == nullptr && this->dataDisk_ == nullptr
+        && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->hostName_ == nullptr
+        && this->imageId_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr
+        && this->internetMaxBandwidthOut_ == nullptr && this->ioOptimized_ == nullptr && this->keyPairName_ == nullptr && this->networkOptions_ == nullptr && this->password_ == nullptr
+        && this->passwordInherit_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scheduledRule_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr
+        && this->securityGroupIds_ == nullptr && this->spotStrategy_ == nullptr && this->supportCase_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr
+        && this->userData_ == nullptr && this->userDataInBase64_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // acuType Field Functions 
     bool hasAcuType() const { return this->acuType_ != nullptr;};
     void deleteAcuType() { this->acuType_ = nullptr;};
@@ -429,6 +431,13 @@ namespace Models
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
     inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline RunRCInstancesRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
+    // businessInfo Field Functions 
+    bool hasBusinessInfo() const { return this->businessInfo_ != nullptr;};
+    void deleteBusinessInfo() { this->businessInfo_ = nullptr;};
+    inline string getBusinessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
+    inline RunRCInstancesRequest& setBusinessInfo(string businessInfo) { DARABONBA_PTR_SET_VALUE(businessInfo_, businessInfo) };
 
 
     // clientToken Field Functions 
@@ -735,6 +744,7 @@ namespace Models
     // *   **false**
     shared_ptr<bool> autoRenew_ {};
     shared_ptr<bool> autoUseCoupon_ {};
+    shared_ptr<string> businessInfo_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<RunRCInstancesRequest::CreateAckEdgeParam> createAckEdgeParam_ {};

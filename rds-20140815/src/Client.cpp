@@ -25242,6 +25242,10 @@ ModifyDBProxyEndpointResponse Client::modifyDBProxyEndpointWithOptions(const Mod
     query["DbEndpointAliases"] = request.getDbEndpointAliases();
   }
 
+  if (!!request.hasDbEndpointCostThresholdForDuckdb()) {
+    query["DbEndpointCostThresholdForDuckdb"] = request.getDbEndpointCostThresholdForDuckdb();
+  }
+
   if (!!request.hasDbEndpointMinSlaveCount()) {
     query["DbEndpointMinSlaveCount"] = request.getDbEndpointMinSlaveCount();
   }
@@ -31046,6 +31050,10 @@ RunRCInstancesResponse Client::runRCInstancesWithOptions(const RunRCInstancesReq
 
   if (!!request.hasAutoUseCoupon()) {
     query["AutoUseCoupon"] = request.getAutoUseCoupon();
+  }
+
+  if (!!request.hasBusinessInfo()) {
+    query["BusinessInfo"] = request.getBusinessInfo();
   }
 
   if (!!request.hasClientToken()) {
