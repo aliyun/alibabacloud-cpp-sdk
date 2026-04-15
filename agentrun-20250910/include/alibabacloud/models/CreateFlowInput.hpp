@@ -4,7 +4,6 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/EnvironmentConfiguration.hpp>
 #include <alibabacloud/models/LoggingConfiguration.hpp>
-#include <vector>
 #include <alibabacloud/models/TracingConfiguration.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -25,7 +24,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(flowName, flowName_);
       DARABONBA_PTR_TO_JSON(loggingConfiguration, loggingConfiguration_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(tracingConfiguration, tracingConfiguration_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
@@ -38,7 +36,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(flowName, flowName_);
       DARABONBA_PTR_FROM_JSON(loggingConfiguration, loggingConfiguration_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(tracingConfiguration, tracingConfiguration_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
@@ -55,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->definition_ == nullptr
         && this->description_ == nullptr && this->environmentConfiguration_ == nullptr && this->executionRoleArn_ == nullptr && this->externalStorageLocation_ == nullptr && this->flowName_ == nullptr
-        && this->loggingConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->tracingConfiguration_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->loggingConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->tracingConfiguration_ == nullptr && this->workspaceId_ == nullptr; };
     // definition Field Functions 
     bool hasDefinition() const { return this->definition_ != nullptr;};
     void deleteDefinition() { this->definition_ = nullptr;};
@@ -116,15 +113,6 @@ namespace Models
     inline CreateFlowInput& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
-    // tags Field Functions 
-    bool hasTags() const { return this->tags_ != nullptr;};
-    void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
-    inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
-    inline CreateFlowInput& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreateFlowInput& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
-
-
     // tracingConfiguration Field Functions 
     bool hasTracingConfiguration() const { return this->tracingConfiguration_ != nullptr;};
     void deleteTracingConfiguration() { this->tracingConfiguration_ = nullptr;};
@@ -160,8 +148,6 @@ namespace Models
     shared_ptr<LoggingConfiguration> loggingConfiguration_ {};
     // 工作流所属的资源组标识符
     shared_ptr<string> resourceGroupId_ {};
-    // 工作流的标签信息，用于资源分类和管理
-    shared_ptr<vector<string>> tags_ {};
     // 工作流的链路追踪配置
     shared_ptr<TracingConfiguration> tracingConfiguration_ {};
     // 工作流所属的工作空间标识符，用于资源隔离和权限管理

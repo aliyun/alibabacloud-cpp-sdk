@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CONVERTFLOWDSLDATA_HPP_
 #define ALIBABACLOUD_MODELS_CONVERTFLOWDSLDATA_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
 #include <alibabacloud/models/EnvironmentConfiguration.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -43,12 +43,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ToolsetInstallations& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(name, name_);
-        DARABONBA_PTR_TO_JSON(spec, spec_);
+        DARABONBA_ANY_TO_JSON(spec, spec_);
       };
       friend void from_json(const Darabonba::Json& j, ToolsetInstallations& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(name, name_);
-        DARABONBA_PTR_FROM_JSON(spec, spec_);
+        DARABONBA_ANY_FROM_JSON(spec, spec_);
       };
       ToolsetInstallations() = default ;
       ToolsetInstallations(const ToolsetInstallations &) = default ;
@@ -80,10 +80,10 @@ namespace Models
       // spec Field Functions 
       bool hasSpec() const { return this->spec_ != nullptr;};
       void deleteSpec() { this->spec_ = nullptr;};
-      inline const map<string, string> & getSpec() const { DARABONBA_PTR_GET_CONST(spec_, map<string, string>) };
-      inline map<string, string> getSpec() { DARABONBA_PTR_GET(spec_, map<string, string>) };
-      inline ToolsetInstallations& setSpec(const map<string, string> & spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
-      inline ToolsetInstallations& setSpec(map<string, string> && spec) { DARABONBA_PTR_SET_RVALUE(spec_, spec) };
+      inline       const Darabonba::Json & getSpec() const { DARABONBA_GET(spec_) };
+      Darabonba::Json & getSpec() { DARABONBA_GET(spec_) };
+      inline ToolsetInstallations& setSpec(const Darabonba::Json & spec) { DARABONBA_SET_VALUE(spec_, spec) };
+      inline ToolsetInstallations& setSpec(Darabonba::Json && spec) { DARABONBA_SET_RVALUE(spec_, spec) };
 
 
     protected:
@@ -96,7 +96,7 @@ namespace Models
       // Toolset规格配置（JSON对象）
       // 
       // This parameter is required.
-      shared_ptr<map<string, string>> spec_ {};
+      Darabonba::Json spec_ {};
     };
 
     class PluginErrors : public Darabonba::Model {

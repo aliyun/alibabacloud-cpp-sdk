@@ -39,6 +39,28 @@ namespace AgentRun20250910
       Models::ActivateTemplateMCPResponse activateTemplateMCP(const string &templateName, const Models::ActivateTemplateMCPRequest &request);
 
       /**
+       * @summary 转换Flow DSL
+       *
+       * @description 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+       *
+       * @param request ConvertFlowDSLRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConvertFlowDSLResponse
+       */
+      Models::ConvertFlowDSLResponse convertFlowDSLWithOptions(const Models::ConvertFlowDSLRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 转换Flow DSL
+       *
+       * @description 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+       *
+       * @param request ConvertFlowDSLRequest
+       * @return ConvertFlowDSLResponse
+       */
+      Models::ConvertFlowDSLResponse convertFlowDSL(const Models::ConvertFlowDSLRequest &request);
+
+      /**
        * @summary CreateAgentRuntime
        *
        * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -161,6 +183,50 @@ namespace AgentRun20250910
        * @return CreateCustomDomainResponse
        */
       Models::CreateCustomDomainResponse createCustomDomain(const Models::CreateCustomDomainRequest &request);
+
+      /**
+       * @summary 创建工作流
+       *
+       * @description 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+       *
+       * @param request CreateFlowRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateFlowResponse
+       */
+      Models::CreateFlowResponse createFlowWithOptions(const Models::CreateFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工作流
+       *
+       * @description 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+       *
+       * @param request CreateFlowRequest
+       * @return CreateFlowResponse
+       */
+      Models::CreateFlowResponse createFlow(const Models::CreateFlowRequest &request);
+
+      /**
+       * @summary 创建工作流端点
+       *
+       * @description 为指定工作流创建一个新的端点，用于对外提供服务访问。
+       *
+       * @param request CreateFlowEndpointRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateFlowEndpointResponse
+       */
+      Models::CreateFlowEndpointResponse createFlowEndpointWithOptions(const string &flowName, const Models::CreateFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工作流端点
+       *
+       * @description 为指定工作流创建一个新的端点，用于对外提供服务访问。
+       *
+       * @param request CreateFlowEndpointRequest
+       * @return CreateFlowEndpointResponse
+       */
+      Models::CreateFlowEndpointResponse createFlowEndpoint(const string &flowName, const Models::CreateFlowEndpointRequest &request);
 
       /**
        * @summary 创建知识库
@@ -441,6 +507,72 @@ namespace AgentRun20250910
        * @return DeleteCustomDomainResponse
        */
       Models::DeleteCustomDomainResponse deleteCustomDomain(const string &domainName, const Models::DeleteCustomDomainRequest &request);
+
+      /**
+       * @summary 删除工作流
+       *
+       * @description 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       *
+       * @param request DeleteFlowRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFlowResponse
+       */
+      Models::DeleteFlowResponse deleteFlowWithOptions(const string &flowName, const Models::DeleteFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作流
+       *
+       * @description 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+       *
+       * @param request DeleteFlowRequest
+       * @return DeleteFlowResponse
+       */
+      Models::DeleteFlowResponse deleteFlow(const string &flowName, const Models::DeleteFlowRequest &request);
+
+      /**
+       * @summary 删除工作流端点
+       *
+       * @description 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+       *
+       * @param request DeleteFlowEndpointRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFlowEndpointResponse
+       */
+      Models::DeleteFlowEndpointResponse deleteFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const Models::DeleteFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作流端点
+       *
+       * @description 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+       *
+       * @param request DeleteFlowEndpointRequest
+       * @return DeleteFlowEndpointResponse
+       */
+      Models::DeleteFlowEndpointResponse deleteFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::DeleteFlowEndpointRequest &request);
+
+      /**
+       * @summary 删除工作流版本
+       *
+       * @description 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+       *
+       * @param request DeleteFlowVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFlowVersionResponse
+       */
+      Models::DeleteFlowVersionResponse deleteFlowVersionWithOptions(const string &flowName, const string &flowVersion, const Models::DeleteFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作流版本
+       *
+       * @description 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+       *
+       * @param request DeleteFlowVersionRequest
+       * @return DeleteFlowVersionResponse
+       */
+      Models::DeleteFlowVersionResponse deleteFlowVersion(const string &flowName, const string &flowVersion, const Models::DeleteFlowVersionRequest &request);
 
       /**
        * @summary 删除知识库
@@ -735,6 +867,94 @@ namespace AgentRun20250910
        * @return GetCustomDomainResponse
        */
       Models::GetCustomDomainResponse getCustomDomain(const string &domainName, const Models::GetCustomDomainRequest &request);
+
+      /**
+       * @summary 获取工作流详情
+       *
+       * @description 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+       *
+       * @param request GetFlowRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFlowResponse
+       */
+      Models::GetFlowResponse getFlowWithOptions(const string &flowName, const Models::GetFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流详情
+       *
+       * @description 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+       *
+       * @param request GetFlowRequest
+       * @return GetFlowResponse
+       */
+      Models::GetFlowResponse getFlow(const string &flowName, const Models::GetFlowRequest &request);
+
+      /**
+       * @summary 获取工作流草稿
+       *
+       * @description 获取指定工作流的草稿版本，返回草稿中的配置信息。
+       *
+       * @param request GetFlowDraftRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFlowDraftResponse
+       */
+      Models::GetFlowDraftResponse getFlowDraftWithOptions(const string &flowName, const Models::GetFlowDraftRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流草稿
+       *
+       * @description 获取指定工作流的草稿版本，返回草稿中的配置信息。
+       *
+       * @param request GetFlowDraftRequest
+       * @return GetFlowDraftResponse
+       */
+      Models::GetFlowDraftResponse getFlowDraft(const string &flowName, const Models::GetFlowDraftRequest &request);
+
+      /**
+       * @summary 获取工作流端点详情
+       *
+       * @description 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+       *
+       * @param request GetFlowEndpointRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFlowEndpointResponse
+       */
+      Models::GetFlowEndpointResponse getFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const Models::GetFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流端点详情
+       *
+       * @description 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+       *
+       * @param request GetFlowEndpointRequest
+       * @return GetFlowEndpointResponse
+       */
+      Models::GetFlowEndpointResponse getFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::GetFlowEndpointRequest &request);
+
+      /**
+       * @summary 获取工作流版本详情
+       *
+       * @description 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+       *
+       * @param request GetFlowVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFlowVersionResponse
+       */
+      Models::GetFlowVersionResponse getFlowVersionWithOptions(const string &flowName, const string &flowVersion, const Models::GetFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流版本详情
+       *
+       * @description 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+       *
+       * @param request GetFlowVersionRequest
+       * @return GetFlowVersionResponse
+       */
+      Models::GetFlowVersionResponse getFlowVersion(const string &flowName, const string &flowVersion, const Models::GetFlowVersionRequest &request);
 
       /**
        * @summary 获取知识库
@@ -1057,6 +1277,72 @@ namespace AgentRun20250910
       Models::ListCustomDomainsResponse listCustomDomains(const Models::ListCustomDomainsRequest &request);
 
       /**
+       * @summary 列出工作流端点
+       *
+       * @description 获取指定工作流的所有端点列表，支持分页查询。
+       *
+       * @param request ListFlowEndpointsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFlowEndpointsResponse
+       */
+      Models::ListFlowEndpointsResponse listFlowEndpointsWithOptions(const string &flowId, const Models::ListFlowEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出工作流端点
+       *
+       * @description 获取指定工作流的所有端点列表，支持分页查询。
+       *
+       * @param request ListFlowEndpointsRequest
+       * @return ListFlowEndpointsResponse
+       */
+      Models::ListFlowEndpointsResponse listFlowEndpoints(const string &flowId, const Models::ListFlowEndpointsRequest &request);
+
+      /**
+       * @summary 列出工作流版本
+       *
+       * @description 获取指定工作流的所有版本列表，支持分页查询。
+       *
+       * @param request ListFlowVersionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFlowVersionsResponse
+       */
+      Models::ListFlowVersionsResponse listFlowVersionsWithOptions(const string &flowName, const Models::ListFlowVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出工作流版本
+       *
+       * @description 获取指定工作流的所有版本列表，支持分页查询。
+       *
+       * @param request ListFlowVersionsRequest
+       * @return ListFlowVersionsResponse
+       */
+      Models::ListFlowVersionsResponse listFlowVersions(const string &flowName, const Models::ListFlowVersionsRequest &request);
+
+      /**
+       * @summary 列出工作流
+       *
+       * @description 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+       *
+       * @param request ListFlowsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFlowsResponse
+       */
+      Models::ListFlowsResponse listFlowsWithOptions(const Models::ListFlowsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出工作流
+       *
+       * @description 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+       *
+       * @param request ListFlowsRequest
+       * @return ListFlowsResponse
+       */
+      Models::ListFlowsResponse listFlows(const Models::ListFlowsRequest &request);
+
+      /**
        * @summary 列出知识库
        *
        * @param request ListKnowledgeBasesRequest
@@ -1257,6 +1543,28 @@ namespace AgentRun20250910
       Models::PauseSandboxResponse pauseSandbox(const string &sandboxId, const Models::PauseSandboxRequest &request);
 
       /**
+       * @summary 发布工作流版本
+       *
+       * @description 为指定工作流发布新版本，用于版本管理和回滚。
+       *
+       * @param request PublishFlowVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishFlowVersionResponse
+       */
+      Models::PublishFlowVersionResponse publishFlowVersionWithOptions(const string &flowName, const Models::PublishFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布工作流版本
+       *
+       * @description 为指定工作流发布新版本，用于版本管理和回滚。
+       *
+       * @param request PublishFlowVersionRequest
+       * @return PublishFlowVersionResponse
+       */
+      Models::PublishFlowVersionResponse publishFlowVersion(const string &flowName, const Models::PublishFlowVersionRequest &request);
+
+      /**
        * @summary 发布运行时版本
        *
        * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -1411,6 +1719,72 @@ namespace AgentRun20250910
        * @return UpdateCustomDomainResponse
        */
       Models::UpdateCustomDomainResponse updateCustomDomain(const string &domainName, const Models::UpdateCustomDomainRequest &request);
+
+      /**
+       * @summary 更新工作流
+       *
+       * @description 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+       *
+       * @param request UpdateFlowRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFlowResponse
+       */
+      Models::UpdateFlowResponse updateFlowWithOptions(const string &flowName, const Models::UpdateFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工作流
+       *
+       * @description 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+       *
+       * @param request UpdateFlowRequest
+       * @return UpdateFlowResponse
+       */
+      Models::UpdateFlowResponse updateFlow(const string &flowName, const Models::UpdateFlowRequest &request);
+
+      /**
+       * @summary 更新工作流草稿
+       *
+       * @description 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+       *
+       * @param request UpdateFlowDraftRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFlowDraftResponse
+       */
+      Models::UpdateFlowDraftResponse updateFlowDraftWithOptions(const string &flowName, const Models::UpdateFlowDraftRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工作流草稿
+       *
+       * @description 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+       *
+       * @param request UpdateFlowDraftRequest
+       * @return UpdateFlowDraftResponse
+       */
+      Models::UpdateFlowDraftResponse updateFlowDraft(const string &flowName, const Models::UpdateFlowDraftRequest &request);
+
+      /**
+       * @summary 更新工作流端点
+       *
+       * @description 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+       *
+       * @param request UpdateFlowEndpointRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFlowEndpointResponse
+       */
+      Models::UpdateFlowEndpointResponse updateFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const Models::UpdateFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工作流端点
+       *
+       * @description 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+       *
+       * @param request UpdateFlowEndpointRequest
+       * @return UpdateFlowEndpointResponse
+       */
+      Models::UpdateFlowEndpointResponse updateFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::UpdateFlowEndpointRequest &request);
 
       /**
        * @summary 更新知识库

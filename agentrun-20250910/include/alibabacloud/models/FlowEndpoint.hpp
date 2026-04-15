@@ -23,7 +23,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(flowId, flowId_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_TO_JSON(routingConfiguration, routingConfiguration_);
-      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(targetVersion, targetVersion_);
     };
     friend void from_json(const Darabonba::Json& j, FlowEndpoint& obj) { 
@@ -35,7 +34,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(flowId, flowId_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_FROM_JSON(routingConfiguration, routingConfiguration_);
-      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(targetVersion, targetVersion_);
     };
     FlowEndpoint() = default ;
@@ -51,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->description_ == nullptr && this->flowEndpointArn_ == nullptr && this->flowEndpointId_ == nullptr && this->flowEndpointName_ == nullptr && this->flowId_ == nullptr
-        && this->lastUpdatedAt_ == nullptr && this->routingConfiguration_ == nullptr && this->tags_ == nullptr && this->targetVersion_ == nullptr; };
+        && this->lastUpdatedAt_ == nullptr && this->routingConfiguration_ == nullptr && this->targetVersion_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -110,15 +108,6 @@ namespace Models
     inline FlowEndpoint& setRoutingConfiguration(vector<FlowEndpointRoutingConfig> && routingConfiguration) { DARABONBA_PTR_SET_RVALUE(routingConfiguration_, routingConfiguration) };
 
 
-    // tags Field Functions 
-    bool hasTags() const { return this->tags_ != nullptr;};
-    void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<string> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
-    inline vector<string> getTags() { DARABONBA_PTR_GET(tags_, vector<string>) };
-    inline FlowEndpoint& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline FlowEndpoint& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
-
-
     // targetVersion Field Functions 
     bool hasTargetVersion() const { return this->targetVersion_ != nullptr;};
     void deleteTargetVersion() { this->targetVersion_ = nullptr;};
@@ -143,8 +132,6 @@ namespace Models
     shared_ptr<string> lastUpdatedAt_ {};
     // 工作流端点的版本路由配置
     shared_ptr<vector<FlowEndpointRoutingConfig>> routingConfiguration_ {};
-    // 工作流端点的标签信息
-    shared_ptr<vector<string>> tags_ {};
     // 工作流端点指向的目标版本号
     shared_ptr<string> targetVersion_ {};
   };

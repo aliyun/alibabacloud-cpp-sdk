@@ -86,6 +86,50 @@ ActivateTemplateMCPResponse Client::activateTemplateMCP(const string &templateNa
 }
 
 /**
+ * @summary 转换Flow DSL
+ *
+ * @description 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+ *
+ * @param request ConvertFlowDSLRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConvertFlowDSLResponse
+ */
+ConvertFlowDSLResponse Client::convertFlowDSLWithOptions(const ConvertFlowDSLRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "ConvertFlowDSL"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/action/convertDsl")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConvertFlowDSLResponse>();
+}
+
+/**
+ * @summary 转换Flow DSL
+ *
+ * @description 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+ *
+ * @param request ConvertFlowDSLRequest
+ * @return ConvertFlowDSLResponse
+ */
+ConvertFlowDSLResponse Client::convertFlowDSL(const ConvertFlowDSLRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return convertFlowDSLWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary CreateAgentRuntime
  *
  * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -339,6 +383,94 @@ CreateCustomDomainResponse Client::createCustomDomain(const CreateCustomDomainRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createCustomDomainWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建工作流
+ *
+ * @description 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+ *
+ * @param request CreateFlowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFlowResponse
+ */
+CreateFlowResponse Client::createFlowWithOptions(const CreateFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateFlow"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFlowResponse>();
+}
+
+/**
+ * @summary 创建工作流
+ *
+ * @description 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+ *
+ * @param request CreateFlowRequest
+ * @return CreateFlowResponse
+ */
+CreateFlowResponse Client::createFlow(const CreateFlowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createFlowWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建工作流端点
+ *
+ * @description 为指定工作流创建一个新的端点，用于对外提供服务访问。
+ *
+ * @param request CreateFlowEndpointRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFlowEndpointResponse
+ */
+CreateFlowEndpointResponse Client::createFlowEndpointWithOptions(const string &flowName, const CreateFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateFlowEndpoint"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/endpoints")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFlowEndpointResponse>();
+}
+
+/**
+ * @summary 创建工作流端点
+ *
+ * @description 为指定工作流创建一个新的端点，用于对外提供服务访问。
+ *
+ * @param request CreateFlowEndpointRequest
+ * @return CreateFlowEndpointResponse
+ */
+CreateFlowEndpointResponse Client::createFlowEndpoint(const string &flowName, const CreateFlowEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createFlowEndpointWithOptions(flowName, request, headers, runtime);
 }
 
 /**
@@ -921,6 +1053,135 @@ DeleteCustomDomainResponse Client::deleteCustomDomain(const string &domainName, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteCustomDomainWithOptions(domainName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除工作流
+ *
+ * @description 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+ *
+ * @param request DeleteFlowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFlowResponse
+ */
+DeleteFlowResponse Client::deleteFlowWithOptions(const string &flowName, const DeleteFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFlow"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFlowResponse>();
+}
+
+/**
+ * @summary 删除工作流
+ *
+ * @description 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+ *
+ * @param request DeleteFlowRequest
+ * @return DeleteFlowResponse
+ */
+DeleteFlowResponse Client::deleteFlow(const string &flowName, const DeleteFlowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteFlowWithOptions(flowName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除工作流端点
+ *
+ * @description 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+ *
+ * @param request DeleteFlowEndpointRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFlowEndpointResponse
+ */
+DeleteFlowEndpointResponse Client::deleteFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const DeleteFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFlowEndpoint"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/endpoints/" , Darabonba::Encode::Encoder::percentEncode(flowEndpointName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFlowEndpointResponse>();
+}
+
+/**
+ * @summary 删除工作流端点
+ *
+ * @description 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+ *
+ * @param request DeleteFlowEndpointRequest
+ * @return DeleteFlowEndpointResponse
+ */
+DeleteFlowEndpointResponse Client::deleteFlowEndpoint(const string &flowName, const string &flowEndpointName, const DeleteFlowEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除工作流版本
+ *
+ * @description 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+ *
+ * @param request DeleteFlowVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFlowVersionResponse
+ */
+DeleteFlowVersionResponse Client::deleteFlowVersionWithOptions(const string &flowName, const string &flowVersion, const DeleteFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFlowVersion"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(flowVersion))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFlowVersionResponse>();
+}
+
+/**
+ * @summary 删除工作流版本
+ *
+ * @description 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+ *
+ * @param request DeleteFlowVersionRequest
+ * @return DeleteFlowVersionResponse
+ */
+DeleteFlowVersionResponse Client::deleteFlowVersion(const string &flowName, const string &flowVersion, const DeleteFlowVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
 }
 
 /**
@@ -1550,6 +1811,178 @@ GetCustomDomainResponse Client::getCustomDomain(const string &domainName, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCustomDomainWithOptions(domainName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取工作流详情
+ *
+ * @description 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+ *
+ * @param request GetFlowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFlowResponse
+ */
+GetFlowResponse Client::getFlowWithOptions(const string &flowName, const GetFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFlow"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFlowResponse>();
+}
+
+/**
+ * @summary 获取工作流详情
+ *
+ * @description 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+ *
+ * @param request GetFlowRequest
+ * @return GetFlowResponse
+ */
+GetFlowResponse Client::getFlow(const string &flowName, const GetFlowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getFlowWithOptions(flowName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取工作流草稿
+ *
+ * @description 获取指定工作流的草稿版本，返回草稿中的配置信息。
+ *
+ * @param request GetFlowDraftRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFlowDraftResponse
+ */
+GetFlowDraftResponse Client::getFlowDraftWithOptions(const string &flowName, const GetFlowDraftRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFlowDraft"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/draft")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFlowDraftResponse>();
+}
+
+/**
+ * @summary 获取工作流草稿
+ *
+ * @description 获取指定工作流的草稿版本，返回草稿中的配置信息。
+ *
+ * @param request GetFlowDraftRequest
+ * @return GetFlowDraftResponse
+ */
+GetFlowDraftResponse Client::getFlowDraft(const string &flowName, const GetFlowDraftRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getFlowDraftWithOptions(flowName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取工作流端点详情
+ *
+ * @description 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+ *
+ * @param request GetFlowEndpointRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFlowEndpointResponse
+ */
+GetFlowEndpointResponse Client::getFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const GetFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFlowEndpoint"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/endpoints/" , Darabonba::Encode::Encoder::percentEncode(flowEndpointName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFlowEndpointResponse>();
+}
+
+/**
+ * @summary 获取工作流端点详情
+ *
+ * @description 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+ *
+ * @param request GetFlowEndpointRequest
+ * @return GetFlowEndpointResponse
+ */
+GetFlowEndpointResponse Client::getFlowEndpoint(const string &flowName, const string &flowEndpointName, const GetFlowEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取工作流版本详情
+ *
+ * @description 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+ *
+ * @param request GetFlowVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFlowVersionResponse
+ */
+GetFlowVersionResponse Client::getFlowVersionWithOptions(const string &flowName, const string &flowVersion, const GetFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFlowVersion"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(flowVersion))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFlowVersionResponse>();
+}
+
+/**
+ * @summary 获取工作流版本详情
+ *
+ * @description 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+ *
+ * @param request GetFlowVersionRequest
+ * @return GetFlowVersionResponse
+ */
+GetFlowVersionResponse Client::getFlowVersion(const string &flowName, const string &flowVersion, const GetFlowVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
 }
 
 /**
@@ -2375,6 +2808,177 @@ ListCustomDomainsResponse Client::listCustomDomains(const ListCustomDomainsReque
 }
 
 /**
+ * @summary 列出工作流端点
+ *
+ * @description 获取指定工作流的所有端点列表，支持分页查询。
+ *
+ * @param request ListFlowEndpointsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFlowEndpointsResponse
+ */
+ListFlowEndpointsResponse Client::listFlowEndpointsWithOptions(const string &flowId, const ListFlowEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFlowEndpoints"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowId) , "/endpoints")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFlowEndpointsResponse>();
+}
+
+/**
+ * @summary 列出工作流端点
+ *
+ * @description 获取指定工作流的所有端点列表，支持分页查询。
+ *
+ * @param request ListFlowEndpointsRequest
+ * @return ListFlowEndpointsResponse
+ */
+ListFlowEndpointsResponse Client::listFlowEndpoints(const string &flowId, const ListFlowEndpointsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listFlowEndpointsWithOptions(flowId, request, headers, runtime);
+}
+
+/**
+ * @summary 列出工作流版本
+ *
+ * @description 获取指定工作流的所有版本列表，支持分页查询。
+ *
+ * @param request ListFlowVersionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFlowVersionsResponse
+ */
+ListFlowVersionsResponse Client::listFlowVersionsWithOptions(const string &flowName, const ListFlowVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFlowVersions"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/versions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFlowVersionsResponse>();
+}
+
+/**
+ * @summary 列出工作流版本
+ *
+ * @description 获取指定工作流的所有版本列表，支持分页查询。
+ *
+ * @param request ListFlowVersionsRequest
+ * @return ListFlowVersionsResponse
+ */
+ListFlowVersionsResponse Client::listFlowVersions(const string &flowName, const ListFlowVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listFlowVersionsWithOptions(flowName, request, headers, runtime);
+}
+
+/**
+ * @summary 列出工作流
+ *
+ * @description 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+ *
+ * @param request ListFlowsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFlowsResponse
+ */
+ListFlowsResponse Client::listFlowsWithOptions(const ListFlowsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFlowName()) {
+    query["flowName"] = request.getFlowName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceIds()) {
+    query["workspaceIds"] = request.getWorkspaceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFlows"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFlowsResponse>();
+}
+
+/**
+ * @summary 列出工作流
+ *
+ * @description 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+ *
+ * @param request ListFlowsRequest
+ * @return ListFlowsResponse
+ */
+ListFlowsResponse Client::listFlows(const ListFlowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listFlowsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 列出知识库
  *
  * @param request ListKnowledgeBasesRequest
@@ -3015,6 +3619,50 @@ PauseSandboxResponse Client::pauseSandbox(const string &sandboxId, const PauseSa
 }
 
 /**
+ * @summary 发布工作流版本
+ *
+ * @description 为指定工作流发布新版本，用于版本管理和回滚。
+ *
+ * @param request PublishFlowVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishFlowVersionResponse
+ */
+PublishFlowVersionResponse Client::publishFlowVersionWithOptions(const string &flowName, const PublishFlowVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "PublishFlowVersion"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/versions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishFlowVersionResponse>();
+}
+
+/**
+ * @summary 发布工作流版本
+ *
+ * @description 为指定工作流发布新版本，用于版本管理和回滚。
+ *
+ * @param request PublishFlowVersionRequest
+ * @return PublishFlowVersionResponse
+ */
+PublishFlowVersionResponse Client::publishFlowVersion(const string &flowName, const PublishFlowVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return publishFlowVersionWithOptions(flowName, request, headers, runtime);
+}
+
+/**
  * @summary 发布运行时版本
  *
  * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -3341,6 +3989,138 @@ UpdateCustomDomainResponse Client::updateCustomDomain(const string &domainName, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateCustomDomainWithOptions(domainName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新工作流
+ *
+ * @description 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+ *
+ * @param request UpdateFlowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFlowResponse
+ */
+UpdateFlowResponse Client::updateFlowWithOptions(const string &flowName, const UpdateFlowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateFlow"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFlowResponse>();
+}
+
+/**
+ * @summary 更新工作流
+ *
+ * @description 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+ *
+ * @param request UpdateFlowRequest
+ * @return UpdateFlowResponse
+ */
+UpdateFlowResponse Client::updateFlow(const string &flowName, const UpdateFlowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateFlowWithOptions(flowName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新工作流草稿
+ *
+ * @description 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+ *
+ * @param request UpdateFlowDraftRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFlowDraftResponse
+ */
+UpdateFlowDraftResponse Client::updateFlowDraftWithOptions(const string &flowName, const UpdateFlowDraftRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateFlowDraft"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/draft")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFlowDraftResponse>();
+}
+
+/**
+ * @summary 更新工作流草稿
+ *
+ * @description 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+ *
+ * @param request UpdateFlowDraftRequest
+ * @return UpdateFlowDraftResponse
+ */
+UpdateFlowDraftResponse Client::updateFlowDraft(const string &flowName, const UpdateFlowDraftRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateFlowDraftWithOptions(flowName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新工作流端点
+ *
+ * @description 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+ *
+ * @param request UpdateFlowEndpointRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFlowEndpointResponse
+ */
+UpdateFlowEndpointResponse Client::updateFlowEndpointWithOptions(const string &flowName, const string &flowEndpointName, const UpdateFlowEndpointRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateFlowEndpoint"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/flows/" , Darabonba::Encode::Encoder::percentEncode(flowName) , "/endpoints/" , Darabonba::Encode::Encoder::percentEncode(flowEndpointName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFlowEndpointResponse>();
+}
+
+/**
+ * @summary 更新工作流端点
+ *
+ * @description 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+ *
+ * @param request UpdateFlowEndpointRequest
+ * @return UpdateFlowEndpointResponse
+ */
+UpdateFlowEndpointResponse Client::updateFlowEndpoint(const string &flowName, const string &flowEndpointName, const UpdateFlowEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
 }
 
 /**
