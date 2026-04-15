@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_TO_JSON(deploymentContent, deploymentContent_);
+        DARABONBA_PTR_TO_JSON(failedReason, failedReason_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(version, version_);
       };
@@ -55,6 +56,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_FROM_JSON(deploymentContent, deploymentContent_);
+        DARABONBA_PTR_FROM_JSON(failedReason, failedReason_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(version, version_);
       };
@@ -486,8 +488,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->componentConfig_ == nullptr
-        && this->componentContent_ == nullptr && this->createTime_ == nullptr && this->deploymentConfig_ == nullptr && this->deploymentContent_ == nullptr && this->status_ == nullptr
-        && this->version_ == nullptr; };
+        && this->componentContent_ == nullptr && this->createTime_ == nullptr && this->deploymentConfig_ == nullptr && this->deploymentContent_ == nullptr && this->failedReason_ == nullptr
+        && this->status_ == nullptr && this->version_ == nullptr; };
       // componentConfig Field Functions 
       bool hasComponentConfig() const { return this->componentConfig_ != nullptr;};
       void deleteComponentConfig() { this->componentConfig_ = nullptr;};
@@ -527,6 +529,13 @@ namespace Models
       inline Configs& setDeploymentContent(string deploymentContent) { DARABONBA_PTR_SET_VALUE(deploymentContent_, deploymentContent) };
 
 
+      // failedReason Field Functions 
+      bool hasFailedReason() const { return this->failedReason_ != nullptr;};
+      void deleteFailedReason() { this->failedReason_ = nullptr;};
+      inline string getFailedReason() const { DARABONBA_PTR_GET_DEFAULT(failedReason_, "") };
+      inline Configs& setFailedReason(string failedReason) { DARABONBA_PTR_SET_VALUE(failedReason_, failedReason) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -547,6 +556,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       shared_ptr<Configs::DeploymentConfig> deploymentConfig_ {};
       shared_ptr<string> deploymentContent_ {};
+      shared_ptr<string> failedReason_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> version_ {};
     };
