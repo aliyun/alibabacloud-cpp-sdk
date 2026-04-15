@@ -85,6 +85,24 @@ namespace SysOM20231230
       Models::CpuHighAgentStreamResponseResponse cpuHighAgentStreamResponse(const Models::CpuHighAgentStreamResponseRequest &request);
 
       /**
+       * @summary 创建一个告警联系人
+       *
+       * @param request CreateAlertDestinationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAlertDestinationResponse
+       */
+      Models::CreateAlertDestinationResponse createAlertDestinationWithOptions(const Models::CreateAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个告警联系人
+       *
+       * @param request CreateAlertDestinationRequest
+       * @return CreateAlertDestinationResponse
+       */
+      Models::CreateAlertDestinationResponse createAlertDestination(const Models::CreateAlertDestinationRequest &request);
+
+      /**
        * @summary 新增推送告警的策略
        *
        * @param request CreateAlertStrategyRequest
@@ -119,6 +137,24 @@ namespace SysOM20231230
        * @return CreateVmcoreDiagnosisTaskResponse
        */
       Models::CreateVmcoreDiagnosisTaskResponse createVmcoreDiagnosisTask(const Models::CreateVmcoreDiagnosisTaskRequest &request);
+
+      /**
+       * @summary 删除告警联系人
+       *
+       * @param request DeleteAlertDestinationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAlertDestinationResponse
+       */
+      Models::DeleteAlertDestinationResponse deleteAlertDestinationWithOptions(const Models::DeleteAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除告警联系人
+       *
+       * @param request DeleteAlertDestinationRequest
+       * @return DeleteAlertDestinationResponse
+       */
+      Models::DeleteAlertDestinationResponse deleteAlertDestination(const Models::DeleteAlertDestinationRequest &request);
 
       /**
        * @summary 用户删除推送告警的策略
@@ -273,6 +309,24 @@ namespace SysOM20231230
        * @return GetAgentTaskResponse
        */
       Models::GetAgentTaskResponse getAgentTask(const Models::GetAgentTaskRequest &request);
+
+      /**
+       * @summary 获取告警联系人详情
+       *
+       * @param request GetAlertDestinationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAlertDestinationResponse
+       */
+      Models::GetAlertDestinationResponse getAlertDestinationWithOptions(const Models::GetAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取告警联系人详情
+       *
+       * @param request GetAlertDestinationRequest
+       * @return GetAlertDestinationResponse
+       */
+      Models::GetAlertDestinationResponse getAlertDestination(const Models::GetAlertDestinationRequest &request);
 
       /**
        * @summary 根据策略id，获取用户的一条告警
@@ -743,6 +797,24 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
 
       /**
+       * @summary 查看告警联系人列表
+       *
+       * @param request ListAlertDestinationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAlertDestinationsResponse
+       */
+      Models::ListAlertDestinationsResponse listAlertDestinationsWithOptions(const Models::ListAlertDestinationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看告警联系人列表
+       *
+       * @param request ListAlertDestinationsRequest
+       * @return ListAlertDestinationsResponse
+       */
+      Models::ListAlertDestinationsResponse listAlertDestinations(const Models::ListAlertDestinationsRequest &request);
+
+      /**
        * @summary 获取所有告警项
        *
        * @param headers map
@@ -1079,6 +1151,28 @@ namespace SysOM20231230
        * @return UninstallAgentForClusterResponse
        */
       Models::UninstallAgentForClusterResponse uninstallAgentForCluster(const Models::UninstallAgentForClusterRequest &request);
+
+      /**
+       * @summary 更新告警联系人
+       *
+       * @description 、
+       *
+       * @param request UpdateAlertDestinationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertDestinationResponse
+       */
+      Models::UpdateAlertDestinationResponse updateAlertDestinationWithOptions(const Models::UpdateAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新告警联系人
+       *
+       * @description 、
+       *
+       * @param request UpdateAlertDestinationRequest
+       * @return UpdateAlertDestinationResponse
+       */
+      Models::UpdateAlertDestinationResponse updateAlertDestination(const Models::UpdateAlertDestinationRequest &request);
 
       /**
        * @summary 用户更新推送告警策略的状态
