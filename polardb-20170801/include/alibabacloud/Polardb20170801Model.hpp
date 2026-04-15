@@ -294,6 +294,9 @@
 #include <alibabacloud/models/DescribeAvailableCrossRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeAvailableCrossRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAvailableCrossRegionsResponse.hpp>
+#include <alibabacloud/models/DescribeAvailableModelsRequest.hpp>
+#include <alibabacloud/models/DescribeAvailableModelsResponseBody.hpp>
+#include <alibabacloud/models/DescribeAvailableModelsResponse.hpp>
 #include <alibabacloud/models/DescribeBackupLogsRequest.hpp>
 #include <alibabacloud/models/DescribeBackupLogsResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupLogsResponse.hpp>

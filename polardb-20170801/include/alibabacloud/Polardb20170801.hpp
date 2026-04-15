@@ -1743,6 +1743,23 @@ namespace Polardb20170801
       Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegions(const Models::DescribeAvailableCrossRegionsRequest &request);
 
       /**
+       * @summary 获取ai集群模型列表
+       *
+       * @param request DescribeAvailableModelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAvailableModelsResponse
+       */
+      Models::DescribeAvailableModelsResponse describeAvailableModelsWithOptions(const Models::DescribeAvailableModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取ai集群模型列表
+       *
+       * @param request DescribeAvailableModelsRequest
+       * @return DescribeAvailableModelsResponse
+       */
+      Models::DescribeAvailableModelsResponse describeAvailableModels(const Models::DescribeAvailableModelsRequest &request);
+
+      /**
        * @summary Queries backup logs and the URLs to download the backup logs.
        *
        * @param request DescribeBackupLogsRequest

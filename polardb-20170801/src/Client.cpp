@@ -6968,6 +6968,52 @@ DescribeAvailableCrossRegionsResponse Client::describeAvailableCrossRegions(cons
 }
 
 /**
+ * @summary 获取ai集群模型列表
+ *
+ * @param request DescribeAvailableModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAvailableModelsResponse
+ */
+DescribeAvailableModelsResponse Client::describeAvailableModelsWithOptions(const DescribeAvailableModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKubeType()) {
+    query["KubeType"] = request.getKubeType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAvailableModels"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAvailableModelsResponse>();
+}
+
+/**
+ * @summary 获取ai集群模型列表
+ *
+ * @param request DescribeAvailableModelsRequest
+ * @return DescribeAvailableModelsResponse
+ */
+DescribeAvailableModelsResponse Client::describeAvailableModels(const DescribeAvailableModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAvailableModelsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries backup logs and the URLs to download the backup logs.
  *
  * @param request DescribeBackupLogsRequest
