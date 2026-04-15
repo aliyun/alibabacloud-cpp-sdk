@@ -92,6 +92,10 @@
 #include <alibabacloud/models/CreateOpenSingleDataRequest.hpp>
 #include <alibabacloud/models/CreateOpenSingleDataResponseBody.hpp>
 #include <alibabacloud/models/CreateOpenSingleDataResponse.hpp>
+#include <alibabacloud/models/CreatePayOrderToMsenceRequest.hpp>
+#include <alibabacloud/models/CreatePayOrderToMsenceShrinkRequest.hpp>
+#include <alibabacloud/models/CreatePayOrderToMsenceResponseBody.hpp>
+#include <alibabacloud/models/CreatePayOrderToMsenceResponse.hpp>
 #include <alibabacloud/models/CreateTemplateRequest.hpp>
 #include <alibabacloud/models/CreateTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateTemplateResponse.hpp>
@@ -137,6 +141,9 @@
 #include <alibabacloud/models/ExportMappCenterAppConfigRequest.hpp>
 #include <alibabacloud/models/ExportMappCenterAppConfigResponseBody.hpp>
 #include <alibabacloud/models/ExportMappCenterAppConfigResponse.hpp>
+#include <alibabacloud/models/GetAuthTokenToMsenceRequest.hpp>
+#include <alibabacloud/models/GetAuthTokenToMsenceResponseBody.hpp>
+#include <alibabacloud/models/GetAuthTokenToMsenceResponse.hpp>
 #include <alibabacloud/models/GetFileTokenForUploadToMsaRequest.hpp>
 #include <alibabacloud/models/GetFileTokenForUploadToMsaResponseBody.hpp>
 #include <alibabacloud/models/GetFileTokenForUploadToMsaResponse.hpp>
@@ -179,6 +186,7 @@
 #include <alibabacloud/models/ListAnalysisCoreIndexRequest.hpp>
 #include <alibabacloud/models/ListAnalysisCoreIndexResponseBody.hpp>
 #include <alibabacloud/models/ListAnalysisCoreIndexResponse.hpp>
+#include <alibabacloud/models/ListCubecardAppsRequest.hpp>
 #include <alibabacloud/models/ListCubecardAppsResponseBody.hpp>
 #include <alibabacloud/models/ListCubecardAppsResponse.hpp>
 #include <alibabacloud/models/ListMappCenterAppsResponseBody.hpp>
@@ -315,6 +323,9 @@
 #include <alibabacloud/models/QueryMscpRiskInfoRequest.hpp>
 #include <alibabacloud/models/QueryMscpRiskInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryMscpRiskInfoResponse.hpp>
+#include <alibabacloud/models/QueryPayOrderToMsenceRequest.hpp>
+#include <alibabacloud/models/QueryPayOrderToMsenceResponseBody.hpp>
+#include <alibabacloud/models/QueryPayOrderToMsenceResponse.hpp>
 #include <alibabacloud/models/QueryPushAnalysisCoreIndexRequest.hpp>
 #include <alibabacloud/models/QueryPushAnalysisCoreIndexResponseBody.hpp>
 #include <alibabacloud/models/QueryPushAnalysisCoreIndexResponse.hpp>
@@ -327,6 +338,9 @@
 #include <alibabacloud/models/QueryPushSchedulerListRequest.hpp>
 #include <alibabacloud/models/QueryPushSchedulerListResponseBody.hpp>
 #include <alibabacloud/models/QueryPushSchedulerListResponse.hpp>
+#include <alibabacloud/models/QueryUserInfoToMsenceRequest.hpp>
+#include <alibabacloud/models/QueryUserInfoToMsenceResponseBody.hpp>
+#include <alibabacloud/models/QueryUserInfoToMsenceResponse.hpp>
 #include <alibabacloud/models/RevokePushMessageRequest.hpp>
 #include <alibabacloud/models/RevokePushMessageResponseBody.hpp>
 #include <alibabacloud/models/RevokePushMessageResponse.hpp>
@@ -339,6 +353,9 @@
 #include <alibabacloud/models/SaveMgsApirestRequest.hpp>
 #include <alibabacloud/models/SaveMgsApirestResponseBody.hpp>
 #include <alibabacloud/models/SaveMgsApirestResponse.hpp>
+#include <alibabacloud/models/SaveOrderRelationInfoToMsenceRequest.hpp>
+#include <alibabacloud/models/SaveOrderRelationInfoToMsenceResponseBody.hpp>
+#include <alibabacloud/models/SaveOrderRelationInfoToMsenceResponse.hpp>
 #include <alibabacloud/models/StartUserAppAsyncEnhanceInMsaRequest.hpp>
 #include <alibabacloud/models/StartUserAppAsyncEnhanceInMsaResponseBody.hpp>
 #include <alibabacloud/models/StartUserAppAsyncEnhanceInMsaResponse.hpp>
@@ -369,5 +386,8 @@
 #include <alibabacloud/models/UploadUserAppToMsaRequest.hpp>
 #include <alibabacloud/models/UploadUserAppToMsaResponseBody.hpp>
 #include <alibabacloud/models/UploadUserAppToMsaResponse.hpp>
+#include <alibabacloud/models/VirtualDeliveryToMsceneRequest.hpp>
+#include <alibabacloud/models/VirtualDeliveryToMsceneResponseBody.hpp>
+#include <alibabacloud/models/VirtualDeliveryToMsceneResponse.hpp>
 
 #endif

@@ -427,6 +427,23 @@ namespace MPaaS20201028
       Models::CreateOpenSingleDataResponse createOpenSingleData(const Models::CreateOpenSingleDataRequest &request);
 
       /**
+       * @summary 获取token
+       *
+       * @param tmpReq CreatePayOrderToMsenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePayOrderToMsenceResponse
+       */
+      Models::CreatePayOrderToMsenceResponse createPayOrderToMsenceWithOptions(const Models::CreatePayOrderToMsenceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取token
+       *
+       * @param request CreatePayOrderToMsenceRequest
+       * @return CreatePayOrderToMsenceResponse
+       */
+      Models::CreatePayOrderToMsenceResponse createPayOrderToMsence(const Models::CreatePayOrderToMsenceRequest &request);
+
+      /**
        * @summary 创建模版
        *
        * @param request CreateTemplateRequest
@@ -634,6 +651,23 @@ namespace MPaaS20201028
       Models::ExportMappCenterAppConfigResponse exportMappCenterAppConfig(const Models::ExportMappCenterAppConfigRequest &request);
 
       /**
+       * @summary 获取授权token
+       *
+       * @param request GetAuthTokenToMsenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAuthTokenToMsenceResponse
+       */
+      Models::GetAuthTokenToMsenceResponse getAuthTokenToMsenceWithOptions(const Models::GetAuthTokenToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取授权token
+       *
+       * @param request GetAuthTokenToMsenceRequest
+       * @return GetAuthTokenToMsenceResponse
+       */
+      Models::GetAuthTokenToMsenceResponse getAuthTokenToMsence(const Models::GetAuthTokenToMsenceRequest &request);
+
+      /**
        * @param request GetFileTokenForUploadToMsaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetFileTokenForUploadToMsaResponse
@@ -832,15 +866,15 @@ namespace MPaaS20201028
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCubecardAppsResponse
        */
-      Models::ListCubecardAppsResponse listCubecardAppsWithOptions(const Darabonba::RuntimeOptions &runtime);
+      Models::ListCubecardAppsResponse listCubecardAppsWithOptions(const Models::ListCubecardAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @param request ListCubecardAppsRequest
        * @return ListCubecardAppsResponse
        */
-      Models::ListCubecardAppsResponse listCubecardApps();
+      Models::ListCubecardAppsResponse listCubecardApps(const Models::ListCubecardAppsRequest &request);
 
       /**
-       * @param request ListMappCenterAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMappCenterAppsResponse
        */
@@ -852,7 +886,6 @@ namespace MPaaS20201028
       Models::ListMappCenterAppsResponse listMappCenterApps();
 
       /**
-       * @param request ListMappCenterWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMappCenterWorkspacesResponse
        */
@@ -1450,6 +1483,23 @@ namespace MPaaS20201028
       Models::QueryMscpRiskInfoResponse queryMscpRiskInfo(const Models::QueryMscpRiskInfoRequest &request);
 
       /**
+       * @summary 查询支付订单信息
+       *
+       * @param request QueryPayOrderToMsenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPayOrderToMsenceResponse
+       */
+      Models::QueryPayOrderToMsenceResponse queryPayOrderToMsenceWithOptions(const Models::QueryPayOrderToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询支付订单信息
+       *
+       * @param request QueryPayOrderToMsenceRequest
+       * @return QueryPayOrderToMsenceResponse
+       */
+      Models::QueryPayOrderToMsenceResponse queryPayOrderToMsence(const Models::QueryPayOrderToMsenceRequest &request);
+
+      /**
        * @param request QueryPushAnalysisCoreIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryPushAnalysisCoreIndexResponse
@@ -1502,6 +1552,23 @@ namespace MPaaS20201028
       Models::QueryPushSchedulerListResponse queryPushSchedulerList(const Models::QueryPushSchedulerListRequest &request);
 
       /**
+       * @summary 查询用户信息
+       *
+       * @param request QueryUserInfoToMsenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryUserInfoToMsenceResponse
+       */
+      Models::QueryUserInfoToMsenceResponse queryUserInfoToMsenceWithOptions(const Models::QueryUserInfoToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户信息
+       *
+       * @param request QueryUserInfoToMsenceRequest
+       * @return QueryUserInfoToMsenceResponse
+       */
+      Models::QueryUserInfoToMsenceResponse queryUserInfoToMsence(const Models::QueryUserInfoToMsenceRequest &request);
+
+      /**
        * @param request RevokePushMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RevokePushMessageResponse
@@ -1552,6 +1619,23 @@ namespace MPaaS20201028
        * @return SaveMgsApirestResponse
        */
       Models::SaveMgsApirestResponse saveMgsApirest(const Models::SaveMgsApirestRequest &request);
+
+      /**
+       * @summary 关联订单信息
+       *
+       * @param request SaveOrderRelationInfoToMsenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveOrderRelationInfoToMsenceResponse
+       */
+      Models::SaveOrderRelationInfoToMsenceResponse saveOrderRelationInfoToMsenceWithOptions(const Models::SaveOrderRelationInfoToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关联订单信息
+       *
+       * @param request SaveOrderRelationInfoToMsenceRequest
+       * @return SaveOrderRelationInfoToMsenceResponse
+       */
+      Models::SaveOrderRelationInfoToMsenceResponse saveOrderRelationInfoToMsence(const Models::SaveOrderRelationInfoToMsenceRequest &request);
 
       /**
        * @param request StartUserAppAsyncEnhanceInMsaRequest
@@ -1694,6 +1778,23 @@ namespace MPaaS20201028
        * @return UploadUserAppToMsaResponse
        */
       Models::UploadUserAppToMsaResponse uploadUserAppToMsa(const Models::UploadUserAppToMsaRequest &request);
+
+      /**
+       * @summary 虚拟发货接口
+       *
+       * @param request VirtualDeliveryToMsceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VirtualDeliveryToMsceneResponse
+       */
+      Models::VirtualDeliveryToMsceneResponse virtualDeliveryToMsceneWithOptions(const Models::VirtualDeliveryToMsceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 虚拟发货接口
+       *
+       * @param request VirtualDeliveryToMsceneRequest
+       * @return VirtualDeliveryToMsceneResponse
+       */
+      Models::VirtualDeliveryToMsceneResponse virtualDeliveryToMscene(const Models::VirtualDeliveryToMsceneRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace MPaaS20201028

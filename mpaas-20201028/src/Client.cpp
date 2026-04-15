@@ -2272,6 +2272,86 @@ CreateOpenSingleDataResponse Client::createOpenSingleData(const CreateOpenSingle
 }
 
 /**
+ * @summary 获取token
+ *
+ * @param tmpReq CreatePayOrderToMsenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePayOrderToMsenceResponse
+ */
+CreatePayOrderToMsenceResponse Client::createPayOrderToMsenceWithOptions(const CreatePayOrderToMsenceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePayOrderToMsenceShrinkRequest request = CreatePayOrderToMsenceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExtraInfo()) {
+    request.setExtraInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtraInfo(), "ExtraInfo", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAmount()) {
+    body["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAuthToken()) {
+    body["AuthToken"] = request.getAuthToken();
+  }
+
+  if (!!request.hasCustomId()) {
+    body["CustomId"] = request.getCustomId();
+  }
+
+  if (!!request.hasExtraInfoShrink()) {
+    body["ExtraInfo"] = request.getExtraInfoShrink();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreatePayOrderToMsence"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePayOrderToMsenceResponse>();
+}
+
+/**
+ * @summary 获取token
+ *
+ * @param request CreatePayOrderToMsenceRequest
+ * @return CreatePayOrderToMsenceResponse
+ */
+CreatePayOrderToMsenceResponse Client::createPayOrderToMsence(const CreatePayOrderToMsenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPayOrderToMsenceWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建模版
  *
  * @param request CreateTemplateRequest
@@ -3102,6 +3182,68 @@ ExportMappCenterAppConfigResponse Client::exportMappCenterAppConfig(const Export
 }
 
 /**
+ * @summary 获取授权token
+ *
+ * @param request GetAuthTokenToMsenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAuthTokenToMsenceResponse
+ */
+GetAuthTokenToMsenceResponse Client::getAuthTokenToMsenceWithOptions(const GetAuthTokenToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAuthCode()) {
+    body["AuthCode"] = request.getAuthCode();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAuthTokenToMsence"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAuthTokenToMsenceResponse>();
+}
+
+/**
+ * @summary 获取授权token
+ *
+ * @param request GetAuthTokenToMsenceRequest
+ * @return GetAuthTokenToMsenceResponse
+ */
+GetAuthTokenToMsenceResponse Client::getAuthTokenToMsence(const GetAuthTokenToMsenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAuthTokenToMsenceWithOptions(request, runtime);
+}
+
+/**
  * @param request GetFileTokenForUploadToMsaRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFileTokenForUploadToMsaResponse
@@ -3858,7 +4000,8 @@ ListAnalysisCoreIndexResponse Client::listAnalysisCoreIndex(const ListAnalysisCo
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCubecardAppsResponse
  */
-ListCubecardAppsResponse Client::listCubecardAppsWithOptions(const Darabonba::RuntimeOptions &runtime) {
+ListCubecardAppsResponse Client::listCubecardAppsWithOptions(const ListCubecardAppsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   OpenApiRequest req = OpenApiRequest();
   Params params = Params(json({
     {"action" , "ListCubecardApps"},
@@ -3875,15 +4018,15 @@ ListCubecardAppsResponse Client::listCubecardAppsWithOptions(const Darabonba::Ru
 }
 
 /**
+ * @param request ListCubecardAppsRequest
  * @return ListCubecardAppsResponse
  */
-ListCubecardAppsResponse Client::listCubecardApps() {
+ListCubecardAppsResponse Client::listCubecardApps(const ListCubecardAppsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listCubecardAppsWithOptions(runtime);
+  return listCubecardAppsWithOptions(request, runtime);
 }
 
 /**
- * @param request ListMappCenterAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListMappCenterAppsResponse
  */
@@ -3912,7 +4055,6 @@ ListMappCenterAppsResponse Client::listMappCenterApps() {
 }
 
 /**
- * @param request ListMappCenterWorkspacesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListMappCenterWorkspacesResponse
  */
@@ -6833,6 +6975,68 @@ QueryMscpRiskInfoResponse Client::queryMscpRiskInfo(const QueryMscpRiskInfoReque
 }
 
 /**
+ * @summary 查询支付订单信息
+ *
+ * @param request QueryPayOrderToMsenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPayOrderToMsenceResponse
+ */
+QueryPayOrderToMsenceResponse Client::queryPayOrderToMsenceWithOptions(const QueryPayOrderToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasCustomId()) {
+    body["CustomId"] = request.getCustomId();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryPayOrderToMsence"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPayOrderToMsenceResponse>();
+}
+
+/**
+ * @summary 查询支付订单信息
+ *
+ * @param request QueryPayOrderToMsenceRequest
+ * @return QueryPayOrderToMsenceResponse
+ */
+QueryPayOrderToMsenceResponse Client::queryPayOrderToMsence(const QueryPayOrderToMsenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPayOrderToMsenceWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryPushAnalysisCoreIndexRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryPushAnalysisCoreIndexResponse
@@ -7089,6 +7293,68 @@ QueryPushSchedulerListResponse Client::queryPushSchedulerList(const QueryPushSch
 }
 
 /**
+ * @summary 查询用户信息
+ *
+ * @param request QueryUserInfoToMsenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryUserInfoToMsenceResponse
+ */
+QueryUserInfoToMsenceResponse Client::queryUserInfoToMsenceWithOptions(const QueryUserInfoToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAuthToken()) {
+    body["AuthToken"] = request.getAuthToken();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryUserInfoToMsence"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryUserInfoToMsenceResponse>();
+}
+
+/**
+ * @summary 查询用户信息
+ *
+ * @param request QueryUserInfoToMsenceRequest
+ * @return QueryUserInfoToMsenceResponse
+ */
+QueryUserInfoToMsenceResponse Client::queryUserInfoToMsence(const QueryUserInfoToMsenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryUserInfoToMsenceWithOptions(request, runtime);
+}
+
+/**
  * @param request RevokePushMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RevokePushMessageResponse
@@ -7290,6 +7556,84 @@ SaveMgsApirestResponse Client::saveMgsApirestWithOptions(const SaveMgsApirestReq
 SaveMgsApirestResponse Client::saveMgsApirest(const SaveMgsApirestRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return saveMgsApirestWithOptions(request, runtime);
+}
+
+/**
+ * @summary 关联订单信息
+ *
+ * @param request SaveOrderRelationInfoToMsenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveOrderRelationInfoToMsenceResponse
+ */
+SaveOrderRelationInfoToMsenceResponse Client::saveOrderRelationInfoToMsenceWithOptions(const SaveOrderRelationInfoToMsenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAmount()) {
+    body["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasBizOrderId()) {
+    body["BizOrderId"] = request.getBizOrderId();
+  }
+
+  if (!!request.hasBizOrderStatus()) {
+    body["BizOrderStatus"] = request.getBizOrderStatus();
+  }
+
+  if (!!request.hasCustomId()) {
+    body["CustomId"] = request.getCustomId();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasOpenUid()) {
+    body["OpenUid"] = request.getOpenUid();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SaveOrderRelationInfoToMsence"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveOrderRelationInfoToMsenceResponse>();
+}
+
+/**
+ * @summary 关联订单信息
+ *
+ * @param request SaveOrderRelationInfoToMsenceRequest
+ * @return SaveOrderRelationInfoToMsenceResponse
+ */
+SaveOrderRelationInfoToMsenceResponse Client::saveOrderRelationInfoToMsence(const SaveOrderRelationInfoToMsenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveOrderRelationInfoToMsenceWithOptions(request, runtime);
 }
 
 /**
@@ -8040,6 +8384,68 @@ UploadUserAppToMsaResponse Client::uploadUserAppToMsaWithOptions(const UploadUse
 UploadUserAppToMsaResponse Client::uploadUserAppToMsa(const UploadUserAppToMsaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadUserAppToMsaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 虚拟发货接口
+ *
+ * @param request VirtualDeliveryToMsceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VirtualDeliveryToMsceneResponse
+ */
+VirtualDeliveryToMsceneResponse Client::virtualDeliveryToMsceneWithOptions(const VirtualDeliveryToMsceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasCustomId()) {
+    body["CustomId"] = request.getCustomId();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "VirtualDeliveryToMscene"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VirtualDeliveryToMsceneResponse>();
+}
+
+/**
+ * @summary 虚拟发货接口
+ *
+ * @param request VirtualDeliveryToMsceneRequest
+ * @return VirtualDeliveryToMsceneResponse
+ */
+VirtualDeliveryToMsceneResponse Client::virtualDeliveryToMscene(const VirtualDeliveryToMsceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return virtualDeliveryToMsceneWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace MPaaS20201028
