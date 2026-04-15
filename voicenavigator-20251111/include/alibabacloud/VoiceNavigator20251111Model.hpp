@@ -5,6 +5,10 @@
 #include <alibabacloud/models/CreateCloneVoiceRequest.hpp>
 #include <alibabacloud/models/CreateCloneVoiceResponseBody.hpp>
 #include <alibabacloud/models/CreateCloneVoiceResponse.hpp>
+#include <alibabacloud/models/CreateLlmAccessProfileRequest.hpp>
+#include <alibabacloud/models/CreateLlmAccessProfileShrinkRequest.hpp>
+#include <alibabacloud/models/CreateLlmAccessProfileResponseBody.hpp>
+#include <alibabacloud/models/CreateLlmAccessProfileResponse.hpp>
 #include <alibabacloud/models/CreateScriptRequest.hpp>
 #include <alibabacloud/models/CreateScriptResponseBody.hpp>
 #include <alibabacloud/models/CreateScriptResponse.hpp>
@@ -26,6 +30,9 @@
 #include <alibabacloud/models/DeleteCloneVoiceRequest.hpp>
 #include <alibabacloud/models/DeleteCloneVoiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloneVoiceResponse.hpp>
+#include <alibabacloud/models/DeleteLlmAccessProfileRequest.hpp>
+#include <alibabacloud/models/DeleteLlmAccessProfileResponseBody.hpp>
+#include <alibabacloud/models/DeleteLlmAccessProfileResponse.hpp>
 #include <alibabacloud/models/DeleteScriptRequest.hpp>
 #include <alibabacloud/models/DeleteScriptResponseBody.hpp>
 #include <alibabacloud/models/DeleteScriptResponse.hpp>
@@ -85,6 +92,9 @@
 #include <alibabacloud/models/ListCloneVoiceModelsRequest.hpp>
 #include <alibabacloud/models/ListCloneVoiceModelsResponseBody.hpp>
 #include <alibabacloud/models/ListCloneVoiceModelsResponse.hpp>
+#include <alibabacloud/models/ListLlmAccessProfilesRequest.hpp>
+#include <alibabacloud/models/ListLlmAccessProfilesResponseBody.hpp>
+#include <alibabacloud/models/ListLlmAccessProfilesResponse.hpp>
 #include <alibabacloud/models/ListNluModelsRequest.hpp>
 #include <alibabacloud/models/ListNluModelsResponseBody.hpp>
 #include <alibabacloud/models/ListNluModelsResponse.hpp>
@@ -120,6 +130,10 @@
 #include <alibabacloud/models/UpdateCloneVoiceRequest.hpp>
 #include <alibabacloud/models/UpdateCloneVoiceResponseBody.hpp>
 #include <alibabacloud/models/UpdateCloneVoiceResponse.hpp>
+#include <alibabacloud/models/UpdateLlmAccessProfileRequest.hpp>
+#include <alibabacloud/models/UpdateLlmAccessProfileShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateLlmAccessProfileResponseBody.hpp>
+#include <alibabacloud/models/UpdateLlmAccessProfileResponse.hpp>
 #include <alibabacloud/models/UpdateScriptRequest.hpp>
 #include <alibabacloud/models/UpdateScriptResponseBody.hpp>
 #include <alibabacloud/models/UpdateScriptResponse.hpp>

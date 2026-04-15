@@ -86,6 +86,58 @@ CreateCloneVoiceResponse Client::createCloneVoice(const CreateCloneVoiceRequest 
 }
 
 /**
+ * @summary 创建语言模型配置信息
+ *
+ * @param tmpReq CreateLlmAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLlmAccessProfileResponse
+ */
+CreateLlmAccessProfileResponse Client::createLlmAccessProfileWithOptions(const CreateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateLlmAccessProfileShrinkRequest request = CreateLlmAccessProfileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProfile()) {
+    request.setProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProfile(), "Profile", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProfileShrink()) {
+    body["Profile"] = request.getProfileShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateLlmAccessProfile"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLlmAccessProfileResponse>();
+}
+
+/**
+ * @summary 创建语言模型配置信息
+ *
+ * @param request CreateLlmAccessProfileRequest
+ * @return CreateLlmAccessProfileResponse
+ */
+CreateLlmAccessProfileResponse Client::createLlmAccessProfile(const CreateLlmAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLlmAccessProfileWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建实例
  *
  * @param request CreateScriptRequest
@@ -449,6 +501,52 @@ DeleteCloneVoiceResponse Client::deleteCloneVoiceWithOptions(const DeleteCloneVo
 DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除语言模型配置信息
+ *
+ * @param request DeleteLlmAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLlmAccessProfileResponse
+ */
+DeleteLlmAccessProfileResponse Client::deleteLlmAccessProfileWithOptions(const DeleteLlmAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessProfileId()) {
+    body["AccessProfileId"] = request.getAccessProfileId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteLlmAccessProfile"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLlmAccessProfileResponse>();
+}
+
+/**
+ * @summary 删除语言模型配置信息
+ *
+ * @param request DeleteLlmAccessProfileRequest
+ * @return DeleteLlmAccessProfileResponse
+ */
+DeleteLlmAccessProfileResponse Client::deleteLlmAccessProfile(const DeleteLlmAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLlmAccessProfileWithOptions(request, runtime);
 }
 
 /**
@@ -1412,6 +1510,56 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceMo
 }
 
 /**
+ * @summary 获取语言模型配置信息
+ *
+ * @param request ListLlmAccessProfilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLlmAccessProfilesResponse
+ */
+ListLlmAccessProfilesResponse Client::listLlmAccessProfilesWithOptions(const ListLlmAccessProfilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListLlmAccessProfiles"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLlmAccessProfilesResponse>();
+}
+
+/**
+ * @summary 获取语言模型配置信息
+ *
+ * @param request ListLlmAccessProfilesRequest
+ * @return ListLlmAccessProfilesResponse
+ */
+ListLlmAccessProfilesResponse Client::listLlmAccessProfiles(const ListLlmAccessProfilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listLlmAccessProfilesWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取对话模型列表
  *
  * @param request ListNluModelsRequest
@@ -1999,6 +2147,62 @@ UpdateCloneVoiceResponse Client::updateCloneVoiceWithOptions(const UpdateCloneVo
 UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新语言模型配置信息
+ *
+ * @param tmpReq UpdateLlmAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLlmAccessProfileResponse
+ */
+UpdateLlmAccessProfileResponse Client::updateLlmAccessProfileWithOptions(const UpdateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateLlmAccessProfileShrinkRequest request = UpdateLlmAccessProfileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProfile()) {
+    request.setProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProfile(), "Profile", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccessProfileId()) {
+    body["AccessProfileId"] = request.getAccessProfileId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProfileShrink()) {
+    body["Profile"] = request.getProfileShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateLlmAccessProfile"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLlmAccessProfileResponse>();
+}
+
+/**
+ * @summary 更新语言模型配置信息
+ *
+ * @param request UpdateLlmAccessProfileRequest
+ * @return UpdateLlmAccessProfileResponse
+ */
+UpdateLlmAccessProfileResponse Client::updateLlmAccessProfile(const UpdateLlmAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLlmAccessProfileWithOptions(request, runtime);
 }
 
 /**

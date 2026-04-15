@@ -38,6 +38,23 @@ namespace VoiceNavigator20251111
       Models::CreateCloneVoiceResponse createCloneVoice(const Models::CreateCloneVoiceRequest &request);
 
       /**
+       * @summary 创建语言模型配置信息
+       *
+       * @param tmpReq CreateLlmAccessProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLlmAccessProfileResponse
+       */
+      Models::CreateLlmAccessProfileResponse createLlmAccessProfileWithOptions(const Models::CreateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建语言模型配置信息
+       *
+       * @param request CreateLlmAccessProfileRequest
+       * @return CreateLlmAccessProfileResponse
+       */
+      Models::CreateLlmAccessProfileResponse createLlmAccessProfile(const Models::CreateLlmAccessProfileRequest &request);
+
+      /**
        * @summary 创建实例
        *
        * @param request CreateScriptRequest
@@ -138,6 +155,23 @@ namespace VoiceNavigator20251111
        * @return DeleteCloneVoiceResponse
        */
       Models::DeleteCloneVoiceResponse deleteCloneVoice(const Models::DeleteCloneVoiceRequest &request);
+
+      /**
+       * @summary 删除语言模型配置信息
+       *
+       * @param request DeleteLlmAccessProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLlmAccessProfileResponse
+       */
+      Models::DeleteLlmAccessProfileResponse deleteLlmAccessProfileWithOptions(const Models::DeleteLlmAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除语言模型配置信息
+       *
+       * @param request DeleteLlmAccessProfileRequest
+       * @return DeleteLlmAccessProfileResponse
+       */
+      Models::DeleteLlmAccessProfileResponse deleteLlmAccessProfile(const Models::DeleteLlmAccessProfileRequest &request);
 
       /**
        * @summary 删除场景
@@ -463,6 +497,23 @@ namespace VoiceNavigator20251111
       Models::ListCloneVoiceModelsResponse listCloneVoiceModels(const Models::ListCloneVoiceModelsRequest &request);
 
       /**
+       * @summary 获取语言模型配置信息
+       *
+       * @param request ListLlmAccessProfilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLlmAccessProfilesResponse
+       */
+      Models::ListLlmAccessProfilesResponse listLlmAccessProfilesWithOptions(const Models::ListLlmAccessProfilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取语言模型配置信息
+       *
+       * @param request ListLlmAccessProfilesRequest
+       * @return ListLlmAccessProfilesResponse
+       */
+      Models::ListLlmAccessProfilesResponse listLlmAccessProfiles(const Models::ListLlmAccessProfilesRequest &request);
+
+      /**
        * @summary 获取对话模型列表
        *
        * @param request ListNluModelsRequest
@@ -648,6 +699,23 @@ namespace VoiceNavigator20251111
        * @return UpdateCloneVoiceResponse
        */
       Models::UpdateCloneVoiceResponse updateCloneVoice(const Models::UpdateCloneVoiceRequest &request);
+
+      /**
+       * @summary 更新语言模型配置信息
+       *
+       * @param tmpReq UpdateLlmAccessProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateLlmAccessProfileResponse
+       */
+      Models::UpdateLlmAccessProfileResponse updateLlmAccessProfileWithOptions(const Models::UpdateLlmAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新语言模型配置信息
+       *
+       * @param request UpdateLlmAccessProfileRequest
+       * @return UpdateLlmAccessProfileResponse
+       */
+      Models::UpdateLlmAccessProfileResponse updateLlmAccessProfile(const Models::UpdateLlmAccessProfileRequest &request);
 
       /**
        * @summary 更新实例
