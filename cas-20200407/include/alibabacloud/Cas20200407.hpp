@@ -590,7 +590,6 @@ namespace Cas20200407
       /**
        * @summary 统计资产数量
        *
-       * @param request GetAssetCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAssetCountResponse
        */
@@ -608,7 +607,6 @@ namespace Cas20200407
        *
        * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
        *
-       * @param request GetCertWarehouseQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCertWarehouseQuotaResponse
        */
@@ -694,7 +692,6 @@ namespace Cas20200407
       /**
        * @summary 统计风险资产数量
        *
-       * @param request GetRiskCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRiskCountResponse
        */

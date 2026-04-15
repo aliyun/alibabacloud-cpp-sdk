@@ -42,6 +42,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const CertList& obj) { 
         DARABONBA_PTR_TO_JSON(AfterDate, afterDate_);
+        DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
         DARABONBA_PTR_TO_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_TO_JSON(CertType, certType_);
         DARABONBA_PTR_TO_JSON(CommonName, commonName_);
@@ -49,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Identifier, identifier_);
         DARABONBA_PTR_TO_JSON(Issuer, issuer_);
         DARABONBA_PTR_TO_JSON(Sans, sans_);
+        DARABONBA_PTR_TO_JSON(SerialNo, serialNo_);
+        DARABONBA_PTR_TO_JSON(SignAlgorithm, signAlgorithm_);
         DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(WhId, whId_);
@@ -56,6 +59,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, CertList& obj) { 
         DARABONBA_PTR_FROM_JSON(AfterDate, afterDate_);
+        DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
         DARABONBA_PTR_FROM_JSON(BeforeDate, beforeDate_);
         DARABONBA_PTR_FROM_JSON(CertType, certType_);
         DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
@@ -63,6 +67,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
         DARABONBA_PTR_FROM_JSON(Issuer, issuer_);
         DARABONBA_PTR_FROM_JSON(Sans, sans_);
+        DARABONBA_PTR_FROM_JSON(SerialNo, serialNo_);
+        DARABONBA_PTR_FROM_JSON(SignAlgorithm, signAlgorithm_);
         DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(WhId, whId_);
@@ -80,14 +86,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->afterDate_ == nullptr
-        && this->beforeDate_ == nullptr && this->certType_ == nullptr && this->commonName_ == nullptr && this->existPrivateKey_ == nullptr && this->identifier_ == nullptr
-        && this->issuer_ == nullptr && this->sans_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr && this->whId_ == nullptr
-        && this->whInstanceId_ == nullptr; };
+        && this->algorithm_ == nullptr && this->beforeDate_ == nullptr && this->certType_ == nullptr && this->commonName_ == nullptr && this->existPrivateKey_ == nullptr
+        && this->identifier_ == nullptr && this->issuer_ == nullptr && this->sans_ == nullptr && this->serialNo_ == nullptr && this->signAlgorithm_ == nullptr
+        && this->sourceType_ == nullptr && this->status_ == nullptr && this->whId_ == nullptr && this->whInstanceId_ == nullptr; };
       // afterDate Field Functions 
       bool hasAfterDate() const { return this->afterDate_ != nullptr;};
       void deleteAfterDate() { this->afterDate_ = nullptr;};
       inline int64_t getAfterDate() const { DARABONBA_PTR_GET_DEFAULT(afterDate_, 0L) };
       inline CertList& setAfterDate(int64_t afterDate) { DARABONBA_PTR_SET_VALUE(afterDate_, afterDate) };
+
+
+      // algorithm Field Functions 
+      bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
+      void deleteAlgorithm() { this->algorithm_ = nullptr;};
+      inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+      inline CertList& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
       // beforeDate Field Functions 
@@ -139,6 +152,20 @@ namespace Models
       inline CertList& setSans(string sans) { DARABONBA_PTR_SET_VALUE(sans_, sans) };
 
 
+      // serialNo Field Functions 
+      bool hasSerialNo() const { return this->serialNo_ != nullptr;};
+      void deleteSerialNo() { this->serialNo_ = nullptr;};
+      inline string getSerialNo() const { DARABONBA_PTR_GET_DEFAULT(serialNo_, "") };
+      inline CertList& setSerialNo(string serialNo) { DARABONBA_PTR_SET_VALUE(serialNo_, serialNo) };
+
+
+      // signAlgorithm Field Functions 
+      bool hasSignAlgorithm() const { return this->signAlgorithm_ != nullptr;};
+      void deleteSignAlgorithm() { this->signAlgorithm_ = nullptr;};
+      inline string getSignAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(signAlgorithm_, "") };
+      inline CertList& setSignAlgorithm(string signAlgorithm) { DARABONBA_PTR_SET_VALUE(signAlgorithm_, signAlgorithm) };
+
+
       // sourceType Field Functions 
       bool hasSourceType() const { return this->sourceType_ != nullptr;};
       void deleteSourceType() { this->sourceType_ = nullptr;};
@@ -170,6 +197,7 @@ namespace Models
     protected:
       // The expiration time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> afterDate_ {};
+      shared_ptr<string> algorithm_ {};
       // The issuance time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       // 证书的类型 。取值：
@@ -190,6 +218,8 @@ namespace Models
       shared_ptr<string> issuer_ {};
       // The domain names that are bound to the certificate. Multiple domain names are separated by commas.
       shared_ptr<string> sans_ {};
+      shared_ptr<string> serialNo_ {};
+      shared_ptr<string> signAlgorithm_ {};
       // The source of the certificate. Valid values:
       // 
       // *   **upload**: uploaded certificate
