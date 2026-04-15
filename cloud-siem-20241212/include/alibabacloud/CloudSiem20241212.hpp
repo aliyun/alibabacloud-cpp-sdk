@@ -191,6 +191,23 @@ namespace CloudSiem20241212
       Models::CreateProductResponse createProduct(const Models::CreateProductRequest &request);
 
       /**
+       * @summary 创建自动响应规则
+       *
+       * @param request CreateResponseRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateResponseRuleResponse
+       */
+      Models::CreateResponseRuleResponse createResponseRuleWithOptions(const Models::CreateResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自动响应规则
+       *
+       * @param request CreateResponseRuleRequest
+       * @return CreateResponseRuleResponse
+       */
+      Models::CreateResponseRuleResponse createResponseRule(const Models::CreateResponseRuleRequest &request);
+
+      /**
        * @summary 创建厂商
        *
        * @param request CreateVendorRequest
@@ -361,6 +378,23 @@ namespace CloudSiem20241212
       Models::DeleteProductResponse deleteProduct(const Models::DeleteProductRequest &request);
 
       /**
+       * @summary 删除自动响应规则
+       *
+       * @param request DeleteResponseRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteResponseRuleResponse
+       */
+      Models::DeleteResponseRuleResponse deleteResponseRuleWithOptions(const Models::DeleteResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除自动响应规则
+       *
+       * @param request DeleteResponseRuleRequest
+       * @return DeleteResponseRuleResponse
+       */
+      Models::DeleteResponseRuleResponse deleteResponseRule(const Models::DeleteResponseRuleRequest &request);
+
+      /**
        * @summary 删除厂商
        *
        * @param request DeleteVendorRequest
@@ -514,7 +548,7 @@ namespace CloudSiem20241212
       Models::GetExportTaskResponse getExportTask(const Models::GetExportTaskRequest &request);
 
       /**
-       * @summary 获取事件列表
+       * @summary Queries the details of a management event.
        *
        * @param request GetIncidentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +557,7 @@ namespace CloudSiem20241212
       Models::GetIncidentResponse getIncidentWithOptions(const Models::GetIncidentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取事件列表
+       * @summary Queries the details of a management event.
        *
        * @param request GetIncidentRequest
        * @return GetIncidentResponse
@@ -735,7 +769,7 @@ namespace CloudSiem20241212
       Models::ListDetectionRulesResponse listDetectionRules(const Models::ListDetectionRulesRequest &request);
 
       /**
-       * @summary 获取事件列表
+       * @summary Queries the management event list.
        *
        * @param tmpReq ListIncidentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +778,7 @@ namespace CloudSiem20241212
       Models::ListIncidentsResponse listIncidentsWithOptions(const Models::ListIncidentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取事件列表
+       * @summary Queries the management event list.
        *
        * @param request ListIncidentsRequest
        * @return ListIncidentsResponse
@@ -920,6 +954,23 @@ namespace CloudSiem20241212
        * @return ListProductsResponse
        */
       Models::ListProductsResponse listProducts(const Models::ListProductsRequest &request);
+
+      /**
+       * @summary 分页查询自动响应规则
+       *
+       * @param request ListResponseRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListResponseRulesResponse
+       */
+      Models::ListResponseRulesResponse listResponseRulesWithOptions(const Models::ListResponseRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询自动响应规则
+       *
+       * @param request ListResponseRulesRequest
+       * @return ListResponseRulesResponse
+       */
+      Models::ListResponseRulesResponse listResponseRules(const Models::ListResponseRulesRequest &request);
 
       /**
        * @summary 获取接入流量统计
@@ -1260,6 +1311,23 @@ namespace CloudSiem20241212
        * @return UpdateProductResponse
        */
       Models::UpdateProductResponse updateProduct(const Models::UpdateProductRequest &request);
+
+      /**
+       * @summary 更新自动响应规则
+       *
+       * @param request UpdateResponseRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateResponseRuleResponse
+       */
+      Models::UpdateResponseRuleResponse updateResponseRuleWithOptions(const Models::UpdateResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自动响应规则
+       *
+       * @param request UpdateResponseRuleRequest
+       * @return UpdateResponseRuleResponse
+       */
+      Models::UpdateResponseRuleResponse updateResponseRule(const Models::UpdateResponseRuleRequest &request);
 
       /**
        * @summary 更新厂商

@@ -34,6 +34,9 @@
 #include <alibabacloud/models/CreateProductRequest.hpp>
 #include <alibabacloud/models/CreateProductResponseBody.hpp>
 #include <alibabacloud/models/CreateProductResponse.hpp>
+#include <alibabacloud/models/CreateResponseRuleRequest.hpp>
+#include <alibabacloud/models/CreateResponseRuleResponseBody.hpp>
+#include <alibabacloud/models/CreateResponseRuleResponse.hpp>
 #include <alibabacloud/models/CreateVendorRequest.hpp>
 #include <alibabacloud/models/CreateVendorResponseBody.hpp>
 #include <alibabacloud/models/CreateVendorResponse.hpp>
@@ -64,6 +67,9 @@
 #include <alibabacloud/models/DeleteProductRequest.hpp>
 #include <alibabacloud/models/DeleteProductResponseBody.hpp>
 #include <alibabacloud/models/DeleteProductResponse.hpp>
+#include <alibabacloud/models/DeleteResponseRuleRequest.hpp>
+#include <alibabacloud/models/DeleteResponseRuleResponseBody.hpp>
+#include <alibabacloud/models/DeleteResponseRuleResponse.hpp>
 #include <alibabacloud/models/DeleteVendorRequest.hpp>
 #include <alibabacloud/models/DeleteVendorResponseBody.hpp>
 #include <alibabacloud/models/DeleteVendorResponse.hpp>
@@ -172,6 +178,9 @@
 #include <alibabacloud/models/ListProductsShrinkRequest.hpp>
 #include <alibabacloud/models/ListProductsResponseBody.hpp>
 #include <alibabacloud/models/ListProductsResponse.hpp>
+#include <alibabacloud/models/ListResponseRulesRequest.hpp>
+#include <alibabacloud/models/ListResponseRulesResponseBody.hpp>
+#include <alibabacloud/models/ListResponseRulesResponse.hpp>
 #include <alibabacloud/models/ListTrafficStatisticsRequest.hpp>
 #include <alibabacloud/models/ListTrafficStatisticsShrinkRequest.hpp>
 #include <alibabacloud/models/ListTrafficStatisticsResponseBody.hpp>
@@ -237,6 +246,9 @@
 #include <alibabacloud/models/UpdateProductRequest.hpp>
 #include <alibabacloud/models/UpdateProductResponseBody.hpp>
 #include <alibabacloud/models/UpdateProductResponse.hpp>
+#include <alibabacloud/models/UpdateResponseRuleRequest.hpp>
+#include <alibabacloud/models/UpdateResponseRuleResponseBody.hpp>
+#include <alibabacloud/models/UpdateResponseRuleResponse.hpp>
 #include <alibabacloud/models/UpdateVendorRequest.hpp>
 #include <alibabacloud/models/UpdateVendorResponseBody.hpp>
 #include <alibabacloud/models/UpdateVendorResponse.hpp>

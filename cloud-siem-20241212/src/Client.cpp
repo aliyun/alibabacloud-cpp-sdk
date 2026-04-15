@@ -940,6 +940,92 @@ CreateProductResponse Client::createProduct(const CreateProductRequest &request)
 }
 
 /**
+ * @summary 创建自动响应规则
+ *
+ * @param request CreateResponseRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateResponseRuleResponse
+ */
+CreateResponseRuleResponse Client::createResponseRuleWithOptions(const CreateResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResponseActionConfig()) {
+    body["ResponseActionConfig"] = request.getResponseActionConfig();
+  }
+
+  if (!!request.hasResponseActionType()) {
+    body["ResponseActionType"] = request.getResponseActionType();
+  }
+
+  if (!!request.hasResponseExecutionCondition()) {
+    body["ResponseExecutionCondition"] = request.getResponseExecutionCondition();
+  }
+
+  if (!!request.hasResponseRuleName()) {
+    body["ResponseRuleName"] = request.getResponseRuleName();
+  }
+
+  if (!!request.hasResponseRulePriority()) {
+    body["ResponseRulePriority"] = request.getResponseRulePriority();
+  }
+
+  if (!!request.hasResponseTriggerType()) {
+    body["ResponseTriggerType"] = request.getResponseTriggerType();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateResponseRule"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateResponseRuleResponse>();
+}
+
+/**
+ * @summary 创建自动响应规则
+ *
+ * @param request CreateResponseRuleRequest
+ * @return CreateResponseRuleResponse
+ */
+CreateResponseRuleResponse Client::createResponseRule(const CreateResponseRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createResponseRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建厂商
  *
  * @param request CreateVendorRequest
@@ -1500,6 +1586,64 @@ DeleteProductResponse Client::deleteProduct(const DeleteProductRequest &request)
 }
 
 /**
+ * @summary 删除自动响应规则
+ *
+ * @param request DeleteResponseRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteResponseRuleResponse
+ */
+DeleteResponseRuleResponse Client::deleteResponseRuleWithOptions(const DeleteResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResponseRuleId()) {
+    body["ResponseRuleId"] = request.getResponseRuleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteResponseRule"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteResponseRuleResponse>();
+}
+
+/**
+ * @summary 删除自动响应规则
+ *
+ * @param request DeleteResponseRuleRequest
+ * @return DeleteResponseRuleResponse
+ */
+DeleteResponseRuleResponse Client::deleteResponseRule(const DeleteResponseRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteResponseRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除厂商
  *
  * @param request DeleteVendorRequest
@@ -2010,7 +2154,7 @@ GetExportTaskResponse Client::getExportTask(const GetExportTaskRequest &request)
 }
 
 /**
- * @summary 获取事件列表
+ * @summary Queries the details of a management event.
  *
  * @param request GetIncidentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2053,7 +2197,7 @@ GetIncidentResponse Client::getIncidentWithOptions(const GetIncidentRequest &req
 }
 
 /**
- * @summary 获取事件列表
+ * @summary Queries the details of a management event.
  *
  * @param request GetIncidentRequest
  * @return GetIncidentResponse
@@ -2994,7 +3138,7 @@ ListDetectionRulesResponse Client::listDetectionRules(const ListDetectionRulesRe
 }
 
 /**
- * @summary 获取事件列表
+ * @summary Queries the management event list.
  *
  * @param tmpReq ListIncidentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3113,7 +3257,7 @@ ListIncidentsResponse Client::listIncidentsWithOptions(const ListIncidentsReques
 }
 
 /**
- * @summary 获取事件列表
+ * @summary Queries the management event list.
  *
  * @param request ListIncidentsRequest
  * @return ListIncidentsResponse
@@ -3815,6 +3959,96 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
 ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listProductsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询自动响应规则
+ *
+ * @param request ListResponseRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResponseRulesResponse
+ */
+ListResponseRulesResponse Client::listResponseRulesWithOptions(const ListResponseRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResponseActionType()) {
+    body["ResponseActionType"] = request.getResponseActionType();
+  }
+
+  if (!!request.hasResponseRuleName()) {
+    body["ResponseRuleName"] = request.getResponseRuleName();
+  }
+
+  if (!!request.hasResponseRuleStatus()) {
+    body["ResponseRuleStatus"] = request.getResponseRuleStatus();
+  }
+
+  if (!!request.hasResponseRuleType()) {
+    body["ResponseRuleType"] = request.getResponseRuleType();
+  }
+
+  if (!!request.hasResponseTriggerType()) {
+    body["ResponseTriggerType"] = request.getResponseTriggerType();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListResponseRules"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResponseRulesResponse>();
+}
+
+/**
+ * @summary 分页查询自动响应规则
+ *
+ * @param request ListResponseRulesRequest
+ * @return ListResponseRulesResponse
+ */
+ListResponseRulesResponse Client::listResponseRules(const ListResponseRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listResponseRulesWithOptions(request, runtime);
 }
 
 /**
@@ -5327,6 +5561,92 @@ UpdateProductResponse Client::updateProductWithOptions(const UpdateProductReques
 UpdateProductResponse Client::updateProduct(const UpdateProductRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateProductWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新自动响应规则
+ *
+ * @param request UpdateResponseRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateResponseRuleResponse
+ */
+UpdateResponseRuleResponse Client::updateResponseRuleWithOptions(const UpdateResponseRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResponseActionConfig()) {
+    body["ResponseActionConfig"] = request.getResponseActionConfig();
+  }
+
+  if (!!request.hasResponseActionType()) {
+    body["ResponseActionType"] = request.getResponseActionType();
+  }
+
+  if (!!request.hasResponseExecutionCondition()) {
+    body["ResponseExecutionCondition"] = request.getResponseExecutionCondition();
+  }
+
+  if (!!request.hasResponseRuleId()) {
+    body["ResponseRuleId"] = request.getResponseRuleId();
+  }
+
+  if (!!request.hasResponseRuleName()) {
+    body["ResponseRuleName"] = request.getResponseRuleName();
+  }
+
+  if (!!request.hasResponseRulePriority()) {
+    body["ResponseRulePriority"] = request.getResponseRulePriority();
+  }
+
+  if (!!request.hasResponseRuleStatus()) {
+    body["ResponseRuleStatus"] = request.getResponseRuleStatus();
+  }
+
+  if (!!request.hasResponseTriggerType()) {
+    body["ResponseTriggerType"] = request.getResponseTriggerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateResponseRule"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateResponseRuleResponse>();
+}
+
+/**
+ * @summary 更新自动响应规则
+ *
+ * @param request UpdateResponseRuleRequest
+ * @return UpdateResponseRuleResponse
+ */
+UpdateResponseRuleResponse Client::updateResponseRule(const UpdateResponseRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateResponseRuleWithOptions(request, runtime);
 }
 
 /**
