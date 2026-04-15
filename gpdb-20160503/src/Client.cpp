@@ -3015,6 +3015,10 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
     query["AccountPassword"] = request.getAccountPassword();
   }
 
+  if (!!request.hasAutoScale()) {
+    query["AutoScale"] = request.getAutoScale();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
@@ -11913,6 +11917,22 @@ ListSupabaseProjectsResponse Client::listSupabaseProjectsWithOptions(const ListS
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasSearchField()) {
+    query["SearchField"] = request.getSearchField();
+  }
+
+  if (!!request.hasSearchValue()) {
+    query["SearchValue"] = request.getSearchValue();
+  }
+
+  if (!!request.hasSortField()) {
+    query["SortField"] = request.getSortField();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -14377,7 +14397,7 @@ QueryContentResponse Client::queryContentAdvance(const QueryContentAdvanceReques
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -16137,7 +16157,7 @@ UploadDocumentAsyncResponse Client::uploadDocumentAsyncAdvance(const UploadDocum
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -16475,7 +16495,7 @@ UpsertCollectionDataAsyncResponse Client::upsertCollectionDataAsyncAdvance(const
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},

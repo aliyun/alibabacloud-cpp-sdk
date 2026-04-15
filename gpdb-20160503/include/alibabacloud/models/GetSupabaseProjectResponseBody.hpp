@@ -13,6 +13,7 @@ namespace Models
   class GetSupabaseProjectResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetSupabaseProjectResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DBSecurityIpList, DBSecurityIpList_);
       DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, GetSupabaseProjectResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DBSecurityIpList, DBSecurityIpList_);
       DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
@@ -75,12 +77,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->DBSecurityIpList_ == nullptr && this->dashboardPassword_ == nullptr && this->dashboardUserName_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->engine_ == nullptr
-        && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr && this->payType_ == nullptr && this->privateConnectUrl_ == nullptr
-        && this->projectId_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->publicConnectUrl_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->securityIpList_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->autoScale_ == nullptr
+        && this->createTime_ == nullptr && this->DBSecurityIpList_ == nullptr && this->dashboardPassword_ == nullptr && this->dashboardUserName_ == nullptr && this->diskPerformanceLevel_ == nullptr
+        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr && this->payType_ == nullptr
+        && this->privateConnectUrl_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->publicConnectUrl_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr
+        && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // autoScale Field Functions 
+    bool hasAutoScale() const { return this->autoScale_ != nullptr;};
+    void deleteAutoScale() { this->autoScale_ = nullptr;};
+    inline string getAutoScale() const { DARABONBA_PTR_GET_DEFAULT(autoScale_, "") };
+    inline GetSupabaseProjectResponseBody& setAutoScale(string autoScale) { DARABONBA_PTR_SET_VALUE(autoScale_, autoScale) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -250,6 +259,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> autoScale_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
     shared_ptr<string> DBSecurityIpList_ {};

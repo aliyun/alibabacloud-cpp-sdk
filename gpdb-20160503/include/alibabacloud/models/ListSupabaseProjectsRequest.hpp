@@ -18,6 +18,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(SearchField, searchField_);
+      DARABONBA_PTR_TO_JSON(SearchValue, searchValue_);
+      DARABONBA_PTR_TO_JSON(SortField, sortField_);
+      DARABONBA_PTR_TO_JSON(SortOrder, sortOrder_);
     };
     friend void from_json(const Darabonba::Json& j, ListSupabaseProjectsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -25,6 +29,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(SearchField, searchField_);
+      DARABONBA_PTR_FROM_JSON(SearchValue, searchValue_);
+      DARABONBA_PTR_FROM_JSON(SortField, sortField_);
+      DARABONBA_PTR_FROM_JSON(SortOrder, sortOrder_);
     };
     ListSupabaseProjectsRequest() = default ;
     ListSupabaseProjectsRequest(const ListSupabaseProjectsRequest &) = default ;
@@ -38,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->searchField_ == nullptr
+        && this->searchValue_ == nullptr && this->sortField_ == nullptr && this->sortOrder_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -74,6 +83,34 @@ namespace Models
     inline ListSupabaseProjectsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // searchField Field Functions 
+    bool hasSearchField() const { return this->searchField_ != nullptr;};
+    void deleteSearchField() { this->searchField_ = nullptr;};
+    inline string getSearchField() const { DARABONBA_PTR_GET_DEFAULT(searchField_, "") };
+    inline ListSupabaseProjectsRequest& setSearchField(string searchField) { DARABONBA_PTR_SET_VALUE(searchField_, searchField) };
+
+
+    // searchValue Field Functions 
+    bool hasSearchValue() const { return this->searchValue_ != nullptr;};
+    void deleteSearchValue() { this->searchValue_ = nullptr;};
+    inline string getSearchValue() const { DARABONBA_PTR_GET_DEFAULT(searchValue_, "") };
+    inline ListSupabaseProjectsRequest& setSearchValue(string searchValue) { DARABONBA_PTR_SET_VALUE(searchValue_, searchValue) };
+
+
+    // sortField Field Functions 
+    bool hasSortField() const { return this->sortField_ != nullptr;};
+    void deleteSortField() { this->sortField_ = nullptr;};
+    inline string getSortField() const { DARABONBA_PTR_GET_DEFAULT(sortField_, "") };
+    inline ListSupabaseProjectsRequest& setSortField(string sortField) { DARABONBA_PTR_SET_VALUE(sortField_, sortField) };
+
+
+    // sortOrder Field Functions 
+    bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
+    void deleteSortOrder() { this->sortOrder_ = nullptr;};
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline ListSupabaseProjectsRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
+
+
   protected:
     // The maximum number of instances to return per page. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
@@ -85,6 +122,10 @@ namespace Models
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation get a list of available region IDs.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> searchField_ {};
+    shared_ptr<string> searchValue_ {};
+    shared_ptr<string> sortField_ {};
+    shared_ptr<string> sortOrder_ {};
   };
 
   } // namespace Models

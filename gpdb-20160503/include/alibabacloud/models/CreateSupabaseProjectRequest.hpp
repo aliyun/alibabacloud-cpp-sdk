@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSupabaseProjectRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountPassword, accountPassword_);
+      DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
@@ -30,6 +31,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateSupabaseProjectRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountPassword, accountPassword_);
+      DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
@@ -56,14 +58,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountPassword_ == nullptr
-        && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->projectName_ == nullptr
-        && this->projectSpec_ == nullptr && this->regionId_ == nullptr && this->securityIPList_ == nullptr && this->storageSize_ == nullptr && this->usedTime_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->autoScale_ == nullptr && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
+        && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->regionId_ == nullptr && this->securityIPList_ == nullptr && this->storageSize_ == nullptr
+        && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
     inline string getAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
     inline CreateSupabaseProjectRequest& setAccountPassword(string accountPassword) { DARABONBA_PTR_SET_VALUE(accountPassword_, accountPassword) };
+
+
+    // autoScale Field Functions 
+    bool hasAutoScale() const { return this->autoScale_ != nullptr;};
+    void deleteAutoScale() { this->autoScale_ = nullptr;};
+    inline bool getAutoScale() const { DARABONBA_PTR_GET_DEFAULT(autoScale_, false) };
+    inline CreateSupabaseProjectRequest& setAutoScale(bool autoScale) { DARABONBA_PTR_SET_VALUE(autoScale_, autoScale) };
 
 
     // clientToken Field Functions 
@@ -166,6 +175,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
+    shared_ptr<bool> autoScale_ {};
     // The client token that is used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
     shared_ptr<string> clientToken_ {};
     // The performance level of Enterprise SSDs (ESSDs). Default value: PL0. Valid values:
