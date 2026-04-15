@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogoUrl, logoUrl_);
       DARABONBA_PTR_TO_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
       DARABONBA_PTR_TO_JSON(OidcConfig, oidcConfig_);
+      DARABONBA_PTR_TO_JSON(SamlConfig, samlConfig_);
       DARABONBA_PTR_TO_JSON(UdPullConfig, udPullConfig_);
       DARABONBA_PTR_TO_JSON(UdPushConfig, udPushConfig_);
       DARABONBA_PTR_TO_JSON(WeComConfig, weComConfig_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogoUrl, logoUrl_);
       DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
       DARABONBA_PTR_FROM_JSON(OidcConfig, oidcConfig_);
+      DARABONBA_PTR_FROM_JSON(SamlConfig, samlConfig_);
       DARABONBA_PTR_FROM_JSON(UdPullConfig, udPullConfig_);
       DARABONBA_PTR_FROM_JSON(UdPushConfig, udPushConfig_);
       DARABONBA_PTR_FROM_JSON(WeComConfig, weComConfig_);
@@ -501,6 +503,121 @@ namespace Models
       shared_ptr<string> periodicSyncStatus_ {};
       // Synchronization scope configuration information.
       shared_ptr<UdPullConfig::UdSyncScopeConfig> udSyncScopeConfig_ {};
+    };
+
+    class SamlConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SamlConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(BindingMethod, bindingMethod_);
+        DARABONBA_PTR_TO_JSON(Certificates, certificates_);
+        DARABONBA_PTR_TO_JSON(IdPEntityId, idPEntityId_);
+        DARABONBA_PTR_TO_JSON(IdPSsoUrl, idPSsoUrl_);
+        DARABONBA_PTR_TO_JSON(MaxClockSkew, maxClockSkew_);
+        DARABONBA_PTR_TO_JSON(RequireRequestSigned, requireRequestSigned_);
+      };
+      friend void from_json(const Darabonba::Json& j, SamlConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(BindingMethod, bindingMethod_);
+        DARABONBA_PTR_FROM_JSON(Certificates, certificates_);
+        DARABONBA_PTR_FROM_JSON(IdPEntityId, idPEntityId_);
+        DARABONBA_PTR_FROM_JSON(IdPSsoUrl, idPSsoUrl_);
+        DARABONBA_PTR_FROM_JSON(MaxClockSkew, maxClockSkew_);
+        DARABONBA_PTR_FROM_JSON(RequireRequestSigned, requireRequestSigned_);
+      };
+      SamlConfig() = default ;
+      SamlConfig(const SamlConfig &) = default ;
+      SamlConfig(SamlConfig &&) = default ;
+      SamlConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SamlConfig() = default ;
+      SamlConfig& operator=(const SamlConfig &) = default ;
+      SamlConfig& operator=(SamlConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Certificates : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Certificates& obj) { 
+          DARABONBA_PTR_TO_JSON(Content, content_);
+        };
+        friend void from_json(const Darabonba::Json& j, Certificates& obj) { 
+          DARABONBA_PTR_FROM_JSON(Content, content_);
+        };
+        Certificates() = default ;
+        Certificates(const Certificates &) = default ;
+        Certificates(Certificates &&) = default ;
+        Certificates(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Certificates() = default ;
+        Certificates& operator=(const Certificates &) = default ;
+        Certificates& operator=(Certificates &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->content_ == nullptr; };
+        // content Field Functions 
+        bool hasContent() const { return this->content_ != nullptr;};
+        void deleteContent() { this->content_ = nullptr;};
+        inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+        inline Certificates& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      protected:
+        shared_ptr<string> content_ {};
+      };
+
+      virtual bool empty() const override { return this->bindingMethod_ == nullptr
+        && this->certificates_ == nullptr && this->idPEntityId_ == nullptr && this->idPSsoUrl_ == nullptr && this->maxClockSkew_ == nullptr && this->requireRequestSigned_ == nullptr; };
+      // bindingMethod Field Functions 
+      bool hasBindingMethod() const { return this->bindingMethod_ != nullptr;};
+      void deleteBindingMethod() { this->bindingMethod_ = nullptr;};
+      inline string getBindingMethod() const { DARABONBA_PTR_GET_DEFAULT(bindingMethod_, "") };
+      inline SamlConfig& setBindingMethod(string bindingMethod) { DARABONBA_PTR_SET_VALUE(bindingMethod_, bindingMethod) };
+
+
+      // certificates Field Functions 
+      bool hasCertificates() const { return this->certificates_ != nullptr;};
+      void deleteCertificates() { this->certificates_ = nullptr;};
+      inline const vector<SamlConfig::Certificates> & getCertificates() const { DARABONBA_PTR_GET_CONST(certificates_, vector<SamlConfig::Certificates>) };
+      inline vector<SamlConfig::Certificates> getCertificates() { DARABONBA_PTR_GET(certificates_, vector<SamlConfig::Certificates>) };
+      inline SamlConfig& setCertificates(const vector<SamlConfig::Certificates> & certificates) { DARABONBA_PTR_SET_VALUE(certificates_, certificates) };
+      inline SamlConfig& setCertificates(vector<SamlConfig::Certificates> && certificates) { DARABONBA_PTR_SET_RVALUE(certificates_, certificates) };
+
+
+      // idPEntityId Field Functions 
+      bool hasIdPEntityId() const { return this->idPEntityId_ != nullptr;};
+      void deleteIdPEntityId() { this->idPEntityId_ = nullptr;};
+      inline string getIdPEntityId() const { DARABONBA_PTR_GET_DEFAULT(idPEntityId_, "") };
+      inline SamlConfig& setIdPEntityId(string idPEntityId) { DARABONBA_PTR_SET_VALUE(idPEntityId_, idPEntityId) };
+
+
+      // idPSsoUrl Field Functions 
+      bool hasIdPSsoUrl() const { return this->idPSsoUrl_ != nullptr;};
+      void deleteIdPSsoUrl() { this->idPSsoUrl_ = nullptr;};
+      inline string getIdPSsoUrl() const { DARABONBA_PTR_GET_DEFAULT(idPSsoUrl_, "") };
+      inline SamlConfig& setIdPSsoUrl(string idPSsoUrl) { DARABONBA_PTR_SET_VALUE(idPSsoUrl_, idPSsoUrl) };
+
+
+      // maxClockSkew Field Functions 
+      bool hasMaxClockSkew() const { return this->maxClockSkew_ != nullptr;};
+      void deleteMaxClockSkew() { this->maxClockSkew_ = nullptr;};
+      inline int64_t getMaxClockSkew() const { DARABONBA_PTR_GET_DEFAULT(maxClockSkew_, 0L) };
+      inline SamlConfig& setMaxClockSkew(int64_t maxClockSkew) { DARABONBA_PTR_SET_VALUE(maxClockSkew_, maxClockSkew) };
+
+
+      // requireRequestSigned Field Functions 
+      bool hasRequireRequestSigned() const { return this->requireRequestSigned_ != nullptr;};
+      void deleteRequireRequestSigned() { this->requireRequestSigned_ = nullptr;};
+      inline bool getRequireRequestSigned() const { DARABONBA_PTR_GET_DEFAULT(requireRequestSigned_, false) };
+      inline SamlConfig& setRequireRequestSigned(bool requireRequestSigned) { DARABONBA_PTR_SET_VALUE(requireRequestSigned_, requireRequestSigned) };
+
+
+    protected:
+      shared_ptr<string> bindingMethod_ {};
+      shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
+      shared_ptr<string> idPEntityId_ {};
+      shared_ptr<string> idPSsoUrl_ {};
+      shared_ptr<int64_t> maxClockSkew_ {};
+      shared_ptr<bool> requireRequestSigned_ {};
     };
 
     class OidcConfig : public Darabonba::Model {
@@ -1406,8 +1523,8 @@ namespace Models
     virtual bool empty() const override { return this->authnConfig_ == nullptr
         && this->autoCreateUserConfig_ == nullptr && this->autoUpdateUserConfig_ == nullptr && this->bindingConfig_ == nullptr && this->clientToken_ == nullptr && this->dingtalkAppConfig_ == nullptr
         && this->identityProviderName_ == nullptr && this->identityProviderType_ == nullptr && this->instanceId_ == nullptr && this->larkConfig_ == nullptr && this->ldapConfig_ == nullptr
-        && this->logoUrl_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->oidcConfig_ == nullptr && this->udPullConfig_ == nullptr && this->udPushConfig_ == nullptr
-        && this->weComConfig_ == nullptr; };
+        && this->logoUrl_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->oidcConfig_ == nullptr && this->samlConfig_ == nullptr && this->udPullConfig_ == nullptr
+        && this->udPushConfig_ == nullptr && this->weComConfig_ == nullptr; };
     // authnConfig Field Functions 
     bool hasAuthnConfig() const { return this->authnConfig_ != nullptr;};
     void deleteAuthnConfig() { this->authnConfig_ = nullptr;};
@@ -1522,6 +1639,15 @@ namespace Models
     inline CreateIdentityProviderRequest& setOidcConfig(CreateIdentityProviderRequest::OidcConfig && oidcConfig) { DARABONBA_PTR_SET_RVALUE(oidcConfig_, oidcConfig) };
 
 
+    // samlConfig Field Functions 
+    bool hasSamlConfig() const { return this->samlConfig_ != nullptr;};
+    void deleteSamlConfig() { this->samlConfig_ = nullptr;};
+    inline const CreateIdentityProviderRequest::SamlConfig & getSamlConfig() const { DARABONBA_PTR_GET_CONST(samlConfig_, CreateIdentityProviderRequest::SamlConfig) };
+    inline CreateIdentityProviderRequest::SamlConfig getSamlConfig() { DARABONBA_PTR_GET(samlConfig_, CreateIdentityProviderRequest::SamlConfig) };
+    inline CreateIdentityProviderRequest& setSamlConfig(const CreateIdentityProviderRequest::SamlConfig & samlConfig) { DARABONBA_PTR_SET_VALUE(samlConfig_, samlConfig) };
+    inline CreateIdentityProviderRequest& setSamlConfig(CreateIdentityProviderRequest::SamlConfig && samlConfig) { DARABONBA_PTR_SET_RVALUE(samlConfig_, samlConfig) };
+
+
     // udPullConfig Field Functions 
     bool hasUdPullConfig() const { return this->udPullConfig_ != nullptr;};
     void deleteUdPullConfig() { this->udPullConfig_ = nullptr;};
@@ -1600,6 +1726,7 @@ namespace Models
     shared_ptr<string> networkAccessEndpointId_ {};
     // OIDC IdP configuration.
     shared_ptr<CreateIdentityProviderRequest::OidcConfig> oidcConfig_ {};
+    shared_ptr<CreateIdentityProviderRequest::SamlConfig> samlConfig_ {};
     // Inbound synchronization configuration information.
     shared_ptr<CreateIdentityProviderRequest::UdPullConfig> udPullConfig_ {};
     // Outbound synchronization configuration information.

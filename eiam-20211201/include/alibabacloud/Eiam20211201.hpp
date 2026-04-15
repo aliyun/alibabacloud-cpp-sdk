@@ -2845,7 +2845,7 @@ namespace Eiam20211201
       Models::GetGroupResponse getGroup(const Models::GetGroupRequest &request);
 
       /**
-       * @summary Get identity provider
+       * @summary Obtains an identity provider (IdP).
        *
        * @param request GetIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2854,7 +2854,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderResponse getIdentityProviderWithOptions(const Models::GetIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get identity provider
+       * @summary Obtains an identity provider (IdP).
        *
        * @param request GetIdentityProviderRequest
        * @return GetIdentityProviderResponse

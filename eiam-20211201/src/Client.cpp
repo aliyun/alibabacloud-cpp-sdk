@@ -2425,6 +2425,10 @@ CreateIdentityProviderResponse Client::createIdentityProviderWithOptions(const C
     query["OidcConfig"] = request.getOidcConfig();
   }
 
+  if (!!request.hasSamlConfig()) {
+    query["SamlConfig"] = request.getSamlConfig();
+  }
+
   if (!!request.hasUdPullConfig()) {
     query["UdPullConfig"] = request.getUdPullConfig();
   }
@@ -6975,6 +6979,10 @@ ExecIdentityProviderMetadataUrlResolutionResponse Client::execIdentityProviderMe
     query["OidcIssuer"] = request.getOidcIssuer();
   }
 
+  if (!!request.hasSamlMetadataUrl()) {
+    query["SamlMetadataUrl"] = request.getSamlMetadataUrl();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -8462,7 +8470,7 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary Get identity provider
+ * @summary Obtains an identity provider (IdP).
  *
  * @param request GetIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8497,7 +8505,7 @@ GetIdentityProviderResponse Client::getIdentityProviderWithOptions(const GetIden
 }
 
 /**
- * @summary Get identity provider
+ * @summary Obtains an identity provider (IdP).
  *
  * @param request GetIdentityProviderRequest
  * @return GetIdentityProviderResponse
@@ -17577,6 +17585,10 @@ UpdateIdentityProviderResponse Client::updateIdentityProviderWithOptions(const U
 
   if (!!request.hasOidcConfig()) {
     query["OidcConfig"] = request.getOidcConfig();
+  }
+
+  if (!!request.hasSamlConfig()) {
+    query["SamlConfig"] = request.getSamlConfig();
   }
 
   if (!!request.hasWeComConfig()) {

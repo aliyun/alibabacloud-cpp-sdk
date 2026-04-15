@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
       DARABONBA_PTR_TO_JSON(OidcIssuer, oidcIssuer_);
+      DARABONBA_PTR_TO_JSON(SamlMetadataUrl, samlMetadataUrl_);
     };
     friend void from_json(const Darabonba::Json& j, ExecIdentityProviderMetadataUrlResolutionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(IdentityProviderId, identityProviderId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
       DARABONBA_PTR_FROM_JSON(OidcIssuer, oidcIssuer_);
+      DARABONBA_PTR_FROM_JSON(SamlMetadataUrl, samlMetadataUrl_);
     };
     ExecIdentityProviderMetadataUrlResolutionRequest() = default ;
     ExecIdentityProviderMetadataUrlResolutionRequest(const ExecIdentityProviderMetadataUrlResolutionRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->identityProviderId_ == nullptr
-        && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->oidcIssuer_ == nullptr; };
+        && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->oidcIssuer_ == nullptr && this->samlMetadataUrl_ == nullptr; };
     // identityProviderId Field Functions 
     bool hasIdentityProviderId() const { return this->identityProviderId_ != nullptr;};
     void deleteIdentityProviderId() { this->identityProviderId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline ExecIdentityProviderMetadataUrlResolutionRequest& setOidcIssuer(string oidcIssuer) { DARABONBA_PTR_SET_VALUE(oidcIssuer_, oidcIssuer) };
 
 
+    // samlMetadataUrl Field Functions 
+    bool hasSamlMetadataUrl() const { return this->samlMetadataUrl_ != nullptr;};
+    void deleteSamlMetadataUrl() { this->samlMetadataUrl_ = nullptr;};
+    inline string getSamlMetadataUrl() const { DARABONBA_PTR_GET_DEFAULT(samlMetadataUrl_, "") };
+    inline ExecIdentityProviderMetadataUrlResolutionRequest& setSamlMetadataUrl(string samlMetadataUrl) { DARABONBA_PTR_SET_VALUE(samlMetadataUrl_, samlMetadataUrl) };
+
+
   protected:
     shared_ptr<string> identityProviderId_ {};
     // IDaaS EIAM实例的ID。
@@ -73,9 +82,8 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> networkAccessEndpointId_ {};
     // OIDC Issuer地址。
-    // 
-    // This parameter is required.
     shared_ptr<string> oidcIssuer_ {};
+    shared_ptr<string> samlMetadataUrl_ {};
   };
 
   } // namespace Models

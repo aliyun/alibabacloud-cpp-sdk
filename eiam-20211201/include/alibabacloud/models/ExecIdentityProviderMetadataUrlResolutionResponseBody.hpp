@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_EXECIDENTITYPROVIDERMETADATAURLRESOLUTIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_EXECIDENTITYPROVIDERMETADATAURLRESOLUTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,9 +36,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const IdentityProviderMetadata& obj) { 
         DARABONBA_PTR_TO_JSON(OidcOpenIdConfiguration, oidcOpenIdConfiguration_);
+        DARABONBA_PTR_TO_JSON(SamlMetadataConfiguration, samlMetadataConfiguration_);
       };
       friend void from_json(const Darabonba::Json& j, IdentityProviderMetadata& obj) { 
         DARABONBA_PTR_FROM_JSON(OidcOpenIdConfiguration, oidcOpenIdConfiguration_);
+        DARABONBA_PTR_FROM_JSON(SamlMetadataConfiguration, samlMetadataConfiguration_);
       };
       IdentityProviderMetadata() = default ;
       IdentityProviderMetadata(const IdentityProviderMetadata &) = default ;
@@ -50,6 +53,91 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SamlMetadataConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SamlMetadataConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(Certificates, certificates_);
+          DARABONBA_PTR_TO_JSON(IdPEntityId, idPEntityId_);
+          DARABONBA_PTR_TO_JSON(IdPSsoUrl, idPSsoUrl_);
+        };
+        friend void from_json(const Darabonba::Json& j, SamlMetadataConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(Certificates, certificates_);
+          DARABONBA_PTR_FROM_JSON(IdPEntityId, idPEntityId_);
+          DARABONBA_PTR_FROM_JSON(IdPSsoUrl, idPSsoUrl_);
+        };
+        SamlMetadataConfiguration() = default ;
+        SamlMetadataConfiguration(const SamlMetadataConfiguration &) = default ;
+        SamlMetadataConfiguration(SamlMetadataConfiguration &&) = default ;
+        SamlMetadataConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SamlMetadataConfiguration() = default ;
+        SamlMetadataConfiguration& operator=(const SamlMetadataConfiguration &) = default ;
+        SamlMetadataConfiguration& operator=(SamlMetadataConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Certificates : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Certificates& obj) { 
+            DARABONBA_PTR_TO_JSON(Content, content_);
+          };
+          friend void from_json(const Darabonba::Json& j, Certificates& obj) { 
+            DARABONBA_PTR_FROM_JSON(Content, content_);
+          };
+          Certificates() = default ;
+          Certificates(const Certificates &) = default ;
+          Certificates(Certificates &&) = default ;
+          Certificates(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Certificates() = default ;
+          Certificates& operator=(const Certificates &) = default ;
+          Certificates& operator=(Certificates &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->content_ == nullptr; };
+          // content Field Functions 
+          bool hasContent() const { return this->content_ != nullptr;};
+          void deleteContent() { this->content_ = nullptr;};
+          inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+          inline Certificates& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+        protected:
+          shared_ptr<string> content_ {};
+        };
+
+        virtual bool empty() const override { return this->certificates_ == nullptr
+        && this->idPEntityId_ == nullptr && this->idPSsoUrl_ == nullptr; };
+        // certificates Field Functions 
+        bool hasCertificates() const { return this->certificates_ != nullptr;};
+        void deleteCertificates() { this->certificates_ = nullptr;};
+        inline const vector<SamlMetadataConfiguration::Certificates> & getCertificates() const { DARABONBA_PTR_GET_CONST(certificates_, vector<SamlMetadataConfiguration::Certificates>) };
+        inline vector<SamlMetadataConfiguration::Certificates> getCertificates() { DARABONBA_PTR_GET(certificates_, vector<SamlMetadataConfiguration::Certificates>) };
+        inline SamlMetadataConfiguration& setCertificates(const vector<SamlMetadataConfiguration::Certificates> & certificates) { DARABONBA_PTR_SET_VALUE(certificates_, certificates) };
+        inline SamlMetadataConfiguration& setCertificates(vector<SamlMetadataConfiguration::Certificates> && certificates) { DARABONBA_PTR_SET_RVALUE(certificates_, certificates) };
+
+
+        // idPEntityId Field Functions 
+        bool hasIdPEntityId() const { return this->idPEntityId_ != nullptr;};
+        void deleteIdPEntityId() { this->idPEntityId_ = nullptr;};
+        inline string getIdPEntityId() const { DARABONBA_PTR_GET_DEFAULT(idPEntityId_, "") };
+        inline SamlMetadataConfiguration& setIdPEntityId(string idPEntityId) { DARABONBA_PTR_SET_VALUE(idPEntityId_, idPEntityId) };
+
+
+        // idPSsoUrl Field Functions 
+        bool hasIdPSsoUrl() const { return this->idPSsoUrl_ != nullptr;};
+        void deleteIdPSsoUrl() { this->idPSsoUrl_ = nullptr;};
+        inline string getIdPSsoUrl() const { DARABONBA_PTR_GET_DEFAULT(idPSsoUrl_, "") };
+        inline SamlMetadataConfiguration& setIdPSsoUrl(string idPSsoUrl) { DARABONBA_PTR_SET_VALUE(idPSsoUrl_, idPSsoUrl) };
+
+
+      protected:
+        shared_ptr<vector<SamlMetadataConfiguration::Certificates>> certificates_ {};
+        shared_ptr<string> idPEntityId_ {};
+        shared_ptr<string> idPSsoUrl_ {};
+      };
+
       class OidcOpenIdConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const OidcOpenIdConfiguration& obj) { 
@@ -127,7 +215,8 @@ namespace Models
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
-      virtual bool empty() const override { return this->oidcOpenIdConfiguration_ == nullptr; };
+      virtual bool empty() const override { return this->oidcOpenIdConfiguration_ == nullptr
+        && this->samlMetadataConfiguration_ == nullptr; };
       // oidcOpenIdConfiguration Field Functions 
       bool hasOidcOpenIdConfiguration() const { return this->oidcOpenIdConfiguration_ != nullptr;};
       void deleteOidcOpenIdConfiguration() { this->oidcOpenIdConfiguration_ = nullptr;};
@@ -137,9 +226,19 @@ namespace Models
       inline IdentityProviderMetadata& setOidcOpenIdConfiguration(IdentityProviderMetadata::OidcOpenIdConfiguration && oidcOpenIdConfiguration) { DARABONBA_PTR_SET_RVALUE(oidcOpenIdConfiguration_, oidcOpenIdConfiguration) };
 
 
+      // samlMetadataConfiguration Field Functions 
+      bool hasSamlMetadataConfiguration() const { return this->samlMetadataConfiguration_ != nullptr;};
+      void deleteSamlMetadataConfiguration() { this->samlMetadataConfiguration_ = nullptr;};
+      inline const IdentityProviderMetadata::SamlMetadataConfiguration & getSamlMetadataConfiguration() const { DARABONBA_PTR_GET_CONST(samlMetadataConfiguration_, IdentityProviderMetadata::SamlMetadataConfiguration) };
+      inline IdentityProviderMetadata::SamlMetadataConfiguration getSamlMetadataConfiguration() { DARABONBA_PTR_GET(samlMetadataConfiguration_, IdentityProviderMetadata::SamlMetadataConfiguration) };
+      inline IdentityProviderMetadata& setSamlMetadataConfiguration(const IdentityProviderMetadata::SamlMetadataConfiguration & samlMetadataConfiguration) { DARABONBA_PTR_SET_VALUE(samlMetadataConfiguration_, samlMetadataConfiguration) };
+      inline IdentityProviderMetadata& setSamlMetadataConfiguration(IdentityProviderMetadata::SamlMetadataConfiguration && samlMetadataConfiguration) { DARABONBA_PTR_SET_RVALUE(samlMetadataConfiguration_, samlMetadataConfiguration) };
+
+
     protected:
       // OIDC IdP的Meta信息。
       shared_ptr<IdentityProviderMetadata::OidcOpenIdConfiguration> oidcOpenIdConfiguration_ {};
+      shared_ptr<IdentityProviderMetadata::SamlMetadataConfiguration> samlMetadataConfiguration_ {};
     };
 
     virtual bool empty() const override { return this->identityProviderMetadata_ == nullptr
