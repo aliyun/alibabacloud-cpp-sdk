@@ -1234,6 +1234,88 @@ BatchGetFormDataByIdListResponse Client::batchGetFormDataByIdList(const BatchGet
 }
 
 /**
+ * @summary 查询群成员
+ *
+ * @param tmpReq BatchQueryGroupMemberRequest
+ * @param tmpHeader BatchQueryGroupMemberHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchQueryGroupMemberResponse
+ */
+BatchQueryGroupMemberResponse Client::batchQueryGroupMemberWithOptions(const BatchQueryGroupMemberRequest &tmpReq, const BatchQueryGroupMemberHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchQueryGroupMemberShrinkRequest request = BatchQueryGroupMemberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  BatchQueryGroupMemberShrinkHeaders headers = BatchQueryGroupMemberShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCoolAppCode()) {
+    body["CoolAppCode"] = request.getCoolAppCode();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOpenConversationId()) {
+    body["OpenConversationId"] = request.getOpenConversationId();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchQueryGroupMember"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/batchQueryGroupMember")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchQueryGroupMemberResponse>();
+}
+
+/**
+ * @summary 查询群成员
+ *
+ * @param request BatchQueryGroupMemberRequest
+ * @return BatchQueryGroupMemberResponse
+ */
+BatchQueryGroupMemberResponse Client::batchQueryGroupMember(const BatchQueryGroupMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  BatchQueryGroupMemberHeaders headers = BatchQueryGroupMemberHeaders();
+  return batchQueryGroupMemberWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 批量删除表单实例
  *
  * @param tmpReq BatchRemovalByFormInstanceIdListRequest
@@ -11689,6 +11771,76 @@ GetRunningTasksResponse Client::getRunningTasks(const GetRunningTasksRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetRunningTasksHeaders headers = GetRunningTasksHeaders();
   return getRunningTasksWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取场景群文件下载链接
+ *
+ * @param tmpReq GetScencegroupFileDownloadurlRequest
+ * @param tmpHeader GetScencegroupFileDownloadurlHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScencegroupFileDownloadurlResponse
+ */
+GetScencegroupFileDownloadurlResponse Client::getScencegroupFileDownloadurlWithOptions(const GetScencegroupFileDownloadurlRequest &tmpReq, const GetScencegroupFileDownloadurlHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetScencegroupFileDownloadurlShrinkRequest request = GetScencegroupFileDownloadurlShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetScencegroupFileDownloadurlShrinkHeaders headers = GetScencegroupFileDownloadurlShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDownloadCode()) {
+    body["DownloadCode"] = request.getDownloadCode();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetScencegroupFileDownloadurl"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/getScencegroupFileDownloadurl")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScencegroupFileDownloadurlResponse>();
+}
+
+/**
+ * @summary 获取场景群文件下载链接
+ *
+ * @param request GetScencegroupFileDownloadurlRequest
+ * @return GetScencegroupFileDownloadurlResponse
+ */
+GetScencegroupFileDownloadurlResponse Client::getScencegroupFileDownloadurl(const GetScencegroupFileDownloadurlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetScencegroupFileDownloadurlHeaders headers = GetScencegroupFileDownloadurlHeaders();
+  return getScencegroupFileDownloadurlWithOptions(request, headers, runtime);
 }
 
 /**

@@ -93,6 +93,12 @@
 #include <alibabacloud/models/BatchGetFormDataByIdListShrinkRequest.hpp>
 #include <alibabacloud/models/BatchGetFormDataByIdListResponseBody.hpp>
 #include <alibabacloud/models/BatchGetFormDataByIdListResponse.hpp>
+#include <alibabacloud/models/BatchQueryGroupMemberHeaders.hpp>
+#include <alibabacloud/models/BatchQueryGroupMemberShrinkHeaders.hpp>
+#include <alibabacloud/models/BatchQueryGroupMemberRequest.hpp>
+#include <alibabacloud/models/BatchQueryGroupMemberShrinkRequest.hpp>
+#include <alibabacloud/models/BatchQueryGroupMemberResponseBody.hpp>
+#include <alibabacloud/models/BatchQueryGroupMemberResponse.hpp>
 #include <alibabacloud/models/BatchRemovalByFormInstanceIdListHeaders.hpp>
 #include <alibabacloud/models/BatchRemovalByFormInstanceIdListShrinkHeaders.hpp>
 #include <alibabacloud/models/BatchRemovalByFormInstanceIdListRequest.hpp>
@@ -805,6 +811,12 @@
 #include <alibabacloud/models/GetRunningTasksRequest.hpp>
 #include <alibabacloud/models/GetRunningTasksResponseBody.hpp>
 #include <alibabacloud/models/GetRunningTasksResponse.hpp>
+#include <alibabacloud/models/GetScencegroupFileDownloadurlHeaders.hpp>
+#include <alibabacloud/models/GetScencegroupFileDownloadurlShrinkHeaders.hpp>
+#include <alibabacloud/models/GetScencegroupFileDownloadurlRequest.hpp>
+#include <alibabacloud/models/GetScencegroupFileDownloadurlShrinkRequest.hpp>
+#include <alibabacloud/models/GetScencegroupFileDownloadurlResponseBody.hpp>
+#include <alibabacloud/models/GetScencegroupFileDownloadurlResponse.hpp>
 #include <alibabacloud/models/GetScenegroupHeaders.hpp>
 #include <alibabacloud/models/GetScenegroupShrinkHeaders.hpp>
 #include <alibabacloud/models/GetScenegroupRequest.hpp>

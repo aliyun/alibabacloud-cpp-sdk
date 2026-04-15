@@ -72,6 +72,7 @@ namespace Models
     class ScheduleConfSettingModel : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ScheduleConfSettingModel& obj) { 
+        DARABONBA_PTR_TO_JSON(AiAgentSummarySetting, aiAgentSummarySetting_);
         DARABONBA_PTR_TO_JSON(CohostUserIds, cohostUserIds_);
         DARABONBA_PTR_TO_JSON(ConfAllowedCorpId, confAllowedCorpId_);
         DARABONBA_PTR_TO_JSON(HostUserId, hostUserId_);
@@ -82,6 +83,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ScreenShareForbidden, screenShareForbidden_);
       };
       friend void from_json(const Darabonba::Json& j, ScheduleConfSettingModel& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiAgentSummarySetting, aiAgentSummarySetting_);
         DARABONBA_PTR_FROM_JSON(CohostUserIds, cohostUserIds_);
         DARABONBA_PTR_FROM_JSON(ConfAllowedCorpId, confAllowedCorpId_);
         DARABONBA_PTR_FROM_JSON(HostUserId, hostUserId_);
@@ -108,10 +110,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CloudRecordOwnerUserId, cloudRecordOwnerUserId_);
           DARABONBA_PTR_TO_JSON(EnableChat, enableChat_);
           DARABONBA_PTR_TO_JSON(EnableWebAnonymousJoin, enableWebAnonymousJoin_);
+          DARABONBA_PTR_TO_JSON(HiddenOwnerNick, hiddenOwnerNick_);
           DARABONBA_PTR_TO_JSON(JoinBeforeHost, joinBeforeHost_);
           DARABONBA_PTR_TO_JSON(LockMediaStatusMicMute, lockMediaStatusMicMute_);
           DARABONBA_PTR_TO_JSON(LockNick, lockNick_);
           DARABONBA_PTR_TO_JSON(MinutesOwnerUserId, minutesOwnerUserId_);
+          DARABONBA_PTR_TO_JSON(MinutesSummaryDiyTemplateVersion, minutesSummaryDiyTemplateVersion_);
+          DARABONBA_PTR_TO_JSON(MinutesSummaryTemplateId, minutesSummaryTemplateId_);
+          DARABONBA_PTR_TO_JSON(MinutesSummaryTemplateType, minutesSummaryTemplateType_);
           DARABONBA_PTR_TO_JSON(MoziConfExtensionAppSettings, moziConfExtensionAppSettings_);
           DARABONBA_PTR_TO_JSON(PushAllMeetingRecords, pushAllMeetingRecords_);
           DARABONBA_PTR_TO_JSON(PushCloudRecordCard, pushCloudRecordCard_);
@@ -122,10 +128,14 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CloudRecordOwnerUserId, cloudRecordOwnerUserId_);
           DARABONBA_PTR_FROM_JSON(EnableChat, enableChat_);
           DARABONBA_PTR_FROM_JSON(EnableWebAnonymousJoin, enableWebAnonymousJoin_);
+          DARABONBA_PTR_FROM_JSON(HiddenOwnerNick, hiddenOwnerNick_);
           DARABONBA_PTR_FROM_JSON(JoinBeforeHost, joinBeforeHost_);
           DARABONBA_PTR_FROM_JSON(LockMediaStatusMicMute, lockMediaStatusMicMute_);
           DARABONBA_PTR_FROM_JSON(LockNick, lockNick_);
           DARABONBA_PTR_FROM_JSON(MinutesOwnerUserId, minutesOwnerUserId_);
+          DARABONBA_PTR_FROM_JSON(MinutesSummaryDiyTemplateVersion, minutesSummaryDiyTemplateVersion_);
+          DARABONBA_PTR_FROM_JSON(MinutesSummaryTemplateId, minutesSummaryTemplateId_);
+          DARABONBA_PTR_FROM_JSON(MinutesSummaryTemplateType, minutesSummaryTemplateType_);
           DARABONBA_PTR_FROM_JSON(MoziConfExtensionAppSettings, moziConfExtensionAppSettings_);
           DARABONBA_PTR_FROM_JSON(PushAllMeetingRecords, pushAllMeetingRecords_);
           DARABONBA_PTR_FROM_JSON(PushCloudRecordCard, pushCloudRecordCard_);
@@ -196,9 +206,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->cloudRecordOwnerUserId_ == nullptr
-        && this->enableChat_ == nullptr && this->enableWebAnonymousJoin_ == nullptr && this->joinBeforeHost_ == nullptr && this->lockMediaStatusMicMute_ == nullptr && this->lockNick_ == nullptr
-        && this->minutesOwnerUserId_ == nullptr && this->moziConfExtensionAppSettings_ == nullptr && this->pushAllMeetingRecords_ == nullptr && this->pushCloudRecordCard_ == nullptr && this->pushMinutesCard_ == nullptr
-        && this->waitingRoom_ == nullptr; };
+        && this->enableChat_ == nullptr && this->enableWebAnonymousJoin_ == nullptr && this->hiddenOwnerNick_ == nullptr && this->joinBeforeHost_ == nullptr && this->lockMediaStatusMicMute_ == nullptr
+        && this->lockNick_ == nullptr && this->minutesOwnerUserId_ == nullptr && this->minutesSummaryDiyTemplateVersion_ == nullptr && this->minutesSummaryTemplateId_ == nullptr && this->minutesSummaryTemplateType_ == nullptr
+        && this->moziConfExtensionAppSettings_ == nullptr && this->pushAllMeetingRecords_ == nullptr && this->pushCloudRecordCard_ == nullptr && this->pushMinutesCard_ == nullptr && this->waitingRoom_ == nullptr; };
         // cloudRecordOwnerUserId Field Functions 
         bool hasCloudRecordOwnerUserId() const { return this->cloudRecordOwnerUserId_ != nullptr;};
         void deleteCloudRecordOwnerUserId() { this->cloudRecordOwnerUserId_ = nullptr;};
@@ -218,6 +228,13 @@ namespace Models
         void deleteEnableWebAnonymousJoin() { this->enableWebAnonymousJoin_ = nullptr;};
         inline bool getEnableWebAnonymousJoin() const { DARABONBA_PTR_GET_DEFAULT(enableWebAnonymousJoin_, false) };
         inline MoziConfVirtualExtraSetting& setEnableWebAnonymousJoin(bool enableWebAnonymousJoin) { DARABONBA_PTR_SET_VALUE(enableWebAnonymousJoin_, enableWebAnonymousJoin) };
+
+
+        // hiddenOwnerNick Field Functions 
+        bool hasHiddenOwnerNick() const { return this->hiddenOwnerNick_ != nullptr;};
+        void deleteHiddenOwnerNick() { this->hiddenOwnerNick_ = nullptr;};
+        inline bool getHiddenOwnerNick() const { DARABONBA_PTR_GET_DEFAULT(hiddenOwnerNick_, false) };
+        inline MoziConfVirtualExtraSetting& setHiddenOwnerNick(bool hiddenOwnerNick) { DARABONBA_PTR_SET_VALUE(hiddenOwnerNick_, hiddenOwnerNick) };
 
 
         // joinBeforeHost Field Functions 
@@ -246,6 +263,27 @@ namespace Models
         void deleteMinutesOwnerUserId() { this->minutesOwnerUserId_ = nullptr;};
         inline string getMinutesOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(minutesOwnerUserId_, "") };
         inline MoziConfVirtualExtraSetting& setMinutesOwnerUserId(string minutesOwnerUserId) { DARABONBA_PTR_SET_VALUE(minutesOwnerUserId_, minutesOwnerUserId) };
+
+
+        // minutesSummaryDiyTemplateVersion Field Functions 
+        bool hasMinutesSummaryDiyTemplateVersion() const { return this->minutesSummaryDiyTemplateVersion_ != nullptr;};
+        void deleteMinutesSummaryDiyTemplateVersion() { this->minutesSummaryDiyTemplateVersion_ = nullptr;};
+        inline string getMinutesSummaryDiyTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(minutesSummaryDiyTemplateVersion_, "") };
+        inline MoziConfVirtualExtraSetting& setMinutesSummaryDiyTemplateVersion(string minutesSummaryDiyTemplateVersion) { DARABONBA_PTR_SET_VALUE(minutesSummaryDiyTemplateVersion_, minutesSummaryDiyTemplateVersion) };
+
+
+        // minutesSummaryTemplateId Field Functions 
+        bool hasMinutesSummaryTemplateId() const { return this->minutesSummaryTemplateId_ != nullptr;};
+        void deleteMinutesSummaryTemplateId() { this->minutesSummaryTemplateId_ = nullptr;};
+        inline string getMinutesSummaryTemplateId() const { DARABONBA_PTR_GET_DEFAULT(minutesSummaryTemplateId_, "") };
+        inline MoziConfVirtualExtraSetting& setMinutesSummaryTemplateId(string minutesSummaryTemplateId) { DARABONBA_PTR_SET_VALUE(minutesSummaryTemplateId_, minutesSummaryTemplateId) };
+
+
+        // minutesSummaryTemplateType Field Functions 
+        bool hasMinutesSummaryTemplateType() const { return this->minutesSummaryTemplateType_ != nullptr;};
+        void deleteMinutesSummaryTemplateType() { this->minutesSummaryTemplateType_ = nullptr;};
+        inline string getMinutesSummaryTemplateType() const { DARABONBA_PTR_GET_DEFAULT(minutesSummaryTemplateType_, "") };
+        inline MoziConfVirtualExtraSetting& setMinutesSummaryTemplateType(string minutesSummaryTemplateType) { DARABONBA_PTR_SET_VALUE(minutesSummaryTemplateType_, minutesSummaryTemplateType) };
 
 
         // moziConfExtensionAppSettings Field Functions 
@@ -289,10 +327,14 @@ namespace Models
         shared_ptr<string> cloudRecordOwnerUserId_ {};
         shared_ptr<int32_t> enableChat_ {};
         shared_ptr<bool> enableWebAnonymousJoin_ {};
+        shared_ptr<bool> hiddenOwnerNick_ {};
         shared_ptr<int32_t> joinBeforeHost_ {};
         shared_ptr<int32_t> lockMediaStatusMicMute_ {};
         shared_ptr<int32_t> lockNick_ {};
         shared_ptr<string> minutesOwnerUserId_ {};
+        shared_ptr<string> minutesSummaryDiyTemplateVersion_ {};
+        shared_ptr<string> minutesSummaryTemplateId_ {};
+        shared_ptr<string> minutesSummaryTemplateType_ {};
         shared_ptr<vector<MoziConfVirtualExtraSetting::MoziConfExtensionAppSettings>> moziConfExtensionAppSettings_ {};
         shared_ptr<bool> pushAllMeetingRecords_ {};
         shared_ptr<bool> pushCloudRecordCard_ {};
@@ -307,12 +349,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Mode, mode_);
           DARABONBA_PTR_TO_JSON(RecordAutoStart, recordAutoStart_);
           DARABONBA_PTR_TO_JSON(RecordAutoStartType, recordAutoStartType_);
+          DARABONBA_PTR_TO_JSON(RestrictShareMinutesSummaryOnly, restrictShareMinutesSummaryOnly_);
         };
         friend void from_json(const Darabonba::Json& j, MoziConfOpenRecordSetting& obj) { 
           DARABONBA_PTR_FROM_JSON(IsFollowHost, isFollowHost_);
           DARABONBA_PTR_FROM_JSON(Mode, mode_);
           DARABONBA_PTR_FROM_JSON(RecordAutoStart, recordAutoStart_);
           DARABONBA_PTR_FROM_JSON(RecordAutoStartType, recordAutoStartType_);
+          DARABONBA_PTR_FROM_JSON(RestrictShareMinutesSummaryOnly, restrictShareMinutesSummaryOnly_);
         };
         MoziConfOpenRecordSetting() = default ;
         MoziConfOpenRecordSetting(const MoziConfOpenRecordSetting &) = default ;
@@ -326,7 +370,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->isFollowHost_ == nullptr
-        && this->mode_ == nullptr && this->recordAutoStart_ == nullptr && this->recordAutoStartType_ == nullptr; };
+        && this->mode_ == nullptr && this->recordAutoStart_ == nullptr && this->recordAutoStartType_ == nullptr && this->restrictShareMinutesSummaryOnly_ == nullptr; };
         // isFollowHost Field Functions 
         bool hasIsFollowHost() const { return this->isFollowHost_ != nullptr;};
         void deleteIsFollowHost() { this->isFollowHost_ = nullptr;};
@@ -355,16 +399,95 @@ namespace Models
         inline MoziConfOpenRecordSetting& setRecordAutoStartType(int32_t recordAutoStartType) { DARABONBA_PTR_SET_VALUE(recordAutoStartType_, recordAutoStartType) };
 
 
+        // restrictShareMinutesSummaryOnly Field Functions 
+        bool hasRestrictShareMinutesSummaryOnly() const { return this->restrictShareMinutesSummaryOnly_ != nullptr;};
+        void deleteRestrictShareMinutesSummaryOnly() { this->restrictShareMinutesSummaryOnly_ = nullptr;};
+        inline int32_t getRestrictShareMinutesSummaryOnly() const { DARABONBA_PTR_GET_DEFAULT(restrictShareMinutesSummaryOnly_, 0) };
+        inline MoziConfOpenRecordSetting& setRestrictShareMinutesSummaryOnly(int32_t restrictShareMinutesSummaryOnly) { DARABONBA_PTR_SET_VALUE(restrictShareMinutesSummaryOnly_, restrictShareMinutesSummaryOnly) };
+
+
       protected:
         shared_ptr<bool> isFollowHost_ {};
         shared_ptr<string> mode_ {};
         shared_ptr<int32_t> recordAutoStart_ {};
         shared_ptr<int32_t> recordAutoStartType_ {};
+        shared_ptr<int32_t> restrictShareMinutesSummaryOnly_ {};
       };
 
-      virtual bool empty() const override { return this->cohostUserIds_ == nullptr
-        && this->confAllowedCorpId_ == nullptr && this->hostUserId_ == nullptr && this->lockRoom_ == nullptr && this->moziConfOpenRecordSetting_ == nullptr && this->moziConfVirtualExtraSetting_ == nullptr
-        && this->muteOnJoin_ == nullptr && this->screenShareForbidden_ == nullptr; };
+      class AiAgentSummarySetting : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AiAgentSummarySetting& obj) { 
+          DARABONBA_PTR_TO_JSON(AllowAllParticipantsStart, allowAllParticipantsStart_);
+          DARABONBA_PTR_TO_JSON(ReceiverType, receiverType_);
+          DARABONBA_PTR_TO_JSON(RestrictShareMinutesSummaryOnly, restrictShareMinutesSummaryOnly_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, AiAgentSummarySetting& obj) { 
+          DARABONBA_PTR_FROM_JSON(AllowAllParticipantsStart, allowAllParticipantsStart_);
+          DARABONBA_PTR_FROM_JSON(ReceiverType, receiverType_);
+          DARABONBA_PTR_FROM_JSON(RestrictShareMinutesSummaryOnly, restrictShareMinutesSummaryOnly_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        AiAgentSummarySetting() = default ;
+        AiAgentSummarySetting(const AiAgentSummarySetting &) = default ;
+        AiAgentSummarySetting(AiAgentSummarySetting &&) = default ;
+        AiAgentSummarySetting(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AiAgentSummarySetting() = default ;
+        AiAgentSummarySetting& operator=(const AiAgentSummarySetting &) = default ;
+        AiAgentSummarySetting& operator=(AiAgentSummarySetting &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->allowAllParticipantsStart_ == nullptr
+        && this->receiverType_ == nullptr && this->restrictShareMinutesSummaryOnly_ == nullptr && this->value_ == nullptr; };
+        // allowAllParticipantsStart Field Functions 
+        bool hasAllowAllParticipantsStart() const { return this->allowAllParticipantsStart_ != nullptr;};
+        void deleteAllowAllParticipantsStart() { this->allowAllParticipantsStart_ = nullptr;};
+        inline int32_t getAllowAllParticipantsStart() const { DARABONBA_PTR_GET_DEFAULT(allowAllParticipantsStart_, 0) };
+        inline AiAgentSummarySetting& setAllowAllParticipantsStart(int32_t allowAllParticipantsStart) { DARABONBA_PTR_SET_VALUE(allowAllParticipantsStart_, allowAllParticipantsStart) };
+
+
+        // receiverType Field Functions 
+        bool hasReceiverType() const { return this->receiverType_ != nullptr;};
+        void deleteReceiverType() { this->receiverType_ = nullptr;};
+        inline int32_t getReceiverType() const { DARABONBA_PTR_GET_DEFAULT(receiverType_, 0) };
+        inline AiAgentSummarySetting& setReceiverType(int32_t receiverType) { DARABONBA_PTR_SET_VALUE(receiverType_, receiverType) };
+
+
+        // restrictShareMinutesSummaryOnly Field Functions 
+        bool hasRestrictShareMinutesSummaryOnly() const { return this->restrictShareMinutesSummaryOnly_ != nullptr;};
+        void deleteRestrictShareMinutesSummaryOnly() { this->restrictShareMinutesSummaryOnly_ = nullptr;};
+        inline int32_t getRestrictShareMinutesSummaryOnly() const { DARABONBA_PTR_GET_DEFAULT(restrictShareMinutesSummaryOnly_, 0) };
+        inline AiAgentSummarySetting& setRestrictShareMinutesSummaryOnly(int32_t restrictShareMinutesSummaryOnly) { DARABONBA_PTR_SET_VALUE(restrictShareMinutesSummaryOnly_, restrictShareMinutesSummaryOnly) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline AiAgentSummarySetting& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<int32_t> allowAllParticipantsStart_ {};
+        shared_ptr<int32_t> receiverType_ {};
+        shared_ptr<int32_t> restrictShareMinutesSummaryOnly_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->aiAgentSummarySetting_ == nullptr
+        && this->cohostUserIds_ == nullptr && this->confAllowedCorpId_ == nullptr && this->hostUserId_ == nullptr && this->lockRoom_ == nullptr && this->moziConfOpenRecordSetting_ == nullptr
+        && this->moziConfVirtualExtraSetting_ == nullptr && this->muteOnJoin_ == nullptr && this->screenShareForbidden_ == nullptr; };
+      // aiAgentSummarySetting Field Functions 
+      bool hasAiAgentSummarySetting() const { return this->aiAgentSummarySetting_ != nullptr;};
+      void deleteAiAgentSummarySetting() { this->aiAgentSummarySetting_ = nullptr;};
+      inline const ScheduleConfSettingModel::AiAgentSummarySetting & getAiAgentSummarySetting() const { DARABONBA_PTR_GET_CONST(aiAgentSummarySetting_, ScheduleConfSettingModel::AiAgentSummarySetting) };
+      inline ScheduleConfSettingModel::AiAgentSummarySetting getAiAgentSummarySetting() { DARABONBA_PTR_GET(aiAgentSummarySetting_, ScheduleConfSettingModel::AiAgentSummarySetting) };
+      inline ScheduleConfSettingModel& setAiAgentSummarySetting(const ScheduleConfSettingModel::AiAgentSummarySetting & aiAgentSummarySetting) { DARABONBA_PTR_SET_VALUE(aiAgentSummarySetting_, aiAgentSummarySetting) };
+      inline ScheduleConfSettingModel& setAiAgentSummarySetting(ScheduleConfSettingModel::AiAgentSummarySetting && aiAgentSummarySetting) { DARABONBA_PTR_SET_RVALUE(aiAgentSummarySetting_, aiAgentSummarySetting) };
+
+
       // cohostUserIds Field Functions 
       bool hasCohostUserIds() const { return this->cohostUserIds_ != nullptr;};
       void deleteCohostUserIds() { this->cohostUserIds_ = nullptr;};
@@ -428,6 +551,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<ScheduleConfSettingModel::AiAgentSummarySetting> aiAgentSummarySetting_ {};
       shared_ptr<vector<string>> cohostUserIds_ {};
       shared_ptr<string> confAllowedCorpId_ {};
       shared_ptr<string> hostUserId_ {};

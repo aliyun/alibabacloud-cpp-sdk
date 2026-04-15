@@ -291,6 +291,24 @@ namespace Aliding20230426
       Models::BatchGetFormDataByIdListResponse batchGetFormDataByIdList(const Models::BatchGetFormDataByIdListRequest &request);
 
       /**
+       * @summary 查询群成员
+       *
+       * @param tmpReq BatchQueryGroupMemberRequest
+       * @param tmpHeader BatchQueryGroupMemberHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchQueryGroupMemberResponse
+       */
+      Models::BatchQueryGroupMemberResponse batchQueryGroupMemberWithOptions(const Models::BatchQueryGroupMemberRequest &tmpReq, const Models::BatchQueryGroupMemberHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询群成员
+       *
+       * @param request BatchQueryGroupMemberRequest
+       * @return BatchQueryGroupMemberResponse
+       */
+      Models::BatchQueryGroupMemberResponse batchQueryGroupMember(const Models::BatchQueryGroupMemberRequest &request);
+
+      /**
        * @summary 批量删除表单实例
        *
        * @param tmpReq BatchRemovalByFormInstanceIdListRequest
@@ -2525,6 +2543,24 @@ namespace Aliding20230426
        * @return GetRunningTasksResponse
        */
       Models::GetRunningTasksResponse getRunningTasks(const Models::GetRunningTasksRequest &request);
+
+      /**
+       * @summary 获取场景群文件下载链接
+       *
+       * @param tmpReq GetScencegroupFileDownloadurlRequest
+       * @param tmpHeader GetScencegroupFileDownloadurlHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScencegroupFileDownloadurlResponse
+       */
+      Models::GetScencegroupFileDownloadurlResponse getScencegroupFileDownloadurlWithOptions(const Models::GetScencegroupFileDownloadurlRequest &tmpReq, const Models::GetScencegroupFileDownloadurlHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取场景群文件下载链接
+       *
+       * @param request GetScencegroupFileDownloadurlRequest
+       * @return GetScencegroupFileDownloadurlResponse
+       */
+      Models::GetScencegroupFileDownloadurlResponse getScencegroupFileDownloadurl(const Models::GetScencegroupFileDownloadurlRequest &request);
 
       /**
        * @summary 查询群信息
