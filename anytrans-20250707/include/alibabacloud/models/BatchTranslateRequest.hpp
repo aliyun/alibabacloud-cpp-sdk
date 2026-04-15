@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(config, config_);
         DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
         DARABONBA_PTR_TO_JSON(examples, examples_);
+        DARABONBA_PTR_TO_JSON(langDetect, langDetect_);
         DARABONBA_ANY_TO_JSON(paramMap, paramMap_);
         DARABONBA_PTR_TO_JSON(sensitives, sensitives_);
         DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(config, config_);
         DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
         DARABONBA_PTR_FROM_JSON(examples, examples_);
+        DARABONBA_PTR_FROM_JSON(langDetect, langDetect_);
         DARABONBA_ANY_FROM_JSON(paramMap, paramMap_);
         DARABONBA_PTR_FROM_JSON(sensitives, sensitives_);
         DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
@@ -243,8 +245,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->config_ == nullptr
-        && this->domainHint_ == nullptr && this->examples_ == nullptr && this->paramMap_ == nullptr && this->sensitives_ == nullptr && this->terminologies_ == nullptr
-        && this->textTransform_ == nullptr; };
+        && this->domainHint_ == nullptr && this->examples_ == nullptr && this->langDetect_ == nullptr && this->paramMap_ == nullptr && this->sensitives_ == nullptr
+        && this->terminologies_ == nullptr && this->textTransform_ == nullptr; };
       // config Field Functions 
       bool hasConfig() const { return this->config_ != nullptr;};
       void deleteConfig() { this->config_ = nullptr;};
@@ -268,6 +270,13 @@ namespace Models
       inline vector<Ext::Examples> getExamples() { DARABONBA_PTR_GET(examples_, vector<Ext::Examples>) };
       inline Ext& setExamples(const vector<Ext::Examples> & examples) { DARABONBA_PTR_SET_VALUE(examples_, examples) };
       inline Ext& setExamples(vector<Ext::Examples> && examples) { DARABONBA_PTR_SET_RVALUE(examples_, examples) };
+
+
+      // langDetect Field Functions 
+      bool hasLangDetect() const { return this->langDetect_ != nullptr;};
+      void deleteLangDetect() { this->langDetect_ = nullptr;};
+      inline bool getLangDetect() const { DARABONBA_PTR_GET_DEFAULT(langDetect_, false) };
+      inline Ext& setLangDetect(bool langDetect) { DARABONBA_PTR_SET_VALUE(langDetect_, langDetect) };
 
 
       // paramMap Field Functions 
@@ -310,6 +319,7 @@ namespace Models
       shared_ptr<Ext::Config> config_ {};
       shared_ptr<string> domainHint_ {};
       shared_ptr<vector<Ext::Examples>> examples_ {};
+      shared_ptr<bool> langDetect_ {};
       Darabonba::Json paramMap_ {};
       shared_ptr<vector<string>> sensitives_ {};
       shared_ptr<vector<Ext::Terminologies>> terminologies_ {};
