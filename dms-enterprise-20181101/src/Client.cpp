@@ -1606,6 +1606,14 @@ FutureGenerator<ChatWithDesensitizeSSEResponse> Client::chatWithDesensitizeSSEWi
     query["ThinkingBudget"] = request.getThinkingBudget();
   }
 
+  if (!!request.hasToolChoice()) {
+    query["ToolChoice"] = request.getToolChoice();
+  }
+
+  if (!!request.hasTools()) {
+    query["Tools"] = request.getTools();
+  }
+
   if (!!request.hasTopK()) {
     query["TopK"] = request.getTopK();
   }
@@ -1783,6 +1791,14 @@ ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSEWithOptions(const C
 
   if (!!request.hasThinkingBudget()) {
     query["ThinkingBudget"] = request.getThinkingBudget();
+  }
+
+  if (!!request.hasToolChoice()) {
+    query["ToolChoice"] = request.getToolChoice();
+  }
+
+  if (!!request.hasTools()) {
+    query["Tools"] = request.getTools();
   }
 
   if (!!request.hasTopK()) {

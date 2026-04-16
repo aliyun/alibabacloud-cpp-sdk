@@ -39,6 +39,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Stream, stream_);
       DARABONBA_PTR_TO_JSON(Temperature, temperature_);
       DARABONBA_PTR_TO_JSON(ThinkingBudget, thinkingBudget_);
+      DARABONBA_PTR_TO_JSON(ToolChoice, toolChoice_);
+      DARABONBA_PTR_TO_JSON(Tools, tools_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
       DARABONBA_PTR_TO_JSON(TopLogprobs, topLogprobs_);
       DARABONBA_PTR_TO_JSON(TopP, topP_);
@@ -70,6 +72,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Stream, stream_);
       DARABONBA_PTR_FROM_JSON(Temperature, temperature_);
       DARABONBA_PTR_FROM_JSON(ThinkingBudget, thinkingBudget_);
+      DARABONBA_PTR_FROM_JSON(ToolChoice, toolChoice_);
+      DARABONBA_PTR_FROM_JSON(Tools, tools_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
       DARABONBA_PTR_FROM_JSON(TopLogprobs, topLogprobs_);
       DARABONBA_PTR_FROM_JSON(TopP, topP_);
@@ -92,8 +96,8 @@ namespace Models
         && this->includeUsage_ == nullptr && this->input_ == nullptr && this->instanceId_ == nullptr && this->logprobs_ == nullptr && this->maxTokens_ == nullptr
         && this->messages_ == nullptr && this->modalitiesList_ == nullptr && this->model_ == nullptr && this->needDesensitization_ == nullptr && this->parameters_ == nullptr
         && this->presencePenalty_ == nullptr && this->responseFormat_ == nullptr && this->searchOptions_ == nullptr && this->seed_ == nullptr && this->stop_ == nullptr
-        && this->stream_ == nullptr && this->temperature_ == nullptr && this->thinkingBudget_ == nullptr && this->topK_ == nullptr && this->topLogprobs_ == nullptr
-        && this->topP_ == nullptr && this->vlHighResolutionImages_ == nullptr && this->XDashScopeDataInspection_ == nullptr; };
+        && this->stream_ == nullptr && this->temperature_ == nullptr && this->thinkingBudget_ == nullptr && this->toolChoice_ == nullptr && this->tools_ == nullptr
+        && this->topK_ == nullptr && this->topLogprobs_ == nullptr && this->topP_ == nullptr && this->vlHighResolutionImages_ == nullptr && this->XDashScopeDataInspection_ == nullptr; };
     // audioJson Field Functions 
     bool hasAudioJson() const { return this->audioJson_ != nullptr;};
     void deleteAudioJson() { this->audioJson_ = nullptr;};
@@ -270,6 +274,20 @@ namespace Models
     inline ChatWithDesensitizeSSERequest& setThinkingBudget(int32_t thinkingBudget) { DARABONBA_PTR_SET_VALUE(thinkingBudget_, thinkingBudget) };
 
 
+    // toolChoice Field Functions 
+    bool hasToolChoice() const { return this->toolChoice_ != nullptr;};
+    void deleteToolChoice() { this->toolChoice_ = nullptr;};
+    inline string getToolChoice() const { DARABONBA_PTR_GET_DEFAULT(toolChoice_, "") };
+    inline ChatWithDesensitizeSSERequest& setToolChoice(string toolChoice) { DARABONBA_PTR_SET_VALUE(toolChoice_, toolChoice) };
+
+
+    // tools Field Functions 
+    bool hasTools() const { return this->tools_ != nullptr;};
+    void deleteTools() { this->tools_ = nullptr;};
+    inline string getTools() const { DARABONBA_PTR_GET_DEFAULT(tools_, "") };
+    inline ChatWithDesensitizeSSERequest& setTools(string tools) { DARABONBA_PTR_SET_VALUE(tools_, tools) };
+
+
     // topK Field Functions 
     bool hasTopK() const { return this->topK_ != nullptr;};
     void deleteTopK() { this->topK_ = nullptr;};
@@ -356,6 +374,8 @@ namespace Models
     shared_ptr<string> temperature_ {};
     // The maximum number of tokens allowed for the model\\"s internal reasoning process.
     shared_ptr<int32_t> thinkingBudget_ {};
+    shared_ptr<string> toolChoice_ {};
+    shared_ptr<string> tools_ {};
     // Specifies the number of candidate tokens to consider during sampling. Higher values increase randomness, while lower values make the output more deterministic. Set to null or a value greater than 100 to disable.
     shared_ptr<int32_t> topK_ {};
     // Specifies the number of most likely candidate tokens to return at each generation step. Valid values: [0, 5].
