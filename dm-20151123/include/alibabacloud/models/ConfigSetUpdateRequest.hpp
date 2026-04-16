@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(IpPoolId, ipPoolId_);
+      DARABONBA_PTR_TO_JSON(IsPublicChannelBackoff, isPublicChannelBackoff_);
       DARABONBA_PTR_TO_JSON(Name, name_);
     };
     friend void from_json(const Darabonba::Json& j, ConfigSetUpdateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(IpPoolId, ipPoolId_);
+      DARABONBA_PTR_FROM_JSON(IsPublicChannelBackoff, isPublicChannelBackoff_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
     };
     ConfigSetUpdateRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->id_ == nullptr && this->ipPoolId_ == nullptr && this->name_ == nullptr; };
+        && this->id_ == nullptr && this->ipPoolId_ == nullptr && this->isPublicChannelBackoff_ == nullptr && this->name_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ConfigSetUpdateRequest& setIpPoolId(string ipPoolId) { DARABONBA_PTR_SET_VALUE(ipPoolId_, ipPoolId) };
 
 
+    // isPublicChannelBackoff Field Functions 
+    bool hasIsPublicChannelBackoff() const { return this->isPublicChannelBackoff_ != nullptr;};
+    void deleteIsPublicChannelBackoff() { this->isPublicChannelBackoff_ = nullptr;};
+    inline bool getIsPublicChannelBackoff() const { DARABONBA_PTR_GET_DEFAULT(isPublicChannelBackoff_, false) };
+    inline ConfigSetUpdateRequest& setIsPublicChannelBackoff(bool isPublicChannelBackoff) { DARABONBA_PTR_SET_VALUE(isPublicChannelBackoff_, isPublicChannelBackoff) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -69,6 +78,7 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<string> id_ {};
     shared_ptr<string> ipPoolId_ {};
+    shared_ptr<bool> isPublicChannelBackoff_ {};
     shared_ptr<string> name_ {};
   };
 

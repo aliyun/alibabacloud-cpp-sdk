@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FromAddresses, fromAddresses_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(IpPool, ipPool_);
+        DARABONBA_PTR_TO_JSON(IsPublicChannelBackoff, isPublicChannelBackoff_);
         DARABONBA_PTR_TO_JSON(Name, name_);
       };
       friend void from_json(const Darabonba::Json& j, ConfigSets& obj) { 
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FromAddresses, fromAddresses_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(IpPool, ipPool_);
+        DARABONBA_PTR_FROM_JSON(IsPublicChannelBackoff, isPublicChannelBackoff_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
       };
       ConfigSets() = default ;
@@ -110,7 +112,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->fromAddresses_ == nullptr && this->id_ == nullptr && this->ipPool_ == nullptr && this->name_ == nullptr; };
+        && this->fromAddresses_ == nullptr && this->id_ == nullptr && this->ipPool_ == nullptr && this->isPublicChannelBackoff_ == nullptr && this->name_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -143,6 +145,13 @@ namespace Models
       inline ConfigSets& setIpPool(ConfigSets::IpPool && ipPool) { DARABONBA_PTR_SET_RVALUE(ipPool_, ipPool) };
 
 
+      // isPublicChannelBackoff Field Functions 
+      bool hasIsPublicChannelBackoff() const { return this->isPublicChannelBackoff_ != nullptr;};
+      void deleteIsPublicChannelBackoff() { this->isPublicChannelBackoff_ = nullptr;};
+      inline bool getIsPublicChannelBackoff() const { DARABONBA_PTR_GET_DEFAULT(isPublicChannelBackoff_, false) };
+      inline ConfigSets& setIsPublicChannelBackoff(bool isPublicChannelBackoff) { DARABONBA_PTR_SET_VALUE(isPublicChannelBackoff_, isPublicChannelBackoff) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -155,6 +164,7 @@ namespace Models
       shared_ptr<vector<string>> fromAddresses_ {};
       shared_ptr<string> id_ {};
       shared_ptr<ConfigSets::IpPool> ipPool_ {};
+      shared_ptr<bool> isPublicChannelBackoff_ {};
       shared_ptr<string> name_ {};
     };
 

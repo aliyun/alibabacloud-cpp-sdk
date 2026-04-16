@@ -617,6 +617,10 @@ ConfigSetCreateResponse Client::configSetCreateWithOptions(const ConfigSetCreate
     query["IpPoolId"] = request.getIpPoolId();
   }
 
+  if (!!request.hasIsPublicChannelBackoff()) {
+    query["IsPublicChannelBackoff"] = request.getIsPublicChannelBackoff();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.getName();
   }
@@ -857,6 +861,10 @@ ConfigSetUpdateResponse Client::configSetUpdateWithOptions(const ConfigSetUpdate
 
   if (!!request.hasIpPoolId()) {
     query["IpPoolId"] = request.getIpPoolId();
+  }
+
+  if (!!request.hasIsPublicChannelBackoff()) {
+    query["IsPublicChannelBackoff"] = request.getIsPublicChannelBackoff();
   }
 
   if (!!request.hasName()) {
