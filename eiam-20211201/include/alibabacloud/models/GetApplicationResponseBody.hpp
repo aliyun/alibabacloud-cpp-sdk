@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceServerSourceType, resourceServerSourceType_);
         DARABONBA_PTR_TO_JSON(ResourceServerStatus, resourceServerStatus_);
         DARABONBA_PTR_TO_JSON(ServiceManaged, serviceManaged_);
+        DARABONBA_PTR_TO_JSON(SmartConfigCapabilities, smartConfigCapabilities_);
         DARABONBA_PTR_TO_JSON(SsoType, ssoType_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
@@ -88,6 +89,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceServerSourceType, resourceServerSourceType_);
         DARABONBA_PTR_FROM_JSON(ResourceServerStatus, resourceServerStatus_);
         DARABONBA_PTR_FROM_JSON(ServiceManaged, serviceManaged_);
+        DARABONBA_PTR_FROM_JSON(SmartConfigCapabilities, smartConfigCapabilities_);
         DARABONBA_PTR_FROM_JSON(SsoType, ssoType_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
@@ -196,8 +198,8 @@ namespace Models
         && this->applicationSourceType_ == nullptr && this->applicationTemplateId_ == nullptr && this->applicationVisibility_ == nullptr && this->authorizationType_ == nullptr && this->clientId_ == nullptr
         && this->createTime_ == nullptr && this->customFields_ == nullptr && this->customSubjectStatus_ == nullptr && this->description_ == nullptr && this->features_ == nullptr
         && this->instanceId_ == nullptr && this->logoUrl_ == nullptr && this->m2MClientStatus_ == nullptr && this->managedServiceCode_ == nullptr && this->resourceServerIdentifier_ == nullptr
-        && this->resourceServerSourceType_ == nullptr && this->resourceServerStatus_ == nullptr && this->serviceManaged_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->resourceServerSourceType_ == nullptr && this->resourceServerStatus_ == nullptr && this->serviceManaged_ == nullptr && this->smartConfigCapabilities_ == nullptr && this->ssoType_ == nullptr
+        && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // apiInvokeStatus Field Functions 
       bool hasApiInvokeStatus() const { return this->apiInvokeStatus_ != nullptr;};
       void deleteApiInvokeStatus() { this->apiInvokeStatus_ = nullptr;};
@@ -372,6 +374,15 @@ namespace Models
       inline Application& setServiceManaged(bool serviceManaged) { DARABONBA_PTR_SET_VALUE(serviceManaged_, serviceManaged) };
 
 
+      // smartConfigCapabilities Field Functions 
+      bool hasSmartConfigCapabilities() const { return this->smartConfigCapabilities_ != nullptr;};
+      void deleteSmartConfigCapabilities() { this->smartConfigCapabilities_ = nullptr;};
+      inline const vector<string> & getSmartConfigCapabilities() const { DARABONBA_PTR_GET_CONST(smartConfigCapabilities_, vector<string>) };
+      inline vector<string> getSmartConfigCapabilities() { DARABONBA_PTR_GET(smartConfigCapabilities_, vector<string>) };
+      inline Application& setSmartConfigCapabilities(const vector<string> & smartConfigCapabilities) { DARABONBA_PTR_SET_VALUE(smartConfigCapabilities_, smartConfigCapabilities) };
+      inline Application& setSmartConfigCapabilities(vector<string> && smartConfigCapabilities) { DARABONBA_PTR_SET_RVALUE(smartConfigCapabilities_, smartConfigCapabilities) };
+
+
       // ssoType Field Functions 
       bool hasSsoType() const { return this->ssoType_ != nullptr;};
       void deleteSsoType() { this->ssoType_ = nullptr;};
@@ -449,6 +460,7 @@ namespace Models
       shared_ptr<string> resourceServerStatus_ {};
       // Indicates whether the application template is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
+      shared_ptr<vector<string>> smartConfigCapabilities_ {};
       // The type of the single sign-on (SSO) protocol. Valid values:
       // 
       // *   saml2: the Security Assertion Markup Language (SAML) 2.0 protocol.
