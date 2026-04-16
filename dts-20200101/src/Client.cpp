@@ -125,11 +125,13 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
@@ -552,7 +554,7 @@ ConfigureDtsJobResponse Client::configureDtsJobAdvance(const ConfigureDtsJobAdva
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1850,7 +1852,7 @@ CreateDocParserJobResponse Client::createDocParserJobAdvance(const CreateDocPars
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -6750,7 +6752,7 @@ ModifyDtsJobResponse Client::modifyDtsJobAdvance(const ModifyDtsJobAdvanceReques
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},

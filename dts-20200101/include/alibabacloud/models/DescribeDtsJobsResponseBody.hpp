@@ -2642,6 +2642,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(FullDataCheckStatus, fullDataCheckStatus_);
         DARABONBA_PTR_TO_JSON(IncDataCheckStatus, incDataCheckStatus_);
+        DARABONBA_PTR_TO_JSON(InsightModule, insightModule_);
         DARABONBA_PTR_TO_JSON(JobType, jobType_);
         DARABONBA_PTR_TO_JSON(MaxDu, maxDu_);
         DARABONBA_PTR_TO_JSON(MemUsage, memUsage_);
@@ -2699,6 +2700,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(FullDataCheckStatus, fullDataCheckStatus_);
         DARABONBA_PTR_FROM_JSON(IncDataCheckStatus, incDataCheckStatus_);
+        DARABONBA_PTR_FROM_JSON(InsightModule, insightModule_);
         DARABONBA_PTR_FROM_JSON(JobType, jobType_);
         DARABONBA_PTR_FROM_JSON(MaxDu, maxDu_);
         DARABONBA_PTR_FROM_JSON(MemUsage, memUsage_);
@@ -5676,12 +5678,12 @@ namespace Models
         && this->dbObject_ == nullptr && this->dedicatedClusterId_ == nullptr && this->delay_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsBisLabel_ == nullptr
         && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr
         && this->duRealUsage_ == nullptr && this->duUsage_ == nullptr && this->endTimestamp_ == nullptr && this->errorDetails_ == nullptr && this->errorMessage_ == nullptr
-        && this->etlSafeCheckpoint_ == nullptr && this->expireTime_ == nullptr && this->fullDataCheckStatus_ == nullptr && this->incDataCheckStatus_ == nullptr && this->jobType_ == nullptr
-        && this->maxDu_ == nullptr && this->memUsage_ == nullptr && this->migrationErrCode_ == nullptr && this->migrationErrHelpDocId_ == nullptr && this->migrationErrHelpDocKey_ == nullptr
-        && this->migrationErrMsg_ == nullptr && this->migrationErrType_ == nullptr && this->migrationErrWorkaround_ == nullptr && this->migrationMode_ == nullptr && this->minDu_ == nullptr
-        && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr && this->precheckStatus_ == nullptr && this->reserved_ == nullptr
-        && this->resourceGroupDisplayName_ == nullptr && this->resourceGroupId_ == nullptr && this->retryState_ == nullptr && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr
-        && this->status_ == nullptr && this->structureDataCheckStatus_ == nullptr && this->structureInitializationStatus_ == nullptr && this->tagList_ == nullptr; };
+        && this->etlSafeCheckpoint_ == nullptr && this->expireTime_ == nullptr && this->fullDataCheckStatus_ == nullptr && this->incDataCheckStatus_ == nullptr && this->insightModule_ == nullptr
+        && this->jobType_ == nullptr && this->maxDu_ == nullptr && this->memUsage_ == nullptr && this->migrationErrCode_ == nullptr && this->migrationErrHelpDocId_ == nullptr
+        && this->migrationErrHelpDocKey_ == nullptr && this->migrationErrMsg_ == nullptr && this->migrationErrType_ == nullptr && this->migrationErrWorkaround_ == nullptr && this->migrationMode_ == nullptr
+        && this->minDu_ == nullptr && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr && this->precheckStatus_ == nullptr
+        && this->reserved_ == nullptr && this->resourceGroupDisplayName_ == nullptr && this->resourceGroupId_ == nullptr && this->retryState_ == nullptr && this->reverseJob_ == nullptr
+        && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->structureDataCheckStatus_ == nullptr && this->structureInitializationStatus_ == nullptr && this->tagList_ == nullptr; };
       // appName Field Functions 
       bool hasAppName() const { return this->appName_ != nullptr;};
       void deleteAppName() { this->appName_ = nullptr;};
@@ -5906,6 +5908,13 @@ namespace Models
       inline DtsJobList::IncDataCheckStatus getIncDataCheckStatus() { DARABONBA_PTR_GET(incDataCheckStatus_, DtsJobList::IncDataCheckStatus) };
       inline DtsJobList& setIncDataCheckStatus(const DtsJobList::IncDataCheckStatus & incDataCheckStatus) { DARABONBA_PTR_SET_VALUE(incDataCheckStatus_, incDataCheckStatus) };
       inline DtsJobList& setIncDataCheckStatus(DtsJobList::IncDataCheckStatus && incDataCheckStatus) { DARABONBA_PTR_SET_RVALUE(incDataCheckStatus_, incDataCheckStatus) };
+
+
+      // insightModule Field Functions 
+      bool hasInsightModule() const { return this->insightModule_ != nullptr;};
+      void deleteInsightModule() { this->insightModule_ = nullptr;};
+      inline bool getInsightModule() const { DARABONBA_PTR_GET_DEFAULT(insightModule_, false) };
+      inline DtsJobList& setInsightModule(bool insightModule) { DARABONBA_PTR_SET_VALUE(insightModule_, insightModule) };
 
 
       // jobType Field Functions 
@@ -6173,6 +6182,7 @@ namespace Models
       shared_ptr<DtsJobList::FullDataCheckStatus> fullDataCheckStatus_ {};
       // The state information about the incremental data verification task.
       shared_ptr<DtsJobList::IncDataCheckStatus> incDataCheckStatus_ {};
+      shared_ptr<bool> insightModule_ {};
       // The type of the DTS task. Valid values:
       // 
       // - **MIGRATION**: data migration task 
