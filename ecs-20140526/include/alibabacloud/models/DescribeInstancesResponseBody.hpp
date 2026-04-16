@@ -1423,6 +1423,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(CoreCount, coreCount_);
             DARABONBA_PTR_TO_JSON(EnableVISST, enableVISST_);
             DARABONBA_PTR_TO_JSON(EnableVRDT, enableVRDT_);
+            DARABONBA_PTR_TO_JSON(NestedVirtualization, nestedVirtualization_);
             DARABONBA_PTR_TO_JSON(Numa, numa_);
             DARABONBA_PTR_TO_JSON(ThreadsPerCore, threadsPerCore_);
             DARABONBA_PTR_TO_JSON(TopologyType, topologyType_);
@@ -1432,6 +1433,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(CoreCount, coreCount_);
             DARABONBA_PTR_FROM_JSON(EnableVISST, enableVISST_);
             DARABONBA_PTR_FROM_JSON(EnableVRDT, enableVRDT_);
+            DARABONBA_PTR_FROM_JSON(NestedVirtualization, nestedVirtualization_);
             DARABONBA_PTR_FROM_JSON(Numa, numa_);
             DARABONBA_PTR_FROM_JSON(ThreadsPerCore, threadsPerCore_);
             DARABONBA_PTR_FROM_JSON(TopologyType, topologyType_);
@@ -1449,8 +1451,8 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->coreCount_ == nullptr
-        && this->enableVISST_ == nullptr && this->enableVRDT_ == nullptr && this->numa_ == nullptr && this->threadsPerCore_ == nullptr && this->topologyType_ == nullptr
-        && this->turboMode_ == nullptr; };
+        && this->enableVISST_ == nullptr && this->enableVRDT_ == nullptr && this->nestedVirtualization_ == nullptr && this->numa_ == nullptr && this->threadsPerCore_ == nullptr
+        && this->topologyType_ == nullptr && this->turboMode_ == nullptr; };
           // coreCount Field Functions 
           bool hasCoreCount() const { return this->coreCount_ != nullptr;};
           void deleteCoreCount() { this->coreCount_ = nullptr;};
@@ -1470,6 +1472,13 @@ namespace Models
           void deleteEnableVRDT() { this->enableVRDT_ = nullptr;};
           inline bool getEnableVRDT() const { DARABONBA_PTR_GET_DEFAULT(enableVRDT_, false) };
           inline CpuOptions& setEnableVRDT(bool enableVRDT) { DARABONBA_PTR_SET_VALUE(enableVRDT_, enableVRDT) };
+
+
+          // nestedVirtualization Field Functions 
+          bool hasNestedVirtualization() const { return this->nestedVirtualization_ != nullptr;};
+          void deleteNestedVirtualization() { this->nestedVirtualization_ = nullptr;};
+          inline string getNestedVirtualization() const { DARABONBA_PTR_GET_DEFAULT(nestedVirtualization_, "") };
+          inline CpuOptions& setNestedVirtualization(string nestedVirtualization) { DARABONBA_PTR_SET_VALUE(nestedVirtualization_, nestedVirtualization) };
 
 
           // numa Field Functions 
@@ -1504,6 +1513,7 @@ namespace Models
           shared_ptr<int32_t> coreCount_ {};
           shared_ptr<bool> enableVISST_ {};
           shared_ptr<bool> enableVRDT_ {};
+          shared_ptr<string> nestedVirtualization_ {};
           shared_ptr<string> numa_ {};
           shared_ptr<int32_t> threadsPerCore_ {};
           shared_ptr<string> topologyType_ {};
@@ -1545,9 +1555,11 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const AdditionalInfo& obj) { 
             DARABONBA_PTR_TO_JSON(EnableHighDensityMode, enableHighDensityMode_);
+            DARABONBA_PTR_TO_JSON(NodeSerialNumber, nodeSerialNumber_);
           };
           friend void from_json(const Darabonba::Json& j, AdditionalInfo& obj) { 
             DARABONBA_PTR_FROM_JSON(EnableHighDensityMode, enableHighDensityMode_);
+            DARABONBA_PTR_FROM_JSON(NodeSerialNumber, nodeSerialNumber_);
           };
           AdditionalInfo() = default ;
           AdditionalInfo(const AdditionalInfo &) = default ;
@@ -1560,7 +1572,8 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->enableHighDensityMode_ == nullptr; };
+          virtual bool empty() const override { return this->enableHighDensityMode_ == nullptr
+        && this->nodeSerialNumber_ == nullptr; };
           // enableHighDensityMode Field Functions 
           bool hasEnableHighDensityMode() const { return this->enableHighDensityMode_ != nullptr;};
           void deleteEnableHighDensityMode() { this->enableHighDensityMode_ = nullptr;};
@@ -1568,8 +1581,16 @@ namespace Models
           inline AdditionalInfo& setEnableHighDensityMode(bool enableHighDensityMode) { DARABONBA_PTR_SET_VALUE(enableHighDensityMode_, enableHighDensityMode) };
 
 
+          // nodeSerialNumber Field Functions 
+          bool hasNodeSerialNumber() const { return this->nodeSerialNumber_ != nullptr;};
+          void deleteNodeSerialNumber() { this->nodeSerialNumber_ = nullptr;};
+          inline string getNodeSerialNumber() const { DARABONBA_PTR_GET_DEFAULT(nodeSerialNumber_, "") };
+          inline AdditionalInfo& setNodeSerialNumber(string nodeSerialNumber) { DARABONBA_PTR_SET_VALUE(nodeSerialNumber_, nodeSerialNumber) };
+
+
         protected:
           shared_ptr<bool> enableHighDensityMode_ {};
+          shared_ptr<string> nodeSerialNumber_ {};
         };
 
         virtual bool empty() const override { return this->additionalInfo_ == nullptr

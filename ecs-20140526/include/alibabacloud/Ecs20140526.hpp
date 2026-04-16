@@ -844,7 +844,7 @@ namespace Ecs20140526
       Models::CancelTaskResponse cancelTask(const Models::CancelTaskRequest &request);
 
       /**
-       * @summary 使用一块已有的磁盘克隆出新磁盘
+       * @summary Disk cloning allows you to quickly create a new disk with the same data as the source disk in the same zone. The cloned disk supports custom capacity, type, and encryption properties. After being mounted to an instance, you can quickly copy business data or scale out services.
        *
        * @param request CloneDisksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -853,7 +853,7 @@ namespace Ecs20140526
       Models::CloneDisksResponse cloneDisksWithOptions(const Models::CloneDisksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 使用一块已有的磁盘克隆出新磁盘
+       * @summary Disk cloning allows you to quickly create a new disk with the same data as the source disk in the same zone. The cloned disk supports custom capacity, type, and encryption properties. After being mounted to an instance, you can quickly copy business data or scale out services.
        *
        * @param request CloneDisksRequest
        * @return CloneDisksResponse
