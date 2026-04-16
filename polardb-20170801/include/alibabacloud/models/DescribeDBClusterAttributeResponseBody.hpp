@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Branch, branch_);
       DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_TO_JSON(Category, category_);
+      DARABONBA_PTR_TO_JSON(ColumnTable, columnTable_);
       DARABONBA_PTR_TO_JSON(CompressStorageMode, compressStorageMode_);
       DARABONBA_PTR_TO_JSON(CompressStorageUsed, compressStorageUsed_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
@@ -95,6 +96,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Branch, branch_);
       DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_FROM_JSON(Category, category_);
+      DARABONBA_PTR_FROM_JSON(ColumnTable, columnTable_);
       DARABONBA_PTR_FROM_JSON(CompressStorageMode, compressStorageMode_);
       DARABONBA_PTR_FROM_JSON(CompressStorageUsed, compressStorageUsed_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
@@ -709,19 +711,19 @@ namespace Models
 
     virtual bool empty() const override { return this->aiCreatingTime_ == nullptr
         && this->aiType_ == nullptr && this->architecture_ == nullptr && this->autoUpgradeMinorVersion_ == nullptr && this->blktagTotal_ == nullptr && this->blktagUsed_ == nullptr
-        && this->branch_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->compressStorageMode_ == nullptr && this->compressStorageUsed_ == nullptr
-        && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterNetworkType_ == nullptr && this->DBClusterStatus_ == nullptr
-        && this->DBNodes_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->DBVersionStatus_ == nullptr && this->dataLevel1BackupChainSize_ == nullptr
-        && this->dataSyncMode_ == nullptr && this->deletionLock_ == nullptr && this->engine_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
-        && this->hasCompleteStandbyRes_ == nullptr && this->hotStandbyCluster_ == nullptr && this->imciAutoIndex_ == nullptr && this->imperceptibleSwitch_ == nullptr && this->inodeTotal_ == nullptr
-        && this->inodeUsed_ == nullptr && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainTime_ == nullptr
-        && this->orca_ == nullptr && this->payType_ == nullptr && this->provisionedIops_ == nullptr && this->proxyCpuCores_ == nullptr && this->proxyServerlessType_ == nullptr
-        && this->proxyStandardCpuCores_ == nullptr && this->proxyStatus_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->restoreDataPoint_ == nullptr && this->restoreType_ == nullptr && this->rowCompression_ == nullptr && this->SQLSize_ == nullptr
-        && this->searchClusterStatus_ == nullptr && this->searchCompressStorageUsed_ == nullptr && this->searchStorageUsed_ == nullptr && this->serverlessType_ == nullptr && this->sourceDBCluster_ == nullptr
-        && this->sourceRegionId_ == nullptr && this->standbyHAMode_ == nullptr && this->storageMax_ == nullptr && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr
-        && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->strictConsistency_ == nullptr && this->subCategory_ == nullptr && this->supportInstantSwitchWithImci_ == nullptr
-        && this->tags_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->branch_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->columnTable_ == nullptr && this->compressStorageMode_ == nullptr
+        && this->compressStorageUsed_ == nullptr && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterNetworkType_ == nullptr
+        && this->DBClusterStatus_ == nullptr && this->DBNodes_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->DBVersionStatus_ == nullptr
+        && this->dataLevel1BackupChainSize_ == nullptr && this->dataSyncMode_ == nullptr && this->deletionLock_ == nullptr && this->engine_ == nullptr && this->expireTime_ == nullptr
+        && this->expired_ == nullptr && this->hasCompleteStandbyRes_ == nullptr && this->hotStandbyCluster_ == nullptr && this->imciAutoIndex_ == nullptr && this->imperceptibleSwitch_ == nullptr
+        && this->inodeTotal_ == nullptr && this->inodeUsed_ == nullptr && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr && this->lockMode_ == nullptr
+        && this->maintainTime_ == nullptr && this->orca_ == nullptr && this->payType_ == nullptr && this->provisionedIops_ == nullptr && this->proxyCpuCores_ == nullptr
+        && this->proxyServerlessType_ == nullptr && this->proxyStandardCpuCores_ == nullptr && this->proxyStatus_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->restoreDataPoint_ == nullptr && this->restoreType_ == nullptr && this->rowCompression_ == nullptr
+        && this->SQLSize_ == nullptr && this->searchClusterStatus_ == nullptr && this->searchCompressStorageUsed_ == nullptr && this->searchStorageUsed_ == nullptr && this->serverlessType_ == nullptr
+        && this->sourceDBCluster_ == nullptr && this->sourceRegionId_ == nullptr && this->standbyHAMode_ == nullptr && this->storageMax_ == nullptr && this->storagePayType_ == nullptr
+        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->strictConsistency_ == nullptr && this->subCategory_ == nullptr
+        && this->supportInstantSwitchWithImci_ == nullptr && this->tags_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneIds_ == nullptr; };
     // aiCreatingTime Field Functions 
     bool hasAiCreatingTime() const { return this->aiCreatingTime_ != nullptr;};
     void deleteAiCreatingTime() { this->aiCreatingTime_ = nullptr;};
@@ -785,6 +787,13 @@ namespace Models
     void deleteCategory() { this->category_ = nullptr;};
     inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DescribeDBClusterAttributeResponseBody& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+    // columnTable Field Functions 
+    bool hasColumnTable() const { return this->columnTable_ != nullptr;};
+    void deleteColumnTable() { this->columnTable_ = nullptr;};
+    inline string getColumnTable() const { DARABONBA_PTR_GET_DEFAULT(columnTable_, "") };
+    inline DescribeDBClusterAttributeResponseBody& setColumnTable(string columnTable) { DARABONBA_PTR_SET_VALUE(columnTable_, columnTable) };
 
 
     // compressStorageMode Field Functions 
@@ -1252,6 +1261,7 @@ namespace Models
     // >* PolarDB MySQL versions 8.0 and 5.7, and PolarDB PostgreSQL version 14 support the Standard Edition.
     // >* PolarDB MySQL version 8.0 supports High Compression Engine (X-Engine) and Multi-Master Cluster Edition.
     shared_ptr<string> category_ {};
+    shared_ptr<string> columnTable_ {};
     // Whether storage compression is enabled. Values are as follows:
     // - ON: Enabled
     // - OFF: Disabled
