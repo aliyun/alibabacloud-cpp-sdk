@@ -26,6 +26,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const JobSpec& obj) { 
       DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(AutoScalingSpec, autoScalingSpec_);
+      DARABONBA_PTR_TO_JSON(ConsiderInSuccessPolicy, considerInSuccessPolicy_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_TO_JSON(ExtraPodSpec, extraPodSpec_);
       DARABONBA_PTR_TO_JSON(Image, image_);
@@ -47,6 +48,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, JobSpec& obj) { 
       DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(AutoScalingSpec, autoScalingSpec_);
+      DARABONBA_PTR_FROM_JSON(ConsiderInSuccessPolicy, considerInSuccessPolicy_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_FROM_JSON(ExtraPodSpec, extraPodSpec_);
       DARABONBA_PTR_FROM_JSON(Image, image_);
@@ -77,10 +79,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
-        && this->autoScalingSpec_ == nullptr && this->ecsSpec_ == nullptr && this->extraPodSpec_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr
-        && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->podCount_ == nullptr && this->quotaId_ == nullptr
-        && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr
-        && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
+        && this->autoScalingSpec_ == nullptr && this->considerInSuccessPolicy_ == nullptr && this->ecsSpec_ == nullptr && this->extraPodSpec_ == nullptr && this->image_ == nullptr
+        && this->imageConfig_ == nullptr && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->podCount_ == nullptr
+        && this->quotaId_ == nullptr && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr
+        && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline AutoScalingSpec getAutoScalingSpec() { DARABONBA_PTR_GET(autoScalingSpec_, AutoScalingSpec) };
     inline JobSpec& setAutoScalingSpec(const AutoScalingSpec & autoScalingSpec) { DARABONBA_PTR_SET_VALUE(autoScalingSpec_, autoScalingSpec) };
     inline JobSpec& setAutoScalingSpec(AutoScalingSpec && autoScalingSpec) { DARABONBA_PTR_SET_RVALUE(autoScalingSpec_, autoScalingSpec) };
+
+
+    // considerInSuccessPolicy Field Functions 
+    bool hasConsiderInSuccessPolicy() const { return this->considerInSuccessPolicy_ != nullptr;};
+    void deleteConsiderInSuccessPolicy() { this->considerInSuccessPolicy_ = nullptr;};
+    inline bool getConsiderInSuccessPolicy() const { DARABONBA_PTR_GET_DEFAULT(considerInSuccessPolicy_, false) };
+    inline JobSpec& setConsiderInSuccessPolicy(bool considerInSuccessPolicy) { DARABONBA_PTR_SET_VALUE(considerInSuccessPolicy_, considerInSuccessPolicy) };
 
 
     // ecsSpec Field Functions 
@@ -239,6 +248,7 @@ namespace Models
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
     // The auto scaling configurations.
     shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
+    shared_ptr<bool> considerInSuccessPolicy_ {};
     // The hardware specifications of the worker. For more information, see [Billing of DLC](https://help.aliyun.com/document_detail/171758.html) of PAI.
     // 
     // >  The price varies based on instance types.
