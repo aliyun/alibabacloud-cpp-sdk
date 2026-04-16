@@ -13,6 +13,7 @@ namespace Models
   class ModelRouterQueryNacosTagsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModelRouterQueryNacosTagsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(configType, configType_);
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(needTotalCount, needTotalCount_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryNacosTagsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(configType, configType_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(needTotalCount, needTotalCount_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->groupBy_ == nullptr
-        && this->maxResults_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->orderDirection_ == nullptr
-        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->configType_ == nullptr
+        && this->groupBy_ == nullptr && this->maxResults_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr
+        && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr; };
+    // configType Field Functions 
+    bool hasConfigType() const { return this->configType_ != nullptr;};
+    void deleteConfigType() { this->configType_ = nullptr;};
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline ModelRouterQueryNacosTagsRequest& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
+
+
     // groupBy Field Functions 
     bool hasGroupBy() const { return this->groupBy_ != nullptr;};
     void deleteGroupBy() { this->groupBy_ = nullptr;};
@@ -103,6 +112,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> configType_ {};
     shared_ptr<string> groupBy_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<bool> needTotalCount_ {};

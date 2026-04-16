@@ -68,14 +68,20 @@ namespace Models
       class Models : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Models& obj) { 
+          DARABONBA_PTR_TO_JSON(extensions, extensions_);
           DARABONBA_PTR_TO_JSON(identifier, identifier_);
+          DARABONBA_PTR_TO_JSON(inOut, inOut_);
           DARABONBA_PTR_TO_JSON(inputToken, inputToken_);
           DARABONBA_PTR_TO_JSON(outputToken, outputToken_);
+          DARABONBA_PTR_TO_JSON(type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Models& obj) { 
+          DARABONBA_PTR_FROM_JSON(extensions, extensions_);
           DARABONBA_PTR_FROM_JSON(identifier, identifier_);
+          DARABONBA_PTR_FROM_JSON(inOut, inOut_);
           DARABONBA_PTR_FROM_JSON(inputToken, inputToken_);
           DARABONBA_PTR_FROM_JSON(outputToken, outputToken_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
         };
         Models() = default ;
         Models(const Models &) = default ;
@@ -88,13 +94,60 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->identifier_ == nullptr
-        && this->inputToken_ == nullptr && this->outputToken_ == nullptr; };
+        class Extensions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Extensions& obj) { 
+            DARABONBA_PTR_TO_JSON(async, async_);
+          };
+          friend void from_json(const Darabonba::Json& j, Extensions& obj) { 
+            DARABONBA_PTR_FROM_JSON(async, async_);
+          };
+          Extensions() = default ;
+          Extensions(const Extensions &) = default ;
+          Extensions(Extensions &&) = default ;
+          Extensions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Extensions() = default ;
+          Extensions& operator=(const Extensions &) = default ;
+          Extensions& operator=(Extensions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->async_ == nullptr; };
+          // async Field Functions 
+          bool hasAsync() const { return this->async_ != nullptr;};
+          void deleteAsync() { this->async_ = nullptr;};
+          inline bool getAsync() const { DARABONBA_PTR_GET_DEFAULT(async_, false) };
+          inline Extensions& setAsync(bool async) { DARABONBA_PTR_SET_VALUE(async_, async) };
+
+
+        protected:
+          shared_ptr<bool> async_ {};
+        };
+
+        virtual bool empty() const override { return this->extensions_ == nullptr
+        && this->identifier_ == nullptr && this->inOut_ == nullptr && this->inputToken_ == nullptr && this->outputToken_ == nullptr && this->type_ == nullptr; };
+        // extensions Field Functions 
+        bool hasExtensions() const { return this->extensions_ != nullptr;};
+        void deleteExtensions() { this->extensions_ = nullptr;};
+        inline const Models::Extensions & getExtensions() const { DARABONBA_PTR_GET_CONST(extensions_, Models::Extensions) };
+        inline Models::Extensions getExtensions() { DARABONBA_PTR_GET(extensions_, Models::Extensions) };
+        inline Models& setExtensions(const Models::Extensions & extensions) { DARABONBA_PTR_SET_VALUE(extensions_, extensions) };
+        inline Models& setExtensions(Models::Extensions && extensions) { DARABONBA_PTR_SET_RVALUE(extensions_, extensions) };
+
+
         // identifier Field Functions 
         bool hasIdentifier() const { return this->identifier_ != nullptr;};
         void deleteIdentifier() { this->identifier_ = nullptr;};
         inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
         inline Models& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
+
+
+        // inOut Field Functions 
+        bool hasInOut() const { return this->inOut_ != nullptr;};
+        void deleteInOut() { this->inOut_ = nullptr;};
+        inline string getInOut() const { DARABONBA_PTR_GET_DEFAULT(inOut_, "") };
+        inline Models& setInOut(string inOut) { DARABONBA_PTR_SET_VALUE(inOut_, inOut) };
 
 
         // inputToken Field Functions 
@@ -111,10 +164,20 @@ namespace Models
         inline Models& setOutputToken(string outputToken) { DARABONBA_PTR_SET_VALUE(outputToken_, outputToken) };
 
 
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Models& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       protected:
+        shared_ptr<Models::Extensions> extensions_ {};
         shared_ptr<string> identifier_ {};
+        shared_ptr<string> inOut_ {};
         shared_ptr<string> inputToken_ {};
         shared_ptr<string> outputToken_ {};
+        shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->baseUrl_ == nullptr

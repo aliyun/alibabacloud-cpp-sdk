@@ -2639,8 +2639,16 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClientWithOptions(const
     body["contact"] = request.getContact();
   }
 
+  if (!!request.hasDiscount()) {
+    body["discount"] = request.getDiscount();
+  }
+
   if (!!request.hasName()) {
     body["name"] = request.getName();
+  }
+
+  if (!!request.hasParentId()) {
+    body["parentId"] = request.getParentId();
   }
 
   if (!!request.hasRemark()) {
@@ -2751,6 +2759,14 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModelWithOptions(const M
 
   if (!!request.hasDescription()) {
     body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExtensions()) {
+    body["extensions"] = request.getExtensions();
+  }
+
+  if (!!request.hasInOut()) {
+    body["inOut"] = request.getInOut();
   }
 
   if (!!request.hasMaxInputLength()) {
@@ -3333,6 +3349,10 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelListWithOptions(c
     query["maxResults"] = request.getMaxResults();
   }
 
+  if (!!request.hasModelType()) {
+    query["modelType"] = request.getModelType();
+  }
+
   if (!!request.hasNeedTotalCount()) {
     query["needTotalCount"] = request.getNeedTotalCount();
   }
@@ -3475,6 +3495,10 @@ ModelRouterQueryNacosProvidersResponse Client::modelRouterQueryNacosProviders(co
 ModelRouterQueryNacosTagsResponse Client::modelRouterQueryNacosTagsWithOptions(const ModelRouterQueryNacosTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConfigType()) {
+    query["configType"] = request.getConfigType();
+  }
+
   if (!!request.hasGroupBy()) {
     query["groupBy"] = request.getGroupBy();
   }
@@ -3817,6 +3841,10 @@ ModelRouterUpdateClientResponse Client::modelRouterUpdateClientWithOptions(const
 
   if (!!request.hasContact()) {
     body["contact"] = request.getContact();
+  }
+
+  if (!!request.hasDiscount()) {
+    body["discount"] = request.getDiscount();
   }
 
   if (!!request.hasName()) {

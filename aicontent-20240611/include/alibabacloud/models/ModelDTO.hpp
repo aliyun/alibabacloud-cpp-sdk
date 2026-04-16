@@ -17,9 +17,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(baseUrl, baseUrl_);
       DARABONBA_PTR_TO_JSON(deleteTag, deleteTag_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(extensions, extensions_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
+      DARABONBA_PTR_TO_JSON(hasBillingRule, hasBillingRule_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(inOut, inOut_);
       DARABONBA_PTR_TO_JSON(isCustom, isCustom_);
       DARABONBA_PTR_TO_JSON(maxInputLength, maxInputLength_);
       DARABONBA_PTR_TO_JSON(maxOutputLength, maxOutputLength_);
@@ -36,9 +39,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(baseUrl, baseUrl_);
       DARABONBA_PTR_FROM_JSON(deleteTag, deleteTag_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(extensions, extensions_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
+      DARABONBA_PTR_FROM_JSON(hasBillingRule, hasBillingRule_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(inOut, inOut_);
       DARABONBA_PTR_FROM_JSON(isCustom, isCustom_);
       DARABONBA_PTR_FROM_JSON(maxInputLength, maxInputLength_);
       DARABONBA_PTR_FROM_JSON(maxOutputLength, maxOutputLength_);
@@ -62,10 +68,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyPreview_ == nullptr
-        && this->baseUrl_ == nullptr && this->deleteTag_ == nullptr && this->description_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->isCustom_ == nullptr && this->maxInputLength_ == nullptr && this->maxOutputLength_ == nullptr && this->modelCode_ == nullptr
-        && this->modelType_ == nullptr && this->name_ == nullptr && this->symbol_ == nullptr && this->tagNames_ == nullptr && this->tags_ == nullptr
-        && this->version_ == nullptr; };
+        && this->baseUrl_ == nullptr && this->deleteTag_ == nullptr && this->description_ == nullptr && this->extensions_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->hasBillingRule_ == nullptr && this->id_ == nullptr && this->inOut_ == nullptr && this->isCustom_ == nullptr
+        && this->maxInputLength_ == nullptr && this->maxOutputLength_ == nullptr && this->modelCode_ == nullptr && this->modelType_ == nullptr && this->name_ == nullptr
+        && this->symbol_ == nullptr && this->tagNames_ == nullptr && this->tags_ == nullptr && this->version_ == nullptr; };
     // apiKeyPreview Field Functions 
     bool hasApiKeyPreview() const { return this->apiKeyPreview_ != nullptr;};
     void deleteApiKeyPreview() { this->apiKeyPreview_ = nullptr;};
@@ -94,6 +100,13 @@ namespace Models
     inline ModelDTO& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // extensions Field Functions 
+    bool hasExtensions() const { return this->extensions_ != nullptr;};
+    void deleteExtensions() { this->extensions_ = nullptr;};
+    inline string getExtensions() const { DARABONBA_PTR_GET_DEFAULT(extensions_, "") };
+    inline ModelDTO& setExtensions(string extensions) { DARABONBA_PTR_SET_VALUE(extensions_, extensions) };
+
+
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -108,11 +121,25 @@ namespace Models
     inline ModelDTO& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
+    // hasBillingRule Field Functions 
+    bool hasHasBillingRule() const { return this->hasBillingRule_ != nullptr;};
+    void deleteHasBillingRule() { this->hasBillingRule_ = nullptr;};
+    inline bool getHasBillingRule() const { DARABONBA_PTR_GET_DEFAULT(hasBillingRule_, false) };
+    inline ModelDTO& setHasBillingRule(bool hasBillingRule) { DARABONBA_PTR_SET_VALUE(hasBillingRule_, hasBillingRule) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ModelDTO& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // inOut Field Functions 
+    bool hasInOut() const { return this->inOut_ != nullptr;};
+    void deleteInOut() { this->inOut_ = nullptr;};
+    inline string getInOut() const { DARABONBA_PTR_GET_DEFAULT(inOut_, "") };
+    inline ModelDTO& setInOut(string inOut) { DARABONBA_PTR_SET_VALUE(inOut_, inOut) };
 
 
     // isCustom Field Functions 
@@ -191,10 +218,13 @@ namespace Models
     shared_ptr<string> baseUrl_ {};
     shared_ptr<int32_t> deleteTag_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> extensions_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
+    shared_ptr<bool> hasBillingRule_ {};
     // ID
     shared_ptr<int64_t> id_ {};
+    shared_ptr<string> inOut_ {};
     shared_ptr<bool> isCustom_ {};
     shared_ptr<string> maxInputLength_ {};
     shared_ptr<string> maxOutputLength_ {};

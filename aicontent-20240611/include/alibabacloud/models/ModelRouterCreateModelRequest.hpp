@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(baseUrl, baseUrl_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(extensions, extensions_);
+      DARABONBA_PTR_TO_JSON(inOut, inOut_);
       DARABONBA_PTR_TO_JSON(maxInputLength, maxInputLength_);
       DARABONBA_PTR_TO_JSON(maxOutputLength, maxOutputLength_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
@@ -28,6 +30,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(baseUrl, baseUrl_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(extensions, extensions_);
+      DARABONBA_PTR_FROM_JSON(inOut, inOut_);
       DARABONBA_PTR_FROM_JSON(maxInputLength, maxInputLength_);
       DARABONBA_PTR_FROM_JSON(maxOutputLength, maxOutputLength_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->baseUrl_ == nullptr && this->description_ == nullptr && this->maxInputLength_ == nullptr && this->maxOutputLength_ == nullptr && this->modelId_ == nullptr
-        && this->modelType_ == nullptr && this->name_ == nullptr && this->symbol_ == nullptr && this->tags_ == nullptr; };
+        && this->baseUrl_ == nullptr && this->description_ == nullptr && this->extensions_ == nullptr && this->inOut_ == nullptr && this->maxInputLength_ == nullptr
+        && this->maxOutputLength_ == nullptr && this->modelId_ == nullptr && this->modelType_ == nullptr && this->name_ == nullptr && this->symbol_ == nullptr
+        && this->tags_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -69,6 +74,20 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModelRouterCreateModelRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // extensions Field Functions 
+    bool hasExtensions() const { return this->extensions_ != nullptr;};
+    void deleteExtensions() { this->extensions_ = nullptr;};
+    inline string getExtensions() const { DARABONBA_PTR_GET_DEFAULT(extensions_, "") };
+    inline ModelRouterCreateModelRequest& setExtensions(string extensions) { DARABONBA_PTR_SET_VALUE(extensions_, extensions) };
+
+
+    // inOut Field Functions 
+    bool hasInOut() const { return this->inOut_ != nullptr;};
+    void deleteInOut() { this->inOut_ = nullptr;};
+    inline string getInOut() const { DARABONBA_PTR_GET_DEFAULT(inOut_, "") };
+    inline ModelRouterCreateModelRequest& setInOut(string inOut) { DARABONBA_PTR_SET_VALUE(inOut_, inOut) };
 
 
     // maxInputLength Field Functions 
@@ -126,6 +145,8 @@ namespace Models
     // Base URL
     shared_ptr<string> baseUrl_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> extensions_ {};
+    shared_ptr<string> inOut_ {};
     shared_ptr<string> maxInputLength_ {};
     shared_ptr<string> maxOutputLength_ {};
     shared_ptr<string> modelId_ {};

@@ -16,14 +16,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(address, address_);
       DARABONBA_PTR_TO_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_TO_JSON(contact, contact_);
+      DARABONBA_PTR_TO_JSON(discount, discount_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(parentId, parentId_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterCreateClientRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
       DARABONBA_PTR_FROM_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_FROM_JSON(contact, contact_);
+      DARABONBA_PTR_FROM_JSON(discount, discount_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(parentId, parentId_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
     };
     ModelRouterCreateClientRequest() = default ;
@@ -38,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && this->allowedModels_ == nullptr && this->contact_ == nullptr && this->name_ == nullptr && this->remark_ == nullptr; };
+        && this->allowedModels_ == nullptr && this->contact_ == nullptr && this->discount_ == nullptr && this->name_ == nullptr && this->parentId_ == nullptr
+        && this->remark_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -60,11 +65,25 @@ namespace Models
     inline ModelRouterCreateClientRequest& setContact(string contact) { DARABONBA_PTR_SET_VALUE(contact_, contact) };
 
 
+    // discount Field Functions 
+    bool hasDiscount() const { return this->discount_ != nullptr;};
+    void deleteDiscount() { this->discount_ = nullptr;};
+    inline double getDiscount() const { DARABONBA_PTR_GET_DEFAULT(discount_, 0.0) };
+    inline ModelRouterCreateClientRequest& setDiscount(double discount) { DARABONBA_PTR_SET_VALUE(discount_, discount) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModelRouterCreateClientRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // parentId Field Functions 
+    bool hasParentId() const { return this->parentId_ != nullptr;};
+    void deleteParentId() { this->parentId_ = nullptr;};
+    inline int64_t getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, 0L) };
+    inline ModelRouterCreateClientRequest& setParentId(int64_t parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // remark Field Functions 
@@ -78,7 +97,9 @@ namespace Models
     shared_ptr<string> address_ {};
     shared_ptr<string> allowedModels_ {};
     shared_ptr<string> contact_ {};
+    shared_ptr<double> discount_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<int64_t> parentId_ {};
     shared_ptr<string> remark_ {};
   };
 

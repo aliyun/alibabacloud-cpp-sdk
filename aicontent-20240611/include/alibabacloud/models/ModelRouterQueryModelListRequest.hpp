@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(modelType, modelType_);
       DARABONBA_PTR_TO_JSON(needTotalCount, needTotalCount_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(orderBy, orderBy_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(modelType, modelType_);
       DARABONBA_PTR_FROM_JSON(needTotalCount, needTotalCount_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(orderBy, orderBy_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupBy_ == nullptr
-        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr
-        && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->modelType_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr
+        && this->orderBy_ == nullptr && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
     // groupBy Field Functions 
     bool hasGroupBy() const { return this->groupBy_ != nullptr;};
     void deleteGroupBy() { this->groupBy_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ModelRouterQueryModelListRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // modelType Field Functions 
+    bool hasModelType() const { return this->modelType_ != nullptr;};
+    void deleteModelType() { this->modelType_ = nullptr;};
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline ModelRouterQueryModelListRequest& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
     // needTotalCount Field Functions 
@@ -124,6 +133,7 @@ namespace Models
     shared_ptr<string> groupBy_ {};
     shared_ptr<string> keyword_ {};
     shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> modelType_ {};
     shared_ptr<bool> needTotalCount_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> orderBy_ {};

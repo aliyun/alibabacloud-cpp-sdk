@@ -43,12 +43,16 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(label, label_);
         DARABONBA_PTR_TO_JSON(tag, tag_);
         DARABONBA_PTR_TO_JSON(tagName, tagName_);
+        DARABONBA_PTR_TO_JSON(value, value_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(label, label_);
         DARABONBA_PTR_FROM_JSON(tag, tag_);
         DARABONBA_PTR_FROM_JSON(tagName, tagName_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -61,8 +65,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->tag_ == nullptr
-        && this->tagName_ == nullptr; };
+      virtual bool empty() const override { return this->label_ == nullptr
+        && this->tag_ == nullptr && this->tagName_ == nullptr && this->value_ == nullptr; };
+      // label Field Functions 
+      bool hasLabel() const { return this->label_ != nullptr;};
+      void deleteLabel() { this->label_ = nullptr;};
+      inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+      inline Data& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
       // tag Field Functions 
       bool hasTag() const { return this->tag_ != nullptr;};
       void deleteTag() { this->tag_ = nullptr;};
@@ -77,9 +88,18 @@ namespace Models
       inline Data& setTagName(string tagName) { DARABONBA_PTR_SET_VALUE(tagName_, tagName) };
 
 
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Data& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
     protected:
+      shared_ptr<string> label_ {};
       shared_ptr<string> tag_ {};
       shared_ptr<string> tagName_ {};
+      shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr

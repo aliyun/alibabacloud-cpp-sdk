@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_REQUESTLOGDTO_HPP_
 #define ALIBABACLOUD_MODELS_REQUESTLOGDTO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/UsageInfoDTO.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(modelCode, modelCode_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(modelName, modelName_);
+      DARABONBA_PTR_TO_JSON(modelType, modelType_);
       DARABONBA_PTR_TO_JSON(promptTokens, promptTokens_);
       DARABONBA_PTR_TO_JSON(requestBody, requestBody_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(symbol, symbol_);
       DARABONBA_PTR_TO_JSON(totalTokens, totalTokens_);
+      DARABONBA_PTR_TO_JSON(usage, usage_);
     };
     friend void from_json(const Darabonba::Json& j, RequestLogDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
@@ -47,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(modelCode, modelCode_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+      DARABONBA_PTR_FROM_JSON(modelType, modelType_);
       DARABONBA_PTR_FROM_JSON(promptTokens, promptTokens_);
       DARABONBA_PTR_FROM_JSON(requestBody, requestBody_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
@@ -57,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(symbol, symbol_);
       DARABONBA_PTR_FROM_JSON(totalTokens, totalTokens_);
+      DARABONBA_PTR_FROM_JSON(usage, usage_);
     };
     RequestLogDTO() = default ;
     RequestLogDTO(const RequestLogDTO &) = default ;
@@ -72,8 +77,9 @@ namespace Models
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
         && this->clientId_ == nullptr && this->clientUuid_ == nullptr && this->completionTokens_ == nullptr && this->deleteTag_ == nullptr && this->gmtCreate_ == nullptr
         && this->gmtModified_ == nullptr && this->id_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr
-        && this->promptTokens_ == nullptr && this->requestBody_ == nullptr && this->requestId_ == nullptr && this->requestTime_ == nullptr && this->responseBody_ == nullptr
-        && this->responseTimeMs_ == nullptr && this->status_ == nullptr && this->statusCode_ == nullptr && this->symbol_ == nullptr && this->totalTokens_ == nullptr; };
+        && this->modelType_ == nullptr && this->promptTokens_ == nullptr && this->requestBody_ == nullptr && this->requestId_ == nullptr && this->requestTime_ == nullptr
+        && this->responseBody_ == nullptr && this->responseTimeMs_ == nullptr && this->status_ == nullptr && this->statusCode_ == nullptr && this->symbol_ == nullptr
+        && this->totalTokens_ == nullptr && this->usage_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -151,6 +157,13 @@ namespace Models
     inline RequestLogDTO& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+    // modelType Field Functions 
+    bool hasModelType() const { return this->modelType_ != nullptr;};
+    void deleteModelType() { this->modelType_ = nullptr;};
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline RequestLogDTO& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
+
+
     // promptTokens Field Functions 
     bool hasPromptTokens() const { return this->promptTokens_ != nullptr;};
     void deletePromptTokens() { this->promptTokens_ = nullptr;};
@@ -221,6 +234,15 @@ namespace Models
     inline RequestLogDTO& setTotalTokens(int32_t totalTokens) { DARABONBA_PTR_SET_VALUE(totalTokens_, totalTokens) };
 
 
+    // usage Field Functions 
+    bool hasUsage() const { return this->usage_ != nullptr;};
+    void deleteUsage() { this->usage_ = nullptr;};
+    inline const UsageInfoDTO & getUsage() const { DARABONBA_PTR_GET_CONST(usage_, UsageInfoDTO) };
+    inline UsageInfoDTO getUsage() { DARABONBA_PTR_GET(usage_, UsageInfoDTO) };
+    inline RequestLogDTO& setUsage(const UsageInfoDTO & usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
+    inline RequestLogDTO& setUsage(UsageInfoDTO && usage) { DARABONBA_PTR_SET_RVALUE(usage_, usage) };
+
+
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
     shared_ptr<int64_t> clientId_ {};
@@ -233,6 +255,7 @@ namespace Models
     shared_ptr<string> modelCode_ {};
     shared_ptr<int64_t> modelId_ {};
     shared_ptr<string> modelName_ {};
+    shared_ptr<string> modelType_ {};
     shared_ptr<int32_t> promptTokens_ {};
     shared_ptr<string> requestBody_ {};
     shared_ptr<string> requestId_ {};
@@ -243,6 +266,7 @@ namespace Models
     shared_ptr<int32_t> statusCode_ {};
     shared_ptr<string> symbol_ {};
     shared_ptr<int32_t> totalTokens_ {};
+    shared_ptr<UsageInfoDTO> usage_ {};
   };
 
   } // namespace Models

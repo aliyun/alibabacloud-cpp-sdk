@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(address, address_);
       DARABONBA_PTR_TO_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_TO_JSON(contact, contact_);
+      DARABONBA_PTR_TO_JSON(discount, discount_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(address, address_);
       DARABONBA_PTR_FROM_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_FROM_JSON(contact, contact_);
+      DARABONBA_PTR_FROM_JSON(discount, discount_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && this->allowedModels_ == nullptr && this->contact_ == nullptr && this->name_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr; };
+        && this->allowedModels_ == nullptr && this->contact_ == nullptr && this->discount_ == nullptr && this->name_ == nullptr && this->remark_ == nullptr
+        && this->status_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteContact() { this->contact_ = nullptr;};
     inline string getContact() const { DARABONBA_PTR_GET_DEFAULT(contact_, "") };
     inline ModelRouterUpdateClientRequest& setContact(string contact) { DARABONBA_PTR_SET_VALUE(contact_, contact) };
+
+
+    // discount Field Functions 
+    bool hasDiscount() const { return this->discount_ != nullptr;};
+    void deleteDiscount() { this->discount_ = nullptr;};
+    inline double getDiscount() const { DARABONBA_PTR_GET_DEFAULT(discount_, 0.0) };
+    inline ModelRouterUpdateClientRequest& setDiscount(double discount) { DARABONBA_PTR_SET_VALUE(discount_, discount) };
 
 
     // name Field Functions 
@@ -87,6 +97,7 @@ namespace Models
     shared_ptr<string> address_ {};
     shared_ptr<string> allowedModels_ {};
     shared_ptr<string> contact_ {};
+    shared_ptr<double> discount_ {};
     shared_ptr<string> name_ {};
     shared_ptr<string> remark_ {};
     shared_ptr<int32_t> status_ {};

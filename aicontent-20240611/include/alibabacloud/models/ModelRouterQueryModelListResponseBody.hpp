@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(errCode, errCode_);
       DARABONBA_PTR_TO_JSON(errMessage, errMessage_);
       DARABONBA_PTR_TO_JSON(httpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(errCode, errCode_);
       DARABONBA_PTR_FROM_JSON(errMessage, errMessage_);
       DARABONBA_PTR_FROM_JSON(httpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
     };
@@ -126,7 +128,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
-        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->maxResults_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -157,6 +160,13 @@ namespace Models
     inline ModelRouterQueryModelListResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ModelRouterQueryModelListResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -176,6 +186,8 @@ namespace Models
     shared_ptr<string> errCode_ {};
     shared_ptr<string> errMessage_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
+    // maxResults
+    shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };
