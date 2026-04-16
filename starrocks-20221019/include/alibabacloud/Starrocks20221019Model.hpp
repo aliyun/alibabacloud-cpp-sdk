@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/InstanceConfigDto.hpp>
 #include <alibabacloud/models/ResourceSpec.hpp>
+#include <alibabacloud/models/DataZoneSupportCompactionServiceValue.hpp>
 #include <alibabacloud/models/AddBackupPolicyRequest.hpp>
 #include <alibabacloud/models/AddBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/AddBackupPolicyResponse.hpp>

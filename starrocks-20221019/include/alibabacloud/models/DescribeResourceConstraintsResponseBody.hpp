@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <map>
+#include <alibabacloud/models/DataZoneSupportCompactionServiceValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -66,6 +67,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ZoneSupportedEedTypes, zoneSupportedEedTypes_);
         DARABONBA_PTR_TO_JSON(ZoneSupportedSpecTypes, zoneSupportedSpecTypes_);
         DARABONBA_PTR_TO_JSON(compactionServiceCuConstraint, compactionServiceCuConstraint_);
+        DARABONBA_PTR_TO_JSON(zoneSupportCompactionService, zoneSupportCompactionService_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentCu, agentCu_);
@@ -88,6 +90,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ZoneSupportedEedTypes, zoneSupportedEedTypes_);
         DARABONBA_PTR_FROM_JSON(ZoneSupportedSpecTypes, zoneSupportedSpecTypes_);
         DARABONBA_PTR_FROM_JSON(compactionServiceCuConstraint, compactionServiceCuConstraint_);
+        DARABONBA_PTR_FROM_JSON(zoneSupportCompactionService, zoneSupportCompactionService_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -1002,7 +1005,7 @@ namespace Models
         && this->beCu_ == nullptr && this->beCuOnEcs_ == nullptr && this->beNumber_ == nullptr && this->beStorageConstraints_ == nullptr && this->bigDataInstanceTypeConstraints_ == nullptr
         && this->feCu_ == nullptr && this->feCuOnEcs_ == nullptr && this->feNumber_ == nullptr && this->feSpecType_ == nullptr && this->feStorage_ == nullptr
         && this->haFeResourceSpec_ == nullptr && this->localSSDInstanceTypeConstraints_ == nullptr && this->normalFeResourceSpec_ == nullptr && this->specType_ == nullptr && this->splitDiskThresholdMap_ == nullptr
-        && this->versionConstraint_ == nullptr && this->zoneSupportedEedTypes_ == nullptr && this->zoneSupportedSpecTypes_ == nullptr && this->compactionServiceCuConstraint_ == nullptr; };
+        && this->versionConstraint_ == nullptr && this->zoneSupportedEedTypes_ == nullptr && this->zoneSupportedSpecTypes_ == nullptr && this->compactionServiceCuConstraint_ == nullptr && this->zoneSupportCompactionService_ == nullptr; };
       // agentCu Field Functions 
       bool hasAgentCu() const { return this->agentCu_ != nullptr;};
       void deleteAgentCu() { this->agentCu_ = nullptr;};
@@ -1183,6 +1186,15 @@ namespace Models
       inline Data& setCompactionServiceCuConstraint(Data::CompactionServiceCuConstraint && compactionServiceCuConstraint) { DARABONBA_PTR_SET_RVALUE(compactionServiceCuConstraint_, compactionServiceCuConstraint) };
 
 
+      // zoneSupportCompactionService Field Functions 
+      bool hasZoneSupportCompactionService() const { return this->zoneSupportCompactionService_ != nullptr;};
+      void deleteZoneSupportCompactionService() { this->zoneSupportCompactionService_ = nullptr;};
+      inline const map<string, vector<DataZoneSupportCompactionServiceValue>> & getZoneSupportCompactionService() const { DARABONBA_PTR_GET_CONST(zoneSupportCompactionService_, map<string, vector<DataZoneSupportCompactionServiceValue>>) };
+      inline map<string, vector<DataZoneSupportCompactionServiceValue>> getZoneSupportCompactionService() { DARABONBA_PTR_GET(zoneSupportCompactionService_, map<string, vector<DataZoneSupportCompactionServiceValue>>) };
+      inline Data& setZoneSupportCompactionService(const map<string, vector<DataZoneSupportCompactionServiceValue>> & zoneSupportCompactionService) { DARABONBA_PTR_SET_VALUE(zoneSupportCompactionService_, zoneSupportCompactionService) };
+      inline Data& setZoneSupportCompactionService(map<string, vector<DataZoneSupportCompactionServiceValue>> && zoneSupportCompactionService) { DARABONBA_PTR_SET_RVALUE(zoneSupportCompactionService_, zoneSupportCompactionService) };
+
+
     protected:
       shared_ptr<vector<int32_t>> agentCu_ {};
       shared_ptr<vector<int32_t>> beCu_ {};
@@ -1204,6 +1216,7 @@ namespace Models
       shared_ptr<map<string, vector<string>>> zoneSupportedEedTypes_ {};
       shared_ptr<map<string, vector<string>>> zoneSupportedSpecTypes_ {};
       shared_ptr<Data::CompactionServiceCuConstraint> compactionServiceCuConstraint_ {};
+      shared_ptr<map<string, vector<DataZoneSupportCompactionServiceValue>>> zoneSupportCompactionService_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
