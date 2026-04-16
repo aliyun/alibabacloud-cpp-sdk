@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds the association relationship between a virtual number and real numbers in batches.
+ * @summary Binds multiple real numbers to a service instance at a time.
  *
  * @description ### QPS limits
  * You can call this operation up to 200 times per second per account.
@@ -98,7 +98,7 @@ AddVirtualNumberRelationResponse Client::addVirtualNumberRelationWithOptions(con
 }
 
 /**
- * @summary Adds the association relationship between a virtual number and real numbers in batches.
+ * @summary Binds multiple real numbers to a service instance at a time.
  *
  * @description ### QPS limits
  * You can call this operation up to 200 times per second per account.
@@ -112,7 +112,7 @@ AddVirtualNumberRelationResponse Client::addVirtualNumberRelation(const AddVirtu
 }
 
 /**
- * @summary Initiates an outbound robocall task.
+ * @summary Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
  *
  * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
  * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
@@ -203,7 +203,7 @@ BatchRobotSmartCallResponse Client::batchRobotSmartCallWithOptions(const BatchRo
 }
 
 /**
- * @summary Initiates an outbound robocall task.
+ * @summary Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
  *
  * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
  * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
@@ -222,6 +222,8 @@ BatchRobotSmartCallResponse Client::batchRobotSmartCall(const BatchRobotSmartCal
 }
 
 /**
+ * @summary Cancels the two-way call that is initiated by calling the ClickToDial operation.
+ *
  * @param request CancelCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CancelCallResponse
@@ -263,6 +265,8 @@ CancelCallResponse Client::cancelCallWithOptions(const CancelCallRequest &reques
 }
 
 /**
+ * @summary Cancels the two-way call that is initiated by calling the ClickToDial operation.
+ *
  * @param request CancelCallRequest
  * @return CancelCallResponse
  */
@@ -460,7 +464,657 @@ ChangeMediaTypeResponse Client::changeMediaType(const ChangeMediaTypeRequest &re
 }
 
 /**
- * @summary Creates a task for sending voice notifications or voice verification codes.
+ * @summary 新增任务
+ *
+ * @param request CloudCreateTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudCreateTaskResponse
+ */
+CloudCreateTaskResponse Client::cloudCreateTaskWithOptions(const CloudCreateTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentGroup()) {
+    query["AgentGroup"] = request.getAgentGroup();
+  }
+
+  if (!!request.hasAgentTimeout()) {
+    query["AgentTimeout"] = request.getAgentTimeout();
+  }
+
+  if (!!request.hasAnswerRate()) {
+    query["AnswerRate"] = request.getAnswerRate();
+  }
+
+  if (!!request.hasAutoComplete()) {
+    query["AutoComplete"] = request.getAutoComplete();
+  }
+
+  if (!!request.hasAutoDelete()) {
+    query["AutoDelete"] = request.getAutoDelete();
+  }
+
+  if (!!request.hasAutoStart()) {
+    query["AutoStart"] = request.getAutoStart();
+  }
+
+  if (!!request.hasAutoStartDay()) {
+    query["AutoStartDay"] = request.getAutoStartDay();
+  }
+
+  if (!!request.hasAutoStartTime()) {
+    query["AutoStartTime"] = request.getAutoStartTime();
+  }
+
+  if (!!request.hasAutoStop()) {
+    query["AutoStop"] = request.getAutoStop();
+  }
+
+  if (!!request.hasAutoStopDay()) {
+    query["AutoStopDay"] = request.getAutoStopDay();
+  }
+
+  if (!!request.hasAutoStopTime()) {
+    query["AutoStopTime"] = request.getAutoStopTime();
+  }
+
+  if (!!request.hasAutoTaskType()) {
+    query["AutoTaskType"] = request.getAutoTaskType();
+  }
+
+  if (!!request.hasAutoTriggerTimeStrategy()) {
+    query["AutoTriggerTimeStrategy"] = request.getAutoTriggerTimeStrategy();
+  }
+
+  if (!!request.hasCallGroupType()) {
+    query["CallGroupType"] = request.getCallGroupType();
+  }
+
+  if (!!request.hasCallLimitStrategy()) {
+    query["CallLimitStrategy"] = request.getCallLimitStrategy();
+  }
+
+  if (!!request.hasCallPriorityStrategy()) {
+    query["CallPriorityStrategy"] = request.getCallPriorityStrategy();
+  }
+
+  if (!!request.hasCallRouteStrategy()) {
+    query["CallRouteStrategy"] = request.getCallRouteStrategy();
+  }
+
+  if (!!request.hasCallStrategy()) {
+    query["CallStrategy"] = request.getCallStrategy();
+  }
+
+  if (!!request.hasCallVariables()) {
+    query["CallVariables"] = request.getCallVariables();
+  }
+
+  if (!!request.hasClidProperty()) {
+    query["ClidProperty"] = request.getClidProperty();
+  }
+
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasConcurrency()) {
+    query["Concurrency"] = request.getConcurrency();
+  }
+
+  if (!!request.hasCustomerClidType()) {
+    query["CustomerClidType"] = request.getCustomerClidType();
+  }
+
+  if (!!request.hasCustomerClidWeight()) {
+    query["CustomerClidWeight"] = request.getCustomerClidWeight();
+  }
+
+  if (!!request.hasCustomerClidWeightFlag()) {
+    query["CustomerClidWeightFlag"] = request.getCustomerClidWeightFlag();
+  }
+
+  if (!!request.hasCustomerClids()) {
+    query["CustomerClids"] = request.getCustomerClids();
+  }
+
+  if (!!request.hasCustomerClidsCategory()) {
+    query["CustomerClidsCategory"] = request.getCustomerClidsCategory();
+  }
+
+  if (!!request.hasCustomerClidsGroup()) {
+    query["CustomerClidsGroup"] = request.getCustomerClidsGroup();
+  }
+
+  if (!!request.hasCustomerMoh()) {
+    query["CustomerMoh"] = request.getCustomerMoh();
+  }
+
+  if (!!request.hasCustomerTimeout()) {
+    query["CustomerTimeout"] = request.getCustomerTimeout();
+  }
+
+  if (!!request.hasCustomerVoice()) {
+    query["CustomerVoice"] = request.getCustomerVoice();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasForceEndFlag()) {
+    query["ForceEndFlag"] = request.getForceEndFlag();
+  }
+
+  if (!!request.hasIsRewarm()) {
+    query["IsRewarm"] = request.getIsRewarm();
+  }
+
+  if (!!request.hasIvrId()) {
+    query["IvrId"] = request.getIvrId();
+  }
+
+  if (!!request.hasIvrName()) {
+    query["IvrName"] = request.getIvrName();
+  }
+
+  if (!!request.hasMaxWaitTime()) {
+    query["MaxWaitTime"] = request.getMaxWaitTime();
+  }
+
+  if (!!request.hasMinAvailableAgentCount()) {
+    query["MinAvailableAgentCount"] = request.getMinAvailableAgentCount();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPredictAdjust()) {
+    query["PredictAdjust"] = request.getPredictAdjust();
+  }
+
+  if (!!request.hasQuotiety()) {
+    query["Quotiety"] = request.getQuotiety();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRetryStrategy()) {
+    query["RetryStrategy"] = request.getRetryStrategy();
+  }
+
+  if (!!request.hasRetryStrategyOnlyToday()) {
+    query["RetryStrategyOnlyToday"] = request.getRetryStrategyOnlyToday();
+  }
+
+  if (!!request.hasRetryStrategyTimeType()) {
+    query["RetryStrategyTimeType"] = request.getRetryStrategyTimeType();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasTimeStrategy()) {
+    query["TimeStrategy"] = request.getTimeStrategy();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasUserFields()) {
+    query["UserFields"] = request.getUserFields();
+  }
+
+  if (!!request.hasWarmUpDuration()) {
+    query["WarmUpDuration"] = request.getWarmUpDuration();
+  }
+
+  if (!!request.hasWrapup()) {
+    query["Wrapup"] = request.getWrapup();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudCreateTask"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudCreateTaskResponse>();
+}
+
+/**
+ * @summary 新增任务
+ *
+ * @param request CloudCreateTaskRequest
+ * @return CloudCreateTaskResponse
+ */
+CloudCreateTaskResponse Client::cloudCreateTask(const CloudCreateTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudCreateTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 任务号码导入
+ *
+ * @param tmpReq CloudImportTaskTelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudImportTaskTelResponse
+ */
+CloudImportTaskTelResponse Client::cloudImportTaskTelWithOptions(const CloudImportTaskTelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CloudImportTaskTelShrinkRequest request = CloudImportTaskTelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskTelList()) {
+    request.setTaskTelListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskTelList(), "TaskTelList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBridgeVoicePath()) {
+    query["BridgeVoicePath"] = request.getBridgeVoicePath();
+  }
+
+  if (!!request.hasBridgeVoiceType()) {
+    query["BridgeVoiceType"] = request.getBridgeVoiceType();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasImportTelAutoStart()) {
+    query["ImportTelAutoStart"] = request.getImportTelAutoStart();
+  }
+
+  if (!!request.hasIsRepeat()) {
+    query["IsRepeat"] = request.getIsRepeat();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPriority()) {
+    query["Priority"] = request.getPriority();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTaskTelListShrink()) {
+    query["TaskTelList"] = request.getTaskTelListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudImportTaskTel"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudImportTaskTelResponse>();
+}
+
+/**
+ * @summary 任务号码导入
+ *
+ * @param request CloudImportTaskTelRequest
+ * @return CloudImportTaskTelResponse
+ */
+CloudImportTaskTelResponse Client::cloudImportTaskTel(const CloudImportTaskTelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudImportTaskTelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 任务启动
+ *
+ * @param request CloudStartTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudStartTaskResponse
+ */
+CloudStartTaskResponse Client::cloudStartTaskWithOptions(const CloudStartTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudStartTask"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudStartTaskResponse>();
+}
+
+/**
+ * @summary 任务启动
+ *
+ * @param request CloudStartTaskRequest
+ * @return CloudStartTaskResponse
+ */
+CloudStartTaskResponse Client::cloudStartTask(const CloudStartTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudStartTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新任务
+ *
+ * @param request CloudUpdateTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudUpdateTaskResponse
+ */
+CloudUpdateTaskResponse Client::cloudUpdateTaskWithOptions(const CloudUpdateTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentGroup()) {
+    query["AgentGroup"] = request.getAgentGroup();
+  }
+
+  if (!!request.hasAgentTimeout()) {
+    query["AgentTimeout"] = request.getAgentTimeout();
+  }
+
+  if (!!request.hasAnswerRate()) {
+    query["AnswerRate"] = request.getAnswerRate();
+  }
+
+  if (!!request.hasAutoComplete()) {
+    query["AutoComplete"] = request.getAutoComplete();
+  }
+
+  if (!!request.hasAutoStart()) {
+    query["AutoStart"] = request.getAutoStart();
+  }
+
+  if (!!request.hasAutoStartDay()) {
+    query["AutoStartDay"] = request.getAutoStartDay();
+  }
+
+  if (!!request.hasAutoStartTime()) {
+    query["AutoStartTime"] = request.getAutoStartTime();
+  }
+
+  if (!!request.hasAutoStop()) {
+    query["AutoStop"] = request.getAutoStop();
+  }
+
+  if (!!request.hasAutoStopDay()) {
+    query["AutoStopDay"] = request.getAutoStopDay();
+  }
+
+  if (!!request.hasAutoStopTime()) {
+    query["AutoStopTime"] = request.getAutoStopTime();
+  }
+
+  if (!!request.hasAutoTaskType()) {
+    query["AutoTaskType"] = request.getAutoTaskType();
+  }
+
+  if (!!request.hasAutoTriggerTimeStrategy()) {
+    query["AutoTriggerTimeStrategy"] = request.getAutoTriggerTimeStrategy();
+  }
+
+  if (!!request.hasCallLimitStrategy()) {
+    query["CallLimitStrategy"] = request.getCallLimitStrategy();
+  }
+
+  if (!!request.hasCallPriorityStrategy()) {
+    query["CallPriorityStrategy"] = request.getCallPriorityStrategy();
+  }
+
+  if (!!request.hasCallRouteStrategy()) {
+    query["CallRouteStrategy"] = request.getCallRouteStrategy();
+  }
+
+  if (!!request.hasCallStrategy()) {
+    query["CallStrategy"] = request.getCallStrategy();
+  }
+
+  if (!!request.hasCallVariables()) {
+    query["CallVariables"] = request.getCallVariables();
+  }
+
+  if (!!request.hasClidProperty()) {
+    query["ClidProperty"] = request.getClidProperty();
+  }
+
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasConcurrency()) {
+    query["Concurrency"] = request.getConcurrency();
+  }
+
+  if (!!request.hasCustomerClidType()) {
+    query["CustomerClidType"] = request.getCustomerClidType();
+  }
+
+  if (!!request.hasCustomerClidWeight()) {
+    query["CustomerClidWeight"] = request.getCustomerClidWeight();
+  }
+
+  if (!!request.hasCustomerClidWeightFlag()) {
+    query["CustomerClidWeightFlag"] = request.getCustomerClidWeightFlag();
+  }
+
+  if (!!request.hasCustomerClids()) {
+    query["CustomerClids"] = request.getCustomerClids();
+  }
+
+  if (!!request.hasCustomerClidsCategory()) {
+    query["CustomerClidsCategory"] = request.getCustomerClidsCategory();
+  }
+
+  if (!!request.hasCustomerClidsGroup()) {
+    query["CustomerClidsGroup"] = request.getCustomerClidsGroup();
+  }
+
+  if (!!request.hasCustomerMoh()) {
+    query["CustomerMoh"] = request.getCustomerMoh();
+  }
+
+  if (!!request.hasCustomerTimeout()) {
+    query["CustomerTimeout"] = request.getCustomerTimeout();
+  }
+
+  if (!!request.hasCustomerVoice()) {
+    query["CustomerVoice"] = request.getCustomerVoice();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasForceEndFlag()) {
+    query["ForceEndFlag"] = request.getForceEndFlag();
+  }
+
+  if (!!request.hasIsRewarm()) {
+    query["IsRewarm"] = request.getIsRewarm();
+  }
+
+  if (!!request.hasIvrId()) {
+    query["IvrId"] = request.getIvrId();
+  }
+
+  if (!!request.hasIvrName()) {
+    query["IvrName"] = request.getIvrName();
+  }
+
+  if (!!request.hasMaxWaitTime()) {
+    query["MaxWaitTime"] = request.getMaxWaitTime();
+  }
+
+  if (!!request.hasMinAvailableAgentCount()) {
+    query["MinAvailableAgentCount"] = request.getMinAvailableAgentCount();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPredictAdjust()) {
+    query["PredictAdjust"] = request.getPredictAdjust();
+  }
+
+  if (!!request.hasQuotiety()) {
+    query["Quotiety"] = request.getQuotiety();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRetryStrategy()) {
+    query["RetryStrategy"] = request.getRetryStrategy();
+  }
+
+  if (!!request.hasRetryStrategyOnlyToday()) {
+    query["RetryStrategyOnlyToday"] = request.getRetryStrategyOnlyToday();
+  }
+
+  if (!!request.hasRetryStrategyTimeType()) {
+    query["RetryStrategyTimeType"] = request.getRetryStrategyTimeType();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTimeStrategy()) {
+    query["TimeStrategy"] = request.getTimeStrategy();
+  }
+
+  if (!!request.hasUserFields()) {
+    query["UserFields"] = request.getUserFields();
+  }
+
+  if (!!request.hasWarmUpDuration()) {
+    query["WarmUpDuration"] = request.getWarmUpDuration();
+  }
+
+  if (!!request.hasWrapup()) {
+    query["Wrapup"] = request.getWrapup();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudUpdateTask"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudUpdateTaskResponse>();
+}
+
+/**
+ * @summary 更新任务
+ *
+ * @param request CloudUpdateTaskRequest
+ * @return CloudUpdateTaskResponse
+ */
+CloudUpdateTaskResponse Client::cloudUpdateTask(const CloudUpdateTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudUpdateTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
  *
  * @description You can create up to 1,000 voice notifications for each task.
  * ### QPS limits
@@ -547,7 +1201,7 @@ CreateCallTaskResponse Client::createCallTaskWithOptions(const CreateCallTaskReq
 }
 
 /**
- * @summary Creates a task for sending voice notifications or voice verification codes.
+ * @summary Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
  *
  * @description You can create up to 1,000 voice notifications for each task.
  * ### QPS limits
@@ -660,7 +1314,7 @@ CreateRobotTaskResponse Client::createRobotTask(const CreateRobotTaskRequest &re
 }
 
 /**
- * @summary DegradeVideoFile
+ * @summary Downgrades from a video call to a voice call.
  *
  * @param request DegradeVideoFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -715,7 +1369,7 @@ DegradeVideoFileResponse Client::degradeVideoFileWithOptions(const DegradeVideoF
 }
 
 /**
- * @summary DegradeVideoFile
+ * @summary Downgrades from a video call to a voice call.
  *
  * @param request DegradeVideoFileRequest
  * @return DegradeVideoFileResponse
@@ -856,7 +1510,7 @@ ExecuteCallTaskResponse Client::executeCallTask(const ExecuteCallTaskRequest &re
 }
 
 /**
- * @summary GetCallMediaType
+ * @summary Obtains the call type during a call.
  *
  * @param request GetCallMediaTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -903,7 +1557,7 @@ GetCallMediaTypeResponse Client::getCallMediaTypeWithOptions(const GetCallMediaT
 }
 
 /**
- * @summary GetCallMediaType
+ * @summary Obtains the call type during a call.
  *
  * @param request GetCallMediaTypeRequest
  * @return GetCallMediaTypeResponse
@@ -1032,7 +1686,7 @@ GetHotlineQualificationByOrderResponse Client::getHotlineQualificationByOrder(co
 }
 
 /**
- * @summary GetTemporaryFileUrl
+ * @summary Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
  *
  * @param request GetTemporaryFileUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1075,7 +1729,7 @@ GetTemporaryFileUrlResponse Client::getTemporaryFileUrlWithOptions(const GetTemp
 }
 
 /**
- * @summary GetTemporaryFileUrl
+ * @summary Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
  *
  * @param request GetTemporaryFileUrlRequest
  * @return GetTemporaryFileUrlResponse
@@ -1302,7 +1956,7 @@ IvrCallResponse Client::ivrCall(const IvrCallRequest &request) {
 }
 
 /**
- * @summary Queries task information.
+ * @summary Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -1372,7 +2026,7 @@ ListCallTaskResponse Client::listCallTaskWithOptions(const ListCallTaskRequest &
 }
 
 /**
- * @summary Queries task information.
+ * @summary Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -1386,7 +2040,7 @@ ListCallTaskResponse Client::listCallTask(const ListCallTaskRequest &request) {
 }
 
 /**
- * @summary Queries the information about a task based on the task ID.
+ * @summary Queries the details of call tasks based on task IDs after call tasks are complete.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -1448,7 +2102,7 @@ ListCallTaskDetailResponse Client::listCallTaskDetailWithOptions(const ListCallT
 }
 
 /**
- * @summary Queries the information about a task based on the task ID.
+ * @summary Queries the details of call tasks based on task IDs after call tasks are complete.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -1610,7 +2264,7 @@ ListServiceInstanceForPageResponse Client::listServiceInstanceForPage(const List
 }
 
 /**
- * @summary PauseVideoFile
+ * @summary Pauses video playback when a video file is played back during a voice call.
  *
  * @param request PauseVideoFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1657,7 +2311,7 @@ PauseVideoFileResponse Client::pauseVideoFileWithOptions(const PauseVideoFileReq
 }
 
 /**
- * @summary PauseVideoFile
+ * @summary Pauses video playback when a video file is played back during a voice call.
  *
  * @param request PauseVideoFileRequest
  * @return PauseVideoFileResponse
@@ -1668,7 +2322,7 @@ PauseVideoFileResponse Client::pauseVideoFile(const PauseVideoFileRequest &reque
 }
 
 /**
- * @summary PlayVideoFile
+ * @summary Plays back a video file during a voice call.
  *
  * @param request PlayVideoFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1727,7 +2381,7 @@ PlayVideoFileResponse Client::playVideoFileWithOptions(const PlayVideoFileReques
 }
 
 /**
- * @summary PlayVideoFile
+ * @summary Plays back a video file during a voice call.
  *
  * @param request PlayVideoFileRequest
  * @return PlayVideoFileResponse
@@ -2006,7 +2660,7 @@ QueryCallInTransferRecordResponse Client::queryCallInTransferRecord(const QueryC
 }
 
 /**
- * @summary Queries a list of robots.
+ * @summary Queries a list of robots to obtain their details.
  *
  * @param request QueryRobotInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2049,7 +2703,7 @@ QueryRobotInfoListResponse Client::queryRobotInfoListWithOptions(const QueryRobo
 }
 
 /**
- * @summary Queries a list of robots.
+ * @summary Queries a list of robots to obtain their details.
  *
  * @param request QueryRobotInfoListRequest
  * @return QueryRobotInfoListResponse
@@ -2060,7 +2714,7 @@ QueryRobotInfoListResponse Client::queryRobotInfoList(const QueryRobotInfoListRe
 }
 
 /**
- * @summary Queries the call details of a called number in a robocall task.
+ * @summary Queries the call details of a called number.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -2114,7 +2768,7 @@ QueryRobotTaskCallDetailResponse Client::queryRobotTaskCallDetailWithOptions(con
 }
 
 /**
- * @summary Queries the call details of a called number in a robocall task.
+ * @summary Queries the call details of a called number.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -2416,7 +3070,7 @@ QueryRobotv2AllListResponse Client::queryRobotv2AllList(const QueryRobotv2AllLis
 }
 
 /**
- * @summary QueryVideoPlayProgress
+ * @summary Queries the video playback progress after you play a video file during a voice call.
  *
  * @param request QueryVideoPlayProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2463,7 +3117,7 @@ QueryVideoPlayProgressResponse Client::queryVideoPlayProgressWithOptions(const Q
 }
 
 /**
- * @summary QueryVideoPlayProgress
+ * @summary Queries the video playback progress after you play a video file during a voice call.
  *
  * @param request QueryVideoPlayProgressRequest
  * @return QueryVideoPlayProgressResponse
@@ -2474,79 +3128,7 @@ QueryVideoPlayProgressResponse Client::queryVideoPlayProgress(const QueryVideoPl
 }
 
 /**
- * @summary Queries a list of virtual numbers.
- *
- * @description ### QPS limits
- * You can call this operation up to 100 times per second per account.
- *
- * @param request QueryVirtualNumberRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return QueryVirtualNumberResponse
- */
-QueryVirtualNumberResponse Client::queryVirtualNumberWithOptions(const QueryVirtualNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasPageNo()) {
-    query["PageNo"] = request.getPageNo();
-  }
-
-  if (!!request.hasPageSize()) {
-    query["PageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasProdCode()) {
-    query["ProdCode"] = request.getProdCode();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  if (!!request.hasRouteType()) {
-    query["RouteType"] = request.getRouteType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "QueryVirtualNumber"},
-    {"version" , "2017-05-25"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<QueryVirtualNumberResponse>();
-}
-
-/**
- * @summary Queries a list of virtual numbers.
- *
- * @description ### QPS limits
- * You can call this operation up to 100 times per second per account.
- *
- * @param request QueryVirtualNumberRequest
- * @return QueryVirtualNumberResponse
- */
-QueryVirtualNumberResponse Client::queryVirtualNumber(const QueryVirtualNumberRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return queryVirtualNumberWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries a list of associations between virtual numbers and real numbers.
+ * @summary Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
  *
  * @description ### QPS limits
  * You can call this operation up to 200 times per second per account.
@@ -2624,7 +3206,7 @@ QueryVirtualNumberRelationResponse Client::queryVirtualNumberRelationWithOptions
 }
 
 /**
- * @summary Queries a list of associations between virtual numbers and real numbers.
+ * @summary Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
  *
  * @description ### QPS limits
  * You can call this operation up to 200 times per second per account.
@@ -2890,7 +3472,7 @@ RecoverCallInConfigResponse Client::recoverCallInConfig(const RecoverCallInConfi
 }
 
 /**
- * @summary ResumeVideoFile
+ * @summary Resumes video playback after you pause video playback during a voice call.
  *
  * @param request ResumeVideoFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +3519,7 @@ ResumeVideoFileResponse Client::resumeVideoFileWithOptions(const ResumeVideoFile
 }
 
 /**
- * @summary ResumeVideoFile
+ * @summary Resumes video playback after you pause video playback during a voice call.
  *
  * @param request ResumeVideoFileRequest
  * @return ResumeVideoFileResponse
@@ -3242,7 +3824,7 @@ SingleCallByTtsResponse Client::singleCallByTts(const SingleCallByTtsRequest &re
 }
 
 /**
- * @summary 语音视频单呼接口
+ * @summary Sends voice file notifications or video file notifications to a single called number.
  *
  * @param request SingleCallByVideoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3313,7 +3895,7 @@ SingleCallByVideoResponse Client::singleCallByVideoWithOptions(const SingleCallB
 }
 
 /**
- * @summary 语音视频单呼接口
+ * @summary Sends voice file notifications or video file notifications to a single called number.
  *
  * @param request SingleCallByVideoRequest
  * @return SingleCallByVideoResponse
@@ -3412,7 +3994,7 @@ SingleCallByVoiceResponse Client::singleCallByVoice(const SingleCallByVoiceReque
 }
 
 /**
- * @summary SkipVideoFile
+ * @summary Fast forwards or rewinds a video when you play the video.
  *
  * @param request SkipVideoFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3467,7 +4049,7 @@ SkipVideoFileResponse Client::skipVideoFileWithOptions(const SkipVideoFileReques
 }
 
 /**
- * @summary SkipVideoFile
+ * @summary Fast forwards or rewinds a video when you play the video.
  *
  * @param request SkipVideoFileRequest
  * @return SkipVideoFileResponse
@@ -3898,7 +4480,7 @@ StopRobotTaskResponse Client::stopRobotTask(const StopRobotTaskRequest &request)
 }
 
 /**
- * @summary Submits a China 400 number for registration.
+ * @summary Submits a 400 number for registration.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -3980,7 +4562,7 @@ SubmitHotlineTransferRegisterResponse Client::submitHotlineTransferRegisterWithO
 }
 
 /**
- * @summary Submits a China 400 number for registration.
+ * @summary Submits a 400 number for registration.
  *
  * @description ### QPS limits
  * You can call this operation up to 100 times per second per account.
@@ -3994,7 +4576,7 @@ SubmitHotlineTransferRegisterResponse Client::submitHotlineTransferRegister(cons
 }
 
 /**
- * @summary UpgradeVideoFile
+ * @summary Upgrades from a voice call to a video call.
  *
  * @param request UpgradeVideoFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4049,7 +4631,7 @@ UpgradeVideoFileResponse Client::upgradeVideoFileWithOptions(const UpgradeVideoF
 }
 
 /**
- * @summary UpgradeVideoFile
+ * @summary Upgrades from a voice call to a video call.
  *
  * @param request UpgradeVideoFileRequest
  * @return UpgradeVideoFileResponse

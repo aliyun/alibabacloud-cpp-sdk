@@ -21,7 +21,7 @@ namespace Dyvmsapi20170525
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds the association relationship between a virtual number and real numbers in batches.
+       * @summary Binds multiple real numbers to a service instance at a time.
        *
        * @description ### QPS limits
        * You can call this operation up to 200 times per second per account.
@@ -33,7 +33,7 @@ namespace Dyvmsapi20170525
       Models::AddVirtualNumberRelationResponse addVirtualNumberRelationWithOptions(const Models::AddVirtualNumberRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds the association relationship between a virtual number and real numbers in batches.
+       * @summary Binds multiple real numbers to a service instance at a time.
        *
        * @description ### QPS limits
        * You can call this operation up to 200 times per second per account.
@@ -44,7 +44,7 @@ namespace Dyvmsapi20170525
       Models::AddVirtualNumberRelationResponse addVirtualNumberRelation(const Models::AddVirtualNumberRelationRequest &request);
 
       /**
-       * @summary Initiates an outbound robocall task.
+       * @summary Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
        *
        * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
        * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
@@ -61,7 +61,7 @@ namespace Dyvmsapi20170525
       Models::BatchRobotSmartCallResponse batchRobotSmartCallWithOptions(const Models::BatchRobotSmartCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates an outbound robocall task.
+       * @summary Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
        *
        * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
        * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
@@ -77,6 +77,8 @@ namespace Dyvmsapi20170525
       Models::BatchRobotSmartCallResponse batchRobotSmartCall(const Models::BatchRobotSmartCallRequest &request);
 
       /**
+       * @summary Cancels the two-way call that is initiated by calling the ClickToDial operation.
+       *
        * @param request CancelCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CancelCallResponse
@@ -84,6 +86,8 @@ namespace Dyvmsapi20170525
       Models::CancelCallResponse cancelCallWithOptions(const Models::CancelCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Cancels the two-way call that is initiated by calling the ClickToDial operation.
+       *
        * @param request CancelCallRequest
        * @return CancelCallResponse
        */
@@ -155,7 +159,75 @@ namespace Dyvmsapi20170525
       Models::ChangeMediaTypeResponse changeMediaType(const Models::ChangeMediaTypeRequest &request);
 
       /**
-       * @summary Creates a task for sending voice notifications or voice verification codes.
+       * @summary 新增任务
+       *
+       * @param request CloudCreateTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudCreateTaskResponse
+       */
+      Models::CloudCreateTaskResponse cloudCreateTaskWithOptions(const Models::CloudCreateTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增任务
+       *
+       * @param request CloudCreateTaskRequest
+       * @return CloudCreateTaskResponse
+       */
+      Models::CloudCreateTaskResponse cloudCreateTask(const Models::CloudCreateTaskRequest &request);
+
+      /**
+       * @summary 任务号码导入
+       *
+       * @param tmpReq CloudImportTaskTelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudImportTaskTelResponse
+       */
+      Models::CloudImportTaskTelResponse cloudImportTaskTelWithOptions(const Models::CloudImportTaskTelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 任务号码导入
+       *
+       * @param request CloudImportTaskTelRequest
+       * @return CloudImportTaskTelResponse
+       */
+      Models::CloudImportTaskTelResponse cloudImportTaskTel(const Models::CloudImportTaskTelRequest &request);
+
+      /**
+       * @summary 任务启动
+       *
+       * @param request CloudStartTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudStartTaskResponse
+       */
+      Models::CloudStartTaskResponse cloudStartTaskWithOptions(const Models::CloudStartTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 任务启动
+       *
+       * @param request CloudStartTaskRequest
+       * @return CloudStartTaskResponse
+       */
+      Models::CloudStartTaskResponse cloudStartTask(const Models::CloudStartTaskRequest &request);
+
+      /**
+       * @summary 更新任务
+       *
+       * @param request CloudUpdateTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudUpdateTaskResponse
+       */
+      Models::CloudUpdateTaskResponse cloudUpdateTaskWithOptions(const Models::CloudUpdateTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新任务
+       *
+       * @param request CloudUpdateTaskRequest
+       * @return CloudUpdateTaskResponse
+       */
+      Models::CloudUpdateTaskResponse cloudUpdateTask(const Models::CloudUpdateTaskRequest &request);
+
+      /**
+       * @summary Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
        *
        * @description You can create up to 1,000 voice notifications for each task.
        * ### QPS limits
@@ -168,7 +240,7 @@ namespace Dyvmsapi20170525
       Models::CreateCallTaskResponse createCallTaskWithOptions(const Models::CreateCallTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a task for sending voice notifications or voice verification codes.
+       * @summary Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
        *
        * @description You can create up to 1,000 voice notifications for each task.
        * ### QPS limits
@@ -205,7 +277,7 @@ namespace Dyvmsapi20170525
       Models::CreateRobotTaskResponse createRobotTask(const Models::CreateRobotTaskRequest &request);
 
       /**
-       * @summary DegradeVideoFile
+       * @summary Downgrades from a video call to a voice call.
        *
        * @param request DegradeVideoFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -214,7 +286,7 @@ namespace Dyvmsapi20170525
       Models::DegradeVideoFileResponse degradeVideoFileWithOptions(const Models::DegradeVideoFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DegradeVideoFile
+       * @summary Downgrades from a video call to a voice call.
        *
        * @param request DegradeVideoFileRequest
        * @return DegradeVideoFileResponse
@@ -270,7 +342,7 @@ namespace Dyvmsapi20170525
       Models::ExecuteCallTaskResponse executeCallTask(const Models::ExecuteCallTaskRequest &request);
 
       /**
-       * @summary GetCallMediaType
+       * @summary Obtains the call type during a call.
        *
        * @param request GetCallMediaTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -279,7 +351,7 @@ namespace Dyvmsapi20170525
       Models::GetCallMediaTypeResponse getCallMediaTypeWithOptions(const Models::GetCallMediaTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetCallMediaType
+       * @summary Obtains the call type during a call.
        *
        * @param request GetCallMediaTypeRequest
        * @return GetCallMediaTypeResponse
@@ -327,7 +399,7 @@ namespace Dyvmsapi20170525
       Models::GetHotlineQualificationByOrderResponse getHotlineQualificationByOrder(const Models::GetHotlineQualificationByOrderRequest &request);
 
       /**
-       * @summary GetTemporaryFileUrl
+       * @summary Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
        *
        * @param request GetTemporaryFileUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +408,7 @@ namespace Dyvmsapi20170525
       Models::GetTemporaryFileUrlResponse getTemporaryFileUrlWithOptions(const Models::GetTemporaryFileUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetTemporaryFileUrl
+       * @summary Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
        *
        * @param request GetTemporaryFileUrlRequest
        * @return GetTemporaryFileUrlResponse
@@ -413,7 +485,7 @@ namespace Dyvmsapi20170525
       Models::IvrCallResponse ivrCall(const Models::IvrCallRequest &request);
 
       /**
-       * @summary Queries task information.
+       * @summary Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -425,7 +497,7 @@ namespace Dyvmsapi20170525
       Models::ListCallTaskResponse listCallTaskWithOptions(const Models::ListCallTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries task information.
+       * @summary Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -436,7 +508,7 @@ namespace Dyvmsapi20170525
       Models::ListCallTaskResponse listCallTask(const Models::ListCallTaskRequest &request);
 
       /**
-       * @summary Queries the information about a task based on the task ID.
+       * @summary Queries the details of call tasks based on task IDs after call tasks are complete.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -448,7 +520,7 @@ namespace Dyvmsapi20170525
       Models::ListCallTaskDetailResponse listCallTaskDetailWithOptions(const Models::ListCallTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a task based on the task ID.
+       * @summary Queries the details of call tasks based on task IDs after call tasks are complete.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -499,7 +571,7 @@ namespace Dyvmsapi20170525
       Models::ListServiceInstanceForPageResponse listServiceInstanceForPage(const Models::ListServiceInstanceForPageRequest &request);
 
       /**
-       * @summary PauseVideoFile
+       * @summary Pauses video playback when a video file is played back during a voice call.
        *
        * @param request PauseVideoFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -508,7 +580,7 @@ namespace Dyvmsapi20170525
       Models::PauseVideoFileResponse pauseVideoFileWithOptions(const Models::PauseVideoFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary PauseVideoFile
+       * @summary Pauses video playback when a video file is played back during a voice call.
        *
        * @param request PauseVideoFileRequest
        * @return PauseVideoFileResponse
@@ -516,7 +588,7 @@ namespace Dyvmsapi20170525
       Models::PauseVideoFileResponse pauseVideoFile(const Models::PauseVideoFileRequest &request);
 
       /**
-       * @summary PlayVideoFile
+       * @summary Plays back a video file during a voice call.
        *
        * @param request PlayVideoFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -525,7 +597,7 @@ namespace Dyvmsapi20170525
       Models::PlayVideoFileResponse playVideoFileWithOptions(const Models::PlayVideoFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary PlayVideoFile
+       * @summary Plays back a video file during a voice call.
        *
        * @param request PlayVideoFileRequest
        * @return PlayVideoFileResponse
@@ -621,7 +693,7 @@ namespace Dyvmsapi20170525
       Models::QueryCallInTransferRecordResponse queryCallInTransferRecord(const Models::QueryCallInTransferRecordRequest &request);
 
       /**
-       * @summary Queries a list of robots.
+       * @summary Queries a list of robots to obtain their details.
        *
        * @param request QueryRobotInfoListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -630,7 +702,7 @@ namespace Dyvmsapi20170525
       Models::QueryRobotInfoListResponse queryRobotInfoListWithOptions(const Models::QueryRobotInfoListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of robots.
+       * @summary Queries a list of robots to obtain their details.
        *
        * @param request QueryRobotInfoListRequest
        * @return QueryRobotInfoListResponse
@@ -638,7 +710,7 @@ namespace Dyvmsapi20170525
       Models::QueryRobotInfoListResponse queryRobotInfoList(const Models::QueryRobotInfoListRequest &request);
 
       /**
-       * @summary Queries the call details of a called number in a robocall task.
+       * @summary Queries the call details of a called number.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -650,7 +722,7 @@ namespace Dyvmsapi20170525
       Models::QueryRobotTaskCallDetailResponse queryRobotTaskCallDetailWithOptions(const Models::QueryRobotTaskCallDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the call details of a called number in a robocall task.
+       * @summary Queries the call details of a called number.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -753,7 +825,7 @@ namespace Dyvmsapi20170525
       Models::QueryRobotv2AllListResponse queryRobotv2AllList(const Models::QueryRobotv2AllListRequest &request);
 
       /**
-       * @summary QueryVideoPlayProgress
+       * @summary Queries the video playback progress after you play a video file during a voice call.
        *
        * @param request QueryVideoPlayProgressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -762,7 +834,7 @@ namespace Dyvmsapi20170525
       Models::QueryVideoPlayProgressResponse queryVideoPlayProgressWithOptions(const Models::QueryVideoPlayProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary QueryVideoPlayProgress
+       * @summary Queries the video playback progress after you play a video file during a voice call.
        *
        * @param request QueryVideoPlayProgressRequest
        * @return QueryVideoPlayProgressResponse
@@ -770,30 +842,7 @@ namespace Dyvmsapi20170525
       Models::QueryVideoPlayProgressResponse queryVideoPlayProgress(const Models::QueryVideoPlayProgressRequest &request);
 
       /**
-       * @summary Queries a list of virtual numbers.
-       *
-       * @description ### QPS limits
-       * You can call this operation up to 100 times per second per account.
-       *
-       * @param request QueryVirtualNumberRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return QueryVirtualNumberResponse
-       */
-      Models::QueryVirtualNumberResponse queryVirtualNumberWithOptions(const Models::QueryVirtualNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries a list of virtual numbers.
-       *
-       * @description ### QPS limits
-       * You can call this operation up to 100 times per second per account.
-       *
-       * @param request QueryVirtualNumberRequest
-       * @return QueryVirtualNumberResponse
-       */
-      Models::QueryVirtualNumberResponse queryVirtualNumber(const Models::QueryVirtualNumberRequest &request);
-
-      /**
-       * @summary Queries a list of associations between virtual numbers and real numbers.
+       * @summary Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
        *
        * @description ### QPS limits
        * You can call this operation up to 200 times per second per account.
@@ -805,7 +854,7 @@ namespace Dyvmsapi20170525
       Models::QueryVirtualNumberRelationResponse queryVirtualNumberRelationWithOptions(const Models::QueryVirtualNumberRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of associations between virtual numbers and real numbers.
+       * @summary Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
        *
        * @description ### QPS limits
        * You can call this operation up to 200 times per second per account.
@@ -884,7 +933,7 @@ namespace Dyvmsapi20170525
       Models::RecoverCallInConfigResponse recoverCallInConfig(const Models::RecoverCallInConfigRequest &request);
 
       /**
-       * @summary ResumeVideoFile
+       * @summary Resumes video playback after you pause video playback during a voice call.
        *
        * @param request ResumeVideoFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -893,7 +942,7 @@ namespace Dyvmsapi20170525
       Models::ResumeVideoFileResponse resumeVideoFileWithOptions(const Models::ResumeVideoFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ResumeVideoFile
+       * @summary Resumes video playback after you pause video playback during a voice call.
        *
        * @param request ResumeVideoFileRequest
        * @return ResumeVideoFileResponse
@@ -991,7 +1040,7 @@ namespace Dyvmsapi20170525
       Models::SingleCallByTtsResponse singleCallByTts(const Models::SingleCallByTtsRequest &request);
 
       /**
-       * @summary 语音视频单呼接口
+       * @summary Sends voice file notifications or video file notifications to a single called number.
        *
        * @param request SingleCallByVideoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1000,7 +1049,7 @@ namespace Dyvmsapi20170525
       Models::SingleCallByVideoResponse singleCallByVideoWithOptions(const Models::SingleCallByVideoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 语音视频单呼接口
+       * @summary Sends voice file notifications or video file notifications to a single called number.
        *
        * @param request SingleCallByVideoRequest
        * @return SingleCallByVideoResponse
@@ -1035,7 +1084,7 @@ namespace Dyvmsapi20170525
       Models::SingleCallByVoiceResponse singleCallByVoice(const Models::SingleCallByVoiceRequest &request);
 
       /**
-       * @summary SkipVideoFile
+       * @summary Fast forwards or rewinds a video when you play the video.
        *
        * @param request SkipVideoFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1044,7 +1093,7 @@ namespace Dyvmsapi20170525
       Models::SkipVideoFileResponse skipVideoFileWithOptions(const Models::SkipVideoFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SkipVideoFile
+       * @summary Fast forwards or rewinds a video when you play the video.
        *
        * @param request SkipVideoFileRequest
        * @return SkipVideoFileResponse
@@ -1171,7 +1220,7 @@ namespace Dyvmsapi20170525
       Models::StopRobotTaskResponse stopRobotTask(const Models::StopRobotTaskRequest &request);
 
       /**
-       * @summary Submits a China 400 number for registration.
+       * @summary Submits a 400 number for registration.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -1183,7 +1232,7 @@ namespace Dyvmsapi20170525
       Models::SubmitHotlineTransferRegisterResponse submitHotlineTransferRegisterWithOptions(const Models::SubmitHotlineTransferRegisterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a China 400 number for registration.
+       * @summary Submits a 400 number for registration.
        *
        * @description ### QPS limits
        * You can call this operation up to 100 times per second per account.
@@ -1194,7 +1243,7 @@ namespace Dyvmsapi20170525
       Models::SubmitHotlineTransferRegisterResponse submitHotlineTransferRegister(const Models::SubmitHotlineTransferRegisterRequest &request);
 
       /**
-       * @summary UpgradeVideoFile
+       * @summary Upgrades from a voice call to a video call.
        *
        * @param request UpgradeVideoFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1252,7 @@ namespace Dyvmsapi20170525
       Models::UpgradeVideoFileResponse upgradeVideoFileWithOptions(const Models::UpgradeVideoFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpgradeVideoFile
+       * @summary Upgrades from a voice call to a video call.
        *
        * @param request UpgradeVideoFileRequest
        * @return UpgradeVideoFileResponse
