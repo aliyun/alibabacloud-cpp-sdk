@@ -2066,7 +2066,6 @@ ListTagCloudResourcesResponse Client::listTagCloudResources(const ListTagCloudRe
 /**
  * @summary Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
  *
- * @param request ListTenantConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTenantConfigResponse
  */
@@ -2431,6 +2430,10 @@ ModifyBrowserInstanceGroupResponse Client::modifyBrowserInstanceGroupWithOptions
     request.setPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPolicy(), "Policy", "json"));
   }
 
+  if (!!tmpReq.hasStoragePolicy()) {
+    request.setStoragePolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStoragePolicy(), "StoragePolicy", "json"));
+  }
+
   if (!!tmpReq.hasTimers()) {
     request.setTimersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTimers(), "Timers", "json"));
   }
@@ -2457,8 +2460,16 @@ ModifyBrowserInstanceGroupResponse Client::modifyBrowserInstanceGroupWithOptions
     body["CloudBrowserName"] = request.getCloudBrowserName();
   }
 
+  if (!!request.hasMaxAmount()) {
+    body["MaxAmount"] = request.getMaxAmount();
+  }
+
   if (!!request.hasNetworkShrink()) {
     body["Network"] = request.getNetworkShrink();
+  }
+
+  if (!!request.hasStoragePolicyShrink()) {
+    body["StoragePolicy"] = request.getStoragePolicyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

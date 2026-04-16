@@ -553,7 +553,6 @@ namespace AppstreamCenter20210901
       /**
        * @summary Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
        *
-       * @param request ListTenantConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTenantConfigResponse
        */

@@ -16,16 +16,20 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BrowserConfig, browserConfigShrink_);
       DARABONBA_PTR_TO_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(CloudBrowserName, cloudBrowserName_);
+      DARABONBA_PTR_TO_JSON(MaxAmount, maxAmount_);
       DARABONBA_PTR_TO_JSON(Network, networkShrink_);
       DARABONBA_PTR_TO_JSON(Policy, policyShrink_);
+      DARABONBA_PTR_TO_JSON(StoragePolicy, storagePolicyShrink_);
       DARABONBA_PTR_TO_JSON(Timers, timersShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyBrowserInstanceGroupShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BrowserConfig, browserConfigShrink_);
       DARABONBA_PTR_FROM_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(CloudBrowserName, cloudBrowserName_);
+      DARABONBA_PTR_FROM_JSON(MaxAmount, maxAmount_);
       DARABONBA_PTR_FROM_JSON(Network, networkShrink_);
       DARABONBA_PTR_FROM_JSON(Policy, policyShrink_);
+      DARABONBA_PTR_FROM_JSON(StoragePolicy, storagePolicyShrink_);
       DARABONBA_PTR_FROM_JSON(Timers, timersShrink_);
     };
     ModifyBrowserInstanceGroupShrinkRequest() = default ;
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->browserConfigShrink_ == nullptr
-        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->networkShrink_ == nullptr && this->policyShrink_ == nullptr && this->timersShrink_ == nullptr; };
+        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->maxAmount_ == nullptr && this->networkShrink_ == nullptr && this->policyShrink_ == nullptr
+        && this->storagePolicyShrink_ == nullptr && this->timersShrink_ == nullptr; };
     // browserConfigShrink Field Functions 
     bool hasBrowserConfigShrink() const { return this->browserConfigShrink_ != nullptr;};
     void deleteBrowserConfigShrink() { this->browserConfigShrink_ = nullptr;};
@@ -62,6 +67,13 @@ namespace Models
     inline ModifyBrowserInstanceGroupShrinkRequest& setCloudBrowserName(string cloudBrowserName) { DARABONBA_PTR_SET_VALUE(cloudBrowserName_, cloudBrowserName) };
 
 
+    // maxAmount Field Functions 
+    bool hasMaxAmount() const { return this->maxAmount_ != nullptr;};
+    void deleteMaxAmount() { this->maxAmount_ = nullptr;};
+    inline int32_t getMaxAmount() const { DARABONBA_PTR_GET_DEFAULT(maxAmount_, 0) };
+    inline ModifyBrowserInstanceGroupShrinkRequest& setMaxAmount(int32_t maxAmount) { DARABONBA_PTR_SET_VALUE(maxAmount_, maxAmount) };
+
+
     // networkShrink Field Functions 
     bool hasNetworkShrink() const { return this->networkShrink_ != nullptr;};
     void deleteNetworkShrink() { this->networkShrink_ = nullptr;};
@@ -74,6 +86,13 @@ namespace Models
     void deletePolicyShrink() { this->policyShrink_ = nullptr;};
     inline string getPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(policyShrink_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setPolicyShrink(string policyShrink) { DARABONBA_PTR_SET_VALUE(policyShrink_, policyShrink) };
+
+
+    // storagePolicyShrink Field Functions 
+    bool hasStoragePolicyShrink() const { return this->storagePolicyShrink_ != nullptr;};
+    void deleteStoragePolicyShrink() { this->storagePolicyShrink_ = nullptr;};
+    inline string getStoragePolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(storagePolicyShrink_, "") };
+    inline ModifyBrowserInstanceGroupShrinkRequest& setStoragePolicyShrink(string storagePolicyShrink) { DARABONBA_PTR_SET_VALUE(storagePolicyShrink_, storagePolicyShrink) };
 
 
     // timersShrink Field Functions 
@@ -92,10 +111,12 @@ namespace Models
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
+    shared_ptr<int32_t> maxAmount_ {};
     // The network configurations.
     shared_ptr<string> networkShrink_ {};
     // The access policy.
     shared_ptr<string> policyShrink_ {};
+    shared_ptr<string> storagePolicyShrink_ {};
     // The timer.
     shared_ptr<string> timersShrink_ {};
   };

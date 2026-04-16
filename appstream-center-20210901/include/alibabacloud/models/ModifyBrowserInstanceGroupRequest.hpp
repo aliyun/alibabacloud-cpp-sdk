@@ -17,16 +17,20 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BrowserConfig, browserConfig_);
       DARABONBA_PTR_TO_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(CloudBrowserName, cloudBrowserName_);
+      DARABONBA_PTR_TO_JSON(MaxAmount, maxAmount_);
       DARABONBA_PTR_TO_JSON(Network, network_);
       DARABONBA_PTR_TO_JSON(Policy, policy_);
+      DARABONBA_PTR_TO_JSON(StoragePolicy, storagePolicy_);
       DARABONBA_PTR_TO_JSON(Timers, timers_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyBrowserInstanceGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BrowserConfig, browserConfig_);
       DARABONBA_PTR_FROM_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(CloudBrowserName, cloudBrowserName_);
+      DARABONBA_PTR_FROM_JSON(MaxAmount, maxAmount_);
       DARABONBA_PTR_FROM_JSON(Network, network_);
       DARABONBA_PTR_FROM_JSON(Policy, policy_);
+      DARABONBA_PTR_FROM_JSON(StoragePolicy, storagePolicy_);
       DARABONBA_PTR_FROM_JSON(Timers, timers_);
     };
     ModifyBrowserInstanceGroupRequest() = default ;
@@ -86,6 +90,70 @@ namespace Models
       // 
       // *   SESSION_TIMEOUT: Defines the timeout period before a disconnected session is terminated.
       shared_ptr<string> timerType_ {};
+    };
+
+    class StoragePolicy : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const StoragePolicy& obj) { 
+        DARABONBA_PTR_TO_JSON(UserProfile, userProfile_);
+      };
+      friend void from_json(const Darabonba::Json& j, StoragePolicy& obj) { 
+        DARABONBA_PTR_FROM_JSON(UserProfile, userProfile_);
+      };
+      StoragePolicy() = default ;
+      StoragePolicy(const StoragePolicy &) = default ;
+      StoragePolicy(StoragePolicy &&) = default ;
+      StoragePolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~StoragePolicy() = default ;
+      StoragePolicy& operator=(const StoragePolicy &) = default ;
+      StoragePolicy& operator=(StoragePolicy &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class UserProfile : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const UserProfile& obj) { 
+          DARABONBA_PTR_TO_JSON(UserProfileSwitch, userProfileSwitch_);
+        };
+        friend void from_json(const Darabonba::Json& j, UserProfile& obj) { 
+          DARABONBA_PTR_FROM_JSON(UserProfileSwitch, userProfileSwitch_);
+        };
+        UserProfile() = default ;
+        UserProfile(const UserProfile &) = default ;
+        UserProfile(UserProfile &&) = default ;
+        UserProfile(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~UserProfile() = default ;
+        UserProfile& operator=(const UserProfile &) = default ;
+        UserProfile& operator=(UserProfile &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->userProfileSwitch_ == nullptr; };
+        // userProfileSwitch Field Functions 
+        bool hasUserProfileSwitch() const { return this->userProfileSwitch_ != nullptr;};
+        void deleteUserProfileSwitch() { this->userProfileSwitch_ = nullptr;};
+        inline bool getUserProfileSwitch() const { DARABONBA_PTR_GET_DEFAULT(userProfileSwitch_, false) };
+        inline UserProfile& setUserProfileSwitch(bool userProfileSwitch) { DARABONBA_PTR_SET_VALUE(userProfileSwitch_, userProfileSwitch) };
+
+
+      protected:
+        shared_ptr<bool> userProfileSwitch_ {};
+      };
+
+      virtual bool empty() const override { return this->userProfile_ == nullptr; };
+      // userProfile Field Functions 
+      bool hasUserProfile() const { return this->userProfile_ != nullptr;};
+      void deleteUserProfile() { this->userProfile_ = nullptr;};
+      inline const StoragePolicy::UserProfile & getUserProfile() const { DARABONBA_PTR_GET_CONST(userProfile_, StoragePolicy::UserProfile) };
+      inline StoragePolicy::UserProfile getUserProfile() { DARABONBA_PTR_GET(userProfile_, StoragePolicy::UserProfile) };
+      inline StoragePolicy& setUserProfile(const StoragePolicy::UserProfile & userProfile) { DARABONBA_PTR_SET_VALUE(userProfile_, userProfile) };
+      inline StoragePolicy& setUserProfile(StoragePolicy::UserProfile && userProfile) { DARABONBA_PTR_SET_RVALUE(userProfile_, userProfile) };
+
+
+    protected:
+      shared_ptr<StoragePolicy::UserProfile> userProfile_ {};
     };
 
     class Policy : public Darabonba::Model {
@@ -486,11 +554,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccessRestriction, accessRestriction_);
         DARABONBA_PTR_TO_JSON(RemoveRestrictedURLIds, removeRestrictedURLIds_);
         DARABONBA_PTR_TO_JSON(RestrictedURLs, restrictedURLs_);
+        DARABONBA_PTR_TO_JSON(RestrictedURLsFilePath, restrictedURLsFilePath_);
       };
       friend void from_json(const Darabonba::Json& j, Network& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessRestriction, accessRestriction_);
         DARABONBA_PTR_FROM_JSON(RemoveRestrictedURLIds, removeRestrictedURLIds_);
         DARABONBA_PTR_FROM_JSON(RestrictedURLs, restrictedURLs_);
+        DARABONBA_PTR_FROM_JSON(RestrictedURLsFilePath, restrictedURLsFilePath_);
       };
       Network() = default ;
       Network(const Network &) = default ;
@@ -548,7 +618,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->accessRestriction_ == nullptr
-        && this->removeRestrictedURLIds_ == nullptr && this->restrictedURLs_ == nullptr; };
+        && this->removeRestrictedURLIds_ == nullptr && this->restrictedURLs_ == nullptr && this->restrictedURLsFilePath_ == nullptr; };
       // accessRestriction Field Functions 
       bool hasAccessRestriction() const { return this->accessRestriction_ != nullptr;};
       void deleteAccessRestriction() { this->accessRestriction_ = nullptr;};
@@ -574,6 +644,13 @@ namespace Models
       inline Network& setRestrictedURLs(vector<Network::RestrictedURLs> && restrictedURLs) { DARABONBA_PTR_SET_RVALUE(restrictedURLs_, restrictedURLs) };
 
 
+      // restrictedURLsFilePath Field Functions 
+      bool hasRestrictedURLsFilePath() const { return this->restrictedURLsFilePath_ != nullptr;};
+      void deleteRestrictedURLsFilePath() { this->restrictedURLsFilePath_ = nullptr;};
+      inline string getRestrictedURLsFilePath() const { DARABONBA_PTR_GET_DEFAULT(restrictedURLsFilePath_, "") };
+      inline Network& setRestrictedURLsFilePath(string restrictedURLsFilePath) { DARABONBA_PTR_SET_VALUE(restrictedURLsFilePath_, restrictedURLsFilePath) };
+
+
     protected:
       // The type of the access control list.
       // 
@@ -585,19 +662,24 @@ namespace Models
       shared_ptr<vector<string>> removeRestrictedURLIds_ {};
       // The domain restriction configurations.
       shared_ptr<vector<Network::RestrictedURLs>> restrictedURLs_ {};
+      shared_ptr<string> restrictedURLsFilePath_ {};
     };
 
     class BrowserConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const BrowserConfig& obj) { 
         DARABONBA_PTR_TO_JSON(Bookmarks, bookmarks_);
+        DARABONBA_PTR_TO_JSON(BookmarksFilePath, bookmarksFilePath_);
         DARABONBA_PTR_TO_JSON(BrowserParam, browserParam_);
+        DARABONBA_PTR_TO_JSON(CookiesSync, cookiesSync_);
         DARABONBA_PTR_TO_JSON(Homepage, homepage_);
         DARABONBA_PTR_TO_JSON(RemoveBookmarks, removeBookmarks_);
       };
       friend void from_json(const Darabonba::Json& j, BrowserConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(Bookmarks, bookmarks_);
+        DARABONBA_PTR_FROM_JSON(BookmarksFilePath, bookmarksFilePath_);
         DARABONBA_PTR_FROM_JSON(BrowserParam, browserParam_);
+        DARABONBA_PTR_FROM_JSON(CookiesSync, cookiesSync_);
         DARABONBA_PTR_FROM_JSON(Homepage, homepage_);
         DARABONBA_PTR_FROM_JSON(RemoveBookmarks, removeBookmarks_);
       };
@@ -683,7 +765,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->bookmarks_ == nullptr
-        && this->browserParam_ == nullptr && this->homepage_ == nullptr && this->removeBookmarks_ == nullptr; };
+        && this->bookmarksFilePath_ == nullptr && this->browserParam_ == nullptr && this->cookiesSync_ == nullptr && this->homepage_ == nullptr && this->removeBookmarks_ == nullptr; };
       // bookmarks Field Functions 
       bool hasBookmarks() const { return this->bookmarks_ != nullptr;};
       void deleteBookmarks() { this->bookmarks_ = nullptr;};
@@ -693,11 +775,25 @@ namespace Models
       inline BrowserConfig& setBookmarks(vector<BrowserConfig::Bookmarks> && bookmarks) { DARABONBA_PTR_SET_RVALUE(bookmarks_, bookmarks) };
 
 
+      // bookmarksFilePath Field Functions 
+      bool hasBookmarksFilePath() const { return this->bookmarksFilePath_ != nullptr;};
+      void deleteBookmarksFilePath() { this->bookmarksFilePath_ = nullptr;};
+      inline string getBookmarksFilePath() const { DARABONBA_PTR_GET_DEFAULT(bookmarksFilePath_, "") };
+      inline BrowserConfig& setBookmarksFilePath(string bookmarksFilePath) { DARABONBA_PTR_SET_VALUE(bookmarksFilePath_, bookmarksFilePath) };
+
+
       // browserParam Field Functions 
       bool hasBrowserParam() const { return this->browserParam_ != nullptr;};
       void deleteBrowserParam() { this->browserParam_ = nullptr;};
       inline string getBrowserParam() const { DARABONBA_PTR_GET_DEFAULT(browserParam_, "") };
       inline BrowserConfig& setBrowserParam(string browserParam) { DARABONBA_PTR_SET_VALUE(browserParam_, browserParam) };
+
+
+      // cookiesSync Field Functions 
+      bool hasCookiesSync() const { return this->cookiesSync_ != nullptr;};
+      void deleteCookiesSync() { this->cookiesSync_ = nullptr;};
+      inline string getCookiesSync() const { DARABONBA_PTR_GET_DEFAULT(cookiesSync_, "") };
+      inline BrowserConfig& setCookiesSync(string cookiesSync) { DARABONBA_PTR_SET_VALUE(cookiesSync_, cookiesSync) };
 
 
       // homepage Field Functions 
@@ -719,8 +815,10 @@ namespace Models
     protected:
       // The bookmark.
       shared_ptr<vector<BrowserConfig::Bookmarks>> bookmarks_ {};
+      shared_ptr<string> bookmarksFilePath_ {};
       // The startup parameter.
       shared_ptr<string> browserParam_ {};
+      shared_ptr<string> cookiesSync_ {};
       // The home page.
       shared_ptr<string> homepage_ {};
       // The removed bookmarks.
@@ -728,7 +826,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->browserConfig_ == nullptr
-        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->network_ == nullptr && this->policy_ == nullptr && this->timers_ == nullptr; };
+        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->maxAmount_ == nullptr && this->network_ == nullptr && this->policy_ == nullptr
+        && this->storagePolicy_ == nullptr && this->timers_ == nullptr; };
     // browserConfig Field Functions 
     bool hasBrowserConfig() const { return this->browserConfig_ != nullptr;};
     void deleteBrowserConfig() { this->browserConfig_ = nullptr;};
@@ -752,6 +851,13 @@ namespace Models
     inline ModifyBrowserInstanceGroupRequest& setCloudBrowserName(string cloudBrowserName) { DARABONBA_PTR_SET_VALUE(cloudBrowserName_, cloudBrowserName) };
 
 
+    // maxAmount Field Functions 
+    bool hasMaxAmount() const { return this->maxAmount_ != nullptr;};
+    void deleteMaxAmount() { this->maxAmount_ = nullptr;};
+    inline int32_t getMaxAmount() const { DARABONBA_PTR_GET_DEFAULT(maxAmount_, 0) };
+    inline ModifyBrowserInstanceGroupRequest& setMaxAmount(int32_t maxAmount) { DARABONBA_PTR_SET_VALUE(maxAmount_, maxAmount) };
+
+
     // network Field Functions 
     bool hasNetwork() const { return this->network_ != nullptr;};
     void deleteNetwork() { this->network_ = nullptr;};
@@ -768,6 +874,15 @@ namespace Models
     inline ModifyBrowserInstanceGroupRequest::Policy getPolicy() { DARABONBA_PTR_GET(policy_, ModifyBrowserInstanceGroupRequest::Policy) };
     inline ModifyBrowserInstanceGroupRequest& setPolicy(const ModifyBrowserInstanceGroupRequest::Policy & policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
     inline ModifyBrowserInstanceGroupRequest& setPolicy(ModifyBrowserInstanceGroupRequest::Policy && policy) { DARABONBA_PTR_SET_RVALUE(policy_, policy) };
+
+
+    // storagePolicy Field Functions 
+    bool hasStoragePolicy() const { return this->storagePolicy_ != nullptr;};
+    void deleteStoragePolicy() { this->storagePolicy_ = nullptr;};
+    inline const ModifyBrowserInstanceGroupRequest::StoragePolicy & getStoragePolicy() const { DARABONBA_PTR_GET_CONST(storagePolicy_, ModifyBrowserInstanceGroupRequest::StoragePolicy) };
+    inline ModifyBrowserInstanceGroupRequest::StoragePolicy getStoragePolicy() { DARABONBA_PTR_GET(storagePolicy_, ModifyBrowserInstanceGroupRequest::StoragePolicy) };
+    inline ModifyBrowserInstanceGroupRequest& setStoragePolicy(const ModifyBrowserInstanceGroupRequest::StoragePolicy & storagePolicy) { DARABONBA_PTR_SET_VALUE(storagePolicy_, storagePolicy) };
+    inline ModifyBrowserInstanceGroupRequest& setStoragePolicy(ModifyBrowserInstanceGroupRequest::StoragePolicy && storagePolicy) { DARABONBA_PTR_SET_RVALUE(storagePolicy_, storagePolicy) };
 
 
     // timers Field Functions 
@@ -788,10 +903,12 @@ namespace Models
     shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
     shared_ptr<string> cloudBrowserName_ {};
+    shared_ptr<int32_t> maxAmount_ {};
     // The network configurations.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Network> network_ {};
     // The access policy.
     shared_ptr<ModifyBrowserInstanceGroupRequest::Policy> policy_ {};
+    shared_ptr<ModifyBrowserInstanceGroupRequest::StoragePolicy> storagePolicy_ {};
     // The timer.
     shared_ptr<vector<ModifyBrowserInstanceGroupRequest::Timers>> timers_ {};
   };
