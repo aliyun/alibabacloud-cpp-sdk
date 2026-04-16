@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const BroadcastAudio& obj) { 
       DARABONBA_PTR_TO_JSON(audioLength, audioLength_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
+      DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(modifiedTime, modifiedTime_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, BroadcastAudio& obj) { 
       DARABONBA_PTR_FROM_JSON(audioLength, audioLength_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(modifiedTime, modifiedTime_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->audioLength_ == nullptr
-        && this->createTime_ == nullptr && this->id_ == nullptr && this->modifiedTime_ == nullptr && this->name_ == nullptr && this->status_ == nullptr; };
+        && this->createTime_ == nullptr && this->errorCode_ == nullptr && this->id_ == nullptr && this->modifiedTime_ == nullptr && this->name_ == nullptr
+        && this->status_ == nullptr; };
     // audioLength Field Functions 
     bool hasAudioLength() const { return this->audioLength_ != nullptr;};
     void deleteAudioLength() { this->audioLength_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline BroadcastAudio& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // errorCode Field Functions 
+    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+    void deleteErrorCode() { this->errorCode_ = nullptr;};
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline BroadcastAudio& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // id Field Functions 
@@ -86,6 +96,7 @@ namespace Models
   protected:
     shared_ptr<int32_t> audioLength_ {};
     shared_ptr<string> createTime_ {};
+    shared_ptr<string> errorCode_ {};
     shared_ptr<string> id_ {};
     shared_ptr<string> modifiedTime_ {};
     shared_ptr<string> name_ {};
