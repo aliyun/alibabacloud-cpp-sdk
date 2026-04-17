@@ -371,10 +371,16 @@ namespace Models
       class FileInfoList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const FileInfoList& obj) { 
+          DARABONBA_PTR_TO_JSON(AudioStreamInfoList, audioStreamInfoList_);
           DARABONBA_PTR_TO_JSON(FileBasicInfo, fileBasicInfo_);
+          DARABONBA_PTR_TO_JSON(SubtitleStreamInfoList, subtitleStreamInfoList_);
+          DARABONBA_PTR_TO_JSON(VideoStreamInfoList, videoStreamInfoList_);
         };
         friend void from_json(const Darabonba::Json& j, FileInfoList& obj) { 
+          DARABONBA_PTR_FROM_JSON(AudioStreamInfoList, audioStreamInfoList_);
           DARABONBA_PTR_FROM_JSON(FileBasicInfo, fileBasicInfo_);
+          DARABONBA_PTR_FROM_JSON(SubtitleStreamInfoList, subtitleStreamInfoList_);
+          DARABONBA_PTR_FROM_JSON(VideoStreamInfoList, videoStreamInfoList_);
         };
         FileInfoList() = default ;
         FileInfoList(const FileInfoList &) = default ;
@@ -387,6 +393,395 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VideoStreamInfoList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VideoStreamInfoList& obj) { 
+            DARABONBA_PTR_TO_JSON(AvgFPS, avgFPS_);
+            DARABONBA_PTR_TO_JSON(Bitrate, bitrate_);
+            DARABONBA_PTR_TO_JSON(CodecLongName, codecLongName_);
+            DARABONBA_PTR_TO_JSON(CodecName, codecName_);
+            DARABONBA_PTR_TO_JSON(CodecTag, codecTag_);
+            DARABONBA_PTR_TO_JSON(CodecTagString, codecTagString_);
+            DARABONBA_PTR_TO_JSON(CodecTimeBase, codecTimeBase_);
+            DARABONBA_PTR_TO_JSON(Dar, dar_);
+            DARABONBA_PTR_TO_JSON(Duration, duration_);
+            DARABONBA_PTR_TO_JSON(Fps, fps_);
+            DARABONBA_PTR_TO_JSON(HasBFrames, hasBFrames_);
+            DARABONBA_PTR_TO_JSON(Height, height_);
+            DARABONBA_PTR_TO_JSON(Index, index_);
+            DARABONBA_PTR_TO_JSON(Lang, lang_);
+            DARABONBA_PTR_TO_JSON(Level, level_);
+            DARABONBA_PTR_TO_JSON(Nb_frames, nbFrames_);
+            DARABONBA_PTR_TO_JSON(NumFrames, numFrames_);
+            DARABONBA_PTR_TO_JSON(PixFmt, pixFmt_);
+            DARABONBA_PTR_TO_JSON(Profile, profile_);
+            DARABONBA_PTR_TO_JSON(Rotate, rotate_);
+            DARABONBA_PTR_TO_JSON(Sar, sar_);
+            DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+            DARABONBA_PTR_TO_JSON(Timebase, timebase_);
+            DARABONBA_PTR_TO_JSON(Width, width_);
+          };
+          friend void from_json(const Darabonba::Json& j, VideoStreamInfoList& obj) { 
+            DARABONBA_PTR_FROM_JSON(AvgFPS, avgFPS_);
+            DARABONBA_PTR_FROM_JSON(Bitrate, bitrate_);
+            DARABONBA_PTR_FROM_JSON(CodecLongName, codecLongName_);
+            DARABONBA_PTR_FROM_JSON(CodecName, codecName_);
+            DARABONBA_PTR_FROM_JSON(CodecTag, codecTag_);
+            DARABONBA_PTR_FROM_JSON(CodecTagString, codecTagString_);
+            DARABONBA_PTR_FROM_JSON(CodecTimeBase, codecTimeBase_);
+            DARABONBA_PTR_FROM_JSON(Dar, dar_);
+            DARABONBA_PTR_FROM_JSON(Duration, duration_);
+            DARABONBA_PTR_FROM_JSON(Fps, fps_);
+            DARABONBA_PTR_FROM_JSON(HasBFrames, hasBFrames_);
+            DARABONBA_PTR_FROM_JSON(Height, height_);
+            DARABONBA_PTR_FROM_JSON(Index, index_);
+            DARABONBA_PTR_FROM_JSON(Lang, lang_);
+            DARABONBA_PTR_FROM_JSON(Level, level_);
+            DARABONBA_PTR_FROM_JSON(Nb_frames, nbFrames_);
+            DARABONBA_PTR_FROM_JSON(NumFrames, numFrames_);
+            DARABONBA_PTR_FROM_JSON(PixFmt, pixFmt_);
+            DARABONBA_PTR_FROM_JSON(Profile, profile_);
+            DARABONBA_PTR_FROM_JSON(Rotate, rotate_);
+            DARABONBA_PTR_FROM_JSON(Sar, sar_);
+            DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+            DARABONBA_PTR_FROM_JSON(Timebase, timebase_);
+            DARABONBA_PTR_FROM_JSON(Width, width_);
+          };
+          VideoStreamInfoList() = default ;
+          VideoStreamInfoList(const VideoStreamInfoList &) = default ;
+          VideoStreamInfoList(VideoStreamInfoList &&) = default ;
+          VideoStreamInfoList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VideoStreamInfoList() = default ;
+          VideoStreamInfoList& operator=(const VideoStreamInfoList &) = default ;
+          VideoStreamInfoList& operator=(VideoStreamInfoList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->avgFPS_ == nullptr
+        && this->bitrate_ == nullptr && this->codecLongName_ == nullptr && this->codecName_ == nullptr && this->codecTag_ == nullptr && this->codecTagString_ == nullptr
+        && this->codecTimeBase_ == nullptr && this->dar_ == nullptr && this->duration_ == nullptr && this->fps_ == nullptr && this->hasBFrames_ == nullptr
+        && this->height_ == nullptr && this->index_ == nullptr && this->lang_ == nullptr && this->level_ == nullptr && this->nbFrames_ == nullptr
+        && this->numFrames_ == nullptr && this->pixFmt_ == nullptr && this->profile_ == nullptr && this->rotate_ == nullptr && this->sar_ == nullptr
+        && this->startTime_ == nullptr && this->timebase_ == nullptr && this->width_ == nullptr; };
+          // avgFPS Field Functions 
+          bool hasAvgFPS() const { return this->avgFPS_ != nullptr;};
+          void deleteAvgFPS() { this->avgFPS_ = nullptr;};
+          inline string getAvgFPS() const { DARABONBA_PTR_GET_DEFAULT(avgFPS_, "") };
+          inline VideoStreamInfoList& setAvgFPS(string avgFPS) { DARABONBA_PTR_SET_VALUE(avgFPS_, avgFPS) };
+
+
+          // bitrate Field Functions 
+          bool hasBitrate() const { return this->bitrate_ != nullptr;};
+          void deleteBitrate() { this->bitrate_ = nullptr;};
+          inline string getBitrate() const { DARABONBA_PTR_GET_DEFAULT(bitrate_, "") };
+          inline VideoStreamInfoList& setBitrate(string bitrate) { DARABONBA_PTR_SET_VALUE(bitrate_, bitrate) };
+
+
+          // codecLongName Field Functions 
+          bool hasCodecLongName() const { return this->codecLongName_ != nullptr;};
+          void deleteCodecLongName() { this->codecLongName_ = nullptr;};
+          inline string getCodecLongName() const { DARABONBA_PTR_GET_DEFAULT(codecLongName_, "") };
+          inline VideoStreamInfoList& setCodecLongName(string codecLongName) { DARABONBA_PTR_SET_VALUE(codecLongName_, codecLongName) };
+
+
+          // codecName Field Functions 
+          bool hasCodecName() const { return this->codecName_ != nullptr;};
+          void deleteCodecName() { this->codecName_ = nullptr;};
+          inline string getCodecName() const { DARABONBA_PTR_GET_DEFAULT(codecName_, "") };
+          inline VideoStreamInfoList& setCodecName(string codecName) { DARABONBA_PTR_SET_VALUE(codecName_, codecName) };
+
+
+          // codecTag Field Functions 
+          bool hasCodecTag() const { return this->codecTag_ != nullptr;};
+          void deleteCodecTag() { this->codecTag_ = nullptr;};
+          inline string getCodecTag() const { DARABONBA_PTR_GET_DEFAULT(codecTag_, "") };
+          inline VideoStreamInfoList& setCodecTag(string codecTag) { DARABONBA_PTR_SET_VALUE(codecTag_, codecTag) };
+
+
+          // codecTagString Field Functions 
+          bool hasCodecTagString() const { return this->codecTagString_ != nullptr;};
+          void deleteCodecTagString() { this->codecTagString_ = nullptr;};
+          inline string getCodecTagString() const { DARABONBA_PTR_GET_DEFAULT(codecTagString_, "") };
+          inline VideoStreamInfoList& setCodecTagString(string codecTagString) { DARABONBA_PTR_SET_VALUE(codecTagString_, codecTagString) };
+
+
+          // codecTimeBase Field Functions 
+          bool hasCodecTimeBase() const { return this->codecTimeBase_ != nullptr;};
+          void deleteCodecTimeBase() { this->codecTimeBase_ = nullptr;};
+          inline string getCodecTimeBase() const { DARABONBA_PTR_GET_DEFAULT(codecTimeBase_, "") };
+          inline VideoStreamInfoList& setCodecTimeBase(string codecTimeBase) { DARABONBA_PTR_SET_VALUE(codecTimeBase_, codecTimeBase) };
+
+
+          // dar Field Functions 
+          bool hasDar() const { return this->dar_ != nullptr;};
+          void deleteDar() { this->dar_ = nullptr;};
+          inline string getDar() const { DARABONBA_PTR_GET_DEFAULT(dar_, "") };
+          inline VideoStreamInfoList& setDar(string dar) { DARABONBA_PTR_SET_VALUE(dar_, dar) };
+
+
+          // duration Field Functions 
+          bool hasDuration() const { return this->duration_ != nullptr;};
+          void deleteDuration() { this->duration_ = nullptr;};
+          inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+          inline VideoStreamInfoList& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+          // fps Field Functions 
+          bool hasFps() const { return this->fps_ != nullptr;};
+          void deleteFps() { this->fps_ = nullptr;};
+          inline string getFps() const { DARABONBA_PTR_GET_DEFAULT(fps_, "") };
+          inline VideoStreamInfoList& setFps(string fps) { DARABONBA_PTR_SET_VALUE(fps_, fps) };
+
+
+          // hasBFrames Field Functions 
+          bool hasHasBFrames() const { return this->hasBFrames_ != nullptr;};
+          void deleteHasBFrames() { this->hasBFrames_ = nullptr;};
+          inline string getHasBFrames() const { DARABONBA_PTR_GET_DEFAULT(hasBFrames_, "") };
+          inline VideoStreamInfoList& setHasBFrames(string hasBFrames) { DARABONBA_PTR_SET_VALUE(hasBFrames_, hasBFrames) };
+
+
+          // height Field Functions 
+          bool hasHeight() const { return this->height_ != nullptr;};
+          void deleteHeight() { this->height_ = nullptr;};
+          inline string getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, "") };
+          inline VideoStreamInfoList& setHeight(string height) { DARABONBA_PTR_SET_VALUE(height_, height) };
+
+
+          // index Field Functions 
+          bool hasIndex() const { return this->index_ != nullptr;};
+          void deleteIndex() { this->index_ = nullptr;};
+          inline string getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, "") };
+          inline VideoStreamInfoList& setIndex(string index) { DARABONBA_PTR_SET_VALUE(index_, index) };
+
+
+          // lang Field Functions 
+          bool hasLang() const { return this->lang_ != nullptr;};
+          void deleteLang() { this->lang_ = nullptr;};
+          inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+          inline VideoStreamInfoList& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+          // level Field Functions 
+          bool hasLevel() const { return this->level_ != nullptr;};
+          void deleteLevel() { this->level_ = nullptr;};
+          inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+          inline VideoStreamInfoList& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
+          // nbFrames Field Functions 
+          bool hasNbFrames() const { return this->nbFrames_ != nullptr;};
+          void deleteNbFrames() { this->nbFrames_ = nullptr;};
+          inline string getNbFrames() const { DARABONBA_PTR_GET_DEFAULT(nbFrames_, "") };
+          inline VideoStreamInfoList& setNbFrames(string nbFrames) { DARABONBA_PTR_SET_VALUE(nbFrames_, nbFrames) };
+
+
+          // numFrames Field Functions 
+          bool hasNumFrames() const { return this->numFrames_ != nullptr;};
+          void deleteNumFrames() { this->numFrames_ = nullptr;};
+          inline string getNumFrames() const { DARABONBA_PTR_GET_DEFAULT(numFrames_, "") };
+          inline VideoStreamInfoList& setNumFrames(string numFrames) { DARABONBA_PTR_SET_VALUE(numFrames_, numFrames) };
+
+
+          // pixFmt Field Functions 
+          bool hasPixFmt() const { return this->pixFmt_ != nullptr;};
+          void deletePixFmt() { this->pixFmt_ = nullptr;};
+          inline string getPixFmt() const { DARABONBA_PTR_GET_DEFAULT(pixFmt_, "") };
+          inline VideoStreamInfoList& setPixFmt(string pixFmt) { DARABONBA_PTR_SET_VALUE(pixFmt_, pixFmt) };
+
+
+          // profile Field Functions 
+          bool hasProfile() const { return this->profile_ != nullptr;};
+          void deleteProfile() { this->profile_ = nullptr;};
+          inline string getProfile() const { DARABONBA_PTR_GET_DEFAULT(profile_, "") };
+          inline VideoStreamInfoList& setProfile(string profile) { DARABONBA_PTR_SET_VALUE(profile_, profile) };
+
+
+          // rotate Field Functions 
+          bool hasRotate() const { return this->rotate_ != nullptr;};
+          void deleteRotate() { this->rotate_ = nullptr;};
+          inline string getRotate() const { DARABONBA_PTR_GET_DEFAULT(rotate_, "") };
+          inline VideoStreamInfoList& setRotate(string rotate) { DARABONBA_PTR_SET_VALUE(rotate_, rotate) };
+
+
+          // sar Field Functions 
+          bool hasSar() const { return this->sar_ != nullptr;};
+          void deleteSar() { this->sar_ = nullptr;};
+          inline string getSar() const { DARABONBA_PTR_GET_DEFAULT(sar_, "") };
+          inline VideoStreamInfoList& setSar(string sar) { DARABONBA_PTR_SET_VALUE(sar_, sar) };
+
+
+          // startTime Field Functions 
+          bool hasStartTime() const { return this->startTime_ != nullptr;};
+          void deleteStartTime() { this->startTime_ = nullptr;};
+          inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+          inline VideoStreamInfoList& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+          // timebase Field Functions 
+          bool hasTimebase() const { return this->timebase_ != nullptr;};
+          void deleteTimebase() { this->timebase_ = nullptr;};
+          inline string getTimebase() const { DARABONBA_PTR_GET_DEFAULT(timebase_, "") };
+          inline VideoStreamInfoList& setTimebase(string timebase) { DARABONBA_PTR_SET_VALUE(timebase_, timebase) };
+
+
+          // width Field Functions 
+          bool hasWidth() const { return this->width_ != nullptr;};
+          void deleteWidth() { this->width_ = nullptr;};
+          inline string getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, "") };
+          inline VideoStreamInfoList& setWidth(string width) { DARABONBA_PTR_SET_VALUE(width_, width) };
+
+
+        protected:
+          shared_ptr<string> avgFPS_ {};
+          shared_ptr<string> bitrate_ {};
+          shared_ptr<string> codecLongName_ {};
+          shared_ptr<string> codecName_ {};
+          shared_ptr<string> codecTag_ {};
+          shared_ptr<string> codecTagString_ {};
+          shared_ptr<string> codecTimeBase_ {};
+          shared_ptr<string> dar_ {};
+          shared_ptr<string> duration_ {};
+          shared_ptr<string> fps_ {};
+          shared_ptr<string> hasBFrames_ {};
+          shared_ptr<string> height_ {};
+          shared_ptr<string> index_ {};
+          shared_ptr<string> lang_ {};
+          shared_ptr<string> level_ {};
+          shared_ptr<string> nbFrames_ {};
+          shared_ptr<string> numFrames_ {};
+          shared_ptr<string> pixFmt_ {};
+          shared_ptr<string> profile_ {};
+          shared_ptr<string> rotate_ {};
+          shared_ptr<string> sar_ {};
+          shared_ptr<string> startTime_ {};
+          shared_ptr<string> timebase_ {};
+          shared_ptr<string> width_ {};
+        };
+
+        class SubtitleStreamInfoList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SubtitleStreamInfoList& obj) { 
+            DARABONBA_PTR_TO_JSON(CodecLongName, codecLongName_);
+            DARABONBA_PTR_TO_JSON(CodecName, codecName_);
+            DARABONBA_PTR_TO_JSON(CodecTag, codecTag_);
+            DARABONBA_PTR_TO_JSON(CodecTagString, codecTagString_);
+            DARABONBA_PTR_TO_JSON(CodecTimeBase, codecTimeBase_);
+            DARABONBA_PTR_TO_JSON(Duration, duration_);
+            DARABONBA_PTR_TO_JSON(Index, index_);
+            DARABONBA_PTR_TO_JSON(Lang, lang_);
+            DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+            DARABONBA_PTR_TO_JSON(Timebase, timebase_);
+          };
+          friend void from_json(const Darabonba::Json& j, SubtitleStreamInfoList& obj) { 
+            DARABONBA_PTR_FROM_JSON(CodecLongName, codecLongName_);
+            DARABONBA_PTR_FROM_JSON(CodecName, codecName_);
+            DARABONBA_PTR_FROM_JSON(CodecTag, codecTag_);
+            DARABONBA_PTR_FROM_JSON(CodecTagString, codecTagString_);
+            DARABONBA_PTR_FROM_JSON(CodecTimeBase, codecTimeBase_);
+            DARABONBA_PTR_FROM_JSON(Duration, duration_);
+            DARABONBA_PTR_FROM_JSON(Index, index_);
+            DARABONBA_PTR_FROM_JSON(Lang, lang_);
+            DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+            DARABONBA_PTR_FROM_JSON(Timebase, timebase_);
+          };
+          SubtitleStreamInfoList() = default ;
+          SubtitleStreamInfoList(const SubtitleStreamInfoList &) = default ;
+          SubtitleStreamInfoList(SubtitleStreamInfoList &&) = default ;
+          SubtitleStreamInfoList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SubtitleStreamInfoList() = default ;
+          SubtitleStreamInfoList& operator=(const SubtitleStreamInfoList &) = default ;
+          SubtitleStreamInfoList& operator=(SubtitleStreamInfoList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->codecLongName_ == nullptr
+        && this->codecName_ == nullptr && this->codecTag_ == nullptr && this->codecTagString_ == nullptr && this->codecTimeBase_ == nullptr && this->duration_ == nullptr
+        && this->index_ == nullptr && this->lang_ == nullptr && this->startTime_ == nullptr && this->timebase_ == nullptr; };
+          // codecLongName Field Functions 
+          bool hasCodecLongName() const { return this->codecLongName_ != nullptr;};
+          void deleteCodecLongName() { this->codecLongName_ = nullptr;};
+          inline string getCodecLongName() const { DARABONBA_PTR_GET_DEFAULT(codecLongName_, "") };
+          inline SubtitleStreamInfoList& setCodecLongName(string codecLongName) { DARABONBA_PTR_SET_VALUE(codecLongName_, codecLongName) };
+
+
+          // codecName Field Functions 
+          bool hasCodecName() const { return this->codecName_ != nullptr;};
+          void deleteCodecName() { this->codecName_ = nullptr;};
+          inline string getCodecName() const { DARABONBA_PTR_GET_DEFAULT(codecName_, "") };
+          inline SubtitleStreamInfoList& setCodecName(string codecName) { DARABONBA_PTR_SET_VALUE(codecName_, codecName) };
+
+
+          // codecTag Field Functions 
+          bool hasCodecTag() const { return this->codecTag_ != nullptr;};
+          void deleteCodecTag() { this->codecTag_ = nullptr;};
+          inline string getCodecTag() const { DARABONBA_PTR_GET_DEFAULT(codecTag_, "") };
+          inline SubtitleStreamInfoList& setCodecTag(string codecTag) { DARABONBA_PTR_SET_VALUE(codecTag_, codecTag) };
+
+
+          // codecTagString Field Functions 
+          bool hasCodecTagString() const { return this->codecTagString_ != nullptr;};
+          void deleteCodecTagString() { this->codecTagString_ = nullptr;};
+          inline string getCodecTagString() const { DARABONBA_PTR_GET_DEFAULT(codecTagString_, "") };
+          inline SubtitleStreamInfoList& setCodecTagString(string codecTagString) { DARABONBA_PTR_SET_VALUE(codecTagString_, codecTagString) };
+
+
+          // codecTimeBase Field Functions 
+          bool hasCodecTimeBase() const { return this->codecTimeBase_ != nullptr;};
+          void deleteCodecTimeBase() { this->codecTimeBase_ = nullptr;};
+          inline string getCodecTimeBase() const { DARABONBA_PTR_GET_DEFAULT(codecTimeBase_, "") };
+          inline SubtitleStreamInfoList& setCodecTimeBase(string codecTimeBase) { DARABONBA_PTR_SET_VALUE(codecTimeBase_, codecTimeBase) };
+
+
+          // duration Field Functions 
+          bool hasDuration() const { return this->duration_ != nullptr;};
+          void deleteDuration() { this->duration_ = nullptr;};
+          inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+          inline SubtitleStreamInfoList& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+          // index Field Functions 
+          bool hasIndex() const { return this->index_ != nullptr;};
+          void deleteIndex() { this->index_ = nullptr;};
+          inline string getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, "") };
+          inline SubtitleStreamInfoList& setIndex(string index) { DARABONBA_PTR_SET_VALUE(index_, index) };
+
+
+          // lang Field Functions 
+          bool hasLang() const { return this->lang_ != nullptr;};
+          void deleteLang() { this->lang_ = nullptr;};
+          inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+          inline SubtitleStreamInfoList& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+          // startTime Field Functions 
+          bool hasStartTime() const { return this->startTime_ != nullptr;};
+          void deleteStartTime() { this->startTime_ = nullptr;};
+          inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+          inline SubtitleStreamInfoList& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+          // timebase Field Functions 
+          bool hasTimebase() const { return this->timebase_ != nullptr;};
+          void deleteTimebase() { this->timebase_ = nullptr;};
+          inline string getTimebase() const { DARABONBA_PTR_GET_DEFAULT(timebase_, "") };
+          inline SubtitleStreamInfoList& setTimebase(string timebase) { DARABONBA_PTR_SET_VALUE(timebase_, timebase) };
+
+
+        protected:
+          shared_ptr<string> codecLongName_ {};
+          shared_ptr<string> codecName_ {};
+          shared_ptr<string> codecTag_ {};
+          shared_ptr<string> codecTagString_ {};
+          shared_ptr<string> codecTimeBase_ {};
+          shared_ptr<string> duration_ {};
+          shared_ptr<string> index_ {};
+          shared_ptr<string> lang_ {};
+          shared_ptr<string> startTime_ {};
+          shared_ptr<string> timebase_ {};
+        };
+
         class FileBasicInfo : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const FileBasicInfo& obj) { 
@@ -531,7 +926,222 @@ namespace Models
           shared_ptr<string> width_ {};
         };
 
-        virtual bool empty() const override { return this->fileBasicInfo_ == nullptr; };
+        class AudioStreamInfoList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AudioStreamInfoList& obj) { 
+            DARABONBA_PTR_TO_JSON(Bitrate, bitrate_);
+            DARABONBA_PTR_TO_JSON(ChannelLayout, channelLayout_);
+            DARABONBA_PTR_TO_JSON(Channels, channels_);
+            DARABONBA_PTR_TO_JSON(CodecLongName, codecLongName_);
+            DARABONBA_PTR_TO_JSON(CodecName, codecName_);
+            DARABONBA_PTR_TO_JSON(CodecTag, codecTag_);
+            DARABONBA_PTR_TO_JSON(CodecTagString, codecTagString_);
+            DARABONBA_PTR_TO_JSON(CodecTimeBase, codecTimeBase_);
+            DARABONBA_PTR_TO_JSON(Duration, duration_);
+            DARABONBA_PTR_TO_JSON(Fps, fps_);
+            DARABONBA_PTR_TO_JSON(Index, index_);
+            DARABONBA_PTR_TO_JSON(Lang, lang_);
+            DARABONBA_PTR_TO_JSON(NumFrames, numFrames_);
+            DARABONBA_PTR_TO_JSON(Profile, profile_);
+            DARABONBA_PTR_TO_JSON(SampleFmt, sampleFmt_);
+            DARABONBA_PTR_TO_JSON(SampleRate, sampleRate_);
+            DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+            DARABONBA_PTR_TO_JSON(Timebase, timebase_);
+          };
+          friend void from_json(const Darabonba::Json& j, AudioStreamInfoList& obj) { 
+            DARABONBA_PTR_FROM_JSON(Bitrate, bitrate_);
+            DARABONBA_PTR_FROM_JSON(ChannelLayout, channelLayout_);
+            DARABONBA_PTR_FROM_JSON(Channels, channels_);
+            DARABONBA_PTR_FROM_JSON(CodecLongName, codecLongName_);
+            DARABONBA_PTR_FROM_JSON(CodecName, codecName_);
+            DARABONBA_PTR_FROM_JSON(CodecTag, codecTag_);
+            DARABONBA_PTR_FROM_JSON(CodecTagString, codecTagString_);
+            DARABONBA_PTR_FROM_JSON(CodecTimeBase, codecTimeBase_);
+            DARABONBA_PTR_FROM_JSON(Duration, duration_);
+            DARABONBA_PTR_FROM_JSON(Fps, fps_);
+            DARABONBA_PTR_FROM_JSON(Index, index_);
+            DARABONBA_PTR_FROM_JSON(Lang, lang_);
+            DARABONBA_PTR_FROM_JSON(NumFrames, numFrames_);
+            DARABONBA_PTR_FROM_JSON(Profile, profile_);
+            DARABONBA_PTR_FROM_JSON(SampleFmt, sampleFmt_);
+            DARABONBA_PTR_FROM_JSON(SampleRate, sampleRate_);
+            DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+            DARABONBA_PTR_FROM_JSON(Timebase, timebase_);
+          };
+          AudioStreamInfoList() = default ;
+          AudioStreamInfoList(const AudioStreamInfoList &) = default ;
+          AudioStreamInfoList(AudioStreamInfoList &&) = default ;
+          AudioStreamInfoList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AudioStreamInfoList() = default ;
+          AudioStreamInfoList& operator=(const AudioStreamInfoList &) = default ;
+          AudioStreamInfoList& operator=(AudioStreamInfoList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->bitrate_ == nullptr
+        && this->channelLayout_ == nullptr && this->channels_ == nullptr && this->codecLongName_ == nullptr && this->codecName_ == nullptr && this->codecTag_ == nullptr
+        && this->codecTagString_ == nullptr && this->codecTimeBase_ == nullptr && this->duration_ == nullptr && this->fps_ == nullptr && this->index_ == nullptr
+        && this->lang_ == nullptr && this->numFrames_ == nullptr && this->profile_ == nullptr && this->sampleFmt_ == nullptr && this->sampleRate_ == nullptr
+        && this->startTime_ == nullptr && this->timebase_ == nullptr; };
+          // bitrate Field Functions 
+          bool hasBitrate() const { return this->bitrate_ != nullptr;};
+          void deleteBitrate() { this->bitrate_ = nullptr;};
+          inline string getBitrate() const { DARABONBA_PTR_GET_DEFAULT(bitrate_, "") };
+          inline AudioStreamInfoList& setBitrate(string bitrate) { DARABONBA_PTR_SET_VALUE(bitrate_, bitrate) };
+
+
+          // channelLayout Field Functions 
+          bool hasChannelLayout() const { return this->channelLayout_ != nullptr;};
+          void deleteChannelLayout() { this->channelLayout_ = nullptr;};
+          inline string getChannelLayout() const { DARABONBA_PTR_GET_DEFAULT(channelLayout_, "") };
+          inline AudioStreamInfoList& setChannelLayout(string channelLayout) { DARABONBA_PTR_SET_VALUE(channelLayout_, channelLayout) };
+
+
+          // channels Field Functions 
+          bool hasChannels() const { return this->channels_ != nullptr;};
+          void deleteChannels() { this->channels_ = nullptr;};
+          inline string getChannels() const { DARABONBA_PTR_GET_DEFAULT(channels_, "") };
+          inline AudioStreamInfoList& setChannels(string channels) { DARABONBA_PTR_SET_VALUE(channels_, channels) };
+
+
+          // codecLongName Field Functions 
+          bool hasCodecLongName() const { return this->codecLongName_ != nullptr;};
+          void deleteCodecLongName() { this->codecLongName_ = nullptr;};
+          inline string getCodecLongName() const { DARABONBA_PTR_GET_DEFAULT(codecLongName_, "") };
+          inline AudioStreamInfoList& setCodecLongName(string codecLongName) { DARABONBA_PTR_SET_VALUE(codecLongName_, codecLongName) };
+
+
+          // codecName Field Functions 
+          bool hasCodecName() const { return this->codecName_ != nullptr;};
+          void deleteCodecName() { this->codecName_ = nullptr;};
+          inline string getCodecName() const { DARABONBA_PTR_GET_DEFAULT(codecName_, "") };
+          inline AudioStreamInfoList& setCodecName(string codecName) { DARABONBA_PTR_SET_VALUE(codecName_, codecName) };
+
+
+          // codecTag Field Functions 
+          bool hasCodecTag() const { return this->codecTag_ != nullptr;};
+          void deleteCodecTag() { this->codecTag_ = nullptr;};
+          inline string getCodecTag() const { DARABONBA_PTR_GET_DEFAULT(codecTag_, "") };
+          inline AudioStreamInfoList& setCodecTag(string codecTag) { DARABONBA_PTR_SET_VALUE(codecTag_, codecTag) };
+
+
+          // codecTagString Field Functions 
+          bool hasCodecTagString() const { return this->codecTagString_ != nullptr;};
+          void deleteCodecTagString() { this->codecTagString_ = nullptr;};
+          inline string getCodecTagString() const { DARABONBA_PTR_GET_DEFAULT(codecTagString_, "") };
+          inline AudioStreamInfoList& setCodecTagString(string codecTagString) { DARABONBA_PTR_SET_VALUE(codecTagString_, codecTagString) };
+
+
+          // codecTimeBase Field Functions 
+          bool hasCodecTimeBase() const { return this->codecTimeBase_ != nullptr;};
+          void deleteCodecTimeBase() { this->codecTimeBase_ = nullptr;};
+          inline string getCodecTimeBase() const { DARABONBA_PTR_GET_DEFAULT(codecTimeBase_, "") };
+          inline AudioStreamInfoList& setCodecTimeBase(string codecTimeBase) { DARABONBA_PTR_SET_VALUE(codecTimeBase_, codecTimeBase) };
+
+
+          // duration Field Functions 
+          bool hasDuration() const { return this->duration_ != nullptr;};
+          void deleteDuration() { this->duration_ = nullptr;};
+          inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+          inline AudioStreamInfoList& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+          // fps Field Functions 
+          bool hasFps() const { return this->fps_ != nullptr;};
+          void deleteFps() { this->fps_ = nullptr;};
+          inline string getFps() const { DARABONBA_PTR_GET_DEFAULT(fps_, "") };
+          inline AudioStreamInfoList& setFps(string fps) { DARABONBA_PTR_SET_VALUE(fps_, fps) };
+
+
+          // index Field Functions 
+          bool hasIndex() const { return this->index_ != nullptr;};
+          void deleteIndex() { this->index_ = nullptr;};
+          inline string getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, "") };
+          inline AudioStreamInfoList& setIndex(string index) { DARABONBA_PTR_SET_VALUE(index_, index) };
+
+
+          // lang Field Functions 
+          bool hasLang() const { return this->lang_ != nullptr;};
+          void deleteLang() { this->lang_ = nullptr;};
+          inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+          inline AudioStreamInfoList& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+          // numFrames Field Functions 
+          bool hasNumFrames() const { return this->numFrames_ != nullptr;};
+          void deleteNumFrames() { this->numFrames_ = nullptr;};
+          inline string getNumFrames() const { DARABONBA_PTR_GET_DEFAULT(numFrames_, "") };
+          inline AudioStreamInfoList& setNumFrames(string numFrames) { DARABONBA_PTR_SET_VALUE(numFrames_, numFrames) };
+
+
+          // profile Field Functions 
+          bool hasProfile() const { return this->profile_ != nullptr;};
+          void deleteProfile() { this->profile_ = nullptr;};
+          inline string getProfile() const { DARABONBA_PTR_GET_DEFAULT(profile_, "") };
+          inline AudioStreamInfoList& setProfile(string profile) { DARABONBA_PTR_SET_VALUE(profile_, profile) };
+
+
+          // sampleFmt Field Functions 
+          bool hasSampleFmt() const { return this->sampleFmt_ != nullptr;};
+          void deleteSampleFmt() { this->sampleFmt_ = nullptr;};
+          inline string getSampleFmt() const { DARABONBA_PTR_GET_DEFAULT(sampleFmt_, "") };
+          inline AudioStreamInfoList& setSampleFmt(string sampleFmt) { DARABONBA_PTR_SET_VALUE(sampleFmt_, sampleFmt) };
+
+
+          // sampleRate Field Functions 
+          bool hasSampleRate() const { return this->sampleRate_ != nullptr;};
+          void deleteSampleRate() { this->sampleRate_ = nullptr;};
+          inline string getSampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, "") };
+          inline AudioStreamInfoList& setSampleRate(string sampleRate) { DARABONBA_PTR_SET_VALUE(sampleRate_, sampleRate) };
+
+
+          // startTime Field Functions 
+          bool hasStartTime() const { return this->startTime_ != nullptr;};
+          void deleteStartTime() { this->startTime_ = nullptr;};
+          inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+          inline AudioStreamInfoList& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+          // timebase Field Functions 
+          bool hasTimebase() const { return this->timebase_ != nullptr;};
+          void deleteTimebase() { this->timebase_ = nullptr;};
+          inline string getTimebase() const { DARABONBA_PTR_GET_DEFAULT(timebase_, "") };
+          inline AudioStreamInfoList& setTimebase(string timebase) { DARABONBA_PTR_SET_VALUE(timebase_, timebase) };
+
+
+        protected:
+          shared_ptr<string> bitrate_ {};
+          shared_ptr<string> channelLayout_ {};
+          shared_ptr<string> channels_ {};
+          shared_ptr<string> codecLongName_ {};
+          shared_ptr<string> codecName_ {};
+          shared_ptr<string> codecTag_ {};
+          shared_ptr<string> codecTagString_ {};
+          shared_ptr<string> codecTimeBase_ {};
+          shared_ptr<string> duration_ {};
+          shared_ptr<string> fps_ {};
+          shared_ptr<string> index_ {};
+          shared_ptr<string> lang_ {};
+          shared_ptr<string> numFrames_ {};
+          shared_ptr<string> profile_ {};
+          shared_ptr<string> sampleFmt_ {};
+          shared_ptr<string> sampleRate_ {};
+          shared_ptr<string> startTime_ {};
+          shared_ptr<string> timebase_ {};
+        };
+
+        virtual bool empty() const override { return this->audioStreamInfoList_ == nullptr
+        && this->fileBasicInfo_ == nullptr && this->subtitleStreamInfoList_ == nullptr && this->videoStreamInfoList_ == nullptr; };
+        // audioStreamInfoList Field Functions 
+        bool hasAudioStreamInfoList() const { return this->audioStreamInfoList_ != nullptr;};
+        void deleteAudioStreamInfoList() { this->audioStreamInfoList_ = nullptr;};
+        inline const vector<FileInfoList::AudioStreamInfoList> & getAudioStreamInfoList() const { DARABONBA_PTR_GET_CONST(audioStreamInfoList_, vector<FileInfoList::AudioStreamInfoList>) };
+        inline vector<FileInfoList::AudioStreamInfoList> getAudioStreamInfoList() { DARABONBA_PTR_GET(audioStreamInfoList_, vector<FileInfoList::AudioStreamInfoList>) };
+        inline FileInfoList& setAudioStreamInfoList(const vector<FileInfoList::AudioStreamInfoList> & audioStreamInfoList) { DARABONBA_PTR_SET_VALUE(audioStreamInfoList_, audioStreamInfoList) };
+        inline FileInfoList& setAudioStreamInfoList(vector<FileInfoList::AudioStreamInfoList> && audioStreamInfoList) { DARABONBA_PTR_SET_RVALUE(audioStreamInfoList_, audioStreamInfoList) };
+
+
         // fileBasicInfo Field Functions 
         bool hasFileBasicInfo() const { return this->fileBasicInfo_ != nullptr;};
         void deleteFileBasicInfo() { this->fileBasicInfo_ = nullptr;};
@@ -541,9 +1151,30 @@ namespace Models
         inline FileInfoList& setFileBasicInfo(FileInfoList::FileBasicInfo && fileBasicInfo) { DARABONBA_PTR_SET_RVALUE(fileBasicInfo_, fileBasicInfo) };
 
 
+        // subtitleStreamInfoList Field Functions 
+        bool hasSubtitleStreamInfoList() const { return this->subtitleStreamInfoList_ != nullptr;};
+        void deleteSubtitleStreamInfoList() { this->subtitleStreamInfoList_ = nullptr;};
+        inline const vector<FileInfoList::SubtitleStreamInfoList> & getSubtitleStreamInfoList() const { DARABONBA_PTR_GET_CONST(subtitleStreamInfoList_, vector<FileInfoList::SubtitleStreamInfoList>) };
+        inline vector<FileInfoList::SubtitleStreamInfoList> getSubtitleStreamInfoList() { DARABONBA_PTR_GET(subtitleStreamInfoList_, vector<FileInfoList::SubtitleStreamInfoList>) };
+        inline FileInfoList& setSubtitleStreamInfoList(const vector<FileInfoList::SubtitleStreamInfoList> & subtitleStreamInfoList) { DARABONBA_PTR_SET_VALUE(subtitleStreamInfoList_, subtitleStreamInfoList) };
+        inline FileInfoList& setSubtitleStreamInfoList(vector<FileInfoList::SubtitleStreamInfoList> && subtitleStreamInfoList) { DARABONBA_PTR_SET_RVALUE(subtitleStreamInfoList_, subtitleStreamInfoList) };
+
+
+        // videoStreamInfoList Field Functions 
+        bool hasVideoStreamInfoList() const { return this->videoStreamInfoList_ != nullptr;};
+        void deleteVideoStreamInfoList() { this->videoStreamInfoList_ = nullptr;};
+        inline const vector<FileInfoList::VideoStreamInfoList> & getVideoStreamInfoList() const { DARABONBA_PTR_GET_CONST(videoStreamInfoList_, vector<FileInfoList::VideoStreamInfoList>) };
+        inline vector<FileInfoList::VideoStreamInfoList> getVideoStreamInfoList() { DARABONBA_PTR_GET(videoStreamInfoList_, vector<FileInfoList::VideoStreamInfoList>) };
+        inline FileInfoList& setVideoStreamInfoList(const vector<FileInfoList::VideoStreamInfoList> & videoStreamInfoList) { DARABONBA_PTR_SET_VALUE(videoStreamInfoList_, videoStreamInfoList) };
+        inline FileInfoList& setVideoStreamInfoList(vector<FileInfoList::VideoStreamInfoList> && videoStreamInfoList) { DARABONBA_PTR_SET_RVALUE(videoStreamInfoList_, videoStreamInfoList) };
+
+
       protected:
+        shared_ptr<vector<FileInfoList::AudioStreamInfoList>> audioStreamInfoList_ {};
         // The basic information of the file, including the duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
+        shared_ptr<vector<FileInfoList::SubtitleStreamInfoList>> subtitleStreamInfoList_ {};
+        shared_ptr<vector<FileInfoList::VideoStreamInfoList>> videoStreamInfoList_ {};
       };
 
       virtual bool empty() const override { return this->fileInfoList_ == nullptr
