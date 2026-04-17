@@ -364,6 +364,10 @@
 #include <alibabacloud/models/ListAlertActionsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAlertActionsResponseBody.hpp>
 #include <alibabacloud/models/ListAlertActionsResponse.hpp>
+#include <alibabacloud/models/ListAlertRobotsRequest.hpp>
+#include <alibabacloud/models/ListAlertRobotsShrinkRequest.hpp>
+#include <alibabacloud/models/ListAlertRobotsResponseBody.hpp>
+#include <alibabacloud/models/ListAlertRobotsResponse.hpp>
 #include <alibabacloud/models/ListAlertWebhooksRequest.hpp>
 #include <alibabacloud/models/ListAlertWebhooksShrinkRequest.hpp>
 #include <alibabacloud/models/ListAlertWebhooksResponseBody.hpp>
@@ -371,6 +375,14 @@
 #include <alibabacloud/models/ListBizTracesRequest.hpp>
 #include <alibabacloud/models/ListBizTracesResponseBody.hpp>
 #include <alibabacloud/models/ListBizTracesResponse.hpp>
+#include <alibabacloud/models/ListContactGroupsRequest.hpp>
+#include <alibabacloud/models/ListContactGroupsShrinkRequest.hpp>
+#include <alibabacloud/models/ListContactGroupsResponseBody.hpp>
+#include <alibabacloud/models/ListContactGroupsResponse.hpp>
+#include <alibabacloud/models/ListContactsRequest.hpp>
+#include <alibabacloud/models/ListContactsShrinkRequest.hpp>
+#include <alibabacloud/models/ListContactsResponseBody.hpp>
+#include <alibabacloud/models/ListContactsResponse.hpp>
 #include <alibabacloud/models/ListDatasetsRequest.hpp>
 #include <alibabacloud/models/ListDatasetsResponseBody.hpp>
 #include <alibabacloud/models/ListDatasetsResponse.hpp>

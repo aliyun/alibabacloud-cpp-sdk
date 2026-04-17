@@ -4372,6 +4372,81 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
+ * @summary 查询机器人
+ *
+ * @param tmpReq ListAlertRobotsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAlertRobotsResponse
+ */
+ListAlertRobotsResponse Client::listAlertRobotsWithOptions(const ListAlertRobotsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAlertRobotsShrinkRequest request = ListAlertRobotsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRobotIds()) {
+    request.setRobotIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRobotIds(), "robotIds", "json"));
+  }
+
+  if (!!tmpReq.hasTypes()) {
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "types", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRobotIdsShrink()) {
+    query["robotIds"] = request.getRobotIdsShrink();
+  }
+
+  if (!!request.hasTypesShrink()) {
+    query["types"] = request.getTypesShrink();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAlertRobots"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/robots")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAlertRobotsResponse>();
+}
+
+/**
+ * @summary 查询机器人
+ *
+ * @param request ListAlertRobotsRequest
+ * @return ListAlertRobotsResponse
+ */
+ListAlertRobotsResponse Client::listAlertRobots(const ListAlertRobotsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAlertRobotsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询Webhook
  *
  * @param tmpReq ListAlertWebhooksRequest
@@ -4489,6 +4564,156 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBizTracesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询联系人组
+ *
+ * @param tmpReq ListContactGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContactGroupsResponse
+ */
+ListContactGroupsResponse Client::listContactGroupsWithOptions(const ListContactGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListContactGroupsShrinkRequest request = ListContactGroupsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContactGroupIds()) {
+    request.setContactGroupIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactGroupIds(), "contactGroupIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasContactGroupIdsShrink()) {
+    query["contactGroupIds"] = request.getContactGroupIdsShrink();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContactGroups"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contactGroups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContactGroupsResponse>();
+}
+
+/**
+ * @summary 查询联系人组
+ *
+ * @param request ListContactGroupsRequest
+ * @return ListContactGroupsResponse
+ */
+ListContactGroupsResponse Client::listContactGroups(const ListContactGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listContactGroupsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询联系人
+ *
+ * @param tmpReq ListContactsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContactsResponse
+ */
+ListContactsResponse Client::listContactsWithOptions(const ListContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListContactsShrinkRequest request = ListContactsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContactIds()) {
+    request.setContactIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContactIds(), "contactIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasContactIdsShrink()) {
+    query["contactIds"] = request.getContactIdsShrink();
+  }
+
+  if (!!request.hasEmail()) {
+    query["email"] = request.getEmail();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPhone()) {
+    query["phone"] = request.getPhone();
+  }
+
+  if (!!request.hasQueryUngroupedContacts()) {
+    query["queryUngroupedContacts"] = request.getQueryUngroupedContacts();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContacts"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/contact")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContactsResponse>();
+}
+
+/**
+ * @summary 查询联系人
+ *
+ * @param request ListContactsRequest
+ * @return ListContactsResponse
+ */
+ListContactsResponse Client::listContacts(const ListContactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listContactsWithOptions(request, headers, runtime);
 }
 
 /**

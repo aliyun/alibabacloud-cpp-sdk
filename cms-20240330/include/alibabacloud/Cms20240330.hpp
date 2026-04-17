@@ -1593,6 +1593,24 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
+       * @summary 查询机器人
+       *
+       * @param tmpReq ListAlertRobotsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAlertRobotsResponse
+       */
+      Models::ListAlertRobotsResponse listAlertRobotsWithOptions(const Models::ListAlertRobotsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询机器人
+       *
+       * @param request ListAlertRobotsRequest
+       * @return ListAlertRobotsResponse
+       */
+      Models::ListAlertRobotsResponse listAlertRobots(const Models::ListAlertRobotsRequest &request);
+
+      /**
        * @summary 查询Webhook
        *
        * @param tmpReq ListAlertWebhooksRequest
@@ -1627,6 +1645,42 @@ namespace Cms20240330
        * @return ListBizTracesResponse
        */
       Models::ListBizTracesResponse listBizTraces(const Models::ListBizTracesRequest &request);
+
+      /**
+       * @summary 查询联系人组
+       *
+       * @param tmpReq ListContactGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListContactGroupsResponse
+       */
+      Models::ListContactGroupsResponse listContactGroupsWithOptions(const Models::ListContactGroupsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询联系人组
+       *
+       * @param request ListContactGroupsRequest
+       * @return ListContactGroupsResponse
+       */
+      Models::ListContactGroupsResponse listContactGroups(const Models::ListContactGroupsRequest &request);
+
+      /**
+       * @summary 查询联系人
+       *
+       * @param tmpReq ListContactsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListContactsResponse
+       */
+      Models::ListContactsResponse listContactsWithOptions(const Models::ListContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询联系人
+       *
+       * @param request ListContactsRequest
+       * @return ListContactsResponse
+       */
+      Models::ListContactsResponse listContacts(const Models::ListContactsRequest &request);
 
       /**
        * @summary 查询数据集列表
