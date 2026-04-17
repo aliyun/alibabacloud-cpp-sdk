@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InvokeId, invokeId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RunCommandInfos, runCommandInfos_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, RunCommandResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(InvokeId, invokeId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RunCommandInfos, runCommandInfos_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
     RunCommandResponseBody() = default ;
     RunCommandResponseBody(const RunCommandResponseBody &) = default ;
@@ -37,10 +39,12 @@ namespace Models
     class RunCommandInfos : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RunCommandInfos& obj) { 
+        DARABONBA_PTR_TO_JSON(ChildTaskId, childTaskId_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InvokeId, invokeId_);
       };
       friend void from_json(const Darabonba::Json& j, RunCommandInfos& obj) { 
+        DARABONBA_PTR_FROM_JSON(ChildTaskId, childTaskId_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InvokeId, invokeId_);
       };
@@ -55,8 +59,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->invokeId_ == nullptr; };
+      virtual bool empty() const override { return this->childTaskId_ == nullptr
+        && this->instanceId_ == nullptr && this->invokeId_ == nullptr; };
+      // childTaskId Field Functions 
+      bool hasChildTaskId() const { return this->childTaskId_ != nullptr;};
+      void deleteChildTaskId() { this->childTaskId_ = nullptr;};
+      inline string getChildTaskId() const { DARABONBA_PTR_GET_DEFAULT(childTaskId_, "") };
+      inline RunCommandInfos& setChildTaskId(string childTaskId) { DARABONBA_PTR_SET_VALUE(childTaskId_, childTaskId) };
+
+
       // instanceId Field Functions 
       bool hasInstanceId() const { return this->instanceId_ != nullptr;};
       void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -72,12 +83,13 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> childTaskId_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> invokeId_ {};
     };
 
     virtual bool empty() const override { return this->invokeId_ == nullptr
-        && this->requestId_ == nullptr && this->runCommandInfos_ == nullptr; };
+        && this->requestId_ == nullptr && this->runCommandInfos_ == nullptr && this->taskId_ == nullptr; };
     // invokeId Field Functions 
     bool hasInvokeId() const { return this->invokeId_ != nullptr;};
     void deleteInvokeId() { this->invokeId_ = nullptr;};
@@ -101,12 +113,20 @@ namespace Models
     inline RunCommandResponseBody& setRunCommandInfos(vector<RunCommandResponseBody::RunCommandInfos> && runCommandInfos) { DARABONBA_PTR_SET_RVALUE(runCommandInfos_, runCommandInfos) };
 
 
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline RunCommandResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
   protected:
     // The ID of the command execution. You can use the command execution ID to query the output of a command.
     shared_ptr<string> invokeId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<RunCommandResponseBody::RunCommandInfos>> runCommandInfos_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

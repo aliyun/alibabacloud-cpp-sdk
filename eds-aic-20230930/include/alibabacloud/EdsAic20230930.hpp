@@ -139,6 +139,23 @@ namespace EdsAic20230930
       Models::BatchGetAcpConnectionTicketResponse batchGetAcpConnectionTicket(const Models::BatchGetAcpConnectionTicketRequest &request);
 
       /**
+       * @summary 取消云手机实例上正在运行的Agent任务。
+       *
+       * @param request CancelAgentTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelAgentTaskResponse
+       */
+      Models::CancelAgentTaskResponse cancelAgentTaskWithOptions(const Models::CancelAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消云手机实例上正在运行的Agent任务。
+       *
+       * @param request CancelAgentTaskRequest
+       * @return CancelAgentTaskResponse
+       */
+      Models::CancelAgentTaskResponse cancelAgentTask(const Models::CancelAgentTaskRequest &request);
+
+      /**
        * @summary 修改云手机矩阵的配置
        *
        * @param request ChangeCloudPhoneNodeRequest

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(NodeIds, nodeIds_);
+      DARABONBA_PTR_TO_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(NodeIds, nodeIds_);
+      DARABONBA_PTR_FROM_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->autoRenew_ == nullptr && this->nodeIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->nodeIds_ == nullptr && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
+        && this->promotionId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -63,6 +66,13 @@ namespace Models
     inline vector<string> getNodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
     inline RenewCloudPhoneNodesRequest& setNodeIds(const vector<string> & nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
     inline RenewCloudPhoneNodesRequest& setNodeIds(vector<string> && nodeIds) { DARABONBA_PTR_SET_RVALUE(nodeIds_, nodeIds) };
+
+
+    // paidCallBackUrl Field Functions 
+    bool hasPaidCallBackUrl() const { return this->paidCallBackUrl_ != nullptr;};
+    void deletePaidCallBackUrl() { this->paidCallBackUrl_ = nullptr;};
+    inline string getPaidCallBackUrl() const { DARABONBA_PTR_GET_DEFAULT(paidCallBackUrl_, "") };
+    inline RenewCloudPhoneNodesRequest& setPaidCallBackUrl(string paidCallBackUrl) { DARABONBA_PTR_SET_VALUE(paidCallBackUrl_, paidCallBackUrl) };
 
 
     // period Field Functions 
@@ -97,6 +107,7 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     // The cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
+    shared_ptr<string> paidCallBackUrl_ {};
     // The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
     // 
     // *   When `PeriodUnit` is set to **year**: 1.

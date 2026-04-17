@@ -21,6 +21,9 @@
 #include <alibabacloud/models/BatchGetAcpConnectionTicketRequest.hpp>
 #include <alibabacloud/models/BatchGetAcpConnectionTicketResponseBody.hpp>
 #include <alibabacloud/models/BatchGetAcpConnectionTicketResponse.hpp>
+#include <alibabacloud/models/CancelAgentTaskRequest.hpp>
+#include <alibabacloud/models/CancelAgentTaskResponseBody.hpp>
+#include <alibabacloud/models/CancelAgentTaskResponse.hpp>
 #include <alibabacloud/models/ChangeCloudPhoneNodeRequest.hpp>
 #include <alibabacloud/models/ChangeCloudPhoneNodeResponseBody.hpp>
 #include <alibabacloud/models/ChangeCloudPhoneNodeResponse.hpp>

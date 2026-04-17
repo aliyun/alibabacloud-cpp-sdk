@@ -37,10 +37,12 @@ namespace Models
     class ChildTaskInfo : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ChildTaskInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(AppId, appId_);
         DARABONBA_PTR_TO_JSON(ChildTaskId, childTaskId_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       };
       friend void from_json(const Darabonba::Json& j, ChildTaskInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(AppId, appId_);
         DARABONBA_PTR_FROM_JSON(ChildTaskId, childTaskId_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       };
@@ -55,8 +57,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->childTaskId_ == nullptr
-        && this->instanceId_ == nullptr; };
+      virtual bool empty() const override { return this->appId_ == nullptr
+        && this->childTaskId_ == nullptr && this->instanceId_ == nullptr; };
+      // appId Field Functions 
+      bool hasAppId() const { return this->appId_ != nullptr;};
+      void deleteAppId() { this->appId_ = nullptr;};
+      inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+      inline ChildTaskInfo& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
       // childTaskId Field Functions 
       bool hasChildTaskId() const { return this->childTaskId_ != nullptr;};
       void deleteChildTaskId() { this->childTaskId_ = nullptr;};
@@ -72,6 +81,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> appId_ {};
       shared_ptr<string> childTaskId_ {};
       shared_ptr<string> instanceId_ {};
     };

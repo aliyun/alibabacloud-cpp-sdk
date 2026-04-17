@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(NodeIds, nodeIds_);
+      DARABONBA_PTR_TO_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_TO_JSON(PhoneDataVolume, phoneDataVolume_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(ShareDataVolume, shareDataVolume_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(NodeIds, nodeIds_);
+      DARABONBA_PTR_FROM_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_FROM_JSON(PhoneDataVolume, phoneDataVolume_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(ShareDataVolume, shareDataVolume_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->bizRegionId_ == nullptr && this->nodeIds_ == nullptr && this->phoneDataVolume_ == nullptr && this->promotionId_ == nullptr && this->shareDataVolume_ == nullptr; };
+        && this->bizRegionId_ == nullptr && this->nodeIds_ == nullptr && this->paidCallBackUrl_ == nullptr && this->phoneDataVolume_ == nullptr && this->promotionId_ == nullptr
+        && this->shareDataVolume_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -63,6 +66,13 @@ namespace Models
     inline vector<string> getNodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
     inline ExpandDataVolumeRequest& setNodeIds(const vector<string> & nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
     inline ExpandDataVolumeRequest& setNodeIds(vector<string> && nodeIds) { DARABONBA_PTR_SET_RVALUE(nodeIds_, nodeIds) };
+
+
+    // paidCallBackUrl Field Functions 
+    bool hasPaidCallBackUrl() const { return this->paidCallBackUrl_ != nullptr;};
+    void deletePaidCallBackUrl() { this->paidCallBackUrl_ = nullptr;};
+    inline string getPaidCallBackUrl() const { DARABONBA_PTR_GET_DEFAULT(paidCallBackUrl_, "") };
+    inline ExpandDataVolumeRequest& setPaidCallBackUrl(string paidCallBackUrl) { DARABONBA_PTR_SET_VALUE(paidCallBackUrl_, paidCallBackUrl) };
 
 
     // phoneDataVolume Field Functions 
@@ -90,6 +100,7 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<vector<string>> nodeIds_ {};
+    shared_ptr<string> paidCallBackUrl_ {};
     shared_ptr<int32_t> phoneDataVolume_ {};
     shared_ptr<string> promotionId_ {};
     shared_ptr<int32_t> shareDataVolume_ {};

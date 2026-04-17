@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NetworkInfo, networkInfo_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
+      DARABONBA_PTR_TO_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PhoneCount, phoneCount_);
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NetworkInfo, networkInfo_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
+      DARABONBA_PTR_FROM_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PhoneCount, phoneCount_);
@@ -303,9 +305,10 @@ namespace Models
         && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr
         && this->count_ == nullptr && this->displayConfig_ == nullptr && this->downBandwidthLimit_ == nullptr && this->imageId_ == nullptr && this->instanceType_ == nullptr
         && this->isSingleImgDisk_ == nullptr && this->networkId_ == nullptr && this->networkInfo_ == nullptr && this->networkType_ == nullptr && this->nodeName_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->phoneCount_ == nullptr && this->phoneDataVolume_ == nullptr && this->promotionId_ == nullptr
-        && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->serverShareDataVolume_ == nullptr && this->serverType_ == nullptr && this->streamMode_ == nullptr
-        && this->swapSize_ == nullptr && this->tag_ == nullptr && this->upBandwidthLimit_ == nullptr && this->useTemplate_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->phoneCount_ == nullptr && this->phoneDataVolume_ == nullptr
+        && this->promotionId_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->serverShareDataVolume_ == nullptr && this->serverType_ == nullptr
+        && this->streamMode_ == nullptr && this->swapSize_ == nullptr && this->tag_ == nullptr && this->upBandwidthLimit_ == nullptr && this->useTemplate_ == nullptr
+        && this->vSwitchId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -420,6 +423,13 @@ namespace Models
     void deleteNodeName() { this->nodeName_ = nullptr;};
     inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
     inline CreateCloudPhoneNodeRequest& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
+
+
+    // paidCallBackUrl Field Functions 
+    bool hasPaidCallBackUrl() const { return this->paidCallBackUrl_ != nullptr;};
+    void deletePaidCallBackUrl() { this->paidCallBackUrl_ = nullptr;};
+    inline string getPaidCallBackUrl() const { DARABONBA_PTR_GET_DEFAULT(paidCallBackUrl_, "") };
+    inline CreateCloudPhoneNodeRequest& setPaidCallBackUrl(string paidCallBackUrl) { DARABONBA_PTR_SET_VALUE(paidCallBackUrl_, paidCallBackUrl) };
 
 
     // period Field Functions 
@@ -572,6 +582,7 @@ namespace Models
     shared_ptr<string> networkType_ {};
     // The name of the cloud phone matrix.
     shared_ptr<string> nodeName_ {};
+    shared_ptr<string> paidCallBackUrl_ {};
     // The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
     // 
     // *   When `PeriodUnit` is set to **year**: 1.

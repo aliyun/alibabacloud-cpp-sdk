@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RenewAndroidInstanceGroupsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(InstanceGroupIds, instanceGroupIds_);
+      DARABONBA_PTR_TO_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RenewAndroidInstanceGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(InstanceGroupIds, instanceGroupIds_);
+      DARABONBA_PTR_FROM_JSON(PaidCallBackUrl, paidCallBackUrl_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->instanceGroupIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
+        && this->instanceGroupIds_ == nullptr && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -54,6 +56,13 @@ namespace Models
     inline vector<string> getInstanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
     inline RenewAndroidInstanceGroupsRequest& setInstanceGroupIds(const vector<string> & instanceGroupIds) { DARABONBA_PTR_SET_VALUE(instanceGroupIds_, instanceGroupIds) };
     inline RenewAndroidInstanceGroupsRequest& setInstanceGroupIds(vector<string> && instanceGroupIds) { DARABONBA_PTR_SET_RVALUE(instanceGroupIds_, instanceGroupIds) };
+
+
+    // paidCallBackUrl Field Functions 
+    bool hasPaidCallBackUrl() const { return this->paidCallBackUrl_ != nullptr;};
+    void deletePaidCallBackUrl() { this->paidCallBackUrl_ = nullptr;};
+    inline string getPaidCallBackUrl() const { DARABONBA_PTR_GET_DEFAULT(paidCallBackUrl_, "") };
+    inline RenewAndroidInstanceGroupsRequest& setPaidCallBackUrl(string paidCallBackUrl) { DARABONBA_PTR_SET_VALUE(paidCallBackUrl_, paidCallBackUrl) };
 
 
     // period Field Functions 
@@ -87,6 +96,7 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // The IDs of the instance groups.
     shared_ptr<vector<string>> instanceGroupIds_ {};
+    shared_ptr<string> paidCallBackUrl_ {};
     // The duration of the renewal, measured in units defined by PeriodUnit.
     shared_ptr<int32_t> period_ {};
     // The unit of the renewal duration. Default value: Month.

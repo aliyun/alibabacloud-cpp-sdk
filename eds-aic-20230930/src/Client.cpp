@@ -408,6 +408,48 @@ BatchGetAcpConnectionTicketResponse Client::batchGetAcpConnectionTicket(const Ba
 }
 
 /**
+ * @summary 取消云手机实例上正在运行的Agent任务。
+ *
+ * @param request CancelAgentTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelAgentTaskResponse
+ */
+CancelAgentTaskResponse Client::cancelAgentTaskWithOptions(const CancelAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskIds()) {
+    query["TaskIds"] = request.getTaskIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelAgentTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelAgentTaskResponse>();
+}
+
+/**
+ * @summary 取消云手机实例上正在运行的Agent任务。
+ *
+ * @param request CancelAgentTaskRequest
+ * @return CancelAgentTaskResponse
+ */
+CancelAgentTaskResponse Client::cancelAgentTask(const CancelAgentTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelAgentTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改云手机矩阵的配置
  *
  * @param request ChangeCloudPhoneNodeRequest
@@ -901,6 +943,10 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNodeWithOptions(const Creat
 
   if (!!request.hasNodeName()) {
     query["NodeName"] = request.getNodeName();
+  }
+
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
   }
 
   if (!!request.hasPeriod()) {
@@ -3211,6 +3257,10 @@ ExpandDataVolumeResponse Client::expandDataVolumeWithOptions(const ExpandDataVol
     query["NodeIds"] = request.getNodeIds();
   }
 
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
+  }
+
   if (!!request.hasPhoneDataVolume()) {
     query["PhoneDataVolume"] = request.getPhoneDataVolume();
   }
@@ -3271,6 +3321,10 @@ ExpandPhoneDataVolumeResponse Client::expandPhoneDataVolumeWithOptions(const Exp
 
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
   }
 
   if (!!request.hasPhoneDataVolume()) {
@@ -4793,6 +4847,10 @@ RenewAndroidInstanceGroupsResponse Client::renewAndroidInstanceGroupsWithOptions
     query["InstanceGroupIds"] = request.getInstanceGroupIds();
   }
 
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
+  }
+
   if (!!request.hasPeriod()) {
     query["Period"] = request.getPeriod();
   }
@@ -4845,6 +4903,10 @@ RenewCloudPhoneNodesResponse Client::renewCloudPhoneNodesWithOptions(const Renew
   json query = {};
   if (!!request.hasAutoPay()) {
     query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
   }
 
   if (!!request.hasPromotionId()) {
@@ -5911,6 +5973,10 @@ UpgradeAndroidInstanceGroupResponse Client::upgradeAndroidInstanceGroupWithOptio
 
   if (!!request.hasInstanceGroupId()) {
     query["InstanceGroupId"] = request.getInstanceGroupId();
+  }
+
+  if (!!request.hasPaidCallBackUrl()) {
+    query["PaidCallBackUrl"] = request.getPaidCallBackUrl();
   }
 
   if (!!request.hasPromotionId()) {
