@@ -5,9 +5,15 @@
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
+#include <alibabacloud/models/CheckCreateLindormV2InstanceRequest.hpp>
+#include <alibabacloud/models/CheckCreateLindormV2InstanceResponseBody.hpp>
+#include <alibabacloud/models/CheckCreateLindormV2InstanceResponse.hpp>
 #include <alibabacloud/models/CheckLdpsColumnarIndexStatusRequest.hpp>
 #include <alibabacloud/models/CheckLdpsColumnarIndexStatusResponseBody.hpp>
 #include <alibabacloud/models/CheckLdpsColumnarIndexStatusResponse.hpp>
+#include <alibabacloud/models/CreateAdditionalVpcLinkRequest.hpp>
+#include <alibabacloud/models/CreateAdditionalVpcLinkResponseBody.hpp>
+#include <alibabacloud/models/CreateAdditionalVpcLinkResponse.hpp>
 #include <alibabacloud/models/CreateAutoScalingConfigRequest.hpp>
 #include <alibabacloud/models/CreateAutoScalingConfigShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAutoScalingConfigResponseBody.hpp>

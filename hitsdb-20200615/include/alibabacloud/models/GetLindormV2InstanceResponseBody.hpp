@@ -200,6 +200,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ConnectAddressList, connectAddressList_);
         DARABONBA_PTR_TO_JSON(EnableBackup, enableBackup_);
         DARABONBA_PTR_TO_JSON(EnableCDC, enableCDC_);
+        DARABONBA_PTR_TO_JSON(EnableMaaS, enableMaaS_);
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(IsLastVersion, isLastVersion_);
         DARABONBA_PTR_TO_JSON(LatestVersion, latestVersion_);
@@ -210,6 +211,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ConnectAddressList, connectAddressList_);
         DARABONBA_PTR_FROM_JSON(EnableBackup, enableBackup_);
         DARABONBA_PTR_FROM_JSON(EnableCDC, enableCDC_);
+        DARABONBA_PTR_FROM_JSON(EnableMaaS, enableMaaS_);
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(IsLastVersion, isLastVersion_);
         DARABONBA_PTR_FROM_JSON(LatestVersion, latestVersion_);
@@ -424,8 +426,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->connectAddressList_ == nullptr
-        && this->enableBackup_ == nullptr && this->enableCDC_ == nullptr && this->engine_ == nullptr && this->isLastVersion_ == nullptr && this->latestVersion_ == nullptr
-        && this->nodeGroup_ == nullptr && this->version_ == nullptr; };
+        && this->enableBackup_ == nullptr && this->enableCDC_ == nullptr && this->enableMaaS_ == nullptr && this->engine_ == nullptr && this->isLastVersion_ == nullptr
+        && this->latestVersion_ == nullptr && this->nodeGroup_ == nullptr && this->version_ == nullptr; };
       // connectAddressList Field Functions 
       bool hasConnectAddressList() const { return this->connectAddressList_ != nullptr;};
       void deleteConnectAddressList() { this->connectAddressList_ = nullptr;};
@@ -447,6 +449,13 @@ namespace Models
       void deleteEnableCDC() { this->enableCDC_ = nullptr;};
       inline string getEnableCDC() const { DARABONBA_PTR_GET_DEFAULT(enableCDC_, "") };
       inline EngineList& setEnableCDC(string enableCDC) { DARABONBA_PTR_SET_VALUE(enableCDC_, enableCDC) };
+
+
+      // enableMaaS Field Functions 
+      bool hasEnableMaaS() const { return this->enableMaaS_ != nullptr;};
+      void deleteEnableMaaS() { this->enableMaaS_ = nullptr;};
+      inline string getEnableMaaS() const { DARABONBA_PTR_GET_DEFAULT(enableMaaS_, "") };
+      inline EngineList& setEnableMaaS(string enableMaaS) { DARABONBA_PTR_SET_VALUE(enableMaaS_, enableMaaS) };
 
 
       // engine Field Functions 
@@ -490,6 +499,7 @@ namespace Models
       shared_ptr<vector<EngineList::ConnectAddressList>> connectAddressList_ {};
       shared_ptr<string> enableBackup_ {};
       shared_ptr<string> enableCDC_ {};
+      shared_ptr<string> enableMaaS_ {};
       shared_ptr<string> engine_ {};
       shared_ptr<bool> isLastVersion_ {};
       shared_ptr<string> latestVersion_ {};

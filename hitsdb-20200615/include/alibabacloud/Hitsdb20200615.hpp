@@ -38,6 +38,23 @@ namespace Hitsdb20200615
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
+       * @summary Lindormv2创建预校验
+       *
+       * @param request CheckCreateLindormV2InstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckCreateLindormV2InstanceResponse
+       */
+      Models::CheckCreateLindormV2InstanceResponse checkCreateLindormV2InstanceWithOptions(const Models::CheckCreateLindormV2InstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lindormv2创建预校验
+       *
+       * @param request CheckCreateLindormV2InstanceRequest
+       * @return CheckCreateLindormV2InstanceResponse
+       */
+      Models::CheckCreateLindormV2InstanceResponse checkCreateLindormV2Instance(const Models::CheckCreateLindormV2InstanceRequest &request);
+
+      /**
        * @param request CheckLdpsColumnarIndexStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckLdpsColumnarIndexStatusResponse
@@ -49,6 +66,23 @@ namespace Hitsdb20200615
        * @return CheckLdpsColumnarIndexStatusResponse
        */
       Models::CheckLdpsColumnarIndexStatusResponse checkLdpsColumnarIndexStatus(const Models::CheckLdpsColumnarIndexStatusRequest &request);
+
+      /**
+       * @summary vpc打通
+       *
+       * @param request CreateAdditionalVpcLinkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAdditionalVpcLinkResponse
+       */
+      Models::CreateAdditionalVpcLinkResponse createAdditionalVpcLinkWithOptions(const Models::CreateAdditionalVpcLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary vpc打通
+       *
+       * @param request CreateAdditionalVpcLinkRequest
+       * @return CreateAdditionalVpcLinkResponse
+       */
+      Models::CreateAdditionalVpcLinkResponse createAdditionalVpcLink(const Models::CreateAdditionalVpcLinkRequest &request);
 
       /**
        * @summary 创建弹性伸缩配置
@@ -919,7 +953,7 @@ namespace Hitsdb20200615
       Models::SwitchLSQLV3MySQLServiceResponse switchLSQLV3MySQLService(const Models::SwitchLSQLV3MySQLServiceRequest &request);
 
       /**
-       * @summary Associates tags with a single or multiple Lindorm instances.
+       * @summary Adds tags to one or more Lindorm instances.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -928,7 +962,7 @@ namespace Hitsdb20200615
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates tags with a single or multiple Lindorm instances.
+       * @summary Adds tags to one or more Lindorm instances.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse

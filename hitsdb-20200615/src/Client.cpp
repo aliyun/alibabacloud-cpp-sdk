@@ -86,6 +86,132 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary Lindormv2创建预校验
+ *
+ * @param request CheckCreateLindormV2InstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckCreateLindormV2InstanceResponse
+ */
+CheckCreateLindormV2InstanceResponse Client::checkCreateLindormV2InstanceWithOptions(const CheckCreateLindormV2InstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArbiterVSwitchId()) {
+    query["ArbiterVSwitchId"] = request.getArbiterVSwitchId();
+  }
+
+  if (!!request.hasArbiterZoneId()) {
+    query["ArbiterZoneId"] = request.getArbiterZoneId();
+  }
+
+  if (!!request.hasArchVersion()) {
+    query["ArchVersion"] = request.getArchVersion();
+  }
+
+  if (!!request.hasCloudStorageSize()) {
+    query["CloudStorageSize"] = request.getCloudStorageSize();
+  }
+
+  if (!!request.hasCloudStorageType()) {
+    query["CloudStorageType"] = request.getCloudStorageType();
+  }
+
+  if (!!request.hasClusterPattern()) {
+    query["ClusterPattern"] = request.getClusterPattern();
+  }
+
+  if (!!request.hasEngineList()) {
+    query["EngineList"] = request.getEngineList();
+  }
+
+  if (!!request.hasInstanceAlias()) {
+    query["InstanceAlias"] = request.getInstanceAlias();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPrimaryVSwitchId()) {
+    query["PrimaryVSwitchId"] = request.getPrimaryVSwitchId();
+  }
+
+  if (!!request.hasPrimaryZoneId()) {
+    query["PrimaryZoneId"] = request.getPrimaryZoneId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStandbyVSwitchId()) {
+    query["StandbyVSwitchId"] = request.getStandbyVSwitchId();
+  }
+
+  if (!!request.hasStandbyZoneId()) {
+    query["StandbyZoneId"] = request.getStandbyZoneId();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckCreateLindormV2Instance"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckCreateLindormV2InstanceResponse>();
+}
+
+/**
+ * @summary Lindormv2创建预校验
+ *
+ * @param request CheckCreateLindormV2InstanceRequest
+ * @return CheckCreateLindormV2InstanceResponse
+ */
+CheckCreateLindormV2InstanceResponse Client::checkCreateLindormV2Instance(const CheckCreateLindormV2InstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkCreateLindormV2InstanceWithOptions(request, runtime);
+}
+
+/**
  * @param request CheckLdpsColumnarIndexStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckLdpsColumnarIndexStatusResponse
@@ -141,6 +267,64 @@ CheckLdpsColumnarIndexStatusResponse Client::checkLdpsColumnarIndexStatusWithOpt
 CheckLdpsColumnarIndexStatusResponse Client::checkLdpsColumnarIndexStatus(const CheckLdpsColumnarIndexStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkLdpsColumnarIndexStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary vpc打通
+ *
+ * @param request CreateAdditionalVpcLinkRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAdditionalVpcLinkResponse
+ */
+CreateAdditionalVpcLinkResponse Client::createAdditionalVpcLinkWithOptions(const CreateAdditionalVpcLinkRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAdditionalVpcId()) {
+    query["AdditionalVpcId"] = request.getAdditionalVpcId();
+  }
+
+  if (!!request.hasAdditionalVswitchId()) {
+    query["AdditionalVswitchId"] = request.getAdditionalVswitchId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAdditionalVpcLink"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAdditionalVpcLinkResponse>();
+}
+
+/**
+ * @summary vpc打通
+ *
+ * @param request CreateAdditionalVpcLinkRequest
+ * @return CreateAdditionalVpcLinkResponse
+ */
+CreateAdditionalVpcLinkResponse Client::createAdditionalVpcLink(const CreateAdditionalVpcLinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAdditionalVpcLinkWithOptions(request, runtime);
 }
 
 /**
@@ -4270,7 +4454,7 @@ SwitchLSQLV3MySQLServiceResponse Client::switchLSQLV3MySQLService(const SwitchLS
 }
 
 /**
- * @summary Associates tags with a single or multiple Lindorm instances.
+ * @summary Adds tags to one or more Lindorm instances.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4333,7 +4517,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Associates tags with a single or multiple Lindorm instances.
+ * @summary Adds tags to one or more Lindorm instances.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
