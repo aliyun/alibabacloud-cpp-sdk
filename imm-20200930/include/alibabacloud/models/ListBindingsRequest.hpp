@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListBindingsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
     };
     friend void from_json(const Darabonba::Json& j, ListBindingsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->projectName_ == nullptr; };
+        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->projectName_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListBindingsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ListBindingsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nextToken Field Functions 
@@ -71,6 +80,7 @@ namespace Models
     // *   The maximum number of bindings to return. Valid values: 0 to 200.
     // *   If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
     shared_ptr<int64_t> maxResults_ {};
+    shared_ptr<string> name_ {};
     // *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
     // *   The next call to the operation returns results lexicographically after the NextToken parameter value.
     // *   You do not need to specify this parameter in your initial request.

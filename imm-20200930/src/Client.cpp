@@ -6198,6 +6198,10 @@ ListBindingsResponse Client::listBindingsWithOptions(const ListBindingsRequest &
     query["MaxResults"] = request.getMaxResults();
   }
 
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
   }
