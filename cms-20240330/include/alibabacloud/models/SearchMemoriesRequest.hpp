@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(rerank, rerank_);
       DARABONBA_PTR_TO_JSON(retrieveLevel, retrieveLevel_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
+      DARABONBA_PTR_TO_JSON(searchType, searchType_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
       DARABONBA_PTR_TO_JSON(topK, topK_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(rerank, rerank_);
       DARABONBA_PTR_FROM_JSON(retrieveLevel, retrieveLevel_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
+      DARABONBA_PTR_FROM_JSON(searchType, searchType_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
       DARABONBA_PTR_FROM_JSON(topK, topK_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
         && this->appId_ == nullptr && this->filters_ == nullptr && this->query_ == nullptr && this->rerank_ == nullptr && this->retrieveLevel_ == nullptr
-        && this->runId_ == nullptr && this->threshold_ == nullptr && this->topK_ == nullptr && this->userId_ == nullptr; };
+        && this->runId_ == nullptr && this->searchType_ == nullptr && this->threshold_ == nullptr && this->topK_ == nullptr && this->userId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -101,6 +103,13 @@ namespace Models
     inline SearchMemoriesRequest& setRunId(string runId) { DARABONBA_PTR_SET_VALUE(runId_, runId) };
 
 
+    // searchType Field Functions 
+    bool hasSearchType() const { return this->searchType_ != nullptr;};
+    void deleteSearchType() { this->searchType_ = nullptr;};
+    inline string getSearchType() const { DARABONBA_PTR_GET_DEFAULT(searchType_, "") };
+    inline SearchMemoriesRequest& setSearchType(string searchType) { DARABONBA_PTR_SET_VALUE(searchType_, searchType) };
+
+
     // threshold Field Functions 
     bool hasThreshold() const { return this->threshold_ != nullptr;};
     void deleteThreshold() { this->threshold_ = nullptr;};
@@ -130,6 +139,7 @@ namespace Models
     shared_ptr<bool> rerank_ {};
     shared_ptr<string> retrieveLevel_ {};
     shared_ptr<string> runId_ {};
+    shared_ptr<string> searchType_ {};
     shared_ptr<double> threshold_ {};
     shared_ptr<int32_t> topK_ {};
     shared_ptr<string> userId_ {};

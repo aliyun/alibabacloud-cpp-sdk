@@ -6083,6 +6083,10 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspace
     body["runId"] = request.getRunId();
   }
 
+  if (!!request.hasSearchType()) {
+    body["searchType"] = request.getSearchType();
+  }
+
   if (!!request.hasThreshold()) {
     body["threshold"] = request.getThreshold();
   }
