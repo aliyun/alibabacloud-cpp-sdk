@@ -14093,8 +14093,16 @@ MigrateDesktopsResponse Client::migrateDesktopsWithOptions(const MigrateDesktops
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTargetMemberIp()) {
+    query["TargetMemberIp"] = request.getTargetMemberIp();
+  }
+
   if (!!request.hasTargetOfficeSiteId()) {
     query["TargetOfficeSiteId"] = request.getTargetOfficeSiteId();
+  }
+
+  if (!!request.hasTargetSubnetId()) {
+    query["TargetSubnetId"] = request.getTargetSubnetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
