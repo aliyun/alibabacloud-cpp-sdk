@@ -3841,13 +3841,23 @@ CreateDiagnosticMetricSetResponse Client::createDiagnosticMetricSet(const Create
 /**
  * @summary Creates a diagnostic report for a resource. When you call this operation, you can configure the MetricSetId parameter to create a diagnostic report based on the specified diagnostic metric set. Then, you can call the DescribeDiagnosticReportAttributes operation based on the returned diagnostic report ID to view the details of the diagnostic report.
  *
- * @param request CreateDiagnosticReportRequest
+ * @param tmpReq CreateDiagnosticReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDiagnosticReportResponse
  */
-CreateDiagnosticReportResponse Client::createDiagnosticReportWithOptions(const CreateDiagnosticReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateDiagnosticReportResponse Client::createDiagnosticReportWithOptions(const CreateDiagnosticReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDiagnosticReportShrinkRequest request = CreateDiagnosticReportShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAdditionalOptions()) {
+    request.setAdditionalOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAdditionalOptions(), "AdditionalOptions", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAdditionalOptionsShrink()) {
+    query["AdditionalOptions"] = request.getAdditionalOptionsShrink();
+  }
+
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
   }

@@ -118,6 +118,7 @@
 #include <alibabacloud/models/CreateDiagnosticMetricSetResponseBody.hpp>
 #include <alibabacloud/models/CreateDiagnosticMetricSetResponse.hpp>
 #include <alibabacloud/models/CreateDiagnosticReportRequest.hpp>
+#include <alibabacloud/models/CreateDiagnosticReportShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDiagnosticReportResponseBody.hpp>
 #include <alibabacloud/models/CreateDiagnosticReportResponse.hpp>
 #include <alibabacloud/models/CreateDiskRequest.hpp>
