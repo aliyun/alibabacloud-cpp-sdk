@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclOperationType_ == nullptr
-        && return this->aclOperationTypes_ == nullptr && return this->aclPermissionType_ == nullptr && return this->aclResourceName_ == nullptr && return this->aclResourcePatternType_ == nullptr && return this->aclResourceType_ == nullptr
-        && return this->host_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->username_ == nullptr; };
+        && this->aclOperationTypes_ == nullptr && this->aclPermissionType_ == nullptr && this->aclResourceName_ == nullptr && this->aclResourcePatternType_ == nullptr && this->aclResourceType_ == nullptr
+        && this->host_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->username_ == nullptr; };
     // aclOperationType Field Functions 
     bool hasAclOperationType() const { return this->aclOperationType_ != nullptr;};
     void deleteAclOperationType() { this->aclOperationType_ = nullptr;};
-    inline string aclOperationType() const { DARABONBA_PTR_GET_DEFAULT(aclOperationType_, "") };
+    inline string getAclOperationType() const { DARABONBA_PTR_GET_DEFAULT(aclOperationType_, "") };
     inline DeleteAclRequest& setAclOperationType(string aclOperationType) { DARABONBA_PTR_SET_VALUE(aclOperationType_, aclOperationType) };
 
 
     // aclOperationTypes Field Functions 
     bool hasAclOperationTypes() const { return this->aclOperationTypes_ != nullptr;};
     void deleteAclOperationTypes() { this->aclOperationTypes_ = nullptr;};
-    inline string aclOperationTypes() const { DARABONBA_PTR_GET_DEFAULT(aclOperationTypes_, "") };
+    inline string getAclOperationTypes() const { DARABONBA_PTR_GET_DEFAULT(aclOperationTypes_, "") };
     inline DeleteAclRequest& setAclOperationTypes(string aclOperationTypes) { DARABONBA_PTR_SET_VALUE(aclOperationTypes_, aclOperationTypes) };
 
 
     // aclPermissionType Field Functions 
     bool hasAclPermissionType() const { return this->aclPermissionType_ != nullptr;};
     void deleteAclPermissionType() { this->aclPermissionType_ = nullptr;};
-    inline string aclPermissionType() const { DARABONBA_PTR_GET_DEFAULT(aclPermissionType_, "") };
+    inline string getAclPermissionType() const { DARABONBA_PTR_GET_DEFAULT(aclPermissionType_, "") };
     inline DeleteAclRequest& setAclPermissionType(string aclPermissionType) { DARABONBA_PTR_SET_VALUE(aclPermissionType_, aclPermissionType) };
 
 
     // aclResourceName Field Functions 
     bool hasAclResourceName() const { return this->aclResourceName_ != nullptr;};
     void deleteAclResourceName() { this->aclResourceName_ = nullptr;};
-    inline string aclResourceName() const { DARABONBA_PTR_GET_DEFAULT(aclResourceName_, "") };
+    inline string getAclResourceName() const { DARABONBA_PTR_GET_DEFAULT(aclResourceName_, "") };
     inline DeleteAclRequest& setAclResourceName(string aclResourceName) { DARABONBA_PTR_SET_VALUE(aclResourceName_, aclResourceName) };
 
 
     // aclResourcePatternType Field Functions 
     bool hasAclResourcePatternType() const { return this->aclResourcePatternType_ != nullptr;};
     void deleteAclResourcePatternType() { this->aclResourcePatternType_ = nullptr;};
-    inline string aclResourcePatternType() const { DARABONBA_PTR_GET_DEFAULT(aclResourcePatternType_, "") };
+    inline string getAclResourcePatternType() const { DARABONBA_PTR_GET_DEFAULT(aclResourcePatternType_, "") };
     inline DeleteAclRequest& setAclResourcePatternType(string aclResourcePatternType) { DARABONBA_PTR_SET_VALUE(aclResourcePatternType_, aclResourcePatternType) };
 
 
     // aclResourceType Field Functions 
     bool hasAclResourceType() const { return this->aclResourceType_ != nullptr;};
     void deleteAclResourceType() { this->aclResourceType_ = nullptr;};
-    inline string aclResourceType() const { DARABONBA_PTR_GET_DEFAULT(aclResourceType_, "") };
+    inline string getAclResourceType() const { DARABONBA_PTR_GET_DEFAULT(aclResourceType_, "") };
     inline DeleteAclRequest& setAclResourceType(string aclResourceType) { DARABONBA_PTR_SET_VALUE(aclResourceType_, aclResourceType) };
 
 
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline DeleteAclRequest& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteAclRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteAclRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline DeleteAclRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
@@ -131,7 +131,7 @@ namespace Models
     // *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclOperationType_ = nullptr;
+    shared_ptr<string> aclOperationType_ {};
     // The types of operations allowed by the ACL. Separate multiple operations with commas (,).
     // 
     // Valid values:
@@ -144,28 +144,28 @@ namespace Models
     // *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
     // 
     // >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
-    std::shared_ptr<string> aclOperationTypes_ = nullptr;
+    shared_ptr<string> aclOperationTypes_ {};
     // The authorization method. Valid values:
     // 
     // *   Deny
     // *   ALLOW
     // 
     // >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
-    std::shared_ptr<string> aclPermissionType_ = nullptr;
+    shared_ptr<string> aclPermissionType_ {};
     // The name of the resource.
     // 
     // *   The value can be the name of a topic or consumer group.
     // *   You can use an asterisk (\\*) to indicate the names of all topics or consumer groups.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclResourceName_ = nullptr;
+    shared_ptr<string> aclResourceName_ {};
     // The mode that is used to match resources. Valid values:
     // 
     // *   **LITERAL:** full match
     // *   **PREFIXED**: prefix match
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclResourcePatternType_ = nullptr;
+    shared_ptr<string> aclResourcePatternType_ {};
     // The resource type. Valid values:
     // 
     // *   **Topic**: topic
@@ -174,7 +174,7 @@ namespace Models
     // *   **TransactionalId**: transactional ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclResourceType_ = nullptr;
+    shared_ptr<string> aclResourceType_ {};
     // The IP address of the source.
     // 
     // > 
@@ -182,19 +182,19 @@ namespace Models
     // *   You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
     // 
     // *   This parameter is available only for serverless ApsaraMQ for Kafka instances.
-    std::shared_ptr<string> host_ = nullptr;
+    shared_ptr<string> host_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the user.
     // 
     // This parameter is required.
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diskSize_ == nullptr
-        && return this->eipMax_ == nullptr && return this->eipModel_ == nullptr && return this->instanceId_ == nullptr && return this->ioMax_ == nullptr && return this->ioMaxSpec_ == nullptr
-        && return this->partitionNum_ == nullptr && return this->regionId_ == nullptr && return this->serverlessConfigShrink_ == nullptr && return this->specType_ == nullptr && return this->topicQuota_ == nullptr; };
+        && this->eipMax_ == nullptr && this->eipModel_ == nullptr && this->instanceId_ == nullptr && this->ioMax_ == nullptr && this->ioMaxSpec_ == nullptr
+        && this->partitionNum_ == nullptr && this->regionId_ == nullptr && this->serverlessConfigShrink_ == nullptr && this->specType_ == nullptr && this->topicQuota_ == nullptr; };
     // diskSize Field Functions 
     bool hasDiskSize() const { return this->diskSize_ != nullptr;};
     void deleteDiskSize() { this->diskSize_ = nullptr;};
-    inline int32_t diskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
+    inline int32_t getDiskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
     inline UpgradePostPayOrderShrinkRequest& setDiskSize(int32_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
 
 
     // eipMax Field Functions 
     bool hasEipMax() const { return this->eipMax_ != nullptr;};
     void deleteEipMax() { this->eipMax_ = nullptr;};
-    inline int32_t eipMax() const { DARABONBA_PTR_GET_DEFAULT(eipMax_, 0) };
+    inline int32_t getEipMax() const { DARABONBA_PTR_GET_DEFAULT(eipMax_, 0) };
     inline UpgradePostPayOrderShrinkRequest& setEipMax(int32_t eipMax) { DARABONBA_PTR_SET_VALUE(eipMax_, eipMax) };
 
 
     // eipModel Field Functions 
     bool hasEipModel() const { return this->eipModel_ != nullptr;};
     void deleteEipModel() { this->eipModel_ = nullptr;};
-    inline bool eipModel() const { DARABONBA_PTR_GET_DEFAULT(eipModel_, false) };
+    inline bool getEipModel() const { DARABONBA_PTR_GET_DEFAULT(eipModel_, false) };
     inline UpgradePostPayOrderShrinkRequest& setEipModel(bool eipModel) { DARABONBA_PTR_SET_VALUE(eipModel_, eipModel) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpgradePostPayOrderShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ioMax Field Functions 
     bool hasIoMax() const { return this->ioMax_ != nullptr;};
     void deleteIoMax() { this->ioMax_ = nullptr;};
-    inline int32_t ioMax() const { DARABONBA_PTR_GET_DEFAULT(ioMax_, 0) };
+    inline int32_t getIoMax() const { DARABONBA_PTR_GET_DEFAULT(ioMax_, 0) };
     inline UpgradePostPayOrderShrinkRequest& setIoMax(int32_t ioMax) { DARABONBA_PTR_SET_VALUE(ioMax_, ioMax) };
 
 
     // ioMaxSpec Field Functions 
     bool hasIoMaxSpec() const { return this->ioMaxSpec_ != nullptr;};
     void deleteIoMaxSpec() { this->ioMaxSpec_ = nullptr;};
-    inline string ioMaxSpec() const { DARABONBA_PTR_GET_DEFAULT(ioMaxSpec_, "") };
+    inline string getIoMaxSpec() const { DARABONBA_PTR_GET_DEFAULT(ioMaxSpec_, "") };
     inline UpgradePostPayOrderShrinkRequest& setIoMaxSpec(string ioMaxSpec) { DARABONBA_PTR_SET_VALUE(ioMaxSpec_, ioMaxSpec) };
 
 
     // partitionNum Field Functions 
     bool hasPartitionNum() const { return this->partitionNum_ != nullptr;};
     void deletePartitionNum() { this->partitionNum_ = nullptr;};
-    inline int32_t partitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0) };
+    inline int32_t getPartitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0) };
     inline UpgradePostPayOrderShrinkRequest& setPartitionNum(int32_t partitionNum) { DARABONBA_PTR_SET_VALUE(partitionNum_, partitionNum) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpgradePostPayOrderShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serverlessConfigShrink Field Functions 
     bool hasServerlessConfigShrink() const { return this->serverlessConfigShrink_ != nullptr;};
     void deleteServerlessConfigShrink() { this->serverlessConfigShrink_ = nullptr;};
-    inline string serverlessConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(serverlessConfigShrink_, "") };
+    inline string getServerlessConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(serverlessConfigShrink_, "") };
     inline UpgradePostPayOrderShrinkRequest& setServerlessConfigShrink(string serverlessConfigShrink) { DARABONBA_PTR_SET_VALUE(serverlessConfigShrink_, serverlessConfigShrink) };
 
 
     // specType Field Functions 
     bool hasSpecType() const { return this->specType_ != nullptr;};
     void deleteSpecType() { this->specType_ = nullptr;};
-    inline string specType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
+    inline string getSpecType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
     inline UpgradePostPayOrderShrinkRequest& setSpecType(string specType) { DARABONBA_PTR_SET_VALUE(specType_, specType) };
 
 
     // topicQuota Field Functions 
     bool hasTopicQuota() const { return this->topicQuota_ != nullptr;};
     void deleteTopicQuota() { this->topicQuota_ = nullptr;};
-    inline int32_t topicQuota() const { DARABONBA_PTR_GET_DEFAULT(topicQuota_, 0) };
+    inline int32_t getTopicQuota() const { DARABONBA_PTR_GET_DEFAULT(topicQuota_, 0) };
     inline UpgradePostPayOrderShrinkRequest& setTopicQuota(int32_t topicQuota) { DARABONBA_PTR_SET_VALUE(topicQuota_, topicQuota) };
 
 
@@ -136,7 +136,7 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> diskSize_ = nullptr;
+    shared_ptr<int32_t> diskSize_ {};
     // The maximum Internet traffic of the instance.
     // 
     // *   The Internet traffic that you specify must be greater than or equal to the current Internet traffic of the instance.
@@ -149,16 +149,16 @@ namespace Models
     // *   If you set **EipModel** to **false**, set **EipMax** to **0**.
     // 
     // *   If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> eipMax_ = nullptr;
+    shared_ptr<int32_t> eipMax_ {};
     // Specifies whether to enable Internet access for the instance. Valid values:
     // 
     // *   true: enables Internet access.
     // *   false: disables Internet access.
-    std::shared_ptr<bool> eipModel_ = nullptr;
+    shared_ptr<bool> eipModel_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The maximum traffic of the instance. We recommend that you do not configure this parameter.
     // 
     // *   The maximum traffic that you specify must be greater than or equal to the current maximum traffic of the instance.
@@ -166,7 +166,7 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> ioMax_ = nullptr;
+    shared_ptr<int32_t> ioMax_ {};
     // The traffic specification of the instance. We recommend that you configure this parameter.
     // 
     // *   The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
@@ -174,7 +174,7 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
-    std::shared_ptr<string> ioMaxSpec_ = nullptr;
+    shared_ptr<string> ioMaxSpec_ {};
     // The number of partitions. We recommend that you configure this parameter.
     // 
     // *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
@@ -182,13 +182,13 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> partitionNum_ = nullptr;
+    shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The parameters that are configured for the serverless instance. These parameters are required only when you create a serverless instance.
-    std::shared_ptr<string> serverlessConfigShrink_ = nullptr;
+    shared_ptr<string> serverlessConfigShrink_ {};
     // The instance edition.
     // 
     // Valid values for this parameter if you set PaidType to 1:
@@ -202,7 +202,7 @@ namespace Models
     // *   normal: Serverless Standard Edition
     // 
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    std::shared_ptr<string> specType_ = nullptr;
+    shared_ptr<string> specType_ {};
     // The number of topics. We recommend that you do not configure this parameter.
     // 
     // *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
@@ -211,7 +211,7 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If the instance is a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> topicQuota_ = nullptr;
+    shared_ptr<int32_t> topicQuota_ {};
   };
 
   } // namespace Models

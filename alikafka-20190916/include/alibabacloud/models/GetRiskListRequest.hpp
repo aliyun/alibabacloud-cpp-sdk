@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->startIndex_ == nullptr; };
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->startIndex_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetRiskListRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline GetRiskListRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetRiskListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startIndex Field Functions 
     bool hasStartIndex() const { return this->startIndex_ != nullptr;};
     void deleteStartIndex() { this->startIndex_ = nullptr;};
-    inline int64_t startIndex() const { DARABONBA_PTR_GET_DEFAULT(startIndex_, 0L) };
+    inline int64_t getStartIndex() const { DARABONBA_PTR_GET_DEFAULT(startIndex_, 0L) };
     inline GetRiskListRequest& setStartIndex(int64_t startIndex) { DARABONBA_PTR_SET_VALUE(startIndex_, startIndex) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int64_t> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> startIndex_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> startIndex_ {};
   };
 
   } // namespace Models

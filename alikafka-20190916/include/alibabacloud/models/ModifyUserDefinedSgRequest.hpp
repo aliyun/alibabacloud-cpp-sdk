@@ -35,36 +35,36 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->sgIdList_ == nullptr; };
+        && this->regionId_ == nullptr && this->sgIdList_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyUserDefinedSgRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyUserDefinedSgRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sgIdList Field Functions 
     bool hasSgIdList() const { return this->sgIdList_ != nullptr;};
     void deleteSgIdList() { this->sgIdList_ = nullptr;};
-    inline const vector<string> & sgIdList() const { DARABONBA_PTR_GET_CONST(sgIdList_, vector<string>) };
-    inline vector<string> sgIdList() { DARABONBA_PTR_GET(sgIdList_, vector<string>) };
+    inline const vector<string> & getSgIdList() const { DARABONBA_PTR_GET_CONST(sgIdList_, vector<string>) };
+    inline vector<string> getSgIdList() { DARABONBA_PTR_GET(sgIdList_, vector<string>) };
     inline ModifyUserDefinedSgRequest& setSgIdList(const vector<string> & sgIdList) { DARABONBA_PTR_SET_VALUE(sgIdList_, sgIdList) };
     inline ModifyUserDefinedSgRequest& setSgIdList(vector<string> && sgIdList) { DARABONBA_PTR_SET_RVALUE(sgIdList_, sgIdList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<vector<string>> sgIdList_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<vector<string>> sgIdList_ {};
   };
 
   } // namespace Models

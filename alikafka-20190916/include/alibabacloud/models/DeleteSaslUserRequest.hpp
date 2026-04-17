@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->mechanism_ == nullptr && return this->regionId_ == nullptr && return this->type_ == nullptr && return this->username_ == nullptr; };
+        && this->mechanism_ == nullptr && this->regionId_ == nullptr && this->type_ == nullptr && this->username_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteSaslUserRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mechanism Field Functions 
     bool hasMechanism() const { return this->mechanism_ != nullptr;};
     void deleteMechanism() { this->mechanism_ = nullptr;};
-    inline string mechanism() const { DARABONBA_PTR_GET_DEFAULT(mechanism_, "") };
+    inline string getMechanism() const { DARABONBA_PTR_GET_DEFAULT(mechanism_, "") };
     inline DeleteSaslUserRequest& setMechanism(string mechanism) { DARABONBA_PTR_SET_VALUE(mechanism_, mechanism) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteSaslUserRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DeleteSaslUserRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline DeleteSaslUserRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
@@ -78,18 +78,18 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The encryption method. Valid values:
     // 
     // *   SCRAM-SHA-512. This is the default value.
     // *   SCRAM-SHA-256
     // 
     // >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
-    std::shared_ptr<string> mechanism_ = nullptr;
+    shared_ptr<string> mechanism_ {};
     // The ID of the region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the Simple Authentication and Security Layer (SASL) user. Valid values:
     // 
     // *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. ApsaraMQ for Kafka provides an improved PLAIN mechanism that allows you to dynamically add SASL users without the need to restart an instance.
@@ -97,11 +97,11 @@ namespace Models
     // *   **LDAP**: This value is available only for the SASL users of ApsaraMQ for Confluent instances.
     // 
     // Default value: **plain**.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The name of the user.
     // 
     // This parameter is required.
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
   };
 
   } // namespace Models

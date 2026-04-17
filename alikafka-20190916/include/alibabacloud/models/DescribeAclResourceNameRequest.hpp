@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclResourcePatternType_ == nullptr
-        && return this->aclResourceType_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->aclResourceType_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // aclResourcePatternType Field Functions 
     bool hasAclResourcePatternType() const { return this->aclResourcePatternType_ != nullptr;};
     void deleteAclResourcePatternType() { this->aclResourcePatternType_ = nullptr;};
-    inline string aclResourcePatternType() const { DARABONBA_PTR_GET_DEFAULT(aclResourcePatternType_, "") };
+    inline string getAclResourcePatternType() const { DARABONBA_PTR_GET_DEFAULT(aclResourcePatternType_, "") };
     inline DescribeAclResourceNameRequest& setAclResourcePatternType(string aclResourcePatternType) { DARABONBA_PTR_SET_VALUE(aclResourcePatternType_, aclResourcePatternType) };
 
 
     // aclResourceType Field Functions 
     bool hasAclResourceType() const { return this->aclResourceType_ != nullptr;};
     void deleteAclResourceType() { this->aclResourceType_ = nullptr;};
-    inline string aclResourceType() const { DARABONBA_PTR_GET_DEFAULT(aclResourceType_, "") };
+    inline string getAclResourceType() const { DARABONBA_PTR_GET_DEFAULT(aclResourceType_, "") };
     inline DescribeAclResourceNameRequest& setAclResourceType(string aclResourceType) { DARABONBA_PTR_SET_VALUE(aclResourceType_, aclResourceType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeAclResourceNameRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeAclResourceNameRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> aclResourcePatternType_ = nullptr;
+    shared_ptr<string> aclResourcePatternType_ {};
     // This parameter is required.
-    std::shared_ptr<string> aclResourceType_ = nullptr;
+    shared_ptr<string> aclResourceType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

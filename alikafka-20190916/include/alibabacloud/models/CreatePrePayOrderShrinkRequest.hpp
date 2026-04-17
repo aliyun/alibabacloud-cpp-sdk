@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEPREPAYORDERSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreatePrePayOrderShrinkRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -59,114 +58,168 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of tag N.
+      // 
+      // *   Valid values of N: 1 to 20.
+      // *   If this parameter is left empty, the keys of all tags are matched.
+      // *   The tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+      // 
+      // This parameter is required.
+      shared_ptr<string> key_ {};
+      // The value of tag N.
+      // 
+      // *   Valid values of N: 1 to 20.
+      // *   This parameter can be left empty.
+      // *   The tag value can be 1 to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->confluentConfigShrink_ == nullptr
-        && return this->deployType_ == nullptr && return this->diskSize_ == nullptr && return this->diskType_ == nullptr && return this->duration_ == nullptr && return this->eipMax_ == nullptr
-        && return this->ioMax_ == nullptr && return this->ioMaxSpec_ == nullptr && return this->paidType_ == nullptr && return this->partitionNum_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->specType_ == nullptr && return this->tag_ == nullptr && return this->topicQuota_ == nullptr; };
+        && this->deployType_ == nullptr && this->diskSize_ == nullptr && this->diskType_ == nullptr && this->duration_ == nullptr && this->eipMax_ == nullptr
+        && this->ioMax_ == nullptr && this->ioMaxSpec_ == nullptr && this->paidType_ == nullptr && this->partitionNum_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->specType_ == nullptr && this->tag_ == nullptr && this->topicQuota_ == nullptr; };
     // confluentConfigShrink Field Functions 
     bool hasConfluentConfigShrink() const { return this->confluentConfigShrink_ != nullptr;};
     void deleteConfluentConfigShrink() { this->confluentConfigShrink_ = nullptr;};
-    inline string confluentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(confluentConfigShrink_, "") };
+    inline string getConfluentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(confluentConfigShrink_, "") };
     inline CreatePrePayOrderShrinkRequest& setConfluentConfigShrink(string confluentConfigShrink) { DARABONBA_PTR_SET_VALUE(confluentConfigShrink_, confluentConfigShrink) };
 
 
     // deployType Field Functions 
     bool hasDeployType() const { return this->deployType_ != nullptr;};
     void deleteDeployType() { this->deployType_ = nullptr;};
-    inline int32_t deployType() const { DARABONBA_PTR_GET_DEFAULT(deployType_, 0) };
+    inline int32_t getDeployType() const { DARABONBA_PTR_GET_DEFAULT(deployType_, 0) };
     inline CreatePrePayOrderShrinkRequest& setDeployType(int32_t deployType) { DARABONBA_PTR_SET_VALUE(deployType_, deployType) };
 
 
     // diskSize Field Functions 
     bool hasDiskSize() const { return this->diskSize_ != nullptr;};
     void deleteDiskSize() { this->diskSize_ = nullptr;};
-    inline int32_t diskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
+    inline int32_t getDiskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
     inline CreatePrePayOrderShrinkRequest& setDiskSize(int32_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
 
 
     // diskType Field Functions 
     bool hasDiskType() const { return this->diskType_ != nullptr;};
     void deleteDiskType() { this->diskType_ = nullptr;};
-    inline string diskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
     inline CreatePrePayOrderShrinkRequest& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline CreatePrePayOrderShrinkRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // eipMax Field Functions 
     bool hasEipMax() const { return this->eipMax_ != nullptr;};
     void deleteEipMax() { this->eipMax_ = nullptr;};
-    inline int32_t eipMax() const { DARABONBA_PTR_GET_DEFAULT(eipMax_, 0) };
+    inline int32_t getEipMax() const { DARABONBA_PTR_GET_DEFAULT(eipMax_, 0) };
     inline CreatePrePayOrderShrinkRequest& setEipMax(int32_t eipMax) { DARABONBA_PTR_SET_VALUE(eipMax_, eipMax) };
 
 
     // ioMax Field Functions 
     bool hasIoMax() const { return this->ioMax_ != nullptr;};
     void deleteIoMax() { this->ioMax_ = nullptr;};
-    inline int32_t ioMax() const { DARABONBA_PTR_GET_DEFAULT(ioMax_, 0) };
+    inline int32_t getIoMax() const { DARABONBA_PTR_GET_DEFAULT(ioMax_, 0) };
     inline CreatePrePayOrderShrinkRequest& setIoMax(int32_t ioMax) { DARABONBA_PTR_SET_VALUE(ioMax_, ioMax) };
 
 
     // ioMaxSpec Field Functions 
     bool hasIoMaxSpec() const { return this->ioMaxSpec_ != nullptr;};
     void deleteIoMaxSpec() { this->ioMaxSpec_ = nullptr;};
-    inline string ioMaxSpec() const { DARABONBA_PTR_GET_DEFAULT(ioMaxSpec_, "") };
+    inline string getIoMaxSpec() const { DARABONBA_PTR_GET_DEFAULT(ioMaxSpec_, "") };
     inline CreatePrePayOrderShrinkRequest& setIoMaxSpec(string ioMaxSpec) { DARABONBA_PTR_SET_VALUE(ioMaxSpec_, ioMaxSpec) };
 
 
     // paidType Field Functions 
     bool hasPaidType() const { return this->paidType_ != nullptr;};
     void deletePaidType() { this->paidType_ = nullptr;};
-    inline int32_t paidType() const { DARABONBA_PTR_GET_DEFAULT(paidType_, 0) };
+    inline int32_t getPaidType() const { DARABONBA_PTR_GET_DEFAULT(paidType_, 0) };
     inline CreatePrePayOrderShrinkRequest& setPaidType(int32_t paidType) { DARABONBA_PTR_SET_VALUE(paidType_, paidType) };
 
 
     // partitionNum Field Functions 
     bool hasPartitionNum() const { return this->partitionNum_ != nullptr;};
     void deletePartitionNum() { this->partitionNum_ = nullptr;};
-    inline int32_t partitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0) };
+    inline int32_t getPartitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0) };
     inline CreatePrePayOrderShrinkRequest& setPartitionNum(int32_t partitionNum) { DARABONBA_PTR_SET_VALUE(partitionNum_, partitionNum) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreatePrePayOrderShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreatePrePayOrderShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // specType Field Functions 
     bool hasSpecType() const { return this->specType_ != nullptr;};
     void deleteSpecType() { this->specType_ = nullptr;};
-    inline string specType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
+    inline string getSpecType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
     inline CreatePrePayOrderShrinkRequest& setSpecType(string specType) { DARABONBA_PTR_SET_VALUE(specType_, specType) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreatePrePayOrderShrinkRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreatePrePayOrderShrinkRequestTag>) };
-    inline vector<CreatePrePayOrderShrinkRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreatePrePayOrderShrinkRequestTag>) };
-    inline CreatePrePayOrderShrinkRequest& setTag(const vector<CreatePrePayOrderShrinkRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreatePrePayOrderShrinkRequest& setTag(vector<CreatePrePayOrderShrinkRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreatePrePayOrderShrinkRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreatePrePayOrderShrinkRequest::Tag>) };
+    inline vector<CreatePrePayOrderShrinkRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreatePrePayOrderShrinkRequest::Tag>) };
+    inline CreatePrePayOrderShrinkRequest& setTag(const vector<CreatePrePayOrderShrinkRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreatePrePayOrderShrinkRequest& setTag(vector<CreatePrePayOrderShrinkRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // topicQuota Field Functions 
     bool hasTopicQuota() const { return this->topicQuota_ != nullptr;};
     void deleteTopicQuota() { this->topicQuota_ = nullptr;};
-    inline int32_t topicQuota() const { DARABONBA_PTR_GET_DEFAULT(topicQuota_, 0) };
+    inline int32_t getTopicQuota() const { DARABONBA_PTR_GET_DEFAULT(topicQuota_, 0) };
     inline CreatePrePayOrderShrinkRequest& setTopicQuota(int32_t topicQuota) { DARABONBA_PTR_SET_VALUE(topicQuota_, topicQuota) };
 
 
@@ -174,57 +227,57 @@ namespace Models
     // The configurations of Confluent.
     // 
     // >  When you create an ApsaraMQ for Confluent instance, you must configure this parameter.
-    std::shared_ptr<string> confluentConfigShrink_ = nullptr;
+    shared_ptr<string> confluentConfigShrink_ {};
     // The type of the network in which the instance is deployed. Valid values:
     // 
     // *   **4**: Internet and virtual private cloud (VPC)
     // *   **5**: VPC
     // 
     // >  If you create an ApsaraMQ for Confluent instance, set the value to 5. After the instance is created, you can specify whether to enable each component.
-    std::shared_ptr<int32_t> deployType_ = nullptr;
+    shared_ptr<int32_t> deployType_ {};
     // The disk size. Unit: GB
     // 
     // For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> diskSize_ = nullptr;
+    shared_ptr<int32_t> diskSize_ {};
     // The disk type. Valid values:
     // 
     // *   **0**: ultra disk
     // *   **1**: standard SSD
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<string> diskType_ = nullptr;
+    shared_ptr<string> diskType_ {};
     // The subscription duration. Unit: months. Default value: 1. Valid values:
     // 
     // *   **1 to 12**
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
     // The maximum Internet traffic in the instance.
     // 
     // *   If you set **DeployType** to **4**, you must configure this parameter.
     // *   For information about the valid values, see [Pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> eipMax_ = nullptr;
+    shared_ptr<int32_t> eipMax_ {};
     // The maximum traffic in the instance. We recommend that you do not configure this parameter.
     // 
     // *   You must set one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> ioMax_ = nullptr;
+    shared_ptr<int32_t> ioMax_ {};
     // The traffic specification of the instance. We recommend that you configure this parameter.
     // 
     // *   You must configure one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
     // *   For more information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<string> ioMaxSpec_ = nullptr;
+    shared_ptr<string> ioMaxSpec_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   **0**: the subscription billing method
     // *   **4**: the subscription billing method for ApsaraMQ for Confluent instances
-    std::shared_ptr<int32_t> paidType_ = nullptr;
+    shared_ptr<int32_t> paidType_ {};
     // The number of partitions. We recommend that you configure this parameter.
     // 
     // *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
@@ -232,15 +285,15 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> partitionNum_ = nullptr;
+    shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     // 
     // If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The instance edition. Valid values:
     // 
     // *   **normal**: Standard Edition (High Write)
@@ -250,9 +303,9 @@ namespace Models
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<string> specType_ = nullptr;
+    shared_ptr<string> specType_ {};
     // The tags.
-    std::shared_ptr<vector<CreatePrePayOrderShrinkRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<CreatePrePayOrderShrinkRequest::Tag>> tag_ {};
     // The number of topics. We recommend that you do not configure this parameter.
     // 
     // *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
@@ -261,7 +314,7 @@ namespace Models
     // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
     // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
-    std::shared_ptr<int32_t> topicQuota_ = nullptr;
+    shared_ptr<int32_t> topicQuota_ {};
   };
 
   } // namespace Models

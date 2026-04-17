@@ -52,108 +52,108 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->confluentConfigShrink_ == nullptr
-        && return this->diskSize_ == nullptr && return this->eipMax_ == nullptr && return this->eipModel_ == nullptr && return this->instanceId_ == nullptr && return this->ioMax_ == nullptr
-        && return this->ioMaxSpec_ == nullptr && return this->paidType_ == nullptr && return this->partitionNum_ == nullptr && return this->regionId_ == nullptr && return this->specType_ == nullptr
-        && return this->topicQuota_ == nullptr; };
+        && this->diskSize_ == nullptr && this->eipMax_ == nullptr && this->eipModel_ == nullptr && this->instanceId_ == nullptr && this->ioMax_ == nullptr
+        && this->ioMaxSpec_ == nullptr && this->paidType_ == nullptr && this->partitionNum_ == nullptr && this->regionId_ == nullptr && this->specType_ == nullptr
+        && this->topicQuota_ == nullptr; };
     // confluentConfigShrink Field Functions 
     bool hasConfluentConfigShrink() const { return this->confluentConfigShrink_ != nullptr;};
     void deleteConfluentConfigShrink() { this->confluentConfigShrink_ = nullptr;};
-    inline string confluentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(confluentConfigShrink_, "") };
+    inline string getConfluentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(confluentConfigShrink_, "") };
     inline DowngradePrePayOrderShrinkRequest& setConfluentConfigShrink(string confluentConfigShrink) { DARABONBA_PTR_SET_VALUE(confluentConfigShrink_, confluentConfigShrink) };
 
 
     // diskSize Field Functions 
     bool hasDiskSize() const { return this->diskSize_ != nullptr;};
     void deleteDiskSize() { this->diskSize_ = nullptr;};
-    inline int32_t diskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
+    inline int32_t getDiskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
     inline DowngradePrePayOrderShrinkRequest& setDiskSize(int32_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
 
 
     // eipMax Field Functions 
     bool hasEipMax() const { return this->eipMax_ != nullptr;};
     void deleteEipMax() { this->eipMax_ = nullptr;};
-    inline int32_t eipMax() const { DARABONBA_PTR_GET_DEFAULT(eipMax_, 0) };
+    inline int32_t getEipMax() const { DARABONBA_PTR_GET_DEFAULT(eipMax_, 0) };
     inline DowngradePrePayOrderShrinkRequest& setEipMax(int32_t eipMax) { DARABONBA_PTR_SET_VALUE(eipMax_, eipMax) };
 
 
     // eipModel Field Functions 
     bool hasEipModel() const { return this->eipModel_ != nullptr;};
     void deleteEipModel() { this->eipModel_ = nullptr;};
-    inline bool eipModel() const { DARABONBA_PTR_GET_DEFAULT(eipModel_, false) };
+    inline bool getEipModel() const { DARABONBA_PTR_GET_DEFAULT(eipModel_, false) };
     inline DowngradePrePayOrderShrinkRequest& setEipModel(bool eipModel) { DARABONBA_PTR_SET_VALUE(eipModel_, eipModel) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DowngradePrePayOrderShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ioMax Field Functions 
     bool hasIoMax() const { return this->ioMax_ != nullptr;};
     void deleteIoMax() { this->ioMax_ = nullptr;};
-    inline int32_t ioMax() const { DARABONBA_PTR_GET_DEFAULT(ioMax_, 0) };
+    inline int32_t getIoMax() const { DARABONBA_PTR_GET_DEFAULT(ioMax_, 0) };
     inline DowngradePrePayOrderShrinkRequest& setIoMax(int32_t ioMax) { DARABONBA_PTR_SET_VALUE(ioMax_, ioMax) };
 
 
     // ioMaxSpec Field Functions 
     bool hasIoMaxSpec() const { return this->ioMaxSpec_ != nullptr;};
     void deleteIoMaxSpec() { this->ioMaxSpec_ = nullptr;};
-    inline string ioMaxSpec() const { DARABONBA_PTR_GET_DEFAULT(ioMaxSpec_, "") };
+    inline string getIoMaxSpec() const { DARABONBA_PTR_GET_DEFAULT(ioMaxSpec_, "") };
     inline DowngradePrePayOrderShrinkRequest& setIoMaxSpec(string ioMaxSpec) { DARABONBA_PTR_SET_VALUE(ioMaxSpec_, ioMaxSpec) };
 
 
     // paidType Field Functions 
     bool hasPaidType() const { return this->paidType_ != nullptr;};
     void deletePaidType() { this->paidType_ = nullptr;};
-    inline int32_t paidType() const { DARABONBA_PTR_GET_DEFAULT(paidType_, 0) };
+    inline int32_t getPaidType() const { DARABONBA_PTR_GET_DEFAULT(paidType_, 0) };
     inline DowngradePrePayOrderShrinkRequest& setPaidType(int32_t paidType) { DARABONBA_PTR_SET_VALUE(paidType_, paidType) };
 
 
     // partitionNum Field Functions 
     bool hasPartitionNum() const { return this->partitionNum_ != nullptr;};
     void deletePartitionNum() { this->partitionNum_ = nullptr;};
-    inline int32_t partitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0) };
+    inline int32_t getPartitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0) };
     inline DowngradePrePayOrderShrinkRequest& setPartitionNum(int32_t partitionNum) { DARABONBA_PTR_SET_VALUE(partitionNum_, partitionNum) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DowngradePrePayOrderShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // specType Field Functions 
     bool hasSpecType() const { return this->specType_ != nullptr;};
     void deleteSpecType() { this->specType_ = nullptr;};
-    inline string specType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
+    inline string getSpecType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
     inline DowngradePrePayOrderShrinkRequest& setSpecType(string specType) { DARABONBA_PTR_SET_VALUE(specType_, specType) };
 
 
     // topicQuota Field Functions 
     bool hasTopicQuota() const { return this->topicQuota_ != nullptr;};
     void deleteTopicQuota() { this->topicQuota_ = nullptr;};
-    inline int32_t topicQuota() const { DARABONBA_PTR_GET_DEFAULT(topicQuota_, 0) };
+    inline int32_t getTopicQuota() const { DARABONBA_PTR_GET_DEFAULT(topicQuota_, 0) };
     inline DowngradePrePayOrderShrinkRequest& setTopicQuota(int32_t topicQuota) { DARABONBA_PTR_SET_VALUE(topicQuota_, topicQuota) };
 
 
   protected:
-    std::shared_ptr<string> confluentConfigShrink_ = nullptr;
-    std::shared_ptr<int32_t> diskSize_ = nullptr;
-    std::shared_ptr<int32_t> eipMax_ = nullptr;
-    std::shared_ptr<bool> eipModel_ = nullptr;
+    shared_ptr<string> confluentConfigShrink_ {};
+    shared_ptr<int32_t> diskSize_ {};
+    shared_ptr<int32_t> eipMax_ {};
+    shared_ptr<bool> eipModel_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> ioMax_ = nullptr;
-    std::shared_ptr<string> ioMaxSpec_ = nullptr;
-    std::shared_ptr<int32_t> paidType_ = nullptr;
-    std::shared_ptr<int32_t> partitionNum_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> ioMax_ {};
+    shared_ptr<string> ioMaxSpec_ {};
+    shared_ptr<int32_t> paidType_ {};
+    shared_ptr<int32_t> partitionNum_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> specType_ = nullptr;
-    std::shared_ptr<int32_t> topicQuota_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> specType_ {};
+    shared_ptr<int32_t> topicQuota_ {};
   };
 
   } // namespace Models

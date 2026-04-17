@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->targetVersion_ == nullptr; };
+        && this->regionId_ == nullptr && this->targetVersion_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpgradeInstanceVersionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpgradeInstanceVersionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // targetVersion Field Functions 
     bool hasTargetVersion() const { return this->targetVersion_ != nullptr;};
     void deleteTargetVersion() { this->targetVersion_ = nullptr;};
-    inline string targetVersion() const { DARABONBA_PTR_GET_DEFAULT(targetVersion_, "") };
+    inline string getTargetVersion() const { DARABONBA_PTR_GET_DEFAULT(targetVersion_, "") };
     inline UpgradeInstanceVersionRequest& setTargetVersion(string targetVersion) { DARABONBA_PTR_SET_VALUE(targetVersion_, targetVersion) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the region where the instance resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The major version to be upgraded to. Valid values:
     // 
     // *   **0.10.2**
@@ -73,7 +73,7 @@ namespace Models
     // If you set this parameter to the current major version, the system upgrades the instance to the latest minor version.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetVersion_ = nullptr;
+    shared_ptr<string> targetVersion_ {};
   };
 
   } // namespace Models

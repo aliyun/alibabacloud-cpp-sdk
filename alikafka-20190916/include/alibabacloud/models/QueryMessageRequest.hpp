@@ -42,83 +42,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beginTime_ == nullptr
-        && return this->instanceId_ == nullptr && return this->offset_ == nullptr && return this->partition_ == nullptr && return this->queryType_ == nullptr && return this->regionId_ == nullptr
-        && return this->topic_ == nullptr; };
+        && this->instanceId_ == nullptr && this->offset_ == nullptr && this->partition_ == nullptr && this->queryType_ == nullptr && this->regionId_ == nullptr
+        && this->topic_ == nullptr; };
     // beginTime Field Functions 
     bool hasBeginTime() const { return this->beginTime_ != nullptr;};
     void deleteBeginTime() { this->beginTime_ = nullptr;};
-    inline int64_t beginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
+    inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
     inline QueryMessageRequest& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QueryMessageRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline string offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
+    inline string getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
     inline QueryMessageRequest& setOffset(string offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // partition Field Functions 
     bool hasPartition() const { return this->partition_ != nullptr;};
     void deletePartition() { this->partition_ = nullptr;};
-    inline string partition() const { DARABONBA_PTR_GET_DEFAULT(partition_, "") };
+    inline string getPartition() const { DARABONBA_PTR_GET_DEFAULT(partition_, "") };
     inline QueryMessageRequest& setPartition(string partition) { DARABONBA_PTR_SET_VALUE(partition_, partition) };
 
 
     // queryType Field Functions 
     bool hasQueryType() const { return this->queryType_ != nullptr;};
     void deleteQueryType() { this->queryType_ = nullptr;};
-    inline string queryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
+    inline string getQueryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
     inline QueryMessageRequest& setQueryType(string queryType) { DARABONBA_PTR_SET_VALUE(queryType_, queryType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline QueryMessageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // topic Field Functions 
     bool hasTopic() const { return this->topic_ != nullptr;};
     void deleteTopic() { this->topic_ = nullptr;};
-    inline string topic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
+    inline string getTopic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
     inline QueryMessageRequest& setTopic(string topic) { DARABONBA_PTR_SET_VALUE(topic_, topic) };
 
 
   protected:
     // The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
-    std::shared_ptr<int64_t> beginTime_ = nullptr;
+    shared_ptr<int64_t> beginTime_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The consumer offset of the partition.
-    std::shared_ptr<string> offset_ = nullptr;
+    shared_ptr<string> offset_ {};
     // The partition ID.
-    std::shared_ptr<string> partition_ = nullptr;
+    shared_ptr<string> partition_ {};
     // The query type. Valid values:
     // 
     // *   byOffset: queries messages by offset. If you select this value, you must configure Partition and Offset.
     // *   byTimestamp: queries messages by time. If you select this value, you must configure BeginTime.
     // 
     // This parameter is required.
-    std::shared_ptr<string> queryType_ = nullptr;
+    shared_ptr<string> queryType_ {};
     // The ID of the region where the resource resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The topic name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> topic_ = nullptr;
+    shared_ptr<string> topic_ {};
   };
 
   } // namespace Models

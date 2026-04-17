@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->sgIdListShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->sgIdListShrink_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddUserDefinedSgShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddUserDefinedSgShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sgIdListShrink Field Functions 
     bool hasSgIdListShrink() const { return this->sgIdListShrink_ != nullptr;};
     void deleteSgIdListShrink() { this->sgIdListShrink_ = nullptr;};
-    inline string sgIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(sgIdListShrink_, "") };
+    inline string getSgIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(sgIdListShrink_, "") };
     inline AddUserDefinedSgShrinkRequest& setSgIdListShrink(string sgIdListShrink) { DARABONBA_PTR_SET_VALUE(sgIdListShrink_, sgIdListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sgIdListShrink_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sgIdListShrink_ {};
   };
 
   } // namespace Models

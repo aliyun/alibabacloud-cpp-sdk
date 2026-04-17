@@ -106,7 +106,7 @@ namespace Alikafka20190916
       Models::CreateConsumerGroupResponse createConsumerGroup(const Models::CreateConsumerGroupRequest &request);
 
       /**
-       * @summary 创建后付费实例。
+       * @summary Creates a pay-as-you-go instance and returns the instance ID and order ID.
        *
        * @param tmpReq CreatePostPayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Alikafka20190916
       Models::CreatePostPayInstanceResponse createPostPayInstanceWithOptions(const Models::CreatePostPayInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建后付费实例。
+       * @summary Creates a pay-as-you-go instance and returns the instance ID and order ID.
        *
        * @param request CreatePostPayInstanceRequest
        * @return CreatePostPayInstanceResponse
@@ -144,7 +144,7 @@ namespace Alikafka20190916
       Models::CreatePostPayOrderResponse createPostPayOrder(const Models::CreatePostPayOrderRequest &request);
 
       /**
-       * @summary 创建预付费实例
+       * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
        * @param tmpReq CreatePrePayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +153,7 @@ namespace Alikafka20190916
       Models::CreatePrePayInstanceResponse createPrePayInstanceWithOptions(const Models::CreatePrePayInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建预付费实例
+       * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
        * @param request CreatePrePayInstanceRequest
        * @return CreatePrePayInstanceResponse
@@ -368,7 +368,7 @@ namespace Alikafka20190916
       Models::DeleteUserDefinedSgResponse deleteUserDefinedSg(const Models::DeleteUserDefinedSgRequest &request);
 
       /**
-       * @summary 查询acl资源名
+       * @summary Queries the name of the resource with which an access control list (ACL) is associated.
        *
        * @param request DescribeAclResourceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +377,7 @@ namespace Alikafka20190916
       Models::DescribeAclResourceNameResponse describeAclResourceNameWithOptions(const Models::DescribeAclResourceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询acl资源名
+       * @summary Queries the name of the resource with which an access control list (ACL) is associated.
        *
        * @param request DescribeAclResourceNameRequest
        * @return DescribeAclResourceNameResponse
@@ -720,7 +720,7 @@ namespace Alikafka20190916
       Models::GetTopicSubscribeStatusResponse getTopicSubscribeStatus(const Models::GetTopicSubscribeStatusRequest &request);
 
       /**
-       * @summary 获取Rebalance详情
+       * @summary Obtains the rebalance details of a consumer group.
        *
        * @param request ListRebalanceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -729,7 +729,7 @@ namespace Alikafka20190916
       Models::ListRebalanceInfoResponse listRebalanceInfoWithOptions(const Models::ListRebalanceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Rebalance详情
+       * @summary Obtains the rebalance details of a consumer group.
        *
        * @param request ListRebalanceInfoRequest
        * @return ListRebalanceInfoResponse
@@ -1122,7 +1122,7 @@ namespace Alikafka20190916
       Models::UpgradePostPayOrderResponse upgradePostPayOrder(const Models::UpgradePostPayOrderRequest &request);
 
       /**
-       * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+       * @summary Upgrade Prepaid Instance
        *
        * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
        *
@@ -1133,7 +1133,7 @@ namespace Alikafka20190916
       Models::UpgradePrePayOrderResponse upgradePrePayOrderWithOptions(const Models::UpgradePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+       * @summary Upgrade Prepaid Instance
        *
        * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
        *

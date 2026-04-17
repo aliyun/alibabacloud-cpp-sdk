@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->operate_ == nullptr && return this->partitionNum_ == nullptr && return this->regionId_ == nullptr && return this->updatePartition_ == nullptr; };
+        && this->operate_ == nullptr && this->partitionNum_ == nullptr && this->regionId_ == nullptr && this->updatePartition_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline EnableAutoTopicCreationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // operate Field Functions 
     bool hasOperate() const { return this->operate_ != nullptr;};
     void deleteOperate() { this->operate_ = nullptr;};
-    inline string operate() const { DARABONBA_PTR_GET_DEFAULT(operate_, "") };
+    inline string getOperate() const { DARABONBA_PTR_GET_DEFAULT(operate_, "") };
     inline EnableAutoTopicCreationRequest& setOperate(string operate) { DARABONBA_PTR_SET_VALUE(operate_, operate) };
 
 
     // partitionNum Field Functions 
     bool hasPartitionNum() const { return this->partitionNum_ != nullptr;};
     void deletePartitionNum() { this->partitionNum_ = nullptr;};
-    inline int64_t partitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0L) };
+    inline int64_t getPartitionNum() const { DARABONBA_PTR_GET_DEFAULT(partitionNum_, 0L) };
     inline EnableAutoTopicCreationRequest& setPartitionNum(int64_t partitionNum) { DARABONBA_PTR_SET_VALUE(partitionNum_, partitionNum) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline EnableAutoTopicCreationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // updatePartition Field Functions 
     bool hasUpdatePartition() const { return this->updatePartition_ != nullptr;};
     void deleteUpdatePartition() { this->updatePartition_ = nullptr;};
-    inline bool updatePartition() const { DARABONBA_PTR_GET_DEFAULT(updatePartition_, false) };
+    inline bool getUpdatePartition() const { DARABONBA_PTR_GET_DEFAULT(updatePartition_, false) };
     inline EnableAutoTopicCreationRequest& setUpdatePartition(bool updatePartition) { DARABONBA_PTR_SET_VALUE(updatePartition_, updatePartition) };
 
 
@@ -78,22 +78,22 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The operation that you want to perform. Valid values:
     // 
     // *   enable: enables the automatic topic creation feature.
     // *   disable: disables the automatic topic creation feature.
     // *   updatePartition: changes the number of partitions in topics that are automatically created.
-    std::shared_ptr<string> operate_ = nullptr;
+    shared_ptr<string> operate_ {};
     // The changed number of partitions in topics that are automatically created.
     // 
     // This parameter takes effect only if you set Operate to updatePartition.
-    std::shared_ptr<int64_t> partitionNum_ = nullptr;
+    shared_ptr<int64_t> partitionNum_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<bool> updatePartition_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<bool> updatePartition_ {};
   };
 
   } // namespace Models
