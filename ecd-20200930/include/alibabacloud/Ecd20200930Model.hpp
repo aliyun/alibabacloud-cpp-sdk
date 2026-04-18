@@ -746,6 +746,12 @@
 #include <alibabacloud/models/MoveCdsFileRequest.hpp>
 #include <alibabacloud/models/MoveCdsFileResponseBody.hpp>
 #include <alibabacloud/models/MoveCdsFileResponse.hpp>
+#include <alibabacloud/models/QueryHistoryActiveUserCountRequest.hpp>
+#include <alibabacloud/models/QueryHistoryActiveUserCountResponseBody.hpp>
+#include <alibabacloud/models/QueryHistoryActiveUserCountResponse.hpp>
+#include <alibabacloud/models/QueryHistoryMetricDistributionRequest.hpp>
+#include <alibabacloud/models/QueryHistoryMetricDistributionResponseBody.hpp>
+#include <alibabacloud/models/QueryHistoryMetricDistributionResponse.hpp>
 #include <alibabacloud/models/RebootDesktopsRequest.hpp>
 #include <alibabacloud/models/RebootDesktopsResponseBody.hpp>
 #include <alibabacloud/models/RebootDesktopsResponse.hpp>

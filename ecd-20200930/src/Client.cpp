@@ -17998,6 +17998,102 @@ MoveCdsFileResponse Client::moveCdsFile(const MoveCdsFileRequest &request) {
 }
 
 /**
+ * @summary 查询历史活跃用户数量
+ *
+ * @param request QueryHistoryActiveUserCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHistoryActiveUserCountResponse
+ */
+QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCountWithOptions(const QueryHistoryActiveUserCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataDate()) {
+    query["DataDate"] = request.getDataDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryHistoryActiveUserCount"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHistoryActiveUserCountResponse>();
+}
+
+/**
+ * @summary 查询历史活跃用户数量
+ *
+ * @param request QueryHistoryActiveUserCountRequest
+ * @return QueryHistoryActiveUserCountResponse
+ */
+QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCount(const QueryHistoryActiveUserCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryHistoryActiveUserCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询桌面历史指标分布
+ *
+ * @param request QueryHistoryMetricDistributionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHistoryMetricDistributionResponse
+ */
+QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistributionWithOptions(const QueryHistoryMetricDistributionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["MetricName"] = request.getMetricName();
+  }
+
+  if (!!request.hasRanges()) {
+    query["Ranges"] = request.getRanges();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryHistoryMetricDistribution"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHistoryMetricDistributionResponse>();
+}
+
+/**
+ * @summary 查询桌面历史指标分布
+ *
+ * @param request QueryHistoryMetricDistributionRequest
+ * @return QueryHistoryMetricDistributionResponse
+ */
+QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistribution(const QueryHistoryMetricDistributionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryHistoryMetricDistributionWithOptions(request, runtime);
+}
+
+/**
  * @summary Restart cloud computers.
  *
  * @description The cloud computers that you want to restart must be in the Running state.

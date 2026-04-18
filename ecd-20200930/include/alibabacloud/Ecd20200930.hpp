@@ -4643,6 +4643,40 @@ namespace Ecd20200930
       Models::MoveCdsFileResponse moveCdsFile(const Models::MoveCdsFileRequest &request);
 
       /**
+       * @summary 查询历史活跃用户数量
+       *
+       * @param request QueryHistoryActiveUserCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryHistoryActiveUserCountResponse
+       */
+      Models::QueryHistoryActiveUserCountResponse queryHistoryActiveUserCountWithOptions(const Models::QueryHistoryActiveUserCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询历史活跃用户数量
+       *
+       * @param request QueryHistoryActiveUserCountRequest
+       * @return QueryHistoryActiveUserCountResponse
+       */
+      Models::QueryHistoryActiveUserCountResponse queryHistoryActiveUserCount(const Models::QueryHistoryActiveUserCountRequest &request);
+
+      /**
+       * @summary 查询桌面历史指标分布
+       *
+       * @param request QueryHistoryMetricDistributionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryHistoryMetricDistributionResponse
+       */
+      Models::QueryHistoryMetricDistributionResponse queryHistoryMetricDistributionWithOptions(const Models::QueryHistoryMetricDistributionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询桌面历史指标分布
+       *
+       * @param request QueryHistoryMetricDistributionRequest
+       * @return QueryHistoryMetricDistributionResponse
+       */
+      Models::QueryHistoryMetricDistributionResponse queryHistoryMetricDistribution(const Models::QueryHistoryMetricDistributionRequest &request);
+
+      /**
        * @summary Restart cloud computers.
        *
        * @description The cloud computers that you want to restart must be in the Running state.
