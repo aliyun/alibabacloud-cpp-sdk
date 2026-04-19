@@ -182,6 +182,63 @@ CancelKyuubiSparkApplicationResponse Client::cancelKyuubiSparkApplication(const 
 }
 
 /**
+ * @summary 资源转组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["resourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChangeResourceGroup"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/changeResourceGroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
+}
+
+/**
+ * @summary 资源转组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return changeResourceGroupWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary CreateKyuubiService
  *
  * @param request CreateKyuubiServiceRequest

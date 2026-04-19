@@ -30,6 +30,9 @@
 #include <alibabacloud/models/CancelKyuubiSparkApplicationRequest.hpp>
 #include <alibabacloud/models/CancelKyuubiSparkApplicationResponseBody.hpp>
 #include <alibabacloud/models/CancelKyuubiSparkApplicationResponse.hpp>
+#include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
 #include <alibabacloud/models/CreateKyuubiServiceRequest.hpp>
 #include <alibabacloud/models/CreateKyuubiServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateKyuubiServiceResponse.hpp>

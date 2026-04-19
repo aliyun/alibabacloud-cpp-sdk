@@ -75,6 +75,24 @@ namespace EmrServerlessSpark20230808
       Models::CancelKyuubiSparkApplicationResponse cancelKyuubiSparkApplication(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const Models::CancelKyuubiSparkApplicationRequest &request);
 
       /**
+       * @summary 资源转组
+       *
+       * @param request ChangeResourceGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeResourceGroupResponse
+       */
+      Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 资源转组
+       *
+       * @param request ChangeResourceGroupRequest
+       * @return ChangeResourceGroupResponse
+       */
+      Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
+
+      /**
        * @summary CreateKyuubiService
        *
        * @param request CreateKyuubiServiceRequest
