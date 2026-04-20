@@ -822,6 +822,118 @@ ListPublishedMmAppResponse Client::listPublishedMmApp(const ListPublishedMmAppRe
 }
 
 /**
+ * @summary 多模态应用绑定MCP
+ *
+ * @param tmpReq MmAppBindingMcpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MmAppBindingMcpResponse
+ */
+MmAppBindingMcpResponse Client::mmAppBindingMcpWithOptions(const MmAppBindingMcpRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MmAppBindingMcpShrinkRequest request = MmAppBindingMcpShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMcps()) {
+    request.setMcpsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMcps(), "Mcps", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasMcpsShrink()) {
+    query["Mcps"] = request.getMcpsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MmAppBindingMcp"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MmAppBindingMcpResponse>();
+}
+
+/**
+ * @summary 多模态应用绑定MCP
+ *
+ * @param request MmAppBindingMcpRequest
+ * @return MmAppBindingMcpResponse
+ */
+MmAppBindingMcpResponse Client::mmAppBindingMcp(const MmAppBindingMcpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return mmAppBindingMcpWithOptions(request, runtime);
+}
+
+/**
+ * @summary 多模态应用绑定知识库
+ *
+ * @param tmpReq MmAppBindingRagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MmAppBindingRagResponse
+ */
+MmAppBindingRagResponse Client::mmAppBindingRagWithOptions(const MmAppBindingRagRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MmAppBindingRagShrinkRequest request = MmAppBindingRagShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKnowledgeBaseCodeList()) {
+    request.setKnowledgeBaseCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeBaseCodeList(), "KnowledgeBaseCodeList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasKnowledgeBaseCodeListShrink()) {
+    query["KnowledgeBaseCodeList"] = request.getKnowledgeBaseCodeListShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MmAppBindingRag"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MmAppBindingRagResponse>();
+}
+
+/**
+ * @summary 多模态应用绑定知识库
+ *
+ * @param request MmAppBindingRagRequest
+ * @return MmAppBindingRagResponse
+ */
+MmAppBindingRagResponse Client::mmAppBindingRag(const MmAppBindingRagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return mmAppBindingRagWithOptions(request, runtime);
+}
+
+/**
  * @summary 变更用户记忆配置
  *
  * @param request PatchMemoryConfigRequest
@@ -1387,6 +1499,270 @@ UpdateMmAppResponse Client::updateMmAppWithOptions(const UpdateMmAppRequest &tmp
 UpdateMmAppResponse Client::updateMmApp(const UpdateMmAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMmAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改多模态应用长期记忆开关
+ *
+ * @param request UpdateMmAppMemoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmAppMemoryResponse
+ */
+UpdateMmAppMemoryResponse Client::updateMmAppMemoryWithOptions(const UpdateMmAppMemoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMmAppMemory"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmAppMemoryResponse>();
+}
+
+/**
+ * @summary 修改多模态应用长期记忆开关
+ *
+ * @param request UpdateMmAppMemoryRequest
+ * @return UpdateMmAppMemoryResponse
+ */
+UpdateMmAppMemoryResponse Client::updateMmAppMemory(const UpdateMmAppMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMmAppMemoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改知识库开关
+ *
+ * @param request UpdateMmAppRagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmAppRagResponse
+ */
+UpdateMmAppRagResponse Client::updateMmAppRagWithOptions(const UpdateMmAppRagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMmAppRag"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmAppRagResponse>();
+}
+
+/**
+ * @summary 修改知识库开关
+ *
+ * @param request UpdateMmAppRagRequest
+ * @return UpdateMmAppRagResponse
+ */
+UpdateMmAppRagResponse Client::updateMmAppRag(const UpdateMmAppRagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMmAppRagWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改知识库配置
+ *
+ * @param request UpdateMmAppRagConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmAppRagConfigResponse
+ */
+UpdateMmAppRagConfigResponse Client::updateMmAppRagConfigWithOptions(const UpdateMmAppRagConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasPromptStrategy()) {
+    query["PromptStrategy"] = request.getPromptStrategy();
+  }
+
+  if (!!request.hasRetrieveMaxLength()) {
+    query["RetrieveMaxLength"] = request.getRetrieveMaxLength();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMmAppRagConfig"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmAppRagConfigResponse>();
+}
+
+/**
+ * @summary 修改知识库配置
+ *
+ * @param request UpdateMmAppRagConfigRequest
+ * @return UpdateMmAppRagConfigResponse
+ */
+UpdateMmAppRagConfigResponse Client::updateMmAppRagConfig(const UpdateMmAppRagConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMmAppRagConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改知识库权重
+ *
+ * @param tmpReq UpdateMmAppRagWeightRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmAppRagWeightResponse
+ */
+UpdateMmAppRagWeightResponse Client::updateMmAppRagWeightWithOptions(const UpdateMmAppRagWeightRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMmAppRagWeightShrinkRequest request = UpdateMmAppRagWeightShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRankWeights()) {
+    request.setRankWeightsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRankWeights(), "RankWeights", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasRankWeightsShrink()) {
+    query["RankWeights"] = request.getRankWeightsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMmAppRagWeight"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmAppRagWeightResponse>();
+}
+
+/**
+ * @summary 修改知识库权重
+ *
+ * @param request UpdateMmAppRagWeightRequest
+ * @return UpdateMmAppRagWeightResponse
+ */
+UpdateMmAppRagWeightResponse Client::updateMmAppRagWeight(const UpdateMmAppRagWeightRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMmAppRagWeightWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改应用承接语开关
+ *
+ * @param request UpdateMmAppTransitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmAppTransitionResponse
+ */
+UpdateMmAppTransitionResponse Client::updateMmAppTransitionWithOptions(const UpdateMmAppTransitionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMmAppTransition"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmAppTransitionResponse>();
+}
+
+/**
+ * @summary 修改应用承接语开关
+ *
+ * @param request UpdateMmAppTransitionRequest
+ * @return UpdateMmAppTransitionResponse
+ */
+UpdateMmAppTransitionResponse Client::updateMmAppTransition(const UpdateMmAppTransitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMmAppTransitionWithOptions(request, runtime);
 }
 
 /**

@@ -242,6 +242,40 @@ namespace SfmMultiModalApp20250909
       Models::ListPublishedMmAppResponse listPublishedMmApp(const Models::ListPublishedMmAppRequest &request);
 
       /**
+       * @summary 多模态应用绑定MCP
+       *
+       * @param tmpReq MmAppBindingMcpRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MmAppBindingMcpResponse
+       */
+      Models::MmAppBindingMcpResponse mmAppBindingMcpWithOptions(const Models::MmAppBindingMcpRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 多模态应用绑定MCP
+       *
+       * @param request MmAppBindingMcpRequest
+       * @return MmAppBindingMcpResponse
+       */
+      Models::MmAppBindingMcpResponse mmAppBindingMcp(const Models::MmAppBindingMcpRequest &request);
+
+      /**
+       * @summary 多模态应用绑定知识库
+       *
+       * @param tmpReq MmAppBindingRagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MmAppBindingRagResponse
+       */
+      Models::MmAppBindingRagResponse mmAppBindingRagWithOptions(const Models::MmAppBindingRagRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 多模态应用绑定知识库
+       *
+       * @param request MmAppBindingRagRequest
+       * @return MmAppBindingRagResponse
+       */
+      Models::MmAppBindingRagResponse mmAppBindingRag(const Models::MmAppBindingRagRequest &request);
+
+      /**
        * @summary 变更用户记忆配置
        *
        * @param request PatchMemoryConfigRequest
@@ -393,6 +427,91 @@ namespace SfmMultiModalApp20250909
        * @return UpdateMmAppResponse
        */
       Models::UpdateMmAppResponse updateMmApp(const Models::UpdateMmAppRequest &request);
+
+      /**
+       * @summary 修改多模态应用长期记忆开关
+       *
+       * @param request UpdateMmAppMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmAppMemoryResponse
+       */
+      Models::UpdateMmAppMemoryResponse updateMmAppMemoryWithOptions(const Models::UpdateMmAppMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改多模态应用长期记忆开关
+       *
+       * @param request UpdateMmAppMemoryRequest
+       * @return UpdateMmAppMemoryResponse
+       */
+      Models::UpdateMmAppMemoryResponse updateMmAppMemory(const Models::UpdateMmAppMemoryRequest &request);
+
+      /**
+       * @summary 修改知识库开关
+       *
+       * @param request UpdateMmAppRagRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmAppRagResponse
+       */
+      Models::UpdateMmAppRagResponse updateMmAppRagWithOptions(const Models::UpdateMmAppRagRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改知识库开关
+       *
+       * @param request UpdateMmAppRagRequest
+       * @return UpdateMmAppRagResponse
+       */
+      Models::UpdateMmAppRagResponse updateMmAppRag(const Models::UpdateMmAppRagRequest &request);
+
+      /**
+       * @summary 修改知识库配置
+       *
+       * @param request UpdateMmAppRagConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmAppRagConfigResponse
+       */
+      Models::UpdateMmAppRagConfigResponse updateMmAppRagConfigWithOptions(const Models::UpdateMmAppRagConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改知识库配置
+       *
+       * @param request UpdateMmAppRagConfigRequest
+       * @return UpdateMmAppRagConfigResponse
+       */
+      Models::UpdateMmAppRagConfigResponse updateMmAppRagConfig(const Models::UpdateMmAppRagConfigRequest &request);
+
+      /**
+       * @summary 修改知识库权重
+       *
+       * @param tmpReq UpdateMmAppRagWeightRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmAppRagWeightResponse
+       */
+      Models::UpdateMmAppRagWeightResponse updateMmAppRagWeightWithOptions(const Models::UpdateMmAppRagWeightRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改知识库权重
+       *
+       * @param request UpdateMmAppRagWeightRequest
+       * @return UpdateMmAppRagWeightResponse
+       */
+      Models::UpdateMmAppRagWeightResponse updateMmAppRagWeight(const Models::UpdateMmAppRagWeightRequest &request);
+
+      /**
+       * @summary 修改应用承接语开关
+       *
+       * @param request UpdateMmAppTransitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmAppTransitionResponse
+       */
+      Models::UpdateMmAppTransitionResponse updateMmAppTransitionWithOptions(const Models::UpdateMmAppTransitionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用承接语开关
+       *
+       * @param request UpdateMmAppTransitionRequest
+       * @return UpdateMmAppTransitionResponse
+       */
+      Models::UpdateMmAppTransitionResponse updateMmAppTransition(const Models::UpdateMmAppTransitionRequest &request);
 
       /**
        * @summary 变更用户画像配置
