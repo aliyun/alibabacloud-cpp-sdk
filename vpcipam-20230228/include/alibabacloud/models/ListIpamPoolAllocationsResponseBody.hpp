@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTIPAMPOOLALLOCATIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListIpamPoolAllocationsResponseBodyIpamPoolAllocations.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,68 +40,242 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IpamPoolAllocations : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IpamPoolAllocations& obj) { 
+        DARABONBA_PTR_TO_JSON(Cidr, cidr_);
+        DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_TO_JSON(IpamPoolAllocationDescription, ipamPoolAllocationDescription_);
+        DARABONBA_PTR_TO_JSON(IpamPoolAllocationId, ipamPoolAllocationId_);
+        DARABONBA_PTR_TO_JSON(IpamPoolAllocationName, ipamPoolAllocationName_);
+        DARABONBA_PTR_TO_JSON(IpamPoolId, ipamPoolId_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+        DARABONBA_PTR_TO_JSON(ResourceRegionId, resourceRegionId_);
+        DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_TO_JSON(SourceCidr, sourceCidr_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, IpamPoolAllocations& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cidr, cidr_);
+        DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolAllocationDescription, ipamPoolAllocationDescription_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolAllocationId, ipamPoolAllocationId_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolAllocationName, ipamPoolAllocationName_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolId, ipamPoolId_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+        DARABONBA_PTR_FROM_JSON(ResourceRegionId, resourceRegionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+        DARABONBA_PTR_FROM_JSON(SourceCidr, sourceCidr_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      IpamPoolAllocations() = default ;
+      IpamPoolAllocations(const IpamPoolAllocations &) = default ;
+      IpamPoolAllocations(IpamPoolAllocations &&) = default ;
+      IpamPoolAllocations(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IpamPoolAllocations() = default ;
+      IpamPoolAllocations& operator=(const IpamPoolAllocations &) = default ;
+      IpamPoolAllocations& operator=(IpamPoolAllocations &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cidr_ == nullptr
+        && this->creationTime_ == nullptr && this->ipamPoolAllocationDescription_ == nullptr && this->ipamPoolAllocationId_ == nullptr && this->ipamPoolAllocationName_ == nullptr && this->ipamPoolId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceType_ == nullptr
+        && this->sourceCidr_ == nullptr && this->status_ == nullptr; };
+      // cidr Field Functions 
+      bool hasCidr() const { return this->cidr_ != nullptr;};
+      void deleteCidr() { this->cidr_ = nullptr;};
+      inline string getCidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
+      inline IpamPoolAllocations& setCidr(string cidr) { DARABONBA_PTR_SET_VALUE(cidr_, cidr) };
+
+
+      // creationTime Field Functions 
+      bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+      void deleteCreationTime() { this->creationTime_ = nullptr;};
+      inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+      inline IpamPoolAllocations& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+      // ipamPoolAllocationDescription Field Functions 
+      bool hasIpamPoolAllocationDescription() const { return this->ipamPoolAllocationDescription_ != nullptr;};
+      void deleteIpamPoolAllocationDescription() { this->ipamPoolAllocationDescription_ = nullptr;};
+      inline string getIpamPoolAllocationDescription() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolAllocationDescription_, "") };
+      inline IpamPoolAllocations& setIpamPoolAllocationDescription(string ipamPoolAllocationDescription) { DARABONBA_PTR_SET_VALUE(ipamPoolAllocationDescription_, ipamPoolAllocationDescription) };
+
+
+      // ipamPoolAllocationId Field Functions 
+      bool hasIpamPoolAllocationId() const { return this->ipamPoolAllocationId_ != nullptr;};
+      void deleteIpamPoolAllocationId() { this->ipamPoolAllocationId_ = nullptr;};
+      inline string getIpamPoolAllocationId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolAllocationId_, "") };
+      inline IpamPoolAllocations& setIpamPoolAllocationId(string ipamPoolAllocationId) { DARABONBA_PTR_SET_VALUE(ipamPoolAllocationId_, ipamPoolAllocationId) };
+
+
+      // ipamPoolAllocationName Field Functions 
+      bool hasIpamPoolAllocationName() const { return this->ipamPoolAllocationName_ != nullptr;};
+      void deleteIpamPoolAllocationName() { this->ipamPoolAllocationName_ = nullptr;};
+      inline string getIpamPoolAllocationName() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolAllocationName_, "") };
+      inline IpamPoolAllocations& setIpamPoolAllocationName(string ipamPoolAllocationName) { DARABONBA_PTR_SET_VALUE(ipamPoolAllocationName_, ipamPoolAllocationName) };
+
+
+      // ipamPoolId Field Functions 
+      bool hasIpamPoolId() const { return this->ipamPoolId_ != nullptr;};
+      void deleteIpamPoolId() { this->ipamPoolId_ = nullptr;};
+      inline string getIpamPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolId_, "") };
+      inline IpamPoolAllocations& setIpamPoolId(string ipamPoolId) { DARABONBA_PTR_SET_VALUE(ipamPoolId_, ipamPoolId) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline IpamPoolAllocations& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // resourceId Field Functions 
+      bool hasResourceId() const { return this->resourceId_ != nullptr;};
+      void deleteResourceId() { this->resourceId_ = nullptr;};
+      inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+      inline IpamPoolAllocations& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+      // resourceOwnerId Field Functions 
+      bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+      void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+      inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+      inline IpamPoolAllocations& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+      // resourceRegionId Field Functions 
+      bool hasResourceRegionId() const { return this->resourceRegionId_ != nullptr;};
+      void deleteResourceRegionId() { this->resourceRegionId_ = nullptr;};
+      inline string getResourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
+      inline IpamPoolAllocations& setResourceRegionId(string resourceRegionId) { DARABONBA_PTR_SET_VALUE(resourceRegionId_, resourceRegionId) };
+
+
+      // resourceType Field Functions 
+      bool hasResourceType() const { return this->resourceType_ != nullptr;};
+      void deleteResourceType() { this->resourceType_ = nullptr;};
+      inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+      inline IpamPoolAllocations& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+      // sourceCidr Field Functions 
+      bool hasSourceCidr() const { return this->sourceCidr_ != nullptr;};
+      void deleteSourceCidr() { this->sourceCidr_ = nullptr;};
+      inline string getSourceCidr() const { DARABONBA_PTR_GET_DEFAULT(sourceCidr_, "") };
+      inline IpamPoolAllocations& setSourceCidr(string sourceCidr) { DARABONBA_PTR_SET_VALUE(sourceCidr_, sourceCidr) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline IpamPoolAllocations& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The allocated CIDR block.
+      shared_ptr<string> cidr_ {};
+      // The time when the instance was created.
+      shared_ptr<string> creationTime_ {};
+      // The description of the allocation.
+      shared_ptr<string> ipamPoolAllocationDescription_ {};
+      // The ID of the instance to which CIDR blocks are allocated from the IPAM pool.
+      shared_ptr<string> ipamPoolAllocationId_ {};
+      // The name of the allocation.
+      shared_ptr<string> ipamPoolAllocationName_ {};
+      // The ID of the IPAM pool.
+      shared_ptr<string> ipamPoolId_ {};
+      // The region ID of the resource.
+      shared_ptr<string> regionId_ {};
+      // The ID of the resource to which the CIDR block is allocated.
+      shared_ptr<string> resourceId_ {};
+      // The ID of the Alibaba Cloud account to which the resource belongs.
+      shared_ptr<int64_t> resourceOwnerId_ {};
+      // The effective region ID of the resource.
+      shared_ptr<string> resourceRegionId_ {};
+      // The type of the resource to which the CIDR block is allocated. Valid values:
+      // 
+      // *   **VPC**
+      // *   **IpamPool**
+      // *   **Custom**
+      shared_ptr<string> resourceType_ {};
+      // The source CIDR block.
+      shared_ptr<string> sourceCidr_ {};
+      // The status of the instance. Valid values:
+      // 
+      // *   **Created**
+      // *   **Deleted**
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->ipamPoolAllocations_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->ipamPoolAllocations_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int64_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+    inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
     inline ListIpamPoolAllocationsResponseBody& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // ipamPoolAllocations Field Functions 
     bool hasIpamPoolAllocations() const { return this->ipamPoolAllocations_ != nullptr;};
     void deleteIpamPoolAllocations() { this->ipamPoolAllocations_ = nullptr;};
-    inline const vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations> & ipamPoolAllocations() const { DARABONBA_PTR_GET_CONST(ipamPoolAllocations_, vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations>) };
-    inline vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations> ipamPoolAllocations() { DARABONBA_PTR_GET(ipamPoolAllocations_, vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations>) };
-    inline ListIpamPoolAllocationsResponseBody& setIpamPoolAllocations(const vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations> & ipamPoolAllocations) { DARABONBA_PTR_SET_VALUE(ipamPoolAllocations_, ipamPoolAllocations) };
-    inline ListIpamPoolAllocationsResponseBody& setIpamPoolAllocations(vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations> && ipamPoolAllocations) { DARABONBA_PTR_SET_RVALUE(ipamPoolAllocations_, ipamPoolAllocations) };
+    inline const vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations> & getIpamPoolAllocations() const { DARABONBA_PTR_GET_CONST(ipamPoolAllocations_, vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations>) };
+    inline vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations> getIpamPoolAllocations() { DARABONBA_PTR_GET(ipamPoolAllocations_, vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations>) };
+    inline ListIpamPoolAllocationsResponseBody& setIpamPoolAllocations(const vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations> & ipamPoolAllocations) { DARABONBA_PTR_SET_VALUE(ipamPoolAllocations_, ipamPoolAllocations) };
+    inline ListIpamPoolAllocationsResponseBody& setIpamPoolAllocations(vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations> && ipamPoolAllocations) { DARABONBA_PTR_SET_RVALUE(ipamPoolAllocations_, ipamPoolAllocations) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListIpamPoolAllocationsResponseBody& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListIpamPoolAllocationsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListIpamPoolAllocationsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListIpamPoolAllocationsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The number of entries returned.
-    std::shared_ptr<int64_t> count_ = nullptr;
+    shared_ptr<int64_t> count_ {};
     // The IDs of the instances to which CIDR blocks are allocated from the IPAM pool.
-    std::shared_ptr<vector<ListIpamPoolAllocationsResponseBodyIpamPoolAllocations>> ipamPoolAllocations_ = nullptr;
+    shared_ptr<vector<ListIpamPoolAllocationsResponseBody::IpamPoolAllocations>> ipamPoolAllocations_ {};
     // The number of entries per page.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If **NextToken** is empty, no next page exists.
     // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTIPAMRESOURCEDISCOVERYASSOCIATIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,68 +40,168 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IpamResourceDiscoveryAssociations : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IpamResourceDiscoveryAssociations& obj) { 
+        DARABONBA_PTR_TO_JSON(IpamId, ipamId_);
+        DARABONBA_PTR_TO_JSON(IpamResourceDiscoveryId, ipamResourceDiscoveryId_);
+        DARABONBA_PTR_TO_JSON(IpamResourceDiscoveryOwnerId, ipamResourceDiscoveryOwnerId_);
+        DARABONBA_PTR_TO_JSON(IpamResourceDiscoveryStatus, ipamResourceDiscoveryStatus_);
+        DARABONBA_PTR_TO_JSON(IpamResourceDiscoveryType, ipamResourceDiscoveryType_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, IpamResourceDiscoveryAssociations& obj) { 
+        DARABONBA_PTR_FROM_JSON(IpamId, ipamId_);
+        DARABONBA_PTR_FROM_JSON(IpamResourceDiscoveryId, ipamResourceDiscoveryId_);
+        DARABONBA_PTR_FROM_JSON(IpamResourceDiscoveryOwnerId, ipamResourceDiscoveryOwnerId_);
+        DARABONBA_PTR_FROM_JSON(IpamResourceDiscoveryStatus, ipamResourceDiscoveryStatus_);
+        DARABONBA_PTR_FROM_JSON(IpamResourceDiscoveryType, ipamResourceDiscoveryType_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      IpamResourceDiscoveryAssociations() = default ;
+      IpamResourceDiscoveryAssociations(const IpamResourceDiscoveryAssociations &) = default ;
+      IpamResourceDiscoveryAssociations(IpamResourceDiscoveryAssociations &&) = default ;
+      IpamResourceDiscoveryAssociations(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IpamResourceDiscoveryAssociations() = default ;
+      IpamResourceDiscoveryAssociations& operator=(const IpamResourceDiscoveryAssociations &) = default ;
+      IpamResourceDiscoveryAssociations& operator=(IpamResourceDiscoveryAssociations &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ipamId_ == nullptr
+        && this->ipamResourceDiscoveryId_ == nullptr && this->ipamResourceDiscoveryOwnerId_ == nullptr && this->ipamResourceDiscoveryStatus_ == nullptr && this->ipamResourceDiscoveryType_ == nullptr && this->status_ == nullptr; };
+      // ipamId Field Functions 
+      bool hasIpamId() const { return this->ipamId_ != nullptr;};
+      void deleteIpamId() { this->ipamId_ = nullptr;};
+      inline string getIpamId() const { DARABONBA_PTR_GET_DEFAULT(ipamId_, "") };
+      inline IpamResourceDiscoveryAssociations& setIpamId(string ipamId) { DARABONBA_PTR_SET_VALUE(ipamId_, ipamId) };
+
+
+      // ipamResourceDiscoveryId Field Functions 
+      bool hasIpamResourceDiscoveryId() const { return this->ipamResourceDiscoveryId_ != nullptr;};
+      void deleteIpamResourceDiscoveryId() { this->ipamResourceDiscoveryId_ = nullptr;};
+      inline string getIpamResourceDiscoveryId() const { DARABONBA_PTR_GET_DEFAULT(ipamResourceDiscoveryId_, "") };
+      inline IpamResourceDiscoveryAssociations& setIpamResourceDiscoveryId(string ipamResourceDiscoveryId) { DARABONBA_PTR_SET_VALUE(ipamResourceDiscoveryId_, ipamResourceDiscoveryId) };
+
+
+      // ipamResourceDiscoveryOwnerId Field Functions 
+      bool hasIpamResourceDiscoveryOwnerId() const { return this->ipamResourceDiscoveryOwnerId_ != nullptr;};
+      void deleteIpamResourceDiscoveryOwnerId() { this->ipamResourceDiscoveryOwnerId_ = nullptr;};
+      inline string getIpamResourceDiscoveryOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ipamResourceDiscoveryOwnerId_, "") };
+      inline IpamResourceDiscoveryAssociations& setIpamResourceDiscoveryOwnerId(string ipamResourceDiscoveryOwnerId) { DARABONBA_PTR_SET_VALUE(ipamResourceDiscoveryOwnerId_, ipamResourceDiscoveryOwnerId) };
+
+
+      // ipamResourceDiscoveryStatus Field Functions 
+      bool hasIpamResourceDiscoveryStatus() const { return this->ipamResourceDiscoveryStatus_ != nullptr;};
+      void deleteIpamResourceDiscoveryStatus() { this->ipamResourceDiscoveryStatus_ = nullptr;};
+      inline string getIpamResourceDiscoveryStatus() const { DARABONBA_PTR_GET_DEFAULT(ipamResourceDiscoveryStatus_, "") };
+      inline IpamResourceDiscoveryAssociations& setIpamResourceDiscoveryStatus(string ipamResourceDiscoveryStatus) { DARABONBA_PTR_SET_VALUE(ipamResourceDiscoveryStatus_, ipamResourceDiscoveryStatus) };
+
+
+      // ipamResourceDiscoveryType Field Functions 
+      bool hasIpamResourceDiscoveryType() const { return this->ipamResourceDiscoveryType_ != nullptr;};
+      void deleteIpamResourceDiscoveryType() { this->ipamResourceDiscoveryType_ = nullptr;};
+      inline string getIpamResourceDiscoveryType() const { DARABONBA_PTR_GET_DEFAULT(ipamResourceDiscoveryType_, "") };
+      inline IpamResourceDiscoveryAssociations& setIpamResourceDiscoveryType(string ipamResourceDiscoveryType) { DARABONBA_PTR_SET_VALUE(ipamResourceDiscoveryType_, ipamResourceDiscoveryType) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline IpamResourceDiscoveryAssociations& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The ID of the IPAM.
+      shared_ptr<string> ipamId_ {};
+      // The ID of resource discovery instance.
+      shared_ptr<string> ipamResourceDiscoveryId_ {};
+      // The ID of the Alibaba Cloud account to which the resource discovery belongs.
+      shared_ptr<string> ipamResourceDiscoveryOwnerId_ {};
+      // The status of the resource discovery instance. Valid values:
+      // 
+      // *   **Creating**
+      // *   **Created**
+      // *   **Modifying**
+      // *   **Deleting**
+      // *   **Deleted**
+      shared_ptr<string> ipamResourceDiscoveryStatus_ {};
+      // The type of resource discovery. Valid values:
+      // 
+      // *   **system**: default resource discovery created by the system.
+      // *   **custom**: custom resource discovery created by users.
+      shared_ptr<string> ipamResourceDiscoveryType_ {};
+      // The status of the associations. Valid values:
+      // 
+      // *   **Created**
+      // *   **Deleted**
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->ipamResourceDiscoveryAssociations_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->ipamResourceDiscoveryAssociations_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline ListIpamResourceDiscoveryAssociationsResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // ipamResourceDiscoveryAssociations Field Functions 
     bool hasIpamResourceDiscoveryAssociations() const { return this->ipamResourceDiscoveryAssociations_ != nullptr;};
     void deleteIpamResourceDiscoveryAssociations() { this->ipamResourceDiscoveryAssociations_ = nullptr;};
-    inline const vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations> & ipamResourceDiscoveryAssociations() const { DARABONBA_PTR_GET_CONST(ipamResourceDiscoveryAssociations_, vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations>) };
-    inline vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations> ipamResourceDiscoveryAssociations() { DARABONBA_PTR_GET(ipamResourceDiscoveryAssociations_, vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations>) };
-    inline ListIpamResourceDiscoveryAssociationsResponseBody& setIpamResourceDiscoveryAssociations(const vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations> & ipamResourceDiscoveryAssociations) { DARABONBA_PTR_SET_VALUE(ipamResourceDiscoveryAssociations_, ipamResourceDiscoveryAssociations) };
-    inline ListIpamResourceDiscoveryAssociationsResponseBody& setIpamResourceDiscoveryAssociations(vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations> && ipamResourceDiscoveryAssociations) { DARABONBA_PTR_SET_RVALUE(ipamResourceDiscoveryAssociations_, ipamResourceDiscoveryAssociations) };
+    inline const vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations> & getIpamResourceDiscoveryAssociations() const { DARABONBA_PTR_GET_CONST(ipamResourceDiscoveryAssociations_, vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations>) };
+    inline vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations> getIpamResourceDiscoveryAssociations() { DARABONBA_PTR_GET(ipamResourceDiscoveryAssociations_, vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations>) };
+    inline ListIpamResourceDiscoveryAssociationsResponseBody& setIpamResourceDiscoveryAssociations(const vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations> & ipamResourceDiscoveryAssociations) { DARABONBA_PTR_SET_VALUE(ipamResourceDiscoveryAssociations_, ipamResourceDiscoveryAssociations) };
+    inline ListIpamResourceDiscoveryAssociationsResponseBody& setIpamResourceDiscoveryAssociations(vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations> && ipamResourceDiscoveryAssociations) { DARABONBA_PTR_SET_RVALUE(ipamResourceDiscoveryAssociations_, ipamResourceDiscoveryAssociations) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListIpamResourceDiscoveryAssociationsResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListIpamResourceDiscoveryAssociationsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListIpamResourceDiscoveryAssociationsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListIpamResourceDiscoveryAssociationsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The number of entries on each page.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // The list of associations.
-    std::shared_ptr<vector<ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations>> ipamResourceDiscoveryAssociations_ = nullptr;
+    shared_ptr<vector<ListIpamResourceDiscoveryAssociationsResponseBody::IpamResourceDiscoveryAssociations>> ipamResourceDiscoveryAssociations_ {};
     // The maximum number of entries on each page. Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If **NextToken** is empty, there is no next page.
     // *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

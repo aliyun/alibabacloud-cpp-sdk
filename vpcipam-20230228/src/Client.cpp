@@ -46,35 +46,35 @@ AddIpamMembersResponse Client::addIpamMembersWithOptions(const AddIpamMembersReq
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasMembers()) {
-    query["Members"] = request.members();
+    query["Members"] = request.getMembers();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -124,27 +124,27 @@ AddIpamPoolCidrResponse Client::addIpamPoolCidrWithOptions(const AddIpamPoolCidr
   request.validate();
   json query = {};
   if (!!request.hasCidr()) {
-    query["Cidr"] = request.cidr();
+    query["Cidr"] = request.getCidr();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasNetmaskLength()) {
-    query["NetmaskLength"] = request.netmaskLength();
+    query["NetmaskLength"] = request.getNetmaskLength();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -196,39 +196,39 @@ AssociateIpamResourceDiscoveryResponse Client::associateIpamResourceDiscoveryWit
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasIpamResourceDiscoveryId()) {
-    query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId();
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -272,35 +272,35 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   json query = {};
   if (!!request.hasNewResourceGroupId()) {
-    query["NewResourceGroupId"] = request.newResourceGroupId();
+    query["NewResourceGroupId"] = request.getNewResourceGroupId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -348,51 +348,51 @@ CreateIpamResponse Client::createIpamWithOptions(const CreateIpamRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamDescription()) {
-    query["IpamDescription"] = request.ipamDescription();
+    query["IpamDescription"] = request.getIpamDescription();
   }
 
   if (!!request.hasIpamName()) {
-    query["IpamName"] = request.ipamName();
+    query["IpamName"] = request.getIpamName();
   }
 
   if (!!request.hasOperatingRegionList()) {
-    query["OperatingRegionList"] = request.operatingRegionList();
+    query["OperatingRegionList"] = request.getOperatingRegionList();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -442,83 +442,83 @@ CreateIpamPoolResponse Client::createIpamPoolWithOptions(const CreateIpamPoolReq
   request.validate();
   json query = {};
   if (!!request.hasAllocationDefaultCidrMask()) {
-    query["AllocationDefaultCidrMask"] = request.allocationDefaultCidrMask();
+    query["AllocationDefaultCidrMask"] = request.getAllocationDefaultCidrMask();
   }
 
   if (!!request.hasAllocationMaxCidrMask()) {
-    query["AllocationMaxCidrMask"] = request.allocationMaxCidrMask();
+    query["AllocationMaxCidrMask"] = request.getAllocationMaxCidrMask();
   }
 
   if (!!request.hasAllocationMinCidrMask()) {
-    query["AllocationMinCidrMask"] = request.allocationMinCidrMask();
+    query["AllocationMinCidrMask"] = request.getAllocationMinCidrMask();
   }
 
   if (!!request.hasAutoImport()) {
-    query["AutoImport"] = request.autoImport();
+    query["AutoImport"] = request.getAutoImport();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpVersion()) {
-    query["IpVersion"] = request.ipVersion();
+    query["IpVersion"] = request.getIpVersion();
   }
 
   if (!!request.hasIpamPoolDescription()) {
-    query["IpamPoolDescription"] = request.ipamPoolDescription();
+    query["IpamPoolDescription"] = request.getIpamPoolDescription();
   }
 
   if (!!request.hasIpamPoolName()) {
-    query["IpamPoolName"] = request.ipamPoolName();
+    query["IpamPoolName"] = request.getIpamPoolName();
   }
 
   if (!!request.hasIpamScopeId()) {
-    query["IpamScopeId"] = request.ipamScopeId();
+    query["IpamScopeId"] = request.getIpamScopeId();
   }
 
   if (!!request.hasIpv6Isp()) {
-    query["Ipv6Isp"] = request.ipv6Isp();
+    query["Ipv6Isp"] = request.getIpv6Isp();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPoolRegionId()) {
-    query["PoolRegionId"] = request.poolRegionId();
+    query["PoolRegionId"] = request.getPoolRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasSourceIpamPoolId()) {
-    query["SourceIpamPoolId"] = request.sourceIpamPoolId();
+    query["SourceIpamPoolId"] = request.getSourceIpamPoolId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -567,35 +567,35 @@ CreateIpamPoolAllocationResponse Client::createIpamPoolAllocationWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasCidr()) {
-    query["Cidr"] = request.cidr();
+    query["Cidr"] = request.getCidr();
   }
 
   if (!!request.hasCidrMask()) {
-    query["CidrMask"] = request.cidrMask();
+    query["CidrMask"] = request.getCidrMask();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolAllocationDescription()) {
-    query["IpamPoolAllocationDescription"] = request.ipamPoolAllocationDescription();
+    query["IpamPoolAllocationDescription"] = request.getIpamPoolAllocationDescription();
   }
 
   if (!!request.hasIpamPoolAllocationName()) {
-    query["IpamPoolAllocationName"] = request.ipamPoolAllocationName();
+    query["IpamPoolAllocationName"] = request.getIpamPoolAllocationName();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -645,51 +645,51 @@ CreateIpamResourceDiscoveryResponse Client::createIpamResourceDiscoveryWithOptio
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamResourceDiscoveryDescription()) {
-    query["IpamResourceDiscoveryDescription"] = request.ipamResourceDiscoveryDescription();
+    query["IpamResourceDiscoveryDescription"] = request.getIpamResourceDiscoveryDescription();
   }
 
   if (!!request.hasIpamResourceDiscoveryName()) {
-    query["IpamResourceDiscoveryName"] = request.ipamResourceDiscoveryName();
+    query["IpamResourceDiscoveryName"] = request.getIpamResourceDiscoveryName();
   }
 
   if (!!request.hasOperatingRegionList()) {
-    query["OperatingRegionList"] = request.operatingRegionList();
+    query["OperatingRegionList"] = request.getOperatingRegionList();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -734,55 +734,55 @@ CreateIpamScopeResponse Client::createIpamScopeWithOptions(const CreateIpamScope
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasIpamScopeDescription()) {
-    query["IpamScopeDescription"] = request.ipamScopeDescription();
+    query["IpamScopeDescription"] = request.getIpamScopeDescription();
   }
 
   if (!!request.hasIpamScopeName()) {
-    query["IpamScopeName"] = request.ipamScopeName();
+    query["IpamScopeName"] = request.getIpamScopeName();
   }
 
   if (!!request.hasIpamScopeType()) {
-    query["IpamScopeType"] = request.ipamScopeType();
+    query["IpamScopeType"] = request.getIpamScopeType();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -828,35 +828,35 @@ DeleteIpamResponse Client::deleteIpamWithOptions(const DeleteIpamRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -907,35 +907,35 @@ DeleteIpamPoolResponse Client::deleteIpamPoolWithOptions(const DeleteIpamPoolReq
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -982,19 +982,19 @@ DeleteIpamPoolAllocationResponse Client::deleteIpamPoolAllocationWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolAllocationId()) {
-    query["IpamPoolAllocationId"] = request.ipamPoolAllocationId();
+    query["IpamPoolAllocationId"] = request.getIpamPoolAllocationId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1041,23 +1041,23 @@ DeleteIpamPoolCidrResponse Client::deleteIpamPoolCidrWithOptions(const DeleteIpa
   request.validate();
   json query = {};
   if (!!request.hasCidr()) {
-    query["Cidr"] = request.cidr();
+    query["Cidr"] = request.getCidr();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1106,35 +1106,35 @@ DeleteIpamResourceDiscoveryResponse Client::deleteIpamResourceDiscoveryWithOptio
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamResourceDiscoveryId()) {
-    query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId();
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1182,35 +1182,35 @@ DeleteIpamScopeResponse Client::deleteIpamScopeWithOptions(const DeleteIpamScope
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamScopeId()) {
-    query["IpamScopeId"] = request.ipamScopeId();
+    query["IpamScopeId"] = request.getIpamScopeId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1256,39 +1256,39 @@ DissociateIpamResourceDiscoveryResponse Client::dissociateIpamResourceDiscoveryW
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasIpamResourceDiscoveryId()) {
-    query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId();
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1406,27 +1406,27 @@ GetVpcIpamServiceStatusResponse Client::getVpcIpamServiceStatusWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1458,6 +1458,76 @@ GetVpcIpamServiceStatusResponse Client::getVpcIpamServiceStatus(const GetVpcIpam
 }
 
 /**
+ * @summary 查询VPC或VSwitch下已使用IP信息。
+ *
+ * @param request ListIpamDiscoveredIpAddressesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIpamDiscoveredIpAddressesResponse
+ */
+ListIpamDiscoveredIpAddressesResponse Client::listIpamDiscoveredIpAddressesWithOptions(const ListIpamDiscoveredIpAddressesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCidr()) {
+    query["Cidr"] = request.getCidr();
+  }
+
+  if (!!request.hasIpVersion()) {
+    query["IpVersion"] = request.getIpVersion();
+  }
+
+  if (!!request.hasIpamResourceDiscoveryId()) {
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIpamDiscoveredIpAddresses"},
+    {"version" , "2023-02-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIpamDiscoveredIpAddressesResponse>();
+}
+
+/**
+ * @summary 查询VPC或VSwitch下已使用IP信息。
+ *
+ * @param request ListIpamDiscoveredIpAddressesRequest
+ * @return ListIpamDiscoveredIpAddressesResponse
+ */
+ListIpamDiscoveredIpAddressesResponse Client::listIpamDiscoveredIpAddresses(const ListIpamDiscoveredIpAddressesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listIpamDiscoveredIpAddressesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries discovered resources.
  *
  * @param request ListIpamDiscoveredResourceRequest
@@ -1468,27 +1538,27 @@ ListIpamDiscoveredResourceResponse Client::listIpamDiscoveredResourceWithOptions
   request.validate();
   json query = {};
   if (!!request.hasIpamResourceDiscoveryId()) {
-    query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId();
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1530,35 +1600,35 @@ ListIpamMembersResponse Client::listIpamMembersWithOptions(const ListIpamMembers
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasMemberIds()) {
-    query["MemberIds"] = request.memberIds();
+    query["MemberIds"] = request.getMemberIds();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1600,31 +1670,31 @@ ListIpamPoolAllocationsResponse Client::listIpamPoolAllocationsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasCidr()) {
-    query["Cidr"] = request.cidr();
+    query["Cidr"] = request.getCidr();
   }
 
   if (!!request.hasIpamPoolAllocationIds()) {
-    query["IpamPoolAllocationIds"] = request.ipamPoolAllocationIds();
+    query["IpamPoolAllocationIds"] = request.getIpamPoolAllocationIds();
   }
 
   if (!!request.hasIpamPoolAllocationName()) {
-    query["IpamPoolAllocationName"] = request.ipamPoolAllocationName();
+    query["IpamPoolAllocationName"] = request.getIpamPoolAllocationName();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1666,23 +1736,23 @@ ListIpamPoolCidrsResponse Client::listIpamPoolCidrsWithOptions(const ListIpamPoo
   request.validate();
   json query = {};
   if (!!request.hasCidr()) {
-    query["Cidr"] = request.cidr();
+    query["Cidr"] = request.getCidr();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1724,71 +1794,71 @@ ListIpamPoolsResponse Client::listIpamPoolsWithOptions(const ListIpamPoolsReques
   request.validate();
   json query = {};
   if (!!request.hasIpVersion()) {
-    query["IpVersion"] = request.ipVersion();
+    query["IpVersion"] = request.getIpVersion();
   }
 
   if (!!request.hasIpamPoolIds()) {
-    query["IpamPoolIds"] = request.ipamPoolIds();
+    query["IpamPoolIds"] = request.getIpamPoolIds();
   }
 
   if (!!request.hasIpamPoolName()) {
-    query["IpamPoolName"] = request.ipamPoolName();
+    query["IpamPoolName"] = request.getIpamPoolName();
   }
 
   if (!!request.hasIpamScopeId()) {
-    query["IpamScopeId"] = request.ipamScopeId();
+    query["IpamScopeId"] = request.getIpamScopeId();
   }
 
   if (!!request.hasIpv6Isp()) {
-    query["Ipv6Isp"] = request.ipv6Isp();
+    query["Ipv6Isp"] = request.getIpv6Isp();
   }
 
   if (!!request.hasIsShared()) {
-    query["IsShared"] = request.isShared();
+    query["IsShared"] = request.getIsShared();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPoolRegionId()) {
-    query["PoolRegionId"] = request.poolRegionId();
+    query["PoolRegionId"] = request.getPoolRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasSourceIpamPoolId()) {
-    query["SourceIpamPoolId"] = request.sourceIpamPoolId();
+    query["SourceIpamPoolId"] = request.getSourceIpamPoolId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1830,39 +1900,39 @@ ListIpamResourceCidrsResponse Client::listIpamResourceCidrsWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasIpamScopeId()) {
-    query["IpamScopeId"] = request.ipamScopeId();
+    query["IpamScopeId"] = request.getIpamScopeId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1904,55 +1974,55 @@ ListIpamResourceDiscoveriesResponse Client::listIpamResourceDiscoveriesWithOptio
   request.validate();
   json query = {};
   if (!!request.hasIpamResourceDiscoveryIds()) {
-    query["IpamResourceDiscoveryIds"] = request.ipamResourceDiscoveryIds();
+    query["IpamResourceDiscoveryIds"] = request.getIpamResourceDiscoveryIds();
   }
 
   if (!!request.hasIpamResourceDiscoveryName()) {
-    query["IpamResourceDiscoveryName"] = request.ipamResourceDiscoveryName();
+    query["IpamResourceDiscoveryName"] = request.getIpamResourceDiscoveryName();
   }
 
   if (!!request.hasIsShared()) {
-    query["IsShared"] = request.isShared();
+    query["IsShared"] = request.getIsShared();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1994,39 +2064,39 @@ ListIpamResourceDiscoveryAssociationsResponse Client::listIpamResourceDiscoveryA
   request.validate();
   json query = {};
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasIpamResourceDiscoveryId()) {
-    query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId();
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2068,55 +2138,55 @@ ListIpamScopesResponse Client::listIpamScopesWithOptions(const ListIpamScopesReq
   request.validate();
   json query = {};
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasIpamScopeIds()) {
-    query["IpamScopeIds"] = request.ipamScopeIds();
+    query["IpamScopeIds"] = request.getIpamScopeIds();
   }
 
   if (!!request.hasIpamScopeName()) {
-    query["IpamScopeName"] = request.ipamScopeName();
+    query["IpamScopeName"] = request.getIpamScopeName();
   }
 
   if (!!request.hasIpamScopeType()) {
-    query["IpamScopeType"] = request.ipamScopeType();
+    query["IpamScopeType"] = request.getIpamScopeType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2158,47 +2228,47 @@ ListIpamsResponse Client::listIpamsWithOptions(const ListIpamsRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasIpamIds()) {
-    query["IpamIds"] = request.ipamIds();
+    query["IpamIds"] = request.getIpamIds();
   }
 
   if (!!request.hasIpamName()) {
-    query["IpamName"] = request.ipamName();
+    query["IpamName"] = request.getIpamName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2246,43 +2316,43 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2330,27 +2400,27 @@ OpenVpcIpamServiceResponse Client::openVpcIpamServiceWithOptions(const OpenVpcIp
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2392,35 +2462,35 @@ RemoveIpamMembersResponse Client::removeIpamMembersWithOptions(const RemoveIpamM
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasMembers()) {
-    query["Members"] = request.members();
+    query["Members"] = request.getMembers();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2468,35 +2538,35 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2544,39 +2614,39 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2608,7 +2678,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates an IP Address Manager (IPAM).
+ * @summary Modifies an IPAM instance.
  *
  * @param request UpdateIpamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2618,51 +2688,51 @@ UpdateIpamResponse Client::updateIpamWithOptions(const UpdateIpamRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAddOperatingRegion()) {
-    query["AddOperatingRegion"] = request.addOperatingRegion();
+    query["AddOperatingRegion"] = request.getAddOperatingRegion();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamDescription()) {
-    query["IpamDescription"] = request.ipamDescription();
+    query["IpamDescription"] = request.getIpamDescription();
   }
 
   if (!!request.hasIpamId()) {
-    query["IpamId"] = request.ipamId();
+    query["IpamId"] = request.getIpamId();
   }
 
   if (!!request.hasIpamName()) {
-    query["IpamName"] = request.ipamName();
+    query["IpamName"] = request.getIpamName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRemoveOperatingRegion()) {
-    query["RemoveOperatingRegion"] = request.removeOperatingRegion();
+    query["RemoveOperatingRegion"] = request.getRemoveOperatingRegion();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2683,7 +2753,7 @@ UpdateIpamResponse Client::updateIpamWithOptions(const UpdateIpamRequest &reques
 }
 
 /**
- * @summary Updates an IP Address Manager (IPAM).
+ * @summary Modifies an IPAM instance.
  *
  * @param request UpdateIpamRequest
  * @return UpdateIpamResponse
@@ -2704,63 +2774,63 @@ UpdateIpamPoolResponse Client::updateIpamPoolWithOptions(const UpdateIpamPoolReq
   request.validate();
   json query = {};
   if (!!request.hasAllocationDefaultCidrMask()) {
-    query["AllocationDefaultCidrMask"] = request.allocationDefaultCidrMask();
+    query["AllocationDefaultCidrMask"] = request.getAllocationDefaultCidrMask();
   }
 
   if (!!request.hasAllocationMaxCidrMask()) {
-    query["AllocationMaxCidrMask"] = request.allocationMaxCidrMask();
+    query["AllocationMaxCidrMask"] = request.getAllocationMaxCidrMask();
   }
 
   if (!!request.hasAllocationMinCidrMask()) {
-    query["AllocationMinCidrMask"] = request.allocationMinCidrMask();
+    query["AllocationMinCidrMask"] = request.getAllocationMinCidrMask();
   }
 
   if (!!request.hasAutoImport()) {
-    query["AutoImport"] = request.autoImport();
+    query["AutoImport"] = request.getAutoImport();
   }
 
   if (!!request.hasClearAllocationDefaultCidrMask()) {
-    query["ClearAllocationDefaultCidrMask"] = request.clearAllocationDefaultCidrMask();
+    query["ClearAllocationDefaultCidrMask"] = request.getClearAllocationDefaultCidrMask();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolDescription()) {
-    query["IpamPoolDescription"] = request.ipamPoolDescription();
+    query["IpamPoolDescription"] = request.getIpamPoolDescription();
   }
 
   if (!!request.hasIpamPoolId()) {
-    query["IpamPoolId"] = request.ipamPoolId();
+    query["IpamPoolId"] = request.getIpamPoolId();
   }
 
   if (!!request.hasIpamPoolName()) {
-    query["IpamPoolName"] = request.ipamPoolName();
+    query["IpamPoolName"] = request.getIpamPoolName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2802,27 +2872,27 @@ UpdateIpamPoolAllocationResponse Client::updateIpamPoolAllocationWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamPoolAllocationDescription()) {
-    query["IpamPoolAllocationDescription"] = request.ipamPoolAllocationDescription();
+    query["IpamPoolAllocationDescription"] = request.getIpamPoolAllocationDescription();
   }
 
   if (!!request.hasIpamPoolAllocationId()) {
-    query["IpamPoolAllocationId"] = request.ipamPoolAllocationId();
+    query["IpamPoolAllocationId"] = request.getIpamPoolAllocationId();
   }
 
   if (!!request.hasIpamPoolAllocationName()) {
-    query["IpamPoolAllocationName"] = request.ipamPoolAllocationName();
+    query["IpamPoolAllocationName"] = request.getIpamPoolAllocationName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2867,51 +2937,51 @@ UpdateIpamResourceDiscoveryResponse Client::updateIpamResourceDiscoveryWithOptio
   request.validate();
   json query = {};
   if (!!request.hasAddOperatingRegion()) {
-    query["AddOperatingRegion"] = request.addOperatingRegion();
+    query["AddOperatingRegion"] = request.getAddOperatingRegion();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamResourceDiscoveryDescription()) {
-    query["IpamResourceDiscoveryDescription"] = request.ipamResourceDiscoveryDescription();
+    query["IpamResourceDiscoveryDescription"] = request.getIpamResourceDiscoveryDescription();
   }
 
   if (!!request.hasIpamResourceDiscoveryId()) {
-    query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId();
+    query["IpamResourceDiscoveryId"] = request.getIpamResourceDiscoveryId();
   }
 
   if (!!request.hasIpamResourceDiscoveryName()) {
-    query["IpamResourceDiscoveryName"] = request.ipamResourceDiscoveryName();
+    query["IpamResourceDiscoveryName"] = request.getIpamResourceDiscoveryName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRemoveOperatingRegion()) {
-    query["RemoveOperatingRegion"] = request.removeOperatingRegion();
+    query["RemoveOperatingRegion"] = request.getRemoveOperatingRegion();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2956,43 +3026,43 @@ UpdateIpamScopeResponse Client::updateIpamScopeWithOptions(const UpdateIpamScope
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIpamScopeDescription()) {
-    query["IpamScopeDescription"] = request.ipamScopeDescription();
+    query["IpamScopeDescription"] = request.getIpamScopeDescription();
   }
 
   if (!!request.hasIpamScopeId()) {
-    query["IpamScopeId"] = request.ipamScopeId();
+    query["IpamScopeId"] = request.getIpamScopeId();
   }
 
   if (!!request.hasIpamScopeName()) {
-    query["IpamScopeName"] = request.ipamScopeName();
+    query["IpamScopeName"] = request.getIpamScopeName();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

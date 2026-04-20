@@ -436,6 +436,23 @@ namespace VpcIpam20230228
       Models::GetVpcIpamServiceStatusResponse getVpcIpamServiceStatus(const Models::GetVpcIpamServiceStatusRequest &request);
 
       /**
+       * @summary 查询VPC或VSwitch下已使用IP信息。
+       *
+       * @param request ListIpamDiscoveredIpAddressesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIpamDiscoveredIpAddressesResponse
+       */
+      Models::ListIpamDiscoveredIpAddressesResponse listIpamDiscoveredIpAddressesWithOptions(const Models::ListIpamDiscoveredIpAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询VPC或VSwitch下已使用IP信息。
+       *
+       * @param request ListIpamDiscoveredIpAddressesRequest
+       * @return ListIpamDiscoveredIpAddressesResponse
+       */
+      Models::ListIpamDiscoveredIpAddressesResponse listIpamDiscoveredIpAddresses(const Models::ListIpamDiscoveredIpAddressesRequest &request);
+
+      /**
        * @summary Queries discovered resources.
        *
        * @param request ListIpamDiscoveredResourceRequest
@@ -715,7 +732,7 @@ namespace VpcIpam20230228
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates an IP Address Manager (IPAM).
+       * @summary Modifies an IPAM instance.
        *
        * @param request UpdateIpamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -724,7 +741,7 @@ namespace VpcIpam20230228
       Models::UpdateIpamResponse updateIpamWithOptions(const Models::UpdateIpamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an IP Address Manager (IPAM).
+       * @summary Modifies an IPAM instance.
        *
        * @param request UpdateIpamRequest
        * @return UpdateIpamResponse

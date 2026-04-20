@@ -59,6 +59,9 @@
 #include <alibabacloud/models/GetVpcIpamServiceStatusRequest.hpp>
 #include <alibabacloud/models/GetVpcIpamServiceStatusResponseBody.hpp>
 #include <alibabacloud/models/GetVpcIpamServiceStatusResponse.hpp>
+#include <alibabacloud/models/ListIpamDiscoveredIpAddressesRequest.hpp>
+#include <alibabacloud/models/ListIpamDiscoveredIpAddressesResponseBody.hpp>
+#include <alibabacloud/models/ListIpamDiscoveredIpAddressesResponse.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceRequest.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceResponseBody.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceResponse.hpp>
@@ -119,35 +122,5 @@
 #include <alibabacloud/models/UpdateIpamScopeRequest.hpp>
 #include <alibabacloud/models/UpdateIpamScopeResponseBody.hpp>
 #include <alibabacloud/models/UpdateIpamScopeResponse.hpp>
-#include <alibabacloud/models/AddIpamMembersRequestMembers.hpp>
-#include <alibabacloud/models/CreateIpamRequestTag.hpp>
-#include <alibabacloud/models/CreateIpamPoolRequestTag.hpp>
-#include <alibabacloud/models/CreateIpamResourceDiscoveryRequestTag.hpp>
-#include <alibabacloud/models/CreateIpamScopeRequestTag.hpp>
-#include <alibabacloud/models/ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail.hpp>
-#include <alibabacloud/models/ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources.hpp>
-#include <alibabacloud/models/ListIpamMembersResponseBodyMemberInfos.hpp>
-#include <alibabacloud/models/ListIpamPoolAllocationsResponseBodyIpamPoolAllocations.hpp>
-#include <alibabacloud/models/ListIpamPoolCidrsResponseBodyIpamPoolCidrs.hpp>
-#include <alibabacloud/models/ListIpamPoolsRequestTags.hpp>
-#include <alibabacloud/models/ListIpamPoolsResponseBodyIpamPoolsTags.hpp>
-#include <alibabacloud/models/ListIpamPoolsResponseBodyIpamPools.hpp>
-#include <alibabacloud/models/ListIpamResourceCidrsResponseBodyIpamResourceCidrsIpCountDetail.hpp>
-#include <alibabacloud/models/ListIpamResourceCidrsResponseBodyIpamResourceCidrsOverlapDetail.hpp>
-#include <alibabacloud/models/ListIpamResourceCidrsResponseBodyIpamResourceCidrs.hpp>
-#include <alibabacloud/models/ListIpamResourceDiscoveriesRequestTags.hpp>
-#include <alibabacloud/models/ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveriesTags.hpp>
-#include <alibabacloud/models/ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveries.hpp>
-#include <alibabacloud/models/ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations.hpp>
-#include <alibabacloud/models/ListIpamScopesRequestTags.hpp>
-#include <alibabacloud/models/ListIpamScopesResponseBodyIpamScopesTags.hpp>
-#include <alibabacloud/models/ListIpamScopesResponseBodyIpamScopes.hpp>
-#include <alibabacloud/models/ListIpamsRequestTags.hpp>
-#include <alibabacloud/models/ListIpamsResponseBodyIpamsTags.hpp>
-#include <alibabacloud/models/ListIpamsResponseBodyIpams.hpp>
-#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
-#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
-#include <alibabacloud/models/RemoveIpamMembersRequestMembers.hpp>
-#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 
 #endif

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidrBlock_ == nullptr
-        && return this->cidrMask_ == nullptr && return this->clientToken_ == nullptr && return this->ipamPoolId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->cidrMask_ == nullptr && this->clientToken_ == nullptr && this->ipamPoolId_ == nullptr && this->regionId_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
-    inline string cidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
+    inline string getCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
     inline GetIpamPoolNextAvailableCidrRequest& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
 
 
     // cidrMask Field Functions 
     bool hasCidrMask() const { return this->cidrMask_ != nullptr;};
     void deleteCidrMask() { this->cidrMask_ = nullptr;};
-    inline int32_t cidrMask() const { DARABONBA_PTR_GET_DEFAULT(cidrMask_, 0) };
+    inline int32_t getCidrMask() const { DARABONBA_PTR_GET_DEFAULT(cidrMask_, 0) };
     inline GetIpamPoolNextAvailableCidrRequest& setCidrMask(int32_t cidrMask) { DARABONBA_PTR_SET_VALUE(cidrMask_, cidrMask) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline GetIpamPoolNextAvailableCidrRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // ipamPoolId Field Functions 
     bool hasIpamPoolId() const { return this->ipamPoolId_ != nullptr;};
     void deleteIpamPoolId() { this->ipamPoolId_ = nullptr;};
-    inline string ipamPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolId_, "") };
+    inline string getIpamPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolId_, "") };
     inline GetIpamPoolNextAvailableCidrRequest& setIpamPoolId(string ipamPoolId) { DARABONBA_PTR_SET_VALUE(ipamPoolId_, ipamPoolId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetIpamPoolNextAvailableCidrRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,25 +78,25 @@ namespace Models
     // CIDR to be allocated.
     // 
     // >  You must enter at least one of the CidrBlock and CidrMask fields.
-    std::shared_ptr<string> cidrBlock_ = nullptr;
+    shared_ptr<string> cidrBlock_ {};
     // The length of the CIDR mask to be allocated.
     // 
     // >  You must enter at least one of the CidrBlock and CidrMask fields.
-    std::shared_ptr<int32_t> cidrMask_ = nullptr;
+    shared_ptr<int32_t> cidrMask_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The ID of the IPAM pool.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipamPoolId_ = nullptr;
+    shared_ptr<string> ipamPoolId_ {};
     // The region of the IPAM pool.
     // 
     // >  If the IPAM pool has the region attribute, this parameter is set to the effective region of the IPAM pool. If not, this is set to the hosted region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

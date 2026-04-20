@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidr_ == nullptr
-        && return this->ipamPoolId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr; };
+        && this->ipamPoolId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr; };
     // cidr Field Functions 
     bool hasCidr() const { return this->cidr_ != nullptr;};
     void deleteCidr() { this->cidr_ = nullptr;};
-    inline string cidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
+    inline string getCidr() const { DARABONBA_PTR_GET_DEFAULT(cidr_, "") };
     inline ListIpamPoolCidrsRequest& setCidr(string cidr) { DARABONBA_PTR_SET_VALUE(cidr_, cidr) };
 
 
     // ipamPoolId Field Functions 
     bool hasIpamPoolId() const { return this->ipamPoolId_ != nullptr;};
     void deleteIpamPoolId() { this->ipamPoolId_ = nullptr;};
-    inline string ipamPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolId_, "") };
+    inline string getIpamPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolId_, "") };
     inline ListIpamPoolCidrsRequest& setIpamPoolId(string ipamPoolId) { DARABONBA_PTR_SET_VALUE(ipamPoolId_, ipamPoolId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListIpamPoolCidrsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListIpamPoolCidrsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListIpamPoolCidrsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,24 +78,24 @@ namespace Models
     // The provisioned CIDR block that you want to query.
     // 
     // >  Only IPv4 CIDR blocks are supported.
-    std::shared_ptr<string> cidr_ = nullptr;
+    shared_ptr<string> cidr_ {};
     // The ID of the IPAM pool.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipamPoolId_ = nullptr;
+    shared_ptr<string> ipamPoolId_ {};
     // The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If **NextToken** is empty, no next page exists.
     // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the region where the IPAM instance is hosted.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

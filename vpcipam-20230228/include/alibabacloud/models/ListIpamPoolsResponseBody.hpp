@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTIPAMPOOLSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListIpamPoolsResponseBodyIpamPools.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,68 +40,433 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IpamPools : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IpamPools& obj) { 
+        DARABONBA_PTR_TO_JSON(AllocationDefaultCidrMask, allocationDefaultCidrMask_);
+        DARABONBA_PTR_TO_JSON(AllocationMaxCidrMask, allocationMaxCidrMask_);
+        DARABONBA_PTR_TO_JSON(AllocationMinCidrMask, allocationMinCidrMask_);
+        DARABONBA_PTR_TO_JSON(AutoImport, autoImport_);
+        DARABONBA_PTR_TO_JSON(Cidrs, cidrs_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(HasSubPool, hasSubPool_);
+        DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
+        DARABONBA_PTR_TO_JSON(IpamId, ipamId_);
+        DARABONBA_PTR_TO_JSON(IpamPoolDescription, ipamPoolDescription_);
+        DARABONBA_PTR_TO_JSON(IpamPoolId, ipamPoolId_);
+        DARABONBA_PTR_TO_JSON(IpamPoolName, ipamPoolName_);
+        DARABONBA_PTR_TO_JSON(IpamRegionId, ipamRegionId_);
+        DARABONBA_PTR_TO_JSON(IpamScopeId, ipamScopeId_);
+        DARABONBA_PTR_TO_JSON(IpamScopeType, ipamScopeType_);
+        DARABONBA_PTR_TO_JSON(Ipv6Isp, ipv6Isp_);
+        DARABONBA_PTR_TO_JSON(IsShared, isShared_);
+        DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+        DARABONBA_PTR_TO_JSON(PoolDepth, poolDepth_);
+        DARABONBA_PTR_TO_JSON(PoolRegionId, poolRegionId_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(SourceIpamPoolId, sourceIpamPoolId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
+      };
+      friend void from_json(const Darabonba::Json& j, IpamPools& obj) { 
+        DARABONBA_PTR_FROM_JSON(AllocationDefaultCidrMask, allocationDefaultCidrMask_);
+        DARABONBA_PTR_FROM_JSON(AllocationMaxCidrMask, allocationMaxCidrMask_);
+        DARABONBA_PTR_FROM_JSON(AllocationMinCidrMask, allocationMinCidrMask_);
+        DARABONBA_PTR_FROM_JSON(AutoImport, autoImport_);
+        DARABONBA_PTR_FROM_JSON(Cidrs, cidrs_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(HasSubPool, hasSubPool_);
+        DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
+        DARABONBA_PTR_FROM_JSON(IpamId, ipamId_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolDescription, ipamPoolDescription_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolId, ipamPoolId_);
+        DARABONBA_PTR_FROM_JSON(IpamPoolName, ipamPoolName_);
+        DARABONBA_PTR_FROM_JSON(IpamRegionId, ipamRegionId_);
+        DARABONBA_PTR_FROM_JSON(IpamScopeId, ipamScopeId_);
+        DARABONBA_PTR_FROM_JSON(IpamScopeType, ipamScopeType_);
+        DARABONBA_PTR_FROM_JSON(Ipv6Isp, ipv6Isp_);
+        DARABONBA_PTR_FROM_JSON(IsShared, isShared_);
+        DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+        DARABONBA_PTR_FROM_JSON(PoolDepth, poolDepth_);
+        DARABONBA_PTR_FROM_JSON(PoolRegionId, poolRegionId_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(SourceIpamPoolId, sourceIpamPoolId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      };
+      IpamPools() = default ;
+      IpamPools(const IpamPools &) = default ;
+      IpamPools(IpamPools &&) = default ;
+      IpamPools(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IpamPools() = default ;
+      IpamPools& operator=(const IpamPools &) = default ;
+      IpamPools& operator=(IpamPools &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key.
+        shared_ptr<string> key_ {};
+        // The tag value.
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->allocationDefaultCidrMask_ == nullptr
+        && this->allocationMaxCidrMask_ == nullptr && this->allocationMinCidrMask_ == nullptr && this->autoImport_ == nullptr && this->cidrs_ == nullptr && this->createTime_ == nullptr
+        && this->hasSubPool_ == nullptr && this->ipVersion_ == nullptr && this->ipamId_ == nullptr && this->ipamPoolDescription_ == nullptr && this->ipamPoolId_ == nullptr
+        && this->ipamPoolName_ == nullptr && this->ipamRegionId_ == nullptr && this->ipamScopeId_ == nullptr && this->ipamScopeType_ == nullptr && this->ipv6Isp_ == nullptr
+        && this->isShared_ == nullptr && this->ownerId_ == nullptr && this->poolDepth_ == nullptr && this->poolRegionId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->sourceIpamPoolId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+      // allocationDefaultCidrMask Field Functions 
+      bool hasAllocationDefaultCidrMask() const { return this->allocationDefaultCidrMask_ != nullptr;};
+      void deleteAllocationDefaultCidrMask() { this->allocationDefaultCidrMask_ = nullptr;};
+      inline int32_t getAllocationDefaultCidrMask() const { DARABONBA_PTR_GET_DEFAULT(allocationDefaultCidrMask_, 0) };
+      inline IpamPools& setAllocationDefaultCidrMask(int32_t allocationDefaultCidrMask) { DARABONBA_PTR_SET_VALUE(allocationDefaultCidrMask_, allocationDefaultCidrMask) };
+
+
+      // allocationMaxCidrMask Field Functions 
+      bool hasAllocationMaxCidrMask() const { return this->allocationMaxCidrMask_ != nullptr;};
+      void deleteAllocationMaxCidrMask() { this->allocationMaxCidrMask_ = nullptr;};
+      inline int32_t getAllocationMaxCidrMask() const { DARABONBA_PTR_GET_DEFAULT(allocationMaxCidrMask_, 0) };
+      inline IpamPools& setAllocationMaxCidrMask(int32_t allocationMaxCidrMask) { DARABONBA_PTR_SET_VALUE(allocationMaxCidrMask_, allocationMaxCidrMask) };
+
+
+      // allocationMinCidrMask Field Functions 
+      bool hasAllocationMinCidrMask() const { return this->allocationMinCidrMask_ != nullptr;};
+      void deleteAllocationMinCidrMask() { this->allocationMinCidrMask_ = nullptr;};
+      inline int32_t getAllocationMinCidrMask() const { DARABONBA_PTR_GET_DEFAULT(allocationMinCidrMask_, 0) };
+      inline IpamPools& setAllocationMinCidrMask(int32_t allocationMinCidrMask) { DARABONBA_PTR_SET_VALUE(allocationMinCidrMask_, allocationMinCidrMask) };
+
+
+      // autoImport Field Functions 
+      bool hasAutoImport() const { return this->autoImport_ != nullptr;};
+      void deleteAutoImport() { this->autoImport_ = nullptr;};
+      inline bool getAutoImport() const { DARABONBA_PTR_GET_DEFAULT(autoImport_, false) };
+      inline IpamPools& setAutoImport(bool autoImport) { DARABONBA_PTR_SET_VALUE(autoImport_, autoImport) };
+
+
+      // cidrs Field Functions 
+      bool hasCidrs() const { return this->cidrs_ != nullptr;};
+      void deleteCidrs() { this->cidrs_ = nullptr;};
+      inline const vector<string> & getCidrs() const { DARABONBA_PTR_GET_CONST(cidrs_, vector<string>) };
+      inline vector<string> getCidrs() { DARABONBA_PTR_GET(cidrs_, vector<string>) };
+      inline IpamPools& setCidrs(const vector<string> & cidrs) { DARABONBA_PTR_SET_VALUE(cidrs_, cidrs) };
+      inline IpamPools& setCidrs(vector<string> && cidrs) { DARABONBA_PTR_SET_RVALUE(cidrs_, cidrs) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline IpamPools& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // hasSubPool Field Functions 
+      bool hasHasSubPool() const { return this->hasSubPool_ != nullptr;};
+      void deleteHasSubPool() { this->hasSubPool_ = nullptr;};
+      inline bool getHasSubPool() const { DARABONBA_PTR_GET_DEFAULT(hasSubPool_, false) };
+      inline IpamPools& setHasSubPool(bool hasSubPool) { DARABONBA_PTR_SET_VALUE(hasSubPool_, hasSubPool) };
+
+
+      // ipVersion Field Functions 
+      bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
+      void deleteIpVersion() { this->ipVersion_ = nullptr;};
+      inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+      inline IpamPools& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
+      // ipamId Field Functions 
+      bool hasIpamId() const { return this->ipamId_ != nullptr;};
+      void deleteIpamId() { this->ipamId_ = nullptr;};
+      inline string getIpamId() const { DARABONBA_PTR_GET_DEFAULT(ipamId_, "") };
+      inline IpamPools& setIpamId(string ipamId) { DARABONBA_PTR_SET_VALUE(ipamId_, ipamId) };
+
+
+      // ipamPoolDescription Field Functions 
+      bool hasIpamPoolDescription() const { return this->ipamPoolDescription_ != nullptr;};
+      void deleteIpamPoolDescription() { this->ipamPoolDescription_ = nullptr;};
+      inline string getIpamPoolDescription() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolDescription_, "") };
+      inline IpamPools& setIpamPoolDescription(string ipamPoolDescription) { DARABONBA_PTR_SET_VALUE(ipamPoolDescription_, ipamPoolDescription) };
+
+
+      // ipamPoolId Field Functions 
+      bool hasIpamPoolId() const { return this->ipamPoolId_ != nullptr;};
+      void deleteIpamPoolId() { this->ipamPoolId_ = nullptr;};
+      inline string getIpamPoolId() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolId_, "") };
+      inline IpamPools& setIpamPoolId(string ipamPoolId) { DARABONBA_PTR_SET_VALUE(ipamPoolId_, ipamPoolId) };
+
+
+      // ipamPoolName Field Functions 
+      bool hasIpamPoolName() const { return this->ipamPoolName_ != nullptr;};
+      void deleteIpamPoolName() { this->ipamPoolName_ = nullptr;};
+      inline string getIpamPoolName() const { DARABONBA_PTR_GET_DEFAULT(ipamPoolName_, "") };
+      inline IpamPools& setIpamPoolName(string ipamPoolName) { DARABONBA_PTR_SET_VALUE(ipamPoolName_, ipamPoolName) };
+
+
+      // ipamRegionId Field Functions 
+      bool hasIpamRegionId() const { return this->ipamRegionId_ != nullptr;};
+      void deleteIpamRegionId() { this->ipamRegionId_ = nullptr;};
+      inline string getIpamRegionId() const { DARABONBA_PTR_GET_DEFAULT(ipamRegionId_, "") };
+      inline IpamPools& setIpamRegionId(string ipamRegionId) { DARABONBA_PTR_SET_VALUE(ipamRegionId_, ipamRegionId) };
+
+
+      // ipamScopeId Field Functions 
+      bool hasIpamScopeId() const { return this->ipamScopeId_ != nullptr;};
+      void deleteIpamScopeId() { this->ipamScopeId_ = nullptr;};
+      inline string getIpamScopeId() const { DARABONBA_PTR_GET_DEFAULT(ipamScopeId_, "") };
+      inline IpamPools& setIpamScopeId(string ipamScopeId) { DARABONBA_PTR_SET_VALUE(ipamScopeId_, ipamScopeId) };
+
+
+      // ipamScopeType Field Functions 
+      bool hasIpamScopeType() const { return this->ipamScopeType_ != nullptr;};
+      void deleteIpamScopeType() { this->ipamScopeType_ = nullptr;};
+      inline string getIpamScopeType() const { DARABONBA_PTR_GET_DEFAULT(ipamScopeType_, "") };
+      inline IpamPools& setIpamScopeType(string ipamScopeType) { DARABONBA_PTR_SET_VALUE(ipamScopeType_, ipamScopeType) };
+
+
+      // ipv6Isp Field Functions 
+      bool hasIpv6Isp() const { return this->ipv6Isp_ != nullptr;};
+      void deleteIpv6Isp() { this->ipv6Isp_ = nullptr;};
+      inline string getIpv6Isp() const { DARABONBA_PTR_GET_DEFAULT(ipv6Isp_, "") };
+      inline IpamPools& setIpv6Isp(string ipv6Isp) { DARABONBA_PTR_SET_VALUE(ipv6Isp_, ipv6Isp) };
+
+
+      // isShared Field Functions 
+      bool hasIsShared() const { return this->isShared_ != nullptr;};
+      void deleteIsShared() { this->isShared_ = nullptr;};
+      inline bool getIsShared() const { DARABONBA_PTR_GET_DEFAULT(isShared_, false) };
+      inline IpamPools& setIsShared(bool isShared) { DARABONBA_PTR_SET_VALUE(isShared_, isShared) };
+
+
+      // ownerId Field Functions 
+      bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+      void deleteOwnerId() { this->ownerId_ = nullptr;};
+      inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+      inline IpamPools& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+      // poolDepth Field Functions 
+      bool hasPoolDepth() const { return this->poolDepth_ != nullptr;};
+      void deletePoolDepth() { this->poolDepth_ = nullptr;};
+      inline int32_t getPoolDepth() const { DARABONBA_PTR_GET_DEFAULT(poolDepth_, 0) };
+      inline IpamPools& setPoolDepth(int32_t poolDepth) { DARABONBA_PTR_SET_VALUE(poolDepth_, poolDepth) };
+
+
+      // poolRegionId Field Functions 
+      bool hasPoolRegionId() const { return this->poolRegionId_ != nullptr;};
+      void deletePoolRegionId() { this->poolRegionId_ = nullptr;};
+      inline string getPoolRegionId() const { DARABONBA_PTR_GET_DEFAULT(poolRegionId_, "") };
+      inline IpamPools& setPoolRegionId(string poolRegionId) { DARABONBA_PTR_SET_VALUE(poolRegionId_, poolRegionId) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline IpamPools& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline IpamPools& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+      // sourceIpamPoolId Field Functions 
+      bool hasSourceIpamPoolId() const { return this->sourceIpamPoolId_ != nullptr;};
+      void deleteSourceIpamPoolId() { this->sourceIpamPoolId_ = nullptr;};
+      inline string getSourceIpamPoolId() const { DARABONBA_PTR_GET_DEFAULT(sourceIpamPoolId_, "") };
+      inline IpamPools& setSourceIpamPoolId(string sourceIpamPoolId) { DARABONBA_PTR_SET_VALUE(sourceIpamPoolId_, sourceIpamPoolId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline IpamPools& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<IpamPools::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<IpamPools::Tags>) };
+      inline vector<IpamPools::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<IpamPools::Tags>) };
+      inline IpamPools& setTags(const vector<IpamPools::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline IpamPools& setTags(vector<IpamPools::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+    protected:
+      // The default network mask assigned to the IPAM pool.
+      // 
+      // An IPv4 mask must be **0 to 32** bits in length.
+      shared_ptr<int32_t> allocationDefaultCidrMask_ {};
+      // The maximum network mask assigned to the IPAM pool.
+      // 
+      // An IPv4 mask must be **0 to 32** bits in length.
+      shared_ptr<int32_t> allocationMaxCidrMask_ {};
+      // The minimum network mask assigned to the IPAM pool.
+      // 
+      // An IPv4 mask must be **0 to 32** bits in length.
+      shared_ptr<int32_t> allocationMinCidrMask_ {};
+      // Whether the pool has the auto-import feature enabled.
+      shared_ptr<bool> autoImport_ {};
+      shared_ptr<vector<string>> cidrs_ {};
+      // The time when the IPAM pool was created.
+      shared_ptr<string> createTime_ {};
+      // Indicates whether the pool is a subpool. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> hasSubPool_ {};
+      // The IP version. Only **IPv4** may be returned.
+      shared_ptr<string> ipVersion_ {};
+      // The ID of the IPAM.
+      shared_ptr<string> ipamId_ {};
+      // The description of the IPAM pool.
+      shared_ptr<string> ipamPoolDescription_ {};
+      // The ID of the IPAM pool.
+      shared_ptr<string> ipamPoolId_ {};
+      // The name of the IPAM pool.
+      shared_ptr<string> ipamPoolName_ {};
+      // The ID of the region where the IPAM to which the IPAM pool belongs is hosted.
+      shared_ptr<string> ipamRegionId_ {};
+      // The ID of the IPAM scope.
+      shared_ptr<string> ipamScopeId_ {};
+      // The type of the IPAM scope. Valid values:
+      // 
+      // *   **public**
+      // *   **private**
+      shared_ptr<string> ipamScopeType_ {};
+      shared_ptr<string> ipv6Isp_ {};
+      // Whether it is a shared pool.
+      shared_ptr<bool> isShared_ {};
+      // The Alibaba Cloud account of the owner for the IPAM pool.
+      shared_ptr<int64_t> ownerId_ {};
+      // The depth of the IPAM pool. Valid values: **0 to 10**.
+      shared_ptr<int32_t> poolDepth_ {};
+      // The effective region of the IPAM pool. The ID of the effective region for the IPAM pool.
+      shared_ptr<string> poolRegionId_ {};
+      // The ID of the region where the operation is called.
+      shared_ptr<string> regionId_ {};
+      // The resource group ID.
+      shared_ptr<string> resourceGroupId_ {};
+      // The ID of the source IPAM pool.
+      shared_ptr<string> sourceIpamPoolId_ {};
+      // The status of the IPAM pool. Valid values:
+      // 
+      // *   **Creating**
+      // *   **Created**: indicates that the creation is complete.
+      // *   **Modifying**
+      // *   **Deleting**
+      // *   **Deleted**
+      shared_ptr<string> status_ {};
+      // The tag list.
+      shared_ptr<vector<IpamPools::Tags>> tags_ {};
+    };
+
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->ipamPools_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->ipamPools_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int64_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+    inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
     inline ListIpamPoolsResponseBody& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // ipamPools Field Functions 
     bool hasIpamPools() const { return this->ipamPools_ != nullptr;};
     void deleteIpamPools() { this->ipamPools_ = nullptr;};
-    inline const vector<ListIpamPoolsResponseBodyIpamPools> & ipamPools() const { DARABONBA_PTR_GET_CONST(ipamPools_, vector<ListIpamPoolsResponseBodyIpamPools>) };
-    inline vector<ListIpamPoolsResponseBodyIpamPools> ipamPools() { DARABONBA_PTR_GET(ipamPools_, vector<ListIpamPoolsResponseBodyIpamPools>) };
-    inline ListIpamPoolsResponseBody& setIpamPools(const vector<ListIpamPoolsResponseBodyIpamPools> & ipamPools) { DARABONBA_PTR_SET_VALUE(ipamPools_, ipamPools) };
-    inline ListIpamPoolsResponseBody& setIpamPools(vector<ListIpamPoolsResponseBodyIpamPools> && ipamPools) { DARABONBA_PTR_SET_RVALUE(ipamPools_, ipamPools) };
+    inline const vector<ListIpamPoolsResponseBody::IpamPools> & getIpamPools() const { DARABONBA_PTR_GET_CONST(ipamPools_, vector<ListIpamPoolsResponseBody::IpamPools>) };
+    inline vector<ListIpamPoolsResponseBody::IpamPools> getIpamPools() { DARABONBA_PTR_GET(ipamPools_, vector<ListIpamPoolsResponseBody::IpamPools>) };
+    inline ListIpamPoolsResponseBody& setIpamPools(const vector<ListIpamPoolsResponseBody::IpamPools> & ipamPools) { DARABONBA_PTR_SET_VALUE(ipamPools_, ipamPools) };
+    inline ListIpamPoolsResponseBody& setIpamPools(vector<ListIpamPoolsResponseBody::IpamPools> && ipamPools) { DARABONBA_PTR_SET_RVALUE(ipamPools_, ipamPools) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListIpamPoolsResponseBody& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListIpamPoolsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListIpamPoolsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListIpamPoolsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The number of entries returned.
-    std::shared_ptr<int64_t> count_ = nullptr;
+    shared_ptr<int64_t> count_ {};
     // The IPAM pools.
-    std::shared_ptr<vector<ListIpamPoolsResponseBodyIpamPools>> ipamPools_ = nullptr;
+    shared_ptr<vector<ListIpamPoolsResponseBody::IpamPools>> ipamPools_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If **NextToken** is empty, no next page exists.
     // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models
