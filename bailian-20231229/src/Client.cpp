@@ -61,6 +61,10 @@ AddCategoryResponse Client::addCategoryWithOptions(const string &WorkspaceId, co
     body["CategoryType"] = request.getCategoryType();
   }
 
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
   if (!!request.hasParentCategoryId()) {
     body["ParentCategoryId"] = request.getParentCategoryId();
   }

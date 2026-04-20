@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AddCategoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_TO_JSON(CategoryType, categoryType_);
+      DARABONBA_PTR_TO_JSON(ConnectorId, connectorId_);
       DARABONBA_PTR_TO_JSON(ParentCategoryId, parentCategoryId_);
     };
     friend void from_json(const Darabonba::Json& j, AddCategoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_FROM_JSON(CategoryType, categoryType_);
+      DARABONBA_PTR_FROM_JSON(ConnectorId, connectorId_);
       DARABONBA_PTR_FROM_JSON(ParentCategoryId, parentCategoryId_);
     };
     AddCategoryRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryName_ == nullptr
-        && this->categoryType_ == nullptr && this->parentCategoryId_ == nullptr; };
+        && this->categoryType_ == nullptr && this->connectorId_ == nullptr && this->parentCategoryId_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline AddCategoryRequest& setCategoryType(string categoryType) { DARABONBA_PTR_SET_VALUE(categoryType_, categoryType) };
 
 
+    // connectorId Field Functions 
+    bool hasConnectorId() const { return this->connectorId_ != nullptr;};
+    void deleteConnectorId() { this->connectorId_ = nullptr;};
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline AddCategoryRequest& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
+
+
     // parentCategoryId Field Functions 
     bool hasParentCategoryId() const { return this->parentCategoryId_ != nullptr;};
     void deleteParentCategoryId() { this->parentCategoryId_ = nullptr;};
@@ -61,6 +70,7 @@ namespace Models
     shared_ptr<string> categoryName_ {};
     // This parameter is required.
     shared_ptr<string> categoryType_ {};
+    shared_ptr<string> connectorId_ {};
     shared_ptr<string> parentCategoryId_ {};
   };
 
