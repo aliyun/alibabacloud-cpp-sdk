@@ -655,6 +655,9 @@
 #include <alibabacloud/models/ModifyStreamingJobShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyStreamingJobResponseBody.hpp>
 #include <alibabacloud/models/ModifyStreamingJobResponse.hpp>
+#include <alibabacloud/models/ModifySupabaseAutoScalePolicyRequest.hpp>
+#include <alibabacloud/models/ModifySupabaseAutoScalePolicyResponseBody.hpp>
+#include <alibabacloud/models/ModifySupabaseAutoScalePolicyResponse.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectSecurityIpsRequest.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectSecurityIpsResponseBody.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectSecurityIpsResponse.hpp>

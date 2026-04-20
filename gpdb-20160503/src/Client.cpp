@@ -13762,6 +13762,56 @@ ModifyStreamingJobResponse Client::modifyStreamingJob(const ModifyStreamingJobRe
 }
 
 /**
+ * @summary 修改Supabase自动启停策略
+ *
+ * @param request ModifySupabaseAutoScalePolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySupabaseAutoScalePolicyResponse
+ */
+ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicyWithOptions(const ModifySupabaseAutoScalePolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoScale()) {
+    query["AutoScale"] = request.getAutoScale();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySupabaseAutoScalePolicy"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySupabaseAutoScalePolicyResponse>();
+}
+
+/**
+ * @summary 修改Supabase自动启停策略
+ *
+ * @param request ModifySupabaseAutoScalePolicyRequest
+ * @return ModifySupabaseAutoScalePolicyResponse
+ */
+ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicy(const ModifySupabaseAutoScalePolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySupabaseAutoScalePolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
  *
  * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.

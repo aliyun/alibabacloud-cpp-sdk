@@ -4147,6 +4147,23 @@ namespace Gpdb20160503
       Models::ModifyStreamingJobResponse modifyStreamingJob(const Models::ModifyStreamingJobRequest &request);
 
       /**
+       * @summary 修改Supabase自动启停策略
+       *
+       * @param request ModifySupabaseAutoScalePolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySupabaseAutoScalePolicyResponse
+       */
+      Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicyWithOptions(const Models::ModifySupabaseAutoScalePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改Supabase自动启停策略
+       *
+       * @param request ModifySupabaseAutoScalePolicyRequest
+       * @return ModifySupabaseAutoScalePolicyResponse
+       */
+      Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicy(const Models::ModifySupabaseAutoScalePolicyRequest &request);
+
+      /**
        * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
        *
        * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
