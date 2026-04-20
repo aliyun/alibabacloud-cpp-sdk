@@ -1060,6 +1060,10 @@ CreateCenInterRegionTrafficQosPolicyResponse Client::createCenInterRegionTraffic
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasConsoleDryRun()) {
+    query["ConsoleDryRun"] = request.getConsoleDryRun();
+  }
+
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
   }

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateCenInterRegionTrafficQosPolicyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BandwidthGuaranteeMode, bandwidthGuaranteeMode_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(ConsoleDryRun, consoleDryRun_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -30,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateCenInterRegionTrafficQosPolicyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BandwidthGuaranteeMode, bandwidthGuaranteeMode_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(ConsoleDryRun, consoleDryRun_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -154,9 +156,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->bandwidthGuaranteeMode_ == nullptr
-        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->trafficQosPolicyDescription_ == nullptr && this->trafficQosPolicyName_ == nullptr && this->trafficQosQueues_ == nullptr && this->transitRouterAttachmentId_ == nullptr
-        && this->transitRouterId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->consoleDryRun_ == nullptr && this->dryRun_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->trafficQosPolicyDescription_ == nullptr && this->trafficQosPolicyName_ == nullptr && this->trafficQosQueues_ == nullptr
+        && this->transitRouterAttachmentId_ == nullptr && this->transitRouterId_ == nullptr; };
     // bandwidthGuaranteeMode Field Functions 
     bool hasBandwidthGuaranteeMode() const { return this->bandwidthGuaranteeMode_ != nullptr;};
     void deleteBandwidthGuaranteeMode() { this->bandwidthGuaranteeMode_ = nullptr;};
@@ -169,6 +171,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateCenInterRegionTrafficQosPolicyRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // consoleDryRun Field Functions 
+    bool hasConsoleDryRun() const { return this->consoleDryRun_ != nullptr;};
+    void deleteConsoleDryRun() { this->consoleDryRun_ = nullptr;};
+    inline bool getConsoleDryRun() const { DARABONBA_PTR_GET_DEFAULT(consoleDryRun_, false) };
+    inline CreateCenInterRegionTrafficQosPolicyRequest& setConsoleDryRun(bool consoleDryRun) { DARABONBA_PTR_SET_VALUE(consoleDryRun_, consoleDryRun) };
 
 
     // dryRun Field Functions 
@@ -253,6 +262,7 @@ namespace Models
     // 
     // You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    shared_ptr<bool> consoleDryRun_ {};
     // Specifies whether only to precheck the API request. Valid values:
     // 
     // *   **true**: prechecks the request but does not create the QoS policy. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
