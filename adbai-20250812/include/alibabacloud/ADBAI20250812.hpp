@@ -89,6 +89,32 @@ namespace ADBAI20250812
       Models::DeleteEmbodiedAIPlatformResponse deleteEmbodiedAIPlatform(const Models::DeleteEmbodiedAIPlatformRequest &request);
 
       /**
+       * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+       *
+       * @param request DescribeChatMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeChatMessageResponse
+       */
+      FutureGenerator<Models::DescribeChatMessageResponse> describeChatMessageWithSSE(const Models::DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+       *
+       * @param request DescribeChatMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeChatMessageResponse
+       */
+      Models::DescribeChatMessageResponse describeChatMessageWithOptions(const Models::DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+       *
+       * @param request DescribeChatMessageRequest
+       * @return DescribeChatMessageResponse
+       */
+      Models::DescribeChatMessageResponse describeChatMessage(const Models::DescribeChatMessageRequest &request);
+
+      /**
        * @summary 查询具身智能平台
        *
        * @param request DescribeEmbodiedAIPlatformsRequest

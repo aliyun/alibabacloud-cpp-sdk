@@ -16,6 +16,9 @@
 #include <alibabacloud/models/DeleteEmbodiedAIPlatformRequest.hpp>
 #include <alibabacloud/models/DeleteEmbodiedAIPlatformResponseBody.hpp>
 #include <alibabacloud/models/DeleteEmbodiedAIPlatformResponse.hpp>
+#include <alibabacloud/models/DescribeChatMessageRequest.hpp>
+#include <alibabacloud/models/DescribeChatMessageResponseBody.hpp>
+#include <alibabacloud/models/DescribeChatMessageResponse.hpp>
 #include <alibabacloud/models/DescribeEmbodiedAIPlatformsRequest.hpp>
 #include <alibabacloud/models/DescribeEmbodiedAIPlatformsResponseBody.hpp>
 #include <alibabacloud/models/DescribeEmbodiedAIPlatformsResponse.hpp>

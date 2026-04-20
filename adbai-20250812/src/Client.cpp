@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::ADBAI20250812::Models;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -257,6 +258,117 @@ DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatformWithOptions(con
 DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatform(const DeleteEmbodiedAIPlatformRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEmbodiedAIPlatformWithOptions(request, runtime);
+}
+
+/**
+ * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+ *
+ * @param request DescribeChatMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeChatMessageResponse
+ */
+FutureGenerator<DescribeChatMessageResponse> Client::describeChatMessageWithSSE(const DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasTimezone()) {
+    query["Timezone"] = request.getTimezone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeChatMessage"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<DescribeChatMessageResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+ *
+ * @param request DescribeChatMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeChatMessageResponse
+ */
+DescribeChatMessageResponse Client::describeChatMessageWithOptions(const DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasTimezone()) {
+    query["Timezone"] = request.getTimezone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeChatMessage"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeChatMessageResponse>();
+}
+
+/**
+ * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+ *
+ * @param request DescribeChatMessageRequest
+ * @return DescribeChatMessageResponse
+ */
+DescribeChatMessageResponse Client::describeChatMessage(const DescribeChatMessageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeChatMessageWithOptions(request, runtime);
 }
 
 /**
