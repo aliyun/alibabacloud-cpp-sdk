@@ -18105,12 +18105,20 @@ QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistribution(co
 RebootDesktopsResponse Client::rebootDesktopsWithOptions(const RebootDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCreateSnapshot()) {
+    query["CreateSnapshot"] = request.getCreateSnapshot();
+  }
+
   if (!!request.hasDesktopId()) {
     query["DesktopId"] = request.getDesktopId();
   }
 
   if (!!request.hasOsUpdate()) {
     query["OsUpdate"] = request.getOsUpdate();
+  }
+
+  if (!!request.hasPatchId()) {
+    query["PatchId"] = request.getPatchId();
   }
 
   if (!!request.hasRegionId()) {
@@ -19595,12 +19603,20 @@ StartDesktopsResponse Client::startDesktops(const StartDesktopsRequest &request)
 StopDesktopsResponse Client::stopDesktopsWithOptions(const StopDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCreateSnapshot()) {
+    query["CreateSnapshot"] = request.getCreateSnapshot();
+  }
+
   if (!!request.hasDesktopId()) {
     query["DesktopId"] = request.getDesktopId();
   }
 
   if (!!request.hasOsUpdate()) {
     query["OsUpdate"] = request.getOsUpdate();
+  }
+
+  if (!!request.hasPatchId()) {
+    query["PatchId"] = request.getPatchId();
   }
 
   if (!!request.hasRegionId()) {

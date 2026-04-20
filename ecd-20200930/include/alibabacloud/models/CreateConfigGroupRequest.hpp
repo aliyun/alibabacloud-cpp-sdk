@@ -83,6 +83,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const SegmentTimers& obj) { 
           DARABONBA_PTR_TO_JSON(AppointmentTimer, appointmentTimer_);
+          DARABONBA_PTR_TO_JSON(CreateSnapshot, createSnapshot_);
           DARABONBA_PTR_TO_JSON(EndCronExpression, endCronExpression_);
           DARABONBA_PTR_TO_JSON(Enforce, enforce_);
           DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -90,6 +91,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(LockScreenTime, lockScreenTime_);
           DARABONBA_PTR_TO_JSON(NotificationTime, notificationTime_);
           DARABONBA_PTR_TO_JSON(OperationType, operationType_);
+          DARABONBA_PTR_TO_JSON(PatchId, patchId_);
           DARABONBA_PTR_TO_JSON(ProcessWhitelist, processWhitelist_);
           DARABONBA_PTR_TO_JSON(ResetType, resetType_);
           DARABONBA_PTR_TO_JSON(StartCronExpression, startCronExpression_);
@@ -99,6 +101,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, SegmentTimers& obj) { 
           DARABONBA_PTR_FROM_JSON(AppointmentTimer, appointmentTimer_);
+          DARABONBA_PTR_FROM_JSON(CreateSnapshot, createSnapshot_);
           DARABONBA_PTR_FROM_JSON(EndCronExpression, endCronExpression_);
           DARABONBA_PTR_FROM_JSON(Enforce, enforce_);
           DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -106,6 +109,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(LockScreenTime, lockScreenTime_);
           DARABONBA_PTR_FROM_JSON(NotificationTime, notificationTime_);
           DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
+          DARABONBA_PTR_FROM_JSON(PatchId, patchId_);
           DARABONBA_PTR_FROM_JSON(ProcessWhitelist, processWhitelist_);
           DARABONBA_PTR_FROM_JSON(ResetType, resetType_);
           DARABONBA_PTR_FROM_JSON(StartCronExpression, startCronExpression_);
@@ -125,14 +129,21 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->appointmentTimer_ == nullptr
-        && this->endCronExpression_ == nullptr && this->enforce_ == nullptr && this->imageId_ == nullptr && this->interval_ == nullptr && this->lockScreenTime_ == nullptr
-        && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->processWhitelist_ == nullptr && this->resetType_ == nullptr && this->startCronExpression_ == nullptr
-        && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr; };
+        && this->createSnapshot_ == nullptr && this->endCronExpression_ == nullptr && this->enforce_ == nullptr && this->imageId_ == nullptr && this->interval_ == nullptr
+        && this->lockScreenTime_ == nullptr && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->patchId_ == nullptr && this->processWhitelist_ == nullptr
+        && this->resetType_ == nullptr && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr; };
         // appointmentTimer Field Functions 
         bool hasAppointmentTimer() const { return this->appointmentTimer_ != nullptr;};
         void deleteAppointmentTimer() { this->appointmentTimer_ = nullptr;};
         inline int64_t getAppointmentTimer() const { DARABONBA_PTR_GET_DEFAULT(appointmentTimer_, 0L) };
         inline SegmentTimers& setAppointmentTimer(int64_t appointmentTimer) { DARABONBA_PTR_SET_VALUE(appointmentTimer_, appointmentTimer) };
+
+
+        // createSnapshot Field Functions 
+        bool hasCreateSnapshot() const { return this->createSnapshot_ != nullptr;};
+        void deleteCreateSnapshot() { this->createSnapshot_ = nullptr;};
+        inline bool getCreateSnapshot() const { DARABONBA_PTR_GET_DEFAULT(createSnapshot_, false) };
+        inline SegmentTimers& setCreateSnapshot(bool createSnapshot) { DARABONBA_PTR_SET_VALUE(createSnapshot_, createSnapshot) };
 
 
         // endCronExpression Field Functions 
@@ -184,6 +195,13 @@ namespace Models
         inline SegmentTimers& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
 
 
+        // patchId Field Functions 
+        bool hasPatchId() const { return this->patchId_ != nullptr;};
+        void deletePatchId() { this->patchId_ = nullptr;};
+        inline string getPatchId() const { DARABONBA_PTR_GET_DEFAULT(patchId_, "") };
+        inline SegmentTimers& setPatchId(string patchId) { DARABONBA_PTR_SET_VALUE(patchId_, patchId) };
+
+
         // processWhitelist Field Functions 
         bool hasProcessWhitelist() const { return this->processWhitelist_ != nullptr;};
         void deleteProcessWhitelist() { this->processWhitelist_ = nullptr;};
@@ -230,6 +248,7 @@ namespace Models
 
       protected:
         shared_ptr<int64_t> appointmentTimer_ {};
+        shared_ptr<bool> createSnapshot_ {};
         shared_ptr<string> endCronExpression_ {};
         shared_ptr<bool> enforce_ {};
         shared_ptr<string> imageId_ {};
@@ -237,6 +256,7 @@ namespace Models
         shared_ptr<int32_t> lockScreenTime_ {};
         shared_ptr<int32_t> notificationTime_ {};
         shared_ptr<string> operationType_ {};
+        shared_ptr<string> patchId_ {};
         shared_ptr<vector<string>> processWhitelist_ {};
         shared_ptr<string> resetType_ {};
         shared_ptr<string> startCronExpression_ {};

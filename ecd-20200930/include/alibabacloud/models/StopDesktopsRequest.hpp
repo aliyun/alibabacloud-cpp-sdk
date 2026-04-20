@@ -14,14 +14,18 @@ namespace Models
   class StopDesktopsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StopDesktopsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CreateSnapshot, createSnapshot_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(OsUpdate, osUpdate_);
+      DARABONBA_PTR_TO_JSON(PatchId, patchId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(StoppedMode, stoppedMode_);
     };
     friend void from_json(const Darabonba::Json& j, StopDesktopsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CreateSnapshot, createSnapshot_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(OsUpdate, osUpdate_);
+      DARABONBA_PTR_FROM_JSON(PatchId, patchId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(StoppedMode, stoppedMode_);
     };
@@ -36,8 +40,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->osUpdate_ == nullptr && this->regionId_ == nullptr && this->stoppedMode_ == nullptr; };
+    virtual bool empty() const override { return this->createSnapshot_ == nullptr
+        && this->desktopId_ == nullptr && this->osUpdate_ == nullptr && this->patchId_ == nullptr && this->regionId_ == nullptr && this->stoppedMode_ == nullptr; };
+    // createSnapshot Field Functions 
+    bool hasCreateSnapshot() const { return this->createSnapshot_ != nullptr;};
+    void deleteCreateSnapshot() { this->createSnapshot_ = nullptr;};
+    inline string getCreateSnapshot() const { DARABONBA_PTR_GET_DEFAULT(createSnapshot_, "") };
+    inline StopDesktopsRequest& setCreateSnapshot(string createSnapshot) { DARABONBA_PTR_SET_VALUE(createSnapshot_, createSnapshot) };
+
+
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -52,6 +63,13 @@ namespace Models
     void deleteOsUpdate() { this->osUpdate_ = nullptr;};
     inline bool getOsUpdate() const { DARABONBA_PTR_GET_DEFAULT(osUpdate_, false) };
     inline StopDesktopsRequest& setOsUpdate(bool osUpdate) { DARABONBA_PTR_SET_VALUE(osUpdate_, osUpdate) };
+
+
+    // patchId Field Functions 
+    bool hasPatchId() const { return this->patchId_ != nullptr;};
+    void deletePatchId() { this->patchId_ = nullptr;};
+    inline string getPatchId() const { DARABONBA_PTR_GET_DEFAULT(patchId_, "") };
+    inline StopDesktopsRequest& setPatchId(string patchId) { DARABONBA_PTR_SET_VALUE(patchId_, patchId) };
 
 
     // regionId Field Functions 
@@ -69,12 +87,14 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> createSnapshot_ {};
     // The cloud computer IDs. You can specify the IDs of 1 to 100 cloud computers.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
     // Whether to perform a patch update when the update is ready. A value of true indicates that a patch update is performed.
     shared_ptr<bool> osUpdate_ {};
+    shared_ptr<string> patchId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
