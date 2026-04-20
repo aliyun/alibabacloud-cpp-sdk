@@ -571,6 +571,60 @@ AddTaskFlowEdgesResponse Client::addTaskFlowEdges(const AddTaskFlowEdgesRequest 
 }
 
 /**
+ * @summary 工作空间添加用户
+ *
+ * @param request AddWorkspaceUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddWorkspaceUserResponse
+ */
+AddWorkspaceUserResponse Client::addWorkspaceUserWithOptions(const AddWorkspaceUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDmsUserIds()) {
+    query["DmsUserIds"] = request.getDmsUserIds();
+  }
+
+  if (!!request.hasRoleId()) {
+    query["RoleId"] = request.getRoleId();
+  }
+
+  if (!!request.hasRoleSource()) {
+    query["RoleSource"] = request.getRoleSource();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddWorkspaceUser"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddWorkspaceUserResponse>();
+}
+
+/**
+ * @summary 工作空间添加用户
+ *
+ * @param request AddWorkspaceUserRequest
+ * @return AddWorkspaceUserResponse
+ */
+AddWorkspaceUserResponse Client::addWorkspaceUser(const AddWorkspaceUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addWorkspaceUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
  *
  * @description The following conditions must be met before you call this API operation.
@@ -14643,6 +14697,60 @@ ListWorkFlowTemplatesResponse Client::listWorkFlowTemplates(const ListWorkFlowTe
 }
 
 /**
+ * @summary 列出工作空间内的用户
+ *
+ * @param request ListWorkspaceUsersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspaceUsersResponse
+ */
+ListWorkspaceUsersResponse Client::listWorkspaceUsersWithOptions(const ListWorkspaceUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaceUsers"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspaceUsersResponse>();
+}
+
+/**
+ * @summary 列出工作空间内的用户
+ *
+ * @param request ListWorkspaceUsersRequest
+ * @return ListWorkspaceUsersResponse
+ */
+ListWorkspaceUsersResponse Client::listWorkspaceUsers(const ListWorkspaceUsersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkspaceUsersWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of workspaces of the tenant.
  *
  * @param request ListWorkspacesRequest
@@ -16007,6 +16115,52 @@ RemoveTableFromCategoryResponse Client::removeTableFromCategory(const RemoveTabl
 }
 
 /**
+ * @summary 工作空间添加用户
+ *
+ * @param request RemoveWorkspaceUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveWorkspaceUserResponse
+ */
+RemoveWorkspaceUserResponse Client::removeWorkspaceUserWithOptions(const RemoveWorkspaceUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDmsUserIds()) {
+    query["DmsUserIds"] = request.getDmsUserIds();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveWorkspaceUser"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveWorkspaceUserResponse>();
+}
+
+/**
+ * @summary 工作空间添加用户
+ *
+ * @param request RemoveWorkspaceUserRequest
+ * @return RemoveWorkspaceUserResponse
+ */
+RemoveWorkspaceUserResponse Client::removeWorkspaceUser(const RemoveWorkspaceUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeWorkspaceUserWithOptions(request, runtime);
+}
+
+/**
  * @summary Reruns a failed SQL task for data change.
  *
  * @param request RestartDataCorrectSQLJobRequest
@@ -16638,6 +16792,66 @@ SearchTableKnowledgeResponse Client::searchTableKnowledgeWithOptions(const Searc
 SearchTableKnowledgeResponse Client::searchTableKnowledge(const SearchTableKnowledgeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return searchTableKnowledgeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 搜索工作空间内的角色
+ *
+ * @param request SearchWorkspaceRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchWorkspaceRolesResponse
+ */
+SearchWorkspaceRolesResponse Client::searchWorkspaceRolesWithOptions(const SearchWorkspaceRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SearchWorkspaceRoles"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchWorkspaceRolesResponse>();
+}
+
+/**
+ * @summary 搜索工作空间内的角色
+ *
+ * @param request SearchWorkspaceRolesRequest
+ * @return SearchWorkspaceRolesResponse
+ */
+SearchWorkspaceRolesResponse Client::searchWorkspaceRoles(const SearchWorkspaceRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchWorkspaceRolesWithOptions(request, runtime);
 }
 
 /**
@@ -19060,6 +19274,56 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 UpdateWorkspaceResponse Client::updateWorkspace(const UpdateWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改工作空间的用户权限等信息
+ *
+ * @param request UpdateWorkspaceUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkspaceUserResponse
+ */
+UpdateWorkspaceUserResponse Client::updateWorkspaceUserWithOptions(const UpdateWorkspaceUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDmsUserId()) {
+    query["DmsUserId"] = request.getDmsUserId();
+  }
+
+  if (!!request.hasRoleIds()) {
+    query["RoleIds"] = request.getRoleIds();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateWorkspaceUser"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkspaceUserResponse>();
+}
+
+/**
+ * @summary 修改工作空间的用户权限等信息
+ *
+ * @param request UpdateWorkspaceUserRequest
+ * @return UpdateWorkspaceUserResponse
+ */
+UpdateWorkspaceUserResponse Client::updateWorkspaceUser(const UpdateWorkspaceUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateWorkspaceUserWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace DmsEnterprise20181101

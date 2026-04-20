@@ -56,6 +56,9 @@
 #include <alibabacloud/models/AddTaskFlowEdgesShrinkRequest.hpp>
 #include <alibabacloud/models/AddTaskFlowEdgesResponseBody.hpp>
 #include <alibabacloud/models/AddTaskFlowEdgesResponse.hpp>
+#include <alibabacloud/models/AddWorkspaceUserRequest.hpp>
+#include <alibabacloud/models/AddWorkspaceUserResponseBody.hpp>
+#include <alibabacloud/models/AddWorkspaceUserResponse.hpp>
 #include <alibabacloud/models/AnalyzeSQLLineageRequest.hpp>
 #include <alibabacloud/models/AnalyzeSQLLineageResponseBody.hpp>
 #include <alibabacloud/models/AnalyzeSQLLineageResponse.hpp>
@@ -788,6 +791,9 @@
 #include <alibabacloud/models/ListWorkFlowTemplatesRequest.hpp>
 #include <alibabacloud/models/ListWorkFlowTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkFlowTemplatesResponse.hpp>
+#include <alibabacloud/models/ListWorkspaceUsersRequest.hpp>
+#include <alibabacloud/models/ListWorkspaceUsersResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspaceUsersResponse.hpp>
 #include <alibabacloud/models/ListWorkspacesRequest.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkspacesResponse.hpp>
@@ -851,6 +857,9 @@
 #include <alibabacloud/models/RemoveTableFromCategoryRequest.hpp>
 #include <alibabacloud/models/RemoveTableFromCategoryResponseBody.hpp>
 #include <alibabacloud/models/RemoveTableFromCategoryResponse.hpp>
+#include <alibabacloud/models/RemoveWorkspaceUserRequest.hpp>
+#include <alibabacloud/models/RemoveWorkspaceUserResponseBody.hpp>
+#include <alibabacloud/models/RemoveWorkspaceUserResponse.hpp>
 #include <alibabacloud/models/RestartDataCorrectSQLJobRequest.hpp>
 #include <alibabacloud/models/RestartDataCorrectSQLJobResponseBody.hpp>
 #include <alibabacloud/models/RestartDataCorrectSQLJobResponse.hpp>
@@ -882,6 +891,9 @@
 #include <alibabacloud/models/SearchTableKnowledgeRequest.hpp>
 #include <alibabacloud/models/SearchTableKnowledgeResponseBody.hpp>
 #include <alibabacloud/models/SearchTableKnowledgeResponse.hpp>
+#include <alibabacloud/models/SearchWorkspaceRolesRequest.hpp>
+#include <alibabacloud/models/SearchWorkspaceRolesResponseBody.hpp>
+#include <alibabacloud/models/SearchWorkspaceRolesResponse.hpp>
 #include <alibabacloud/models/SetOwnersRequest.hpp>
 #include <alibabacloud/models/SetOwnersResponseBody.hpp>
 #include <alibabacloud/models/SetOwnersResponse.hpp>
@@ -1012,5 +1024,8 @@
 #include <alibabacloud/models/UpdateWorkspaceRequest.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/UpdateWorkspaceResponse.hpp>
+#include <alibabacloud/models/UpdateWorkspaceUserRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceUserResponseBody.hpp>
+#include <alibabacloud/models/UpdateWorkspaceUserResponse.hpp>
 
 #endif

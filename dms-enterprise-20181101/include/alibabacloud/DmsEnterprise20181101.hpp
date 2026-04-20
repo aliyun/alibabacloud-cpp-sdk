@@ -164,6 +164,23 @@ namespace DmsEnterprise20181101
       Models::AddTaskFlowEdgesResponse addTaskFlowEdges(const Models::AddTaskFlowEdgesRequest &request);
 
       /**
+       * @summary 工作空间添加用户
+       *
+       * @param request AddWorkspaceUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddWorkspaceUserResponse
+       */
+      Models::AddWorkspaceUserResponse addWorkspaceUserWithOptions(const Models::AddWorkspaceUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 工作空间添加用户
+       *
+       * @param request AddWorkspaceUserRequest
+       * @return AddWorkspaceUserResponse
+       */
+      Models::AddWorkspaceUserResponse addWorkspaceUser(const Models::AddWorkspaceUserRequest &request);
+
+      /**
        * @summary Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
        *
        * @description The following conditions must be met before you call this API operation.
@@ -4530,6 +4547,23 @@ namespace DmsEnterprise20181101
       Models::ListWorkFlowTemplatesResponse listWorkFlowTemplates(const Models::ListWorkFlowTemplatesRequest &request);
 
       /**
+       * @summary 列出工作空间内的用户
+       *
+       * @param request ListWorkspaceUsersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkspaceUsersResponse
+       */
+      Models::ListWorkspaceUsersResponse listWorkspaceUsersWithOptions(const Models::ListWorkspaceUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出工作空间内的用户
+       *
+       * @param request ListWorkspaceUsersRequest
+       * @return ListWorkspaceUsersResponse
+       */
+      Models::ListWorkspaceUsersResponse listWorkspaceUsers(const Models::ListWorkspaceUsersRequest &request);
+
+      /**
        * @summary Queries a list of workspaces of the tenant.
        *
        * @param request ListWorkspacesRequest
@@ -4921,6 +4955,23 @@ namespace DmsEnterprise20181101
       Models::RemoveTableFromCategoryResponse removeTableFromCategory(const Models::RemoveTableFromCategoryRequest &request);
 
       /**
+       * @summary 工作空间添加用户
+       *
+       * @param request RemoveWorkspaceUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveWorkspaceUserResponse
+       */
+      Models::RemoveWorkspaceUserResponse removeWorkspaceUserWithOptions(const Models::RemoveWorkspaceUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 工作空间添加用户
+       *
+       * @param request RemoveWorkspaceUserRequest
+       * @return RemoveWorkspaceUserResponse
+       */
+      Models::RemoveWorkspaceUserResponse removeWorkspaceUser(const Models::RemoveWorkspaceUserRequest &request);
+
+      /**
        * @summary Reruns a failed SQL task for data change.
        *
        * @param request RestartDataCorrectSQLJobRequest
@@ -5105,6 +5156,23 @@ namespace DmsEnterprise20181101
        * @return SearchTableKnowledgeResponse
        */
       Models::SearchTableKnowledgeResponse searchTableKnowledge(const Models::SearchTableKnowledgeRequest &request);
+
+      /**
+       * @summary 搜索工作空间内的角色
+       *
+       * @param request SearchWorkspaceRolesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchWorkspaceRolesResponse
+       */
+      Models::SearchWorkspaceRolesResponse searchWorkspaceRolesWithOptions(const Models::SearchWorkspaceRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 搜索工作空间内的角色
+       *
+       * @param request SearchWorkspaceRolesRequest
+       * @return SearchWorkspaceRolesResponse
+       */
+      Models::SearchWorkspaceRolesResponse searchWorkspaceRoles(const Models::SearchWorkspaceRolesRequest &request);
 
       /**
        * @summary Configures the owner of an instance, a database, or a table.
@@ -5853,6 +5921,23 @@ namespace DmsEnterprise20181101
        * @return UpdateWorkspaceResponse
        */
       Models::UpdateWorkspaceResponse updateWorkspace(const Models::UpdateWorkspaceRequest &request);
+
+      /**
+       * @summary 修改工作空间的用户权限等信息
+       *
+       * @param request UpdateWorkspaceUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkspaceUserResponse
+       */
+      Models::UpdateWorkspaceUserResponse updateWorkspaceUserWithOptions(const Models::UpdateWorkspaceUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改工作空间的用户权限等信息
+       *
+       * @param request UpdateWorkspaceUserRequest
+       * @return UpdateWorkspaceUserResponse
+       */
+      Models::UpdateWorkspaceUserResponse updateWorkspaceUser(const Models::UpdateWorkspaceUserRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace DmsEnterprise20181101
