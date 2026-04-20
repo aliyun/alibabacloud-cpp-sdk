@@ -47,6 +47,7 @@ namespace Models
     class TranscriberConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const TranscriberConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(CorrectionRules, correctionRules_);
         DARABONBA_PTR_TO_JSON(CustomizationId, customizationId_);
         DARABONBA_PTR_TO_JSON(EndSilenceTimeout, endSilenceTimeout_);
         DARABONBA_PTR_TO_JSON(Model, model_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VocabularyId, vocabularyId_);
       };
       friend void from_json(const Darabonba::Json& j, TranscriberConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(CorrectionRules, correctionRules_);
         DARABONBA_PTR_FROM_JSON(CustomizationId, customizationId_);
         DARABONBA_PTR_FROM_JSON(EndSilenceTimeout, endSilenceTimeout_);
         DARABONBA_PTR_FROM_JSON(Model, model_);
@@ -108,9 +110,60 @@ namespace Models
         shared_ptr<string> accessProfileId_ {};
       };
 
-      virtual bool empty() const override { return this->customizationId_ == nullptr
-        && this->endSilenceTimeout_ == nullptr && this->model_ == nullptr && this->nlsAccessProfile_ == nullptr && this->nlsAccessType_ == nullptr && this->nlsEngine_ == nullptr
-        && this->speechNoiseThreshold_ == nullptr && this->vocabularyId_ == nullptr; };
+      class CorrectionRules : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CorrectionRules& obj) { 
+          DARABONBA_PTR_TO_JSON(Pattern, pattern_);
+          DARABONBA_PTR_TO_JSON(Replacement, replacement_);
+        };
+        friend void from_json(const Darabonba::Json& j, CorrectionRules& obj) { 
+          DARABONBA_PTR_FROM_JSON(Pattern, pattern_);
+          DARABONBA_PTR_FROM_JSON(Replacement, replacement_);
+        };
+        CorrectionRules() = default ;
+        CorrectionRules(const CorrectionRules &) = default ;
+        CorrectionRules(CorrectionRules &&) = default ;
+        CorrectionRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CorrectionRules() = default ;
+        CorrectionRules& operator=(const CorrectionRules &) = default ;
+        CorrectionRules& operator=(CorrectionRules &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->pattern_ == nullptr
+        && this->replacement_ == nullptr; };
+        // pattern Field Functions 
+        bool hasPattern() const { return this->pattern_ != nullptr;};
+        void deletePattern() { this->pattern_ = nullptr;};
+        inline string getPattern() const { DARABONBA_PTR_GET_DEFAULT(pattern_, "") };
+        inline CorrectionRules& setPattern(string pattern) { DARABONBA_PTR_SET_VALUE(pattern_, pattern) };
+
+
+        // replacement Field Functions 
+        bool hasReplacement() const { return this->replacement_ != nullptr;};
+        void deleteReplacement() { this->replacement_ = nullptr;};
+        inline string getReplacement() const { DARABONBA_PTR_GET_DEFAULT(replacement_, "") };
+        inline CorrectionRules& setReplacement(string replacement) { DARABONBA_PTR_SET_VALUE(replacement_, replacement) };
+
+
+      protected:
+        shared_ptr<string> pattern_ {};
+        shared_ptr<string> replacement_ {};
+      };
+
+      virtual bool empty() const override { return this->correctionRules_ == nullptr
+        && this->customizationId_ == nullptr && this->endSilenceTimeout_ == nullptr && this->model_ == nullptr && this->nlsAccessProfile_ == nullptr && this->nlsAccessType_ == nullptr
+        && this->nlsEngine_ == nullptr && this->speechNoiseThreshold_ == nullptr && this->vocabularyId_ == nullptr; };
+      // correctionRules Field Functions 
+      bool hasCorrectionRules() const { return this->correctionRules_ != nullptr;};
+      void deleteCorrectionRules() { this->correctionRules_ = nullptr;};
+      inline const vector<TranscriberConfig::CorrectionRules> & getCorrectionRules() const { DARABONBA_PTR_GET_CONST(correctionRules_, vector<TranscriberConfig::CorrectionRules>) };
+      inline vector<TranscriberConfig::CorrectionRules> getCorrectionRules() { DARABONBA_PTR_GET(correctionRules_, vector<TranscriberConfig::CorrectionRules>) };
+      inline TranscriberConfig& setCorrectionRules(const vector<TranscriberConfig::CorrectionRules> & correctionRules) { DARABONBA_PTR_SET_VALUE(correctionRules_, correctionRules) };
+      inline TranscriberConfig& setCorrectionRules(vector<TranscriberConfig::CorrectionRules> && correctionRules) { DARABONBA_PTR_SET_RVALUE(correctionRules_, correctionRules) };
+
+
       // customizationId Field Functions 
       bool hasCustomizationId() const { return this->customizationId_ != nullptr;};
       void deleteCustomizationId() { this->customizationId_ = nullptr;};
@@ -170,6 +223,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<TranscriberConfig::CorrectionRules>> correctionRules_ {};
       shared_ptr<string> customizationId_ {};
       shared_ptr<int32_t> endSilenceTimeout_ {};
       shared_ptr<string> model_ {};
