@@ -115,6 +115,24 @@ namespace Hologram20220601
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
+       * @summary 添加用户
+       *
+       * @param request CreateUserRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserResponse
+       */
+      Models::CreateUserResponse createUserWithOptions(const string &instanceId, const Models::CreateUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加用户
+       *
+       * @param request CreateUserRequest
+       * @return CreateUserResponse
+       */
+      Models::CreateUserResponse createUser(const string &instanceId, const Models::CreateUserRequest &request);
+
+      /**
        * @summary Deletes a virtual warehouse.
        *
        * @param request DeleteHoloWarehouseRequest
@@ -191,6 +209,24 @@ namespace Hologram20220601
        * @return DisableSSLResponse
        */
       Models::DisableSSLResponse disableSSL(const string &instanceId);
+
+      /**
+       * @summary 删除用户
+       *
+       * @param request DropUserRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DropUserResponse
+       */
+      Models::DropUserResponse dropUserWithOptions(const string &instanceId, const Models::DropUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户
+       *
+       * @param request DropUserRequest
+       * @return DropUserResponse
+       */
+      Models::DropUserResponse dropUser(const string &instanceId, const Models::DropUserRequest &request);
 
       /**
        * @summary Enables data lake acceleration.

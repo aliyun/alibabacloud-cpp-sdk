@@ -11,6 +11,9 @@
 #include <alibabacloud/models/CreateInstanceRequest.hpp>
 #include <alibabacloud/models/CreateInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceResponse.hpp>
+#include <alibabacloud/models/CreateUserRequest.hpp>
+#include <alibabacloud/models/CreateUserResponseBody.hpp>
+#include <alibabacloud/models/CreateUserResponse.hpp>
 #include <alibabacloud/models/DeleteHoloWarehouseRequest.hpp>
 #include <alibabacloud/models/DeleteHoloWarehouseResponseBody.hpp>
 #include <alibabacloud/models/DeleteHoloWarehouseResponse.hpp>
@@ -22,6 +25,9 @@
 #include <alibabacloud/models/DisableHiveAccessResponse.hpp>
 #include <alibabacloud/models/DisableSSLResponseBody.hpp>
 #include <alibabacloud/models/DisableSSLResponse.hpp>
+#include <alibabacloud/models/DropUserRequest.hpp>
+#include <alibabacloud/models/DropUserResponseBody.hpp>
+#include <alibabacloud/models/DropUserResponse.hpp>
 #include <alibabacloud/models/EnableHiveAccessRequest.hpp>
 #include <alibabacloud/models/EnableHiveAccessResponseBody.hpp>
 #include <alibabacloud/models/EnableHiveAccessResponse.hpp>

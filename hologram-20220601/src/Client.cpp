@@ -300,6 +300,55 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary 添加用户
+ *
+ * @param request CreateUserRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserResponse
+ */
+CreateUserResponse Client::createUserWithOptions(const string &instanceId, const CreateUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSuperUser()) {
+    body["superUser"] = request.getSuperUser();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateUser"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/createUser")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserResponse>();
+}
+
+/**
+ * @summary 添加用户
+ *
+ * @param request CreateUserRequest
+ * @return CreateUserResponse
+ */
+CreateUserResponse Client::createUser(const string &instanceId, const CreateUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createUserWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a virtual warehouse.
  *
  * @param request DeleteHoloWarehouseRequest
@@ -476,6 +525,55 @@ DisableSSLResponse Client::disableSSL(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return disableSSLWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 删除用户
+ *
+ * @param request DropUserRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DropUserResponse
+ */
+DropUserResponse Client::dropUserWithOptions(const string &instanceId, const DropUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSuperUser()) {
+    body["superUser"] = request.getSuperUser();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DropUser"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/dropUser")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DropUserResponse>();
+}
+
+/**
+ * @summary 删除用户
+ *
+ * @param request DropUserRequest
+ * @return DropUserResponse
+ */
+DropUserResponse Client::dropUser(const string &instanceId, const DropUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return dropUserWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
