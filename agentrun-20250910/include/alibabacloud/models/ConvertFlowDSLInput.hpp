@@ -35,9 +35,15 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Options& obj) { 
         DARABONBA_PTR_TO_JSON(compatibilityCheck, compatibilityCheck_);
+        DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
+        DARABONBA_PTR_TO_JSON(flowName, flowName_);
+        DARABONBA_PTR_TO_JSON(vpcEndpointName, vpcEndpointName_);
       };
       friend void from_json(const Darabonba::Json& j, Options& obj) { 
         DARABONBA_PTR_FROM_JSON(compatibilityCheck, compatibilityCheck_);
+        DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
+        DARABONBA_PTR_FROM_JSON(flowName, flowName_);
+        DARABONBA_PTR_FROM_JSON(vpcEndpointName, vpcEndpointName_);
       };
       Options() = default ;
       Options(const Options &) = default ;
@@ -50,7 +56,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->compatibilityCheck_ == nullptr; };
+      virtual bool empty() const override { return this->compatibilityCheck_ == nullptr
+        && this->credentialName_ == nullptr && this->flowName_ == nullptr && this->vpcEndpointName_ == nullptr; };
       // compatibilityCheck Field Functions 
       bool hasCompatibilityCheck() const { return this->compatibilityCheck_ != nullptr;};
       void deleteCompatibilityCheck() { this->compatibilityCheck_ = nullptr;};
@@ -58,9 +65,33 @@ namespace Models
       inline Options& setCompatibilityCheck(bool compatibilityCheck) { DARABONBA_PTR_SET_VALUE(compatibilityCheck_, compatibilityCheck) };
 
 
+      // credentialName Field Functions 
+      bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+      void deleteCredentialName() { this->credentialName_ = nullptr;};
+      inline string getCredentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+      inline Options& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
+
+
+      // flowName Field Functions 
+      bool hasFlowName() const { return this->flowName_ != nullptr;};
+      void deleteFlowName() { this->flowName_ = nullptr;};
+      inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+      inline Options& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
+
+
+      // vpcEndpointName Field Functions 
+      bool hasVpcEndpointName() const { return this->vpcEndpointName_ != nullptr;};
+      void deleteVpcEndpointName() { this->vpcEndpointName_ = nullptr;};
+      inline string getVpcEndpointName() const { DARABONBA_PTR_GET_DEFAULT(vpcEndpointName_, "") };
+      inline Options& setVpcEndpointName(string vpcEndpointName) { DARABONBA_PTR_SET_VALUE(vpcEndpointName_, vpcEndpointName) };
+
+
     protected:
       // 是否执行兼容性检查，默认为true
       shared_ptr<bool> compatibilityCheck_ {};
+      shared_ptr<string> credentialName_ {};
+      shared_ptr<string> flowName_ {};
+      shared_ptr<string> vpcEndpointName_ {};
     };
 
     class DslSource : public Darabonba::Model {
