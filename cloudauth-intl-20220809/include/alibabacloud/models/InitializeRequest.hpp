@@ -64,6 +64,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StyleConfig, styleConfig_);
       DARABONBA_PTR_TO_JSON(TargetFacePicture, targetFacePicture_);
       DARABONBA_PTR_TO_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
+      DARABONBA_PTR_TO_JSON(TemplateConfig, templateConfig_);
+      DARABONBA_PTR_TO_JSON(TemplateRanCount, templateRanCount_);
+      DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
       DARABONBA_PTR_TO_JSON(UseNFC, useNFC_);
       DARABONBA_PTR_TO_JSON(VerifyModel, verifyModel_);
     };
@@ -118,6 +121,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StyleConfig, styleConfig_);
       DARABONBA_PTR_FROM_JSON(TargetFacePicture, targetFacePicture_);
       DARABONBA_PTR_FROM_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
+      DARABONBA_PTR_FROM_JSON(TemplateConfig, templateConfig_);
+      DARABONBA_PTR_FROM_JSON(TemplateRanCount, templateRanCount_);
+      DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
       DARABONBA_PTR_FROM_JSON(UseNFC, useNFC_);
       DARABONBA_PTR_FROM_JSON(VerifyModel, verifyModel_);
     };
@@ -142,8 +148,8 @@ namespace Models
         && this->metaInfo_ == nullptr && this->mobile_ == nullptr && this->model_ == nullptr && this->ocr_ == nullptr && this->pages_ == nullptr
         && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr && this->returnUrl_ == nullptr
         && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr && this->showGuidePage_ == nullptr
-        && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->useNFC_ == nullptr
-        && this->verifyModel_ == nullptr; };
+        && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->templateConfig_ == nullptr
+        && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->useNFC_ == nullptr && this->verifyModel_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -496,6 +502,27 @@ namespace Models
     inline InitializeRequest& setTargetFacePictureUrl(string targetFacePictureUrl) { DARABONBA_PTR_SET_VALUE(targetFacePictureUrl_, targetFacePictureUrl) };
 
 
+    // templateConfig Field Functions 
+    bool hasTemplateConfig() const { return this->templateConfig_ != nullptr;};
+    void deleteTemplateConfig() { this->templateConfig_ = nullptr;};
+    inline string getTemplateConfig() const { DARABONBA_PTR_GET_DEFAULT(templateConfig_, "") };
+    inline InitializeRequest& setTemplateConfig(string templateConfig) { DARABONBA_PTR_SET_VALUE(templateConfig_, templateConfig) };
+
+
+    // templateRanCount Field Functions 
+    bool hasTemplateRanCount() const { return this->templateRanCount_ != nullptr;};
+    void deleteTemplateRanCount() { this->templateRanCount_ = nullptr;};
+    inline string getTemplateRanCount() const { DARABONBA_PTR_GET_DEFAULT(templateRanCount_, "") };
+    inline InitializeRequest& setTemplateRanCount(string templateRanCount) { DARABONBA_PTR_SET_VALUE(templateRanCount_, templateRanCount) };
+
+
+    // templateType Field Functions 
+    bool hasTemplateType() const { return this->templateType_ != nullptr;};
+    void deleteTemplateType() { this->templateType_ = nullptr;};
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline InitializeRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
+
+
     // useNFC Field Functions 
     bool hasUseNFC() const { return this->useNFC_ != nullptr;};
     void deleteUseNFC() { this->useNFC_ = nullptr;};
@@ -698,6 +725,9 @@ namespace Models
     shared_ptr<string> targetFacePicture_ {};
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     shared_ptr<string> targetFacePictureUrl_ {};
+    shared_ptr<string> templateConfig_ {};
+    shared_ptr<string> templateRanCount_ {};
+    shared_ptr<string> templateType_ {};
     // Optional to enable NFC verification when **DocType**=01000000 (global passport).
     // - **Y** (Enabled)
     // - **N** (Disabled)

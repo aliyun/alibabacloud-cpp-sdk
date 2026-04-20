@@ -3127,6 +3127,18 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
   }
 
+  if (!!request.hasTemplateConfig()) {
+    query["TemplateConfig"] = request.getTemplateConfig();
+  }
+
+  if (!!request.hasTemplateRanCount()) {
+    query["TemplateRanCount"] = request.getTemplateRanCount();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["TemplateType"] = request.getTemplateType();
+  }
+
   if (!!request.hasUseNFC()) {
     query["UseNFC"] = request.getUseNFC();
   }
