@@ -42,7 +42,7 @@ namespace QuickbiPublic20220101
       Models::AddDataLevelPermissionRuleUsersResponse addDataLevelPermissionRuleUsers(const Models::AddDataLevelPermissionRuleUsersRequest &request);
 
       /**
-       * @summary 43342***435,1553a****41231
+       * @summary Modifies the whitelist of the row and column permissions for a specified dataset.
        *
        * @description ROW_LEVEL
        *
@@ -53,7 +53,7 @@ namespace QuickbiPublic20220101
       Models::AddDataLevelPermissionWhiteListResponse addDataLevelPermissionWhiteListWithOptions(const Models::AddDataLevelPermissionWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 43342***435,1553a****41231
+       * @summary Modifies the whitelist of the row and column permissions for a specified dataset.
        *
        * @description ROW_LEVEL
        *
@@ -180,6 +180,23 @@ namespace QuickbiPublic20220101
        * @return AddUserToWorkspaceResponse
        */
       Models::AddUserToWorkspaceResponse addUserToWorkspace(const Models::AddUserToWorkspaceRequest &request);
+
+      /**
+       * @summary 新增作品的协同授权记录
+       *
+       * @param request AddWorksAuthorizationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddWorksAuthorizationResponse
+       */
+      Models::AddWorksAuthorizationResponse addWorksAuthorizationWithOptions(const Models::AddWorksAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增作品的协同授权记录
+       *
+       * @param request AddWorksAuthorizationRequest
+       * @return AddWorksAuthorizationResponse
+       */
+      Models::AddWorksAuthorizationResponse addWorksAuthorization(const Models::AddWorksAuthorizationRequest &request);
 
       /**
        * @summary Batch add members to the workspace.
@@ -547,7 +564,7 @@ namespace QuickbiPublic20220101
       Models::DelayTicketExpireTimeResponse delayTicketExpireTime(const Models::DelayTicketExpireTimeRequest &request);
 
       /**
-       * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+       * @summary Deletes a selected group of people for a single row and column permission rule.
        *
        * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
        *
@@ -558,7 +575,7 @@ namespace QuickbiPublic20220101
       Models::DeleteDataLevelPermissionRuleUsersResponse deleteDataLevelPermissionRuleUsersWithOptions(const Models::DeleteDataLevelPermissionRuleUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+       * @summary Deletes a selected group of people for a single row and column permission rule.
        *
        * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
        *
@@ -568,7 +585,7 @@ namespace QuickbiPublic20220101
       Models::DeleteDataLevelPermissionRuleUsersResponse deleteDataLevelPermissionRuleUsers(const Models::DeleteDataLevelPermissionRuleUsersRequest &request);
 
       /**
-       * @summary The ID of the request.
+       * @summary Deletes a single row or column permission rule.
        *
        * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
        *
@@ -579,7 +596,7 @@ namespace QuickbiPublic20220101
       Models::DeleteDataLevelRuleConfigResponse deleteDataLevelRuleConfigWithOptions(const Models::DeleteDataLevelRuleConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the request.
+       * @summary Deletes a single row or column permission rule.
        *
        * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
        *
@@ -960,7 +977,6 @@ namespace QuickbiPublic20220101
       /**
        * @summary Retrieve the list of custom roles at the organization level.
        *
-       * @param request ListOrganizationRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListOrganizationRolesResponse
        */
@@ -1457,8 +1473,8 @@ namespace QuickbiPublic20220101
 
       /**
        * @summary Indicates whether the table is a custom SQL table. Valid values:
-       * \\*   true: custom SQL table
-       * \\*   false: non-custom SQL table
+       * \\\\*   true: custom SQL table
+       * \\\\*   false: non-custom SQL table
        *
        * @param request QueryDatasetInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1468,8 +1484,8 @@ namespace QuickbiPublic20220101
 
       /**
        * @summary Indicates whether the table is a custom SQL table. Valid values:
-       * \\*   true: custom SQL table
-       * \\*   false: non-custom SQL table
+       * \\\\*   true: custom SQL table
+       * \\\\*   false: non-custom SQL table
        *
        * @param request QueryDatasetInfoRequest
        * @return QueryDatasetInfoResponse
@@ -1477,7 +1493,7 @@ namespace QuickbiPublic20220101
       Models::QueryDatasetInfoResponse queryDatasetInfo(const Models::QueryDatasetInfoRequest &request);
 
       /**
-       * @summary The name of the training dataset.
+       * @summary Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
        *
        * @param request QueryDatasetListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1486,7 +1502,7 @@ namespace QuickbiPublic20220101
       Models::QueryDatasetListResponse queryDatasetListWithOptions(const Models::QueryDatasetListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The name of the training dataset.
+       * @summary Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
        *
        * @param request QueryDatasetListRequest
        * @return QueryDatasetListResponse
@@ -1534,7 +1550,6 @@ namespace QuickbiPublic20220101
       /**
        * @summary Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
        *
-       * @param request QueryEmbeddedInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryEmbeddedInfoResponse
        */
@@ -1877,7 +1892,6 @@ namespace QuickbiPublic20220101
       /**
        * @summary Queries the metadata list of member tags in an organization.
        *
-       * @param request QueryUserTagMetaListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryUserTagMetaListResponse
        */
@@ -2124,7 +2138,7 @@ namespace QuickbiPublic20220101
       Models::SmartqAuthTransferResponse smartqAuthTransfer(const Models::SmartqAuthTransferRequest &request);
 
       /**
-       * @summary Batch Management of Smart Q\\\\\\&A Authorizations
+       * @summary Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
        *
        * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
        *
@@ -2135,7 +2149,7 @@ namespace QuickbiPublic20220101
       Models::SmartqAuthorizeResponse smartqAuthorizeWithOptions(const Models::SmartqAuthorizeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch Management of Smart Q\\\\\\&A Authorizations
+       * @summary Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
        *
        * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
        *
@@ -2183,9 +2197,7 @@ namespace QuickbiPublic20220101
       Models::UpdateCubeBySqlResponse updateCubeBySql(const Models::UpdateCubeBySqlRequest &request);
 
       /**
-       * @summary Indicates whether the request is successful. Valid values:
-       * *   true: The request was successful.
-       * *   false: The request failed.
+       * @summary Updates the status of the row and column permission switch for a dataset.
        *
        * @description The execution result of the interface. Valid values:
        * *   true: The request was successful.
@@ -2198,9 +2210,7 @@ namespace QuickbiPublic20220101
       Models::UpdateDataLevelPermissionStatusResponse updateDataLevelPermissionStatusWithOptions(const Models::UpdateDataLevelPermissionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Indicates whether the request is successful. Valid values:
-       * *   true: The request was successful.
-       * *   false: The request failed.
+       * @summary Updates the status of the row and column permission switch for a dataset.
        *
        * @description The execution result of the interface. Valid values:
        * *   true: The request was successful.

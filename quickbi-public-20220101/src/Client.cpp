@@ -82,7 +82,7 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsers(
 }
 
 /**
- * @summary 43342***435,1553a****41231
+ * @summary Modifies the whitelist of the row and column permissions for a specified dataset.
  *
  * @description ROW_LEVEL
  *
@@ -131,7 +131,7 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteListW
 }
 
 /**
- * @summary 43342***435,1553a****41231
+ * @summary Modifies the whitelist of the row and column permissions for a specified dataset.
  *
  * @description ROW_LEVEL
  *
@@ -267,6 +267,10 @@ AddUserResponse Client::addUserWithOptions(const AddUserRequest &request, const 
 
   if (!!request.hasAuthAdminUser()) {
     query["AuthAdminUser"] = request.getAuthAdminUser();
+  }
+
+  if (!!request.hasCopilotModules()) {
+    query["CopilotModules"] = request.getCopilotModules();
   }
 
   if (!!request.hasNickName()) {
@@ -497,6 +501,68 @@ AddUserToWorkspaceResponse Client::addUserToWorkspaceWithOptions(const AddUserTo
 AddUserToWorkspaceResponse Client::addUserToWorkspace(const AddUserToWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addUserToWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新增作品的协同授权记录
+ *
+ * @param request AddWorksAuthorizationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddWorksAuthorizationResponse
+ */
+AddWorksAuthorizationResponse Client::addWorksAuthorizationWithOptions(const AddWorksAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthPoints()) {
+    query["AuthPoints"] = request.getAuthPoints();
+  }
+
+  if (!!request.hasAuthorizeScope()) {
+    query["AuthorizeScope"] = request.getAuthorizeScope();
+  }
+
+  if (!!request.hasAuthorizedId()) {
+    query["AuthorizedId"] = request.getAuthorizedId();
+  }
+
+  if (!!request.hasExpireDay()) {
+    query["ExpireDay"] = request.getExpireDay();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddWorksAuthorization"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddWorksAuthorizationResponse>();
+}
+
+/**
+ * @summary 新增作品的协同授权记录
+ *
+ * @param request AddWorksAuthorizationRequest
+ * @return AddWorksAuthorizationResponse
+ */
+AddWorksAuthorizationResponse Client::addWorksAuthorization(const AddWorksAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addWorksAuthorizationWithOptions(request, runtime);
 }
 
 /**
@@ -1622,7 +1688,7 @@ DelayTicketExpireTimeResponse Client::delayTicketExpireTime(const DelayTicketExp
 }
 
 /**
- * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+ * @summary Deletes a selected group of people for a single row and column permission rule.
  *
  * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
  *
@@ -1655,7 +1721,7 @@ DeleteDataLevelPermissionRuleUsersResponse Client::deleteDataLevelPermissionRule
 }
 
 /**
- * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+ * @summary Deletes a selected group of people for a single row and column permission rule.
  *
  * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
  *
@@ -1668,7 +1734,7 @@ DeleteDataLevelPermissionRuleUsersResponse Client::deleteDataLevelPermissionRule
 }
 
 /**
- * @summary The ID of the request.
+ * @summary Deletes a single row or column permission rule.
  *
  * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
  *
@@ -1705,7 +1771,7 @@ DeleteDataLevelRuleConfigResponse Client::deleteDataLevelRuleConfigWithOptions(c
 }
 
 /**
- * @summary The ID of the request.
+ * @summary Deletes a single row or column permission rule.
  *
  * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
  *
@@ -2726,7 +2792,6 @@ ListOrganizationRoleUsersResponse Client::listOrganizationRoleUsers(const ListOr
 /**
  * @summary Retrieve the list of custom roles at the organization level.
  *
- * @param request ListOrganizationRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListOrganizationRolesResponse
  */
@@ -4110,8 +4175,8 @@ QueryDatasetDetailInfoResponse Client::queryDatasetDetailInfo(const QueryDataset
 
 /**
  * @summary Indicates whether the table is a custom SQL table. Valid values:
- * \\*   true: custom SQL table
- * \\*   false: non-custom SQL table
+ * \\\\*   true: custom SQL table
+ * \\\\*   false: non-custom SQL table
  *
  * @param request QueryDatasetInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4143,8 +4208,8 @@ QueryDatasetInfoResponse Client::queryDatasetInfoWithOptions(const QueryDatasetI
 
 /**
  * @summary Indicates whether the table is a custom SQL table. Valid values:
- * \\*   true: custom SQL table
- * \\*   false: non-custom SQL table
+ * \\\\*   true: custom SQL table
+ * \\\\*   false: non-custom SQL table
  *
  * @param request QueryDatasetInfoRequest
  * @return QueryDatasetInfoResponse
@@ -4155,7 +4220,7 @@ QueryDatasetInfoResponse Client::queryDatasetInfo(const QueryDatasetInfoRequest 
 }
 
 /**
- * @summary The name of the training dataset.
+ * @summary Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
  *
  * @param request QueryDatasetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4206,7 +4271,7 @@ QueryDatasetListResponse Client::queryDatasetListWithOptions(const QueryDatasetL
 }
 
 /**
- * @summary The name of the training dataset.
+ * @summary Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
  *
  * @param request QueryDatasetListRequest
  * @return QueryDatasetListResponse
@@ -4307,7 +4372,6 @@ QueryDatasetSwitchInfoResponse Client::queryDatasetSwitchInfo(const QueryDataset
 /**
  * @summary Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
  *
- * @param request QueryEmbeddedInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryEmbeddedInfoResponse
  */
@@ -5202,7 +5266,6 @@ QueryUserRoleInfoInWorkspaceResponse Client::queryUserRoleInfoInWorkspace(const 
 /**
  * @summary Queries the metadata list of member tags in an organization.
  *
- * @param request QueryUserTagMetaListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryUserTagMetaListResponse
  */
@@ -5859,7 +5922,7 @@ SmartqAuthTransferResponse Client::smartqAuthTransfer(const SmartqAuthTransferRe
 }
 
 /**
- * @summary Batch Management of Smart Q\\\\\\&A Authorizations
+ * @summary Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
  *
  * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
  *
@@ -5912,7 +5975,7 @@ SmartqAuthorizeResponse Client::smartqAuthorizeWithOptions(const SmartqAuthorize
 }
 
 /**
- * @summary Batch Management of Smart Q\\\\\\&A Authorizations
+ * @summary Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
  *
  * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
  *
@@ -6041,9 +6104,7 @@ UpdateCubeBySqlResponse Client::updateCubeBySql(const UpdateCubeBySqlRequest &re
 }
 
 /**
- * @summary Indicates whether the request is successful. Valid values:
- * *   true: The request was successful.
- * *   false: The request failed.
+ * @summary Updates the status of the row and column permission switch for a dataset.
  *
  * @description The execution result of the interface. Valid values:
  * *   true: The request was successful.
@@ -6086,9 +6147,7 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatusW
 }
 
 /**
- * @summary Indicates whether the request is successful. Valid values:
- * *   true: The request was successful.
- * *   false: The request failed.
+ * @summary Updates the status of the row and column permission switch for a dataset.
  *
  * @description The execution result of the interface. Valid values:
  * *   true: The request was successful.
@@ -6252,6 +6311,10 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 
   if (!!request.hasAuthAdminUser()) {
     query["AuthAdminUser"] = request.getAuthAdminUser();
+  }
+
+  if (!!request.hasCopilotModules()) {
+    query["CopilotModules"] = request.getCopilotModules();
   }
 
   if (!!request.hasIsDeleted()) {

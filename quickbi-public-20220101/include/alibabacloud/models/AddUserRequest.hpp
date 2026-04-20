@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
       DARABONBA_PTR_TO_JSON(AdminUser, adminUser_);
       DARABONBA_PTR_TO_JSON(AuthAdminUser, authAdminUser_);
+      DARABONBA_PTR_TO_JSON(CopilotModules, copilotModules_);
       DARABONBA_PTR_TO_JSON(NickName, nickName_);
       DARABONBA_PTR_TO_JSON(RoleIds, roleIds_);
       DARABONBA_PTR_TO_JSON(UserType, userType_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
       DARABONBA_PTR_FROM_JSON(AdminUser, adminUser_);
       DARABONBA_PTR_FROM_JSON(AuthAdminUser, authAdminUser_);
+      DARABONBA_PTR_FROM_JSON(CopilotModules, copilotModules_);
       DARABONBA_PTR_FROM_JSON(NickName, nickName_);
       DARABONBA_PTR_FROM_JSON(RoleIds, roleIds_);
       DARABONBA_PTR_FROM_JSON(UserType, userType_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->accountName_ == nullptr && this->adminUser_ == nullptr && this->authAdminUser_ == nullptr && this->nickName_ == nullptr && this->roleIds_ == nullptr
-        && this->userType_ == nullptr; };
+        && this->accountName_ == nullptr && this->adminUser_ == nullptr && this->authAdminUser_ == nullptr && this->copilotModules_ == nullptr && this->nickName_ == nullptr
+        && this->roleIds_ == nullptr && this->userType_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteAuthAdminUser() { this->authAdminUser_ = nullptr;};
     inline bool getAuthAdminUser() const { DARABONBA_PTR_GET_DEFAULT(authAdminUser_, false) };
     inline AddUserRequest& setAuthAdminUser(bool authAdminUser) { DARABONBA_PTR_SET_VALUE(authAdminUser_, authAdminUser) };
+
+
+    // copilotModules Field Functions 
+    bool hasCopilotModules() const { return this->copilotModules_ != nullptr;};
+    void deleteCopilotModules() { this->copilotModules_ = nullptr;};
+    inline string getCopilotModules() const { DARABONBA_PTR_GET_DEFAULT(copilotModules_, "") };
+    inline AddUserRequest& setCopilotModules(string copilotModules) { DARABONBA_PTR_SET_VALUE(copilotModules_, copilotModules) };
 
 
     // nickName Field Functions 
@@ -118,6 +127,7 @@ namespace Models
     // 
     // <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIds is provided.</notice>
     shared_ptr<bool> authAdminUser_ {};
+    shared_ptr<string> copilotModules_ {};
     // Aliyun account nickname.
     // 
     // - Format check: Maximum length of 50 characters.

@@ -68,6 +68,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AccountName, accountName_);
           DARABONBA_PTR_TO_JSON(AdminUser, adminUser_);
           DARABONBA_PTR_TO_JSON(AuthAdminUser, authAdminUser_);
+          DARABONBA_PTR_TO_JSON(CopilotModules, copilotModules_);
           DARABONBA_PTR_TO_JSON(IsDeleted, isDeleted_);
           DARABONBA_PTR_TO_JSON(JoinedDate, joinedDate_);
           DARABONBA_PTR_TO_JSON(LastLoginTime, lastLoginTime_);
@@ -81,6 +82,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
           DARABONBA_PTR_FROM_JSON(AdminUser, adminUser_);
           DARABONBA_PTR_FROM_JSON(AuthAdminUser, authAdminUser_);
+          DARABONBA_PTR_FROM_JSON(CopilotModules, copilotModules_);
           DARABONBA_PTR_FROM_JSON(IsDeleted, isDeleted_);
           DARABONBA_PTR_FROM_JSON(JoinedDate, joinedDate_);
           DARABONBA_PTR_FROM_JSON(LastLoginTime, lastLoginTime_);
@@ -101,8 +103,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->accountName_ == nullptr && this->adminUser_ == nullptr && this->authAdminUser_ == nullptr && this->isDeleted_ == nullptr && this->joinedDate_ == nullptr
-        && this->lastLoginTime_ == nullptr && this->nickName_ == nullptr && this->roleIdList_ == nullptr && this->userId_ == nullptr && this->userType_ == nullptr; };
+        && this->accountName_ == nullptr && this->adminUser_ == nullptr && this->authAdminUser_ == nullptr && this->copilotModules_ == nullptr && this->isDeleted_ == nullptr
+        && this->joinedDate_ == nullptr && this->lastLoginTime_ == nullptr && this->nickName_ == nullptr && this->roleIdList_ == nullptr && this->userId_ == nullptr
+        && this->userType_ == nullptr; };
         // accountId Field Functions 
         bool hasAccountId() const { return this->accountId_ != nullptr;};
         void deleteAccountId() { this->accountId_ = nullptr;};
@@ -129,6 +132,15 @@ namespace Models
         void deleteAuthAdminUser() { this->authAdminUser_ = nullptr;};
         inline bool getAuthAdminUser() const { DARABONBA_PTR_GET_DEFAULT(authAdminUser_, false) };
         inline Data& setAuthAdminUser(bool authAdminUser) { DARABONBA_PTR_SET_VALUE(authAdminUser_, authAdminUser) };
+
+
+        // copilotModules Field Functions 
+        bool hasCopilotModules() const { return this->copilotModules_ != nullptr;};
+        void deleteCopilotModules() { this->copilotModules_ = nullptr;};
+        inline const vector<string> & getCopilotModules() const { DARABONBA_PTR_GET_CONST(copilotModules_, vector<string>) };
+        inline vector<string> getCopilotModules() { DARABONBA_PTR_GET(copilotModules_, vector<string>) };
+        inline Data& setCopilotModules(const vector<string> & copilotModules) { DARABONBA_PTR_SET_VALUE(copilotModules_, copilotModules) };
+        inline Data& setCopilotModules(vector<string> && copilotModules) { DARABONBA_PTR_SET_RVALUE(copilotModules_, copilotModules) };
 
 
         // isDeleted Field Functions 
@@ -197,6 +209,7 @@ namespace Models
         // *   true
         // *   false
         shared_ptr<bool> authAdminUser_ {};
+        shared_ptr<vector<string>> copilotModules_ {};
         // User status: 
         // - Active - false 
         // - Inactive - true

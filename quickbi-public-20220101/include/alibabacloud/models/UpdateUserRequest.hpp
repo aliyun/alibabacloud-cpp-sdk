@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateUserRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AdminUser, adminUser_);
       DARABONBA_PTR_TO_JSON(AuthAdminUser, authAdminUser_);
+      DARABONBA_PTR_TO_JSON(CopilotModules, copilotModules_);
       DARABONBA_PTR_TO_JSON(IsDeleted, isDeleted_);
       DARABONBA_PTR_TO_JSON(NickName, nickName_);
       DARABONBA_PTR_TO_JSON(RoleIds, roleIds_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateUserRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AdminUser, adminUser_);
       DARABONBA_PTR_FROM_JSON(AuthAdminUser, authAdminUser_);
+      DARABONBA_PTR_FROM_JSON(CopilotModules, copilotModules_);
       DARABONBA_PTR_FROM_JSON(IsDeleted, isDeleted_);
       DARABONBA_PTR_FROM_JSON(NickName, nickName_);
       DARABONBA_PTR_FROM_JSON(RoleIds, roleIds_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adminUser_ == nullptr
-        && this->authAdminUser_ == nullptr && this->isDeleted_ == nullptr && this->nickName_ == nullptr && this->roleIds_ == nullptr && this->userId_ == nullptr
-        && this->userType_ == nullptr; };
+        && this->authAdminUser_ == nullptr && this->copilotModules_ == nullptr && this->isDeleted_ == nullptr && this->nickName_ == nullptr && this->roleIds_ == nullptr
+        && this->userId_ == nullptr && this->userType_ == nullptr; };
     // adminUser Field Functions 
     bool hasAdminUser() const { return this->adminUser_ != nullptr;};
     void deleteAdminUser() { this->adminUser_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteAuthAdminUser() { this->authAdminUser_ = nullptr;};
     inline bool getAuthAdminUser() const { DARABONBA_PTR_GET_DEFAULT(authAdminUser_, false) };
     inline UpdateUserRequest& setAuthAdminUser(bool authAdminUser) { DARABONBA_PTR_SET_VALUE(authAdminUser_, authAdminUser) };
+
+
+    // copilotModules Field Functions 
+    bool hasCopilotModules() const { return this->copilotModules_ != nullptr;};
+    void deleteCopilotModules() { this->copilotModules_ = nullptr;};
+    inline string getCopilotModules() const { DARABONBA_PTR_GET_DEFAULT(copilotModules_, "") };
+    inline UpdateUserRequest& setCopilotModules(string copilotModules) { DARABONBA_PTR_SET_VALUE(copilotModules_, copilotModules) };
 
 
     // isDeleted Field Functions 
@@ -104,6 +113,7 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> authAdminUser_ {};
+    shared_ptr<string> copilotModules_ {};
     // User status: 
     // * **false**: Active
     //  * **true**: Inactive

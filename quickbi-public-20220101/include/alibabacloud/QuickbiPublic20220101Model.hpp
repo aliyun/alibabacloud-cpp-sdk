@@ -29,6 +29,9 @@
 #include <alibabacloud/models/AddUserToWorkspaceRequest.hpp>
 #include <alibabacloud/models/AddUserToWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/AddUserToWorkspaceResponse.hpp>
+#include <alibabacloud/models/AddWorksAuthorizationRequest.hpp>
+#include <alibabacloud/models/AddWorksAuthorizationResponseBody.hpp>
+#include <alibabacloud/models/AddWorksAuthorizationResponse.hpp>
 #include <alibabacloud/models/AddWorkspaceUsersRequest.hpp>
 #include <alibabacloud/models/AddWorkspaceUsersResponseBody.hpp>
 #include <alibabacloud/models/AddWorkspaceUsersResponse.hpp>
