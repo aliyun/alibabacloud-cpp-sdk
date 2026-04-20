@@ -11,6 +11,7 @@
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/ProtocolConfiguration.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_TO_JSON(systemTags, systemTags_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AgentRuntime& obj) { 
@@ -85,6 +87,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+      DARABONBA_PTR_FROM_JSON(systemTags, systemTags_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     AgentRuntime() = default ;
@@ -104,7 +107,8 @@ namespace Models
         && this->diskSize_ == nullptr && this->enableSessionIsolation_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr
         && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr
         && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr && this->systemTags_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -333,6 +337,15 @@ namespace Models
     inline AgentRuntime& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
 
 
+    // systemTags Field Functions 
+    bool hasSystemTags() const { return this->systemTags_ != nullptr;};
+    void deleteSystemTags() { this->systemTags_ = nullptr;};
+    inline const vector<string> & getSystemTags() const { DARABONBA_PTR_GET_CONST(systemTags_, vector<string>) };
+    inline vector<string> getSystemTags() { DARABONBA_PTR_GET(systemTags_, vector<string>) };
+    inline AgentRuntime& setSystemTags(const vector<string> & systemTags) { DARABONBA_PTR_SET_VALUE(systemTags_, systemTags) };
+    inline AgentRuntime& setSystemTags(vector<string> && systemTags) { DARABONBA_PTR_SET_RVALUE(systemTags_, systemTags) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -399,6 +412,8 @@ namespace Models
     shared_ptr<string> status_ {};
     // 当前状态的原因说明（如适用）
     shared_ptr<string> statusReason_ {};
+    // 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+    shared_ptr<vector<string>> systemTags_ {};
     // 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
     shared_ptr<string> workspaceId_ {};
   };

@@ -12,6 +12,7 @@
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/ProtocolConfiguration.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
+      DARABONBA_PTR_TO_JSON(systemTags, systemTags_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAgentRuntimeInput& obj) { 
@@ -76,6 +78,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(sessionConcurrencyLimitPerInstance, sessionConcurrencyLimitPerInstance_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutSeconds, sessionIdleTimeoutSeconds_);
+      DARABONBA_PTR_FROM_JSON(systemTags, systemTags_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     CreateAgentRuntimeInput() = default ;
@@ -94,7 +97,8 @@ namespace Models
         && this->credentialId_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr && this->diskSize_ == nullptr && this->enableSessionIsolation_ == nullptr
         && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->logConfiguration_ == nullptr
         && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr
-        && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->systemTags_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -290,6 +294,15 @@ namespace Models
     inline CreateAgentRuntimeInput& setSessionIdleTimeoutSeconds(int32_t sessionIdleTimeoutSeconds) { DARABONBA_PTR_SET_VALUE(sessionIdleTimeoutSeconds_, sessionIdleTimeoutSeconds) };
 
 
+    // systemTags Field Functions 
+    bool hasSystemTags() const { return this->systemTags_ != nullptr;};
+    void deleteSystemTags() { this->systemTags_ = nullptr;};
+    inline const vector<string> & getSystemTags() const { DARABONBA_PTR_GET_CONST(systemTags_, vector<string>) };
+    inline vector<string> getSystemTags() { DARABONBA_PTR_GET(systemTags_, vector<string>) };
+    inline CreateAgentRuntimeInput& setSystemTags(const vector<string> & systemTags) { DARABONBA_PTR_SET_VALUE(systemTags_, systemTags) };
+    inline CreateAgentRuntimeInput& setSystemTags(vector<string> && systemTags) { DARABONBA_PTR_SET_RVALUE(systemTags_, systemTags) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -357,6 +370,8 @@ namespace Models
     shared_ptr<int32_t> sessionConcurrencyLimitPerInstance_ {};
     // 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
     shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
+    // 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+    shared_ptr<vector<string>> systemTags_ {};
     // 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
     shared_ptr<string> workspaceId_ {};
   };
