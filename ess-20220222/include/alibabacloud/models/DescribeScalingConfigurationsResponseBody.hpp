@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ScalingConfigurations& obj) { 
         DARABONBA_PTR_TO_JSON(Affinity, affinity_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(CpuOptions, cpuOptions_);
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_TO_JSON(CreditSpecification, creditSpecification_);
         DARABONBA_PTR_TO_JSON(CustomPriorities, customPriorities_);
@@ -119,6 +120,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, ScalingConfigurations& obj) { 
         DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(CpuOptions, cpuOptions_);
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_FROM_JSON(CreditSpecification, creditSpecification_);
         DARABONBA_PTR_FROM_JSON(CustomPriorities, customPriorities_);
@@ -1157,22 +1159,53 @@ namespace Models
         shared_ptr<string> vswitchId_ {};
       };
 
+      class CpuOptions : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CpuOptions& obj) { 
+          DARABONBA_PTR_TO_JSON(NestedVirtualization, nestedVirtualization_);
+        };
+        friend void from_json(const Darabonba::Json& j, CpuOptions& obj) { 
+          DARABONBA_PTR_FROM_JSON(NestedVirtualization, nestedVirtualization_);
+        };
+        CpuOptions() = default ;
+        CpuOptions(const CpuOptions &) = default ;
+        CpuOptions(CpuOptions &&) = default ;
+        CpuOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CpuOptions() = default ;
+        CpuOptions& operator=(const CpuOptions &) = default ;
+        CpuOptions& operator=(CpuOptions &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->nestedVirtualization_ == nullptr; };
+        // nestedVirtualization Field Functions 
+        bool hasNestedVirtualization() const { return this->nestedVirtualization_ != nullptr;};
+        void deleteNestedVirtualization() { this->nestedVirtualization_ = nullptr;};
+        inline string getNestedVirtualization() const { DARABONBA_PTR_GET_DEFAULT(nestedVirtualization_, "") };
+        inline CpuOptions& setNestedVirtualization(string nestedVirtualization) { DARABONBA_PTR_SET_VALUE(nestedVirtualization_, nestedVirtualization) };
+
+
+      protected:
+        shared_ptr<string> nestedVirtualization_ {};
+      };
+
       virtual bool empty() const override { return this->affinity_ == nullptr
-        && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->creditSpecification_ == nullptr && this->customPriorities_ == nullptr && this->dataDisks_ == nullptr
-        && this->dedicatedHostClusterId_ == nullptr && this->dedicatedHostId_ == nullptr && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr && this->hostName_ == nullptr
-        && this->hpcClusterId_ == nullptr && this->httpEndpoint_ == nullptr && this->httpTokens_ == nullptr && this->imageFamily_ == nullptr && this->imageId_ == nullptr
-        && this->imageName_ == nullptr && this->imageOptionsLoginAsNonRoot_ == nullptr && this->imageOwnerAlias_ == nullptr && this->instanceDescription_ == nullptr && this->instanceGeneration_ == nullptr
-        && this->instanceName_ == nullptr && this->instancePatternInfos_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeCandidateOptions_ == nullptr && this->instanceTypes_ == nullptr
-        && this->internetChargeType_ == nullptr && this->internetMaxBandwidthIn_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ioOptimized_ == nullptr && this->ipv6AddressCount_ == nullptr
-        && this->keyPairName_ == nullptr && this->lifecycleState_ == nullptr && this->loadBalancerWeight_ == nullptr && this->memory_ == nullptr && this->networkInterfaces_ == nullptr
-        && this->passwordInherit_ == nullptr && this->passwordSetted_ == nullptr && this->privatePoolOptions_id_ == nullptr && this->privatePoolOptions_matchCriteria_ == nullptr && this->ramRoleName_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourcePoolOptions_ == nullptr && this->scalingConfigurationId_ == nullptr && this->scalingConfigurationName_ == nullptr && this->scalingGroupId_ == nullptr
-        && this->schedulerOptions_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityOptions_ == nullptr
-        && this->spotDuration_ == nullptr && this->spotInterruptionBehavior_ == nullptr && this->spotPriceLimits_ == nullptr && this->spotStrategy_ == nullptr && this->storageSetId_ == nullptr
-        && this->storageSetPartitionNumber_ == nullptr && this->systemDiskAutoSnapshotPolicyId_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr && this->systemDiskCategory_ == nullptr
-        && this->systemDiskDescription_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKMSKeyId_ == nullptr && this->systemDiskName_ == nullptr
-        && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->tenancy_ == nullptr
-        && this->userData_ == nullptr && this->weightedCapacities_ == nullptr && this->zoneId_ == nullptr; };
+        && this->cpu_ == nullptr && this->cpuOptions_ == nullptr && this->creationTime_ == nullptr && this->creditSpecification_ == nullptr && this->customPriorities_ == nullptr
+        && this->dataDisks_ == nullptr && this->dedicatedHostClusterId_ == nullptr && this->dedicatedHostId_ == nullptr && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr
+        && this->hostName_ == nullptr && this->hpcClusterId_ == nullptr && this->httpEndpoint_ == nullptr && this->httpTokens_ == nullptr && this->imageFamily_ == nullptr
+        && this->imageId_ == nullptr && this->imageName_ == nullptr && this->imageOptionsLoginAsNonRoot_ == nullptr && this->imageOwnerAlias_ == nullptr && this->instanceDescription_ == nullptr
+        && this->instanceGeneration_ == nullptr && this->instanceName_ == nullptr && this->instancePatternInfos_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeCandidateOptions_ == nullptr
+        && this->instanceTypes_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthIn_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ioOptimized_ == nullptr
+        && this->ipv6AddressCount_ == nullptr && this->keyPairName_ == nullptr && this->lifecycleState_ == nullptr && this->loadBalancerWeight_ == nullptr && this->memory_ == nullptr
+        && this->networkInterfaces_ == nullptr && this->passwordInherit_ == nullptr && this->passwordSetted_ == nullptr && this->privatePoolOptions_id_ == nullptr && this->privatePoolOptions_matchCriteria_ == nullptr
+        && this->ramRoleName_ == nullptr && this->resourceGroupId_ == nullptr && this->resourcePoolOptions_ == nullptr && this->scalingConfigurationId_ == nullptr && this->scalingConfigurationName_ == nullptr
+        && this->scalingGroupId_ == nullptr && this->schedulerOptions_ == nullptr && this->securityEnhancementStrategy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr
+        && this->securityOptions_ == nullptr && this->spotDuration_ == nullptr && this->spotInterruptionBehavior_ == nullptr && this->spotPriceLimits_ == nullptr && this->spotStrategy_ == nullptr
+        && this->storageSetId_ == nullptr && this->storageSetPartitionNumber_ == nullptr && this->systemDiskAutoSnapshotPolicyId_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr
+        && this->systemDiskCategory_ == nullptr && this->systemDiskDescription_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKMSKeyId_ == nullptr
+        && this->systemDiskName_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr
+        && this->tenancy_ == nullptr && this->userData_ == nullptr && this->weightedCapacities_ == nullptr && this->zoneId_ == nullptr; };
       // affinity Field Functions 
       bool hasAffinity() const { return this->affinity_ != nullptr;};
       void deleteAffinity() { this->affinity_ = nullptr;};
@@ -1185,6 +1218,15 @@ namespace Models
       void deleteCpu() { this->cpu_ = nullptr;};
       inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
       inline ScalingConfigurations& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // cpuOptions Field Functions 
+      bool hasCpuOptions() const { return this->cpuOptions_ != nullptr;};
+      void deleteCpuOptions() { this->cpuOptions_ = nullptr;};
+      inline const ScalingConfigurations::CpuOptions & getCpuOptions() const { DARABONBA_PTR_GET_CONST(cpuOptions_, ScalingConfigurations::CpuOptions) };
+      inline ScalingConfigurations::CpuOptions getCpuOptions() { DARABONBA_PTR_GET(cpuOptions_, ScalingConfigurations::CpuOptions) };
+      inline ScalingConfigurations& setCpuOptions(const ScalingConfigurations::CpuOptions & cpuOptions) { DARABONBA_PTR_SET_VALUE(cpuOptions_, cpuOptions) };
+      inline ScalingConfigurations& setCpuOptions(ScalingConfigurations::CpuOptions && cpuOptions) { DARABONBA_PTR_SET_RVALUE(cpuOptions_, cpuOptions) };
 
 
       // creationTime Field Functions 
@@ -1731,6 +1773,7 @@ namespace Models
       // 
       // >  You can specify CPU and Memory to define instance types only when you set Scaling Policy to Cost Optimization and no instance type is specified in the scaling configuration.
       shared_ptr<int32_t> cpu_ {};
+      shared_ptr<ScalingConfigurations::CpuOptions> cpuOptions_ {};
       // The time at which the scaling configuration was created.
       shared_ptr<string> creationTime_ {};
       // The performance mode of the burstable instances. Valid values:
