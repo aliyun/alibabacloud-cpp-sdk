@@ -1368,7 +1368,6 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommodities(const 
 /**
  * @summary 查询万小智灵感值服务
  *
- * @param request GetAppTokenServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAppTokenServiceResponse
  */
@@ -1733,9 +1732,10 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgents(const ListAppAssis
 }
 
 /**
+ * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
+ *
  * @summary 获取商品配置信息
  *
- * @param request ListAppCommoditySpecificationsForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAppCommoditySpecificationsForPartnerResponse
  */
@@ -1756,6 +1756,8 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 }
 
 /**
+ * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
+ *
  * @summary 获取商品配置信息
  *
  * @return ListAppCommoditySpecificationsForPartnerResponse
@@ -2676,7 +2678,6 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetails(co
 /**
  * @summary 查询灵感值余额总览
  *
- * @param request QueryInspirationBalanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryInspirationBalanceResponse
  */

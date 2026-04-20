@@ -245,6 +245,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
             DARABONBA_PTR_TO_JSON(TextList, textList_);
             DARABONBA_PTR_TO_JSON(Thumbnail, thumbnail_);
+            DARABONBA_PTR_TO_JSON(UpgradeStatus, upgradeStatus_);
           };
           friend void from_json(const Darabonba::Json& j, Profile& obj) { 
             DARABONBA_PTR_FROM_JSON(AdminUrl, adminUrl_);
@@ -277,6 +278,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
             DARABONBA_PTR_FROM_JSON(TextList, textList_);
             DARABONBA_PTR_FROM_JSON(Thumbnail, thumbnail_);
+            DARABONBA_PTR_FROM_JSON(UpgradeStatus, upgradeStatus_);
           };
           Profile() = default ;
           Profile(const Profile &) = default ;
@@ -295,7 +297,7 @@ namespace Models
         && this->gmtModified_ == nullptr && this->icpbaNo_ == nullptr && this->imageList_ == nullptr && this->lxInstanceId_ == nullptr && this->ordTime_ == nullptr
         && this->orderId_ == nullptr && this->orderNum_ == nullptr && this->partnerId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr
         && this->seoSite_ == nullptr && this->siteLogo_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr
-        && this->templateEtag_ == nullptr && this->templateId_ == nullptr && this->textList_ == nullptr && this->thumbnail_ == nullptr; };
+        && this->templateEtag_ == nullptr && this->templateId_ == nullptr && this->textList_ == nullptr && this->thumbnail_ == nullptr && this->upgradeStatus_ == nullptr; };
           // adminUrl Field Functions 
           bool hasAdminUrl() const { return this->adminUrl_ != nullptr;};
           void deleteAdminUrl() { this->adminUrl_ = nullptr;};
@@ -506,6 +508,13 @@ namespace Models
           inline Profile& setThumbnail(string thumbnail) { DARABONBA_PTR_SET_VALUE(thumbnail_, thumbnail) };
 
 
+          // upgradeStatus Field Functions 
+          bool hasUpgradeStatus() const { return this->upgradeStatus_ != nullptr;};
+          void deleteUpgradeStatus() { this->upgradeStatus_ = nullptr;};
+          inline string getUpgradeStatus() const { DARABONBA_PTR_GET_DEFAULT(upgradeStatus_, "") };
+          inline Profile& setUpgradeStatus(string upgradeStatus) { DARABONBA_PTR_SET_VALUE(upgradeStatus_, upgradeStatus) };
+
+
         protected:
           shared_ptr<string> adminUrl_ {};
           shared_ptr<string> applicationType_ {};
@@ -537,6 +546,7 @@ namespace Models
           shared_ptr<string> templateId_ {};
           shared_ptr<string> textList_ {};
           shared_ptr<string> thumbnail_ {};
+          shared_ptr<string> upgradeStatus_ {};
         };
 
         virtual bool empty() const override { return this->appSubType_ == nullptr
@@ -817,6 +827,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
           DARABONBA_PTR_TO_JSON(TextList, textList_);
           DARABONBA_PTR_TO_JSON(Thumbnail, thumbnail_);
+          DARABONBA_PTR_TO_JSON(UpgradeStatus, upgradeStatus_);
         };
         friend void from_json(const Darabonba::Json& j, Profile& obj) { 
           DARABONBA_PTR_FROM_JSON(AdminUrl, adminUrl_);
@@ -849,6 +860,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
           DARABONBA_PTR_FROM_JSON(TextList, textList_);
           DARABONBA_PTR_FROM_JSON(Thumbnail, thumbnail_);
+          DARABONBA_PTR_FROM_JSON(UpgradeStatus, upgradeStatus_);
         };
         Profile() = default ;
         Profile(const Profile &) = default ;
@@ -867,7 +879,7 @@ namespace Models
         && this->gmtModified_ == nullptr && this->icpbaNo_ == nullptr && this->imageList_ == nullptr && this->lxInstanceId_ == nullptr && this->ordTime_ == nullptr
         && this->orderId_ == nullptr && this->orderNum_ == nullptr && this->partnerId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr
         && this->seoSite_ == nullptr && this->siteLogo_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr
-        && this->templateEtag_ == nullptr && this->templateId_ == nullptr && this->textList_ == nullptr && this->thumbnail_ == nullptr; };
+        && this->templateEtag_ == nullptr && this->templateId_ == nullptr && this->textList_ == nullptr && this->thumbnail_ == nullptr && this->upgradeStatus_ == nullptr; };
         // adminUrl Field Functions 
         bool hasAdminUrl() const { return this->adminUrl_ != nullptr;};
         void deleteAdminUrl() { this->adminUrl_ = nullptr;};
@@ -1078,6 +1090,13 @@ namespace Models
         inline Profile& setThumbnail(string thumbnail) { DARABONBA_PTR_SET_VALUE(thumbnail_, thumbnail) };
 
 
+        // upgradeStatus Field Functions 
+        bool hasUpgradeStatus() const { return this->upgradeStatus_ != nullptr;};
+        void deleteUpgradeStatus() { this->upgradeStatus_ = nullptr;};
+        inline string getUpgradeStatus() const { DARABONBA_PTR_GET_DEFAULT(upgradeStatus_, "") };
+        inline Profile& setUpgradeStatus(string upgradeStatus) { DARABONBA_PTR_SET_VALUE(upgradeStatus_, upgradeStatus) };
+
+
       protected:
         shared_ptr<string> adminUrl_ {};
         shared_ptr<string> applicationType_ {};
@@ -1109,6 +1128,7 @@ namespace Models
         shared_ptr<string> templateId_ {};
         shared_ptr<string> textList_ {};
         shared_ptr<string> thumbnail_ {};
+        shared_ptr<string> upgradeStatus_ {};
       };
 
       class PartnerDetail : public Darabonba::Model {
@@ -1349,6 +1369,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(OrderId, orderId_);
             DARABONBA_PTR_TO_JSON(ServiceSpec, serviceSpec_);
             DARABONBA_PTR_TO_JSON(ServiceSpecText, serviceSpecText_);
+            DARABONBA_PTR_TO_JSON(UpgradeStatus, upgradeStatus_);
           };
           friend void from_json(const Darabonba::Json& j, Profile& obj) { 
             DARABONBA_PTR_FROM_JSON(BizId, bizId_);
@@ -1361,6 +1382,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
             DARABONBA_PTR_FROM_JSON(ServiceSpec, serviceSpec_);
             DARABONBA_PTR_FROM_JSON(ServiceSpecText, serviceSpecText_);
+            DARABONBA_PTR_FROM_JSON(UpgradeStatus, upgradeStatus_);
           };
           Profile() = default ;
           Profile(const Profile &) = default ;
@@ -1375,7 +1397,7 @@ namespace Models
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->bizId_ == nullptr
         && this->designType_ == nullptr && this->designTypeText_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
-        && this->lxInstanceId_ == nullptr && this->orderId_ == nullptr && this->serviceSpec_ == nullptr && this->serviceSpecText_ == nullptr; };
+        && this->lxInstanceId_ == nullptr && this->orderId_ == nullptr && this->serviceSpec_ == nullptr && this->serviceSpecText_ == nullptr && this->upgradeStatus_ == nullptr; };
           // bizId Field Functions 
           bool hasBizId() const { return this->bizId_ != nullptr;};
           void deleteBizId() { this->bizId_ = nullptr;};
@@ -1446,6 +1468,13 @@ namespace Models
           inline Profile& setServiceSpecText(string serviceSpecText) { DARABONBA_PTR_SET_VALUE(serviceSpecText_, serviceSpecText) };
 
 
+          // upgradeStatus Field Functions 
+          bool hasUpgradeStatus() const { return this->upgradeStatus_ != nullptr;};
+          void deleteUpgradeStatus() { this->upgradeStatus_ = nullptr;};
+          inline string getUpgradeStatus() const { DARABONBA_PTR_GET_DEFAULT(upgradeStatus_, "") };
+          inline Profile& setUpgradeStatus(string upgradeStatus) { DARABONBA_PTR_SET_VALUE(upgradeStatus_, upgradeStatus) };
+
+
         protected:
           shared_ptr<string> bizId_ {};
           shared_ptr<string> designType_ {};
@@ -1457,6 +1486,7 @@ namespace Models
           shared_ptr<string> orderId_ {};
           shared_ptr<string> serviceSpec_ {};
           shared_ptr<string> serviceSpecText_ {};
+          shared_ptr<string> upgradeStatus_ {};
         };
 
         class OperationAddress : public Darabonba::Model {

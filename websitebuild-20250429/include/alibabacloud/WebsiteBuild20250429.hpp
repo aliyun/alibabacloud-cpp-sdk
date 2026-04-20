@@ -448,7 +448,6 @@ namespace WebsiteBuild20250429
       /**
        * @summary 查询万小智灵感值服务
        *
-       * @param request GetAppTokenServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAppTokenServiceResponse
        */
@@ -581,15 +580,18 @@ namespace WebsiteBuild20250429
       Models::ListAppAssistantAgentsResponse listAppAssistantAgents(const Models::ListAppAssistantAgentsRequest &request);
 
       /**
+       * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
+       *
        * @summary 获取商品配置信息
        *
-       * @param request ListAppCommoditySpecificationsForPartnerRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAppCommoditySpecificationsForPartnerResponse
        */
       Models::ListAppCommoditySpecificationsForPartnerResponse listAppCommoditySpecificationsForPartnerWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
+       *
        * @summary 获取商品配置信息
        *
        * @return ListAppCommoditySpecificationsForPartnerResponse
@@ -854,7 +856,6 @@ namespace WebsiteBuild20250429
       /**
        * @summary 查询灵感值余额总览
        *
-       * @param request QueryInspirationBalanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryInspirationBalanceResponse
        */
