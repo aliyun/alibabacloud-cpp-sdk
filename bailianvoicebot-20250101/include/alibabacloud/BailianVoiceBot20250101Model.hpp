@@ -27,6 +27,9 @@
 #include <alibabacloud/models/DeleteVariableRequest.hpp>
 #include <alibabacloud/models/DeleteVariableResponseBody.hpp>
 #include <alibabacloud/models/DeleteVariableResponse.hpp>
+#include <alibabacloud/models/GenerateFileUploadParamsRequest.hpp>
+#include <alibabacloud/models/GenerateFileUploadParamsResponseBody.hpp>
+#include <alibabacloud/models/GenerateFileUploadParamsResponse.hpp>
 #include <alibabacloud/models/GetApplicationRequest.hpp>
 #include <alibabacloud/models/GetApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationResponse.hpp>

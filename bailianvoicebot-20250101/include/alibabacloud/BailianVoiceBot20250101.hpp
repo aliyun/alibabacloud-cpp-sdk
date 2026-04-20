@@ -157,6 +157,23 @@ namespace BailianVoiceBot20250101
       Models::DeleteVariableResponse deleteVariable(const Models::DeleteVariableRequest &request);
 
       /**
+       * @summary 获取文件上传信息
+       *
+       * @param request GenerateFileUploadParamsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateFileUploadParamsResponse
+       */
+      Models::GenerateFileUploadParamsResponse generateFileUploadParamsWithOptions(const Models::GenerateFileUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件上传信息
+       *
+       * @param request GenerateFileUploadParamsRequest
+       * @return GenerateFileUploadParamsResponse
+       */
+      Models::GenerateFileUploadParamsResponse generateFileUploadParams(const Models::GenerateFileUploadParamsRequest &request);
+
+      /**
        * @summary Get应用
        *
        * @param request GetApplicationRequest

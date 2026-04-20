@@ -494,6 +494,56 @@ DeleteVariableResponse Client::deleteVariable(const DeleteVariableRequest &reque
 }
 
 /**
+ * @summary 获取文件上传信息
+ *
+ * @param request GenerateFileUploadParamsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateFileUploadParamsResponse
+ */
+GenerateFileUploadParamsResponse Client::generateFileUploadParamsWithOptions(const GenerateFileUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessType()) {
+    body["BusinessType"] = request.getBusinessType();
+  }
+
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasFileName()) {
+    body["FileName"] = request.getFileName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GenerateFileUploadParams"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateFileUploadParamsResponse>();
+}
+
+/**
+ * @summary 获取文件上传信息
+ *
+ * @param request GenerateFileUploadParamsRequest
+ * @return GenerateFileUploadParamsResponse
+ */
+GenerateFileUploadParamsResponse Client::generateFileUploadParams(const GenerateFileUploadParamsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateFileUploadParamsWithOptions(request, runtime);
+}
+
+/**
  * @summary Get应用
  *
  * @param request GetApplicationRequest
