@@ -1440,6 +1440,198 @@ ContinueDBClusterMigrationResponse Client::continueDBClusterMigration(const Cont
 }
 
 /**
+ * @summary 创建数据集
+ *
+ * @param request CreateAIDBClusterDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAIDBClusterDatasetResponse
+ */
+CreateAIDBClusterDatasetResponse Client::createAIDBClusterDatasetWithOptions(const CreateAIDBClusterDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetName()) {
+    query["DatasetName"] = request.getDatasetName();
+  }
+
+  if (!!request.hasDatasetType()) {
+    query["DatasetType"] = request.getDatasetType();
+  }
+
+  if (!!request.hasImportMode()) {
+    query["ImportMode"] = request.getImportMode();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTrainMode()) {
+    query["TrainMode"] = request.getTrainMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAIDBClusterDataset"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAIDBClusterDatasetResponse>();
+}
+
+/**
+ * @summary 创建数据集
+ *
+ * @param request CreateAIDBClusterDatasetRequest
+ * @return CreateAIDBClusterDatasetResponse
+ */
+CreateAIDBClusterDatasetResponse Client::createAIDBClusterDataset(const CreateAIDBClusterDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAIDBClusterDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建模型评测任务
+ *
+ * @param request CreateAIDBClusterTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAIDBClusterTaskResponse
+ */
+CreateAIDBClusterTaskResponse Client::createAIDBClusterTaskWithOptions(const CreateAIDBClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBInstanceClass()) {
+    query["DBInstanceClass"] = request.getDBInstanceClass();
+  }
+
+  if (!!request.hasDatasetPath()) {
+    query["DatasetPath"] = request.getDatasetPath();
+  }
+
+  if (!!request.hasEvalDatasetPath()) {
+    query["EvalDatasetPath"] = request.getEvalDatasetPath();
+  }
+
+  if (!!request.hasKubeType()) {
+    query["KubeType"] = request.getKubeType();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelSource()) {
+    query["ModelSource"] = request.getModelSource();
+  }
+
+  if (!!request.hasModelType()) {
+    query["ModelType"] = request.getModelType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRunningParameter()) {
+    query["RunningParameter"] = request.getRunningParameter();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAIDBClusterTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAIDBClusterTaskResponse>();
+}
+
+/**
+ * @summary 创建模型评测任务
+ *
+ * @param request CreateAIDBClusterTaskRequest
+ * @return CreateAIDBClusterTaskResponse
+ */
+CreateAIDBClusterTaskResponse Client::createAIDBClusterTask(const CreateAIDBClusterTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAIDBClusterTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建AI节点
  *
  * @param request CreateAINodesRequest
@@ -4052,6 +4244,138 @@ DeleteAIDBClusterResponse Client::deleteAIDBCluster(const DeleteAIDBClusterReque
 }
 
 /**
+ * @summary 删除数据集
+ *
+ * @param request DeleteAIDBClusterDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAIDBClusterDatasetResponse
+ */
+DeleteAIDBClusterDatasetResponse Client::deleteAIDBClusterDatasetWithOptions(const DeleteAIDBClusterDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetId()) {
+    query["DatasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAIDBClusterDataset"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAIDBClusterDatasetResponse>();
+}
+
+/**
+ * @summary 删除数据集
+ *
+ * @param request DeleteAIDBClusterDatasetRequest
+ * @return DeleteAIDBClusterDatasetResponse
+ */
+DeleteAIDBClusterDatasetResponse Client::deleteAIDBClusterDataset(const DeleteAIDBClusterDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAIDBClusterDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除任务实例
+ *
+ * @param request DeleteAIDBClusterTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAIDBClusterTaskResponse
+ */
+DeleteAIDBClusterTaskResponse Client::deleteAIDBClusterTaskWithOptions(const DeleteAIDBClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAIDBClusterTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAIDBClusterTaskResponse>();
+}
+
+/**
+ * @summary 删除任务实例
+ *
+ * @param request DeleteAIDBClusterTaskRequest
+ * @return DeleteAIDBClusterTaskResponse
+ */
+DeleteAIDBClusterTaskResponse Client::deleteAIDBClusterTask(const DeleteAIDBClusterTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAIDBClusterTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除ai实例子节点
  *
  * @param request DeleteAINodesRequest
@@ -5798,6 +6122,92 @@ DescribeAIDBClusterAttributeResponse Client::describeAIDBClusterAttribute(const 
 }
 
 /**
+ * @summary 查询数据集列表
+ *
+ * @param request DescribeAIDBClusterDatasetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIDBClusterDatasetsResponse
+ */
+DescribeAIDBClusterDatasetsResponse Client::describeAIDBClusterDatasetsWithOptions(const DescribeAIDBClusterDatasetsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContinuationToken()) {
+    query["ContinuationToken"] = request.getContinuationToken();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDatasetId()) {
+    query["DatasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasDatasetType()) {
+    query["DatasetType"] = request.getDatasetType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTrainMode()) {
+    query["TrainMode"] = request.getTrainMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIDBClusterDatasets"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIDBClusterDatasetsResponse>();
+}
+
+/**
+ * @summary 查询数据集列表
+ *
+ * @param request DescribeAIDBClusterDatasetsRequest
+ * @return DescribeAIDBClusterDatasetsResponse
+ */
+DescribeAIDBClusterDatasetsResponse Client::describeAIDBClusterDatasets(const DescribeAIDBClusterDatasetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIDBClusterDatasetsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取ai容器性能指标
  *
  * @param request DescribeAIDBClusterPerformanceRequest
@@ -5853,6 +6263,72 @@ DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformanceWit
 DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformance(const DescribeAIDBClusterPerformanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAIDBClusterPerformanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取任务实例详情
+ *
+ * @param request DescribeAIDBClusterTaskAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIDBClusterTaskAttributeResponse
+ */
+DescribeAIDBClusterTaskAttributeResponse Client::describeAIDBClusterTaskAttributeWithOptions(const DescribeAIDBClusterTaskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDescribeType()) {
+    query["DescribeType"] = request.getDescribeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIDBClusterTaskAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIDBClusterTaskAttributeResponse>();
+}
+
+/**
+ * @summary 获取任务实例详情
+ *
+ * @param request DescribeAIDBClusterTaskAttributeRequest
+ * @return DescribeAIDBClusterTaskAttributeResponse
+ */
+DescribeAIDBClusterTaskAttributeResponse Client::describeAIDBClusterTaskAttribute(const DescribeAIDBClusterTaskAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIDBClusterTaskAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -5993,6 +6469,72 @@ DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetricsWit
 DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetrics(const DescribeAIDBClusterTaskMetricsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAIDBClusterTaskMetricsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取任务实例列表
+ *
+ * @param request DescribeAIDBClusterTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAIDBClusterTasksResponse
+ */
+DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasksWithOptions(const DescribeAIDBClusterTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKubeType()) {
+    query["KubeType"] = request.getKubeType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRelativeDBClusterId()) {
+    query["RelativeDBClusterId"] = request.getRelativeDBClusterId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAIDBClusterTasks"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAIDBClusterTasksResponse>();
+}
+
+/**
+ * @summary 获取任务实例列表
+ *
+ * @param request DescribeAIDBClusterTasksRequest
+ * @return DescribeAIDBClusterTasksResponse
+ */
+DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasks(const DescribeAIDBClusterTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAIDBClusterTasksWithOptions(request, runtime);
 }
 
 /**

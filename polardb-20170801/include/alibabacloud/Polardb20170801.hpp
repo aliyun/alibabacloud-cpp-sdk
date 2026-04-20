@@ -395,6 +395,40 @@ namespace Polardb20170801
       Models::ContinueDBClusterMigrationResponse continueDBClusterMigration(const Models::ContinueDBClusterMigrationRequest &request);
 
       /**
+       * @summary 创建数据集
+       *
+       * @param request CreateAIDBClusterDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIDBClusterDatasetResponse
+       */
+      Models::CreateAIDBClusterDatasetResponse createAIDBClusterDatasetWithOptions(const Models::CreateAIDBClusterDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据集
+       *
+       * @param request CreateAIDBClusterDatasetRequest
+       * @return CreateAIDBClusterDatasetResponse
+       */
+      Models::CreateAIDBClusterDatasetResponse createAIDBClusterDataset(const Models::CreateAIDBClusterDatasetRequest &request);
+
+      /**
+       * @summary 创建模型评测任务
+       *
+       * @param request CreateAIDBClusterTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIDBClusterTaskResponse
+       */
+      Models::CreateAIDBClusterTaskResponse createAIDBClusterTaskWithOptions(const Models::CreateAIDBClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模型评测任务
+       *
+       * @param request CreateAIDBClusterTaskRequest
+       * @return CreateAIDBClusterTaskResponse
+       */
+      Models::CreateAIDBClusterTaskResponse createAIDBClusterTask(const Models::CreateAIDBClusterTaskRequest &request);
+
+      /**
        * @summary 创建AI节点
        *
        * @param request CreateAINodesRequest
@@ -911,6 +945,40 @@ namespace Polardb20170801
        * @return DeleteAIDBClusterResponse
        */
       Models::DeleteAIDBClusterResponse deleteAIDBCluster(const Models::DeleteAIDBClusterRequest &request);
+
+      /**
+       * @summary 删除数据集
+       *
+       * @param request DeleteAIDBClusterDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAIDBClusterDatasetResponse
+       */
+      Models::DeleteAIDBClusterDatasetResponse deleteAIDBClusterDatasetWithOptions(const Models::DeleteAIDBClusterDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据集
+       *
+       * @param request DeleteAIDBClusterDatasetRequest
+       * @return DeleteAIDBClusterDatasetResponse
+       */
+      Models::DeleteAIDBClusterDatasetResponse deleteAIDBClusterDataset(const Models::DeleteAIDBClusterDatasetRequest &request);
+
+      /**
+       * @summary 删除任务实例
+       *
+       * @param request DeleteAIDBClusterTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAIDBClusterTaskResponse
+       */
+      Models::DeleteAIDBClusterTaskResponse deleteAIDBClusterTaskWithOptions(const Models::DeleteAIDBClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除任务实例
+       *
+       * @param request DeleteAIDBClusterTaskRequest
+       * @return DeleteAIDBClusterTaskResponse
+       */
+      Models::DeleteAIDBClusterTaskResponse deleteAIDBClusterTask(const Models::DeleteAIDBClusterTaskRequest &request);
 
       /**
        * @summary 删除ai实例子节点
@@ -1437,6 +1505,23 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterAttributeResponse describeAIDBClusterAttribute(const Models::DescribeAIDBClusterAttributeRequest &request);
 
       /**
+       * @summary 查询数据集列表
+       *
+       * @param request DescribeAIDBClusterDatasetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterDatasetsResponse
+       */
+      Models::DescribeAIDBClusterDatasetsResponse describeAIDBClusterDatasetsWithOptions(const Models::DescribeAIDBClusterDatasetsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据集列表
+       *
+       * @param request DescribeAIDBClusterDatasetsRequest
+       * @return DescribeAIDBClusterDatasetsResponse
+       */
+      Models::DescribeAIDBClusterDatasetsResponse describeAIDBClusterDatasets(const Models::DescribeAIDBClusterDatasetsRequest &request);
+
+      /**
        * @summary 获取ai容器性能指标
        *
        * @param request DescribeAIDBClusterPerformanceRequest
@@ -1452,6 +1537,23 @@ namespace Polardb20170801
        * @return DescribeAIDBClusterPerformanceResponse
        */
       Models::DescribeAIDBClusterPerformanceResponse describeAIDBClusterPerformance(const Models::DescribeAIDBClusterPerformanceRequest &request);
+
+      /**
+       * @summary 获取任务实例详情
+       *
+       * @param request DescribeAIDBClusterTaskAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterTaskAttributeResponse
+       */
+      Models::DescribeAIDBClusterTaskAttributeResponse describeAIDBClusterTaskAttributeWithOptions(const Models::DescribeAIDBClusterTaskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取任务实例详情
+       *
+       * @param request DescribeAIDBClusterTaskAttributeRequest
+       * @return DescribeAIDBClusterTaskAttributeResponse
+       */
+      Models::DescribeAIDBClusterTaskAttributeResponse describeAIDBClusterTaskAttribute(const Models::DescribeAIDBClusterTaskAttributeRequest &request);
 
       /**
        * @summary 查询模型算子日志
@@ -1486,6 +1588,23 @@ namespace Polardb20170801
        * @return DescribeAIDBClusterTaskMetricsResponse
        */
       Models::DescribeAIDBClusterTaskMetricsResponse describeAIDBClusterTaskMetrics(const Models::DescribeAIDBClusterTaskMetricsRequest &request);
+
+      /**
+       * @summary 获取任务实例列表
+       *
+       * @param request DescribeAIDBClusterTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterTasksResponse
+       */
+      Models::DescribeAIDBClusterTasksResponse describeAIDBClusterTasksWithOptions(const Models::DescribeAIDBClusterTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取任务实例列表
+       *
+       * @param request DescribeAIDBClusterTasksRequest
+       * @return DescribeAIDBClusterTasksResponse
+       */
+      Models::DescribeAIDBClusterTasksResponse describeAIDBClusterTasks(const Models::DescribeAIDBClusterTasksRequest &request);
 
       /**
        * @summary 查看custom集群列表

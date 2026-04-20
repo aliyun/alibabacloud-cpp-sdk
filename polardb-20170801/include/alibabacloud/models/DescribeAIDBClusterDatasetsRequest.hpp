@@ -1,0 +1,160 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEAIDBCLUSTERDATASETSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEAIDBCLUSTERDATASETSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Polardb20170801
+{
+namespace Models
+{
+  class DescribeAIDBClusterDatasetsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeAIDBClusterDatasetsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ContinuationToken, continuationToken_);
+      DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
+      DARABONBA_PTR_TO_JSON(DatasetType, datasetType_);
+      DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(TrainMode, trainMode_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeAIDBClusterDatasetsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ContinuationToken, continuationToken_);
+      DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
+      DARABONBA_PTR_FROM_JSON(DatasetType, datasetType_);
+      DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(TrainMode, trainMode_);
+    };
+    DescribeAIDBClusterDatasetsRequest() = default ;
+    DescribeAIDBClusterDatasetsRequest(const DescribeAIDBClusterDatasetsRequest &) = default ;
+    DescribeAIDBClusterDatasetsRequest(DescribeAIDBClusterDatasetsRequest &&) = default ;
+    DescribeAIDBClusterDatasetsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeAIDBClusterDatasetsRequest() = default ;
+    DescribeAIDBClusterDatasetsRequest& operator=(const DescribeAIDBClusterDatasetsRequest &) = default ;
+    DescribeAIDBClusterDatasetsRequest& operator=(DescribeAIDBClusterDatasetsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->continuationToken_ == nullptr
+        && this->DBClusterId_ == nullptr && this->datasetId_ == nullptr && this->datasetType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->trainMode_ == nullptr; };
+    // continuationToken Field Functions 
+    bool hasContinuationToken() const { return this->continuationToken_ != nullptr;};
+    void deleteContinuationToken() { this->continuationToken_ = nullptr;};
+    inline string getContinuationToken() const { DARABONBA_PTR_GET_DEFAULT(continuationToken_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setContinuationToken(string continuationToken) { DARABONBA_PTR_SET_VALUE(continuationToken_, continuationToken) };
+
+
+    // DBClusterId Field Functions 
+    bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
+    void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // datasetId Field Functions 
+    bool hasDatasetId() const { return this->datasetId_ != nullptr;};
+    void deleteDatasetId() { this->datasetId_ = nullptr;};
+    inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
+
+
+    // datasetType Field Functions 
+    bool hasDatasetType() const { return this->datasetType_ != nullptr;};
+    void deleteDatasetType() { this->datasetType_ = nullptr;};
+    inline string getDatasetType() const { DARABONBA_PTR_GET_DEFAULT(datasetType_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setDatasetType(string datasetType) { DARABONBA_PTR_SET_VALUE(datasetType_, datasetType) };
+
+
+    // ownerAccount Field Functions 
+    bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
+    void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
+
+
+    // ownerId Field Functions 
+    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+    void deleteOwnerId() { this->ownerId_ = nullptr;};
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline DescribeAIDBClusterDatasetsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // resourceOwnerAccount Field Functions 
+    bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
+    void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+
+
+    // resourceOwnerId Field Functions 
+    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline DescribeAIDBClusterDatasetsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+    // trainMode Field Functions 
+    bool hasTrainMode() const { return this->trainMode_ != nullptr;};
+    void deleteTrainMode() { this->trainMode_ = nullptr;};
+    inline string getTrainMode() const { DARABONBA_PTR_GET_DEFAULT(trainMode_, "") };
+    inline DescribeAIDBClusterDatasetsRequest& setTrainMode(string trainMode) { DARABONBA_PTR_SET_VALUE(trainMode_, trainMode) };
+
+
+  protected:
+    shared_ptr<string> continuationToken_ {};
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> datasetId_ {};
+    shared_ptr<string> datasetType_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> pageNumber_ {};
+    shared_ptr<string> pageSize_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> trainMode_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Polardb20170801
+#endif
