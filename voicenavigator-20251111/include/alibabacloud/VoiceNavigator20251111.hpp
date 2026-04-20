@@ -21,6 +21,66 @@ namespace VoiceNavigator20251111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 开启会话
+       *
+       * @param request BeginSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BeginSessionResponse
+       */
+      FutureGenerator<Models::BeginSessionResponse> beginSessionWithSSE(const Models::BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启会话
+       *
+       * @param request BeginSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BeginSessionResponse
+       */
+      Models::BeginSessionResponse beginSessionWithOptions(const Models::BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启会话
+       *
+       * @param request BeginSessionRequest
+       * @return BeginSessionResponse
+       */
+      Models::BeginSessionResponse beginSession(const Models::BeginSessionRequest &request);
+
+      /**
+       * @summary 发起呼叫
+       *
+       * @param request BridgeWebCallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BridgeWebCallResponse
+       */
+      Models::BridgeWebCallResponse bridgeWebCallWithOptions(const Models::BridgeWebCallRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发起呼叫
+       *
+       * @param request BridgeWebCallRequest
+       * @return BridgeWebCallResponse
+       */
+      Models::BridgeWebCallResponse bridgeWebCall(const Models::BridgeWebCallRequest &request);
+
+      /**
+       * @summary 创建服务提供商
+       *
+       * @param request CreateCallCenterProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCallCenterProviderResponse
+       */
+      Models::CreateCallCenterProviderResponse createCallCenterProviderWithOptions(const Models::CreateCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建服务提供商
+       *
+       * @param request CreateCallCenterProviderRequest
+       * @return CreateCallCenterProviderResponse
+       */
+      Models::CreateCallCenterProviderResponse createCallCenterProvider(const Models::CreateCallCenterProviderRequest &request);
+
+      /**
        * @summary 创建实例
        *
        * @param request CreateCloneVoiceRequest
@@ -36,6 +96,23 @@ namespace VoiceNavigator20251111
        * @return CreateCloneVoiceResponse
        */
       Models::CreateCloneVoiceResponse createCloneVoice(const Models::CreateCloneVoiceRequest &request);
+
+      /**
+       * @summary 创建指令
+       *
+       * @param request CreateInstructionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstructionResponse
+       */
+      Models::CreateInstructionResponse createInstructionWithOptions(const Models::CreateInstructionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建指令
+       *
+       * @param request CreateInstructionRequest
+       * @return CreateInstructionResponse
+       */
+      Models::CreateInstructionResponse createInstruction(const Models::CreateInstructionRequest &request);
 
       /**
        * @summary 创建语言模型配置信息
@@ -140,6 +217,23 @@ namespace VoiceNavigator20251111
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfile(const Models::CreateVoiceAccessProfileRequest &request);
 
       /**
+       * @summary 删除服务提供商
+       *
+       * @param request DeleteCallCenterProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCallCenterProviderResponse
+       */
+      Models::DeleteCallCenterProviderResponse deleteCallCenterProviderWithOptions(const Models::DeleteCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除服务提供商
+       *
+       * @param request DeleteCallCenterProviderRequest
+       * @return DeleteCallCenterProviderResponse
+       */
+      Models::DeleteCallCenterProviderResponse deleteCallCenterProvider(const Models::DeleteCallCenterProviderRequest &request);
+
+      /**
        * @summary 删除场景
        *
        * @param request DeleteCloneVoiceRequest
@@ -155,6 +249,23 @@ namespace VoiceNavigator20251111
        * @return DeleteCloneVoiceResponse
        */
       Models::DeleteCloneVoiceResponse deleteCloneVoice(const Models::DeleteCloneVoiceRequest &request);
+
+      /**
+       * @summary 删除指令
+       *
+       * @param request DeleteInstructionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInstructionResponse
+       */
+      Models::DeleteInstructionResponse deleteInstructionWithOptions(const Models::DeleteInstructionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指令
+       *
+       * @param request DeleteInstructionRequest
+       * @return DeleteInstructionResponse
+       */
+      Models::DeleteInstructionResponse deleteInstruction(const Models::DeleteInstructionRequest &request);
 
       /**
        * @summary 删除语言模型配置信息
@@ -242,6 +353,32 @@ namespace VoiceNavigator20251111
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfile(const Models::DeleteVoiceAccessProfileRequest &request);
 
       /**
+       * @summary 开启会话
+       *
+       * @param request DialogueRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DialogueResponse
+       */
+      FutureGenerator<Models::DialogueResponse> dialogueWithSSE(const Models::DialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启会话
+       *
+       * @param request DialogueRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DialogueResponse
+       */
+      Models::DialogueResponse dialogueWithOptions(const Models::DialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启会话
+       *
+       * @param request DialogueRequest
+       * @return DialogueResponse
+       */
+      Models::DialogueResponse dialogue(const Models::DialogueRequest &request);
+
+      /**
        * @summary 禁用消息订阅
        *
        * @param request DisableSubscriptionRequest
@@ -257,6 +394,23 @@ namespace VoiceNavigator20251111
        * @return DisableSubscriptionResponse
        */
       Models::DisableSubscriptionResponse disableSubscription(const Models::DisableSubscriptionRequest &request);
+
+      /**
+       * @summary 结束会话
+       *
+       * @param request EndSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EndSessionResponse
+       */
+      Models::EndSessionResponse endSessionWithOptions(const Models::EndSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 结束会话
+       *
+       * @param request EndSessionRequest
+       * @return EndSessionResponse
+       */
+      Models::EndSessionResponse endSession(const Models::EndSessionRequest &request);
 
       /**
        * @summary 获取实例详情
@@ -325,6 +479,23 @@ namespace VoiceNavigator20251111
        * @return GetCallDetailRecordResponse
        */
       Models::GetCallDetailRecordResponse getCallDetailRecord(const Models::GetCallDetailRecordRequest &request);
+
+      /**
+       * @summary 获取语音对话参数
+       *
+       * @param request GetDataChannelCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataChannelCredentialResponse
+       */
+      Models::GetDataChannelCredentialResponse getDataChannelCredentialWithOptions(const Models::GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取语音对话参数
+       *
+       * @param request GetDataChannelCredentialRequest
+       * @return GetDataChannelCredentialResponse
+       */
+      Models::GetDataChannelCredentialResponse getDataChannelCredential(const Models::GetDataChannelCredentialRequest &request);
 
       /**
        * @summary 获取实例实时指标
@@ -446,6 +617,23 @@ namespace VoiceNavigator20251111
       Models::ListBackgroundMusicsResponse listBackgroundMusics(const Models::ListBackgroundMusicsRequest &request);
 
       /**
+       * @summary 查询服务提供商
+       *
+       * @param request ListCallCenterProvidersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCallCenterProvidersResponse
+       */
+      Models::ListCallCenterProvidersResponse listCallCenterProvidersWithOptions(const Models::ListCallCenterProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询服务提供商
+       *
+       * @param request ListCallCenterProvidersRequest
+       * @return ListCallCenterProvidersResponse
+       */
+      Models::ListCallCenterProvidersResponse listCallCenterProviders(const Models::ListCallCenterProvidersRequest &request);
+
+      /**
        * @summary 获取实例详情
        *
        * @param tmpReq ListCallDetailRecordsRequest
@@ -495,6 +683,23 @@ namespace VoiceNavigator20251111
        * @return ListCloneVoiceModelsResponse
        */
       Models::ListCloneVoiceModelsResponse listCloneVoiceModels(const Models::ListCloneVoiceModelsRequest &request);
+
+      /**
+       * @summary 查询指令
+       *
+       * @param request ListInstructionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstructionsResponse
+       */
+      Models::ListInstructionsResponse listInstructionsWithOptions(const Models::ListInstructionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指令
+       *
+       * @param request ListInstructionsRequest
+       * @return ListInstructionsResponse
+       */
+      Models::ListInstructionsResponse listInstructions(const Models::ListInstructionsRequest &request);
 
       /**
        * @summary 获取语言模型配置信息
@@ -684,6 +889,23 @@ namespace VoiceNavigator20251111
       Models::PublishScriptResponse publishScript(const Models::PublishScriptRequest &request);
 
       /**
+       * @summary 修改服务提供商
+       *
+       * @param request UpdateCallCenterProviderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCallCenterProviderResponse
+       */
+      Models::UpdateCallCenterProviderResponse updateCallCenterProviderWithOptions(const Models::UpdateCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改服务提供商
+       *
+       * @param request UpdateCallCenterProviderRequest
+       * @return UpdateCallCenterProviderResponse
+       */
+      Models::UpdateCallCenterProviderResponse updateCallCenterProvider(const Models::UpdateCallCenterProviderRequest &request);
+
+      /**
        * @summary 更新实例
        *
        * @param request UpdateCloneVoiceRequest
@@ -699,6 +921,23 @@ namespace VoiceNavigator20251111
        * @return UpdateCloneVoiceResponse
        */
       Models::UpdateCloneVoiceResponse updateCloneVoice(const Models::UpdateCloneVoiceRequest &request);
+
+      /**
+       * @summary 修改指令
+       *
+       * @param request UpdateInstructionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInstructionResponse
+       */
+      Models::UpdateInstructionResponse updateInstructionWithOptions(const Models::UpdateInstructionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改指令
+       *
+       * @param request UpdateInstructionRequest
+       * @return UpdateInstructionResponse
+       */
+      Models::UpdateInstructionResponse updateInstruction(const Models::UpdateInstructionRequest &request);
 
       /**
        * @summary 更新语言模型配置信息

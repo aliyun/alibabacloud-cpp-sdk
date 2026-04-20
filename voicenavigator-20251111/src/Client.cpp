@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::VoiceNavigator20251111::Models;
@@ -33,6 +34,271 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
   }
 
   return Utils::Utils::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+/**
+ * @summary 开启会话
+ *
+ * @param request BeginSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BeginSessionResponse
+ */
+FutureGenerator<BeginSessionResponse> Client::beginSessionWithSSE(const BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasVendorParams()) {
+    query["VendorParams"] = request.getVendorParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BeginSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<BeginSessionResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 开启会话
+ *
+ * @param request BeginSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BeginSessionResponse
+ */
+BeginSessionResponse Client::beginSessionWithOptions(const BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasVendorParams()) {
+    query["VendorParams"] = request.getVendorParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BeginSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BeginSessionResponse>();
+}
+
+/**
+ * @summary 开启会话
+ *
+ * @param request BeginSessionRequest
+ * @return BeginSessionResponse
+ */
+BeginSessionResponse Client::beginSession(const BeginSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return beginSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 发起呼叫
+ *
+ * @param request BridgeWebCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BridgeWebCallResponse
+ */
+BridgeWebCallResponse Client::bridgeWebCallWithOptions(const BridgeWebCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessChannelId()) {
+    query["AccessChannelId"] = request.getAccessChannelId();
+  }
+
+  if (!!request.hasAccessChannelType()) {
+    query["AccessChannelType"] = request.getAccessChannelType();
+  }
+
+  if (!!request.hasCaller()) {
+    query["Caller"] = request.getCaller();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasDraftVersion()) {
+    query["DraftVersion"] = request.getDraftVersion();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSampleRate()) {
+    query["SampleRate"] = request.getSampleRate();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasTimeoutSeconds()) {
+    query["TimeoutSeconds"] = request.getTimeoutSeconds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BridgeWebCall"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BridgeWebCallResponse>();
+}
+
+/**
+ * @summary 发起呼叫
+ *
+ * @param request BridgeWebCallRequest
+ * @return BridgeWebCallResponse
+ */
+BridgeWebCallResponse Client::bridgeWebCall(const BridgeWebCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bridgeWebCallWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建服务提供商
+ *
+ * @param request CreateCallCenterProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCallCenterProviderResponse
+ */
+CreateCallCenterProviderResponse Client::createCallCenterProviderWithOptions(const CreateCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDisplayName()) {
+    query["DisplayName"] = request.getDisplayName();
+  }
+
+  json body = {};
+  if (!!request.hasDestination()) {
+    body["Destination"] = request.getDestination();
+  }
+
+  if (!!request.hasExtras()) {
+    body["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOriginator()) {
+    body["Originator"] = request.getOriginator();
+  }
+
+  if (!!request.hasProviderType()) {
+    body["ProviderType"] = request.getProviderType();
+  }
+
+  if (!!request.hasReferTo()) {
+    body["ReferTo"] = request.getReferTo();
+  }
+
+  if (!!request.hasTrunkId()) {
+    body["TrunkId"] = request.getTrunkId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateCallCenterProvider"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCallCenterProviderResponse>();
+}
+
+/**
+ * @summary 创建服务提供商
+ *
+ * @param request CreateCallCenterProviderRequest
+ * @return CreateCallCenterProviderResponse
+ */
+CreateCallCenterProviderResponse Client::createCallCenterProvider(const CreateCallCenterProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCallCenterProviderWithOptions(request, runtime);
 }
 
 /**
@@ -83,6 +349,64 @@ CreateCloneVoiceResponse Client::createCloneVoiceWithOptions(const CreateCloneVo
 CreateCloneVoiceResponse Client::createCloneVoice(const CreateCloneVoiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建指令
+ *
+ * @param request CreateInstructionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInstructionResponse
+ */
+CreateInstructionResponse Client::createInstructionWithOptions(const CreateInstructionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCode()) {
+    body["Code"] = request.getCode();
+  }
+
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateInstruction"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInstructionResponse>();
+}
+
+/**
+ * @summary 创建指令
+ *
+ * @param request CreateInstructionRequest
+ * @return CreateInstructionResponse
+ */
+CreateInstructionResponse Client::createInstruction(const CreateInstructionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInstructionWithOptions(request, runtime);
 }
 
 /**
@@ -458,6 +782,52 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfile(const CreateVo
 }
 
 /**
+ * @summary 删除服务提供商
+ *
+ * @param request DeleteCallCenterProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCallCenterProviderResponse
+ */
+DeleteCallCenterProviderResponse Client::deleteCallCenterProviderWithOptions(const DeleteCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProviderId()) {
+    body["ProviderId"] = request.getProviderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCallCenterProvider"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCallCenterProviderResponse>();
+}
+
+/**
+ * @summary 删除服务提供商
+ *
+ * @param request DeleteCallCenterProviderRequest
+ * @return DeleteCallCenterProviderResponse
+ */
+DeleteCallCenterProviderResponse Client::deleteCallCenterProvider(const DeleteCallCenterProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCallCenterProviderWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除场景
  *
  * @param request DeleteCloneVoiceRequest
@@ -501,6 +871,52 @@ DeleteCloneVoiceResponse Client::deleteCloneVoiceWithOptions(const DeleteCloneVo
 DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指令
+ *
+ * @param request DeleteInstructionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInstructionResponse
+ */
+DeleteInstructionResponse Client::deleteInstructionWithOptions(const DeleteInstructionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCode()) {
+    body["Code"] = request.getCode();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteInstruction"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInstructionResponse>();
+}
+
+/**
+ * @summary 删除指令
+ *
+ * @param request DeleteInstructionRequest
+ * @return DeleteInstructionResponse
+ */
+DeleteInstructionResponse Client::deleteInstruction(const DeleteInstructionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteInstructionWithOptions(request, runtime);
 }
 
 /**
@@ -734,6 +1150,125 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfile(const DeleteVo
 }
 
 /**
+ * @summary 开启会话
+ *
+ * @param request DialogueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DialogueResponse
+ */
+FutureGenerator<DialogueResponse> Client::dialogueWithSSE(const DialogueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtras()) {
+    query["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUtterance()) {
+    query["Utterance"] = request.getUtterance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "Dialogue"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<DialogueResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 开启会话
+ *
+ * @param request DialogueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DialogueResponse
+ */
+DialogueResponse Client::dialogueWithOptions(const DialogueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExtras()) {
+    query["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUtterance()) {
+    query["Utterance"] = request.getUtterance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "Dialogue"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DialogueResponse>();
+}
+
+/**
+ * @summary 开启会话
+ *
+ * @param request DialogueRequest
+ * @return DialogueResponse
+ */
+DialogueResponse Client::dialogue(const DialogueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dialogueWithOptions(request, runtime);
+}
+
+/**
  * @summary 禁用消息订阅
  *
  * @param request DisableSubscriptionRequest
@@ -773,6 +1308,56 @@ DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const Disable
 DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableSubscriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 结束会话
+ *
+ * @param request EndSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EndSessionResponse
+ */
+EndSessionResponse Client::endSessionWithOptions(const EndSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EndSession"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EndSessionResponse>();
+}
+
+/**
+ * @summary 结束会话
+ *
+ * @param request EndSessionRequest
+ * @return EndSessionResponse
+ */
+EndSessionResponse Client::endSession(const EndSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return endSessionWithOptions(request, runtime);
 }
 
 /**
@@ -967,6 +1552,52 @@ GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCall
 GetCallDetailRecordResponse Client::getCallDetailRecord(const GetCallDetailRecordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCallDetailRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取语音对话参数
+ *
+ * @param request GetDataChannelCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataChannelCredentialResponse
+ */
+GetDataChannelCredentialResponse Client::getDataChannelCredentialWithOptions(const GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataChannelCredential"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataChannelCredentialResponse>();
+}
+
+/**
+ * @summary 获取语音对话参数
+ *
+ * @param request GetDataChannelCredentialRequest
+ * @return GetDataChannelCredentialResponse
+ */
+GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataChannelCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataChannelCredentialWithOptions(request, runtime);
 }
 
 /**
@@ -1288,6 +1919,60 @@ ListBackgroundMusicsResponse Client::listBackgroundMusics(const ListBackgroundMu
 }
 
 /**
+ * @summary 查询服务提供商
+ *
+ * @param request ListCallCenterProvidersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCallCenterProvidersResponse
+ */
+ListCallCenterProvidersResponse Client::listCallCenterProvidersWithOptions(const ListCallCenterProvidersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProviderId()) {
+    body["ProviderId"] = request.getProviderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCallCenterProviders"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCallCenterProvidersResponse>();
+}
+
+/**
+ * @summary 查询服务提供商
+ *
+ * @param request ListCallCenterProvidersRequest
+ * @return ListCallCenterProvidersResponse
+ */
+ListCallCenterProvidersResponse Client::listCallCenterProviders(const ListCallCenterProvidersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCallCenterProvidersWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取实例详情
  *
  * @param tmpReq ListCallDetailRecordsRequest
@@ -1507,6 +2192,60 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModelsWithOptions(const ListC
 ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceModelsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCloneVoiceModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询指令
+ *
+ * @param request ListInstructionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstructionsResponse
+ */
+ListInstructionsResponse Client::listInstructionsWithOptions(const ListInstructionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProviderId()) {
+    body["ProviderId"] = request.getProviderId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListInstructions"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstructionsResponse>();
+}
+
+/**
+ * @summary 查询指令
+ *
+ * @param request ListInstructionsRequest
+ * @return ListInstructionsResponse
+ */
+ListInstructionsResponse Client::listInstructions(const ListInstructionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstructionsWithOptions(request, runtime);
 }
 
 /**
@@ -2100,6 +2839,86 @@ PublishScriptResponse Client::publishScript(const PublishScriptRequest &request)
 }
 
 /**
+ * @summary 修改服务提供商
+ *
+ * @param request UpdateCallCenterProviderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCallCenterProviderResponse
+ */
+UpdateCallCenterProviderResponse Client::updateCallCenterProviderWithOptions(const UpdateCallCenterProviderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDisplayName()) {
+    query["DisplayName"] = request.getDisplayName();
+  }
+
+  json body = {};
+  if (!!request.hasDestination()) {
+    body["Destination"] = request.getDestination();
+  }
+
+  if (!!request.hasExtras()) {
+    body["Extras"] = request.getExtras();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOriginator()) {
+    body["Originator"] = request.getOriginator();
+  }
+
+  if (!!request.hasProviderId()) {
+    body["ProviderId"] = request.getProviderId();
+  }
+
+  if (!!request.hasProviderType()) {
+    body["ProviderType"] = request.getProviderType();
+  }
+
+  if (!!request.hasReferTo()) {
+    body["ReferTo"] = request.getReferTo();
+  }
+
+  if (!!request.hasTrunkId()) {
+    body["TrunkId"] = request.getTrunkId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateCallCenterProvider"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCallCenterProviderResponse>();
+}
+
+/**
+ * @summary 修改服务提供商
+ *
+ * @param request UpdateCallCenterProviderRequest
+ * @return UpdateCallCenterProviderResponse
+ */
+UpdateCallCenterProviderResponse Client::updateCallCenterProvider(const UpdateCallCenterProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCallCenterProviderWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新实例
  *
  * @param request UpdateCloneVoiceRequest
@@ -2147,6 +2966,64 @@ UpdateCloneVoiceResponse Client::updateCloneVoiceWithOptions(const UpdateCloneVo
 UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCloneVoiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改指令
+ *
+ * @param request UpdateInstructionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstructionResponse
+ */
+UpdateInstructionResponse Client::updateInstructionWithOptions(const UpdateInstructionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCode()) {
+    body["Code"] = request.getCode();
+  }
+
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateInstruction"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstructionResponse>();
+}
+
+/**
+ * @summary 修改指令
+ *
+ * @param request UpdateInstructionRequest
+ * @return UpdateInstructionResponse
+ */
+UpdateInstructionResponse Client::updateInstruction(const UpdateInstructionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInstructionWithOptions(request, runtime);
 }
 
 /**
