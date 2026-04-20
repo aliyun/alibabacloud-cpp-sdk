@@ -92,6 +92,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DingtalkNotice, dingtalkNotice_);
           DARABONBA_PTR_TO_JSON(EmailNotice, emailNotice_);
           DARABONBA_PTR_TO_JSON(NoticeType, noticeType_);
+          DARABONBA_PTR_TO_JSON(QpsThreshold, qpsThreshold_);
           DARABONBA_PTR_TO_JSON(SmsNotice, smsNotice_);
           DARABONBA_PTR_TO_JSON(Threshold, threshold_);
         };
@@ -99,6 +100,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DingtalkNotice, dingtalkNotice_);
           DARABONBA_PTR_FROM_JSON(EmailNotice, emailNotice_);
           DARABONBA_PTR_FROM_JSON(NoticeType, noticeType_);
+          DARABONBA_PTR_FROM_JSON(QpsThreshold, qpsThreshold_);
           DARABONBA_PTR_FROM_JSON(SmsNotice, smsNotice_);
           DARABONBA_PTR_FROM_JSON(Threshold, threshold_);
         };
@@ -114,7 +116,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->dingtalkNotice_ == nullptr
-        && this->emailNotice_ == nullptr && this->noticeType_ == nullptr && this->smsNotice_ == nullptr && this->threshold_ == nullptr; };
+        && this->emailNotice_ == nullptr && this->noticeType_ == nullptr && this->qpsThreshold_ == nullptr && this->smsNotice_ == nullptr && this->threshold_ == nullptr; };
         // dingtalkNotice Field Functions 
         bool hasDingtalkNotice() const { return this->dingtalkNotice_ != nullptr;};
         void deleteDingtalkNotice() { this->dingtalkNotice_ = nullptr;};
@@ -136,6 +138,13 @@ namespace Models
         inline AlertConfigItem& setNoticeType(string noticeType) { DARABONBA_PTR_SET_VALUE(noticeType_, noticeType) };
 
 
+        // qpsThreshold Field Functions 
+        bool hasQpsThreshold() const { return this->qpsThreshold_ != nullptr;};
+        void deleteQpsThreshold() { this->qpsThreshold_ = nullptr;};
+        inline int64_t getQpsThreshold() const { DARABONBA_PTR_GET_DEFAULT(qpsThreshold_, 0L) };
+        inline AlertConfigItem& setQpsThreshold(int64_t qpsThreshold) { DARABONBA_PTR_SET_VALUE(qpsThreshold_, qpsThreshold) };
+
+
         // smsNotice Field Functions 
         bool hasSmsNotice() const { return this->smsNotice_ != nullptr;};
         void deleteSmsNotice() { this->smsNotice_ = nullptr;};
@@ -154,6 +163,7 @@ namespace Models
         shared_ptr<bool> dingtalkNotice_ {};
         shared_ptr<bool> emailNotice_ {};
         shared_ptr<string> noticeType_ {};
+        shared_ptr<int64_t> qpsThreshold_ {};
         shared_ptr<bool> smsNotice_ {};
         shared_ptr<int32_t> threshold_ {};
       };

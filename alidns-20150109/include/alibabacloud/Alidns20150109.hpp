@@ -1020,7 +1020,6 @@ namespace Alidns20150109
       Models::DescribeCloudGtmSummaryResponse describeCloudGtmSummary(const Models::DescribeCloudGtmSummaryRequest &request);
 
       /**
-       * @param request DescribeCloudGtmSystemLinesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCloudGtmSystemLinesResponse
        */

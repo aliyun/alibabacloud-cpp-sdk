@@ -3234,7 +3234,6 @@ DescribeCloudGtmSummaryResponse Client::describeCloudGtmSummary(const DescribeCl
 }
 
 /**
- * @param request DescribeCloudGtmSystemLinesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCloudGtmSystemLinesResponse
  */
