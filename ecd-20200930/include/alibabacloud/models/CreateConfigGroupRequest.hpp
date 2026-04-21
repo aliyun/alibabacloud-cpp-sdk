@@ -98,6 +98,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TimerOrder, timerOrder_);
           DARABONBA_PTR_TO_JSON(Timezone, timezone_);
           DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
+          DARABONBA_PTR_TO_JSON(VerificationNotificationTime, verificationNotificationTime_);
+          DARABONBA_PTR_TO_JSON(VerificationTime, verificationTime_);
         };
         friend void from_json(const Darabonba::Json& j, SegmentTimers& obj) { 
           DARABONBA_PTR_FROM_JSON(AppointmentTimer, appointmentTimer_);
@@ -116,6 +118,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(TimerOrder, timerOrder_);
           DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
           DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
+          DARABONBA_PTR_FROM_JSON(VerificationNotificationTime, verificationNotificationTime_);
+          DARABONBA_PTR_FROM_JSON(VerificationTime, verificationTime_);
         };
         SegmentTimers() = default ;
         SegmentTimers(const SegmentTimers &) = default ;
@@ -131,7 +135,8 @@ namespace Models
         virtual bool empty() const override { return this->appointmentTimer_ == nullptr
         && this->createSnapshot_ == nullptr && this->endCronExpression_ == nullptr && this->enforce_ == nullptr && this->imageId_ == nullptr && this->interval_ == nullptr
         && this->lockScreenTime_ == nullptr && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->patchId_ == nullptr && this->processWhitelist_ == nullptr
-        && this->resetType_ == nullptr && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr; };
+        && this->resetType_ == nullptr && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr
+        && this->verificationNotificationTime_ == nullptr && this->verificationTime_ == nullptr; };
         // appointmentTimer Field Functions 
         bool hasAppointmentTimer() const { return this->appointmentTimer_ != nullptr;};
         void deleteAppointmentTimer() { this->appointmentTimer_ = nullptr;};
@@ -246,6 +251,20 @@ namespace Models
         inline SegmentTimers& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
+        // verificationNotificationTime Field Functions 
+        bool hasVerificationNotificationTime() const { return this->verificationNotificationTime_ != nullptr;};
+        void deleteVerificationNotificationTime() { this->verificationNotificationTime_ = nullptr;};
+        inline int32_t getVerificationNotificationTime() const { DARABONBA_PTR_GET_DEFAULT(verificationNotificationTime_, 0) };
+        inline SegmentTimers& setVerificationNotificationTime(int32_t verificationNotificationTime) { DARABONBA_PTR_SET_VALUE(verificationNotificationTime_, verificationNotificationTime) };
+
+
+        // verificationTime Field Functions 
+        bool hasVerificationTime() const { return this->verificationTime_ != nullptr;};
+        void deleteVerificationTime() { this->verificationTime_ = nullptr;};
+        inline int32_t getVerificationTime() const { DARABONBA_PTR_GET_DEFAULT(verificationTime_, 0) };
+        inline SegmentTimers& setVerificationTime(int32_t verificationTime) { DARABONBA_PTR_SET_VALUE(verificationTime_, verificationTime) };
+
+
       protected:
         shared_ptr<int64_t> appointmentTimer_ {};
         shared_ptr<bool> createSnapshot_ {};
@@ -263,6 +282,8 @@ namespace Models
         shared_ptr<int32_t> timerOrder_ {};
         shared_ptr<string> timezone_ {};
         shared_ptr<string> triggerType_ {};
+        shared_ptr<int32_t> verificationNotificationTime_ {};
+        shared_ptr<int32_t> verificationTime_ {};
       };
 
       virtual bool empty() const override { return this->allowClientSetting_ == nullptr
