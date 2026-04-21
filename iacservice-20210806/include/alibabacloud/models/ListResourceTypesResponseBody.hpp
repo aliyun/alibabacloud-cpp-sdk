@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(productName, productName_);
         DARABONBA_PTR_TO_JSON(resourceDetailPageUrl, resourceDetailPageUrl_);
         DARABONBA_PTR_TO_JSON(resourceListPageUrl, resourceListPageUrl_);
+        DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(statusStartVersion, statusStartVersion_);
         DARABONBA_PTR_TO_JSON(subcategory, subcategory_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(productName, productName_);
         DARABONBA_PTR_FROM_JSON(resourceDetailPageUrl, resourceDetailPageUrl_);
         DARABONBA_PTR_FROM_JSON(resourceListPageUrl, resourceListPageUrl_);
+        DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(statusStartVersion, statusStartVersion_);
         DARABONBA_PTR_FROM_JSON(subcategory, subcategory_);
@@ -80,9 +82,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->product_ == nullptr && this->productName_ == nullptr && this->resourceDetailPageUrl_ == nullptr && this->resourceListPageUrl_ == nullptr && this->status_ == nullptr
-        && this->statusStartVersion_ == nullptr && this->subcategory_ == nullptr && this->supportTerraformer_ == nullptr && this->terraformProviderVersion_ == nullptr && this->terraformResourceType_ == nullptr
-        && this->title_ == nullptr; };
+        && this->product_ == nullptr && this->productName_ == nullptr && this->resourceDetailPageUrl_ == nullptr && this->resourceListPageUrl_ == nullptr && this->resourceType_ == nullptr
+        && this->status_ == nullptr && this->statusStartVersion_ == nullptr && this->subcategory_ == nullptr && this->supportTerraformer_ == nullptr && this->terraformProviderVersion_ == nullptr
+        && this->terraformResourceType_ == nullptr && this->title_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
       void deleteResourceListPageUrl() { this->resourceListPageUrl_ = nullptr;};
       inline string getResourceListPageUrl() const { DARABONBA_PTR_GET_DEFAULT(resourceListPageUrl_, "") };
       inline ResourceTypes& setResourceListPageUrl(string resourceListPageUrl) { DARABONBA_PTR_SET_VALUE(resourceListPageUrl_, resourceListPageUrl) };
+
+
+      // resourceType Field Functions 
+      bool hasResourceType() const { return this->resourceType_ != nullptr;};
+      void deleteResourceType() { this->resourceType_ = nullptr;};
+      inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+      inline ResourceTypes& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
       // status Field Functions 
@@ -173,6 +182,7 @@ namespace Models
       shared_ptr<string> productName_ {};
       shared_ptr<string> resourceDetailPageUrl_ {};
       shared_ptr<string> resourceListPageUrl_ {};
+      shared_ptr<string> resourceType_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> statusStartVersion_ {};
       shared_ptr<string> subcategory_ {};

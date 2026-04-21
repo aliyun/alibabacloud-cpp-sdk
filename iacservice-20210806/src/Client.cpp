@@ -610,7 +610,7 @@ CreateModuleResponse Client::createModule(const CreateModuleRequest &request) {
 }
 
 /**
- * @summary 创建模板版本
+ * @summary Publish a template version.
  *
  * @param request CreateModuleVersionRequest
  * @param headers map
@@ -651,7 +651,7 @@ CreateModuleVersionResponse Client::createModuleVersionWithOptions(const string 
 }
 
 /**
- * @summary 创建模板版本
+ * @summary Publish a template version.
  *
  * @param request CreateModuleVersionRequest
  * @return CreateModuleVersionResponse

@@ -184,7 +184,7 @@ namespace IaCService20210806
       Models::CreateModuleResponse createModule(const Models::CreateModuleRequest &request);
 
       /**
-       * @summary 创建模板版本
+       * @summary Publish a template version.
        *
        * @param request CreateModuleVersionRequest
        * @param headers map
@@ -194,7 +194,7 @@ namespace IaCService20210806
       Models::CreateModuleVersionResponse createModuleVersionWithOptions(const string &moduleId, const Models::CreateModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模板版本
+       * @summary Publish a template version.
        *
        * @param request CreateModuleVersionRequest
        * @return CreateModuleVersionResponse
