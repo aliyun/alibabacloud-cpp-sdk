@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(autoExpireConfiguration, autoExpireConfiguration_);
       DARABONBA_PTR_TO_JSON(memberArns, memberArns_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(sparkRole, sparkRole_);
       DARABONBA_PTR_TO_JSON(token, token_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(autoExpireConfiguration, autoExpireConfiguration_);
       DARABONBA_PTR_FROM_JSON(memberArns, memberArns_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(sparkRole, sparkRole_);
       DARABONBA_PTR_FROM_JSON(token, token_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
     };
@@ -81,7 +83,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoExpireConfiguration_ == nullptr
-        && this->memberArns_ == nullptr && this->name_ == nullptr && this->token_ == nullptr && this->regionId_ == nullptr; };
+        && this->memberArns_ == nullptr && this->name_ == nullptr && this->sparkRole_ == nullptr && this->token_ == nullptr && this->regionId_ == nullptr; };
     // autoExpireConfiguration Field Functions 
     bool hasAutoExpireConfiguration() const { return this->autoExpireConfiguration_ != nullptr;};
     void deleteAutoExpireConfiguration() { this->autoExpireConfiguration_ = nullptr;};
@@ -107,6 +109,15 @@ namespace Models
     inline CreateKyuubiTokenRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // sparkRole Field Functions 
+    bool hasSparkRole() const { return this->sparkRole_ != nullptr;};
+    void deleteSparkRole() { this->sparkRole_ = nullptr;};
+    inline const vector<string> & getSparkRole() const { DARABONBA_PTR_GET_CONST(sparkRole_, vector<string>) };
+    inline vector<string> getSparkRole() { DARABONBA_PTR_GET(sparkRole_, vector<string>) };
+    inline CreateKyuubiTokenRequest& setSparkRole(const vector<string> & sparkRole) { DARABONBA_PTR_SET_VALUE(sparkRole_, sparkRole) };
+    inline CreateKyuubiTokenRequest& setSparkRole(vector<string> && sparkRole) { DARABONBA_PTR_SET_RVALUE(sparkRole_, sparkRole) };
+
+
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
@@ -125,6 +136,7 @@ namespace Models
     shared_ptr<CreateKyuubiTokenRequest::AutoExpireConfiguration> autoExpireConfiguration_ {};
     shared_ptr<vector<string>> memberArns_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<vector<string>> sparkRole_ {};
     shared_ptr<string> token_ {};
     shared_ptr<string> regionId_ {};
   };

@@ -61,6 +61,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(lastUsedTime, lastUsedTime_);
           DARABONBA_PTR_TO_JSON(memberArns, memberArns_);
           DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(sparkRole, sparkRole_);
           DARABONBA_PTR_TO_JSON(token, token_);
           DARABONBA_PTR_TO_JSON(tokenId, tokenId_);
         };
@@ -72,6 +73,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(lastUsedTime, lastUsedTime_);
           DARABONBA_PTR_FROM_JSON(memberArns, memberArns_);
           DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(sparkRole, sparkRole_);
           DARABONBA_PTR_FROM_JSON(token, token_);
           DARABONBA_PTR_FROM_JSON(tokenId, tokenId_);
         };
@@ -88,7 +90,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->accountNames_ == nullptr
         && this->createTime_ == nullptr && this->createdBy_ == nullptr && this->expireTime_ == nullptr && this->lastUsedTime_ == nullptr && this->memberArns_ == nullptr
-        && this->name_ == nullptr && this->token_ == nullptr && this->tokenId_ == nullptr; };
+        && this->name_ == nullptr && this->sparkRole_ == nullptr && this->token_ == nullptr && this->tokenId_ == nullptr; };
         // accountNames Field Functions 
         bool hasAccountNames() const { return this->accountNames_ != nullptr;};
         void deleteAccountNames() { this->accountNames_ = nullptr;};
@@ -142,6 +144,15 @@ namespace Models
         inline Tokens& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+        // sparkRole Field Functions 
+        bool hasSparkRole() const { return this->sparkRole_ != nullptr;};
+        void deleteSparkRole() { this->sparkRole_ = nullptr;};
+        inline const vector<string> & getSparkRole() const { DARABONBA_PTR_GET_CONST(sparkRole_, vector<string>) };
+        inline vector<string> getSparkRole() { DARABONBA_PTR_GET(sparkRole_, vector<string>) };
+        inline Tokens& setSparkRole(const vector<string> & sparkRole) { DARABONBA_PTR_SET_VALUE(sparkRole_, sparkRole) };
+        inline Tokens& setSparkRole(vector<string> && sparkRole) { DARABONBA_PTR_SET_RVALUE(sparkRole_, sparkRole) };
+
+
         // token Field Functions 
         bool hasToken() const { return this->token_ != nullptr;};
         void deleteToken() { this->token_ = nullptr;};
@@ -164,6 +175,7 @@ namespace Models
         shared_ptr<int64_t> lastUsedTime_ {};
         shared_ptr<vector<string>> memberArns_ {};
         shared_ptr<string> name_ {};
+        shared_ptr<vector<string>> sparkRole_ {};
         shared_ptr<string> token_ {};
         // Token ID。
         shared_ptr<string> tokenId_ {};

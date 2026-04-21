@@ -343,6 +343,10 @@ CreateKyuubiTokenResponse Client::createKyuubiTokenWithOptions(const string &wor
     body["name"] = request.getName();
   }
 
+  if (!!request.hasSparkRole()) {
+    body["sparkRole"] = request.getSparkRole();
+  }
+
   if (!!request.hasToken()) {
     body["token"] = request.getToken();
   }
@@ -3901,6 +3905,10 @@ UpdateKyuubiTokenResponse Client::updateKyuubiTokenWithOptions(const string &wor
 
   if (!!request.hasName()) {
     body["name"] = request.getName();
+  }
+
+  if (!!request.hasSparkRole()) {
+    body["sparkRole"] = request.getSparkRole();
   }
 
   if (!!request.hasToken()) {
