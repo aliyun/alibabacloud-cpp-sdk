@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+      DARABONBA_PTR_TO_JSON(LangfuseInstanceIds, langfuseInstanceIds_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
       DARABONBA_PTR_TO_JSON(MaintainEndtime, maintainEndtime_);
@@ -64,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+      DARABONBA_PTR_FROM_JSON(LangfuseInstanceIds, langfuseInstanceIds_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
       DARABONBA_PTR_FROM_JSON(MaintainEndtime, maintainEndtime_);
@@ -600,11 +602,11 @@ namespace Models
     virtual bool empty() const override { return this->canUpgradeVersions_ == nullptr
         && this->chargeType_ == nullptr && this->configPatternType_ == nullptr && this->createTime_ == nullptr && this->DBClusterList_ == nullptr && this->DBInstanceId_ == nullptr
         && this->deployScheme_ == nullptr && this->description_ == nullptr && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr
-        && this->expireTime_ == nullptr && this->gmtModified_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndtime_ == nullptr
-        && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->OTelBearerToken_ == nullptr && this->OTelGrafanaServiceStatus_ == nullptr && this->objectStoreSize_ == nullptr
-        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr
-        && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->subDomain_ == nullptr && this->tags_ == nullptr
-        && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->expireTime_ == nullptr && this->gmtModified_ == nullptr && this->langfuseInstanceIds_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr
+        && this->maintainEndtime_ == nullptr && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->OTelBearerToken_ == nullptr && this->OTelGrafanaServiceStatus_ == nullptr
+        && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->secGroupConnValid_ == nullptr && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->subDomain_ == nullptr
+        && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // canUpgradeVersions Field Functions 
     bool hasCanUpgradeVersions() const { return this->canUpgradeVersions_ != nullptr;};
     void deleteCanUpgradeVersions() { this->canUpgradeVersions_ = nullptr;};
@@ -698,6 +700,15 @@ namespace Models
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
     inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline DescribeDBInstanceAttributeResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+    // langfuseInstanceIds Field Functions 
+    bool hasLangfuseInstanceIds() const { return this->langfuseInstanceIds_ != nullptr;};
+    void deleteLangfuseInstanceIds() { this->langfuseInstanceIds_ = nullptr;};
+    inline const vector<string> & getLangfuseInstanceIds() const { DARABONBA_PTR_GET_CONST(langfuseInstanceIds_, vector<string>) };
+    inline vector<string> getLangfuseInstanceIds() { DARABONBA_PTR_GET(langfuseInstanceIds_, vector<string>) };
+    inline DescribeDBInstanceAttributeResponseBody& setLangfuseInstanceIds(const vector<string> & langfuseInstanceIds) { DARABONBA_PTR_SET_VALUE(langfuseInstanceIds_, langfuseInstanceIds) };
+    inline DescribeDBInstanceAttributeResponseBody& setLangfuseInstanceIds(vector<string> && langfuseInstanceIds) { DARABONBA_PTR_SET_RVALUE(langfuseInstanceIds_, langfuseInstanceIds) };
 
 
     // lockMode Field Functions 
@@ -888,6 +899,7 @@ namespace Models
     shared_ptr<string> expireTime_ {};
     // The time when the instance was last modified, such as when you restarted the instance or applied for a public endpoint for the instance. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     shared_ptr<string> gmtModified_ {};
+    shared_ptr<vector<string>> langfuseInstanceIds_ {};
     // The lock mode of the instance. Set the value to **lock**, which specifies that the instance is locked when it automatically expires or has an overdue payment.
     shared_ptr<int64_t> lockMode_ {};
     // The reason why the instance is locked.
