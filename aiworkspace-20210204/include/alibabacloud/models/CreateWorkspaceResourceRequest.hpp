@@ -98,8 +98,6 @@ namespace Models
 
       protected:
         // The quota ID. You can call [ListQuotas](https://help.aliyun.com/document_detail/449144.html) to obtain the quota ID.
-        // 
-        // This parameter is required.
         shared_ptr<string> id_ {};
       };
 
