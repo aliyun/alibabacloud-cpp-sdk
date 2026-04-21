@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
+      DARABONBA_PTR_TO_JSON(WeekTag, weekTag_);
     };
     friend void from_json(const Darabonba::Json& j, EditTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallTimeList, callTimeList_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
+      DARABONBA_PTR_FROM_JSON(WeekTag, weekTag_);
     };
     EditTaskRequest() = default ;
     EditTaskRequest(const EditTaskRequest &) = default ;
@@ -191,7 +193,7 @@ namespace Models
         && this->name_ == nullptr && this->ownerId_ == nullptr && this->playSleepVal_ == nullptr && this->playTimes_ == nullptr && this->recallType_ == nullptr
         && this->recordPath_ == nullptr && this->repeatCount_ == nullptr && this->repeatInterval_ == nullptr && this->repeatReason_ == nullptr && this->repeatTimes_ == nullptr
         && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sendSmsPlan_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
-        && this->templateId_ == nullptr && this->templateType_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateType_ == nullptr && this->weekTag_ == nullptr; };
     // callTimeList Field Functions 
     bool hasCallTimeList() const { return this->callTimeList_ != nullptr;};
     void deleteCallTimeList() { this->callTimeList_ = nullptr;};
@@ -363,6 +365,15 @@ namespace Models
     inline EditTaskRequest& setTemplateType(int64_t templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
+    // weekTag Field Functions 
+    bool hasWeekTag() const { return this->weekTag_ != nullptr;};
+    void deleteWeekTag() { this->weekTag_ = nullptr;};
+    inline const vector<string> & getWeekTag() const { DARABONBA_PTR_GET_CONST(weekTag_, vector<string>) };
+    inline vector<string> getWeekTag() { DARABONBA_PTR_GET(weekTag_, vector<string>) };
+    inline EditTaskRequest& setWeekTag(const vector<string> & weekTag) { DARABONBA_PTR_SET_VALUE(weekTag_, weekTag) };
+    inline EditTaskRequest& setWeekTag(vector<string> && weekTag) { DARABONBA_PTR_SET_RVALUE(weekTag_, weekTag) };
+
+
   protected:
     // 外呼时间
     shared_ptr<vector<EditTaskRequest::CallTimeList>> callTimeList_ {};
@@ -409,6 +420,8 @@ namespace Models
     shared_ptr<int64_t> templateId_ {};
     // 话术模板类型
     shared_ptr<int64_t> templateType_ {};
+    // 外呼时间需要的按星期几进行外呼，例：“1,2,3,4,5,6,7”，代表周一到周日都外呼
+    shared_ptr<vector<string>> weekTag_ {};
   };
 
   } // namespace Models

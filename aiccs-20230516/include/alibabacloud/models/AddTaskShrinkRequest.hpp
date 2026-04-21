@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
+      DARABONBA_PTR_TO_JSON(WeekTag, weekTagShrink_);
     };
     friend void from_json(const Darabonba::Json& j, AddTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallTimeList, callTimeListShrink_);
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
+      DARABONBA_PTR_FROM_JSON(WeekTag, weekTagShrink_);
     };
     AddTaskShrinkRequest() = default ;
     AddTaskShrinkRequest(const AddTaskShrinkRequest &) = default ;
@@ -78,7 +80,7 @@ namespace Models
         && this->name_ == nullptr && this->ownerId_ == nullptr && this->playSleepVal_ == nullptr && this->playTimes_ == nullptr && this->recallType_ == nullptr
         && this->recordPath_ == nullptr && this->repeatCount_ == nullptr && this->repeatInterval_ == nullptr && this->repeatReasonShrink_ == nullptr && this->repeatTimesShrink_ == nullptr
         && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sendSmsPlanShrink_ == nullptr && this->startTime_ == nullptr && this->taskType_ == nullptr
-        && this->templateId_ == nullptr && this->templateType_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateType_ == nullptr && this->weekTagShrink_ == nullptr; };
     // callTimeListShrink Field Functions 
     bool hasCallTimeListShrink() const { return this->callTimeListShrink_ != nullptr;};
     void deleteCallTimeListShrink() { this->callTimeListShrink_ = nullptr;};
@@ -240,6 +242,13 @@ namespace Models
     inline AddTaskShrinkRequest& setTemplateType(int64_t templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
+    // weekTagShrink Field Functions 
+    bool hasWeekTagShrink() const { return this->weekTagShrink_ != nullptr;};
+    void deleteWeekTagShrink() { this->weekTagShrink_ = nullptr;};
+    inline string getWeekTagShrink() const { DARABONBA_PTR_GET_DEFAULT(weekTagShrink_, "") };
+    inline AddTaskShrinkRequest& setWeekTagShrink(string weekTagShrink) { DARABONBA_PTR_SET_VALUE(weekTagShrink_, weekTagShrink) };
+
+
   protected:
     // 外呼时间
     shared_ptr<string> callTimeListShrink_ {};
@@ -288,6 +297,8 @@ namespace Models
     shared_ptr<int64_t> templateId_ {};
     // 话术模板类型
     shared_ptr<int64_t> templateType_ {};
+    // 外呼时间需要的按星期几进行外呼，例：“1,2,3,4,5,6,7”，代表周一到周日都外呼
+    shared_ptr<string> weekTagShrink_ {};
   };
 
   } // namespace Models

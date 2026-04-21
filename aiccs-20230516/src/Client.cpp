@@ -258,6 +258,10 @@ AddTaskResponse Client::addTaskWithOptions(const AddTaskRequest &tmpReq, const D
     request.setSendSmsPlanShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSendSmsPlan(), "SendSmsPlan", "json"));
   }
 
+  if (!!tmpReq.hasWeekTag()) {
+    request.setWeekTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWeekTag(), "WeekTag", "json"));
+  }
+
   json query = {};
   if (!!request.hasCallTimeListShrink()) {
     query["CallTimeList"] = request.getCallTimeListShrink();
@@ -349,6 +353,10 @@ AddTaskResponse Client::addTaskWithOptions(const AddTaskRequest &tmpReq, const D
 
   if (!!request.hasTemplateType()) {
     query["TemplateType"] = request.getTemplateType();
+  }
+
+  if (!!request.hasWeekTagShrink()) {
+    query["WeekTag"] = request.getWeekTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1020,6 +1028,10 @@ EditTaskResponse Client::editTaskWithOptions(const EditTaskRequest &tmpReq, cons
     request.setSendSmsPlanShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSendSmsPlan(), "SendSmsPlan", "json"));
   }
 
+  if (!!tmpReq.hasWeekTag()) {
+    request.setWeekTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWeekTag(), "WeekTag", "json"));
+  }
+
   json query = {};
   if (!!request.hasCallTimeListShrink()) {
     query["CallTimeList"] = request.getCallTimeListShrink();
@@ -1111,6 +1123,10 @@ EditTaskResponse Client::editTaskWithOptions(const EditTaskRequest &tmpReq, cons
 
   if (!!request.hasTemplateType()) {
     query["TemplateType"] = request.getTemplateType();
+  }
+
+  if (!!request.hasWeekTagShrink()) {
+    query["WeekTag"] = request.getWeekTagShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
