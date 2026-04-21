@@ -20,6 +20,8 @@
 #include <alibabacloud/models/ListSubAccountInfoResult.hpp>
 #include <alibabacloud/models/ManageAccountResult.hpp>
 #include <alibabacloud/models/MeteringSummaryResult.hpp>
+#include <alibabacloud/models/UserAPICountInfo.hpp>
+#include <alibabacloud/models/NormalServiceConfigResult.hpp>
 #include <alibabacloud/models/OperationResult.hpp>
 #include <alibabacloud/models/PrepaidRecord.hpp>
 #include <alibabacloud/models/ReviewRecordResult.hpp>
@@ -43,15 +45,27 @@
 #include <alibabacloud/models/GetAccountReviewRecordResponse.hpp>
 #include <alibabacloud/models/GetMeteringSummaryRequest.hpp>
 #include <alibabacloud/models/GetMeteringSummaryResponse.hpp>
+#include <alibabacloud/models/GetNormalServiceConfigRequest.hpp>
+#include <alibabacloud/models/GetNormalServiceConfigResponse.hpp>
 #include <alibabacloud/models/GetServiceConfigResponse.hpp>
 #include <alibabacloud/models/ListApiCallDailyDetailRequest.hpp>
 #include <alibabacloud/models/ListApiCallDailyDetailResponse.hpp>
+#include <alibabacloud/models/ListApiInfosRequest.hpp>
+#include <alibabacloud/models/ListApiInfosResponseBody.hpp>
+#include <alibabacloud/models/ListApiInfosResponse.hpp>
 #include <alibabacloud/models/ListApiNamesResponseBody.hpp>
 #include <alibabacloud/models/ListApiNamesResponse.hpp>
+#include <alibabacloud/models/ListLimitationsRequest.hpp>
+#include <alibabacloud/models/ListLimitationsResponseBody.hpp>
+#include <alibabacloud/models/ListLimitationsResponse.hpp>
 #include <alibabacloud/models/ListMeteringDailyDetailRequest.hpp>
 #include <alibabacloud/models/ListMeteringDailyDetailResponse.hpp>
 #include <alibabacloud/models/ListSubAccountInfoResponse.hpp>
 #include <alibabacloud/models/ManageSearchAccountInfoRequest.hpp>
 #include <alibabacloud/models/ManageSearchAccountInfoResponse.hpp>
+#include <alibabacloud/models/OpenAutoNormalReviewRequest.hpp>
+#include <alibabacloud/models/OpenAutoNormalReviewResponse.hpp>
+#include <alibabacloud/models/StopAutoNormalReviewRequest.hpp>
+#include <alibabacloud/models/StopAutoNormalReviewResponse.hpp>
 
 #endif

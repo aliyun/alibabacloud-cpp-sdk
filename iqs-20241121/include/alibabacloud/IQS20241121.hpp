@@ -159,6 +159,24 @@ namespace IQS20241121
       Models::GetMeteringSummaryResponse getMeteringSummary(const Models::GetMeteringSummaryRequest &request);
 
       /**
+       * @summary 查询转正用户调用量信息
+       *
+       * @param request GetNormalServiceConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNormalServiceConfigResponse
+       */
+      Models::GetNormalServiceConfigResponse getNormalServiceConfigWithOptions(const Models::GetNormalServiceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询转正用户调用量信息
+       *
+       * @param request GetNormalServiceConfigRequest
+       * @return GetNormalServiceConfigResponse
+       */
+      Models::GetNormalServiceConfigResponse getNormalServiceConfig(const Models::GetNormalServiceConfigRequest &request);
+
+      /**
        * @summary 查询服务额度信息
        *
        * @param headers map
@@ -193,6 +211,24 @@ namespace IQS20241121
       Models::ListApiCallDailyDetailResponse listApiCallDailyDetail(const Models::ListApiCallDailyDetailRequest &request);
 
       /**
+       * @summary api基础信息
+       *
+       * @param request ListApiInfosRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListApiInfosResponse
+       */
+      Models::ListApiInfosResponse listApiInfosWithOptions(const Models::ListApiInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary api基础信息
+       *
+       * @param request ListApiInfosRequest
+       * @return ListApiInfosResponse
+       */
+      Models::ListApiInfosResponse listApiInfos(const Models::ListApiInfosRequest &request);
+
+      /**
        * @summary Api名称列表
        *
        * @param headers map
@@ -207,6 +243,24 @@ namespace IQS20241121
        * @return ListApiNamesResponse
        */
       Models::ListApiNamesResponse listApiNames();
+
+      /**
+       * @summary api基础信息
+       *
+       * @param request ListLimitationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLimitationsResponse
+       */
+      Models::ListLimitationsResponse listLimitationsWithOptions(const Models::ListLimitationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary api基础信息
+       *
+       * @param request ListLimitationsRequest
+       * @return ListLimitationsResponse
+       */
+      Models::ListLimitationsResponse listLimitations(const Models::ListLimitationsRequest &request);
 
       /**
        * @summary 查询计量日明细信息
@@ -259,6 +313,42 @@ namespace IQS20241121
        * @return ManageSearchAccountInfoResponse
        */
       Models::ManageSearchAccountInfoResponse manageSearchAccountInfo(const Models::ManageSearchAccountInfoRequest &request);
+
+      /**
+       * @summary 停止自动转正
+       *
+       * @param request OpenAutoNormalReviewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OpenAutoNormalReviewResponse
+       */
+      Models::OpenAutoNormalReviewResponse openAutoNormalReviewWithOptions(const Models::OpenAutoNormalReviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止自动转正
+       *
+       * @param request OpenAutoNormalReviewRequest
+       * @return OpenAutoNormalReviewResponse
+       */
+      Models::OpenAutoNormalReviewResponse openAutoNormalReview(const Models::OpenAutoNormalReviewRequest &request);
+
+      /**
+       * @summary 停止自动转正
+       *
+       * @param request StopAutoNormalReviewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopAutoNormalReviewResponse
+       */
+      Models::StopAutoNormalReviewResponse stopAutoNormalReviewWithOptions(const Models::StopAutoNormalReviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止自动转正
+       *
+       * @param request StopAutoNormalReviewRequest
+       * @return StopAutoNormalReviewResponse
+       */
+      Models::StopAutoNormalReviewResponse stopAutoNormalReview(const Models::StopAutoNormalReviewRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace IQS20241121

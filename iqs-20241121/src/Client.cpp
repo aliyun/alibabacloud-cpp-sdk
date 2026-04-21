@@ -365,6 +365,45 @@ GetMeteringSummaryResponse Client::getMeteringSummary(const GetMeteringSummaryRe
 }
 
 /**
+ * @summary 查询转正用户调用量信息
+ *
+ * @param request GetNormalServiceConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNormalServiceConfigResponse
+ */
+GetNormalServiceConfigResponse Client::getNormalServiceConfigWithOptions(const GetNormalServiceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNormalServiceConfig"},
+    {"version" , "2024-11-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-admin/console/v1/services/commands/normalServiceConfig")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNormalServiceConfigResponse>();
+}
+
+/**
+ * @summary 查询转正用户调用量信息
+ *
+ * @param request GetNormalServiceConfigRequest
+ * @return GetNormalServiceConfigResponse
+ */
+GetNormalServiceConfigResponse Client::getNormalServiceConfig(const GetNormalServiceConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getNormalServiceConfigWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询服务额度信息
  *
  * @param headers map
@@ -466,6 +505,45 @@ ListApiCallDailyDetailResponse Client::listApiCallDailyDetail(const ListApiCallD
 }
 
 /**
+ * @summary api基础信息
+ *
+ * @param request ListApiInfosRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApiInfosResponse
+ */
+ListApiInfosResponse Client::listApiInfosWithOptions(const ListApiInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApiInfos"},
+    {"version" , "2024-11-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-admin/console/v1/monitors/commands/apiInfos")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApiInfosResponse>();
+}
+
+/**
+ * @summary api基础信息
+ *
+ * @param request ListApiInfosRequest
+ * @return ListApiInfosResponse
+ */
+ListApiInfosResponse Client::listApiInfos(const ListApiInfosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listApiInfosWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Api名称列表
  *
  * @param headers map
@@ -499,6 +577,45 @@ ListApiNamesResponse Client::listApiNames() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listApiNamesWithOptions(headers, runtime);
+}
+
+/**
+ * @summary api基础信息
+ *
+ * @param request ListLimitationsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLimitationsResponse
+ */
+ListLimitationsResponse Client::listLimitationsWithOptions(const ListLimitationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLimitations"},
+    {"version" , "2024-11-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-admin/openService/v1/console/limitation/commands/list/account")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLimitationsResponse>();
+}
+
+/**
+ * @summary api基础信息
+ *
+ * @param request ListLimitationsRequest
+ * @return ListLimitationsResponse
+ */
+ListLimitationsResponse Client::listLimitations(const ListLimitationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listLimitationsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -644,6 +761,84 @@ ManageSearchAccountInfoResponse Client::manageSearchAccountInfo(const ManageSear
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return manageSearchAccountInfoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 停止自动转正
+ *
+ * @param request OpenAutoNormalReviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenAutoNormalReviewResponse
+ */
+OpenAutoNormalReviewResponse Client::openAutoNormalReviewWithOptions(const OpenAutoNormalReviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OpenAutoNormalReview"},
+    {"version" , "2024-11-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-admin/openService/v1/account/commands/openAutoNormalReview")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenAutoNormalReviewResponse>();
+}
+
+/**
+ * @summary 停止自动转正
+ *
+ * @param request OpenAutoNormalReviewRequest
+ * @return OpenAutoNormalReviewResponse
+ */
+OpenAutoNormalReviewResponse Client::openAutoNormalReview(const OpenAutoNormalReviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return openAutoNormalReviewWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 停止自动转正
+ *
+ * @param request StopAutoNormalReviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopAutoNormalReviewResponse
+ */
+StopAutoNormalReviewResponse Client::stopAutoNormalReviewWithOptions(const StopAutoNormalReviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopAutoNormalReview"},
+    {"version" , "2024-11-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-admin/openService/v1/account/commands/stopAutoNormalReview")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopAutoNormalReviewResponse>();
+}
+
+/**
+ * @summary 停止自动转正
+ *
+ * @param request StopAutoNormalReviewRequest
+ * @return StopAutoNormalReviewResponse
+ */
+StopAutoNormalReviewResponse Client::stopAutoNormalReview(const StopAutoNormalReviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopAutoNormalReviewWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace IQS20241121
