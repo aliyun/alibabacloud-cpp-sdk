@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(mainAccountId, mainAccountId_);
         DARABONBA_PTR_TO_JSON(subAccountId, subAccountId_);
         DARABONBA_PTR_TO_JSON(successCalls, successCalls_);
+        DARABONBA_PTR_TO_JSON(totalBillStatCalls, totalBillStatCalls_);
         DARABONBA_PTR_TO_JSON(totalCalls, totalCalls_);
         DARABONBA_PTR_TO_JSON(valueAddedAdvanced, valueAddedAdvanced_);
         DARABONBA_PTR_TO_JSON(valueAddedSummary, valueAddedSummary_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(mainAccountId, mainAccountId_);
         DARABONBA_PTR_FROM_JSON(subAccountId, subAccountId_);
         DARABONBA_PTR_FROM_JSON(successCalls, successCalls_);
+        DARABONBA_PTR_FROM_JSON(totalBillStatCalls, totalBillStatCalls_);
         DARABONBA_PTR_FROM_JSON(totalCalls, totalCalls_);
         DARABONBA_PTR_FROM_JSON(valueAddedAdvanced, valueAddedAdvanced_);
         DARABONBA_PTR_FROM_JSON(valueAddedSummary, valueAddedSummary_);
@@ -73,8 +75,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->api_ == nullptr
         && this->billingQps_ == nullptr && this->date_ == nullptr && this->engineType_ == nullptr && this->failedCalls_ == nullptr && this->ladderType_ == nullptr
-        && this->mainAccountId_ == nullptr && this->subAccountId_ == nullptr && this->successCalls_ == nullptr && this->totalCalls_ == nullptr && this->valueAddedAdvanced_ == nullptr
-        && this->valueAddedSummary_ == nullptr; };
+        && this->mainAccountId_ == nullptr && this->subAccountId_ == nullptr && this->successCalls_ == nullptr && this->totalBillStatCalls_ == nullptr && this->totalCalls_ == nullptr
+        && this->valueAddedAdvanced_ == nullptr && this->valueAddedSummary_ == nullptr; };
       // api Field Functions 
       bool hasApi() const { return this->api_ != nullptr;};
       void deleteApi() { this->api_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
       inline Records& setSuccessCalls(int32_t successCalls) { DARABONBA_PTR_SET_VALUE(successCalls_, successCalls) };
 
 
+      // totalBillStatCalls Field Functions 
+      bool hasTotalBillStatCalls() const { return this->totalBillStatCalls_ != nullptr;};
+      void deleteTotalBillStatCalls() { this->totalBillStatCalls_ = nullptr;};
+      inline int32_t getTotalBillStatCalls() const { DARABONBA_PTR_GET_DEFAULT(totalBillStatCalls_, 0) };
+      inline Records& setTotalBillStatCalls(int32_t totalBillStatCalls) { DARABONBA_PTR_SET_VALUE(totalBillStatCalls_, totalBillStatCalls) };
+
+
       // totalCalls Field Functions 
       bool hasTotalCalls() const { return this->totalCalls_ != nullptr;};
       void deleteTotalCalls() { this->totalCalls_ = nullptr;};
@@ -169,6 +178,7 @@ namespace Models
       shared_ptr<string> mainAccountId_ {};
       shared_ptr<string> subAccountId_ {};
       shared_ptr<int32_t> successCalls_ {};
+      shared_ptr<int32_t> totalBillStatCalls_ {};
       shared_ptr<int32_t> totalCalls_ {};
       shared_ptr<int32_t> valueAddedAdvanced_ {};
       shared_ptr<int32_t> valueAddedSummary_ {};

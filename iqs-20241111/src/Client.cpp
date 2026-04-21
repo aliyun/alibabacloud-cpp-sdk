@@ -419,6 +419,86 @@ GlobalSearchResponse Client::globalSearch(const GlobalSearchRequest &request) {
 }
 
 /**
+ * @summary 医疗问答
+ *
+ * @param request MedicalAnswerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MedicalAnswerResponse
+ */
+MedicalAnswerResponse Client::medicalAnswerWithOptions(const MedicalAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "MedicalAnswer"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/medical/answer")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MedicalAnswerResponse>();
+}
+
+/**
+ * @summary 医疗问答
+ *
+ * @param request MedicalAnswerRequest
+ * @return MedicalAnswerResponse
+ */
+MedicalAnswerResponse Client::medicalAnswer(const MedicalAnswerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return medicalAnswerWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 医疗图谱
+ *
+ * @param request MedicalKnowledgeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MedicalKnowledgeResponse
+ */
+MedicalKnowledgeResponse Client::medicalKnowledgeWithOptions(const MedicalKnowledgeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "MedicalKnowledge"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/medical/know")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MedicalKnowledgeResponse>();
+}
+
+/**
+ * @summary 医疗图谱
+ *
+ * @param request MedicalKnowledgeRequest
+ * @return MedicalKnowledgeResponse
+ */
+MedicalKnowledgeResponse Client::medicalKnowledge(const MedicalKnowledgeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return medicalKnowledgeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 多模态搜索
  *
  * @param request MultimodalSearchRequest
@@ -456,6 +536,88 @@ MultimodalSearchResponse Client::multimodalSearch(const MultimodalSearchRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return multimodalSearchWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 通用问答
+ *
+ * @param request OmniAnswerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OmniAnswerResponse
+ */
+FutureGenerator<OmniAnswerResponse> Client::omniAnswerWithSSE(const OmniAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "OmniAnswer"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/answer/omni/search")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<OmniAnswerResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 通用问答
+ *
+ * @param request OmniAnswerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OmniAnswerResponse
+ */
+OmniAnswerResponse Client::omniAnswerWithOptions(const OmniAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "OmniAnswer"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/answer/omni/search")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OmniAnswerResponse>();
+}
+
+/**
+ * @summary 通用问答
+ *
+ * @param request OmniAnswerRequest
+ * @return OmniAnswerResponse
+ */
+OmniAnswerResponse Client::omniAnswer(const OmniAnswerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return omniAnswerWithOptions(request, headers, runtime);
 }
 
 /**

@@ -121,6 +121,42 @@ namespace IQS20241111
       Models::GlobalSearchResponse globalSearch(const Models::GlobalSearchRequest &request);
 
       /**
+       * @summary 医疗问答
+       *
+       * @param request MedicalAnswerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MedicalAnswerResponse
+       */
+      Models::MedicalAnswerResponse medicalAnswerWithOptions(const Models::MedicalAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 医疗问答
+       *
+       * @param request MedicalAnswerRequest
+       * @return MedicalAnswerResponse
+       */
+      Models::MedicalAnswerResponse medicalAnswer(const Models::MedicalAnswerRequest &request);
+
+      /**
+       * @summary 医疗图谱
+       *
+       * @param request MedicalKnowledgeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MedicalKnowledgeResponse
+       */
+      Models::MedicalKnowledgeResponse medicalKnowledgeWithOptions(const Models::MedicalKnowledgeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 医疗图谱
+       *
+       * @param request MedicalKnowledgeRequest
+       * @return MedicalKnowledgeResponse
+       */
+      Models::MedicalKnowledgeResponse medicalKnowledge(const Models::MedicalKnowledgeRequest &request);
+
+      /**
        * @summary 多模态搜索
        *
        * @param request MultimodalSearchRequest
@@ -137,6 +173,34 @@ namespace IQS20241111
        * @return MultimodalSearchResponse
        */
       Models::MultimodalSearchResponse multimodalSearch(const Models::MultimodalSearchRequest &request);
+
+      /**
+       * @summary 通用问答
+       *
+       * @param request OmniAnswerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OmniAnswerResponse
+       */
+      FutureGenerator<Models::OmniAnswerResponse> omniAnswerWithSSE(const Models::OmniAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用问答
+       *
+       * @param request OmniAnswerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OmniAnswerResponse
+       */
+      Models::OmniAnswerResponse omniAnswerWithOptions(const Models::OmniAnswerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用问答
+       *
+       * @param request OmniAnswerRequest
+       * @return OmniAnswerResponse
+       */
+      Models::OmniAnswerResponse omniAnswer(const Models::OmniAnswerRequest &request);
 
       /**
        * @summary 页面读取
