@@ -90,6 +90,56 @@ CheckUpgradeItemResponse Client::checkUpgradeItem(const CheckUpgradeItemRequest 
 }
 
 /**
+ * @summary 创建用户自动处置配置
+ *
+ * @param request CreateAutoDisposeConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAutoDisposeConfigResponse
+ */
+CreateAutoDisposeConfigResponse Client::createAutoDisposeConfigWithOptions(const CreateAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoDecisionStatus()) {
+    body["AutoDecisionStatus"] = request.getAutoDecisionStatus();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.getProductCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateAutoDisposeConfig"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAutoDisposeConfigResponse>();
+}
+
+/**
+ * @summary 创建用户自动处置配置
+ *
+ * @param request CreateAutoDisposeConfigRequest
+ * @return CreateAutoDisposeConfigResponse
+ */
+CreateAutoDisposeConfigResponse Client::createAutoDisposeConfig(const CreateAutoDisposeConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAutoDisposeConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建数据源
  *
  * @param request CreateDataIngestionRequest
@@ -1814,6 +1864,60 @@ EnableDataIngestionResponse Client::enableDataIngestion(const EnableDataIngestio
 }
 
 /**
+ * @summary 手动处置告警
+ *
+ * @param request ExecuteAutoDisposeRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteAutoDisposeRecordsResponse
+ */
+ExecuteAutoDisposeRecordsResponse Client::executeAutoDisposeRecordsWithOptions(const ExecuteAutoDisposeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasSelectedEntityList()) {
+    bodyFlat["SelectedEntityList"] = request.getSelectedEntityList();
+  }
+
+  if (!!request.hasUnSelectedEntityList()) {
+    bodyFlat["UnSelectedEntityList"] = request.getUnSelectedEntityList();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExecuteAutoDisposeRecords"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteAutoDisposeRecordsResponse>();
+}
+
+/**
+ * @summary 手动处置告警
+ *
+ * @param request ExecuteAutoDisposeRecordsRequest
+ * @return ExecuteAutoDisposeRecordsResponse
+ */
+ExecuteAutoDisposeRecordsResponse Client::executeAutoDisposeRecords(const ExecuteAutoDisposeRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeAutoDisposeRecordsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查看LogStore
  *
  * @param request ExecuteLogQueryRequest
@@ -1947,6 +2051,52 @@ ExecuteUpgradeResponse Client::executeUpgradeWithOptions(const ExecuteUpgradeReq
 ExecuteUpgradeResponse Client::executeUpgrade(const ExecuteUpgradeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeUpgradeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取用户自动处置配置
+ *
+ * @param request GetAutoDisposeConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAutoDisposeConfigResponse
+ */
+GetAutoDisposeConfigResponse Client::getAutoDisposeConfigWithOptions(const GetAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.getProductCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAutoDisposeConfig"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAutoDisposeConfigResponse>();
+}
+
+/**
+ * @summary 获取用户自动处置配置
+ *
+ * @param request GetAutoDisposeConfigRequest
+ * @return GetAutoDisposeConfigResponse
+ */
+GetAutoDisposeConfigResponse Client::getAutoDisposeConfig(const GetAutoDisposeConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAutoDisposeConfigWithOptions(request, runtime);
 }
 
 /**
@@ -2479,6 +2629,82 @@ GetUserConfigResponse Client::getUserConfigWithOptions(const GetUserConfigReques
 GetUserConfigResponse Client::getUserConfig(const GetUserConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取AI研判实体列表
+ *
+ * @param tmpReq ListAutoDisposeEntitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAutoDisposeEntitiesResponse
+ */
+ListAutoDisposeEntitiesResponse Client::listAutoDisposeEntitiesWithOptions(const ListAutoDisposeEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAutoDisposeEntitiesShrinkRequest request = ListAutoDisposeEntitiesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAutoDisposeRecordIds()) {
+    request.setAutoDisposeRecordIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAutoDisposeRecordIds(), "AutoDisposeRecordIds", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasAutoDisposeRecordIdsShrink()) {
+    body["AutoDisposeRecordIds"] = request.getAutoDisposeRecordIdsShrink();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    body["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDataSourceType()) {
+    body["DataSourceType"] = request.getDataSourceType();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasUuid()) {
+    body["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAutoDisposeEntities"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAutoDisposeEntitiesResponse>();
+}
+
+/**
+ * @summary 获取AI研判实体列表
+ *
+ * @param request ListAutoDisposeEntitiesRequest
+ * @return ListAutoDisposeEntitiesResponse
+ */
+ListAutoDisposeEntitiesResponse Client::listAutoDisposeEntities(const ListAutoDisposeEntitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAutoDisposeEntitiesWithOptions(request, runtime);
 }
 
 /**
@@ -4429,6 +4655,114 @@ SetDefaultNormalizationRuleVersionResponse Client::setDefaultNormalizationRuleVe
 SetDefaultNormalizationRuleVersionResponse Client::setDefaultNormalizationRuleVersion(const SetDefaultNormalizationRuleVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setDefaultNormalizationRuleVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新用户自动处置配置
+ *
+ * @param request UpdateAutoDisposeConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAutoDisposeConfigResponse
+ */
+UpdateAutoDisposeConfigResponse Client::updateAutoDisposeConfigWithOptions(const UpdateAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoDecisionStatus()) {
+    body["AutoDecisionStatus"] = request.getAutoDecisionStatus();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.getProductCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateAutoDisposeConfig"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAutoDisposeConfigResponse>();
+}
+
+/**
+ * @summary 更新用户自动处置配置
+ *
+ * @param request UpdateAutoDisposeConfigRequest
+ * @return UpdateAutoDisposeConfigResponse
+ */
+UpdateAutoDisposeConfigResponse Client::updateAutoDisposeConfig(const UpdateAutoDisposeConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAutoDisposeConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 同步研判结果
+ *
+ * @param request UpdateAutoDisposeRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAutoDisposeRecordResponse
+ */
+UpdateAutoDisposeRecordResponse Client::updateAutoDisposeRecordWithOptions(const UpdateAutoDisposeRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoDecisionConclusion()) {
+    body["AutoDecisionConclusion"] = request.getAutoDecisionConclusion();
+  }
+
+  if (!!request.hasAutoDecisionEntityList()) {
+    body["AutoDecisionEntityList"] = request.getAutoDecisionEntityList();
+  }
+
+  if (!!request.hasAutoDecisionResult()) {
+    body["AutoDecisionResult"] = request.getAutoDecisionResult();
+  }
+
+  if (!!request.hasAutoDisposeRecordId()) {
+    body["AutoDisposeRecordId"] = request.getAutoDisposeRecordId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateAutoDisposeRecord"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAutoDisposeRecordResponse>();
+}
+
+/**
+ * @summary 同步研判结果
+ *
+ * @param request UpdateAutoDisposeRecordRequest
+ * @return UpdateAutoDisposeRecordResponse
+ */
+UpdateAutoDisposeRecordResponse Client::updateAutoDisposeRecord(const UpdateAutoDisposeRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAutoDisposeRecordWithOptions(request, runtime);
 }
 
 /**

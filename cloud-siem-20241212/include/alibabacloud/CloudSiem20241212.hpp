@@ -38,6 +38,23 @@ namespace CloudSiem20241212
       Models::CheckUpgradeItemResponse checkUpgradeItem(const Models::CheckUpgradeItemRequest &request);
 
       /**
+       * @summary 创建用户自动处置配置
+       *
+       * @param request CreateAutoDisposeConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAutoDisposeConfigResponse
+       */
+      Models::CreateAutoDisposeConfigResponse createAutoDisposeConfigWithOptions(const Models::CreateAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建用户自动处置配置
+       *
+       * @param request CreateAutoDisposeConfigRequest
+       * @return CreateAutoDisposeConfigResponse
+       */
+      Models::CreateAutoDisposeConfigResponse createAutoDisposeConfig(const Models::CreateAutoDisposeConfigRequest &request);
+
+      /**
        * @summary 创建数据源
        *
        * @param request CreateDataIngestionRequest
@@ -446,6 +463,23 @@ namespace CloudSiem20241212
       Models::EnableDataIngestionResponse enableDataIngestion(const Models::EnableDataIngestionRequest &request);
 
       /**
+       * @summary 手动处置告警
+       *
+       * @param request ExecuteAutoDisposeRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteAutoDisposeRecordsResponse
+       */
+      Models::ExecuteAutoDisposeRecordsResponse executeAutoDisposeRecordsWithOptions(const Models::ExecuteAutoDisposeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 手动处置告警
+       *
+       * @param request ExecuteAutoDisposeRecordsRequest
+       * @return ExecuteAutoDisposeRecordsResponse
+       */
+      Models::ExecuteAutoDisposeRecordsResponse executeAutoDisposeRecords(const Models::ExecuteAutoDisposeRecordsRequest &request);
+
+      /**
        * @summary 查看LogStore
        *
        * @param request ExecuteLogQueryRequest
@@ -478,6 +512,23 @@ namespace CloudSiem20241212
        * @return ExecuteUpgradeResponse
        */
       Models::ExecuteUpgradeResponse executeUpgrade(const Models::ExecuteUpgradeRequest &request);
+
+      /**
+       * @summary 获取用户自动处置配置
+       *
+       * @param request GetAutoDisposeConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAutoDisposeConfigResponse
+       */
+      Models::GetAutoDisposeConfigResponse getAutoDisposeConfigWithOptions(const Models::GetAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户自动处置配置
+       *
+       * @param request GetAutoDisposeConfigRequest
+       * @return GetAutoDisposeConfigResponse
+       */
+      Models::GetAutoDisposeConfigResponse getAutoDisposeConfig(const Models::GetAutoDisposeConfigRequest &request);
 
       /**
        * @summary 获取数据批量接入
@@ -648,6 +699,23 @@ namespace CloudSiem20241212
        * @return GetUserConfigResponse
        */
       Models::GetUserConfigResponse getUserConfig(const Models::GetUserConfigRequest &request);
+
+      /**
+       * @summary 获取AI研判实体列表
+       *
+       * @param tmpReq ListAutoDisposeEntitiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAutoDisposeEntitiesResponse
+       */
+      Models::ListAutoDisposeEntitiesResponse listAutoDisposeEntitiesWithOptions(const Models::ListAutoDisposeEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取AI研判实体列表
+       *
+       * @param request ListAutoDisposeEntitiesRequest
+       * @return ListAutoDisposeEntitiesResponse
+       */
+      Models::ListAutoDisposeEntitiesResponse listAutoDisposeEntities(const Models::ListAutoDisposeEntitiesRequest &request);
 
       /**
        * @summary 查询接入模板
@@ -1073,6 +1141,40 @@ namespace CloudSiem20241212
        * @return SetDefaultNormalizationRuleVersionResponse
        */
       Models::SetDefaultNormalizationRuleVersionResponse setDefaultNormalizationRuleVersion(const Models::SetDefaultNormalizationRuleVersionRequest &request);
+
+      /**
+       * @summary 更新用户自动处置配置
+       *
+       * @param request UpdateAutoDisposeConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAutoDisposeConfigResponse
+       */
+      Models::UpdateAutoDisposeConfigResponse updateAutoDisposeConfigWithOptions(const Models::UpdateAutoDisposeConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新用户自动处置配置
+       *
+       * @param request UpdateAutoDisposeConfigRequest
+       * @return UpdateAutoDisposeConfigResponse
+       */
+      Models::UpdateAutoDisposeConfigResponse updateAutoDisposeConfig(const Models::UpdateAutoDisposeConfigRequest &request);
+
+      /**
+       * @summary 同步研判结果
+       *
+       * @param request UpdateAutoDisposeRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAutoDisposeRecordResponse
+       */
+      Models::UpdateAutoDisposeRecordResponse updateAutoDisposeRecordWithOptions(const Models::UpdateAutoDisposeRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步研判结果
+       *
+       * @param request UpdateAutoDisposeRecordRequest
+       * @return UpdateAutoDisposeRecordResponse
+       */
+      Models::UpdateAutoDisposeRecordResponse updateAutoDisposeRecord(const Models::UpdateAutoDisposeRecordRequest &request);
 
       /**
        * @summary 更新数据批量接入
