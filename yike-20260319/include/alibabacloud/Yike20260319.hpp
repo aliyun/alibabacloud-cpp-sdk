@@ -21,6 +21,23 @@ namespace Yike20260319
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 增加用户积分
+       *
+       * @param request AddYikeUserCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddYikeUserCreditResponse
+       */
+      Models::AddYikeUserCreditResponse addYikeUserCreditWithOptions(const Models::AddYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 增加用户积分
+       *
+       * @param request AddYikeUserCreditRequest
+       * @return AddYikeUserCreditResponse
+       */
+      Models::AddYikeUserCreditResponse addYikeUserCredit(const Models::AddYikeUserCreditRequest &request);
+
+      /**
        * @summary 批量获取一刻AI应用生成任务
        *
        * @param request BatchGetYikeAIAppJobRequest
@@ -36,6 +53,23 @@ namespace Yike20260319
        * @return BatchGetYikeAIAppJobResponse
        */
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJob(const Models::BatchGetYikeAIAppJobRequest &request);
+
+      /**
+       * @summary 批量获取媒资信息
+       *
+       * @param request BatchGetYikeAssetMediaInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchGetYikeAssetMediaInfosResponse
+       */
+      Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfosWithOptions(const Models::BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量获取媒资信息
+       *
+       * @param request BatchGetYikeAssetMediaInfosRequest
+       * @return BatchGetYikeAssetMediaInfosResponse
+       */
+      Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfos(const Models::BatchGetYikeAssetMediaInfosRequest &request);
 
       /**
        * @summary 获取一刻媒资上传凭证
@@ -55,6 +89,74 @@ namespace Yike20260319
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
+       * @summary 创建一刻项目
+       *
+       * @param request CreateYikeProductionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeProductionResponse
+       */
+      Models::CreateYikeProductionResponse createYikeProductionWithOptions(const Models::CreateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一刻项目
+       *
+       * @param request CreateYikeProductionRequest
+       * @return CreateYikeProductionResponse
+       */
+      Models::CreateYikeProductionResponse createYikeProduction(const Models::CreateYikeProductionRequest &request);
+
+      /**
+       * @summary 创建一刻子用户
+       *
+       * @param request CreateYikeUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeUserResponse
+       */
+      Models::CreateYikeUserResponse createYikeUserWithOptions(const Models::CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一刻子用户
+       *
+       * @param request CreateYikeUserRequest
+       * @return CreateYikeUserResponse
+       */
+      Models::CreateYikeUserResponse createYikeUser(const Models::CreateYikeUserRequest &request);
+
+      /**
+       * @summary 创建工作室
+       *
+       * @param request CreateYikeWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeWorkspaceResponse
+       */
+      Models::CreateYikeWorkspaceResponse createYikeWorkspaceWithOptions(const Models::CreateYikeWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工作室
+       *
+       * @param request CreateYikeWorkspaceRequest
+       * @return CreateYikeWorkspaceResponse
+       */
+      Models::CreateYikeWorkspaceResponse createYikeWorkspace(const Models::CreateYikeWorkspaceRequest &request);
+
+      /**
+       * @summary 删除媒资信息
+       *
+       * @param request DeleteYikeAssetMediaInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteYikeAssetMediaInfosResponse
+       */
+      Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfosWithOptions(const Models::DeleteYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除媒资信息
+       *
+       * @param request DeleteYikeAssetMediaInfosRequest
+       * @return DeleteYikeAssetMediaInfosResponse
+       */
+      Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
+
+      /**
        * @summary 获取一刻AI应用任务
        *
        * @param request GetYikeAIAppJobRequest
@@ -72,6 +174,23 @@ namespace Yike20260319
       Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
 
       /**
+       * @summary 获取一刻媒资内容信息
+       *
+       * @param request GetYikeAssetMediaInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAssetMediaInfoResponse
+       */
+      Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfoWithOptions(const Models::GetYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻媒资内容信息
+       *
+       * @param request GetYikeAssetMediaInfoRequest
+       * @return GetYikeAssetMediaInfoResponse
+       */
+      Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
+
+      /**
        * @summary 获取一刻故事板任务
        *
        * @param request GetYikeStoryboardJobRequest
@@ -87,6 +206,159 @@ namespace Yike20260319
        * @return GetYikeStoryboardJobResponse
        */
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
+
+      /**
+       * @summary 获取一刻子用户信息
+       *
+       * @param request GetYikeUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeUserResponse
+       */
+      Models::GetYikeUserResponse getYikeUserWithOptions(const Models::GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻子用户信息
+       *
+       * @param request GetYikeUserRequest
+       * @return GetYikeUserResponse
+       */
+      Models::GetYikeUserResponse getYikeUser(const Models::GetYikeUserRequest &request);
+
+      /**
+       * @summary 查询一刻用户积分
+       *
+       * @param request GetYikeUserCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeUserCreditResponse
+       */
+      Models::GetYikeUserCreditResponse getYikeUserCreditWithOptions(const Models::GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻用户积分
+       *
+       * @param request GetYikeUserCreditRequest
+       * @return GetYikeUserCreditResponse
+       */
+      Models::GetYikeUserCreditResponse getYikeUserCredit(const Models::GetYikeUserCreditRequest &request);
+
+      /**
+       * @summary 获取一刻文件夹列表
+       *
+       * @param request ListYikeAssetFoldersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListYikeAssetFoldersResponse
+       */
+      Models::ListYikeAssetFoldersResponse listYikeAssetFoldersWithOptions(const Models::ListYikeAssetFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻文件夹列表
+       *
+       * @param request ListYikeAssetFoldersRequest
+       * @return ListYikeAssetFoldersResponse
+       */
+      Models::ListYikeAssetFoldersResponse listYikeAssetFolders(const Models::ListYikeAssetFoldersRequest &request);
+
+      /**
+       * @summary 获取一刻项目列表
+       *
+       * @param request ListYikeProductionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListYikeProductionsResponse
+       */
+      Models::ListYikeProductionsResponse listYikeProductionsWithOptions(const Models::ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻项目列表
+       *
+       * @param request ListYikeProductionsRequest
+       * @return ListYikeProductionsResponse
+       */
+      Models::ListYikeProductionsResponse listYikeProductions(const Models::ListYikeProductionsRequest &request);
+
+      /**
+       * @summary 检查应用参数是否合法
+       *
+       * @param request PrecheckYikeAIAppJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PrecheckYikeAIAppJobResponse
+       */
+      Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJobWithOptions(const Models::PrecheckYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查应用参数是否合法
+       *
+       * @param request PrecheckYikeAIAppJobRequest
+       * @return PrecheckYikeAIAppJobResponse
+       */
+      Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJob(const Models::PrecheckYikeAIAppJobRequest &request);
+
+      /**
+       * @summary 注册一刻媒资
+       *
+       * @param request RegisterYikeAssetMediaInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RegisterYikeAssetMediaInfoResponse
+       */
+      Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfoWithOptions(const Models::RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 注册一刻媒资
+       *
+       * @param request RegisterYikeAssetMediaInfoRequest
+       * @return RegisterYikeAssetMediaInfoResponse
+       */
+      Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfo(const Models::RegisterYikeAssetMediaInfoRequest &request);
+
+      /**
+       * @summary 故事板任务恢复继续执行任务
+       *
+       * @param request ResumeYikeStoryboardJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeYikeStoryboardJobResponse
+       */
+      Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJobWithOptions(const Models::ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 故事板任务恢复继续执行任务
+       *
+       * @param request ResumeYikeStoryboardJobRequest
+       * @return ResumeYikeStoryboardJobResponse
+       */
+      Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJob(const Models::ResumeYikeStoryboardJobRequest &request);
+
+      /**
+       * @summary 设置用户角色
+       *
+       * @param request SetYikeUserRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetYikeUserRoleResponse
+       */
+      Models::SetYikeUserRoleResponse setYikeUserRoleWithOptions(const Models::SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置用户角色
+       *
+       * @param request SetYikeUserRoleRequest
+       * @return SetYikeUserRoleResponse
+       */
+      Models::SetYikeUserRoleResponse setYikeUserRole(const Models::SetYikeUserRoleRequest &request);
+
+      /**
+       * @summary 扣减用户积分
+       *
+       * @param request SubYikeUserCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubYikeUserCreditResponse
+       */
+      Models::SubYikeUserCreditResponse subYikeUserCreditWithOptions(const Models::SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 扣减用户积分
+       *
+       * @param request SubYikeUserCreditRequest
+       * @return SubYikeUserCreditResponse
+       */
+      Models::SubYikeUserCreditResponse subYikeUserCredit(const Models::SubYikeUserCreditRequest &request);
 
       /**
        * @summary 提交一刻AI应用任务
