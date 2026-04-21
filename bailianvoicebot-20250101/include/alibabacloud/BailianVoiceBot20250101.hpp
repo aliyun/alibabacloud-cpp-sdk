@@ -259,6 +259,23 @@ namespace BailianVoiceBot20250101
       Models::ListVariableResponse listVariable(const Models::ListVariableRequest &request);
 
       /**
+       * @summary 获取音色列表
+       *
+       * @param request ListVoicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVoicesResponse
+       */
+      Models::ListVoicesResponse listVoicesWithOptions(const Models::ListVoicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取音色列表
+       *
+       * @param request ListVoicesRequest
+       * @return ListVoicesResponse
+       */
+      Models::ListVoicesResponse listVoices(const Models::ListVoicesRequest &request);
+
+      /**
        * @summary 发布版本
        *
        * @param request PublishApplicationVersionRequest

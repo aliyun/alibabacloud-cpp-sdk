@@ -45,6 +45,9 @@
 #include <alibabacloud/models/ListVariableRequest.hpp>
 #include <alibabacloud/models/ListVariableResponseBody.hpp>
 #include <alibabacloud/models/ListVariableResponse.hpp>
+#include <alibabacloud/models/ListVoicesRequest.hpp>
+#include <alibabacloud/models/ListVoicesResponseBody.hpp>
+#include <alibabacloud/models/ListVoicesResponse.hpp>
 #include <alibabacloud/models/PublishApplicationVersionRequest.hpp>
 #include <alibabacloud/models/PublishApplicationVersionResponseBody.hpp>
 #include <alibabacloud/models/PublishApplicationVersionResponse.hpp>

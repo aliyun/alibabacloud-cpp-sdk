@@ -798,6 +798,64 @@ ListVariableResponse Client::listVariable(const ListVariableRequest &request) {
 }
 
 /**
+ * @summary 获取音色列表
+ *
+ * @param request ListVoicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVoicesResponse
+ */
+ListVoicesResponse Client::listVoicesWithOptions(const ListVoicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasNlsAccessType()) {
+    body["NlsAccessType"] = request.getNlsAccessType();
+  }
+
+  if (!!request.hasNlsEngine()) {
+    body["NlsEngine"] = request.getNlsEngine();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListVoices"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVoicesResponse>();
+}
+
+/**
+ * @summary 获取音色列表
+ *
+ * @param request ListVoicesRequest
+ * @return ListVoicesResponse
+ */
+ListVoicesResponse Client::listVoices(const ListVoicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVoicesWithOptions(request, runtime);
+}
+
+/**
  * @summary 发布版本
  *
  * @param request PublishApplicationVersionRequest
