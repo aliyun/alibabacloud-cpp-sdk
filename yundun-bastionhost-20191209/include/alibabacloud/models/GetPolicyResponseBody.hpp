@@ -91,6 +91,8 @@ namespace Models
         class SSH : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const SSH& obj) { 
+            DARABONBA_PTR_TO_JSON(AllowDirectTcp, allowDirectTcp_);
+            DARABONBA_PTR_TO_JSON(AllowTcpForwarding, allowTcpForwarding_);
             DARABONBA_PTR_TO_JSON(ExecCommand, execCommand_);
             DARABONBA_PTR_TO_JSON(SFTPChannel, SFTPChannel_);
             DARABONBA_PTR_TO_JSON(SFTPDownloadFile, SFTPDownloadFile_);
@@ -100,9 +102,12 @@ namespace Models
             DARABONBA_PTR_TO_JSON(SFTPRmdir, SFTPRmdir_);
             DARABONBA_PTR_TO_JSON(SFTPUploadFile, SFTPUploadFile_);
             DARABONBA_PTR_TO_JSON(SSHChannel, SSHChannel_);
+            DARABONBA_PTR_TO_JSON(TcpForwarding, tcpForwarding_);
             DARABONBA_PTR_TO_JSON(X11Forwarding, x11Forwarding_);
           };
           friend void from_json(const Darabonba::Json& j, SSH& obj) { 
+            DARABONBA_PTR_FROM_JSON(AllowDirectTcp, allowDirectTcp_);
+            DARABONBA_PTR_FROM_JSON(AllowTcpForwarding, allowTcpForwarding_);
             DARABONBA_PTR_FROM_JSON(ExecCommand, execCommand_);
             DARABONBA_PTR_FROM_JSON(SFTPChannel, SFTPChannel_);
             DARABONBA_PTR_FROM_JSON(SFTPDownloadFile, SFTPDownloadFile_);
@@ -112,6 +117,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(SFTPRmdir, SFTPRmdir_);
             DARABONBA_PTR_FROM_JSON(SFTPUploadFile, SFTPUploadFile_);
             DARABONBA_PTR_FROM_JSON(SSHChannel, SSHChannel_);
+            DARABONBA_PTR_FROM_JSON(TcpForwarding, tcpForwarding_);
             DARABONBA_PTR_FROM_JSON(X11Forwarding, x11Forwarding_);
           };
           SSH() = default ;
@@ -125,9 +131,24 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->execCommand_ == nullptr
-        && this->SFTPChannel_ == nullptr && this->SFTPDownloadFile_ == nullptr && this->SFTPMkdir_ == nullptr && this->SFTPRemoveFile_ == nullptr && this->SFTPRenameFile_ == nullptr
-        && this->SFTPRmdir_ == nullptr && this->SFTPUploadFile_ == nullptr && this->SSHChannel_ == nullptr && this->x11Forwarding_ == nullptr; };
+          virtual bool empty() const override { return this->allowDirectTcp_ == nullptr
+        && this->allowTcpForwarding_ == nullptr && this->execCommand_ == nullptr && this->SFTPChannel_ == nullptr && this->SFTPDownloadFile_ == nullptr && this->SFTPMkdir_ == nullptr
+        && this->SFTPRemoveFile_ == nullptr && this->SFTPRenameFile_ == nullptr && this->SFTPRmdir_ == nullptr && this->SFTPUploadFile_ == nullptr && this->SSHChannel_ == nullptr
+        && this->tcpForwarding_ == nullptr && this->x11Forwarding_ == nullptr; };
+          // allowDirectTcp Field Functions 
+          bool hasAllowDirectTcp() const { return this->allowDirectTcp_ != nullptr;};
+          void deleteAllowDirectTcp() { this->allowDirectTcp_ = nullptr;};
+          inline string getAllowDirectTcp() const { DARABONBA_PTR_GET_DEFAULT(allowDirectTcp_, "") };
+          inline SSH& setAllowDirectTcp(string allowDirectTcp) { DARABONBA_PTR_SET_VALUE(allowDirectTcp_, allowDirectTcp) };
+
+
+          // allowTcpForwarding Field Functions 
+          bool hasAllowTcpForwarding() const { return this->allowTcpForwarding_ != nullptr;};
+          void deleteAllowTcpForwarding() { this->allowTcpForwarding_ = nullptr;};
+          inline string getAllowTcpForwarding() const { DARABONBA_PTR_GET_DEFAULT(allowTcpForwarding_, "") };
+          inline SSH& setAllowTcpForwarding(string allowTcpForwarding) { DARABONBA_PTR_SET_VALUE(allowTcpForwarding_, allowTcpForwarding) };
+
+
           // execCommand Field Functions 
           bool hasExecCommand() const { return this->execCommand_ != nullptr;};
           void deleteExecCommand() { this->execCommand_ = nullptr;};
@@ -191,6 +212,13 @@ namespace Models
           inline SSH& setSSHChannel(string SSHChannel) { DARABONBA_PTR_SET_VALUE(SSHChannel_, SSHChannel) };
 
 
+          // tcpForwarding Field Functions 
+          bool hasTcpForwarding() const { return this->tcpForwarding_ != nullptr;};
+          void deleteTcpForwarding() { this->tcpForwarding_ = nullptr;};
+          inline string getTcpForwarding() const { DARABONBA_PTR_GET_DEFAULT(tcpForwarding_, "") };
+          inline SSH& setTcpForwarding(string tcpForwarding) { DARABONBA_PTR_SET_VALUE(tcpForwarding_, tcpForwarding) };
+
+
           // x11Forwarding Field Functions 
           bool hasX11Forwarding() const { return this->x11Forwarding_ != nullptr;};
           void deleteX11Forwarding() { this->x11Forwarding_ = nullptr;};
@@ -199,6 +227,8 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> allowDirectTcp_ {};
+          shared_ptr<string> allowTcpForwarding_ {};
           // Indicates whether remote command execution is enabled. Valid values:
           // 
           // *   Enable
@@ -244,6 +274,7 @@ namespace Models
           // *   Enable
           // *   Disable
           shared_ptr<string> SSHChannel_ {};
+          shared_ptr<string> tcpForwarding_ {};
           // Indicates whether X11 forwarding is enabled. Valid values:
           // 
           // *   Enable
@@ -257,12 +288,16 @@ namespace Models
             DARABONBA_PTR_TO_JSON(ClipboardDownload, clipboardDownload_);
             DARABONBA_PTR_TO_JSON(ClipboardUpload, clipboardUpload_);
             DARABONBA_PTR_TO_JSON(DiskRedirection, diskRedirection_);
+            DARABONBA_PTR_TO_JSON(DiskRedirectionDownload, diskRedirectionDownload_);
+            DARABONBA_PTR_TO_JSON(DiskRedirectionUpload, diskRedirectionUpload_);
             DARABONBA_PTR_TO_JSON(RecordKeyboard, recordKeyboard_);
           };
           friend void from_json(const Darabonba::Json& j, RDP& obj) { 
             DARABONBA_PTR_FROM_JSON(ClipboardDownload, clipboardDownload_);
             DARABONBA_PTR_FROM_JSON(ClipboardUpload, clipboardUpload_);
             DARABONBA_PTR_FROM_JSON(DiskRedirection, diskRedirection_);
+            DARABONBA_PTR_FROM_JSON(DiskRedirectionDownload, diskRedirectionDownload_);
+            DARABONBA_PTR_FROM_JSON(DiskRedirectionUpload, diskRedirectionUpload_);
             DARABONBA_PTR_FROM_JSON(RecordKeyboard, recordKeyboard_);
           };
           RDP() = default ;
@@ -277,7 +312,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->clipboardDownload_ == nullptr
-        && this->clipboardUpload_ == nullptr && this->diskRedirection_ == nullptr && this->recordKeyboard_ == nullptr; };
+        && this->clipboardUpload_ == nullptr && this->diskRedirection_ == nullptr && this->diskRedirectionDownload_ == nullptr && this->diskRedirectionUpload_ == nullptr && this->recordKeyboard_ == nullptr; };
           // clipboardDownload Field Functions 
           bool hasClipboardDownload() const { return this->clipboardDownload_ != nullptr;};
           void deleteClipboardDownload() { this->clipboardDownload_ = nullptr;};
@@ -297,6 +332,20 @@ namespace Models
           void deleteDiskRedirection() { this->diskRedirection_ = nullptr;};
           inline string getDiskRedirection() const { DARABONBA_PTR_GET_DEFAULT(diskRedirection_, "") };
           inline RDP& setDiskRedirection(string diskRedirection) { DARABONBA_PTR_SET_VALUE(diskRedirection_, diskRedirection) };
+
+
+          // diskRedirectionDownload Field Functions 
+          bool hasDiskRedirectionDownload() const { return this->diskRedirectionDownload_ != nullptr;};
+          void deleteDiskRedirectionDownload() { this->diskRedirectionDownload_ = nullptr;};
+          inline string getDiskRedirectionDownload() const { DARABONBA_PTR_GET_DEFAULT(diskRedirectionDownload_, "") };
+          inline RDP& setDiskRedirectionDownload(string diskRedirectionDownload) { DARABONBA_PTR_SET_VALUE(diskRedirectionDownload_, diskRedirectionDownload) };
+
+
+          // diskRedirectionUpload Field Functions 
+          bool hasDiskRedirectionUpload() const { return this->diskRedirectionUpload_ != nullptr;};
+          void deleteDiskRedirectionUpload() { this->diskRedirectionUpload_ = nullptr;};
+          inline string getDiskRedirectionUpload() const { DARABONBA_PTR_GET_DEFAULT(diskRedirectionUpload_, "") };
+          inline RDP& setDiskRedirectionUpload(string diskRedirectionUpload) { DARABONBA_PTR_SET_VALUE(diskRedirectionUpload_, diskRedirectionUpload) };
 
 
           // recordKeyboard Field Functions 
@@ -322,6 +371,8 @@ namespace Models
           // *   Enable
           // *   Disable
           shared_ptr<string> diskRedirection_ {};
+          shared_ptr<string> diskRedirectionDownload_ {};
+          shared_ptr<string> diskRedirectionUpload_ {};
           // Indicates whether keyboard recording is enabled. Valid values:
           // 
           // *   Enable

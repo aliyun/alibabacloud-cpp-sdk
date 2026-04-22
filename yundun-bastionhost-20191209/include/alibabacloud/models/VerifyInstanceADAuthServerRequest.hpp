@@ -141,7 +141,6 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // This parameter is required.
     shared_ptr<string> isSSL_ {};
-    // This parameter is required.
     shared_ptr<string> password_ {};
     // This parameter is required.
     shared_ptr<string> port_ {};

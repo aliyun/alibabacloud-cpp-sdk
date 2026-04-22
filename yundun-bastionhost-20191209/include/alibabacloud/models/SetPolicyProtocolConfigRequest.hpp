@@ -70,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SFTPRmdir, SFTPRmdir_);
           DARABONBA_PTR_TO_JSON(SFTPUploadFile, SFTPUploadFile_);
           DARABONBA_PTR_TO_JSON(SSHChannel, SSHChannel_);
+          DARABONBA_PTR_TO_JSON(TcpForwarding, tcpForwarding_);
           DARABONBA_PTR_TO_JSON(X11Forwarding, x11Forwarding_);
         };
         friend void from_json(const Darabonba::Json& j, SSH& obj) { 
@@ -84,6 +85,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SFTPRmdir, SFTPRmdir_);
           DARABONBA_PTR_FROM_JSON(SFTPUploadFile, SFTPUploadFile_);
           DARABONBA_PTR_FROM_JSON(SSHChannel, SSHChannel_);
+          DARABONBA_PTR_FROM_JSON(TcpForwarding, tcpForwarding_);
           DARABONBA_PTR_FROM_JSON(X11Forwarding, x11Forwarding_);
         };
         SSH() = default ;
@@ -100,7 +102,7 @@ namespace Models
         virtual bool empty() const override { return this->allowDirectTcp_ == nullptr
         && this->allowTcpForwarding_ == nullptr && this->execCommand_ == nullptr && this->SFTPChannel_ == nullptr && this->SFTPDownloadFile_ == nullptr && this->SFTPMkdir_ == nullptr
         && this->SFTPRemoveFile_ == nullptr && this->SFTPRenameFile_ == nullptr && this->SFTPRmdir_ == nullptr && this->SFTPUploadFile_ == nullptr && this->SSHChannel_ == nullptr
-        && this->x11Forwarding_ == nullptr; };
+        && this->tcpForwarding_ == nullptr && this->x11Forwarding_ == nullptr; };
         // allowDirectTcp Field Functions 
         bool hasAllowDirectTcp() const { return this->allowDirectTcp_ != nullptr;};
         void deleteAllowDirectTcp() { this->allowDirectTcp_ = nullptr;};
@@ -176,6 +178,13 @@ namespace Models
         void deleteSSHChannel() { this->SSHChannel_ = nullptr;};
         inline string getSSHChannel() const { DARABONBA_PTR_GET_DEFAULT(SSHChannel_, "") };
         inline SSH& setSSHChannel(string SSHChannel) { DARABONBA_PTR_SET_VALUE(SSHChannel_, SSHChannel) };
+
+
+        // tcpForwarding Field Functions 
+        bool hasTcpForwarding() const { return this->tcpForwarding_ != nullptr;};
+        void deleteTcpForwarding() { this->tcpForwarding_ = nullptr;};
+        inline string getTcpForwarding() const { DARABONBA_PTR_GET_DEFAULT(tcpForwarding_, "") };
+        inline SSH& setTcpForwarding(string tcpForwarding) { DARABONBA_PTR_SET_VALUE(tcpForwarding_, tcpForwarding) };
 
 
         // x11Forwarding Field Functions 
@@ -263,6 +272,7 @@ namespace Models
         // 
         // *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
         shared_ptr<string> SSHChannel_ {};
+        shared_ptr<string> tcpForwarding_ {};
         // Specifies whether to enable X11 forwarding. Valid values:
         // 
         // *   Enable
