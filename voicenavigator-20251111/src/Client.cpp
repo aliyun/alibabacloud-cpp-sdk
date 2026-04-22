@@ -1601,6 +1601,60 @@ GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataC
 }
 
 /**
+ * @summary 获取实例指标趋势详情
+ *
+ * @param request GetInstanceTrendingReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceTrendingReportResponse
+ */
+GetInstanceTrendingReportResponse Client::getInstanceTrendingReportWithOptions(const GetInstanceTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTimeInterval()) {
+    body["TimeInterval"] = request.getTimeInterval();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceTrendingReport"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceTrendingReportResponse>();
+}
+
+/**
+ * @summary 获取实例指标趋势详情
+ *
+ * @param request GetInstanceTrendingReportRequest
+ * @return GetInstanceTrendingReportResponse
+ */
+GetInstanceTrendingReportResponse Client::getInstanceTrendingReport(const GetInstanceTrendingReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceTrendingReportWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取实例实时指标
  *
  * @param request GetRealtimeInstanceStatsRequest
@@ -1640,6 +1694,52 @@ GetRealtimeInstanceStatsResponse Client::getRealtimeInstanceStatsWithOptions(con
 GetRealtimeInstanceStatsResponse Client::getRealtimeInstanceStats(const GetRealtimeInstanceStatsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getRealtimeInstanceStatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取场景实时指标
+ *
+ * @param request GetRealtimeScriptStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRealtimeScriptStatsResponse
+ */
+GetRealtimeScriptStatsResponse Client::getRealtimeScriptStatsWithOptions(const GetRealtimeScriptStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetRealtimeScriptStats"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRealtimeScriptStatsResponse>();
+}
+
+/**
+ * @summary 获取场景实时指标
+ *
+ * @param request GetRealtimeScriptStatsRequest
+ * @return GetRealtimeScriptStatsResponse
+ */
+GetRealtimeScriptStatsResponse Client::getRealtimeScriptStats(const GetRealtimeScriptStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRealtimeScriptStatsWithOptions(request, runtime);
 }
 
 /**
@@ -1732,6 +1832,64 @@ GetScriptResponse Client::getScriptWithOptions(const GetScriptRequest &request, 
 GetScriptResponse Client::getScript(const GetScriptRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getScriptWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取场景指标趋势详情
+ *
+ * @param request GetScriptTrendingReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScriptTrendingReportResponse
+ */
+GetScriptTrendingReportResponse Client::getScriptTrendingReportWithOptions(const GetScriptTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTimeInterval()) {
+    body["TimeInterval"] = request.getTimeInterval();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetScriptTrendingReport"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScriptTrendingReportResponse>();
+}
+
+/**
+ * @summary 获取场景指标趋势详情
+ *
+ * @param request GetScriptTrendingReportRequest
+ * @return GetScriptTrendingReportResponse
+ */
+GetScriptTrendingReportResponse Client::getScriptTrendingReport(const GetScriptTrendingReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getScriptTrendingReportWithOptions(request, runtime);
 }
 
 /**
@@ -2195,6 +2353,138 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceMo
 }
 
 /**
+ * @summary 获取实例指标汇总数据
+ *
+ * @param tmpReq ListHistoricalInstanceReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHistoricalInstanceReportResponse
+ */
+ListHistoricalInstanceReportResponse Client::listHistoricalInstanceReportWithOptions(const ListHistoricalInstanceReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListHistoricalInstanceReportShrinkRequest request = ListHistoricalInstanceReportShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    body["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListHistoricalInstanceReport"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHistoricalInstanceReportResponse>();
+}
+
+/**
+ * @summary 获取实例指标汇总数据
+ *
+ * @param request ListHistoricalInstanceReportRequest
+ * @return ListHistoricalInstanceReportResponse
+ */
+ListHistoricalInstanceReportResponse Client::listHistoricalInstanceReport(const ListHistoricalInstanceReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listHistoricalInstanceReportWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取场景指标汇总数据
+ *
+ * @param tmpReq ListHistoricalScriptReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHistoricalScriptReportResponse
+ */
+ListHistoricalScriptReportResponse Client::listHistoricalScriptReportWithOptions(const ListHistoricalScriptReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListHistoricalScriptReportShrinkRequest request = ListHistoricalScriptReportShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasScriptIds()) {
+    request.setScriptIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScriptIds(), "ScriptIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScriptIdsShrink()) {
+    body["ScriptIds"] = request.getScriptIdsShrink();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListHistoricalScriptReport"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHistoricalScriptReportResponse>();
+}
+
+/**
+ * @summary 获取场景指标汇总数据
+ *
+ * @param request ListHistoricalScriptReportRequest
+ * @return ListHistoricalScriptReportResponse
+ */
+ListHistoricalScriptReportResponse Client::listHistoricalScriptReport(const ListHistoricalScriptReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listHistoricalScriptReportWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询指令
  *
  * @param request ListInstructionsRequest
@@ -2338,6 +2628,62 @@ ListNluModelsResponse Client::listNluModelsWithOptions(const ListNluModelsReques
 ListNluModelsResponse Client::listNluModels(const ListNluModelsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNluModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例实时指标
+ *
+ * @param tmpReq ListRealtimeInstanceStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRealtimeInstanceStatsResponse
+ */
+ListRealtimeInstanceStatsResponse Client::listRealtimeInstanceStatsWithOptions(const ListRealtimeInstanceStatsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListRealtimeInstanceStatsShrinkRequest request = ListRealtimeInstanceStatsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceIdsShrink()) {
+    body["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListRealtimeInstanceStats"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRealtimeInstanceStatsResponse>();
+}
+
+/**
+ * @summary 获取实例实时指标
+ *
+ * @param request ListRealtimeInstanceStatsRequest
+ * @return ListRealtimeInstanceStatsResponse
+ */
+ListRealtimeInstanceStatsResponse Client::listRealtimeInstanceStats(const ListRealtimeInstanceStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRealtimeInstanceStatsWithOptions(request, runtime);
 }
 
 /**

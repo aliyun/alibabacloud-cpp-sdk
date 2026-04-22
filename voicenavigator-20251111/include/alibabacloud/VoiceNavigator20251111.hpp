@@ -498,6 +498,23 @@ namespace VoiceNavigator20251111
       Models::GetDataChannelCredentialResponse getDataChannelCredential(const Models::GetDataChannelCredentialRequest &request);
 
       /**
+       * @summary 获取实例指标趋势详情
+       *
+       * @param request GetInstanceTrendingReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceTrendingReportResponse
+       */
+      Models::GetInstanceTrendingReportResponse getInstanceTrendingReportWithOptions(const Models::GetInstanceTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例指标趋势详情
+       *
+       * @param request GetInstanceTrendingReportRequest
+       * @return GetInstanceTrendingReportResponse
+       */
+      Models::GetInstanceTrendingReportResponse getInstanceTrendingReport(const Models::GetInstanceTrendingReportRequest &request);
+
+      /**
        * @summary 获取实例实时指标
        *
        * @param request GetRealtimeInstanceStatsRequest
@@ -513,6 +530,23 @@ namespace VoiceNavigator20251111
        * @return GetRealtimeInstanceStatsResponse
        */
       Models::GetRealtimeInstanceStatsResponse getRealtimeInstanceStats(const Models::GetRealtimeInstanceStatsRequest &request);
+
+      /**
+       * @summary 获取场景实时指标
+       *
+       * @param request GetRealtimeScriptStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRealtimeScriptStatsResponse
+       */
+      Models::GetRealtimeScriptStatsResponse getRealtimeScriptStatsWithOptions(const Models::GetRealtimeScriptStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取场景实时指标
+       *
+       * @param request GetRealtimeScriptStatsRequest
+       * @return GetRealtimeScriptStatsResponse
+       */
+      Models::GetRealtimeScriptStatsResponse getRealtimeScriptStats(const Models::GetRealtimeScriptStatsRequest &request);
 
       /**
        * @summary 获取录音
@@ -547,6 +581,23 @@ namespace VoiceNavigator20251111
        * @return GetScriptResponse
        */
       Models::GetScriptResponse getScript(const Models::GetScriptRequest &request);
+
+      /**
+       * @summary 获取场景指标趋势详情
+       *
+       * @param request GetScriptTrendingReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScriptTrendingReportResponse
+       */
+      Models::GetScriptTrendingReportResponse getScriptTrendingReportWithOptions(const Models::GetScriptTrendingReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取场景指标趋势详情
+       *
+       * @param request GetScriptTrendingReportRequest
+       * @return GetScriptTrendingReportResponse
+       */
+      Models::GetScriptTrendingReportResponse getScriptTrendingReport(const Models::GetScriptTrendingReportRequest &request);
 
       /**
        * @summary 获取MQ配置
@@ -685,6 +736,40 @@ namespace VoiceNavigator20251111
       Models::ListCloneVoiceModelsResponse listCloneVoiceModels(const Models::ListCloneVoiceModelsRequest &request);
 
       /**
+       * @summary 获取实例指标汇总数据
+       *
+       * @param tmpReq ListHistoricalInstanceReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHistoricalInstanceReportResponse
+       */
+      Models::ListHistoricalInstanceReportResponse listHistoricalInstanceReportWithOptions(const Models::ListHistoricalInstanceReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例指标汇总数据
+       *
+       * @param request ListHistoricalInstanceReportRequest
+       * @return ListHistoricalInstanceReportResponse
+       */
+      Models::ListHistoricalInstanceReportResponse listHistoricalInstanceReport(const Models::ListHistoricalInstanceReportRequest &request);
+
+      /**
+       * @summary 获取场景指标汇总数据
+       *
+       * @param tmpReq ListHistoricalScriptReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHistoricalScriptReportResponse
+       */
+      Models::ListHistoricalScriptReportResponse listHistoricalScriptReportWithOptions(const Models::ListHistoricalScriptReportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取场景指标汇总数据
+       *
+       * @param request ListHistoricalScriptReportRequest
+       * @return ListHistoricalScriptReportResponse
+       */
+      Models::ListHistoricalScriptReportResponse listHistoricalScriptReport(const Models::ListHistoricalScriptReportRequest &request);
+
+      /**
        * @summary 查询指令
        *
        * @param request ListInstructionsRequest
@@ -734,6 +819,23 @@ namespace VoiceNavigator20251111
        * @return ListNluModelsResponse
        */
       Models::ListNluModelsResponse listNluModels(const Models::ListNluModelsRequest &request);
+
+      /**
+       * @summary 获取实例实时指标
+       *
+       * @param tmpReq ListRealtimeInstanceStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRealtimeInstanceStatsResponse
+       */
+      Models::ListRealtimeInstanceStatsResponse listRealtimeInstanceStatsWithOptions(const Models::ListRealtimeInstanceStatsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例实时指标
+       *
+       * @param request ListRealtimeInstanceStatsRequest
+       * @return ListRealtimeInstanceStatsResponse
+       */
+      Models::ListRealtimeInstanceStatsResponse listRealtimeInstanceStats(const Models::ListRealtimeInstanceStatsRequest &request);
 
       /**
        * @summary 获取场景配置模板列表
