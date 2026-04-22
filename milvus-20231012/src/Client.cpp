@@ -97,6 +97,63 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary 创建白名单分组
+ *
+ * @param request CreateAclGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAclGroupResponse
+ */
+CreateAclGroupResponse Client::createAclGroupWithOptions(const CreateAclGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCidrs()) {
+    query["cidrs"] = request.getCidrs();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["groupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAclGroup"},
+    {"version" , "2023-10-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/milvus/createAclGroup")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAclGroupResponse>();
+}
+
+/**
+ * @summary 创建白名单分组
+ *
+ * @param request CreateAclGroupRequest
+ * @return CreateAclGroupResponse
+ */
+CreateAclGroupResponse Client::createAclGroup(const CreateAclGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAclGroupWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Create a service role for Milvus to access other cloud products
  *
  * @param headers map
@@ -517,6 +574,55 @@ GetInstanceDetailResponse Client::getInstanceDetail(const GetInstanceDetailReque
 }
 
 /**
+ * @summary 获取当前用户下的分组信息和内容
+ *
+ * @param request ListAclGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAclGroupsResponse
+ */
+ListAclGroupsResponse Client::listAclGroupsWithOptions(const ListAclGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAclGroups"},
+    {"version" , "2023-10-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/milvus/listAclGroups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAclGroupsResponse>();
+}
+
+/**
+ * @summary 获取当前用户下的分组信息和内容
+ *
+ * @param request ListAclGroupsRequest
+ * @return ListAclGroupsResponse
+ */
+ListAclGroupsResponse Client::listAclGroups(const ListAclGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAclGroupsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Get the list of Milvus instances under the current account.
  *
  * @param tmpReq ListInstancesRequest
@@ -906,6 +1012,59 @@ UpdateAccessControlListResponse Client::updateAccessControlList(const UpdateAcce
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAccessControlListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改分组内的白名单
+ *
+ * @param request UpdateAclGroupCidrsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAclGroupCidrsResponse
+ */
+UpdateAclGroupCidrsResponse Client::updateAclGroupCidrsWithOptions(const UpdateAclGroupCidrsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupName()) {
+    query["groupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNewCidrs()) {
+    query["newCidrs"] = request.getNewCidrs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAclGroupCidrs"},
+    {"version" , "2023-10-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/milvus/updateAclGroupCidrs")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAclGroupCidrsResponse>();
+}
+
+/**
+ * @summary 修改分组内的白名单
+ *
+ * @param request UpdateAclGroupCidrsRequest
+ * @return UpdateAclGroupCidrsResponse
+ */
+UpdateAclGroupCidrsResponse Client::updateAclGroupCidrs(const UpdateAclGroupCidrsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAclGroupCidrsWithOptions(request, headers, runtime);
 }
 
 /**

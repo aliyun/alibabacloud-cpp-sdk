@@ -39,6 +39,24 @@ namespace Milvus20231012
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
+       * @summary 创建白名单分组
+       *
+       * @param request CreateAclGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAclGroupResponse
+       */
+      Models::CreateAclGroupResponse createAclGroupWithOptions(const Models::CreateAclGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建白名单分组
+       *
+       * @param request CreateAclGroupRequest
+       * @return CreateAclGroupResponse
+       */
+      Models::CreateAclGroupResponse createAclGroup(const Models::CreateAclGroupRequest &request);
+
+      /**
        * @summary Create a service role for Milvus to access other cloud products
        *
        * @param headers map
@@ -163,6 +181,24 @@ namespace Milvus20231012
       Models::GetInstanceDetailResponse getInstanceDetail(const Models::GetInstanceDetailRequest &request);
 
       /**
+       * @summary 获取当前用户下的分组信息和内容
+       *
+       * @param request ListAclGroupsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAclGroupsResponse
+       */
+      Models::ListAclGroupsResponse listAclGroupsWithOptions(const Models::ListAclGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取当前用户下的分组信息和内容
+       *
+       * @param request ListAclGroupsRequest
+       * @return ListAclGroupsResponse
+       */
+      Models::ListAclGroupsResponse listAclGroups(const Models::ListAclGroupsRequest &request);
+
+      /**
        * @summary Get the list of Milvus instances under the current account.
        *
        * @param tmpReq ListInstancesRequest
@@ -269,6 +305,24 @@ namespace Milvus20231012
        * @return UpdateAccessControlListResponse
        */
       Models::UpdateAccessControlListResponse updateAccessControlList(const Models::UpdateAccessControlListRequest &request);
+
+      /**
+       * @summary 修改分组内的白名单
+       *
+       * @param request UpdateAclGroupCidrsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAclGroupCidrsResponse
+       */
+      Models::UpdateAclGroupCidrsResponse updateAclGroupCidrsWithOptions(const Models::UpdateAclGroupCidrsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改分组内的白名单
+       *
+       * @param request UpdateAclGroupCidrsRequest
+       * @return UpdateAclGroupCidrsResponse
+       */
+      Models::UpdateAclGroupCidrsResponse updateAclGroupCidrs(const Models::UpdateAclGroupCidrsRequest &request);
 
       /**
        * @summary 更新实例

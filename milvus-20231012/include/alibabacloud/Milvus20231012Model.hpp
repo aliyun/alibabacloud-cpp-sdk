@@ -12,6 +12,9 @@
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
+#include <alibabacloud/models/CreateAclGroupRequest.hpp>
+#include <alibabacloud/models/CreateAclGroupResponseBody.hpp>
+#include <alibabacloud/models/CreateAclGroupResponse.hpp>
 #include <alibabacloud/models/CreateDefaultRoleResponseBody.hpp>
 #include <alibabacloud/models/CreateDefaultRoleResponse.hpp>
 #include <alibabacloud/models/CreateInstanceRequest.hpp>
@@ -32,6 +35,9 @@
 #include <alibabacloud/models/GetInstanceDetailRequest.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponse.hpp>
+#include <alibabacloud/models/ListAclGroupsRequest.hpp>
+#include <alibabacloud/models/ListAclGroupsResponseBody.hpp>
+#include <alibabacloud/models/ListAclGroupsResponse.hpp>
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
@@ -53,6 +59,9 @@
 #include <alibabacloud/models/UpdateAccessControlListRequest.hpp>
 #include <alibabacloud/models/UpdateAccessControlListResponseBody.hpp>
 #include <alibabacloud/models/UpdateAccessControlListResponse.hpp>
+#include <alibabacloud/models/UpdateAclGroupCidrsRequest.hpp>
+#include <alibabacloud/models/UpdateAclGroupCidrsResponseBody.hpp>
+#include <alibabacloud/models/UpdateAclGroupCidrsResponse.hpp>
 #include <alibabacloud/models/UpdateInstanceRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceResponse.hpp>
