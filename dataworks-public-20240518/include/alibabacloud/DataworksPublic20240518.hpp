@@ -5,9 +5,9 @@
 #include <alibabacloud/DataworksPublic20240518Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
-#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/DataworksPublic20240518.hpp>
+#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,6 @@ namespace DataworksPublic20240518
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -128,6 +127,23 @@ namespace DataworksPublic20240518
       Models::BatchUpdateTasksResponse batchUpdateTasks(const Models::BatchUpdateTasksRequest &request);
 
       /**
+       * @summary 取消并停止Agent当前正在进行中的Session会话
+       *
+       * @param tmpReq CancelAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelAgentSessionResponse
+       */
+      Models::CancelAgentSessionResponse cancelAgentSessionWithOptions(const Models::CancelAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消并停止Agent当前正在进行中的Session会话
+       *
+       * @param request CancelAgentSessionRequest
+       * @return CancelAgentSessionResponse
+       */
+      Models::CancelAgentSessionResponse cancelAgentSession(const Models::CancelAgentSessionRequest &request);
+
+      /**
        * @summary Clones an existing data source.
        *
        * @description 1.  This API operation is available for all DataWorks editions.
@@ -151,6 +167,23 @@ namespace DataworksPublic20240518
        * @return CloneDataSourceResponse
        */
       Models::CloneDataSourceResponse cloneDataSource(const Models::CloneDataSourceRequest &request);
+
+      /**
+       * @summary 创建一个Agent Session会话
+       *
+       * @param tmpReq CreateAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgentSessionResponse
+       */
+      Models::CreateAgentSessionResponse createAgentSessionWithOptions(const Models::CreateAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个Agent Session会话
+       *
+       * @param request CreateAgentSessionRequest
+       * @return CreateAgentSessionResponse
+       */
+      Models::CreateAgentSessionResponse createAgentSession(const Models::CreateAgentSessionRequest &request);
 
       /**
        * @summary Creates a custom monitoring alert rule.
@@ -690,7 +723,7 @@ namespace DataworksPublic20240518
       Models::CreateNodeResponse createNode(const Models::CreateNodeRequest &request);
 
       /**
-       * @summary 创建参数。
+       * @summary Creates a parameter.
        *
        * @param tmpReq CreateParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -699,7 +732,7 @@ namespace DataworksPublic20240518
       Models::CreateParameterResponse createParameterWithOptions(const Models::CreateParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建参数。
+       * @summary Creates a parameter.
        *
        * @param request CreateParameterRequest
        * @return CreateParameterResponse
@@ -1410,7 +1443,7 @@ namespace DataworksPublic20240518
       Models::DeleteNodeResponse deleteNode(const Models::DeleteNodeRequest &request);
 
       /**
-       * @summary 删除参数。
+       * @summary Remove specified parameters.
        *
        * @param request DeleteParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1419,7 +1452,7 @@ namespace DataworksPublic20240518
       Models::DeleteParameterResponse deleteParameterWithOptions(const Models::DeleteParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除参数。
+       * @summary Remove specified parameters.
        *
        * @param request DeleteParameterRequest
        * @return DeleteParameterResponse
@@ -1715,6 +1748,40 @@ namespace DataworksPublic20240518
        * @return ExecuteAdhocWorkflowInstanceResponse
        */
       Models::ExecuteAdhocWorkflowInstanceResponse executeAdhocWorkflowInstance(const Models::ExecuteAdhocWorkflowInstanceRequest &request);
+
+      /**
+       * @summary 获取Agent指定Session下的模型产出物详情
+       *
+       * @param tmpReq GetAgentSessionArtifactMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentSessionArtifactMetaResponse
+       */
+      Models::GetAgentSessionArtifactMetaResponse getAgentSessionArtifactMetaWithOptions(const Models::GetAgentSessionArtifactMetaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Agent指定Session下的模型产出物详情
+       *
+       * @param request GetAgentSessionArtifactMetaRequest
+       * @return GetAgentSessionArtifactMetaResponse
+       */
+      Models::GetAgentSessionArtifactMetaResponse getAgentSessionArtifactMeta(const Models::GetAgentSessionArtifactMetaRequest &request);
+
+      /**
+       * @summary 获取Agent指定Session下的Token用量
+       *
+       * @param tmpReq GetAgentSessionTokenUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentSessionTokenUsageResponse
+       */
+      Models::GetAgentSessionTokenUsageResponse getAgentSessionTokenUsageWithOptions(const Models::GetAgentSessionTokenUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Agent指定Session下的Token用量
+       *
+       * @param request GetAgentSessionTokenUsageRequest
+       * @return GetAgentSessionTokenUsageResponse
+       */
+      Models::GetAgentSessionTokenUsageResponse getAgentSessionTokenUsage(const Models::GetAgentSessionTokenUsageRequest &request);
 
       /**
        * @summary Queries a custom alert monitoring rule.
@@ -2373,7 +2440,7 @@ namespace DataworksPublic20240518
       Models::GetNodeResponse getNode(const Models::GetNodeRequest &request);
 
       /**
-       * @summary 根据参数ID获取参数的详细信息。
+       * @summary Obtains the details of a parameter by parameter ID.
        *
        * @param request GetParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2382,7 +2449,7 @@ namespace DataworksPublic20240518
       Models::GetParameterResponse getParameterWithOptions(const Models::GetParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据参数ID获取参数的详细信息。
+       * @summary Obtains the details of a parameter by parameter ID.
        *
        * @param request GetParameterRequest
        * @return GetParameterResponse
@@ -2790,6 +2857,57 @@ namespace DataworksPublic20240518
        * @return ImportWorkflowDefinitionResponse
        */
       Models::ImportWorkflowDefinitionResponse importWorkflowDefinition(const Models::ImportWorkflowDefinitionRequest &request);
+
+      /**
+       * @summary 获取Agent指定Session下的模型产出物清单列表
+       *
+       * @param tmpReq ListAgentSessionArtifactsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentSessionArtifactsResponse
+       */
+      Models::ListAgentSessionArtifactsResponse listAgentSessionArtifactsWithOptions(const Models::ListAgentSessionArtifactsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Agent指定Session下的模型产出物清单列表
+       *
+       * @param request ListAgentSessionArtifactsRequest
+       * @return ListAgentSessionArtifactsResponse
+       */
+      Models::ListAgentSessionArtifactsResponse listAgentSessionArtifacts(const Models::ListAgentSessionArtifactsRequest &request);
+
+      /**
+       * @summary 加载Agent Session对话历史列表
+       *
+       * @param tmpReq ListAgentSessionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentSessionsResponse
+       */
+      Models::ListAgentSessionsResponse listAgentSessionsWithOptions(const Models::ListAgentSessionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 加载Agent Session对话历史列表
+       *
+       * @param request ListAgentSessionsRequest
+       * @return ListAgentSessionsResponse
+       */
+      Models::ListAgentSessionsResponse listAgentSessions(const Models::ListAgentSessionsRequest &request);
+
+      /**
+       * @summary 获取DataAgent的Agent定义列表
+       *
+       * @param tmpReq ListAgentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgentsResponse
+       */
+      Models::ListAgentsResponse listAgentsWithOptions(const Models::ListAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取DataAgent的Agent定义列表
+       *
+       * @param request ListAgentsRequest
+       * @return ListAgentsResponse
+       */
+      Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
 
       /**
        * @summary Queries a list of custom monitoring alert rules.
@@ -3648,7 +3766,7 @@ namespace DataworksPublic20240518
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary 查询参数版本列表。
+       * @summary Queries the list of parameter versions.
        *
        * @param request ListParameterVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3657,7 +3775,7 @@ namespace DataworksPublic20240518
       Models::ListParameterVersionsResponse listParameterVersionsWithOptions(const Models::ListParameterVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询参数版本列表。
+       * @summary Queries the list of parameter versions.
        *
        * @param request ListParameterVersionsRequest
        * @return ListParameterVersionsResponse
@@ -3665,7 +3783,7 @@ namespace DataworksPublic20240518
       Models::ListParameterVersionsResponse listParameterVersions(const Models::ListParameterVersionsRequest &request);
 
       /**
-       * @summary 查询参数列表。
+       * @summary Queries a list of parameters.
        *
        * @param tmpReq ListParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3674,7 +3792,7 @@ namespace DataworksPublic20240518
       Models::ListParametersResponse listParametersWithOptions(const Models::ListParametersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询参数列表。
+       * @summary Queries a list of parameters.
        *
        * @param request ListParametersRequest
        * @return ListParametersResponse
@@ -4102,6 +4220,32 @@ namespace DataworksPublic20240518
       Models::ListWorkflowsResponse listWorkflows(const Models::ListWorkflowsRequest &request);
 
       /**
+       * @summary 加载Agent Session对话历史
+       *
+       * @param tmpReq LoadAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LoadAgentSessionResponse
+       */
+      FutureGenerator<Models::LoadAgentSessionResponse> loadAgentSessionWithSSE(const Models::LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 加载Agent Session对话历史
+       *
+       * @param tmpReq LoadAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LoadAgentSessionResponse
+       */
+      Models::LoadAgentSessionResponse loadAgentSessionWithOptions(const Models::LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 加载Agent Session对话历史
+       *
+       * @param request LoadAgentSessionRequest
+       * @return LoadAgentSessionResponse
+       */
+      Models::LoadAgentSessionResponse loadAgentSession(const Models::LoadAgentSessionRequest &request);
+
+      /**
        * @summary Moves a user-defined function (UDF) to a path in DataStudio.
        *
        * @param request MoveFunctionRequest
@@ -4185,6 +4329,32 @@ namespace DataworksPublic20240518
        * @return PreviewDatasetVersionResponse
        */
       Models::PreviewDatasetVersionResponse previewDatasetVersion(const Models::PreviewDatasetVersionRequest &request);
+
+      /**
+       * @summary 在当前的Agent Session中发起一轮新的对话
+       *
+       * @param tmpReq PromptAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PromptAgentSessionResponse
+       */
+      FutureGenerator<Models::PromptAgentSessionResponse> promptAgentSessionWithSSE(const Models::PromptAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 在当前的Agent Session中发起一轮新的对话
+       *
+       * @param tmpReq PromptAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PromptAgentSessionResponse
+       */
+      Models::PromptAgentSessionResponse promptAgentSessionWithOptions(const Models::PromptAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 在当前的Agent Session中发起一轮新的对话
+       *
+       * @param request PromptAgentSessionRequest
+       * @return PromptAgentSessionResponse
+       */
+      Models::PromptAgentSessionResponse promptAgentSession(const Models::PromptAgentSessionRequest &request);
 
       /**
        * @summary Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
@@ -4373,7 +4543,7 @@ namespace DataworksPublic20240518
       Models::RevokeMemberProjectRolesResponse revokeMemberProjectRoles(const Models::RevokeMemberProjectRolesRequest &request);
 
       /**
-       * @summary 回滚参数版本。
+       * @summary Rolls back the specified parameter.
        *
        * @param request RollbackParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4382,7 +4552,7 @@ namespace DataworksPublic20240518
       Models::RollbackParameterResponse rollbackParameterWithOptions(const Models::RollbackParameterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 回滚参数版本。
+       * @summary Rolls back the specified parameter.
        *
        * @param request RollbackParameterRequest
        * @return RollbackParameterResponse
@@ -5075,7 +5245,7 @@ namespace DataworksPublic20240518
       Models::UpdateNodeResponse updateNode(const Models::UpdateNodeRequest &request);
 
       /**
-       * @summary 更新参数。
+       * @summary Updates a parameter. Incremental modification. Only the specified columns are modified.
        *
        * @param tmpReq UpdateParameterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5084,7 +5254,7 @@ namespace DataworksPublic20240518
       Models::UpdateParameterResponse updateParameterWithOptions(const Models::UpdateParameterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新参数。
+       * @summary Updates a parameter. Incremental modification. Only the specified columns are modified.
        *
        * @param request UpdateParameterRequest
        * @return UpdateParameterResponse

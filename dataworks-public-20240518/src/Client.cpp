@@ -4,19 +4,15 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/policy/Retry.hpp>
-#include <darabonba/Exception.hpp>
-#include <darabonba/Convert.hpp>
-#include <darabonba/http/Form.hpp>
-#include <darabonba/Stream.hpp>
-#include <darabonba/XML.hpp>
 #include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
+#include <darabonba/Convert.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
 using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
@@ -93,86 +89,6 @@ AlibabaCloud::DataworksPublic20240518::Client::Client(AlibabaCloud::OpenApi::Uti
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
-  Darabonba::RuntimeOptions runtime_(json({
-    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getKey(), _key))},
-    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCert(), _cert))},
-    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCa(), _ca))},
-    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getReadTimeout(), _readTimeout))},
-    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getConnectTimeout(), _connectTimeout))},
-    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpProxy(), _httpProxy))},
-    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpsProxy(), _httpsProxy))},
-    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getNoProxy(), _noProxy))},
-    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5Proxy(), _socks5Proxy))},
-    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5NetWork(), _socks5NetWork))},
-    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getMaxIdleConns(), _maxIdleConns))},
-    {"retryOptions", _retryOptions},
-    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.getIgnoreSSL(), false))},
-    {"tlsMinVersion", _tlsMinVersion}
-    }));
-
-  std::exception_ptr _lastExceptionPtr;
-  int _retriesAttempted = 0;
-  Darabonba::Policy::RetryPolicyContext _context = json({
-    {"retriesAttempted" , _retriesAttempted}
-  });
-  while (Darabonba::allowRetry(runtime_.getRetryOptions(), _context)) {
-    if (_retriesAttempted > 0) {
-      int _backoffTime = Darabonba::getBackoffTime(runtime_.getRetryOptions(), _context);
-      if (_backoffTime > 0) {
-        Darabonba::sleep(_backoffTime);
-      }
-    }
-    _retriesAttempted++;
-    try {
-      Darabonba::Http::Request request_ = Darabonba::Http::Request();
-      string boundary = Darabonba::Http::Form::getBoundary();
-      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
-      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
-      request_.setProtocol("HTTPS");
-      request_.setMethod("POST");
-      request_.setPathname(DARA_STRING_TEMPLATE("/"));
-      request_.setHeaders(json({
-        {"host" , host},
-        {"date" , Utils::Utils::getDateUTCString()},
-        {"user-agent" , Utils::Utils::getUserAgent("")}
-      }).get<map<string, string>>());
-      request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
-      request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-      shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-      json respMap = nullptr;
-      string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
-      if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
-        respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap.value("Error", Darabonba::Json()));
-        throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
-          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
-          {"data" , json({
-            {"httpCode" , response_->getStatusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
-            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
-          })}
-        }));
-      }
-
-      respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-      return Darabonba::Core::merge(respMap
-      );
-    } catch (const Darabonba::DaraException& ex) {
-      _lastExceptionPtr = std::current_exception();
-      _context = Darabonba::Policy::RetryPolicyContext(json({
-        {"retriesAttempted" , _retriesAttempted},
-        {"exception" , ex},
-      }));
-      continue;
-    }
-  }
-
-  std::rethrow_exception(_lastExceptionPtr);
-}
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
   if (!Darabonba::isNull(endpoint)) {
@@ -457,6 +373,62 @@ BatchUpdateTasksResponse Client::batchUpdateTasks(const BatchUpdateTasksRequest 
 }
 
 /**
+ * @summary 取消并停止Agent当前正在进行中的Session会话
+ *
+ * @param tmpReq CancelAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelAgentSessionResponse
+ */
+CancelAgentSessionResponse Client::cancelAgentSessionWithOptions(const CancelAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CancelAgentSessionShrinkRequest request = CancelAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelAgentSession"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelAgentSessionResponse>();
+}
+
+/**
+ * @summary 取消并停止Agent当前正在进行中的Session会话
+ *
+ * @param request CancelAgentSessionRequest
+ * @return CancelAgentSessionResponse
+ */
+CancelAgentSessionResponse Client::cancelAgentSession(const CancelAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelAgentSessionWithOptions(request, runtime);
+}
+
+/**
  * @summary Clones an existing data source.
  *
  * @description 1.  This API operation is available for all DataWorks editions.
@@ -508,6 +480,62 @@ CloneDataSourceResponse Client::cloneDataSourceWithOptions(const CloneDataSource
 CloneDataSourceResponse Client::cloneDataSource(const CloneDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cloneDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建一个Agent Session会话
+ *
+ * @param tmpReq CreateAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgentSessionResponse
+ */
+CreateAgentSessionResponse Client::createAgentSessionWithOptions(const CreateAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAgentSessionShrinkRequest request = CreateAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateAgentSession"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgentSessionResponse>();
+}
+
+/**
+ * @summary 创建一个Agent Session会话
+ *
+ * @param request CreateAgentSessionRequest
+ * @return CreateAgentSessionResponse
+ */
+CreateAgentSessionResponse Client::createAgentSession(const CreateAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgentSessionWithOptions(request, runtime);
 }
 
 /**
@@ -2483,7 +2511,7 @@ CreateNodeResponse Client::createNode(const CreateNodeRequest &request) {
 }
 
 /**
- * @summary 创建参数。
+ * @summary Creates a parameter.
  *
  * @param tmpReq CreateParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2544,7 +2572,7 @@ CreateParameterResponse Client::createParameterWithOptions(const CreateParameter
 }
 
 /**
- * @summary 创建参数。
+ * @summary Creates a parameter.
  *
  * @param request CreateParameterRequest
  * @return CreateParameterResponse
@@ -4649,7 +4677,7 @@ DeleteNodeResponse Client::deleteNode(const DeleteNodeRequest &request) {
 }
 
 /**
- * @summary 删除参数。
+ * @summary Remove specified parameters.
  *
  * @param request DeleteParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4680,7 +4708,7 @@ DeleteParameterResponse Client::deleteParameterWithOptions(const DeleteParameter
 }
 
 /**
- * @summary 删除参数。
+ * @summary Remove specified parameters.
  *
  * @param request DeleteParameterRequest
  * @return DeleteParameterResponse
@@ -5440,6 +5468,118 @@ ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstanceWithOpt
 ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstance(const ExecuteAdhocWorkflowInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeAdhocWorkflowInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Agent指定Session下的模型产出物详情
+ *
+ * @param tmpReq GetAgentSessionArtifactMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentSessionArtifactMetaResponse
+ */
+GetAgentSessionArtifactMetaResponse Client::getAgentSessionArtifactMetaWithOptions(const GetAgentSessionArtifactMetaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetAgentSessionArtifactMetaShrinkRequest request = GetAgentSessionArtifactMetaShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAgentSessionArtifactMeta"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentSessionArtifactMetaResponse>();
+}
+
+/**
+ * @summary 获取Agent指定Session下的模型产出物详情
+ *
+ * @param request GetAgentSessionArtifactMetaRequest
+ * @return GetAgentSessionArtifactMetaResponse
+ */
+GetAgentSessionArtifactMetaResponse Client::getAgentSessionArtifactMeta(const GetAgentSessionArtifactMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentSessionArtifactMetaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Agent指定Session下的Token用量
+ *
+ * @param tmpReq GetAgentSessionTokenUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentSessionTokenUsageResponse
+ */
+GetAgentSessionTokenUsageResponse Client::getAgentSessionTokenUsageWithOptions(const GetAgentSessionTokenUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetAgentSessionTokenUsageShrinkRequest request = GetAgentSessionTokenUsageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAgentSessionTokenUsage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentSessionTokenUsageResponse>();
+}
+
+/**
+ * @summary 获取Agent指定Session下的Token用量
+ *
+ * @param request GetAgentSessionTokenUsageRequest
+ * @return GetAgentSessionTokenUsageResponse
+ */
+GetAgentSessionTokenUsageResponse Client::getAgentSessionTokenUsage(const GetAgentSessionTokenUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentSessionTokenUsageWithOptions(request, runtime);
 }
 
 /**
@@ -6941,7 +7081,7 @@ GetNodeResponse Client::getNode(const GetNodeRequest &request) {
 }
 
 /**
- * @summary 根据参数ID获取参数的详细信息。
+ * @summary Obtains the details of a parameter by parameter ID.
  *
  * @param request GetParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6972,7 +7112,7 @@ GetParameterResponse Client::getParameterWithOptions(const GetParameterRequest &
 }
 
 /**
- * @summary 根据参数ID获取参数的详细信息。
+ * @summary Obtains the details of a parameter by parameter ID.
  *
  * @param request GetParameterRequest
  * @return GetParameterResponse
@@ -7948,6 +8088,174 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinitionWithOptions(con
 ImportWorkflowDefinitionResponse Client::importWorkflowDefinition(const ImportWorkflowDefinitionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return importWorkflowDefinitionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Agent指定Session下的模型产出物清单列表
+ *
+ * @param tmpReq ListAgentSessionArtifactsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgentSessionArtifactsResponse
+ */
+ListAgentSessionArtifactsResponse Client::listAgentSessionArtifactsWithOptions(const ListAgentSessionArtifactsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAgentSessionArtifactsShrinkRequest request = ListAgentSessionArtifactsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAgentSessionArtifacts"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgentSessionArtifactsResponse>();
+}
+
+/**
+ * @summary 获取Agent指定Session下的模型产出物清单列表
+ *
+ * @param request ListAgentSessionArtifactsRequest
+ * @return ListAgentSessionArtifactsResponse
+ */
+ListAgentSessionArtifactsResponse Client::listAgentSessionArtifacts(const ListAgentSessionArtifactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgentSessionArtifactsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 加载Agent Session对话历史列表
+ *
+ * @param tmpReq ListAgentSessionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgentSessionsResponse
+ */
+ListAgentSessionsResponse Client::listAgentSessionsWithOptions(const ListAgentSessionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAgentSessionsShrinkRequest request = ListAgentSessionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAgentSessions"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgentSessionsResponse>();
+}
+
+/**
+ * @summary 加载Agent Session对话历史列表
+ *
+ * @param request ListAgentSessionsRequest
+ * @return ListAgentSessionsResponse
+ */
+ListAgentSessionsResponse Client::listAgentSessions(const ListAgentSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgentSessionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取DataAgent的Agent定义列表
+ *
+ * @param tmpReq ListAgentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgentsResponse
+ */
+ListAgentsResponse Client::listAgentsWithOptions(const ListAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAgentsShrinkRequest request = ListAgentsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAgents"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgentsResponse>();
+}
+
+/**
+ * @summary 获取DataAgent的Agent定义列表
+ *
+ * @param request ListAgentsRequest
+ * @return ListAgentsResponse
+ */
+ListAgentsResponse Client::listAgents(const ListAgentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgentsWithOptions(request, runtime);
 }
 
 /**
@@ -10245,7 +10553,7 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary 查询参数版本列表。
+ * @summary Queries the list of parameter versions.
  *
  * @param request ListParameterVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10288,7 +10596,7 @@ ListParameterVersionsResponse Client::listParameterVersionsWithOptions(const Lis
 }
 
 /**
- * @summary 查询参数版本列表。
+ * @summary Queries the list of parameter versions.
  *
  * @param request ListParameterVersionsRequest
  * @return ListParameterVersionsResponse
@@ -10299,7 +10607,7 @@ ListParameterVersionsResponse Client::listParameterVersions(const ListParameterV
 }
 
 /**
- * @summary 查询参数列表。
+ * @summary Queries a list of parameters.
  *
  * @param tmpReq ListParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10372,7 +10680,7 @@ ListParametersResponse Client::listParametersWithOptions(const ListParametersReq
 }
 
 /**
- * @summary 查询参数列表。
+ * @summary Queries a list of parameters.
  *
  * @param request ListParametersRequest
  * @return ListParametersResponse
@@ -11709,6 +12017,121 @@ ListWorkflowsResponse Client::listWorkflows(const ListWorkflowsRequest &request)
 }
 
 /**
+ * @summary 加载Agent Session对话历史
+ *
+ * @param tmpReq LoadAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LoadAgentSessionResponse
+ */
+FutureGenerator<LoadAgentSessionResponse> Client::loadAgentSessionWithSSE(const LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  LoadAgentSessionShrinkRequest request = LoadAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "LoadAgentSession"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<LoadAgentSessionResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 加载Agent Session对话历史
+ *
+ * @param tmpReq LoadAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LoadAgentSessionResponse
+ */
+LoadAgentSessionResponse Client::loadAgentSessionWithOptions(const LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  LoadAgentSessionShrinkRequest request = LoadAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "LoadAgentSession"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LoadAgentSessionResponse>();
+}
+
+/**
+ * @summary 加载Agent Session对话历史
+ *
+ * @param request LoadAgentSessionRequest
+ * @return LoadAgentSessionResponse
+ */
+LoadAgentSessionResponse Client::loadAgentSession(const LoadAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return loadAgentSessionWithOptions(request, runtime);
+}
+
+/**
  * @summary Moves a user-defined function (UDF) to a path in DataStudio.
  *
  * @param request MoveFunctionRequest
@@ -11948,6 +12371,121 @@ PreviewDatasetVersionResponse Client::previewDatasetVersionWithOptions(const Pre
 PreviewDatasetVersionResponse Client::previewDatasetVersion(const PreviewDatasetVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return previewDatasetVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 在当前的Agent Session中发起一轮新的对话
+ *
+ * @param tmpReq PromptAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PromptAgentSessionResponse
+ */
+FutureGenerator<PromptAgentSessionResponse> Client::promptAgentSessionWithSSE(const PromptAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PromptAgentSessionShrinkRequest request = PromptAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "PromptAgentSession"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<PromptAgentSessionResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 在当前的Agent Session中发起一轮新的对话
+ *
+ * @param tmpReq PromptAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PromptAgentSessionResponse
+ */
+PromptAgentSessionResponse Client::promptAgentSessionWithOptions(const PromptAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PromptAgentSessionShrinkRequest request = PromptAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasJsonrpc()) {
+    body["Jsonrpc"] = request.getJsonrpc();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "PromptAgentSession"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PromptAgentSessionResponse>();
+}
+
+/**
+ * @summary 在当前的Agent Session中发起一轮新的对话
+ *
+ * @param request PromptAgentSessionRequest
+ * @return PromptAgentSessionResponse
+ */
+PromptAgentSessionResponse Client::promptAgentSession(const PromptAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return promptAgentSessionWithOptions(request, runtime);
 }
 
 /**
@@ -12523,7 +13061,7 @@ RevokeMemberProjectRolesResponse Client::revokeMemberProjectRoles(const RevokeMe
 }
 
 /**
- * @summary 回滚参数版本。
+ * @summary Rolls back the specified parameter.
  *
  * @param request RollbackParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12558,7 +13096,7 @@ RollbackParameterResponse Client::rollbackParameterWithOptions(const RollbackPar
 }
 
 /**
- * @summary 回滚参数版本。
+ * @summary Rolls back the specified parameter.
  *
  * @param request RollbackParameterRequest
  * @return RollbackParameterResponse
@@ -14897,7 +15435,7 @@ UpdateNodeResponse Client::updateNode(const UpdateNodeRequest &request) {
 }
 
 /**
- * @summary 更新参数。
+ * @summary Updates a parameter. Incremental modification. Only the specified columns are modified.
  *
  * @param tmpReq UpdateParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14946,7 +15484,7 @@ UpdateParameterResponse Client::updateParameterWithOptions(const UpdateParameter
 }
 
 /**
- * @summary 更新参数。
+ * @summary Updates a parameter. Incremental modification. Only the specified columns are modified.
  *
  * @param request UpdateParameterRequest
  * @return UpdateParameterResponse
