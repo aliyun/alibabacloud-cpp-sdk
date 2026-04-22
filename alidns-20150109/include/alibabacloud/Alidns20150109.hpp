@@ -2008,6 +2008,74 @@ namespace Alidns20150109
       Models::DescribeInstanceDomainsResponse describeInstanceDomains(const Models::DescribeInstanceDomainsRequest &request);
 
       /**
+       * @summary 公网权威解析统计信息全局总览
+       *
+       * @param request DescribeInterAuthStatisticsGlobalOverviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInterAuthStatisticsGlobalOverviewResponse
+       */
+      Models::DescribeInterAuthStatisticsGlobalOverviewResponse describeInterAuthStatisticsGlobalOverviewWithOptions(const Models::DescribeInterAuthStatisticsGlobalOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 公网权威解析统计信息全局总览
+       *
+       * @param request DescribeInterAuthStatisticsGlobalOverviewRequest
+       * @return DescribeInterAuthStatisticsGlobalOverviewResponse
+       */
+      Models::DescribeInterAuthStatisticsGlobalOverviewResponse describeInterAuthStatisticsGlobalOverview(const Models::DescribeInterAuthStatisticsGlobalOverviewRequest &request);
+
+      /**
+       * @summary 公网权威解析统计信息趋势
+       *
+       * @param request DescribeInterAuthStatisticsHistoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInterAuthStatisticsHistoryResponse
+       */
+      Models::DescribeInterAuthStatisticsHistoryResponse describeInterAuthStatisticsHistoryWithOptions(const Models::DescribeInterAuthStatisticsHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 公网权威解析统计信息趋势
+       *
+       * @param request DescribeInterAuthStatisticsHistoryRequest
+       * @return DescribeInterAuthStatisticsHistoryResponse
+       */
+      Models::DescribeInterAuthStatisticsHistoryResponse describeInterAuthStatisticsHistory(const Models::DescribeInterAuthStatisticsHistoryRequest &request);
+
+      /**
+       * @summary 公网权威解析统计信息摘要列表
+       *
+       * @param request DescribeInterAuthStatisticsSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInterAuthStatisticsSummaryResponse
+       */
+      Models::DescribeInterAuthStatisticsSummaryResponse describeInterAuthStatisticsSummaryWithOptions(const Models::DescribeInterAuthStatisticsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 公网权威解析统计信息摘要列表
+       *
+       * @param request DescribeInterAuthStatisticsSummaryRequest
+       * @return DescribeInterAuthStatisticsSummaryResponse
+       */
+      Models::DescribeInterAuthStatisticsSummaryResponse describeInterAuthStatisticsSummary(const Models::DescribeInterAuthStatisticsSummaryRequest &request);
+
+      /**
+       * @summary 公网权威解析统计信息Zone维度总览
+       *
+       * @param request DescribeInterAuthStatisticsZoneOverviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInterAuthStatisticsZoneOverviewResponse
+       */
+      Models::DescribeInterAuthStatisticsZoneOverviewResponse describeInterAuthStatisticsZoneOverviewWithOptions(const Models::DescribeInterAuthStatisticsZoneOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 公网权威解析统计信息Zone维度总览
+       *
+       * @param request DescribeInterAuthStatisticsZoneOverviewRequest
+       * @return DescribeInterAuthStatisticsZoneOverviewResponse
+       */
+      Models::DescribeInterAuthStatisticsZoneOverviewResponse describeInterAuthStatisticsZoneOverview(const Models::DescribeInterAuthStatisticsZoneOverviewRequest &request);
+
+      /**
        * @summary 查询解析日志
        *
        * @param request DescribeInternetDnsLogsRequest

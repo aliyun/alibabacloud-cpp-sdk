@@ -6250,6 +6250,270 @@ DescribeInstanceDomainsResponse Client::describeInstanceDomains(const DescribeIn
 }
 
 /**
+ * @summary 公网权威解析统计信息全局总览
+ *
+ * @param request DescribeInterAuthStatisticsGlobalOverviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInterAuthStatisticsGlobalOverviewResponse
+ */
+DescribeInterAuthStatisticsGlobalOverviewResponse Client::describeInterAuthStatisticsGlobalOverviewWithOptions(const DescribeInterAuthStatisticsGlobalOverviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasOverviewPeriod()) {
+    query["OverviewPeriod"] = request.getOverviewPeriod();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInterAuthStatisticsGlobalOverview"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInterAuthStatisticsGlobalOverviewResponse>();
+}
+
+/**
+ * @summary 公网权威解析统计信息全局总览
+ *
+ * @param request DescribeInterAuthStatisticsGlobalOverviewRequest
+ * @return DescribeInterAuthStatisticsGlobalOverviewResponse
+ */
+DescribeInterAuthStatisticsGlobalOverviewResponse Client::describeInterAuthStatisticsGlobalOverview(const DescribeInterAuthStatisticsGlobalOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInterAuthStatisticsGlobalOverviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary 公网权威解析统计信息趋势
+ *
+ * @param request DescribeInterAuthStatisticsHistoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInterAuthStatisticsHistoryResponse
+ */
+DescribeInterAuthStatisticsHistoryResponse Client::describeInterAuthStatisticsHistoryWithOptions(const DescribeInterAuthStatisticsHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEndTimestamp()) {
+    query["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasRcode()) {
+    query["Rcode"] = request.getRcode();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  if (!!request.hasStartTimestamp()) {
+    query["StartTimestamp"] = request.getStartTimestamp();
+  }
+
+  if (!!request.hasStatisticalType()) {
+    query["StatisticalType"] = request.getStatisticalType();
+  }
+
+  if (!!request.hasZoneName()) {
+    query["ZoneName"] = request.getZoneName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInterAuthStatisticsHistory"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInterAuthStatisticsHistoryResponse>();
+}
+
+/**
+ * @summary 公网权威解析统计信息趋势
+ *
+ * @param request DescribeInterAuthStatisticsHistoryRequest
+ * @return DescribeInterAuthStatisticsHistoryResponse
+ */
+DescribeInterAuthStatisticsHistoryResponse Client::describeInterAuthStatisticsHistory(const DescribeInterAuthStatisticsHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInterAuthStatisticsHistoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 公网权威解析统计信息摘要列表
+ *
+ * @param request DescribeInterAuthStatisticsSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInterAuthStatisticsSummaryResponse
+ */
+DescribeInterAuthStatisticsSummaryResponse Client::describeInterAuthStatisticsSummaryWithOptions(const DescribeInterAuthStatisticsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.getDirection();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEndTimestamp()) {
+    query["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasGrowType()) {
+    query["GrowType"] = request.getGrowType();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasRcode()) {
+    query["Rcode"] = request.getRcode();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasStartTimestamp()) {
+    query["StartTimestamp"] = request.getStartTimestamp();
+  }
+
+  if (!!request.hasStatisticalType()) {
+    query["StatisticalType"] = request.getStatisticalType();
+  }
+
+  if (!!request.hasZoneName()) {
+    query["ZoneName"] = request.getZoneName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInterAuthStatisticsSummary"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInterAuthStatisticsSummaryResponse>();
+}
+
+/**
+ * @summary 公网权威解析统计信息摘要列表
+ *
+ * @param request DescribeInterAuthStatisticsSummaryRequest
+ * @return DescribeInterAuthStatisticsSummaryResponse
+ */
+DescribeInterAuthStatisticsSummaryResponse Client::describeInterAuthStatisticsSummary(const DescribeInterAuthStatisticsSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInterAuthStatisticsSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 公网权威解析统计信息Zone维度总览
+ *
+ * @param request DescribeInterAuthStatisticsZoneOverviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInterAuthStatisticsZoneOverviewResponse
+ */
+DescribeInterAuthStatisticsZoneOverviewResponse Client::describeInterAuthStatisticsZoneOverviewWithOptions(const DescribeInterAuthStatisticsZoneOverviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOverviewPeriod()) {
+    query["OverviewPeriod"] = request.getOverviewPeriod();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  if (!!request.hasZoneName()) {
+    query["ZoneName"] = request.getZoneName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInterAuthStatisticsZoneOverview"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInterAuthStatisticsZoneOverviewResponse>();
+}
+
+/**
+ * @summary 公网权威解析统计信息Zone维度总览
+ *
+ * @param request DescribeInterAuthStatisticsZoneOverviewRequest
+ * @return DescribeInterAuthStatisticsZoneOverviewResponse
+ */
+DescribeInterAuthStatisticsZoneOverviewResponse Client::describeInterAuthStatisticsZoneOverview(const DescribeInterAuthStatisticsZoneOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInterAuthStatisticsZoneOverviewWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询解析日志
  *
  * @param request DescribeInternetDnsLogsRequest
