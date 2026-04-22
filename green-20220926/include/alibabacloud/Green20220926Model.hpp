@@ -69,6 +69,9 @@
 #include <alibabacloud/models/DescribeOnlineTestResultRequest.hpp>
 #include <alibabacloud/models/DescribeOnlineTestResultResponseBody.hpp>
 #include <alibabacloud/models/DescribeOnlineTestResultResponse.hpp>
+#include <alibabacloud/models/DescribeOssV2ResultRequest.hpp>
+#include <alibabacloud/models/DescribeOssV2ResultResponseBody.hpp>
+#include <alibabacloud/models/DescribeOssV2ResultResponse.hpp>
 #include <alibabacloud/models/ExportAnswerSampleRequest.hpp>
 #include <alibabacloud/models/ExportAnswerSampleResponseBody.hpp>
 #include <alibabacloud/models/ExportAnswerSampleResponse.hpp>
@@ -215,6 +218,9 @@
 #include <alibabacloud/models/LlmStreamChatRequest.hpp>
 #include <alibabacloud/models/LlmStreamChatResponseBody.hpp>
 #include <alibabacloud/models/LlmStreamChatResponse.hpp>
+#include <alibabacloud/models/MarkOssV2ResultRequest.hpp>
+#include <alibabacloud/models/MarkOssV2ResultResponseBody.hpp>
+#include <alibabacloud/models/MarkOssV2ResultResponse.hpp>
 #include <alibabacloud/models/ModifyAnswerLibRequest.hpp>
 #include <alibabacloud/models/ModifyAnswerLibResponseBody.hpp>
 #include <alibabacloud/models/ModifyAnswerLibResponse.hpp>

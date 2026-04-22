@@ -395,6 +395,23 @@ namespace Green20220926
       Models::DescribeOnlineTestResultResponse describeOnlineTestResult(const Models::DescribeOnlineTestResultRequest &request);
 
       /**
+       * @summary 获取oss结果v2
+       *
+       * @param request DescribeOssV2ResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOssV2ResultResponse
+       */
+      Models::DescribeOssV2ResultResponse describeOssV2ResultWithOptions(const Models::DescribeOssV2ResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取oss结果v2
+       *
+       * @param request DescribeOssV2ResultRequest
+       * @return DescribeOssV2ResultResponse
+       */
+      Models::DescribeOssV2ResultResponse describeOssV2Result(const Models::DescribeOssV2ResultRequest &request);
+
+      /**
        * @summary 导出代答答案
        *
        * @param request ExportAnswerSampleRequest
@@ -1167,6 +1184,23 @@ namespace Green20220926
        * @return LlmStreamChatResponse
        */
       Models::LlmStreamChatResponse llmStreamChat(const Models::LlmStreamChatRequest &request);
+
+      /**
+       * @summary oss结果反馈
+       *
+       * @param request MarkOssV2ResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MarkOssV2ResultResponse
+       */
+      Models::MarkOssV2ResultResponse markOssV2ResultWithOptions(const Models::MarkOssV2ResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary oss结果反馈
+       *
+       * @param request MarkOssV2ResultRequest
+       * @return MarkOssV2ResultResponse
+       */
+      Models::MarkOssV2ResultResponse markOssV2Result(const Models::MarkOssV2ResultRequest &request);
 
       /**
        * @summary 更新代答库

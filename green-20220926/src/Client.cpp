@@ -1375,6 +1375,72 @@ DescribeOnlineTestResultResponse Client::describeOnlineTestResult(const Describe
 }
 
 /**
+ * @summary 获取oss结果v2
+ *
+ * @param request DescribeOssV2ResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOssV2ResultResponse
+ */
+DescribeOssV2ResultResponse Client::describeOssV2ResultWithOptions(const DescribeOssV2ResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucket()) {
+    query["Bucket"] = request.getBucket();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.getRiskLevel();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOssV2Result"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOssV2ResultResponse>();
+}
+
+/**
+ * @summary 获取oss结果v2
+ *
+ * @param request DescribeOssV2ResultRequest
+ * @return DescribeOssV2ResultResponse
+ */
+DescribeOssV2ResultResponse Client::describeOssV2Result(const DescribeOssV2ResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOssV2ResultWithOptions(request, runtime);
+}
+
+/**
  * @summary 导出代答答案
  *
  * @param request ExportAnswerSampleRequest
@@ -3999,6 +4065,68 @@ LlmStreamChatResponse Client::llmStreamChatWithOptions(const LlmStreamChatReques
 LlmStreamChatResponse Client::llmStreamChat(const LlmStreamChatRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return llmStreamChatWithOptions(request, runtime);
+}
+
+/**
+ * @summary oss结果反馈
+ *
+ * @param request MarkOssV2ResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MarkOssV2ResultResponse
+ */
+MarkOssV2ResultResponse Client::markOssV2ResultWithOptions(const MarkOssV2ResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasFreezeType()) {
+    query["FreezeType"] = request.getFreezeType();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasRequestIds()) {
+    query["RequestIds"] = request.getRequestIds();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MarkOssV2Result"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MarkOssV2ResultResponse>();
+}
+
+/**
+ * @summary oss结果反馈
+ *
+ * @param request MarkOssV2ResultRequest
+ * @return MarkOssV2ResultResponse
+ */
+MarkOssV2ResultResponse Client::markOssV2Result(const MarkOssV2ResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return markOssV2ResultWithOptions(request, runtime);
 }
 
 /**
