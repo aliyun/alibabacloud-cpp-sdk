@@ -1148,6 +1148,356 @@ DescribeCustomLinesResponse Client::describeCustomLines(const DescribeCustomLine
 }
 
 /**
+ * @summary 获取用户可以分析的VPC列表
+ *
+ * @param request DescribeIntranetUserCanAnalysisVpcsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeIntranetUserCanAnalysisVpcsResponse
+ */
+DescribeIntranetUserCanAnalysisVpcsResponse Client::describeIntranetUserCanAnalysisVpcsWithOptions(const DescribeIntranetUserCanAnalysisVpcsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNetworkType()) {
+    query["NetworkType"] = request.getNetworkType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQueryTreeLevel()) {
+    query["QueryTreeLevel"] = request.getQueryTreeLevel();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasVpcOwner()) {
+    query["VpcOwner"] = request.getVpcOwner();
+  }
+
+  if (!!request.hasVpcType()) {
+    query["VpcType"] = request.getVpcType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeIntranetUserCanAnalysisVpcs"},
+    {"version" , "2018-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeIntranetUserCanAnalysisVpcsResponse>();
+}
+
+/**
+ * @summary 获取用户可以分析的VPC列表
+ *
+ * @param request DescribeIntranetUserCanAnalysisVpcsRequest
+ * @return DescribeIntranetUserCanAnalysisVpcsResponse
+ */
+DescribeIntranetUserCanAnalysisVpcsResponse Client::describeIntranetUserCanAnalysisVpcs(const DescribeIntranetUserCanAnalysisVpcsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeIntranetUserCanAnalysisVpcsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pvtz解析统计信息全局总览
+ *
+ * @param request DescribePvtzStatisticsGlobalOverviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePvtzStatisticsGlobalOverviewResponse
+ */
+DescribePvtzStatisticsGlobalOverviewResponse Client::describePvtzStatisticsGlobalOverviewWithOptions(const DescribePvtzStatisticsGlobalOverviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNetworkParams()) {
+    query["NetworkParams"] = request.getNetworkParams();
+  }
+
+  if (!!request.hasOverviewPeriod()) {
+    query["OverviewPeriod"] = request.getOverviewPeriod();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePvtzStatisticsGlobalOverview"},
+    {"version" , "2018-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePvtzStatisticsGlobalOverviewResponse>();
+}
+
+/**
+ * @summary Pvtz解析统计信息全局总览
+ *
+ * @param request DescribePvtzStatisticsGlobalOverviewRequest
+ * @return DescribePvtzStatisticsGlobalOverviewResponse
+ */
+DescribePvtzStatisticsGlobalOverviewResponse Client::describePvtzStatisticsGlobalOverview(const DescribePvtzStatisticsGlobalOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePvtzStatisticsGlobalOverviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pvtz解析统计信息趋势
+ *
+ * @param request DescribePvtzStatisticsHistoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePvtzStatisticsHistoryResponse
+ */
+DescribePvtzStatisticsHistoryResponse Client::describePvtzStatisticsHistoryWithOptions(const DescribePvtzStatisticsHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEndTimestamp()) {
+    query["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasModule()) {
+    query["Module"] = request.getModule();
+  }
+
+  if (!!request.hasNetworkParams()) {
+    query["NetworkParams"] = request.getNetworkParams();
+  }
+
+  if (!!request.hasRcode()) {
+    query["Rcode"] = request.getRcode();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  if (!!request.hasStartTimestamp()) {
+    query["StartTimestamp"] = request.getStartTimestamp();
+  }
+
+  if (!!request.hasStatisticalType()) {
+    query["StatisticalType"] = request.getStatisticalType();
+  }
+
+  if (!!request.hasZoneName()) {
+    query["ZoneName"] = request.getZoneName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePvtzStatisticsHistory"},
+    {"version" , "2018-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePvtzStatisticsHistoryResponse>();
+}
+
+/**
+ * @summary Pvtz解析统计信息趋势
+ *
+ * @param request DescribePvtzStatisticsHistoryRequest
+ * @return DescribePvtzStatisticsHistoryResponse
+ */
+DescribePvtzStatisticsHistoryResponse Client::describePvtzStatisticsHistory(const DescribePvtzStatisticsHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePvtzStatisticsHistoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pvtz解析统计信息摘要列表
+ *
+ * @param request DescribePvtzStatisticsSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePvtzStatisticsSummaryResponse
+ */
+DescribePvtzStatisticsSummaryResponse Client::describePvtzStatisticsSummaryWithOptions(const DescribePvtzStatisticsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.getDirection();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEndTimestamp()) {
+    query["EndTimestamp"] = request.getEndTimestamp();
+  }
+
+  if (!!request.hasGrowType()) {
+    query["GrowType"] = request.getGrowType();
+  }
+
+  if (!!request.hasModule()) {
+    query["Module"] = request.getModule();
+  }
+
+  if (!!request.hasNetworkParams()) {
+    query["NetworkParams"] = request.getNetworkParams();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasRcode()) {
+    query["Rcode"] = request.getRcode();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  if (!!request.hasStartTimestamp()) {
+    query["StartTimestamp"] = request.getStartTimestamp();
+  }
+
+  if (!!request.hasStatisticalType()) {
+    query["StatisticalType"] = request.getStatisticalType();
+  }
+
+  if (!!request.hasZoneName()) {
+    query["ZoneName"] = request.getZoneName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePvtzStatisticsSummary"},
+    {"version" , "2018-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePvtzStatisticsSummaryResponse>();
+}
+
+/**
+ * @summary Pvtz解析统计信息摘要列表
+ *
+ * @param request DescribePvtzStatisticsSummaryRequest
+ * @return DescribePvtzStatisticsSummaryResponse
+ */
+DescribePvtzStatisticsSummaryResponse Client::describePvtzStatisticsSummary(const DescribePvtzStatisticsSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePvtzStatisticsSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pvtz解析统计信息Zone维度总览
+ *
+ * @param request DescribePvtzStatisticsZoneOverviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePvtzStatisticsZoneOverviewResponse
+ */
+DescribePvtzStatisticsZoneOverviewResponse Client::describePvtzStatisticsZoneOverviewWithOptions(const DescribePvtzStatisticsZoneOverviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasModule()) {
+    query["Module"] = request.getModule();
+  }
+
+  if (!!request.hasNetworkParams()) {
+    query["NetworkParams"] = request.getNetworkParams();
+  }
+
+  if (!!request.hasOverviewPeriod()) {
+    query["OverviewPeriod"] = request.getOverviewPeriod();
+  }
+
+  if (!!request.hasServerRegion()) {
+    query["ServerRegion"] = request.getServerRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePvtzStatisticsZoneOverview"},
+    {"version" , "2018-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePvtzStatisticsZoneOverviewResponse>();
+}
+
+/**
+ * @summary Pvtz解析统计信息Zone维度总览
+ *
+ * @param request DescribePvtzStatisticsZoneOverviewRequest
+ * @return DescribePvtzStatisticsZoneOverviewResponse
+ */
+DescribePvtzStatisticsZoneOverviewResponse Client::describePvtzStatisticsZoneOverview(const DescribePvtzStatisticsZoneOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePvtzStatisticsZoneOverviewWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
  *
  * @param request DescribeRegionsRequest

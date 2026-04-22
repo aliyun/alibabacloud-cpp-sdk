@@ -386,6 +386,91 @@ namespace Pvtz20180101
       Models::DescribeCustomLinesResponse describeCustomLines(const Models::DescribeCustomLinesRequest &request);
 
       /**
+       * @summary 获取用户可以分析的VPC列表
+       *
+       * @param request DescribeIntranetUserCanAnalysisVpcsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeIntranetUserCanAnalysisVpcsResponse
+       */
+      Models::DescribeIntranetUserCanAnalysisVpcsResponse describeIntranetUserCanAnalysisVpcsWithOptions(const Models::DescribeIntranetUserCanAnalysisVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户可以分析的VPC列表
+       *
+       * @param request DescribeIntranetUserCanAnalysisVpcsRequest
+       * @return DescribeIntranetUserCanAnalysisVpcsResponse
+       */
+      Models::DescribeIntranetUserCanAnalysisVpcsResponse describeIntranetUserCanAnalysisVpcs(const Models::DescribeIntranetUserCanAnalysisVpcsRequest &request);
+
+      /**
+       * @summary Pvtz解析统计信息全局总览
+       *
+       * @param request DescribePvtzStatisticsGlobalOverviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePvtzStatisticsGlobalOverviewResponse
+       */
+      Models::DescribePvtzStatisticsGlobalOverviewResponse describePvtzStatisticsGlobalOverviewWithOptions(const Models::DescribePvtzStatisticsGlobalOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Pvtz解析统计信息全局总览
+       *
+       * @param request DescribePvtzStatisticsGlobalOverviewRequest
+       * @return DescribePvtzStatisticsGlobalOverviewResponse
+       */
+      Models::DescribePvtzStatisticsGlobalOverviewResponse describePvtzStatisticsGlobalOverview(const Models::DescribePvtzStatisticsGlobalOverviewRequest &request);
+
+      /**
+       * @summary Pvtz解析统计信息趋势
+       *
+       * @param request DescribePvtzStatisticsHistoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePvtzStatisticsHistoryResponse
+       */
+      Models::DescribePvtzStatisticsHistoryResponse describePvtzStatisticsHistoryWithOptions(const Models::DescribePvtzStatisticsHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Pvtz解析统计信息趋势
+       *
+       * @param request DescribePvtzStatisticsHistoryRequest
+       * @return DescribePvtzStatisticsHistoryResponse
+       */
+      Models::DescribePvtzStatisticsHistoryResponse describePvtzStatisticsHistory(const Models::DescribePvtzStatisticsHistoryRequest &request);
+
+      /**
+       * @summary Pvtz解析统计信息摘要列表
+       *
+       * @param request DescribePvtzStatisticsSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePvtzStatisticsSummaryResponse
+       */
+      Models::DescribePvtzStatisticsSummaryResponse describePvtzStatisticsSummaryWithOptions(const Models::DescribePvtzStatisticsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Pvtz解析统计信息摘要列表
+       *
+       * @param request DescribePvtzStatisticsSummaryRequest
+       * @return DescribePvtzStatisticsSummaryResponse
+       */
+      Models::DescribePvtzStatisticsSummaryResponse describePvtzStatisticsSummary(const Models::DescribePvtzStatisticsSummaryRequest &request);
+
+      /**
+       * @summary Pvtz解析统计信息Zone维度总览
+       *
+       * @param request DescribePvtzStatisticsZoneOverviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePvtzStatisticsZoneOverviewResponse
+       */
+      Models::DescribePvtzStatisticsZoneOverviewResponse describePvtzStatisticsZoneOverviewWithOptions(const Models::DescribePvtzStatisticsZoneOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Pvtz解析统计信息Zone维度总览
+       *
+       * @param request DescribePvtzStatisticsZoneOverviewRequest
+       * @return DescribePvtzStatisticsZoneOverviewResponse
+       */
+      Models::DescribePvtzStatisticsZoneOverviewResponse describePvtzStatisticsZoneOverview(const Models::DescribePvtzStatisticsZoneOverviewRequest &request);
+
+      /**
        * @summary Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
        *
        * @param request DescribeRegionsRequest
