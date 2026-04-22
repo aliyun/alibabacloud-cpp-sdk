@@ -1760,6 +1760,23 @@ namespace Polardb20170801
       Models::DescribeApplicationAttributeResponse describeApplicationAttribute(const Models::DescribeApplicationAttributeRequest &request);
 
       /**
+       * @summary AI 应用日志明细
+       *
+       * @param request DescribeApplicationLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationLogsResponse
+       */
+      Models::DescribeApplicationLogsResponse describeApplicationLogsWithOptions(const Models::DescribeApplicationLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AI 应用日志明细
+       *
+       * @param request DescribeApplicationLogsRequest
+       * @return DescribeApplicationLogsResponse
+       */
+      Models::DescribeApplicationLogsResponse describeApplicationLogs(const Models::DescribeApplicationLogsRequest &request);
+
+      /**
        * @summary 获取应用组件参数
        *
        * @param tmpReq DescribeApplicationParametersRequest

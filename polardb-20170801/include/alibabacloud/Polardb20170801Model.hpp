@@ -296,6 +296,9 @@
 #include <alibabacloud/models/DescribeApplicationAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationAttributeResponse.hpp>
+#include <alibabacloud/models/DescribeApplicationLogsRequest.hpp>
+#include <alibabacloud/models/DescribeApplicationLogsResponseBody.hpp>
+#include <alibabacloud/models/DescribeApplicationLogsResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationParametersRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationParametersShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationParametersResponseBody.hpp>

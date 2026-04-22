@@ -7164,6 +7164,100 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttribute(const 
 }
 
 /**
+ * @summary AI 应用日志明细
+ *
+ * @param request DescribeApplicationLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationLogsResponse
+ */
+DescribeApplicationLogsResponse Client::describeApplicationLogsWithOptions(const DescribeApplicationLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasComponentName()) {
+    query["ComponentName"] = request.getComponentName();
+  }
+
+  if (!!request.hasContainerName()) {
+    query["ContainerName"] = request.getContainerName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasLevel()) {
+    query["Level"] = request.getLevel();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationLogs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationLogsResponse>();
+}
+
+/**
+ * @summary AI 应用日志明细
+ *
+ * @param request DescribeApplicationLogsRequest
+ * @return DescribeApplicationLogsResponse
+ */
+DescribeApplicationLogsResponse Client::describeApplicationLogs(const DescribeApplicationLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationLogsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取应用组件参数
  *
  * @param tmpReq DescribeApplicationParametersRequest
