@@ -41,10 +41,12 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Modules, modules_);
         DARABONBA_PTR_TO_JSON(Source, source_);
         DARABONBA_PTR_TO_JSON(SourceName, sourceName_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Modules, modules_);
         DARABONBA_PTR_FROM_JSON(Source, source_);
         DARABONBA_PTR_FROM_JSON(SourceName, sourceName_);
       };
@@ -59,8 +61,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->source_ == nullptr
-        && this->sourceName_ == nullptr; };
+      virtual bool empty() const override { return this->modules_ == nullptr
+        && this->source_ == nullptr && this->sourceName_ == nullptr; };
+      // modules Field Functions 
+      bool hasModules() const { return this->modules_ != nullptr;};
+      void deleteModules() { this->modules_ = nullptr;};
+      inline const vector<string> & getModules() const { DARABONBA_PTR_GET_CONST(modules_, vector<string>) };
+      inline vector<string> getModules() { DARABONBA_PTR_GET(modules_, vector<string>) };
+      inline Data& setModules(const vector<string> & modules) { DARABONBA_PTR_SET_VALUE(modules_, modules) };
+      inline Data& setModules(vector<string> && modules) { DARABONBA_PTR_SET_RVALUE(modules_, modules) };
+
+
       // source Field Functions 
       bool hasSource() const { return this->source_ != nullptr;};
       void deleteSource() { this->source_ = nullptr;};
@@ -76,6 +87,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<string>> modules_ {};
       // The internal code of the alert data source.
       shared_ptr<string> source_ {};
       // The name of the alert data source.
