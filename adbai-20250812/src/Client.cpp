@@ -116,6 +116,10 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatformWithOptions(con
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasDeviceCount()) {
+    query["DeviceCount"] = request.getDeviceCount();
+  }
+
   if (!!request.hasPlatformName()) {
     query["PlatformName"] = request.getPlatformName();
   }
@@ -369,6 +373,56 @@ DescribeChatMessageResponse Client::describeChatMessageWithOptions(const Describ
 DescribeChatMessageResponse Client::describeChatMessage(const DescribeChatMessageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeChatMessageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询具身智能平台设备资源分配方案
+ *
+ * @param request DescribeEapDeviceResourceAllocationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeEapDeviceResourceAllocationResponse
+ */
+DescribeEapDeviceResourceAllocationResponse Client::describeEapDeviceResourceAllocationWithOptions(const DescribeEapDeviceResourceAllocationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDeviceCount()) {
+    query["DeviceCount"] = request.getDeviceCount();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeEapDeviceResourceAllocation"},
+    {"version" , "2025-08-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeEapDeviceResourceAllocationResponse>();
+}
+
+/**
+ * @summary 查询具身智能平台设备资源分配方案
+ *
+ * @param request DescribeEapDeviceResourceAllocationRequest
+ * @return DescribeEapDeviceResourceAllocationResponse
+ */
+DescribeEapDeviceResourceAllocationResponse Client::describeEapDeviceResourceAllocation(const DescribeEapDeviceResourceAllocationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeEapDeviceResourceAllocationWithOptions(request, runtime);
 }
 
 /**
@@ -635,6 +689,10 @@ ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatformWithOptions(con
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDeviceCount()) {
+    query["DeviceCount"] = request.getDeviceCount();
   }
 
   if (!!request.hasPlatformName()) {

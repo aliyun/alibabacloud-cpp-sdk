@@ -115,6 +115,23 @@ namespace ADBAI20250812
       Models::DescribeChatMessageResponse describeChatMessage(const Models::DescribeChatMessageRequest &request);
 
       /**
+       * @summary 查询具身智能平台设备资源分配方案
+       *
+       * @param request DescribeEapDeviceResourceAllocationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEapDeviceResourceAllocationResponse
+       */
+      Models::DescribeEapDeviceResourceAllocationResponse describeEapDeviceResourceAllocationWithOptions(const Models::DescribeEapDeviceResourceAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询具身智能平台设备资源分配方案
+       *
+       * @param request DescribeEapDeviceResourceAllocationRequest
+       * @return DescribeEapDeviceResourceAllocationResponse
+       */
+      Models::DescribeEapDeviceResourceAllocationResponse describeEapDeviceResourceAllocation(const Models::DescribeEapDeviceResourceAllocationRequest &request);
+
+      /**
        * @summary 查询具身智能平台
        *
        * @param request DescribeEmbodiedAIPlatformsRequest

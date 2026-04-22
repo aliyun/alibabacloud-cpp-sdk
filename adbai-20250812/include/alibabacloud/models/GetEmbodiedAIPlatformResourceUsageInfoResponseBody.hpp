@@ -14,6 +14,7 @@ namespace Models
   class GetEmbodiedAIPlatformResourceUsageInfoResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetEmbodiedAIPlatformResourceUsageInfoResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AcuDetails, acuDetails_);
       DARABONBA_PTR_TO_JSON(GpuDetails, gpuDetails_);
       DARABONBA_PTR_TO_JSON(MaxRegisteredDevices, maxRegisteredDevices_);
       DARABONBA_PTR_TO_JSON(RegisteredDeviceCount, registeredDeviceCount_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageUsage, storageUsage_);
     };
     friend void from_json(const Darabonba::Json& j, GetEmbodiedAIPlatformResourceUsageInfoResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcuDetails, acuDetails_);
       DARABONBA_PTR_FROM_JSON(GpuDetails, gpuDetails_);
       DARABONBA_PTR_FROM_JSON(MaxRegisteredDevices, maxRegisteredDevices_);
       DARABONBA_PTR_FROM_JSON(RegisteredDeviceCount, registeredDeviceCount_);
@@ -242,8 +244,80 @@ namespace Models
       shared_ptr<int32_t> totalCount_ {};
     };
 
-    virtual bool empty() const override { return this->gpuDetails_ == nullptr
-        && this->maxRegisteredDevices_ == nullptr && this->registeredDeviceCount_ == nullptr && this->requestId_ == nullptr && this->slbTraffic_ == nullptr && this->storageUsage_ == nullptr; };
+    class AcuDetails : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AcuDetails& obj) { 
+        DARABONBA_PTR_TO_JSON(EapWebserverACUCount, eapWebserverACUCount_);
+        DARABONBA_PTR_TO_JSON(RayHeadACUCount, rayHeadACUCount_);
+        DARABONBA_PTR_TO_JSON(RayWorkerACUCount, rayWorkerACUCount_);
+        DARABONBA_PTR_TO_JSON(TotalACUCount, totalACUCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, AcuDetails& obj) { 
+        DARABONBA_PTR_FROM_JSON(EapWebserverACUCount, eapWebserverACUCount_);
+        DARABONBA_PTR_FROM_JSON(RayHeadACUCount, rayHeadACUCount_);
+        DARABONBA_PTR_FROM_JSON(RayWorkerACUCount, rayWorkerACUCount_);
+        DARABONBA_PTR_FROM_JSON(TotalACUCount, totalACUCount_);
+      };
+      AcuDetails() = default ;
+      AcuDetails(const AcuDetails &) = default ;
+      AcuDetails(AcuDetails &&) = default ;
+      AcuDetails(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AcuDetails() = default ;
+      AcuDetails& operator=(const AcuDetails &) = default ;
+      AcuDetails& operator=(AcuDetails &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->eapWebserverACUCount_ == nullptr
+        && this->rayHeadACUCount_ == nullptr && this->rayWorkerACUCount_ == nullptr && this->totalACUCount_ == nullptr; };
+      // eapWebserverACUCount Field Functions 
+      bool hasEapWebserverACUCount() const { return this->eapWebserverACUCount_ != nullptr;};
+      void deleteEapWebserverACUCount() { this->eapWebserverACUCount_ = nullptr;};
+      inline double getEapWebserverACUCount() const { DARABONBA_PTR_GET_DEFAULT(eapWebserverACUCount_, 0.0) };
+      inline AcuDetails& setEapWebserverACUCount(double eapWebserverACUCount) { DARABONBA_PTR_SET_VALUE(eapWebserverACUCount_, eapWebserverACUCount) };
+
+
+      // rayHeadACUCount Field Functions 
+      bool hasRayHeadACUCount() const { return this->rayHeadACUCount_ != nullptr;};
+      void deleteRayHeadACUCount() { this->rayHeadACUCount_ = nullptr;};
+      inline double getRayHeadACUCount() const { DARABONBA_PTR_GET_DEFAULT(rayHeadACUCount_, 0.0) };
+      inline AcuDetails& setRayHeadACUCount(double rayHeadACUCount) { DARABONBA_PTR_SET_VALUE(rayHeadACUCount_, rayHeadACUCount) };
+
+
+      // rayWorkerACUCount Field Functions 
+      bool hasRayWorkerACUCount() const { return this->rayWorkerACUCount_ != nullptr;};
+      void deleteRayWorkerACUCount() { this->rayWorkerACUCount_ = nullptr;};
+      inline double getRayWorkerACUCount() const { DARABONBA_PTR_GET_DEFAULT(rayWorkerACUCount_, 0.0) };
+      inline AcuDetails& setRayWorkerACUCount(double rayWorkerACUCount) { DARABONBA_PTR_SET_VALUE(rayWorkerACUCount_, rayWorkerACUCount) };
+
+
+      // totalACUCount Field Functions 
+      bool hasTotalACUCount() const { return this->totalACUCount_ != nullptr;};
+      void deleteTotalACUCount() { this->totalACUCount_ = nullptr;};
+      inline double getTotalACUCount() const { DARABONBA_PTR_GET_DEFAULT(totalACUCount_, 0.0) };
+      inline AcuDetails& setTotalACUCount(double totalACUCount) { DARABONBA_PTR_SET_VALUE(totalACUCount_, totalACUCount) };
+
+
+    protected:
+      shared_ptr<double> eapWebserverACUCount_ {};
+      shared_ptr<double> rayHeadACUCount_ {};
+      shared_ptr<double> rayWorkerACUCount_ {};
+      shared_ptr<double> totalACUCount_ {};
+    };
+
+    virtual bool empty() const override { return this->acuDetails_ == nullptr
+        && this->gpuDetails_ == nullptr && this->maxRegisteredDevices_ == nullptr && this->registeredDeviceCount_ == nullptr && this->requestId_ == nullptr && this->slbTraffic_ == nullptr
+        && this->storageUsage_ == nullptr; };
+    // acuDetails Field Functions 
+    bool hasAcuDetails() const { return this->acuDetails_ != nullptr;};
+    void deleteAcuDetails() { this->acuDetails_ = nullptr;};
+    inline const GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails & getAcuDetails() const { DARABONBA_PTR_GET_CONST(acuDetails_, GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails) };
+    inline GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails getAcuDetails() { DARABONBA_PTR_GET(acuDetails_, GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails) };
+    inline GetEmbodiedAIPlatformResourceUsageInfoResponseBody& setAcuDetails(const GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails & acuDetails) { DARABONBA_PTR_SET_VALUE(acuDetails_, acuDetails) };
+    inline GetEmbodiedAIPlatformResourceUsageInfoResponseBody& setAcuDetails(GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails && acuDetails) { DARABONBA_PTR_SET_RVALUE(acuDetails_, acuDetails) };
+
+
     // gpuDetails Field Functions 
     bool hasGpuDetails() const { return this->gpuDetails_ != nullptr;};
     void deleteGpuDetails() { this->gpuDetails_ = nullptr;};
@@ -293,6 +367,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails> acuDetails_ {};
     shared_ptr<vector<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::GpuDetails>> gpuDetails_ {};
     shared_ptr<int64_t> maxRegisteredDevices_ {};
     shared_ptr<int64_t> registeredDeviceCount_ {};

@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyEmbodiedAIPlatformShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(DeviceCount, deviceCount_);
       DARABONBA_PTR_TO_JSON(PlatformName, platformName_);
       DARABONBA_PTR_TO_JSON(RayConfig, rayConfigShrink_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyEmbodiedAIPlatformShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(DeviceCount, deviceCount_);
       DARABONBA_PTR_FROM_JSON(PlatformName, platformName_);
       DARABONBA_PTR_FROM_JSON(RayConfig, rayConfigShrink_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->platformName_ == nullptr && this->rayConfigShrink_ == nullptr && this->regionId_ == nullptr && this->webserverSpecName_ == nullptr; };
+        && this->deviceCount_ == nullptr && this->platformName_ == nullptr && this->rayConfigShrink_ == nullptr && this->regionId_ == nullptr && this->webserverSpecName_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyEmbodiedAIPlatformShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // deviceCount Field Functions 
+    bool hasDeviceCount() const { return this->deviceCount_ != nullptr;};
+    void deleteDeviceCount() { this->deviceCount_ = nullptr;};
+    inline string getDeviceCount() const { DARABONBA_PTR_GET_DEFAULT(deviceCount_, "") };
+    inline ModifyEmbodiedAIPlatformShrinkRequest& setDeviceCount(string deviceCount) { DARABONBA_PTR_SET_VALUE(deviceCount_, deviceCount) };
 
 
     // platformName Field Functions 
@@ -77,13 +86,12 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> deviceCount_ {};
     // This parameter is required.
     shared_ptr<string> platformName_ {};
-    // This parameter is required.
     shared_ptr<string> rayConfigShrink_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // This parameter is required.
     shared_ptr<string> webserverSpecName_ {};
   };
 

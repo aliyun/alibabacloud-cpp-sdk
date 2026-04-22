@@ -19,6 +19,9 @@
 #include <alibabacloud/models/DescribeChatMessageRequest.hpp>
 #include <alibabacloud/models/DescribeChatMessageResponseBody.hpp>
 #include <alibabacloud/models/DescribeChatMessageResponse.hpp>
+#include <alibabacloud/models/DescribeEapDeviceResourceAllocationRequest.hpp>
+#include <alibabacloud/models/DescribeEapDeviceResourceAllocationResponseBody.hpp>
+#include <alibabacloud/models/DescribeEapDeviceResourceAllocationResponse.hpp>
 #include <alibabacloud/models/DescribeEmbodiedAIPlatformsRequest.hpp>
 #include <alibabacloud/models/DescribeEmbodiedAIPlatformsResponseBody.hpp>
 #include <alibabacloud/models/DescribeEmbodiedAIPlatformsResponse.hpp>
