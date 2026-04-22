@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(content_type, contentType_);
       DARABONBA_PTR_TO_JSON(event_type, eventType_);
       DARABONBA_PTR_TO_JSON(level, level_);
+      DARABONBA_PTR_TO_JSON(timestamp, timestamp_);
     };
     friend void from_json(const Darabonba::Json& j, GetChatContentResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(category, category_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(content_type, contentType_);
       DARABONBA_PTR_FROM_JSON(event_type, eventType_);
       DARABONBA_PTR_FROM_JSON(level, level_);
+      DARABONBA_PTR_FROM_JSON(timestamp, timestamp_);
     };
     GetChatContentResponseBody() = default ;
     GetChatContentResponseBody(const GetChatContentResponseBody &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && this->checkpoint_ == nullptr && this->content_ == nullptr && this->contentType_ == nullptr && this->eventType_ == nullptr && this->level_ == nullptr; };
+        && this->checkpoint_ == nullptr && this->content_ == nullptr && this->contentType_ == nullptr && this->eventType_ == nullptr && this->level_ == nullptr
+        && this->timestamp_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline GetChatContentResponseBody& setLevel(int64_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
+    // timestamp Field Functions 
+    bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+    void deleteTimestamp() { this->timestamp_ = nullptr;};
+    inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+    inline GetChatContentResponseBody& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
   protected:
     shared_ptr<string> category_ {};
     shared_ptr<int64_t> checkpoint_ {};
@@ -90,6 +100,7 @@ namespace Models
     shared_ptr<string> contentType_ {};
     shared_ptr<string> eventType_ {};
     shared_ptr<int64_t> level_ {};
+    shared_ptr<string> timestamp_ {};
   };
 
   } // namespace Models

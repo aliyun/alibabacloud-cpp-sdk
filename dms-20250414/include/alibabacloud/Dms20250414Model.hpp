@@ -34,6 +34,7 @@
 #include <alibabacloud/models/OpenClawInstanceQuotaVO.hpp>
 #include <alibabacloud/models/OpenClawInstanceVO.hpp>
 #include <alibabacloud/models/PartitionError.hpp>
+#include <alibabacloud/models/TrialOrderEligibilityVO.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceResponse.hpp>
