@@ -52,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(RecallManagementTableId, recallManagementTableId_);
         DARABONBA_PTR_TO_JSON(RecallType, recallType_);
+        DARABONBA_PTR_TO_JSON(SortFields, sortFields_);
         DARABONBA_PTR_TO_JSON(UserVectorField, userVectorField_);
         DARABONBA_PTR_TO_JSON(UserVectorRecallManagementTableId, userVectorRecallManagementTableId_);
       };
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(RecallManagementTableId, recallManagementTableId_);
         DARABONBA_PTR_FROM_JSON(RecallType, recallType_);
+        DARABONBA_PTR_FROM_JSON(SortFields, sortFields_);
         DARABONBA_PTR_FROM_JSON(UserVectorField, userVectorField_);
         DARABONBA_PTR_FROM_JSON(UserVectorRecallManagementTableId, userVectorRecallManagementTableId_);
       };
@@ -361,7 +363,7 @@ namespace Models
       virtual bool empty() const override { return this->description_ == nullptr
         && this->extendedConfig_ == nullptr && this->itemConditionArray_ == nullptr && this->itemConditionExpression_ == nullptr && this->itemVectorField_ == nullptr && this->itemVectorRecallManagementTableId_ == nullptr
         && this->name_ == nullptr && this->operators_ == nullptr && this->priority_ == nullptr && this->recallManagementTableId_ == nullptr && this->recallType_ == nullptr
-        && this->userVectorField_ == nullptr && this->userVectorRecallManagementTableId_ == nullptr; };
+        && this->sortFields_ == nullptr && this->userVectorField_ == nullptr && this->userVectorRecallManagementTableId_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -441,6 +443,13 @@ namespace Models
       inline RecallConfig& setRecallType(string recallType) { DARABONBA_PTR_SET_VALUE(recallType_, recallType) };
 
 
+      // sortFields Field Functions 
+      bool hasSortFields() const { return this->sortFields_ != nullptr;};
+      void deleteSortFields() { this->sortFields_ = nullptr;};
+      inline string getSortFields() const { DARABONBA_PTR_GET_DEFAULT(sortFields_, "") };
+      inline RecallConfig& setSortFields(string sortFields) { DARABONBA_PTR_SET_VALUE(sortFields_, sortFields) };
+
+
       // userVectorField Field Functions 
       bool hasUserVectorField() const { return this->userVectorField_ != nullptr;};
       void deleteUserVectorField() { this->userVectorField_ = nullptr;};
@@ -467,6 +476,7 @@ namespace Models
       shared_ptr<int64_t> priority_ {};
       shared_ptr<string> recallManagementTableId_ {};
       shared_ptr<string> recallType_ {};
+      shared_ptr<string> sortFields_ {};
       shared_ptr<string> userVectorField_ {};
       shared_ptr<string> userVectorRecallManagementTableId_ {};
     };
