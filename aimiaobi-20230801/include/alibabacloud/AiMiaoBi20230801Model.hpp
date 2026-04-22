@@ -332,6 +332,9 @@
 #include <alibabacloud/models/InitiatePptCreationRequest.hpp>
 #include <alibabacloud/models/InitiatePptCreationResponseBody.hpp>
 #include <alibabacloud/models/InitiatePptCreationResponse.hpp>
+#include <alibabacloud/models/InitiatePptCreationV2Request.hpp>
+#include <alibabacloud/models/InitiatePptCreationV2ResponseBody.hpp>
+#include <alibabacloud/models/InitiatePptCreationV2Response.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyRequest.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyShrinkRequest.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyResponseBody.hpp>
@@ -390,6 +393,9 @@
 #include <alibabacloud/models/ListDocumentRetrieveRequest.hpp>
 #include <alibabacloud/models/ListDocumentRetrieveResponseBody.hpp>
 #include <alibabacloud/models/ListDocumentRetrieveResponse.hpp>
+#include <alibabacloud/models/ListEnterprisePptTemplatesRequest.hpp>
+#include <alibabacloud/models/ListEnterprisePptTemplatesResponseBody.hpp>
+#include <alibabacloud/models/ListEnterprisePptTemplatesResponse.hpp>
 #include <alibabacloud/models/ListFreshViewPointsRequest.hpp>
 #include <alibabacloud/models/ListFreshViewPointsResponseBody.hpp>
 #include <alibabacloud/models/ListFreshViewPointsResponse.hpp>

@@ -1721,6 +1721,23 @@ namespace AiMiaoBi20230801
       Models::InitiatePptCreationResponse initiatePptCreation(const Models::InitiatePptCreationRequest &request);
 
       /**
+       * @summary 初始化PPT创建操作V2
+       *
+       * @param request InitiatePptCreationV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitiatePptCreationV2Response
+       */
+      Models::InitiatePptCreationV2Response initiatePptCreationV2WithOptions(const Models::InitiatePptCreationV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 初始化PPT创建操作V2
+       *
+       * @param request InitiatePptCreationV2Request
+       * @return InitiatePptCreationV2Response
+       */
+      Models::InitiatePptCreationV2Response initiatePptCreationV2(const Models::InitiatePptCreationV2Request &request);
+
+      /**
        * @summary 设置干预全局回复
        *
        * @param tmpReq InsertInterveneGlobalReplyRequest
@@ -2008,6 +2025,23 @@ namespace AiMiaoBi20230801
        * @return ListDocumentRetrieveResponse
        */
       Models::ListDocumentRetrieveResponse listDocumentRetrieve(const Models::ListDocumentRetrieveRequest &request);
+
+      /**
+       * @summary 查询PPT模板列表
+       *
+       * @param request ListEnterprisePptTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEnterprisePptTemplatesResponse
+       */
+      Models::ListEnterprisePptTemplatesResponse listEnterprisePptTemplatesWithOptions(const Models::ListEnterprisePptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PPT模板列表
+       *
+       * @param request ListEnterprisePptTemplatesRequest
+       * @return ListEnterprisePptTemplatesResponse
+       */
+      Models::ListEnterprisePptTemplatesResponse listEnterprisePptTemplates(const Models::ListEnterprisePptTemplatesRequest &request);
 
       /**
        * @summary 新颖视角列表

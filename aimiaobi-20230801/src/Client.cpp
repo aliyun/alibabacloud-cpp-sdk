@@ -5371,6 +5371,76 @@ InitiatePptCreationResponse Client::initiatePptCreation(const InitiatePptCreatio
 }
 
 /**
+ * @summary 初始化PPT创建操作V2
+ *
+ * @param request InitiatePptCreationV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitiatePptCreationV2Response
+ */
+InitiatePptCreationV2Response Client::initiatePptCreationV2WithOptions(const InitiatePptCreationV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
+  if (!!request.hasIsMobile()) {
+    body["IsMobile"] = request.getIsMobile();
+  }
+
+  if (!!request.hasOutline()) {
+    body["Outline"] = request.getOutline();
+  }
+
+  if (!!request.hasPptTemplateId()) {
+    body["PptTemplateId"] = request.getPptTemplateId();
+  }
+
+  if (!!request.hasPptTemplateType()) {
+    body["PptTemplateType"] = request.getPptTemplateType();
+  }
+
+  if (!!request.hasProcessType()) {
+    body["ProcessType"] = request.getProcessType();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "InitiatePptCreationV2"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitiatePptCreationV2Response>();
+}
+
+/**
+ * @summary 初始化PPT创建操作V2
+ *
+ * @param request InitiatePptCreationV2Request
+ * @return InitiatePptCreationV2Response
+ */
+InitiatePptCreationV2Response Client::initiatePptCreationV2(const InitiatePptCreationV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initiatePptCreationV2WithOptions(request, runtime);
+}
+
+/**
  * @summary 设置干预全局回复
  *
  * @param tmpReq InsertInterveneGlobalReplyRequest
@@ -6630,6 +6700,62 @@ ListDocumentRetrieveResponse Client::listDocumentRetrieveWithOptions(const ListD
 ListDocumentRetrieveResponse Client::listDocumentRetrieve(const ListDocumentRetrieveRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDocumentRetrieveWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PPT模板列表
+ *
+ * @param request ListEnterprisePptTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEnterprisePptTemplatesResponse
+ */
+ListEnterprisePptTemplatesResponse Client::listEnterprisePptTemplatesWithOptions(const ListEnterprisePptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasSkip()) {
+    query["Skip"] = request.getSkip();
+  }
+
+  json body = {};
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListEnterprisePptTemplates"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEnterprisePptTemplatesResponse>();
+}
+
+/**
+ * @summary 查询PPT模板列表
+ *
+ * @param request ListEnterprisePptTemplatesRequest
+ * @return ListEnterprisePptTemplatesResponse
+ */
+ListEnterprisePptTemplatesResponse Client::listEnterprisePptTemplates(const ListEnterprisePptTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listEnterprisePptTemplatesWithOptions(request, runtime);
 }
 
 /**
