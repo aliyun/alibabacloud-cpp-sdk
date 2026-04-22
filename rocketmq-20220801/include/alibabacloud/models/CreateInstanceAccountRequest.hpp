@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateInstanceAccountRequest& obj) { 
       DARABONBA_PTR_TO_JSON(password, password_);
+      DARABONBA_PTR_TO_JSON(remark, remark_);
       DARABONBA_PTR_TO_JSON(username, username_);
     };
     friend void from_json(const Darabonba::Json& j, CreateInstanceAccountRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(password, password_);
+      DARABONBA_PTR_FROM_JSON(remark, remark_);
       DARABONBA_PTR_FROM_JSON(username, username_);
     };
     CreateInstanceAccountRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->password_ == nullptr
-        && this->username_ == nullptr; };
+        && this->remark_ == nullptr && this->username_ == nullptr; };
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
     inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline CreateInstanceAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
+
+
+    // remark Field Functions 
+    bool hasRemark() const { return this->remark_ != nullptr;};
+    void deleteRemark() { this->remark_ = nullptr;};
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline CreateInstanceAccountRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // username Field Functions 
@@ -52,6 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    shared_ptr<string> remark_ {};
     // The username of the account.
     // 
     // This parameter is required.

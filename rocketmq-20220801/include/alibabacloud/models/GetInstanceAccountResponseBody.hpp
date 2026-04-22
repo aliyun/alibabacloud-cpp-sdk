@@ -48,11 +48,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(accountStatus, accountStatus_);
         DARABONBA_PTR_TO_JSON(password, password_);
+        DARABONBA_PTR_TO_JSON(remark, remark_);
         DARABONBA_PTR_TO_JSON(username, username_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(accountStatus, accountStatus_);
         DARABONBA_PTR_FROM_JSON(password, password_);
+        DARABONBA_PTR_FROM_JSON(remark, remark_);
         DARABONBA_PTR_FROM_JSON(username, username_);
       };
       Data() = default ;
@@ -67,7 +69,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accountStatus_ == nullptr
-        && this->password_ == nullptr && this->username_ == nullptr; };
+        && this->password_ == nullptr && this->remark_ == nullptr && this->username_ == nullptr; };
       // accountStatus Field Functions 
       bool hasAccountStatus() const { return this->accountStatus_ != nullptr;};
       void deleteAccountStatus() { this->accountStatus_ = nullptr;};
@@ -80,6 +82,13 @@ namespace Models
       void deletePassword() { this->password_ = nullptr;};
       inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
       inline Data& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
+
+
+      // remark Field Functions 
+      bool hasRemark() const { return this->remark_ != nullptr;};
+      void deleteRemark() { this->remark_ = nullptr;};
+      inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+      inline Data& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
       // username Field Functions 
@@ -99,6 +108,7 @@ namespace Models
       shared_ptr<string> accountStatus_ {};
       // The password of the account.
       shared_ptr<string> password_ {};
+      shared_ptr<string> remark_ {};
       // The username of the account.
       shared_ptr<string> username_ {};
     };

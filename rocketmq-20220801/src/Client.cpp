@@ -410,6 +410,10 @@ CreateInstanceAccountResponse Client::createInstanceAccountWithOptions(const str
     body["password"] = request.getPassword();
   }
 
+  if (!!request.hasRemark()) {
+    body["remark"] = request.getRemark();
+  }
+
   if (!!request.hasUsername()) {
     body["username"] = request.getUsername();
   }
@@ -3345,6 +3349,10 @@ UpdateInstanceAccountResponse Client::updateInstanceAccountWithOptions(const str
 
   if (!!request.hasPassword()) {
     query["password"] = request.getPassword();
+  }
+
+  if (!!request.hasRemark()) {
+    query["remark"] = request.getRemark();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateInstanceAccountRequest& obj) { 
       DARABONBA_PTR_TO_JSON(accountStatus, accountStatus_);
       DARABONBA_PTR_TO_JSON(password, password_);
+      DARABONBA_PTR_TO_JSON(remark, remark_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateInstanceAccountRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(accountStatus, accountStatus_);
       DARABONBA_PTR_FROM_JSON(password, password_);
+      DARABONBA_PTR_FROM_JSON(remark, remark_);
     };
     UpdateInstanceAccountRequest() = default ;
     UpdateInstanceAccountRequest(const UpdateInstanceAccountRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountStatus_ == nullptr
-        && this->password_ == nullptr; };
+        && this->password_ == nullptr && this->remark_ == nullptr; };
     // accountStatus Field Functions 
     bool hasAccountStatus() const { return this->accountStatus_ != nullptr;};
     void deleteAccountStatus() { this->accountStatus_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline UpdateInstanceAccountRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
+    // remark Field Functions 
+    bool hasRemark() const { return this->remark_ != nullptr;};
+    void deleteRemark() { this->remark_ = nullptr;};
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline UpdateInstanceAccountRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
   protected:
     // The status of the account.
     // 
@@ -57,6 +66,7 @@ namespace Models
     shared_ptr<string> accountStatus_ {};
     // The password of the account.
     shared_ptr<string> password_ {};
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models
