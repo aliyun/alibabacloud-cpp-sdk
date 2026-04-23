@@ -58,12 +58,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_TO_JSON(CustomAgentStage, customAgentStage_);
         DARABONBA_PTR_TO_JSON(Language, language_);
+        DARABONBA_PTR_TO_JSON(Mode, mode_);
         DARABONBA_PTR_TO_JSON(ReportWaterMark, reportWaterMark_);
       };
       friend void from_json(const Darabonba::Json& j, SessionConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_FROM_JSON(CustomAgentStage, customAgentStage_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
+        DARABONBA_PTR_FROM_JSON(Mode, mode_);
         DARABONBA_PTR_FROM_JSON(ReportWaterMark, reportWaterMark_);
       };
       SessionConfig() = default ;
@@ -78,7 +80,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->customAgentStage_ == nullptr && this->language_ == nullptr && this->reportWaterMark_ == nullptr; };
+        && this->customAgentStage_ == nullptr && this->language_ == nullptr && this->mode_ == nullptr && this->reportWaterMark_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -100,6 +102,13 @@ namespace Models
       inline SessionConfig& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
+      // mode Field Functions 
+      bool hasMode() const { return this->mode_ != nullptr;};
+      void deleteMode() { this->mode_ = nullptr;};
+      inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+      inline SessionConfig& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
       // reportWaterMark Field Functions 
       bool hasReportWaterMark() const { return this->reportWaterMark_ != nullptr;};
       void deleteReportWaterMark() { this->reportWaterMark_ = nullptr;};
@@ -111,6 +120,7 @@ namespace Models
       shared_ptr<string> customAgentId_ {};
       shared_ptr<string> customAgentStage_ {};
       shared_ptr<string> language_ {};
+      shared_ptr<string> mode_ {};
       shared_ptr<string> reportWaterMark_ {};
     };
 

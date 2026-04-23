@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const OneMetaKnowledgeBase& obj) { 
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(Domain, domain_);
+      DARABONBA_PTR_TO_JSON(ExtraInfo, extraInfo_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(KbUuid, kbUuid_);
@@ -25,6 +27,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, OneMetaKnowledgeBase& obj) { 
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(Domain, domain_);
+      DARABONBA_PTR_FROM_JSON(ExtraInfo, extraInfo_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(KbUuid, kbUuid_);
@@ -44,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creator_ == nullptr
-        && this->description_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->kbUuid_ == nullptr && this->name_ == nullptr
-        && this->state_ == nullptr && this->tag_ == nullptr; };
+        && this->description_ == nullptr && this->domain_ == nullptr && this->extraInfo_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
+        && this->kbUuid_ == nullptr && this->name_ == nullptr && this->state_ == nullptr && this->tag_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
@@ -58,6 +62,20 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline OneMetaKnowledgeBase& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // domain Field Functions 
+    bool hasDomain() const { return this->domain_ != nullptr;};
+    void deleteDomain() { this->domain_ = nullptr;};
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline OneMetaKnowledgeBase& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+    // extraInfo Field Functions 
+    bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
+    void deleteExtraInfo() { this->extraInfo_ = nullptr;};
+    inline string getExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
+    inline OneMetaKnowledgeBase& setExtraInfo(string extraInfo) { DARABONBA_PTR_SET_VALUE(extraInfo_, extraInfo) };
 
 
     // gmtCreate Field Functions 
@@ -105,6 +123,8 @@ namespace Models
   protected:
     shared_ptr<string> creator_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> domain_ {};
+    shared_ptr<string> extraInfo_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
     shared_ptr<string> kbUuid_ {};
