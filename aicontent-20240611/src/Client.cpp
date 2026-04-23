@@ -2454,6 +2454,55 @@ ListTextbookAssistantSceneDetailsResponse Client::listTextbookAssistantSceneDeta
 }
 
 /**
+ * @summary 计费管理/获取成本监控Tab配置
+ *
+ * @param request ModelRouterBillingCostTabsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBillingCostTabsResponse
+ */
+ModelRouterBillingCostTabsResponse Client::modelRouterBillingCostTabsWithOptions(const ModelRouterBillingCostTabsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterBillingCostTabs"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/cost/tabs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBillingCostTabsResponse>();
+}
+
+/**
+ * @summary 计费管理/获取成本监控Tab配置
+ *
+ * @param request ModelRouterBillingCostTabsRequest
+ * @return ModelRouterBillingCostTabsResponse
+ */
+ModelRouterBillingCostTabsResponse Client::modelRouterBillingCostTabs(const ModelRouterBillingCostTabsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBillingCostTabsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 聊天/聊天接口
  *
  * @param request ModelRouterChatCompletionsRequest
@@ -2614,6 +2663,71 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKey(const ModelRoute
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterCreateApiKeyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 计费管理/创建计费规则
+ *
+ * @param request ModelRouterCreateBillingRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateBillingRuleResponse
+ */
+ModelRouterCreateBillingRuleResponse Client::modelRouterCreateBillingRuleWithOptions(const ModelRouterCreateBillingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBillingType()) {
+    body["billingType"] = request.getBillingType();
+  }
+
+  if (!!request.hasEffectiveTime()) {
+    body["effectiveTime"] = request.getEffectiveTime();
+  }
+
+  if (!!request.hasExpireTime()) {
+    body["expireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasModelId()) {
+    body["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasPricingConfig()) {
+    body["pricingConfig"] = request.getPricingConfig();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateBillingRule"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/rules")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateBillingRuleResponse>();
+}
+
+/**
+ * @summary 计费管理/创建计费规则
+ *
+ * @param request ModelRouterCreateBillingRuleRequest
+ * @return ModelRouterCreateBillingRuleResponse
+ */
+ModelRouterCreateBillingRuleResponse Client::modelRouterCreateBillingRule(const ModelRouterCreateBillingRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateBillingRuleWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3093,6 +3207,132 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 }
 
 /**
+ * @summary 计费管理/查询计费规则列表
+ *
+ * @param request ModelRouterQueryBillingRuleListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryBillingRuleListResponse
+ */
+ModelRouterQueryBillingRuleListResponse Client::modelRouterQueryBillingRuleListWithOptions(const ModelRouterQueryBillingRuleListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActiveOnly()) {
+    query["activeOnly"] = request.getActiveOnly();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelCode()) {
+    query["modelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasModelId()) {
+    query["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasModelType()) {
+    query["modelType"] = request.getModelType();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryBillingRuleList"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/rules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryBillingRuleListResponse>();
+}
+
+/**
+ * @summary 计费管理/查询计费规则列表
+ *
+ * @param request ModelRouterQueryBillingRuleListRequest
+ * @return ModelRouterQueryBillingRuleListResponse
+ */
+ModelRouterQueryBillingRuleListResponse Client::modelRouterQueryBillingRuleList(const ModelRouterQueryBillingRuleListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryBillingRuleListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 客户管理/获取部门折扣修改历史
+ *
+ * @param request ModelRouterQueryClientDiscountLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryClientDiscountLogsResponse
+ */
+ModelRouterQueryClientDiscountLogsResponse Client::modelRouterQueryClientDiscountLogsWithOptions(const string &id, const ModelRouterQueryClientDiscountLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryClientDiscountLogs"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/discount-logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryClientDiscountLogsResponse>();
+}
+
+/**
+ * @summary 客户管理/获取部门折扣修改历史
+ *
+ * @param request ModelRouterQueryClientDiscountLogsRequest
+ * @return ModelRouterQueryClientDiscountLogsResponse
+ */
+ModelRouterQueryClientDiscountLogsResponse Client::modelRouterQueryClientDiscountLogs(const string &id, const ModelRouterQueryClientDiscountLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryClientDiscountLogsWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary 客户管理/获取客户列表
  *
  * @param request ModelRouterQueryClientListRequest
@@ -3171,6 +3411,55 @@ ModelRouterQueryClientListResponse Client::modelRouterQueryClientList(const Mode
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryClientListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 客户管理/获取客户树
+ *
+ * @param request ModelRouterQueryClientTreeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryClientTreeResponse
+ */
+ModelRouterQueryClientTreeResponse Client::modelRouterQueryClientTreeWithOptions(const ModelRouterQueryClientTreeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryClientTree"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/tree")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryClientTreeResponse>();
+}
+
+/**
+ * @summary 客户管理/获取客户树
+ *
+ * @param request ModelRouterQueryClientTreeRequest
+ * @return ModelRouterQueryClientTreeResponse
+ */
+ModelRouterQueryClientTreeResponse Client::modelRouterQueryClientTree(const ModelRouterQueryClientTreeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryClientTreeWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3288,6 +3577,294 @@ ModelRouterQueryConversationListResponse Client::modelRouterQueryConversationLis
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryConversationListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 计费管理/获取模型明细
+ *
+ * @param request ModelRouterQueryCostModelDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryCostModelDetailResponse
+ */
+ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailWithOptions(const ModelRouterQueryCostModelDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelId()) {
+    query["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryCostModelDetail"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/cost/model-detail")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryCostModelDetailResponse>();
+}
+
+/**
+ * @summary 计费管理/获取模型明细
+ *
+ * @param request ModelRouterQueryCostModelDetailRequest
+ * @return ModelRouterQueryCostModelDetailResponse
+ */
+ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetail(const ModelRouterQueryCostModelDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryCostModelDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 计费管理/获取调用模型列表
+ *
+ * @param request ModelRouterQueryCostModelListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryCostModelListResponse
+ */
+ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithOptions(const ModelRouterQueryCostModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelTypes()) {
+    query["modelTypes"] = request.getModelTypes();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearch()) {
+    query["search"] = request.getSearch();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryCostModelList"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/cost/models")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryCostModelListResponse>();
+}
+
+/**
+ * @summary 计费管理/获取调用模型列表
+ *
+ * @param request ModelRouterQueryCostModelListRequest
+ * @return ModelRouterQueryCostModelListResponse
+ */
+ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelList(const ModelRouterQueryCostModelListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryCostModelListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 计费管理/获取成本概览指标
+ *
+ * @param request ModelRouterQueryCostOverviewMetricsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryCostOverviewMetricsResponse
+ */
+ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverviewMetricsWithOptions(const ModelRouterQueryCostOverviewMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelTypes()) {
+    query["modelTypes"] = request.getModelTypes();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryCostOverviewMetrics"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/cost/overview")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryCostOverviewMetricsResponse>();
+}
+
+/**
+ * @summary 计费管理/获取成本概览指标
+ *
+ * @param request ModelRouterQueryCostOverviewMetricsRequest
+ * @return ModelRouterQueryCostOverviewMetricsResponse
+ */
+ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverviewMetrics(const ModelRouterQueryCostOverviewMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryCostOverviewMetricsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 计费管理/获取费用趋势
+ *
+ * @param request ModelRouterQueryCostTrendMetricsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryCostTrendMetricsResponse
+ */
+ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetricsWithOptions(const ModelRouterQueryCostTrendMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelTypes()) {
+    query["modelTypes"] = request.getModelTypes();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryCostTrendMetrics"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/cost/trend")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryCostTrendMetricsResponse>();
+}
+
+/**
+ * @summary 计费管理/获取费用趋势
+ *
+ * @param request ModelRouterQueryCostTrendMetricsRequest
+ * @return ModelRouterQueryCostTrendMetricsResponse
+ */
+ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetrics(const ModelRouterQueryCostTrendMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryCostTrendMetricsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3818,6 +4395,71 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryObservationMetricsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 计费管理/更新计费规则
+ *
+ * @param request ModelRouterUpdateBillingRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterUpdateBillingRuleResponse
+ */
+ModelRouterUpdateBillingRuleResponse Client::modelRouterUpdateBillingRuleWithOptions(const string &id, const ModelRouterUpdateBillingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBillingType()) {
+    body["billingType"] = request.getBillingType();
+  }
+
+  if (!!request.hasEffectiveTime()) {
+    body["effectiveTime"] = request.getEffectiveTime();
+  }
+
+  if (!!request.hasExpireTime()) {
+    body["expireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasPricingConfig()) {
+    body["pricingConfig"] = request.getPricingConfig();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterUpdateBillingRule"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/rules/" , Darabonba::Encode::Encoder::percentEncode(id))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterUpdateBillingRuleResponse>();
+}
+
+/**
+ * @summary 计费管理/更新计费规则
+ *
+ * @param request ModelRouterUpdateBillingRuleRequest
+ * @return ModelRouterUpdateBillingRuleResponse
+ */
+ModelRouterUpdateBillingRuleResponse Client::modelRouterUpdateBillingRule(const string &id, const ModelRouterUpdateBillingRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterUpdateBillingRuleWithOptions(id, request, headers, runtime);
 }
 
 /**

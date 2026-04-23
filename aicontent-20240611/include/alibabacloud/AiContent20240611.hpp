@@ -723,6 +723,24 @@ namespace AiContent20240611
       Models::ListTextbookAssistantSceneDetailsResponse listTextbookAssistantSceneDetails(const Models::ListTextbookAssistantSceneDetailsRequest &request);
 
       /**
+       * @summary 计费管理/获取成本监控Tab配置
+       *
+       * @param request ModelRouterBillingCostTabsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBillingCostTabsResponse
+       */
+      Models::ModelRouterBillingCostTabsResponse modelRouterBillingCostTabsWithOptions(const Models::ModelRouterBillingCostTabsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/获取成本监控Tab配置
+       *
+       * @param request ModelRouterBillingCostTabsRequest
+       * @return ModelRouterBillingCostTabsResponse
+       */
+      Models::ModelRouterBillingCostTabsResponse modelRouterBillingCostTabs(const Models::ModelRouterBillingCostTabsRequest &request);
+
+      /**
        * @summary 聊天/聊天接口
        *
        * @param request ModelRouterChatCompletionsRequest
@@ -783,6 +801,24 @@ namespace AiContent20240611
        * @return ModelRouterCreateApiKeyResponse
        */
       Models::ModelRouterCreateApiKeyResponse modelRouterCreateApiKey(const Models::ModelRouterCreateApiKeyRequest &request);
+
+      /**
+       * @summary 计费管理/创建计费规则
+       *
+       * @param request ModelRouterCreateBillingRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateBillingRuleResponse
+       */
+      Models::ModelRouterCreateBillingRuleResponse modelRouterCreateBillingRuleWithOptions(const Models::ModelRouterCreateBillingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/创建计费规则
+       *
+       * @param request ModelRouterCreateBillingRuleRequest
+       * @return ModelRouterCreateBillingRuleResponse
+       */
+      Models::ModelRouterCreateBillingRuleResponse modelRouterCreateBillingRule(const Models::ModelRouterCreateBillingRuleRequest &request);
 
       /**
        * @summary 客户管理/创建客户
@@ -937,6 +973,42 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyListResponse modelRouterQueryApiKeyList(const Models::ModelRouterQueryApiKeyListRequest &request);
 
       /**
+       * @summary 计费管理/查询计费规则列表
+       *
+       * @param request ModelRouterQueryBillingRuleListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryBillingRuleListResponse
+       */
+      Models::ModelRouterQueryBillingRuleListResponse modelRouterQueryBillingRuleListWithOptions(const Models::ModelRouterQueryBillingRuleListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/查询计费规则列表
+       *
+       * @param request ModelRouterQueryBillingRuleListRequest
+       * @return ModelRouterQueryBillingRuleListResponse
+       */
+      Models::ModelRouterQueryBillingRuleListResponse modelRouterQueryBillingRuleList(const Models::ModelRouterQueryBillingRuleListRequest &request);
+
+      /**
+       * @summary 客户管理/获取部门折扣修改历史
+       *
+       * @param request ModelRouterQueryClientDiscountLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryClientDiscountLogsResponse
+       */
+      Models::ModelRouterQueryClientDiscountLogsResponse modelRouterQueryClientDiscountLogsWithOptions(const string &id, const Models::ModelRouterQueryClientDiscountLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/获取部门折扣修改历史
+       *
+       * @param request ModelRouterQueryClientDiscountLogsRequest
+       * @return ModelRouterQueryClientDiscountLogsResponse
+       */
+      Models::ModelRouterQueryClientDiscountLogsResponse modelRouterQueryClientDiscountLogs(const string &id, const Models::ModelRouterQueryClientDiscountLogsRequest &request);
+
+      /**
        * @summary 客户管理/获取客户列表
        *
        * @param request ModelRouterQueryClientListRequest
@@ -953,6 +1025,24 @@ namespace AiContent20240611
        * @return ModelRouterQueryClientListResponse
        */
       Models::ModelRouterQueryClientListResponse modelRouterQueryClientList(const Models::ModelRouterQueryClientListRequest &request);
+
+      /**
+       * @summary 客户管理/获取客户树
+       *
+       * @param request ModelRouterQueryClientTreeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryClientTreeResponse
+       */
+      Models::ModelRouterQueryClientTreeResponse modelRouterQueryClientTreeWithOptions(const Models::ModelRouterQueryClientTreeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/获取客户树
+       *
+       * @param request ModelRouterQueryClientTreeRequest
+       * @return ModelRouterQueryClientTreeResponse
+       */
+      Models::ModelRouterQueryClientTreeResponse modelRouterQueryClientTree(const Models::ModelRouterQueryClientTreeRequest &request);
 
       /**
        * @summary 对话管理/获取对话详情
@@ -987,6 +1077,78 @@ namespace AiContent20240611
        * @return ModelRouterQueryConversationListResponse
        */
       Models::ModelRouterQueryConversationListResponse modelRouterQueryConversationList(const Models::ModelRouterQueryConversationListRequest &request);
+
+      /**
+       * @summary 计费管理/获取模型明细
+       *
+       * @param request ModelRouterQueryCostModelDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryCostModelDetailResponse
+       */
+      Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetailWithOptions(const Models::ModelRouterQueryCostModelDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/获取模型明细
+       *
+       * @param request ModelRouterQueryCostModelDetailRequest
+       * @return ModelRouterQueryCostModelDetailResponse
+       */
+      Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetail(const Models::ModelRouterQueryCostModelDetailRequest &request);
+
+      /**
+       * @summary 计费管理/获取调用模型列表
+       *
+       * @param request ModelRouterQueryCostModelListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryCostModelListResponse
+       */
+      Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelListWithOptions(const Models::ModelRouterQueryCostModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/获取调用模型列表
+       *
+       * @param request ModelRouterQueryCostModelListRequest
+       * @return ModelRouterQueryCostModelListResponse
+       */
+      Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelList(const Models::ModelRouterQueryCostModelListRequest &request);
+
+      /**
+       * @summary 计费管理/获取成本概览指标
+       *
+       * @param request ModelRouterQueryCostOverviewMetricsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryCostOverviewMetricsResponse
+       */
+      Models::ModelRouterQueryCostOverviewMetricsResponse modelRouterQueryCostOverviewMetricsWithOptions(const Models::ModelRouterQueryCostOverviewMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/获取成本概览指标
+       *
+       * @param request ModelRouterQueryCostOverviewMetricsRequest
+       * @return ModelRouterQueryCostOverviewMetricsResponse
+       */
+      Models::ModelRouterQueryCostOverviewMetricsResponse modelRouterQueryCostOverviewMetrics(const Models::ModelRouterQueryCostOverviewMetricsRequest &request);
+
+      /**
+       * @summary 计费管理/获取费用趋势
+       *
+       * @param request ModelRouterQueryCostTrendMetricsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryCostTrendMetricsResponse
+       */
+      Models::ModelRouterQueryCostTrendMetricsResponse modelRouterQueryCostTrendMetricsWithOptions(const Models::ModelRouterQueryCostTrendMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/获取费用趋势
+       *
+       * @param request ModelRouterQueryCostTrendMetricsRequest
+       * @return ModelRouterQueryCostTrendMetricsResponse
+       */
+      Models::ModelRouterQueryCostTrendMetricsResponse modelRouterQueryCostTrendMetrics(const Models::ModelRouterQueryCostTrendMetricsRequest &request);
 
       /**
        * @summary 模型管理/获取模型详情
@@ -1111,6 +1273,24 @@ namespace AiContent20240611
        * @return ModelRouterQueryObservationMetricsResponse
        */
       Models::ModelRouterQueryObservationMetricsResponse modelRouterQueryObservationMetrics(const Models::ModelRouterQueryObservationMetricsRequest &request);
+
+      /**
+       * @summary 计费管理/更新计费规则
+       *
+       * @param request ModelRouterUpdateBillingRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterUpdateBillingRuleResponse
+       */
+      Models::ModelRouterUpdateBillingRuleResponse modelRouterUpdateBillingRuleWithOptions(const string &id, const Models::ModelRouterUpdateBillingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/更新计费规则
+       *
+       * @param request ModelRouterUpdateBillingRuleRequest
+       * @return ModelRouterUpdateBillingRuleResponse
+       */
+      Models::ModelRouterUpdateBillingRuleResponse modelRouterUpdateBillingRule(const string &id, const Models::ModelRouterUpdateBillingRuleRequest &request);
 
       /**
        * @summary 客户管理/更新客户
