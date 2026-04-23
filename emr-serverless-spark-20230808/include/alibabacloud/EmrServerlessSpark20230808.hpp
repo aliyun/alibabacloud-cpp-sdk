@@ -643,6 +643,24 @@ namespace EmrServerlessSpark20230808
       Models::ListCatalogsResponse listCatalogs(const string &workspaceId, const Models::ListCatalogsRequest &request);
 
       /**
+       * @summary 列出作业executor的日志文件列表
+       *
+       * @param request ListExecutorLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListExecutorLogsResponse
+       */
+      Models::ListExecutorLogsResponse listExecutorLogsWithOptions(const string &workspaceId, const string &jobRunId, const string &executorId, const Models::ListExecutorLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出作业executor的日志文件列表
+       *
+       * @param request ListExecutorLogsRequest
+       * @return ListExecutorLogsResponse
+       */
+      Models::ListExecutorLogsResponse listExecutorLogs(const string &workspaceId, const string &jobRunId, const string &executorId, const Models::ListExecutorLogsRequest &request);
+
+      /**
        * @summary 列出作业的executors
        *
        * @param request ListJobExecutorsRequest

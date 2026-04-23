@@ -123,6 +123,9 @@
 #include <alibabacloud/models/ListCatalogsRequest.hpp>
 #include <alibabacloud/models/ListCatalogsResponseBody.hpp>
 #include <alibabacloud/models/ListCatalogsResponse.hpp>
+#include <alibabacloud/models/ListExecutorLogsRequest.hpp>
+#include <alibabacloud/models/ListExecutorLogsResponseBody.hpp>
+#include <alibabacloud/models/ListExecutorLogsResponse.hpp>
 #include <alibabacloud/models/ListJobExecutorsRequest.hpp>
 #include <alibabacloud/models/ListJobExecutorsResponseBody.hpp>
 #include <alibabacloud/models/ListJobExecutorsResponse.hpp>

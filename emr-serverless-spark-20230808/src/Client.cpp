@@ -2082,6 +2082,63 @@ ListCatalogsResponse Client::listCatalogs(const string &workspaceId, const ListC
 }
 
 /**
+ * @summary 列出作业executor的日志文件列表
+ *
+ * @param request ListExecutorLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListExecutorLogsResponse
+ */
+ListExecutorLogsResponse Client::listExecutorLogsWithOptions(const string &workspaceId, const string &jobRunId, const string &executorId, const ListExecutorLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLogType()) {
+    query["logType"] = request.getLogType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListExecutorLogs"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/jobRuns/" , Darabonba::Encode::Encoder::percentEncode(jobRunId) , "/executors/" , Darabonba::Encode::Encoder::percentEncode(executorId) , "/logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListExecutorLogsResponse>();
+}
+
+/**
+ * @summary 列出作业executor的日志文件列表
+ *
+ * @param request ListExecutorLogsRequest
+ * @return ListExecutorLogsResponse
+ */
+ListExecutorLogsResponse Client::listExecutorLogs(const string &workspaceId, const string &jobRunId, const string &executorId, const ListExecutorLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listExecutorLogsWithOptions(workspaceId, jobRunId, executorId, request, headers, runtime);
+}
+
+/**
  * @summary 列出作业的executors
  *
  * @param request ListJobExecutorsRequest
