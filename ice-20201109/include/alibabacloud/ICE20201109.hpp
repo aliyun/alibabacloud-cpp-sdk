@@ -2422,6 +2422,23 @@ namespace ICE20201109
       Models::GenerateMessageChatTokenResponse generateMessageChatToken(const Models::GenerateMessageChatTokenRequest &request);
 
       /**
+       * @summary 获取智能体当前通话并发数
+       *
+       * @param request GetAIAgentConcurrencyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAIAgentConcurrencyResponse
+       */
+      Models::GetAIAgentConcurrencyResponse getAIAgentConcurrencyWithOptions(const Models::GetAIAgentConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取智能体当前通话并发数
+       *
+       * @param request GetAIAgentConcurrencyRequest
+       * @return GetAIAgentConcurrencyResponse
+       */
+      Models::GetAIAgentConcurrencyResponse getAIAgentConcurrency(const Models::GetAIAgentConcurrencyRequest &request);
+
+      /**
        * @summary Retrieves the details of a workflow task.
        *
        * @param request GetAIWorkflowTaskRequest

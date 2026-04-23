@@ -6852,6 +6852,48 @@ GenerateMessageChatTokenResponse Client::generateMessageChatToken(const Generate
 }
 
 /**
+ * @summary 获取智能体当前通话并发数
+ *
+ * @param request GetAIAgentConcurrencyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAIAgentConcurrencyResponse
+ */
+GetAIAgentConcurrencyResponse Client::getAIAgentConcurrencyWithOptions(const GetAIAgentConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAIAgentId()) {
+    query["AIAgentId"] = request.getAIAgentId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAIAgentConcurrency"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAIAgentConcurrencyResponse>();
+}
+
+/**
+ * @summary 获取智能体当前通话并发数
+ *
+ * @param request GetAIAgentConcurrencyRequest
+ * @return GetAIAgentConcurrencyResponse
+ */
+GetAIAgentConcurrencyResponse Client::getAIAgentConcurrency(const GetAIAgentConcurrencyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAIAgentConcurrencyWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a workflow task.
  *
  * @param request GetAIWorkflowTaskRequest

@@ -434,6 +434,9 @@
 #include <alibabacloud/models/GenerateMessageChatTokenRequest.hpp>
 #include <alibabacloud/models/GenerateMessageChatTokenResponseBody.hpp>
 #include <alibabacloud/models/GenerateMessageChatTokenResponse.hpp>
+#include <alibabacloud/models/GetAIAgentConcurrencyRequest.hpp>
+#include <alibabacloud/models/GetAIAgentConcurrencyResponseBody.hpp>
+#include <alibabacloud/models/GetAIAgentConcurrencyResponse.hpp>
 #include <alibabacloud/models/GetAIWorkflowTaskRequest.hpp>
 #include <alibabacloud/models/GetAIWorkflowTaskResponseBody.hpp>
 #include <alibabacloud/models/GetAIWorkflowTaskResponse.hpp>
