@@ -111,7 +111,7 @@ namespace Starrocks20221019
       Models::CreateAgentResourceResponse createAgentResource(const Models::CreateAgentResourceRequest &request);
 
       /**
-       * @summary 创建StarRocks集群
+       * @summary Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
        *
        * @param request CreateInstanceV1Request
        * @param headers map
@@ -121,7 +121,7 @@ namespace Starrocks20221019
       Models::CreateInstanceV1Response createInstanceV1WithOptions(const Models::CreateInstanceV1Request &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建StarRocks集群
+       * @summary Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
        *
        * @param request CreateInstanceV1Request
        * @return CreateInstanceV1Response
@@ -691,6 +691,24 @@ namespace Starrocks20221019
        * @return ListOperationHistoryResponse
        */
       Models::ListOperationHistoryResponse listOperationHistory(const Models::ListOperationHistoryRequest &request);
+
+      /**
+       * @summary 获取集群SSL详情
+       *
+       * @param request ListSSLDetailsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSSLDetailsResponse
+       */
+      Models::ListSSLDetailsResponse listSSLDetailsWithOptions(const Models::ListSSLDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取集群SSL详情
+       *
+       * @param request ListSSLDetailsRequest
+       * @return ListSSLDetailsResponse
+       */
+      Models::ListSSLDetailsResponse listSSLDetails(const Models::ListSSLDetailsRequest &request);
 
       /**
        * @summary 修改实例的付费类型

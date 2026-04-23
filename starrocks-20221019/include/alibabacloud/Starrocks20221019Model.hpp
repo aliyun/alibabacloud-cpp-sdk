@@ -118,6 +118,9 @@
 #include <alibabacloud/models/ListOperationHistoryRequest.hpp>
 #include <alibabacloud/models/ListOperationHistoryResponseBody.hpp>
 #include <alibabacloud/models/ListOperationHistoryResponse.hpp>
+#include <alibabacloud/models/ListSSLDetailsRequest.hpp>
+#include <alibabacloud/models/ListSSLDetailsResponseBody.hpp>
+#include <alibabacloud/models/ListSSLDetailsResponse.hpp>
 #include <alibabacloud/models/ModifyChargeTypeRequest.hpp>
 #include <alibabacloud/models/ModifyChargeTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyChargeTypeResponse.hpp>

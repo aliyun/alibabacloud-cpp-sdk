@@ -337,7 +337,7 @@ CreateAgentResourceResponse Client::createAgentResource(const CreateAgentResourc
 }
 
 /**
- * @summary 创建StarRocks集群
+ * @summary Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
  *
  * @param request CreateInstanceV1Request
  * @param headers map
@@ -494,7 +494,7 @@ CreateInstanceV1Response Client::createInstanceV1WithOptions(const CreateInstanc
 }
 
 /**
- * @summary 创建StarRocks集群
+ * @summary Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
  *
  * @param request CreateInstanceV1Request
  * @return CreateInstanceV1Response
@@ -2209,6 +2209,51 @@ ListOperationHistoryResponse Client::listOperationHistory(const ListOperationHis
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listOperationHistoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取集群SSL详情
+ *
+ * @param request ListSSLDetailsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSSLDetailsResponse
+ */
+ListSSLDetailsResponse Client::listSSLDetailsWithOptions(const ListSSLDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSSLDetails"},
+    {"version" , "2022-10-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/webapi/starrocks/listSSLDetails")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSSLDetailsResponse>();
+}
+
+/**
+ * @summary 获取集群SSL详情
+ *
+ * @param request ListSSLDetailsRequest
+ * @return ListSSLDetailsResponse
+ */
+ListSSLDetailsResponse Client::listSSLDetails(const ListSSLDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSSLDetailsWithOptions(request, headers, runtime);
 }
 
 /**
