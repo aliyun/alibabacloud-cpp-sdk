@@ -50,12 +50,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Components& obj) { 
         DARABONBA_PTR_TO_JSON(cuNum, cuNum_);
+        DARABONBA_PTR_TO_JSON(cuType, cuType_);
         DARABONBA_PTR_TO_JSON(payType, payType_);
         DARABONBA_PTR_TO_JSON(replica, replica_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Components& obj) { 
         DARABONBA_PTR_FROM_JSON(cuNum, cuNum_);
+        DARABONBA_PTR_FROM_JSON(cuType, cuType_);
         DARABONBA_PTR_FROM_JSON(payType, payType_);
         DARABONBA_PTR_FROM_JSON(replica, replica_);
         DARABONBA_PTR_FROM_JSON(type, type_);
@@ -72,12 +74,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cuNum_ == nullptr
-        && this->payType_ == nullptr && this->replica_ == nullptr && this->type_ == nullptr; };
+        && this->cuType_ == nullptr && this->payType_ == nullptr && this->replica_ == nullptr && this->type_ == nullptr; };
       // cuNum Field Functions 
       bool hasCuNum() const { return this->cuNum_ != nullptr;};
       void deleteCuNum() { this->cuNum_ = nullptr;};
       inline int32_t getCuNum() const { DARABONBA_PTR_GET_DEFAULT(cuNum_, 0) };
       inline Components& setCuNum(int32_t cuNum) { DARABONBA_PTR_SET_VALUE(cuNum_, cuNum) };
+
+
+      // cuType Field Functions 
+      bool hasCuType() const { return this->cuType_ != nullptr;};
+      void deleteCuType() { this->cuType_ = nullptr;};
+      inline string getCuType() const { DARABONBA_PTR_GET_DEFAULT(cuType_, "") };
+      inline Components& setCuType(string cuType) { DARABONBA_PTR_SET_VALUE(cuType_, cuType) };
 
 
       // payType Field Functions 
@@ -104,6 +113,7 @@ namespace Models
     protected:
       // This parameter is required.
       shared_ptr<int32_t> cuNum_ {};
+      shared_ptr<string> cuType_ {};
       shared_ptr<string> payType_ {};
       // This parameter is required.
       shared_ptr<int32_t> replica_ {};
