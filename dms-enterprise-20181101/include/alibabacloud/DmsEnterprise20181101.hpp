@@ -466,6 +466,27 @@ namespace DmsEnterprise20181101
       Models::CheckBatchTableAccessPermissionResponse checkBatchTableAccessPermission(const Models::CheckBatchTableAccessPermissionRequest &request);
 
       /**
+       * @summary 查询资产盘点任务的执行状态与进度信息
+       *
+       * @description 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+       *
+       * @param request CheckInventoryJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckInventoryJobResponse
+       */
+      Models::CheckInventoryJobResponse checkInventoryJobWithOptions(const Models::CheckInventoryJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资产盘点任务的执行状态与进度信息
+       *
+       * @description 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+       *
+       * @param request CheckInventoryJobRequest
+       * @return CheckInventoryJobResponse
+       */
+      Models::CheckInventoryJobResponse checkInventoryJob(const Models::CheckInventoryJobRequest &request);
+
+      /**
        * @summary Closes a ticket.
        *
        * @param request CloseOrderRequest
@@ -481,6 +502,27 @@ namespace DmsEnterprise20181101
        * @return CloseOrderResponse
        */
       Models::CloseOrderResponse closeOrder(const Models::CloseOrderRequest &request);
+
+      /**
+       * @summary 确认盘点任务中的单条知识，将其标记为已认证
+       *
+       * @description 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+       *
+       * @param request ConfirmInventoryKnowledgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfirmInventoryKnowledgeResponse
+       */
+      Models::ConfirmInventoryKnowledgeResponse confirmInventoryKnowledgeWithOptions(const Models::ConfirmInventoryKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 确认盘点任务中的单条知识，将其标记为已认证
+       *
+       * @description 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+       *
+       * @param request ConfirmInventoryKnowledgeRequest
+       * @return ConfirmInventoryKnowledgeResponse
+       */
+      Models::ConfirmInventoryKnowledgeResponse confirmInventoryKnowledge(const Models::ConfirmInventoryKnowledgeRequest &request);
 
       /**
        * @summary Attaches a system policy or custom policy to a DMS user or custom role.
@@ -807,6 +849,27 @@ namespace DmsEnterprise20181101
        * @return CreateFreeLockCorrectOrderResponse
        */
       Models::CreateFreeLockCorrectOrderResponse createFreeLockCorrectOrder(const Models::CreateFreeLockCorrectOrderRequest &request);
+
+      /**
+       * @summary 创建资产盘点任务，对指定实例/数据库/表进行知识盘点
+       *
+       * @description 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+       *
+       * @param request CreateInventoryJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInventoryJobResponse
+       */
+      Models::CreateInventoryJobResponse createInventoryJobWithOptions(const Models::CreateInventoryJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建资产盘点任务，对指定实例/数据库/表进行知识盘点
+       *
+       * @description 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+       *
+       * @param request CreateInventoryJobRequest
+       * @return CreateInventoryJobResponse
+       */
+      Models::CreateInventoryJobResponse createInventoryJob(const Models::CreateInventoryJobRequest &request);
 
       /**
        * @summary Creates a workspace for data warehouse development in Data Management (DMS).
@@ -5114,6 +5177,27 @@ namespace DmsEnterprise20181101
        * @return SearchDatabaseResponse
        */
       Models::SearchDatabaseResponse searchDatabase(const Models::SearchDatabaseRequest &request);
+
+      /**
+       * @summary 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选
+       *
+       * @description 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+       *
+       * @param request SearchInventoryKnowledgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchInventoryKnowledgeResponse
+       */
+      Models::SearchInventoryKnowledgeResponse searchInventoryKnowledgeWithOptions(const Models::SearchInventoryKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选
+       *
+       * @description 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+       *
+       * @param request SearchInventoryKnowledgeRequest
+       * @return SearchInventoryKnowledgeResponse
+       */
+      Models::SearchInventoryKnowledgeResponse searchInventoryKnowledge(const Models::SearchInventoryKnowledgeRequest &request);
 
       /**
        * @summary Queries detailed information about tables.

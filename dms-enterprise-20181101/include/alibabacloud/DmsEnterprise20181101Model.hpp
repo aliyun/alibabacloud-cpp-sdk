@@ -22,6 +22,10 @@
 #include <alibabacloud/models/DatasetItemVO.hpp>
 #include <alibabacloud/models/GetTableDataKeyVO.hpp>
 #include <alibabacloud/models/ImportMasterKeyVO.hpp>
+#include <alibabacloud/models/KnowledgeBaseVO.hpp>
+#include <alibabacloud/models/KnowledgeJobInfoVO.hpp>
+#include <alibabacloud/models/KnowledgeSubJobInfoVO.hpp>
+#include <alibabacloud/models/MetaAgentPreCheckParam.hpp>
 #include <alibabacloud/models/MetaCategory.hpp>
 #include <alibabacloud/models/MetaCategoryTableEntity.hpp>
 #include <alibabacloud/models/PartitionError.hpp>
@@ -107,9 +111,15 @@
 #include <alibabacloud/models/CheckBatchTableAccessPermissionShrinkRequest.hpp>
 #include <alibabacloud/models/CheckBatchTableAccessPermissionResponseBody.hpp>
 #include <alibabacloud/models/CheckBatchTableAccessPermissionResponse.hpp>
+#include <alibabacloud/models/CheckInventoryJobRequest.hpp>
+#include <alibabacloud/models/CheckInventoryJobResponseBody.hpp>
+#include <alibabacloud/models/CheckInventoryJobResponse.hpp>
 #include <alibabacloud/models/CloseOrderRequest.hpp>
 #include <alibabacloud/models/CloseOrderResponseBody.hpp>
 #include <alibabacloud/models/CloseOrderResponse.hpp>
+#include <alibabacloud/models/ConfirmInventoryKnowledgeRequest.hpp>
+#include <alibabacloud/models/ConfirmInventoryKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/ConfirmInventoryKnowledgeResponse.hpp>
 #include <alibabacloud/models/CreateAbacAuthorizationRequest.hpp>
 #include <alibabacloud/models/CreateAbacAuthorizationResponseBody.hpp>
 #include <alibabacloud/models/CreateAbacAuthorizationResponse.hpp>
@@ -170,6 +180,9 @@
 #include <alibabacloud/models/CreateFreeLockCorrectOrderShrinkRequest.hpp>
 #include <alibabacloud/models/CreateFreeLockCorrectOrderResponseBody.hpp>
 #include <alibabacloud/models/CreateFreeLockCorrectOrderResponse.hpp>
+#include <alibabacloud/models/CreateInventoryJobRequest.hpp>
+#include <alibabacloud/models/CreateInventoryJobResponseBody.hpp>
+#include <alibabacloud/models/CreateInventoryJobResponse.hpp>
 #include <alibabacloud/models/CreateLakeHouseSpaceRequest.hpp>
 #include <alibabacloud/models/CreateLakeHouseSpaceResponseBody.hpp>
 #include <alibabacloud/models/CreateLakeHouseSpaceResponse.hpp>
@@ -885,6 +898,9 @@
 #include <alibabacloud/models/SearchDatabaseRequest.hpp>
 #include <alibabacloud/models/SearchDatabaseResponseBody.hpp>
 #include <alibabacloud/models/SearchDatabaseResponse.hpp>
+#include <alibabacloud/models/SearchInventoryKnowledgeRequest.hpp>
+#include <alibabacloud/models/SearchInventoryKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/SearchInventoryKnowledgeResponse.hpp>
 #include <alibabacloud/models/SearchTableRequest.hpp>
 #include <alibabacloud/models/SearchTableResponseBody.hpp>
 #include <alibabacloud/models/SearchTableResponse.hpp>

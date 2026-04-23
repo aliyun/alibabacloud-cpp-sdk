@@ -1980,6 +1980,52 @@ CheckBatchTableAccessPermissionResponse Client::checkBatchTableAccessPermission(
 }
 
 /**
+ * @summary 查询资产盘点任务的执行状态与进度信息
+ *
+ * @description 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+ *
+ * @param request CheckInventoryJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckInventoryJobResponse
+ */
+CheckInventoryJobResponse Client::checkInventoryJobWithOptions(const CheckInventoryJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckInventoryJob"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckInventoryJobResponse>();
+}
+
+/**
+ * @summary 查询资产盘点任务的执行状态与进度信息
+ *
+ * @description 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+ *
+ * @param request CheckInventoryJobRequest
+ * @return CheckInventoryJobResponse
+ */
+CheckInventoryJobResponse Client::checkInventoryJob(const CheckInventoryJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkInventoryJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Closes a ticket.
  *
  * @param request CloseOrderRequest
@@ -2027,6 +2073,60 @@ CloseOrderResponse Client::closeOrderWithOptions(const CloseOrderRequest &reques
 CloseOrderResponse Client::closeOrder(const CloseOrderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return closeOrderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 确认盘点任务中的单条知识，将其标记为已认证
+ *
+ * @description 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+ *
+ * @param request ConfirmInventoryKnowledgeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfirmInventoryKnowledgeResponse
+ */
+ConfirmInventoryKnowledgeResponse Client::confirmInventoryKnowledgeWithOptions(const ConfirmInventoryKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEntityId()) {
+    query["EntityId"] = request.getEntityId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasKnowledgeType()) {
+    query["KnowledgeType"] = request.getKnowledgeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfirmInventoryKnowledge"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfirmInventoryKnowledgeResponse>();
+}
+
+/**
+ * @summary 确认盘点任务中的单条知识，将其标记为已认证
+ *
+ * @description 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+ *
+ * @param request ConfirmInventoryKnowledgeRequest
+ * @return ConfirmInventoryKnowledgeResponse
+ */
+ConfirmInventoryKnowledgeResponse Client::confirmInventoryKnowledge(const ConfirmInventoryKnowledgeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return confirmInventoryKnowledgeWithOptions(request, runtime);
 }
 
 /**
@@ -3395,6 +3495,52 @@ CreateFreeLockCorrectOrderResponse Client::createFreeLockCorrectOrderWithOptions
 CreateFreeLockCorrectOrderResponse Client::createFreeLockCorrectOrder(const CreateFreeLockCorrectOrderRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createFreeLockCorrectOrderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建资产盘点任务，对指定实例/数据库/表进行知识盘点
+ *
+ * @description 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+ *
+ * @param request CreateInventoryJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInventoryJobResponse
+ */
+CreateInventoryJobResponse Client::createInventoryJobWithOptions(const CreateInventoryJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasParam()) {
+    query["Param"] = request.getParam();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInventoryJob"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInventoryJobResponse>();
+}
+
+/**
+ * @summary 创建资产盘点任务，对指定实例/数据库/表进行知识盘点
+ *
+ * @description 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+ *
+ * @param request CreateInventoryJobRequest
+ * @return CreateInventoryJobResponse
+ */
+CreateInventoryJobResponse Client::createInventoryJob(const CreateInventoryJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInventoryJobWithOptions(request, runtime);
 }
 
 /**
@@ -16660,6 +16806,76 @@ SearchDatabaseResponse Client::searchDatabaseWithOptions(const SearchDatabaseReq
 SearchDatabaseResponse Client::searchDatabase(const SearchDatabaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return searchDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选
+ *
+ * @description 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+ *
+ * @param request SearchInventoryKnowledgeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchInventoryKnowledgeResponse
+ */
+SearchInventoryKnowledgeResponse Client::searchInventoryKnowledgeWithOptions(const SearchInventoryKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasShowType()) {
+    query["ShowType"] = request.getShowType();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchInventoryKnowledge"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchInventoryKnowledgeResponse>();
+}
+
+/**
+ * @summary 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选
+ *
+ * @description 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+ *
+ * @param request SearchInventoryKnowledgeRequest
+ * @return SearchInventoryKnowledgeResponse
+ */
+SearchInventoryKnowledgeResponse Client::searchInventoryKnowledge(const SearchInventoryKnowledgeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchInventoryKnowledgeWithOptions(request, runtime);
 }
 
 /**
