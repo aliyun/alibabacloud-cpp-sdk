@@ -116,9 +116,7 @@ namespace Models
 
 
         protected:
-          // The index of the snapshot.
           shared_ptr<int64_t> index_ {};
-          // The URL of the snapshot.
           shared_ptr<string> url_ {};
         };
 
@@ -182,7 +180,6 @@ namespace Models
       shared_ptr<string> jobId_ {};
       // The rule used to generate snapshot URLs.
       shared_ptr<string> regular_ {};
-      // The details of the snapshot.
       shared_ptr<MediaSnapshot::Snapshots> snapshots_ {};
       // The total number of snapshots.
       shared_ptr<int64_t> total_ {};

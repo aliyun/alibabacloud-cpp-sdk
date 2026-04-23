@@ -145,19 +145,12 @@ namespace Models
 
 
       protected:
-        // The amount of network traffic in the Chinese mainland. Unit: bytes.
         shared_ptr<string> domesticValue_ {};
-        // The amount of HTTPS network traffic on points of presence (POPs) in the Chinese mainland. Unit: bytes.
         shared_ptr<string> httpsDomesticValue_ {};
-        // The amount of HTTPS network traffic on POPs outside the Chinese mainland. Unit: bytes.
         shared_ptr<string> httpsOverseasValue_ {};
-        // The total amount of HTTPS network traffic on POPs. Unit: bytes.
         shared_ptr<string> httpsValue_ {};
-        // The amount of network traffic outside the Chinese mainland. Unit: bytes.
         shared_ptr<string> overseasValue_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The total traffic. Unit: bytes.
         shared_ptr<string> value_ {};
       };
 
@@ -242,7 +235,6 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The total amount of network traffic.
     shared_ptr<string> totalTraffic_ {};
-    // The amount of network traffic at each time interval.
     shared_ptr<DescribeVodDomainTrafficDataResponseBody::TrafficDataPerInterval> trafficDataPerInterval_ {};
   };
 

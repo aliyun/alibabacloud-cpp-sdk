@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVodDomainCertificateInfoRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+      DARABONBA_PTR_TO_JSON(HeraApiAutoVersion, heraApiAutoVersion_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVodDomainCertificateInfoRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(HeraApiAutoVersion, heraApiAutoVersion_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
     };
     DescribeVodDomainCertificateInfoRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && this->ownerId_ == nullptr; };
+        && this->heraApiAutoVersion_ == nullptr && this->ownerId_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeVodDomainCertificateInfoRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // heraApiAutoVersion Field Functions 
+    bool hasHeraApiAutoVersion() const { return this->heraApiAutoVersion_ != nullptr;};
+    void deleteHeraApiAutoVersion() { this->heraApiAutoVersion_ = nullptr;};
+    inline string getHeraApiAutoVersion() const { DARABONBA_PTR_GET_DEFAULT(heraApiAutoVersion_, "") };
+    inline DescribeVodDomainCertificateInfoRequest& setHeraApiAutoVersion(string heraApiAutoVersion) { DARABONBA_PTR_SET_VALUE(heraApiAutoVersion_, heraApiAutoVersion) };
 
 
     // ownerId Field Functions 
@@ -52,6 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    shared_ptr<string> heraApiAutoVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
   };
 

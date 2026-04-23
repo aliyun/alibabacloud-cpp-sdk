@@ -131,13 +131,7 @@ namespace Models
 
 
           protected:
-            // The transcoding specification. Valid values:
-            // 
-            // *   **Audio**: audio transcoding
-            // *   **Segmentation**: container format conversion
-            // *   **H264.LD, H264.SD, H264.HD, H264.2K, H264.4K, and more**
             shared_ptr<string> name_ {};
-            // The transcoding duration. Unit: seconds.
             shared_ptr<string> value_ {};
           };
 
@@ -174,9 +168,7 @@ namespace Models
 
 
       protected:
-        // The statistics on transcoding of different specifications.
         shared_ptr<TranscodeDataItem::Data> data_ {};
-        // The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -227,7 +219,6 @@ namespace Models
     shared_ptr<string> dataInterval_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The transcoding statistics returned.
     shared_ptr<DescribeVodTranscodeDataResponseBody::TranscodeData> transcodeData_ {};
   };
 

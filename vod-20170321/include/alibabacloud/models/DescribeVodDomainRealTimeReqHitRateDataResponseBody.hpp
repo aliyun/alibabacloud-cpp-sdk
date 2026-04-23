@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The cache hit ratio that is calculated based on requests. The cache hit ratio is measured in percentage.
         shared_ptr<float> reqHitRate_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The returned results.
     shared_ptr<DescribeVodDomainRealTimeReqHitRateDataResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

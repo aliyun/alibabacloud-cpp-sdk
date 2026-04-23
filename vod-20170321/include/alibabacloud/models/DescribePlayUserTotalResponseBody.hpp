@@ -134,13 +134,9 @@ namespace Models
 
 
         protected:
-          // The total number of video views played by using ApsaraVideo Player SDK for Android.
           shared_ptr<string> android_ {};
-          // The total number of video views played by using the Flash player.
           shared_ptr<string> flash_ {};
-          // The total number of video views played by using the HTML5 player.
           shared_ptr<string> HTML5_ {};
-          // The total number of video views played by using ApsaraVideo Player SDK for iOS.
           shared_ptr<string> iOS_ {};
         };
 
@@ -200,13 +196,9 @@ namespace Models
 
 
         protected:
-          // The total number of unique visitors who use ApsaraVideo Player SDK for Android.
           shared_ptr<string> android_ {};
-          // The total number of unique visitors who use the Flash player.
           shared_ptr<string> flash_ {};
-          // The total number of unique visitors who use the HTML5 player.
           shared_ptr<string> HTML5_ {};
-          // The total number of unique visitors who use ApsaraVideo Player SDK for iOS.
           shared_ptr<string> iOS_ {};
         };
 
@@ -252,15 +244,10 @@ namespace Models
 
 
       protected:
-        // The date. The date is displayed in the yyyy-MM-dd format.
         shared_ptr<string> date_ {};
-        // The total playback duration. Unit: milliseconds.
         shared_ptr<string> playDuration_ {};
-        // The distribution of the playback duration.
         shared_ptr<string> playRange_ {};
-        // The total number of unique visitors.
         shared_ptr<UserPlayStatisTotal::UV> UV_ {};
-        // The total number of video views.
         shared_ptr<UserPlayStatisTotal::VV> VV_ {};
       };
 
@@ -299,7 +286,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The daily playback statistics.
     shared_ptr<DescribePlayUserTotalResponseBody::UserPlayStatisTotals> userPlayStatisTotals_ {};
   };
 

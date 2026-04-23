@@ -211,31 +211,18 @@ namespace Models
 
 
         protected:
-          // The algorithm.
           shared_ptr<string> algorithm_ {};
-          // The ID of the certificate.
           shared_ptr<int64_t> certId_ {};
-          // The ID of the certificate.
           shared_ptr<string> certIdentifier_ {};
-          // The name of the certificate.
           shared_ptr<string> certName_ {};
-          // The common name of the certificate.
           shared_ptr<string> common_ {};
-          // The time when the certificate was created.
           shared_ptr<int64_t> createTime_ {};
-          // DomainMatchCert.
           shared_ptr<bool> domainMatchCert_ {};
-          // The time when the certificate expired.
           shared_ptr<int64_t> endTime_ {};
-          // The fingerprint of the certificate.
           shared_ptr<string> fingerprint_ {};
-          // The ID of the instance.
           shared_ptr<string> instanceId_ {};
-          // The certificate authority (CA) that issued the certificate.
           shared_ptr<string> issuer_ {};
-          // The time when the certificate was issued. Unit: seconds.
           shared_ptr<int64_t> lastTime_ {};
-          // The signAlgorithm.
           shared_ptr<string> signAlgorithm_ {};
         };
 
@@ -272,7 +259,6 @@ namespace Models
 
 
     protected:
-      // The list of certificates.
       shared_ptr<CertificateListModel::CertList> certList_ {};
       // The number of certificates that are returned.
       shared_ptr<int32_t> count_ {};

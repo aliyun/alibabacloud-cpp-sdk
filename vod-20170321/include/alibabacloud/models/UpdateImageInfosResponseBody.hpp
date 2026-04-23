@@ -84,7 +84,6 @@ namespace Models
 
 
   protected:
-    // The IDs of the images that do not exist.
     shared_ptr<UpdateImageInfosResponseBody::NonExistImageIds> nonExistImageIds_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

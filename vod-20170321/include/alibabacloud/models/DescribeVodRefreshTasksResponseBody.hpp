@@ -141,32 +141,12 @@ namespace Models
 
 
       protected:
-        // The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The type of error returned when the refresh or prefetch task failed. Valid values: Valid values:
-        // 
-        // *   **Internal Error**: An internal error occurred.
-        // *   **Origin Timeout**: The response from the origin server timed out.
-        // *   **Origin Return StatusCode 5XX**: The origin server returned an HTTP status code 5xx.
         shared_ptr<string> description_ {};
-        // The URL of the object refreshed.
         shared_ptr<string> objectPath_ {};
-        // The type of the task. Default value: file. Valid values:
-        // 
-        // *   **file**: refreshes one or more files.
-        // *   **directory**: refreshes files in the specified directory.
-        // *   **preload**: prefetches one or more files.
         shared_ptr<string> objectType_ {};
-        // The progress of the task in percentage.
         shared_ptr<string> process_ {};
-        // The status of the task. Valid values:
-        // 
-        // *   **Complete**: The task is complete.
-        // *   **Refreshing**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Pending**: The task is pending.
         shared_ptr<string> status_ {};
-        // The ID of the task.
         shared_ptr<string> taskId_ {};
       };
 
@@ -230,7 +210,6 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the returned tasks.
     shared_ptr<DescribeVodRefreshTasksResponseBody::Tasks> tasks_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

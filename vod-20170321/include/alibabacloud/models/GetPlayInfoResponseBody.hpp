@@ -437,102 +437,30 @@ namespace Models
 
 
       protected:
-        // The color depth. This value is an integer.
         shared_ptr<int32_t> bitDepth_ {};
-        // The bitrate of the media stream. Unit: Kbit/s.
         shared_ptr<string> bitrate_ {};
-        // The encoding type. The possible values are:
-        // 
-        // - H264
-        // 
-        // - H265
         shared_ptr<string> codecName_ {};
-        // The time when the audio or video stream was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The quality of the video stream. Valid values:
-        // 
-        // *   **FD**: low definition
-        // *   **LD**: standard definition
-        // *   **SD**: high definition
-        // *   **HD**: ultra-high definition
-        // *   **OD**: original definition
-        // *   **2K**
-        // *   **4K**
-        // *   **SQ**: standard sound quality
-        // *   **HQ**: high sound quality
-        // *   **AUTO**: adaptive bitrate
         shared_ptr<string> definition_ {};
-        // The duration of the media stream. Unit: seconds.
         shared_ptr<string> duration_ {};
-        // Indicates whether the media stream is encrypted. Valid values:
-        // 
-        // *   **0**: The media stream is not encrypted.
-        // *   **1**: The media stream is encrypted.
         shared_ptr<int64_t> encrypt_ {};
-        // The encryption type of the media stream. Valid values:
-        // 
-        // *   **License**: decryption on local devices
-        // 
-        // >  If the encryption type is **License**, only ApsaraVideo Player SDK can be used to play videos.
         shared_ptr<string> encryptMode_ {};
-        // The encryption type of the media stream. Valid values:
-        // 
-        // *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
-        // *   **HLSEncryption**: HTTP-Live-Streaming (HLS) encryption
-        // 
-        // >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
         shared_ptr<string> encryptType_ {};
-        // The format of the media stream.
-        // 
-        // *   If the media file is a video file, the valid values are **mp4** and **m3u8**.
-        // *   If the media asset is an audio-only file, the value is **mp3**.
         shared_ptr<string> format_ {};
-        // The frame rate of the media stream. Unit: frames per second.
         shared_ptr<string> fps_ {};
-        // The HDR type of the media stream. Valid values:
-        // 
-        // *   HDR
-        // *   HDR10
-        // *   HLG
-        // *   DolbyVision
-        // *   HDRVivid
-        // *   SDR+
         shared_ptr<string> HDRType_ {};
-        // The height of the media stream. Unit: pixels.
         shared_ptr<int64_t> height_ {};
-        // The custom watermark information of the copyright watermark. This parameter is returned if you set `JobType` to `2`.
         shared_ptr<string> jobExt_ {};
-        // The job ID for transcoding the media stream. This ID uniquely identifies a media stream.
         shared_ptr<string> jobId_ {};
-        // The type of the digital watermark. Valid values:
-        // 
-        // *   **1**: user-tracing watermark
-        // *   **2**: copyright watermark
         shared_ptr<int32_t> jobType_ {};
-        // The time when the audio or video file was last updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> modificationTime_ {};
-        // The transcoding type. Valid values:
-        // 
-        // *   **0**: regular transcoding
-        // *   **1.0**: Narrowband HD™ 1.0 transcoding
-        // *   **2.0**: Narrowband HD™ 2.0 transcoding
         shared_ptr<string> narrowBandType_ {};
-        // The playback URL of the video stream.
         shared_ptr<string> playURL_ {};
-        // The size of the media stream. Unit: bytes.
         shared_ptr<int64_t> size_ {};
-        // The specifications of transcoded audio and video streams. For more information about the valid values, see [Output specifications](~~124671#section-6bv-l0g-opq~~).
         shared_ptr<string> specification_ {};
-        // The status of the audio or video stream. Valid values:
-        // 
-        // *   **Normal**: The latest transcoded stream in each quality and format is in the Normal status.
-        // *   **Invisible**: If multiple streams are transcoded in the same quality and format, the latest transcoded stream is in the Normal status and other streams are in the Invisible status.
         shared_ptr<string> status_ {};
-        // The type of the media stream. If the media stream is a video stream, the value is **video**. If the media stream is an audio-only stream, the value is **audio**.
         shared_ptr<string> streamType_ {};
-        // The ID of the watermark that is associated with the media stream.
         shared_ptr<string> watermarkId_ {};
-        // The width of the media stream. Unit: pixels.
         shared_ptr<int64_t> width_ {};
       };
 
@@ -578,7 +506,6 @@ namespace Models
 
 
   protected:
-    // The information about the audio or video stream.
     shared_ptr<GetPlayInfoResponseBody::PlayInfoList> playInfoList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

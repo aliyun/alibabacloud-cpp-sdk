@@ -357,7 +357,6 @@ namespace Models
       shared_ptr<string> restoreStatus_ {};
       // The size of the source file. Unit: bytes.
       shared_ptr<int64_t> size_ {};
-      // The video snapshot URLs.
       shared_ptr<Video::Snapshots> snapshots_ {};
       // The status of the media file. For more information about the operations that you can perform on files in different statuses and usage limits, see [Status: the status of a video](~~52839#title-vqg-8cz-7p8~~). Valid values:
       // 

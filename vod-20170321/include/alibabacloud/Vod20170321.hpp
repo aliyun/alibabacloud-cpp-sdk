@@ -44,7 +44,7 @@ namespace Vod20170321
       Models::AddAITemplateResponse addAITemplate(const Models::AddAITemplateRequest &request);
 
       /**
-       * @summary Creates a video category. You can call this operation to categorize media assets including audio or video files, images, and short video materials in ApsaraVideo VOD. This simplifies the query and management of media assets.
+       * @summary Creates a category to classify media assets that are stored in ApsaraVideo VOD. This helps you query and manage resources in a more efficient and convenient way.
        *
        * @description *   You can create a maximum of 3 levels of categories for audio, video, and image files and 2 levels of categories for short video materials. Each category level can contain a maximum of 100 subcategories. To create categories for audio and video files, set `Type` to `default`. To create categories for short video materials, set `Type` to `material`.
        * *   After you create a category, you can categorize media resources during upload or categorize the uploaded media resources. For more information, see [Manage video categories](https://help.aliyun.com/document_detail/86070.html).
@@ -56,7 +56,7 @@ namespace Vod20170321
       Models::AddCategoryResponse addCategoryWithOptions(const Models::AddCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a video category. You can call this operation to categorize media assets including audio or video files, images, and short video materials in ApsaraVideo VOD. This simplifies the query and management of media assets.
+       * @summary Creates a category to classify media assets that are stored in ApsaraVideo VOD. This helps you query and manage resources in a more efficient and convenient way.
        *
        * @description *   You can create a maximum of 3 levels of categories for audio, video, and image files and 2 levels of categories for short video materials. Each category level can contain a maximum of 100 subcategories. To create categories for audio and video files, set `Type` to `default`. To create categories for short video materials, set `Type` to `material`.
        * *   After you create a category, you can categorize media resources during upload or categorize the uploaded media resources. For more information, see [Manage video categories](https://help.aliyun.com/document_detail/86070.html).
@@ -213,7 +213,7 @@ namespace Vod20170321
       Models::AddVodTemplateResponse addVodTemplate(const Models::AddVodTemplateRequest &request);
 
       /**
-       * @summary Creates an image or text watermark. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the progress of creating watermark tasks.
+       * @summary Creates an image or text watermark template. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the processing of watermark tasks.
        *
        * @description *   You can call this operation to create an `Image` watermark template or a `Text` watermark template. You can use static images in the PNG format or dynamic images in the GIF, APNG, and MOV formats as image watermarks.
        * *   After you call this operation to create a watermark template, you must call the [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to associate the watermark template with a transcoding template group. This way, you can add watermarks to videos during transcoding.
@@ -226,7 +226,7 @@ namespace Vod20170321
       Models::AddWatermarkResponse addWatermarkWithOptions(const Models::AddWatermarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image or text watermark. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the progress of creating watermark tasks.
+       * @summary Creates an image or text watermark template. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the processing of watermark tasks.
        *
        * @description *   You can call this operation to create an `Image` watermark template or a `Text` watermark template. You can use static images in the PNG format or dynamic images in the GIF, APNG, and MOV formats as image watermarks.
        * *   After you call this operation to create a watermark template, you must call the [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to associate the watermark template with a transcoding template group. This way, you can add watermarks to videos during transcoding.
@@ -433,7 +433,7 @@ namespace Vod20170321
       Models::CreateAuditResponse createAudit(const Models::CreateAuditRequest &request);
 
       /**
-       * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
+       * @summary Obtain an upload credential and create auxiliary media assets, such as watermarks and subtitles. The upload URL and credential are provided by ApsaraVideo VOD to resolve authorization and security issues, prevent malicious uploads, and automatically create media IDs (Mediaid) for management and processing.
        *
        * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
        * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
@@ -448,7 +448,7 @@ namespace Vod20170321
       Models::CreateUploadAttachedMediaResponse createUploadAttachedMediaWithOptions(const Models::CreateUploadAttachedMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
+       * @summary Obtain an upload credential and create auxiliary media assets, such as watermarks and subtitles. The upload URL and credential are provided by ApsaraVideo VOD to resolve authorization and security issues, prevent malicious uploads, and automatically create media IDs (Mediaid) for management and processing.
        *
        * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
        * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
@@ -462,7 +462,7 @@ namespace Vod20170321
       Models::CreateUploadAttachedMediaResponse createUploadAttachedMedia(const Models::CreateUploadAttachedMediaRequest &request);
 
       /**
-       * @summary Queries a URL and a credential for uploading an image.
+       * @summary ApsaraVideo VOD returns the upload URL and credential to ensure authorization and security, prevent malicious uploads, and automatically create an image ID for management. Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID.
        *
        * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
        * *   You must obtain a URL and a credential before you upload an image to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html) topic.
@@ -477,7 +477,7 @@ namespace Vod20170321
       Models::CreateUploadImageResponse createUploadImageWithOptions(const Models::CreateUploadImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a URL and a credential for uploading an image.
+       * @summary ApsaraVideo VOD returns the upload URL and credential to ensure authorization and security, prevent malicious uploads, and automatically create an image ID for management. Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID.
        *
        * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
        * *   You must obtain a URL and a credential before you upload an image to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html) topic.
@@ -587,7 +587,7 @@ namespace Vod20170321
       Models::DeleteAITemplateResponse deleteAITemplate(const Models::DeleteAITemplateRequest &request);
 
       /**
-       * @summary Deletes an application.
+       * @summary Deletes the information about applications.
        *
        * @description Application with resources can not be deleted.
        *
@@ -598,7 +598,7 @@ namespace Vod20170321
       Models::DeleteAppInfoResponse deleteAppInfoWithOptions(const Models::DeleteAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application.
+       * @summary Deletes the information about applications.
        *
        * @description Application with resources can not be deleted.
        *
@@ -608,7 +608,7 @@ namespace Vod20170321
       Models::DeleteAppInfoResponse deleteAppInfo(const Models::DeleteAppInfoRequest &request);
 
       /**
-       * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
+       * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete one or more auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
        *
        * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
        * *   You can delete a maximum of 20 auxiliary media assets in one request.
@@ -620,7 +620,7 @@ namespace Vod20170321
       Models::DeleteAttachedMediaResponse deleteAttachedMediaWithOptions(const Models::DeleteAttachedMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
+       * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete one or more auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
        *
        * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
        * *   You can delete a maximum of 20 auxiliary media assets in one request.
@@ -696,7 +696,7 @@ namespace Vod20170321
       Models::DeleteEditingProjectResponse deleteEditingProject(const Models::DeleteEditingProjectRequest &request);
 
       /**
-       * @summary 删除剪辑资源
+       * @summary Deletes the materials to be edited for an online editing project.
        *
        * @param request DeleteEditingProjectMaterialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -705,7 +705,7 @@ namespace Vod20170321
       Models::DeleteEditingProjectMaterialsResponse deleteEditingProjectMaterialsWithOptions(const Models::DeleteEditingProjectMaterialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除剪辑资源
+       * @summary Deletes the materials to be edited for an online editing project.
        *
        * @param request DeleteEditingProjectMaterialsRequest
        * @return DeleteEditingProjectMaterialsResponse
@@ -805,7 +805,7 @@ namespace Vod20170321
       Models::DeleteMultipartUploadResponse deleteMultipartUpload(const Models::DeleteMultipartUploadRequest &request);
 
       /**
-       * @summary Deletes one or more video or audio streams and their storage files at a time.
+       * @summary Deletes media streams such as video or audio streams and their storage files.
        *
        * @param request DeleteStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,7 +814,7 @@ namespace Vod20170321
       Models::DeleteStreamResponse deleteStreamWithOptions(const Models::DeleteStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more video or audio streams and their storage files at a time.
+       * @summary Deletes media streams such as video or audio streams and their storage files.
        *
        * @param request DeleteStreamRequest
        * @return DeleteStreamResponse
@@ -1160,7 +1160,7 @@ namespace Vod20170321
       Models::DescribeVodDomainBpsDataResponse describeVodDomainBpsData(const Models::DescribeVodDomainBpsDataRequest &request);
 
       /**
-       * @summary Queries the bandwidth data by protocol.
+       * @summary Queries the bandwidth data for one or more accelerated domain names by the protocol type.
        *
        * @description You can call this API operation up to 20 times per second per account. If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. Time granularity
        * The time granularity supported by Interval, the maximum time period within which historical data is available, and the data delay vary based on the time range to query, as described in the following table.
@@ -1177,7 +1177,7 @@ namespace Vod20170321
       Models::DescribeVodDomainBpsDataByLayerResponse describeVodDomainBpsDataByLayerWithOptions(const Models::DescribeVodDomainBpsDataByLayerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the bandwidth data by protocol.
+       * @summary Queries the bandwidth data for one or more accelerated domain names by the protocol type.
        *
        * @description You can call this API operation up to 20 times per second per account. If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. Time granularity
        * The time granularity supported by Interval, the maximum time period within which historical data is available, and the data delay vary based on the time range to query, as described in the following table.
@@ -1820,7 +1820,7 @@ namespace Vod20170321
       Models::DescribeVodDomainUsageDataResponse describeVodDomainUsageData(const Models::DescribeVodDomainUsageDataRequest &request);
 
       /**
-       * @summary 点播云剪辑用量查询
+       * @summary Queries the online editing usage in ApsaraVideo VOD.
        *
        * @param request DescribeVodEditingUsageDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1829,7 +1829,7 @@ namespace Vod20170321
       Models::DescribeVodEditingUsageDataResponse describeVodEditingUsageDataWithOptions(const Models::DescribeVodEditingUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 点播云剪辑用量查询
+       * @summary Queries the online editing usage in ApsaraVideo VOD.
        *
        * @param request DescribeVodEditingUsageDataRequest
        * @return DescribeVodEditingUsageDataResponse
@@ -2283,7 +2283,7 @@ namespace Vod20170321
       Models::GetAIMediaAuditJobResponse getAIMediaAuditJob(const Models::GetAIMediaAuditJobRequest &request);
 
       /**
-       * @summary Queries the details of an AI template.
+       * @summary Queries AI templates.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        * *   Before you call this operation to query details of an AI template, you must obtain the ID of the AI template.
@@ -2295,7 +2295,7 @@ namespace Vod20170321
       Models::GetAITemplateResponse getAITemplateWithOptions(const Models::GetAITemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an AI template.
+       * @summary Queries AI templates.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        * *   Before you call this operation to query details of an AI template, you must obtain the ID of the AI template.
@@ -2422,7 +2422,7 @@ namespace Vod20170321
       Models::GetCategoriesResponse getCategories(const Models::GetCategoriesRequest &request);
 
       /**
-       * @summary 支持区域化媒资ID级别播放数据查询
+       * @summary Obtains all media traffic data of a specific date and region. The data is generated based on Alibaba Cloud CDN traffic logs and reflects the traffic consumption of videos. The data is exported as a CSV file, including the date, video ID, domain name, traffic, application ID, and category ID. You can download the file to your local storage for operational data analysis and billing.
        *
        * @param request GetDailyPlayRegionStatisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2431,7 +2431,7 @@ namespace Vod20170321
       Models::GetDailyPlayRegionStatisResponse getDailyPlayRegionStatisWithOptions(const Models::GetDailyPlayRegionStatisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 支持区域化媒资ID级别播放数据查询
+       * @summary Obtains all media traffic data of a specific date and region. The data is generated based on Alibaba Cloud CDN traffic logs and reflects the traffic consumption of videos. The data is exported as a CSV file, including the date, video ID, domain name, traffic, application ID, and category ID. You can download the file to your local storage for operational data analysis and billing.
        *
        * @param request GetDailyPlayRegionStatisRequest
        * @return GetDailyPlayRegionStatisResponse
@@ -2439,7 +2439,7 @@ namespace Vod20170321
       Models::GetDailyPlayRegionStatisResponse getDailyPlayRegionStatis(const Models::GetDailyPlayRegionStatisRequest &request);
 
       /**
-       * @summary Queries information about the default AI template.
+       * @summary Queries the default AI template.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        * *   You can query information only about the default AI template for automated review.
@@ -2451,7 +2451,7 @@ namespace Vod20170321
       Models::GetDefaultAITemplateResponse getDefaultAITemplateWithOptions(const Models::GetDefaultAITemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about the default AI template.
+       * @summary Queries the default AI template.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        * *   You can query information only about the default AI template for automated review.
@@ -2487,7 +2487,7 @@ namespace Vod20170321
       Models::GetDigitalWatermarkExtractResultResponse getDigitalWatermarkExtractResult(const Models::GetDigitalWatermarkExtractResultRequest &request);
 
       /**
-       * @summary 获取剪辑工程
+       * @summary Queries the details of an online editing project.
        *
        * @param request GetEditingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2496,7 +2496,7 @@ namespace Vod20170321
       Models::GetEditingProjectResponse getEditingProjectWithOptions(const Models::GetEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取剪辑工程
+       * @summary Queries the details of an online editing project.
        *
        * @param request GetEditingProjectRequest
        * @return GetEditingProjectResponse
@@ -2504,7 +2504,7 @@ namespace Vod20170321
       Models::GetEditingProjectResponse getEditingProject(const Models::GetEditingProjectRequest &request);
 
       /**
-       * @summary Queries materials to be edited for an online editing project.
+       * @summary Queries materials that are waiting to be edited in an online editing project.
        *
        * @description During editing, you can add materials to the timeline, but some of them may not be used.
        *
@@ -2515,7 +2515,7 @@ namespace Vod20170321
       Models::GetEditingProjectMaterialsResponse getEditingProjectMaterialsWithOptions(const Models::GetEditingProjectMaterialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries materials to be edited for an online editing project.
+       * @summary Queries materials that are waiting to be edited in an online editing project.
        *
        * @description During editing, you can add materials to the timeline, but some of them may not be used.
        *
@@ -2525,7 +2525,7 @@ namespace Vod20170321
       Models::GetEditingProjectMaterialsResponse getEditingProjectMaterials(const Models::GetEditingProjectMaterialsRequest &request);
 
       /**
-       * @summary Queries the basic information and access URL of an image based on the image ID.
+       * @summary Queries the basic information and URL of an image based on the image ID after you upload the image to ApsaraVideo VOD.
        *
        * @param request GetImageInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2534,7 +2534,7 @@ namespace Vod20170321
       Models::GetImageInfoResponse getImageInfoWithOptions(const Models::GetImageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information and access URL of an image based on the image ID.
+       * @summary Queries the basic information and URL of an image based on the image ID after you upload the image to ApsaraVideo VOD.
        *
        * @param request GetImageInfoRequest
        * @return GetImageInfoResponse
@@ -2680,7 +2680,7 @@ namespace Vod20170321
       Models::GetMediaAuditResultTimelineResponse getMediaAuditResultTimeline(const Models::GetMediaAuditResultTimelineRequest &request);
 
       /**
-       * @summary Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
+       * @summary Queries the results of video fingerprinting jobs. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
        *
        * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        *
@@ -2691,7 +2691,7 @@ namespace Vod20170321
       Models::GetMediaDNAResultResponse getMediaDNAResultWithOptions(const Models::GetMediaDNAResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
+       * @summary Queries the results of video fingerprinting jobs. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
        *
        * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        *
@@ -2726,7 +2726,7 @@ namespace Vod20170321
       Models::GetMediaRefreshJobsResponse getMediaRefreshJobs(const Models::GetMediaRefreshJobsRequest &request);
 
       /**
-       * @summary Queries the callback method, callback URL, and event type for event notifications.
+       * @summary Queries the callback method, callback URL, and event type of an event notification.
        *
        * @description > For more information, see [Event notification](https://help.aliyun.com/document_detail/55627.html).
        *
@@ -2737,7 +2737,7 @@ namespace Vod20170321
       Models::GetMessageCallbackResponse getMessageCallbackWithOptions(const Models::GetMessageCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the callback method, callback URL, and event type for event notifications.
+       * @summary Queries the callback method, callback URL, and event type of an event notification.
        *
        * @description > For more information, see [Event notification](https://help.aliyun.com/document_detail/55627.html).
        *
@@ -3010,7 +3010,7 @@ namespace Vod20170321
       Models::GetVideoPlayAuthResponse getVideoPlayAuth(const Models::GetVideoPlayAuthRequest &request);
 
       /**
-       * @summary Queries a single snapshot template.
+       * @summary Queries details of a snapshot template.
        *
        * @param request GetVodTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3019,7 +3019,7 @@ namespace Vod20170321
       Models::GetVodTemplateResponse getVodTemplateWithOptions(const Models::GetVodTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a single snapshot template.
+       * @summary Queries details of a snapshot template.
        *
        * @param request GetVodTemplateRequest
        * @return GetVodTemplateResponse
@@ -3027,7 +3027,7 @@ namespace Vod20170321
       Models::GetVodTemplateResponse getVodTemplate(const Models::GetVodTemplateRequest &request);
 
       /**
-       * @summary Queries the information about an image or text watermark based on the watermark template ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
+       * @summary Queries the configurations of an image or text watermark template based on tits ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
        *
        * @param request GetWatermarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3036,7 +3036,7 @@ namespace Vod20170321
       Models::GetWatermarkResponse getWatermarkWithOptions(const Models::GetWatermarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an image or text watermark based on the watermark template ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
+       * @summary Queries the configurations of an image or text watermark template based on tits ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
        *
        * @param request GetWatermarkRequest
        * @return GetWatermarkResponse
@@ -3067,7 +3067,7 @@ namespace Vod20170321
       Models::ListAIImageInfoResponse listAIImageInfo(const Models::ListAIImageInfoRequest &request);
 
       /**
-       * @summary Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
+       * @summary Queries a smart tagging or video fingerprinting job. After you submit a smart tagging or video fingerprinting job, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        * *   You can call this operation to query video fingerprinting jobs and smart tagging jobs.
@@ -3079,7 +3079,7 @@ namespace Vod20170321
       Models::ListAIJobResponse listAIJobWithOptions(const Models::ListAIJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
+       * @summary Queries a smart tagging or video fingerprinting job. After you submit a smart tagging or video fingerprinting job, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
        *
        * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
        * *   You can call this operation to query video fingerprinting jobs and smart tagging jobs.
@@ -3161,7 +3161,7 @@ namespace Vod20170321
       Models::ListAppPoliciesForIdentityResponse listAppPoliciesForIdentity(const Models::ListAppPoliciesForIdentityRequest &request);
 
       /**
-       * @summary Queries the IP addresses in a review security group.
+       * @summary Queries the IP addresses in a security group.
        *
        * @param request ListAuditSecurityIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3170,7 +3170,7 @@ namespace Vod20170321
       Models::ListAuditSecurityIpResponse listAuditSecurityIpWithOptions(const Models::ListAuditSecurityIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP addresses in a review security group.
+       * @summary Queries the IP addresses in a security group.
        *
        * @param request ListAuditSecurityIpRequest
        * @return ListAuditSecurityIpResponse
@@ -3178,7 +3178,7 @@ namespace Vod20170321
       Models::ListAuditSecurityIpResponse listAuditSecurityIp(const Models::ListAuditSecurityIpRequest &request);
 
       /**
-       * @summary Queries the information about animated stickers of a video based on the video ID.
+       * @summary Queries the information about animated images of a video based on the video ID.
        *
        * @param request ListDynamicImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3187,7 +3187,7 @@ namespace Vod20170321
       Models::ListDynamicImageResponse listDynamicImageWithOptions(const Models::ListDynamicImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about animated stickers of a video based on the video ID.
+       * @summary Queries the information about animated images of a video based on the video ID.
        *
        * @param request ListDynamicImageRequest
        * @return ListDynamicImageResponse
@@ -3245,7 +3245,7 @@ namespace Vod20170321
       Models::ListLiveRecordVideoResponse listLiveRecordVideo(const Models::ListLiveRecordVideoRequest &request);
 
       /**
-       * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
+       * @summary Queries snapshots that were captured by submitting snapshot jobs or the thumbnail that was generated by the system when you uploaded a video.
        *
        * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
        *
@@ -3256,7 +3256,7 @@ namespace Vod20170321
       Models::ListSnapshotsResponse listSnapshotsWithOptions(const Models::ListSnapshotsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
+       * @summary Queries snapshots that were captured by submitting snapshot jobs or the thumbnail that was generated by the system when you uploaded a video.
        *
        * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
        *
@@ -3629,7 +3629,7 @@ namespace Vod20170321
       Models::SetAppPlayKeyResponse setAppPlayKey(const Models::SetAppPlayKeyRequest &request);
 
       /**
-       * @summary Manages the IP addresses in review security groups.
+       * @summary Sets IP addresses in review security groups.
        *
        * @description You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
        *
@@ -3640,7 +3640,7 @@ namespace Vod20170321
       Models::SetAuditSecurityIpResponse setAuditSecurityIpWithOptions(const Models::SetAuditSecurityIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manages the IP addresses in review security groups.
+       * @summary Sets IP addresses in review security groups.
        *
        * @description You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
        *
@@ -4127,7 +4127,7 @@ namespace Vod20170321
       Models::UpdateAppInfoResponse updateAppInfo(const Models::UpdateAppInfoRequest &request);
 
       /**
-       * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
+       * @summary Modifies the information about multiple auxiliary media assets at a time. After you upload auxiliary media assets, such as images that contain watermarks, subtitle files, or other materials, to ApsaraVideo VOD, you can call this operation to update their titles, descriptions, tags, and categories at a time based on the unique identifiers (IDs) of the auxiliary media assets.
        *
        * @description You can modify the information about up to 20 auxiliary media assets at a time.
        *
@@ -4138,7 +4138,7 @@ namespace Vod20170321
       Models::UpdateAttachedMediaInfosResponse updateAttachedMediaInfosWithOptions(const Models::UpdateAttachedMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
+       * @summary Modifies the information about multiple auxiliary media assets at a time. After you upload auxiliary media assets, such as images that contain watermarks, subtitle files, or other materials, to ApsaraVideo VOD, you can call this operation to update their titles, descriptions, tags, and categories at a time based on the unique identifiers (IDs) of the auxiliary media assets.
        *
        * @description You can modify the information about up to 20 auxiliary media assets at a time.
        *
@@ -4148,7 +4148,7 @@ namespace Vod20170321
       Models::UpdateAttachedMediaInfosResponse updateAttachedMediaInfos(const Models::UpdateAttachedMediaInfosRequest &request);
 
       /**
-       * @summary Modifies a video category.
+       * @summary Updates the category name.
        *
        * @description After you create a category, you can call this operation to modify the name of the category. If you have classified specific media resources to this category, the category names that are labeled on the media resources are automatically updated.
        *
@@ -4159,7 +4159,7 @@ namespace Vod20170321
       Models::UpdateCategoryResponse updateCategoryWithOptions(const Models::UpdateCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a video category.
+       * @summary Updates the category name.
        *
        * @description After you create a category, you can call this operation to modify the name of the category. If you have classified specific media resources to this category, the category names that are labeled on the media resources are automatically updated.
        *
@@ -4186,7 +4186,7 @@ namespace Vod20170321
       Models::UpdateEditingProjectResponse updateEditingProject(const Models::UpdateEditingProjectRequest &request);
 
       /**
-       * @summary Modifies the information about one or more images at a time.
+       * @summary Modifies the information about multiple images at a time. After you upload images to ApsaraVideo VOD, you can call this operation to update their titles, descriptions, tags, and categories at a time based on the IDs of the images.
        *
        * @description *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
        * *   You can modify the information about up to 20 images at a time.
@@ -4198,7 +4198,7 @@ namespace Vod20170321
       Models::UpdateImageInfosResponse updateImageInfosWithOptions(const Models::UpdateImageInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about one or more images at a time.
+       * @summary Modifies the information about multiple images at a time. After you upload images to ApsaraVideo VOD, you can call this operation to update their titles, descriptions, tags, and categories at a time based on the IDs of the images.
        *
        * @description *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
        * *   You can modify the information about up to 20 images at a time.
@@ -4284,7 +4284,7 @@ namespace Vod20170321
       Models::UpdateVideoInfoResponse updateVideoInfo(const Models::UpdateVideoInfoRequest &request);
 
       /**
-       * @summary Modifies the information about multiple videos at a time.
+       * @summary Modifies information about multiple audio or video files at a time.
        *
        * @description The specific parameter of a video is updated only when a new value is passed in the parameter.
        *
@@ -4295,7 +4295,7 @@ namespace Vod20170321
       Models::UpdateVideoInfosResponse updateVideoInfosWithOptions(const Models::UpdateVideoInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about multiple videos at a time.
+       * @summary Modifies information about multiple audio or video files at a time.
        *
        * @description The specific parameter of a video is updated only when a new value is passed in the parameter.
        *

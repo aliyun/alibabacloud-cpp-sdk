@@ -129,24 +129,11 @@ namespace Models
 
 
       protected:
-        // The ID of the category.
         shared_ptr<int64_t> cateId_ {};
-        // The name of the category.
         shared_ptr<string> cateName_ {};
-        // The level of the category. Valid values:
-        // 
-        // *   **0**: level 1 category
-        // *   **1**: level 2 category
-        // *   **2**: level 3 category
         shared_ptr<int64_t> level_ {};
-        // The ID of the parent category.
         shared_ptr<int64_t> parentId_ {};
-        // The total number of subcategories.
         shared_ptr<int64_t> subTotal_ {};
-        // The type of the subcategory. Valid values:
-        // 
-        // *   **default**: audio, video, and image files
-        // *   **material**: short video materials
         shared_ptr<string> type_ {};
       };
 
@@ -287,7 +274,6 @@ namespace Models
     shared_ptr<GetCategoriesResponseBody::Category> category_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the subcategory.
     shared_ptr<GetCategoriesResponseBody::SubCategories> subCategories_ {};
     // The total number of subcategories.
     shared_ptr<int64_t> subTotal_ {};

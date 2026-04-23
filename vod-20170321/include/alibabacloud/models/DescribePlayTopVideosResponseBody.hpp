@@ -122,15 +122,10 @@ namespace Models
 
 
       protected:
-        // The total playback duration. Unit: milliseconds.
         shared_ptr<string> playDuration_ {};
-        // The title of the video.
         shared_ptr<string> title_ {};
-        // The number of unique visitors.
         shared_ptr<string> UV_ {};
-        // The number of video views.
         shared_ptr<string> VV_ {};
-        // The ID of the video.
         shared_ptr<string> videoId_ {};
       };
 
@@ -194,7 +189,6 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The daily playback statistics on each top video.
     shared_ptr<DescribePlayTopVideosResponseBody::TopPlayVideos> topPlayVideos_ {};
     // The total number of entries that were collected in playback statistics on top videos.
     shared_ptr<int64_t> totalNum_ {};

@@ -101,9 +101,7 @@ namespace Models
 
 
       protected:
-        // The timestamp of the returned data. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The traffic or bandwidth data. Unit: bit/s.
         shared_ptr<string> value_ {};
       };
 
@@ -200,7 +198,6 @@ namespace Models
     // *   **bps**: bandwidth
     // *   **traf**: traffic
     shared_ptr<string> type_ {};
-    // The traffic or bandwidth data returned at each interval.
     shared_ptr<DescribeVodDomainUsageDataResponseBody::UsageDataPerInterval> usageDataPerInterval_ {};
   };
 

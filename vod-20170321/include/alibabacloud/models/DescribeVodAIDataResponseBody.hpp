@@ -131,13 +131,7 @@ namespace Models
 
 
           protected:
-            // The type of video AI. Valid values:
-            // 
-            // *   **AIVideoCensor**: automated review
-            // *   **AIVideoFPShot**: media fingerprinting
-            // *   **AIVideoTag**: smart tagging
             shared_ptr<string> name_ {};
-            // The processing duration. Unit: seconds.
             shared_ptr<string> value_ {};
           };
 
@@ -174,9 +168,7 @@ namespace Models
 
 
       protected:
-        // The statistics on video AI of each type.
         shared_ptr<AIDataItem::Data> data_ {};
-        // The timestamp of the returned data. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -220,7 +212,6 @@ namespace Models
 
 
   protected:
-    // The statistics on video AI.
     shared_ptr<DescribeVodAIDataResponseBody::AIData> AIData_ {};
     // The time granularity at which the data was queried. Valid values:
     // 

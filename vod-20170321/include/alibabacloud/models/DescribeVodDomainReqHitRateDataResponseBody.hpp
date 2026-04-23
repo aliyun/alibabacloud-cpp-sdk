@@ -106,11 +106,8 @@ namespace Models
 
 
       protected:
-        // The HTTPS request hit rate.
         shared_ptr<string> httpsValue_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The total request hit rate.
         shared_ptr<string> value_ {};
       };
 
@@ -175,7 +172,6 @@ namespace Models
 
 
   protected:
-    // The request hit rate data at each time interval.
     shared_ptr<DescribeVodDomainReqHitRateDataResponseBody::Data> data_ {};
     // The time interval at which data is returned, which is the time granularity. Unit: seconds.
     shared_ptr<string> dataInterval_ {};

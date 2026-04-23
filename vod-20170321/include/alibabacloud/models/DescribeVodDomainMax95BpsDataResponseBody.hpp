@@ -119,13 +119,9 @@ namespace Models
 
 
       protected:
-        // The billable region where the peak 95 data was collected.
         shared_ptr<string> area_ {};
-        // The 95th percentile bandwidth.
         shared_ptr<float> max95Bps_ {};
-        // The time corresponding to the 95th percentile bandwidth peak.
         shared_ptr<string> max95BpsPeakTime_ {};
-        // The timestamp of the returned data.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -205,7 +201,6 @@ namespace Models
 
 
   protected:
-    // Details of the 95th percentile bandwidth.
     shared_ptr<DescribeVodDomainMax95BpsDataResponseBody::DetailData> detailData_ {};
     // The domain name for CDN.
     shared_ptr<string> domainName_ {};

@@ -147,19 +147,12 @@ namespace Models
 
 
       protected:
-        // The bandwidth in mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
         shared_ptr<string> domesticValue_ {};
-        // The HTTPS bandwidth on L1 nodes in mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
         shared_ptr<string> httpsDomesticValue_ {};
-        // The HTTPS bandwidth on L1 nodes outside mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
         shared_ptr<string> httpsOverseasValue_ {};
-        // The total HTTPS bandwidth on L1 nodes. Unit: bit/s.
         shared_ptr<string> httpsValue_ {};
-        // The bandwidth outside mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
         shared_ptr<string> overseasValue_ {};
-        // The timestamp of the returned data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The bandwidth. Unit: bit/s.
         shared_ptr<string> value_ {};
       };
 
@@ -239,7 +232,6 @@ namespace Models
 
 
   protected:
-    // The bandwidth data that is collected for each interval.
     shared_ptr<DescribeVodDomainBpsDataResponseBody::BpsDataPerInterval> bpsDataPerInterval_ {};
     // The time interval between the returned entries. Unit: seconds.
     shared_ptr<string> dataInterval_ {};

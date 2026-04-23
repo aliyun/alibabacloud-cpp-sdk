@@ -160,19 +160,12 @@ namespace Models
 
 
         protected:
-          // The ID of the certificate.
           shared_ptr<int64_t> certId_ {};
-          // The name of the certificate.
           shared_ptr<string> certName_ {};
-          // The region of the certificate. Valid values: **cn-hangzhou** and **ap-southeast-1**. Default value: **cn-hangzhou**.
           shared_ptr<string> certRegion_ {};
-          // The Common Name (CN) attribute of the certificate. In most cases, the CN is a domain name.
           shared_ptr<string> common_ {};
-          // The fingerprint of the certificate.
           shared_ptr<string> fingerprint_ {};
-          // The certificate authority (CA) that issued the certificate.
           shared_ptr<string> issuer_ {};
-          // The time when the certificate was last modified. Unit: milliseconds.
           shared_ptr<int64_t> lastTime_ {};
         };
 
@@ -223,7 +216,6 @@ namespace Models
 
 
     protected:
-      // The list of certificates.
       shared_ptr<CertificateListModel::CertList> certList_ {};
       // The number of certificates that are returned.
       shared_ptr<int32_t> count_ {};

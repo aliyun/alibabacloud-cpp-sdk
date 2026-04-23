@@ -126,9 +126,7 @@ namespace Models
 
 
       protected:
-        // The ID of the media asset.
         shared_ptr<string> mediaId_ {};
-        // The reason for the failure.
         shared_ptr<string> reason_ {};
       };
 
@@ -181,9 +179,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the media assets that failed to be processed.
     shared_ptr<UpdateMediaStorageClassResponseBody::ForbiddenList> forbiddenList_ {};
-    // The IDs of the media assets that failed to be obtained.
     shared_ptr<UpdateMediaStorageClassResponseBody::IgnoredList> ignoredList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

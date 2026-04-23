@@ -106,11 +106,8 @@ namespace Models
 
 
       protected:
-        // The HTTPS byte hit rate.
         shared_ptr<string> httpsValue_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The total byte hit rate.
         shared_ptr<string> value_ {};
       };
 
@@ -181,7 +178,6 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The end of the time range.
     shared_ptr<string> endTime_ {};
-    // The byte hit rate data at each time interval.
     shared_ptr<DescribeVodDomainHitRateDataResponseBody::HitRateInterval> hitRateInterval_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

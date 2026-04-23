@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The number of queries per second.
         shared_ptr<float> qps_ {};
-        // The timestamp of the returned data. The time follows the ISO 8601 standard. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<DescribeVodDomainRealTimeQpsDataResponseBody::Data> data_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

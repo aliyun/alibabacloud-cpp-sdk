@@ -208,57 +208,20 @@ namespace Models
 
 
       protected:
-        // The domain name that matches the certificate.
         shared_ptr<string> certDomainName_ {};
-        // The time at which the certificate expires. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> certExpireTime_ {};
-        // The ID of the certificate.
         shared_ptr<string> certId_ {};
-        // The validity period of the certificate. Unit: months or years.
         shared_ptr<string> certLife_ {};
-        // The certificate name.
         shared_ptr<string> certName_ {};
-        // The certificate authority (CA) that issued the certificate.
         shared_ptr<string> certOrg_ {};
-        // The region where the certificate is used.
         shared_ptr<string> certRegion_ {};
-        // The time when the certificate became effective.
         shared_ptr<string> certStartTime_ {};
-        // The type of the certificate. Valid values:
-        // 
-        // *   **free**: a free certificate.
-        // *   **cas**: a certificate that is purchased from Certificate Management Service.
-        // *   **upload**: a user-uploaded certificate.
         shared_ptr<string> certType_ {};
-        // The time at which the certificate was updated.
         shared_ptr<string> certUpdateTime_ {};
-        // The CNAME status of the domain name.
-        // 
-        // *   **ok**: The domain name points to the CNAME assigned by Alibaba Cloud CDN.
-        // *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.
-        // *   **op_domain_cname_error** : An error occurred to the CNAME of the top-level domain. The domain name cannot point to the CNAME.
-        // *   **unsupport_wildcard**: The wildcard domain name is not supported.
         shared_ptr<string> domainCnameStatus_ {};
-        // The accelerated domain name whose ICP filing status you want to update.
         shared_ptr<string> domainName_ {};
-        // The public key of the certificate.
         shared_ptr<string> serverCertificate_ {};
-        // The status of the SSL certificate.
-        // 
-        // *   **on**
-        // *   **off**
         shared_ptr<string> serverCertificateStatus_ {};
-        // The status of the certificate.
-        // 
-        // *   **success**: The certificate is in effect.
-        // *   **checking**: The system is checking whether the domain name is added to ApsaraVideo VOD.
-        // *   **cname_error**: The domain name is not added to ApsaraVideo VOD.
-        // *   **domain_invalid**: The domain name contains invalid characters.
-        // *   **unsupport_wildcard**: The domain name is a wildcard domain name. Wildcard domain names are not supported.
-        // *   **applying**: The certificate application is in progress.
-        // *   **failed**: The certificate application failed.
-        // 
-        // >  A value is returned for this parameter only when you set `CertType` to `free`. Otherwise, an empty value is returned for this parameter.
         shared_ptr<string> status_ {};
       };
 
@@ -295,7 +258,6 @@ namespace Models
 
 
   protected:
-    // The certificate information.
     shared_ptr<DescribeVodDomainCertificateInfoResponseBody::CertInfos> certInfos_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

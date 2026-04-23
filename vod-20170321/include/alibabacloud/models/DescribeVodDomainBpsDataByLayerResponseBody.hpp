@@ -100,11 +100,8 @@ namespace Models
 
 
       protected:
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The total traffic. Unit: bytes.
         shared_ptr<int64_t> trafficValue_ {};
-        // The peak bandwidth. Unit: bit/s.
         shared_ptr<double> value_ {};
       };
 
@@ -148,7 +145,6 @@ namespace Models
 
 
   protected:
-    // The bandwidth returned at each time interval. Unit: bit/s.
     shared_ptr<DescribeVodDomainBpsDataByLayerResponseBody::BpsDataInterval> bpsDataInterval_ {};
     // The time interval between the entries returned. Unit: seconds.
     shared_ptr<int32_t> dataInterval_ {};

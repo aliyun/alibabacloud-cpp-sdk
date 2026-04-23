@@ -291,69 +291,25 @@ namespace Models
 
 
       protected:
-        // The ID of the application. Default value: **app-1000000**.
         shared_ptr<string> appId_ {};
-        // The category ID of the audio or video file.
         shared_ptr<int64_t> cateId_ {};
-        // The name of the category.
         shared_ptr<string> cateName_ {};
-        // The thumbnail URL of the audio or video file.
         shared_ptr<string> coverURL_ {};
-        // The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the audio or video file.
         shared_ptr<string> description_ {};
-        // The duration of the audio or video file. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
         shared_ptr<float> duration_ {};
-        // The time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> modificationTime_ {};
         shared_ptr<string> referenceId_ {};
-        // The period of time in which the audio or video file remains in the restored state.
         shared_ptr<string> restoreExpiration_ {};
-        // The restoration status of the audio or video file. Valid values:
-        // 
-        // *   **Processing**
-        // *   **Success**
-        // *   **Failed**
         shared_ptr<string> restoreStatus_ {};
-        // The size of the source file. Unit: bytes.
         shared_ptr<int64_t> size_ {};
-        // The URL array of video snapshots.
         shared_ptr<Video::Snapshots> snapshots_ {};
-        // The status of the audio or video file. Valid values:
-        // 
-        // *   **Uploading**: The video is being uploaded.
-        // *   **UploadFail**: The video failed to be uploaded.
-        // *   **UploadSucc**: The video is uploaded.
-        // *   **Transcoding**: The video is being transcoded.
-        // *   **TranscodeFail**: The video failed to be transcoded.
-        // *   **checking**: The video is being reviewed.
-        // *   **Blocked**: The video is blocked.
-        // *   **Normal**: The video is normal.
-        // *   **ProduceFail**: The video failed to be produced.
-        // 
-        // For more information about each video status, see the "Status: the status of a video" section of the [Basic data types](~~52839#section-p7c-jgy-070~~) topic.
         shared_ptr<string> status_ {};
-        // The storage class of the audio or video file. Valid values:
-        // 
-        // *   **Standard**: All media resources are stored as Standard objects.
-        // *   **IA**: All media resources are stored as IA objects.
-        // *   **Archive**: All media resources are stored as Archive objects.
-        // *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-        // *   **SourceIA**: Only the source files are IA objects.
-        // *   **SourceArchive**: Only the source files are Archive objects.
-        // *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-        // *   **Changing**: The storage class of the audio or video file is being changed.
-        // *   **SourceChanging**: The storage class of the source file is being changed.
         shared_ptr<string> storageClass_ {};
-        // The storage address of the audio or video file.
         shared_ptr<string> storageLocation_ {};
-        // The tags of the audio or video file. Multiple tags are separated by commas (,).
         shared_ptr<string> tags_ {};
-        // The title of the audio or video file.
         shared_ptr<string> title_ {};
         shared_ptr<string> userData_ {};
-        // The ID of the audio or video file.
         shared_ptr<string> videoId_ {};
       };
 
@@ -401,7 +357,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of media files returned.
     shared_ptr<int32_t> total_ {};
-    // The information about the audio or video files. Information about a maximum of 5,000 audio or video files can be returned.
     shared_ptr<GetVideoListResponseBody::VideoList> videoList_ {};
   };
 

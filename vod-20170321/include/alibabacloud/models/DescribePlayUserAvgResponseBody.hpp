@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The average number of video views.
         shared_ptr<string> avgPlayCount_ {};
-        // The average playback duration. Unit: milliseconds.
         shared_ptr<string> avgPlayDuration_ {};
-        // The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
         shared_ptr<string> date_ {};
       };
 
@@ -141,7 +138,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The statistics on average playback each day.
     shared_ptr<DescribePlayUserAvgResponseBody::UserPlayStatisAvgs> userPlayStatisAvgs_ {};
   };
 

@@ -167,17 +167,9 @@ namespace Models
 
 
           protected:
-            // The address of the origin server.
             shared_ptr<string> content_ {};
-            // The port number. Valid values: **443** and **80**.
             shared_ptr<int32_t> port_ {};
-            // The priority of the origin server.
             shared_ptr<string> priority_ {};
-            // The type of the origin server. Valid values:
-            // 
-            // *   **ipaddr**: an IP address.
-            // *   **domain**: an origin domain name
-            // *   **oss**: the OSS domain of an Object Storage Service (OSS) bucket
             shared_ptr<string> type_ {};
           };
 
@@ -264,33 +256,14 @@ namespace Models
 
 
       protected:
-        // The CNAME that is assigned to the domain name for CDN.
         shared_ptr<string> cname_ {};
-        // The remarks.
         shared_ptr<string> description_ {};
-        // The domain name for CDN.
         shared_ptr<string> domainName_ {};
-        // The status of the domain name for CDN. Valid values:
-        // 
-        // *   **online**: indicates that the domain name is enabled.
-        // *   **offline**: indicates that the domain name is disabled.
-        // *   **configuring**: indicates that the domain name is being configured.
-        // *   **configure_failed**: indicates that the domain name failed to be configured.
-        // *   **checking**: indicates that the domain name is under review.
-        // *   **check_failed**: indicates that the domain name failed the review.
         shared_ptr<string> domainStatus_ {};
-        // The time when the domain name for CDN was added. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> gmtCreated_ {};
-        // The last time when the domain name for CDN was modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> gmtModified_ {};
-        // Indicates whether the accelerated domain name was in a sandbox.
         shared_ptr<string> sandbox_ {};
-        // The information about the origin server.
         shared_ptr<PageData::Sources> sources_ {};
-        // Indicates whether HTTPS is enabled.
-        // 
-        // *   **on**: HTTPS is enabled.
-        // *   **off**: HTTPS is not eabled.
         shared_ptr<string> sslProtocol_ {};
       };
 
@@ -348,7 +321,6 @@ namespace Models
 
 
   protected:
-    // The detailed information about each domain name for CDN. The returned information is displayed in the format that is specified by the PageData parameter.
     shared_ptr<DescribeVodUserDomainsResponseBody::Domains> domains_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

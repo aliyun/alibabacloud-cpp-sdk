@@ -123,11 +123,8 @@ namespace Models
 
 
         protected:
-          // The page number.
           shared_ptr<int64_t> pageNumber_ {};
-          // The number of entries per page.
           shared_ptr<int64_t> pageSize_ {};
-          // The total number of entries returned.
           shared_ptr<int64_t> total_ {};
         };
 
@@ -215,15 +212,10 @@ namespace Models
 
 
           protected:
-            // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
             shared_ptr<string> endTime_ {};
-            // The name of the log file.
             shared_ptr<string> logName_ {};
-            // The path of the log file.
             shared_ptr<string> logPath_ {};
-            // The size of the log file.
             shared_ptr<int64_t> logSize_ {};
-            // The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
             shared_ptr<string> startTime_ {};
           };
 
@@ -276,13 +268,9 @@ namespace Models
 
 
       protected:
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The total number of entries returned on the current page.
         shared_ptr<int64_t> logCount_ {};
-        // The queried CDN logs.
         shared_ptr<DomainLogDetail::LogInfos> logInfos_ {};
-        // The pagination information.
         shared_ptr<DomainLogDetail::PageInfos> pageInfos_ {};
       };
 
@@ -319,7 +307,6 @@ namespace Models
 
 
   protected:
-    // The details of CDN logs.
     shared_ptr<DescribeVodDomainLogResponseBody::DomainLogDetails> domainLogDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

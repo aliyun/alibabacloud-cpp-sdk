@@ -79,7 +79,6 @@ namespace Models
 
 
       protected:
-        // The ID of the job.
         shared_ptr<string> jobId_ {};
       };
 
@@ -116,7 +115,6 @@ namespace Models
 
 
   protected:
-    // The information about the job.
     shared_ptr<SubmitPreprocessJobsResponseBody::PreprocessJobs> preprocessJobs_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

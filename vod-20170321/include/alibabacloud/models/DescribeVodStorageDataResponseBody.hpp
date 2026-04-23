@@ -100,11 +100,8 @@ namespace Models
 
 
       protected:
-        // The outbound traffic. Unit: bytes. The outbound traffic is generated when videos are directly downloaded or played from OSS buckets without Alibaba Cloud CDN acceleration.
         shared_ptr<string> networkOut_ {};
-        // The detailed usage data of storage-related resources. Unit: bytes.
         shared_ptr<string> storageUtilization_ {};
-        // The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
       };
 
@@ -155,7 +152,6 @@ namespace Models
     shared_ptr<string> dataInterval_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The storage usage data returned.
     shared_ptr<DescribeVodStorageDataResponseBody::StorageData> storageData_ {};
   };
 

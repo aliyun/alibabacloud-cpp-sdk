@@ -98,14 +98,8 @@ namespace Models
 
 
       protected:
-        // The ID of the AI job.
         shared_ptr<string> jobId_ {};
-        // The ID of the video.
         shared_ptr<string> mediaId_ {};
-        // The type of the AI job. Valid values:
-        // 
-        // *   **AIMediaDNA**: The media fingerprinting job.
-        // *   **AIVideoTag**: The smart tagging job.
         shared_ptr<string> type_ {};
       };
 
@@ -142,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The information about the AI jobs.
     shared_ptr<SubmitAIJobResponseBody::AIJobList> AIJobList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

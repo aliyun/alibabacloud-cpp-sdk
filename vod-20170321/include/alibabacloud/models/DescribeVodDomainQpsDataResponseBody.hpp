@@ -198,31 +198,18 @@ namespace Models
 
 
       protected:
-        // The number of requests in the Chinese mainland.
         shared_ptr<string> accDomesticValue_ {};
-        // The number of requests outside the Chinese mainland.
         shared_ptr<string> accOverseasValue_ {};
-        // The total number of requests.
         shared_ptr<string> accValue_ {};
-        // The QPS data in the Chinese mainland.
         shared_ptr<string> domesticValue_ {};
-        // The QPS that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
         shared_ptr<string> httpsAccDomesticValue_ {};
-        // The number of HTTPS requests sent to POPs outside the Chinese mainland.
         shared_ptr<string> httpsAccOverseasValue_ {};
-        // The number of HTTPS requests sent to POPs.
         shared_ptr<string> httpsAccValue_ {};
-        // The QPS that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
         shared_ptr<string> httpsDomesticValue_ {};
-        // The QPS that is calculated based on the HTTPS requests sent to POPs outside the Chinese mainland.
         shared_ptr<string> httpsOverseasValue_ {};
-        // The QPS that is calculated based on the HTTPS requests sent to points of presence (POPs).
         shared_ptr<string> httpsValue_ {};
-        // The QPS data outside the Chinese mainland.
         shared_ptr<string> overseasValue_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The total QPS.
         shared_ptr<string> value_ {};
       };
 
@@ -293,7 +280,6 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The list of QPS records at each interval.
     shared_ptr<DescribeVodDomainQpsDataResponseBody::QpsDataInterval> qpsDataInterval_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

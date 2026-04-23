@@ -125,17 +125,11 @@ namespace Models
 
 
       protected:
-        // The date. The time follows the ISO 8601 standard in the *YYYY-MM-DD*T*hh:mm:ss* format. The time is displayed in UTC.
         shared_ptr<string> date_ {};
-        // The total playback duration. Unit: milliseconds.
         shared_ptr<string> playDuration_ {};
-        // The distribution of the playback duration.
         shared_ptr<string> playRange_ {};
-        // The video title.
         shared_ptr<string> title_ {};
-        // The number of unique visitors.
         shared_ptr<string> UV_ {};
-        // The number of video views.
         shared_ptr<string> VV_ {};
       };
 
@@ -174,7 +168,6 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The daily playback statistics on the video.
     shared_ptr<DescribePlayVideoStatisResponseBody::VideoPlayStatisDetails> videoPlayStatisDetails_ {};
   };
 

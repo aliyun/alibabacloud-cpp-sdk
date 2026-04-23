@@ -188,31 +188,14 @@ namespace Models
 
 
       protected:
-        // The error code. This parameter is returned if the value of Status is fail.
         shared_ptr<string> code_ {};
-        // The time when the job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> completeTime_ {};
-        // The time when the job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The returned data. The value is a JSON string. For more information, see [AITemplateConfig](https://help.aliyun.com/document_detail/89863.html).
         shared_ptr<string> data_ {};
-        // The job ID.
         shared_ptr<string> jobId_ {};
-        // The ID of the video file.
         shared_ptr<string> mediaId_ {};
-        // The error message. This parameter is returned if the value of Status is fail.
         shared_ptr<string> message_ {};
-        // The status of the job. Valid values:
-        // 
-        // *   **success**: The job is successful.
-        // *   **fail**: The job failed.
-        // *   **init**: The job is being initialized.
-        // *   **Processing**: The job is in progress.
         shared_ptr<string> status_ {};
-        // The type of the job. Valid values:
-        // 
-        // *   **AIMediaDNA**: video fingerprinting
-        // *   **AIVideoTag**: smart tagging
         shared_ptr<string> type_ {};
       };
 
@@ -258,9 +241,7 @@ namespace Models
 
 
   protected:
-    // The list of jobs.
     shared_ptr<ListAIJobResponseBody::AIJobList> AIJobList_ {};
-    // The IDs of the jobs that do not exist.
     shared_ptr<ListAIJobResponseBody::NonExistAIJobIds> nonExistAIJobIds_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

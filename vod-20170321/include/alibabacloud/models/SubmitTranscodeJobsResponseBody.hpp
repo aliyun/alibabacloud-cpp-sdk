@@ -81,9 +81,6 @@ namespace Models
 
 
       protected:
-        // The ID of the transcoding job.
-        // 
-        // >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
         shared_ptr<string> jobId_ {};
       };
 
@@ -129,9 +126,6 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the transcoding job.
-    // 
-    // >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
     shared_ptr<SubmitTranscodeJobsResponseBody::TranscodeJobs> transcodeJobs_ {};
     // The ID of the transcoding task that was submitted.
     shared_ptr<string> transcodeTaskId_ {};

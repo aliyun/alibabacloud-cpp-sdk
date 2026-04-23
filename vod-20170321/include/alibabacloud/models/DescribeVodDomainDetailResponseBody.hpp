@@ -166,22 +166,11 @@ namespace Models
 
 
         protected:
-          // The address of the origin server.
           shared_ptr<string> content_ {};
-          // The status of the origin server. Valid values:
-          // *   **online**: indicates that the origin server is enabled.
-          // *   **offline**: indicates that the origin server is disabled.
           shared_ptr<string> enabled_ {};
-          // The port number. Valid values: 443 and 80.
           shared_ptr<int32_t> port_ {};
-          // The priority of the origin server.
           shared_ptr<string> priority_ {};
-          // The type of the origin server. Valid values:
-          // *   **ipaddr**: a server that you can access by using an IP address.
-          // *   **domain**: a server that you can access by using a domain name.
-          // *   **oss**: the URL of an Object Storage Service (OSS) bucket.
           shared_ptr<string> type_ {};
-          // The weight of the origin server if multiple origin servers have been specified.
           shared_ptr<string> weight_ {};
         };
 
@@ -321,7 +310,6 @@ namespace Models
       // *   **overseas**: outside mainland China.
       // *   **global**: regions in and outside mainland China.
       shared_ptr<string> scope_ {};
-      // The information about the origin server.
       shared_ptr<DomainDetail::Sources> sources_ {};
       // The weight of the origin server.
       shared_ptr<string> weight_ {};

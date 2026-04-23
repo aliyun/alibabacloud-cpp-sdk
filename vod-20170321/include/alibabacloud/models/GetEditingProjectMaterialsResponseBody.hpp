@@ -297,48 +297,22 @@ namespace Models
 
 
       protected:
-        // The category ID of the material.
         shared_ptr<int32_t> cateId_ {};
-        // The category name of the material.
         shared_ptr<string> cateName_ {};
-        // The thumbnail URL of the material.
         shared_ptr<string> coverURL_ {};
-        // The time when the material was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
-        // The description of the material.
         shared_ptr<string> description_ {};
-        // The duration of the material. The value is rounded to four decimal places. Unit: seconds.
         shared_ptr<float> duration_ {};
-        // The ID of the material.
         shared_ptr<string> materialId_ {};
-        // The type of the material. Valid values:
-        // 
-        // *   **video**
-        // *   **audio**
-        // *   **image**
         shared_ptr<string> materialType_ {};
-        // The time when the material was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> modifiedTime_ {};
-        // The size of the mezzanine file. Unit: byte.
         shared_ptr<int64_t> size_ {};
-        // The URLs of material snapshots. The value is an array.
         shared_ptr<Material::Snapshots> snapshots_ {};
-        // The source of the sprite.
         shared_ptr<string> source_ {};
-        // The configuration of the sprite.
         shared_ptr<string> spriteConfig_ {};
-        // The URLs of material sprites. The value is an array.
         shared_ptr<Material::Sprites> sprites_ {};
-        // The status of the material. Valid values:
-        // 
-        // *   **Normal**: The material is in draft.
-        // *   **Producing**: The material is being produced.
-        // *   **Produced**: The material was produced.
-        // *   **ProduceFailed**: The material failed to be produced.
         shared_ptr<string> status_ {};
-        // The tag of the material. Multiple tags are separated by commas (,).
         shared_ptr<string> tags_ {};
-        // The title of the material.
         shared_ptr<string> title_ {};
       };
 
@@ -375,7 +349,6 @@ namespace Models
 
 
   protected:
-    // The materials.
     shared_ptr<GetEditingProjectMaterialsResponseBody::MaterialList> materialList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

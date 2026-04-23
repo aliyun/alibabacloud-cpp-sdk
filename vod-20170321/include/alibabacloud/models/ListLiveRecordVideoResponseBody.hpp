@@ -267,41 +267,19 @@ namespace Models
 
 
         protected:
-          // The ID of the video category.
           shared_ptr<int32_t> cateId_ {};
-          // The category of the video.
           shared_ptr<string> cateName_ {};
-          // The URL of the video thumbnail.
           shared_ptr<string> coverURL_ {};
-          // The time when the audio or video file was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
           shared_ptr<string> creationTime_ {};
-          // The description of the video file.
           shared_ptr<string> description_ {};
-          // The duration of the video file. Unit: seconds.
           shared_ptr<float> duration_ {};
-          // The time when the video was updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
           shared_ptr<string> modifyTime_ {};
-          // The size of the source video file. Unit: bytes.
           shared_ptr<int64_t> size_ {};
-          // The array of video snapshot URLs.
           shared_ptr<Video::Snapshots> snapshots_ {};
-          // The status of the video. Valid values:
-          // 
-          // *   **Uploading**
-          // *   **UploadFail**
-          // *   **UploadSuccess**
-          // *   **Transcoding**
-          // *   **TranscodeFail**
-          // *   **Blocked**
-          // *   **Normal**: The video is normal.
           shared_ptr<string> status_ {};
-          // The tags of the video. Multiple tags are separated with commas (,).
           shared_ptr<string> tags_ {};
-          // The ID of the transcoding template group.
           shared_ptr<string> templateGroupId_ {};
-          // The title of the video.
           shared_ptr<string> title_ {};
-          // The ID of the video.
           shared_ptr<string> videoId_ {};
         };
 
@@ -360,19 +338,12 @@ namespace Models
 
 
       protected:
-        // The name of the app.
         shared_ptr<string> appName_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The ID of the playlist.
         shared_ptr<string> playlistId_ {};
-        // The recording end time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> recordEndTime_ {};
-        // The recording start time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
         shared_ptr<string> recordStartTime_ {};
-        // The name of the live-to-VOD file.
         shared_ptr<string> streamName_ {};
-        // The information about the live-to-VOD file.
         shared_ptr<LiveRecordVideo::Video> video_ {};
       };
 
@@ -416,7 +387,6 @@ namespace Models
 
 
   protected:
-    // The list of videos.
     shared_ptr<ListLiveRecordVideoResponseBody::LiveRecordVideoList> liveRecordVideoList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

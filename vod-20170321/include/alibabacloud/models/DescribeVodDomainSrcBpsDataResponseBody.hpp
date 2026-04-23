@@ -106,11 +106,8 @@ namespace Models
 
 
       protected:
-        // The bandwidth consumed for fetching resources from the origin over HTTPS.
         shared_ptr<string> httpsValue_ {};
-        // The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> timeStamp_ {};
-        // The total origin bandwidth data. Unit: bit/s.
         shared_ptr<string> value_ {};
       };
 
@@ -183,7 +180,6 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The origin bandwidth data at each time interval.
     shared_ptr<DescribeVodDomainSrcBpsDataResponseBody::SrcBpsDataPerInterval> srcBpsDataPerInterval_ {};
     // The beginning of the time range.
     shared_ptr<string> startTime_ {};
