@@ -29,6 +29,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SccMode, sccMode_);
+      DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDBClusterEndpointRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoAddNewNodes, autoAddNewNodes_);
@@ -47,6 +49,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SccMode, sccMode_);
+      DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
     CreateDBClusterEndpointRequest() = default ;
     CreateDBClusterEndpointRequest(const CreateDBClusterEndpointRequest &) = default ;
@@ -62,7 +66,8 @@ namespace Models
     virtual bool empty() const override { return this->autoAddNewNodes_ == nullptr
         && this->clientToken_ == nullptr && this->DBClusterId_ == nullptr && this->DBEndpointDescription_ == nullptr && this->endpointConfig_ == nullptr && this->endpointType_ == nullptr
         && this->nodes_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->polarFsInstanceId_ == nullptr && this->polarSccTimeoutAction_ == nullptr
-        && this->polarSccWaitTimeout_ == nullptr && this->readWriteMode_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sccMode_ == nullptr; };
+        && this->polarSccWaitTimeout_ == nullptr && this->readWriteMode_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sccMode_ == nullptr
+        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr; };
     // autoAddNewNodes Field Functions 
     bool hasAutoAddNewNodes() const { return this->autoAddNewNodes_ != nullptr;};
     void deleteAutoAddNewNodes() { this->autoAddNewNodes_ = nullptr;};
@@ -175,6 +180,20 @@ namespace Models
     inline CreateDBClusterEndpointRequest& setSccMode(string sccMode) { DARABONBA_PTR_SET_VALUE(sccMode_, sccMode) };
 
 
+    // VPCId Field Functions 
+    bool hasVPCId() const { return this->VPCId_ != nullptr;};
+    void deleteVPCId() { this->VPCId_ = nullptr;};
+    inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+    inline CreateDBClusterEndpointRequest& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
+
+
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline CreateDBClusterEndpointRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
   protected:
     // Specifies whether to enable automatic association of newly added nodes with the cluster endpoint. Valid values:
     // 
@@ -255,6 +274,8 @@ namespace Models
     // *   **ON**
     // *   **OFF**
     shared_ptr<string> sccMode_ {};
+    shared_ptr<string> VPCId_ {};
+    shared_ptr<string> vSwitchId_ {};
   };
 
   } // namespace Models

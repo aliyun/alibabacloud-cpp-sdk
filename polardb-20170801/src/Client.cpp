@@ -2883,6 +2883,14 @@ CreateDBClusterEndpointResponse Client::createDBClusterEndpointWithOptions(const
     query["SccMode"] = request.getSccMode();
   }
 
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
