@@ -340,83 +340,33 @@ namespace Models
 
 
       protected:
-        // The address of the domain name registrant.
         shared_ptr<string> address_ {};
-        // The city where the domain name registrant is located, in English.
         shared_ptr<string> city_ {};
-        // The code of the country or region where the domain name registrant is located, such as **CN** or **US**.
         shared_ptr<string> country_ {};
-        // The time when the registrant profile was created.
         shared_ptr<string> createTime_ {};
-        // The certificate number.
         shared_ptr<string> credentialNo_ {};
-        // The certificate type.
         shared_ptr<string> credentialType_ {};
-        // Indicates whether the template is the default template. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
-        // 
-        // Default value: **false**.
         shared_ptr<bool> defaultRegistrantProfile_ {};
-        // The email address of the domain name registrant.
         shared_ptr<string> email_ {};
-        // The status of the verification for the email address. Valid values:
-        // 
-        // *   **0**: not verified
-        // *   **1**: verified
         shared_ptr<int32_t> emailVerificationStatus_ {};
         shared_ptr<string> params_ {};
-        // The postal code of the region where the domain name registrant is located.
         shared_ptr<string> postalCode_ {};
-        // The province where the domain name registrant is located.
         shared_ptr<string> province_ {};
-        // The state of real-name verification for the domain name registrant. Valid values:
-        // 
-        // *   **FAILED**: Real-name verification for the domain name fails.
-        // *   **SUCCEED**: Real-name verification for the domain name is successful.
-        // *   **NONAUDIT**: Real-name verification for the domain name is not performed.
-        // *   **AUDITING**: Real-name verification for the domain name is in progress.
         shared_ptr<string> realNameStatus_ {};
-        // The name of the domain name contact.
         shared_ptr<string> registrantName_ {};
-        // The name of the domain name registrant.
         shared_ptr<string> registrantOrganization_ {};
-        // The ID of the registrant profile.
         shared_ptr<int64_t> registrantProfileId_ {};
-        // The type of the registrant profile. Valid values:
-        // 
-        // *   **common**: common profile.
-        // *   **cnnic**: CNNIC profile.
-        // 
-        // >  Only the Alibaba Cloud international site (alibabacloud.com) supports CNNIC profiles. To register domain names provided by CNNIC such as the .cn and . domain names on the Alibaba Cloud international site, you must use a CNNIC profile. To register other domain names, use a common profile.
         shared_ptr<string> registrantProfileType_ {};
-        // The type of the domain name registrant. Valid values:
-        // 
-        // *   **1**: individual.
-        // *   **2**: enterprise.
-        // 
-        // Default value: **1**.
         shared_ptr<string> registrantType_ {};
-        // The remarks.
         shared_ptr<string> remark_ {};
-        // The international dialing code of the country or region where the domain name contact is located. For example, the international dialing code of China is **86**.
         shared_ptr<string> telArea_ {};
-        // The extension of the phone number.
         shared_ptr<string> telExt_ {};
-        // The phone number.
         shared_ptr<string> telephone_ {};
-        // The time when the registrant profile was updated.
         shared_ptr<string> updateTime_ {};
-        // The address of the domain name registrant, in Chinese.
         shared_ptr<string> zhAddress_ {};
-        // The city where the domain name registrant is located, in Chinese.
         shared_ptr<string> zhCity_ {};
-        // The province where the domain name registrant is located, in Chinese.
         shared_ptr<string> zhProvince_ {};
-        // The Chinese name of the domain name contact.
         shared_ptr<string> zhRegistrantName_ {};
-        // The Chinese name of the domain name registrant.
         shared_ptr<string> zhRegistrantOrganization_ {};
       };
 
@@ -510,7 +460,6 @@ namespace Models
     // *   **true**
     // *   **false**
     shared_ptr<bool> prePage_ {};
-    // The list of registrant profiles.
     shared_ptr<QueryRegistrantProfilesResponseBody::RegistrantProfiles> registrantProfiles_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

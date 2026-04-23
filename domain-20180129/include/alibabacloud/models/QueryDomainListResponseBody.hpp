@@ -66,6 +66,7 @@ namespace Models
       class Domain : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Domain& obj) { 
+          DARABONBA_PTR_TO_JSON(AutoRenewEnabled, autoRenewEnabled_);
           DARABONBA_PTR_TO_JSON(Ccompany, ccompany_);
           DARABONBA_PTR_TO_JSON(ChgholderStatus, chgholderStatus_);
           DARABONBA_PTR_TO_JSON(DnsList, dnsList_);
@@ -91,6 +92,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Tag, tag_);
         };
         friend void from_json(const Darabonba::Json& j, Domain& obj) { 
+          DARABONBA_PTR_FROM_JSON(AutoRenewEnabled, autoRenewEnabled_);
           DARABONBA_PTR_FROM_JSON(Ccompany, ccompany_);
           DARABONBA_PTR_FROM_JSON(ChgholderStatus, chgholderStatus_);
           DARABONBA_PTR_FROM_JSON(DnsList, dnsList_);
@@ -183,9 +185,7 @@ namespace Models
 
 
           protected:
-            // The key of the tag added to the resource.
             shared_ptr<string> key_ {};
-            // The value of the tag added to the resource.
             shared_ptr<string> value_ {};
           };
 
@@ -236,12 +236,19 @@ namespace Models
           shared_ptr<vector<string>> dnsList_ {};
         };
 
-        virtual bool empty() const override { return this->ccompany_ == nullptr
-        && this->chgholderStatus_ == nullptr && this->dnsList_ == nullptr && this->domainAuditStatus_ == nullptr && this->domainGroupId_ == nullptr && this->domainGroupName_ == nullptr
-        && this->domainName_ == nullptr && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->expirationCurrDateDiff_ == nullptr && this->expirationDate_ == nullptr
-        && this->expirationDateLong_ == nullptr && this->expirationDateStatus_ == nullptr && this->instanceId_ == nullptr && this->premium_ == nullptr && this->productId_ == nullptr
-        && this->registrantType_ == nullptr && this->registrar_ == nullptr && this->registrationDate_ == nullptr && this->registrationDateLong_ == nullptr && this->remark_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->tag_ == nullptr; };
+        virtual bool empty() const override { return this->autoRenewEnabled_ == nullptr
+        && this->ccompany_ == nullptr && this->chgholderStatus_ == nullptr && this->dnsList_ == nullptr && this->domainAuditStatus_ == nullptr && this->domainGroupId_ == nullptr
+        && this->domainGroupName_ == nullptr && this->domainName_ == nullptr && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->expirationCurrDateDiff_ == nullptr
+        && this->expirationDate_ == nullptr && this->expirationDateLong_ == nullptr && this->expirationDateStatus_ == nullptr && this->instanceId_ == nullptr && this->premium_ == nullptr
+        && this->productId_ == nullptr && this->registrantType_ == nullptr && this->registrar_ == nullptr && this->registrationDate_ == nullptr && this->registrationDateLong_ == nullptr
+        && this->remark_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr; };
+        // autoRenewEnabled Field Functions 
+        bool hasAutoRenewEnabled() const { return this->autoRenewEnabled_ != nullptr;};
+        void deleteAutoRenewEnabled() { this->autoRenewEnabled_ = nullptr;};
+        inline bool getAutoRenewEnabled() const { DARABONBA_PTR_GET_DEFAULT(autoRenewEnabled_, false) };
+        inline Domain& setAutoRenewEnabled(bool autoRenewEnabled) { DARABONBA_PTR_SET_VALUE(autoRenewEnabled_, autoRenewEnabled) };
+
+
         // ccompany Field Functions 
         bool hasCcompany() const { return this->ccompany_ != nullptr;};
         void deleteCcompany() { this->ccompany_ = nullptr;};
@@ -408,71 +415,29 @@ namespace Models
 
 
       protected:
-        // The name of the domain name registrant.
+        shared_ptr<bool> autoRenewEnabled_ {};
         shared_ptr<string> ccompany_ {};
-        // domain transfer status. value:
-        // - 0: domain status normal.
-        // - 1: domain is pending change holder.
-        // - 2: change holder failed.
         shared_ptr<string> chgholderStatus_ {};
         shared_ptr<Domain::DnsList> dnsList_ {};
-        // The state of real-name verification for the domain name. Valid values:
-        // 
-        // *   **FAILED**: Real-name verification for the domain name fails.
-        // *   **SUCCEED**: Real-name verification for the domain name is successful.
-        // *   **NONAUDIT**: Real-name verification for the domain name is not performed.
-        // *   **AUDITING**: Real-name verification for the domain name is in progress.
         shared_ptr<string> domainAuditStatus_ {};
-        // The ID of the domain name group.
         shared_ptr<string> domainGroupId_ {};
-        // The name of the domain name group.
         shared_ptr<string> domainGroupName_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The state of the domain name. Valid values:
-        // 
-        // *   **1**: The domain name needs to be renewed.
-        // *   **2**: The domain name needs to be redeemed.
-        // *   **3**: The domain name is normal.
         shared_ptr<string> domainStatus_ {};
-        // The type of the domain name. Valid values:
-        // 
-        // *   **New gTLD**
-        // *   **gTLD**
-        // *   **ccTLD**
         shared_ptr<string> domainType_ {};
-        // The number of days from the expiration date of the domain name to the current date.
         shared_ptr<int32_t> expirationCurrDateDiff_ {};
-        // The time when the domain name expires.
         shared_ptr<string> expirationDate_ {};
-        // The validity period of the domain name. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> expirationDateLong_ {};
-        // Indicates whether the domain name expires. Valid values:
-        // 
-        // *   **1**: The domain name does not expire.
-        // *   **2**: The domain name expires.
         shared_ptr<string> expirationDateStatus_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the domain name is a premium domain name.
         shared_ptr<bool> premium_ {};
-        // The service ID.
         shared_ptr<string> productId_ {};
-        // The registration type of the domain name. Valid values:
-        // 
-        // *   **1**: individual
-        // *   **2**: enterprise
         shared_ptr<string> registrantType_ {};
         shared_ptr<string> registrar_ {};
-        // The time when the domain name was registered.
         shared_ptr<string> registrationDate_ {};
-        // Indicates how long the domain name has been registered. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> registrationDateLong_ {};
-        // The remarks of the domain name.
         shared_ptr<string> remark_ {};
-        // The ID of the resource group to which the domain name belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The tags added to the resource.
         shared_ptr<Domain::Tag> tag_ {};
       };
 
@@ -554,7 +519,6 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> currentPageNum_ {};
-    // The domain names.
     shared_ptr<QueryDomainListResponseBody::Data> data_ {};
     // Indicates whether the current page is followed by a page.
     shared_ptr<bool> nextPage_ {};

@@ -211,58 +211,19 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
         shared_ptr<string> createTime_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The error message returned when the task failed.
         shared_ptr<string> errorMsg_ {};
-        // The cause of a domain name task failure.
         shared_ptr<string> failReason_ {};
-        // The instance ID of the domain name.
         shared_ptr<string> instanceId_ {};
-        // The ID of the task details.
         shared_ptr<string> taskDetailNo_ {};
-        // The task ID.
         shared_ptr<string> taskNo_ {};
-        // The result of the task.
         shared_ptr<string> taskResult_ {};
-        // The task status. Valid values:
-        // 
-        // *   **WAITING_EXECUTE**: To be executed
-        // *   **EXECUTING**: being executed
-        // *   **EXECUTE_SUCCESS**: successful
-        // *   **EXECUTE_FAILURE**: failed
         shared_ptr<string> taskStatus_ {};
-        // The status code of the task. Valid values:
-        // 
-        // *   **0**: waiting for execution
-        // *   **1**: being executed
-        // *   **2**: successful
-        // *   **3**: failed
         shared_ptr<int32_t> taskStatusCode_ {};
-        // The task type. Valid values:
-        // 
-        // *   **CHG_HOLDER**: The task is run to modify the domain name registrant.
-        // *   **CHG_DNS**: The task is run to change the Domain Name System (DNS) servers.
-        // *   **SET_WHOIS_PROTECT**: The task is run to configure privacy protection for the domain name.
-        // *   **UPDATE_ADMIN_CONTACT**: The task is run to modify the information about the administrator of the domain name.
-        // *   **UPDATE_BILLING_CONTACT**: The task is run to modify the information about the payer for the domain name.
-        // *   **UPDATE_TECH_CONTACT**: The task is run to modify the information about the technical support for the domain name.
-        // *   **SET_UPDATE_PROHIBITED**: The task is run to configure the security lock for the domain name.
-        // *   **SET_TRANSFER_PROHIBITED**: The task is run to configure the transfer lock for the domain name.
-        // *   **ORDER_ACTIVATE**: The task is run to create a registration order for the domain name.
-        // *   **ORDER_RENEW**: The task is run to create a renewal order for the domain name.
-        // *   **ORDER_REDEEM**: The task is run to create a redemption order for the domain name.
-        // *   **CREATE_DNSHOST**: The task is run to create a DNS server for the domain name.
-        // *   **UPDATE_DNSHOST**: The task is run to update the information about a DNS server for the domain name.
-        // *   **SYNC_DNSHOST**: The task is run to synchronize a DNS server for the domain name.
         shared_ptr<string> taskType_ {};
-        // The description of the task type.
         shared_ptr<string> taskTypeDescription_ {};
-        // The number of times the task was retried.
         shared_ptr<int32_t> tryCount_ {};
-        // The last time when the task was run.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -344,7 +305,6 @@ namespace Models
   protected:
     // The page number returned.
     shared_ptr<int32_t> currentPageNum_ {};
-    // The tasks.
     shared_ptr<QueryTaskDetailListResponseBody::Data> data_ {};
     // Indicates whether the current page is followed by a page.
     shared_ptr<bool> nextPage_ {};

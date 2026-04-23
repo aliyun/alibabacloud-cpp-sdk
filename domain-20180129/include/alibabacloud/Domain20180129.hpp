@@ -115,7 +115,7 @@ namespace Domain20180129
       Models::CancelTaskResponse cancelTask(const Models::CancelTaskRequest &request);
 
       /**
-       * @summary 修改实例所在资源组
+       * @summary ChangeResourceGroup
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -124,7 +124,7 @@ namespace Domain20180129
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例所在资源组
+       * @summary ChangeResourceGroup
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -132,6 +132,8 @@ namespace Domain20180129
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
+       * @summary Checks whether a domain name can be registered.
+       *
        * @param request CheckDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckDomainResponse
@@ -139,6 +141,8 @@ namespace Domain20180129
       Models::CheckDomainResponse checkDomainWithOptions(const Models::CheckDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Checks whether a domain name can be registered.
+       *
        * @param request CheckDomainRequest
        * @return CheckDomainResponse
        */
@@ -158,7 +162,7 @@ namespace Domain20180129
       Models::CheckDomainSunriseClaimResponse checkDomainSunriseClaim(const Models::CheckDomainSunriseClaimRequest &request);
 
       /**
-       * @summary 校验在售国际一口价域名状态和询价
+       * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
        *
        * @param request CheckIntlFixPriceDomainStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -167,7 +171,7 @@ namespace Domain20180129
       Models::CheckIntlFixPriceDomainStatusResponse checkIntlFixPriceDomainStatusWithOptions(const Models::CheckIntlFixPriceDomainStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验在售国际一口价域名状态和询价
+       * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
        *
        * @param request CheckIntlFixPriceDomainStatusRequest
        * @return CheckIntlFixPriceDomainStatusResponse
@@ -227,7 +231,7 @@ namespace Domain20180129
       Models::ConfirmTransferInEmailResponse confirmTransferInEmail(const Models::ConfirmTransferInEmailRequest &request);
 
       /**
-       * @summary 创建国际一口价订单
+       * @summary Creates a fixed-price order at the international site (alibabacloud.com).
        *
        * @param request CreateIntlFixedPriceDomainOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -236,7 +240,7 @@ namespace Domain20180129
       Models::CreateIntlFixedPriceDomainOrderResponse createIntlFixedPriceDomainOrderWithOptions(const Models::CreateIntlFixedPriceDomainOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建国际一口价订单
+       * @summary Creates a fixed-price order at the international site (alibabacloud.com).
        *
        * @param request CreateIntlFixedPriceDomainOrderRequest
        * @return CreateIntlFixedPriceDomainOrderResponse
@@ -462,7 +466,7 @@ namespace Domain20180129
       Models::PollTaskResultResponse pollTaskResult(const Models::PollTaskResultRequest &request);
 
       /**
-       * @summary 搜索域名列表
+       * @summary Searches for domain names by using the advanced search feature.
        *
        * @param request QueryAdvancedDomainListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -471,7 +475,7 @@ namespace Domain20180129
       Models::QueryAdvancedDomainListResponse queryAdvancedDomainListWithOptions(const Models::QueryAdvancedDomainListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索域名列表
+       * @summary Searches for domain names by using the advanced search feature.
        *
        * @param request QueryAdvancedDomainListRequest
        * @return QueryAdvancedDomainListResponse
@@ -492,7 +496,7 @@ namespace Domain20180129
       Models::QueryArtExtensionResponse queryArtExtension(const Models::QueryArtExtensionRequest &request);
 
       /**
-       * @summary 查询操作记录
+       * @summary Queries the operations logs of a domain name.
        *
        * @param request QueryChangeLogListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +505,7 @@ namespace Domain20180129
       Models::QueryChangeLogListResponse queryChangeLogListWithOptions(const Models::QueryChangeLogListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询操作记录
+       * @summary Queries the operations logs of a domain name.
        *
        * @param request QueryChangeLogListRequest
        * @return QueryChangeLogListResponse
@@ -595,7 +599,7 @@ namespace Domain20180129
       Models::QueryDomainByInstanceIdResponse queryDomainByInstanceId(const Models::QueryDomainByInstanceIdRequest &request);
 
       /**
-       * @summary 查询域名分组信息
+       * @summary Queries a list of domain name groups.
        *
        * @param request QueryDomainGroupListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -604,7 +608,7 @@ namespace Domain20180129
       Models::QueryDomainGroupListResponse queryDomainGroupListWithOptions(const Models::QueryDomainGroupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询域名分组信息
+       * @summary Queries a list of domain name groups.
        *
        * @param request QueryDomainGroupListRequest
        * @return QueryDomainGroupListResponse
@@ -775,7 +779,7 @@ namespace Domain20180129
       Models::QueryFailingReasonListForQualificationResponse queryFailingReasonListForQualification(const Models::QueryFailingReasonListForQualificationRequest &request);
 
       /**
-       * @summary 查询国际一口价订单列表
+       * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
        *
        * @param request QueryIntlFixedPriceOrderListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -784,7 +788,7 @@ namespace Domain20180129
       Models::QueryIntlFixedPriceOrderListResponse queryIntlFixedPriceOrderListWithOptions(const Models::QueryIntlFixedPriceOrderListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询国际一口价订单列表
+       * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
        *
        * @param request QueryIntlFixedPriceOrderListRequest
        * @return QueryIntlFixedPriceOrderListResponse
@@ -938,7 +942,7 @@ namespace Domain20180129
       Models::QueryTaskInfoHistoryResponse queryTaskInfoHistory(const Models::QueryTaskInfoHistoryRequest &request);
 
       /**
-       * @summary 查询任务列表
+       * @summary Queries the domain name tasks under your account by page.
        *
        * @param request QueryTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -947,7 +951,7 @@ namespace Domain20180129
       Models::QueryTaskListResponse queryTaskListWithOptions(const Models::QueryTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询任务列表
+       * @summary Queries the domain name tasks under your account by page.
        *
        * @param request QueryTaskListRequest
        * @return QueryTaskListResponse
@@ -968,6 +972,8 @@ namespace Domain20180129
       Models::QueryTransferInByInstanceIdResponse queryTransferInByInstanceId(const Models::QueryTransferInByInstanceIdRequest &request);
 
       /**
+       * @summary Queries the domain names that are transferred to Alibaba Cloud.
+       *
        * @param request QueryTransferInListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryTransferInListResponse
@@ -975,6 +981,8 @@ namespace Domain20180129
       Models::QueryTransferInListResponse queryTransferInListWithOptions(const Models::QueryTransferInListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the domain names that are transferred to Alibaba Cloud.
+       *
        * @param request QueryTransferInListRequest
        * @return QueryTransferInListResponse
        */
@@ -1079,7 +1087,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForApplyQuickTransferOutOpenlyResponse saveBatchTaskForApplyQuickTransferOutOpenly(const Models::SaveBatchTaskForApplyQuickTransferOutOpenlyRequest &request);
 
       /**
-       * @summary 保存批量任务-注册订单
+       * @summary Submits a task to register multiple domain names at a time.
        *
        * @param request SaveBatchTaskForCreatingOrderActivateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1088,7 +1096,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderActivateResponse saveBatchTaskForCreatingOrderActivateWithOptions(const Models::SaveBatchTaskForCreatingOrderActivateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存批量任务-注册订单
+       * @summary Submits a task to register multiple domain names at a time.
        *
        * @param request SaveBatchTaskForCreatingOrderActivateRequest
        * @return SaveBatchTaskForCreatingOrderActivateResponse
@@ -1190,7 +1198,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForModifyingDomainDnsResponse saveBatchTaskForModifyingDomainDns(const Models::SaveBatchTaskForModifyingDomainDnsRequest &request);
 
       /**
-       * @summary 提交批量预定删除抢注域名任务
+       * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
        *
        * @param request SaveBatchTaskForReserveDropListDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1199,7 +1207,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForReserveDropListDomainResponse saveBatchTaskForReserveDropListDomainWithOptions(const Models::SaveBatchTaskForReserveDropListDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交批量预定删除抢注域名任务
+       * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
        *
        * @param request SaveBatchTaskForReserveDropListDomainRequest
        * @return SaveBatchTaskForReserveDropListDomainResponse
@@ -1207,7 +1215,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForReserveDropListDomainResponse saveBatchTaskForReserveDropListDomain(const Models::SaveBatchTaskForReserveDropListDomainRequest &request);
 
       /**
-       * @summary 基于转移码的批量转出任务提交
+       * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
        *
        * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1216,7 +1224,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForTransferOutByAuthorizationCodeResponse saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(const Models::SaveBatchTaskForTransferOutByAuthorizationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 基于转移码的批量转出任务提交
+       * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
        *
        * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
        * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse
@@ -1710,7 +1718,7 @@ namespace Domain20180129
       Models::SaveSingleTaskForSynchronizingDnsHostResponse saveSingleTaskForSynchronizingDnsHost(const Models::SaveSingleTaskForSynchronizingDnsHostRequest &request);
 
       /**
-       * @summary Submit a single transfer-out task based on the transfer key of domain names.
+       * @summary Submits a single transfer-out task based on the transfer key of a domain name.
        *
        * @description The task ID.
        *
@@ -1721,7 +1729,7 @@ namespace Domain20180129
       Models::SaveSingleTaskForTransferOutByAuthorizationCodeResponse saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(const Models::SaveSingleTaskForTransferOutByAuthorizationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submit a single transfer-out task based on the transfer key of domain names.
+       * @summary Submits a single transfer-out task based on the transfer key of a domain name.
        *
        * @description The task ID.
        *

@@ -14,6 +14,7 @@ namespace Models
   class QueryDomainListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryDomainListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoRenewEnabled, autoRenewEnabled_);
       DARABONBA_PTR_TO_JSON(Ccompany, ccompany_);
       DARABONBA_PTR_TO_JSON(Dns, dns_);
       DARABONBA_PTR_TO_JSON(DomainGroupId, domainGroupId_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserClientIp, userClientIp_);
     };
     friend void from_json(const Darabonba::Json& j, QueryDomainListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoRenewEnabled, autoRenewEnabled_);
       DARABONBA_PTR_FROM_JSON(Ccompany, ccompany_);
       DARABONBA_PTR_FROM_JSON(Dns, dns_);
       DARABONBA_PTR_FROM_JSON(DomainGroupId, domainGroupId_);
@@ -110,11 +112,18 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->ccompany_ == nullptr
-        && this->dns_ == nullptr && this->domainGroupId_ == nullptr && this->domainName_ == nullptr && this->endExpirationDate_ == nullptr && this->endRegistrationDate_ == nullptr
-        && this->lang_ == nullptr && this->orderByType_ == nullptr && this->orderKeyType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
-        && this->productDomainType_ == nullptr && this->queryType_ == nullptr && this->registrar_ == nullptr && this->resourceGroupId_ == nullptr && this->startExpirationDate_ == nullptr
-        && this->startRegistrationDate_ == nullptr && this->tag_ == nullptr && this->userClientIp_ == nullptr; };
+    virtual bool empty() const override { return this->autoRenewEnabled_ == nullptr
+        && this->ccompany_ == nullptr && this->dns_ == nullptr && this->domainGroupId_ == nullptr && this->domainName_ == nullptr && this->endExpirationDate_ == nullptr
+        && this->endRegistrationDate_ == nullptr && this->lang_ == nullptr && this->orderByType_ == nullptr && this->orderKeyType_ == nullptr && this->pageNum_ == nullptr
+        && this->pageSize_ == nullptr && this->productDomainType_ == nullptr && this->queryType_ == nullptr && this->registrar_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->startExpirationDate_ == nullptr && this->startRegistrationDate_ == nullptr && this->tag_ == nullptr && this->userClientIp_ == nullptr; };
+    // autoRenewEnabled Field Functions 
+    bool hasAutoRenewEnabled() const { return this->autoRenewEnabled_ != nullptr;};
+    void deleteAutoRenewEnabled() { this->autoRenewEnabled_ = nullptr;};
+    inline bool getAutoRenewEnabled() const { DARABONBA_PTR_GET_DEFAULT(autoRenewEnabled_, false) };
+    inline QueryDomainListRequest& setAutoRenewEnabled(bool autoRenewEnabled) { DARABONBA_PTR_SET_VALUE(autoRenewEnabled_, autoRenewEnabled) };
+
+
     // ccompany Field Functions 
     bool hasCcompany() const { return this->ccompany_ != nullptr;};
     void deleteCcompany() { this->ccompany_ = nullptr;};
@@ -251,6 +260,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> autoRenewEnabled_ {};
     // The name of the domain name registrant.
     shared_ptr<string> ccompany_ {};
     shared_ptr<string> dns_ {};

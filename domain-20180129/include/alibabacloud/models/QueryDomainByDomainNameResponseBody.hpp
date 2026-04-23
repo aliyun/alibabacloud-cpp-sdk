@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegistrantOrganization, registrantOrganization_);
       DARABONBA_PTR_TO_JSON(RegistrantType, registrantType_);
       DARABONBA_PTR_TO_JSON(RegistrantUpdatingStatus, registrantUpdatingStatus_);
+      DARABONBA_PTR_TO_JSON(Registrar, registrar_);
       DARABONBA_PTR_TO_JSON(RegistrationDate, registrationDate_);
       DARABONBA_PTR_TO_JSON(RegistrationDateLong, registrationDateLong_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
@@ -72,6 +73,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegistrantOrganization, registrantOrganization_);
       DARABONBA_PTR_FROM_JSON(RegistrantType, registrantType_);
       DARABONBA_PTR_FROM_JSON(RegistrantUpdatingStatus, registrantUpdatingStatus_);
+      DARABONBA_PTR_FROM_JSON(Registrar, registrar_);
       DARABONBA_PTR_FROM_JSON(RegistrationDate, registrationDate_);
       DARABONBA_PTR_FROM_JSON(RegistrationDateLong, registrationDateLong_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
@@ -153,9 +155,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> key_ {};
-        // The tag value.
         shared_ptr<string> vaue_ {};
       };
 
@@ -211,9 +211,9 @@ namespace Models
         && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->email_ == nullptr && this->emailVerificationClientHold_ == nullptr && this->emailVerificationStatus_ == nullptr
         && this->expirationCurrDateDiff_ == nullptr && this->expirationDate_ == nullptr && this->expirationDateLong_ == nullptr && this->expirationDateStatus_ == nullptr && this->instanceId_ == nullptr
         && this->premium_ == nullptr && this->realNameStatus_ == nullptr && this->registrantName_ == nullptr && this->registrantOrganization_ == nullptr && this->registrantType_ == nullptr
-        && this->registrantUpdatingStatus_ == nullptr && this->registrationDate_ == nullptr && this->registrationDateLong_ == nullptr && this->remark_ == nullptr && this->requestId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->tag_ == nullptr && this->transferOutStatus_ == nullptr && this->transferProhibitionLock_ == nullptr && this->updateProhibitionLock_ == nullptr
-        && this->userId_ == nullptr && this->zhRegistrantName_ == nullptr && this->zhRegistrantOrganization_ == nullptr; };
+        && this->registrantUpdatingStatus_ == nullptr && this->registrar_ == nullptr && this->registrationDate_ == nullptr && this->registrationDateLong_ == nullptr && this->remark_ == nullptr
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr && this->transferOutStatus_ == nullptr && this->transferProhibitionLock_ == nullptr
+        && this->updateProhibitionLock_ == nullptr && this->userId_ == nullptr && this->zhRegistrantName_ == nullptr && this->zhRegistrantOrganization_ == nullptr; };
     // dnsList Field Functions 
     bool hasDnsList() const { return this->dnsList_ != nullptr;};
     void deleteDnsList() { this->dnsList_ = nullptr;};
@@ -370,6 +370,13 @@ namespace Models
     inline QueryDomainByDomainNameResponseBody& setRegistrantUpdatingStatus(string registrantUpdatingStatus) { DARABONBA_PTR_SET_VALUE(registrantUpdatingStatus_, registrantUpdatingStatus) };
 
 
+    // registrar Field Functions 
+    bool hasRegistrar() const { return this->registrar_ != nullptr;};
+    void deleteRegistrar() { this->registrar_ = nullptr;};
+    inline string getRegistrar() const { DARABONBA_PTR_GET_DEFAULT(registrar_, "") };
+    inline QueryDomainByDomainNameResponseBody& setRegistrar(string registrar) { DARABONBA_PTR_SET_VALUE(registrar_, registrar) };
+
+
     // registrationDate Field Functions 
     bool hasRegistrationDate() const { return this->registrationDate_ != nullptr;};
     void deleteRegistrationDate() { this->registrationDate_ = nullptr;};
@@ -457,7 +464,6 @@ namespace Models
 
 
   protected:
-    // The Domain Name System (DNS) servers of the domain name.
     shared_ptr<QueryDomainByDomainNameResponseBody::DnsList> dnsList_ {};
     // The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to query the ID of the domain name group.
     shared_ptr<int64_t> domainGroupId_ {};
@@ -531,6 +537,7 @@ namespace Models
     // *   **PENDING**: The information about the domain name registrant is being modified.
     // *   **NORMAL**: normal.
     shared_ptr<string> registrantUpdatingStatus_ {};
+    shared_ptr<string> registrar_ {};
     // The time when the domain name was registered.
     shared_ptr<string> registrationDate_ {};
     // The timestamp generated when the domain name was registered.
@@ -541,7 +548,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
     shared_ptr<QueryDomainByDomainNameResponseBody::Tag> tag_ {};
     // The transfer status of the domain name. Valid values:
     // 

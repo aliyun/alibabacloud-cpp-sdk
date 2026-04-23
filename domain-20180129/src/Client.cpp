@@ -332,7 +332,7 @@ CancelTaskResponse Client::cancelTask(const CancelTaskRequest &request) {
 }
 
 /**
- * @summary 修改实例所在资源组
+ * @summary ChangeResourceGroup
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -379,7 +379,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 修改实例所在资源组
+ * @summary ChangeResourceGroup
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -390,6 +390,8 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary Checks whether a domain name can be registered.
+ *
  * @param request CheckDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckDomainResponse
@@ -435,6 +437,8 @@ CheckDomainResponse Client::checkDomainWithOptions(const CheckDomainRequest &req
 }
 
 /**
+ * @summary Checks whether a domain name can be registered.
+ *
  * @param request CheckDomainRequest
  * @return CheckDomainResponse
  */
@@ -490,7 +494,7 @@ CheckDomainSunriseClaimResponse Client::checkDomainSunriseClaim(const CheckDomai
 }
 
 /**
- * @summary 校验在售国际一口价域名状态和询价
+ * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
  *
  * @param request CheckIntlFixPriceDomainStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -521,7 +525,7 @@ CheckIntlFixPriceDomainStatusResponse Client::checkIntlFixPriceDomainStatusWithO
 }
 
 /**
- * @summary 校验在售国际一口价域名状态和询价
+ * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
  *
  * @param request CheckIntlFixPriceDomainStatusRequest
  * @return CheckIntlFixPriceDomainStatusResponse
@@ -732,7 +736,7 @@ ConfirmTransferInEmailResponse Client::confirmTransferInEmail(const ConfirmTrans
 }
 
 /**
- * @summary 创建国际一口价订单
+ * @summary Creates a fixed-price order at the international site (alibabacloud.com).
  *
  * @param request CreateIntlFixedPriceDomainOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -775,7 +779,7 @@ CreateIntlFixedPriceDomainOrderResponse Client::createIntlFixedPriceDomainOrderW
 }
 
 /**
- * @summary 创建国际一口价订单
+ * @summary Creates a fixed-price order at the international site (alibabacloud.com).
  *
  * @param request CreateIntlFixedPriceDomainOrderRequest
  * @return CreateIntlFixedPriceDomainOrderResponse
@@ -1524,7 +1528,7 @@ PollTaskResultResponse Client::pollTaskResult(const PollTaskResultRequest &reque
 }
 
 /**
- * @summary 搜索域名列表
+ * @summary Searches for domain names by using the advanced search feature.
  *
  * @param request QueryAdvancedDomainListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1667,7 +1671,7 @@ QueryAdvancedDomainListResponse Client::queryAdvancedDomainListWithOptions(const
 }
 
 /**
- * @summary 搜索域名列表
+ * @summary Searches for domain names by using the advanced search feature.
  *
  * @param request QueryAdvancedDomainListRequest
  * @return QueryAdvancedDomainListResponse
@@ -1724,7 +1728,7 @@ QueryArtExtensionResponse Client::queryArtExtension(const QueryArtExtensionReque
 }
 
 /**
- * @summary 查询操作记录
+ * @summary Queries the operations logs of a domain name.
  *
  * @param request QueryChangeLogListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1779,7 +1783,7 @@ QueryChangeLogListResponse Client::queryChangeLogListWithOptions(const QueryChan
 }
 
 /**
- * @summary 查询操作记录
+ * @summary Queries the operations logs of a domain name.
  *
  * @param request QueryChangeLogListRequest
  * @return QueryChangeLogListResponse
@@ -2074,7 +2078,7 @@ QueryDomainByInstanceIdResponse Client::queryDomainByInstanceId(const QueryDomai
 }
 
 /**
- * @summary 查询域名分组信息
+ * @summary Queries a list of domain name groups.
  *
  * @param request QueryDomainGroupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2125,7 +2129,7 @@ QueryDomainGroupListResponse Client::queryDomainGroupListWithOptions(const Query
 }
 
 /**
- * @summary 查询域名分组信息
+ * @summary Queries a list of domain name groups.
  *
  * @param request QueryDomainGroupListRequest
  * @return QueryDomainGroupListResponse
@@ -2145,6 +2149,10 @@ QueryDomainGroupListResponse Client::queryDomainGroupList(const QueryDomainGroup
 QueryDomainListResponse Client::queryDomainListWithOptions(const QueryDomainListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoRenewEnabled()) {
+    query["AutoRenewEnabled"] = request.getAutoRenewEnabled();
+  }
+
   if (!!request.hasCcompany()) {
     query["Ccompany"] = request.getCcompany();
   }
@@ -2740,7 +2748,7 @@ QueryFailingReasonListForQualificationResponse Client::queryFailingReasonListFor
 }
 
 /**
- * @summary 查询国际一口价订单列表
+ * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
  *
  * @param request QueryIntlFixedPriceOrderListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2783,7 +2791,7 @@ QueryIntlFixedPriceOrderListResponse Client::queryIntlFixedPriceOrderListWithOpt
 }
 
 /**
- * @summary 查询国际一口价订单列表
+ * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
  *
  * @param request QueryIntlFixedPriceOrderListRequest
  * @return QueryIntlFixedPriceOrderListResponse
@@ -3382,7 +3390,7 @@ QueryTaskInfoHistoryResponse Client::queryTaskInfoHistory(const QueryTaskInfoHis
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Queries the domain name tasks under your account by page.
  *
  * @param request QueryTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3433,7 +3441,7 @@ QueryTaskListResponse Client::queryTaskListWithOptions(const QueryTaskListReques
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Queries the domain name tasks under your account by page.
  *
  * @param request QueryTaskListRequest
  * @return QueryTaskListResponse
@@ -3490,6 +3498,8 @@ QueryTransferInByInstanceIdResponse Client::queryTransferInByInstanceId(const Qu
 }
 
 /**
+ * @summary Queries the domain names that are transferred to Alibaba Cloud.
+ *
  * @param request QueryTransferInListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTransferInListResponse
@@ -3547,6 +3557,8 @@ QueryTransferInListResponse Client::queryTransferInListWithOptions(const QueryTr
 }
 
 /**
+ * @summary Queries the domain names that are transferred to Alibaba Cloud.
+ *
  * @param request QueryTransferInListRequest
  * @return QueryTransferInListResponse
  */
@@ -3870,7 +3882,7 @@ SaveBatchTaskForApplyQuickTransferOutOpenlyResponse Client::saveBatchTaskForAppl
 }
 
 /**
- * @summary 保存批量任务-注册订单
+ * @summary Submits a task to register multiple domain names at a time.
  *
  * @param request SaveBatchTaskForCreatingOrderActivateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3925,7 +3937,7 @@ SaveBatchTaskForCreatingOrderActivateResponse Client::saveBatchTaskForCreatingOr
 }
 
 /**
- * @summary 保存批量任务-注册订单
+ * @summary Submits a task to register multiple domain names at a time.
  *
  * @param request SaveBatchTaskForCreatingOrderActivateRequest
  * @return SaveBatchTaskForCreatingOrderActivateResponse
@@ -4294,7 +4306,7 @@ SaveBatchTaskForModifyingDomainDnsResponse Client::saveBatchTaskForModifyingDoma
 }
 
 /**
- * @summary 提交批量预定删除抢注域名任务
+ * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
  *
  * @param request SaveBatchTaskForReserveDropListDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4329,7 +4341,7 @@ SaveBatchTaskForReserveDropListDomainResponse Client::saveBatchTaskForReserveDro
 }
 
 /**
- * @summary 提交批量预定删除抢注域名任务
+ * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
  *
  * @param request SaveBatchTaskForReserveDropListDomainRequest
  * @return SaveBatchTaskForReserveDropListDomainResponse
@@ -4340,7 +4352,7 @@ SaveBatchTaskForReserveDropListDomainResponse Client::saveBatchTaskForReserveDro
 }
 
 /**
- * @summary 基于转移码的批量转出任务提交
+ * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
  *
  * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4371,7 +4383,7 @@ SaveBatchTaskForTransferOutByAuthorizationCodeResponse Client::saveBatchTaskForT
 }
 
 /**
- * @summary 基于转移码的批量转出任务提交
+ * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
  *
  * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
  * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse
@@ -6414,7 +6426,7 @@ SaveSingleTaskForSynchronizingDnsHostResponse Client::saveSingleTaskForSynchroni
 }
 
 /**
- * @summary Submit a single transfer-out task based on the transfer key of domain names.
+ * @summary Submits a single transfer-out task based on the transfer key of a domain name.
  *
  * @description The task ID.
  *
@@ -6451,7 +6463,7 @@ SaveSingleTaskForTransferOutByAuthorizationCodeResponse Client::saveSingleTaskFo
 }
 
 /**
- * @summary Submit a single transfer-out task based on the transfer key of domain names.
+ * @summary Submits a single transfer-out task based on the transfer key of a domain name.
  *
  * @description The task ID.
  *

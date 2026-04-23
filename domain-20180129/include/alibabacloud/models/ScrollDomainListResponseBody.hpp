@@ -177,9 +177,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -402,75 +400,28 @@ namespace Models
 
 
       protected:
-        // The Domain Name System (DNS) servers of the domain name.
         shared_ptr<Domain::DnsList> dnsList_ {};
-        // The status of real-name verification for the domain name. Valid values:
-        // 
-        // *   **FAILED**: Real-name verification for the domain name fails.
-        // *   **SUCCEED**: Real-name verification for the domain name is successful.
-        // *   **NONAUDIT**: Real-name verification for the domain name is not performed.
-        // *   **AUDITING**: Real-name verification for the domain name is in progress.
         shared_ptr<string> domainAuditStatus_ {};
-        // The ID of the domain name group.
         shared_ptr<string> domainGroupId_ {};
-        // The name of the domain name group.
         shared_ptr<string> domainGroupName_ {};
-        // The domain name.
         shared_ptr<string> domainName_ {};
-        // The status of the domain name. Valid values:
-        // 
-        // *   **1**: The domain name needs to be renewed.
-        // *   **2**: The domain name needs to be redeemed.
-        // *   **3**: The domain name is normal.
-        // *   **4**: The domain name is being transferred out.
-        // *   **5**: The information about the domain name registrant is being modified.
-        // *   **6**: Real-name verification is not performed on the domain name.
-        // *   **7**: Real-name verification for the domain name fails.
-        // *   **8**: The real-name verification is being reviewed.
         shared_ptr<string> domainStatus_ {};
-        // The type of the domain name. Valid values:
-        // 
-        // *   **New gTLD**
-        // *   **gTLD**
-        // *   **ccTLD**
         shared_ptr<string> domainType_ {};
-        // The email address.
         shared_ptr<string> email_ {};
-        // The number of days from the expiration date of the domain name to the current date.
         shared_ptr<int32_t> expirationCurrDateDiff_ {};
-        // The time when the domain name expires.
         shared_ptr<string> expirationDate_ {};
-        // The time when the domain name expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> expirationDateLong_ {};
-        // Indicates whether the domain name expires. Valid values:
-        // 
-        // *   **1**: The domain name does not expire.
-        // *   **2**: The domain name expires.
         shared_ptr<string> expirationDateStatus_ {};
-        // The instance ID of the domain name.
         shared_ptr<string> instanceId_ {};
-        // Indicates whether the domain name is a premium domain name.
         shared_ptr<bool> premium_ {};
-        // The service ID.
         shared_ptr<string> productId_ {};
-        // The registrant of the domain name.
         shared_ptr<string> registrantOrganization_ {};
-        // The registration type of the domain name. Valid values:
-        // 
-        // *   **1**: individual.
-        // *   **2**: enterprise.
         shared_ptr<string> registrantType_ {};
-        // The time when the domain name was registered.
         shared_ptr<string> registrationDate_ {};
-        // The time when the domain name was registered. This value is a UNIX timestamp that indicates the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> registrationDateLong_ {};
-        // The remarks on the domain name.
         shared_ptr<string> remark_ {};
-        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The resource tag.
         shared_ptr<Domain::Tag> tag_ {};
-        // The Chinese name of the domain name registrant.
         shared_ptr<string> zhRegistrantOrganization_ {};
       };
 
@@ -528,7 +479,6 @@ namespace Models
 
 
   protected:
-    // The domain names.
     shared_ptr<ScrollDomainListResponseBody::Data> data_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
