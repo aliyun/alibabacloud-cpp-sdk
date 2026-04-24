@@ -61,6 +61,8 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const ImagePipelineExecutionSet& obj) { 
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_TO_JSON(ErrorInfo, errorInfo_);
           DARABONBA_PTR_TO_JSON(ExecutionId, executionId_);
           DARABONBA_PTR_TO_JSON(ImageId, imageId_);
           DARABONBA_PTR_TO_JSON(ImagePipelineId, imagePipelineId_);
@@ -72,6 +74,8 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, ImagePipelineExecutionSet& obj) { 
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_FROM_JSON(ErrorInfo, errorInfo_);
           DARABONBA_PTR_FROM_JSON(ExecutionId, executionId_);
           DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
           DARABONBA_PTR_FROM_JSON(ImagePipelineId, imagePipelineId_);
@@ -168,13 +172,27 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->creationTime_ == nullptr
-        && this->executionId_ == nullptr && this->imageId_ == nullptr && this->imagePipelineId_ == nullptr && this->message_ == nullptr && this->modifiedTime_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorInfo_ == nullptr && this->executionId_ == nullptr && this->imageId_ == nullptr && this->imagePipelineId_ == nullptr
+        && this->message_ == nullptr && this->modifiedTime_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
         // creationTime Field Functions 
         bool hasCreationTime() const { return this->creationTime_ != nullptr;};
         void deleteCreationTime() { this->creationTime_ = nullptr;};
         inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
         inline ImagePipelineExecutionSet& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline ImagePipelineExecutionSet& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+        // errorInfo Field Functions 
+        bool hasErrorInfo() const { return this->errorInfo_ != nullptr;};
+        void deleteErrorInfo() { this->errorInfo_ = nullptr;};
+        inline string getErrorInfo() const { DARABONBA_PTR_GET_DEFAULT(errorInfo_, "") };
+        inline ImagePipelineExecutionSet& setErrorInfo(string errorInfo) { DARABONBA_PTR_SET_VALUE(errorInfo_, errorInfo) };
 
 
         // executionId Field Functions 
@@ -237,6 +255,8 @@ namespace Models
 
       protected:
         shared_ptr<string> creationTime_ {};
+        shared_ptr<string> errorCode_ {};
+        shared_ptr<string> errorInfo_ {};
         shared_ptr<string> executionId_ {};
         shared_ptr<string> imageId_ {};
         shared_ptr<string> imagePipelineId_ {};
