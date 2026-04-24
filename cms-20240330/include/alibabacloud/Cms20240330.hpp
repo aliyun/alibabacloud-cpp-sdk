@@ -755,6 +755,24 @@ namespace Cms20240330
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName, const Models::DeleteWorkspaceRequest &request);
 
       /**
+       * @summary 查询元数据meta
+       *
+       * @param tmpReq DescribeMetricMetaListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetricMetaListResponse
+       */
+      Models::DescribeMetricMetaListResponse describeMetricMetaListWithOptions(const Models::DescribeMetricMetaListRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询元数据meta
+       *
+       * @param request DescribeMetricMetaListRequest
+       * @return DescribeMetricMetaListResponse
+       */
+      Models::DescribeMetricMetaListResponse describeMetricMetaList(const Models::DescribeMetricMetaListRequest &request);
+
+      /**
        * @summary 查询地域信息列表
        *
        * @param request DescribeRegionsRequest

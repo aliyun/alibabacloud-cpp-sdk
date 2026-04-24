@@ -2149,6 +2149,77 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName, con
 }
 
 /**
+ * @summary 查询元数据meta
+ *
+ * @param tmpReq DescribeMetricMetaListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetricMetaListResponse
+ */
+DescribeMetricMetaListResponse Client::describeMetricMetaListWithOptions(const DescribeMetricMetaListRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeMetricMetaListShrinkRequest request = DescribeMetricMetaListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLabels()) {
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "labels", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasLabelsShrink()) {
+    query["labels"] = request.getLabelsShrink();
+  }
+
+  if (!!request.hasMetaFormat()) {
+    query["metaFormat"] = request.getMetaFormat();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["metricName"] = request.getMetricName();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetricMetaList"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/describe-metric-meta-list")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetricMetaListResponse>();
+}
+
+/**
+ * @summary 查询元数据meta
+ *
+ * @param request DescribeMetricMetaListRequest
+ * @return DescribeMetricMetaListResponse
+ */
+DescribeMetricMetaListResponse Client::describeMetricMetaList(const DescribeMetricMetaListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeMetricMetaListWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询地域信息列表
  *
  * @param request DescribeRegionsRequest

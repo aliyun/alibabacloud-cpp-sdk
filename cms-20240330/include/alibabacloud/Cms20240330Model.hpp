@@ -227,6 +227,10 @@
 #include <alibabacloud/models/DeleteWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
+#include <alibabacloud/models/DescribeMetricMetaListRequest.hpp>
+#include <alibabacloud/models/DescribeMetricMetaListShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeMetricMetaListResponseBody.hpp>
+#include <alibabacloud/models/DescribeMetricMetaListResponse.hpp>
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeRegionsResponse.hpp>
