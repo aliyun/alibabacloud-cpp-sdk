@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyScheduledTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Frequency, frequency_);
+      DARABONBA_PTR_TO_JSON(InspectionItems, inspectionItems_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyScheduledTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Frequency, frequency_);
+      DARABONBA_PTR_FROM_JSON(InspectionItems, inspectionItems_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->frequency_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->reportLanguage_ == nullptr && this->scheduledId_ == nullptr
-        && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->frequency_ == nullptr && this->inspectionItems_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->reportLanguage_ == nullptr
+        && this->scheduledId_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteFrequency() { this->frequency_ = nullptr;};
     inline string getFrequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
     inline ModifyScheduledTaskRequest& setFrequency(string frequency) { DARABONBA_PTR_SET_VALUE(frequency_, frequency) };
+
+
+    // inspectionItems Field Functions 
+    bool hasInspectionItems() const { return this->inspectionItems_ != nullptr;};
+    void deleteInspectionItems() { this->inspectionItems_ = nullptr;};
+    inline string getInspectionItems() const { DARABONBA_PTR_GET_DEFAULT(inspectionItems_, "") };
+    inline ModifyScheduledTaskRequest& setInspectionItems(string inspectionItems) { DARABONBA_PTR_SET_VALUE(inspectionItems_, inspectionItems) };
 
 
     // instanceIds Field Functions 
@@ -118,6 +127,7 @@ namespace Models
     // 
     // ### [](#daily--dailymonday--daily-)Note: DAILY takes precedence over other values. For example, if you enter DAILY,Monday, the backend will use DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
+    shared_ptr<string> inspectionItems_ {};
     // The new list of related instances. Separate multiple instances with commas (,).
     shared_ptr<string> instanceIds_ {};
     // The name of the new inspection configuration.

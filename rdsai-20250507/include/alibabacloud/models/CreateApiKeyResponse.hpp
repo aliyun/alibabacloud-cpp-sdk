@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETEEDGEFUNCTIONRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_DELETEEDGEFUNCTIONRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATEAPIKEYRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_CREATEAPIKEYRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/DeleteEdgeFunctionResponseBody.hpp>
+#include <alibabacloud/models/CreateApiKeyResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace RdsAi20250507
 {
 namespace Models
 {
-  class DeleteEdgeFunctionResponse : public Darabonba::Model {
+  class CreateApiKeyResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteEdgeFunctionResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateApiKeyResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteEdgeFunctionResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateApiKeyResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    DeleteEdgeFunctionResponse() = default ;
-    DeleteEdgeFunctionResponse(const DeleteEdgeFunctionResponse &) = default ;
-    DeleteEdgeFunctionResponse(DeleteEdgeFunctionResponse &&) = default ;
-    DeleteEdgeFunctionResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteEdgeFunctionResponse() = default ;
-    DeleteEdgeFunctionResponse& operator=(const DeleteEdgeFunctionResponse &) = default ;
-    DeleteEdgeFunctionResponse& operator=(DeleteEdgeFunctionResponse &&) = default ;
+    CreateApiKeyResponse() = default ;
+    CreateApiKeyResponse(const CreateApiKeyResponse &) = default ;
+    CreateApiKeyResponse(CreateApiKeyResponse &&) = default ;
+    CreateApiKeyResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateApiKeyResponse() = default ;
+    CreateApiKeyResponse& operator=(const CreateApiKeyResponse &) = default ;
+    CreateApiKeyResponse& operator=(CreateApiKeyResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline DeleteEdgeFunctionResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline DeleteEdgeFunctionResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline CreateApiKeyResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline CreateApiKeyResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline DeleteEdgeFunctionResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline CreateApiKeyResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const DeleteEdgeFunctionResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, DeleteEdgeFunctionResponseBody) };
-    inline DeleteEdgeFunctionResponseBody getBody() { DARABONBA_PTR_GET(body_, DeleteEdgeFunctionResponseBody) };
-    inline DeleteEdgeFunctionResponse& setBody(const DeleteEdgeFunctionResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline DeleteEdgeFunctionResponse& setBody(DeleteEdgeFunctionResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const CreateApiKeyResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateApiKeyResponseBody) };
+    inline CreateApiKeyResponseBody getBody() { DARABONBA_PTR_GET(body_, CreateApiKeyResponseBody) };
+    inline CreateApiKeyResponse& setBody(const CreateApiKeyResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline CreateApiKeyResponse& setBody(CreateApiKeyResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     shared_ptr<map<string, string>> headers_ {};
     shared_ptr<int32_t> statusCode_ {};
-    shared_ptr<DeleteEdgeFunctionResponseBody> body_ {};
+    shared_ptr<CreateApiKeyResponseBody> body_ {};
   };
 
   } // namespace Models

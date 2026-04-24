@@ -64,6 +64,23 @@ namespace RdsAi20250507
       Models::ChatMessagesTaskStopResponse chatMessagesTaskStop(const Models::ChatMessagesTaskStopRequest &request);
 
       /**
+       * @summary 创建实例密钥
+       *
+       * @param request CreateApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateApiKeyResponse
+       */
+      Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建实例密钥
+       *
+       * @param request CreateApiKeyRequest
+       * @return CreateApiKeyResponse
+       */
+      Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
+
+      /**
        * @summary Creates an RDS Supabase instance.
        *
        * @description ### [](#)Supported database engine
@@ -108,27 +125,6 @@ namespace RdsAi20250507
        * @return CreateCustomAgentResponse
        */
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
-
-      /**
-       * @summary Creates an edge function.
-       *
-       * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
-       *
-       * @param tmpReq CreateEdgeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateEdgeFunctionResponse
-       */
-      Models::CreateEdgeFunctionResponse createEdgeFunctionWithOptions(const Models::CreateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates an edge function.
-       *
-       * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
-       *
-       * @param request CreateEdgeFunctionRequest
-       * @return CreateEdgeFunctionResponse
-       */
-      Models::CreateEdgeFunctionResponse createEdgeFunction(const Models::CreateEdgeFunctionRequest &request);
 
       /**
        * @summary Creates an inspection task for multiple instances.
@@ -182,6 +178,23 @@ namespace RdsAi20250507
       Models::CreateSkillResponse createSkill(const Models::CreateSkillRequest &request);
 
       /**
+       * @summary 删除apiKey
+       *
+       * @param request DeleteApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteApiKeyResponse
+       */
+      Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const Models::DeleteApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除apiKey
+       *
+       * @param request DeleteApiKeyRequest
+       * @return DeleteApiKeyResponse
+       */
+      Models::DeleteApiKeyResponse deleteApiKey(const Models::DeleteApiKeyRequest &request);
+
+      /**
        * @summary Deletes an RDS Supabase instance.
        *
        * @description ### [](#)Supported database engine
@@ -228,27 +241,6 @@ namespace RdsAi20250507
        * @return DeleteCustomAgentResponse
        */
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
-
-      /**
-       * @summary Deletes an edge function.
-       *
-       * @description Deletes an edge function.
-       *
-       * @param request DeleteEdgeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteEdgeFunctionResponse
-       */
-      Models::DeleteEdgeFunctionResponse deleteEdgeFunctionWithOptions(const Models::DeleteEdgeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Deletes an edge function.
-       *
-       * @description Deletes an edge function.
-       *
-       * @param request DeleteEdgeFunctionRequest
-       * @return DeleteEdgeFunctionResponse
-       */
-      Models::DeleteEdgeFunctionResponse deleteEdgeFunction(const Models::DeleteEdgeFunctionRequest &request);
 
       /**
        * @summary Deletes a specified inspection configuration.
@@ -337,27 +329,6 @@ namespace RdsAi20250507
        * @return DescribeAppInstancesResponse
        */
       Models::DescribeAppInstancesResponse describeAppInstances(const Models::DescribeAppInstancesRequest &request);
-
-      /**
-       * @summary Query the list of edge functions or a specified edge function.
-       *
-       * @description Query the list of edge functions or a specified edge function.
-       *
-       * @param request DescribeEdgeFunctionsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeEdgeFunctionsResponse
-       */
-      Models::DescribeEdgeFunctionsResponse describeEdgeFunctionsWithOptions(const Models::DescribeEdgeFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Query the list of edge functions or a specified edge function.
-       *
-       * @description Query the list of edge functions or a specified edge function.
-       *
-       * @param request DescribeEdgeFunctionsRequest
-       * @return DescribeEdgeFunctionsResponse
-       */
-      Models::DescribeEdgeFunctionsResponse describeEdgeFunctions(const Models::DescribeEdgeFunctionsRequest &request);
 
       /**
        * @summary Queries the events.
@@ -531,6 +502,57 @@ namespace RdsAi20250507
       Models::DescribeInstanceStorageConfigResponse describeInstanceStorageConfig(const Models::DescribeInstanceStorageConfigRequest &request);
 
       /**
+       * @summary 查看 model operator 实例具体 token 使用情况
+       *
+       * @param request DescribeMOTokenUsageDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMOTokenUsageDetailResponse
+       */
+      Models::DescribeMOTokenUsageDetailResponse describeMOTokenUsageDetailWithOptions(const Models::DescribeMOTokenUsageDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看 model operator 实例具体 token 使用情况
+       *
+       * @param request DescribeMOTokenUsageDetailRequest
+       * @return DescribeMOTokenUsageDetailResponse
+       */
+      Models::DescribeMOTokenUsageDetailResponse describeMOTokenUsageDetail(const Models::DescribeMOTokenUsageDetailRequest &request);
+
+      /**
+       * @summary 查询MO实例信息
+       *
+       * @param request DescribeModelOperatorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelOperatorResponse
+       */
+      Models::DescribeModelOperatorResponse describeModelOperatorWithOptions(const Models::DescribeModelOperatorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询MO实例信息
+       *
+       * @param request DescribeModelOperatorRequest
+       * @return DescribeModelOperatorResponse
+       */
+      Models::DescribeModelOperatorResponse describeModelOperator(const Models::DescribeModelOperatorRequest &request);
+
+      /**
+       * @summary 查询监控数据
+       *
+       * @param tmpReq DescribeMonitorDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMonitorDataResponse
+       */
+      Models::DescribeMonitorDataResponse describeMonitorDataWithOptions(const Models::DescribeMonitorDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询监控数据
+       *
+       * @param request DescribeMonitorDataRequest
+       * @return DescribeMonitorDataResponse
+       */
+      Models::DescribeMonitorDataResponse describeMonitorData(const Models::DescribeMonitorDataRequest &request);
+
+      /**
        * @summary 查询沙箱模板列表
        *
        * @param request DescribeSandboxTemplatesRequest
@@ -546,6 +568,40 @@ namespace RdsAi20250507
        * @return DescribeSandboxTemplatesResponse
        */
       Models::DescribeSandboxTemplatesResponse describeSandboxTemplates(const Models::DescribeSandboxTemplatesRequest &request);
+
+      /**
+       * @summary 更新旗舰版白名单
+       *
+       * @param request DescribeWhitelistIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWhitelistIpsResponse
+       */
+      Models::DescribeWhitelistIpsResponse describeWhitelistIpsWithOptions(const Models::DescribeWhitelistIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新旗舰版白名单
+       *
+       * @param request DescribeWhitelistIpsRequest
+       * @return DescribeWhitelistIpsResponse
+       */
+      Models::DescribeWhitelistIpsResponse describeWhitelistIps(const Models::DescribeWhitelistIpsRequest &request);
+
+      /**
+       * @summary 启用Supabase的沙箱和边缘函数能力
+       *
+       * @param request EnableAgentRuntimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableAgentRuntimeResponse
+       */
+      Models::EnableAgentRuntimeResponse enableAgentRuntimeWithOptions(const Models::EnableAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用Supabase的沙箱和边缘函数能力
+       *
+       * @param request EnableAgentRuntimeRequest
+       * @return EnableAgentRuntimeResponse
+       */
+      Models::EnableAgentRuntimeResponse enableAgentRuntime(const Models::EnableAgentRuntimeRequest &request);
 
       /**
        * @summary Queries the history conversations of a user.
@@ -616,6 +672,23 @@ namespace RdsAi20250507
       Models::GetMessagesResponse getMessages(const Models::GetMessagesRequest &request);
 
       /**
+       * @summary 查询MO订单信息
+       *
+       * @param request GetModelOperatorOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelOperatorOrderResponse
+       */
+      Models::GetModelOperatorOrderResponse getModelOperatorOrderWithOptions(const Models::GetModelOperatorOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询MO订单信息
+       *
+       * @param request GetModelOperatorOrderRequest
+       * @return GetModelOperatorOrderResponse
+       */
+      Models::GetModelOperatorOrderResponse getModelOperatorOrder(const Models::GetModelOperatorOrderRequest &request);
+
+      /**
        * @summary Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
        *
        * @param request GetScheduledInstancesRequest
@@ -682,6 +755,23 @@ namespace RdsAi20250507
        * @return GetStandAloneReportsResponse
        */
       Models::GetStandAloneReportsResponse getStandAloneReports(const Models::GetStandAloneReportsRequest &request);
+
+      /**
+       * @summary 查询实例密钥信息
+       *
+       * @param request ListApiKeysRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListApiKeysResponse
+       */
+      Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例密钥信息
+       *
+       * @param request ListApiKeysRequest
+       * @return ListApiKeysResponse
+       */
+      Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
        * @summary Queries the dedicated agents created by a user.
@@ -955,6 +1045,57 @@ namespace RdsAi20250507
       Models::ModifyScheduledTaskResponse modifyScheduledTask(const Models::ModifyScheduledTaskRequest &request);
 
       /**
+       * @summary 更新旗舰版白名单
+       *
+       * @param request ModifyWhitelistIpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyWhitelistIpsResponse
+       */
+      Models::ModifyWhitelistIpsResponse modifyWhitelistIpsWithOptions(const Models::ModifyWhitelistIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新旗舰版白名单
+       *
+       * @param request ModifyWhitelistIpsRequest
+       * @return ModifyWhitelistIpsResponse
+       */
+      Models::ModifyWhitelistIpsResponse modifyWhitelistIps(const Models::ModifyWhitelistIpsRequest &request);
+
+      /**
+       * @summary 重命名实例密钥
+       *
+       * @param request RenameApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenameApiKeyResponse
+       */
+      Models::RenameApiKeyResponse renameApiKeyWithOptions(const Models::RenameApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重命名实例密钥
+       *
+       * @param request RenameApiKeyRequest
+       * @return RenameApiKeyResponse
+       */
+      Models::RenameApiKeyResponse renameApiKey(const Models::RenameApiKeyRequest &request);
+
+      /**
+       * @summary 重置apiKey
+       *
+       * @param request ResetApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetApiKeyResponse
+       */
+      Models::ResetApiKeyResponse resetApiKeyWithOptions(const Models::ResetApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置apiKey
+       *
+       * @param request ResetApiKeyRequest
+       * @return ResetApiKeyResponse
+       */
+      Models::ResetApiKeyResponse resetApiKey(const Models::ResetApiKeyRequest &request);
+
+      /**
        * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
        *
        * @description ### [](#)Supported database engine
@@ -1065,6 +1206,23 @@ namespace RdsAi20250507
       Models::StopInstanceResponse stopInstance(const Models::StopInstanceRequest &request);
 
       /**
+       * @summary 修改实例密钥配额
+       *
+       * @param tmpReq UpdateApiKeyQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApiKeyQuotaResponse
+       */
+      Models::UpdateApiKeyQuotaResponse updateApiKeyQuotaWithOptions(const Models::UpdateApiKeyQuotaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例密钥配额
+       *
+       * @param request UpdateApiKeyQuotaRequest
+       * @return UpdateApiKeyQuotaResponse
+       */
+      Models::UpdateApiKeyQuotaResponse updateApiKeyQuota(const Models::UpdateApiKeyQuotaRequest &request);
+
+      /**
        * @summary Updates the custom agent.
        *
        * @param tmpReq UpdateCustomAgentRequest
@@ -1080,27 +1238,6 @@ namespace RdsAi20250507
        * @return UpdateCustomAgentResponse
        */
       Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
-
-      /**
-       * @summary Updates an edge function
-       *
-       * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
-       *
-       * @param tmpReq UpdateEdgeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateEdgeFunctionResponse
-       */
-      Models::UpdateEdgeFunctionResponse updateEdgeFunctionWithOptions(const Models::UpdateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Updates an edge function
-       *
-       * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
-       *
-       * @param request UpdateEdgeFunctionRequest
-       * @return UpdateEdgeFunctionResponse
-       */
-      Models::UpdateEdgeFunctionResponse updateEdgeFunction(const Models::UpdateEdgeFunctionRequest &request);
 
       /**
        * @summary Updates the information about a specified skill.

@@ -47,6 +47,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Reports& obj) { 
         DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(InspectionItems, inspectionItems_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
         DARABONBA_PTR_TO_JSON(ReportType, reportType_);
@@ -57,6 +58,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Reports& obj) { 
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(InspectionItems, inspectionItems_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
         DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
@@ -76,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdTime_ == nullptr
-        && this->endTime_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->endTime_ == nullptr && this->inspectionItems_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr && this->reportType_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
       // createdTime Field Functions 
       bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
       void deleteCreatedTime() { this->createdTime_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
       void deleteEndTime() { this->endTime_ = nullptr;};
       inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
       inline Reports& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // inspectionItems Field Functions 
+      bool hasInspectionItems() const { return this->inspectionItems_ != nullptr;};
+      void deleteInspectionItems() { this->inspectionItems_ = nullptr;};
+      inline string getInspectionItems() const { DARABONBA_PTR_GET_DEFAULT(inspectionItems_, "") };
+      inline Reports& setInspectionItems(string inspectionItems) { DARABONBA_PTR_SET_VALUE(inspectionItems_, inspectionItems) };
 
 
       // regionId Field Functions 
@@ -139,6 +148,7 @@ namespace Models
       shared_ptr<string> createdTime_ {};
       // The end time of the inspection task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
+      shared_ptr<string> inspectionItems_ {};
       shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
       shared_ptr<string> reportType_ {};

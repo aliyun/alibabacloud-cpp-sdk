@@ -210,6 +210,68 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStop(const ChatMessagesTask
 }
 
 /**
+ * @summary 创建实例密钥
+ *
+ * @param request CreateApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApiKeyResponse
+ */
+CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.getKeyName();
+  }
+
+  if (!!request.hasLimitRate()) {
+    query["LimitRate"] = request.getLimitRate();
+  }
+
+  if (!!request.hasLimitType()) {
+    query["LimitType"] = request.getLimitType();
+  }
+
+  if (!!request.hasQuantity()) {
+    query["Quantity"] = request.getQuantity();
+  }
+
+  if (!!request.hasTokenQuota()) {
+    query["TokenQuota"] = request.getTokenQuota();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApiKeyResponse>();
+}
+
+/**
+ * @summary 创建实例密钥
+ *
+ * @param request CreateApiKeyRequest
+ * @return CreateApiKeyResponse
+ */
+CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an RDS Supabase instance.
  *
  * @description ### [](#)Supported database engine
@@ -402,90 +464,6 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary Creates an edge function.
- *
- * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
- *
- * @param tmpReq CreateEdgeFunctionRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CreateEdgeFunctionResponse
- */
-CreateEdgeFunctionResponse Client::createEdgeFunctionWithOptions(const CreateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  CreateEdgeFunctionShrinkRequest request = CreateEdgeFunctionShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasCode()) {
-    request.setCodeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCode(), "Code", "json"));
-  }
-
-  if (!!tmpReq.hasCustomConfig()) {
-    request.setCustomConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomConfig(), "CustomConfig", "json"));
-  }
-
-  if (!!tmpReq.hasEnvs()) {
-    request.setEnvsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvs(), "Envs", "json"));
-  }
-
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasCodeShrink()) {
-    query["Code"] = request.getCodeShrink();
-  }
-
-  if (!!request.hasCustomConfigShrink()) {
-    query["CustomConfig"] = request.getCustomConfigShrink();
-  }
-
-  if (!!request.hasEdgeFunctionName()) {
-    query["EdgeFunctionName"] = request.getEdgeFunctionName();
-  }
-
-  if (!!request.hasEnvsShrink()) {
-    query["Envs"] = request.getEnvsShrink();
-  }
-
-  if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.getInstanceName();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "CreateEdgeFunction"},
-    {"version" , "2025-05-07"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CreateEdgeFunctionResponse>();
-}
-
-/**
- * @summary Creates an edge function.
- *
- * @description Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
- *
- * @param request CreateEdgeFunctionRequest
- * @return CreateEdgeFunctionResponse
- */
-CreateEdgeFunctionResponse Client::createEdgeFunction(const CreateEdgeFunctionRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return createEdgeFunctionWithOptions(request, runtime);
-}
-
-/**
  * @summary Creates an inspection task for multiple instances.
  *
  * @param request CreateInspectionTaskRequest
@@ -571,6 +549,10 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 
   if (!!request.hasFrequency()) {
     query["Frequency"] = request.getFrequency();
+  }
+
+  if (!!request.hasInspectionItems()) {
+    query["InspectionItems"] = request.getInspectionItems();
   }
 
   if (!!request.hasInstanceIds()) {
@@ -698,6 +680,52 @@ CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
 }
 
 /**
+ * @summary 删除apiKey
+ *
+ * @param request DeleteApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteApiKeyResponse
+ */
+DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const DeleteApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteApiKeyResponse>();
+}
+
+/**
+ * @summary 删除apiKey
+ *
+ * @param request DeleteApiKeyRequest
+ * @return DeleteApiKeyResponse
+ */
+DeleteApiKeyResponse Client::deleteApiKey(const DeleteApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an RDS Supabase instance.
  *
  * @description ### [](#)Supported database engine
@@ -801,64 +829,6 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomAgentWithOptions(request, runtime);
-}
-
-/**
- * @summary Deletes an edge function.
- *
- * @description Deletes an edge function.
- *
- * @param request DeleteEdgeFunctionRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DeleteEdgeFunctionResponse
- */
-DeleteEdgeFunctionResponse Client::deleteEdgeFunctionWithOptions(const DeleteEdgeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasEdgeFunctionName()) {
-    query["EdgeFunctionName"] = request.getEdgeFunctionName();
-  }
-
-  if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.getInstanceName();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DeleteEdgeFunction"},
-    {"version" , "2025-05-07"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DeleteEdgeFunctionResponse>();
-}
-
-/**
- * @summary Deletes an edge function.
- *
- * @description Deletes an edge function.
- *
- * @param request DeleteEdgeFunctionRequest
- * @return DeleteEdgeFunctionResponse
- */
-DeleteEdgeFunctionResponse Client::deleteEdgeFunction(const DeleteEdgeFunctionRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return deleteEdgeFunctionWithOptions(request, runtime);
 }
 
 /**
@@ -1067,64 +1037,6 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
 DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAppInstancesWithOptions(request, runtime);
-}
-
-/**
- * @summary Query the list of edge functions or a specified edge function.
- *
- * @description Query the list of edge functions or a specified edge function.
- *
- * @param request DescribeEdgeFunctionsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeEdgeFunctionsResponse
- */
-DescribeEdgeFunctionsResponse Client::describeEdgeFunctionsWithOptions(const DescribeEdgeFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasEdgeFunctionName()) {
-    query["EdgeFunctionName"] = request.getEdgeFunctionName();
-  }
-
-  if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.getInstanceName();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeEdgeFunctions"},
-    {"version" , "2025-05-07"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeEdgeFunctionsResponse>();
-}
-
-/**
- * @summary Query the list of edge functions or a specified edge function.
- *
- * @description Query the list of edge functions or a specified edge function.
- *
- * @param request DescribeEdgeFunctionsRequest
- * @return DescribeEdgeFunctionsResponse
- */
-DescribeEdgeFunctionsResponse Client::describeEdgeFunctions(const DescribeEdgeFunctionsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeEdgeFunctionsWithOptions(request, runtime);
 }
 
 /**
@@ -1522,6 +1434,186 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(cons
 }
 
 /**
+ * @summary 查看 model operator 实例具体 token 使用情况
+ *
+ * @param request DescribeMOTokenUsageDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMOTokenUsageDetailResponse
+ */
+DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetailWithOptions(const DescribeMOTokenUsageDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerName()) {
+    query["ConsumerName"] = request.getConsumerName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.getRegion();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMOTokenUsageDetail"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMOTokenUsageDetailResponse>();
+}
+
+/**
+ * @summary 查看 model operator 实例具体 token 使用情况
+ *
+ * @param request DescribeMOTokenUsageDetailRequest
+ * @return DescribeMOTokenUsageDetailResponse
+ */
+DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetail(const DescribeMOTokenUsageDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMOTokenUsageDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询MO实例信息
+ *
+ * @param request DescribeModelOperatorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelOperatorResponse
+ */
+DescribeModelOperatorResponse Client::describeModelOperatorWithOptions(const DescribeModelOperatorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelOperator"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelOperatorResponse>();
+}
+
+/**
+ * @summary 查询MO实例信息
+ *
+ * @param request DescribeModelOperatorRequest
+ * @return DescribeModelOperatorResponse
+ */
+DescribeModelOperatorResponse Client::describeModelOperator(const DescribeModelOperatorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelOperatorWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询监控数据
+ *
+ * @param tmpReq DescribeMonitorDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMonitorDataResponse
+ */
+DescribeMonitorDataResponse Client::describeMonitorDataWithOptions(const DescribeMonitorDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeMonitorDataShrinkRequest request = DescribeMonitorDataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApiKeyName()) {
+    request.setApiKeyNameShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApiKeyName(), "ApiKeyName", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApiKeyNameShrink()) {
+    query["ApiKeyName"] = request.getApiKeyNameShrink();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasMetric()) {
+    query["Metric"] = request.getMetric();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMonitorData"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMonitorDataResponse>();
+}
+
+/**
+ * @summary 查询监控数据
+ *
+ * @param request DescribeMonitorDataRequest
+ * @return DescribeMonitorDataResponse
+ */
+DescribeMonitorDataResponse Client::describeMonitorData(const DescribeMonitorDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMonitorDataWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询沙箱模板列表
  *
  * @param request DescribeSandboxTemplatesRequest
@@ -1585,6 +1677,106 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplatesWithOptions(con
 DescribeSandboxTemplatesResponse Client::describeSandboxTemplates(const DescribeSandboxTemplatesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSandboxTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新旗舰版白名单
+ *
+ * @param request DescribeWhitelistIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWhitelistIpsResponse
+ */
+DescribeWhitelistIpsResponse Client::describeWhitelistIpsWithOptions(const DescribeWhitelistIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeWhitelistIps"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWhitelistIpsResponse>();
+}
+
+/**
+ * @summary 更新旗舰版白名单
+ *
+ * @param request DescribeWhitelistIpsRequest
+ * @return DescribeWhitelistIpsResponse
+ */
+DescribeWhitelistIpsResponse Client::describeWhitelistIps(const DescribeWhitelistIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeWhitelistIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用Supabase的沙箱和边缘函数能力
+ *
+ * @param request EnableAgentRuntimeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableAgentRuntimeResponse
+ */
+EnableAgentRuntimeResponse Client::enableAgentRuntimeWithOptions(const EnableAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableAgentRuntime"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableAgentRuntimeResponse>();
+}
+
+/**
+ * @summary 启用Supabase的沙箱和边缘函数能力
+ *
+ * @param request EnableAgentRuntimeRequest
+ * @return EnableAgentRuntimeResponse
+ */
+EnableAgentRuntimeResponse Client::enableAgentRuntime(const EnableAgentRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableAgentRuntimeWithOptions(request, runtime);
 }
 
 /**
@@ -1785,6 +1977,41 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getMessagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询MO订单信息
+ *
+ * @param request GetModelOperatorOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelOperatorOrderResponse
+ */
+GetModelOperatorOrderResponse Client::getModelOperatorOrderWithOptions(const GetModelOperatorOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetModelOperatorOrder"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelOperatorOrderResponse>();
+}
+
+/**
+ * @summary 查询MO订单信息
+ *
+ * @param request GetModelOperatorOrderRequest
+ * @return GetModelOperatorOrderResponse
+ */
+GetModelOperatorOrderResponse Client::getModelOperatorOrder(const GetModelOperatorOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getModelOperatorOrderWithOptions(request, runtime);
 }
 
 /**
@@ -1997,6 +2224,56 @@ GetStandAloneReportsResponse Client::getStandAloneReportsWithOptions(const GetSt
 GetStandAloneReportsResponse Client::getStandAloneReports(const GetStandAloneReportsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getStandAloneReportsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询实例密钥信息
+ *
+ * @param request ListApiKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApiKeysResponse
+ */
+ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApiKeys"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApiKeysResponse>();
+}
+
+/**
+ * @summary 查询实例密钥信息
+ *
+ * @param request ListApiKeysRequest
+ * @return ListApiKeysResponse
+ */
+ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listApiKeysWithOptions(request, runtime);
 }
 
 /**
@@ -2727,6 +3004,10 @@ ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyS
     query["Frequency"] = request.getFrequency();
   }
 
+  if (!!request.hasInspectionItems()) {
+    query["InspectionItems"] = request.getInspectionItems();
+  }
+
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.getInstanceIds();
   }
@@ -2777,6 +3058,148 @@ ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyS
 ModifyScheduledTaskResponse Client::modifyScheduledTask(const ModifyScheduledTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyScheduledTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新旗舰版白名单
+ *
+ * @param request ModifyWhitelistIpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyWhitelistIpsResponse
+ */
+ModifyWhitelistIpsResponse Client::modifyWhitelistIpsWithOptions(const ModifyWhitelistIpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasIpWhitelist()) {
+    query["IpWhitelist"] = request.getIpWhitelist();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyWhitelistIps"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyWhitelistIpsResponse>();
+}
+
+/**
+ * @summary 更新旗舰版白名单
+ *
+ * @param request ModifyWhitelistIpsRequest
+ * @return ModifyWhitelistIpsResponse
+ */
+ModifyWhitelistIpsResponse Client::modifyWhitelistIps(const ModifyWhitelistIpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyWhitelistIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重命名实例密钥
+ *
+ * @param request RenameApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenameApiKeyResponse
+ */
+RenameApiKeyResponse Client::renameApiKeyWithOptions(const RenameApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.getKeyName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenameApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenameApiKeyResponse>();
+}
+
+/**
+ * @summary 重命名实例密钥
+ *
+ * @param request RenameApiKeyRequest
+ * @return RenameApiKeyResponse
+ */
+RenameApiKeyResponse Client::renameApiKey(const RenameApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renameApiKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重置apiKey
+ *
+ * @param request ResetApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetApiKeyResponse
+ */
+ResetApiKeyResponse Client::resetApiKeyWithOptions(const ResetApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetApiKeyResponse>();
+}
+
+/**
+ * @summary 重置apiKey
+ *
+ * @param request ResetApiKeyRequest
+ * @return ResetApiKeyResponse
+ */
+ResetApiKeyResponse Client::resetApiKey(const ResetApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetApiKeyWithOptions(request, runtime);
 }
 
 /**
@@ -3014,6 +3437,58 @@ StopInstanceResponse Client::stopInstance(const StopInstanceRequest &request) {
 }
 
 /**
+ * @summary 修改实例密钥配额
+ *
+ * @param tmpReq UpdateApiKeyQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApiKeyQuotaResponse
+ */
+UpdateApiKeyQuotaResponse Client::updateApiKeyQuotaWithOptions(const UpdateApiKeyQuotaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateApiKeyQuotaShrinkRequest request = UpdateApiKeyQuotaShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasKeys()) {
+    request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKeys(), "Keys", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasKeysShrink()) {
+    query["Keys"] = request.getKeysShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApiKeyQuota"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApiKeyQuotaResponse>();
+}
+
+/**
+ * @summary 修改实例密钥配额
+ *
+ * @param request UpdateApiKeyQuotaRequest
+ * @return UpdateApiKeyQuotaResponse
+ */
+UpdateApiKeyQuotaResponse Client::updateApiKeyQuota(const UpdateApiKeyQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApiKeyQuotaWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the custom agent.
  *
  * @param tmpReq UpdateCustomAgentRequest
@@ -3083,90 +3558,6 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
 UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCustomAgentWithOptions(request, runtime);
-}
-
-/**
- * @summary Updates an edge function
- *
- * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
- *
- * @param tmpReq UpdateEdgeFunctionRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateEdgeFunctionResponse
- */
-UpdateEdgeFunctionResponse Client::updateEdgeFunctionWithOptions(const UpdateEdgeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  UpdateEdgeFunctionShrinkRequest request = UpdateEdgeFunctionShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasCode()) {
-    request.setCodeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCode(), "Code", "json"));
-  }
-
-  if (!!tmpReq.hasCustomConfig()) {
-    request.setCustomConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomConfig(), "CustomConfig", "json"));
-  }
-
-  if (!!tmpReq.hasEnvs()) {
-    request.setEnvsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvs(), "Envs", "json"));
-  }
-
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
-  if (!!request.hasCodeShrink()) {
-    query["Code"] = request.getCodeShrink();
-  }
-
-  if (!!request.hasCustomConfigShrink()) {
-    query["CustomConfig"] = request.getCustomConfigShrink();
-  }
-
-  if (!!request.hasEdgeFunctionName()) {
-    query["EdgeFunctionName"] = request.getEdgeFunctionName();
-  }
-
-  if (!!request.hasEnvsShrink()) {
-    query["Envs"] = request.getEnvsShrink();
-  }
-
-  if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.getInstanceName();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "UpdateEdgeFunction"},
-    {"version" , "2025-05-07"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateEdgeFunctionResponse>();
-}
-
-/**
- * @summary Updates an edge function
- *
- * @description Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
- *
- * @param request UpdateEdgeFunctionRequest
- * @return UpdateEdgeFunctionResponse
- */
-UpdateEdgeFunctionResponse Client::updateEdgeFunction(const UpdateEdgeFunctionRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return updateEdgeFunctionWithOptions(request, runtime);
 }
 
 /**
