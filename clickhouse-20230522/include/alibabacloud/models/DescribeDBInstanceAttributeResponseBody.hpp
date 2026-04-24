@@ -73,6 +73,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_TO_JSON(WebUISnatStatus, webUISnatStatus_);
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -114,6 +115,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_FROM_JSON(WebUISnatStatus, webUISnatStatus_);
         DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
       };
       Data() = default ;
@@ -269,7 +271,7 @@ namespace Models
         && this->multiZones_ == nullptr && this->nodeCount_ == nullptr && this->nodeScaleMax_ == nullptr && this->nodeScaleMin_ == nullptr && this->nodes_ == nullptr
         && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr
         && this->status_ == nullptr && this->storageQuota_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->webUISnatStatus_ == nullptr && this->zoneId_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -544,6 +546,13 @@ namespace Models
       inline Data& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
+      // webUISnatStatus Field Functions 
+      bool hasWebUISnatStatus() const { return this->webUISnatStatus_ != nullptr;};
+      void deleteWebUISnatStatus() { this->webUISnatStatus_ = nullptr;};
+      inline string getWebUISnatStatus() const { DARABONBA_PTR_GET_DEFAULT(webUISnatStatus_, "") };
+      inline Data& setWebUISnatStatus(string webUISnatStatus) { DARABONBA_PTR_SET_VALUE(webUISnatStatus_, webUISnatStatus) };
+
+
       // zoneId Field Functions 
       bool hasZoneId() const { return this->zoneId_ != nullptr;};
       void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -628,6 +637,7 @@ namespace Models
       shared_ptr<string> vSwitchId_ {};
       // The virtual private cloud (VPC) ID.
       shared_ptr<string> vpcId_ {};
+      shared_ptr<string> webUISnatStatus_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
