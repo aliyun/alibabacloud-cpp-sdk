@@ -122,25 +122,10 @@ namespace Models
 
 
       protected:
-        // The description of the database account.
         shared_ptr<string> accountDescription_ {};
-        // The name of the database account.
         shared_ptr<string> accountName_ {};
-        // The state of the database account. Valid values:
-        // 
-        // *   **Creating**
-        // *   **Available**
-        // *   **AuthorityModifying**
-        // *   **Deleting**
-        // 
-        // >  Only XML-configured database accounts can be in the **AuthorityModifying** state.
         shared_ptr<string> accountStatus_ {};
-        // The type of the database account. Valid values:
-        // 
-        // *   **Super**: privileged account
-        // *   **Normal**: standard account
         shared_ptr<string> accountType_ {};
-        // The configuration mode of the database account.
         shared_ptr<string> configType_ {};
       };
 
@@ -198,7 +183,6 @@ namespace Models
 
 
   protected:
-    // The database accounts.
     shared_ptr<DescribeAccountsResponseBody::Accounts> accounts_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

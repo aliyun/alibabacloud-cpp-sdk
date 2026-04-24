@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The cluster ID.
         shared_ptr<string> DBClusterId_ {};
-        // The database name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The information about the databases of the cluster.
     shared_ptr<DescribeSchemasResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

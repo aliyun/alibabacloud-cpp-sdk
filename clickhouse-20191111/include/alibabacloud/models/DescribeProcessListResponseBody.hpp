@@ -116,9 +116,7 @@ namespace Models
 
 
         protected:
-          // The column name.
           shared_ptr<string> name_ {};
-          // The column type.
           shared_ptr<string> type_ {};
         };
 
@@ -284,17 +282,11 @@ namespace Models
 
 
         protected:
-          // The IP address of the client that initiates the query.
           shared_ptr<string> initialAddress_ {};
-          // The query ID.
           shared_ptr<string> initialQueryId_ {};
-          // The database account.
           shared_ptr<string> initialUser_ {};
-          // The SQL statement that is executed in the query.
           shared_ptr<string> query_ {};
-          // The execution duration of the query. Unit: milliseconds.
           shared_ptr<string> queryDurationMs_ {};
-          // The beginning of the time range to query. The value is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
           shared_ptr<string> queryStartTime_ {};
         };
 
@@ -356,7 +348,6 @@ namespace Models
 
 
     protected:
-      // The details of the query.
       shared_ptr<ProcessList::Data> data_ {};
       // The number of rows returned for the query.
       shared_ptr<string> rows_ {};
@@ -364,7 +355,6 @@ namespace Models
       shared_ptr<string> rowsBeforeLimitAtLeast_ {};
       // The statistics of the results.
       shared_ptr<ProcessList::Statistics> statistics_ {};
-      // Details of the columns.
       shared_ptr<ProcessList::TableSchema> tableSchema_ {};
     };
 

@@ -346,7 +346,7 @@ CancelAppointmentRestartInstanceNodeListResponse Client::cancelAppointmentRestar
 }
 
 /**
- * @summary 取消预约重启
+ * @summary Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
  *
  * @param request CancelRestartInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -409,7 +409,7 @@ CancelRestartInstanceResponse Client::cancelRestartInstanceWithOptions(const Can
 }
 
 /**
- * @summary 取消预约重启
+ * @summary Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
  *
  * @param request CancelRestartInstanceRequest
  * @return CancelRestartInstanceResponse
@@ -3822,6 +3822,8 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 }
 
 /**
+ * @summary Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+ *
  * @param request DescribeSlowLogTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSlowLogTrendResponse
@@ -3883,6 +3885,8 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrendWithOptions(const Descr
 }
 
 /**
+ * @summary Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+ *
  * @param request DescribeSlowLogTrendRequest
  * @return DescribeSlowLogTrendResponse
  */

@@ -117,16 +117,9 @@ namespace Models
 
 
       protected:
-        // The cluster. The value is fixed as **default**.
         shared_ptr<string> cluster_ {};
-        // The database name.
         shared_ptr<string> database_ {};
-        // The error details. Valid values:
-        // 
-        // *   **1**: The unique distributed table is missing.
-        // *   **2**: More than one distributed table exists for the local table.
         shared_ptr<int32_t> detail_ {};
-        // The name of the local table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -214,7 +207,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The error information returned for a check failure.
     shared_ptr<CheckScaleOutBalancedResponseBody::TableDetails> tableDetails_ {};
     // The amount of time that is required for the migration and scale-out. Unit: minutes.
     shared_ptr<string> timeDuration_ {};

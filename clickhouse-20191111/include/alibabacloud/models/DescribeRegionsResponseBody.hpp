@@ -129,12 +129,7 @@ namespace Models
 
 
           protected:
-            // Indicates whether Virtual Private Cloud (VPC) is supported in the zone. Valid values:
-            // 
-            // *   **true**
-            // *   **false**
             shared_ptr<bool> vpcEnabled_ {};
-            // The zone ID.
             shared_ptr<string> zoneId_ {};
           };
 
@@ -171,9 +166,7 @@ namespace Models
 
 
       protected:
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The zones.
         shared_ptr<Region::Zones> zones_ {};
       };
 
@@ -210,7 +203,6 @@ namespace Models
 
 
   protected:
-    // The queried regions.
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

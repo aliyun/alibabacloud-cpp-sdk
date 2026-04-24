@@ -102,11 +102,8 @@ namespace Models
 
 
       protected:
-        // The cluster ID.
         shared_ptr<string> DBClusterId_ {};
-        // The database name.
         shared_ptr<string> schemaName_ {};
-        // The table name.
         shared_ptr<string> tableName_ {};
       };
 
@@ -181,9 +178,7 @@ namespace Models
 
 
       protected:
-        // The cluster ID.
         shared_ptr<string> DBClusterId_ {};
-        // The database name.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -304,25 +299,12 @@ namespace Models
 
 
       protected:
-        // Indicates whether the column is an auto-increment column. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> autoIncrementColumn_ {};
-        // The column name.
         shared_ptr<string> columnName_ {};
-        // The cluster ID.
         shared_ptr<string> DBClusterId_ {};
-        // Indicates whether the column is the primary key of the table. Valid values:
-        // 
-        // *   **true**: The column is the primary key of the table.
-        // *   **false**: The column is not the primary key of the table.
         shared_ptr<bool> primaryKey_ {};
-        // The database name.
         shared_ptr<string> schemaName_ {};
-        // The table name.
         shared_ptr<string> tableName_ {};
-        // The column type.
         shared_ptr<string> type_ {};
       };
 
@@ -377,13 +359,10 @@ namespace Models
 
 
   protected:
-    // Details of the columns.
     shared_ptr<DescribeAllDataSourcesResponseBody::Columns> columns_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the databases.
     shared_ptr<DescribeAllDataSourcesResponseBody::Schemas> schemas_ {};
-    // The information about the tables.
     shared_ptr<DescribeAllDataSourcesResponseBody::Tables> tables_ {};
   };
 

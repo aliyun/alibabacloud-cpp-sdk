@@ -199,35 +199,19 @@ namespace Models
 
 
       protected:
-        // The amount of data that is migrated per minute.
         shared_ptr<int64_t> bytesPerMinute_ {};
-        // The time window during which write operations are stopped.
         shared_ptr<string> disableWriteWindows_ {};
-        // The number of parts that are migrated per minute.
         shared_ptr<double> partsPerMinute_ {};
-        // The progress of the data migration.
         shared_ptr<string> progress_ {};
-        // The control version of the source cluster.
         shared_ptr<string> sourceControlVersion_ {};
-        // The ID of the source cluster.
         shared_ptr<string> sourceDBCluster_ {};
-        // The status of the data migration task. Valid values:
-        // 
-        // *   **Finished**: The data migration task is complete.
-        // *   **Processing**: The data migration task is in progress.
         shared_ptr<string> status_ {};
-        // The running subtask.
         shared_ptr<string> subJob_ {};
         shared_ptr<string> subJobMessage_ {};
-        // The subtask status.
         shared_ptr<string> subJobStatus_ {};
-        // The control version of the destination cluster.
         shared_ptr<string> targetControlVersion_ {};
-        // The ID of the destination cluster.
         shared_ptr<string> targetDBCluster_ {};
-        // The amount of data that is not migrated.
         shared_ptr<int64_t> unsyncedBytes_ {};
-        // The number of parts that are not migrated.
         shared_ptr<int64_t> unsyncedParts_ {};
       };
 
@@ -264,7 +248,6 @@ namespace Models
 
 
   protected:
-    // The migration information.
     shared_ptr<DescribeTransferHistoryResponseBody::HistoryDetails> historyDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -98,11 +98,8 @@ namespace Models
 
 
       protected:
-        // The attribute of the IP address whitelist.
         shared_ptr<string> DBClusterIPArrayAttribute_ {};
-        // The name of the IP address whitelist.
         shared_ptr<string> DBClusterIPArrayName_ {};
-        // The IP addresses in the IP address whitelist.
         shared_ptr<string> securityIPList_ {};
       };
 
@@ -139,7 +136,6 @@ namespace Models
 
 
   protected:
-    // The details about the IP address whitelist.
     shared_ptr<DescribeDBClusterAccessWhiteListResponseBody::DBClusterAccessWhiteList> DBClusterAccessWhiteList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

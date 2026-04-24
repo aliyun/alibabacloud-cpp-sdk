@@ -157,30 +157,14 @@ namespace Models
 
 
       protected:
-        // The endpoint that is used to connect to the database.
         shared_ptr<string> connectionString_ {};
-        // The HTTP port number.
         shared_ptr<string> httpPort_ {};
-        // The HTTPS port number.
         shared_ptr<string> httpsPort_ {};
-        // The IP address.
         shared_ptr<string> IPAddress_ {};
-        // The port number that is used in Java Database Connectivity (JDBC).
         shared_ptr<string> jdbcPort_ {};
-        // The port of the MySQL instance.
         shared_ptr<string> mySQLPort_ {};
-        // The network type of the endpoint. Valid values:
-        // 
-        // *   Public: public endpoint
-        // *   VPC: VPC
         shared_ptr<string> netType_ {};
-        // The vSwitch ID.
-        // 
-        // >  If the value of the NetType parameter is set to Public, an empty string is returned.
         shared_ptr<string> vSwitchId_ {};
-        // The virtual private cloud (VPC) ID.
-        // 
-        // >  If the value of the NetType parameter is set to Public, an empty string is returned.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -240,7 +224,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<bool> enableSLB_ {};
-    // The network information about the cluster.
     shared_ptr<DescribeDBClusterNetInfoItemsResponseBody::NetInfoItems> netInfoItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

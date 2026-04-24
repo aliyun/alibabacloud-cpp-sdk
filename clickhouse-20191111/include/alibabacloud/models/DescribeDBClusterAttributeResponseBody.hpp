@@ -89,6 +89,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VpcCloudInstanceId, vpcCloudInstanceId_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(VpcIpAddr, vpcIpAddr_);
+        DARABONBA_PTR_TO_JSON(WebUISnatStatus, webUISnatStatus_);
+        DARABONBA_PTR_TO_JSON(WebUIStatus, webUIStatus_);
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
         DARABONBA_ANY_TO_JSON(ZoneIdVswitchMap, zoneIdVswitchMap_);
         DARABONBA_PTR_TO_JSON(ZookeeperClass, zookeeperClass_);
@@ -148,6 +150,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(VpcCloudInstanceId, vpcCloudInstanceId_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(VpcIpAddr, vpcIpAddr_);
+        DARABONBA_PTR_FROM_JSON(WebUISnatStatus, webUISnatStatus_);
+        DARABONBA_PTR_FROM_JSON(WebUIStatus, webUIStatus_);
         DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
         DARABONBA_ANY_FROM_JSON(ZoneIdVswitchMap, zoneIdVswitchMap_);
         DARABONBA_PTR_FROM_JSON(ZookeeperClass, zookeeperClass_);
@@ -220,9 +224,7 @@ namespace Models
 
 
         protected:
-          // The tag name.
           shared_ptr<string> key_ {};
-          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -299,8 +301,8 @@ namespace Models
         && this->payType_ == nullptr && this->port_ == nullptr && this->publicConnectionString_ == nullptr && this->publicIpAddr_ == nullptr && this->publicPort_ == nullptr
         && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scaleOutStatus_ == nullptr && this->storageType_ == nullptr && this->supportBackup_ == nullptr
         && this->supportHttpsPort_ == nullptr && this->supportMysqlPort_ == nullptr && this->supportOss_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcCloudInstanceId_ == nullptr && this->vpcId_ == nullptr && this->vpcIpAddr_ == nullptr && this->zoneId_ == nullptr && this->zoneIdVswitchMap_ == nullptr
-        && this->zookeeperClass_ == nullptr; };
+        && this->vpcCloudInstanceId_ == nullptr && this->vpcId_ == nullptr && this->vpcIpAddr_ == nullptr && this->webUISnatStatus_ == nullptr && this->webUIStatus_ == nullptr
+        && this->zoneId_ == nullptr && this->zoneIdVswitchMap_ == nullptr && this->zookeeperClass_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -685,6 +687,20 @@ namespace Models
       inline DBCluster& setVpcIpAddr(string vpcIpAddr) { DARABONBA_PTR_SET_VALUE(vpcIpAddr_, vpcIpAddr) };
 
 
+      // webUISnatStatus Field Functions 
+      bool hasWebUISnatStatus() const { return this->webUISnatStatus_ != nullptr;};
+      void deleteWebUISnatStatus() { this->webUISnatStatus_ = nullptr;};
+      inline string getWebUISnatStatus() const { DARABONBA_PTR_GET_DEFAULT(webUISnatStatus_, "") };
+      inline DBCluster& setWebUISnatStatus(string webUISnatStatus) { DARABONBA_PTR_SET_VALUE(webUISnatStatus_, webUISnatStatus) };
+
+
+      // webUIStatus Field Functions 
+      bool hasWebUIStatus() const { return this->webUIStatus_ != nullptr;};
+      void deleteWebUIStatus() { this->webUIStatus_ = nullptr;};
+      inline string getWebUIStatus() const { DARABONBA_PTR_GET_DEFAULT(webUIStatus_, "") };
+      inline DBCluster& setWebUIStatus(string webUIStatus) { DARABONBA_PTR_SET_VALUE(webUIStatus_, webUIStatus) };
+
+
       // zoneId Field Functions 
       bool hasZoneId() const { return this->zoneId_ != nullptr;};
       void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -891,7 +907,6 @@ namespace Models
       // *   **1**: Tiered storage of hot data and cold data is supported.
       // *   **2**: Tiered storage of hot data and cold data is not supported.
       shared_ptr<int32_t> supportOss_ {};
-      // The tags.
       shared_ptr<DBCluster::Tags> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -901,6 +916,8 @@ namespace Models
       shared_ptr<string> vpcId_ {};
       // The IP address that is used to connect to the cluster over the VPC.
       shared_ptr<string> vpcIpAddr_ {};
+      shared_ptr<string> webUISnatStatus_ {};
+      shared_ptr<string> webUIStatus_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
       // The list of vSwitch IDs in multi-zone clusters.

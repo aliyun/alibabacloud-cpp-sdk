@@ -116,9 +116,7 @@ namespace Models
 
 
         protected:
-          // The name of the column.
           shared_ptr<string> name_ {};
-          // The type of the column.
           shared_ptr<string> type_ {};
         };
 
@@ -330,30 +328,16 @@ namespace Models
 
 
         protected:
-          // The IP address of the client that initiated the query.
           shared_ptr<string> initialAddress_ {};
-          // The query ID.
           shared_ptr<string> initialQueryId_ {};
-          // The username that is used to initiate the query.
           shared_ptr<string> initialUser_ {};
-          // The peak memory usage for the query. Unit: bytes.
           shared_ptr<string> memoryUsage_ {};
-          // The statement that was executed in the query.
           shared_ptr<string> query_ {};
-          // The duration of the query. Unit: milliseconds.
           shared_ptr<string> queryDurationMs_ {};
-          // The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
           shared_ptr<string> queryStartTime_ {};
-          // The size of the data read by executing the statement. Unit: bytes.
           shared_ptr<string> readBytes_ {};
-          // The number of rows read by executing the statement.
           shared_ptr<string> readRows_ {};
-          // The size of the result data. Unit: bytes.
           shared_ptr<string> resultBytes_ {};
-          // The query status. Valid values:
-          // 
-          // *   **QueryFinish**: The query is complete.
-          // *   **Processing**: The query is running.
           shared_ptr<string> type_ {};
         };
 
@@ -415,7 +399,6 @@ namespace Models
 
 
     protected:
-      // Details about the slow query logs.
       shared_ptr<SlowLogRecords::Data> data_ {};
       // The number of rows in the result set.
       shared_ptr<string> rows_ {};
@@ -423,7 +406,6 @@ namespace Models
       shared_ptr<string> rowsBeforeLimitAtLeast_ {};
       // The statistics of the results.
       shared_ptr<SlowLogRecords::Statistics> statistics_ {};
-      // The schema of the table in the database.
       shared_ptr<SlowLogRecords::TableSchema> tableSchema_ {};
     };
 

@@ -89,7 +89,7 @@ namespace Clickhouse20191111
       Models::CancelAppointmentRestartInstanceNodeListResponse cancelAppointmentRestartInstanceNodeList(const Models::CancelAppointmentRestartInstanceNodeListRequest &request);
 
       /**
-       * @summary 取消预约重启
+       * @summary Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
        *
        * @param request CancelRestartInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Clickhouse20191111
       Models::CancelRestartInstanceResponse cancelRestartInstanceWithOptions(const Models::CancelRestartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消预约重启
+       * @summary Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
        *
        * @param request CancelRestartInstanceRequest
        * @return CancelRestartInstanceResponse
@@ -1018,6 +1018,8 @@ namespace Clickhouse20191111
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecords(const Models::DescribeSlowLogRecordsRequest &request);
 
       /**
+       * @summary Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+       *
        * @param request DescribeSlowLogTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSlowLogTrendResponse
@@ -1025,6 +1027,8 @@ namespace Clickhouse20191111
       Models::DescribeSlowLogTrendResponse describeSlowLogTrendWithOptions(const Models::DescribeSlowLogTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+       *
        * @param request DescribeSlowLogTrendRequest
        * @return DescribeSlowLogTrendResponse
        */
