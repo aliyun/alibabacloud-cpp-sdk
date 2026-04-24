@@ -618,6 +618,48 @@ GetYikeUserCreditResponse Client::getYikeUserCredit(const GetYikeUserCreditReque
 }
 
 /**
+ * @summary 查询一刻口播视频生成任务
+ *
+ * @param request GetYikeVoiceNarratorJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeVoiceNarratorJobResponse
+ */
+GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJobWithOptions(const GetYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetYikeVoiceNarratorJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeVoiceNarratorJobResponse>();
+}
+
+/**
+ * @summary 查询一刻口播视频生成任务
+ *
+ * @param request GetYikeVoiceNarratorJobRequest
+ * @return GetYikeVoiceNarratorJobResponse
+ */
+GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJob(const GetYikeVoiceNarratorJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeVoiceNarratorJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取一刻文件夹列表
  *
  * @param request ListYikeAssetFoldersRequest
@@ -1153,6 +1195,52 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
 SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJob(const SubmitYikeStoryboardJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitYikeStoryboardJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交一刻口播视频生成任务
+ *
+ * @param request SubmitYikeVoiceNarratorJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikeVoiceNarratorJobResponse
+ */
+SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJobWithOptions(const SubmitYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobParams()) {
+    body["JobParams"] = request.getJobParams();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitYikeVoiceNarratorJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikeVoiceNarratorJobResponse>();
+}
+
+/**
+ * @summary 提交一刻口播视频生成任务
+ *
+ * @param request SubmitYikeVoiceNarratorJobRequest
+ * @return SubmitYikeVoiceNarratorJobResponse
+ */
+SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJob(const SubmitYikeVoiceNarratorJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikeVoiceNarratorJobWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Yike20260319

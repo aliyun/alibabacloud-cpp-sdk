@@ -242,6 +242,23 @@ namespace Yike20260319
       Models::GetYikeUserCreditResponse getYikeUserCredit(const Models::GetYikeUserCreditRequest &request);
 
       /**
+       * @summary 查询一刻口播视频生成任务
+       *
+       * @param request GetYikeVoiceNarratorJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeVoiceNarratorJobResponse
+       */
+      Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJobWithOptions(const Models::GetYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻口播视频生成任务
+       *
+       * @param request GetYikeVoiceNarratorJobRequest
+       * @return GetYikeVoiceNarratorJobResponse
+       */
+      Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJob(const Models::GetYikeVoiceNarratorJobRequest &request);
+
+      /**
        * @summary 获取一刻文件夹列表
        *
        * @param request ListYikeAssetFoldersRequest
@@ -410,6 +427,23 @@ namespace Yike20260319
        * @return SubmitYikeStoryboardJobResponse
        */
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJob(const Models::SubmitYikeStoryboardJobRequest &request);
+
+      /**
+       * @summary 提交一刻口播视频生成任务
+       *
+       * @param request SubmitYikeVoiceNarratorJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikeVoiceNarratorJobResponse
+       */
+      Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJobWithOptions(const Models::SubmitYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交一刻口播视频生成任务
+       *
+       * @param request SubmitYikeVoiceNarratorJobRequest
+       * @return SubmitYikeVoiceNarratorJobResponse
+       */
+      Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJob(const Models::SubmitYikeVoiceNarratorJobRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Yike20260319
