@@ -276,6 +276,56 @@ AddFirewallRulesResponse Client::addFirewallRules(const AddFirewallRulesRequest 
 }
 
 /**
+ * @summary 新增polarfs bucket路径
+ *
+ * @param request AddPolarFsPathMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddPolarFsPathMappingResponse
+ */
+AddPolarFsPathMappingResponse Client::addPolarFsPathMappingWithOptions(const AddPolarFsPathMappingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomBucketPathList()) {
+    query["CustomBucketPathList"] = request.getCustomBucketPathList();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddPolarFsPathMapping"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddPolarFsPathMappingResponse>();
+}
+
+/**
+ * @summary 新增polarfs bucket路径
+ *
+ * @param request AddPolarFsPathMappingRequest
+ * @return AddPolarFsPathMappingResponse
+ */
+AddPolarFsPathMappingResponse Client::addPolarFsPathMapping(const AddPolarFsPathMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addPolarFsPathMappingWithOptions(request, runtime);
+}
+
+/**
  * @summary 新增PolarFs Quota规则
  *
  * @param request AddPolarFsQuotaRequest
@@ -5957,6 +6007,56 @@ DeletePolarFsObjectsResponse Client::deletePolarFsObjectsWithOptions(const Delet
 DeletePolarFsObjectsResponse Client::deletePolarFsObjects(const DeletePolarFsObjectsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePolarFsObjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除polar fs bucket路径
+ *
+ * @param request DeletePolarFsPathMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarFsPathMappingResponse
+ */
+DeletePolarFsPathMappingResponse Client::deletePolarFsPathMappingWithOptions(const DeletePolarFsPathMappingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomBucketPathList()) {
+    query["CustomBucketPathList"] = request.getCustomBucketPathList();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarFsPathMapping"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarFsPathMappingResponse>();
+}
+
+/**
+ * @summary 删除polar fs bucket路径
+ *
+ * @param request DeletePolarFsPathMappingRequest
+ * @return DeletePolarFsPathMappingResponse
+ */
+DeletePolarFsPathMappingResponse Client::deletePolarFsPathMapping(const DeletePolarFsPathMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarFsPathMappingWithOptions(request, runtime);
 }
 
 /**
@@ -13007,8 +13107,16 @@ DescribePolarFsQuotaResponse Client::describePolarFsQuotaWithOptions(const Descr
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
   if (!!request.hasPolarFsInstanceId()) {
     query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasQuotaType()) {
+    query["QuotaType"] = request.getQuotaType();
   }
 
   if (!!request.hasRegionId()) {
@@ -21303,7 +21411,7 @@ SearchMemoriesResponse Client::searchMemories(const SearchMemoriesRequest &reque
 }
 
 /**
- * @summary 为目录应用配额规则
+ * @summary 为目录配置配额或应用配额规则
  *
  * @param request SetPolarFsFileQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21342,7 +21450,7 @@ SetPolarFsFileQuotaResponse Client::setPolarFsFileQuotaWithOptions(const SetPola
 }
 
 /**
- * @summary 为目录应用配额规则
+ * @summary 为目录配置配额或应用配额规则
  *
  * @param request SetPolarFsFileQuotaRequest
  * @return SetPolarFsFileQuotaResponse

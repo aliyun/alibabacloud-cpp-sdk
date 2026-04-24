@@ -37,13 +37,17 @@ namespace Models
     class FilePathQuotas : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const FilePathQuotas& obj) { 
+        DARABONBA_PTR_TO_JSON(Capacity, capacity_);
         DARABONBA_PTR_TO_JSON(FilePathId, filePathId_);
+        DARABONBA_PTR_TO_JSON(Inodes, inodes_);
         DARABONBA_PTR_TO_JSON(MaxDepth, maxDepth_);
         DARABONBA_PTR_TO_JSON(QuotaIds, quotaIds_);
         DARABONBA_PTR_TO_JSON(Strategy, strategy_);
       };
       friend void from_json(const Darabonba::Json& j, FilePathQuotas& obj) { 
+        DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
         DARABONBA_PTR_FROM_JSON(FilePathId, filePathId_);
+        DARABONBA_PTR_FROM_JSON(Inodes, inodes_);
         DARABONBA_PTR_FROM_JSON(MaxDepth, maxDepth_);
         DARABONBA_PTR_FROM_JSON(QuotaIds, quotaIds_);
         DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
@@ -59,13 +63,27 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->filePathId_ == nullptr
-        && this->maxDepth_ == nullptr && this->quotaIds_ == nullptr && this->strategy_ == nullptr; };
+      virtual bool empty() const override { return this->capacity_ == nullptr
+        && this->filePathId_ == nullptr && this->inodes_ == nullptr && this->maxDepth_ == nullptr && this->quotaIds_ == nullptr && this->strategy_ == nullptr; };
+      // capacity Field Functions 
+      bool hasCapacity() const { return this->capacity_ != nullptr;};
+      void deleteCapacity() { this->capacity_ = nullptr;};
+      inline int64_t getCapacity() const { DARABONBA_PTR_GET_DEFAULT(capacity_, 0L) };
+      inline FilePathQuotas& setCapacity(int64_t capacity) { DARABONBA_PTR_SET_VALUE(capacity_, capacity) };
+
+
       // filePathId Field Functions 
       bool hasFilePathId() const { return this->filePathId_ != nullptr;};
       void deleteFilePathId() { this->filePathId_ = nullptr;};
       inline string getFilePathId() const { DARABONBA_PTR_GET_DEFAULT(filePathId_, "") };
       inline FilePathQuotas& setFilePathId(string filePathId) { DARABONBA_PTR_SET_VALUE(filePathId_, filePathId) };
+
+
+      // inodes Field Functions 
+      bool hasInodes() const { return this->inodes_ != nullptr;};
+      void deleteInodes() { this->inodes_ = nullptr;};
+      inline int64_t getInodes() const { DARABONBA_PTR_GET_DEFAULT(inodes_, 0L) };
+      inline FilePathQuotas& setInodes(int64_t inodes) { DARABONBA_PTR_SET_VALUE(inodes_, inodes) };
 
 
       // maxDepth Field Functions 
@@ -90,7 +108,9 @@ namespace Models
 
 
     protected:
+      shared_ptr<int64_t> capacity_ {};
       shared_ptr<string> filePathId_ {};
+      shared_ptr<int64_t> inodes_ {};
       shared_ptr<int32_t> maxDepth_ {};
       shared_ptr<string> quotaIds_ {};
       shared_ptr<string> strategy_ {};

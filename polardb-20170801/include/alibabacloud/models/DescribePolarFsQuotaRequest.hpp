@@ -14,12 +14,16 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolarFsQuotaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(Path, path_);
       DARABONBA_PTR_TO_JSON(PolarFsInstanceId, polarFsInstanceId_);
+      DARABONBA_PTR_TO_JSON(QuotaType, quotaType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolarFsQuotaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(Path, path_);
       DARABONBA_PTR_FROM_JSON(PolarFsInstanceId, polarFsInstanceId_);
+      DARABONBA_PTR_FROM_JSON(QuotaType, quotaType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DescribePolarFsQuotaRequest() = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->polarFsInstanceId_ == nullptr && this->regionId_ == nullptr; };
+        && this->path_ == nullptr && this->polarFsInstanceId_ == nullptr && this->quotaType_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -42,11 +46,25 @@ namespace Models
     inline DescribePolarFsQuotaRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
+    // path Field Functions 
+    bool hasPath() const { return this->path_ != nullptr;};
+    void deletePath() { this->path_ = nullptr;};
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline DescribePolarFsQuotaRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
     // polarFsInstanceId Field Functions 
     bool hasPolarFsInstanceId() const { return this->polarFsInstanceId_ != nullptr;};
     void deletePolarFsInstanceId() { this->polarFsInstanceId_ = nullptr;};
     inline string getPolarFsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarFsInstanceId_, "") };
     inline DescribePolarFsQuotaRequest& setPolarFsInstanceId(string polarFsInstanceId) { DARABONBA_PTR_SET_VALUE(polarFsInstanceId_, polarFsInstanceId) };
+
+
+    // quotaType Field Functions 
+    bool hasQuotaType() const { return this->quotaType_ != nullptr;};
+    void deleteQuotaType() { this->quotaType_ = nullptr;};
+    inline string getQuotaType() const { DARABONBA_PTR_GET_DEFAULT(quotaType_, "") };
+    inline DescribePolarFsQuotaRequest& setQuotaType(string quotaType) { DARABONBA_PTR_SET_VALUE(quotaType_, quotaType) };
 
 
     // regionId Field Functions 
@@ -58,8 +76,10 @@ namespace Models
 
   protected:
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> path_ {};
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
+    shared_ptr<string> quotaType_ {};
     shared_ptr<string> regionId_ {};
   };
 

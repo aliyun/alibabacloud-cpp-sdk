@@ -11,6 +11,9 @@
 #include <alibabacloud/models/AddFirewallRulesRequest.hpp>
 #include <alibabacloud/models/AddFirewallRulesResponseBody.hpp>
 #include <alibabacloud/models/AddFirewallRulesResponse.hpp>
+#include <alibabacloud/models/AddPolarFsPathMappingRequest.hpp>
+#include <alibabacloud/models/AddPolarFsPathMappingResponseBody.hpp>
+#include <alibabacloud/models/AddPolarFsPathMappingResponse.hpp>
 #include <alibabacloud/models/AddPolarFsQuotaRequest.hpp>
 #include <alibabacloud/models/AddPolarFsQuotaResponseBody.hpp>
 #include <alibabacloud/models/AddPolarFsQuotaResponse.hpp>
@@ -242,6 +245,9 @@
 #include <alibabacloud/models/DeletePolarFsObjectsShrinkRequest.hpp>
 #include <alibabacloud/models/DeletePolarFsObjectsResponseBody.hpp>
 #include <alibabacloud/models/DeletePolarFsObjectsResponse.hpp>
+#include <alibabacloud/models/DeletePolarFsPathMappingRequest.hpp>
+#include <alibabacloud/models/DeletePolarFsPathMappingResponseBody.hpp>
+#include <alibabacloud/models/DeletePolarFsPathMappingResponse.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaRequest.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaResponseBody.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaResponse.hpp>

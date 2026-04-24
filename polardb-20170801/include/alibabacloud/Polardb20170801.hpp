@@ -68,6 +68,23 @@ namespace Polardb20170801
       Models::AddFirewallRulesResponse addFirewallRules(const Models::AddFirewallRulesRequest &request);
 
       /**
+       * @summary 新增polarfs bucket路径
+       *
+       * @param request AddPolarFsPathMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddPolarFsPathMappingResponse
+       */
+      Models::AddPolarFsPathMappingResponse addPolarFsPathMappingWithOptions(const Models::AddPolarFsPathMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增polarfs bucket路径
+       *
+       * @param request AddPolarFsPathMappingRequest
+       * @return AddPolarFsPathMappingResponse
+       */
+      Models::AddPolarFsPathMappingResponse addPolarFsPathMapping(const Models::AddPolarFsPathMappingRequest &request);
+
+      /**
        * @summary 新增PolarFs Quota规则
        *
        * @param request AddPolarFsQuotaRequest
@@ -1452,6 +1469,23 @@ namespace Polardb20170801
        * @return DeletePolarFsObjectsResponse
        */
       Models::DeletePolarFsObjectsResponse deletePolarFsObjects(const Models::DeletePolarFsObjectsRequest &request);
+
+      /**
+       * @summary 删除polar fs bucket路径
+       *
+       * @param request DeletePolarFsPathMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarFsPathMappingResponse
+       */
+      Models::DeletePolarFsPathMappingResponse deletePolarFsPathMappingWithOptions(const Models::DeletePolarFsPathMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除polar fs bucket路径
+       *
+       * @param request DeletePolarFsPathMappingRequest
+       * @return DeletePolarFsPathMappingResponse
+       */
+      Models::DeletePolarFsPathMappingResponse deletePolarFsPathMapping(const Models::DeletePolarFsPathMappingRequest &request);
 
       /**
        * @summary 删除PolarFs Quota规则
@@ -5296,7 +5330,7 @@ namespace Polardb20170801
       Models::SearchMemoriesResponse searchMemories(const Models::SearchMemoriesRequest &request);
 
       /**
-       * @summary 为目录应用配额规则
+       * @summary 为目录配置配额或应用配额规则
        *
        * @param request SetPolarFsFileQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5305,7 +5339,7 @@ namespace Polardb20170801
       Models::SetPolarFsFileQuotaResponse setPolarFsFileQuotaWithOptions(const Models::SetPolarFsFileQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为目录应用配额规则
+       * @summary 为目录配置配额或应用配额规则
        *
        * @param request SetPolarFsFileQuotaRequest
        * @return SetPolarFsFileQuotaResponse
