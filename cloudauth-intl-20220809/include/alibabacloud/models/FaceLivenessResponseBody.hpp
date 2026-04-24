@@ -67,14 +67,22 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FaceAttack, faceAttack_);
           DARABONBA_PTR_TO_JSON(FaceGender, faceGender_);
           DARABONBA_PTR_TO_JSON(FaceQualityScore, faceQualityScore_);
+          DARABONBA_PTR_TO_JSON(IlluminationScore, illuminationScore_);
+          DARABONBA_PTR_TO_JSON(KaOcclusionScore, kaOcclusionScore_);
           DARABONBA_PTR_TO_JSON(OcclusionResult, occlusionResult_);
+          DARABONBA_PTR_TO_JSON(OcclusionScore, occlusionScore_);
+          DARABONBA_PTR_TO_JSON(SharpnessScore, sharpnessScore_);
         };
         friend void from_json(const Darabonba::Json& j, ExtFaceInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(FaceAge, faceAge_);
           DARABONBA_PTR_FROM_JSON(FaceAttack, faceAttack_);
           DARABONBA_PTR_FROM_JSON(FaceGender, faceGender_);
           DARABONBA_PTR_FROM_JSON(FaceQualityScore, faceQualityScore_);
+          DARABONBA_PTR_FROM_JSON(IlluminationScore, illuminationScore_);
+          DARABONBA_PTR_FROM_JSON(KaOcclusionScore, kaOcclusionScore_);
           DARABONBA_PTR_FROM_JSON(OcclusionResult, occlusionResult_);
+          DARABONBA_PTR_FROM_JSON(OcclusionScore, occlusionScore_);
+          DARABONBA_PTR_FROM_JSON(SharpnessScore, sharpnessScore_);
         };
         ExtFaceInfo() = default ;
         ExtFaceInfo(const ExtFaceInfo &) = default ;
@@ -88,7 +96,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->faceAge_ == nullptr
-        && this->faceAttack_ == nullptr && this->faceGender_ == nullptr && this->faceQualityScore_ == nullptr && this->occlusionResult_ == nullptr; };
+        && this->faceAttack_ == nullptr && this->faceGender_ == nullptr && this->faceQualityScore_ == nullptr && this->illuminationScore_ == nullptr && this->kaOcclusionScore_ == nullptr
+        && this->occlusionResult_ == nullptr && this->occlusionScore_ == nullptr && this->sharpnessScore_ == nullptr; };
         // faceAge Field Functions 
         bool hasFaceAge() const { return this->faceAge_ != nullptr;};
         void deleteFaceAge() { this->faceAge_ = nullptr;};
@@ -117,11 +126,39 @@ namespace Models
         inline ExtFaceInfo& setFaceQualityScore(double faceQualityScore) { DARABONBA_PTR_SET_VALUE(faceQualityScore_, faceQualityScore) };
 
 
+        // illuminationScore Field Functions 
+        bool hasIlluminationScore() const { return this->illuminationScore_ != nullptr;};
+        void deleteIlluminationScore() { this->illuminationScore_ = nullptr;};
+        inline double getIlluminationScore() const { DARABONBA_PTR_GET_DEFAULT(illuminationScore_, 0.0) };
+        inline ExtFaceInfo& setIlluminationScore(double illuminationScore) { DARABONBA_PTR_SET_VALUE(illuminationScore_, illuminationScore) };
+
+
+        // kaOcclusionScore Field Functions 
+        bool hasKaOcclusionScore() const { return this->kaOcclusionScore_ != nullptr;};
+        void deleteKaOcclusionScore() { this->kaOcclusionScore_ = nullptr;};
+        inline double getKaOcclusionScore() const { DARABONBA_PTR_GET_DEFAULT(kaOcclusionScore_, 0.0) };
+        inline ExtFaceInfo& setKaOcclusionScore(double kaOcclusionScore) { DARABONBA_PTR_SET_VALUE(kaOcclusionScore_, kaOcclusionScore) };
+
+
         // occlusionResult Field Functions 
         bool hasOcclusionResult() const { return this->occlusionResult_ != nullptr;};
         void deleteOcclusionResult() { this->occlusionResult_ = nullptr;};
         inline string getOcclusionResult() const { DARABONBA_PTR_GET_DEFAULT(occlusionResult_, "") };
         inline ExtFaceInfo& setOcclusionResult(string occlusionResult) { DARABONBA_PTR_SET_VALUE(occlusionResult_, occlusionResult) };
+
+
+        // occlusionScore Field Functions 
+        bool hasOcclusionScore() const { return this->occlusionScore_ != nullptr;};
+        void deleteOcclusionScore() { this->occlusionScore_ = nullptr;};
+        inline double getOcclusionScore() const { DARABONBA_PTR_GET_DEFAULT(occlusionScore_, 0.0) };
+        inline ExtFaceInfo& setOcclusionScore(double occlusionScore) { DARABONBA_PTR_SET_VALUE(occlusionScore_, occlusionScore) };
+
+
+        // sharpnessScore Field Functions 
+        bool hasSharpnessScore() const { return this->sharpnessScore_ != nullptr;};
+        void deleteSharpnessScore() { this->sharpnessScore_ = nullptr;};
+        inline double getSharpnessScore() const { DARABONBA_PTR_GET_DEFAULT(sharpnessScore_, 0.0) };
+        inline ExtFaceInfo& setSharpnessScore(double sharpnessScore) { DARABONBA_PTR_SET_VALUE(sharpnessScore_, sharpnessScore) };
 
 
       protected:
@@ -137,8 +174,12 @@ namespace Models
         shared_ptr<string> faceGender_ {};
         // Optional. The quality score of the live face. The value ranges from 0 to 100.
         shared_ptr<double> faceQualityScore_ {};
+        shared_ptr<double> illuminationScore_ {};
+        shared_ptr<double> kaOcclusionScore_ {};
         // Optional. Indicates whether the face is occluded. Y means the face is occluded. N means the face is not occluded.
         shared_ptr<string> occlusionResult_ {};
+        shared_ptr<double> occlusionScore_ {};
+        shared_ptr<double> sharpnessScore_ {};
       };
 
       virtual bool empty() const override { return this->extFaceInfo_ == nullptr

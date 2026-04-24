@@ -38,11 +38,13 @@ namespace Models
     class Result : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(ExtFaceInfo, extFaceInfo_);
         DARABONBA_PTR_TO_JSON(FaceComparisonScore, faceComparisonScore_);
         DARABONBA_PTR_TO_JSON(Passed, passed_);
         DARABONBA_PTR_TO_JSON(TransactionId, transactionId_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(ExtFaceInfo, extFaceInfo_);
         DARABONBA_PTR_FROM_JSON(FaceComparisonScore, faceComparisonScore_);
         DARABONBA_PTR_FROM_JSON(Passed, passed_);
         DARABONBA_PTR_FROM_JSON(TransactionId, transactionId_);
@@ -58,8 +60,89 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->faceComparisonScore_ == nullptr
-        && this->passed_ == nullptr && this->transactionId_ == nullptr; };
+      class ExtFaceInfo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ExtFaceInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(FaceQualityScore, faceQualityScore_);
+          DARABONBA_PTR_TO_JSON(IlluminationScore, illuminationScore_);
+          DARABONBA_PTR_TO_JSON(KaOcclusionScore, kaOcclusionScore_);
+          DARABONBA_PTR_TO_JSON(OcclusionScore, occlusionScore_);
+          DARABONBA_PTR_TO_JSON(SharpnessScore, sharpnessScore_);
+        };
+        friend void from_json(const Darabonba::Json& j, ExtFaceInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(FaceQualityScore, faceQualityScore_);
+          DARABONBA_PTR_FROM_JSON(IlluminationScore, illuminationScore_);
+          DARABONBA_PTR_FROM_JSON(KaOcclusionScore, kaOcclusionScore_);
+          DARABONBA_PTR_FROM_JSON(OcclusionScore, occlusionScore_);
+          DARABONBA_PTR_FROM_JSON(SharpnessScore, sharpnessScore_);
+        };
+        ExtFaceInfo() = default ;
+        ExtFaceInfo(const ExtFaceInfo &) = default ;
+        ExtFaceInfo(ExtFaceInfo &&) = default ;
+        ExtFaceInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ExtFaceInfo() = default ;
+        ExtFaceInfo& operator=(const ExtFaceInfo &) = default ;
+        ExtFaceInfo& operator=(ExtFaceInfo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->faceQualityScore_ == nullptr
+        && this->illuminationScore_ == nullptr && this->kaOcclusionScore_ == nullptr && this->occlusionScore_ == nullptr && this->sharpnessScore_ == nullptr; };
+        // faceQualityScore Field Functions 
+        bool hasFaceQualityScore() const { return this->faceQualityScore_ != nullptr;};
+        void deleteFaceQualityScore() { this->faceQualityScore_ = nullptr;};
+        inline double getFaceQualityScore() const { DARABONBA_PTR_GET_DEFAULT(faceQualityScore_, 0.0) };
+        inline ExtFaceInfo& setFaceQualityScore(double faceQualityScore) { DARABONBA_PTR_SET_VALUE(faceQualityScore_, faceQualityScore) };
+
+
+        // illuminationScore Field Functions 
+        bool hasIlluminationScore() const { return this->illuminationScore_ != nullptr;};
+        void deleteIlluminationScore() { this->illuminationScore_ = nullptr;};
+        inline double getIlluminationScore() const { DARABONBA_PTR_GET_DEFAULT(illuminationScore_, 0.0) };
+        inline ExtFaceInfo& setIlluminationScore(double illuminationScore) { DARABONBA_PTR_SET_VALUE(illuminationScore_, illuminationScore) };
+
+
+        // kaOcclusionScore Field Functions 
+        bool hasKaOcclusionScore() const { return this->kaOcclusionScore_ != nullptr;};
+        void deleteKaOcclusionScore() { this->kaOcclusionScore_ = nullptr;};
+        inline double getKaOcclusionScore() const { DARABONBA_PTR_GET_DEFAULT(kaOcclusionScore_, 0.0) };
+        inline ExtFaceInfo& setKaOcclusionScore(double kaOcclusionScore) { DARABONBA_PTR_SET_VALUE(kaOcclusionScore_, kaOcclusionScore) };
+
+
+        // occlusionScore Field Functions 
+        bool hasOcclusionScore() const { return this->occlusionScore_ != nullptr;};
+        void deleteOcclusionScore() { this->occlusionScore_ = nullptr;};
+        inline double getOcclusionScore() const { DARABONBA_PTR_GET_DEFAULT(occlusionScore_, 0.0) };
+        inline ExtFaceInfo& setOcclusionScore(double occlusionScore) { DARABONBA_PTR_SET_VALUE(occlusionScore_, occlusionScore) };
+
+
+        // sharpnessScore Field Functions 
+        bool hasSharpnessScore() const { return this->sharpnessScore_ != nullptr;};
+        void deleteSharpnessScore() { this->sharpnessScore_ = nullptr;};
+        inline double getSharpnessScore() const { DARABONBA_PTR_GET_DEFAULT(sharpnessScore_, 0.0) };
+        inline ExtFaceInfo& setSharpnessScore(double sharpnessScore) { DARABONBA_PTR_SET_VALUE(sharpnessScore_, sharpnessScore) };
+
+
+      protected:
+        shared_ptr<double> faceQualityScore_ {};
+        shared_ptr<double> illuminationScore_ {};
+        shared_ptr<double> kaOcclusionScore_ {};
+        shared_ptr<double> occlusionScore_ {};
+        shared_ptr<double> sharpnessScore_ {};
+      };
+
+      virtual bool empty() const override { return this->extFaceInfo_ == nullptr
+        && this->faceComparisonScore_ == nullptr && this->passed_ == nullptr && this->transactionId_ == nullptr; };
+      // extFaceInfo Field Functions 
+      bool hasExtFaceInfo() const { return this->extFaceInfo_ != nullptr;};
+      void deleteExtFaceInfo() { this->extFaceInfo_ = nullptr;};
+      inline const Result::ExtFaceInfo & getExtFaceInfo() const { DARABONBA_PTR_GET_CONST(extFaceInfo_, Result::ExtFaceInfo) };
+      inline Result::ExtFaceInfo getExtFaceInfo() { DARABONBA_PTR_GET(extFaceInfo_, Result::ExtFaceInfo) };
+      inline Result& setExtFaceInfo(const Result::ExtFaceInfo & extFaceInfo) { DARABONBA_PTR_SET_VALUE(extFaceInfo_, extFaceInfo) };
+      inline Result& setExtFaceInfo(Result::ExtFaceInfo && extFaceInfo) { DARABONBA_PTR_SET_RVALUE(extFaceInfo_, extFaceInfo) };
+
+
       // faceComparisonScore Field Functions 
       bool hasFaceComparisonScore() const { return this->faceComparisonScore_ != nullptr;};
       void deleteFaceComparisonScore() { this->faceComparisonScore_ = nullptr;};
@@ -82,6 +165,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
       // The face comparison score. The value ranges from 0 to 100.
       shared_ptr<double> faceComparisonScore_ {};
       // The final authentication result. Valid values:

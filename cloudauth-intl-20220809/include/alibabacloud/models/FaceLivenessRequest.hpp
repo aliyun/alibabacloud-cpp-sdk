@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_TO_JSON(FacePictureUrl, facePictureUrl_);
       DARABONBA_PTR_TO_JSON(FaceQuality, faceQuality_);
+      DARABONBA_PTR_TO_JSON(FaceQualityCheck, faceQualityCheck_);
       DARABONBA_PTR_TO_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_TO_JSON(MerchantUserId, merchantUserId_);
       DARABONBA_PTR_TO_JSON(Occlusion, occlusion_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_FROM_JSON(FacePictureUrl, facePictureUrl_);
       DARABONBA_PTR_FROM_JSON(FaceQuality, faceQuality_);
+      DARABONBA_PTR_FROM_JSON(FaceQualityCheck, faceQualityCheck_);
       DARABONBA_PTR_FROM_JSON(MerchantBizId, merchantBizId_);
       DARABONBA_PTR_FROM_JSON(MerchantUserId, merchantUserId_);
       DARABONBA_PTR_FROM_JSON(Occlusion, occlusion_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crop_ == nullptr
-        && this->facePictureBase64_ == nullptr && this->facePictureUrl_ == nullptr && this->faceQuality_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr
-        && this->occlusion_ == nullptr && this->productCode_ == nullptr; };
+        && this->facePictureBase64_ == nullptr && this->facePictureUrl_ == nullptr && this->faceQuality_ == nullptr && this->faceQualityCheck_ == nullptr && this->merchantBizId_ == nullptr
+        && this->merchantUserId_ == nullptr && this->occlusion_ == nullptr && this->productCode_ == nullptr; };
     // crop Field Functions 
     bool hasCrop() const { return this->crop_ != nullptr;};
     void deleteCrop() { this->crop_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteFaceQuality() { this->faceQuality_ = nullptr;};
     inline string getFaceQuality() const { DARABONBA_PTR_GET_DEFAULT(faceQuality_, "") };
     inline FaceLivenessRequest& setFaceQuality(string faceQuality) { DARABONBA_PTR_SET_VALUE(faceQuality_, faceQuality) };
+
+
+    // faceQualityCheck Field Functions 
+    bool hasFaceQualityCheck() const { return this->faceQualityCheck_ != nullptr;};
+    void deleteFaceQualityCheck() { this->faceQualityCheck_ = nullptr;};
+    inline string getFaceQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(faceQualityCheck_, "") };
+    inline FaceLivenessRequest& setFaceQualityCheck(string faceQualityCheck) { DARABONBA_PTR_SET_VALUE(faceQualityCheck_, faceQualityCheck) };
 
 
     // merchantBizId Field Functions 
@@ -119,6 +128,7 @@ namespace Models
     // 
     // - **F**: does not return the score.
     shared_ptr<string> faceQuality_ {};
+    shared_ptr<string> faceQualityCheck_ {};
     // A custom unique business identifier. You can use this identifier to track and troubleshoot issues. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure the identifier is unique.
     // 
     // > Alibaba Cloud servers do not check the uniqueness of this value. For better tracking, ensure this value is unique.

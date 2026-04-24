@@ -2180,6 +2180,10 @@ FaceCompareResponse Client::faceCompareWithOptions(const FaceCompareRequest &req
     query["FacePictureQualityCheck"] = request.getFacePictureQualityCheck();
   }
 
+  if (!!request.hasFaceQualityCheck()) {
+    query["FaceQualityCheck"] = request.getFaceQualityCheck();
+  }
+
   if (!!request.hasMerchantBizId()) {
     query["MerchantBizId"] = request.getMerchantBizId();
   }
@@ -2242,6 +2246,10 @@ FaceCompareV2Response Client::faceCompareV2WithOptions(const FaceCompareV2Reques
   json query = {};
   if (!!request.hasFacePictureQualityCheck()) {
     query["FacePictureQualityCheck"] = request.getFacePictureQualityCheck();
+  }
+
+  if (!!request.hasFaceQualityCheck()) {
+    query["FaceQualityCheck"] = request.getFaceQualityCheck();
   }
 
   if (!!request.hasMerchantBizId()) {
@@ -2518,6 +2526,10 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
     body["FaceGroupCodes"] = request.getFaceGroupCodes();
   }
 
+  if (!!request.hasFaceQualityCheck()) {
+    body["FaceQualityCheck"] = request.getFaceQualityCheck();
+  }
+
   if (!!request.hasFaceRegisterGroupCode()) {
     body["FaceRegisterGroupCode"] = request.getFaceRegisterGroupCode();
   }
@@ -2677,6 +2689,10 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
 
   if (!!request.hasFaceQuality()) {
     query["FaceQuality"] = request.getFaceQuality();
+  }
+
+  if (!!request.hasFaceQualityCheck()) {
+    query["FaceQualityCheck"] = request.getFaceQualityCheck();
   }
 
   if (!!request.hasMerchantBizId()) {

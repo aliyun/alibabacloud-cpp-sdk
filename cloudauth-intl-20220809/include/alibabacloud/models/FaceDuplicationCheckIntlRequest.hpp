@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const FaceDuplicationCheckIntlRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoRegistration, autoRegistration_);
       DARABONBA_PTR_TO_JSON(FaceGroupCodes, faceGroupCodes_);
+      DARABONBA_PTR_TO_JSON(FaceQualityCheck, faceQualityCheck_);
       DARABONBA_PTR_TO_JSON(FaceRegisterGroupCode, faceRegisterGroupCode_);
       DARABONBA_PTR_TO_JSON(FaceVerifyThreshold, faceVerifyThreshold_);
       DARABONBA_PTR_TO_JSON(Liveness, liveness_);
@@ -33,6 +34,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, FaceDuplicationCheckIntlRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoRegistration, autoRegistration_);
       DARABONBA_PTR_FROM_JSON(FaceGroupCodes, faceGroupCodes_);
+      DARABONBA_PTR_FROM_JSON(FaceQualityCheck, faceQualityCheck_);
       DARABONBA_PTR_FROM_JSON(FaceRegisterGroupCode, faceRegisterGroupCode_);
       DARABONBA_PTR_FROM_JSON(FaceVerifyThreshold, faceVerifyThreshold_);
       DARABONBA_PTR_FROM_JSON(Liveness, liveness_);
@@ -60,9 +62,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRegistration_ == nullptr
-        && this->faceGroupCodes_ == nullptr && this->faceRegisterGroupCode_ == nullptr && this->faceVerifyThreshold_ == nullptr && this->liveness_ == nullptr && this->merchantBizId_ == nullptr
-        && this->merchantUserId_ == nullptr && this->productCode_ == nullptr && this->returnFaces_ == nullptr && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr
-        && this->sourceFacePicture_ == nullptr && this->sourceFacePictureUrl_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->verifyModel_ == nullptr; };
+        && this->faceGroupCodes_ == nullptr && this->faceQualityCheck_ == nullptr && this->faceRegisterGroupCode_ == nullptr && this->faceVerifyThreshold_ == nullptr && this->liveness_ == nullptr
+        && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->productCode_ == nullptr && this->returnFaces_ == nullptr && this->saveFacePicture_ == nullptr
+        && this->sceneCode_ == nullptr && this->sourceFacePicture_ == nullptr && this->sourceFacePictureUrl_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr
+        && this->verifyModel_ == nullptr; };
     // autoRegistration Field Functions 
     bool hasAutoRegistration() const { return this->autoRegistration_ != nullptr;};
     void deleteAutoRegistration() { this->autoRegistration_ = nullptr;};
@@ -75,6 +78,13 @@ namespace Models
     void deleteFaceGroupCodes() { this->faceGroupCodes_ = nullptr;};
     inline string getFaceGroupCodes() const { DARABONBA_PTR_GET_DEFAULT(faceGroupCodes_, "") };
     inline FaceDuplicationCheckIntlRequest& setFaceGroupCodes(string faceGroupCodes) { DARABONBA_PTR_SET_VALUE(faceGroupCodes_, faceGroupCodes) };
+
+
+    // faceQualityCheck Field Functions 
+    bool hasFaceQualityCheck() const { return this->faceQualityCheck_ != nullptr;};
+    void deleteFaceQualityCheck() { this->faceQualityCheck_ = nullptr;};
+    inline string getFaceQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(faceQualityCheck_, "") };
+    inline FaceDuplicationCheckIntlRequest& setFaceQualityCheck(string faceQualityCheck) { DARABONBA_PTR_SET_VALUE(faceQualityCheck_, faceQualityCheck) };
 
 
     // faceRegisterGroupCode Field Functions 
@@ -182,6 +192,7 @@ namespace Models
     shared_ptr<string> autoRegistration_ {};
     // The face library code created through the console, supporting up to 10 face libraries simultaneously. When multiple face library codes are passed, they should be separated by commas.
     shared_ptr<string> faceGroupCodes_ {};
+    shared_ptr<string> faceQualityCheck_ {};
     // Face registration library.
     shared_ptr<string> faceRegisterGroupCode_ {};
     // Face matching threshold.
