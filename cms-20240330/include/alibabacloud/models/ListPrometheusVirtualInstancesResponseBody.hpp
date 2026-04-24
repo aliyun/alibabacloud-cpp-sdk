@@ -15,11 +15,17 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListPrometheusVirtualInstancesResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(instances, instances_);
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, ListPrometheusVirtualInstancesResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(instances, instances_);
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(totalCount, totalCount_);
     };
     ListPrometheusVirtualInstancesResponseBody() = default ;
     ListPrometheusVirtualInstancesResponseBody(const ListPrometheusVirtualInstancesResponseBody &) = default ;
@@ -125,7 +131,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->instances_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
@@ -135,6 +141,20 @@ namespace Models
     inline ListPrometheusVirtualInstancesResponseBody& setInstances(vector<ListPrometheusVirtualInstancesResponseBody::Instances> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
 
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline string getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
+    inline ListPrometheusVirtualInstancesResponseBody& setMaxResults(string maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListPrometheusVirtualInstancesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -142,11 +162,21 @@ namespace Models
     inline ListPrometheusVirtualInstancesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+    inline ListPrometheusVirtualInstancesResponseBody& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
     // Instance information.
     shared_ptr<vector<ListPrometheusVirtualInstancesResponseBody::Instances>> instances_ {};
+    shared_ptr<string> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // ID of the request
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> totalCount_ {};
   };
 
   } // namespace Models

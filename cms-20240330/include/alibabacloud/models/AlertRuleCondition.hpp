@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(caseList, caseList_);
       DARABONBA_PTR_TO_JSON(compareList, compareList_);
       DARABONBA_PTR_TO_JSON(compositeEscalation, compositeEscalation_);
+      DARABONBA_PTR_TO_JSON(enableSeveritySuppression, enableSeveritySuppression_);
       DARABONBA_PTR_TO_JSON(escalationType, escalationType_);
       DARABONBA_PTR_TO_JSON(expressEscalation, expressEscalation_);
       DARABONBA_PTR_TO_JSON(noDataAlertLevel, noDataAlertLevel_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(oper, oper_);
       DARABONBA_PTR_TO_JSON(relation, relation_);
       DARABONBA_PTR_TO_JSON(simpleEscalation, simpleEscalation_);
+      DARABONBA_PTR_TO_JSON(triggers, triggers_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(value, value_);
     };
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(caseList, caseList_);
       DARABONBA_PTR_FROM_JSON(compareList, compareList_);
       DARABONBA_PTR_FROM_JSON(compositeEscalation, compositeEscalation_);
+      DARABONBA_PTR_FROM_JSON(enableSeveritySuppression, enableSeveritySuppression_);
       DARABONBA_PTR_FROM_JSON(escalationType, escalationType_);
       DARABONBA_PTR_FROM_JSON(expressEscalation, expressEscalation_);
       DARABONBA_PTR_FROM_JSON(noDataAlertLevel, noDataAlertLevel_);
@@ -42,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(oper, oper_);
       DARABONBA_PTR_FROM_JSON(relation, relation_);
       DARABONBA_PTR_FROM_JSON(simpleEscalation, simpleEscalation_);
+      DARABONBA_PTR_FROM_JSON(triggers, triggers_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(value, value_);
     };
@@ -56,6 +60,176 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Triggers : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Triggers& obj) { 
+        DARABONBA_PTR_TO_JSON(durationSecs, durationSecs_);
+        DARABONBA_PTR_TO_JSON(expression, expression_);
+        DARABONBA_PTR_TO_JSON(severity, severity_);
+      };
+      friend void from_json(const Darabonba::Json& j, Triggers& obj) { 
+        DARABONBA_PTR_FROM_JSON(durationSecs, durationSecs_);
+        DARABONBA_PTR_FROM_JSON(expression, expression_);
+        DARABONBA_PTR_FROM_JSON(severity, severity_);
+      };
+      Triggers() = default ;
+      Triggers(const Triggers &) = default ;
+      Triggers(Triggers &&) = default ;
+      Triggers(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Triggers() = default ;
+      Triggers& operator=(const Triggers &) = default ;
+      Triggers& operator=(Triggers &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Expression : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Expression& obj) { 
+          DARABONBA_PTR_TO_JSON(conditions, conditions_);
+          DARABONBA_PTR_TO_JSON(expressionType, expressionType_);
+          DARABONBA_PTR_TO_JSON(logicOperator, logicOperator_);
+        };
+        friend void from_json(const Darabonba::Json& j, Expression& obj) { 
+          DARABONBA_PTR_FROM_JSON(conditions, conditions_);
+          DARABONBA_PTR_FROM_JSON(expressionType, expressionType_);
+          DARABONBA_PTR_FROM_JSON(logicOperator, logicOperator_);
+        };
+        Expression() = default ;
+        Expression(const Expression &) = default ;
+        Expression(Expression &&) = default ;
+        Expression(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Expression() = default ;
+        Expression& operator=(const Expression &) = default ;
+        Expression& operator=(Expression &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Conditions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Conditions& obj) { 
+            DARABONBA_PTR_TO_JSON(expressionType, expressionType_);
+            DARABONBA_PTR_TO_JSON(operator, operator_);
+            DARABONBA_PTR_TO_JSON(queryName, queryName_);
+            DARABONBA_PTR_TO_JSON(threshold, threshold_);
+          };
+          friend void from_json(const Darabonba::Json& j, Conditions& obj) { 
+            DARABONBA_PTR_FROM_JSON(expressionType, expressionType_);
+            DARABONBA_PTR_FROM_JSON(operator, operator_);
+            DARABONBA_PTR_FROM_JSON(queryName, queryName_);
+            DARABONBA_PTR_FROM_JSON(threshold, threshold_);
+          };
+          Conditions() = default ;
+          Conditions(const Conditions &) = default ;
+          Conditions(Conditions &&) = default ;
+          Conditions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Conditions() = default ;
+          Conditions& operator=(const Conditions &) = default ;
+          Conditions& operator=(Conditions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->expressionType_ == nullptr
+        && this->operator_ == nullptr && this->queryName_ == nullptr && this->threshold_ == nullptr; };
+          // expressionType Field Functions 
+          bool hasExpressionType() const { return this->expressionType_ != nullptr;};
+          void deleteExpressionType() { this->expressionType_ = nullptr;};
+          inline string getExpressionType() const { DARABONBA_PTR_GET_DEFAULT(expressionType_, "") };
+          inline Conditions& setExpressionType(string expressionType) { DARABONBA_PTR_SET_VALUE(expressionType_, expressionType) };
+
+
+          // operator Field Functions 
+          bool hasOperator() const { return this->operator_ != nullptr;};
+          void deleteOperator() { this->operator_ = nullptr;};
+          inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+          inline Conditions& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
+
+
+          // queryName Field Functions 
+          bool hasQueryName() const { return this->queryName_ != nullptr;};
+          void deleteQueryName() { this->queryName_ = nullptr;};
+          inline string getQueryName() const { DARABONBA_PTR_GET_DEFAULT(queryName_, "") };
+          inline Conditions& setQueryName(string queryName) { DARABONBA_PTR_SET_VALUE(queryName_, queryName) };
+
+
+          // threshold Field Functions 
+          bool hasThreshold() const { return this->threshold_ != nullptr;};
+          void deleteThreshold() { this->threshold_ = nullptr;};
+          inline double getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
+          inline Conditions& setThreshold(double threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
+        protected:
+          shared_ptr<string> expressionType_ {};
+          shared_ptr<string> operator_ {};
+          shared_ptr<string> queryName_ {};
+          shared_ptr<double> threshold_ {};
+        };
+
+        virtual bool empty() const override { return this->conditions_ == nullptr
+        && this->expressionType_ == nullptr && this->logicOperator_ == nullptr; };
+        // conditions Field Functions 
+        bool hasConditions() const { return this->conditions_ != nullptr;};
+        void deleteConditions() { this->conditions_ = nullptr;};
+        inline const vector<Expression::Conditions> & getConditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<Expression::Conditions>) };
+        inline vector<Expression::Conditions> getConditions() { DARABONBA_PTR_GET(conditions_, vector<Expression::Conditions>) };
+        inline Expression& setConditions(const vector<Expression::Conditions> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
+        inline Expression& setConditions(vector<Expression::Conditions> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
+
+
+        // expressionType Field Functions 
+        bool hasExpressionType() const { return this->expressionType_ != nullptr;};
+        void deleteExpressionType() { this->expressionType_ = nullptr;};
+        inline string getExpressionType() const { DARABONBA_PTR_GET_DEFAULT(expressionType_, "") };
+        inline Expression& setExpressionType(string expressionType) { DARABONBA_PTR_SET_VALUE(expressionType_, expressionType) };
+
+
+        // logicOperator Field Functions 
+        bool hasLogicOperator() const { return this->logicOperator_ != nullptr;};
+        void deleteLogicOperator() { this->logicOperator_ = nullptr;};
+        inline string getLogicOperator() const { DARABONBA_PTR_GET_DEFAULT(logicOperator_, "") };
+        inline Expression& setLogicOperator(string logicOperator) { DARABONBA_PTR_SET_VALUE(logicOperator_, logicOperator) };
+
+
+      protected:
+        shared_ptr<vector<Expression::Conditions>> conditions_ {};
+        shared_ptr<string> expressionType_ {};
+        shared_ptr<string> logicOperator_ {};
+      };
+
+      virtual bool empty() const override { return this->durationSecs_ == nullptr
+        && this->expression_ == nullptr && this->severity_ == nullptr; };
+      // durationSecs Field Functions 
+      bool hasDurationSecs() const { return this->durationSecs_ != nullptr;};
+      void deleteDurationSecs() { this->durationSecs_ = nullptr;};
+      inline int32_t getDurationSecs() const { DARABONBA_PTR_GET_DEFAULT(durationSecs_, 0) };
+      inline Triggers& setDurationSecs(int32_t durationSecs) { DARABONBA_PTR_SET_VALUE(durationSecs_, durationSecs) };
+
+
+      // expression Field Functions 
+      bool hasExpression() const { return this->expression_ != nullptr;};
+      void deleteExpression() { this->expression_ = nullptr;};
+      inline const Triggers::Expression & getExpression() const { DARABONBA_PTR_GET_CONST(expression_, Triggers::Expression) };
+      inline Triggers::Expression getExpression() { DARABONBA_PTR_GET(expression_, Triggers::Expression) };
+      inline Triggers& setExpression(const Triggers::Expression & expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
+      inline Triggers& setExpression(Triggers::Expression && expression) { DARABONBA_PTR_SET_RVALUE(expression_, expression) };
+
+
+      // severity Field Functions 
+      bool hasSeverity() const { return this->severity_ != nullptr;};
+      void deleteSeverity() { this->severity_ = nullptr;};
+      inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+      inline Triggers& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
+
+
+    protected:
+      shared_ptr<int32_t> durationSecs_ {};
+      shared_ptr<Triggers::Expression> expression_ {};
+      shared_ptr<string> severity_ {};
+    };
+
     class SimpleEscalation : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SimpleEscalation& obj) { 
@@ -675,9 +849,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->alertCount_ == nullptr
-        && this->caseList_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->escalationType_ == nullptr && this->expressEscalation_ == nullptr
-        && this->noDataAlertLevel_ == nullptr && this->noDataAppendValue_ == nullptr && this->noDataPolicy_ == nullptr && this->oper_ == nullptr && this->relation_ == nullptr
-        && this->simpleEscalation_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
+        && this->caseList_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr
+        && this->expressEscalation_ == nullptr && this->noDataAlertLevel_ == nullptr && this->noDataAppendValue_ == nullptr && this->noDataPolicy_ == nullptr && this->oper_ == nullptr
+        && this->relation_ == nullptr && this->simpleEscalation_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
     // alertCount Field Functions 
     bool hasAlertCount() const { return this->alertCount_ != nullptr;};
     void deleteAlertCount() { this->alertCount_ = nullptr;};
@@ -710,6 +884,13 @@ namespace Models
     inline AlertRuleCondition::CompositeEscalation getCompositeEscalation() { DARABONBA_PTR_GET(compositeEscalation_, AlertRuleCondition::CompositeEscalation) };
     inline AlertRuleCondition& setCompositeEscalation(const AlertRuleCondition::CompositeEscalation & compositeEscalation) { DARABONBA_PTR_SET_VALUE(compositeEscalation_, compositeEscalation) };
     inline AlertRuleCondition& setCompositeEscalation(AlertRuleCondition::CompositeEscalation && compositeEscalation) { DARABONBA_PTR_SET_RVALUE(compositeEscalation_, compositeEscalation) };
+
+
+    // enableSeveritySuppression Field Functions 
+    bool hasEnableSeveritySuppression() const { return this->enableSeveritySuppression_ != nullptr;};
+    void deleteEnableSeveritySuppression() { this->enableSeveritySuppression_ = nullptr;};
+    inline bool getEnableSeveritySuppression() const { DARABONBA_PTR_GET_DEFAULT(enableSeveritySuppression_, false) };
+    inline AlertRuleCondition& setEnableSeveritySuppression(bool enableSeveritySuppression) { DARABONBA_PTR_SET_VALUE(enableSeveritySuppression_, enableSeveritySuppression) };
 
 
     // escalationType Field Functions 
@@ -772,6 +953,15 @@ namespace Models
     inline AlertRuleCondition& setSimpleEscalation(AlertRuleCondition::SimpleEscalation && simpleEscalation) { DARABONBA_PTR_SET_RVALUE(simpleEscalation_, simpleEscalation) };
 
 
+    // triggers Field Functions 
+    bool hasTriggers() const { return this->triggers_ != nullptr;};
+    void deleteTriggers() { this->triggers_ = nullptr;};
+    inline const vector<AlertRuleCondition::Triggers> & getTriggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<AlertRuleCondition::Triggers>) };
+    inline vector<AlertRuleCondition::Triggers> getTriggers() { DARABONBA_PTR_GET(triggers_, vector<AlertRuleCondition::Triggers>) };
+    inline AlertRuleCondition& setTriggers(const vector<AlertRuleCondition::Triggers> & triggers) { DARABONBA_PTR_SET_VALUE(triggers_, triggers) };
+    inline AlertRuleCondition& setTriggers(vector<AlertRuleCondition::Triggers> && triggers) { DARABONBA_PTR_SET_RVALUE(triggers_, triggers) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -799,6 +989,7 @@ namespace Models
     // Applicable condition type: CMS_BASIC_CONDITION.
     // Valid only when escalationType=composite; composite metric alert condition.
     shared_ptr<AlertRuleCondition::CompositeEscalation> compositeEscalation_ {};
+    shared_ptr<bool> enableSeveritySuppression_ {};
     // Applicable condition type: CMS_BASIC_CONDITION.
     // Valid values:
     // - simple: Simple metric condition,
@@ -838,6 +1029,7 @@ namespace Models
     // Applicable condition type: CMS_BASIC_CONDITION.
     // Only valid when escalationType=simple; specifies the alert condition for a single metric.
     shared_ptr<AlertRuleCondition::SimpleEscalation> simpleEscalation_ {};
+    shared_ptr<vector<AlertRuleCondition::Triggers>> triggers_ {};
     // Rule condition type, valid values:
     // 
     // SLS_CONDITION (SLS alert condition),

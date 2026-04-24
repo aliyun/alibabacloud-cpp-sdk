@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(grafanaInstanceId, grafanaInstanceId_);
         DARABONBA_PTR_TO_JSON(grafanaInstanceName, grafanaInstanceName_);
         DARABONBA_PTR_TO_JSON(httpApiInterUrl, httpApiInterUrl_);
+        DARABONBA_PTR_TO_JSON(httpApiInternalUrl, httpApiInternalUrl_);
         DARABONBA_PTR_TO_JSON(httpApiIntraUrl, httpApiIntraUrl_);
         DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -58,11 +59,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prometheusInstanceId, prometheusInstanceId_);
         DARABONBA_PTR_TO_JSON(prometheusInstanceName, prometheusInstanceName_);
         DARABONBA_PTR_TO_JSON(pushGatewayInterUrl, pushGatewayInterUrl_);
+        DARABONBA_PTR_TO_JSON(pushGatewayInternalUrl, pushGatewayInternalUrl_);
         DARABONBA_PTR_TO_JSON(pushGatewayIntraUrl, pushGatewayIntraUrl_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(remoteReadInterUrl, remoteReadInterUrl_);
+        DARABONBA_PTR_TO_JSON(remoteReadInternalUrl, remoteReadInternalUrl_);
         DARABONBA_PTR_TO_JSON(remoteReadIntraUrl, remoteReadIntraUrl_);
         DARABONBA_PTR_TO_JSON(remoteWriteInterUrl, remoteWriteInterUrl_);
+        DARABONBA_PTR_TO_JSON(remoteWriteInternalUrl, remoteWriteInternalUrl_);
         DARABONBA_PTR_TO_JSON(remoteWriteIntraUrl, remoteWriteIntraUrl_);
         DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
@@ -89,6 +93,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(grafanaInstanceId, grafanaInstanceId_);
         DARABONBA_PTR_FROM_JSON(grafanaInstanceName, grafanaInstanceName_);
         DARABONBA_PTR_FROM_JSON(httpApiInterUrl, httpApiInterUrl_);
+        DARABONBA_PTR_FROM_JSON(httpApiInternalUrl, httpApiInternalUrl_);
         DARABONBA_PTR_FROM_JSON(httpApiIntraUrl, httpApiIntraUrl_);
         DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -97,11 +102,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prometheusInstanceId, prometheusInstanceId_);
         DARABONBA_PTR_FROM_JSON(prometheusInstanceName, prometheusInstanceName_);
         DARABONBA_PTR_FROM_JSON(pushGatewayInterUrl, pushGatewayInterUrl_);
+        DARABONBA_PTR_FROM_JSON(pushGatewayInternalUrl, pushGatewayInternalUrl_);
         DARABONBA_PTR_FROM_JSON(pushGatewayIntraUrl, pushGatewayIntraUrl_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(remoteReadInterUrl, remoteReadInterUrl_);
+        DARABONBA_PTR_FROM_JSON(remoteReadInternalUrl, remoteReadInternalUrl_);
         DARABONBA_PTR_FROM_JSON(remoteReadIntraUrl, remoteReadIntraUrl_);
         DARABONBA_PTR_FROM_JSON(remoteWriteInterUrl, remoteWriteInterUrl_);
+        DARABONBA_PTR_FROM_JSON(remoteWriteInternalUrl, remoteWriteInternalUrl_);
         DARABONBA_PTR_FROM_JSON(remoteWriteIntraUrl, remoteWriteIntraUrl_);
         DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
@@ -171,12 +179,12 @@ namespace Models
       virtual bool empty() const override { return this->accessType_ == nullptr
         && this->archiveDuration_ == nullptr && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->authToken_ == nullptr && this->createTime_ == nullptr
         && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr && this->enableAuthToken_ == nullptr && this->extraInfo_ == nullptr && this->folderUrl_ == nullptr
-        && this->grafanaInstanceId_ == nullptr && this->grafanaInstanceName_ == nullptr && this->httpApiInterUrl_ == nullptr && this->httpApiIntraUrl_ == nullptr && this->instanceType_ == nullptr
-        && this->paymentType_ == nullptr && this->paymentTypeUpdateTime_ == nullptr && this->product_ == nullptr && this->prometheusInstanceId_ == nullptr && this->prometheusInstanceName_ == nullptr
-        && this->pushGatewayInterUrl_ == nullptr && this->pushGatewayIntraUrl_ == nullptr && this->regionId_ == nullptr && this->remoteReadInterUrl_ == nullptr && this->remoteReadIntraUrl_ == nullptr
-        && this->remoteWriteInterUrl_ == nullptr && this->remoteWriteIntraUrl_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->storageDuration_ == nullptr && this->supportAuthTypes_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->grafanaInstanceId_ == nullptr && this->grafanaInstanceName_ == nullptr && this->httpApiInterUrl_ == nullptr && this->httpApiInternalUrl_ == nullptr && this->httpApiIntraUrl_ == nullptr
+        && this->instanceType_ == nullptr && this->paymentType_ == nullptr && this->paymentTypeUpdateTime_ == nullptr && this->product_ == nullptr && this->prometheusInstanceId_ == nullptr
+        && this->prometheusInstanceName_ == nullptr && this->pushGatewayInterUrl_ == nullptr && this->pushGatewayInternalUrl_ == nullptr && this->pushGatewayIntraUrl_ == nullptr && this->regionId_ == nullptr
+        && this->remoteReadInterUrl_ == nullptr && this->remoteReadInternalUrl_ == nullptr && this->remoteReadIntraUrl_ == nullptr && this->remoteWriteInterUrl_ == nullptr && this->remoteWriteInternalUrl_ == nullptr
+        && this->remoteWriteIntraUrl_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr
+        && this->supportAuthTypes_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
@@ -277,6 +285,13 @@ namespace Models
       inline PrometheusInstance& setHttpApiInterUrl(string httpApiInterUrl) { DARABONBA_PTR_SET_VALUE(httpApiInterUrl_, httpApiInterUrl) };
 
 
+      // httpApiInternalUrl Field Functions 
+      bool hasHttpApiInternalUrl() const { return this->httpApiInternalUrl_ != nullptr;};
+      void deleteHttpApiInternalUrl() { this->httpApiInternalUrl_ = nullptr;};
+      inline string getHttpApiInternalUrl() const { DARABONBA_PTR_GET_DEFAULT(httpApiInternalUrl_, "") };
+      inline PrometheusInstance& setHttpApiInternalUrl(string httpApiInternalUrl) { DARABONBA_PTR_SET_VALUE(httpApiInternalUrl_, httpApiInternalUrl) };
+
+
       // httpApiIntraUrl Field Functions 
       bool hasHttpApiIntraUrl() const { return this->httpApiIntraUrl_ != nullptr;};
       void deleteHttpApiIntraUrl() { this->httpApiIntraUrl_ = nullptr;};
@@ -333,6 +348,13 @@ namespace Models
       inline PrometheusInstance& setPushGatewayInterUrl(string pushGatewayInterUrl) { DARABONBA_PTR_SET_VALUE(pushGatewayInterUrl_, pushGatewayInterUrl) };
 
 
+      // pushGatewayInternalUrl Field Functions 
+      bool hasPushGatewayInternalUrl() const { return this->pushGatewayInternalUrl_ != nullptr;};
+      void deletePushGatewayInternalUrl() { this->pushGatewayInternalUrl_ = nullptr;};
+      inline string getPushGatewayInternalUrl() const { DARABONBA_PTR_GET_DEFAULT(pushGatewayInternalUrl_, "") };
+      inline PrometheusInstance& setPushGatewayInternalUrl(string pushGatewayInternalUrl) { DARABONBA_PTR_SET_VALUE(pushGatewayInternalUrl_, pushGatewayInternalUrl) };
+
+
       // pushGatewayIntraUrl Field Functions 
       bool hasPushGatewayIntraUrl() const { return this->pushGatewayIntraUrl_ != nullptr;};
       void deletePushGatewayIntraUrl() { this->pushGatewayIntraUrl_ = nullptr;};
@@ -354,6 +376,13 @@ namespace Models
       inline PrometheusInstance& setRemoteReadInterUrl(string remoteReadInterUrl) { DARABONBA_PTR_SET_VALUE(remoteReadInterUrl_, remoteReadInterUrl) };
 
 
+      // remoteReadInternalUrl Field Functions 
+      bool hasRemoteReadInternalUrl() const { return this->remoteReadInternalUrl_ != nullptr;};
+      void deleteRemoteReadInternalUrl() { this->remoteReadInternalUrl_ = nullptr;};
+      inline string getRemoteReadInternalUrl() const { DARABONBA_PTR_GET_DEFAULT(remoteReadInternalUrl_, "") };
+      inline PrometheusInstance& setRemoteReadInternalUrl(string remoteReadInternalUrl) { DARABONBA_PTR_SET_VALUE(remoteReadInternalUrl_, remoteReadInternalUrl) };
+
+
       // remoteReadIntraUrl Field Functions 
       bool hasRemoteReadIntraUrl() const { return this->remoteReadIntraUrl_ != nullptr;};
       void deleteRemoteReadIntraUrl() { this->remoteReadIntraUrl_ = nullptr;};
@@ -366,6 +395,13 @@ namespace Models
       void deleteRemoteWriteInterUrl() { this->remoteWriteInterUrl_ = nullptr;};
       inline string getRemoteWriteInterUrl() const { DARABONBA_PTR_GET_DEFAULT(remoteWriteInterUrl_, "") };
       inline PrometheusInstance& setRemoteWriteInterUrl(string remoteWriteInterUrl) { DARABONBA_PTR_SET_VALUE(remoteWriteInterUrl_, remoteWriteInterUrl) };
+
+
+      // remoteWriteInternalUrl Field Functions 
+      bool hasRemoteWriteInternalUrl() const { return this->remoteWriteInternalUrl_ != nullptr;};
+      void deleteRemoteWriteInternalUrl() { this->remoteWriteInternalUrl_ = nullptr;};
+      inline string getRemoteWriteInternalUrl() const { DARABONBA_PTR_GET_DEFAULT(remoteWriteInternalUrl_, "") };
+      inline PrometheusInstance& setRemoteWriteInternalUrl(string remoteWriteInternalUrl) { DARABONBA_PTR_SET_VALUE(remoteWriteInternalUrl_, remoteWriteInternalUrl) };
 
 
       // remoteWriteIntraUrl Field Functions 
@@ -472,6 +508,7 @@ namespace Models
       shared_ptr<string> grafanaInstanceName_ {};
       // HTTP public network address.
       shared_ptr<string> httpApiInterUrl_ {};
+      shared_ptr<string> httpApiInternalUrl_ {};
       // HTTP intranet address.
       shared_ptr<string> httpApiIntraUrl_ {};
       // Prometheus instance type.
@@ -490,16 +527,19 @@ namespace Models
       shared_ptr<string> prometheusInstanceName_ {};
       // Public network address of PushGateway.
       shared_ptr<string> pushGatewayInterUrl_ {};
+      shared_ptr<string> pushGatewayInternalUrl_ {};
       // Intranet address of PushGateway.
       shared_ptr<string> pushGatewayIntraUrl_ {};
       // Region ID.
       shared_ptr<string> regionId_ {};
       // Public network read address.
       shared_ptr<string> remoteReadInterUrl_ {};
+      shared_ptr<string> remoteReadInternalUrl_ {};
       // Intranet read address.
       shared_ptr<string> remoteReadIntraUrl_ {};
       // Public network write address.
       shared_ptr<string> remoteWriteInterUrl_ {};
+      shared_ptr<string> remoteWriteInternalUrl_ {};
       // Intranet write address.
       shared_ptr<string> remoteWriteIntraUrl_ {};
       // Resource group ID.

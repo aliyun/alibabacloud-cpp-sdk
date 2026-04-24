@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(grafanaInstanceId, grafanaInstanceId_);
         DARABONBA_PTR_TO_JSON(grafanaInstanceName, grafanaInstanceName_);
         DARABONBA_PTR_TO_JSON(httpApiInterUrl, httpApiInterUrl_);
+        DARABONBA_PTR_TO_JSON(httpApiInternalUrl, httpApiInternalUrl_);
         DARABONBA_PTR_TO_JSON(httpApiIntraUrl, httpApiIntraUrl_);
         DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prometheusViewName, prometheusViewName_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(remoteReadInterUrl, remoteReadInterUrl_);
+        DARABONBA_PTR_TO_JSON(remoteReadInternalUrl, remoteReadInternalUrl_);
         DARABONBA_PTR_TO_JSON(remoteReadIntraUrl, remoteReadIntraUrl_);
         DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
@@ -73,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(grafanaInstanceId, grafanaInstanceId_);
         DARABONBA_PTR_FROM_JSON(grafanaInstanceName, grafanaInstanceName_);
         DARABONBA_PTR_FROM_JSON(httpApiInterUrl, httpApiInterUrl_);
+        DARABONBA_PTR_FROM_JSON(httpApiInternalUrl, httpApiInternalUrl_);
         DARABONBA_PTR_FROM_JSON(httpApiIntraUrl, httpApiIntraUrl_);
         DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -82,6 +85,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prometheusViewName, prometheusViewName_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(remoteReadInterUrl, remoteReadInterUrl_);
+        DARABONBA_PTR_FROM_JSON(remoteReadInternalUrl, remoteReadInternalUrl_);
         DARABONBA_PTR_FROM_JSON(remoteReadIntraUrl, remoteReadIntraUrl_);
         DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
@@ -204,11 +208,11 @@ namespace Models
 
       virtual bool empty() const override { return this->authFreeReadPolicy_ == nullptr
         && this->authToken_ == nullptr && this->createTime_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthToken_ == nullptr && this->folderUrl_ == nullptr
-        && this->grafanaInstanceId_ == nullptr && this->grafanaInstanceName_ == nullptr && this->httpApiInterUrl_ == nullptr && this->httpApiIntraUrl_ == nullptr && this->instanceType_ == nullptr
-        && this->paymentType_ == nullptr && this->product_ == nullptr && this->prometheusInstances_ == nullptr && this->prometheusViewId_ == nullptr && this->prometheusViewName_ == nullptr
-        && this->regionId_ == nullptr && this->remoteReadInterUrl_ == nullptr && this->remoteReadIntraUrl_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr
-        && this->status_ == nullptr && this->supportAuthTypes_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->grafanaInstanceId_ == nullptr && this->grafanaInstanceName_ == nullptr && this->httpApiInterUrl_ == nullptr && this->httpApiInternalUrl_ == nullptr && this->httpApiIntraUrl_ == nullptr
+        && this->instanceType_ == nullptr && this->paymentType_ == nullptr && this->product_ == nullptr && this->prometheusInstances_ == nullptr && this->prometheusViewId_ == nullptr
+        && this->prometheusViewName_ == nullptr && this->regionId_ == nullptr && this->remoteReadInterUrl_ == nullptr && this->remoteReadInternalUrl_ == nullptr && this->remoteReadIntraUrl_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->supportAuthTypes_ == nullptr && this->tags_ == nullptr
+        && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
       // authFreeReadPolicy Field Functions 
       bool hasAuthFreeReadPolicy() const { return this->authFreeReadPolicy_ != nullptr;};
       void deleteAuthFreeReadPolicy() { this->authFreeReadPolicy_ = nullptr;};
@@ -270,6 +274,13 @@ namespace Models
       void deleteHttpApiInterUrl() { this->httpApiInterUrl_ = nullptr;};
       inline string getHttpApiInterUrl() const { DARABONBA_PTR_GET_DEFAULT(httpApiInterUrl_, "") };
       inline PrometheusView& setHttpApiInterUrl(string httpApiInterUrl) { DARABONBA_PTR_SET_VALUE(httpApiInterUrl_, httpApiInterUrl) };
+
+
+      // httpApiInternalUrl Field Functions 
+      bool hasHttpApiInternalUrl() const { return this->httpApiInternalUrl_ != nullptr;};
+      void deleteHttpApiInternalUrl() { this->httpApiInternalUrl_ = nullptr;};
+      inline string getHttpApiInternalUrl() const { DARABONBA_PTR_GET_DEFAULT(httpApiInternalUrl_, "") };
+      inline PrometheusView& setHttpApiInternalUrl(string httpApiInternalUrl) { DARABONBA_PTR_SET_VALUE(httpApiInternalUrl_, httpApiInternalUrl) };
 
 
       // httpApiIntraUrl Field Functions 
@@ -335,6 +346,13 @@ namespace Models
       void deleteRemoteReadInterUrl() { this->remoteReadInterUrl_ = nullptr;};
       inline string getRemoteReadInterUrl() const { DARABONBA_PTR_GET_DEFAULT(remoteReadInterUrl_, "") };
       inline PrometheusView& setRemoteReadInterUrl(string remoteReadInterUrl) { DARABONBA_PTR_SET_VALUE(remoteReadInterUrl_, remoteReadInterUrl) };
+
+
+      // remoteReadInternalUrl Field Functions 
+      bool hasRemoteReadInternalUrl() const { return this->remoteReadInternalUrl_ != nullptr;};
+      void deleteRemoteReadInternalUrl() { this->remoteReadInternalUrl_ = nullptr;};
+      inline string getRemoteReadInternalUrl() const { DARABONBA_PTR_GET_DEFAULT(remoteReadInternalUrl_, "") };
+      inline PrometheusView& setRemoteReadInternalUrl(string remoteReadInternalUrl) { DARABONBA_PTR_SET_VALUE(remoteReadInternalUrl_, remoteReadInternalUrl) };
 
 
       // remoteReadIntraUrl Field Functions 
@@ -423,6 +441,7 @@ namespace Models
       shared_ptr<string> grafanaInstanceName_ {};
       // Public HTTP address.
       shared_ptr<string> httpApiInterUrl_ {};
+      shared_ptr<string> httpApiInternalUrl_ {};
       // Private HTTP address.
       shared_ptr<string> httpApiIntraUrl_ {};
       // Instance type, fixed value prom-view.
@@ -441,6 +460,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // Remote read public URL.
       shared_ptr<string> remoteReadInterUrl_ {};
+      shared_ptr<string> remoteReadInternalUrl_ {};
       // Remote read intranet URL.
       shared_ptr<string> remoteReadIntraUrl_ {};
       // Resource group ID.

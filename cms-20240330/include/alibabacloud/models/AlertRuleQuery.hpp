@@ -81,6 +81,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(duration, duration_);
         DARABONBA_PTR_TO_JSON(end, end_);
         DARABONBA_PTR_TO_JSON(expr, expr_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(promQl, promQl_);
         DARABONBA_PTR_TO_JSON(start, start_);
         DARABONBA_PTR_TO_JSON(timeUnit, timeUnit_);
         DARABONBA_PTR_TO_JSON(window, window_);
@@ -92,6 +94,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(duration, duration_);
         DARABONBA_PTR_FROM_JSON(end, end_);
         DARABONBA_PTR_FROM_JSON(expr, expr_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(promQl, promQl_);
         DARABONBA_PTR_FROM_JSON(start, start_);
         DARABONBA_PTR_FROM_JSON(timeUnit, timeUnit_);
         DARABONBA_PTR_FROM_JSON(window, window_);
@@ -169,7 +173,7 @@ namespace Models
 
       virtual bool empty() const override { return this->apmAlertMetricId_ == nullptr
         && this->apmFilters_ == nullptr && this->apmGroupBy_ == nullptr && this->duration_ == nullptr && this->end_ == nullptr && this->expr_ == nullptr
-        && this->start_ == nullptr && this->timeUnit_ == nullptr && this->window_ == nullptr; };
+        && this->name_ == nullptr && this->promQl_ == nullptr && this->start_ == nullptr && this->timeUnit_ == nullptr && this->window_ == nullptr; };
       // apmAlertMetricId Field Functions 
       bool hasApmAlertMetricId() const { return this->apmAlertMetricId_ != nullptr;};
       void deleteApmAlertMetricId() { this->apmAlertMetricId_ = nullptr;};
@@ -216,6 +220,20 @@ namespace Models
       inline Queries& setExpr(string expr) { DARABONBA_PTR_SET_VALUE(expr_, expr) };
 
 
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Queries& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // promQl Field Functions 
+      bool hasPromQl() const { return this->promQl_ != nullptr;};
+      void deletePromQl() { this->promQl_ = nullptr;};
+      inline string getPromQl() const { DARABONBA_PTR_GET_DEFAULT(promQl_, "") };
+      inline Queries& setPromQl(string promQl) { DARABONBA_PTR_SET_VALUE(promQl_, promQl) };
+
+
       // start Field Functions 
       bool hasStart() const { return this->start_ != nullptr;};
       void deleteStart() { this->start_ = nullptr;};
@@ -260,6 +278,8 @@ namespace Models
       // - For APM_MULTI_QUERY, this field is optional and contains the PromQL generated for predefined metrics (used for data preview).
       // - For SLS_MULTI_QUERY, this field contains the SQL query statement.
       shared_ptr<string> expr_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> promQl_ {};
       // Applicable query type: SLS_MULTI_QUERY.
       // SLS query time offset start time (relative).
       // If start and end are specified, do not specify window. For example: start=15, timeUnit=minute, which means 15 minutes ago.

@@ -5012,8 +5012,16 @@ ListPrometheusViewsResponse Client::listPrometheusViews(const ListPrometheusView
 ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstancesWithOptions(const ListPrometheusVirtualInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
   if (!!request.hasNamespace()) {
     query["namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTenantId()) {

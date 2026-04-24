@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, AlertRuleDataSource& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
     AlertRuleDataSource() = default ;
@@ -110,7 +112,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->appType_ == nullptr
-        && this->dsList_ == nullptr && this->instanceId_ == nullptr && this->namespace_ == nullptr && this->regionId_ == nullptr && this->type_ == nullptr; };
+        && this->dsList_ == nullptr && this->instanceId_ == nullptr && this->namespace_ == nullptr && this->regionId_ == nullptr && this->tenantId_ == nullptr
+        && this->type_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
@@ -148,6 +151,13 @@ namespace Models
     inline AlertRuleDataSource& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline AlertRuleDataSource& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -173,6 +183,7 @@ namespace Models
     // Applicable data source types: APM_DS, PROMETHEUS_DS.
     // The regionId to which the data source belongs.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> tenantId_ {};
     // Data source type.
     // Valid values:
     // - PROMETHEUS_DS: Prometheus data source.
