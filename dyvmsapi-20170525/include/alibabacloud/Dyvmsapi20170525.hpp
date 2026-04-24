@@ -159,6 +159,23 @@ namespace Dyvmsapi20170525
       Models::ChangeMediaTypeResponse changeMediaType(const Models::ChangeMediaTypeRequest &request);
 
       /**
+       * @summary 座席新增
+       *
+       * @param request CloudCreateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudCreateAgentResponse
+       */
+      Models::CloudCreateAgentResponse cloudCreateAgentWithOptions(const Models::CloudCreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席新增
+       *
+       * @param request CloudCreateAgentRequest
+       * @return CloudCreateAgentResponse
+       */
+      Models::CloudCreateAgentResponse cloudCreateAgent(const Models::CloudCreateAgentRequest &request);
+
+      /**
        * @summary 新增任务
        *
        * @param request CloudCreateTaskRequest

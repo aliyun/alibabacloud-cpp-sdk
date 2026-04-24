@@ -20,6 +20,9 @@
 #include <alibabacloud/models/ChangeMediaTypeRequest.hpp>
 #include <alibabacloud/models/ChangeMediaTypeResponseBody.hpp>
 #include <alibabacloud/models/ChangeMediaTypeResponse.hpp>
+#include <alibabacloud/models/CloudCreateAgentRequest.hpp>
+#include <alibabacloud/models/CloudCreateAgentResponseBody.hpp>
+#include <alibabacloud/models/CloudCreateAgentResponse.hpp>
 #include <alibabacloud/models/CloudCreateTaskRequest.hpp>
 #include <alibabacloud/models/CloudCreateTaskResponseBody.hpp>
 #include <alibabacloud/models/CloudCreateTaskResponse.hpp>

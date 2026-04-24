@@ -464,6 +464,144 @@ ChangeMediaTypeResponse Client::changeMediaType(const ChangeMediaTypeRequest &re
 }
 
 /**
+ * @summary 座席新增
+ *
+ * @param request CloudCreateAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudCreateAgentResponse
+ */
+CloudCreateAgentResponse Client::cloudCreateAgentWithOptions(const CloudCreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasCallPower()) {
+    query["CallPower"] = request.getCallPower();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIbRecord()) {
+    query["IbRecord"] = request.getIbRecord();
+  }
+
+  if (!!request.hasIsAsr()) {
+    query["IsAsr"] = request.getIsAsr();
+  }
+
+  if (!!request.hasIsOb()) {
+    query["IsOb"] = request.getIsOb();
+  }
+
+  if (!!request.hasIsObRemember()) {
+    query["IsObRemember"] = request.getIsObRemember();
+  }
+
+  if (!!request.hasIsQualityCheck()) {
+    query["IsQualityCheck"] = request.getIsQualityCheck();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasObClid()) {
+    query["ObClid"] = request.getObClid();
+  }
+
+  if (!!request.hasObClidProperty()) {
+    query["ObClidProperty"] = request.getObClidProperty();
+  }
+
+  if (!!request.hasObClidType()) {
+    query["ObClidType"] = request.getObClidType();
+  }
+
+  if (!!request.hasObRecord()) {
+    query["ObRecord"] = request.getObRecord();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPermitObPreviewTime()) {
+    query["PermitObPreviewTime"] = request.getPermitObPreviewTime();
+  }
+
+  if (!!request.hasPower()) {
+    query["Power"] = request.getPower();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSkillIds()) {
+    query["SkillIds"] = request.getSkillIds();
+  }
+
+  if (!!request.hasSkillLevels()) {
+    query["SkillLevels"] = request.getSkillLevels();
+  }
+
+  if (!!request.hasWebrtcUrlType()) {
+    query["WebrtcUrlType"] = request.getWebrtcUrlType();
+  }
+
+  if (!!request.hasWrapup()) {
+    query["Wrapup"] = request.getWrapup();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudCreateAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudCreateAgentResponse>();
+}
+
+/**
+ * @summary 座席新增
+ *
+ * @param request CloudCreateAgentRequest
+ * @return CloudCreateAgentResponse
+ */
+CloudCreateAgentResponse Client::cloudCreateAgent(const CloudCreateAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudCreateAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary 新增任务
  *
  * @param request CloudCreateTaskRequest
