@@ -868,6 +868,52 @@ ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJob(const ResumeYike
 }
 
 /**
+ * @summary 配置一刻事件回调
+ *
+ * @param request SetYikeCallbackConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetYikeCallbackConfigResponse
+ */
+SetYikeCallbackConfigResponse Client::setYikeCallbackConfigWithOptions(const SetYikeCallbackConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallbackConfig()) {
+    query["CallbackConfig"] = request.getCallbackConfig();
+  }
+
+  if (!!request.hasCallbackUrl()) {
+    query["CallbackUrl"] = request.getCallbackUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetYikeCallbackConfig"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetYikeCallbackConfigResponse>();
+}
+
+/**
+ * @summary 配置一刻事件回调
+ *
+ * @param request SetYikeCallbackConfigRequest
+ * @return SetYikeCallbackConfigResponse
+ */
+SetYikeCallbackConfigResponse Client::setYikeCallbackConfig(const SetYikeCallbackConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setYikeCallbackConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 设置用户角色
  *
  * @param request SetYikeUserRoleRequest

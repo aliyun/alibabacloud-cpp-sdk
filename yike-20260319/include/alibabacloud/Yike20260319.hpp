@@ -327,6 +327,23 @@ namespace Yike20260319
       Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJob(const Models::ResumeYikeStoryboardJobRequest &request);
 
       /**
+       * @summary 配置一刻事件回调
+       *
+       * @param request SetYikeCallbackConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetYikeCallbackConfigResponse
+       */
+      Models::SetYikeCallbackConfigResponse setYikeCallbackConfigWithOptions(const Models::SetYikeCallbackConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置一刻事件回调
+       *
+       * @param request SetYikeCallbackConfigRequest
+       * @return SetYikeCallbackConfigResponse
+       */
+      Models::SetYikeCallbackConfigResponse setYikeCallbackConfig(const Models::SetYikeCallbackConfigRequest &request);
+
+      /**
        * @summary 设置用户角色
        *
        * @param request SetYikeUserRoleRequest

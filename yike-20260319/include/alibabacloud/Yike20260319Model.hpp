@@ -56,6 +56,9 @@
 #include <alibabacloud/models/ResumeYikeStoryboardJobRequest.hpp>
 #include <alibabacloud/models/ResumeYikeStoryboardJobResponseBody.hpp>
 #include <alibabacloud/models/ResumeYikeStoryboardJobResponse.hpp>
+#include <alibabacloud/models/SetYikeCallbackConfigRequest.hpp>
+#include <alibabacloud/models/SetYikeCallbackConfigResponseBody.hpp>
+#include <alibabacloud/models/SetYikeCallbackConfigResponse.hpp>
 #include <alibabacloud/models/SetYikeUserRoleRequest.hpp>
 #include <alibabacloud/models/SetYikeUserRoleResponseBody.hpp>
 #include <alibabacloud/models/SetYikeUserRoleResponse.hpp>
