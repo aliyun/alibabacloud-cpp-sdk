@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(ServiceCount, serviceCount_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(UsageMode, usageMode_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(ServiceCount, serviceCount_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(UsageMode, usageMode_);
@@ -80,8 +82,8 @@ namespace Models
         && this->cpuCount_ == nullptr && this->cpuUsed_ == nullptr && this->createTime_ == nullptr && this->extraData_ == nullptr && this->features_ == nullptr
         && this->gpuCount_ == nullptr && this->gpuUsed_ == nullptr && this->instanceCount_ == nullptr && this->instanceMaxAllocatableCPU_ == nullptr && this->instanceMaxAllocatableGPU_ == nullptr
         && this->instanceMaxAllocatableMemory_ == nullptr && this->memory_ == nullptr && this->memoryUsed_ == nullptr && this->message_ == nullptr && this->postPaidInstanceCount_ == nullptr
-        && this->prePaidInstanceCount_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->updateTime_ == nullptr && this->usageMode_ == nullptr && this->vendor_ == nullptr; };
+        && this->prePaidInstanceCount_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr && this->serviceCount_ == nullptr
+        && this->status_ == nullptr && this->updateTime_ == nullptr && this->usageMode_ == nullptr && this->vendor_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -226,6 +228,13 @@ namespace Models
     inline Resource& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
+    // serviceCount Field Functions 
+    bool hasServiceCount() const { return this->serviceCount_ != nullptr;};
+    void deleteServiceCount() { this->serviceCount_ = nullptr;};
+    inline int32_t getServiceCount() const { DARABONBA_PTR_GET_DEFAULT(serviceCount_, 0) };
+    inline Resource& setServiceCount(int32_t serviceCount) { DARABONBA_PTR_SET_VALUE(serviceCount_, serviceCount) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -290,6 +299,7 @@ namespace Models
     // *   Dedicated: the dedicated resource group.
     // *   SelfManaged: the self-managed resource group.
     shared_ptr<string> resourceType_ {};
+    shared_ptr<int32_t> serviceCount_ {};
     // The status of the resource group.
     shared_ptr<string> status_ {};
     // The time when the instance was last updated.

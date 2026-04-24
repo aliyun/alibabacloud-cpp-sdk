@@ -1,3 +1,7 @@
+2026-04-24 Version: 7.6.4
+- Update API DescribeResource: add response parameters Body.ServiceCount.
+
+
 2026-04-14 Version: 7.6.3
 - Generated cpp 2021-07-01 for eas.
 
