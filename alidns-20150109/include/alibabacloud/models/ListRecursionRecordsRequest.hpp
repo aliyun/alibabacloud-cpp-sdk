@@ -153,6 +153,7 @@ namespace Models
     shared_ptr<int32_t> ttl_ {};
     shared_ptr<string> type_ {};
     shared_ptr<int32_t> weight_ {};
+    // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -131,6 +131,8 @@ namespace Models
     shared_ptr<string> value_ {};
     shared_ptr<int32_t> weight_ {};
     // Zone ID。
+    // 
+    // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };
 

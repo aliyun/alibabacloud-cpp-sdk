@@ -89,6 +89,7 @@ namespace Models
     shared_ptr<string> requestSource_ {};
     shared_ptr<string> rr_ {};
     shared_ptr<string> type_ {};
+    // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };
 

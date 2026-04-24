@@ -49,6 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> clientToken_ {};
+    // This parameter is required.
     shared_ptr<string> recordId_ {};
   };
 

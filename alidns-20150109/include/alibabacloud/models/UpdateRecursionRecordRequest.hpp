@@ -114,6 +114,7 @@ namespace Models
   protected:
     shared_ptr<string> clientToken_ {};
     shared_ptr<int32_t> priority_ {};
+    // This parameter is required.
     shared_ptr<string> recordId_ {};
     shared_ptr<string> requestSource_ {};
     shared_ptr<string> rr_ {};

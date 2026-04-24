@@ -59,6 +59,7 @@ namespace Models
   protected:
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> effectiveScopesShrink_ {};
+    // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };
 

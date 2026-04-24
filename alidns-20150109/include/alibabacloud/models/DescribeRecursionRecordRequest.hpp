@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // This parameter is required.
     shared_ptr<string> recordId_ {};
   };
 
