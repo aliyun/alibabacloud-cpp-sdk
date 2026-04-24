@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CONVERTFLOWDSLDATA_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/EnvironmentConfiguration.hpp>
-#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -353,7 +352,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Issues& obj) { 
           DARABONBA_PTR_TO_JSON(description, description_);
-          DARABONBA_PTR_TO_JSON(details, details_);
+          DARABONBA_ANY_TO_JSON(details, details_);
           DARABONBA_PTR_TO_JSON(issueType, issueType_);
           DARABONBA_PTR_TO_JSON(level, level_);
           DARABONBA_PTR_TO_JSON(nodeId, nodeId_);
@@ -363,7 +362,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, Issues& obj) { 
           DARABONBA_PTR_FROM_JSON(description, description_);
-          DARABONBA_PTR_FROM_JSON(details, details_);
+          DARABONBA_ANY_FROM_JSON(details, details_);
           DARABONBA_PTR_FROM_JSON(issueType, issueType_);
           DARABONBA_PTR_FROM_JSON(level, level_);
           DARABONBA_PTR_FROM_JSON(nodeId, nodeId_);
@@ -395,10 +394,10 @@ namespace Models
         // details Field Functions 
         bool hasDetails() const { return this->details_ != nullptr;};
         void deleteDetails() { this->details_ = nullptr;};
-        inline const map<string, string> & getDetails() const { DARABONBA_PTR_GET_CONST(details_, map<string, string>) };
-        inline map<string, string> getDetails() { DARABONBA_PTR_GET(details_, map<string, string>) };
-        inline Issues& setDetails(const map<string, string> & details) { DARABONBA_PTR_SET_VALUE(details_, details) };
-        inline Issues& setDetails(map<string, string> && details) { DARABONBA_PTR_SET_RVALUE(details_, details) };
+        inline         const Darabonba::Json & getDetails() const { DARABONBA_GET(details_) };
+        Darabonba::Json & getDetails() { DARABONBA_GET(details_) };
+        inline Issues& setDetails(const Darabonba::Json & details) { DARABONBA_SET_VALUE(details_, details) };
+        inline Issues& setDetails(Darabonba::Json && details) { DARABONBA_SET_RVALUE(details_, details) };
 
 
         // issueType Field Functions 
@@ -449,7 +448,7 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> description_ {};
         // 问题的详细信息（JSON对象）
-        shared_ptr<map<string, string>> details_ {};
+        Darabonba::Json details_ {};
         // 问题类型：needs_config, needs_conversion, unsupported
         // 
         // This parameter is required.

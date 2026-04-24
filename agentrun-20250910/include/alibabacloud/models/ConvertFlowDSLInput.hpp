@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CONVERTFLOWDSLINPUT_HPP_
 #define ALIBABACLOUD_MODELS_CONVERTFLOWDSLINPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,12 +39,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
         DARABONBA_PTR_TO_JSON(flowName, flowName_);
         DARABONBA_PTR_TO_JSON(vpcEndpointName, vpcEndpointName_);
+        DARABONBA_PTR_TO_JSON(vpcEndpoints, vpcEndpoints_);
       };
       friend void from_json(const Darabonba::Json& j, Options& obj) { 
         DARABONBA_PTR_FROM_JSON(compatibilityCheck, compatibilityCheck_);
         DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
         DARABONBA_PTR_FROM_JSON(flowName, flowName_);
         DARABONBA_PTR_FROM_JSON(vpcEndpointName, vpcEndpointName_);
+        DARABONBA_PTR_FROM_JSON(vpcEndpoints, vpcEndpoints_);
       };
       Options() = default ;
       Options(const Options &) = default ;
@@ -57,7 +60,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->compatibilityCheck_ == nullptr
-        && this->credentialName_ == nullptr && this->flowName_ == nullptr && this->vpcEndpointName_ == nullptr; };
+        && this->credentialName_ == nullptr && this->flowName_ == nullptr && this->vpcEndpointName_ == nullptr && this->vpcEndpoints_ == nullptr; };
       // compatibilityCheck Field Functions 
       bool hasCompatibilityCheck() const { return this->compatibilityCheck_ != nullptr;};
       void deleteCompatibilityCheck() { this->compatibilityCheck_ = nullptr;};
@@ -86,12 +89,24 @@ namespace Models
       inline Options& setVpcEndpointName(string vpcEndpointName) { DARABONBA_PTR_SET_VALUE(vpcEndpointName_, vpcEndpointName) };
 
 
+      // vpcEndpoints Field Functions 
+      bool hasVpcEndpoints() const { return this->vpcEndpoints_ != nullptr;};
+      void deleteVpcEndpoints() { this->vpcEndpoints_ = nullptr;};
+      inline const map<string, string> & getVpcEndpoints() const { DARABONBA_PTR_GET_CONST(vpcEndpoints_, map<string, string>) };
+      inline map<string, string> getVpcEndpoints() { DARABONBA_PTR_GET(vpcEndpoints_, map<string, string>) };
+      inline Options& setVpcEndpoints(const map<string, string> & vpcEndpoints) { DARABONBA_PTR_SET_VALUE(vpcEndpoints_, vpcEndpoints) };
+      inline Options& setVpcEndpoints(map<string, string> && vpcEndpoints) { DARABONBA_PTR_SET_RVALUE(vpcEndpoints_, vpcEndpoints) };
+
+
     protected:
       // 是否执行兼容性检查，默认为true
       shared_ptr<bool> compatibilityCheck_ {};
       shared_ptr<string> credentialName_ {};
       shared_ptr<string> flowName_ {};
+      // 全局VPC端点名称，对所有节点统一生效。如果指定了vpcEndpoints映射，则映射中的节点优先使用映射值
       shared_ptr<string> vpcEndpointName_ {};
+      // 按节点名称指定VPC端点，key为节点名称(stateName)，value为该节点使用的VPC端点名称。优先级高于vpcEndpointName
+      shared_ptr<map<string, string>> vpcEndpoints_ {};
     };
 
     class DslSource : public Darabonba::Model {
