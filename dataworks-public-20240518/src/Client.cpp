@@ -203,6 +203,52 @@ AddEntityIntoMetaCollectionResponse Client::addEntityIntoMetaCollection(const Ad
 }
 
 /**
+ * @summary Adds a custom image to a workspace.
+ *
+ * @param request AssociateProjectToImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssociateProjectToImageResponse
+ */
+AssociateProjectToImageResponse Client::associateProjectToImageWithOptions(const AssociateProjectToImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AssociateProjectToImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssociateProjectToImageResponse>();
+}
+
+/**
+ * @summary Adds a custom image to a workspace.
+ *
+ * @param request AssociateProjectToImageRequest
+ * @return AssociateProjectToImageResponse
+ */
+AssociateProjectToImageResponse Client::associateProjectToImage(const AssociateProjectToImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return associateProjectToImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Associates a resource group with a workspace.
  *
  * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -373,7 +419,7 @@ BatchUpdateTasksResponse Client::batchUpdateTasks(const BatchUpdateTasksRequest 
 }
 
 /**
- * @summary 取消并停止Agent当前正在进行中的Session会话
+ * @summary Interrupts an agent call for a specified session. Streaming response interruption is supported.
  *
  * @param tmpReq CancelAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -418,7 +464,7 @@ CancelAgentSessionResponse Client::cancelAgentSessionWithOptions(const CancelAge
 }
 
 /**
- * @summary 取消并停止Agent当前正在进行中的Session会话
+ * @summary Interrupts an agent call for a specified session. Streaming response interruption is supported.
  *
  * @param request CancelAgentSessionRequest
  * @return CancelAgentSessionResponse
@@ -483,7 +529,7 @@ CloneDataSourceResponse Client::cloneDataSource(const CloneDataSourceRequest &re
 }
 
 /**
- * @summary 创建一个Agent Session会话
+ * @summary Creates a new Agent session and returns the session ID.
  *
  * @param tmpReq CreateAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -528,7 +574,7 @@ CreateAgentSessionResponse Client::createAgentSessionWithOptions(const CreateAge
 }
 
 /**
- * @summary 创建一个Agent Session会话
+ * @summary Creates a new Agent session and returns the session ID.
  *
  * @param request CreateAgentSessionRequest
  * @return CreateAgentSessionResponse
@@ -5229,6 +5275,52 @@ DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesF
 }
 
 /**
+ * @summary Disassociates an image from a workspace.
+ *
+ * @param request DissociateProjectFromImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DissociateProjectFromImageResponse
+ */
+DissociateProjectFromImageResponse Client::dissociateProjectFromImageWithOptions(const DissociateProjectFromImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DissociateProjectFromImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DissociateProjectFromImageResponse>();
+}
+
+/**
+ * @summary Disassociates an image from a workspace.
+ *
+ * @param request DissociateProjectFromImageRequest
+ * @return DissociateProjectFromImageResponse
+ */
+DissociateProjectFromImageResponse Client::dissociateProjectFromImage(const DissociateProjectFromImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dissociateProjectFromImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Disassociates a resource group from a workspace.
  *
  * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -5471,7 +5563,7 @@ ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstance(const 
 }
 
 /**
- * @summary 获取Agent指定Session下的模型产出物详情
+ * @summary Obtains the metadata and body content of an Artifact based on the session ID and file path.
  *
  * @param tmpReq GetAgentSessionArtifactMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5516,7 +5608,7 @@ GetAgentSessionArtifactMetaResponse Client::getAgentSessionArtifactMetaWithOptio
 }
 
 /**
- * @summary 获取Agent指定Session下的模型产出物详情
+ * @summary Obtains the metadata and body content of an Artifact based on the session ID and file path.
  *
  * @param request GetAgentSessionArtifactMetaRequest
  * @return GetAgentSessionArtifactMetaResponse
@@ -5527,7 +5619,7 @@ GetAgentSessionArtifactMetaResponse Client::getAgentSessionArtifactMeta(const Ge
 }
 
 /**
- * @summary 获取Agent指定Session下的Token用量
+ * @summary Queries the cumulative AI token usage of a session aggregated by session ID.
  *
  * @param tmpReq GetAgentSessionTokenUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5572,7 +5664,7 @@ GetAgentSessionTokenUsageResponse Client::getAgentSessionTokenUsageWithOptions(c
 }
 
 /**
- * @summary 获取Agent指定Session下的Token用量
+ * @summary Queries the cumulative AI token usage of a session aggregated by session ID.
  *
  * @param request GetAgentSessionTokenUsageRequest
  * @return GetAgentSessionTokenUsageResponse
@@ -6887,6 +6979,52 @@ GetIDEEventDetailResponse Client::getIDEEventDetail(const GetIDEEventDetailReque
 }
 
 /**
+ * @summary Obtains the details of a specified image by image ID.
+ *
+ * @param request GetImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetImageResponse
+ */
+GetImageResponse Client::getImageWithOptions(const GetImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasImageVersion()) {
+    query["ImageVersion"] = request.getImageVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetImage"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetImageResponse>();
+}
+
+/**
+ * @summary Obtains the details of a specified image by image ID.
+ *
+ * @param request GetImageRequest
+ * @return GetImageResponse
+ */
+GetImageResponse Client::getImage(const GetImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
  *
  * @param request GetJobStatusRequest
@@ -8091,7 +8229,7 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinition(const ImportWo
 }
 
 /**
- * @summary 获取Agent指定Session下的模型产出物清单列表
+ * @summary Queries the Artifact files that are produced by a specified session.
  *
  * @param tmpReq ListAgentSessionArtifactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8136,7 +8274,7 @@ ListAgentSessionArtifactsResponse Client::listAgentSessionArtifactsWithOptions(c
 }
 
 /**
- * @summary 获取Agent指定Session下的模型产出物清单列表
+ * @summary Queries the Artifact files that are produced by a specified session.
  *
  * @param request ListAgentSessionArtifactsRequest
  * @return ListAgentSessionArtifactsResponse
@@ -8147,7 +8285,7 @@ ListAgentSessionArtifactsResponse Client::listAgentSessionArtifacts(const ListAg
 }
 
 /**
- * @summary 加载Agent Session对话历史列表
+ * @summary Loads the conversation history list of an Agent Session.
  *
  * @param tmpReq ListAgentSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8192,7 +8330,7 @@ ListAgentSessionsResponse Client::listAgentSessionsWithOptions(const ListAgentSe
 }
 
 /**
- * @summary 加载Agent Session对话历史列表
+ * @summary Loads the conversation history list of an Agent Session.
  *
  * @param request ListAgentSessionsRequest
  * @return ListAgentSessionsResponse
@@ -8203,7 +8341,7 @@ ListAgentSessionsResponse Client::listAgentSessions(const ListAgentSessionsReque
 }
 
 /**
- * @summary 获取DataAgent的Agent定义列表
+ * @summary Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
  *
  * @param tmpReq ListAgentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8248,7 +8386,7 @@ ListAgentsResponse Client::listAgentsWithOptions(const ListAgentsRequest &tmpReq
 }
 
 /**
- * @summary 获取DataAgent的Agent定义列表
+ * @summary Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
  *
  * @param request ListAgentsRequest
  * @return ListAgentsResponse
@@ -10321,6 +10459,214 @@ ListFunctionsResponse Client::listFunctions(const ListFunctionsRequest &request)
 }
 
 /**
+ * @summary Queries the workspaces associated with an image.
+ *
+ * @param request ListImageAssociatedProjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListImageAssociatedProjectsResponse
+ */
+ListImageAssociatedProjectsResponse Client::listImageAssociatedProjectsWithOptions(const ListImageAssociatedProjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListImageAssociatedProjects"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListImageAssociatedProjectsResponse>();
+}
+
+/**
+ * @summary Queries the workspaces associated with an image.
+ *
+ * @param request ListImageAssociatedProjectsRequest
+ * @return ListImageAssociatedProjectsResponse
+ */
+ListImageAssociatedProjectsResponse Client::listImageAssociatedProjects(const ListImageAssociatedProjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listImageAssociatedProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a specified image version.
+ *
+ * @param request ListImageVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListImageVersionsResponse
+ */
+ListImageVersionsResponse Client::listImageVersionsWithOptions(const ListImageVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListImageVersions"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListImageVersionsResponse>();
+}
+
+/**
+ * @summary Queries the details of a specified image version.
+ *
+ * @param request ListImageVersionsRequest
+ * @return ListImageVersionsResponse
+ */
+ListImageVersionsResponse Client::listImageVersions(const ListImageVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listImageVersionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of images.
+ *
+ * @param tmpReq ListImagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListImagesResponse
+ */
+ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListImagesShrinkRequest request = ListImagesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProjectIds()) {
+    request.setProjectIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProjectIds(), "ProjectIds", "json"));
+  }
+
+  if (!!tmpReq.hasProviderTypes()) {
+    request.setProviderTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProviderTypes(), "ProviderTypes", "json"));
+  }
+
+  if (!!tmpReq.hasStages()) {
+    request.setStagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStages(), "Stages", "json"));
+  }
+
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
+  }
+
+  if (!!tmpReq.hasSupportedModules()) {
+    request.setSupportedModulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSupportedModules(), "SupportedModules", "json"));
+  }
+
+  if (!!tmpReq.hasSupportedTaskTypes()) {
+    request.setSupportedTaskTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSupportedTaskTypes(), "SupportedTaskTypes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAccessibility()) {
+    query["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOfficial()) {
+    query["Official"] = request.getOfficial();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectIdsShrink()) {
+    query["ProjectIds"] = request.getProjectIdsShrink();
+  }
+
+  if (!!request.hasProviderTypesShrink()) {
+    query["ProviderTypes"] = request.getProviderTypesShrink();
+  }
+
+  if (!!request.hasSearchAll()) {
+    query["SearchAll"] = request.getSearchAll();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasStagesShrink()) {
+    query["Stages"] = request.getStagesShrink();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    query["Statuses"] = request.getStatusesShrink();
+  }
+
+  if (!!request.hasSupportedModulesShrink()) {
+    query["SupportedModules"] = request.getSupportedModulesShrink();
+  }
+
+  if (!!request.hasSupportedTaskTypesShrink()) {
+    query["SupportedTaskTypes"] = request.getSupportedTaskTypesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListImages"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListImagesResponse>();
+}
+
+/**
+ * @summary Queries a list of images.
+ *
+ * @param request ListImagesRequest
+ * @return ListImagesResponse
+ */
+ListImagesResponse Client::listImages(const ListImagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listImagesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
  *
  * @param request ListLineageRelationshipsRequest
@@ -12017,7 +12363,7 @@ ListWorkflowsResponse Client::listWorkflows(const ListWorkflowsRequest &request)
 }
 
 /**
- * @summary 加载Agent Session对话历史
+ * @summary Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
  *
  * @param tmpReq LoadAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12076,7 +12422,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 加载Agent Session对话历史
+ * @summary Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
  *
  * @param tmpReq LoadAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12121,7 +12467,7 @@ LoadAgentSessionResponse Client::loadAgentSessionWithOptions(const LoadAgentSess
 }
 
 /**
- * @summary 加载Agent Session对话历史
+ * @summary Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
  *
  * @param request LoadAgentSessionRequest
  * @return LoadAgentSessionResponse
@@ -12374,7 +12720,7 @@ PreviewDatasetVersionResponse Client::previewDatasetVersion(const PreviewDataset
 }
 
 /**
- * @summary 在当前的Agent Session中发起一轮新的对话
+ * @summary Sends a user prompt to an existing session and streams back the agent response.
  *
  * @param tmpReq PromptAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12433,7 +12779,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 在当前的Agent Session中发起一轮新的对话
+ * @summary Sends a user prompt to an existing session and streams back the agent response.
  *
  * @param tmpReq PromptAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12478,7 +12824,7 @@ PromptAgentSessionResponse Client::promptAgentSessionWithOptions(const PromptAge
 }
 
 /**
- * @summary 在当前的Agent Session中发起一轮新的对话
+ * @summary Sends a user prompt to an existing session and streams back the agent response.
  *
  * @param request PromptAgentSessionRequest
  * @return PromptAgentSessionResponse

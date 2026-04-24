@@ -60,6 +60,23 @@ namespace DataworksPublic20240518
       Models::AddEntityIntoMetaCollectionResponse addEntityIntoMetaCollection(const Models::AddEntityIntoMetaCollectionRequest &request);
 
       /**
+       * @summary Adds a custom image to a workspace.
+       *
+       * @param request AssociateProjectToImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssociateProjectToImageResponse
+       */
+      Models::AssociateProjectToImageResponse associateProjectToImageWithOptions(const Models::AssociateProjectToImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds a custom image to a workspace.
+       *
+       * @param request AssociateProjectToImageRequest
+       * @return AssociateProjectToImageResponse
+       */
+      Models::AssociateProjectToImageResponse associateProjectToImage(const Models::AssociateProjectToImageRequest &request);
+
+      /**
        * @summary Associates a resource group with a workspace.
        *
        * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -127,7 +144,7 @@ namespace DataworksPublic20240518
       Models::BatchUpdateTasksResponse batchUpdateTasks(const Models::BatchUpdateTasksRequest &request);
 
       /**
-       * @summary 取消并停止Agent当前正在进行中的Session会话
+       * @summary Interrupts an agent call for a specified session. Streaming response interruption is supported.
        *
        * @param tmpReq CancelAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,7 +153,7 @@ namespace DataworksPublic20240518
       Models::CancelAgentSessionResponse cancelAgentSessionWithOptions(const Models::CancelAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消并停止Agent当前正在进行中的Session会话
+       * @summary Interrupts an agent call for a specified session. Streaming response interruption is supported.
        *
        * @param request CancelAgentSessionRequest
        * @return CancelAgentSessionResponse
@@ -169,7 +186,7 @@ namespace DataworksPublic20240518
       Models::CloneDataSourceResponse cloneDataSource(const Models::CloneDataSourceRequest &request);
 
       /**
-       * @summary 创建一个Agent Session会话
+       * @summary Creates a new Agent session and returns the session ID.
        *
        * @param tmpReq CreateAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -178,7 +195,7 @@ namespace DataworksPublic20240518
       Models::CreateAgentSessionResponse createAgentSessionWithOptions(const Models::CreateAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个Agent Session会话
+       * @summary Creates a new Agent session and returns the session ID.
        *
        * @param request CreateAgentSessionRequest
        * @return CreateAgentSessionResponse
@@ -1664,6 +1681,23 @@ namespace DataworksPublic20240518
       Models::DetachDataQualityRulesFromEvaluationTaskResponse detachDataQualityRulesFromEvaluationTask(const Models::DetachDataQualityRulesFromEvaluationTaskRequest &request);
 
       /**
+       * @summary Disassociates an image from a workspace.
+       *
+       * @param request DissociateProjectFromImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DissociateProjectFromImageResponse
+       */
+      Models::DissociateProjectFromImageResponse dissociateProjectFromImageWithOptions(const Models::DissociateProjectFromImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disassociates an image from a workspace.
+       *
+       * @param request DissociateProjectFromImageRequest
+       * @return DissociateProjectFromImageResponse
+       */
+      Models::DissociateProjectFromImageResponse dissociateProjectFromImage(const Models::DissociateProjectFromImageRequest &request);
+
+      /**
        * @summary Disassociates a resource group from a workspace.
        *
        * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -1750,7 +1784,7 @@ namespace DataworksPublic20240518
       Models::ExecuteAdhocWorkflowInstanceResponse executeAdhocWorkflowInstance(const Models::ExecuteAdhocWorkflowInstanceRequest &request);
 
       /**
-       * @summary 获取Agent指定Session下的模型产出物详情
+       * @summary Obtains the metadata and body content of an Artifact based on the session ID and file path.
        *
        * @param tmpReq GetAgentSessionArtifactMetaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1759,7 +1793,7 @@ namespace DataworksPublic20240518
       Models::GetAgentSessionArtifactMetaResponse getAgentSessionArtifactMetaWithOptions(const Models::GetAgentSessionArtifactMetaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Agent指定Session下的模型产出物详情
+       * @summary Obtains the metadata and body content of an Artifact based on the session ID and file path.
        *
        * @param request GetAgentSessionArtifactMetaRequest
        * @return GetAgentSessionArtifactMetaResponse
@@ -1767,7 +1801,7 @@ namespace DataworksPublic20240518
       Models::GetAgentSessionArtifactMetaResponse getAgentSessionArtifactMeta(const Models::GetAgentSessionArtifactMetaRequest &request);
 
       /**
-       * @summary 获取Agent指定Session下的Token用量
+       * @summary Queries the cumulative AI token usage of a session aggregated by session ID.
        *
        * @param tmpReq GetAgentSessionTokenUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1776,7 +1810,7 @@ namespace DataworksPublic20240518
       Models::GetAgentSessionTokenUsageResponse getAgentSessionTokenUsageWithOptions(const Models::GetAgentSessionTokenUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Agent指定Session下的Token用量
+       * @summary Queries the cumulative AI token usage of a session aggregated by session ID.
        *
        * @param request GetAgentSessionTokenUsageRequest
        * @return GetAgentSessionTokenUsageResponse
@@ -2351,6 +2385,23 @@ namespace DataworksPublic20240518
       Models::GetIDEEventDetailResponse getIDEEventDetail(const Models::GetIDEEventDetailRequest &request);
 
       /**
+       * @summary Obtains the details of a specified image by image ID.
+       *
+       * @param request GetImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetImageResponse
+       */
+      Models::GetImageResponse getImageWithOptions(const Models::GetImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtains the details of a specified image by image ID.
+       *
+       * @param request GetImageRequest
+       * @return GetImageResponse
+       */
+      Models::GetImageResponse getImage(const Models::GetImageRequest &request);
+
+      /**
        * @summary Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
        *
        * @param request GetJobStatusRequest
@@ -2859,7 +2910,7 @@ namespace DataworksPublic20240518
       Models::ImportWorkflowDefinitionResponse importWorkflowDefinition(const Models::ImportWorkflowDefinitionRequest &request);
 
       /**
-       * @summary 获取Agent指定Session下的模型产出物清单列表
+       * @summary Queries the Artifact files that are produced by a specified session.
        *
        * @param tmpReq ListAgentSessionArtifactsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2868,7 +2919,7 @@ namespace DataworksPublic20240518
       Models::ListAgentSessionArtifactsResponse listAgentSessionArtifactsWithOptions(const Models::ListAgentSessionArtifactsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Agent指定Session下的模型产出物清单列表
+       * @summary Queries the Artifact files that are produced by a specified session.
        *
        * @param request ListAgentSessionArtifactsRequest
        * @return ListAgentSessionArtifactsResponse
@@ -2876,7 +2927,7 @@ namespace DataworksPublic20240518
       Models::ListAgentSessionArtifactsResponse listAgentSessionArtifacts(const Models::ListAgentSessionArtifactsRequest &request);
 
       /**
-       * @summary 加载Agent Session对话历史列表
+       * @summary Loads the conversation history list of an Agent Session.
        *
        * @param tmpReq ListAgentSessionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2885,7 +2936,7 @@ namespace DataworksPublic20240518
       Models::ListAgentSessionsResponse listAgentSessionsWithOptions(const Models::ListAgentSessionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 加载Agent Session对话历史列表
+       * @summary Loads the conversation history list of an Agent Session.
        *
        * @param request ListAgentSessionsRequest
        * @return ListAgentSessionsResponse
@@ -2893,7 +2944,7 @@ namespace DataworksPublic20240518
       Models::ListAgentSessionsResponse listAgentSessions(const Models::ListAgentSessionsRequest &request);
 
       /**
-       * @summary 获取DataAgent的Agent定义列表
+       * @summary Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
        *
        * @param tmpReq ListAgentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2902,7 +2953,7 @@ namespace DataworksPublic20240518
       Models::ListAgentsResponse listAgentsWithOptions(const Models::ListAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取DataAgent的Agent定义列表
+       * @summary Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
        *
        * @param request ListAgentsRequest
        * @return ListAgentsResponse
@@ -3660,6 +3711,57 @@ namespace DataworksPublic20240518
       Models::ListFunctionsResponse listFunctions(const Models::ListFunctionsRequest &request);
 
       /**
+       * @summary Queries the workspaces associated with an image.
+       *
+       * @param request ListImageAssociatedProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListImageAssociatedProjectsResponse
+       */
+      Models::ListImageAssociatedProjectsResponse listImageAssociatedProjectsWithOptions(const Models::ListImageAssociatedProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the workspaces associated with an image.
+       *
+       * @param request ListImageAssociatedProjectsRequest
+       * @return ListImageAssociatedProjectsResponse
+       */
+      Models::ListImageAssociatedProjectsResponse listImageAssociatedProjects(const Models::ListImageAssociatedProjectsRequest &request);
+
+      /**
+       * @summary Queries the details of a specified image version.
+       *
+       * @param request ListImageVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListImageVersionsResponse
+       */
+      Models::ListImageVersionsResponse listImageVersionsWithOptions(const Models::ListImageVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a specified image version.
+       *
+       * @param request ListImageVersionsRequest
+       * @return ListImageVersionsResponse
+       */
+      Models::ListImageVersionsResponse listImageVersions(const Models::ListImageVersionsRequest &request);
+
+      /**
+       * @summary Queries a list of images.
+       *
+       * @param tmpReq ListImagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListImagesResponse
+       */
+      Models::ListImagesResponse listImagesWithOptions(const Models::ListImagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of images.
+       *
+       * @param request ListImagesRequest
+       * @return ListImagesResponse
+       */
+      Models::ListImagesResponse listImages(const Models::ListImagesRequest &request);
+
+      /**
        * @summary Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
        *
        * @param request ListLineageRelationshipsRequest
@@ -4220,7 +4322,7 @@ namespace DataworksPublic20240518
       Models::ListWorkflowsResponse listWorkflows(const Models::ListWorkflowsRequest &request);
 
       /**
-       * @summary 加载Agent Session对话历史
+       * @summary Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
        *
        * @param tmpReq LoadAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4229,7 +4331,7 @@ namespace DataworksPublic20240518
       FutureGenerator<Models::LoadAgentSessionResponse> loadAgentSessionWithSSE(const Models::LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 加载Agent Session对话历史
+       * @summary Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
        *
        * @param tmpReq LoadAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4238,7 +4340,7 @@ namespace DataworksPublic20240518
       Models::LoadAgentSessionResponse loadAgentSessionWithOptions(const Models::LoadAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 加载Agent Session对话历史
+       * @summary Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
        *
        * @param request LoadAgentSessionRequest
        * @return LoadAgentSessionResponse
@@ -4331,7 +4433,7 @@ namespace DataworksPublic20240518
       Models::PreviewDatasetVersionResponse previewDatasetVersion(const Models::PreviewDatasetVersionRequest &request);
 
       /**
-       * @summary 在当前的Agent Session中发起一轮新的对话
+       * @summary Sends a user prompt to an existing session and streams back the agent response.
        *
        * @param tmpReq PromptAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4340,7 +4442,7 @@ namespace DataworksPublic20240518
       FutureGenerator<Models::PromptAgentSessionResponse> promptAgentSessionWithSSE(const Models::PromptAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在当前的Agent Session中发起一轮新的对话
+       * @summary Sends a user prompt to an existing session and streams back the agent response.
        *
        * @param tmpReq PromptAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4349,7 +4451,7 @@ namespace DataworksPublic20240518
       Models::PromptAgentSessionResponse promptAgentSessionWithOptions(const Models::PromptAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在当前的Agent Session中发起一轮新的对话
+       * @summary Sends a user prompt to an existing session and streams back the agent response.
        *
        * @param request PromptAgentSessionRequest
        * @return PromptAgentSessionResponse

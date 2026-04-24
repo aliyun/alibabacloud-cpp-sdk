@@ -28,6 +28,9 @@
 #include <alibabacloud/models/AddEntityIntoMetaCollectionRequest.hpp>
 #include <alibabacloud/models/AddEntityIntoMetaCollectionResponseBody.hpp>
 #include <alibabacloud/models/AddEntityIntoMetaCollectionResponse.hpp>
+#include <alibabacloud/models/AssociateProjectToImageRequest.hpp>
+#include <alibabacloud/models/AssociateProjectToImageResponseBody.hpp>
+#include <alibabacloud/models/AssociateProjectToImageResponse.hpp>
 #include <alibabacloud/models/AssociateProjectToResourceGroupRequest.hpp>
 #include <alibabacloud/models/AssociateProjectToResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/AssociateProjectToResourceGroupResponse.hpp>
@@ -297,6 +300,9 @@
 #include <alibabacloud/models/DetachDataQualityRulesFromEvaluationTaskShrinkRequest.hpp>
 #include <alibabacloud/models/DetachDataQualityRulesFromEvaluationTaskResponseBody.hpp>
 #include <alibabacloud/models/DetachDataQualityRulesFromEvaluationTaskResponse.hpp>
+#include <alibabacloud/models/DissociateProjectFromImageRequest.hpp>
+#include <alibabacloud/models/DissociateProjectFromImageResponseBody.hpp>
+#include <alibabacloud/models/DissociateProjectFromImageResponse.hpp>
 #include <alibabacloud/models/DissociateProjectFromResourceGroupRequest.hpp>
 #include <alibabacloud/models/DissociateProjectFromResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/DissociateProjectFromResourceGroupResponse.hpp>
@@ -405,6 +411,9 @@
 #include <alibabacloud/models/GetIDEEventDetailRequest.hpp>
 #include <alibabacloud/models/GetIDEEventDetailResponseBody.hpp>
 #include <alibabacloud/models/GetIDEEventDetailResponse.hpp>
+#include <alibabacloud/models/GetImageRequest.hpp>
+#include <alibabacloud/models/GetImageResponseBody.hpp>
+#include <alibabacloud/models/GetImageResponse.hpp>
 #include <alibabacloud/models/GetJobStatusRequest.hpp>
 #include <alibabacloud/models/GetJobStatusResponseBody.hpp>
 #include <alibabacloud/models/GetJobStatusResponse.hpp>
@@ -619,6 +628,16 @@
 #include <alibabacloud/models/ListFunctionsRequest.hpp>
 #include <alibabacloud/models/ListFunctionsResponseBody.hpp>
 #include <alibabacloud/models/ListFunctionsResponse.hpp>
+#include <alibabacloud/models/ListImageAssociatedProjectsRequest.hpp>
+#include <alibabacloud/models/ListImageAssociatedProjectsResponseBody.hpp>
+#include <alibabacloud/models/ListImageAssociatedProjectsResponse.hpp>
+#include <alibabacloud/models/ListImageVersionsRequest.hpp>
+#include <alibabacloud/models/ListImageVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListImageVersionsResponse.hpp>
+#include <alibabacloud/models/ListImagesRequest.hpp>
+#include <alibabacloud/models/ListImagesShrinkRequest.hpp>
+#include <alibabacloud/models/ListImagesResponseBody.hpp>
+#include <alibabacloud/models/ListImagesResponse.hpp>
 #include <alibabacloud/models/ListLineageRelationshipsRequest.hpp>
 #include <alibabacloud/models/ListLineageRelationshipsResponseBody.hpp>
 #include <alibabacloud/models/ListLineageRelationshipsResponse.hpp>

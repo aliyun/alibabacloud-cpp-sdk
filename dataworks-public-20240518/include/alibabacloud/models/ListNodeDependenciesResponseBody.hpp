@@ -661,9 +661,11 @@ namespace Models
           public:
             friend void to_json(Darabonba::Json& j, const NodeOutputs& obj) { 
               DARABONBA_PTR_TO_JSON(Data, data_);
+              DARABONBA_PTR_TO_JSON(RefTableName, refTableName_);
             };
             friend void from_json(const Darabonba::Json& j, NodeOutputs& obj) { 
               DARABONBA_PTR_FROM_JSON(Data, data_);
+              DARABONBA_PTR_FROM_JSON(RefTableName, refTableName_);
             };
             NodeOutputs() = default ;
             NodeOutputs(const NodeOutputs &) = default ;
@@ -676,7 +678,8 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->data_ == nullptr; };
+            virtual bool empty() const override { return this->data_ == nullptr
+        && this->refTableName_ == nullptr; };
             // data Field Functions 
             bool hasData() const { return this->data_ != nullptr;};
             void deleteData() { this->data_ = nullptr;};
@@ -684,9 +687,17 @@ namespace Models
             inline NodeOutputs& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
+            // refTableName Field Functions 
+            bool hasRefTableName() const { return this->refTableName_ != nullptr;};
+            void deleteRefTableName() { this->refTableName_ = nullptr;};
+            inline string getRefTableName() const { DARABONBA_PTR_GET_DEFAULT(refTableName_, "") };
+            inline NodeOutputs& setRefTableName(string refTableName) { DARABONBA_PTR_SET_VALUE(refTableName_, refTableName) };
+
+
           protected:
             // The output of the node.
             shared_ptr<string> data_ {};
+            shared_ptr<string> refTableName_ {};
           };
 
           virtual bool empty() const override { return this->nodeOutputs_ == nullptr
@@ -933,9 +944,11 @@ namespace Models
           public:
             friend void to_json(Darabonba::Json& j, const NodeOutputs& obj) { 
               DARABONBA_PTR_TO_JSON(Data, data_);
+              DARABONBA_PTR_TO_JSON(RefTableName, refTableName_);
             };
             friend void from_json(const Darabonba::Json& j, NodeOutputs& obj) { 
               DARABONBA_PTR_FROM_JSON(Data, data_);
+              DARABONBA_PTR_FROM_JSON(RefTableName, refTableName_);
             };
             NodeOutputs() = default ;
             NodeOutputs(const NodeOutputs &) = default ;
@@ -948,7 +961,8 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->data_ == nullptr; };
+            virtual bool empty() const override { return this->data_ == nullptr
+        && this->refTableName_ == nullptr; };
             // data Field Functions 
             bool hasData() const { return this->data_ != nullptr;};
             void deleteData() { this->data_ = nullptr;};
@@ -956,9 +970,17 @@ namespace Models
             inline NodeOutputs& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
+            // refTableName Field Functions 
+            bool hasRefTableName() const { return this->refTableName_ != nullptr;};
+            void deleteRefTableName() { this->refTableName_ = nullptr;};
+            inline string getRefTableName() const { DARABONBA_PTR_GET_DEFAULT(refTableName_, "") };
+            inline NodeOutputs& setRefTableName(string refTableName) { DARABONBA_PTR_SET_VALUE(refTableName_, refTableName) };
+
+
           protected:
             // The output of the node.
             shared_ptr<string> data_ {};
+            shared_ptr<string> refTableName_ {};
           };
 
           virtual bool empty() const override { return this->nodeOutputs_ == nullptr
