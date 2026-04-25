@@ -792,8 +792,8 @@ namespace Models
       // cookiesSync Field Functions 
       bool hasCookiesSync() const { return this->cookiesSync_ != nullptr;};
       void deleteCookiesSync() { this->cookiesSync_ = nullptr;};
-      inline string getCookiesSync() const { DARABONBA_PTR_GET_DEFAULT(cookiesSync_, "") };
-      inline BrowserConfig& setCookiesSync(string cookiesSync) { DARABONBA_PTR_SET_VALUE(cookiesSync_, cookiesSync) };
+      inline bool getCookiesSync() const { DARABONBA_PTR_GET_DEFAULT(cookiesSync_, false) };
+      inline BrowserConfig& setCookiesSync(bool cookiesSync) { DARABONBA_PTR_SET_VALUE(cookiesSync_, cookiesSync) };
 
 
       // homepage Field Functions 
@@ -818,7 +818,7 @@ namespace Models
       shared_ptr<string> bookmarksFilePath_ {};
       // The startup parameter.
       shared_ptr<string> browserParam_ {};
-      shared_ptr<string> cookiesSync_ {};
+      shared_ptr<bool> cookiesSync_ {};
       // The home page.
       shared_ptr<string> homepage_ {};
       // The removed bookmarks.
