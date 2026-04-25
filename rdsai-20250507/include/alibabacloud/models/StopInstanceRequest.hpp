@@ -13,10 +13,12 @@ namespace Models
   class StopInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StopInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Force, force_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, StopInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Force, force_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceName_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->force_ == nullptr
+        && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    // force Field Functions 
+    bool hasForce() const { return this->force_ != nullptr;};
+    void deleteForce() { this->force_ = nullptr;};
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline StopInstanceRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
+
+
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> force_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.

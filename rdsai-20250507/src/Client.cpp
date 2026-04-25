@@ -3395,6 +3395,10 @@ StartInstanceResponse Client::startInstance(const StartInstanceRequest &request)
 StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasForce()) {
+    query["Force"] = request.getForce();
+  }
+
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
   }
