@@ -57,6 +57,9 @@
 #include <alibabacloud/models/DescribeResourceGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeResourceGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceGroupsResponse.hpp>
+#include <alibabacloud/models/DescribeUserRequest.hpp>
+#include <alibabacloud/models/DescribeUserResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserResponse.hpp>
 #include <alibabacloud/models/DescribeUsersRequest.hpp>
 #include <alibabacloud/models/DescribeUsersShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeUsersResponseBody.hpp>

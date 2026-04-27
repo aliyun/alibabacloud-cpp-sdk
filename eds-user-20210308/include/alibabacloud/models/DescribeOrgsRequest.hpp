@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEORGSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEORGSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeOrgsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
+      DARABONBA_PTR_TO_JSON(IncludeOrgIds, includeOrgIds_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OrgName, orgName_);
@@ -22,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeOrgsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
+      DARABONBA_PTR_FROM_JSON(IncludeOrgIds, includeOrgIds_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OrgName, orgName_);
@@ -40,12 +43,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orgName_ == nullptr && this->parentOrgId_ == nullptr && this->showExtras_ == nullptr; };
+        && this->includeOrgIds_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orgName_ == nullptr && this->parentOrgId_ == nullptr
+        && this->showExtras_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
     inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
     inline DescribeOrgsRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
+    // includeOrgIds Field Functions 
+    bool hasIncludeOrgIds() const { return this->includeOrgIds_ != nullptr;};
+    void deleteIncludeOrgIds() { this->includeOrgIds_ = nullptr;};
+    inline const vector<string> & getIncludeOrgIds() const { DARABONBA_PTR_GET_CONST(includeOrgIds_, vector<string>) };
+    inline vector<string> getIncludeOrgIds() { DARABONBA_PTR_GET(includeOrgIds_, vector<string>) };
+    inline DescribeOrgsRequest& setIncludeOrgIds(const vector<string> & includeOrgIds) { DARABONBA_PTR_SET_VALUE(includeOrgIds_, includeOrgIds) };
+    inline DescribeOrgsRequest& setIncludeOrgIds(vector<string> && includeOrgIds) { DARABONBA_PTR_SET_RVALUE(includeOrgIds_, includeOrgIds) };
 
 
     // maxResults Field Functions 
@@ -87,6 +100,7 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
+    shared_ptr<vector<string>> includeOrgIds_ {};
     // The maximum number of entries to return. Valid values: 1 to 100.\\
     // Default value: 100.
     shared_ptr<int64_t> maxResults_ {};

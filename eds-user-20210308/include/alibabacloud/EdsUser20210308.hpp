@@ -330,6 +330,23 @@ namespace EdsUser20210308
       Models::DescribeResourceGroupsResponse describeResourceGroups(const Models::DescribeResourceGroupsRequest &request);
 
       /**
+       * @summary Query basic user information
+       *
+       * @param request DescribeUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserResponse
+       */
+      Models::DescribeUserResponse describeUserWithOptions(const Models::DescribeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query basic user information
+       *
+       * @param request DescribeUserRequest
+       * @return DescribeUserResponse
+       */
+      Models::DescribeUserResponse describeUser(const Models::DescribeUserRequest &request);
+
+      /**
        * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
        *
        * @param tmpReq DescribeUsersRequest
@@ -697,7 +714,6 @@ namespace EdsUser20210308
       /**
        * @summary Synchronizes all education information.
        *
-       * @param request SyncAllEduInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SyncAllEduInfoResponse
        */

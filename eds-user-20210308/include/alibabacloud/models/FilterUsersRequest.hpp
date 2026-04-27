@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerType, ownerType_);
       DARABONBA_PTR_TO_JSON(PropertyFilterParam, propertyFilterParam_);
       DARABONBA_PTR_TO_JSON(PropertyKeyValueFilterParam, propertyKeyValueFilterParam_);
+      DARABONBA_PTR_TO_JSON(ShowExtras, showExtras_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, FilterUsersRequest& obj) { 
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerType, ownerType_);
       DARABONBA_PTR_FROM_JSON(PropertyFilterParam, propertyFilterParam_);
       DARABONBA_PTR_FROM_JSON(PropertyKeyValueFilterParam, propertyKeyValueFilterParam_);
+      DARABONBA_PTR_FROM_JSON(ShowExtras, showExtras_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     FilterUsersRequest() = default ;
@@ -212,7 +214,7 @@ namespace Models
         && this->excludeEndUserIds_ == nullptr && this->filter_ == nullptr && this->filterMap_ == nullptr && this->includeDesktopCount_ == nullptr && this->includeDesktopGroupCount_ == nullptr
         && this->includeEndUserIds_ == nullptr && this->includeOrgInfo_ == nullptr && this->includeSupportIdps_ == nullptr && this->isQueryAllSubOrgs_ == nullptr && this->maxResults_ == nullptr
         && this->nextToken_ == nullptr && this->orderParam_ == nullptr && this->orgId_ == nullptr && this->ownerType_ == nullptr && this->propertyFilterParam_ == nullptr
-        && this->propertyKeyValueFilterParam_ == nullptr && this->status_ == nullptr; };
+        && this->propertyKeyValueFilterParam_ == nullptr && this->showExtras_ == nullptr && this->status_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -344,6 +346,15 @@ namespace Models
     inline FilterUsersRequest& setPropertyKeyValueFilterParam(vector<FilterUsersRequest::PropertyKeyValueFilterParam> && propertyKeyValueFilterParam) { DARABONBA_PTR_SET_RVALUE(propertyKeyValueFilterParam_, propertyKeyValueFilterParam) };
 
 
+    // showExtras Field Functions 
+    bool hasShowExtras() const { return this->showExtras_ != nullptr;};
+    void deleteShowExtras() { this->showExtras_ = nullptr;};
+    inline const map<string, string> & getShowExtras() const { DARABONBA_PTR_GET_CONST(showExtras_, map<string, string>) };
+    inline map<string, string> getShowExtras() { DARABONBA_PTR_GET(showExtras_, map<string, string>) };
+    inline FilterUsersRequest& setShowExtras(const map<string, string> & showExtras) { DARABONBA_PTR_SET_VALUE(showExtras_, showExtras) };
+    inline FilterUsersRequest& setShowExtras(map<string, string> && showExtras) { DARABONBA_PTR_SET_RVALUE(showExtras_, showExtras) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -424,6 +435,7 @@ namespace Models
     shared_ptr<vector<FilterUsersRequest::PropertyFilterParam>> propertyFilterParam_ {};
     // The list of property names and property values.
     shared_ptr<vector<FilterUsersRequest::PropertyKeyValueFilterParam>> propertyKeyValueFilterParam_ {};
+    shared_ptr<map<string, string>> showExtras_ {};
     // The status.
     shared_ptr<int32_t> status_ {};
   };

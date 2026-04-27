@@ -41,12 +41,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OrgName, orgName_);
         DARABONBA_PTR_TO_JSON(OrgNamePath, orgNamePath_);
         DARABONBA_PTR_TO_JSON(ParentOrgId, parentOrgId_);
+        DARABONBA_PTR_TO_JSON(ResourcePolicyList, resourcePolicyList_);
       };
       friend void from_json(const Darabonba::Json& j, Orgs& obj) { 
         DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
         DARABONBA_PTR_FROM_JSON(OrgName, orgName_);
         DARABONBA_PTR_FROM_JSON(OrgNamePath, orgNamePath_);
         DARABONBA_PTR_FROM_JSON(ParentOrgId, parentOrgId_);
+        DARABONBA_PTR_FROM_JSON(ResourcePolicyList, resourcePolicyList_);
       };
       Orgs() = default ;
       Orgs(const Orgs &) = default ;
@@ -59,8 +61,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ResourcePolicyList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ResourcePolicyList& obj) { 
+          DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+          DARABONBA_PTR_TO_JSON(PolicyName, policyName_);
+        };
+        friend void from_json(const Darabonba::Json& j, ResourcePolicyList& obj) { 
+          DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+          DARABONBA_PTR_FROM_JSON(PolicyName, policyName_);
+        };
+        ResourcePolicyList() = default ;
+        ResourcePolicyList(const ResourcePolicyList &) = default ;
+        ResourcePolicyList(ResourcePolicyList &&) = default ;
+        ResourcePolicyList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ResourcePolicyList() = default ;
+        ResourcePolicyList& operator=(const ResourcePolicyList &) = default ;
+        ResourcePolicyList& operator=(ResourcePolicyList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->policyId_ == nullptr
+        && this->policyName_ == nullptr; };
+        // policyId Field Functions 
+        bool hasPolicyId() const { return this->policyId_ != nullptr;};
+        void deletePolicyId() { this->policyId_ = nullptr;};
+        inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+        inline ResourcePolicyList& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
+
+
+        // policyName Field Functions 
+        bool hasPolicyName() const { return this->policyName_ != nullptr;};
+        void deletePolicyName() { this->policyName_ = nullptr;};
+        inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+        inline ResourcePolicyList& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
+
+
+      protected:
+        shared_ptr<string> policyId_ {};
+        shared_ptr<string> policyName_ {};
+      };
+
       virtual bool empty() const override { return this->orgId_ == nullptr
-        && this->orgName_ == nullptr && this->orgNamePath_ == nullptr && this->parentOrgId_ == nullptr; };
+        && this->orgName_ == nullptr && this->orgNamePath_ == nullptr && this->parentOrgId_ == nullptr && this->resourcePolicyList_ == nullptr; };
       // orgId Field Functions 
       bool hasOrgId() const { return this->orgId_ != nullptr;};
       void deleteOrgId() { this->orgId_ = nullptr;};
@@ -89,6 +133,15 @@ namespace Models
       inline Orgs& setParentOrgId(string parentOrgId) { DARABONBA_PTR_SET_VALUE(parentOrgId_, parentOrgId) };
 
 
+      // resourcePolicyList Field Functions 
+      bool hasResourcePolicyList() const { return this->resourcePolicyList_ != nullptr;};
+      void deleteResourcePolicyList() { this->resourcePolicyList_ = nullptr;};
+      inline const vector<Orgs::ResourcePolicyList> & getResourcePolicyList() const { DARABONBA_PTR_GET_CONST(resourcePolicyList_, vector<Orgs::ResourcePolicyList>) };
+      inline vector<Orgs::ResourcePolicyList> getResourcePolicyList() { DARABONBA_PTR_GET(resourcePolicyList_, vector<Orgs::ResourcePolicyList>) };
+      inline Orgs& setResourcePolicyList(const vector<Orgs::ResourcePolicyList> & resourcePolicyList) { DARABONBA_PTR_SET_VALUE(resourcePolicyList_, resourcePolicyList) };
+      inline Orgs& setResourcePolicyList(vector<Orgs::ResourcePolicyList> && resourcePolicyList) { DARABONBA_PTR_SET_RVALUE(resourcePolicyList_, resourcePolicyList) };
+
+
     protected:
       // The organization ID.
       shared_ptr<string> orgId_ {};
@@ -97,6 +150,7 @@ namespace Models
       shared_ptr<string> orgNamePath_ {};
       // The parent organization ID.
       shared_ptr<string> parentOrgId_ {};
+      shared_ptr<vector<Orgs::ResourcePolicyList>> resourcePolicyList_ {};
     };
 
     virtual bool empty() const override { return this->nextToken_ == nullptr

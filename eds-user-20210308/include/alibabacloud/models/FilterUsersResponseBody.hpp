@@ -54,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Phone, phone_);
         DARABONBA_PTR_TO_JSON(RealNickName, realNickName_);
         DARABONBA_PTR_TO_JSON(Remark, remark_);
+        DARABONBA_PTR_TO_JSON(ResourcePolicyList, resourcePolicyList_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SupportLoginIdps, supportLoginIdps_);
         DARABONBA_PTR_TO_JSON(UserSetPropertiesModels, userSetPropertiesModels_);
@@ -76,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Phone, phone_);
         DARABONBA_PTR_FROM_JSON(RealNickName, realNickName_);
         DARABONBA_PTR_FROM_JSON(Remark, remark_);
+        DARABONBA_PTR_FROM_JSON(ResourcePolicyList, resourcePolicyList_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SupportLoginIdps, supportLoginIdps_);
         DARABONBA_PTR_FROM_JSON(UserSetPropertiesModels, userSetPropertiesModels_);
@@ -269,6 +271,48 @@ namespace Models
         shared_ptr<string> idpName_ {};
       };
 
+      class ResourcePolicyList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ResourcePolicyList& obj) { 
+          DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
+          DARABONBA_PTR_TO_JSON(PolicyName, policyName_);
+        };
+        friend void from_json(const Darabonba::Json& j, ResourcePolicyList& obj) { 
+          DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
+          DARABONBA_PTR_FROM_JSON(PolicyName, policyName_);
+        };
+        ResourcePolicyList() = default ;
+        ResourcePolicyList(const ResourcePolicyList &) = default ;
+        ResourcePolicyList(ResourcePolicyList &&) = default ;
+        ResourcePolicyList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ResourcePolicyList() = default ;
+        ResourcePolicyList& operator=(const ResourcePolicyList &) = default ;
+        ResourcePolicyList& operator=(ResourcePolicyList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->policyId_ == nullptr
+        && this->policyName_ == nullptr; };
+        // policyId Field Functions 
+        bool hasPolicyId() const { return this->policyId_ != nullptr;};
+        void deletePolicyId() { this->policyId_ = nullptr;};
+        inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+        inline ResourcePolicyList& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
+
+
+        // policyName Field Functions 
+        bool hasPolicyName() const { return this->policyName_ != nullptr;};
+        void deletePolicyName() { this->policyName_ = nullptr;};
+        inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+        inline ResourcePolicyList& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
+
+
+      protected:
+        shared_ptr<string> policyId_ {};
+        shared_ptr<string> policyName_ {};
+      };
+
       class OrgList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const OrgList& obj) { 
@@ -414,7 +458,7 @@ namespace Models
         && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->email_ == nullptr && this->enableAdminAccess_ == nullptr && this->endUserId_ == nullptr
         && this->externalInfo_ == nullptr && this->groups_ == nullptr && this->id_ == nullptr && this->isTenantManager_ == nullptr && this->orgList_ == nullptr
         && this->ownerType_ == nullptr && this->passwordExpireDays_ == nullptr && this->passwordExpireRestDays_ == nullptr && this->phone_ == nullptr && this->realNickName_ == nullptr
-        && this->remark_ == nullptr && this->status_ == nullptr && this->supportLoginIdps_ == nullptr && this->userSetPropertiesModels_ == nullptr; };
+        && this->remark_ == nullptr && this->resourcePolicyList_ == nullptr && this->status_ == nullptr && this->supportLoginIdps_ == nullptr && this->userSetPropertiesModels_ == nullptr; };
       // autoLockTime Field Functions 
       bool hasAutoLockTime() const { return this->autoLockTime_ != nullptr;};
       void deleteAutoLockTime() { this->autoLockTime_ = nullptr;};
@@ -540,6 +584,15 @@ namespace Models
       inline Users& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
+      // resourcePolicyList Field Functions 
+      bool hasResourcePolicyList() const { return this->resourcePolicyList_ != nullptr;};
+      void deleteResourcePolicyList() { this->resourcePolicyList_ = nullptr;};
+      inline const vector<Users::ResourcePolicyList> & getResourcePolicyList() const { DARABONBA_PTR_GET_CONST(resourcePolicyList_, vector<Users::ResourcePolicyList>) };
+      inline vector<Users::ResourcePolicyList> getResourcePolicyList() { DARABONBA_PTR_GET(resourcePolicyList_, vector<Users::ResourcePolicyList>) };
+      inline Users& setResourcePolicyList(const vector<Users::ResourcePolicyList> & resourcePolicyList) { DARABONBA_PTR_SET_VALUE(resourcePolicyList_, resourcePolicyList) };
+      inline Users& setResourcePolicyList(vector<Users::ResourcePolicyList> && resourcePolicyList) { DARABONBA_PTR_SET_RVALUE(resourcePolicyList_, resourcePolicyList) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -642,6 +695,7 @@ namespace Models
       shared_ptr<string> realNickName_ {};
       // The remarks on the convenience user.
       shared_ptr<string> remark_ {};
+      shared_ptr<vector<Users::ResourcePolicyList>> resourcePolicyList_ {};
       // The remarks on the convenience account.
       // 
       // Valid values:

@@ -921,6 +921,10 @@ DescribeOrgsResponse Client::describeOrgsWithOptions(const DescribeOrgsRequest &
     query["BusinessChannel"] = request.getBusinessChannel();
   }
 
+  if (!!request.hasIncludeOrgIds()) {
+    query["IncludeOrgIds"] = request.getIncludeOrgIds();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }
@@ -1039,6 +1043,56 @@ DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const D
 DescribeResourceGroupsResponse Client::describeResourceGroups(const DescribeResourceGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeResourceGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query basic user information
+ *
+ * @param request DescribeUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserResponse
+ */
+DescribeUserResponse Client::describeUserWithOptions(const DescribeUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.getEndUserId();
+  }
+
+  if (!!request.hasRequireExtraAttributes()) {
+    query["RequireExtraAttributes"] = request.getRequireExtraAttributes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUser"},
+    {"version" , "2021-03-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserResponse>();
+}
+
+/**
+ * @summary Query basic user information
+ *
+ * @param request DescribeUserRequest
+ * @return DescribeUserResponse
+ */
+DescribeUserResponse Client::describeUser(const DescribeUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserWithOptions(request, runtime);
 }
 
 /**
@@ -1253,6 +1307,10 @@ FilterUsersResponse Client::filterUsersWithOptions(const FilterUsersRequest &tmp
 
   if (!!request.hasPropertyKeyValueFilterParam()) {
     query["PropertyKeyValueFilterParam"] = request.getPropertyKeyValueFilterParam();
+  }
+
+  if (!!request.hasShowExtras()) {
+    query["ShowExtras"] = request.getShowExtras();
   }
 
   if (!!request.hasStatus()) {
@@ -2220,7 +2278,6 @@ SetUserPropertyValueResponse Client::setUserPropertyValue(const SetUserPropertyV
 /**
  * @summary Synchronizes all education information.
  *
- * @param request SyncAllEduInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SyncAllEduInfoResponse
  */
