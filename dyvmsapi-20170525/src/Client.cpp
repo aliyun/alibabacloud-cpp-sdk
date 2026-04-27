@@ -464,6 +464,568 @@ ChangeMediaTypeResponse Client::changeMediaType(const ChangeMediaTypeRequest &re
 }
 
 /**
+ * @summary 座席上线
+ *
+ * @param request CloudAgentLoginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudAgentLoginResponse
+ */
+CloudAgentLoginResponse Client::cloudAgentLoginWithOptions(const CloudAgentLoginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBindTel()) {
+    query["BindTel"] = request.getBindTel();
+  }
+
+  if (!!request.hasBindType()) {
+    query["BindType"] = request.getBindType();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLoginStatus()) {
+    query["LoginStatus"] = request.getLoginStatus();
+  }
+
+  if (!!request.hasPauseDescription()) {
+    query["PauseDescription"] = request.getPauseDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudAgentLogin"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudAgentLoginResponse>();
+}
+
+/**
+ * @summary 座席上线
+ *
+ * @param request CloudAgentLoginRequest
+ * @return CloudAgentLoginResponse
+ */
+CloudAgentLoginResponse Client::cloudAgentLogin(const CloudAgentLoginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudAgentLoginWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席下线
+ *
+ * @param request CloudAgentLogoutRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudAgentLogoutResponse
+ */
+CloudAgentLogoutResponse Client::cloudAgentLogoutWithOptions(const CloudAgentLogoutRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIgnoreOffline()) {
+    query["IgnoreOffline"] = request.getIgnoreOffline();
+  }
+
+  if (!!request.hasIsKickout()) {
+    query["IsKickout"] = request.getIsKickout();
+  }
+
+  if (!!request.hasRemoveBinding()) {
+    query["RemoveBinding"] = request.getRemoveBinding();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudAgentLogout"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudAgentLogoutResponse>();
+}
+
+/**
+ * @summary 座席下线
+ *
+ * @param request CloudAgentLogoutRequest
+ * @return CloudAgentLogoutResponse
+ */
+CloudAgentLogoutResponse Client::cloudAgentLogout(const CloudAgentLogoutRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudAgentLogoutWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席设置随路数据
+ *
+ * @param request CloudAgentSetUserDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudAgentSetUserDataResponse
+ */
+CloudAgentSetUserDataResponse Client::cloudAgentSetUserDataWithOptions(const CloudAgentSetUserDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.getDirection();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudAgentSetUserData"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudAgentSetUserDataResponse>();
+}
+
+/**
+ * @summary 座席设置随路数据
+ *
+ * @param request CloudAgentSetUserDataRequest
+ * @return CloudAgentSetUserDataResponse
+ */
+CloudAgentSetUserDataResponse Client::cloudAgentSetUserData(const CloudAgentSetUserDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudAgentSetUserDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席挂机
+ *
+ * @param request CloudAgentUnlinkRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudAgentUnlinkResponse
+ */
+CloudAgentUnlinkResponse Client::cloudAgentUnlinkWithOptions(const CloudAgentUnlinkRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasSide()) {
+    query["Side"] = request.getSide();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudAgentUnlink"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudAgentUnlinkResponse>();
+}
+
+/**
+ * @summary 座席挂机
+ *
+ * @param request CloudAgentUnlinkRequest
+ * @return CloudAgentUnlinkResponse
+ */
+CloudAgentUnlinkResponse Client::cloudAgentUnlink(const CloudAgentUnlinkRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudAgentUnlinkWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量新增座席,单次批量创建不能超过100个
+ *
+ * @param request CloudBatchCreateAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudBatchCreateAgentResponse
+ */
+CloudBatchCreateAgentResponse Client::cloudBatchCreateAgentWithOptions(const CloudBatchCreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasCallPower()) {
+    query["CallPower"] = request.getCallPower();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasEndCno()) {
+    query["EndCno"] = request.getEndCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIbRecord()) {
+    query["IbRecord"] = request.getIbRecord();
+  }
+
+  if (!!request.hasIsAsr()) {
+    query["IsAsr"] = request.getIsAsr();
+  }
+
+  if (!!request.hasIsOb()) {
+    query["IsOb"] = request.getIsOb();
+  }
+
+  if (!!request.hasIsQualityCheck()) {
+    query["IsQualityCheck"] = request.getIsQualityCheck();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasObClid()) {
+    query["ObClid"] = request.getObClid();
+  }
+
+  if (!!request.hasObClidProperty()) {
+    query["ObClidProperty"] = request.getObClidProperty();
+  }
+
+  if (!!request.hasObClidType()) {
+    query["ObClidType"] = request.getObClidType();
+  }
+
+  if (!!request.hasObRecord()) {
+    query["ObRecord"] = request.getObRecord();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPower()) {
+    query["Power"] = request.getPower();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSkillIds()) {
+    query["SkillIds"] = request.getSkillIds();
+  }
+
+  if (!!request.hasSkillLevels()) {
+    query["SkillLevels"] = request.getSkillLevels();
+  }
+
+  if (!!request.hasWebrtcUrlType()) {
+    query["WebrtcUrlType"] = request.getWebrtcUrlType();
+  }
+
+  if (!!request.hasWrapup()) {
+    query["Wrapup"] = request.getWrapup();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudBatchCreateAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudBatchCreateAgentResponse>();
+}
+
+/**
+ * @summary 批量新增座席,单次批量创建不能超过100个
+ *
+ * @param request CloudBatchCreateAgentRequest
+ * @return CloudBatchCreateAgentResponse
+ */
+CloudBatchCreateAgentResponse Client::cloudBatchCreateAgent(const CloudBatchCreateAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudBatchCreateAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席实时状态批量获取
+ *
+ * @param request CloudBatchGetAgentStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudBatchGetAgentStatusResponse
+ */
+CloudBatchGetAgentStatusResponse Client::cloudBatchGetAgentStatusWithOptions(const CloudBatchGetAgentStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudBatchGetAgentStatus"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudBatchGetAgentStatusResponse>();
+}
+
+/**
+ * @summary 座席实时状态批量获取
+ *
+ * @param request CloudBatchGetAgentStatusRequest
+ * @return CloudBatchGetAgentStatusResponse
+ */
+CloudBatchGetAgentStatusResponse Client::cloudBatchGetAgentStatus(const CloudBatchGetAgentStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudBatchGetAgentStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+ *
+ * @param request CloudBatchUpdateAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudBatchUpdateAgentResponse
+ */
+CloudBatchUpdateAgentResponse Client::cloudBatchUpdateAgentWithOptions(const CloudBatchUpdateAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasCallPower()) {
+    query["CallPower"] = request.getCallPower();
+  }
+
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIbRecord()) {
+    query["IbRecord"] = request.getIbRecord();
+  }
+
+  if (!!request.hasIsAsr()) {
+    query["IsAsr"] = request.getIsAsr();
+  }
+
+  if (!!request.hasIsOb()) {
+    query["IsOb"] = request.getIsOb();
+  }
+
+  if (!!request.hasIsObRemember()) {
+    query["IsObRemember"] = request.getIsObRemember();
+  }
+
+  if (!!request.hasIsQualityCheck()) {
+    query["IsQualityCheck"] = request.getIsQualityCheck();
+  }
+
+  if (!!request.hasIsRandom()) {
+    query["IsRandom"] = request.getIsRandom();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasObClid()) {
+    query["ObClid"] = request.getObClid();
+  }
+
+  if (!!request.hasObClidProperty()) {
+    query["ObClidProperty"] = request.getObClidProperty();
+  }
+
+  if (!!request.hasObClidType()) {
+    query["ObClidType"] = request.getObClidType();
+  }
+
+  if (!!request.hasObRecord()) {
+    query["ObRecord"] = request.getObRecord();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPermitObPreviewTime()) {
+    query["PermitObPreviewTime"] = request.getPermitObPreviewTime();
+  }
+
+  if (!!request.hasPower()) {
+    query["Power"] = request.getPower();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasWebrtcUrlType()) {
+    query["WebrtcUrlType"] = request.getWebrtcUrlType();
+  }
+
+  if (!!request.hasWrapup()) {
+    query["Wrapup"] = request.getWrapup();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudBatchUpdateAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudBatchUpdateAgentResponse>();
+}
+
+/**
+ * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+ *
+ * @param request CloudBatchUpdateAgentRequest
+ * @return CloudBatchUpdateAgentResponse
+ */
+CloudBatchUpdateAgentResponse Client::cloudBatchUpdateAgent(const CloudBatchUpdateAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudBatchUpdateAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary 座席新增
  *
  * @param request CloudCreateAgentRequest
@@ -856,6 +1418,242 @@ CloudCreateTaskResponse Client::cloudCreateTask(const CloudCreateTaskRequest &re
 }
 
 /**
+ * @summary 座席删除
+ *
+ * @param request CloudDeleteAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudDeleteAgentResponse
+ */
+CloudDeleteAgentResponse Client::cloudDeleteAgentWithOptions(const CloudDeleteAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudDeleteAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudDeleteAgentResponse>();
+}
+
+/**
+ * @summary 座席删除
+ *
+ * @param request CloudDeleteAgentRequest
+ * @return CloudDeleteAgentResponse
+ */
+CloudDeleteAgentResponse Client::cloudDeleteAgent(const CloudDeleteAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudDeleteAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除座席电话
+ *
+ * @param request CloudDeleteAgentTelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudDeleteAgentTelResponse
+ */
+CloudDeleteAgentTelResponse Client::cloudDeleteAgentTelWithOptions(const CloudDeleteAgentTelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTel()) {
+    query["Tel"] = request.getTel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudDeleteAgentTel"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudDeleteAgentTelResponse>();
+}
+
+/**
+ * @summary 删除座席电话
+ *
+ * @param request CloudDeleteAgentTelRequest
+ * @return CloudDeleteAgentTelResponse
+ */
+CloudDeleteAgentTelResponse Client::cloudDeleteAgentTel(const CloudDeleteAgentTelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudDeleteAgentTelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席详细信息获取
+ *
+ * @param request CloudGetAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudGetAgentResponse
+ */
+CloudGetAgentResponse Client::cloudGetAgentWithOptions(const CloudGetAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudGetAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudGetAgentResponse>();
+}
+
+/**
+ * @summary 座席详细信息获取
+ *
+ * @param request CloudGetAgentRequest
+ * @return CloudGetAgentResponse
+ */
+CloudGetAgentResponse Client::cloudGetAgent(const CloudGetAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudGetAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席实时状态获取
+ *
+ * @param request CloudGetAgentStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudGetAgentStatusResponse
+ */
+CloudGetAgentStatusResponse Client::cloudGetAgentStatusWithOptions(const CloudGetAgentStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudGetAgentStatus"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudGetAgentStatusResponse>();
+}
+
+/**
+ * @summary 座席实时状态获取
+ *
+ * @param request CloudGetAgentStatusRequest
+ * @return CloudGetAgentStatusResponse
+ */
+CloudGetAgentStatusResponse Client::cloudGetAgentStatus(const CloudGetAgentStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudGetAgentStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary 任务号码导入
  *
  * @param tmpReq CloudImportTaskTelRequest
@@ -952,6 +1750,632 @@ CloudImportTaskTelResponse Client::cloudImportTaskTel(const CloudImportTaskTelRe
 }
 
 /**
+ * @summary IVR等待打断
+ *
+ * @param request CloudInterruptIvrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudInterruptIvrResponse
+ */
+CloudInterruptIvrResponse Client::cloudInterruptIvrWithOptions(const CloudInterruptIvrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCheckName()) {
+    query["CheckName"] = request.getCheckName();
+  }
+
+  if (!!request.hasCheckValue()) {
+    query["CheckValue"] = request.getCheckValue();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  if (!!request.hasUserField()) {
+    query["UserField"] = request.getUserField();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudInterruptIvr"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudInterruptIvrResponse>();
+}
+
+/**
+ * @summary IVR等待打断
+ *
+ * @param request CloudInterruptIvrRequest
+ * @return CloudInterruptIvrResponse
+ */
+CloudInterruptIvrResponse Client::cloudInterruptIvr(const CloudInterruptIvrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudInterruptIvrWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取座席电话
+ *
+ * @param request CloudListAgentTelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudListAgentTelResponse
+ */
+CloudListAgentTelResponse Client::cloudListAgentTelWithOptions(const CloudListAgentTelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTel()) {
+    query["Tel"] = request.getTel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudListAgentTel"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudListAgentTelResponse>();
+}
+
+/**
+ * @summary 获取座席电话
+ *
+ * @param request CloudListAgentTelRequest
+ * @return CloudListAgentTelResponse
+ */
+CloudListAgentTelResponse Client::cloudListAgentTel(const CloudListAgentTelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudListAgentTelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取在线空闲座席
+ *
+ * @param request CloudListFreeAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudListFreeAgentResponse
+ */
+CloudListFreeAgentResponse Client::cloudListFreeAgentWithOptions(const CloudListFreeAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudListFreeAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudListFreeAgentResponse>();
+}
+
+/**
+ * @summary 获取在线空闲座席
+ *
+ * @param request CloudListFreeAgentRequest
+ * @return CloudListFreeAgentResponse
+ */
+CloudListFreeAgentResponse Client::cloudListFreeAgent(const CloudListFreeAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudListFreeAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 在线座席信息
+ *
+ * @param request CloudListOnlineAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudListOnlineAgentResponse
+ */
+CloudListOnlineAgentResponse Client::cloudListOnlineAgentWithOptions(const CloudListOnlineAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPauseDescription()) {
+    query["PauseDescription"] = request.getPauseDescription();
+  }
+
+  if (!!request.hasPauseType()) {
+    query["PauseType"] = request.getPauseType();
+  }
+
+  if (!!request.hasQnos()) {
+    query["Qnos"] = request.getQnos();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStateCode()) {
+    query["StateCode"] = request.getStateCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudListOnlineAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudListOnlineAgentResponse>();
+}
+
+/**
+ * @summary 在线座席信息
+ *
+ * @param request CloudListOnlineAgentRequest
+ * @return CloudListOnlineAgentResponse
+ */
+CloudListOnlineAgentResponse Client::cloudListOnlineAgent(const CloudListOnlineAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudListOnlineAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席外呼
+ *
+ * @param request CloudPreviewoutcallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudPreviewoutcallResponse
+ */
+CloudPreviewoutcallResponse Client::cloudPreviewoutcallWithOptions(const CloudPreviewoutcallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupTels()) {
+    query["BackupTels"] = request.getBackupTels();
+  }
+
+  if (!!request.hasCallVariables()) {
+    query["CallVariables"] = request.getCallVariables();
+  }
+
+  if (!!request.hasCdrIsAsr()) {
+    query["CdrIsAsr"] = request.getCdrIsAsr();
+  }
+
+  if (!!request.hasClidList()) {
+    query["ClidList"] = request.getClidList();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCrnId()) {
+    query["CrnId"] = request.getCrnId();
+  }
+
+  if (!!request.hasDialTelTimeout()) {
+    query["DialTelTimeout"] = request.getDialTelTimeout();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIsInvestigation()) {
+    query["IsInvestigation"] = request.getIsInvestigation();
+  }
+
+  if (!!request.hasObClid()) {
+    query["ObClid"] = request.getObClid();
+  }
+
+  if (!!request.hasObClidAreaCode()) {
+    query["ObClidAreaCode"] = request.getObClidAreaCode();
+  }
+
+  if (!!request.hasObClidGroup()) {
+    query["ObClidGroup"] = request.getObClidGroup();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasTel()) {
+    query["Tel"] = request.getTel();
+  }
+
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.getTimeout();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudPreviewoutcall"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudPreviewoutcallResponse>();
+}
+
+/**
+ * @summary 座席外呼
+ *
+ * @param request CloudPreviewoutcallRequest
+ * @return CloudPreviewoutcallResponse
+ */
+CloudPreviewoutcallResponse Client::cloudPreviewoutcall(const CloudPreviewoutcallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudPreviewoutcallWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席详细信息列表获取
+ *
+ * @param request CloudQueryAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryAgentResponse
+ */
+CloudQueryAgentResponse Client::cloudQueryAgentWithOptions(const CloudQueryAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasReturnQueue()) {
+    query["ReturnQueue"] = request.getReturnQueue();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWebrtcUrlType()) {
+    query["WebrtcUrlType"] = request.getWebrtcUrlType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryAgentResponse>();
+}
+
+/**
+ * @summary 座席详细信息列表获取
+ *
+ * @param request CloudQueryAgentRequest
+ * @return CloudQueryAgentResponse
+ */
+CloudQueryAgentResponse Client::cloudQueryAgent(const CloudQueryAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席列表获取
+ *
+ * @param request CloudQueryAgentCnoAndNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryAgentCnoAndNameResponse
+ */
+CloudQueryAgentCnoAndNameResponse Client::cloudQueryAgentCnoAndNameWithOptions(const CloudQueryAgentCnoAndNameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryAgentCnoAndName"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryAgentCnoAndNameResponse>();
+}
+
+/**
+ * @summary 座席列表获取
+ *
+ * @param request CloudQueryAgentCnoAndNameRequest
+ * @return CloudQueryAgentCnoAndNameResponse
+ */
+CloudQueryAgentCnoAndNameResponse Client::cloudQueryAgentCnoAndName(const CloudQueryAgentCnoAndNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryAgentCnoAndNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取座席外呼组
+ *
+ * @param request CloudQueryAgentGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryAgentGroupResponse
+ */
+CloudQueryAgentGroupResponse Client::cloudQueryAgentGroupWithOptions(const CloudQueryAgentGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryAgentGroup"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryAgentGroupResponse>();
+}
+
+/**
+ * @summary 获取座席外呼组
+ *
+ * @param request CloudQueryAgentGroupRequest
+ * @return CloudQueryAgentGroupResponse
+ */
+CloudQueryAgentGroupResponse Client::cloudQueryAgentGroup(const CloudQueryAgentGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryAgentGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取座席技能
+ *
+ * @param request CloudQueryAgentSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryAgentSkillResponse
+ */
+CloudQueryAgentSkillResponse Client::cloudQueryAgentSkillWithOptions(const CloudQueryAgentSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryAgentSkill"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryAgentSkillResponse>();
+}
+
+/**
+ * @summary 获取座席技能
+ *
+ * @param request CloudQueryAgentSkillRequest
+ * @return CloudQueryAgentSkillResponse
+ */
+CloudQueryAgentSkillResponse Client::cloudQueryAgentSkill(const CloudQueryAgentSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryAgentSkillWithOptions(request, runtime);
+}
+
+/**
  * @summary 任务启动
  *
  * @param request CloudStartTaskRequest
@@ -1007,6 +2431,152 @@ CloudStartTaskResponse Client::cloudStartTaskWithOptions(const CloudStartTaskReq
 CloudStartTaskResponse Client::cloudStartTask(const CloudStartTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cloudStartTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 座席更新
+ *
+ * @param request CloudUpdateAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudUpdateAgentResponse
+ */
+CloudUpdateAgentResponse Client::cloudUpdateAgentWithOptions(const CloudUpdateAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasCallPower()) {
+    query["CallPower"] = request.getCallPower();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIbRecord()) {
+    query["IbRecord"] = request.getIbRecord();
+  }
+
+  if (!!request.hasIsAsr()) {
+    query["IsAsr"] = request.getIsAsr();
+  }
+
+  if (!!request.hasIsOb()) {
+    query["IsOb"] = request.getIsOb();
+  }
+
+  if (!!request.hasIsObRemember()) {
+    query["IsObRemember"] = request.getIsObRemember();
+  }
+
+  if (!!request.hasIsQualityCheck()) {
+    query["IsQualityCheck"] = request.getIsQualityCheck();
+  }
+
+  if (!!request.hasIsRandom()) {
+    query["IsRandom"] = request.getIsRandom();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasObClid()) {
+    query["ObClid"] = request.getObClid();
+  }
+
+  if (!!request.hasObClidProperty()) {
+    query["ObClidProperty"] = request.getObClidProperty();
+  }
+
+  if (!!request.hasObClidType()) {
+    query["ObClidType"] = request.getObClidType();
+  }
+
+  if (!!request.hasObRecord()) {
+    query["ObRecord"] = request.getObRecord();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPermitObPreviewTime()) {
+    query["PermitObPreviewTime"] = request.getPermitObPreviewTime();
+  }
+
+  if (!!request.hasPower()) {
+    query["Power"] = request.getPower();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSkillIds()) {
+    query["SkillIds"] = request.getSkillIds();
+  }
+
+  if (!!request.hasSkillLevels()) {
+    query["SkillLevels"] = request.getSkillLevels();
+  }
+
+  if (!!request.hasWebrtcUrlType()) {
+    query["WebrtcUrlType"] = request.getWebrtcUrlType();
+  }
+
+  if (!!request.hasWrapup()) {
+    query["Wrapup"] = request.getWrapup();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudUpdateAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudUpdateAgentResponse>();
+}
+
+/**
+ * @summary 座席更新
+ *
+ * @param request CloudUpdateAgentRequest
+ * @return CloudUpdateAgentResponse
+ */
+CloudUpdateAgentResponse Client::cloudUpdateAgent(const CloudUpdateAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudUpdateAgentWithOptions(request, runtime);
 }
 
 /**
@@ -1249,6 +2819,120 @@ CloudUpdateTaskResponse Client::cloudUpdateTaskWithOptions(const CloudUpdateTask
 CloudUpdateTaskResponse Client::cloudUpdateTask(const CloudUpdateTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cloudUpdateTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary webcall
+ *
+ * @param request CloudWebcallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudWebcallResponse
+ */
+CloudWebcallResponse Client::cloudWebcallWithOptions(const CloudWebcallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAmd()) {
+    query["Amd"] = request.getAmd();
+  }
+
+  if (!!request.hasClid()) {
+    query["Clid"] = request.getClid();
+  }
+
+  if (!!request.hasClidAreaCode()) {
+    query["ClidAreaCode"] = request.getClidAreaCode();
+  }
+
+  if (!!request.hasClidGroup()) {
+    query["ClidGroup"] = request.getClidGroup();
+  }
+
+  if (!!request.hasClidList()) {
+    query["ClidList"] = request.getClidList();
+  }
+
+  if (!!request.hasCrnId()) {
+    query["CrnId"] = request.getCrnId();
+  }
+
+  if (!!request.hasDelay()) {
+    query["Delay"] = request.getDelay();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasExpirTime()) {
+    query["ExpirTime"] = request.getExpirTime();
+  }
+
+  if (!!request.hasIvrId()) {
+    query["IvrId"] = request.getIvrId();
+  }
+
+  if (!!request.hasMultiTelDelay()) {
+    query["MultiTelDelay"] = request.getMultiTelDelay();
+  }
+
+  if (!!request.hasMultiTelPush()) {
+    query["MultiTelPush"] = request.getMultiTelPush();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasRetry()) {
+    query["Retry"] = request.getRetry();
+  }
+
+  if (!!request.hasRetryInterval()) {
+    query["RetryInterval"] = request.getRetryInterval();
+  }
+
+  if (!!request.hasTel()) {
+    query["Tel"] = request.getTel();
+  }
+
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.getTimeout();
+  }
+
+  if (!!request.hasUserField()) {
+    query["UserField"] = request.getUserField();
+  }
+
+  if (!!request.hasVid()) {
+    query["Vid"] = request.getVid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudWebcall"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudWebcallResponse>();
+}
+
+/**
+ * @summary webcall
+ *
+ * @param request CloudWebcallRequest
+ * @return CloudWebcallResponse
+ */
+CloudWebcallResponse Client::cloudWebcall(const CloudWebcallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudWebcallWithOptions(request, runtime);
 }
 
 /**

@@ -159,6 +159,125 @@ namespace Dyvmsapi20170525
       Models::ChangeMediaTypeResponse changeMediaType(const Models::ChangeMediaTypeRequest &request);
 
       /**
+       * @summary 座席上线
+       *
+       * @param request CloudAgentLoginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudAgentLoginResponse
+       */
+      Models::CloudAgentLoginResponse cloudAgentLoginWithOptions(const Models::CloudAgentLoginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席上线
+       *
+       * @param request CloudAgentLoginRequest
+       * @return CloudAgentLoginResponse
+       */
+      Models::CloudAgentLoginResponse cloudAgentLogin(const Models::CloudAgentLoginRequest &request);
+
+      /**
+       * @summary 座席下线
+       *
+       * @param request CloudAgentLogoutRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudAgentLogoutResponse
+       */
+      Models::CloudAgentLogoutResponse cloudAgentLogoutWithOptions(const Models::CloudAgentLogoutRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席下线
+       *
+       * @param request CloudAgentLogoutRequest
+       * @return CloudAgentLogoutResponse
+       */
+      Models::CloudAgentLogoutResponse cloudAgentLogout(const Models::CloudAgentLogoutRequest &request);
+
+      /**
+       * @summary 座席设置随路数据
+       *
+       * @param request CloudAgentSetUserDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudAgentSetUserDataResponse
+       */
+      Models::CloudAgentSetUserDataResponse cloudAgentSetUserDataWithOptions(const Models::CloudAgentSetUserDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席设置随路数据
+       *
+       * @param request CloudAgentSetUserDataRequest
+       * @return CloudAgentSetUserDataResponse
+       */
+      Models::CloudAgentSetUserDataResponse cloudAgentSetUserData(const Models::CloudAgentSetUserDataRequest &request);
+
+      /**
+       * @summary 座席挂机
+       *
+       * @param request CloudAgentUnlinkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudAgentUnlinkResponse
+       */
+      Models::CloudAgentUnlinkResponse cloudAgentUnlinkWithOptions(const Models::CloudAgentUnlinkRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席挂机
+       *
+       * @param request CloudAgentUnlinkRequest
+       * @return CloudAgentUnlinkResponse
+       */
+      Models::CloudAgentUnlinkResponse cloudAgentUnlink(const Models::CloudAgentUnlinkRequest &request);
+
+      /**
+       * @summary 批量新增座席,单次批量创建不能超过100个
+       *
+       * @param request CloudBatchCreateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudBatchCreateAgentResponse
+       */
+      Models::CloudBatchCreateAgentResponse cloudBatchCreateAgentWithOptions(const Models::CloudBatchCreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量新增座席,单次批量创建不能超过100个
+       *
+       * @param request CloudBatchCreateAgentRequest
+       * @return CloudBatchCreateAgentResponse
+       */
+      Models::CloudBatchCreateAgentResponse cloudBatchCreateAgent(const Models::CloudBatchCreateAgentRequest &request);
+
+      /**
+       * @summary 座席实时状态批量获取
+       *
+       * @param request CloudBatchGetAgentStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudBatchGetAgentStatusResponse
+       */
+      Models::CloudBatchGetAgentStatusResponse cloudBatchGetAgentStatusWithOptions(const Models::CloudBatchGetAgentStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席实时状态批量获取
+       *
+       * @param request CloudBatchGetAgentStatusRequest
+       * @return CloudBatchGetAgentStatusResponse
+       */
+      Models::CloudBatchGetAgentStatusResponse cloudBatchGetAgentStatus(const Models::CloudBatchGetAgentStatusRequest &request);
+
+      /**
+       * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+       *
+       * @param request CloudBatchUpdateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudBatchUpdateAgentResponse
+       */
+      Models::CloudBatchUpdateAgentResponse cloudBatchUpdateAgentWithOptions(const Models::CloudBatchUpdateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+       *
+       * @param request CloudBatchUpdateAgentRequest
+       * @return CloudBatchUpdateAgentResponse
+       */
+      Models::CloudBatchUpdateAgentResponse cloudBatchUpdateAgent(const Models::CloudBatchUpdateAgentRequest &request);
+
+      /**
        * @summary 座席新增
        *
        * @param request CloudCreateAgentRequest
@@ -193,6 +312,74 @@ namespace Dyvmsapi20170525
       Models::CloudCreateTaskResponse cloudCreateTask(const Models::CloudCreateTaskRequest &request);
 
       /**
+       * @summary 座席删除
+       *
+       * @param request CloudDeleteAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudDeleteAgentResponse
+       */
+      Models::CloudDeleteAgentResponse cloudDeleteAgentWithOptions(const Models::CloudDeleteAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席删除
+       *
+       * @param request CloudDeleteAgentRequest
+       * @return CloudDeleteAgentResponse
+       */
+      Models::CloudDeleteAgentResponse cloudDeleteAgent(const Models::CloudDeleteAgentRequest &request);
+
+      /**
+       * @summary 删除座席电话
+       *
+       * @param request CloudDeleteAgentTelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudDeleteAgentTelResponse
+       */
+      Models::CloudDeleteAgentTelResponse cloudDeleteAgentTelWithOptions(const Models::CloudDeleteAgentTelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除座席电话
+       *
+       * @param request CloudDeleteAgentTelRequest
+       * @return CloudDeleteAgentTelResponse
+       */
+      Models::CloudDeleteAgentTelResponse cloudDeleteAgentTel(const Models::CloudDeleteAgentTelRequest &request);
+
+      /**
+       * @summary 座席详细信息获取
+       *
+       * @param request CloudGetAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudGetAgentResponse
+       */
+      Models::CloudGetAgentResponse cloudGetAgentWithOptions(const Models::CloudGetAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席详细信息获取
+       *
+       * @param request CloudGetAgentRequest
+       * @return CloudGetAgentResponse
+       */
+      Models::CloudGetAgentResponse cloudGetAgent(const Models::CloudGetAgentRequest &request);
+
+      /**
+       * @summary 座席实时状态获取
+       *
+       * @param request CloudGetAgentStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudGetAgentStatusResponse
+       */
+      Models::CloudGetAgentStatusResponse cloudGetAgentStatusWithOptions(const Models::CloudGetAgentStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席实时状态获取
+       *
+       * @param request CloudGetAgentStatusRequest
+       * @return CloudGetAgentStatusResponse
+       */
+      Models::CloudGetAgentStatusResponse cloudGetAgentStatus(const Models::CloudGetAgentStatusRequest &request);
+
+      /**
        * @summary 任务号码导入
        *
        * @param tmpReq CloudImportTaskTelRequest
@@ -208,6 +395,159 @@ namespace Dyvmsapi20170525
        * @return CloudImportTaskTelResponse
        */
       Models::CloudImportTaskTelResponse cloudImportTaskTel(const Models::CloudImportTaskTelRequest &request);
+
+      /**
+       * @summary IVR等待打断
+       *
+       * @param request CloudInterruptIvrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudInterruptIvrResponse
+       */
+      Models::CloudInterruptIvrResponse cloudInterruptIvrWithOptions(const Models::CloudInterruptIvrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary IVR等待打断
+       *
+       * @param request CloudInterruptIvrRequest
+       * @return CloudInterruptIvrResponse
+       */
+      Models::CloudInterruptIvrResponse cloudInterruptIvr(const Models::CloudInterruptIvrRequest &request);
+
+      /**
+       * @summary 获取座席电话
+       *
+       * @param request CloudListAgentTelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudListAgentTelResponse
+       */
+      Models::CloudListAgentTelResponse cloudListAgentTelWithOptions(const Models::CloudListAgentTelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取座席电话
+       *
+       * @param request CloudListAgentTelRequest
+       * @return CloudListAgentTelResponse
+       */
+      Models::CloudListAgentTelResponse cloudListAgentTel(const Models::CloudListAgentTelRequest &request);
+
+      /**
+       * @summary 获取在线空闲座席
+       *
+       * @param request CloudListFreeAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudListFreeAgentResponse
+       */
+      Models::CloudListFreeAgentResponse cloudListFreeAgentWithOptions(const Models::CloudListFreeAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取在线空闲座席
+       *
+       * @param request CloudListFreeAgentRequest
+       * @return CloudListFreeAgentResponse
+       */
+      Models::CloudListFreeAgentResponse cloudListFreeAgent(const Models::CloudListFreeAgentRequest &request);
+
+      /**
+       * @summary 在线座席信息
+       *
+       * @param request CloudListOnlineAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudListOnlineAgentResponse
+       */
+      Models::CloudListOnlineAgentResponse cloudListOnlineAgentWithOptions(const Models::CloudListOnlineAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 在线座席信息
+       *
+       * @param request CloudListOnlineAgentRequest
+       * @return CloudListOnlineAgentResponse
+       */
+      Models::CloudListOnlineAgentResponse cloudListOnlineAgent(const Models::CloudListOnlineAgentRequest &request);
+
+      /**
+       * @summary 座席外呼
+       *
+       * @param request CloudPreviewoutcallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudPreviewoutcallResponse
+       */
+      Models::CloudPreviewoutcallResponse cloudPreviewoutcallWithOptions(const Models::CloudPreviewoutcallRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席外呼
+       *
+       * @param request CloudPreviewoutcallRequest
+       * @return CloudPreviewoutcallResponse
+       */
+      Models::CloudPreviewoutcallResponse cloudPreviewoutcall(const Models::CloudPreviewoutcallRequest &request);
+
+      /**
+       * @summary 座席详细信息列表获取
+       *
+       * @param request CloudQueryAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryAgentResponse
+       */
+      Models::CloudQueryAgentResponse cloudQueryAgentWithOptions(const Models::CloudQueryAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席详细信息列表获取
+       *
+       * @param request CloudQueryAgentRequest
+       * @return CloudQueryAgentResponse
+       */
+      Models::CloudQueryAgentResponse cloudQueryAgent(const Models::CloudQueryAgentRequest &request);
+
+      /**
+       * @summary 座席列表获取
+       *
+       * @param request CloudQueryAgentCnoAndNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryAgentCnoAndNameResponse
+       */
+      Models::CloudQueryAgentCnoAndNameResponse cloudQueryAgentCnoAndNameWithOptions(const Models::CloudQueryAgentCnoAndNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席列表获取
+       *
+       * @param request CloudQueryAgentCnoAndNameRequest
+       * @return CloudQueryAgentCnoAndNameResponse
+       */
+      Models::CloudQueryAgentCnoAndNameResponse cloudQueryAgentCnoAndName(const Models::CloudQueryAgentCnoAndNameRequest &request);
+
+      /**
+       * @summary 获取座席外呼组
+       *
+       * @param request CloudQueryAgentGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryAgentGroupResponse
+       */
+      Models::CloudQueryAgentGroupResponse cloudQueryAgentGroupWithOptions(const Models::CloudQueryAgentGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取座席外呼组
+       *
+       * @param request CloudQueryAgentGroupRequest
+       * @return CloudQueryAgentGroupResponse
+       */
+      Models::CloudQueryAgentGroupResponse cloudQueryAgentGroup(const Models::CloudQueryAgentGroupRequest &request);
+
+      /**
+       * @summary 获取座席技能
+       *
+       * @param request CloudQueryAgentSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryAgentSkillResponse
+       */
+      Models::CloudQueryAgentSkillResponse cloudQueryAgentSkillWithOptions(const Models::CloudQueryAgentSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取座席技能
+       *
+       * @param request CloudQueryAgentSkillRequest
+       * @return CloudQueryAgentSkillResponse
+       */
+      Models::CloudQueryAgentSkillResponse cloudQueryAgentSkill(const Models::CloudQueryAgentSkillRequest &request);
 
       /**
        * @summary 任务启动
@@ -227,6 +567,23 @@ namespace Dyvmsapi20170525
       Models::CloudStartTaskResponse cloudStartTask(const Models::CloudStartTaskRequest &request);
 
       /**
+       * @summary 座席更新
+       *
+       * @param request CloudUpdateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudUpdateAgentResponse
+       */
+      Models::CloudUpdateAgentResponse cloudUpdateAgentWithOptions(const Models::CloudUpdateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 座席更新
+       *
+       * @param request CloudUpdateAgentRequest
+       * @return CloudUpdateAgentResponse
+       */
+      Models::CloudUpdateAgentResponse cloudUpdateAgent(const Models::CloudUpdateAgentRequest &request);
+
+      /**
        * @summary 更新任务
        *
        * @param request CloudUpdateTaskRequest
@@ -242,6 +599,23 @@ namespace Dyvmsapi20170525
        * @return CloudUpdateTaskResponse
        */
       Models::CloudUpdateTaskResponse cloudUpdateTask(const Models::CloudUpdateTaskRequest &request);
+
+      /**
+       * @summary webcall
+       *
+       * @param request CloudWebcallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudWebcallResponse
+       */
+      Models::CloudWebcallResponse cloudWebcallWithOptions(const Models::CloudWebcallRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary webcall
+       *
+       * @param request CloudWebcallRequest
+       * @return CloudWebcallResponse
+       */
+      Models::CloudWebcallResponse cloudWebcall(const Models::CloudWebcallRequest &request);
 
       /**
        * @summary Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
