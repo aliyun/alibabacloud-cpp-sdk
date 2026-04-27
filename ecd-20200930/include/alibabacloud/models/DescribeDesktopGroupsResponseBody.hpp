@@ -82,6 +82,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PolicyGroupName, policyGroupName_);
         DARABONBA_PTR_TO_JSON(PolicyGroupNameList, policyGroupNameList_);
         DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
+        DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
         DARABONBA_PTR_TO_JSON(RatioThreshold, ratioThreshold_);
         DARABONBA_PTR_TO_JSON(ResetType, resetType_);
         DARABONBA_PTR_TO_JSON(SimpleUserGroupId, simpleUserGroupId_);
@@ -143,6 +144,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PolicyGroupName, policyGroupName_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupNameList, policyGroupNameList_);
         DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
+        DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
         DARABONBA_PTR_FROM_JSON(RatioThreshold, ratioThreshold_);
         DARABONBA_PTR_FROM_JSON(ResetType, resetType_);
         DARABONBA_PTR_FROM_JSON(SimpleUserGroupId, simpleUserGroupId_);
@@ -332,10 +334,10 @@ namespace Models
         && this->isLdap_ == nullptr && this->keepDuration_ == nullptr && this->loadPolicy_ == nullptr && this->maxDesktopsCount_ == nullptr && this->memory_ == nullptr
         && this->minDesktopsCount_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr
         && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr && this->ownType_ == nullptr && this->payType_ == nullptr && this->policyGroupId_ == nullptr
-        && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->protocolType_ == nullptr && this->ratioThreshold_ == nullptr
-        && this->resetType_ == nullptr && this->simpleUserGroupId_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr && this->subnetId_ == nullptr
-        && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr
-        && this->version_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
+        && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->protocolType_ == nullptr && this->qosRuleId_ == nullptr
+        && this->ratioThreshold_ == nullptr && this->resetType_ == nullptr && this->simpleUserGroupId_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr
+        && this->subnetId_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->userGroupName_ == nullptr
+        && this->userOuPath_ == nullptr && this->version_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -659,6 +661,13 @@ namespace Models
       inline DesktopGroups& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
+      // qosRuleId Field Functions 
+      bool hasQosRuleId() const { return this->qosRuleId_ != nullptr;};
+      void deleteQosRuleId() { this->qosRuleId_ = nullptr;};
+      inline string getQosRuleId() const { DARABONBA_PTR_GET_DEFAULT(qosRuleId_, "") };
+      inline DesktopGroups& setQosRuleId(string qosRuleId) { DARABONBA_PTR_SET_VALUE(qosRuleId_, qosRuleId) };
+
+
       // ratioThreshold Field Functions 
       bool hasRatioThreshold() const { return this->ratioThreshold_ != nullptr;};
       void deleteRatioThreshold() { this->ratioThreshold_ = nullptr;};
@@ -910,6 +919,7 @@ namespace Models
       // 
       //     <!-- -->
       shared_ptr<string> protocolType_ {};
+      shared_ptr<string> qosRuleId_ {};
       // The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
       // 
       // `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`

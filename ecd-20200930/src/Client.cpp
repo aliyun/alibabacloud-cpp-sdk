@@ -3678,6 +3678,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
     request.setDesktopAttachmentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDesktopAttachment(), "DesktopAttachment", "json"));
   }
 
+  if (!!tmpReq.hasPurchaseOptions()) {
+    request.setPurchaseOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPurchaseOptions(), "PurchaseOptions", "json"));
+  }
+
   json query = {};
   if (!!request.hasAmount()) {
     query["Amount"] = request.getAmount();
@@ -3773,6 +3777,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
 
   if (!!request.hasPromotionId()) {
     query["PromotionId"] = request.getPromotionId();
+  }
+
+  if (!!request.hasPurchaseOptionsShrink()) {
+    query["PurchaseOptions"] = request.getPurchaseOptionsShrink();
   }
 
   if (!!request.hasQosRuleId()) {
@@ -4765,6 +4773,10 @@ CreateQosRuleResponse Client::createQosRuleWithOptions(const CreateQosRuleReques
   json query = {};
   if (!!request.hasAuthAndroidId()) {
     query["AuthAndroidId"] = request.getAuthAndroidId();
+  }
+
+  if (!!request.hasAuthDesktopGroupId()) {
+    query["AuthDesktopGroupId"] = request.getAuthDesktopGroupId();
   }
 
   if (!!request.hasAuthDesktopId()) {
@@ -8039,6 +8051,10 @@ DescribeDesktopGroupsResponse Client::describeDesktopGroupsWithOptions(const Des
 
   if (!!request.hasProtocolType()) {
     query["ProtocolType"] = request.getProtocolType();
+  }
+
+  if (!!request.hasQosRuleId()) {
+    query["QosRuleId"] = request.getQosRuleId();
   }
 
   if (!!request.hasRegionId()) {
@@ -17353,6 +17369,10 @@ ModifyQosEntriesResponse Client::modifyQosEntriesWithOptions(const ModifyQosEntr
     query["AuthAndroidId"] = request.getAuthAndroidId();
   }
 
+  if (!!request.hasAuthDesktopGroupId()) {
+    query["AuthDesktopGroupId"] = request.getAuthDesktopGroupId();
+  }
+
   if (!!request.hasAuthDesktopId()) {
     query["AuthDesktopId"] = request.getAuthDesktopId();
   }
@@ -17363,6 +17383,10 @@ ModifyQosEntriesResponse Client::modifyQosEntriesWithOptions(const ModifyQosEntr
 
   if (!!request.hasRevokeAndroidId()) {
     query["RevokeAndroidId"] = request.getRevokeAndroidId();
+  }
+
+  if (!!request.hasRevokeDesktopGroupId()) {
+    query["RevokeDesktopGroupId"] = request.getRevokeDesktopGroupId();
   }
 
   if (!!request.hasRevokeDesktopId()) {

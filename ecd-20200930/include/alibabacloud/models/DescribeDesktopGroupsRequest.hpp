@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -116,7 +118,7 @@ namespace Models
         && this->desktopGroupId_ == nullptr && this->desktopGroupIds_ == nullptr && this->desktopGroupName_ == nullptr && this->desktopType_ == nullptr && this->endUserIds_ == nullptr
         && this->excludedEndUserIds_ == nullptr && this->imageId_ == nullptr && this->maxResults_ == nullptr && this->multiResource_ == nullptr && this->nextToken_ == nullptr
         && this->officeSiteId_ == nullptr && this->ownType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr
-        && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr; };
+        && this->protocolType_ == nullptr && this->qosRuleId_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr; };
     // bundleId Field Functions 
     bool hasBundleId() const { return this->bundleId_ != nullptr;};
     void deleteBundleId() { this->bundleId_ = nullptr;};
@@ -246,6 +248,13 @@ namespace Models
     inline DescribeDesktopGroupsRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
+    // qosRuleId Field Functions 
+    bool hasQosRuleId() const { return this->qosRuleId_ != nullptr;};
+    void deleteQosRuleId() { this->qosRuleId_ = nullptr;};
+    inline string getQosRuleId() const { DARABONBA_PTR_GET_DEFAULT(qosRuleId_, "") };
+    inline DescribeDesktopGroupsRequest& setQosRuleId(string qosRuleId) { DARABONBA_PTR_SET_VALUE(qosRuleId_, qosRuleId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -348,6 +357,7 @@ namespace Models
     // 
     //     <!-- -->
     shared_ptr<string> protocolType_ {};
+    shared_ptr<string> qosRuleId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.

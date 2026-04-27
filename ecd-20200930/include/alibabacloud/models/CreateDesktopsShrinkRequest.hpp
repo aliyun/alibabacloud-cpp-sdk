@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_TO_JSON(PurchaseOptions, purchaseOptionsShrink_);
       DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResellerOwnerUid, resellerOwnerUid_);
@@ -79,6 +80,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_FROM_JSON(PurchaseOptions, purchaseOptionsShrink_);
       DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResellerOwnerUid, resellerOwnerUid_);
@@ -582,10 +584,10 @@ namespace Models
         && this->channelCookie_ == nullptr && this->chargeType_ == nullptr && this->desktopAttachmentShrink_ == nullptr && this->desktopMemberIp_ == nullptr && this->desktopName_ == nullptr
         && this->desktopNameSuffix_ == nullptr && this->desktopTimers_ == nullptr && this->directoryId_ == nullptr && this->endUserId_ == nullptr && this->extendInfo_ == nullptr
         && this->groupId_ == nullptr && this->hostname_ == nullptr && this->monthDesktopSetting_ == nullptr && this->officeSiteId_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->qosRuleId_ == nullptr && this->regionId_ == nullptr
-        && this->resellerOwnerUid_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subnetId_ == nullptr
-        && this->tag_ == nullptr && this->timerGroupId_ == nullptr && this->userAssignMode_ == nullptr && this->userCommands_ == nullptr && this->userName_ == nullptr
-        && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->vpcId_ == nullptr; };
+        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->purchaseOptionsShrink_ == nullptr && this->qosRuleId_ == nullptr
+        && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->snapshotPolicyId_ == nullptr
+        && this->subnetId_ == nullptr && this->tag_ == nullptr && this->timerGroupId_ == nullptr && this->userAssignMode_ == nullptr && this->userCommands_ == nullptr
+        && this->userName_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->vpcId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -760,6 +762,13 @@ namespace Models
     void deletePromotionId() { this->promotionId_ = nullptr;};
     inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline CreateDesktopsShrinkRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
+    // purchaseOptionsShrink Field Functions 
+    bool hasPurchaseOptionsShrink() const { return this->purchaseOptionsShrink_ != nullptr;};
+    void deletePurchaseOptionsShrink() { this->purchaseOptionsShrink_ = nullptr;};
+    inline string getPurchaseOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(purchaseOptionsShrink_, "") };
+    inline CreateDesktopsShrinkRequest& setPurchaseOptionsShrink(string purchaseOptionsShrink) { DARABONBA_PTR_SET_VALUE(purchaseOptionsShrink_, purchaseOptionsShrink) };
 
 
     // qosRuleId Field Functions 
@@ -983,6 +992,7 @@ namespace Models
     shared_ptr<string> policyGroupId_ {};
     // The ID of the sales promotion.
     shared_ptr<string> promotionId_ {};
+    shared_ptr<string> purchaseOptionsShrink_ {};
     shared_ptr<string> qosRuleId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 

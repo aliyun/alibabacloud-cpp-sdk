@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_TO_JSON(PurchaseOptions, purchaseOptions_);
       DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResellerOwnerUid, resellerOwnerUid_);
@@ -79,6 +80,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_FROM_JSON(PurchaseOptions, purchaseOptions_);
       DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResellerOwnerUid, resellerOwnerUid_);
@@ -247,6 +249,37 @@ namespace Models
       shared_ptr<string> key_ {};
       // The value of the tag. You can specify 1 to 20 values for a tag.
       shared_ptr<string> value_ {};
+    };
+
+    class PurchaseOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PurchaseOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(MonthlyCredits, monthlyCredits_);
+      };
+      friend void from_json(const Darabonba::Json& j, PurchaseOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(MonthlyCredits, monthlyCredits_);
+      };
+      PurchaseOptions() = default ;
+      PurchaseOptions(const PurchaseOptions &) = default ;
+      PurchaseOptions(PurchaseOptions &&) = default ;
+      PurchaseOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PurchaseOptions() = default ;
+      PurchaseOptions& operator=(const PurchaseOptions &) = default ;
+      PurchaseOptions& operator=(PurchaseOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->monthlyCredits_ == nullptr; };
+      // monthlyCredits Field Functions 
+      bool hasMonthlyCredits() const { return this->monthlyCredits_ != nullptr;};
+      void deleteMonthlyCredits() { this->monthlyCredits_ = nullptr;};
+      inline int32_t getMonthlyCredits() const { DARABONBA_PTR_GET_DEFAULT(monthlyCredits_, 0) };
+      inline PurchaseOptions& setMonthlyCredits(int32_t monthlyCredits) { DARABONBA_PTR_SET_VALUE(monthlyCredits_, monthlyCredits) };
+
+
+    protected:
+      shared_ptr<int32_t> monthlyCredits_ {};
     };
 
     class MonthDesktopSetting : public Darabonba::Model {
@@ -721,10 +754,10 @@ namespace Models
         && this->channelCookie_ == nullptr && this->chargeType_ == nullptr && this->desktopAttachment_ == nullptr && this->desktopMemberIp_ == nullptr && this->desktopName_ == nullptr
         && this->desktopNameSuffix_ == nullptr && this->desktopTimers_ == nullptr && this->directoryId_ == nullptr && this->endUserId_ == nullptr && this->extendInfo_ == nullptr
         && this->groupId_ == nullptr && this->hostname_ == nullptr && this->monthDesktopSetting_ == nullptr && this->officeSiteId_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->qosRuleId_ == nullptr && this->regionId_ == nullptr
-        && this->resellerOwnerUid_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subnetId_ == nullptr
-        && this->tag_ == nullptr && this->timerGroupId_ == nullptr && this->userAssignMode_ == nullptr && this->userCommands_ == nullptr && this->userName_ == nullptr
-        && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->vpcId_ == nullptr; };
+        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->purchaseOptions_ == nullptr && this->qosRuleId_ == nullptr
+        && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->snapshotPolicyId_ == nullptr
+        && this->subnetId_ == nullptr && this->tag_ == nullptr && this->timerGroupId_ == nullptr && this->userAssignMode_ == nullptr && this->userCommands_ == nullptr
+        && this->userName_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->vpcId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -901,6 +934,15 @@ namespace Models
     void deletePromotionId() { this->promotionId_ = nullptr;};
     inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline CreateDesktopsRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
+
+
+    // purchaseOptions Field Functions 
+    bool hasPurchaseOptions() const { return this->purchaseOptions_ != nullptr;};
+    void deletePurchaseOptions() { this->purchaseOptions_ = nullptr;};
+    inline const CreateDesktopsRequest::PurchaseOptions & getPurchaseOptions() const { DARABONBA_PTR_GET_CONST(purchaseOptions_, CreateDesktopsRequest::PurchaseOptions) };
+    inline CreateDesktopsRequest::PurchaseOptions getPurchaseOptions() { DARABONBA_PTR_GET(purchaseOptions_, CreateDesktopsRequest::PurchaseOptions) };
+    inline CreateDesktopsRequest& setPurchaseOptions(const CreateDesktopsRequest::PurchaseOptions & purchaseOptions) { DARABONBA_PTR_SET_VALUE(purchaseOptions_, purchaseOptions) };
+    inline CreateDesktopsRequest& setPurchaseOptions(CreateDesktopsRequest::PurchaseOptions && purchaseOptions) { DARABONBA_PTR_SET_RVALUE(purchaseOptions_, purchaseOptions) };
 
 
     // qosRuleId Field Functions 
@@ -1124,6 +1166,7 @@ namespace Models
     shared_ptr<string> policyGroupId_ {};
     // The ID of the sales promotion.
     shared_ptr<string> promotionId_ {};
+    shared_ptr<CreateDesktopsRequest::PurchaseOptions> purchaseOptions_ {};
     shared_ptr<string> qosRuleId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 

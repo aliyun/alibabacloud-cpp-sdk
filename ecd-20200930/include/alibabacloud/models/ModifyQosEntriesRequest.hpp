@@ -15,16 +15,20 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyQosEntriesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AuthAndroidId, authAndroidId_);
+      DARABONBA_PTR_TO_JSON(AuthDesktopGroupId, authDesktopGroupId_);
       DARABONBA_PTR_TO_JSON(AuthDesktopId, authDesktopId_);
       DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_TO_JSON(RevokeAndroidId, revokeAndroidId_);
+      DARABONBA_PTR_TO_JSON(RevokeDesktopGroupId, revokeDesktopGroupId_);
       DARABONBA_PTR_TO_JSON(RevokeDesktopId, revokeDesktopId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyQosEntriesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthAndroidId, authAndroidId_);
+      DARABONBA_PTR_FROM_JSON(AuthDesktopGroupId, authDesktopGroupId_);
       DARABONBA_PTR_FROM_JSON(AuthDesktopId, authDesktopId_);
       DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
       DARABONBA_PTR_FROM_JSON(RevokeAndroidId, revokeAndroidId_);
+      DARABONBA_PTR_FROM_JSON(RevokeDesktopGroupId, revokeDesktopGroupId_);
       DARABONBA_PTR_FROM_JSON(RevokeDesktopId, revokeDesktopId_);
     };
     ModifyQosEntriesRequest() = default ;
@@ -39,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authAndroidId_ == nullptr
-        && this->authDesktopId_ == nullptr && this->qosRuleId_ == nullptr && this->revokeAndroidId_ == nullptr && this->revokeDesktopId_ == nullptr; };
+        && this->authDesktopGroupId_ == nullptr && this->authDesktopId_ == nullptr && this->qosRuleId_ == nullptr && this->revokeAndroidId_ == nullptr && this->revokeDesktopGroupId_ == nullptr
+        && this->revokeDesktopId_ == nullptr; };
     // authAndroidId Field Functions 
     bool hasAuthAndroidId() const { return this->authAndroidId_ != nullptr;};
     void deleteAuthAndroidId() { this->authAndroidId_ = nullptr;};
@@ -47,6 +52,15 @@ namespace Models
     inline vector<string> getAuthAndroidId() { DARABONBA_PTR_GET(authAndroidId_, vector<string>) };
     inline ModifyQosEntriesRequest& setAuthAndroidId(const vector<string> & authAndroidId) { DARABONBA_PTR_SET_VALUE(authAndroidId_, authAndroidId) };
     inline ModifyQosEntriesRequest& setAuthAndroidId(vector<string> && authAndroidId) { DARABONBA_PTR_SET_RVALUE(authAndroidId_, authAndroidId) };
+
+
+    // authDesktopGroupId Field Functions 
+    bool hasAuthDesktopGroupId() const { return this->authDesktopGroupId_ != nullptr;};
+    void deleteAuthDesktopGroupId() { this->authDesktopGroupId_ = nullptr;};
+    inline const vector<string> & getAuthDesktopGroupId() const { DARABONBA_PTR_GET_CONST(authDesktopGroupId_, vector<string>) };
+    inline vector<string> getAuthDesktopGroupId() { DARABONBA_PTR_GET(authDesktopGroupId_, vector<string>) };
+    inline ModifyQosEntriesRequest& setAuthDesktopGroupId(const vector<string> & authDesktopGroupId) { DARABONBA_PTR_SET_VALUE(authDesktopGroupId_, authDesktopGroupId) };
+    inline ModifyQosEntriesRequest& setAuthDesktopGroupId(vector<string> && authDesktopGroupId) { DARABONBA_PTR_SET_RVALUE(authDesktopGroupId_, authDesktopGroupId) };
 
 
     // authDesktopId Field Functions 
@@ -74,6 +88,15 @@ namespace Models
     inline ModifyQosEntriesRequest& setRevokeAndroidId(vector<string> && revokeAndroidId) { DARABONBA_PTR_SET_RVALUE(revokeAndroidId_, revokeAndroidId) };
 
 
+    // revokeDesktopGroupId Field Functions 
+    bool hasRevokeDesktopGroupId() const { return this->revokeDesktopGroupId_ != nullptr;};
+    void deleteRevokeDesktopGroupId() { this->revokeDesktopGroupId_ = nullptr;};
+    inline const vector<string> & getRevokeDesktopGroupId() const { DARABONBA_PTR_GET_CONST(revokeDesktopGroupId_, vector<string>) };
+    inline vector<string> getRevokeDesktopGroupId() { DARABONBA_PTR_GET(revokeDesktopGroupId_, vector<string>) };
+    inline ModifyQosEntriesRequest& setRevokeDesktopGroupId(const vector<string> & revokeDesktopGroupId) { DARABONBA_PTR_SET_VALUE(revokeDesktopGroupId_, revokeDesktopGroupId) };
+    inline ModifyQosEntriesRequest& setRevokeDesktopGroupId(vector<string> && revokeDesktopGroupId) { DARABONBA_PTR_SET_RVALUE(revokeDesktopGroupId_, revokeDesktopGroupId) };
+
+
     // revokeDesktopId Field Functions 
     bool hasRevokeDesktopId() const { return this->revokeDesktopId_ != nullptr;};
     void deleteRevokeDesktopId() { this->revokeDesktopId_ = nullptr;};
@@ -85,10 +108,12 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> authAndroidId_ {};
+    shared_ptr<vector<string>> authDesktopGroupId_ {};
     shared_ptr<vector<string>> authDesktopId_ {};
     // This parameter is required.
     shared_ptr<string> qosRuleId_ {};
     shared_ptr<vector<string>> revokeAndroidId_ {};
+    shared_ptr<vector<string>> revokeDesktopGroupId_ {};
     shared_ptr<vector<string>> revokeDesktopId_ {};
   };
 

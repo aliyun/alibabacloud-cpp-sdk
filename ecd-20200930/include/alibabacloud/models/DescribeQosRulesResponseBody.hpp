@@ -36,6 +36,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const QosRules& obj) { 
         DARABONBA_PTR_TO_JSON(DesktopCount, desktopCount_);
+        DARABONBA_PTR_TO_JSON(DesktopGroupCount, desktopGroupCount_);
         DARABONBA_PTR_TO_JSON(Download, download_);
         DARABONBA_PTR_TO_JSON(NetworkPackageId, networkPackageId_);
         DARABONBA_PTR_TO_JSON(QosRuleId, qosRuleId_);
@@ -44,6 +45,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, QosRules& obj) { 
         DARABONBA_PTR_FROM_JSON(DesktopCount, desktopCount_);
+        DARABONBA_PTR_FROM_JSON(DesktopGroupCount, desktopGroupCount_);
         DARABONBA_PTR_FROM_JSON(Download, download_);
         DARABONBA_PTR_FROM_JSON(NetworkPackageId, networkPackageId_);
         DARABONBA_PTR_FROM_JSON(QosRuleId, qosRuleId_);
@@ -62,12 +64,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->desktopCount_ == nullptr
-        && this->download_ == nullptr && this->networkPackageId_ == nullptr && this->qosRuleId_ == nullptr && this->qosRuleName_ == nullptr && this->upload_ == nullptr; };
+        && this->desktopGroupCount_ == nullptr && this->download_ == nullptr && this->networkPackageId_ == nullptr && this->qosRuleId_ == nullptr && this->qosRuleName_ == nullptr
+        && this->upload_ == nullptr; };
       // desktopCount Field Functions 
       bool hasDesktopCount() const { return this->desktopCount_ != nullptr;};
       void deleteDesktopCount() { this->desktopCount_ = nullptr;};
       inline string getDesktopCount() const { DARABONBA_PTR_GET_DEFAULT(desktopCount_, "") };
       inline QosRules& setDesktopCount(string desktopCount) { DARABONBA_PTR_SET_VALUE(desktopCount_, desktopCount) };
+
+
+      // desktopGroupCount Field Functions 
+      bool hasDesktopGroupCount() const { return this->desktopGroupCount_ != nullptr;};
+      void deleteDesktopGroupCount() { this->desktopGroupCount_ = nullptr;};
+      inline int32_t getDesktopGroupCount() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupCount_, 0) };
+      inline QosRules& setDesktopGroupCount(int32_t desktopGroupCount) { DARABONBA_PTR_SET_VALUE(desktopGroupCount_, desktopGroupCount) };
 
 
       // download Field Functions 
@@ -107,6 +117,7 @@ namespace Models
 
     protected:
       shared_ptr<string> desktopCount_ {};
+      shared_ptr<int32_t> desktopGroupCount_ {};
       shared_ptr<string> download_ {};
       shared_ptr<string> networkPackageId_ {};
       shared_ptr<string> qosRuleId_ {};

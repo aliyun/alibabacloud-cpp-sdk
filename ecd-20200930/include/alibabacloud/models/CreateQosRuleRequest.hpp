@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateQosRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AuthAndroidId, authAndroidId_);
+      DARABONBA_PTR_TO_JSON(AuthDesktopGroupId, authDesktopGroupId_);
       DARABONBA_PTR_TO_JSON(AuthDesktopId, authDesktopId_);
       DARABONBA_PTR_TO_JSON(Download, download_);
       DARABONBA_PTR_TO_JSON(NetworkPackageId, networkPackageId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateQosRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthAndroidId, authAndroidId_);
+      DARABONBA_PTR_FROM_JSON(AuthDesktopGroupId, authDesktopGroupId_);
       DARABONBA_PTR_FROM_JSON(AuthDesktopId, authDesktopId_);
       DARABONBA_PTR_FROM_JSON(Download, download_);
       DARABONBA_PTR_FROM_JSON(NetworkPackageId, networkPackageId_);
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authAndroidId_ == nullptr
-        && this->authDesktopId_ == nullptr && this->download_ == nullptr && this->networkPackageId_ == nullptr && this->qosRuleName_ == nullptr && this->upload_ == nullptr; };
+        && this->authDesktopGroupId_ == nullptr && this->authDesktopId_ == nullptr && this->download_ == nullptr && this->networkPackageId_ == nullptr && this->qosRuleName_ == nullptr
+        && this->upload_ == nullptr; };
     // authAndroidId Field Functions 
     bool hasAuthAndroidId() const { return this->authAndroidId_ != nullptr;};
     void deleteAuthAndroidId() { this->authAndroidId_ = nullptr;};
@@ -49,6 +52,15 @@ namespace Models
     inline vector<string> getAuthAndroidId() { DARABONBA_PTR_GET(authAndroidId_, vector<string>) };
     inline CreateQosRuleRequest& setAuthAndroidId(const vector<string> & authAndroidId) { DARABONBA_PTR_SET_VALUE(authAndroidId_, authAndroidId) };
     inline CreateQosRuleRequest& setAuthAndroidId(vector<string> && authAndroidId) { DARABONBA_PTR_SET_RVALUE(authAndroidId_, authAndroidId) };
+
+
+    // authDesktopGroupId Field Functions 
+    bool hasAuthDesktopGroupId() const { return this->authDesktopGroupId_ != nullptr;};
+    void deleteAuthDesktopGroupId() { this->authDesktopGroupId_ = nullptr;};
+    inline const vector<string> & getAuthDesktopGroupId() const { DARABONBA_PTR_GET_CONST(authDesktopGroupId_, vector<string>) };
+    inline vector<string> getAuthDesktopGroupId() { DARABONBA_PTR_GET(authDesktopGroupId_, vector<string>) };
+    inline CreateQosRuleRequest& setAuthDesktopGroupId(const vector<string> & authDesktopGroupId) { DARABONBA_PTR_SET_VALUE(authDesktopGroupId_, authDesktopGroupId) };
+    inline CreateQosRuleRequest& setAuthDesktopGroupId(vector<string> && authDesktopGroupId) { DARABONBA_PTR_SET_RVALUE(authDesktopGroupId_, authDesktopGroupId) };
 
 
     // authDesktopId Field Functions 
@@ -90,6 +102,7 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> authAndroidId_ {};
+    shared_ptr<vector<string>> authDesktopGroupId_ {};
     shared_ptr<vector<string>> authDesktopId_ {};
     // This parameter is required.
     shared_ptr<int32_t> download_ {};
