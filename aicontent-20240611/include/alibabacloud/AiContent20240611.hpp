@@ -973,6 +973,24 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyListResponse modelRouterQueryApiKeyList(const Models::ModelRouterQueryApiKeyListRequest &request);
 
       /**
+       * @summary 计费管理/批量查询计费明细
+       *
+       * @param request ModelRouterQueryBillingCostBreakdownRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryBillingCostBreakdownResponse
+       */
+      Models::ModelRouterQueryBillingCostBreakdownResponse modelRouterQueryBillingCostBreakdownWithOptions(const Models::ModelRouterQueryBillingCostBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 计费管理/批量查询计费明细
+       *
+       * @param request ModelRouterQueryBillingCostBreakdownRequest
+       * @return ModelRouterQueryBillingCostBreakdownResponse
+       */
+      Models::ModelRouterQueryBillingCostBreakdownResponse modelRouterQueryBillingCostBreakdown(const Models::ModelRouterQueryBillingCostBreakdownRequest &request);
+
+      /**
        * @summary 计费管理/查询计费规则列表
        *
        * @param request ModelRouterQueryBillingRuleListRequest
@@ -1273,6 +1291,24 @@ namespace AiContent20240611
        * @return ModelRouterQueryObservationMetricsResponse
        */
       Models::ModelRouterQueryObservationMetricsResponse modelRouterQueryObservationMetrics(const Models::ModelRouterQueryObservationMetricsRequest &request);
+
+      /**
+       * @summary 用量管理/批量查询用量明细
+       *
+       * @param request ModelRouterQueryUsageBreakdownRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryUsageBreakdownResponse
+       */
+      Models::ModelRouterQueryUsageBreakdownResponse modelRouterQueryUsageBreakdownWithOptions(const Models::ModelRouterQueryUsageBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用量管理/批量查询用量明细
+       *
+       * @param request ModelRouterQueryUsageBreakdownRequest
+       * @return ModelRouterQueryUsageBreakdownResponse
+       */
+      Models::ModelRouterQueryUsageBreakdownResponse modelRouterQueryUsageBreakdown(const Models::ModelRouterQueryUsageBreakdownRequest &request);
 
       /**
        * @summary 计费管理/更新计费规则

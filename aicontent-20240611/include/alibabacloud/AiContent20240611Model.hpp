@@ -9,6 +9,8 @@
 #include <alibabacloud/models/ApiKeyDecryptedDTO.hpp>
 #include <alibabacloud/models/ApiKeyListQry.hpp>
 #include <alibabacloud/models/ApiKeyUpdateCmd.hpp>
+#include <alibabacloud/models/BillingCostBreakdownRowDTO.hpp>
+#include <alibabacloud/models/BillingCostBreakdownRespDTO.hpp>
 #include <alibabacloud/models/ClientCreateCmd.hpp>
 #include <alibabacloud/models/ClientListQry.hpp>
 #include <alibabacloud/models/ClientTreeDTO.hpp>
@@ -25,6 +27,7 @@
 #include <alibabacloud/models/TrendPointDTO.hpp>
 #include <alibabacloud/models/CostQueryTrendDTO.hpp>
 #include <alibabacloud/models/CostTabDTO.hpp>
+#include <alibabacloud/models/MetricKVPairDTO.hpp>
 #include <alibabacloud/models/MetricValueDTO.hpp>
 #include <alibabacloud/models/ModelCreateCmd.hpp>
 #include <alibabacloud/models/ModelDTO.hpp>
@@ -53,6 +56,8 @@
 #include <alibabacloud/models/UsageInfoDTO.hpp>
 #include <alibabacloud/models/RequestLogDTO.hpp>
 #include <alibabacloud/models/RequestLogListQry.hpp>
+#include <alibabacloud/models/UsageBreakdownRowDTO.hpp>
+#include <alibabacloud/models/UsageBreakdownRespDTO.hpp>
 #include <alibabacloud/models/AITeacherExpansionPracticeTaskGenerateRequest.hpp>
 #include <alibabacloud/models/AITeacherExpansionPracticeTaskGenerateResponseBody.hpp>
 #include <alibabacloud/models/AITeacherExpansionPracticeTaskGenerateResponse.hpp>
@@ -198,6 +203,9 @@
 #include <alibabacloud/models/ModelRouterQueryApiKeyListRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyListResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyListResponse.hpp>
+#include <alibabacloud/models/ModelRouterQueryBillingCostBreakdownRequest.hpp>
+#include <alibabacloud/models/ModelRouterQueryBillingCostBreakdownResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterQueryBillingCostBreakdownResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingRuleListRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingRuleListResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryBillingRuleListResponse.hpp>
@@ -247,6 +255,9 @@
 #include <alibabacloud/models/ModelRouterQueryObservationMetricsRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryObservationMetricsResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryObservationMetricsResponse.hpp>
+#include <alibabacloud/models/ModelRouterQueryUsageBreakdownRequest.hpp>
+#include <alibabacloud/models/ModelRouterQueryUsageBreakdownResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterQueryUsageBreakdownResponse.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleRequest.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleResponse.hpp>

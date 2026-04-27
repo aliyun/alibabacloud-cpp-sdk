@@ -3207,6 +3207,75 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 }
 
 /**
+ * @summary 计费管理/批量查询计费明细
+ *
+ * @param request ModelRouterQueryBillingCostBreakdownRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryBillingCostBreakdownResponse
+ */
+ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCostBreakdownWithOptions(const ModelRouterQueryBillingCostBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryBillingCostBreakdown"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/billing/cost/breakdown")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryBillingCostBreakdownResponse>();
+}
+
+/**
+ * @summary 计费管理/批量查询计费明细
+ *
+ * @param request ModelRouterQueryBillingCostBreakdownRequest
+ * @return ModelRouterQueryBillingCostBreakdownResponse
+ */
+ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCostBreakdown(const ModelRouterQueryBillingCostBreakdownRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryBillingCostBreakdownWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 计费管理/查询计费规则列表
  *
  * @param request ModelRouterQueryBillingRuleListRequest
@@ -4395,6 +4464,75 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryObservationMetricsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 用量管理/批量查询用量明细
+ *
+ * @param request ModelRouterQueryUsageBreakdownRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryUsageBreakdownResponse
+ */
+ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdownWithOptions(const ModelRouterQueryUsageBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryUsageBreakdown"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/usage/breakdown")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryUsageBreakdownResponse>();
+}
+
+/**
+ * @summary 用量管理/批量查询用量明细
+ *
+ * @param request ModelRouterQueryUsageBreakdownRequest
+ * @return ModelRouterQueryUsageBreakdownResponse
+ */
+ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdown(const ModelRouterQueryUsageBreakdownRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryUsageBreakdownWithOptions(request, headers, runtime);
 }
 
 /**
