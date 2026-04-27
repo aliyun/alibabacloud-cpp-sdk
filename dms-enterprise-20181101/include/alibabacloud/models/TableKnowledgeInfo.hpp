@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AssetModifiedGmt, assetModifiedGmt_);
       DARABONBA_PTR_TO_JSON(ColumnList, columnList_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(Level, level_);
       DARABONBA_PTR_TO_JSON(Summary, summary_);
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AssetModifiedGmt, assetModifiedGmt_);
       DARABONBA_PTR_FROM_JSON(ColumnList, columnList_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(Level, level_);
       DARABONBA_PTR_FROM_JSON(Summary, summary_);
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
     };
@@ -42,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetDescription_ == nullptr
-        && this->assetModifiedGmt_ == nullptr && this->columnList_ == nullptr && this->description_ == nullptr && this->summary_ == nullptr && this->tableName_ == nullptr; };
+        && this->assetModifiedGmt_ == nullptr && this->columnList_ == nullptr && this->description_ == nullptr && this->level_ == nullptr && this->summary_ == nullptr
+        && this->tableName_ == nullptr; };
     // assetDescription Field Functions 
     bool hasAssetDescription() const { return this->assetDescription_ != nullptr;};
     void deleteAssetDescription() { this->assetDescription_ = nullptr;};
@@ -73,6 +76,13 @@ namespace Models
     inline TableKnowledgeInfo& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // level Field Functions 
+    bool hasLevel() const { return this->level_ != nullptr;};
+    void deleteLevel() { this->level_ = nullptr;};
+    inline int32_t getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, 0) };
+    inline TableKnowledgeInfo& setLevel(int32_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
@@ -96,6 +106,7 @@ namespace Models
     shared_ptr<vector<ColumnKnowledgeInfo>> columnList_ {};
     // Table description in the CREAT TABLE statement.
     shared_ptr<string> description_ {};
+    shared_ptr<int32_t> level_ {};
     // Table business description, which can be edited via EditMetaKnowledgeAsset.
     shared_ptr<string> summary_ {};
     // The table name.

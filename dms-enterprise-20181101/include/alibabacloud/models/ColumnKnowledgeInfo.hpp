@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ColumnName, columnName_);
       DARABONBA_PTR_TO_JSON(ColumnType, columnType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(Level, level_);
       DARABONBA_PTR_TO_JSON(Position, position_);
     };
     friend void from_json(const Darabonba::Json& j, ColumnKnowledgeInfo& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ColumnName, columnName_);
       DARABONBA_PTR_FROM_JSON(ColumnType, columnType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(Level, level_);
       DARABONBA_PTR_FROM_JSON(Position, position_);
     };
     ColumnKnowledgeInfo() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetDescription_ == nullptr
-        && this->assetModifiedGmt_ == nullptr && this->columnName_ == nullptr && this->columnType_ == nullptr && this->description_ == nullptr && this->position_ == nullptr; };
+        && this->assetModifiedGmt_ == nullptr && this->columnName_ == nullptr && this->columnType_ == nullptr && this->description_ == nullptr && this->level_ == nullptr
+        && this->position_ == nullptr; };
     // assetDescription Field Functions 
     bool hasAssetDescription() const { return this->assetDescription_ != nullptr;};
     void deleteAssetDescription() { this->assetDescription_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline ColumnKnowledgeInfo& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // level Field Functions 
+    bool hasLevel() const { return this->level_ != nullptr;};
+    void deleteLevel() { this->level_ = nullptr;};
+    inline int32_t getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, 0) };
+    inline ColumnKnowledgeInfo& setLevel(int32_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
     // position Field Functions 
     bool hasPosition() const { return this->position_ != nullptr;};
     void deletePosition() { this->position_ = nullptr;};
@@ -94,6 +104,7 @@ namespace Models
     shared_ptr<string> columnType_ {};
     // Field description in the CREATE TABLE statement.
     shared_ptr<string> description_ {};
+    shared_ptr<int32_t> level_ {};
     // The field order in the CREATE TABLE statement.
     shared_ptr<int32_t> position_ {};
   };
