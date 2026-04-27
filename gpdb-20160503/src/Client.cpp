@@ -10082,7 +10082,7 @@ GetSupabaseProjectResponse Client::getSupabaseProject(const GetSupabaseProjectRe
 }
 
 /**
- * @summary Queries a list of API keys for a Supabase project.
+ * @summary Queries the API keys and JWT secrets of a Supabase instance.
  *
  * @description You can call this operation to query a list of API keys for a Supabase project.
  *
@@ -10119,7 +10119,7 @@ GetSupabaseProjectApiKeysResponse Client::getSupabaseProjectApiKeysWithOptions(c
 }
 
 /**
- * @summary Queries a list of API keys for a Supabase project.
+ * @summary Queries the API keys and JWT secrets of a Supabase instance.
  *
  * @description You can call this operation to query a list of API keys for a Supabase project.
  *
@@ -13762,7 +13762,7 @@ ModifyStreamingJobResponse Client::modifyStreamingJob(const ModifyStreamingJobRe
 }
 
 /**
- * @summary 修改Supabase自动启停策略
+ * @summary Modify the auto pause/resume policy of Supabase.
  *
  * @param request ModifySupabaseAutoScalePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13801,7 +13801,7 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicyWithO
 }
 
 /**
- * @summary 修改Supabase自动启停策略
+ * @summary Modify the auto pause/resume policy of Supabase.
  *
  * @param request ModifySupabaseAutoScalePolicyRequest
  * @return ModifySupabaseAutoScalePolicyResponse
@@ -13809,6 +13809,64 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicyWithO
 ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicy(const ModifySupabaseAutoScalePolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifySupabaseAutoScalePolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+ *
+ * @param request ModifySupabaseProjectResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySupabaseProjectResourceResponse
+ */
+ModifySupabaseProjectResourceResponse Client::modifySupabaseProjectResourceWithOptions(const ModifySupabaseProjectResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModifyType()) {
+    query["ModifyType"] = request.getModifyType();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasProjectSpec()) {
+    query["ProjectSpec"] = request.getProjectSpec();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStorageSize()) {
+    query["StorageSize"] = request.getStorageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySupabaseProjectResource"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySupabaseProjectResourceResponse>();
+}
+
+/**
+ * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+ *
+ * @param request ModifySupabaseProjectResourceRequest
+ * @return ModifySupabaseProjectResourceResponse
+ */
+ModifySupabaseProjectResourceResponse Client::modifySupabaseProjectResource(const ModifySupabaseProjectResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySupabaseProjectResourceWithOptions(request, runtime);
 }
 
 /**

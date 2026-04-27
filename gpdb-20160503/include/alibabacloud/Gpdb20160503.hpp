@@ -3042,7 +3042,7 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectResponse getSupabaseProject(const Models::GetSupabaseProjectRequest &request);
 
       /**
-       * @summary Queries a list of API keys for a Supabase project.
+       * @summary Queries the API keys and JWT secrets of a Supabase instance.
        *
        * @description You can call this operation to query a list of API keys for a Supabase project.
        *
@@ -3053,7 +3053,7 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectApiKeysResponse getSupabaseProjectApiKeysWithOptions(const Models::GetSupabaseProjectApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of API keys for a Supabase project.
+       * @summary Queries the API keys and JWT secrets of a Supabase instance.
        *
        * @description You can call this operation to query a list of API keys for a Supabase project.
        *
@@ -4147,7 +4147,7 @@ namespace Gpdb20160503
       Models::ModifyStreamingJobResponse modifyStreamingJob(const Models::ModifyStreamingJobRequest &request);
 
       /**
-       * @summary 修改Supabase自动启停策略
+       * @summary Modify the auto pause/resume policy of Supabase.
        *
        * @param request ModifySupabaseAutoScalePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4156,12 +4156,29 @@ namespace Gpdb20160503
       Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicyWithOptions(const Models::ModifySupabaseAutoScalePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Supabase自动启停策略
+       * @summary Modify the auto pause/resume policy of Supabase.
        *
        * @param request ModifySupabaseAutoScalePolicyRequest
        * @return ModifySupabaseAutoScalePolicyResponse
        */
       Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicy(const Models::ModifySupabaseAutoScalePolicyRequest &request);
+
+      /**
+       * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+       *
+       * @param request ModifySupabaseProjectResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySupabaseProjectResourceResponse
+       */
+      Models::ModifySupabaseProjectResourceResponse modifySupabaseProjectResourceWithOptions(const Models::ModifySupabaseProjectResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+       *
+       * @param request ModifySupabaseProjectResourceRequest
+       * @return ModifySupabaseProjectResourceResponse
+       */
+      Models::ModifySupabaseProjectResourceResponse modifySupabaseProjectResource(const Models::ModifySupabaseProjectResourceRequest &request);
 
       /**
        * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
