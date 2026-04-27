@@ -3,6 +3,11 @@
 - Support API ListForwardStrategyBindingItems.
 
 
+2026-04-27 Version: 1.5.0
+- Support API ListForwardStrategies.
+- Support API ListForwardStrategyBindingItems.
+
+
 2026-04-08 Version: 1.4.0
 - Support API CreatePADiagnosisTask.
 - Support API GetPADiagnosisTask.
