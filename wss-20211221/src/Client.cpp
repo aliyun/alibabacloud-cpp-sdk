@@ -98,7 +98,6 @@ CreateMultiOrderResponse Client::createMultiOrder(const CreateMultiOrderRequest 
 /**
  * @summary 查询物流地址
  *
- * @param request DescribeDeliveryAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDeliveryAddressResponse
  */

@@ -41,6 +41,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const OrderItems& obj) { 
         DARABONBA_PTR_TO_JSON(Amount, amount_);
         DARABONBA_PTR_TO_JSON(Components, components_);
+        DARABONBA_PTR_TO_JSON(Data, data_);
         DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
         DARABONBA_PTR_TO_JSON(Period, period_);
         DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
@@ -52,6 +53,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, OrderItems& obj) { 
         DARABONBA_PTR_FROM_JSON(Amount, amount_);
         DARABONBA_PTR_FROM_JSON(Components, components_);
+        DARABONBA_PTR_FROM_JSON(Data, data_);
         DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
         DARABONBA_PTR_FROM_JSON(Period, period_);
         DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
@@ -114,8 +116,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->amount_ == nullptr
-        && this->components_ == nullptr && this->instanceIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr
-        && this->resourceIds_ == nullptr && this->resourceType_ == nullptr && this->savingPlanPeriod_ == nullptr; };
+        && this->components_ == nullptr && this->data_ == nullptr && this->instanceIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
+        && this->promotionId_ == nullptr && this->resourceIds_ == nullptr && this->resourceType_ == nullptr && this->savingPlanPeriod_ == nullptr; };
       // amount Field Functions 
       bool hasAmount() const { return this->amount_ != nullptr;};
       void deleteAmount() { this->amount_ = nullptr;};
@@ -130,6 +132,13 @@ namespace Models
       inline vector<OrderItems::Components> getComponents() { DARABONBA_PTR_GET(components_, vector<OrderItems::Components>) };
       inline OrderItems& setComponents(const vector<OrderItems::Components> & components) { DARABONBA_PTR_SET_VALUE(components_, components) };
       inline OrderItems& setComponents(vector<OrderItems::Components> && components) { DARABONBA_PTR_SET_RVALUE(components_, components) };
+
+
+      // data Field Functions 
+      bool hasData() const { return this->data_ != nullptr;};
+      void deleteData() { this->data_ = nullptr;};
+      inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+      inline OrderItems& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
       // instanceIds Field Functions 
@@ -188,6 +197,7 @@ namespace Models
     protected:
       shared_ptr<int32_t> amount_ {};
       shared_ptr<vector<OrderItems::Components>> components_ {};
+      shared_ptr<string> data_ {};
       shared_ptr<vector<string>> instanceIds_ {};
       shared_ptr<int32_t> period_ {};
       shared_ptr<string> periodUnit_ {};
