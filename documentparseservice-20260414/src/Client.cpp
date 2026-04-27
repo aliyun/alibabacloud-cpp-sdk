@@ -38,6 +38,52 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 /**
  * @summary 文档解析测试接口
  *
+ * @param request DocumentParseOnlineApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DocumentParseOnlineApiResponse
+ */
+DocumentParseOnlineApiResponse Client::documentParseOnlineApiWithOptions(const DocumentParseOnlineApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImageUrl()) {
+    query["ImageUrl"] = request.getImageUrl();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DocumentParseOnlineApi"},
+    {"version" , "2026-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DocumentParseOnlineApiResponse>();
+}
+
+/**
+ * @summary 文档解析测试接口
+ *
+ * @param request DocumentParseOnlineApiRequest
+ * @return DocumentParseOnlineApiResponse
+ */
+DocumentParseOnlineApiResponse Client::documentParseOnlineApi(const DocumentParseOnlineApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return documentParseOnlineApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 文档解析测试接口
+ *
  * @param request DocumentParseTestApiRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DocumentParseTestApiResponse

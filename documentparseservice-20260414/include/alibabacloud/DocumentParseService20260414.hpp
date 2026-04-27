@@ -23,6 +23,23 @@ namespace DocumentParseService20260414
       /**
        * @summary 文档解析测试接口
        *
+       * @param request DocumentParseOnlineApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DocumentParseOnlineApiResponse
+       */
+      Models::DocumentParseOnlineApiResponse documentParseOnlineApiWithOptions(const Models::DocumentParseOnlineApiRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 文档解析测试接口
+       *
+       * @param request DocumentParseOnlineApiRequest
+       * @return DocumentParseOnlineApiResponse
+       */
+      Models::DocumentParseOnlineApiResponse documentParseOnlineApi(const Models::DocumentParseOnlineApiRequest &request);
+
+      /**
+       * @summary 文档解析测试接口
+       *
        * @param request DocumentParseTestApiRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DocumentParseTestApiResponse
