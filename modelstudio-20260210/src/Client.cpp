@@ -96,6 +96,10 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasServiceSite()) {
+    query["serviceSite"] = request.getServiceSite();
+  }
+
   if (!!request.hasWorkspaceName()) {
     query["workspaceName"] = request.getWorkspaceName();
   }
@@ -280,6 +284,10 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
   }
 
   if (!!request.hasWorkspaceName()) {

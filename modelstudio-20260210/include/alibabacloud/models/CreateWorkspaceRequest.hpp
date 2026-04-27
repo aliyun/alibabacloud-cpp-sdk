@@ -13,9 +13,11 @@ namespace Models
   class CreateWorkspaceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateWorkspaceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(serviceSite, serviceSite_);
       DARABONBA_PTR_TO_JSON(workspaceName, workspaceName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkspaceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(serviceSite, serviceSite_);
       DARABONBA_PTR_FROM_JSON(workspaceName, workspaceName_);
     };
     CreateWorkspaceRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->workspaceName_ == nullptr; };
+    virtual bool empty() const override { return this->serviceSite_ == nullptr
+        && this->workspaceName_ == nullptr; };
+    // serviceSite Field Functions 
+    bool hasServiceSite() const { return this->serviceSite_ != nullptr;};
+    void deleteServiceSite() { this->serviceSite_ = nullptr;};
+    inline string getServiceSite() const { DARABONBA_PTR_GET_DEFAULT(serviceSite_, "") };
+    inline CreateWorkspaceRequest& setServiceSite(string serviceSite) { DARABONBA_PTR_SET_VALUE(serviceSite_, serviceSite) };
+
+
     // workspaceName Field Functions 
     bool hasWorkspaceName() const { return this->workspaceName_ != nullptr;};
     void deleteWorkspaceName() { this->workspaceName_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> serviceSite_ {};
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};
   };
