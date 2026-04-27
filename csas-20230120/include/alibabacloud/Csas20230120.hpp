@@ -38,7 +38,7 @@ namespace Csas20230120
       Models::AttachApplication2ConnectorResponse attachApplication2Connector(const Models::AttachApplication2ConnectorRequest &request);
 
       /**
-       * @summary 挂载业务策略至指定审批流程
+       * @summary Mount a business policy to a specified approval flow
        *
        * @param request AttachPolicy2ApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Csas20230120
       Models::AttachPolicy2ApprovalProcessResponse attachPolicy2ApprovalProcessWithOptions(const Models::AttachPolicy2ApprovalProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 挂载业务策略至指定审批流程
+       * @summary Mount a business policy to a specified approval flow
        *
        * @param request AttachPolicy2ApprovalProcessRequest
        * @return AttachPolicy2ApprovalProcessResponse
@@ -55,7 +55,7 @@ namespace Csas20230120
       Models::AttachPolicy2ApprovalProcessResponse attachPolicy2ApprovalProcess(const Models::AttachPolicy2ApprovalProcessRequest &request);
 
       /**
-       * @summary 创建审批流程
+       * @summary Create an approval flow under the current Alibaba Cloud account.
        *
        * @param tmpReq CreateApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Csas20230120
       Models::CreateApprovalProcessResponse createApprovalProcessWithOptions(const Models::CreateApprovalProcessRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建审批流程
+       * @summary Create an approval flow under the current Alibaba Cloud account.
        *
        * @param request CreateApprovalProcessRequest
        * @return CreateApprovalProcessResponse
@@ -106,7 +106,7 @@ namespace Csas20230120
       Models::CreateDynamicRouteResponse createDynamicRoute(const Models::CreateDynamicRouteRequest &request);
 
       /**
-       * @summary 创建加速策略
+       * @summary Create an enterprise acceleration policy.
        *
        * @param request CreateEnterpriseAcceleratePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Csas20230120
       Models::CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicyWithOptions(const Models::CreateEnterpriseAcceleratePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建加速策略
+       * @summary Create an enterprise acceleration policy.
        *
        * @param request CreateEnterpriseAcceleratePolicyRequest
        * @return CreateEnterpriseAcceleratePolicyResponse
@@ -123,7 +123,7 @@ namespace Csas20230120
       Models::CreateEnterpriseAcceleratePolicyResponse createEnterpriseAcceleratePolicy(const Models::CreateEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary 创建加速对象
+       * @summary Create an enterprise acceleration address.
        *
        * @param request CreateEnterpriseAccelerateTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace Csas20230120
       Models::CreateEnterpriseAccelerateTargetResponse createEnterpriseAccelerateTargetWithOptions(const Models::CreateEnterpriseAccelerateTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建加速对象
+       * @summary Create an enterprise acceleration address.
        *
        * @param request CreateEnterpriseAccelerateTargetRequest
        * @return CreateEnterpriseAccelerateTargetResponse
@@ -157,7 +157,7 @@ namespace Csas20230120
       Models::CreateIdpDepartmentResponse createIdpDepartment(const Models::CreateIdpDepartmentRequest &request);
 
       /**
-       * @summary 创建内网访问诊断任务
+       * @summary Create an internal network access diagnostic task
        *
        * @param tmpReq CreatePADiagnosisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace Csas20230120
       Models::CreatePADiagnosisTaskResponse createPADiagnosisTaskWithOptions(const Models::CreatePADiagnosisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建内网访问诊断任务
+       * @summary Create an internal network access diagnostic task
        *
        * @param request CreatePADiagnosisTaskRequest
        * @return CreatePADiagnosisTaskResponse
@@ -335,7 +335,7 @@ namespace Csas20230120
       Models::CreateWmInfoMappingResponse createWmInfoMapping(const Models::CreateWmInfoMappingRequest &request);
 
       /**
-       * @summary 批量删除审批流程
+       * @summary Batch delete approval flows under the current Alibaba Cloud account.
        *
        * @param request DeleteApprovalProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -344,7 +344,7 @@ namespace Csas20230120
       Models::DeleteApprovalProcessesResponse deleteApprovalProcessesWithOptions(const Models::DeleteApprovalProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除审批流程
+       * @summary Batch delete approval flows under the current Alibaba Cloud account.
        *
        * @param request DeleteApprovalProcessesRequest
        * @return DeleteApprovalProcessesResponse
@@ -386,7 +386,7 @@ namespace Csas20230120
       Models::DeleteDynamicRouteResponse deleteDynamicRoute(const Models::DeleteDynamicRouteRequest &request);
 
       /**
-       * @summary 删除加速策略
+       * @summary Delete an enterprise acceleration policy.
        *
        * @param request DeleteEnterpriseAcceleratePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -395,7 +395,7 @@ namespace Csas20230120
       Models::DeleteEnterpriseAcceleratePolicyResponse deleteEnterpriseAcceleratePolicyWithOptions(const Models::DeleteEnterpriseAcceleratePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除加速策略
+       * @summary Delete an enterprise acceleration policy.
        *
        * @param request DeleteEnterpriseAcceleratePolicyRequest
        * @return DeleteEnterpriseAcceleratePolicyResponse
@@ -403,7 +403,7 @@ namespace Csas20230120
       Models::DeleteEnterpriseAcceleratePolicyResponse deleteEnterpriseAcceleratePolicy(const Models::DeleteEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary 删除加速对象
+       * @summary Delete an enterprise acceleration address.
        *
        * @param request DeleteEnterpriseAccelerateTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +412,7 @@ namespace Csas20230120
       Models::DeleteEnterpriseAccelerateTargetResponse deleteEnterpriseAccelerateTargetWithOptions(const Models::DeleteEnterpriseAccelerateTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除加速对象
+       * @summary Delete an enterprise acceleration address.
        *
        * @param request DeleteEnterpriseAccelerateTargetRequest
        * @return DeleteEnterpriseAccelerateTargetResponse
@@ -437,7 +437,7 @@ namespace Csas20230120
       Models::DeleteIdpDepartmentResponse deleteIdpDepartment(const Models::DeleteIdpDepartmentRequest &request);
 
       /**
-       * @summary DeleteOtpConfig
+       * @summary Delete the employee OTP configuration.
        *
        * @param request DeleteOtpConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -446,7 +446,7 @@ namespace Csas20230120
       Models::DeleteOtpConfigResponse deleteOtpConfigWithOptions(const Models::DeleteOtpConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteOtpConfig
+       * @summary Delete the employee OTP configuration.
        *
        * @param request DeleteOtpConfigRequest
        * @return DeleteOtpConfigResponse
@@ -577,7 +577,7 @@ namespace Csas20230120
       Models::DetachApplication2ConnectorResponse detachApplication2Connector(const Models::DetachApplication2ConnectorRequest &request);
 
       /**
-       * @summary 解绑业务策略与审批流程
+       * @summary Detach business policies from approval flows
        *
        * @param request DetachPolicy2ApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +586,7 @@ namespace Csas20230120
       Models::DetachPolicy2ApprovalProcessResponse detachPolicy2ApprovalProcessWithOptions(const Models::DetachPolicy2ApprovalProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑业务策略与审批流程
+       * @summary Detach business policies from approval flows
        *
        * @param request DetachPolicy2ApprovalProcessRequest
        * @return DetachPolicy2ApprovalProcessResponse
@@ -594,7 +594,7 @@ namespace Csas20230120
       Models::DetachPolicy2ApprovalProcessResponse detachPolicy2ApprovalProcess(const Models::DetachPolicy2ApprovalProcessRequest &request);
 
       /**
-       * @summary 禁用加速策略
+       * @summary Disable enterprise acceleration policy.
        *
        * @param request DisableEnterpriseAcceleratePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +603,7 @@ namespace Csas20230120
       Models::DisableEnterpriseAcceleratePolicyResponse disableEnterpriseAcceleratePolicyWithOptions(const Models::DisableEnterpriseAcceleratePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用加速策略
+       * @summary Disable enterprise acceleration policy.
        *
        * @param request DisableEnterpriseAcceleratePolicyRequest
        * @return DisableEnterpriseAcceleratePolicyResponse
@@ -611,7 +611,7 @@ namespace Csas20230120
       Models::DisableEnterpriseAcceleratePolicyResponse disableEnterpriseAcceleratePolicy(const Models::DisableEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary 启用加速策略
+       * @summary Enable enterprise acceleration policy.
        *
        * @param request EnableEnterpriseAcceleratePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,7 +620,7 @@ namespace Csas20230120
       Models::EnableEnterpriseAcceleratePolicyResponse enableEnterpriseAcceleratePolicyWithOptions(const Models::EnableEnterpriseAcceleratePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用加速策略
+       * @summary Enable enterprise acceleration policy.
        *
        * @param request EnableEnterpriseAcceleratePolicyRequest
        * @return EnableEnterpriseAcceleratePolicyResponse
@@ -647,7 +647,6 @@ namespace Csas20230120
       /**
        * @summary 查询已启用的身份源配置
        *
-       * @param request GetActiveIdpConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetActiveIdpConfigResponse
        */
@@ -661,7 +660,7 @@ namespace Csas20230120
       Models::GetActiveIdpConfigResponse getActiveIdpConfig();
 
       /**
-       * @summary 查询审批
+       * @summary Queries the details of an approval instance within your Alibaba Cloud account.
        *
        * @param request GetApprovalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -670,7 +669,7 @@ namespace Csas20230120
       Models::GetApprovalResponse getApprovalWithOptions(const Models::GetApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审批
+       * @summary Queries the details of an approval instance within your Alibaba Cloud account.
        *
        * @param request GetApprovalRequest
        * @return GetApprovalResponse
@@ -678,7 +677,7 @@ namespace Csas20230120
       Models::GetApprovalResponse getApproval(const Models::GetApprovalRequest &request);
 
       /**
-       * @summary 查询审批流程
+       * @summary Queries the details of an approval flow under the current Alibaba Cloud account.
        *
        * @param request GetApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -687,7 +686,7 @@ namespace Csas20230120
       Models::GetApprovalProcessResponse getApprovalProcessWithOptions(const Models::GetApprovalProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审批流程
+       * @summary Queries the details of an approval flow under the current Alibaba Cloud account.
        *
        * @param request GetApprovalProcessRequest
        * @return GetApprovalProcessResponse
@@ -695,7 +694,7 @@ namespace Csas20230120
       Models::GetApprovalProcessResponse getApprovalProcess(const Models::GetApprovalProcessRequest &request);
 
       /**
-       * @summary 查询审批动态模板
+       * @summary Queries the details of an approval template within your Alibaba Cloud account.
        *
        * @param request GetApprovalSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -704,7 +703,7 @@ namespace Csas20230120
       Models::GetApprovalSchemaResponse getApprovalSchemaWithOptions(const Models::GetApprovalSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审批动态模板
+       * @summary Queries the details of an approval template within your Alibaba Cloud account.
        *
        * @param request GetApprovalSchemaRequest
        * @return GetApprovalSchemaResponse
@@ -712,16 +711,15 @@ namespace Csas20230120
       Models::GetApprovalSchemaResponse getApprovalSchema(const Models::GetApprovalSchemaRequest &request);
 
       /**
-       * @summary 查询自启动与防卸载策略配置
+       * @summary Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
        *
-       * @param request GetBootAndAntiUninstallPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBootAndAntiUninstallPolicyResponse
        */
       Models::GetBootAndAntiUninstallPolicyResponse getBootAndAntiUninstallPolicyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自启动与防卸载策略配置
+       * @summary Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
        *
        * @return GetBootAndAntiUninstallPolicyResponse
        */
@@ -779,7 +777,7 @@ namespace Csas20230120
       Models::GetIdpConfigResponse getIdpConfig(const Models::GetIdpConfigRequest &request);
 
       /**
-       * @summary 查询内网访问诊断任务详情
+       * @summary Query the details of an internal network access diagnostic task
        *
        * @param request GetPADiagnosisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,7 +786,7 @@ namespace Csas20230120
       Models::GetPADiagnosisTaskResponse getPADiagnosisTaskWithOptions(const Models::GetPADiagnosisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询内网访问诊断任务详情
+       * @summary Query the details of an internal network access diagnostic task
        *
        * @param request GetPADiagnosisTaskRequest
        * @return GetPADiagnosisTaskResponse
@@ -915,7 +913,7 @@ namespace Csas20230120
       Models::GetWmExtractTaskResponse getWmExtractTask(const Models::GetWmExtractTaskRequest &request);
 
       /**
-       * @summary 批量导入加速对象异步任务
+       * @summary Batch import accelerated address List.
        *
        * @param request ImportEnterpriseAccelerateTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -924,7 +922,7 @@ namespace Csas20230120
       Models::ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargetsWithOptions(const Models::ImportEnterpriseAccelerateTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量导入加速对象异步任务
+       * @summary Batch import accelerated address List.
        *
        * @param request ImportEnterpriseAccelerateTargetsRequest
        * @return ImportEnterpriseAccelerateTargetsResponse
@@ -932,7 +930,7 @@ namespace Csas20230120
       Models::ImportEnterpriseAccelerateTargetsResponse importEnterpriseAccelerateTargets(const Models::ImportEnterpriseAccelerateTargetsRequest &request);
 
       /**
-       * @summary 批量查询内网访问策略的应用
+       * @summary Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
        *
        * @param request ListApplicationsForPrivateAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -941,7 +939,7 @@ namespace Csas20230120
       Models::ListApplicationsForPrivateAccessPolicyResponse listApplicationsForPrivateAccessPolicyWithOptions(const Models::ListApplicationsForPrivateAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询内网访问策略的应用
+       * @summary Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
        *
        * @param request ListApplicationsForPrivateAccessPolicyRequest
        * @return ListApplicationsForPrivateAccessPolicyResponse
@@ -966,7 +964,7 @@ namespace Csas20230120
       Models::ListApplicationsForPrivateAccessTagResponse listApplicationsForPrivateAccessTag(const Models::ListApplicationsForPrivateAccessTagRequest &request);
 
       /**
-       * @summary 列表查询审批流程
+       * @summary Queries the approval flow list under the current Alibaba Cloud account.
        *
        * @param request ListApprovalProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -975,7 +973,7 @@ namespace Csas20230120
       Models::ListApprovalProcessesResponse listApprovalProcessesWithOptions(const Models::ListApprovalProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列表查询审批流程
+       * @summary Queries the approval flow list under the current Alibaba Cloud account.
        *
        * @param request ListApprovalProcessesRequest
        * @return ListApprovalProcessesResponse
@@ -983,7 +981,7 @@ namespace Csas20230120
       Models::ListApprovalProcessesResponse listApprovalProcesses(const Models::ListApprovalProcessesRequest &request);
 
       /**
-       * @summary 查询审批渲染模板关联的流程
+       * @summary Query flows associated with an approval rendering template
        *
        * @param request ListApprovalProcessesForApprovalSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -992,7 +990,7 @@ namespace Csas20230120
       Models::ListApprovalProcessesForApprovalSchemasResponse listApprovalProcessesForApprovalSchemasWithOptions(const Models::ListApprovalProcessesForApprovalSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审批渲染模板关联的流程
+       * @summary Query flows associated with an approval rendering template
        *
        * @param request ListApprovalProcessesForApprovalSchemasRequest
        * @return ListApprovalProcessesForApprovalSchemasResponse
@@ -1000,7 +998,7 @@ namespace Csas20230120
       Models::ListApprovalProcessesForApprovalSchemasResponse listApprovalProcessesForApprovalSchemas(const Models::ListApprovalProcessesForApprovalSchemasRequest &request);
 
       /**
-       * @summary 列表查询审批动态模板
+       * @summary Queries the list of approval templates under the current Alibaba Cloud account.
        *
        * @param request ListApprovalSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1007,7 @@ namespace Csas20230120
       Models::ListApprovalSchemasResponse listApprovalSchemasWithOptions(const Models::ListApprovalSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列表查询审批动态模板
+       * @summary Queries the list of approval templates under the current Alibaba Cloud account.
        *
        * @param request ListApprovalSchemasRequest
        * @return ListApprovalSchemasResponse
@@ -1017,7 +1015,7 @@ namespace Csas20230120
       Models::ListApprovalSchemasResponse listApprovalSchemas(const Models::ListApprovalSchemasRequest &request);
 
       /**
-       * @summary 查询审批流程关联的渲染模板
+       * @summary Query rendering templates associated with an approval flow
        *
        * @param request ListApprovalSchemasForApprovalProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1026,7 +1024,7 @@ namespace Csas20230120
       Models::ListApprovalSchemasForApprovalProcessesResponse listApprovalSchemasForApprovalProcessesWithOptions(const Models::ListApprovalSchemasForApprovalProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审批流程关联的渲染模板
+       * @summary Query rendering templates associated with an approval flow
        *
        * @param request ListApprovalSchemasForApprovalProcessesRequest
        * @return ListApprovalSchemasForApprovalProcessesResponse
@@ -1034,7 +1032,7 @@ namespace Csas20230120
       Models::ListApprovalSchemasForApprovalProcessesResponse listApprovalSchemasForApprovalProcesses(const Models::ListApprovalSchemasForApprovalProcessesRequest &request);
 
       /**
-       * @summary 批量查询审批
+       * @summary Queries the approval instance list under the current Alibaba Cloud account.
        *
        * @param request ListApprovalsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1043,7 +1041,7 @@ namespace Csas20230120
       Models::ListApprovalsResponse listApprovalsWithOptions(const Models::ListApprovalsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询审批
+       * @summary Queries the approval instance list under the current Alibaba Cloud account.
        *
        * @param request ListApprovalsRequest
        * @return ListApprovalsResponse
@@ -1085,7 +1083,7 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
 
       /**
-       * @summary Batch Query Dynamic Policy Disposal Processes
+       * @summary Batch query Dynamic policy handling flows.
        *
        * @param request ListDynamicDisposalProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1094,7 +1092,7 @@ namespace Csas20230120
       Models::ListDynamicDisposalProcessesResponse listDynamicDisposalProcessesWithOptions(const Models::ListDynamicDisposalProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch Query Dynamic Policy Disposal Processes
+       * @summary Batch query Dynamic policy handling flows.
        *
        * @param request ListDynamicDisposalProcessesRequest
        * @return ListDynamicDisposalProcessesResponse
@@ -1104,7 +1102,6 @@ namespace Csas20230120
       /**
        * @summary 批量查询动态路由的地域
        *
-       * @param request ListDynamicRouteRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDynamicRouteRegionsResponse
        */
@@ -1135,7 +1132,7 @@ namespace Csas20230120
       Models::ListDynamicRoutesResponse listDynamicRoutes(const Models::ListDynamicRoutesRequest &request);
 
       /**
-       * @summary 查询加速策略日志列表
+       * @summary Queries enterprise acceleration Audit logs.
        *
        * @param request ListEnterpriseAccelerateLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1144,7 +1141,7 @@ namespace Csas20230120
       Models::ListEnterpriseAccelerateLogsResponse listEnterpriseAccelerateLogsWithOptions(const Models::ListEnterpriseAccelerateLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询加速策略日志列表
+       * @summary Queries enterprise acceleration Audit logs.
        *
        * @param request ListEnterpriseAccelerateLogsRequest
        * @return ListEnterpriseAccelerateLogsResponse
@@ -1152,7 +1149,7 @@ namespace Csas20230120
       Models::ListEnterpriseAccelerateLogsResponse listEnterpriseAccelerateLogs(const Models::ListEnterpriseAccelerateLogsRequest &request);
 
       /**
-       * @summary 查询加速策略列表
+       * @summary Query acceleration policy list
        *
        * @param request ListEnterpriseAcceleratePoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1161,7 +1158,7 @@ namespace Csas20230120
       Models::ListEnterpriseAcceleratePoliciesResponse listEnterpriseAcceleratePoliciesWithOptions(const Models::ListEnterpriseAcceleratePoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询加速策略列表
+       * @summary Query acceleration policy list
        *
        * @param request ListEnterpriseAcceleratePoliciesRequest
        * @return ListEnterpriseAcceleratePoliciesResponse
@@ -1169,7 +1166,7 @@ namespace Csas20230120
       Models::ListEnterpriseAcceleratePoliciesResponse listEnterpriseAcceleratePolicies(const Models::ListEnterpriseAcceleratePoliciesRequest &request);
 
       /**
-       * @summary 查询加速对象列表
+       * @summary Query the enterprise acceleration address list.
        *
        * @param request ListEnterpriseAccelerateTargetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1178,7 +1175,7 @@ namespace Csas20230120
       Models::ListEnterpriseAccelerateTargetsResponse listEnterpriseAccelerateTargetsWithOptions(const Models::ListEnterpriseAccelerateTargetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询加速对象列表
+       * @summary Query the enterprise acceleration address list.
        *
        * @param request ListEnterpriseAccelerateTargetsRequest
        * @return ListEnterpriseAccelerateTargetsResponse
@@ -1201,6 +1198,40 @@ namespace Csas20230120
        * @return ListExcessiveDeviceRegistrationApplicationsResponse
        */
       Models::ListExcessiveDeviceRegistrationApplicationsResponse listExcessiveDeviceRegistrationApplications(const Models::ListExcessiveDeviceRegistrationApplicationsRequest &request);
+
+      /**
+       * @summary 批量查询转发策略
+       *
+       * @param request ListForwardStrategiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListForwardStrategiesResponse
+       */
+      Models::ListForwardStrategiesResponse listForwardStrategiesWithOptions(const Models::ListForwardStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询转发策略
+       *
+       * @param request ListForwardStrategiesRequest
+       * @return ListForwardStrategiesResponse
+       */
+      Models::ListForwardStrategiesResponse listForwardStrategies(const Models::ListForwardStrategiesRequest &request);
+
+      /**
+       * @summary 批量查询转发策略绑定项目
+       *
+       * @param request ListForwardStrategyBindingItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListForwardStrategyBindingItemsResponse
+       */
+      Models::ListForwardStrategyBindingItemsResponse listForwardStrategyBindingItemsWithOptions(const Models::ListForwardStrategyBindingItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询转发策略绑定项目
+       *
+       * @param request ListForwardStrategyBindingItemsRequest
+       * @return ListForwardStrategyBindingItemsResponse
+       */
+      Models::ListForwardStrategyBindingItemsResponse listForwardStrategyBindingItems(const Models::ListForwardStrategyBindingItemsRequest &request);
 
       /**
        * @summary 查询IDP配置
@@ -1237,7 +1268,7 @@ namespace Csas20230120
       Models::ListIdpDepartmentsResponse listIdpDepartments(const Models::ListIdpDepartmentsRequest &request);
 
       /**
-       * @summary 入网用户列表
+       * @summary Network User List.
        *
        * @param request ListNacUserCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1277,7 @@ namespace Csas20230120
       Models::ListNacUserCertResponse listNacUserCertWithOptions(const Models::ListNacUserCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 入网用户列表
+       * @summary Network User List.
        *
        * @param request ListNacUserCertRequest
        * @return ListNacUserCertResponse
@@ -1492,7 +1523,7 @@ namespace Csas20230120
       Models::ListTagsForPrivateAccessPolicyResponse listTagsForPrivateAccessPolicy(const Models::ListTagsForPrivateAccessPolicyRequest &request);
 
       /**
-       * @summary 列表查询卸载申请列表
+       * @summary Batch queries the uninstall request list under the current Alibaba Cloud account.
        *
        * @param request ListUninstallApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1501,7 +1532,7 @@ namespace Csas20230120
       Models::ListUninstallApplicationsResponse listUninstallApplicationsWithOptions(const Models::ListUninstallApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列表查询卸载申请列表
+       * @summary Batch queries the uninstall request list under the current Alibaba Cloud account.
        *
        * @param request ListUninstallApplicationsRequest
        * @return ListUninstallApplicationsResponse
@@ -1509,7 +1540,7 @@ namespace Csas20230120
       Models::ListUninstallApplicationsResponse listUninstallApplications(const Models::ListUninstallApplicationsRequest &request);
 
       /**
-       * @summary 列表查询用户应用权限
+       * @summary Queries the application permissions of a logon user under the current Alibaba Cloud account.
        *
        * @param request ListUserApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1518,7 +1549,7 @@ namespace Csas20230120
       Models::ListUserApplicationsResponse listUserApplicationsWithOptions(const Models::ListUserApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列表查询用户应用权限
+       * @summary Queries the application permissions of a logon user under the current Alibaba Cloud account.
        *
        * @param request ListUserApplicationsRequest
        * @return ListUserApplicationsResponse
@@ -1594,7 +1625,7 @@ namespace Csas20230120
       Models::ListUserGroupsForRegistrationPolicyResponse listUserGroupsForRegistrationPolicy(const Models::ListUserGroupsForRegistrationPolicyRequest &request);
 
       /**
-       * @summary List query of user zero trust policies
+       * @summary Query the zero trust policies of a User in a List.
        *
        * @param request ListUserPrivateAccessPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1603,7 +1634,7 @@ namespace Csas20230120
       Models::ListUserPrivateAccessPoliciesResponse listUserPrivateAccessPoliciesWithOptions(const Models::ListUserPrivateAccessPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List query of user zero trust policies
+       * @summary Query the zero trust policies of a User in a List.
        *
        * @param request ListUserPrivateAccessPoliciesRequest
        * @return ListUserPrivateAccessPoliciesResponse
@@ -1645,7 +1676,7 @@ namespace Csas20230120
       Models::LookupWmInfoMappingResponse lookupWmInfoMapping(const Models::LookupWmInfoMappingRequest &request);
 
       /**
-       * @summary 修改加速策略
+       * @summary Modify enterprise acceleration policy.
        *
        * @param request ModifyEnterpriseAcceleratePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1654,7 +1685,7 @@ namespace Csas20230120
       Models::ModifyEnterpriseAcceleratePolicyResponse modifyEnterpriseAcceleratePolicyWithOptions(const Models::ModifyEnterpriseAcceleratePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改加速策略
+       * @summary Modify enterprise acceleration policy.
        *
        * @param request ModifyEnterpriseAcceleratePolicyRequest
        * @return ModifyEnterpriseAcceleratePolicyResponse
@@ -1664,7 +1695,7 @@ namespace Csas20230120
       /**
        * @deprecated OpenAPI RevokeUserSession is deprecated
        *
-       * @summary 吊销用户登录会话
+       * @summary Revoke a User logon session.
        *
        * @param request RevokeUserSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1706,7 @@ namespace Csas20230120
       /**
        * @deprecated OpenAPI RevokeUserSession is deprecated
        *
-       * @summary 吊销用户登录会话
+       * @summary Revoke a User logon session.
        *
        * @param request RevokeUserSessionRequest
        * @return RevokeUserSessionResponse
@@ -1683,7 +1714,7 @@ namespace Csas20230120
       Models::RevokeUserSessionResponse revokeUserSession(const Models::RevokeUserSessionRequest &request);
 
       /**
-       * @summary 更新审批流程
+       * @summary Update an approval flow under the current Alibaba Cloud account.
        *
        * @param tmpReq UpdateApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1692,7 +1723,7 @@ namespace Csas20230120
       Models::UpdateApprovalProcessResponse updateApprovalProcessWithOptions(const Models::UpdateApprovalProcessRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新审批流程
+       * @summary Update an approval flow under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalProcessRequest
        * @return UpdateApprovalProcessResponse
@@ -1700,7 +1731,7 @@ namespace Csas20230120
       Models::UpdateApprovalProcessResponse updateApprovalProcess(const Models::UpdateApprovalProcessRequest &request);
 
       /**
-       * @summary 修改审批状态
+       * @summary Update the approval instance status under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1709,7 +1740,7 @@ namespace Csas20230120
       Models::UpdateApprovalStatusResponse updateApprovalStatusWithOptions(const Models::UpdateApprovalStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改审批状态
+       * @summary Update the approval instance status under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalStatusRequest
        * @return UpdateApprovalStatusResponse
@@ -1717,7 +1748,7 @@ namespace Csas20230120
       Models::UpdateApprovalStatusResponse updateApprovalStatus(const Models::UpdateApprovalStatusRequest &request);
 
       /**
-       * @summary 更新自启动与防卸载策略配置
+       * @summary Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
        *
        * @param tmpReq UpdateBootAndAntiUninstallPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1726,7 +1757,7 @@ namespace Csas20230120
       Models::UpdateBootAndAntiUninstallPolicyResponse updateBootAndAntiUninstallPolicyWithOptions(const Models::UpdateBootAndAntiUninstallPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自启动与防卸载策略配置
+       * @summary Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
        *
        * @param request UpdateBootAndAntiUninstallPolicyRequest
        * @return UpdateBootAndAntiUninstallPolicyResponse
@@ -1836,7 +1867,7 @@ namespace Csas20230120
       Models::UpdateIdpDepartmentResponse updateIdpDepartment(const Models::UpdateIdpDepartmentRequest &request);
 
       /**
-       * @summary 更新NAC User 状态
+       * @summary Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
        *
        * @param request UpdateNacUserCertStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1845,7 +1876,7 @@ namespace Csas20230120
       Models::UpdateNacUserCertStatusResponse updateNacUserCertStatusWithOptions(const Models::UpdateNacUserCertStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新NAC User 状态
+       * @summary Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
        *
        * @param request UpdateNacUserCertStatusRequest
        * @return UpdateNacUserCertStatusResponse
@@ -1904,7 +1935,7 @@ namespace Csas20230120
       Models::UpdateRegistrationPolicyResponse updateRegistrationPolicy(const Models::UpdateRegistrationPolicyRequest &request);
 
       /**
-       * @summary 批量修改卸载申请状态
+       * @summary Batch updates the uninstall request status under the current Alibaba Cloud account.
        *
        * @param request UpdateUninstallApplicationsStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1913,7 +1944,7 @@ namespace Csas20230120
       Models::UpdateUninstallApplicationsStatusResponse updateUninstallApplicationsStatusWithOptions(const Models::UpdateUninstallApplicationsStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量修改卸载申请状态
+       * @summary Batch updates the uninstall request status under the current Alibaba Cloud account.
        *
        * @param request UpdateUninstallApplicationsStatusRequest
        * @return UpdateUninstallApplicationsStatusResponse

@@ -249,6 +249,12 @@
 #include <alibabacloud/models/ListExcessiveDeviceRegistrationApplicationsRequest.hpp>
 #include <alibabacloud/models/ListExcessiveDeviceRegistrationApplicationsResponseBody.hpp>
 #include <alibabacloud/models/ListExcessiveDeviceRegistrationApplicationsResponse.hpp>
+#include <alibabacloud/models/ListForwardStrategiesRequest.hpp>
+#include <alibabacloud/models/ListForwardStrategiesResponseBody.hpp>
+#include <alibabacloud/models/ListForwardStrategiesResponse.hpp>
+#include <alibabacloud/models/ListForwardStrategyBindingItemsRequest.hpp>
+#include <alibabacloud/models/ListForwardStrategyBindingItemsResponseBody.hpp>
+#include <alibabacloud/models/ListForwardStrategyBindingItemsResponse.hpp>
 #include <alibabacloud/models/ListIdpConfigsRequest.hpp>
 #include <alibabacloud/models/ListIdpConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListIdpConfigsResponse.hpp>
