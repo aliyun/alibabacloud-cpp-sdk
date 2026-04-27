@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_TO_JSON(ClusterSpec, clusterSpec_);
+      DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(EngineType, engineType_);
       DARABONBA_PTR_TO_JSON(PricingCycle, pricingCycle_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_FROM_JSON(ClusterSpec, clusterSpec_);
+      DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
       DARABONBA_PTR_FROM_JSON(PricingCycle, pricingCycle_);
@@ -84,9 +86,7 @@ namespace Models
 
 
     protected:
-      // This parameter is required.
       shared_ptr<string> vSwitchId_ {};
-      // This parameter is required.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -133,8 +133,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->duration_ == nullptr && this->engineType_ == nullptr && this->pricingCycle_ == nullptr
-        && this->tag_ == nullptr && this->vSwitches_ == nullptr && this->vpcId_ == nullptr; };
+        && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->duration_ == nullptr && this->engineType_ == nullptr
+        && this->pricingCycle_ == nullptr && this->tag_ == nullptr && this->vSwitches_ == nullptr && this->vpcId_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -154,6 +154,13 @@ namespace Models
     void deleteClusterSpec() { this->clusterSpec_ = nullptr;};
     inline string getClusterSpec() const { DARABONBA_PTR_GET_DEFAULT(clusterSpec_, "") };
     inline CreateClusterRequest& setClusterSpec(string clusterSpec) { DARABONBA_PTR_SET_VALUE(clusterSpec_, clusterSpec) };
+
+
+    // clusterType Field Functions 
+    bool hasClusterType() const { return this->clusterType_ != nullptr;};
+    void deleteClusterType() { this->clusterType_ = nullptr;};
+    inline int32_t getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, 0) };
+    inline CreateClusterRequest& setClusterType(int32_t clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // duration Field Functions 
@@ -206,18 +213,14 @@ namespace Models
     shared_ptr<string> chargeType_ {};
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // This parameter is required.
     shared_ptr<string> clusterSpec_ {};
+    shared_ptr<int32_t> clusterType_ {};
     shared_ptr<int32_t> duration_ {};
-    // This parameter is required.
     shared_ptr<string> engineType_ {};
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<vector<CreateClusterRequest::Tag>> tag_ {};
-    // This parameter is required.
     shared_ptr<vector<CreateClusterRequest::VSwitches>> vSwitches_ {};
     // VPC id
-    // 
-    // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };
 

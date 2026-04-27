@@ -15,6 +15,9 @@
 #include <alibabacloud/models/CreateDatasourceRequest.hpp>
 #include <alibabacloud/models/CreateDatasourceResponseBody.hpp>
 #include <alibabacloud/models/CreateDatasourceResponse.hpp>
+#include <alibabacloud/models/CreateExecutorGroupRequest.hpp>
+#include <alibabacloud/models/CreateExecutorGroupResponseBody.hpp>
+#include <alibabacloud/models/CreateExecutorGroupResponse.hpp>
 #include <alibabacloud/models/CreateExecutorsRequest.hpp>
 #include <alibabacloud/models/CreateExecutorsResponseBody.hpp>
 #include <alibabacloud/models/CreateExecutorsResponse.hpp>
@@ -37,6 +40,9 @@
 #include <alibabacloud/models/DeleteDatasourceRequest.hpp>
 #include <alibabacloud/models/DeleteDatasourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDatasourceResponse.hpp>
+#include <alibabacloud/models/DeleteExecutorGroupRequest.hpp>
+#include <alibabacloud/models/DeleteExecutorGroupResponseBody.hpp>
+#include <alibabacloud/models/DeleteExecutorGroupResponse.hpp>
 #include <alibabacloud/models/DeleteJobsRequest.hpp>
 #include <alibabacloud/models/DeleteJobsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteJobsResponseBody.hpp>
@@ -84,6 +90,9 @@
 #include <alibabacloud/models/GetLogEventRequest.hpp>
 #include <alibabacloud/models/GetLogEventResponseBody.hpp>
 #include <alibabacloud/models/GetLogEventResponse.hpp>
+#include <alibabacloud/models/GetPageLogRequest.hpp>
+#include <alibabacloud/models/GetPageLogResponseBody.hpp>
+#include <alibabacloud/models/GetPageLogResponse.hpp>
 #include <alibabacloud/models/GetWorkflowRequest.hpp>
 #include <alibabacloud/models/GetWorkflowResponseBody.hpp>
 #include <alibabacloud/models/GetWorkflowResponse.hpp>
@@ -252,6 +261,9 @@
 #include <alibabacloud/models/UpdateDatasourceRequest.hpp>
 #include <alibabacloud/models/UpdateDatasourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateDatasourceResponse.hpp>
+#include <alibabacloud/models/UpdateExecutorGroupRequest.hpp>
+#include <alibabacloud/models/UpdateExecutorGroupResponseBody.hpp>
+#include <alibabacloud/models/UpdateExecutorGroupResponse.hpp>
 #include <alibabacloud/models/UpdateExecutorsRequest.hpp>
 #include <alibabacloud/models/UpdateExecutorsResponseBody.hpp>
 #include <alibabacloud/models/UpdateExecutorsResponse.hpp>

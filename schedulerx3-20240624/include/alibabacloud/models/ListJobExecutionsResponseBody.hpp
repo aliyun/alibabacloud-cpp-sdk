@@ -89,6 +89,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(WorkflowExecutionId, workflowExecutionId_);
           DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
           DARABONBA_PTR_TO_JSON(WorkflowName, workflowName_);
+          DARABONBA_PTR_TO_JSON(XAttrs, XAttrs_);
         };
         friend void from_json(const Darabonba::Json& j, Records& obj) { 
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -114,6 +115,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(WorkflowExecutionId, workflowExecutionId_);
           DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
           DARABONBA_PTR_FROM_JSON(WorkflowName, workflowName_);
+          DARABONBA_PTR_FROM_JSON(XAttrs, XAttrs_);
         };
         Records() = default ;
         Records(const Records &) = default ;
@@ -131,7 +133,7 @@ namespace Models
         && this->jobExecutionId_ == nullptr && this->jobId_ == nullptr && this->jobName_ == nullptr && this->jobType_ == nullptr && this->parameters_ == nullptr
         && this->result_ == nullptr && this->routeStrategy_ == nullptr && this->scheduleTime_ == nullptr && this->serverIp_ == nullptr && this->status_ == nullptr
         && this->timeType_ == nullptr && this->totalTokens_ == nullptr && this->triggerType_ == nullptr && this->workAddr_ == nullptr && this->workflowExecutionId_ == nullptr
-        && this->workflowId_ == nullptr && this->workflowName_ == nullptr; };
+        && this->workflowId_ == nullptr && this->workflowName_ == nullptr && this->XAttrs_ == nullptr; };
         // appName Field Functions 
         bool hasAppName() const { return this->appName_ != nullptr;};
         void deleteAppName() { this->appName_ = nullptr;};
@@ -293,6 +295,13 @@ namespace Models
         inline Records& setWorkflowName(string workflowName) { DARABONBA_PTR_SET_VALUE(workflowName_, workflowName) };
 
 
+        // XAttrs Field Functions 
+        bool hasXAttrs() const { return this->XAttrs_ != nullptr;};
+        void deleteXAttrs() { this->XAttrs_ = nullptr;};
+        inline string getXAttrs() const { DARABONBA_PTR_GET_DEFAULT(XAttrs_, "") };
+        inline Records& setXAttrs(string XAttrs) { DARABONBA_PTR_SET_VALUE(XAttrs_, XAttrs) };
+
+
       protected:
         shared_ptr<string> appName_ {};
         shared_ptr<int32_t> attempt_ {};
@@ -317,6 +326,7 @@ namespace Models
         shared_ptr<string> workflowExecutionId_ {};
         shared_ptr<int64_t> workflowId_ {};
         shared_ptr<string> workflowName_ {};
+        shared_ptr<string> XAttrs_ {};
       };
 
       virtual bool empty() const override { return this->pageNumber_ == nullptr

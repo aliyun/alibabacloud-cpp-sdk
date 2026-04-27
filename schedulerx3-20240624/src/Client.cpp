@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
  *
  * @param request CreateAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +95,7 @@ CreateAppResponse Client::createAppWithOptions(const CreateAppRequest &request, 
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
  *
  * @param request CreateAppRequest
  * @return CreateAppResponse
@@ -164,7 +164,7 @@ CreateCalendarResponse Client::createCalendar(const CreateCalendarRequest &reque
 }
 
 /**
- * @summary 创建集群
+ * @summary Creates a cluster.
  *
  * @param tmpReq CreateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -194,6 +194,10 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 
   if (!!request.hasClusterSpec()) {
     body["ClusterSpec"] = request.getClusterSpec();
+  }
+
+  if (!!request.hasClusterType()) {
+    body["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasDuration()) {
@@ -235,7 +239,7 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 }
 
 /**
- * @summary 创建集群
+ * @summary Creates a cluster.
  *
  * @param request CreateClusterRequest
  * @return CreateClusterResponse
@@ -308,6 +312,80 @@ CreateDatasourceResponse Client::createDatasource(const CreateDatasourceRequest 
 }
 
 /**
+ * @summary 添加执行器组
+ *
+ * @param request CreateExecutorGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateExecutorGroupResponse
+ */
+CreateExecutorGroupResponse Client::createExecutorGroupWithOptions(const CreateExecutorGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiKey()) {
+    body["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasAuthType()) {
+    body["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["Network"] = request.getNetwork();
+  }
+
+  if (!!request.hasProtocol()) {
+    body["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasWorkerType()) {
+    body["WorkerType"] = request.getWorkerType();
+  }
+
+  if (!!request.hasWorkers()) {
+    body["Workers"] = request.getWorkers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateExecutorGroup"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateExecutorGroupResponse>();
+}
+
+/**
+ * @summary 添加执行器组
+ *
+ * @param request CreateExecutorGroupRequest
+ * @return CreateExecutorGroupResponse
+ */
+CreateExecutorGroupResponse Client::createExecutorGroup(const CreateExecutorGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createExecutorGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary 添加执行器
  *
  * @param request CreateExecutorsRequest
@@ -362,7 +440,7 @@ CreateExecutorsResponse Client::createExecutors(const CreateExecutorsRequest &re
 }
 
 /**
- * @summary 创建任务
+ * @summary Creates a job.
  *
  * @param tmpReq CreateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -493,6 +571,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
     body["Weight"] = request.getWeight();
   }
 
+  if (!!request.hasXAttrs()) {
+    body["XAttrs"] = request.getXAttrs();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
@@ -511,7 +593,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 }
 
 /**
- * @summary 创建任务
+ * @summary Creates a job.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -604,7 +686,7 @@ CreateWorkflowResponse Client::createWorkflow(const CreateWorkflowRequest &reque
 }
 
 /**
- * @summary 删除应用分组
+ * @summary Deletes an application group.
  *
  * @param request DeleteAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -639,7 +721,7 @@ DeleteAppResponse Client::deleteAppWithOptions(const DeleteAppRequest &request, 
 }
 
 /**
- * @summary 删除应用分组
+ * @summary Deletes an application group.
  *
  * @param request DeleteAppRequest
  * @return DeleteAppResponse
@@ -700,7 +782,7 @@ DeleteCalendarResponse Client::deleteCalendar(const DeleteCalendarRequest &reque
 }
 
 /**
- * @summary 释放删除集群
+ * @summary Deletes a cluster.
  *
  * @param request DeleteClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -731,7 +813,7 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
 }
 
 /**
- * @summary 释放删除集群
+ * @summary Deletes a cluster.
  *
  * @param request DeleteClusterRequest
  * @return DeleteClusterResponse
@@ -788,7 +870,53 @@ DeleteDatasourceResponse Client::deleteDatasource(const DeleteDatasourceRequest 
 }
 
 /**
- * @summary 批量删除任务
+ * @summary 添加执行器组
+ *
+ * @param request DeleteExecutorGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteExecutorGroupResponse
+ */
+DeleteExecutorGroupResponse Client::deleteExecutorGroupWithOptions(const DeleteExecutorGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteExecutorGroup"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteExecutorGroupResponse>();
+}
+
+/**
+ * @summary 添加执行器组
+ *
+ * @param request DeleteExecutorGroupRequest
+ * @return DeleteExecutorGroupResponse
+ */
+DeleteExecutorGroupResponse Client::deleteExecutorGroup(const DeleteExecutorGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteExecutorGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes multiple jobs at a time.
  *
  * @param tmpReq DeleteJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -833,7 +961,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
 }
 
 /**
- * @summary 批量删除任务
+ * @summary Deletes multiple jobs at a time.
  *
  * @param request DeleteJobsRequest
  * @return DeleteJobsResponse
@@ -958,7 +1086,7 @@ DeleteWorkflowsResponse Client::deleteWorkflows(const DeleteWorkflowsRequest &re
 }
 
 /**
- * @summary 批量导出任务信息
+ * @summary Exports the information about jobs at a time.
  *
  * @param tmpReq ExportJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1135,7 @@ ExportJobsResponse Client::exportJobsWithOptions(const ExportJobsRequest &tmpReq
 }
 
 /**
- * @summary 批量导出任务信息
+ * @summary Exports the information about jobs at a time.
  *
  * @param request ExportJobsRequest
  * @return ExportJobsResponse
@@ -1170,7 +1298,7 @@ GetCalendarResponse Client::getCalendar(const GetCalendarRequest &request) {
 }
 
 /**
- * @summary 获取集群详细信息
+ * @summary Queries the details of a cluster.
  *
  * @param request GetClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1197,7 +1325,7 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
 }
 
 /**
- * @summary 获取集群详细信息
+ * @summary Queries the details of a cluster.
  *
  * @param request GetClusterRequest
  * @return GetClusterResponse
@@ -1208,7 +1336,7 @@ GetClusterResponse Client::getCluster(const GetClusterRequest &request) {
 }
 
 /**
- * @summary 获取指定机器信息
+ * @summary Queries a specified machine.
  *
  * @param request GetDesigateInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1363,7 @@ GetDesigateInfoResponse Client::getDesigateInfoWithOptions(const GetDesigateInfo
 }
 
 /**
- * @summary 获取指定机器信息
+ * @summary Queries a specified machine.
  *
  * @param request GetDesigateInfoRequest
  * @return GetDesigateInfoResponse
@@ -1346,7 +1474,7 @@ GetJobExecutionResponse Client::getJobExecution(const GetJobExecutionRequest &re
 }
 
 /**
- * @summary 获取任务执行的详情
+ * @summary Obtains the execution details of a job.
  *
  * @param request GetJobExecutionProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1501,7 @@ GetJobExecutionProgressResponse Client::getJobExecutionProgressWithOptions(const
 }
 
 /**
- * @summary 获取任务执行的详情
+ * @summary Obtains the execution details of a job.
  *
  * @param request GetJobExecutionProgressRequest
  * @return GetJobExecutionProgressResponse
@@ -1422,7 +1550,7 @@ GetJobExecutionThreadDumpResponse Client::getJobExecutionThreadDump(const GetJob
 }
 
 /**
- * @summary 查询日志
+ * @summary Queries logs.
  *
  * @param request GetLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1449,7 +1577,7 @@ GetLogResponse Client::getLogWithOptions(const GetLogRequest &request, const Dar
 }
 
 /**
- * @summary 查询日志
+ * @summary Queries logs.
  *
  * @param request GetLogRequest
  * @return GetLogResponse
@@ -1495,6 +1623,88 @@ GetLogEventResponse Client::getLogEventWithOptions(const GetLogEventRequest &req
 GetLogEventResponse Client::getLogEvent(const GetLogEventRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getLogEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取分页日志
+ *
+ * @param request GetPageLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPageLogResponse
+ */
+GetPageLogResponse Client::getPageLogWithOptions(const GetPageLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.getJobExecutionId();
+  }
+
+  if (!!request.hasJobName()) {
+    query["JobName"] = request.getJobName();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasReverse()) {
+    query["Reverse"] = request.getReverse();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkerAddr()) {
+    query["WorkerAddr"] = request.getWorkerAddr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPageLog"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPageLogResponse>();
+}
+
+/**
+ * @summary 获取分页日志
+ *
+ * @param request GetPageLogRequest
+ * @return GetPageLogResponse
+ */
+GetPageLogResponse Client::getPageLog(const GetPageLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPageLogWithOptions(request, runtime);
 }
 
 /**
@@ -1702,7 +1912,7 @@ GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAG(const GetWorkflo
 }
 
 /**
- * @summary 导入日历
+ * @summary Imports a calendar.
  *
  * @param request ImportCalendarRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1745,7 +1955,7 @@ ImportCalendarResponse Client::importCalendarWithOptions(const ImportCalendarReq
 }
 
 /**
- * @summary 导入日历
+ * @summary Imports a calendar.
  *
  * @param request ImportCalendarRequest
  * @return ImportCalendarResponse
@@ -1756,7 +1966,7 @@ ImportCalendarResponse Client::importCalendar(const ImportCalendarRequest &reque
 }
 
 /**
- * @summary 批量导入任务
+ * @summary Imports jobs at a time.
  *
  * @param request ImportJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1799,7 +2009,7 @@ ImportJobsResponse Client::importJobsWithOptions(const ImportJobsRequest &reques
 }
 
 /**
- * @summary 批量导入任务
+ * @summary Imports jobs at a time.
  *
  * @param request ImportJobsRequest
  * @return ImportJobsResponse
@@ -1864,7 +2074,7 @@ ImportWorkflowsResponse Client::importWorkflows(const ImportWorkflowsRequest &re
 }
 
 /**
- * @summary 获取报警事件
+ * @summary Obtains a list of alert events.
  *
  * @param request ListAlarmEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1891,7 +2101,7 @@ ListAlarmEventResponse Client::listAlarmEventWithOptions(const ListAlarmEventReq
 }
 
 /**
- * @summary 获取报警事件
+ * @summary Obtains a list of alert events.
  *
  * @param request ListAlarmEventRequest
  * @return ListAlarmEventResponse
@@ -1902,7 +2112,7 @@ ListAlarmEventResponse Client::listAlarmEvent(const ListAlarmEventRequest &reque
 }
 
 /**
- * @summary 获取应用名字列表
+ * @summary Obtains a list of application names.
  *
  * @param request ListAppNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1929,7 +2139,7 @@ ListAppNamesResponse Client::listAppNamesWithOptions(const ListAppNamesRequest &
 }
 
 /**
- * @summary 获取应用名字列表
+ * @summary Obtains a list of application names.
  *
  * @param request ListAppNamesRequest
  * @return ListAppNamesResponse
@@ -1940,7 +2150,7 @@ ListAppNamesResponse Client::listAppNames(const ListAppNamesRequest &request) {
 }
 
 /**
- * @summary 获取应用列表
+ * @summary Queries a list of applications.
  *
  * @param request ListAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1967,7 +2177,7 @@ ListAppsResponse Client::listAppsWithOptions(const ListAppsRequest &request, con
 }
 
 /**
- * @summary 获取应用列表
+ * @summary Queries a list of applications.
  *
  * @param request ListAppsRequest
  * @return ListAppsResponse
@@ -1978,7 +2188,7 @@ ListAppsResponse Client::listApps(const ListAppsRequest &request) {
 }
 
 /**
- * @summary 获取日历名字列表
+ * @summary Obtains a list of calendar names.
  *
  * @param request ListCalendarNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2005,7 +2215,7 @@ ListCalendarNamesResponse Client::listCalendarNamesWithOptions(const ListCalenda
 }
 
 /**
- * @summary 获取日历名字列表
+ * @summary Obtains a list of calendar names.
  *
  * @param request ListCalendarNamesRequest
  * @return ListCalendarNamesResponse
@@ -2078,7 +2288,7 @@ ListCalendarsResponse Client::listCalendars(const ListCalendarsRequest &request)
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Queries a list of instances.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2105,7 +2315,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Queries a list of instances.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -2182,7 +2392,7 @@ ListDatasourcesResponse Client::listDatasources(const ListDatasourcesRequest &re
 }
 
 /**
- * @summary 查询Executor列表
+ * @summary Queries a list of executors.
  *
  * @param request ListExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2209,7 +2419,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 }
 
 /**
- * @summary 查询Executor列表
+ * @summary Queries a list of executors.
  *
  * @param request ListExecutorsRequest
  * @return ListExecutorsResponse
@@ -2220,7 +2430,7 @@ ListExecutorsResponse Client::listExecutors(const ListExecutorsRequest &request)
 }
 
 /**
- * @summary 获取任务实例列表
+ * @summary Obtains a list of job instances.
  *
  * @param request ListJobExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2291,7 +2501,7 @@ ListJobExecutionsResponse Client::listJobExecutionsWithOptions(const ListJobExec
 }
 
 /**
- * @summary 获取任务实例列表
+ * @summary Obtains a list of job instances.
  *
  * @param request ListJobExecutionsRequest
  * @return ListJobExecutionsResponse
@@ -2360,7 +2570,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
 }
 
 /**
- * @summary 获取任务列表
+ * @summary Queries a list of jobs.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2427,7 +2637,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary 获取任务列表
+ * @summary Queries a list of jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -2496,7 +2706,7 @@ ListK8sResourceResponse Client::listK8sResource(const ListK8sResourceRequest &re
 }
 
 /**
- * @summary 获取executor的label列表
+ * @summary Obtains a list of tags of an executor.
  *
  * @param request ListLablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2523,7 +2733,7 @@ ListLablesResponse Client::listLablesWithOptions(const ListLablesRequest &reques
 }
 
 /**
- * @summary 获取executor的label列表
+ * @summary Obtains a list of tags of an executor.
  *
  * @param request ListLablesRequest
  * @return ListLablesResponse
@@ -2534,9 +2744,8 @@ ListLablesResponse Client::listLables(const ListLablesRequest &request) {
 }
 
 /**
- * @summary 获取可用区列表
+ * @summary Obtains a list of zones.
  *
- * @param request ListRegionZoneRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionZoneResponse
  */
@@ -2557,7 +2766,7 @@ ListRegionZoneResponse Client::listRegionZoneWithOptions(const Darabonba::Runtim
 }
 
 /**
- * @summary 获取可用区列表
+ * @summary Obtains a list of zones.
  *
  * @return ListRegionZoneResponse
  */
@@ -2567,9 +2776,8 @@ ListRegionZoneResponse Client::listRegionZone() {
 }
 
 /**
- * @summary 获取所有region列表
+ * @summary Obtains a list of all regions.
  *
- * @param request ListRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRegionsResponse
  */
@@ -2590,7 +2798,7 @@ ListRegionsResponse Client::listRegionsWithOptions(const Darabonba::RuntimeOptio
 }
 
 /**
- * @summary 获取所有region列表
+ * @summary Obtains a list of all regions.
  *
  * @return ListRegionsResponse
  */
@@ -2600,7 +2808,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary 查询调度事件
+ * @summary Queries scheduling events.
  *
  * @param request ListScheduleEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2627,7 +2835,7 @@ ListScheduleEventResponse Client::listScheduleEventWithOptions(const ListSchedul
 }
 
 /**
- * @summary 查询调度事件
+ * @summary Queries scheduling events.
  *
  * @param request ListScheduleEventRequest
  * @return ListScheduleEventResponse
@@ -2638,7 +2846,7 @@ ListScheduleEventResponse Client::listScheduleEvent(const ListScheduleEventReque
 }
 
 /**
- * @summary 获取指定时间类型和表达式未来5次调度时间
+ * @summary Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
  *
  * @param request ListScheduleTimesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2665,7 +2873,7 @@ ListScheduleTimesResponse Client::listScheduleTimesWithOptions(const ListSchedul
 }
 
 /**
- * @summary 获取指定时间类型和表达式未来5次调度时间
+ * @summary Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
  *
  * @param request ListScheduleTimesRequest
  * @return ListScheduleTimesResponse
@@ -3010,7 +3218,7 @@ OperateConnectDatasourceResponse Client::operateConnectDatasource(const OperateC
 }
 
 /**
- * @summary 指定执行器
+ * @summary Designates executors.
  *
  * @param tmpReq OperateDesignateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3067,7 +3275,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutorsWithOptions(c
 }
 
 /**
- * @summary 指定执行器
+ * @summary Designates executors.
  *
  * @param request OperateDesignateExecutorsRequest
  * @return OperateDesignateExecutorsResponse
@@ -3078,7 +3286,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutors(const Operat
 }
 
 /**
- * @summary 批量禁用任务
+ * @summary Disables multiple jobs at a time.
  *
  * @param tmpReq OperateDisableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3123,7 +3331,7 @@ OperateDisableJobsResponse Client::operateDisableJobsWithOptions(const OperateDi
 }
 
 /**
- * @summary 批量禁用任务
+ * @summary Disables multiple jobs at a time.
  *
  * @param request OperateDisableJobsRequest
  * @return OperateDisableJobsResponse
@@ -3190,7 +3398,7 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflows(const OperateDis
 }
 
 /**
- * @summary 批量启用任务
+ * @summary Enables multiple jobs at a time.
  *
  * @param tmpReq OperateEnableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3235,7 +3443,7 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
 }
 
 /**
- * @summary 批量启用任务
+ * @summary Enables multiple jobs at a time.
  *
  * @param request OperateEnableJobsRequest
  * @return OperateEnableJobsResponse
@@ -3302,7 +3510,7 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflows(const OperateEnabl
 }
 
 /**
- * @summary 运行一次任务
+ * @summary Runs a job once.
  *
  * @param request OperateExecuteJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3353,7 +3561,7 @@ OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExec
 }
 
 /**
- * @summary 运行一次任务
+ * @summary Runs a job once.
  *
  * @param request OperateExecuteJobRequest
  * @return OperateExecuteJobResponse
@@ -3614,7 +3822,7 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 }
 
 /**
- * @summary 重刷任务历史数据
+ * @summary Reprocesses the historical data of a job.
  *
  * @param request OperateRerunJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3665,7 +3873,7 @@ OperateRerunJobResponse Client::operateRerunJobWithOptions(const OperateRerunJob
 }
 
 /**
- * @summary 重刷任务历史数据
+ * @summary Reprocesses the historical data of a job.
  *
  * @param request OperateRerunJobRequest
  * @return OperateRerunJobResponse
@@ -3676,7 +3884,7 @@ OperateRerunJobResponse Client::operateRerunJob(const OperateRerunJobRequest &re
 }
 
 /**
- * @summary 重跑失败的任务实例
+ * @summary Reruns failed job instances.
  *
  * @param tmpReq OperateRetryJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3729,7 +3937,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
 }
 
 /**
- * @summary 重跑失败的任务实例
+ * @summary Reruns failed job instances.
  *
  * @param request OperateRetryJobExecutionRequest
  * @return OperateRetryJobExecutionResponse
@@ -3844,7 +4052,7 @@ OperateSkipJobExecutionResponse Client::operateSkipJobExecution(const OperateSki
 }
 
 /**
- * @summary 停止运行中的任务实例
+ * @summary Stops running instances.
  *
  * @param tmpReq OperateStopJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3893,7 +4101,7 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
 }
 
 /**
- * @summary 停止运行中的任务实例
+ * @summary Stops running instances.
  *
  * @param request OperateStopJobExecutionRequest
  * @return OperateStopJobExecutionResponse
@@ -4168,7 +4376,7 @@ SyncJobsResponse Client::syncJobs(const SyncJobsRequest &request) {
 }
 
 /**
- * @summary 更新应用分组
+ * @summary Updates an application group.
  *
  * @param request UpdateAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4205,6 +4413,10 @@ UpdateAppResponse Client::updateAppWithOptions(const UpdateAppRequest &request, 
     body["Title"] = request.getTitle();
   }
 
+  if (!!request.hasWorkerId()) {
+    body["WorkerId"] = request.getWorkerId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
@@ -4223,7 +4435,7 @@ UpdateAppResponse Client::updateAppWithOptions(const UpdateAppRequest &request, 
 }
 
 /**
- * @summary 更新应用分组
+ * @summary Updates an application group.
  *
  * @param request UpdateAppRequest
  * @return UpdateAppResponse
@@ -4296,7 +4508,7 @@ UpdateCalendarResponse Client::updateCalendar(const UpdateCalendarRequest &reque
 }
 
 /**
- * @summary 更新集群
+ * @summary Updates a cluster.
  *
  * @param request UpdateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4335,7 +4547,7 @@ UpdateClusterResponse Client::updateClusterWithOptions(const UpdateClusterReques
 }
 
 /**
- * @summary 更新集群
+ * @summary Updates a cluster.
  *
  * @param request UpdateClusterRequest
  * @return UpdateClusterResponse
@@ -4408,6 +4620,80 @@ UpdateDatasourceResponse Client::updateDatasource(const UpdateDatasourceRequest 
 }
 
 /**
+ * @summary 更新执行器组
+ *
+ * @param request UpdateExecutorGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateExecutorGroupResponse
+ */
+UpdateExecutorGroupResponse Client::updateExecutorGroupWithOptions(const UpdateExecutorGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiKey()) {
+    body["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasAuthType()) {
+    body["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["Network"] = request.getNetwork();
+  }
+
+  if (!!request.hasProtocol()) {
+    body["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasWorkerType()) {
+    body["WorkerType"] = request.getWorkerType();
+  }
+
+  if (!!request.hasWorkers()) {
+    body["Workers"] = request.getWorkers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateExecutorGroup"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateExecutorGroupResponse>();
+}
+
+/**
+ * @summary 更新执行器组
+ *
+ * @param request UpdateExecutorGroupRequest
+ * @return UpdateExecutorGroupResponse
+ */
+UpdateExecutorGroupResponse Client::updateExecutorGroup(const UpdateExecutorGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateExecutorGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新执行器
  *
  * @param request UpdateExecutorsRequest
@@ -4462,7 +4748,7 @@ UpdateExecutorsResponse Client::updateExecutors(const UpdateExecutorsRequest &re
 }
 
 /**
- * @summary 更新任务信息
+ * @summary Updates the job information.
  *
  * @param tmpReq UpdateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4581,6 +4867,10 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
     body["Weight"] = request.getWeight();
   }
 
+  if (!!request.hasXAttrs()) {
+    body["XAttrs"] = request.getXAttrs();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
@@ -4599,7 +4889,7 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 }
 
 /**
- * @summary 更新任务信息
+ * @summary Updates the job information.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse

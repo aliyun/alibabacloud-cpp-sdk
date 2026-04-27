@@ -80,7 +80,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(MaxJobs, maxJobs_);
           DARABONBA_PTR_TO_JSON(Title, title_);
           DARABONBA_PTR_TO_JSON(Updater, updater_);
+          DARABONBA_PTR_TO_JSON(WorkerId, workerId_);
           DARABONBA_PTR_TO_JSON(WorkerRegistry, workerRegistry_);
+          DARABONBA_PTR_TO_JSON(WorkerType, workerType_);
           DARABONBA_PTR_TO_JSON(WorkflowNum, workflowNum_);
         };
         friend void from_json(const Darabonba::Json& j, Records& obj) { 
@@ -98,7 +100,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(MaxJobs, maxJobs_);
           DARABONBA_PTR_FROM_JSON(Title, title_);
           DARABONBA_PTR_FROM_JSON(Updater, updater_);
+          DARABONBA_PTR_FROM_JSON(WorkerId, workerId_);
           DARABONBA_PTR_FROM_JSON(WorkerRegistry, workerRegistry_);
+          DARABONBA_PTR_FROM_JSON(WorkerType, workerType_);
           DARABONBA_PTR_FROM_JSON(WorkflowNum, workflowNum_);
         };
         Records() = default ;
@@ -115,7 +119,8 @@ namespace Models
         virtual bool empty() const override { return this->accessToken_ == nullptr
         && this->appName_ == nullptr && this->appType_ == nullptr && this->creator_ == nullptr && this->enableLog_ == nullptr && this->executorNum_ == nullptr
         && this->id_ == nullptr && this->jobNum_ == nullptr && this->labelRouteStrategy_ == nullptr && this->leader_ == nullptr && this->maxConcurrency_ == nullptr
-        && this->maxJobs_ == nullptr && this->title_ == nullptr && this->updater_ == nullptr && this->workerRegistry_ == nullptr && this->workflowNum_ == nullptr; };
+        && this->maxJobs_ == nullptr && this->title_ == nullptr && this->updater_ == nullptr && this->workerId_ == nullptr && this->workerRegistry_ == nullptr
+        && this->workerType_ == nullptr && this->workflowNum_ == nullptr; };
         // accessToken Field Functions 
         bool hasAccessToken() const { return this->accessToken_ != nullptr;};
         void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -214,11 +219,25 @@ namespace Models
         inline Records& setUpdater(string updater) { DARABONBA_PTR_SET_VALUE(updater_, updater) };
 
 
+        // workerId Field Functions 
+        bool hasWorkerId() const { return this->workerId_ != nullptr;};
+        void deleteWorkerId() { this->workerId_ = nullptr;};
+        inline int32_t getWorkerId() const { DARABONBA_PTR_GET_DEFAULT(workerId_, 0) };
+        inline Records& setWorkerId(int32_t workerId) { DARABONBA_PTR_SET_VALUE(workerId_, workerId) };
+
+
         // workerRegistry Field Functions 
         bool hasWorkerRegistry() const { return this->workerRegistry_ != nullptr;};
         void deleteWorkerRegistry() { this->workerRegistry_ = nullptr;};
         inline string getWorkerRegistry() const { DARABONBA_PTR_GET_DEFAULT(workerRegistry_, "") };
         inline Records& setWorkerRegistry(string workerRegistry) { DARABONBA_PTR_SET_VALUE(workerRegistry_, workerRegistry) };
+
+
+        // workerType Field Functions 
+        bool hasWorkerType() const { return this->workerType_ != nullptr;};
+        void deleteWorkerType() { this->workerType_ = nullptr;};
+        inline string getWorkerType() const { DARABONBA_PTR_GET_DEFAULT(workerType_, "") };
+        inline Records& setWorkerType(string workerType) { DARABONBA_PTR_SET_VALUE(workerType_, workerType) };
 
 
         // workflowNum Field Functions 
@@ -244,7 +263,9 @@ namespace Models
         shared_ptr<int32_t> maxJobs_ {};
         shared_ptr<string> title_ {};
         shared_ptr<string> updater_ {};
+        shared_ptr<int32_t> workerId_ {};
         shared_ptr<string> workerRegistry_ {};
+        shared_ptr<string> workerType_ {};
         shared_ptr<int32_t> workflowNum_ {};
       };
 

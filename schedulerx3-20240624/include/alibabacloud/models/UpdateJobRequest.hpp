@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TimeType, timeType_);
       DARABONBA_PTR_TO_JSON(Timezone, timezone_);
       DARABONBA_PTR_TO_JSON(Weight, weight_);
+      DARABONBA_PTR_TO_JSON(XAttrs, XAttrs_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -66,6 +67,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TimeType, timeType_);
       DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
       DARABONBA_PTR_FROM_JSON(Weight, weight_);
+      DARABONBA_PTR_FROM_JSON(XAttrs, XAttrs_);
     };
     UpdateJobRequest() = default ;
     UpdateJobRequest(const UpdateJobRequest &) = default ;
@@ -248,7 +250,7 @@ namespace Models
         && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->maxAttempt_ == nullptr
         && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfig_ == nullptr && this->noticeContacts_ == nullptr && this->parameters_ == nullptr
         && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTime_ == nullptr && this->startTimeType_ == nullptr
-        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr && this->weight_ == nullptr; };
+        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr && this->weight_ == nullptr && this->XAttrs_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -428,6 +430,13 @@ namespace Models
     inline UpdateJobRequest& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
+    // XAttrs Field Functions 
+    bool hasXAttrs() const { return this->XAttrs_ != nullptr;};
+    void deleteXAttrs() { this->XAttrs_ = nullptr;};
+    inline string getXAttrs() const { DARABONBA_PTR_GET_DEFAULT(XAttrs_, "") };
+    inline UpdateJobRequest& setXAttrs(string XAttrs) { DARABONBA_PTR_SET_VALUE(XAttrs_, XAttrs) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> appName_ {};
@@ -457,6 +466,7 @@ namespace Models
     shared_ptr<int32_t> timeType_ {};
     shared_ptr<string> timezone_ {};
     shared_ptr<int32_t> weight_ {};
+    shared_ptr<string> XAttrs_ {};
   };
 
   } // namespace Models

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListClustersRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
+      DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListClustersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
+      DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -81,7 +83,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->clusterName_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->tag_ == nullptr; };
+        && this->clusterName_ == nullptr && this->clusterType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->tag_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -94,6 +96,13 @@ namespace Models
     void deleteClusterName() { this->clusterName_ = nullptr;};
     inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline ListClustersRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
+
+
+    // clusterType Field Functions 
+    bool hasClusterType() const { return this->clusterType_ != nullptr;};
+    void deleteClusterType() { this->clusterType_ = nullptr;};
+    inline int32_t getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, 0) };
+    inline ListClustersRequest& setClusterType(int32_t clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // pageNum Field Functions 
@@ -122,6 +131,7 @@ namespace Models
   protected:
     shared_ptr<string> clusterId_ {};
     shared_ptr<string> clusterName_ {};
+    shared_ptr<int32_t> clusterType_ {};
     shared_ptr<int32_t> pageNum_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<vector<ListClustersRequest::Tag>> tag_ {};

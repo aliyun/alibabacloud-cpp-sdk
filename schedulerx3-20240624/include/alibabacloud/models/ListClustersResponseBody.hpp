@@ -70,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
           DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
           DARABONBA_PTR_TO_JSON(ClusterSpec, clusterSpec_);
+          DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(EngineType, engineType_);
@@ -89,6 +90,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
           DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
           DARABONBA_PTR_FROM_JSON(ClusterSpec, clusterSpec_);
+          DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
@@ -157,10 +159,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->createTime_ == nullptr && this->endTime_ == nullptr
-        && this->engineType_ == nullptr && this->engineVersion_ == nullptr && this->internetDomain_ == nullptr && this->intranetDomain_ == nullptr && this->productType_ == nullptr
-        && this->spInstanceId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->versionLifecycle_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->createTime_ == nullptr
+        && this->endTime_ == nullptr && this->engineType_ == nullptr && this->engineVersion_ == nullptr && this->internetDomain_ == nullptr && this->intranetDomain_ == nullptr
+        && this->productType_ == nullptr && this->spInstanceId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr
+        && this->versionLifecycle_ == nullptr && this->vpcId_ == nullptr; };
         // chargeType Field Functions 
         bool hasChargeType() const { return this->chargeType_ != nullptr;};
         void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -187,6 +189,13 @@ namespace Models
         void deleteClusterSpec() { this->clusterSpec_ = nullptr;};
         inline string getClusterSpec() const { DARABONBA_PTR_GET_DEFAULT(clusterSpec_, "") };
         inline Records& setClusterSpec(string clusterSpec) { DARABONBA_PTR_SET_VALUE(clusterSpec_, clusterSpec) };
+
+
+        // clusterType Field Functions 
+        bool hasClusterType() const { return this->clusterType_ != nullptr;};
+        void deleteClusterType() { this->clusterType_ = nullptr;};
+        inline int32_t getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, 0) };
+        inline Records& setClusterType(int32_t clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
         // createTime Field Functions 
@@ -289,6 +298,7 @@ namespace Models
         shared_ptr<string> clusterId_ {};
         shared_ptr<string> clusterName_ {};
         shared_ptr<string> clusterSpec_ {};
+        shared_ptr<int32_t> clusterType_ {};
         shared_ptr<string> createTime_ {};
         shared_ptr<string> endTime_ {};
         shared_ptr<string> engineType_ {};

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LabelRouteStrategy, labelRouteStrategy_);
       DARABONBA_PTR_TO_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_TO_JSON(Title, title_);
+      DARABONBA_PTR_TO_JSON(WorkerId, workerId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAppRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessToken, accessToken_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LabelRouteStrategy, labelRouteStrategy_);
       DARABONBA_PTR_FROM_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
+      DARABONBA_PTR_FROM_JSON(WorkerId, workerId_);
     };
     UpdateAppRequest() = default ;
     UpdateAppRequest(const UpdateAppRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
         && this->appName_ == nullptr && this->clusterId_ == nullptr && this->enableLog_ == nullptr && this->labelRouteStrategy_ == nullptr && this->maxConcurrency_ == nullptr
-        && this->title_ == nullptr; };
+        && this->title_ == nullptr && this->workerId_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline UpdateAppRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
+    // workerId Field Functions 
+    bool hasWorkerId() const { return this->workerId_ != nullptr;};
+    void deleteWorkerId() { this->workerId_ = nullptr;};
+    inline int32_t getWorkerId() const { DARABONBA_PTR_GET_DEFAULT(workerId_, 0) };
+    inline UpdateAppRequest& setWorkerId(int32_t workerId) { DARABONBA_PTR_SET_VALUE(workerId_, workerId) };
+
+
   protected:
     shared_ptr<string> accessToken_ {};
     // This parameter is required.
@@ -104,6 +113,7 @@ namespace Models
     shared_ptr<int32_t> maxConcurrency_ {};
     // This parameter is required.
     shared_ptr<string> title_ {};
+    shared_ptr<int32_t> workerId_ {};
   };
 
   } // namespace Models
