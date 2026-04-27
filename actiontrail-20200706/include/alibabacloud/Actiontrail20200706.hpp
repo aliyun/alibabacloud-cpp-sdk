@@ -228,7 +228,6 @@ namespace Actiontrail20200706
       /**
        * @summary 查询高级查询历史记录
        *
-       * @param request DescribeAdvancedQueryHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAdvancedQueryHistoryResponse
        */
@@ -331,6 +330,23 @@ namespace Actiontrail20200706
       Models::DescribeSearchTemplatesResponse describeSearchTemplates(const Models::DescribeSearchTemplatesRequest &request);
 
       /**
+       * @summary 获取投递监控指标
+       *
+       * @param request DescribeTrailDeliveryMetricDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTrailDeliveryMetricDataResponse
+       */
+      Models::DescribeTrailDeliveryMetricDataResponse describeTrailDeliveryMetricDataWithOptions(const Models::DescribeTrailDeliveryMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取投递监控指标
+       *
+       * @param request DescribeTrailDeliveryMetricDataRequest
+       * @return DescribeTrailDeliveryMetricDataResponse
+       */
+      Models::DescribeTrailDeliveryMetricDataResponse describeTrailDeliveryMetricData(const Models::DescribeTrailDeliveryMetricDataRequest &request);
+
+      /**
        * @summary Queries created trails.
        *
        * @description This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
@@ -384,6 +400,23 @@ namespace Actiontrail20200706
        * @return DescribeUserLogCountResponse
        */
       Models::DescribeUserLogCountResponse describeUserLogCount(const Models::DescribeUserLogCountRequest &request);
+
+      /**
+       * @summary 查询用户跟踪量
+       *
+       * @param request DescribeUserTrailCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserTrailCountResponse
+       */
+      Models::DescribeUserTrailCountResponse describeUserTrailCountWithOptions(const Models::DescribeUserTrailCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户跟踪量
+       *
+       * @param request DescribeUserTrailCountRequest
+       * @return DescribeUserTrailCountResponse
+       */
+      Models::DescribeUserTrailCountResponse describeUserTrailCount(const Models::DescribeUserTrailCountRequest &request);
 
       /**
        * @summary 关闭insight
@@ -585,7 +618,6 @@ namespace Actiontrail20200706
        * @description By default, global events are stored in the Singapore region.
        * To obtain the permissions to call the API operation, you must submit a ticket.
        *
-       * @param request GetGlobalEventsStorageRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetGlobalEventsStorageRegionResponse
        */
@@ -604,7 +636,6 @@ namespace Actiontrail20200706
       /**
        * @summary 操作审计成熟度查询接口
        *
-       * @param request GetGovernanceMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetGovernanceMetricsResponse
        */
@@ -637,7 +668,6 @@ namespace Actiontrail20200706
       /**
        * @summary 获取查询账号开启insight的类型
        *
-       * @param request GetInsightTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInsightTypesResponse
        */

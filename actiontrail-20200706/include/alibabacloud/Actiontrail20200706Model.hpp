@@ -46,6 +46,9 @@
 #include <alibabacloud/models/DescribeSearchTemplatesRequest.hpp>
 #include <alibabacloud/models/DescribeSearchTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DescribeSearchTemplatesResponse.hpp>
+#include <alibabacloud/models/DescribeTrailDeliveryMetricDataRequest.hpp>
+#include <alibabacloud/models/DescribeTrailDeliveryMetricDataResponseBody.hpp>
+#include <alibabacloud/models/DescribeTrailDeliveryMetricDataResponse.hpp>
 #include <alibabacloud/models/DescribeTrailsRequest.hpp>
 #include <alibabacloud/models/DescribeTrailsResponseBody.hpp>
 #include <alibabacloud/models/DescribeTrailsResponse.hpp>
@@ -55,6 +58,9 @@
 #include <alibabacloud/models/DescribeUserLogCountRequest.hpp>
 #include <alibabacloud/models/DescribeUserLogCountResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserLogCountResponse.hpp>
+#include <alibabacloud/models/DescribeUserTrailCountRequest.hpp>
+#include <alibabacloud/models/DescribeUserTrailCountResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserTrailCountResponse.hpp>
 #include <alibabacloud/models/DisableInsightRequest.hpp>
 #include <alibabacloud/models/DisableInsightResponseBody.hpp>
 #include <alibabacloud/models/DisableInsightResponse.hpp>

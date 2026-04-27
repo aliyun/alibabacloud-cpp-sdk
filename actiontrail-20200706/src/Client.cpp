@@ -558,7 +558,6 @@ DeleteTrailResponse Client::deleteTrail(const DeleteTrailRequest &request) {
 /**
  * @summary 查询高级查询历史记录
  *
- * @param request DescribeAdvancedQueryHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAdvancedQueryHistoryResponse
  */
@@ -823,6 +822,44 @@ DescribeSearchTemplatesResponse Client::describeSearchTemplates(const DescribeSe
 }
 
 /**
+ * @summary 获取投递监控指标
+ *
+ * @param request DescribeTrailDeliveryMetricDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTrailDeliveryMetricDataResponse
+ */
+DescribeTrailDeliveryMetricDataResponse Client::describeTrailDeliveryMetricDataWithOptions(const DescribeTrailDeliveryMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTrailDeliveryMetricData"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTrailDeliveryMetricDataResponse>();
+}
+
+/**
+ * @summary 获取投递监控指标
+ *
+ * @param request DescribeTrailDeliveryMetricDataRequest
+ * @return DescribeTrailDeliveryMetricDataResponse
+ */
+DescribeTrailDeliveryMetricDataResponse Client::describeTrailDeliveryMetricData(const DescribeTrailDeliveryMetricDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTrailDeliveryMetricDataWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries created trails.
  *
  * @description This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
@@ -966,6 +1003,41 @@ DescribeUserLogCountResponse Client::describeUserLogCountWithOptions(const Descr
 DescribeUserLogCountResponse Client::describeUserLogCount(const DescribeUserLogCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUserLogCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询用户跟踪量
+ *
+ * @param request DescribeUserTrailCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserTrailCountResponse
+ */
+DescribeUserTrailCountResponse Client::describeUserTrailCountWithOptions(const DescribeUserTrailCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeUserTrailCount"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserTrailCountResponse>();
+}
+
+/**
+ * @summary 查询用户跟踪量
+ *
+ * @param request DescribeUserTrailCountRequest
+ * @return DescribeUserTrailCountResponse
+ */
+DescribeUserTrailCountResponse Client::describeUserTrailCount(const DescribeUserTrailCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserTrailCountWithOptions(request, runtime);
 }
 
 /**
@@ -1454,7 +1526,6 @@ GetDeliveryHistoryJobResponse Client::getDeliveryHistoryJob(const GetDeliveryHis
  * @description By default, global events are stored in the Singapore region.
  * To obtain the permissions to call the API operation, you must submit a ticket.
  *
- * @param request GetGlobalEventsStorageRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetGlobalEventsStorageRegionResponse
  */
@@ -1490,7 +1561,6 @@ GetGlobalEventsStorageRegionResponse Client::getGlobalEventsStorageRegion() {
 /**
  * @summary 操作审计成熟度查询接口
  *
- * @param request GetGovernanceMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetGovernanceMetricsResponse
  */
@@ -1565,7 +1635,6 @@ GetInsightSelectorsResponse Client::getInsightSelectors(const GetInsightSelector
 /**
  * @summary 获取查询账号开启insight的类型
  *
- * @param request GetInsightTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInsightTypesResponse
  */
