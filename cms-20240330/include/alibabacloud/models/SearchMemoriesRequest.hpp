@@ -18,7 +18,7 @@ namespace Models
       DARABONBA_ANY_TO_JSON(filters, filters_);
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(rerank, rerank_);
-      DARABONBA_PTR_TO_JSON(retrieveLevel, retrieveLevel_);
+      DARABONBA_PTR_TO_JSON(retrievalOption, retrievalOption_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
       DARABONBA_PTR_TO_JSON(searchType, searchType_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
@@ -31,7 +31,7 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(filters, filters_);
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(rerank, rerank_);
-      DARABONBA_PTR_FROM_JSON(retrieveLevel, retrieveLevel_);
+      DARABONBA_PTR_FROM_JSON(retrievalOption, retrievalOption_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
       DARABONBA_PTR_FROM_JSON(searchType, searchType_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
@@ -50,7 +50,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->appId_ == nullptr && this->filters_ == nullptr && this->query_ == nullptr && this->rerank_ == nullptr && this->retrieveLevel_ == nullptr
+        && this->appId_ == nullptr && this->filters_ == nullptr && this->query_ == nullptr && this->rerank_ == nullptr && this->retrievalOption_ == nullptr
         && this->runId_ == nullptr && this->searchType_ == nullptr && this->threshold_ == nullptr && this->topK_ == nullptr && this->userId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
@@ -89,11 +89,11 @@ namespace Models
     inline SearchMemoriesRequest& setRerank(bool rerank) { DARABONBA_PTR_SET_VALUE(rerank_, rerank) };
 
 
-    // retrieveLevel Field Functions 
-    bool hasRetrieveLevel() const { return this->retrieveLevel_ != nullptr;};
-    void deleteRetrieveLevel() { this->retrieveLevel_ = nullptr;};
-    inline string getRetrieveLevel() const { DARABONBA_PTR_GET_DEFAULT(retrieveLevel_, "") };
-    inline SearchMemoriesRequest& setRetrieveLevel(string retrieveLevel) { DARABONBA_PTR_SET_VALUE(retrieveLevel_, retrieveLevel) };
+    // retrievalOption Field Functions 
+    bool hasRetrievalOption() const { return this->retrievalOption_ != nullptr;};
+    void deleteRetrievalOption() { this->retrievalOption_ = nullptr;};
+    inline string getRetrievalOption() const { DARABONBA_PTR_GET_DEFAULT(retrievalOption_, "") };
+    inline SearchMemoriesRequest& setRetrievalOption(string retrievalOption) { DARABONBA_PTR_SET_VALUE(retrievalOption_, retrievalOption) };
 
 
     // runId Field Functions 
@@ -137,7 +137,7 @@ namespace Models
     Darabonba::Json filters_ {};
     shared_ptr<string> query_ {};
     shared_ptr<bool> rerank_ {};
-    shared_ptr<string> retrieveLevel_ {};
+    shared_ptr<string> retrievalOption_ {};
     shared_ptr<string> runId_ {};
     shared_ptr<string> searchType_ {};
     shared_ptr<double> threshold_ {};

@@ -5540,8 +5540,8 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspace
     body["rerank"] = request.getRerank();
   }
 
-  if (!!request.hasRetrieveLevel()) {
-    body["retrieveLevel"] = request.getRetrieveLevel();
+  if (!!request.hasRetrievalOption()) {
+    body["retrievalOption"] = request.getRetrievalOption();
   }
 
   if (!!request.hasRunId()) {

@@ -346,10 +346,10 @@ namespace Models
     // ipMatchRule Field Functions 
     bool hasIpMatchRule() const { return this->ipMatchRule_ != nullptr;};
     void deleteIpMatchRule() { this->ipMatchRule_ = nullptr;};
-    inline const vector<EntityDiscoverRule::IpMatchRule> & getIpMatchRule() const { DARABONBA_PTR_GET_CONST(ipMatchRule_, vector<EntityDiscoverRule::IpMatchRule>) };
-    inline vector<EntityDiscoverRule::IpMatchRule> getIpMatchRule() { DARABONBA_PTR_GET(ipMatchRule_, vector<EntityDiscoverRule::IpMatchRule>) };
-    inline EntityDiscoverRule& setIpMatchRule(const vector<EntityDiscoverRule::IpMatchRule> & ipMatchRule) { DARABONBA_PTR_SET_VALUE(ipMatchRule_, ipMatchRule) };
-    inline EntityDiscoverRule& setIpMatchRule(vector<EntityDiscoverRule::IpMatchRule> && ipMatchRule) { DARABONBA_PTR_SET_RVALUE(ipMatchRule_, ipMatchRule) };
+    inline const EntityDiscoverRule::IpMatchRule & getIpMatchRule() const { DARABONBA_PTR_GET_CONST(ipMatchRule_, EntityDiscoverRule::IpMatchRule) };
+    inline EntityDiscoverRule::IpMatchRule getIpMatchRule() { DARABONBA_PTR_GET(ipMatchRule_, EntityDiscoverRule::IpMatchRule) };
+    inline EntityDiscoverRule& setIpMatchRule(const EntityDiscoverRule::IpMatchRule & ipMatchRule) { DARABONBA_PTR_SET_VALUE(ipMatchRule_, ipMatchRule) };
+    inline EntityDiscoverRule& setIpMatchRule(EntityDiscoverRule::IpMatchRule && ipMatchRule) { DARABONBA_PTR_SET_RVALUE(ipMatchRule_, ipMatchRule) };
 
 
     // labels Field Functions 
@@ -391,7 +391,7 @@ namespace Models
     shared_ptr<vector<string>> entityTypes_ {};
     shared_ptr<vector<EntityDiscoverRule::FieldRules>> fieldRules_ {};
     shared_ptr<vector<string>> instanceIds_ {};
-    shared_ptr<vector<EntityDiscoverRule::IpMatchRule>> ipMatchRule_ {};
+    shared_ptr<EntityDiscoverRule::IpMatchRule> ipMatchRule_ {};
     shared_ptr<vector<EntityDiscoverRule::Labels>> labels_ {};
     shared_ptr<vector<string>> regionIds_ {};
     shared_ptr<string> resourceGroupId_ {};
