@@ -752,6 +752,23 @@ namespace SchedulerX320240624
       Models::ListDatasourcesResponse listDatasources(const Models::ListDatasourcesRequest &request);
 
       /**
+       * @summary 获取执行器组列表
+       *
+       * @param request ListExecutorGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListExecutorGroupResponse
+       */
+      Models::ListExecutorGroupResponse listExecutorGroupWithOptions(const Models::ListExecutorGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取执行器组列表
+       *
+       * @param request ListExecutorGroupRequest
+       * @return ListExecutorGroupResponse
+       */
+      Models::ListExecutorGroupResponse listExecutorGroup(const Models::ListExecutorGroupRequest &request);
+
+      /**
        * @summary Queries a list of executors.
        *
        * @param request ListExecutorsRequest

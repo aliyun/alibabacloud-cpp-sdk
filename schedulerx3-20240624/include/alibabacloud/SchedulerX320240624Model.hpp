@@ -135,6 +135,9 @@
 #include <alibabacloud/models/ListDatasourcesRequest.hpp>
 #include <alibabacloud/models/ListDatasourcesResponseBody.hpp>
 #include <alibabacloud/models/ListDatasourcesResponse.hpp>
+#include <alibabacloud/models/ListExecutorGroupRequest.hpp>
+#include <alibabacloud/models/ListExecutorGroupResponseBody.hpp>
+#include <alibabacloud/models/ListExecutorGroupResponse.hpp>
 #include <alibabacloud/models/ListExecutorsRequest.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBody.hpp>
 #include <alibabacloud/models/ListExecutorsResponse.hpp>

@@ -2392,6 +2392,72 @@ ListDatasourcesResponse Client::listDatasources(const ListDatasourcesRequest &re
 }
 
 /**
+ * @summary 获取执行器组列表
+ *
+ * @param request ListExecutorGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListExecutorGroupResponse
+ */
+ListExecutorGroupResponse Client::listExecutorGroupWithOptions(const ListExecutorGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkerType()) {
+    query["WorkerType"] = request.getWorkerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListExecutorGroup"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListExecutorGroupResponse>();
+}
+
+/**
+ * @summary 获取执行器组列表
+ *
+ * @param request ListExecutorGroupRequest
+ * @return ListExecutorGroupResponse
+ */
+ListExecutorGroupResponse Client::listExecutorGroup(const ListExecutorGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listExecutorGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of executors.
  *
  * @param request ListExecutorsRequest
