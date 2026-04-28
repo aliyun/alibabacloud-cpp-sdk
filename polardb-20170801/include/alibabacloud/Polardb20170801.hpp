@@ -323,6 +323,39 @@ namespace Polardb20170801
       Models::CheckKMSAuthorizedResponse checkKMSAuthorized(const Models::CheckKMSAuthorizedRequest &request);
 
       /**
+       * @summary 用于检查PolarFS实例中配额设置的一致性状态。
+       *
+       * @description ## 请求说明
+       * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+       * ### 注意事项
+       * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+       * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+       * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+       * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+       *
+       * @param request CheckPolarFsQuotaConsistencyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckPolarFsQuotaConsistencyResponse
+       */
+      Models::CheckPolarFsQuotaConsistencyResponse checkPolarFsQuotaConsistencyWithOptions(const Models::CheckPolarFsQuotaConsistencyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于检查PolarFS实例中配额设置的一致性状态。
+       *
+       * @description ## 请求说明
+       * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+       * ### 注意事项
+       * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+       * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+       * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+       * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+       *
+       * @param request CheckPolarFsQuotaConsistencyRequest
+       * @return CheckPolarFsQuotaConsistencyResponse
+       */
+      Models::CheckPolarFsQuotaConsistencyResponse checkPolarFsQuotaConsistency(const Models::CheckPolarFsQuotaConsistencyRequest &request);
+
+      /**
        * @summary Checks whether a service-linked role (SLR) is created.
        *
        * @param request CheckServiceLinkedRoleRequest
@@ -592,6 +625,23 @@ namespace Polardb20170801
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
+       * @summary 创建预算策略
+       *
+       * @param request CreateBudgetPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBudgetPolicyResponse
+       */
+      Models::CreateBudgetPolicyResponse createBudgetPolicyWithOptions(const Models::CreateBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建预算策略
+       *
+       * @param request CreateBudgetPolicyRequest
+       * @return CreateBudgetPolicyResponse
+       */
+      Models::CreateBudgetPolicyResponse createBudgetPolicy(const Models::CreateBudgetPolicyRequest &request);
+
+      /**
        * @summary Creates a cluster that is used to store cold data.
        *
        * @param request CreateColdStorageInstanceRequest
@@ -607,6 +657,57 @@ namespace Polardb20170801
        * @return CreateColdStorageInstanceResponse
        */
       Models::CreateColdStorageInstanceResponse createColdStorageInstance(const Models::CreateColdStorageInstanceRequest &request);
+
+      /**
+       * @summary 创建消费者
+       *
+       * @param request CreateConsumerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateConsumerResponse
+       */
+      Models::CreateConsumerResponse createConsumerWithOptions(const Models::CreateConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建消费者
+       *
+       * @param request CreateConsumerRequest
+       * @return CreateConsumerResponse
+       */
+      Models::CreateConsumerResponse createConsumer(const Models::CreateConsumerRequest &request);
+
+      /**
+       * @summary 创建消费者组
+       *
+       * @param request CreateConsumerGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateConsumerGroupResponse
+       */
+      Models::CreateConsumerGroupResponse createConsumerGroupWithOptions(const Models::CreateConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建消费者组
+       *
+       * @param request CreateConsumerGroupRequest
+       * @return CreateConsumerGroupResponse
+       */
+      Models::CreateConsumerGroupResponse createConsumerGroup(const Models::CreateConsumerGroupRequest &request);
+
+      /**
+       * @summary 创建限流策略
+       *
+       * @param request CreateCostRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCostRuleResponse
+       */
+      Models::CreateCostRuleResponse createCostRuleWithOptions(const Models::CreateCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建限流策略
+       *
+       * @param request CreateCostRuleRequest
+       * @return CreateCostRuleResponse
+       */
+      Models::CreateCostRuleResponse createCostRule(const Models::CreateCostRuleRequest &request);
 
       /**
        * @summary serverless创建周期任务策略
@@ -801,6 +902,23 @@ namespace Polardb20170801
       Models::CreateExtensionsResponse createExtensions(const Models::CreateExtensionsRequest &request);
 
       /**
+       * @summary 创建网关地址
+       *
+       * @param request CreateGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGatewayResponse
+       */
+      Models::CreateGatewayResponse createGatewayWithOptions(const Models::CreateGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建网关地址
+       *
+       * @param request CreateGatewayRequest
+       * @return CreateGatewayResponse
+       */
+      Models::CreateGatewayResponse createGateway(const Models::CreateGatewayRequest &request);
+
+      /**
        * @summary Creates a global data network (GDN).
        *
        * @param request CreateGlobalDataNetworkRequest
@@ -854,6 +972,40 @@ namespace Polardb20170801
        * @return CreateGlobalSecurityIPGroupResponse
        */
       Models::CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroup(const Models::CreateGlobalSecurityIPGroupRequest &request);
+
+      /**
+       * @summary 创建路由规则
+       *
+       * @param request CreateModelApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelApiResponse
+       */
+      Models::CreateModelApiResponse createModelApiWithOptions(const Models::CreateModelApiRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建路由规则
+       *
+       * @param request CreateModelApiRequest
+       * @return CreateModelApiResponse
+       */
+      Models::CreateModelApiResponse createModelApi(const Models::CreateModelApiRequest &request);
+
+      /**
+       * @summary 创建模型服务
+       *
+       * @param request CreateModelServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelServiceResponse
+       */
+      Models::CreateModelServiceResponse createModelServiceWithOptions(const Models::CreateModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模型服务
+       *
+       * @param request CreateModelServiceRequest
+       * @return CreateModelServiceResponse
+       */
+      Models::CreateModelServiceResponse createModelService(const Models::CreateModelServiceRequest &request);
 
       /**
        * @summary 创建网络通道
@@ -911,6 +1063,54 @@ namespace Polardb20170801
        * @return CreateParameterGroupResponse
        */
       Models::CreateParameterGroupResponse createParameterGroup(const Models::CreateParameterGroupRequest &request);
+
+      /**
+       * @summary 用于在指定PolarFS实例中创建新的目录。
+       *
+       * @description ## 请求说明
+       * - **Path**：需要创建的目录绝对路径。
+       * - **Recursive**：是否递归创建父目录，默认为 `false`。
+       * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+       * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+       * - 创建目录时，请确保具有足够的权限。
+       *
+       * @param request CreatePolarFsObjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePolarFsObjectResponse
+       */
+      Models::CreatePolarFsObjectResponse createPolarFsObjectWithOptions(const Models::CreatePolarFsObjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于在指定PolarFS实例中创建新的目录。
+       *
+       * @description ## 请求说明
+       * - **Path**：需要创建的目录绝对路径。
+       * - **Recursive**：是否递归创建父目录，默认为 `false`。
+       * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+       * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+       * - 创建目录时，请确保具有足够的权限。
+       *
+       * @param request CreatePolarFsObjectRequest
+       * @return CreatePolarFsObjectResponse
+       */
+      Models::CreatePolarFsObjectResponse createPolarFsObject(const Models::CreatePolarFsObjectRequest &request);
+
+      /**
+       * @summary 创建限流策略
+       *
+       * @param request CreateRateLimitPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRateLimitPolicyResponse
+       */
+      Models::CreateRateLimitPolicyResponse createRateLimitPolicyWithOptions(const Models::CreateRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建限流策略
+       *
+       * @param request CreateRateLimitPolicyRequest
+       * @return CreateRateLimitPolicyResponse
+       */
+      Models::CreateRateLimitPolicyResponse createRateLimitPolicy(const Models::CreateRateLimitPolicyRequest &request);
 
       /**
        * @summary Creates a service-linked role (SLR).
@@ -1133,6 +1333,74 @@ namespace Polardb20170801
       Models::DeleteBackupResponse deleteBackup(const Models::DeleteBackupRequest &request);
 
       /**
+       * @summary 删除预算策略
+       *
+       * @param request DeleteBudgetPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBudgetPolicyResponse
+       */
+      Models::DeleteBudgetPolicyResponse deleteBudgetPolicyWithOptions(const Models::DeleteBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除预算策略
+       *
+       * @param request DeleteBudgetPolicyRequest
+       * @return DeleteBudgetPolicyResponse
+       */
+      Models::DeleteBudgetPolicyResponse deleteBudgetPolicy(const Models::DeleteBudgetPolicyRequest &request);
+
+      /**
+       * @summary 删除消费者
+       *
+       * @param request DeleteConsumerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteConsumerResponse
+       */
+      Models::DeleteConsumerResponse deleteConsumerWithOptions(const Models::DeleteConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除消费者
+       *
+       * @param request DeleteConsumerRequest
+       * @return DeleteConsumerResponse
+       */
+      Models::DeleteConsumerResponse deleteConsumer(const Models::DeleteConsumerRequest &request);
+
+      /**
+       * @summary 删除消费者组
+       *
+       * @param request DeleteConsumerGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteConsumerGroupResponse
+       */
+      Models::DeleteConsumerGroupResponse deleteConsumerGroupWithOptions(const Models::DeleteConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除消费者组
+       *
+       * @param request DeleteConsumerGroupRequest
+       * @return DeleteConsumerGroupResponse
+       */
+      Models::DeleteConsumerGroupResponse deleteConsumerGroup(const Models::DeleteConsumerGroupRequest &request);
+
+      /**
+       * @summary 删除限流策略
+       *
+       * @param request DeleteCostRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCostRuleResponse
+       */
+      Models::DeleteCostRuleResponse deleteCostRuleWithOptions(const Models::DeleteCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除限流策略
+       *
+       * @param request DeleteCostRuleRequest
+       * @return DeleteCostRuleResponse
+       */
+      Models::DeleteCostRuleResponse deleteCostRule(const Models::DeleteCostRuleRequest &request);
+
+      /**
        * @summary Releases a pay-as-you-go PolarDB cluster.
        *
        * @param request DeleteDBClusterRequest
@@ -1332,6 +1600,23 @@ namespace Polardb20170801
       Models::DeleteFirewallRulesResponse deleteFirewallRules(const Models::DeleteFirewallRulesRequest &request);
 
       /**
+       * @summary 删除网关实例
+       *
+       * @param request DeleteGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayResponse
+       */
+      Models::DeleteGatewayResponse deleteGatewayWithOptions(const Models::DeleteGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关实例
+       *
+       * @param request DeleteGatewayRequest
+       * @return DeleteGatewayResponse
+       */
+      Models::DeleteGatewayResponse deleteGateway(const Models::DeleteGatewayRequest &request);
+
+      /**
        * @summary Deletes a global data network (GDN).
        *
        * @param request DeleteGlobalDataNetworkRequest
@@ -1402,6 +1687,40 @@ namespace Polardb20170801
        * @return DeleteMaskingRulesResponse
        */
       Models::DeleteMaskingRulesResponse deleteMaskingRules(const Models::DeleteMaskingRulesRequest &request);
+
+      /**
+       * @summary 删除路由规则
+       *
+       * @param request DeleteModelApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelApiResponse
+       */
+      Models::DeleteModelApiResponse deleteModelApiWithOptions(const Models::DeleteModelApiRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除路由规则
+       *
+       * @param request DeleteModelApiRequest
+       * @return DeleteModelApiResponse
+       */
+      Models::DeleteModelApiResponse deleteModelApi(const Models::DeleteModelApiRequest &request);
+
+      /**
+       * @summary 删除模型服务
+       *
+       * @param request DeleteModelServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelServiceResponse
+       */
+      Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const Models::DeleteModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模型服务
+       *
+       * @param request DeleteModelServiceRequest
+       * @return DeleteModelServiceResponse
+       */
+      Models::DeleteModelServiceResponse deleteModelService(const Models::DeleteModelServiceRequest &request);
 
       /**
        * @summary 删除网络通道
@@ -1503,6 +1822,23 @@ namespace Polardb20170801
        * @return DeletePolarFsQuotaResponse
        */
       Models::DeletePolarFsQuotaResponse deletePolarFsQuota(const Models::DeletePolarFsQuotaRequest &request);
+
+      /**
+       * @summary 删除限流策略
+       *
+       * @param request DeleteRateLimitPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRateLimitPolicyResponse
+       */
+      Models::DeleteRateLimitPolicyResponse deleteRateLimitPolicyWithOptions(const Models::DeleteRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除限流策略
+       *
+       * @param request DeleteRateLimitPolicyRequest
+       * @return DeleteRateLimitPolicyResponse
+       */
+      Models::DeleteRateLimitPolicyResponse deleteRateLimitPolicy(const Models::DeleteRateLimitPolicyRequest &request);
 
       /**
        * @summary 删除SQL限流规则
@@ -2015,6 +2351,23 @@ namespace Polardb20170801
       Models::DescribeBackupsResponse describeBackups(const Models::DescribeBackupsRequest &request);
 
       /**
+       * @summary 查询预算策略
+       *
+       * @param request DescribeBudgetPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBudgetPoliciesResponse
+       */
+      Models::DescribeBudgetPoliciesResponse describeBudgetPoliciesWithOptions(const Models::DescribeBudgetPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询预算策略
+       *
+       * @param request DescribeBudgetPoliciesRequest
+       * @return DescribeBudgetPoliciesResponse
+       */
+      Models::DescribeBudgetPoliciesResponse describeBudgetPolicies(const Models::DescribeBudgetPoliciesRequest &request);
+
+      /**
        * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
        *
        * @param request DescribeCharacterSetNameRequest
@@ -2064,6 +2417,57 @@ namespace Polardb20170801
        * @return DescribeColdStorageInstanceResponse
        */
       Models::DescribeColdStorageInstanceResponse describeColdStorageInstance(const Models::DescribeColdStorageInstanceRequest &request);
+
+      /**
+       * @summary 查询消费者组列表
+       *
+       * @param request DescribeConsumerGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeConsumerGroupsResponse
+       */
+      Models::DescribeConsumerGroupsResponse describeConsumerGroupsWithOptions(const Models::DescribeConsumerGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询消费者组列表
+       *
+       * @param request DescribeConsumerGroupsRequest
+       * @return DescribeConsumerGroupsResponse
+       */
+      Models::DescribeConsumerGroupsResponse describeConsumerGroups(const Models::DescribeConsumerGroupsRequest &request);
+
+      /**
+       * @summary 查询消费者列表
+       *
+       * @param request DescribeConsumersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeConsumersResponse
+       */
+      Models::DescribeConsumersResponse describeConsumersWithOptions(const Models::DescribeConsumersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询消费者列表
+       *
+       * @param request DescribeConsumersRequest
+       * @return DescribeConsumersResponse
+       */
+      Models::DescribeConsumersResponse describeConsumers(const Models::DescribeConsumersRequest &request);
+
+      /**
+       * @summary 查询限流策略
+       *
+       * @param request DescribeCostRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCostRulesResponse
+       */
+      Models::DescribeCostRulesResponse describeCostRulesWithOptions(const Models::DescribeCostRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询限流策略
+       *
+       * @param request DescribeCostRulesRequest
+       * @return DescribeCostRulesResponse
+       */
+      Models::DescribeCostRulesResponse describeCostRules(const Models::DescribeCostRulesRequest &request);
 
       /**
        * @summary 查询周期任务策略
@@ -2859,6 +3263,40 @@ namespace Polardb20170801
       Models::DescribeFirewallRulesResponse describeFirewallRules(const Models::DescribeFirewallRulesRequest &request);
 
       /**
+       * @summary 查询网关实例详情
+       *
+       * @param request DescribeGatewayAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGatewayAttributeResponse
+       */
+      Models::DescribeGatewayAttributeResponse describeGatewayAttributeWithOptions(const Models::DescribeGatewayAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关实例详情
+       *
+       * @param request DescribeGatewayAttributeRequest
+       * @return DescribeGatewayAttributeResponse
+       */
+      Models::DescribeGatewayAttributeResponse describeGatewayAttribute(const Models::DescribeGatewayAttributeRequest &request);
+
+      /**
+       * @summary 查询网关实例列表
+       *
+       * @param request DescribeGatewayListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGatewayListResponse
+       */
+      Models::DescribeGatewayListResponse describeGatewayListWithOptions(const Models::DescribeGatewayListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关实例列表
+       *
+       * @param request DescribeGatewayListRequest
+       * @return DescribeGatewayListResponse
+       */
+      Models::DescribeGatewayListResponse describeGatewayList(const Models::DescribeGatewayListRequest &request);
+
+      /**
        * @summary Queries the PolarFS global data network (GDN) details in all regions.
        *
        * @param request DescribeGlobalDataNetworkListRequest
@@ -3114,6 +3552,40 @@ namespace Polardb20170801
       Models::DescribeMetaListResponse describeMetaList(const Models::DescribeMetaListRequest &request);
 
       /**
+       * @summary 查询路由规则列表
+       *
+       * @param request DescribeModelApisRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelApisResponse
+       */
+      Models::DescribeModelApisResponse describeModelApisWithOptions(const Models::DescribeModelApisRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询路由规则列表
+       *
+       * @param request DescribeModelApisRequest
+       * @return DescribeModelApisResponse
+       */
+      Models::DescribeModelApisResponse describeModelApis(const Models::DescribeModelApisRequest &request);
+
+      /**
+       * @summary 查询模型服务列表
+       *
+       * @param request DescribeModelServicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeModelServicesResponse
+       */
+      Models::DescribeModelServicesResponse describeModelServicesWithOptions(const Models::DescribeModelServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型服务列表
+       *
+       * @param request DescribeModelServicesRequest
+       * @return DescribeModelServicesResponse
+       */
+      Models::DescribeModelServicesResponse describeModelServices(const Models::DescribeModelServicesRequest &request);
+
+      /**
        * @summary 查询参数修改历史
        *
        * @param request DescribeModifyParameterLogRequest
@@ -3313,6 +3785,35 @@ namespace Polardb20170801
       Models::DescribePolarFsAttributeResponse describePolarFsAttribute(const Models::DescribePolarFsAttributeRequest &request);
 
       /**
+       * @summary 列出指定路径下的文件和子目录信息。
+       *
+       * @description ## 请求说明
+       * - **Path** 参数必须提供一个绝对路径。
+       * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+       * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+       * - **Filter** 参数支持通配符或正则表达式过滤结果。
+       *
+       * @param request DescribePolarFsObjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarFsObjectsResponse
+       */
+      Models::DescribePolarFsObjectsResponse describePolarFsObjectsWithOptions(const Models::DescribePolarFsObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出指定路径下的文件和子目录信息。
+       *
+       * @description ## 请求说明
+       * - **Path** 参数必须提供一个绝对路径。
+       * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+       * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+       * - **Filter** 参数支持通配符或正则表达式过滤结果。
+       *
+       * @param request DescribePolarFsObjectsRequest
+       * @return DescribePolarFsObjectsResponse
+       */
+      Models::DescribePolarFsObjectsResponse describePolarFsObjects(const Models::DescribePolarFsObjectsRequest &request);
+
+      /**
        * @summary 查询配额规则
        *
        * @param request DescribePolarFsQuotaRequest
@@ -3345,6 +3846,23 @@ namespace Polardb20170801
        * @return DescribePolarSQLCollectorPolicyResponse
        */
       Models::DescribePolarSQLCollectorPolicyResponse describePolarSQLCollectorPolicy(const Models::DescribePolarSQLCollectorPolicyRequest &request);
+
+      /**
+       * @summary 查询限流策略
+       *
+       * @param request DescribeRateLimitPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRateLimitPolicyResponse
+       */
+      Models::DescribeRateLimitPolicyResponse describeRateLimitPolicyWithOptions(const Models::DescribeRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询限流策略
+       *
+       * @param request DescribeRateLimitPolicyRequest
+       * @return DescribeRateLimitPolicyResponse
+       */
+      Models::DescribeRateLimitPolicyResponse describeRateLimitPolicy(const Models::DescribeRateLimitPolicyRequest &request);
 
       /**
        * @param request DescribeRdsVSwitchsRequest
@@ -4224,6 +4742,74 @@ namespace Polardb20170801
       Models::ModifyBackupPolicyResponse modifyBackupPolicy(const Models::ModifyBackupPolicyRequest &request);
 
       /**
+       * @summary 修改预算策略
+       *
+       * @param request ModifyBudgetPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyBudgetPolicyResponse
+       */
+      Models::ModifyBudgetPolicyResponse modifyBudgetPolicyWithOptions(const Models::ModifyBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改预算策略
+       *
+       * @param request ModifyBudgetPolicyRequest
+       * @return ModifyBudgetPolicyResponse
+       */
+      Models::ModifyBudgetPolicyResponse modifyBudgetPolicy(const Models::ModifyBudgetPolicyRequest &request);
+
+      /**
+       * @summary 修改消费者
+       *
+       * @param request ModifyConsumerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyConsumerResponse
+       */
+      Models::ModifyConsumerResponse modifyConsumerWithOptions(const Models::ModifyConsumerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改消费者
+       *
+       * @param request ModifyConsumerRequest
+       * @return ModifyConsumerResponse
+       */
+      Models::ModifyConsumerResponse modifyConsumer(const Models::ModifyConsumerRequest &request);
+
+      /**
+       * @summary 修改消费者组
+       *
+       * @param request ModifyConsumerGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyConsumerGroupResponse
+       */
+      Models::ModifyConsumerGroupResponse modifyConsumerGroupWithOptions(const Models::ModifyConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改消费者组
+       *
+       * @param request ModifyConsumerGroupRequest
+       * @return ModifyConsumerGroupResponse
+       */
+      Models::ModifyConsumerGroupResponse modifyConsumerGroup(const Models::ModifyConsumerGroupRequest &request);
+
+      /**
+       * @summary 修改限流策略
+       *
+       * @param request ModifyCostRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCostRuleResponse
+       */
+      Models::ModifyCostRuleResponse modifyCostRuleWithOptions(const Models::ModifyCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改限流策略
+       *
+       * @param request ModifyCostRuleRequest
+       * @return ModifyCostRuleResponse
+       */
+      Models::ModifyCostRuleResponse modifyCostRule(const Models::ModifyCostRuleRequest &request);
+
+      /**
        * @summary 修改周期任务策略
        *
        * @param request ModifyCronJobPolicyServerlessRequest
@@ -5001,6 +5587,40 @@ namespace Polardb20170801
       Models::ModifyMaskingRulesResponse modifyMaskingRules(const Models::ModifyMaskingRulesRequest &request);
 
       /**
+       * @summary 修改模型API
+       *
+       * @param request ModifyModelApiRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyModelApiResponse
+       */
+      Models::ModifyModelApiResponse modifyModelApiWithOptions(const Models::ModifyModelApiRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改模型API
+       *
+       * @param request ModifyModelApiRequest
+       * @return ModifyModelApiResponse
+       */
+      Models::ModifyModelApiResponse modifyModelApi(const Models::ModifyModelApiRequest &request);
+
+      /**
+       * @summary 修改模型服务
+       *
+       * @param request ModifyModelServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyModelServiceResponse
+       */
+      Models::ModifyModelServiceResponse modifyModelServiceWithOptions(const Models::ModifyModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改模型服务
+       *
+       * @param request ModifyModelServiceRequest
+       * @return ModifyModelServiceResponse
+       */
+      Models::ModifyModelServiceResponse modifyModelService(const Models::ModifyModelServiceRequest &request);
+
+      /**
        * @summary Modifies the switching time of a pending event.
        *
        * @param request ModifyPendingMaintenanceActionRequest
@@ -5016,6 +5636,23 @@ namespace Polardb20170801
        * @return ModifyPendingMaintenanceActionResponse
        */
       Models::ModifyPendingMaintenanceActionResponse modifyPendingMaintenanceAction(const Models::ModifyPendingMaintenanceActionRequest &request);
+
+      /**
+       * @summary 修改限流策略
+       *
+       * @param request ModifyRateLimitPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRateLimitPolicyResponse
+       */
+      Models::ModifyRateLimitPolicyResponse modifyRateLimitPolicyWithOptions(const Models::ModifyRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改限流策略
+       *
+       * @param request ModifyRateLimitPolicyRequest
+       * @return ModifyRateLimitPolicyResponse
+       */
+      Models::ModifyRateLimitPolicyResponse modifyRateLimitPolicy(const Models::ModifyRateLimitPolicyRequest &request);
 
       /**
        * @summary 配置资源包
@@ -5067,6 +5704,23 @@ namespace Polardb20170801
        * @return ModifyScheduleTaskResponse
        */
       Models::ModifyScheduleTaskResponse modifyScheduleTask(const Models::ModifyScheduleTaskRequest &request);
+
+      /**
+       * @summary 重命名或移动文件
+       *
+       * @param request MovePolarFsObjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MovePolarFsObjectsResponse
+       */
+      Models::MovePolarFsObjectsResponse movePolarFsObjectsWithOptions(const Models::MovePolarFsObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重命名或移动文件
+       *
+       * @param request MovePolarFsObjectsRequest
+       * @return MovePolarFsObjectsResponse
+       */
+      Models::MovePolarFsObjectsResponse movePolarFsObjects(const Models::MovePolarFsObjectsRequest &request);
 
       /**
        * @summary Enables the PolarDB for AI feature for a cluster.
@@ -5192,6 +5846,23 @@ namespace Polardb20170801
        * @return ResetAccountZonalResponse
        */
       Models::ResetAccountZonalResponse resetAccountZonal(const Models::ResetAccountZonalRequest &request);
+
+      /**
+       * @summary 重置API密钥
+       *
+       * @param request ResetConsumerApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetConsumerApiKeyResponse
+       */
+      Models::ResetConsumerApiKeyResponse resetConsumerApiKeyWithOptions(const Models::ResetConsumerApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置API密钥
+       *
+       * @param request ResetConsumerApiKeyRequest
+       * @return ResetConsumerApiKeyResponse
+       */
+      Models::ResetConsumerApiKeyResponse resetConsumerApiKey(const Models::ResetConsumerApiKeyRequest &request);
 
       /**
        * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).

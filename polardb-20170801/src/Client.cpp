@@ -1180,6 +1180,76 @@ CheckKMSAuthorizedResponse Client::checkKMSAuthorized(const CheckKMSAuthorizedRe
 }
 
 /**
+ * @summary 用于检查PolarFS实例中配额设置的一致性状态。
+ *
+ * @description ## 请求说明
+ * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+ * ### 注意事项
+ * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+ * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+ * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+ * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+ *
+ * @param request CheckPolarFsQuotaConsistencyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckPolarFsQuotaConsistencyResponse
+ */
+CheckPolarFsQuotaConsistencyResponse Client::checkPolarFsQuotaConsistencyWithOptions(const CheckPolarFsQuotaConsistencyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnableRepair()) {
+    query["EnableRepair"] = request.getEnableRepair();
+  }
+
+  if (!!request.hasEnableStrictCalculate()) {
+    query["EnableStrictCalculate"] = request.getEnableStrictCalculate();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckPolarFsQuotaConsistency"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckPolarFsQuotaConsistencyResponse>();
+}
+
+/**
+ * @summary 用于检查PolarFS实例中配额设置的一致性状态。
+ *
+ * @description ## 请求说明
+ * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+ * ### 注意事项
+ * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+ * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+ * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+ * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+ *
+ * @param request CheckPolarFsQuotaConsistencyRequest
+ * @return CheckPolarFsQuotaConsistencyResponse
+ */
+CheckPolarFsQuotaConsistencyResponse Client::checkPolarFsQuotaConsistency(const CheckPolarFsQuotaConsistencyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkPolarFsQuotaConsistencyWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks whether a service-linked role (SLR) is created.
  *
  * @param request CheckServiceLinkedRoleRequest
@@ -2382,6 +2452,72 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
+ * @summary 创建预算策略
+ *
+ * @param request CreateBudgetPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBudgetPolicyResponse
+ */
+CreateBudgetPolicyResponse Client::createBudgetPolicyWithOptions(const CreateBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertThresholdPct()) {
+    query["AlertThresholdPct"] = request.getAlertThresholdPct();
+  }
+
+  if (!!request.hasBudgetDimensionRefId()) {
+    query["BudgetDimensionRefId"] = request.getBudgetDimensionRefId();
+  }
+
+  if (!!request.hasBudgetPoints()) {
+    query["BudgetPoints"] = request.getBudgetPoints();
+  }
+
+  if (!!request.hasBudgetType()) {
+    query["BudgetType"] = request.getBudgetType();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResetDayOfMonth()) {
+    query["ResetDayOfMonth"] = request.getResetDayOfMonth();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateBudgetPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBudgetPolicyResponse>();
+}
+
+/**
+ * @summary 创建预算策略
+ *
+ * @param request CreateBudgetPolicyRequest
+ * @return CreateBudgetPolicyResponse
+ */
+CreateBudgetPolicyResponse Client::createBudgetPolicy(const CreateBudgetPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBudgetPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a cluster that is used to store cold data.
  *
  * @param request CreateColdStorageInstanceRequest
@@ -2449,6 +2585,192 @@ CreateColdStorageInstanceResponse Client::createColdStorageInstanceWithOptions(c
 CreateColdStorageInstanceResponse Client::createColdStorageInstance(const CreateColdStorageInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createColdStorageInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建消费者
+ *
+ * @param request CreateConsumerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateConsumerResponse
+ */
+CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupName()) {
+    query["ConsumerGroupName"] = request.getConsumerGroupName();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasKeyType()) {
+    query["KeyType"] = request.getKeyType();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNickName()) {
+    query["NickName"] = request.getNickName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateConsumer"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateConsumerResponse>();
+}
+
+/**
+ * @summary 创建消费者
+ *
+ * @param request CreateConsumerRequest
+ * @return CreateConsumerResponse
+ */
+CreateConsumerResponse Client::createConsumer(const CreateConsumerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createConsumerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建消费者组
+ *
+ * @param request CreateConsumerGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateConsumerGroupResponse
+ */
+CreateConsumerGroupResponse Client::createConsumerGroupWithOptions(const CreateConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupName()) {
+    query["ConsumerGroupName"] = request.getConsumerGroupName();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasIsDefault()) {
+    query["IsDefault"] = request.getIsDefault();
+  }
+
+  if (!!request.hasNickName()) {
+    query["NickName"] = request.getNickName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateConsumerGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateConsumerGroupResponse>();
+}
+
+/**
+ * @summary 创建消费者组
+ *
+ * @param request CreateConsumerGroupRequest
+ * @return CreateConsumerGroupResponse
+ */
+CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createConsumerGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建限流策略
+ *
+ * @param request CreateCostRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCostRuleResponse
+ */
+CreateCostRuleResponse Client::createCostRuleWithOptions(const CreateCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCacheCostPointsPerMillion()) {
+    query["CacheCostPointsPerMillion"] = request.getCacheCostPointsPerMillion();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasInputCostPointsPerMillion()) {
+    query["InputCostPointsPerMillion"] = request.getInputCostPointsPerMillion();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelServiceId()) {
+    query["ModelServiceId"] = request.getModelServiceId();
+  }
+
+  if (!!request.hasOutputCostPointsPerMillion()) {
+    query["OutputCostPointsPerMillion"] = request.getOutputCostPointsPerMillion();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCostRule"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCostRuleResponse>();
+}
+
+/**
+ * @summary 创建限流策略
+ *
+ * @param request CreateCostRuleRequest
+ * @return CreateCostRuleResponse
+ */
+CreateCostRuleResponse Client::createCostRule(const CreateCostRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCostRuleWithOptions(request, runtime);
 }
 
 /**
@@ -3650,6 +3972,88 @@ CreateExtensionsResponse Client::createExtensions(const CreateExtensionsRequest 
 }
 
 /**
+ * @summary 创建网关地址
+ *
+ * @param request CreateGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGatewayResponse
+ */
+CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasDBClusterClass()) {
+    query["DBClusterClass"] = request.getDBClusterClass();
+  }
+
+  if (!!request.hasDBType()) {
+    query["DBType"] = request.getDBType();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGateway"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGatewayResponse>();
+}
+
+/**
+ * @summary 创建网关地址
+ *
+ * @param request CreateGatewayRequest
+ * @return CreateGatewayResponse
+ */
+CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGatewayWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a global data network (GDN).
  *
  * @param request CreateGlobalDataNetworkRequest
@@ -3881,6 +4285,166 @@ CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroupWithOptio
 CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroup(const CreateGlobalSecurityIPGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createGlobalSecurityIPGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建路由规则
+ *
+ * @param request CreateModelApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelApiResponse
+ */
+CreateModelApiResponse Client::createModelApiWithOptions(const CreateModelApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasForceModel()) {
+    query["ForceModel"] = request.getForceModel();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelCategory()) {
+    query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPathPrefix()) {
+    query["PathPrefix"] = request.getPathPrefix();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRecordInput()) {
+    query["RecordInput"] = request.getRecordInput();
+  }
+
+  if (!!request.hasRecordOutput()) {
+    query["RecordOutput"] = request.getRecordOutput();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRouteRules()) {
+    query["RouteRules"] = request.getRouteRules();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateModelApi"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelApiResponse>();
+}
+
+/**
+ * @summary 创建路由规则
+ *
+ * @param request CreateModelApiRequest
+ * @return CreateModelApiResponse
+ */
+CreateModelApiResponse Client::createModelApi(const CreateModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request CreateModelServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasBaseUrl()) {
+    query["BaseUrl"] = request.getBaseUrl();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasInputCostPointsPerMillion()) {
+    query["InputCostPointsPerMillion"] = request.getInputCostPointsPerMillion();
+  }
+
+  if (!!request.hasModelCategory()) {
+    query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOutputCostPointsPerMillion()) {
+    query["OutputCostPointsPerMillion"] = request.getOutputCostPointsPerMillion();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRequestCostPoints()) {
+    query["RequestCostPoints"] = request.getRequestCostPoints();
+  }
+
+  if (!!request.hasVendor()) {
+    query["Vendor"] = request.getVendor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateModelService"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelServiceResponse>();
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request CreateModelServiceRequest
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelService(const CreateModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelServiceWithOptions(request, runtime);
 }
 
 /**
@@ -4121,6 +4685,128 @@ CreateParameterGroupResponse Client::createParameterGroupWithOptions(const Creat
 CreateParameterGroupResponse Client::createParameterGroup(const CreateParameterGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 用于在指定PolarFS实例中创建新的目录。
+ *
+ * @description ## 请求说明
+ * - **Path**：需要创建的目录绝对路径。
+ * - **Recursive**：是否递归创建父目录，默认为 `false`。
+ * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+ * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+ * - 创建目录时，请确保具有足够的权限。
+ *
+ * @param request CreatePolarFsObjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarFsObjectResponse
+ */
+CreatePolarFsObjectResponse Client::createPolarFsObjectWithOptions(const CreatePolarFsObjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarFsObject"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarFsObjectResponse>();
+}
+
+/**
+ * @summary 用于在指定PolarFS实例中创建新的目录。
+ *
+ * @description ## 请求说明
+ * - **Path**：需要创建的目录绝对路径。
+ * - **Recursive**：是否递归创建父目录，默认为 `false`。
+ * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+ * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+ * - 创建目录时，请确保具有足够的权限。
+ *
+ * @param request CreatePolarFsObjectRequest
+ * @return CreatePolarFsObjectResponse
+ */
+CreatePolarFsObjectResponse Client::createPolarFsObject(const CreatePolarFsObjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarFsObjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建限流策略
+ *
+ * @param request CreateRateLimitPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRateLimitPolicyResponse
+ */
+CreateRateLimitPolicyResponse Client::createRateLimitPolicyWithOptions(const CreateRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRateLimitRpm()) {
+    query["RateLimitRpm"] = request.getRateLimitRpm();
+  }
+
+  if (!!request.hasRateLimitTpm()) {
+    query["RateLimitTpm"] = request.getRateLimitTpm();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasScopeRefId()) {
+    query["ScopeRefId"] = request.getScopeRefId();
+  }
+
+  if (!!request.hasScopeType()) {
+    query["ScopeType"] = request.getScopeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRateLimitPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRateLimitPolicyResponse>();
+}
+
+/**
+ * @summary 创建限流策略
+ *
+ * @param request CreateRateLimitPolicyRequest
+ * @return CreateRateLimitPolicyResponse
+ */
+CreateRateLimitPolicyResponse Client::createRateLimitPolicy(const CreateRateLimitPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRateLimitPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -4817,6 +5503,206 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteBackupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除预算策略
+ *
+ * @param request DeleteBudgetPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBudgetPolicyResponse
+ */
+DeleteBudgetPolicyResponse Client::deleteBudgetPolicyWithOptions(const DeleteBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBudgetPolicyId()) {
+    query["BudgetPolicyId"] = request.getBudgetPolicyId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBudgetPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBudgetPolicyResponse>();
+}
+
+/**
+ * @summary 删除预算策略
+ *
+ * @param request DeleteBudgetPolicyRequest
+ * @return DeleteBudgetPolicyResponse
+ */
+DeleteBudgetPolicyResponse Client::deleteBudgetPolicy(const DeleteBudgetPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteBudgetPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除消费者
+ *
+ * @param request DeleteConsumerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConsumerResponse
+ */
+DeleteConsumerResponse Client::deleteConsumerWithOptions(const DeleteConsumerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerId()) {
+    query["ConsumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteConsumer"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConsumerResponse>();
+}
+
+/**
+ * @summary 删除消费者
+ *
+ * @param request DeleteConsumerRequest
+ * @return DeleteConsumerResponse
+ */
+DeleteConsumerResponse Client::deleteConsumer(const DeleteConsumerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteConsumerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除消费者组
+ *
+ * @param request DeleteConsumerGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConsumerGroupResponse
+ */
+DeleteConsumerGroupResponse Client::deleteConsumerGroupWithOptions(const DeleteConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupName()) {
+    query["ConsumerGroupName"] = request.getConsumerGroupName();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteConsumerGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConsumerGroupResponse>();
+}
+
+/**
+ * @summary 删除消费者组
+ *
+ * @param request DeleteConsumerGroupRequest
+ * @return DeleteConsumerGroupResponse
+ */
+DeleteConsumerGroupResponse Client::deleteConsumerGroup(const DeleteConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteConsumerGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除限流策略
+ *
+ * @param request DeleteCostRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCostRuleResponse
+ */
+DeleteCostRuleResponse Client::deleteCostRuleWithOptions(const DeleteCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCostRuleId()) {
+    query["CostRuleId"] = request.getCostRuleId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCostRule"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCostRuleResponse>();
+}
+
+/**
+ * @summary 删除限流策略
+ *
+ * @param request DeleteCostRuleRequest
+ * @return DeleteCostRuleResponse
+ */
+DeleteCostRuleResponse Client::deleteCostRule(const DeleteCostRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCostRuleWithOptions(request, runtime);
 }
 
 /**
@@ -5558,6 +6444,52 @@ DeleteFirewallRulesResponse Client::deleteFirewallRules(const DeleteFirewallRule
 }
 
 /**
+ * @summary 删除网关实例
+ *
+ * @param request DeleteGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGatewayResponse
+ */
+DeleteGatewayResponse Client::deleteGatewayWithOptions(const DeleteGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGateway"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGatewayResponse>();
+}
+
+/**
+ * @summary 删除网关实例
+ *
+ * @param request DeleteGatewayRequest
+ * @return DeleteGatewayResponse
+ */
+DeleteGatewayResponse Client::deleteGateway(const DeleteGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGatewayWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a global data network (GDN).
  *
  * @param request DeleteGlobalDataNetworkRequest
@@ -5791,6 +6723,106 @@ DeleteMaskingRulesResponse Client::deleteMaskingRulesWithOptions(const DeleteMas
 DeleteMaskingRulesResponse Client::deleteMaskingRules(const DeleteMaskingRulesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMaskingRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除路由规则
+ *
+ * @param request DeleteModelApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelApiResponse
+ */
+DeleteModelApiResponse Client::deleteModelApiWithOptions(const DeleteModelApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelApiId()) {
+    query["ModelApiId"] = request.getModelApiId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelApi"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelApiResponse>();
+}
+
+/**
+ * @summary 删除路由规则
+ *
+ * @param request DeleteModelApiRequest
+ * @return DeleteModelApiResponse
+ */
+DeleteModelApiResponse Client::deleteModelApi(const DeleteModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteModelApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除模型服务
+ *
+ * @param request DeleteModelServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelServiceWithOptions(const DeleteModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelService"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelServiceResponse>();
+}
+
+/**
+ * @summary 删除模型服务
+ *
+ * @param request DeleteModelServiceRequest
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelService(const DeleteModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteModelServiceWithOptions(request, runtime);
 }
 
 /**
@@ -6107,6 +7139,56 @@ DeletePolarFsQuotaResponse Client::deletePolarFsQuotaWithOptions(const DeletePol
 DeletePolarFsQuotaResponse Client::deletePolarFsQuota(const DeletePolarFsQuotaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePolarFsQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除限流策略
+ *
+ * @param request DeleteRateLimitPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRateLimitPolicyResponse
+ */
+DeleteRateLimitPolicyResponse Client::deleteRateLimitPolicyWithOptions(const DeleteRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRateLimitPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRateLimitPolicyResponse>();
+}
+
+/**
+ * @summary 删除限流策略
+ *
+ * @param request DeleteRateLimitPolicyRequest
+ * @return DeleteRateLimitPolicyResponse
+ */
+DeleteRateLimitPolicyResponse Client::deleteRateLimitPolicy(const DeleteRateLimitPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteRateLimitPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -8108,6 +9190,76 @@ DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &re
 }
 
 /**
+ * @summary 查询预算策略
+ *
+ * @param request DescribeBudgetPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBudgetPoliciesResponse
+ */
+DescribeBudgetPoliciesResponse Client::describeBudgetPoliciesWithOptions(const DescribeBudgetPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBudgetDimensionRefId()) {
+    query["BudgetDimensionRefId"] = request.getBudgetDimensionRefId();
+  }
+
+  if (!!request.hasBudgetDimensionType()) {
+    query["BudgetDimensionType"] = request.getBudgetDimensionType();
+  }
+
+  if (!!request.hasBudgetPolicyId()) {
+    query["BudgetPolicyId"] = request.getBudgetPolicyId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBudgetPolicies"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBudgetPoliciesResponse>();
+}
+
+/**
+ * @summary 查询预算策略
+ *
+ * @param request DescribeBudgetPoliciesRequest
+ * @return DescribeBudgetPoliciesResponse
+ */
+DescribeBudgetPoliciesResponse Client::describeBudgetPolicies(const DescribeBudgetPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBudgetPoliciesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
  *
  * @param request DescribeCharacterSetNameRequest
@@ -8339,6 +9491,188 @@ DescribeColdStorageInstanceResponse Client::describeColdStorageInstanceWithOptio
 DescribeColdStorageInstanceResponse Client::describeColdStorageInstance(const DescribeColdStorageInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeColdStorageInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询消费者组列表
+ *
+ * @param request DescribeConsumerGroupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeConsumerGroupsResponse
+ */
+DescribeConsumerGroupsResponse Client::describeConsumerGroupsWithOptions(const DescribeConsumerGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupId()) {
+    query["ConsumerGroupId"] = request.getConsumerGroupId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeConsumerGroups"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeConsumerGroupsResponse>();
+}
+
+/**
+ * @summary 查询消费者组列表
+ *
+ * @param request DescribeConsumerGroupsRequest
+ * @return DescribeConsumerGroupsResponse
+ */
+DescribeConsumerGroupsResponse Client::describeConsumerGroups(const DescribeConsumerGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeConsumerGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询消费者列表
+ *
+ * @param request DescribeConsumersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeConsumersResponse
+ */
+DescribeConsumersResponse Client::describeConsumersWithOptions(const DescribeConsumersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupId()) {
+    query["ConsumerGroupId"] = request.getConsumerGroupId();
+  }
+
+  if (!!request.hasConsumerId()) {
+    query["ConsumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeConsumers"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeConsumersResponse>();
+}
+
+/**
+ * @summary 查询消费者列表
+ *
+ * @param request DescribeConsumersRequest
+ * @return DescribeConsumersResponse
+ */
+DescribeConsumersResponse Client::describeConsumers(const DescribeConsumersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeConsumersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询限流策略
+ *
+ * @param request DescribeCostRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCostRulesResponse
+ */
+DescribeCostRulesResponse Client::describeCostRulesWithOptions(const DescribeCostRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelServiceId()) {
+    query["ModelServiceId"] = request.getModelServiceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCostRules"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCostRulesResponse>();
+}
+
+/**
+ * @summary 查询限流策略
+ *
+ * @param request DescribeCostRulesRequest
+ * @return DescribeCostRulesResponse
+ */
+DescribeCostRulesResponse Client::describeCostRules(const DescribeCostRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCostRulesWithOptions(request, runtime);
 }
 
 /**
@@ -11298,6 +12632,110 @@ DescribeFirewallRulesResponse Client::describeFirewallRules(const DescribeFirewa
 }
 
 /**
+ * @summary 查询网关实例详情
+ *
+ * @param request DescribeGatewayAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGatewayAttributeResponse
+ */
+DescribeGatewayAttributeResponse Client::describeGatewayAttributeWithOptions(const DescribeGatewayAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGatewayAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGatewayAttributeResponse>();
+}
+
+/**
+ * @summary 查询网关实例详情
+ *
+ * @param request DescribeGatewayAttributeRequest
+ * @return DescribeGatewayAttributeResponse
+ */
+DescribeGatewayAttributeResponse Client::describeGatewayAttribute(const DescribeGatewayAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGatewayAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询网关实例列表
+ *
+ * @param request DescribeGatewayListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGatewayListResponse
+ */
+DescribeGatewayListResponse Client::describeGatewayListWithOptions(const DescribeGatewayListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasGwDescription()) {
+    query["GwDescription"] = request.getGwDescription();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGatewayList"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGatewayListResponse>();
+}
+
+/**
+ * @summary 查询网关实例列表
+ *
+ * @param request DescribeGatewayListRequest
+ * @return DescribeGatewayListResponse
+ */
+DescribeGatewayListResponse Client::describeGatewayList(const DescribeGatewayListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGatewayListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the PolarFS global data network (GDN) details in all regions.
  *
  * @param request DescribeGlobalDataNetworkListRequest
@@ -12392,6 +13830,158 @@ DescribeMetaListResponse Client::describeMetaList(const DescribeMetaListRequest 
 }
 
 /**
+ * @summary 查询路由规则列表
+ *
+ * @param request DescribeModelApisRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelApisResponse
+ */
+DescribeModelApisResponse Client::describeModelApisWithOptions(const DescribeModelApisRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelApiIds()) {
+    query["ModelApiIds"] = request.getModelApiIds();
+  }
+
+  if (!!request.hasModelCategory()) {
+    query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPathPrefix()) {
+    query["PathPrefix"] = request.getPathPrefix();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelApis"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelApisResponse>();
+}
+
+/**
+ * @summary 查询路由规则列表
+ *
+ * @param request DescribeModelApisRequest
+ * @return DescribeModelApisResponse
+ */
+DescribeModelApisResponse Client::describeModelApis(const DescribeModelApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelApisWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型服务列表
+ *
+ * @param request DescribeModelServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeModelServicesResponse
+ */
+DescribeModelServicesResponse Client::describeModelServicesWithOptions(const DescribeModelServicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelCategory()) {
+    query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasModelServiceIds()) {
+    query["ModelServiceIds"] = request.getModelServiceIds();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeModelServices"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeModelServicesResponse>();
+}
+
+/**
+ * @summary 查询模型服务列表
+ *
+ * @param request DescribeModelServicesRequest
+ * @return DescribeModelServicesResponse
+ */
+DescribeModelServicesResponse Client::describeModelServices(const DescribeModelServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeModelServicesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询参数修改历史
  *
  * @param request DescribeModifyParameterLogRequest
@@ -13094,6 +14684,64 @@ DescribePolarFsAttributeResponse Client::describePolarFsAttribute(const Describe
 }
 
 /**
+ * @summary 列出指定路径下的文件和子目录信息。
+ *
+ * @description ## 请求说明
+ * - **Path** 参数必须提供一个绝对路径。
+ * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+ * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+ * - **Filter** 参数支持通配符或正则表达式过滤结果。
+ *
+ * @param request DescribePolarFsObjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsObjectsResponse
+ */
+DescribePolarFsObjectsResponse Client::describePolarFsObjectsWithOptions(const DescribePolarFsObjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFsObjects"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsObjectsResponse>();
+}
+
+/**
+ * @summary 列出指定路径下的文件和子目录信息。
+ *
+ * @description ## 请求说明
+ * - **Path** 参数必须提供一个绝对路径。
+ * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+ * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+ * - **Filter** 参数支持通配符或正则表达式过滤结果。
+ *
+ * @param request DescribePolarFsObjectsRequest
+ * @return DescribePolarFsObjectsResponse
+ */
+DescribePolarFsObjectsResponse Client::describePolarFsObjects(const DescribePolarFsObjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsObjectsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询配额规则
  *
  * @param request DescribePolarFsQuotaRequest
@@ -13187,6 +14835,72 @@ DescribePolarSQLCollectorPolicyResponse Client::describePolarSQLCollectorPolicyW
 DescribePolarSQLCollectorPolicyResponse Client::describePolarSQLCollectorPolicy(const DescribePolarSQLCollectorPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarSQLCollectorPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询限流策略
+ *
+ * @param request DescribeRateLimitPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRateLimitPolicyResponse
+ */
+DescribeRateLimitPolicyResponse Client::describeRateLimitPolicyWithOptions(const DescribeRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasScopeRefId()) {
+    query["ScopeRefId"] = request.getScopeRefId();
+  }
+
+  if (!!request.hasScopeType()) {
+    query["ScopeType"] = request.getScopeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRateLimitPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRateLimitPolicyResponse>();
+}
+
+/**
+ * @summary 查询限流策略
+ *
+ * @param request DescribeRateLimitPolicyRequest
+ * @return DescribeRateLimitPolicyResponse
+ */
+DescribeRateLimitPolicyResponse Client::describeRateLimitPolicy(const DescribeRateLimitPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRateLimitPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -16757,6 +18471,258 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
+ * @summary 修改预算策略
+ *
+ * @param request ModifyBudgetPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyBudgetPolicyResponse
+ */
+ModifyBudgetPolicyResponse Client::modifyBudgetPolicyWithOptions(const ModifyBudgetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertThresholdPct()) {
+    query["AlertThresholdPct"] = request.getAlertThresholdPct();
+  }
+
+  if (!!request.hasBudgetPoints()) {
+    query["BudgetPoints"] = request.getBudgetPoints();
+  }
+
+  if (!!request.hasBudgetPolicyId()) {
+    query["BudgetPolicyId"] = request.getBudgetPolicyId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResetDayOfMonth()) {
+    query["ResetDayOfMonth"] = request.getResetDayOfMonth();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyBudgetPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyBudgetPolicyResponse>();
+}
+
+/**
+ * @summary 修改预算策略
+ *
+ * @param request ModifyBudgetPolicyRequest
+ * @return ModifyBudgetPolicyResponse
+ */
+ModifyBudgetPolicyResponse Client::modifyBudgetPolicy(const ModifyBudgetPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyBudgetPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改消费者
+ *
+ * @param request ModifyConsumerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyConsumerResponse
+ */
+ModifyConsumerResponse Client::modifyConsumerWithOptions(const ModifyConsumerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupName()) {
+    query["ConsumerGroupName"] = request.getConsumerGroupName();
+  }
+
+  if (!!request.hasConsumerId()) {
+    query["ConsumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasIsDefault()) {
+    query["IsDefault"] = request.getIsDefault();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyConsumer"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyConsumerResponse>();
+}
+
+/**
+ * @summary 修改消费者
+ *
+ * @param request ModifyConsumerRequest
+ * @return ModifyConsumerResponse
+ */
+ModifyConsumerResponse Client::modifyConsumer(const ModifyConsumerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyConsumerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改消费者组
+ *
+ * @param request ModifyConsumerGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyConsumerGroupResponse
+ */
+ModifyConsumerGroupResponse Client::modifyConsumerGroupWithOptions(const ModifyConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerGroupName()) {
+    query["ConsumerGroupName"] = request.getConsumerGroupName();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasIsDefault()) {
+    query["IsDefault"] = request.getIsDefault();
+  }
+
+  if (!!request.hasNickName()) {
+    query["NickName"] = request.getNickName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyConsumerGroup"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyConsumerGroupResponse>();
+}
+
+/**
+ * @summary 修改消费者组
+ *
+ * @param request ModifyConsumerGroupRequest
+ * @return ModifyConsumerGroupResponse
+ */
+ModifyConsumerGroupResponse Client::modifyConsumerGroup(const ModifyConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyConsumerGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改限流策略
+ *
+ * @param request ModifyCostRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCostRuleResponse
+ */
+ModifyCostRuleResponse Client::modifyCostRuleWithOptions(const ModifyCostRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCacheCostPointsPerMillion()) {
+    query["CacheCostPointsPerMillion"] = request.getCacheCostPointsPerMillion();
+  }
+
+  if (!!request.hasCostRuleId()) {
+    query["CostRuleId"] = request.getCostRuleId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasInputCostPointsPerMillion()) {
+    query["InputCostPointsPerMillion"] = request.getInputCostPointsPerMillion();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelServiceId()) {
+    query["ModelServiceId"] = request.getModelServiceId();
+  }
+
+  if (!!request.hasOutputCostPointsPerMillion()) {
+    query["OutputCostPointsPerMillion"] = request.getOutputCostPointsPerMillion();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCostRule"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCostRuleResponse>();
+}
+
+/**
+ * @summary 修改限流策略
+ *
+ * @param request ModifyCostRuleRequest
+ * @return ModifyCostRuleResponse
+ */
+ModifyCostRuleResponse Client::modifyCostRule(const ModifyCostRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCostRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改周期任务策略
  *
  * @param request ModifyCronJobPolicyServerlessRequest
@@ -20143,6 +22109,162 @@ ModifyMaskingRulesResponse Client::modifyMaskingRules(const ModifyMaskingRulesRe
 }
 
 /**
+ * @summary 修改模型API
+ *
+ * @param request ModifyModelApiRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyModelApiResponse
+ */
+ModifyModelApiResponse Client::modifyModelApiWithOptions(const ModifyModelApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasModelApiId()) {
+    query["ModelApiId"] = request.getModelApiId();
+  }
+
+  if (!!request.hasModelCategory()) {
+    query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasPathPrefix()) {
+    query["PathPrefix"] = request.getPathPrefix();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRecordInput()) {
+    query["RecordInput"] = request.getRecordInput();
+  }
+
+  if (!!request.hasRecordOutput()) {
+    query["RecordOutput"] = request.getRecordOutput();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRouteRules()) {
+    query["RouteRules"] = request.getRouteRules();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyModelApi"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyModelApiResponse>();
+}
+
+/**
+ * @summary 修改模型API
+ *
+ * @param request ModifyModelApiRequest
+ * @return ModifyModelApiResponse
+ */
+ModifyModelApiResponse Client::modifyModelApi(const ModifyModelApiRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyModelApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改模型服务
+ *
+ * @param request ModifyModelServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyModelServiceResponse
+ */
+ModifyModelServiceResponse Client::modifyModelServiceWithOptions(const ModifyModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasBaseUrl()) {
+    query["BaseUrl"] = request.getBaseUrl();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasInputCostPointsPerMillion()) {
+    query["InputCostPointsPerMillion"] = request.getInputCostPointsPerMillion();
+  }
+
+  if (!!request.hasModelCategory()) {
+    query["ModelCategory"] = request.getModelCategory();
+  }
+
+  if (!!request.hasModelServiceId()) {
+    query["ModelServiceId"] = request.getModelServiceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOutputCostPointsPerMillion()) {
+    query["OutputCostPointsPerMillion"] = request.getOutputCostPointsPerMillion();
+  }
+
+  if (!!request.hasProtocol()) {
+    query["Protocol"] = request.getProtocol();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRequestCostPoints()) {
+    query["RequestCostPoints"] = request.getRequestCostPoints();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyModelService"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyModelServiceResponse>();
+}
+
+/**
+ * @summary 修改模型服务
+ *
+ * @param request ModifyModelServiceRequest
+ * @return ModifyModelServiceResponse
+ */
+ModifyModelServiceResponse Client::modifyModelService(const ModifyModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyModelServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the switching time of a pending event.
  *
  * @param request ModifyPendingMaintenanceActionRequest
@@ -20214,6 +22336,64 @@ ModifyPendingMaintenanceActionResponse Client::modifyPendingMaintenanceActionWit
 ModifyPendingMaintenanceActionResponse Client::modifyPendingMaintenanceAction(const ModifyPendingMaintenanceActionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPendingMaintenanceActionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改限流策略
+ *
+ * @param request ModifyRateLimitPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRateLimitPolicyResponse
+ */
+ModifyRateLimitPolicyResponse Client::modifyRateLimitPolicyWithOptions(const ModifyRateLimitPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasRateLimitRpm()) {
+    query["RateLimitRpm"] = request.getRateLimitRpm();
+  }
+
+  if (!!request.hasRateLimitTpm()) {
+    query["RateLimitTpm"] = request.getRateLimitTpm();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRateLimitPolicy"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRateLimitPolicyResponse>();
+}
+
+/**
+ * @summary 修改限流策略
+ *
+ * @param request ModifyRateLimitPolicyRequest
+ * @return ModifyRateLimitPolicyResponse
+ */
+ModifyRateLimitPolicyResponse Client::modifyRateLimitPolicy(const ModifyRateLimitPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRateLimitPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -20400,6 +22580,52 @@ ModifyScheduleTaskResponse Client::modifyScheduleTaskWithOptions(const ModifySch
 ModifyScheduleTaskResponse Client::modifyScheduleTask(const ModifyScheduleTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyScheduleTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重命名或移动文件
+ *
+ * @param request MovePolarFsObjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MovePolarFsObjectsResponse
+ */
+MovePolarFsObjectsResponse Client::movePolarFsObjectsWithOptions(const MovePolarFsObjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasObjectsToMove()) {
+    query["ObjectsToMove"] = request.getObjectsToMove();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MovePolarFsObjects"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MovePolarFsObjectsResponse>();
+}
+
+/**
+ * @summary 重命名或移动文件
+ *
+ * @param request MovePolarFsObjectsRequest
+ * @return MovePolarFsObjectsResponse
+ */
+MovePolarFsObjectsResponse Client::movePolarFsObjects(const MovePolarFsObjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return movePolarFsObjectsWithOptions(request, runtime);
 }
 
 /**
@@ -20860,6 +23086,56 @@ ResetAccountZonalResponse Client::resetAccountZonalWithOptions(const ResetAccoun
 ResetAccountZonalResponse Client::resetAccountZonal(const ResetAccountZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetAccountZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重置API密钥
+ *
+ * @param request ResetConsumerApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetConsumerApiKeyResponse
+ */
+ResetConsumerApiKeyResponse Client::resetConsumerApiKeyWithOptions(const ResetConsumerApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerId()) {
+    query["ConsumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasGwClusterId()) {
+    query["GwClusterId"] = request.getGwClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetConsumerApiKey"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetConsumerApiKeyResponse>();
+}
+
+/**
+ * @summary 重置API密钥
+ *
+ * @param request ResetConsumerApiKeyRequest
+ * @return ResetConsumerApiKeyResponse
+ */
+ResetConsumerApiKeyResponse Client::resetConsumerApiKey(const ResetConsumerApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetConsumerApiKeyWithOptions(request, runtime);
 }
 
 /**
