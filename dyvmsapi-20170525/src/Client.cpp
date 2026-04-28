@@ -1654,6 +1654,118 @@ CloudGetAgentStatusResponse Client::cloudGetAgentStatus(const CloudGetAgentStatu
 }
 
 /**
+ * @summary 获取座席外呼通话记录详情
+ *
+ * @param request CloudGetObCdrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudGetObCdrResponse
+ */
+CloudGetObCdrResponse Client::cloudGetObCdrWithOptions(const CloudGetObCdrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudGetObCdr"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudGetObCdrResponse>();
+}
+
+/**
+ * @summary 获取座席外呼通话记录详情
+ *
+ * @param request CloudGetObCdrRequest
+ * @return CloudGetObCdrResponse
+ */
+CloudGetObCdrResponse Client::cloudGetObCdr(const CloudGetObCdrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudGetObCdrWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取通话录音地址
+ *
+ * @param request CloudGetRecordUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudGetRecordUrlResponse
+ */
+CloudGetRecordUrlResponse Client::cloudGetRecordUrlWithOptions(const CloudGetRecordUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallType()) {
+    query["CallType"] = request.getCallType();
+  }
+
+  if (!!request.hasDownload()) {
+    query["Download"] = request.getDownload();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasRecordFile()) {
+    query["RecordFile"] = request.getRecordFile();
+  }
+
+  if (!!request.hasRecordFormat()) {
+    query["RecordFormat"] = request.getRecordFormat();
+  }
+
+  if (!!request.hasRecordSide()) {
+    query["RecordSide"] = request.getRecordSide();
+  }
+
+  if (!!request.hasRecordType()) {
+    query["RecordType"] = request.getRecordType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudGetRecordUrl"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudGetRecordUrlResponse>();
+}
+
+/**
+ * @summary 获取通话录音地址
+ *
+ * @param request CloudGetRecordUrlRequest
+ * @return CloudGetRecordUrlResponse
+ */
+CloudGetRecordUrlResponse Client::cloudGetRecordUrl(const CloudGetRecordUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudGetRecordUrlWithOptions(request, runtime);
+}
+
+/**
  * @summary 任务号码导入
  *
  * @param tmpReq CloudImportTaskTelRequest
@@ -1995,6 +2107,162 @@ CloudListOnlineAgentResponse Client::cloudListOnlineAgentWithOptions(const Cloud
 CloudListOnlineAgentResponse Client::cloudListOnlineAgent(const CloudListOnlineAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cloudListOnlineAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取预览外呼主叫号码报表
+ *
+ * @param request CloudOutboundObClidReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudOutboundObClidReportResponse
+ */
+CloudOutboundObClidReportResponse Client::cloudOutboundObClidReportWithOptions(const CloudOutboundObClidReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAreaCodes()) {
+    query["AreaCodes"] = request.getAreaCodes();
+  }
+
+  if (!!request.hasEndHour()) {
+    query["EndHour"] = request.getEndHour();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartHour()) {
+    query["StartHour"] = request.getStartHour();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatisticMethod()) {
+    query["StatisticMethod"] = request.getStatisticMethod();
+  }
+
+  if (!!request.hasTimeRangeType()) {
+    query["TimeRangeType"] = request.getTimeRangeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudOutboundObClidReport"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudOutboundObClidReportResponse>();
+}
+
+/**
+ * @summary 获取预览外呼主叫号码报表
+ *
+ * @param request CloudOutboundObClidReportRequest
+ * @return CloudOutboundObClidReportResponse
+ */
+CloudOutboundObClidReportResponse Client::cloudOutboundObClidReport(const CloudOutboundObClidReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudOutboundObClidReportWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取预览外呼报表
+ *
+ * @param request CloudOutboundPreviewObReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudOutboundPreviewObReportResponse
+ */
+CloudOutboundPreviewObReportResponse Client::cloudOutboundPreviewObReportWithOptions(const CloudOutboundPreviewObReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasEndHour()) {
+    query["EndHour"] = request.getEndHour();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartHour()) {
+    query["StartHour"] = request.getStartHour();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatisticMethod()) {
+    query["StatisticMethod"] = request.getStatisticMethod();
+  }
+
+  if (!!request.hasTimeRangeType()) {
+    query["TimeRangeType"] = request.getTimeRangeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudOutboundPreviewObReport"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudOutboundPreviewObReportResponse>();
+}
+
+/**
+ * @summary 获取预览外呼报表
+ *
+ * @param request CloudOutboundPreviewObReportRequest
+ * @return CloudOutboundPreviewObReportResponse
+ */
+CloudOutboundPreviewObReportResponse Client::cloudOutboundPreviewObReport(const CloudOutboundPreviewObReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudOutboundPreviewObReportWithOptions(request, runtime);
 }
 
 /**
@@ -2373,6 +2641,518 @@ CloudQueryAgentSkillResponse Client::cloudQueryAgentSkillWithOptions(const Cloud
 CloudQueryAgentSkillResponse Client::cloudQueryAgentSkill(const CloudQueryAgentSkillRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cloudQueryAgentSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary 来电通话记录
+ *
+ * @param request CloudQueryIbCdrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryIbCdrResponse
+ */
+CloudQueryIbCdrResponse Client::cloudQueryIbCdrWithOptions(const CloudQueryIbCdrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCalleeNumber()) {
+    query["CalleeNumber"] = request.getCalleeNumber();
+  }
+
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHotline()) {
+    query["Hotline"] = request.getHotline();
+  }
+
+  if (!!request.hasJoinQueueCode()) {
+    query["JoinQueueCode"] = request.getJoinQueueCode();
+  }
+
+  if (!!request.hasLeaveQueueCode()) {
+    query["LeaveQueueCode"] = request.getLeaveQueueCode();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTimeRangeType()) {
+    query["TimeRangeType"] = request.getTimeRangeType();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  if (!!request.hasUserFieldValue()) {
+    query["UserFieldValue"] = request.getUserFieldValue();
+  }
+
+  if (!!request.hasUserFieldkey()) {
+    query["UserFieldkey"] = request.getUserFieldkey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryIbCdr"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryIbCdrResponse>();
+}
+
+/**
+ * @summary 来电通话记录
+ *
+ * @param request CloudQueryIbCdrRequest
+ * @return CloudQueryIbCdrResponse
+ */
+CloudQueryIbCdrResponse Client::cloudQueryIbCdr(const CloudQueryIbCdrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryIbCdrWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取座席外呼通话记录
+ *
+ * @param request CloudQueryObCdrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryObCdrResponse
+ */
+CloudQueryObCdrResponse Client::cloudQueryObCdrWithOptions(const CloudQueryObCdrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAgentNumber()) {
+    query["AgentNumber"] = request.getAgentNumber();
+  }
+
+  if (!!request.hasCallType()) {
+    query["CallType"] = request.getCallType();
+  }
+
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasClid()) {
+    query["Clid"] = request.getClid();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasDownGrade()) {
+    query["DownGrade"] = request.getDownGrade();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasGno()) {
+    query["Gno"] = request.getGno();
+  }
+
+  if (!!request.hasIsRealAnswer()) {
+    query["IsRealAnswer"] = request.getIsRealAnswer();
+  }
+
+  if (!!request.hasLeftDisplayNumber()) {
+    query["LeftDisplayNumber"] = request.getLeftDisplayNumber();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasReturnCount()) {
+    query["ReturnCount"] = request.getReturnCount();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTimeRangeType()) {
+    query["TimeRangeType"] = request.getTimeRangeType();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  if (!!request.hasUserFieldValue()) {
+    query["UserFieldValue"] = request.getUserFieldValue();
+  }
+
+  if (!!request.hasUserFieldkey()) {
+    query["UserFieldkey"] = request.getUserFieldkey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryObCdr"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryObCdrResponse>();
+}
+
+/**
+ * @summary 获取座席外呼通话记录
+ *
+ * @param request CloudQueryObCdrRequest
+ * @return CloudQueryObCdrResponse
+ */
+CloudQueryObCdrResponse Client::cloudQueryObCdr(const CloudQueryObCdrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryObCdrWithOptions(request, runtime);
+}
+
+/**
+ * @summary 预测式外呼通话记录
+ *
+ * @param request CloudQueryPredictiveCallCdrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryPredictiveCallCdrResponse
+ */
+CloudQueryPredictiveCallCdrResponse Client::cloudQueryPredictiveCallCdrWithOptions(const CloudQueryPredictiveCallCdrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasClid()) {
+    query["Clid"] = request.getClid();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasDisplayNumber()) {
+    query["DisplayNumber"] = request.getDisplayNumber();
+  }
+
+  if (!!request.hasDownGrade()) {
+    query["DownGrade"] = request.getDownGrade();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasGno()) {
+    query["Gno"] = request.getGno();
+  }
+
+  if (!!request.hasIsRealAnswer()) {
+    query["IsRealAnswer"] = request.getIsRealAnswer();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTaskFileId()) {
+    query["TaskFileId"] = request.getTaskFileId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTimeRangeType()) {
+    query["TimeRangeType"] = request.getTimeRangeType();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  if (!!request.hasUserFieldValue()) {
+    query["UserFieldValue"] = request.getUserFieldValue();
+  }
+
+  if (!!request.hasUserFieldkey()) {
+    query["UserFieldkey"] = request.getUserFieldkey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryPredictiveCallCdr"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryPredictiveCallCdrResponse>();
+}
+
+/**
+ * @summary 预测式外呼通话记录
+ *
+ * @param request CloudQueryPredictiveCallCdrRequest
+ * @return CloudQueryPredictiveCallCdrResponse
+ */
+CloudQueryPredictiveCallCdrResponse Client::cloudQueryPredictiveCallCdr(const CloudQueryPredictiveCallCdrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryPredictiveCallCdrWithOptions(request, runtime);
+}
+
+/**
+ * @summary webcall通话记录
+ *
+ * @param request CloudQueryWebcallCdrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloudQueryWebcallCdrResponse
+ */
+CloudQueryWebcallCdrResponse Client::cloudQueryWebcallCdrWithOptions(const CloudQueryWebcallCdrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCalleeClid()) {
+    query["CalleeClid"] = request.getCalleeClid();
+  }
+
+  if (!!request.hasCalleeDisplayNumber()) {
+    query["CalleeDisplayNumber"] = request.getCalleeDisplayNumber();
+  }
+
+  if (!!request.hasCalleeNumber()) {
+    query["CalleeNumber"] = request.getCalleeNumber();
+  }
+
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasClid()) {
+    query["Clid"] = request.getClid();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasDisplayNumber()) {
+    query["DisplayNumber"] = request.getDisplayNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasGno()) {
+    query["Gno"] = request.getGno();
+  }
+
+  if (!!request.hasIsRealAnswer()) {
+    query["IsRealAnswer"] = request.getIsRealAnswer();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasReturnCount()) {
+    query["ReturnCount"] = request.getReturnCount();
+  }
+
+  if (!!request.hasStart()) {
+    query["Start"] = request.getStart();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTimeRangeType()) {
+    query["TimeRangeType"] = request.getTimeRangeType();
+  }
+
+  if (!!request.hasUniqueId()) {
+    query["UniqueId"] = request.getUniqueId();
+  }
+
+  if (!!request.hasUserFieldValue()) {
+    query["UserFieldValue"] = request.getUserFieldValue();
+  }
+
+  if (!!request.hasUserFieldkey()) {
+    query["UserFieldkey"] = request.getUserFieldkey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloudQueryWebcallCdr"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloudQueryWebcallCdrResponse>();
+}
+
+/**
+ * @summary webcall通话记录
+ *
+ * @param request CloudQueryWebcallCdrRequest
+ * @return CloudQueryWebcallCdrResponse
+ */
+CloudQueryWebcallCdrResponse Client::cloudQueryWebcallCdr(const CloudQueryWebcallCdrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloudQueryWebcallCdrWithOptions(request, runtime);
 }
 
 /**

@@ -380,6 +380,40 @@ namespace Dyvmsapi20170525
       Models::CloudGetAgentStatusResponse cloudGetAgentStatus(const Models::CloudGetAgentStatusRequest &request);
 
       /**
+       * @summary 获取座席外呼通话记录详情
+       *
+       * @param request CloudGetObCdrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudGetObCdrResponse
+       */
+      Models::CloudGetObCdrResponse cloudGetObCdrWithOptions(const Models::CloudGetObCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取座席外呼通话记录详情
+       *
+       * @param request CloudGetObCdrRequest
+       * @return CloudGetObCdrResponse
+       */
+      Models::CloudGetObCdrResponse cloudGetObCdr(const Models::CloudGetObCdrRequest &request);
+
+      /**
+       * @summary 获取通话录音地址
+       *
+       * @param request CloudGetRecordUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudGetRecordUrlResponse
+       */
+      Models::CloudGetRecordUrlResponse cloudGetRecordUrlWithOptions(const Models::CloudGetRecordUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取通话录音地址
+       *
+       * @param request CloudGetRecordUrlRequest
+       * @return CloudGetRecordUrlResponse
+       */
+      Models::CloudGetRecordUrlResponse cloudGetRecordUrl(const Models::CloudGetRecordUrlRequest &request);
+
+      /**
        * @summary 任务号码导入
        *
        * @param tmpReq CloudImportTaskTelRequest
@@ -465,6 +499,40 @@ namespace Dyvmsapi20170525
       Models::CloudListOnlineAgentResponse cloudListOnlineAgent(const Models::CloudListOnlineAgentRequest &request);
 
       /**
+       * @summary 获取预览外呼主叫号码报表
+       *
+       * @param request CloudOutboundObClidReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudOutboundObClidReportResponse
+       */
+      Models::CloudOutboundObClidReportResponse cloudOutboundObClidReportWithOptions(const Models::CloudOutboundObClidReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取预览外呼主叫号码报表
+       *
+       * @param request CloudOutboundObClidReportRequest
+       * @return CloudOutboundObClidReportResponse
+       */
+      Models::CloudOutboundObClidReportResponse cloudOutboundObClidReport(const Models::CloudOutboundObClidReportRequest &request);
+
+      /**
+       * @summary 获取预览外呼报表
+       *
+       * @param request CloudOutboundPreviewObReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudOutboundPreviewObReportResponse
+       */
+      Models::CloudOutboundPreviewObReportResponse cloudOutboundPreviewObReportWithOptions(const Models::CloudOutboundPreviewObReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取预览外呼报表
+       *
+       * @param request CloudOutboundPreviewObReportRequest
+       * @return CloudOutboundPreviewObReportResponse
+       */
+      Models::CloudOutboundPreviewObReportResponse cloudOutboundPreviewObReport(const Models::CloudOutboundPreviewObReportRequest &request);
+
+      /**
        * @summary 座席外呼
        *
        * @param request CloudPreviewoutcallRequest
@@ -548,6 +616,74 @@ namespace Dyvmsapi20170525
        * @return CloudQueryAgentSkillResponse
        */
       Models::CloudQueryAgentSkillResponse cloudQueryAgentSkill(const Models::CloudQueryAgentSkillRequest &request);
+
+      /**
+       * @summary 来电通话记录
+       *
+       * @param request CloudQueryIbCdrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryIbCdrResponse
+       */
+      Models::CloudQueryIbCdrResponse cloudQueryIbCdrWithOptions(const Models::CloudQueryIbCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 来电通话记录
+       *
+       * @param request CloudQueryIbCdrRequest
+       * @return CloudQueryIbCdrResponse
+       */
+      Models::CloudQueryIbCdrResponse cloudQueryIbCdr(const Models::CloudQueryIbCdrRequest &request);
+
+      /**
+       * @summary 获取座席外呼通话记录
+       *
+       * @param request CloudQueryObCdrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryObCdrResponse
+       */
+      Models::CloudQueryObCdrResponse cloudQueryObCdrWithOptions(const Models::CloudQueryObCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取座席外呼通话记录
+       *
+       * @param request CloudQueryObCdrRequest
+       * @return CloudQueryObCdrResponse
+       */
+      Models::CloudQueryObCdrResponse cloudQueryObCdr(const Models::CloudQueryObCdrRequest &request);
+
+      /**
+       * @summary 预测式外呼通话记录
+       *
+       * @param request CloudQueryPredictiveCallCdrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryPredictiveCallCdrResponse
+       */
+      Models::CloudQueryPredictiveCallCdrResponse cloudQueryPredictiveCallCdrWithOptions(const Models::CloudQueryPredictiveCallCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预测式外呼通话记录
+       *
+       * @param request CloudQueryPredictiveCallCdrRequest
+       * @return CloudQueryPredictiveCallCdrResponse
+       */
+      Models::CloudQueryPredictiveCallCdrResponse cloudQueryPredictiveCallCdr(const Models::CloudQueryPredictiveCallCdrRequest &request);
+
+      /**
+       * @summary webcall通话记录
+       *
+       * @param request CloudQueryWebcallCdrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloudQueryWebcallCdrResponse
+       */
+      Models::CloudQueryWebcallCdrResponse cloudQueryWebcallCdrWithOptions(const Models::CloudQueryWebcallCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary webcall通话记录
+       *
+       * @param request CloudQueryWebcallCdrRequest
+       * @return CloudQueryWebcallCdrResponse
+       */
+      Models::CloudQueryWebcallCdrResponse cloudQueryWebcallCdr(const Models::CloudQueryWebcallCdrRequest &request);
 
       /**
        * @summary 任务启动
