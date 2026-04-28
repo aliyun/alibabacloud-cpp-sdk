@@ -122,10 +122,15 @@ namespace Models
 
 
       protected:
+        // The instance end time (format: Timestamp).
         shared_ptr<int64_t> endTime_ {};
+        // instance type
         shared_ptr<string> instanceClass_ {};
+        // The instance name.
         shared_ptr<string> instanceId_ {};
+        // The instance start time (format: Timestamp).
         shared_ptr<int64_t> startTime_ {};
+        // The instance status.
         shared_ptr<string> status_ {};
       };
 
@@ -148,7 +153,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether a valid order exists.
       shared_ptr<bool> hasValidOrder_ {};
+      // The instance list.
       shared_ptr<vector<Data::InstanceList>> instanceList_ {};
     };
 
@@ -185,10 +192,13 @@ namespace Models
 
 
   protected:
+    // The query result.
     shared_ptr<GetModelOperatorOrderResponseBody::Data> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Request result.
     shared_ptr<bool> success_ {};
   };
 

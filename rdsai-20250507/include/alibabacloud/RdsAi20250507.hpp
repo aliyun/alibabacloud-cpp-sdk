@@ -587,6 +587,23 @@ namespace RdsAi20250507
       Models::DescribeWhitelistIpsResponse describeWhitelistIps(const Models::DescribeWhitelistIpsRequest &request);
 
       /**
+       * @summary 关闭Supabase的沙箱和边缘函数能力
+       *
+       * @param request DisableAgentRuntimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableAgentRuntimeResponse
+       */
+      Models::DisableAgentRuntimeResponse disableAgentRuntimeWithOptions(const Models::DisableAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭Supabase的沙箱和边缘函数能力
+       *
+       * @param request DisableAgentRuntimeRequest
+       * @return DisableAgentRuntimeResponse
+       */
+      Models::DisableAgentRuntimeResponse disableAgentRuntime(const Models::DisableAgentRuntimeRequest &request);
+
+      /**
        * @summary 启用Supabase的沙箱和边缘函数能力
        *
        * @param request EnableAgentRuntimeRequest
@@ -672,7 +689,7 @@ namespace RdsAi20250507
       Models::GetMessagesResponse getMessages(const Models::GetMessagesRequest &request);
 
       /**
-       * @summary 查询MO订单信息
+       * @summary Obtain RDS AI Assistant Ultimate order information
        *
        * @param request GetModelOperatorOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -681,7 +698,7 @@ namespace RdsAi20250507
       Models::GetModelOperatorOrderResponse getModelOperatorOrderWithOptions(const Models::GetModelOperatorOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询MO订单信息
+       * @summary Obtain RDS AI Assistant Ultimate order information
        *
        * @param request GetModelOperatorOrderRequest
        * @return GetModelOperatorOrderResponse

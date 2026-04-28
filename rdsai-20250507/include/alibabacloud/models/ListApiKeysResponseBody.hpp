@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Page, page_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
         DARABONBA_PTR_TO_JSON(SystemApiKey, systemApiKey_);
+        DARABONBA_PTR_TO_JSON(ThresholdPercent, thresholdPercent_);
         DARABONBA_PTR_TO_JSON(Total, total_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Page, page_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
         DARABONBA_PTR_FROM_JSON(SystemApiKey, systemApiKey_);
+        DARABONBA_PTR_FROM_JSON(ThresholdPercent, thresholdPercent_);
         DARABONBA_PTR_FROM_JSON(Total, total_);
       };
       Data() = default ;
@@ -75,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(KeyName, keyName_);
           DARABONBA_PTR_TO_JSON(LimitRate, limitRate_);
           DARABONBA_PTR_TO_JSON(LimitType, limitType_);
+          DARABONBA_PTR_TO_JSON(ThresholdPercent, thresholdPercent_);
           DARABONBA_PTR_TO_JSON(TokenQuota, tokenQuota_);
         };
         friend void from_json(const Darabonba::Json& j, CustomKeyList& obj) { 
@@ -83,6 +86,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(KeyName, keyName_);
           DARABONBA_PTR_FROM_JSON(LimitRate, limitRate_);
           DARABONBA_PTR_FROM_JSON(LimitType, limitType_);
+          DARABONBA_PTR_FROM_JSON(ThresholdPercent, thresholdPercent_);
           DARABONBA_PTR_FROM_JSON(TokenQuota, tokenQuota_);
         };
         CustomKeyList() = default ;
@@ -97,7 +101,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->isRateLimited_ == nullptr && this->keyName_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr && this->tokenQuota_ == nullptr; };
+        && this->isRateLimited_ == nullptr && this->keyName_ == nullptr && this->limitRate_ == nullptr && this->limitType_ == nullptr && this->thresholdPercent_ == nullptr
+        && this->tokenQuota_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -133,6 +138,13 @@ namespace Models
         inline CustomKeyList& setLimitType(string limitType) { DARABONBA_PTR_SET_VALUE(limitType_, limitType) };
 
 
+        // thresholdPercent Field Functions 
+        bool hasThresholdPercent() const { return this->thresholdPercent_ != nullptr;};
+        void deleteThresholdPercent() { this->thresholdPercent_ = nullptr;};
+        inline int32_t getThresholdPercent() const { DARABONBA_PTR_GET_DEFAULT(thresholdPercent_, 0) };
+        inline CustomKeyList& setThresholdPercent(int32_t thresholdPercent) { DARABONBA_PTR_SET_VALUE(thresholdPercent_, thresholdPercent) };
+
+
         // tokenQuota Field Functions 
         bool hasTokenQuota() const { return this->tokenQuota_ != nullptr;};
         void deleteTokenQuota() { this->tokenQuota_ = nullptr;};
@@ -147,12 +159,13 @@ namespace Models
         shared_ptr<string> keyName_ {};
         shared_ptr<float> limitRate_ {};
         shared_ptr<string> limitType_ {};
+        shared_ptr<int32_t> thresholdPercent_ {};
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
       virtual bool empty() const override { return this->baseUrl_ == nullptr
         && this->customKeyList_ == nullptr && this->isRateLimited_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->systemApiKey_ == nullptr
-        && this->total_ == nullptr; };
+        && this->thresholdPercent_ == nullptr && this->total_ == nullptr; };
       // baseUrl Field Functions 
       bool hasBaseUrl() const { return this->baseUrl_ != nullptr;};
       void deleteBaseUrl() { this->baseUrl_ = nullptr;};
@@ -197,6 +210,13 @@ namespace Models
       inline Data& setSystemApiKey(string systemApiKey) { DARABONBA_PTR_SET_VALUE(systemApiKey_, systemApiKey) };
 
 
+      // thresholdPercent Field Functions 
+      bool hasThresholdPercent() const { return this->thresholdPercent_ != nullptr;};
+      void deleteThresholdPercent() { this->thresholdPercent_ = nullptr;};
+      inline int32_t getThresholdPercent() const { DARABONBA_PTR_GET_DEFAULT(thresholdPercent_, 0) };
+      inline Data& setThresholdPercent(int32_t thresholdPercent) { DARABONBA_PTR_SET_VALUE(thresholdPercent_, thresholdPercent) };
+
+
       // total Field Functions 
       bool hasTotal() const { return this->total_ != nullptr;};
       void deleteTotal() { this->total_ = nullptr;};
@@ -211,6 +231,7 @@ namespace Models
       shared_ptr<int32_t> page_ {};
       shared_ptr<int32_t> pageSize_ {};
       shared_ptr<string> systemApiKey_ {};
+      shared_ptr<int32_t> thresholdPercent_ {};
       shared_ptr<int32_t> total_ {};
     };
 

@@ -1722,6 +1722,56 @@ DescribeWhitelistIpsResponse Client::describeWhitelistIps(const DescribeWhitelis
 }
 
 /**
+ * @summary 关闭Supabase的沙箱和边缘函数能力
+ *
+ * @param request DisableAgentRuntimeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableAgentRuntimeResponse
+ */
+DisableAgentRuntimeResponse Client::disableAgentRuntimeWithOptions(const DisableAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableAgentRuntime"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableAgentRuntimeResponse>();
+}
+
+/**
+ * @summary 关闭Supabase的沙箱和边缘函数能力
+ *
+ * @param request DisableAgentRuntimeRequest
+ * @return DisableAgentRuntimeResponse
+ */
+DisableAgentRuntimeResponse Client::disableAgentRuntime(const DisableAgentRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableAgentRuntimeWithOptions(request, runtime);
+}
+
+/**
  * @summary 启用Supabase的沙箱和边缘函数能力
  *
  * @param request EnableAgentRuntimeRequest
@@ -1980,7 +2030,7 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 }
 
 /**
- * @summary 查询MO订单信息
+ * @summary Obtain RDS AI Assistant Ultimate order information
  *
  * @param request GetModelOperatorOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2004,7 +2054,7 @@ GetModelOperatorOrderResponse Client::getModelOperatorOrderWithOptions(const Get
 }
 
 /**
- * @summary 查询MO订单信息
+ * @summary Obtain RDS AI Assistant Ultimate order information
  *
  * @param request GetModelOperatorOrderRequest
  * @return GetModelOperatorOrderResponse

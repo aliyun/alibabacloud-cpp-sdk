@@ -88,6 +88,9 @@
 #include <alibabacloud/models/DescribeWhitelistIpsRequest.hpp>
 #include <alibabacloud/models/DescribeWhitelistIpsResponseBody.hpp>
 #include <alibabacloud/models/DescribeWhitelistIpsResponse.hpp>
+#include <alibabacloud/models/DisableAgentRuntimeRequest.hpp>
+#include <alibabacloud/models/DisableAgentRuntimeResponseBody.hpp>
+#include <alibabacloud/models/DisableAgentRuntimeResponse.hpp>
 #include <alibabacloud/models/EnableAgentRuntimeRequest.hpp>
 #include <alibabacloud/models/EnableAgentRuntimeResponseBody.hpp>
 #include <alibabacloud/models/EnableAgentRuntimeResponse.hpp>
