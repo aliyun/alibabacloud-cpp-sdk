@@ -22,9 +22,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(EnsRegionIds, ensRegionIds_);
       DARABONBA_PTR_TO_JSON(IcmpReplyEnabled, icmpReplyEnabled_);
+      DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Standby, standby_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEnsEipAddressesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllocationId, allocationId_);
@@ -35,9 +37,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(EnsRegionIds, ensRegionIds_);
       DARABONBA_PTR_FROM_JSON(IcmpReplyEnabled, icmpReplyEnabled_);
+      DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Standby, standby_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     DescribeEnsEipAddressesRequest() = default ;
     DescribeEnsEipAddressesRequest(const DescribeEnsEipAddressesRequest &) = default ;
@@ -52,7 +56,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocationId_ == nullptr
         && this->associatedInstanceId_ == nullptr && this->associatedInstanceType_ == nullptr && this->eipAddress_ == nullptr && this->eipName_ == nullptr && this->ensRegionId_ == nullptr
-        && this->ensRegionIds_ == nullptr && this->icmpReplyEnabled_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->standby_ == nullptr; };
+        && this->ensRegionIds_ == nullptr && this->icmpReplyEnabled_ == nullptr && this->lockReason_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->standby_ == nullptr && this->status_ == nullptr; };
     // allocationId Field Functions 
     bool hasAllocationId() const { return this->allocationId_ != nullptr;};
     void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -111,6 +116,13 @@ namespace Models
     inline DescribeEnsEipAddressesRequest& setIcmpReplyEnabled(bool icmpReplyEnabled) { DARABONBA_PTR_SET_VALUE(icmpReplyEnabled_, icmpReplyEnabled) };
 
 
+    // lockReason Field Functions 
+    bool hasLockReason() const { return this->lockReason_ != nullptr;};
+    void deleteLockReason() { this->lockReason_ = nullptr;};
+    inline string getLockReason() const { DARABONBA_PTR_GET_DEFAULT(lockReason_, "") };
+    inline DescribeEnsEipAddressesRequest& setLockReason(string lockReason) { DARABONBA_PTR_SET_VALUE(lockReason_, lockReason) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -132,6 +144,13 @@ namespace Models
     inline DescribeEnsEipAddressesRequest& setStandby(string standby) { DARABONBA_PTR_SET_VALUE(standby_, standby) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DescribeEnsEipAddressesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
     // The ID of the EIP that you want to query. You can specify up to 50 EIP IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> allocationId_ {};
@@ -151,6 +170,7 @@ namespace Models
     // The IDs of edge nodes. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> ensRegionIds_ {};
     shared_ptr<bool> icmpReplyEnabled_ {};
+    shared_ptr<string> lockReason_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100. Default value: 10.
@@ -160,6 +180,7 @@ namespace Models
     // *   **true**
     // *   **false**
     shared_ptr<string> standby_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -7095,6 +7095,10 @@ DescribeEnsEipAddressesResponse Client::describeEnsEipAddressesWithOptions(const
     query["IcmpReplyEnabled"] = request.getIcmpReplyEnabled();
   }
 
+  if (!!request.hasLockReason()) {
+    query["LockReason"] = request.getLockReason();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -7105,6 +7109,10 @@ DescribeEnsEipAddressesResponse Client::describeEnsEipAddressesWithOptions(const
 
   if (!!request.hasStandby()) {
     query["Standby"] = request.getStandby();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

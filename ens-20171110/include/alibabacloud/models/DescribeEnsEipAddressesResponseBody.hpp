@@ -63,6 +63,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AllocationId, allocationId_);
           DARABONBA_PTR_TO_JSON(AllocationTime, allocationTime_);
           DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
+          DARABONBA_PTR_TO_JSON(BandwidthPackageBandwidth, bandwidthPackageBandwidth_);
+          DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
           DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
@@ -74,6 +76,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(IpStatus, ipStatus_);
           DARABONBA_PTR_TO_JSON(Isp, isp_);
           DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(OperationLocks, operationLocks_);
           DARABONBA_PTR_TO_JSON(Standby, standby_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -82,6 +85,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AllocationId, allocationId_);
           DARABONBA_PTR_FROM_JSON(AllocationTime, allocationTime_);
           DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
+          DARABONBA_PTR_FROM_JSON(BandwidthPackageBandwidth, bandwidthPackageBandwidth_);
+          DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
           DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
@@ -93,6 +98,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(IpStatus, ipStatus_);
           DARABONBA_PTR_FROM_JSON(Isp, isp_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(OperationLocks, operationLocks_);
           DARABONBA_PTR_FROM_JSON(Standby, standby_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -207,11 +213,75 @@ namespace Models
           shared_ptr<vector<Tags::Tag>> tag_ {};
         };
 
+        class OperationLocks : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const OperationLocks& obj) { 
+            DARABONBA_PTR_TO_JSON(Lock, lock_);
+          };
+          friend void from_json(const Darabonba::Json& j, OperationLocks& obj) { 
+            DARABONBA_PTR_FROM_JSON(Lock, lock_);
+          };
+          OperationLocks() = default ;
+          OperationLocks(const OperationLocks &) = default ;
+          OperationLocks(OperationLocks &&) = default ;
+          OperationLocks(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~OperationLocks() = default ;
+          OperationLocks& operator=(const OperationLocks &) = default ;
+          OperationLocks& operator=(OperationLocks &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Lock : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Lock& obj) { 
+              DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
+            };
+            friend void from_json(const Darabonba::Json& j, Lock& obj) { 
+              DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
+            };
+            Lock() = default ;
+            Lock(const Lock &) = default ;
+            Lock(Lock &&) = default ;
+            Lock(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Lock() = default ;
+            Lock& operator=(const Lock &) = default ;
+            Lock& operator=(Lock &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->lockReason_ == nullptr; };
+            // lockReason Field Functions 
+            bool hasLockReason() const { return this->lockReason_ != nullptr;};
+            void deleteLockReason() { this->lockReason_ = nullptr;};
+            inline string getLockReason() const { DARABONBA_PTR_GET_DEFAULT(lockReason_, "") };
+            inline Lock& setLockReason(string lockReason) { DARABONBA_PTR_SET_VALUE(lockReason_, lockReason) };
+
+
+          protected:
+            shared_ptr<string> lockReason_ {};
+          };
+
+          virtual bool empty() const override { return this->lock_ == nullptr; };
+          // lock Field Functions 
+          bool hasLock() const { return this->lock_ != nullptr;};
+          void deleteLock() { this->lock_ = nullptr;};
+          inline const vector<OperationLocks::Lock> & getLock() const { DARABONBA_PTR_GET_CONST(lock_, vector<OperationLocks::Lock>) };
+          inline vector<OperationLocks::Lock> getLock() { DARABONBA_PTR_GET(lock_, vector<OperationLocks::Lock>) };
+          inline OperationLocks& setLock(const vector<OperationLocks::Lock> & lock) { DARABONBA_PTR_SET_VALUE(lock_, lock) };
+          inline OperationLocks& setLock(vector<OperationLocks::Lock> && lock) { DARABONBA_PTR_SET_RVALUE(lock_, lock) };
+
+
+        protected:
+          shared_ptr<vector<OperationLocks::Lock>> lock_ {};
+        };
+
         virtual bool empty() const override { return this->allocationId_ == nullptr
-        && this->allocationTime_ == nullptr && this->bandwidth_ == nullptr && this->chargeType_ == nullptr && this->description_ == nullptr && this->ensRegionId_ == nullptr
-        && this->icmpReplyEnabled_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->ipAddress_ == nullptr
-        && this->ipStatus_ == nullptr && this->isp_ == nullptr && this->name_ == nullptr && this->standby_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->allocationTime_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthPackageBandwidth_ == nullptr && this->bandwidthPackageId_ == nullptr && this->chargeType_ == nullptr
+        && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->icmpReplyEnabled_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr
+        && this->internetChargeType_ == nullptr && this->ipAddress_ == nullptr && this->ipStatus_ == nullptr && this->isp_ == nullptr && this->name_ == nullptr
+        && this->operationLocks_ == nullptr && this->standby_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
         // allocationId Field Functions 
         bool hasAllocationId() const { return this->allocationId_ != nullptr;};
         void deleteAllocationId() { this->allocationId_ = nullptr;};
@@ -231,6 +301,20 @@ namespace Models
         void deleteBandwidth() { this->bandwidth_ = nullptr;};
         inline int32_t getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
         inline EipAddress& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
+
+
+        // bandwidthPackageBandwidth Field Functions 
+        bool hasBandwidthPackageBandwidth() const { return this->bandwidthPackageBandwidth_ != nullptr;};
+        void deleteBandwidthPackageBandwidth() { this->bandwidthPackageBandwidth_ = nullptr;};
+        inline int32_t getBandwidthPackageBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageBandwidth_, 0) };
+        inline EipAddress& setBandwidthPackageBandwidth(int32_t bandwidthPackageBandwidth) { DARABONBA_PTR_SET_VALUE(bandwidthPackageBandwidth_, bandwidthPackageBandwidth) };
+
+
+        // bandwidthPackageId Field Functions 
+        bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
+        void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
+        inline string getBandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
+        inline EipAddress& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
 
 
         // chargeType Field Functions 
@@ -310,6 +394,15 @@ namespace Models
         inline EipAddress& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+        // operationLocks Field Functions 
+        bool hasOperationLocks() const { return this->operationLocks_ != nullptr;};
+        void deleteOperationLocks() { this->operationLocks_ = nullptr;};
+        inline const EipAddress::OperationLocks & getOperationLocks() const { DARABONBA_PTR_GET_CONST(operationLocks_, EipAddress::OperationLocks) };
+        inline EipAddress::OperationLocks getOperationLocks() { DARABONBA_PTR_GET(operationLocks_, EipAddress::OperationLocks) };
+        inline EipAddress& setOperationLocks(const EipAddress::OperationLocks & operationLocks) { DARABONBA_PTR_SET_VALUE(operationLocks_, operationLocks) };
+        inline EipAddress& setOperationLocks(EipAddress::OperationLocks && operationLocks) { DARABONBA_PTR_SET_RVALUE(operationLocks_, operationLocks) };
+
+
         // standby Field Functions 
         bool hasStandby() const { return this->standby_ != nullptr;};
         void deleteStandby() { this->standby_ = nullptr;};
@@ -340,6 +433,8 @@ namespace Models
         shared_ptr<string> allocationTime_ {};
         // EIP的带宽峰值，默认值为5。取值范围：**5**~**10000**，单位：Mbps。
         shared_ptr<int32_t> bandwidth_ {};
+        shared_ptr<int32_t> bandwidthPackageBandwidth_ {};
+        shared_ptr<string> bandwidthPackageId_ {};
         // EIP的计费模式。
         // 
         // - **PrePaid**：包年包月。
@@ -381,6 +476,7 @@ namespace Models
         shared_ptr<string> isp_ {};
         // EIP实例名称。
         shared_ptr<string> name_ {};
+        shared_ptr<EipAddress::OperationLocks> operationLocks_ {};
         // 该EIP是否是备用。
         shared_ptr<bool> standby_ {};
         // EIP的状态。
