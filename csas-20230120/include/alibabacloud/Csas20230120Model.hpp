@@ -336,6 +336,9 @@
 #include <alibabacloud/models/ModifyEnterpriseAcceleratePolicyRequest.hpp>
 #include <alibabacloud/models/ModifyEnterpriseAcceleratePolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyEnterpriseAcceleratePolicyResponse.hpp>
+#include <alibabacloud/models/RevokeUserDeviceSessionRequest.hpp>
+#include <alibabacloud/models/RevokeUserDeviceSessionResponseBody.hpp>
+#include <alibabacloud/models/RevokeUserDeviceSessionResponse.hpp>
 #include <alibabacloud/models/RevokeUserSessionRequest.hpp>
 #include <alibabacloud/models/RevokeUserSessionResponseBody.hpp>
 #include <alibabacloud/models/RevokeUserSessionResponse.hpp>

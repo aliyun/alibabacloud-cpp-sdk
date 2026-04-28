@@ -4704,6 +4704,52 @@ ModifyEnterpriseAcceleratePolicyResponse Client::modifyEnterpriseAcceleratePolic
 }
 
 /**
+ * @summary 吊销用户设备会话
+ *
+ * @param request RevokeUserDeviceSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeUserDeviceSessionResponse
+ */
+RevokeUserDeviceSessionResponse Client::revokeUserDeviceSessionWithOptions(const RevokeUserDeviceSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDevTag()) {
+    body["DevTag"] = request.getDevTag();
+  }
+
+  if (!!request.hasSaseUserId()) {
+    body["SaseUserId"] = request.getSaseUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RevokeUserDeviceSession"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeUserDeviceSessionResponse>();
+}
+
+/**
+ * @summary 吊销用户设备会话
+ *
+ * @param request RevokeUserDeviceSessionRequest
+ * @return RevokeUserDeviceSessionResponse
+ */
+RevokeUserDeviceSessionResponse Client::revokeUserDeviceSession(const RevokeUserDeviceSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeUserDeviceSessionWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI RevokeUserSession is deprecated
  *
  * @summary Revoke a User logon session.

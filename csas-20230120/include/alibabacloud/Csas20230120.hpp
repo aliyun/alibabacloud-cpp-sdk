@@ -1693,6 +1693,23 @@ namespace Csas20230120
       Models::ModifyEnterpriseAcceleratePolicyResponse modifyEnterpriseAcceleratePolicy(const Models::ModifyEnterpriseAcceleratePolicyRequest &request);
 
       /**
+       * @summary 吊销用户设备会话
+       *
+       * @param request RevokeUserDeviceSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeUserDeviceSessionResponse
+       */
+      Models::RevokeUserDeviceSessionResponse revokeUserDeviceSessionWithOptions(const Models::RevokeUserDeviceSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 吊销用户设备会话
+       *
+       * @param request RevokeUserDeviceSessionRequest
+       * @return RevokeUserDeviceSessionResponse
+       */
+      Models::RevokeUserDeviceSessionResponse revokeUserDeviceSession(const Models::RevokeUserDeviceSessionRequest &request);
+
+      /**
        * @deprecated OpenAPI RevokeUserSession is deprecated
        *
        * @summary Revoke a User logon session.
