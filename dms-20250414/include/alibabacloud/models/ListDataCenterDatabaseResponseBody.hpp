@@ -48,11 +48,15 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DescUpdateTime, descUpdateTime_);
         DARABONBA_PTR_TO_JSON(DmsDbId, dmsDbId_);
         DARABONBA_PTR_TO_JSON(DmsInstanceId, dmsInstanceId_);
+        DARABONBA_PTR_TO_JSON(DownloadLink, downloadLink_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_TO_JSON(ImportType, importType_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+        DARABONBA_PTR_TO_JSON(IntranetDownloadLink, intranetDownloadLink_);
         DARABONBA_PTR_TO_JSON(IsInternal, isInternal_);
+        DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
         DARABONBA_PTR_TO_JSON(Size, size_);
+        DARABONBA_PTR_TO_JSON(UseUserOssBucket, useUserOssBucket_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(DatabaseDesc, databaseDesc_);
@@ -62,11 +66,15 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DescUpdateTime, descUpdateTime_);
         DARABONBA_PTR_FROM_JSON(DmsDbId, dmsDbId_);
         DARABONBA_PTR_FROM_JSON(DmsInstanceId, dmsInstanceId_);
+        DARABONBA_PTR_FROM_JSON(DownloadLink, downloadLink_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_FROM_JSON(ImportType, importType_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+        DARABONBA_PTR_FROM_JSON(IntranetDownloadLink, intranetDownloadLink_);
         DARABONBA_PTR_FROM_JSON(IsInternal, isInternal_);
+        DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
         DARABONBA_PTR_FROM_JSON(Size, size_);
+        DARABONBA_PTR_FROM_JSON(UseUserOssBucket, useUserOssBucket_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -81,8 +89,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->databaseDesc_ == nullptr
         && this->databaseName_ == nullptr && this->dbId_ == nullptr && this->dbType_ == nullptr && this->descUpdateTime_ == nullptr && this->dmsDbId_ == nullptr
-        && this->dmsInstanceId_ == nullptr && this->gmtCreated_ == nullptr && this->importType_ == nullptr && this->instanceName_ == nullptr && this->isInternal_ == nullptr
-        && this->size_ == nullptr; };
+        && this->dmsInstanceId_ == nullptr && this->downloadLink_ == nullptr && this->gmtCreated_ == nullptr && this->importType_ == nullptr && this->instanceName_ == nullptr
+        && this->intranetDownloadLink_ == nullptr && this->isInternal_ == nullptr && this->ossBucket_ == nullptr && this->size_ == nullptr && this->useUserOssBucket_ == nullptr; };
       // databaseDesc Field Functions 
       bool hasDatabaseDesc() const { return this->databaseDesc_ != nullptr;};
       void deleteDatabaseDesc() { this->databaseDesc_ = nullptr;};
@@ -132,6 +140,13 @@ namespace Models
       inline Data& setDmsInstanceId(int64_t dmsInstanceId) { DARABONBA_PTR_SET_VALUE(dmsInstanceId_, dmsInstanceId) };
 
 
+      // downloadLink Field Functions 
+      bool hasDownloadLink() const { return this->downloadLink_ != nullptr;};
+      void deleteDownloadLink() { this->downloadLink_ = nullptr;};
+      inline string getDownloadLink() const { DARABONBA_PTR_GET_DEFAULT(downloadLink_, "") };
+      inline Data& setDownloadLink(string downloadLink) { DARABONBA_PTR_SET_VALUE(downloadLink_, downloadLink) };
+
+
       // gmtCreated Field Functions 
       bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
       void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
@@ -153,6 +168,13 @@ namespace Models
       inline Data& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
+      // intranetDownloadLink Field Functions 
+      bool hasIntranetDownloadLink() const { return this->intranetDownloadLink_ != nullptr;};
+      void deleteIntranetDownloadLink() { this->intranetDownloadLink_ = nullptr;};
+      inline string getIntranetDownloadLink() const { DARABONBA_PTR_GET_DEFAULT(intranetDownloadLink_, "") };
+      inline Data& setIntranetDownloadLink(string intranetDownloadLink) { DARABONBA_PTR_SET_VALUE(intranetDownloadLink_, intranetDownloadLink) };
+
+
       // isInternal Field Functions 
       bool hasIsInternal() const { return this->isInternal_ != nullptr;};
       void deleteIsInternal() { this->isInternal_ = nullptr;};
@@ -160,11 +182,25 @@ namespace Models
       inline Data& setIsInternal(string isInternal) { DARABONBA_PTR_SET_VALUE(isInternal_, isInternal) };
 
 
+      // ossBucket Field Functions 
+      bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
+      void deleteOssBucket() { this->ossBucket_ = nullptr;};
+      inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+      inline Data& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
+
+
       // size Field Functions 
       bool hasSize() const { return this->size_ != nullptr;};
       void deleteSize() { this->size_ = nullptr;};
       inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
       inline Data& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+      // useUserOssBucket Field Functions 
+      bool hasUseUserOssBucket() const { return this->useUserOssBucket_ != nullptr;};
+      void deleteUseUserOssBucket() { this->useUserOssBucket_ = nullptr;};
+      inline bool getUseUserOssBucket() const { DARABONBA_PTR_GET_DEFAULT(useUserOssBucket_, false) };
+      inline Data& setUseUserOssBucket(bool useUserOssBucket) { DARABONBA_PTR_SET_VALUE(useUserOssBucket_, useUserOssBucket) };
 
 
     protected:
@@ -175,11 +211,15 @@ namespace Models
       shared_ptr<string> descUpdateTime_ {};
       shared_ptr<int64_t> dmsDbId_ {};
       shared_ptr<int64_t> dmsInstanceId_ {};
+      shared_ptr<string> downloadLink_ {};
       shared_ptr<string> gmtCreated_ {};
       shared_ptr<string> importType_ {};
       shared_ptr<string> instanceName_ {};
+      shared_ptr<string> intranetDownloadLink_ {};
       shared_ptr<string> isInternal_ {};
+      shared_ptr<string> ossBucket_ {};
       shared_ptr<int64_t> size_ {};
+      shared_ptr<bool> useUserOssBucket_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
