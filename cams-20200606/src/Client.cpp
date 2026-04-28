@@ -9968,6 +9968,64 @@ SendChatappMessageResponse Client::sendChatappMessage(const SendChatappMessageRe
 }
 
 /**
+ * @summary 同步business app历史记录等
+ *
+ * @param request SyncBusinessAppHistoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SyncBusinessAppHistoryResponse
+ */
+SyncBusinessAppHistoryResponse Client::syncBusinessAppHistoryWithOptions(const SyncBusinessAppHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustSpaceId()) {
+    query["CustSpaceId"] = request.getCustSpaceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPhoneNumber()) {
+    query["PhoneNumber"] = request.getPhoneNumber();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SyncBusinessAppHistory"},
+    {"version" , "2020-06-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SyncBusinessAppHistoryResponse>();
+}
+
+/**
+ * @summary 同步business app历史记录等
+ *
+ * @param request SyncBusinessAppHistoryRequest
+ * @return SyncBusinessAppHistoryResponse
+ */
+SyncBusinessAppHistoryResponse Client::syncBusinessAppHistory(const SyncBusinessAppHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return syncBusinessAppHistoryWithOptions(request, runtime);
+}
+
+/**
  * @summary 同步flow
  *
  * @param request SyncFlowRequest

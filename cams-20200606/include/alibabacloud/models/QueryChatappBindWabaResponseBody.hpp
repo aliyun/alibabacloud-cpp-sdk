@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BusinessName, businessName_);
         DARABONBA_PTR_TO_JSON(Currency, currency_);
         DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(IsOnBizApp, isOnBizApp_);
         DARABONBA_PTR_TO_JSON(MarketingMessageLiteStatus, marketingMessageLiteStatus_);
         DARABONBA_PTR_TO_JSON(MessageTemplateNamespace, messageTemplateNamespace_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BusinessName, businessName_);
         DARABONBA_PTR_FROM_JSON(Currency, currency_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(IsOnBizApp, isOnBizApp_);
         DARABONBA_PTR_FROM_JSON(MarketingMessageLiteStatus, marketingMessageLiteStatus_);
         DARABONBA_PTR_FROM_JSON(MessageTemplateNamespace, messageTemplateNamespace_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -78,7 +80,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accountReviewStatus_ == nullptr
         && this->authInternationalRateEligibility_ == nullptr && this->businessId_ == nullptr && this->businessName_ == nullptr && this->currency_ == nullptr && this->id_ == nullptr
-        && this->marketingMessageLiteStatus_ == nullptr && this->messageTemplateNamespace_ == nullptr && this->name_ == nullptr && this->primaryBusinessLocation_ == nullptr; };
+        && this->isOnBizApp_ == nullptr && this->marketingMessageLiteStatus_ == nullptr && this->messageTemplateNamespace_ == nullptr && this->name_ == nullptr && this->primaryBusinessLocation_ == nullptr; };
       // accountReviewStatus Field Functions 
       bool hasAccountReviewStatus() const { return this->accountReviewStatus_ != nullptr;};
       void deleteAccountReviewStatus() { this->accountReviewStatus_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
       void deleteId() { this->id_ = nullptr;};
       inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
       inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // isOnBizApp Field Functions 
+      bool hasIsOnBizApp() const { return this->isOnBizApp_ != nullptr;};
+      void deleteIsOnBizApp() { this->isOnBizApp_ = nullptr;};
+      inline string getIsOnBizApp() const { DARABONBA_PTR_GET_DEFAULT(isOnBizApp_, "") };
+      inline Data& setIsOnBizApp(string isOnBizApp) { DARABONBA_PTR_SET_VALUE(isOnBizApp_, isOnBizApp) };
 
 
       // marketingMessageLiteStatus Field Functions 
@@ -174,6 +183,7 @@ namespace Models
       shared_ptr<string> currency_ {};
       // The ID of the WhatsApp Business account.
       shared_ptr<string> id_ {};
+      shared_ptr<string> isOnBizApp_ {};
       // The Marketing Messaging Lite status.
       shared_ptr<string> marketingMessageLiteStatus_ {};
       // The namespace of the message template.

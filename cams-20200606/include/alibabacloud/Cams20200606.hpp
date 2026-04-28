@@ -2650,6 +2650,23 @@ namespace Cams20200606
       Models::SendChatappMessageResponse sendChatappMessage(const Models::SendChatappMessageRequest &request);
 
       /**
+       * @summary 同步business app历史记录等
+       *
+       * @param request SyncBusinessAppHistoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SyncBusinessAppHistoryResponse
+       */
+      Models::SyncBusinessAppHistoryResponse syncBusinessAppHistoryWithOptions(const Models::SyncBusinessAppHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步business app历史记录等
+       *
+       * @param request SyncBusinessAppHistoryRequest
+       * @return SyncBusinessAppHistoryResponse
+       */
+      Models::SyncBusinessAppHistoryResponse syncBusinessAppHistory(const Models::SyncBusinessAppHistoryRequest &request);
+
+      /**
        * @summary 同步flow
        *
        * @param request SyncFlowRequest

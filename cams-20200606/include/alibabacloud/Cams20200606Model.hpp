@@ -479,6 +479,9 @@
 #include <alibabacloud/models/SendChatappMessageShrinkRequest.hpp>
 #include <alibabacloud/models/SendChatappMessageResponseBody.hpp>
 #include <alibabacloud/models/SendChatappMessageResponse.hpp>
+#include <alibabacloud/models/SyncBusinessAppHistoryRequest.hpp>
+#include <alibabacloud/models/SyncBusinessAppHistoryResponseBody.hpp>
+#include <alibabacloud/models/SyncBusinessAppHistoryResponse.hpp>
 #include <alibabacloud/models/SyncFlowRequest.hpp>
 #include <alibabacloud/models/SyncFlowResponseBody.hpp>
 #include <alibabacloud/models/SyncFlowResponse.hpp>
