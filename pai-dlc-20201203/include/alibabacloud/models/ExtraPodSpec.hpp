@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/ContainerSpec.hpp>
 #include <alibabacloud/models/Lifecycle.hpp>
+#include <alibabacloud/models/SecurityContext.hpp>
 #include <map>
 using namespace std;
 using json = nlohmann::json;
@@ -19,6 +20,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ExtraPodSpec& obj) { 
       DARABONBA_PTR_TO_JSON(InitContainers, initContainers_);
       DARABONBA_PTR_TO_JSON(Lifecycle, lifecycle_);
+      DARABONBA_PTR_TO_JSON(MainContainerSecurityContext, mainContainerSecurityContext_);
       DARABONBA_PTR_TO_JSON(PodAnnotations, podAnnotations_);
       DARABONBA_PTR_TO_JSON(PodLabels, podLabels_);
       DARABONBA_PTR_TO_JSON(SharedVolumeMountPaths, sharedVolumeMountPaths_);
@@ -27,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ExtraPodSpec& obj) { 
       DARABONBA_PTR_FROM_JSON(InitContainers, initContainers_);
       DARABONBA_PTR_FROM_JSON(Lifecycle, lifecycle_);
+      DARABONBA_PTR_FROM_JSON(MainContainerSecurityContext, mainContainerSecurityContext_);
       DARABONBA_PTR_FROM_JSON(PodAnnotations, podAnnotations_);
       DARABONBA_PTR_FROM_JSON(PodLabels, podLabels_);
       DARABONBA_PTR_FROM_JSON(SharedVolumeMountPaths, sharedVolumeMountPaths_);
@@ -44,7 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->initContainers_ == nullptr
-        && this->lifecycle_ == nullptr && this->podAnnotations_ == nullptr && this->podLabels_ == nullptr && this->sharedVolumeMountPaths_ == nullptr && this->sideCarContainers_ == nullptr; };
+        && this->lifecycle_ == nullptr && this->mainContainerSecurityContext_ == nullptr && this->podAnnotations_ == nullptr && this->podLabels_ == nullptr && this->sharedVolumeMountPaths_ == nullptr
+        && this->sideCarContainers_ == nullptr; };
     // initContainers Field Functions 
     bool hasInitContainers() const { return this->initContainers_ != nullptr;};
     void deleteInitContainers() { this->initContainers_ = nullptr;};
@@ -61,6 +65,15 @@ namespace Models
     inline Lifecycle getLifecycle() { DARABONBA_PTR_GET(lifecycle_, Lifecycle) };
     inline ExtraPodSpec& setLifecycle(const Lifecycle & lifecycle) { DARABONBA_PTR_SET_VALUE(lifecycle_, lifecycle) };
     inline ExtraPodSpec& setLifecycle(Lifecycle && lifecycle) { DARABONBA_PTR_SET_RVALUE(lifecycle_, lifecycle) };
+
+
+    // mainContainerSecurityContext Field Functions 
+    bool hasMainContainerSecurityContext() const { return this->mainContainerSecurityContext_ != nullptr;};
+    void deleteMainContainerSecurityContext() { this->mainContainerSecurityContext_ = nullptr;};
+    inline const SecurityContext & getMainContainerSecurityContext() const { DARABONBA_PTR_GET_CONST(mainContainerSecurityContext_, SecurityContext) };
+    inline SecurityContext getMainContainerSecurityContext() { DARABONBA_PTR_GET(mainContainerSecurityContext_, SecurityContext) };
+    inline ExtraPodSpec& setMainContainerSecurityContext(const SecurityContext & mainContainerSecurityContext) { DARABONBA_PTR_SET_VALUE(mainContainerSecurityContext_, mainContainerSecurityContext) };
+    inline ExtraPodSpec& setMainContainerSecurityContext(SecurityContext && mainContainerSecurityContext) { DARABONBA_PTR_SET_RVALUE(mainContainerSecurityContext_, mainContainerSecurityContext) };
 
 
     // podAnnotations Field Functions 
@@ -104,6 +117,7 @@ namespace Models
     shared_ptr<vector<ContainerSpec>> initContainers_ {};
     // The lifecycle object.
     shared_ptr<Lifecycle> lifecycle_ {};
+    shared_ptr<SecurityContext> mainContainerSecurityContext_ {};
     // The pod annotations.
     shared_ptr<map<string, string>> podAnnotations_ {};
     // The pod labels.

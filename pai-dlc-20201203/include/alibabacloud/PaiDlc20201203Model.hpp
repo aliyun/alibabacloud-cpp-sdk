@@ -26,6 +26,9 @@
 #include <alibabacloud/models/EcsSpec.hpp>
 #include <alibabacloud/models/EventInfo.hpp>
 #include <alibabacloud/models/Lifecycle.hpp>
+#include <alibabacloud/models/SecurityContextCapabilities.hpp>
+#include <alibabacloud/models/SeccompProfile.hpp>
+#include <alibabacloud/models/SecurityContext.hpp>
 #include <alibabacloud/models/ExtraPodSpec.hpp>
 #include <alibabacloud/models/FreeResourceClusterControlItem.hpp>
 #include <alibabacloud/models/FreeResourceDetail.hpp>
@@ -61,9 +64,6 @@
 #include <alibabacloud/models/Quota.hpp>
 #include <alibabacloud/models/Resources.hpp>
 #include <alibabacloud/models/SanityCheckResultItem.hpp>
-#include <alibabacloud/models/SeccompProfile.hpp>
-#include <alibabacloud/models/SecurityContextCapabilities.hpp>
-#include <alibabacloud/models/SecurityContext.hpp>
 #include <alibabacloud/models/ServiceExposure.hpp>
 #include <alibabacloud/models/SmartCache.hpp>
 #include <alibabacloud/models/TensorboardDataSourceSpec.hpp>
