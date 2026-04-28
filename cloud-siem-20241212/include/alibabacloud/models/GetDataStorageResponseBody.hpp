@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NormalizationLogStores, normalizationLogStores_);
         DARABONBA_PTR_TO_JSON(NormalizationLogViews, normalizationLogViews_);
         DARABONBA_PTR_TO_JSON(SasLogStores, sasLogStores_);
+        DARABONBA_PTR_TO_JSON(UnusedLogStores, unusedLogStores_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ColdStorageUsedCapacity, coldStorageUsedCapacity_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NormalizationLogStores, normalizationLogStores_);
         DARABONBA_PTR_FROM_JSON(NormalizationLogViews, normalizationLogViews_);
         DARABONBA_PTR_FROM_JSON(SasLogStores, sasLogStores_);
+        DARABONBA_PTR_FROM_JSON(UnusedLogStores, unusedLogStores_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -69,6 +71,58 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class UnusedLogStores : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const UnusedLogStores& obj) { 
+          DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
+          DARABONBA_PTR_TO_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_TO_JSON(UsedCapacity, usedCapacity_);
+        };
+        friend void from_json(const Darabonba::Json& j, UnusedLogStores& obj) { 
+          DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
+          DARABONBA_PTR_FROM_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_FROM_JSON(UsedCapacity, usedCapacity_);
+        };
+        UnusedLogStores() = default ;
+        UnusedLogStores(const UnusedLogStores &) = default ;
+        UnusedLogStores(UnusedLogStores &&) = default ;
+        UnusedLogStores(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~UnusedLogStores() = default ;
+        UnusedLogStores& operator=(const UnusedLogStores &) = default ;
+        UnusedLogStores& operator=(UnusedLogStores &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->logStoreName_ == nullptr
+        && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
+        // logStoreName Field Functions 
+        bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
+        void deleteLogStoreName() { this->logStoreName_ = nullptr;};
+        inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+        inline UnusedLogStores& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
+
+
+        // logStoreTtl Field Functions 
+        bool hasLogStoreTtl() const { return this->logStoreTtl_ != nullptr;};
+        void deleteLogStoreTtl() { this->logStoreTtl_ = nullptr;};
+        inline int32_t getLogStoreTtl() const { DARABONBA_PTR_GET_DEFAULT(logStoreTtl_, 0) };
+        inline UnusedLogStores& setLogStoreTtl(int32_t logStoreTtl) { DARABONBA_PTR_SET_VALUE(logStoreTtl_, logStoreTtl) };
+
+
+        // usedCapacity Field Functions 
+        bool hasUsedCapacity() const { return this->usedCapacity_ != nullptr;};
+        void deleteUsedCapacity() { this->usedCapacity_ = nullptr;};
+        inline double getUsedCapacity() const { DARABONBA_PTR_GET_DEFAULT(usedCapacity_, 0.0) };
+        inline UnusedLogStores& setUsedCapacity(double usedCapacity) { DARABONBA_PTR_SET_VALUE(usedCapacity_, usedCapacity) };
+
+
+      protected:
+        shared_ptr<string> logStoreName_ {};
+        shared_ptr<int32_t> logStoreTtl_ {};
+        shared_ptr<double> usedCapacity_ {};
+      };
+
       class SasLogStores : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const SasLogStores& obj) { 
@@ -82,6 +136,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(LogStoreExisted, logStoreExisted_);
           DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_TO_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_TO_JSON(UsedCapacity, usedCapacity_);
         };
         friend void from_json(const Darabonba::Json& j, SasLogStores& obj) { 
           DARABONBA_PTR_FROM_JSON(LogCode, logCode_);
@@ -94,6 +149,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(LogStoreExisted, logStoreExisted_);
           DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_FROM_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_FROM_JSON(UsedCapacity, usedCapacity_);
         };
         SasLogStores() = default ;
         SasLogStores(const SasLogStores &) = default ;
@@ -108,7 +164,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->logCode_ == nullptr
         && this->logDeliveryGroup_ == nullptr && this->logDeliveryPermission_ == nullptr && this->logDeliveryStatus_ == nullptr && this->logDeliveryUpdateTime_ == nullptr && this->logName_ == nullptr
-        && this->logSearchConditions_ == nullptr && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr && this->logStoreTtl_ == nullptr; };
+        && this->logSearchConditions_ == nullptr && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
         // logCode Field Functions 
         bool hasLogCode() const { return this->logCode_ != nullptr;};
         void deleteLogCode() { this->logCode_ = nullptr;};
@@ -179,6 +235,13 @@ namespace Models
         inline SasLogStores& setLogStoreTtl(int32_t logStoreTtl) { DARABONBA_PTR_SET_VALUE(logStoreTtl_, logStoreTtl) };
 
 
+        // usedCapacity Field Functions 
+        bool hasUsedCapacity() const { return this->usedCapacity_ != nullptr;};
+        void deleteUsedCapacity() { this->usedCapacity_ = nullptr;};
+        inline double getUsedCapacity() const { DARABONBA_PTR_GET_DEFAULT(usedCapacity_, 0.0) };
+        inline SasLogStores& setUsedCapacity(double usedCapacity) { DARABONBA_PTR_SET_VALUE(usedCapacity_, usedCapacity) };
+
+
       protected:
         shared_ptr<string> logCode_ {};
         shared_ptr<string> logDeliveryGroup_ {};
@@ -190,6 +253,7 @@ namespace Models
         shared_ptr<bool> logStoreExisted_ {};
         shared_ptr<string> logStoreName_ {};
         shared_ptr<int32_t> logStoreTtl_ {};
+        shared_ptr<double> usedCapacity_ {};
       };
 
       class NormalizationLogViews : public Darabonba::Model {
@@ -302,10 +366,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const NormalizationLogStores& obj) { 
           DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_TO_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_TO_JSON(UsedCapacity, usedCapacity_);
         };
         friend void from_json(const Darabonba::Json& j, NormalizationLogStores& obj) { 
           DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_FROM_JSON(LogStoreTtl, logStoreTtl_);
+          DARABONBA_PTR_FROM_JSON(UsedCapacity, usedCapacity_);
         };
         NormalizationLogStores() = default ;
         NormalizationLogStores(const NormalizationLogStores &) = default ;
@@ -319,7 +385,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->logStoreName_ == nullptr
-        && this->logStoreTtl_ == nullptr; };
+        && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
         // logStoreName Field Functions 
         bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
         void deleteLogStoreName() { this->logStoreName_ = nullptr;};
@@ -334,14 +400,22 @@ namespace Models
         inline NormalizationLogStores& setLogStoreTtl(int32_t logStoreTtl) { DARABONBA_PTR_SET_VALUE(logStoreTtl_, logStoreTtl) };
 
 
+        // usedCapacity Field Functions 
+        bool hasUsedCapacity() const { return this->usedCapacity_ != nullptr;};
+        void deleteUsedCapacity() { this->usedCapacity_ = nullptr;};
+        inline double getUsedCapacity() const { DARABONBA_PTR_GET_DEFAULT(usedCapacity_, 0.0) };
+        inline NormalizationLogStores& setUsedCapacity(double usedCapacity) { DARABONBA_PTR_SET_VALUE(usedCapacity_, usedCapacity) };
+
+
       protected:
         shared_ptr<string> logStoreName_ {};
         shared_ptr<int32_t> logStoreTtl_ {};
+        shared_ptr<double> usedCapacity_ {};
       };
 
       virtual bool empty() const override { return this->coldStorageUsedCapacity_ == nullptr
         && this->dataStorageRegionId_ == nullptr && this->dataStorageRegionPermission_ == nullptr && this->dataStorageTotalCapacity_ == nullptr && this->dataStorageUsedCapacity_ == nullptr && this->dataStorageUsedCapacityDetail_ == nullptr
-        && this->logProject_ == nullptr && this->normalizationLogStores_ == nullptr && this->normalizationLogViews_ == nullptr && this->sasLogStores_ == nullptr; };
+        && this->logProject_ == nullptr && this->normalizationLogStores_ == nullptr && this->normalizationLogViews_ == nullptr && this->sasLogStores_ == nullptr && this->unusedLogStores_ == nullptr; };
       // coldStorageUsedCapacity Field Functions 
       bool hasColdStorageUsedCapacity() const { return this->coldStorageUsedCapacity_ != nullptr;};
       void deleteColdStorageUsedCapacity() { this->coldStorageUsedCapacity_ = nullptr;};
@@ -418,6 +492,15 @@ namespace Models
       inline Data& setSasLogStores(vector<Data::SasLogStores> && sasLogStores) { DARABONBA_PTR_SET_RVALUE(sasLogStores_, sasLogStores) };
 
 
+      // unusedLogStores Field Functions 
+      bool hasUnusedLogStores() const { return this->unusedLogStores_ != nullptr;};
+      void deleteUnusedLogStores() { this->unusedLogStores_ = nullptr;};
+      inline const vector<Data::UnusedLogStores> & getUnusedLogStores() const { DARABONBA_PTR_GET_CONST(unusedLogStores_, vector<Data::UnusedLogStores>) };
+      inline vector<Data::UnusedLogStores> getUnusedLogStores() { DARABONBA_PTR_GET(unusedLogStores_, vector<Data::UnusedLogStores>) };
+      inline Data& setUnusedLogStores(const vector<Data::UnusedLogStores> & unusedLogStores) { DARABONBA_PTR_SET_VALUE(unusedLogStores_, unusedLogStores) };
+      inline Data& setUnusedLogStores(vector<Data::UnusedLogStores> && unusedLogStores) { DARABONBA_PTR_SET_RVALUE(unusedLogStores_, unusedLogStores) };
+
+
     protected:
       shared_ptr<double> coldStorageUsedCapacity_ {};
       shared_ptr<string> dataStorageRegionId_ {};
@@ -429,6 +512,7 @@ namespace Models
       shared_ptr<vector<Data::NormalizationLogStores>> normalizationLogStores_ {};
       shared_ptr<vector<Data::NormalizationLogViews>> normalizationLogViews_ {};
       shared_ptr<vector<Data::SasLogStores>> sasLogStores_ {};
+      shared_ptr<vector<Data::UnusedLogStores>> unusedLogStores_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
