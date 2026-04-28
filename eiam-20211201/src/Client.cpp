@@ -8755,6 +8755,10 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 GetInstanceControlConfigurationResponse Client::getInstanceControlConfigurationWithOptions(const GetInstanceControlConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasElementName()) {
+    query["ElementName"] = request.getElementName();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
