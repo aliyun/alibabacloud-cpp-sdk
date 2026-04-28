@@ -310,6 +310,8 @@ namespace Amqp20190901
       Models::DeleteVhostResponse deleteVhost(const Models::DeleteVhostRequest &request);
 
       /**
+       * @summary 获取region列表
+       *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
@@ -317,6 +319,8 @@ namespace Amqp20190901
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取region列表
+       *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
        */
@@ -425,6 +429,8 @@ namespace Amqp20190901
       Models::GetBindingErrorByTaskIdResponse getBindingErrorByTaskId(const Models::GetBindingErrorByTaskIdRequest &request);
 
       /**
+       * @summary 获取购买页地址
+       *
        * @param request GetCommonBuyUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCommonBuyUrlResponse
@@ -432,6 +438,8 @@ namespace Amqp20190901
       Models::GetCommonBuyUrlResponse getCommonBuyUrlWithOptions(const Models::GetCommonBuyUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取购买页地址
+       *
        * @param request GetCommonBuyUrlRequest
        * @return GetCommonBuyUrlResponse
        */

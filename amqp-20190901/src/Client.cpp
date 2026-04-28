@@ -1012,6 +1012,8 @@ DeleteVhostResponse Client::deleteVhost(const DeleteVhostRequest &request) {
 }
 
 /**
+ * @summary 获取region列表
+ *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
@@ -1041,6 +1043,8 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
+ * @summary 获取region列表
+ *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
  */
@@ -1450,6 +1454,8 @@ GetBindingErrorByTaskIdResponse Client::getBindingErrorByTaskId(const GetBinding
 }
 
 /**
+ * @summary 获取购买页地址
+ *
  * @param request GetCommonBuyUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCommonBuyUrlResponse
@@ -1487,6 +1493,8 @@ GetCommonBuyUrlResponse Client::getCommonBuyUrlWithOptions(const GetCommonBuyUrl
 }
 
 /**
+ * @summary 获取购买页地址
+ *
  * @param request GetCommonBuyUrlRequest
  * @return GetCommonBuyUrlResponse
  */
@@ -2555,6 +2563,10 @@ InstancePreivewResponse Client::instancePreivewWithOptions(const InstancePreivew
   json query = {};
   if (!!request.hasConsoleSessionId()) {
     query["ConsoleSessionId"] = request.getConsoleSessionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTags()) {
