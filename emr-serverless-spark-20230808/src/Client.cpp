@@ -37,6 +37,45 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 激活AI中心
+ *
+ * @param request ActivateAICenterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActivateAICenterResponse
+ */
+ActivateAICenterResponse Client::activateAICenterWithOptions(const string &workspaceId, const ActivateAICenterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ActivateAICenter"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/activateaicenter")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActivateAICenterResponse>();
+}
+
+/**
+ * @summary 激活AI中心
+ *
+ * @param request ActivateAICenterRequest
+ * @return ActivateAICenterResponse
+ */
+ActivateAICenterResponse Client::activateAICenter(const string &workspaceId, const ActivateAICenterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return activateAICenterWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Adds a RAM user or RAM role to a workspace as a member.
  *
  * @param request AddMembersRequest
@@ -1433,6 +1472,45 @@ GenerateTaskCodesResponse Client::generateTaskCodes(const string &bizId, const G
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return generateTaskCodesWithOptions(bizId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取AI中心状态
+ *
+ * @param request GetAICenterStateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAICenterStateResponse
+ */
+GetAICenterStateResponse Client::getAICenterStateWithOptions(const string &workspaceId, const GetAICenterStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAICenterState"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/aicenter")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAICenterStateResponse>();
+}
+
+/**
+ * @summary 获取AI中心状态
+ *
+ * @param request GetAICenterStateRequest
+ * @return GetAICenterStateResponse
+ */
+GetAICenterStateResponse Client::getAICenterState(const string &workspaceId, const GetAICenterStateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAICenterStateWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -4316,6 +4394,81 @@ UpdateRayClusterResponse Client::updateRayCluster(const string &workspaceId, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新workspace属性
+ *
+ * @param request UpdateWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkspaceResponse
+ */
+UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasCu()) {
+    body["cu"] = request.getCu();
+  }
+
+  if (!!request.hasGpu()) {
+    body["gpu"] = request.getGpu();
+  }
+
+  if (!!request.hasGpuSpec()) {
+    body["gpuSpec"] = request.getGpuSpec();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSubscription()) {
+    body["subscription"] = request.getSubscription();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    body["workspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkspace"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/update")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkspaceResponse>();
+}
+
+/**
+ * @summary 更新workspace属性
+ *
+ * @param request UpdateWorkspaceRequest
+ * @return UpdateWorkspaceResponse
+ */
+UpdateWorkspaceResponse Client::updateWorkspace(const UpdateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkspaceWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace EmrServerlessSpark20230808

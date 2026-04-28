@@ -21,6 +21,9 @@
 #include <alibabacloud/models/TaskSnapshot.hpp>
 #include <alibabacloud/models/Template.hpp>
 #include <alibabacloud/models/TimeRange.hpp>
+#include <alibabacloud/models/ActivateAICenterRequest.hpp>
+#include <alibabacloud/models/ActivateAICenterResponseBody.hpp>
+#include <alibabacloud/models/ActivateAICenterResponse.hpp>
 #include <alibabacloud/models/AddMembersRequest.hpp>
 #include <alibabacloud/models/AddMembersResponseBody.hpp>
 #include <alibabacloud/models/AddMembersResponse.hpp>
@@ -83,6 +86,9 @@
 #include <alibabacloud/models/GenerateTaskCodesRequest.hpp>
 #include <alibabacloud/models/GenerateTaskCodesResponseBody.hpp>
 #include <alibabacloud/models/GenerateTaskCodesResponse.hpp>
+#include <alibabacloud/models/GetAICenterStateRequest.hpp>
+#include <alibabacloud/models/GetAICenterStateResponseBody.hpp>
+#include <alibabacloud/models/GetAICenterStateResponse.hpp>
 #include <alibabacloud/models/GetCuHoursRequest.hpp>
 #include <alibabacloud/models/GetCuHoursResponseBody.hpp>
 #include <alibabacloud/models/GetCuHoursResponse.hpp>
@@ -232,5 +238,8 @@
 #include <alibabacloud/models/UpdateRayClusterRequest.hpp>
 #include <alibabacloud/models/UpdateRayClusterResponseBody.hpp>
 #include <alibabacloud/models/UpdateRayClusterResponse.hpp>
+#include <alibabacloud/models/UpdateWorkspaceRequest.hpp>
+#include <alibabacloud/models/UpdateWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/UpdateWorkspaceResponse.hpp>
 
 #endif

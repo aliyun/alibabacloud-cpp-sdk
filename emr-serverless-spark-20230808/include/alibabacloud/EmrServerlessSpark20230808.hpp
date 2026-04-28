@@ -21,6 +21,24 @@ namespace EmrServerlessSpark20230808
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 激活AI中心
+       *
+       * @param request ActivateAICenterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ActivateAICenterResponse
+       */
+      Models::ActivateAICenterResponse activateAICenterWithOptions(const string &workspaceId, const Models::ActivateAICenterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 激活AI中心
+       *
+       * @param request ActivateAICenterRequest
+       * @return ActivateAICenterResponse
+       */
+      Models::ActivateAICenterResponse activateAICenter(const string &workspaceId, const Models::ActivateAICenterRequest &request);
+
+      /**
        * @summary Adds a RAM user or RAM role to a workspace as a member.
        *
        * @param request AddMembersRequest
@@ -393,6 +411,24 @@ namespace EmrServerlessSpark20230808
        * @return GenerateTaskCodesResponse
        */
       Models::GenerateTaskCodesResponse generateTaskCodes(const string &bizId, const Models::GenerateTaskCodesRequest &request);
+
+      /**
+       * @summary 获取AI中心状态
+       *
+       * @param request GetAICenterStateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAICenterStateResponse
+       */
+      Models::GetAICenterStateResponse getAICenterStateWithOptions(const string &workspaceId, const Models::GetAICenterStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取AI中心状态
+       *
+       * @param request GetAICenterStateRequest
+       * @return GetAICenterStateResponse
+       */
+      Models::GetAICenterStateResponse getAICenterState(const string &workspaceId, const Models::GetAICenterStateRequest &request);
 
       /**
        * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
@@ -1283,6 +1319,24 @@ namespace EmrServerlessSpark20230808
        * @return UpdateRayClusterResponse
        */
       Models::UpdateRayClusterResponse updateRayCluster(const string &workspaceId, const string &clusterId, const Models::UpdateRayClusterRequest &request);
+
+      /**
+       * @summary 更新workspace属性
+       *
+       * @param request UpdateWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkspaceResponse
+       */
+      Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const Models::UpdateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新workspace属性
+       *
+       * @param request UpdateWorkspaceRequest
+       * @return UpdateWorkspaceResponse
+       */
+      Models::UpdateWorkspaceResponse updateWorkspace(const Models::UpdateWorkspaceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace EmrServerlessSpark20230808
