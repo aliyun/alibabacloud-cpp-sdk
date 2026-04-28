@@ -17,6 +17,9 @@
 #include <alibabacloud/models/CreateAlertStrategyRequest.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponse.hpp>
+#include <alibabacloud/models/CreateInstanceInspectionRequest.hpp>
+#include <alibabacloud/models/CreateInstanceInspectionResponseBody.hpp>
+#include <alibabacloud/models/CreateInstanceInspectionResponse.hpp>
 #include <alibabacloud/models/CreateVmcoreDiagnosisTaskRequest.hpp>
 #include <alibabacloud/models/CreateVmcoreDiagnosisTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateVmcoreDiagnosisTaskResponse.hpp>
@@ -83,6 +86,9 @@
 #include <alibabacloud/models/GetHotspotTrackingRequest.hpp>
 #include <alibabacloud/models/GetHotspotTrackingResponseBody.hpp>
 #include <alibabacloud/models/GetHotspotTrackingResponse.hpp>
+#include <alibabacloud/models/GetInspectionReportRequest.hpp>
+#include <alibabacloud/models/GetInspectionReportResponseBody.hpp>
+#include <alibabacloud/models/GetInspectionReportResponse.hpp>
 #include <alibabacloud/models/GetInstantScoreRequest.hpp>
 #include <alibabacloud/models/GetInstantScoreResponseBody.hpp>
 #include <alibabacloud/models/GetInstantScoreResponse.hpp>

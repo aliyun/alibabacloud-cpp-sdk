@@ -121,6 +121,24 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategy(const Models::CreateAlertStrategyRequest &request);
 
       /**
+       * @summary 创建实例巡检
+       *
+       * @param request CreateInstanceInspectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstanceInspectionResponse
+       */
+      Models::CreateInstanceInspectionResponse createInstanceInspectionWithOptions(const Models::CreateInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建实例巡检
+       *
+       * @param request CreateInstanceInspectionRequest
+       * @return CreateInstanceInspectionResponse
+       */
+      Models::CreateInstanceInspectionResponse createInstanceInspection(const Models::CreateInstanceInspectionRequest &request);
+
+      /**
        * @summary 创建宕机诊断任务
        *
        * @param request CreateVmcoreDiagnosisTaskRequest
@@ -525,6 +543,24 @@ namespace SysOM20231230
        * @return GetHotspotTrackingResponse
        */
       Models::GetHotspotTrackingResponse getHotspotTracking(const Models::GetHotspotTrackingRequest &request);
+
+      /**
+       * @summary 获取巡检报告
+       *
+       * @param request GetInspectionReportRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInspectionReportResponse
+       */
+      Models::GetInspectionReportResponse getInspectionReportWithOptions(const Models::GetInspectionReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取巡检报告
+       *
+       * @param request GetInspectionReportRequest
+       * @return GetInspectionReportResponse
+       */
+      Models::GetInspectionReportResponse getInspectionReport(const Models::GetInspectionReportRequest &request);
 
       /**
        * @summary 获取实时集群/节点健康度分数

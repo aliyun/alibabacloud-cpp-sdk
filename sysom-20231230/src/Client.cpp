@@ -345,6 +345,63 @@ CreateAlertStrategyResponse Client::createAlertStrategy(const CreateAlertStrateg
 }
 
 /**
+ * @summary 创建实例巡检
+ *
+ * @param request CreateInstanceInspectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInstanceInspectionResponse
+ */
+CreateInstanceInspectionResponse Client::createInstanceInspectionWithOptions(const CreateInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstance()) {
+    body["instance"] = request.getInstance();
+  }
+
+  if (!!request.hasItems()) {
+    body["items"] = request.getItems();
+  }
+
+  if (!!request.hasRegion()) {
+    body["region"] = request.getRegion();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateInstanceInspection"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/inspection/createInstanceInspection")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInstanceInspectionResponse>();
+}
+
+/**
+ * @summary 创建实例巡检
+ *
+ * @param request CreateInstanceInspectionRequest
+ * @return CreateInstanceInspectionResponse
+ */
+CreateInstanceInspectionResponse Client::createInstanceInspection(const CreateInstanceInspectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createInstanceInspectionWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建宕机诊断任务
  *
  * @param request CreateVmcoreDiagnosisTaskRequest
@@ -1575,6 +1632,51 @@ GetHotspotTrackingResponse Client::getHotspotTracking(const GetHotspotTrackingRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getHotspotTrackingWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取巡检报告
+ *
+ * @param request GetInspectionReportRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInspectionReportResponse
+ */
+GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInspectionReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasReportId()) {
+    query["reportId"] = request.getReportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInspectionReport"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/inspection/getInspectionReport")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInspectionReportResponse>();
+}
+
+/**
+ * @summary 获取巡检报告
+ *
+ * @param request GetInspectionReportRequest
+ * @return GetInspectionReportResponse
+ */
+GetInspectionReportResponse Client::getInspectionReport(const GetInspectionReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getInspectionReportWithOptions(request, headers, runtime);
 }
 
 /**
