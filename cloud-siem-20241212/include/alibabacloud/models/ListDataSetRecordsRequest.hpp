@@ -14,9 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListDataSetRecordsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DataSetId, dataSetId_);
+      DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(Order, order_);
+      DARABONBA_PTR_TO_JSON(OrderField, orderField_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -24,9 +27,12 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListDataSetRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DataSetId, dataSetId_);
+      DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(Order, order_);
+      DARABONBA_PTR_FROM_JSON(OrderField, orderField_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -44,13 +50,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSetId_ == nullptr
-        && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
+        && this->filter_ == nullptr && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr
+        && this->orderField_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr; };
     // dataSetId Field Functions 
     bool hasDataSetId() const { return this->dataSetId_ != nullptr;};
     void deleteDataSetId() { this->dataSetId_ = nullptr;};
     inline string getDataSetId() const { DARABONBA_PTR_GET_DEFAULT(dataSetId_, "") };
     inline ListDataSetRecordsRequest& setDataSetId(string dataSetId) { DARABONBA_PTR_SET_VALUE(dataSetId_, dataSetId) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline ListDataSetRecordsRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // lang Field Functions 
@@ -72,6 +85,20 @@ namespace Models
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDataSetRecordsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // order Field Functions 
+    bool hasOrder() const { return this->order_ != nullptr;};
+    void deleteOrder() { this->order_ = nullptr;};
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline ListDataSetRecordsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
+
+
+    // orderField Field Functions 
+    bool hasOrderField() const { return this->orderField_ != nullptr;};
+    void deleteOrderField() { this->orderField_ = nullptr;};
+    inline string getOrderField() const { DARABONBA_PTR_GET_DEFAULT(orderField_, "") };
+    inline ListDataSetRecordsRequest& setOrderField(string orderField) { DARABONBA_PTR_SET_VALUE(orderField_, orderField) };
 
 
     // pageNumber Field Functions 
@@ -105,9 +132,12 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> dataSetId_ {};
+    shared_ptr<string> filter_ {};
     shared_ptr<string> lang_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<string> orderField_ {};
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
     // This parameter is required.

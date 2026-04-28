@@ -453,12 +453,20 @@ CreateDetectionRuleResponse Client::createDetectionRuleWithOptions(const CreateD
     body["AlertAttCk"] = request.getAlertAttCk();
   }
 
+  if (!!request.hasAlertAttCkMapping()) {
+    body["AlertAttCkMapping"] = request.getAlertAttCkMapping();
+  }
+
   if (!!request.hasAlertDescription()) {
     body["AlertDescription"] = request.getAlertDescription();
   }
 
   if (!!request.hasAlertLevel()) {
     body["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasAlertLevelMapping()) {
+    body["AlertLevelMapping"] = request.getAlertLevelMapping();
   }
 
   if (!!request.hasAlertName()) {
@@ -487,6 +495,10 @@ CreateDetectionRuleResponse Client::createDetectionRuleWithOptions(const CreateD
 
   if (!!request.hasAlertType()) {
     body["AlertType"] = request.getAlertType();
+  }
+
+  if (!!request.hasAlertTypeMapping()) {
+    body["AlertTypeMapping"] = request.getAlertTypeMapping();
   }
 
   if (!!request.hasDetectionExpressionContent()) {
@@ -2875,6 +2887,10 @@ ListDataSetRecordsResponse Client::listDataSetRecordsWithOptions(const ListDataS
     body["DataSetId"] = request.getDataSetId();
   }
 
+  if (!!request.hasFilter()) {
+    body["Filter"] = request.getFilter();
+  }
+
   if (!!request.hasLang()) {
     body["Lang"] = request.getLang();
   }
@@ -2885,6 +2901,14 @@ ListDataSetRecordsResponse Client::listDataSetRecordsWithOptions(const ListDataS
 
   if (!!request.hasNextToken()) {
     body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    body["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderField()) {
+    body["OrderField"] = request.getOrderField();
   }
 
   if (!!request.hasPageNumber()) {
@@ -5497,12 +5521,20 @@ UpdateDetectionRuleResponse Client::updateDetectionRuleWithOptions(const UpdateD
     body["AlertAttCk"] = request.getAlertAttCk();
   }
 
+  if (!!request.hasAlertAttCkMapping()) {
+    body["AlertAttCkMapping"] = request.getAlertAttCkMapping();
+  }
+
   if (!!request.hasAlertDescription()) {
     body["AlertDescription"] = request.getAlertDescription();
   }
 
   if (!!request.hasAlertLevel()) {
     body["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasAlertLevelMapping()) {
+    body["AlertLevelMapping"] = request.getAlertLevelMapping();
   }
 
   if (!!request.hasAlertName()) {
@@ -5531,6 +5563,10 @@ UpdateDetectionRuleResponse Client::updateDetectionRuleWithOptions(const UpdateD
 
   if (!!request.hasAlertType()) {
     body["AlertType"] = request.getAlertType();
+  }
+
+  if (!!request.hasAlertTypeMapping()) {
+    body["AlertTypeMapping"] = request.getAlertTypeMapping();
   }
 
   if (!!request.hasDetectionExpressionContent()) {

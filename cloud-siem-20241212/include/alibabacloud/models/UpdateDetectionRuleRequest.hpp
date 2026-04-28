@@ -14,8 +14,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDetectionRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AlertAttCk, alertAttCk_);
+      DARABONBA_PTR_TO_JSON(AlertAttCkMapping, alertAttCkMapping_);
       DARABONBA_PTR_TO_JSON(AlertDescription, alertDescription_);
       DARABONBA_PTR_TO_JSON(AlertLevel, alertLevel_);
+      DARABONBA_PTR_TO_JSON(AlertLevelMapping, alertLevelMapping_);
       DARABONBA_PTR_TO_JSON(AlertName, alertName_);
       DARABONBA_PTR_TO_JSON(AlertSchemaId, alertSchemaId_);
       DARABONBA_PTR_TO_JSON(AlertTacticId, alertTacticId_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AlertThresholdGroup, alertThresholdGroup_);
       DARABONBA_PTR_TO_JSON(AlertThresholdPeriod, alertThresholdPeriod_);
       DARABONBA_PTR_TO_JSON(AlertType, alertType_);
+      DARABONBA_PTR_TO_JSON(AlertTypeMapping, alertTypeMapping_);
       DARABONBA_PTR_TO_JSON(DetectionExpressionContent, detectionExpressionContent_);
       DARABONBA_PTR_TO_JSON(DetectionExpressionType, detectionExpressionType_);
       DARABONBA_PTR_TO_JSON(DetectionRuleDescription, detectionRuleDescription_);
@@ -48,8 +51,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateDetectionRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AlertAttCk, alertAttCk_);
+      DARABONBA_PTR_FROM_JSON(AlertAttCkMapping, alertAttCkMapping_);
       DARABONBA_PTR_FROM_JSON(AlertDescription, alertDescription_);
       DARABONBA_PTR_FROM_JSON(AlertLevel, alertLevel_);
+      DARABONBA_PTR_FROM_JSON(AlertLevelMapping, alertLevelMapping_);
       DARABONBA_PTR_FROM_JSON(AlertName, alertName_);
       DARABONBA_PTR_FROM_JSON(AlertSchemaId, alertSchemaId_);
       DARABONBA_PTR_FROM_JSON(AlertTacticId, alertTacticId_);
@@ -57,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AlertThresholdGroup, alertThresholdGroup_);
       DARABONBA_PTR_FROM_JSON(AlertThresholdPeriod, alertThresholdPeriod_);
       DARABONBA_PTR_FROM_JSON(AlertType, alertType_);
+      DARABONBA_PTR_FROM_JSON(AlertTypeMapping, alertTypeMapping_);
       DARABONBA_PTR_FROM_JSON(DetectionExpressionContent, detectionExpressionContent_);
       DARABONBA_PTR_FROM_JSON(DetectionExpressionType, detectionExpressionType_);
       DARABONBA_PTR_FROM_JSON(DetectionRuleDescription, detectionRuleDescription_);
@@ -92,18 +98,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertAttCk_ == nullptr
-        && this->alertDescription_ == nullptr && this->alertLevel_ == nullptr && this->alertName_ == nullptr && this->alertSchemaId_ == nullptr && this->alertTacticId_ == nullptr
-        && this->alertThresholdCount_ == nullptr && this->alertThresholdGroup_ == nullptr && this->alertThresholdPeriod_ == nullptr && this->alertType_ == nullptr && this->detectionExpressionContent_ == nullptr
-        && this->detectionExpressionType_ == nullptr && this->detectionRuleDescription_ == nullptr && this->detectionRuleId_ == nullptr && this->detectionRuleName_ == nullptr && this->detectionRuleStatus_ == nullptr
-        && this->detectionRuleType_ == nullptr && this->entityMappings_ == nullptr && this->incidentAggregationExpression_ == nullptr && this->incidentAggregationType_ == nullptr && this->lang_ == nullptr
-        && this->logCategoryId_ == nullptr && this->logSchemaId_ == nullptr && this->playbookParameters_ == nullptr && this->playbookUuid_ == nullptr && this->regionId_ == nullptr
-        && this->scheduleBeginTime_ == nullptr && this->scheduleExpression_ == nullptr && this->scheduleMaxRetries_ == nullptr && this->scheduleMaxTimeout_ == nullptr && this->scheduleType_ == nullptr
-        && this->scheduleWindow_ == nullptr; };
+        && this->alertAttCkMapping_ == nullptr && this->alertDescription_ == nullptr && this->alertLevel_ == nullptr && this->alertLevelMapping_ == nullptr && this->alertName_ == nullptr
+        && this->alertSchemaId_ == nullptr && this->alertTacticId_ == nullptr && this->alertThresholdCount_ == nullptr && this->alertThresholdGroup_ == nullptr && this->alertThresholdPeriod_ == nullptr
+        && this->alertType_ == nullptr && this->alertTypeMapping_ == nullptr && this->detectionExpressionContent_ == nullptr && this->detectionExpressionType_ == nullptr && this->detectionRuleDescription_ == nullptr
+        && this->detectionRuleId_ == nullptr && this->detectionRuleName_ == nullptr && this->detectionRuleStatus_ == nullptr && this->detectionRuleType_ == nullptr && this->entityMappings_ == nullptr
+        && this->incidentAggregationExpression_ == nullptr && this->incidentAggregationType_ == nullptr && this->lang_ == nullptr && this->logCategoryId_ == nullptr && this->logSchemaId_ == nullptr
+        && this->playbookParameters_ == nullptr && this->playbookUuid_ == nullptr && this->regionId_ == nullptr && this->scheduleBeginTime_ == nullptr && this->scheduleExpression_ == nullptr
+        && this->scheduleMaxRetries_ == nullptr && this->scheduleMaxTimeout_ == nullptr && this->scheduleType_ == nullptr && this->scheduleWindow_ == nullptr; };
     // alertAttCk Field Functions 
     bool hasAlertAttCk() const { return this->alertAttCk_ != nullptr;};
     void deleteAlertAttCk() { this->alertAttCk_ = nullptr;};
     inline string getAlertAttCk() const { DARABONBA_PTR_GET_DEFAULT(alertAttCk_, "") };
     inline UpdateDetectionRuleRequest& setAlertAttCk(string alertAttCk) { DARABONBA_PTR_SET_VALUE(alertAttCk_, alertAttCk) };
+
+
+    // alertAttCkMapping Field Functions 
+    bool hasAlertAttCkMapping() const { return this->alertAttCkMapping_ != nullptr;};
+    void deleteAlertAttCkMapping() { this->alertAttCkMapping_ = nullptr;};
+    inline string getAlertAttCkMapping() const { DARABONBA_PTR_GET_DEFAULT(alertAttCkMapping_, "") };
+    inline UpdateDetectionRuleRequest& setAlertAttCkMapping(string alertAttCkMapping) { DARABONBA_PTR_SET_VALUE(alertAttCkMapping_, alertAttCkMapping) };
 
 
     // alertDescription Field Functions 
@@ -118,6 +131,13 @@ namespace Models
     void deleteAlertLevel() { this->alertLevel_ = nullptr;};
     inline string getAlertLevel() const { DARABONBA_PTR_GET_DEFAULT(alertLevel_, "") };
     inline UpdateDetectionRuleRequest& setAlertLevel(string alertLevel) { DARABONBA_PTR_SET_VALUE(alertLevel_, alertLevel) };
+
+
+    // alertLevelMapping Field Functions 
+    bool hasAlertLevelMapping() const { return this->alertLevelMapping_ != nullptr;};
+    void deleteAlertLevelMapping() { this->alertLevelMapping_ = nullptr;};
+    inline string getAlertLevelMapping() const { DARABONBA_PTR_GET_DEFAULT(alertLevelMapping_, "") };
+    inline UpdateDetectionRuleRequest& setAlertLevelMapping(string alertLevelMapping) { DARABONBA_PTR_SET_VALUE(alertLevelMapping_, alertLevelMapping) };
 
 
     // alertName Field Functions 
@@ -167,6 +187,13 @@ namespace Models
     void deleteAlertType() { this->alertType_ = nullptr;};
     inline string getAlertType() const { DARABONBA_PTR_GET_DEFAULT(alertType_, "") };
     inline UpdateDetectionRuleRequest& setAlertType(string alertType) { DARABONBA_PTR_SET_VALUE(alertType_, alertType) };
+
+
+    // alertTypeMapping Field Functions 
+    bool hasAlertTypeMapping() const { return this->alertTypeMapping_ != nullptr;};
+    void deleteAlertTypeMapping() { this->alertTypeMapping_ = nullptr;};
+    inline string getAlertTypeMapping() const { DARABONBA_PTR_GET_DEFAULT(alertTypeMapping_, "") };
+    inline UpdateDetectionRuleRequest& setAlertTypeMapping(string alertTypeMapping) { DARABONBA_PTR_SET_VALUE(alertTypeMapping_, alertTypeMapping) };
 
 
     // detectionExpressionContent Field Functions 
@@ -325,8 +352,10 @@ namespace Models
 
   protected:
     shared_ptr<string> alertAttCk_ {};
+    shared_ptr<string> alertAttCkMapping_ {};
     shared_ptr<string> alertDescription_ {};
     shared_ptr<string> alertLevel_ {};
+    shared_ptr<string> alertLevelMapping_ {};
     shared_ptr<string> alertName_ {};
     shared_ptr<string> alertSchemaId_ {};
     shared_ptr<string> alertTacticId_ {};
@@ -334,6 +363,7 @@ namespace Models
     shared_ptr<string> alertThresholdGroup_ {};
     shared_ptr<string> alertThresholdPeriod_ {};
     shared_ptr<string> alertType_ {};
+    shared_ptr<string> alertTypeMapping_ {};
     shared_ptr<string> detectionExpressionContent_ {};
     shared_ptr<string> detectionExpressionType_ {};
     shared_ptr<string> detectionRuleDescription_ {};
