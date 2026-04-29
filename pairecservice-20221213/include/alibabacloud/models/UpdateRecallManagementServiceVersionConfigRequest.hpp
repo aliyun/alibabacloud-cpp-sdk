@@ -14,14 +14,12 @@ namespace Models
   class UpdateRecallManagementServiceVersionConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateRecallManagementServiceVersionConfigRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ConfigType, configType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MergeConfig, mergeConfig_);
       DARABONBA_PTR_TO_JSON(RecallConfig, recallConfig_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateRecallManagementServiceVersionConfigRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ConfigType, configType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MergeConfig, mergeConfig_);
@@ -89,14 +87,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FeatureConfig, featureConfig_);
           DARABONBA_PTR_TO_JSON(FilterConfig, filterConfig_);
           DARABONBA_PTR_TO_JSON(JoinConfig, joinConfig_);
-          DARABONBA_PTR_TO_JSON(OperatorsType, operatorsType_);
+          DARABONBA_PTR_TO_JSON(OperatorType, operatorType_);
           DARABONBA_PTR_TO_JSON(TriggerConfig, triggerConfig_);
         };
         friend void from_json(const Darabonba::Json& j, Operators& obj) { 
           DARABONBA_PTR_FROM_JSON(FeatureConfig, featureConfig_);
           DARABONBA_PTR_FROM_JSON(FilterConfig, filterConfig_);
           DARABONBA_PTR_FROM_JSON(JoinConfig, joinConfig_);
-          DARABONBA_PTR_FROM_JSON(OperatorsType, operatorsType_);
+          DARABONBA_PTR_FROM_JSON(OperatorType, operatorType_);
           DARABONBA_PTR_FROM_JSON(TriggerConfig, triggerConfig_);
         };
         Operators() = default ;
@@ -147,15 +145,15 @@ namespace Models
           // fieldQuantityLimit Field Functions 
           bool hasFieldQuantityLimit() const { return this->fieldQuantityLimit_ != nullptr;};
           void deleteFieldQuantityLimit() { this->fieldQuantityLimit_ = nullptr;};
-          inline string getFieldQuantityLimit() const { DARABONBA_PTR_GET_DEFAULT(fieldQuantityLimit_, "") };
-          inline TriggerConfig& setFieldQuantityLimit(string fieldQuantityLimit) { DARABONBA_PTR_SET_VALUE(fieldQuantityLimit_, fieldQuantityLimit) };
+          inline int32_t getFieldQuantityLimit() const { DARABONBA_PTR_GET_DEFAULT(fieldQuantityLimit_, 0) };
+          inline TriggerConfig& setFieldQuantityLimit(int32_t fieldQuantityLimit) { DARABONBA_PTR_SET_VALUE(fieldQuantityLimit_, fieldQuantityLimit) };
 
 
           // isRandSort Field Functions 
           bool hasIsRandSort() const { return this->isRandSort_ != nullptr;};
           void deleteIsRandSort() { this->isRandSort_ = nullptr;};
-          inline string getIsRandSort() const { DARABONBA_PTR_GET_DEFAULT(isRandSort_, "") };
-          inline TriggerConfig& setIsRandSort(string isRandSort) { DARABONBA_PTR_SET_VALUE(isRandSort_, isRandSort) };
+          inline bool getIsRandSort() const { DARABONBA_PTR_GET_DEFAULT(isRandSort_, false) };
+          inline TriggerConfig& setIsRandSort(bool isRandSort) { DARABONBA_PTR_SET_VALUE(isRandSort_, isRandSort) };
 
 
           // sortField Field Functions 
@@ -167,8 +165,8 @@ namespace Models
 
         protected:
           shared_ptr<string> field_ {};
-          shared_ptr<string> fieldQuantityLimit_ {};
-          shared_ptr<string> isRandSort_ {};
+          shared_ptr<int32_t> fieldQuantityLimit_ {};
+          shared_ptr<bool> isRandSort_ {};
           shared_ptr<string> sortField_ {};
         };
 
@@ -207,8 +205,10 @@ namespace Models
           // outputFields Field Functions 
           bool hasOutputFields() const { return this->outputFields_ != nullptr;};
           void deleteOutputFields() { this->outputFields_ = nullptr;};
-          inline string getOutputFields() const { DARABONBA_PTR_GET_DEFAULT(outputFields_, "") };
-          inline JoinConfig& setOutputFields(string outputFields) { DARABONBA_PTR_SET_VALUE(outputFields_, outputFields) };
+          inline const vector<string> & getOutputFields() const { DARABONBA_PTR_GET_CONST(outputFields_, vector<string>) };
+          inline vector<string> getOutputFields() { DARABONBA_PTR_GET(outputFields_, vector<string>) };
+          inline JoinConfig& setOutputFields(const vector<string> & outputFields) { DARABONBA_PTR_SET_VALUE(outputFields_, outputFields) };
+          inline JoinConfig& setOutputFields(vector<string> && outputFields) { DARABONBA_PTR_SET_RVALUE(outputFields_, outputFields) };
 
 
           // recallManagementTableId Field Functions 
@@ -220,7 +220,7 @@ namespace Models
 
         protected:
           shared_ptr<string> field_ {};
-          shared_ptr<string> outputFields_ {};
+          shared_ptr<vector<string>> outputFields_ {};
           shared_ptr<string> recallManagementTableId_ {};
         };
 
@@ -308,7 +308,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->featureConfig_ == nullptr
-        && this->filterConfig_ == nullptr && this->joinConfig_ == nullptr && this->operatorsType_ == nullptr && this->triggerConfig_ == nullptr; };
+        && this->filterConfig_ == nullptr && this->joinConfig_ == nullptr && this->operatorType_ == nullptr && this->triggerConfig_ == nullptr; };
         // featureConfig Field Functions 
         bool hasFeatureConfig() const { return this->featureConfig_ != nullptr;};
         void deleteFeatureConfig() { this->featureConfig_ = nullptr;};
@@ -336,11 +336,11 @@ namespace Models
         inline Operators& setJoinConfig(Operators::JoinConfig && joinConfig) { DARABONBA_PTR_SET_RVALUE(joinConfig_, joinConfig) };
 
 
-        // operatorsType Field Functions 
-        bool hasOperatorsType() const { return this->operatorsType_ != nullptr;};
-        void deleteOperatorsType() { this->operatorsType_ = nullptr;};
-        inline string getOperatorsType() const { DARABONBA_PTR_GET_DEFAULT(operatorsType_, "") };
-        inline Operators& setOperatorsType(string operatorsType) { DARABONBA_PTR_SET_VALUE(operatorsType_, operatorsType) };
+        // operatorType Field Functions 
+        bool hasOperatorType() const { return this->operatorType_ != nullptr;};
+        void deleteOperatorType() { this->operatorType_ = nullptr;};
+        inline string getOperatorType() const { DARABONBA_PTR_GET_DEFAULT(operatorType_, "") };
+        inline Operators& setOperatorType(string operatorType) { DARABONBA_PTR_SET_VALUE(operatorType_, operatorType) };
 
 
         // triggerConfig Field Functions 
@@ -356,7 +356,7 @@ namespace Models
         shared_ptr<Operators::FeatureConfig> featureConfig_ {};
         shared_ptr<Operators::FilterConfig> filterConfig_ {};
         shared_ptr<Operators::JoinConfig> joinConfig_ {};
-        shared_ptr<string> operatorsType_ {};
+        shared_ptr<string> operatorType_ {};
         shared_ptr<Operators::TriggerConfig> triggerConfig_ {};
       };
 
@@ -578,15 +578,8 @@ namespace Models
       shared_ptr<string> recallManagementServiceVersionConfigId_ {};
     };
 
-    virtual bool empty() const override { return this->regionId_ == nullptr
-        && this->configType_ == nullptr && this->instanceId_ == nullptr && this->mergeConfig_ == nullptr && this->recallConfig_ == nullptr; };
-    // regionId Field Functions 
-    bool hasRegionId() const { return this->regionId_ != nullptr;};
-    void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
-    inline UpdateRecallManagementServiceVersionConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
-
-
+    virtual bool empty() const override { return this->configType_ == nullptr
+        && this->instanceId_ == nullptr && this->mergeConfig_ == nullptr && this->recallConfig_ == nullptr; };
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
@@ -620,7 +613,6 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> regionId_ {};
     shared_ptr<string> configType_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<UpdateRecallManagementServiceVersionConfigRequest::MergeConfig> mergeConfig_ {};

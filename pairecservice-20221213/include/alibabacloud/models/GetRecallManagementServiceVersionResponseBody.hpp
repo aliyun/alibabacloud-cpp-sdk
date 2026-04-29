@@ -17,7 +17,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Configs, configs_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
-      DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_TO_JSON(IsEffective, isEffective_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RecallManagementServiceVersionId, recallManagementServiceVersionId_);
@@ -27,7 +26,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Configs, configs_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
-      DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
       DARABONBA_PTR_FROM_JSON(IsEffective, isEffective_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RecallManagementServiceVersionId, recallManagementServiceVersionId_);
@@ -176,15 +174,15 @@ namespace Models
             // fieldQuantityLimit Field Functions 
             bool hasFieldQuantityLimit() const { return this->fieldQuantityLimit_ != nullptr;};
             void deleteFieldQuantityLimit() { this->fieldQuantityLimit_ = nullptr;};
-            inline string getFieldQuantityLimit() const { DARABONBA_PTR_GET_DEFAULT(fieldQuantityLimit_, "") };
-            inline TriggerConfig& setFieldQuantityLimit(string fieldQuantityLimit) { DARABONBA_PTR_SET_VALUE(fieldQuantityLimit_, fieldQuantityLimit) };
+            inline int32_t getFieldQuantityLimit() const { DARABONBA_PTR_GET_DEFAULT(fieldQuantityLimit_, 0) };
+            inline TriggerConfig& setFieldQuantityLimit(int32_t fieldQuantityLimit) { DARABONBA_PTR_SET_VALUE(fieldQuantityLimit_, fieldQuantityLimit) };
 
 
             // isRandSort Field Functions 
             bool hasIsRandSort() const { return this->isRandSort_ != nullptr;};
             void deleteIsRandSort() { this->isRandSort_ = nullptr;};
-            inline string getIsRandSort() const { DARABONBA_PTR_GET_DEFAULT(isRandSort_, "") };
-            inline TriggerConfig& setIsRandSort(string isRandSort) { DARABONBA_PTR_SET_VALUE(isRandSort_, isRandSort) };
+            inline bool getIsRandSort() const { DARABONBA_PTR_GET_DEFAULT(isRandSort_, false) };
+            inline TriggerConfig& setIsRandSort(bool isRandSort) { DARABONBA_PTR_SET_VALUE(isRandSort_, isRandSort) };
 
 
             // sortField Field Functions 
@@ -196,8 +194,8 @@ namespace Models
 
           protected:
             shared_ptr<string> field_ {};
-            shared_ptr<string> fieldQuantityLimit_ {};
-            shared_ptr<string> isRandSort_ {};
+            shared_ptr<int32_t> fieldQuantityLimit_ {};
+            shared_ptr<bool> isRandSort_ {};
             shared_ptr<string> sortField_ {};
           };
 
@@ -643,8 +641,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->configs_ == nullptr
-        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->isDefault_ == nullptr && this->isEffective_ == nullptr && this->name_ == nullptr
-        && this->recallManagementServiceVersionId_ == nullptr && this->requestId_ == nullptr; };
+        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->isEffective_ == nullptr && this->name_ == nullptr && this->recallManagementServiceVersionId_ == nullptr
+        && this->requestId_ == nullptr; };
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
@@ -666,13 +664,6 @@ namespace Models
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
     inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline GetRecallManagementServiceVersionResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
-
-
-    // isDefault Field Functions 
-    bool hasIsDefault() const { return this->isDefault_ != nullptr;};
-    void deleteIsDefault() { this->isDefault_ = nullptr;};
-    inline string getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, "") };
-    inline GetRecallManagementServiceVersionResponseBody& setIsDefault(string isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
     // isEffective Field Functions 
@@ -707,7 +698,6 @@ namespace Models
     shared_ptr<GetRecallManagementServiceVersionResponseBody::Configs> configs_ {};
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
-    shared_ptr<string> isDefault_ {};
     shared_ptr<bool> isEffective_ {};
     shared_ptr<string> name_ {};
     shared_ptr<string> recallManagementServiceVersionId_ {};

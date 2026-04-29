@@ -145,15 +145,15 @@ namespace Models
           // fieldQuantityLimit Field Functions 
           bool hasFieldQuantityLimit() const { return this->fieldQuantityLimit_ != nullptr;};
           void deleteFieldQuantityLimit() { this->fieldQuantityLimit_ = nullptr;};
-          inline string getFieldQuantityLimit() const { DARABONBA_PTR_GET_DEFAULT(fieldQuantityLimit_, "") };
-          inline TriggerConfig& setFieldQuantityLimit(string fieldQuantityLimit) { DARABONBA_PTR_SET_VALUE(fieldQuantityLimit_, fieldQuantityLimit) };
+          inline int32_t getFieldQuantityLimit() const { DARABONBA_PTR_GET_DEFAULT(fieldQuantityLimit_, 0) };
+          inline TriggerConfig& setFieldQuantityLimit(int32_t fieldQuantityLimit) { DARABONBA_PTR_SET_VALUE(fieldQuantityLimit_, fieldQuantityLimit) };
 
 
           // isRandSort Field Functions 
           bool hasIsRandSort() const { return this->isRandSort_ != nullptr;};
           void deleteIsRandSort() { this->isRandSort_ = nullptr;};
-          inline string getIsRandSort() const { DARABONBA_PTR_GET_DEFAULT(isRandSort_, "") };
-          inline TriggerConfig& setIsRandSort(string isRandSort) { DARABONBA_PTR_SET_VALUE(isRandSort_, isRandSort) };
+          inline bool getIsRandSort() const { DARABONBA_PTR_GET_DEFAULT(isRandSort_, false) };
+          inline TriggerConfig& setIsRandSort(bool isRandSort) { DARABONBA_PTR_SET_VALUE(isRandSort_, isRandSort) };
 
 
           // sortField Field Functions 
@@ -165,8 +165,8 @@ namespace Models
 
         protected:
           shared_ptr<string> field_ {};
-          shared_ptr<string> fieldQuantityLimit_ {};
-          shared_ptr<string> isRandSort_ {};
+          shared_ptr<int32_t> fieldQuantityLimit_ {};
+          shared_ptr<bool> isRandSort_ {};
           shared_ptr<string> sortField_ {};
         };
 

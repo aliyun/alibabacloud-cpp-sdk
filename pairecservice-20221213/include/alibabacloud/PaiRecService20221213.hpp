@@ -1191,6 +1191,24 @@ namespace PaiRecService20221213
       Models::DeployTrafficControlTaskCodeResponse deployTrafficControlTaskCode(const string &TrafficControlTaskId, const Models::DeployTrafficControlTaskCodeRequest &request);
 
       /**
+       * @summary 召回管理表导出
+       *
+       * @param request ExportRecallManagementTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportRecallManagementTableResponse
+       */
+      Models::ExportRecallManagementTableResponse exportRecallManagementTableWithOptions(const string &RecallManagementTableId, const Models::ExportRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 召回管理表导出
+       *
+       * @param request ExportRecallManagementTableRequest
+       * @return ExportRecallManagementTableResponse
+       */
+      Models::ExportRecallManagementTableResponse exportRecallManagementTable(const string &RecallManagementTableId, const Models::ExportRecallManagementTableRequest &request);
+
+      /**
        * @summary 生成算法定制脚本
        *
        * @param request GenerateAlgorithmCustomizationScriptRequest
@@ -2593,6 +2611,24 @@ namespace PaiRecService20221213
        * @return QueryDataDiagnosisStatisticsResponse
        */
       Models::QueryDataDiagnosisStatisticsResponse queryDataDiagnosisStatistics(const string &DataDiagnosisId, const Models::QueryDataDiagnosisStatisticsRequest &request);
+
+      /**
+       * @summary 查询召回管理表数据
+       *
+       * @param request QueryRecallManagementTableRecordsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryRecallManagementTableRecordsResponse
+       */
+      Models::QueryRecallManagementTableRecordsResponse queryRecallManagementTableRecordsWithOptions(const string &RecallManagementTableId, const Models::QueryRecallManagementTableRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询召回管理表数据
+       *
+       * @param request QueryRecallManagementTableRecordsRequest
+       * @return QueryRecallManagementTableRecordsResponse
+       */
+      Models::QueryRecallManagementTableRecordsResponse queryRecallManagementTableRecords(const string &RecallManagementTableId, const Models::QueryRecallManagementTableRecordsRequest &request);
 
       /**
        * @summary 查看样本一致性任务差异的详情

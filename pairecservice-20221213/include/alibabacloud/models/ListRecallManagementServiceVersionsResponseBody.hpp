@@ -39,14 +39,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const RecallManagementServiceVersions& obj) { 
         DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
         DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
-        DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
+        DARABONBA_PTR_TO_JSON(IsEffective, isEffective_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(RecallManagementServiceVersionId, recallManagementServiceVersionId_);
       };
       friend void from_json(const Darabonba::Json& j, RecallManagementServiceVersions& obj) { 
         DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
         DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
-        DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
+        DARABONBA_PTR_FROM_JSON(IsEffective, isEffective_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(RecallManagementServiceVersionId, recallManagementServiceVersionId_);
       };
@@ -62,7 +62,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->gmtCreateTime_ == nullptr
-        && this->gmtModifiedTime_ == nullptr && this->isDefault_ == nullptr && this->name_ == nullptr && this->recallManagementServiceVersionId_ == nullptr; };
+        && this->gmtModifiedTime_ == nullptr && this->isEffective_ == nullptr && this->name_ == nullptr && this->recallManagementServiceVersionId_ == nullptr; };
       // gmtCreateTime Field Functions 
       bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
       void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
@@ -77,11 +77,11 @@ namespace Models
       inline RecallManagementServiceVersions& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
-      // isDefault Field Functions 
-      bool hasIsDefault() const { return this->isDefault_ != nullptr;};
-      void deleteIsDefault() { this->isDefault_ = nullptr;};
-      inline string getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, "") };
-      inline RecallManagementServiceVersions& setIsDefault(string isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
+      // isEffective Field Functions 
+      bool hasIsEffective() const { return this->isEffective_ != nullptr;};
+      void deleteIsEffective() { this->isEffective_ = nullptr;};
+      inline bool getIsEffective() const { DARABONBA_PTR_GET_DEFAULT(isEffective_, false) };
+      inline RecallManagementServiceVersions& setIsEffective(bool isEffective) { DARABONBA_PTR_SET_VALUE(isEffective_, isEffective) };
 
 
       // name Field Functions 
@@ -101,7 +101,7 @@ namespace Models
     protected:
       shared_ptr<string> gmtCreateTime_ {};
       shared_ptr<string> gmtModifiedTime_ {};
-      shared_ptr<string> isDefault_ {};
+      shared_ptr<bool> isEffective_ {};
       shared_ptr<string> name_ {};
       shared_ptr<string> recallManagementServiceVersionId_ {};
     };

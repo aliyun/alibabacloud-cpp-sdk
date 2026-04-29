@@ -25,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(ResourceUri, resourceUri_);
       DARABONBA_PTR_TO_JSON(TableMetaId, tableMetaId_);
       DARABONBA_PTR_TO_JSON(TableName, tableName_);
       DARABONBA_PTR_TO_JSON(Type, type_);
@@ -42,6 +44,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(ResourceUri, resourceUri_);
       DARABONBA_PTR_FROM_JSON(TableMetaId, tableMetaId_);
       DARABONBA_PTR_FROM_JSON(TableName, tableName_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -123,7 +127,8 @@ namespace Models
     virtual bool empty() const override { return this->canDelete_ == nullptr
         && this->config_ == nullptr && this->description_ == nullptr && this->fields_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtImportedTime_ == nullptr
         && this->gmtModifiedTime_ == nullptr && this->module_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->resourceId_ == nullptr
-        && this->tableMetaId_ == nullptr && this->tableName_ == nullptr && this->type_ == nullptr && this->url_ == nullptr; };
+        && this->resourceType_ == nullptr && this->resourceUri_ == nullptr && this->tableMetaId_ == nullptr && this->tableName_ == nullptr && this->type_ == nullptr
+        && this->url_ == nullptr; };
     // canDelete Field Functions 
     bool hasCanDelete() const { return this->canDelete_ != nullptr;};
     void deleteCanDelete() { this->canDelete_ = nullptr;};
@@ -203,6 +208,20 @@ namespace Models
     inline GetTableMetaResponseBody& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline GetTableMetaResponseBody& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+    // resourceUri Field Functions 
+    bool hasResourceUri() const { return this->resourceUri_ != nullptr;};
+    void deleteResourceUri() { this->resourceUri_ = nullptr;};
+    inline string getResourceUri() const { DARABONBA_PTR_GET_DEFAULT(resourceUri_, "") };
+    inline GetTableMetaResponseBody& setResourceUri(string resourceUri) { DARABONBA_PTR_SET_VALUE(resourceUri_, resourceUri) };
+
+
     // tableMetaId Field Functions 
     bool hasTableMetaId() const { return this->tableMetaId_ != nullptr;};
     void deleteTableMetaId() { this->tableMetaId_ = nullptr;};
@@ -243,6 +262,8 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resourceId_ {};
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> resourceUri_ {};
     shared_ptr<string> tableMetaId_ {};
     shared_ptr<string> tableName_ {};
     shared_ptr<string> type_ {};

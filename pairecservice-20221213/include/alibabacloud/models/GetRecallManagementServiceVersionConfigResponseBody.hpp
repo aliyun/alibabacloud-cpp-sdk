@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Operators, operators_);
         DARABONBA_PTR_TO_JSON(Priority, priority_);
+        DARABONBA_PTR_TO_JSON(RecallManagementServiceVersionConfigId, recallManagementServiceVersionConfigId_);
         DARABONBA_PTR_TO_JSON(RecallManagementTableId, recallManagementTableId_);
         DARABONBA_PTR_TO_JSON(RecallType, recallType_);
         DARABONBA_PTR_TO_JSON(SortFields, sortFields_);
@@ -74,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Operators, operators_);
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        DARABONBA_PTR_FROM_JSON(RecallManagementServiceVersionConfigId, recallManagementServiceVersionConfigId_);
         DARABONBA_PTR_FROM_JSON(RecallManagementTableId, recallManagementTableId_);
         DARABONBA_PTR_FROM_JSON(RecallType, recallType_);
         DARABONBA_PTR_FROM_JSON(SortFields, sortFields_);
@@ -372,8 +374,8 @@ namespace Models
 
       virtual bool empty() const override { return this->description_ == nullptr
         && this->extendedConfig_ == nullptr && this->itemConditionArray_ == nullptr && this->itemConditionExpression_ == nullptr && this->itemVectorField_ == nullptr && this->itemVectorRecallManagementTableId_ == nullptr
-        && this->name_ == nullptr && this->operators_ == nullptr && this->priority_ == nullptr && this->recallManagementTableId_ == nullptr && this->recallType_ == nullptr
-        && this->sortFields_ == nullptr && this->userVectorField_ == nullptr && this->userVectorRecallManagementTableId_ == nullptr; };
+        && this->name_ == nullptr && this->operators_ == nullptr && this->priority_ == nullptr && this->recallManagementServiceVersionConfigId_ == nullptr && this->recallManagementTableId_ == nullptr
+        && this->recallType_ == nullptr && this->sortFields_ == nullptr && this->userVectorField_ == nullptr && this->userVectorRecallManagementTableId_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -439,6 +441,13 @@ namespace Models
       inline RecallConfig& setPriority(int64_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
+      // recallManagementServiceVersionConfigId Field Functions 
+      bool hasRecallManagementServiceVersionConfigId() const { return this->recallManagementServiceVersionConfigId_ != nullptr;};
+      void deleteRecallManagementServiceVersionConfigId() { this->recallManagementServiceVersionConfigId_ = nullptr;};
+      inline string getRecallManagementServiceVersionConfigId() const { DARABONBA_PTR_GET_DEFAULT(recallManagementServiceVersionConfigId_, "") };
+      inline RecallConfig& setRecallManagementServiceVersionConfigId(string recallManagementServiceVersionConfigId) { DARABONBA_PTR_SET_VALUE(recallManagementServiceVersionConfigId_, recallManagementServiceVersionConfigId) };
+
+
       // recallManagementTableId Field Functions 
       bool hasRecallManagementTableId() const { return this->recallManagementTableId_ != nullptr;};
       void deleteRecallManagementTableId() { this->recallManagementTableId_ = nullptr;};
@@ -484,6 +493,7 @@ namespace Models
       shared_ptr<string> name_ {};
       shared_ptr<vector<RecallConfig::Operators>> operators_ {};
       shared_ptr<int64_t> priority_ {};
+      shared_ptr<string> recallManagementServiceVersionConfigId_ {};
       shared_ptr<string> recallManagementTableId_ {};
       shared_ptr<string> recallType_ {};
       shared_ptr<string> sortFields_ {};

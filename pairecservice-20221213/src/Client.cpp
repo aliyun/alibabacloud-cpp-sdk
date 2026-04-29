@@ -4030,6 +4030,67 @@ DeployTrafficControlTaskCodeResponse Client::deployTrafficControlTaskCode(const 
 }
 
 /**
+ * @summary 召回管理表导出
+ *
+ * @param request ExportRecallManagementTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportRecallManagementTableResponse
+ */
+ExportRecallManagementTableResponse Client::exportRecallManagementTableWithOptions(const string &RecallManagementTableId, const ExportRecallManagementTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxcomputeProjectName()) {
+    body["MaxcomputeProjectName"] = request.getMaxcomputeProjectName();
+  }
+
+  if (!!request.hasMaxcomputeSchema()) {
+    body["MaxcomputeSchema"] = request.getMaxcomputeSchema();
+  }
+
+  if (!!request.hasMaxcomputeTableName()) {
+    body["MaxcomputeTableName"] = request.getMaxcomputeTableName();
+  }
+
+  if (!!request.hasPartitions()) {
+    body["Partitions"] = request.getPartitions();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExportRecallManagementTable"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId) , "/action/export")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportRecallManagementTableResponse>();
+}
+
+/**
+ * @summary 召回管理表导出
+ *
+ * @param request ExportRecallManagementTableRequest
+ * @return ExportRecallManagementTableResponse
+ */
+ExportRecallManagementTableResponse Client::exportRecallManagementTable(const string &RecallManagementTableId, const ExportRecallManagementTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return exportRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
  * @summary 生成算法定制脚本
  *
  * @param request GenerateAlgorithmCustomizationScriptRequest
@@ -8162,6 +8223,59 @@ QueryDataDiagnosisStatisticsResponse Client::queryDataDiagnosisStatistics(const 
 }
 
 /**
+ * @summary 查询召回管理表数据
+ *
+ * @param request QueryRecallManagementTableRecordsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryRecallManagementTableRecordsResponse
+ */
+QueryRecallManagementTableRecordsResponse Client::queryRecallManagementTableRecordsWithOptions(const string &RecallManagementTableId, const QueryRecallManagementTableRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPrimaryKeys()) {
+    query["PrimaryKeys"] = request.getPrimaryKeys();
+  }
+
+  if (!!request.hasRecallManagementTableVersionId()) {
+    query["RecallManagementTableVersionId"] = request.getRecallManagementTableVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryRecallManagementTableRecords"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/recallmanagementtables/" , Darabonba::Encode::Encoder::percentEncode(RecallManagementTableId) , "/queryrecords")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryRecallManagementTableRecordsResponse>();
+}
+
+/**
+ * @summary 查询召回管理表数据
+ *
+ * @param request QueryRecallManagementTableRecordsRequest
+ * @return QueryRecallManagementTableRecordsResponse
+ */
+QueryRecallManagementTableRecordsResponse Client::queryRecallManagementTableRecords(const string &RecallManagementTableId, const QueryRecallManagementTableRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryRecallManagementTableRecordsWithOptions(RecallManagementTableId, request, headers, runtime);
+}
+
+/**
  * @summary 查看样本一致性任务差异的详情
  *
  * @param request QuerySampleConsistencyJobDifferenceRequest
@@ -10102,11 +10216,6 @@ UpdateRecallManagementServiceResponse Client::updateRecallManagementService(cons
  */
 UpdateRecallManagementServiceVersionConfigResponse Client::updateRecallManagementServiceVersionConfigWithOptions(const string &RecallManagementServiceId, const string &RecallManagementServiceVersionId, const string &RecallManagementServiceVersionConfigId, const UpdateRecallManagementServiceVersionConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
   json body = {};
   if (!!request.hasConfigType()) {
     body["ConfigType"] = request.getConfigType();
@@ -10126,7 +10235,6 @@ UpdateRecallManagementServiceVersionConfigResponse Client::updateRecallManagemen
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -10172,6 +10280,10 @@ UpdateRecallManagementTableResponse Client::updateRecallManagementTableWithOptio
 
   if (!!request.hasEnableRowCountFluctuationThreshold()) {
     body["EnableRowCountFluctuationThreshold"] = request.getEnableRowCountFluctuationThreshold();
+  }
+
+  if (!!request.hasFields()) {
+    body["Fields"] = request.getFields();
   }
 
   if (!!request.hasIndexVersionId()) {

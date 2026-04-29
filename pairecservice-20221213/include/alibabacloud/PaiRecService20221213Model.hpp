@@ -201,6 +201,9 @@
 #include <alibabacloud/models/DeployTrafficControlTaskCodeRequest.hpp>
 #include <alibabacloud/models/DeployTrafficControlTaskCodeResponseBody.hpp>
 #include <alibabacloud/models/DeployTrafficControlTaskCodeResponse.hpp>
+#include <alibabacloud/models/ExportRecallManagementTableRequest.hpp>
+#include <alibabacloud/models/ExportRecallManagementTableResponseBody.hpp>
+#include <alibabacloud/models/ExportRecallManagementTableResponse.hpp>
 #include <alibabacloud/models/GenerateAlgorithmCustomizationScriptRequest.hpp>
 #include <alibabacloud/models/GenerateAlgorithmCustomizationScriptResponseBody.hpp>
 #include <alibabacloud/models/GenerateAlgorithmCustomizationScriptResponse.hpp>
@@ -439,6 +442,9 @@
 #include <alibabacloud/models/QueryDataDiagnosisStatisticsRequest.hpp>
 #include <alibabacloud/models/QueryDataDiagnosisStatisticsResponseBody.hpp>
 #include <alibabacloud/models/QueryDataDiagnosisStatisticsResponse.hpp>
+#include <alibabacloud/models/QueryRecallManagementTableRecordsRequest.hpp>
+#include <alibabacloud/models/QueryRecallManagementTableRecordsResponseBody.hpp>
+#include <alibabacloud/models/QueryRecallManagementTableRecordsResponse.hpp>
 #include <alibabacloud/models/QuerySampleConsistencyJobDifferenceRequest.hpp>
 #include <alibabacloud/models/QuerySampleConsistencyJobDifferenceResponseBody.hpp>
 #include <alibabacloud/models/QuerySampleConsistencyJobDifferenceResponse.hpp>
