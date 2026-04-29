@@ -226,7 +226,6 @@ namespace Domain20180208
       Models::FinishDemandResponse finishDemand(const Models::FinishDemandRequest &request);
 
       /**
-       * @param request GetIntlDomainDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetIntlDomainDownloadUrlResponse
        */
@@ -238,7 +237,6 @@ namespace Domain20180208
       Models::GetIntlDomainDownloadUrlResponse getIntlDomainDownloadUrl();
 
       /**
-       * @param request GetReserveDomainUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetReserveDomainUrlResponse
        */
@@ -336,7 +334,7 @@ namespace Domain20180208
       Models::QueryBookingDomainInfoResponse queryBookingDomainInfo(const Models::QueryBookingDomainInfoRequest &request);
 
       /**
-       * @summary 查询回购订单列表
+       * @summary Queries the details of requests.
        *
        * @param request QueryBrokerDemandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -345,7 +343,7 @@ namespace Domain20180208
       Models::QueryBrokerDemandResponse queryBrokerDemandWithOptions(const Models::QueryBrokerDemandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询回购订单列表
+       * @summary Queries the details of requests.
        *
        * @param request QueryBrokerDemandRequest
        * @return QueryBrokerDemandResponse

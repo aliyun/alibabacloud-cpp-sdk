@@ -644,7 +644,6 @@ FinishDemandResponse Client::finishDemand(const FinishDemandRequest &request) {
 }
 
 /**
- * @param request GetIntlDomainDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetIntlDomainDownloadUrlResponse
  */
@@ -673,7 +672,6 @@ GetIntlDomainDownloadUrlResponse Client::getIntlDomainDownloadUrl() {
 }
 
 /**
- * @param request GetReserveDomainUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetReserveDomainUrlResponse
  */
@@ -988,7 +986,7 @@ QueryBookingDomainInfoResponse Client::queryBookingDomainInfo(const QueryBooking
 }
 
 /**
- * @summary 查询回购订单列表
+ * @summary Queries the details of requests.
  *
  * @param request QueryBrokerDemandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1031,7 +1029,7 @@ QueryBrokerDemandResponse Client::queryBrokerDemandWithOptions(const QueryBroker
 }
 
 /**
- * @summary 查询回购订单列表
+ * @summary Queries the details of requests.
  *
  * @param request QueryBrokerDemandRequest
  * @return QueryBrokerDemandResponse
