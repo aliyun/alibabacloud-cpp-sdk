@@ -438,6 +438,9 @@
 #include <alibabacloud/models/DescribeDBInstanceSecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/DescribeDBInstanceSecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstanceSecurityGroupRuleResponse.hpp>
+#include <alibabacloud/models/DescribeDBInstanceSwitchLogRequest.hpp>
+#include <alibabacloud/models/DescribeDBInstanceSwitchLogResponseBody.hpp>
+#include <alibabacloud/models/DescribeDBInstanceSwitchLogResponse.hpp>
 #include <alibabacloud/models/DescribeDBInstanceTDERequest.hpp>
 #include <alibabacloud/models/DescribeDBInstanceTDEResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstanceTDEResponse.hpp>

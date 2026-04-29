@@ -11695,6 +11695,84 @@ DescribeDBInstanceSecurityGroupRuleResponse Client::describeDBInstanceSecurityGr
 }
 
 /**
+ * @summary 查询实例切换日志
+ *
+ * @param request DescribeDBInstanceSwitchLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBInstanceSwitchLogResponse
+ */
+DescribeDBInstanceSwitchLogResponse Client::describeDBInstanceSwitchLogWithOptions(const DescribeDBInstanceSwitchLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBInstanceSwitchLog"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBInstanceSwitchLogResponse>();
+}
+
+/**
+ * @summary 查询实例切换日志
+ *
+ * @param request DescribeDBInstanceSwitchLogRequest
+ * @return DescribeDBInstanceSwitchLogResponse
+ */
+DescribeDBInstanceSwitchLogResponse Client::describeDBInstanceSwitchLog(const DescribeDBInstanceSwitchLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBInstanceSwitchLogWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
  *
  * @description ### [](#)Supported database engines
@@ -26845,7 +26923,7 @@ ModifyRCDeploymentSetAttributeResponse Client::modifyRCDeploymentSetAttribute(co
 }
 
 /**
- * @summary 修改块存储属性
+ * @summary Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
  *
  * @param request ModifyRCDiskAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26896,7 +26974,7 @@ ModifyRCDiskAttributeResponse Client::modifyRCDiskAttributeWithOptions(const Mod
 }
 
 /**
- * @summary 修改块存储属性
+ * @summary Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
  *
  * @param request ModifyRCDiskAttributeRequest
  * @return ModifyRCDiskAttributeResponse

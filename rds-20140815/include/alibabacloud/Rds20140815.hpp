@@ -3992,6 +3992,23 @@ namespace Rds20140815
       Models::DescribeDBInstanceSecurityGroupRuleResponse describeDBInstanceSecurityGroupRule(const Models::DescribeDBInstanceSecurityGroupRuleRequest &request);
 
       /**
+       * @summary 查询实例切换日志
+       *
+       * @param request DescribeDBInstanceSwitchLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBInstanceSwitchLogResponse
+       */
+      Models::DescribeDBInstanceSwitchLogResponse describeDBInstanceSwitchLogWithOptions(const Models::DescribeDBInstanceSwitchLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例切换日志
+       *
+       * @param request DescribeDBInstanceSwitchLogRequest
+       * @return DescribeDBInstanceSwitchLogResponse
+       */
+      Models::DescribeDBInstanceSwitchLogResponse describeDBInstanceSwitchLog(const Models::DescribeDBInstanceSwitchLogRequest &request);
+
+      /**
        * @summary Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
        *
        * @description ### [](#)Supported database engines
@@ -8937,7 +8954,7 @@ namespace Rds20140815
       Models::ModifyRCDeploymentSetAttributeResponse modifyRCDeploymentSetAttribute(const Models::ModifyRCDeploymentSetAttributeRequest &request);
 
       /**
-       * @summary 修改块存储属性
+       * @summary Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
        *
        * @param request ModifyRCDiskAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8946,7 +8963,7 @@ namespace Rds20140815
       Models::ModifyRCDiskAttributeResponse modifyRCDiskAttributeWithOptions(const Models::ModifyRCDiskAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改块存储属性
+       * @summary Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
        *
        * @param request ModifyRCDiskAttributeRequest
        * @return ModifyRCDiskAttributeResponse
