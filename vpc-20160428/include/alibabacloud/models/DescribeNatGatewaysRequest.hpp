@@ -14,6 +14,7 @@ namespace Models
   class DescribeNatGatewaysRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeNatGatewaysRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AvailabilityMode, availabilityMode_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeNatGatewaysRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AvailabilityMode, availabilityMode_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -114,11 +116,18 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->dryRun_ == nullptr
-        && this->instanceChargeType_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->natType_ == nullptr && this->networkType_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr
-        && this->tag_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->availabilityMode_ == nullptr
+        && this->dryRun_ == nullptr && this->instanceChargeType_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->natType_ == nullptr
+        && this->networkType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->spec_ == nullptr
+        && this->status_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // availabilityMode Field Functions 
+    bool hasAvailabilityMode() const { return this->availabilityMode_ != nullptr;};
+    void deleteAvailabilityMode() { this->availabilityMode_ = nullptr;};
+    inline string getAvailabilityMode() const { DARABONBA_PTR_GET_DEFAULT(availabilityMode_, "") };
+    inline DescribeNatGatewaysRequest& setAvailabilityMode(string availabilityMode) { DARABONBA_PTR_SET_VALUE(availabilityMode_, availabilityMode) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -255,6 +264,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> availabilityMode_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
     // - **true**: performs a dry run. The system prechecks whether your AccessKey pair is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateNatGatewayRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccessMode, accessMode_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
+      DARABONBA_PTR_TO_JSON(AvailabilityMode, availabilityMode_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
@@ -44,6 +45,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateNatGatewayRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessMode, accessMode_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
+      DARABONBA_PTR_FROM_JSON(AvailabilityMode, availabilityMode_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
@@ -179,11 +181,12 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessMode_ == nullptr
-        && this->autoPay_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->duration_ == nullptr && this->eipBindMode_ == nullptr
-        && this->icmpReplyEnabled_ == nullptr && this->instanceChargeType_ == nullptr && this->internetChargeType_ == nullptr && this->ipv4Prefix_ == nullptr && this->name_ == nullptr
-        && this->natIp_ == nullptr && this->natType_ == nullptr && this->networkType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->pricingCycle_ == nullptr && this->privateLinkEnabled_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->securityProtectionEnabled_ == nullptr && this->spec_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->autoPay_ == nullptr && this->availabilityMode_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->duration_ == nullptr
+        && this->eipBindMode_ == nullptr && this->icmpReplyEnabled_ == nullptr && this->instanceChargeType_ == nullptr && this->internetChargeType_ == nullptr && this->ipv4Prefix_ == nullptr
+        && this->name_ == nullptr && this->natIp_ == nullptr && this->natType_ == nullptr && this->networkType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pricingCycle_ == nullptr && this->privateLinkEnabled_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->securityProtectionEnabled_ == nullptr && this->spec_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};
@@ -198,6 +201,13 @@ namespace Models
     void deleteAutoPay() { this->autoPay_ = nullptr;};
     inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline CreateNatGatewayRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
+    // availabilityMode Field Functions 
+    bool hasAvailabilityMode() const { return this->availabilityMode_ != nullptr;};
+    void deleteAvailabilityMode() { this->availabilityMode_ = nullptr;};
+    inline string getAvailabilityMode() const { DARABONBA_PTR_GET_DEFAULT(availabilityMode_, "") };
+    inline CreateNatGatewayRequest& setAvailabilityMode(string availabilityMode) { DARABONBA_PTR_SET_VALUE(availabilityMode_, availabilityMode) };
 
 
     // clientToken Field Functions 
@@ -375,6 +385,7 @@ namespace Models
     shared_ptr<CreateNatGatewayRequest::AccessMode> accessMode_ {};
     // Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
     shared_ptr<bool> autoPay_ {};
+    shared_ptr<string> availabilityMode_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests.

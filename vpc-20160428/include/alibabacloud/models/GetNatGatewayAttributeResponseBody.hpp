@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetNatGatewayAttributeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessMode, accessMode_);
+      DARABONBA_PTR_TO_JSON(AvailabilityMode, availabilityMode_);
       DARABONBA_PTR_TO_JSON(BillingConfig, billingConfig_);
       DARABONBA_PTR_TO_JSON(BusinessStatus, businessStatus_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
@@ -43,6 +44,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetNatGatewayAttributeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessMode, accessMode_);
+      DARABONBA_PTR_FROM_JSON(AvailabilityMode, availabilityMode_);
       DARABONBA_PTR_FROM_JSON(BillingConfig, billingConfig_);
       DARABONBA_PTR_FROM_JSON(BusinessStatus, businessStatus_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
@@ -581,11 +583,12 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessMode_ == nullptr
-        && this->billingConfig_ == nullptr && this->businessStatus_ == nullptr && this->creationTime_ == nullptr && this->deletionProtectionInfo_ == nullptr && this->description_ == nullptr
-        && this->ecsMetricEnabled_ == nullptr && this->enableSessionLog_ == nullptr && this->expiredTime_ == nullptr && this->forwardTable_ == nullptr && this->fullNatTable_ == nullptr
-        && this->ipList_ == nullptr && this->logDelivery_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->natType_ == nullptr
-        && this->networkType_ == nullptr && this->privateInfo_ == nullptr && this->privateLinkEnabled_ == nullptr && this->privateLinkMode_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->snatTable_ == nullptr && this->status_ == nullptr && this->vpcId_ == nullptr; };
+        && this->availabilityMode_ == nullptr && this->billingConfig_ == nullptr && this->businessStatus_ == nullptr && this->creationTime_ == nullptr && this->deletionProtectionInfo_ == nullptr
+        && this->description_ == nullptr && this->ecsMetricEnabled_ == nullptr && this->enableSessionLog_ == nullptr && this->expiredTime_ == nullptr && this->forwardTable_ == nullptr
+        && this->fullNatTable_ == nullptr && this->ipList_ == nullptr && this->logDelivery_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr
+        && this->natType_ == nullptr && this->networkType_ == nullptr && this->privateInfo_ == nullptr && this->privateLinkEnabled_ == nullptr && this->privateLinkMode_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->snatTable_ == nullptr && this->status_ == nullptr
+        && this->vpcId_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};
@@ -593,6 +596,13 @@ namespace Models
     inline GetNatGatewayAttributeResponseBody::AccessMode getAccessMode() { DARABONBA_PTR_GET(accessMode_, GetNatGatewayAttributeResponseBody::AccessMode) };
     inline GetNatGatewayAttributeResponseBody& setAccessMode(const GetNatGatewayAttributeResponseBody::AccessMode & accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
     inline GetNatGatewayAttributeResponseBody& setAccessMode(GetNatGatewayAttributeResponseBody::AccessMode && accessMode) { DARABONBA_PTR_SET_RVALUE(accessMode_, accessMode) };
+
+
+    // availabilityMode Field Functions 
+    bool hasAvailabilityMode() const { return this->availabilityMode_ != nullptr;};
+    void deleteAvailabilityMode() { this->availabilityMode_ = nullptr;};
+    inline string getAvailabilityMode() const { DARABONBA_PTR_GET_DEFAULT(availabilityMode_, "") };
+    inline GetNatGatewayAttributeResponseBody& setAvailabilityMode(string availabilityMode) { DARABONBA_PTR_SET_VALUE(availabilityMode_, availabilityMode) };
 
 
     // billingConfig Field Functions 
@@ -789,6 +799,7 @@ namespace Models
   protected:
     // Access mode for reverse access to VPC NAT gateway.
     shared_ptr<GetNatGatewayAttributeResponseBody::AccessMode> accessMode_ {};
+    shared_ptr<string> availabilityMode_ {};
     // The billing information.
     shared_ptr<GetNatGatewayAttributeResponseBody::BillingConfig> billingConfig_ {};
     // The service status of the NAT gateway. Valid values:

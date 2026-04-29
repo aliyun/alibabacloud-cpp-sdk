@@ -5906,6 +5906,10 @@ CreateNatGatewayResponse Client::createNatGatewayWithOptions(const CreateNatGate
     query["AutoPay"] = request.getAutoPay();
   }
 
+  if (!!request.hasAvailabilityMode()) {
+    query["AvailabilityMode"] = request.getAvailabilityMode();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
@@ -17085,6 +17089,10 @@ DescribeNatGatewayAssociateNetworkInterfacesResponse Client::describeNatGatewayA
 DescribeNatGatewaysResponse Client::describeNatGatewaysWithOptions(const DescribeNatGatewaysRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAvailabilityMode()) {
+    query["AvailabilityMode"] = request.getAvailabilityMode();
+  }
+
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
   }

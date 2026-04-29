@@ -62,6 +62,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const NatGateway& obj) { 
           DARABONBA_PTR_TO_JSON(AccessMode, accessMode_);
           DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
+          DARABONBA_PTR_TO_JSON(AvailabilityMode, availabilityMode_);
           DARABONBA_PTR_TO_JSON(BusinessStatus, businessStatus_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
@@ -96,6 +97,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, NatGateway& obj) { 
           DARABONBA_PTR_FROM_JSON(AccessMode, accessMode_);
           DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
+          DARABONBA_PTR_FROM_JSON(AvailabilityMode, availabilityMode_);
           DARABONBA_PTR_FROM_JSON(BusinessStatus, businessStatus_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
@@ -627,13 +629,13 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->accessMode_ == nullptr
-        && this->autoPay_ == nullptr && this->businessStatus_ == nullptr && this->creationTime_ == nullptr && this->deletionProtection_ == nullptr && this->description_ == nullptr
-        && this->ecsMetricEnabled_ == nullptr && this->eipBindMode_ == nullptr && this->enableSessionLog_ == nullptr && this->expiredTime_ == nullptr && this->forwardTableIds_ == nullptr
-        && this->fullNatTableIds_ == nullptr && this->icmpReplyEnabled_ == nullptr && this->instanceChargeType_ == nullptr && this->internetChargeType_ == nullptr && this->ipLists_ == nullptr
-        && this->ipPrefixList_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->natGatewayPrivateInfo_ == nullptr && this->natType_ == nullptr
-        && this->networkType_ == nullptr && this->privateLinkEnabled_ == nullptr && this->privateLinkMode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityProtectionEnabled_ == nullptr && this->snatTableIds_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->autoPay_ == nullptr && this->availabilityMode_ == nullptr && this->businessStatus_ == nullptr && this->creationTime_ == nullptr && this->deletionProtection_ == nullptr
+        && this->description_ == nullptr && this->ecsMetricEnabled_ == nullptr && this->eipBindMode_ == nullptr && this->enableSessionLog_ == nullptr && this->expiredTime_ == nullptr
+        && this->forwardTableIds_ == nullptr && this->fullNatTableIds_ == nullptr && this->icmpReplyEnabled_ == nullptr && this->instanceChargeType_ == nullptr && this->internetChargeType_ == nullptr
+        && this->ipLists_ == nullptr && this->ipPrefixList_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->natGatewayPrivateInfo_ == nullptr
+        && this->natType_ == nullptr && this->networkType_ == nullptr && this->privateLinkEnabled_ == nullptr && this->privateLinkMode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityProtectionEnabled_ == nullptr && this->snatTableIds_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr
+        && this->tags_ == nullptr && this->vpcId_ == nullptr; };
         // accessMode Field Functions 
         bool hasAccessMode() const { return this->accessMode_ != nullptr;};
         void deleteAccessMode() { this->accessMode_ = nullptr;};
@@ -648,6 +650,13 @@ namespace Models
         void deleteAutoPay() { this->autoPay_ = nullptr;};
         inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
         inline NatGateway& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
+        // availabilityMode Field Functions 
+        bool hasAvailabilityMode() const { return this->availabilityMode_ != nullptr;};
+        void deleteAvailabilityMode() { this->availabilityMode_ = nullptr;};
+        inline string getAvailabilityMode() const { DARABONBA_PTR_GET_DEFAULT(availabilityMode_, "") };
+        inline NatGateway& setAvailabilityMode(string availabilityMode) { DARABONBA_PTR_SET_VALUE(availabilityMode_, availabilityMode) };
 
 
         // businessStatus Field Functions 
@@ -877,6 +886,7 @@ namespace Models
       protected:
         shared_ptr<NatGateway::AccessMode> accessMode_ {};
         shared_ptr<bool> autoPay_ {};
+        shared_ptr<string> availabilityMode_ {};
         shared_ptr<string> businessStatus_ {};
         shared_ptr<string> creationTime_ {};
         shared_ptr<bool> deletionProtection_ {};
