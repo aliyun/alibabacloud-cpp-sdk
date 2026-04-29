@@ -3615,6 +3615,58 @@ UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentReque
 }
 
 /**
+ * @summary 更新 API key 的告警百分比阈值
+ *
+ * @param tmpReq UpdateMOQuotaAlertThresholdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMOQuotaAlertThresholdResponse
+ */
+UpdateMOQuotaAlertThresholdResponse Client::updateMOQuotaAlertThresholdWithOptions(const UpdateMOQuotaAlertThresholdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMOQuotaAlertThresholdShrinkRequest request = UpdateMOQuotaAlertThresholdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApikey()) {
+    request.setApikeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApikey(), "Apikey", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApikeyShrink()) {
+    query["Apikey"] = request.getApikeyShrink();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMOQuotaAlertThreshold"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMOQuotaAlertThresholdResponse>();
+}
+
+/**
+ * @summary 更新 API key 的告警百分比阈值
+ *
+ * @param request UpdateMOQuotaAlertThresholdRequest
+ * @return UpdateMOQuotaAlertThresholdResponse
+ */
+UpdateMOQuotaAlertThresholdResponse Client::updateMOQuotaAlertThreshold(const UpdateMOQuotaAlertThresholdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMOQuotaAlertThresholdWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the information about a specified skill.
  *
  * @param tmpReq UpdateSkillRequest

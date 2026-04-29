@@ -1257,6 +1257,23 @@ namespace RdsAi20250507
       Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
 
       /**
+       * @summary 更新 API key 的告警百分比阈值
+       *
+       * @param tmpReq UpdateMOQuotaAlertThresholdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMOQuotaAlertThresholdResponse
+       */
+      Models::UpdateMOQuotaAlertThresholdResponse updateMOQuotaAlertThresholdWithOptions(const Models::UpdateMOQuotaAlertThresholdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 API key 的告警百分比阈值
+       *
+       * @param request UpdateMOQuotaAlertThresholdRequest
+       * @return UpdateMOQuotaAlertThresholdResponse
+       */
+      Models::UpdateMOQuotaAlertThresholdResponse updateMOQuotaAlertThreshold(const Models::UpdateMOQuotaAlertThresholdRequest &request);
+
+      /**
        * @summary Updates the information about a specified skill.
        *
        * @param tmpReq UpdateSkillRequest

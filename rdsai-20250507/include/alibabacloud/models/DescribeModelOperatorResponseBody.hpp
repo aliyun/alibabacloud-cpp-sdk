@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(KeyUsageList, keyUsageList_);
+        DARABONBA_PTR_TO_JSON(PrefixCacheEnabled, prefixCacheEnabled_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TotalQuota, totalQuota_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(KeyUsageList, keyUsageList_);
+        DARABONBA_PTR_FROM_JSON(PrefixCacheEnabled, prefixCacheEnabled_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TotalQuota, totalQuota_);
@@ -261,8 +263,8 @@ namespace Models
 
       virtual bool empty() const override { return this->apiKey_ == nullptr
         && this->autoRenew_ == nullptr && this->baseUrl_ == nullptr && this->chargeType_ == nullptr && this->dailyUsage_ == nullptr && this->endTime_ == nullptr
-        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->keyUsageList_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->totalQuota_ == nullptr && this->usedQuota_ == nullptr; };
+        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->keyUsageList_ == nullptr && this->prefixCacheEnabled_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->totalQuota_ == nullptr && this->usedQuota_ == nullptr; };
       // apiKey Field Functions 
       bool hasApiKey() const { return this->apiKey_ != nullptr;};
       void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -330,6 +332,13 @@ namespace Models
       inline Data& setKeyUsageList(vector<Data::KeyUsageList> && keyUsageList) { DARABONBA_PTR_SET_RVALUE(keyUsageList_, keyUsageList) };
 
 
+      // prefixCacheEnabled Field Functions 
+      bool hasPrefixCacheEnabled() const { return this->prefixCacheEnabled_ != nullptr;};
+      void deletePrefixCacheEnabled() { this->prefixCacheEnabled_ = nullptr;};
+      inline bool getPrefixCacheEnabled() const { DARABONBA_PTR_GET_DEFAULT(prefixCacheEnabled_, false) };
+      inline Data& setPrefixCacheEnabled(bool prefixCacheEnabled) { DARABONBA_PTR_SET_VALUE(prefixCacheEnabled_, prefixCacheEnabled) };
+
+
       // startTime Field Functions 
       bool hasStartTime() const { return this->startTime_ != nullptr;};
       void deleteStartTime() { this->startTime_ = nullptr;};
@@ -368,6 +377,7 @@ namespace Models
       shared_ptr<string> instanceClass_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<vector<Data::KeyUsageList>> keyUsageList_ {};
+      shared_ptr<bool> prefixCacheEnabled_ {};
       shared_ptr<int64_t> startTime_ {};
       shared_ptr<string> status_ {};
       shared_ptr<int64_t> totalQuota_ {};

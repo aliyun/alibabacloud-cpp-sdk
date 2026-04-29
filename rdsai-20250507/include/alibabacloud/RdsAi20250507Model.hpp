@@ -195,6 +195,10 @@
 #include <alibabacloud/models/UpdateCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomAgentResponse.hpp>
+#include <alibabacloud/models/UpdateMOQuotaAlertThresholdRequest.hpp>
+#include <alibabacloud/models/UpdateMOQuotaAlertThresholdShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateMOQuotaAlertThresholdResponseBody.hpp>
+#include <alibabacloud/models/UpdateMOQuotaAlertThresholdResponse.hpp>
 #include <alibabacloud/models/UpdateSkillRequest.hpp>
 #include <alibabacloud/models/UpdateSkillShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSkillResponseBody.hpp>
