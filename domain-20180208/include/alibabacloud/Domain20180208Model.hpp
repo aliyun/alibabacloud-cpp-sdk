@@ -116,6 +116,9 @@
 #include <alibabacloud/models/UpdatePartnerReservePriceRequest.hpp>
 #include <alibabacloud/models/UpdatePartnerReservePriceResponseBody.hpp>
 #include <alibabacloud/models/UpdatePartnerReservePriceResponse.hpp>
+#include <alibabacloud/models/UpdateProxyPriceRequest.hpp>
+#include <alibabacloud/models/UpdateProxyPriceResponseBody.hpp>
+#include <alibabacloud/models/UpdateProxyPriceResponse.hpp>
 #include <alibabacloud/models/WebsiteAddDnsRecordRequest.hpp>
 #include <alibabacloud/models/WebsiteAddDnsRecordResponseBody.hpp>
 #include <alibabacloud/models/WebsiteAddDnsRecordResponse.hpp>

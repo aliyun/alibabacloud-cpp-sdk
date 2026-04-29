@@ -1812,6 +1812,56 @@ UpdatePartnerReservePriceResponse Client::updatePartnerReservePrice(const Update
 }
 
 /**
+ * @summary 更新代理价
+ *
+ * @param request UpdateProxyPriceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProxyPriceResponse
+ */
+UpdateProxyPriceResponse Client::updateProxyPriceWithOptions(const UpdateProxyPriceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAuctionId()) {
+    body["AuctionId"] = request.getAuctionId();
+  }
+
+  if (!!request.hasCurrency()) {
+    body["Currency"] = request.getCurrency();
+  }
+
+  if (!!request.hasPrice()) {
+    body["Price"] = request.getPrice();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateProxyPrice"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProxyPriceResponse>();
+}
+
+/**
+ * @summary 更新代理价
+ *
+ * @param request UpdateProxyPriceRequest
+ * @return UpdateProxyPriceResponse
+ */
+UpdateProxyPriceResponse Client::updateProxyPrice(const UpdateProxyPriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProxyPriceWithOptions(request, runtime);
+}
+
+/**
  * @summary 域名建站添加DNS记录
  *
  * @param request WebsiteAddDnsRecordRequest

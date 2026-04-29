@@ -574,6 +574,23 @@ namespace Domain20180208
       Models::UpdatePartnerReservePriceResponse updatePartnerReservePrice(const Models::UpdatePartnerReservePriceRequest &request);
 
       /**
+       * @summary 更新代理价
+       *
+       * @param request UpdateProxyPriceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProxyPriceResponse
+       */
+      Models::UpdateProxyPriceResponse updateProxyPriceWithOptions(const Models::UpdateProxyPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新代理价
+       *
+       * @param request UpdateProxyPriceRequest
+       * @return UpdateProxyPriceResponse
+       */
+      Models::UpdateProxyPriceResponse updateProxyPrice(const Models::UpdateProxyPriceRequest &request);
+
+      /**
        * @summary 域名建站添加DNS记录
        *
        * @param request WebsiteAddDnsRecordRequest
