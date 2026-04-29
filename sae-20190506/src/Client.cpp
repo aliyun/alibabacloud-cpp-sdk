@@ -8401,6 +8401,10 @@ UpdateApplicationScalingRuleResponse Client::updateApplicationScalingRuleWithOpt
     query["ScalingRuleTimer"] = request.getScalingRuleTimer();
   }
 
+  if (!!request.hasScalingRuleType()) {
+    query["ScalingRuleType"] = request.getScalingRuleType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

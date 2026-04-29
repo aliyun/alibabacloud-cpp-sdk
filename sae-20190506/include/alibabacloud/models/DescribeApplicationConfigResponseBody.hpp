@@ -322,6 +322,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Liveness, liveness_);
           DARABONBA_PTR_TO_JSON(Memory, memory_);
           DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(PostStart, postStart_);
+          DARABONBA_PTR_TO_JSON(PreStop, preStop_);
           DARABONBA_PTR_TO_JSON(Readiness, readiness_);
           DARABONBA_PTR_TO_JSON(SecretMountDesc, secretMountDesc_);
         };
@@ -337,6 +339,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Liveness, liveness_);
           DARABONBA_PTR_FROM_JSON(Memory, memory_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(PostStart, postStart_);
+          DARABONBA_PTR_FROM_JSON(PreStop, preStop_);
           DARABONBA_PTR_FROM_JSON(Readiness, readiness_);
           DARABONBA_PTR_FROM_JSON(SecretMountDesc, secretMountDesc_);
         };
@@ -526,7 +530,7 @@ namespace Models
         virtual bool empty() const override { return this->acrInstanceId_ == nullptr
         && this->command_ == nullptr && this->commandArgs_ == nullptr && this->configMapMountDesc_ == nullptr && this->cpu_ == nullptr && this->emptyDirDesc_ == nullptr
         && this->envs_ == nullptr && this->imageUrl_ == nullptr && this->liveness_ == nullptr && this->memory_ == nullptr && this->name_ == nullptr
-        && this->readiness_ == nullptr && this->secretMountDesc_ == nullptr; };
+        && this->postStart_ == nullptr && this->preStop_ == nullptr && this->readiness_ == nullptr && this->secretMountDesc_ == nullptr; };
         // acrInstanceId Field Functions 
         bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
         void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -608,6 +612,20 @@ namespace Models
         inline SidecarContainersConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+        // postStart Field Functions 
+        bool hasPostStart() const { return this->postStart_ != nullptr;};
+        void deletePostStart() { this->postStart_ = nullptr;};
+        inline string getPostStart() const { DARABONBA_PTR_GET_DEFAULT(postStart_, "") };
+        inline SidecarContainersConfig& setPostStart(string postStart) { DARABONBA_PTR_SET_VALUE(postStart_, postStart) };
+
+
+        // preStop Field Functions 
+        bool hasPreStop() const { return this->preStop_ != nullptr;};
+        void deletePreStop() { this->preStop_ = nullptr;};
+        inline string getPreStop() const { DARABONBA_PTR_GET_DEFAULT(preStop_, "") };
+        inline SidecarContainersConfig& setPreStop(string preStop) { DARABONBA_PTR_SET_VALUE(preStop_, preStop) };
+
+
         // readiness Field Functions 
         bool hasReadiness() const { return this->readiness_ != nullptr;};
         void deleteReadiness() { this->readiness_ = nullptr;};
@@ -677,6 +695,8 @@ namespace Models
         shared_ptr<int32_t> memory_ {};
         // The container name.
         shared_ptr<string> name_ {};
+        shared_ptr<string> postStart_ {};
+        shared_ptr<string> preStop_ {};
         shared_ptr<string> readiness_ {};
         shared_ptr<vector<SidecarContainersConfig::SecretMountDesc>> secretMountDesc_ {};
       };

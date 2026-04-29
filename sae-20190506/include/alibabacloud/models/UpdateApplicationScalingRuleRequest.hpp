@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScalingRuleMetric, scalingRuleMetric_);
       DARABONBA_PTR_TO_JSON(ScalingRuleName, scalingRuleName_);
       DARABONBA_PTR_TO_JSON(ScalingRuleTimer, scalingRuleTimer_);
+      DARABONBA_PTR_TO_JSON(ScalingRuleType, scalingRuleType_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateApplicationScalingRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ScalingRuleMetric, scalingRuleMetric_);
       DARABONBA_PTR_FROM_JSON(ScalingRuleName, scalingRuleName_);
       DARABONBA_PTR_FROM_JSON(ScalingRuleTimer, scalingRuleTimer_);
+      DARABONBA_PTR_FROM_JSON(ScalingRuleType, scalingRuleType_);
     };
     UpdateApplicationScalingRuleRequest() = default ;
     UpdateApplicationScalingRuleRequest(const UpdateApplicationScalingRuleRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && this->enableIdle_ == nullptr && this->minReadyInstanceRatio_ == nullptr && this->minReadyInstances_ == nullptr && this->scalingRuleMetric_ == nullptr && this->scalingRuleName_ == nullptr
-        && this->scalingRuleTimer_ == nullptr; };
+        && this->scalingRuleTimer_ == nullptr && this->scalingRuleType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
     void deleteScalingRuleTimer() { this->scalingRuleTimer_ = nullptr;};
     inline string getScalingRuleTimer() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTimer_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleTimer(string scalingRuleTimer) { DARABONBA_PTR_SET_VALUE(scalingRuleTimer_, scalingRuleTimer) };
+
+
+    // scalingRuleType Field Functions 
+    bool hasScalingRuleType() const { return this->scalingRuleType_ != nullptr;};
+    void deleteScalingRuleType() { this->scalingRuleType_ = nullptr;};
+    inline string getScalingRuleType() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleType_, "") };
+    inline UpdateApplicationScalingRuleRequest& setScalingRuleType(string scalingRuleType) { DARABONBA_PTR_SET_VALUE(scalingRuleType_, scalingRuleType) };
 
 
   protected:
@@ -199,6 +208,7 @@ namespace Models
     // 
     //         **Note**Make sure that at least **one** instance is available during the application deployment and rollback to prevent your business from being interrupted. If you set the value to **0**, business interruptions occur when the application is updated.
     shared_ptr<string> scalingRuleTimer_ {};
+    shared_ptr<string> scalingRuleType_ {};
   };
 
   } // namespace Models
