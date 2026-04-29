@@ -369,6 +369,23 @@ namespace Sas20181203
       Models::AddUninstallClientsByUuidsResponse addUninstallClientsByUuids(const Models::AddUninstallClientsByUuidsRequest &request);
 
       /**
+       * @summary 新增未知威胁分析进程
+       *
+       * @param request AddUnknownThreatDetectProcessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddUnknownThreatDetectProcessResponse
+       */
+      Models::AddUnknownThreatDetectProcessResponse addUnknownThreatDetectProcessWithOptions(const Models::AddUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增未知威胁分析进程
+       *
+       * @param request AddUnknownThreatDetectProcessRequest
+       * @return AddUnknownThreatDetectProcessResponse
+       */
+      Models::AddUnknownThreatDetectProcessResponse addUnknownThreatDetectProcess(const Models::AddUnknownThreatDetectProcessRequest &request);
+
+      /**
        * @summary Creates a honeypot.
        *
        * @param request AddVpcHoneyPotRequest
@@ -626,7 +643,6 @@ namespace Sas20181203
       /**
        * @summary Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
        *
-       * @param request CheckStsTokenAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckStsTokenAuthResponse
        */
@@ -1617,6 +1633,23 @@ namespace Sas20181203
       Models::CreateUniRestorePlanResponse createUniRestorePlan(const Models::CreateUniRestorePlanRequest &request);
 
       /**
+       * @summary 创建未知威胁发现的策略
+       *
+       * @param request CreateUnknownThreatDetectStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUnknownThreatDetectStrategyResponse
+       */
+      Models::CreateUnknownThreatDetectStrategyResponse createUnknownThreatDetectStrategyWithOptions(const Models::CreateUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建未知威胁发现的策略
+       *
+       * @param request CreateUnknownThreatDetectStrategyRequest
+       * @return CreateUnknownThreatDetectStrategyResponse
+       */
+      Models::CreateUnknownThreatDetectStrategyResponse createUnknownThreatDetectStrategy(const Models::CreateUnknownThreatDetectStrategyRequest &request);
+
+      /**
        * @summary Creates the risk level settings for baseline check items.
        *
        * @param request CreateUserSettingRequest
@@ -2589,6 +2622,40 @@ namespace Sas20181203
       Models::DeleteUniBackupPolicyResponse deleteUniBackupPolicy(const Models::DeleteUniBackupPolicyRequest &request);
 
       /**
+       * @summary 删除未知威胁发现进程
+       *
+       * @param request DeleteUnknownThreatDetectProcessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteUnknownThreatDetectProcessResponse
+       */
+      Models::DeleteUnknownThreatDetectProcessResponse deleteUnknownThreatDetectProcessWithOptions(const Models::DeleteUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除未知威胁发现进程
+       *
+       * @param request DeleteUnknownThreatDetectProcessRequest
+       * @return DeleteUnknownThreatDetectProcessResponse
+       */
+      Models::DeleteUnknownThreatDetectProcessResponse deleteUnknownThreatDetectProcess(const Models::DeleteUnknownThreatDetectProcessRequest &request);
+
+      /**
+       * @summary 删除未知威胁发现策略
+       *
+       * @param request DeleteUnknownThreatDetectStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteUnknownThreatDetectStrategyResponse
+       */
+      Models::DeleteUnknownThreatDetectStrategyResponse deleteUnknownThreatDetectStrategyWithOptions(const Models::DeleteUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除未知威胁发现策略
+       *
+       * @param request DeleteUnknownThreatDetectStrategyRequest
+       * @return DeleteUnknownThreatDetectStrategyResponse
+       */
+      Models::DeleteUnknownThreatDetectStrategyResponse deleteUnknownThreatDetectStrategy(const Models::DeleteUnknownThreatDetectStrategyRequest &request);
+
+      /**
        * @summary Deletes a honeypot.
        *
        * @param request DeleteVpcHoneyPotRequest
@@ -2642,7 +2709,6 @@ namespace Sas20181203
       /**
        * @summary Queries the overview of user AI assets.
        *
-       * @param request DescribeAIAssetSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAIAssetSummaryResponse
        */
@@ -2802,7 +2868,6 @@ namespace Sas20181203
       /**
        * @summary Queries the information about all assets. The information includes asset group IDs and asset names.
        *
-       * @param request DescribeAllEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAllEntityResponse
        */
@@ -2886,7 +2951,6 @@ namespace Sas20181203
       /**
        * @summary Queries the scan cycle for application vulnerabilities.
        *
-       * @param request DescribeAppVulScanCycleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAppVulScanCycleResponse
        */
@@ -2944,7 +3008,6 @@ namespace Sas20181203
       /**
        * @summary The ID of the request, which is used to locate and troubleshoot issues.
        *
-       * @param request DescribeAssetSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAssetSummaryResponse
        */
@@ -2992,6 +3055,8 @@ namespace Sas20181203
       Models::DescribeAssetsSecurityEventSummaryResponse describeAssetsSecurityEventSummary(const Models::DescribeAssetsSecurityEventSummaryRequest &request);
 
       /**
+       * @deprecated OpenAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead.
+       *
        * @summary Queries the statistics of attack analysis.
        *
        * @param request DescribeAttackAnalysisDataRequest
@@ -3001,6 +3066,8 @@ namespace Sas20181203
       Models::DescribeAttackAnalysisDataResponse describeAttackAnalysisDataWithOptions(const Models::DescribeAttackAnalysisDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead.
+       *
        * @summary Queries the statistics of attack analysis.
        *
        * @param request DescribeAttackAnalysisDataRequest
@@ -3028,7 +3095,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
        *
-       * @param request DescribeAutoDelConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAutoDelConfigResponse
        */
@@ -3152,7 +3218,6 @@ namespace Sas20181203
        *
        * @description If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
        *
-       * @param request DescribeBackupRestoreCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeBackupRestoreCountResponse
        */
@@ -3221,7 +3286,6 @@ namespace Sas20181203
       /**
        * @summary Check if the asset can be sold by VPC
        *
-       * @param request DescribeCanAccessVpcSaleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCanAccessVpcSaleResponse
        */
@@ -3254,7 +3318,6 @@ namespace Sas20181203
       /**
        * @summary Checks the permissions on the trial use of Security Center.
        *
-       * @param request DescribeCanTrySasRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCanTrySasResponse
        */
@@ -3338,7 +3401,6 @@ namespace Sas20181203
       /**
        * @summary Queries the result of the ISO 27001 compliance check.
        *
-       * @param request DescribeCheckResultRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCheckResultResponse
        */
@@ -3513,7 +3575,6 @@ namespace Sas20181203
        *
        * @summary Queries the statistics of cloud services whose instances are protected by Security Center.
        *
-       * @param request DescribeCloudProductFieldStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCloudProductFieldStatisticsResponse
        */
@@ -3546,7 +3607,7 @@ namespace Sas20181203
       Models::DescribeCloudVendorAccountAKListResponse describeCloudVendorAccountAKList(const Models::DescribeCloudVendorAccountAKListRequest &request);
 
       /**
-       * @summary Get the cloud product access template for vendors
+       * @summary Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
        *
        * @param request DescribeCloudVendorProductTemplateConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3555,7 +3616,7 @@ namespace Sas20181203
       Models::DescribeCloudVendorProductTemplateConfigResponse describeCloudVendorProductTemplateConfigWithOptions(const Models::DescribeCloudVendorProductTemplateConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the cloud product access template for vendors
+       * @summary Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
        *
        * @param request DescribeCloudVendorProductTemplateConfigRequest
        * @return DescribeCloudVendorProductTemplateConfigResponse
@@ -3820,7 +3881,6 @@ namespace Sas20181203
       /**
        * @summary Queries the statistical information about containers.
        *
-       * @param request DescribeContainerFieldStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeContainerFieldStatisticsResponse
        */
@@ -3976,7 +4036,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of images that are not scanned.
        *
-       * @param request DescribeCountNotScannedImageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCountNotScannedImageResponse
        */
@@ -3992,7 +4051,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of images that are scanned.
        *
-       * @param request DescribeCountScannedImageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCountScannedImageResponse
        */
@@ -4195,7 +4253,6 @@ namespace Sas20181203
       /**
        * @summary Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
        *
-       * @param request DescribeDefaultProxyInstallVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDefaultProxyInstallVersionResponse
        */
@@ -4423,7 +4480,6 @@ namespace Sas20181203
       /**
        * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
        *
-       * @param request DescribeEmgUserAgreementRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeEmgUserAgreementResponse
        */
@@ -4592,7 +4648,6 @@ namespace Sas20181203
       /**
        * @summary Queries the exposure statistics of the assets on the Internet.
        *
-       * @param request DescribeExposedStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeExposedStatisticsResponse
        */
@@ -4642,7 +4697,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
        *
-       * @param request DescribeFixUsedCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeFixUsedCountResponse
        */
@@ -5151,7 +5205,6 @@ namespace Sas20181203
       /**
        * @summary Queries the configurations of the scheduled fix of image risks.
        *
-       * @param request DescribeImageFixCycleConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeImageFixCycleConfigResponse
        */
@@ -5354,7 +5407,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of images on which security alerts are generated. Security alerts are generated for risks such as vulnerabilities, baselines risks, and malicious samples.
        *
-       * @param request DescribeImageRiskLevelStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeImageRiskLevelStatisticResponse
        */
@@ -5370,7 +5422,6 @@ namespace Sas20181203
       /**
        * @summary Queries the details of the quota for container image scan.
        *
-       * @param request DescribeImageScanAuthCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeImageScanAuthCountResponse
        */
@@ -5440,7 +5491,6 @@ namespace Sas20181203
        * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
        * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
        *
-       * @param request DescribeImageStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeImageStatisticsResponse
        */
@@ -5514,7 +5564,6 @@ namespace Sas20181203
       /**
        * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
        *
-       * @param request DescribeInstallCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstallCodeResponse
        */
@@ -5534,7 +5583,6 @@ namespace Sas20181203
        * ### QPS limit
        * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
        *
-       * @param request DescribeInstallCodesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstallCodesResponse
        */
@@ -5622,7 +5670,6 @@ namespace Sas20181203
       /**
        * @summary Queries the progress of the last virus scan task.
        *
-       * @param request DescribeLatestScanTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLatestScanTaskResponse
        */
@@ -5689,7 +5736,6 @@ namespace Sas20181203
       /**
        * @summary Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
        *
-       * @param request DescribeLoginSwitchConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLoginSwitchConfigsResponse
        */
@@ -5756,7 +5802,6 @@ namespace Sas20181203
       /**
        * @summary Queries the configurations of the asset fingerprint module.
        *
-       * @param request DescribeModuleConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeModuleConfigResponse
        */
@@ -5772,7 +5817,6 @@ namespace Sas20181203
       /**
        * @summary Queries the list of accounts that are added to the multi-account management feature as members.
        *
-       * @param request DescribeMonitorAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeMonitorAccountsResponse
        */
@@ -5922,7 +5966,7 @@ namespace Sas20181203
       Models::DescribePropertyCountResponse describePropertyCount(const Models::DescribePropertyCountRequest &request);
 
       /**
-       * @summary Query Asset Fingerprint Scheduled Task Details
+       * @summary Queries the detailed info of the Schedule Job List in host Assets.
        *
        * @param request DescribePropertyCronDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5931,7 +5975,7 @@ namespace Sas20181203
       Models::DescribePropertyCronDetailResponse describePropertyCronDetailWithOptions(const Models::DescribePropertyCronDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Asset Fingerprint Scheduled Task Details
+       * @summary Queries the detailed info of the Schedule Job List in host Assets.
        *
        * @param request DescribePropertyCronDetailRequest
        * @return DescribePropertyCronDetailResponse
@@ -6983,7 +7027,6 @@ namespace Sas20181203
       /**
        * @summary Queries the time when a system vulnerability was last detected.
        *
-       * @param request DescribeSupervisonInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSupervisonInfoResponse
        */
@@ -6999,7 +7042,6 @@ namespace Sas20181203
       /**
        * @summary Queries the regions in which the anti-ransomware feature is supported.
        *
-       * @param request DescribeSupportRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSupportRegionResponse
        */
@@ -7117,7 +7159,6 @@ namespace Sas20181203
       /**
        * @summary Query Alarm Security Event Statistics
        *
-       * @param request DescribeSuspiciousSecurityEventyStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSuspiciousSecurityEventyStatisticsResponse
        */
@@ -7320,7 +7361,6 @@ namespace Sas20181203
       /**
        * @summary Queries the statistics on backups based on anti-ransomware policies.
        *
-       * @param request DescribeUniBackupStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUniBackupStatisticsResponse
        */
@@ -7353,7 +7393,6 @@ namespace Sas20181203
       /**
        * @summary Queries the region that is supported by anti-ransomware for databases.
        *
-       * @param request DescribeUniSupportRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUniSupportRegionResponse
        */
@@ -7369,7 +7408,6 @@ namespace Sas20181203
       /**
        * @summary Queries the information about the servers to which an anti-ransomware policy is applied.
        *
-       * @param request DescribeUserBackupMachinesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUserBackupMachinesResponse
        */
@@ -7436,7 +7474,6 @@ namespace Sas20181203
       /**
        * @summary Queries the service providers whose assets can be added to Security Center.
        *
-       * @param request DescribeVendorListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVendorListResponse
        */
@@ -7524,7 +7561,6 @@ namespace Sas20181203
       /**
        * @summary Queries the information about virtual private clouds (VPCs).
        *
-       * @param request DescribeVpcListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVpcListResponse
        */
@@ -7629,7 +7665,6 @@ namespace Sas20181203
       /**
        * @summary Queries the statistics of vulnerability fixes.
        *
-       * @param request DescribeVulFixStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVulFixStatisticsResponse
        */
@@ -7679,7 +7714,6 @@ namespace Sas20181203
       /**
        * @summary Queries the statistics of vulnerabilities in Security Center.
        *
-       * @param request DescribeVulMetaCountStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeVulMetaCountStatisticsResponse
        */
@@ -7831,7 +7865,6 @@ namespace Sas20181203
       /**
        * @summary Queries the types of files that are excluded from web tamper proofing.
        *
-       * @param request DescribeWebLockExclusiveFileTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeWebLockExclusiveFileTypeResponse
        */
@@ -7881,7 +7914,6 @@ namespace Sas20181203
       /**
        * @summary Queries the summary information about the types of files for which web tamper proofing is enabled.
        *
-       * @param request DescribeWebLockFileTypeSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeWebLockFileTypeSummaryResponse
        */
@@ -7897,7 +7929,6 @@ namespace Sas20181203
       /**
        * @summary Queries the types of files that can be protected by web tamper proofing.
        *
-       * @param request DescribeWebLockInclusiveFileTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeWebLockInclusiveFileTypeResponse
        */
@@ -7964,7 +7995,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of times that the files protected by web tamper proofing are changed.
        *
-       * @param request DescribeWebLockTotalFileChangeCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeWebLockTotalFileChangeCountResponse
        */
@@ -8248,7 +8278,6 @@ namespace Sas20181203
        *
        * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
        *
-       * @param request EnableServiceAccessResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableServiceAccessResourceDirectoryResponse
        */
@@ -8736,7 +8765,7 @@ namespace Sas20181203
       Models::GetAttackEventDetailResponse getAttackEventDetail(const Models::GetAttackEventDetailRequest &request);
 
       /**
-       * @summary Query Attack Path Event Details.
+       * @summary Query attack path management event details.
        *
        * @param request GetAttackPathEventDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8745,7 +8774,7 @@ namespace Sas20181203
       Models::GetAttackPathEventDetailResponse getAttackPathEventDetailWithOptions(const Models::GetAttackPathEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Attack Path Event Details.
+       * @summary Query attack path management event details.
        *
        * @param request GetAttackPathEventDetailRequest
        * @return GetAttackPathEventDetailResponse
@@ -8755,7 +8784,6 @@ namespace Sas20181203
       /**
        * @summary Query Attack Path Event Statistics.
        *
-       * @param request GetAttackPathEventStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAttackPathEventStatisticsResponse
        */
@@ -8805,7 +8833,6 @@ namespace Sas20181203
       /**
        * @summary Queries a list of attack types on the Attack Analysis page.
        *
-       * @param request GetAttackTypeListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAttackTypeListResponse
        */
@@ -8821,7 +8848,6 @@ namespace Sas20181203
       /**
        * @summary Queries the statistics of asset protection quota.
        *
-       * @param request GetAuthSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAuthSummaryResponse
        */
@@ -8837,7 +8863,6 @@ namespace Sas20181203
       /**
        * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
        *
-       * @param request GetAuthVersionStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAuthVersionStatisticResponse
        */
@@ -8853,7 +8878,6 @@ namespace Sas20181203
       /**
        * @summary Checks whether the managed anti-ransomware feature can automatically configure an anti-ransomware policy for servers.
        *
-       * @param request GetBackupAutoConfigStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBackupAutoConfigStatusResponse
        */
@@ -8869,7 +8893,6 @@ namespace Sas20181203
       /**
        * @summary Queries the anti-ransomware capacity that is used.
        *
-       * @param request GetBackupStorageCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBackupStorageCountResponse
        */
@@ -8919,7 +8942,6 @@ namespace Sas20181203
       /**
        * @summary Queries the information about an automatic configuration check on cloud services.
        *
-       * @param request GetCheckConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCheckConfigResponse
        */
@@ -9228,7 +9250,6 @@ namespace Sas20181203
       /**
        * @summary Queries the number of policies in each cluster.
        *
-       * @param request GetClusterStrategyCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetClusterStrategyCountResponse
        */
@@ -9312,7 +9333,6 @@ namespace Sas20181203
       /**
        * @summary Queries the publish details of the Security Center agent.
        *
-       * @param request GetCurrentVersionPublishRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCurrentVersionPublishResponse
        */
@@ -9345,7 +9365,6 @@ namespace Sas20181203
       /**
        * @summary Queries the numbers of handled alerts of the precision defense type and the web tamper proofing type.
        *
-       * @param request GetDefenceCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDefenceCountResponse
        */
@@ -9395,7 +9414,6 @@ namespace Sas20181203
       /**
        * @summary Obtains the usage information of the malicious file detection SDK.
        *
-       * @param request GetFileDetectApiInvokeInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetFileDetectApiInvokeInfoResponse
        */
@@ -9449,7 +9467,6 @@ namespace Sas20181203
       /**
        * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
        *
-       * @param request GetFileProtectDashboardRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetFileProtectDashboardResponse
        */
@@ -9516,7 +9533,6 @@ namespace Sas20181203
       /**
        * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
        *
-       * @param request GetFileUploadLimitRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetFileUploadLimitResponse
        */
@@ -9734,7 +9750,7 @@ namespace Sas20181203
       Models::GetInstallCodeForUuidResponse getInstallCodeForUuid(const Models::GetInstallCodeForUuidRequest &request);
 
       /**
-       * @summary Count the number of security events for a single instance
+       * @summary Queries the alerting statistics information of a server.
        *
        * @param request GetInstanceAlarmStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9743,7 +9759,7 @@ namespace Sas20181203
       Models::GetInstanceAlarmStatisticsResponse getInstanceAlarmStatisticsWithOptions(const Models::GetInstanceAlarmStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Count the number of security events for a single instance
+       * @summary Queries the alerting statistics information of a server.
        *
        * @param request GetInstanceAlarmStatisticsRequest
        * @return GetInstanceAlarmStatisticsResponse
@@ -9753,7 +9769,6 @@ namespace Sas20181203
       /**
        * @summary Get Instance Authorization Value Range
        *
-       * @param request GetInstanceAuthRangeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceAuthRangeResponse
        */
@@ -9973,7 +9988,6 @@ namespace Sas20181203
       /**
        * @summary Queries the baselines that are supported by at-risk image blocking.
        *
-       * @param request GetOpaClusterBaseLineListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetOpaClusterBaseLineListResponse
        */
@@ -10074,7 +10088,6 @@ namespace Sas20181203
       /**
        * @summary Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
        *
-       * @param request GetOpaStrategyTemplateSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetOpaStrategyTemplateSummaryResponse
        */
@@ -10141,7 +10154,6 @@ namespace Sas20181203
       /**
        * @summary Get Publish Time Configuration
        *
-       * @param request GetPublishCronRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetPublishCronResponse
        */
@@ -10159,7 +10171,6 @@ namespace Sas20181203
        *
        * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
        *
-       * @param request GetRdTreeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRdTreeResponse
        */
@@ -10177,7 +10188,6 @@ namespace Sas20181203
       /**
        * @summary Queries the time range of image scans.
        *
-       * @param request GetRegistryScanDayNumRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRegistryScanDayNumResponse
        */
@@ -10193,7 +10203,6 @@ namespace Sas20181203
       /**
        * @summary Queries the numbers of system defense rules and custom defense rules.
        *
-       * @param request GetRulesCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRulesCountResponse
        */
@@ -10413,7 +10422,6 @@ namespace Sas20181203
       /**
        * @summary Checks whether you can submit a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
        *
-       * @param request GetTenantCheckAvailableRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTenantCheckAvailableResponse
        */
@@ -10427,9 +10435,25 @@ namespace Sas20181203
       Models::GetTenantCheckAvailableResponse getTenantCheckAvailable();
 
       /**
+       * @summary 获取未知威胁发现的统计信息
+       *
+       * @param request GetUnknownThreatDetectStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUnknownThreatDetectStatisticResponse
+       */
+      Models::GetUnknownThreatDetectStatisticResponse getUnknownThreatDetectStatisticWithOptions(const Models::GetUnknownThreatDetectStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取未知威胁发现的统计信息
+       *
+       * @param request GetUnknownThreatDetectStatisticRequest
+       * @return GetUnknownThreatDetectStatisticResponse
+       */
+      Models::GetUnknownThreatDetectStatisticResponse getUnknownThreatDetectStatistic(const Models::GetUnknownThreatDetectStatisticRequest &request);
+
+      /**
        * @summary Queries the language settings of log analysis.
        *
-       * @param request GetUserLangRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUserLangResponse
        */
@@ -10479,7 +10503,6 @@ namespace Sas20181203
       /**
        * @summary Queries the information about the latest virus scan task.
        *
-       * @param request GetVirusScanLatestTaskStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetVirusScanLatestTaskStatisticResponse
        */
@@ -10561,6 +10584,23 @@ namespace Sas20181203
       Models::HandleMaliciousFilesResponse handleMaliciousFiles(const Models::HandleMaliciousFilesRequest &request);
 
       /**
+       * @summary 文件检测告警处理操作
+       *
+       * @param request HandleObjectScanEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HandleObjectScanEventResponse
+       */
+      Models::HandleObjectScanEventResponse handleObjectScanEventWithOptions(const Models::HandleObjectScanEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 文件检测告警处理操作
+       *
+       * @param request HandleObjectScanEventRequest
+       * @return HandleObjectScanEventResponse
+       */
+      Models::HandleObjectScanEventResponse handleObjectScanEvent(const Models::HandleObjectScanEventRequest &request);
+
+      /**
        * @summary Handles alert events.
        *
        * @param request HandleSecurityEventsRequest
@@ -10614,6 +10654,23 @@ namespace Sas20181203
        * @return HandleSimilarSecurityEventsResponse
        */
       Models::HandleSimilarSecurityEventsResponse handleSimilarSecurityEvents(const Models::HandleSimilarSecurityEventsRequest &request);
+
+      /**
+       * @summary 处理未知威胁分析告警
+       *
+       * @param request HandleUnknownThreatDetectEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HandleUnknownThreatDetectEventResponse
+       */
+      Models::HandleUnknownThreatDetectEventResponse handleUnknownThreatDetectEventWithOptions(const Models::HandleUnknownThreatDetectEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 处理未知威胁分析告警
+       *
+       * @param request HandleUnknownThreatDetectEventRequest
+       * @return HandleUnknownThreatDetectEventResponse
+       */
+      Models::HandleUnknownThreatDetectEventResponse handleUnknownThreatDetectEvent(const Models::HandleUnknownThreatDetectEventRequest &request);
 
       /**
        * @summary Adds risk items to the whitelist or removes risk items from the whitelist by specifying servers and risk items.
@@ -10798,7 +10855,6 @@ namespace Sas20181203
        *
        * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
        *
-       * @param request ListAccountsInResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAccountsInResourceDirectoryResponse
        */
@@ -10884,7 +10940,6 @@ namespace Sas20181203
       /**
        * @summary Queries the regions that are supported by the agentless detection feature.
        *
-       * @param request ListAgentlessRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAgentlessRegionResponse
        */
@@ -10951,7 +11006,6 @@ namespace Sas20181203
       /**
        * @summary Queries the configurations for cleaning offline hosts whose provider cannot be identified.
        *
-       * @param request ListAssetCleanConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAssetCleanConfigResponse
        */
@@ -11254,7 +11308,7 @@ namespace Sas20181203
       Models::ListCheckItemsResponse listCheckItems(const Models::ListCheckItemsRequest &request);
 
       /**
-       * @summary List User Policies
+       * @summary In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
        *
        * @param request ListCheckPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11263,7 +11317,7 @@ namespace Sas20181203
       Models::ListCheckPoliciesResponse listCheckPoliciesWithOptions(const Models::ListCheckPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List User Policies
+       * @summary In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
        *
        * @param request ListCheckPoliciesRequest
        * @return ListCheckPoliciesResponse
@@ -11375,7 +11429,6 @@ namespace Sas20181203
       /**
        * @summary Queries the supported types of custom defense rules.
        *
-       * @param request ListClientUserDefineRuleTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListClientUserDefineRuleTypesResponse
        */
@@ -11594,7 +11647,6 @@ namespace Sas20181203
       /**
        * @summary Queries a list of clusters that are included in a rule for non-image program defense.
        *
-       * @param request ListContainerDefenseRuleClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListContainerDefenseRuleClustersResponse
        */
@@ -12090,7 +12142,6 @@ namespace Sas20181203
       /**
        * @summary Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.
        *
-       * @param request ListLogShipperRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListLogShipperRegionsResponse
        */
@@ -12360,7 +12411,6 @@ namespace Sas20181203
       /**
        * @summary Queries the information about the self-managed Kubernetes clusters that are added to Security Center.
        *
-       * @param request ListPrivateK8sRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListPrivateK8sResponse
        */
@@ -12429,7 +12479,6 @@ namespace Sas20181203
        *
        * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
        *
-       * @param request ListRdDefaultSyncListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRdDefaultSyncListResponse
        */
@@ -12498,7 +12547,6 @@ namespace Sas20181203
       /**
        * @summary Queries supported file suffixes.
        *
-       * @param request ListSupportObjectSuffixRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSupportObjectSuffixResponse
        */
@@ -12531,7 +12579,6 @@ namespace Sas20181203
       /**
        * @summary Queries the types of system rules.
        *
-       * @param request ListSystemClientRuleTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSystemClientRuleTypesResponse
        */
@@ -12645,6 +12692,74 @@ namespace Sas20181203
        * @return ListUninstallAegisMachinesResponse
        */
       Models::ListUninstallAegisMachinesResponse listUninstallAegisMachines(const Models::ListUninstallAegisMachinesRequest &request);
+
+      /**
+       * @summary 查询未知威胁发现事件
+       *
+       * @param request ListUnknownThreatDetectEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUnknownThreatDetectEventResponse
+       */
+      Models::ListUnknownThreatDetectEventResponse listUnknownThreatDetectEventWithOptions(const Models::ListUnknownThreatDetectEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询未知威胁发现事件
+       *
+       * @param request ListUnknownThreatDetectEventRequest
+       * @return ListUnknownThreatDetectEventResponse
+       */
+      Models::ListUnknownThreatDetectEventResponse listUnknownThreatDetectEvent(const Models::ListUnknownThreatDetectEventRequest &request);
+
+      /**
+       * @summary 查询未知威胁发现的机器列表
+       *
+       * @param request ListUnknownThreatDetectMachineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUnknownThreatDetectMachineResponse
+       */
+      Models::ListUnknownThreatDetectMachineResponse listUnknownThreatDetectMachineWithOptions(const Models::ListUnknownThreatDetectMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询未知威胁发现的机器列表
+       *
+       * @param request ListUnknownThreatDetectMachineRequest
+       * @return ListUnknownThreatDetectMachineResponse
+       */
+      Models::ListUnknownThreatDetectMachineResponse listUnknownThreatDetectMachine(const Models::ListUnknownThreatDetectMachineRequest &request);
+
+      /**
+       * @summary 查询未知威胁发现进程列表
+       *
+       * @param request ListUnknownThreatDetectProcessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUnknownThreatDetectProcessResponse
+       */
+      Models::ListUnknownThreatDetectProcessResponse listUnknownThreatDetectProcessWithOptions(const Models::ListUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询未知威胁发现进程列表
+       *
+       * @param request ListUnknownThreatDetectProcessRequest
+       * @return ListUnknownThreatDetectProcessResponse
+       */
+      Models::ListUnknownThreatDetectProcessResponse listUnknownThreatDetectProcess(const Models::ListUnknownThreatDetectProcessRequest &request);
+
+      /**
+       * @summary 查询未知威胁发现策略列表
+       *
+       * @param request ListUnknownThreatDetectStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUnknownThreatDetectStrategyResponse
+       */
+      Models::ListUnknownThreatDetectStrategyResponse listUnknownThreatDetectStrategyWithOptions(const Models::ListUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询未知威胁发现策略列表
+       *
+       * @param request ListUnknownThreatDetectStrategyRequest
+       * @return ListUnknownThreatDetectStrategyResponse
+       */
+      Models::ListUnknownThreatDetectStrategyResponse listUnknownThreatDetectStrategy(const Models::ListUnknownThreatDetectStrategyRequest &request);
 
       /**
        * @summary Get VPC Data
@@ -13750,7 +13865,7 @@ namespace Sas20181203
       Models::ModifySecurityEventMarkMissIndividuallyResponse modifySecurityEventMarkMissIndividually(const Models::ModifySecurityEventMarkMissIndividuallyRequest &request);
 
       /**
-       * @summary Manage Serverless Asset Authorization
+       * @summary Serverless Asset authorization Management.
        *
        * @param request ModifyServerlessAuthToMachineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13759,7 +13874,7 @@ namespace Sas20181203
       Models::ModifyServerlessAuthToMachineResponse modifyServerlessAuthToMachineWithOptions(const Models::ModifyServerlessAuthToMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manage Serverless Asset Authorization
+       * @summary Serverless Asset authorization Management.
        *
        * @param request ModifyServerlessAuthToMachineRequest
        * @return ModifyServerlessAuthToMachineResponse
@@ -14344,6 +14459,23 @@ namespace Sas20181203
       Models::OperateSwitchStatusResponse operateSwitchStatus(const Models::OperateSwitchStatusRequest &request);
 
       /**
+       * @summary 修改未知威胁发现的机器状态
+       *
+       * @param request OperateUnknownThreatDetectMachineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateUnknownThreatDetectMachineResponse
+       */
+      Models::OperateUnknownThreatDetectMachineResponse operateUnknownThreatDetectMachineWithOptions(const Models::OperateUnknownThreatDetectMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改未知威胁发现的机器状态
+       *
+       * @param request OperateUnknownThreatDetectMachineRequest
+       * @return OperateUnknownThreatDetectMachineResponse
+       */
+      Models::OperateUnknownThreatDetectMachineResponse operateUnknownThreatDetectMachine(const Models::OperateUnknownThreatDetectMachineRequest &request);
+
+      /**
        * @summary Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
        *
        * @param request OperateVirusEventsRequest
@@ -14640,7 +14772,6 @@ namespace Sas20181203
       /**
        * @summary Queries the list of beginner tasks. Security Center provides rewards for users who complete tasks. The rewards include the quota for a value-added feature and log storage capacity.
        *
-       * @param request QueryGuidTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryGuidTaskListResponse
        */
@@ -14758,7 +14889,6 @@ namespace Sas20181203
       /**
        * @summary Refreshes the list of Object Storage Service (OSS) buckets.
        *
-       * @param request RefreshOssBucketScanInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RefreshOssBucketScanInfoResponse
        */
@@ -15190,7 +15320,6 @@ namespace Sas20181203
       /**
        * @summary Starts a database scan task.
        *
-       * @param request StartDiscoverDatabaseTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartDiscoverDatabaseTaskResponse
        */
@@ -15223,7 +15352,6 @@ namespace Sas20181203
       /**
        * @summary Starts an IDC scan task.
        *
-       * @param request StartIdcProbeScanRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartIdcProbeScanResponse
        */
@@ -15324,7 +15452,6 @@ namespace Sas20181203
       /**
        * @summary Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
        *
-       * @param request SubmitTenantCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitTenantCheckResponse
        */
@@ -15340,7 +15467,6 @@ namespace Sas20181203
       /**
        * @summary Triggers ISO 27001 compliance checks of Security Center.
        *
-       * @param request TriggerCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TriggerCheckResponse
        */
@@ -16044,6 +16170,40 @@ namespace Sas20181203
        * @return UpdateTargetListByBatchResponse
        */
       Models::UpdateTargetListByBatchResponse updateTargetListByBatch(const Models::UpdateTargetListByBatchRequest &request);
+
+      /**
+       * @summary 更新未知威胁发现的进程详情
+       *
+       * @param request UpdateUnknownThreatDetectProcessRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateUnknownThreatDetectProcessResponse
+       */
+      Models::UpdateUnknownThreatDetectProcessResponse updateUnknownThreatDetectProcessWithOptions(const Models::UpdateUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新未知威胁发现的进程详情
+       *
+       * @param request UpdateUnknownThreatDetectProcessRequest
+       * @return UpdateUnknownThreatDetectProcessResponse
+       */
+      Models::UpdateUnknownThreatDetectProcessResponse updateUnknownThreatDetectProcess(const Models::UpdateUnknownThreatDetectProcessRequest &request);
+
+      /**
+       * @summary 更新未知威胁发现策略
+       *
+       * @param request UpdateUnknownThreatDetectStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateUnknownThreatDetectStrategyResponse
+       */
+      Models::UpdateUnknownThreatDetectStrategyResponse updateUnknownThreatDetectStrategyWithOptions(const Models::UpdateUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新未知威胁发现策略
+       *
+       * @param request UpdateUnknownThreatDetectStrategyRequest
+       * @return UpdateUnknownThreatDetectStrategyResponse
+       */
+      Models::UpdateUnknownThreatDetectStrategyResponse updateUnknownThreatDetectStrategy(const Models::UpdateUnknownThreatDetectStrategyRequest &request);
 
       /**
        * @summary Updates the IP address whitelist of an image repository.

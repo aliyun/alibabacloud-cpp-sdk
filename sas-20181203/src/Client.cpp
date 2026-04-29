@@ -1355,6 +1355,56 @@ AddUninstallClientsByUuidsResponse Client::addUninstallClientsByUuids(const AddU
 }
 
 /**
+ * @summary 新增未知威胁分析进程
+ *
+ * @param request AddUnknownThreatDetectProcessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddUnknownThreatDetectProcessResponse
+ */
+AddUnknownThreatDetectProcessResponse Client::addUnknownThreatDetectProcessWithOptions(const AddUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventIdList()) {
+    query["EventIdList"] = request.getEventIdList();
+  }
+
+  if (!!request.hasProcessList()) {
+    query["ProcessList"] = request.getProcessList();
+  }
+
+  if (!!request.hasUuidList()) {
+    query["UuidList"] = request.getUuidList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddUnknownThreatDetectProcess"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddUnknownThreatDetectProcessResponse>();
+}
+
+/**
+ * @summary 新增未知威胁分析进程
+ *
+ * @param request AddUnknownThreatDetectProcessRequest
+ * @return AddUnknownThreatDetectProcessResponse
+ */
+AddUnknownThreatDetectProcessResponse Client::addUnknownThreatDetectProcess(const AddUnknownThreatDetectProcessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addUnknownThreatDetectProcessWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a honeypot.
  *
  * @param request AddVpcHoneyPotRequest
@@ -2141,7 +2191,6 @@ CheckSecurityEventIdResponse Client::checkSecurityEventId(const CheckSecurityEve
 /**
  * @summary Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
  *
- * @param request CheckStsTokenAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckStsTokenAuthResponse
  */
@@ -5614,6 +5663,64 @@ CreateUniRestorePlanResponse Client::createUniRestorePlan(const CreateUniRestore
 }
 
 /**
+ * @summary 创建未知威胁发现的策略
+ *
+ * @param request CreateUnknownThreatDetectStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUnknownThreatDetectStrategyResponse
+ */
+CreateUnknownThreatDetectStrategyResponse Client::createUnknownThreatDetectStrategyWithOptions(const CreateUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetSelectionType()) {
+    query["AssetSelectionType"] = request.getAssetSelectionType();
+  }
+
+  if (!!request.hasDurationDaysAfterInit()) {
+    query["DurationDaysAfterInit"] = request.getDurationDaysAfterInit();
+  }
+
+  if (!!request.hasDurationDaysAfterStop()) {
+    query["DurationDaysAfterStop"] = request.getDurationDaysAfterStop();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasStudyMode()) {
+    query["StudyMode"] = request.getStudyMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateUnknownThreatDetectStrategy"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUnknownThreatDetectStrategyResponse>();
+}
+
+/**
+ * @summary 创建未知威胁发现的策略
+ *
+ * @param request CreateUnknownThreatDetectStrategyRequest
+ * @return CreateUnknownThreatDetectStrategyResponse
+ */
+CreateUnknownThreatDetectStrategyResponse Client::createUnknownThreatDetectStrategy(const CreateUnknownThreatDetectStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createUnknownThreatDetectStrategyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates the risk level settings for baseline check items.
  *
  * @param request CreateUserSettingRequest
@@ -8170,6 +8277,90 @@ DeleteUniBackupPolicyResponse Client::deleteUniBackupPolicy(const DeleteUniBacku
 }
 
 /**
+ * @summary 删除未知威胁发现进程
+ *
+ * @param request DeleteUnknownThreatDetectProcessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteUnknownThreatDetectProcessResponse
+ */
+DeleteUnknownThreatDetectProcessResponse Client::deleteUnknownThreatDetectProcessWithOptions(const DeleteUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProcessIdList()) {
+    query["ProcessIdList"] = request.getProcessIdList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteUnknownThreatDetectProcess"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteUnknownThreatDetectProcessResponse>();
+}
+
+/**
+ * @summary 删除未知威胁发现进程
+ *
+ * @param request DeleteUnknownThreatDetectProcessRequest
+ * @return DeleteUnknownThreatDetectProcessResponse
+ */
+DeleteUnknownThreatDetectProcessResponse Client::deleteUnknownThreatDetectProcess(const DeleteUnknownThreatDetectProcessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteUnknownThreatDetectProcessWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除未知威胁发现策略
+ *
+ * @param request DeleteUnknownThreatDetectStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteUnknownThreatDetectStrategyResponse
+ */
+DeleteUnknownThreatDetectStrategyResponse Client::deleteUnknownThreatDetectStrategyWithOptions(const DeleteUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdList()) {
+    query["IdList"] = request.getIdList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteUnknownThreatDetectStrategy"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteUnknownThreatDetectStrategyResponse>();
+}
+
+/**
+ * @summary 删除未知威胁发现策略
+ *
+ * @param request DeleteUnknownThreatDetectStrategyRequest
+ * @return DeleteUnknownThreatDetectStrategyResponse
+ */
+DeleteUnknownThreatDetectStrategyResponse Client::deleteUnknownThreatDetectStrategy(const DeleteUnknownThreatDetectStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteUnknownThreatDetectStrategyWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a honeypot.
  *
  * @param request DeleteVpcHoneyPotRequest
@@ -8310,7 +8501,6 @@ DeleteVulWhitelistResponse Client::deleteVulWhitelist(const DeleteVulWhitelistRe
 /**
  * @summary Queries the overview of user AI assets.
  *
- * @param request DescribeAIAssetSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAIAssetSummaryResponse
  */
@@ -8841,7 +9031,6 @@ DescribeAlarmEventStackInfoResponse Client::describeAlarmEventStackInfo(const De
 /**
  * @summary Queries the information about all assets. The information includes asset group IDs and asset names.
  *
- * @param request DescribeAllEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAllEntityResponse
  */
@@ -9074,7 +9263,6 @@ DescribeAntiBruteForceRulesResponse Client::describeAntiBruteForceRules(const De
 /**
  * @summary Queries the scan cycle for application vulnerabilities.
  *
- * @param request DescribeAppVulScanCycleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAppVulScanCycleResponse
  */
@@ -9215,7 +9403,6 @@ DescribeAssetDetailByUuidsResponse Client::describeAssetDetailByUuids(const Desc
 /**
  * @summary The ID of the request, which is used to locate and troubleshoot issues.
  *
- * @param request DescribeAssetSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAssetSummaryResponse
  */
@@ -9350,6 +9537,8 @@ DescribeAssetsSecurityEventSummaryResponse Client::describeAssetsSecurityEventSu
 }
 
 /**
+ * @deprecated OpenAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead.
+ *
  * @summary Queries the statistics of attack analysis.
  *
  * @param request DescribeAttackAnalysisDataRequest
@@ -9409,6 +9598,8 @@ DescribeAttackAnalysisDataResponse Client::describeAttackAnalysisDataWithOptions
 }
 
 /**
+ * @deprecated OpenAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead.
+ *
  * @summary Queries the statistics of attack analysis.
  *
  * @param request DescribeAttackAnalysisDataRequest
@@ -9480,7 +9671,6 @@ DescribeAttestorsResponse Client::describeAttestors(const DescribeAttestorsReque
 /**
  * @summary Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
  *
- * @param request DescribeAutoDelConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAutoDelConfigResponse
  */
@@ -9823,7 +10013,6 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
  *
  * @description If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
  *
- * @param request DescribeBackupRestoreCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeBackupRestoreCountResponse
  */
@@ -10032,7 +10221,6 @@ DescribeBruteForceSummaryResponse Client::describeBruteForceSummary(const Descri
 /**
  * @summary Check if the asset can be sold by VPC
  *
- * @param request DescribeCanAccessVpcSaleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCanAccessVpcSaleResponse
  */
@@ -10211,7 +10399,6 @@ DescribeCanFixVulListResponse Client::describeCanFixVulList(const DescribeCanFix
 /**
  * @summary Checks the permissions on the trial use of Security Center.
  *
- * @param request DescribeCanTrySasRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCanTrySasResponse
  */
@@ -10448,7 +10635,6 @@ DescribeCheckFixDetailsResponse Client::describeCheckFixDetails(const DescribeCh
 /**
  * @summary Queries the result of the ISO 27001 compliance check.
  *
- * @param request DescribeCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCheckResultResponse
  */
@@ -11089,7 +11275,6 @@ DescribeCloudCenterInstancesResponse Client::describeCloudCenterInstances(const 
  *
  * @summary Queries the statistics of cloud services whose instances are protected by Security Center.
  *
- * @param request DescribeCloudProductFieldStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCloudProductFieldStatisticsResponse
  */
@@ -11192,7 +11377,7 @@ DescribeCloudVendorAccountAKListResponse Client::describeCloudVendorAccountAKLis
 }
 
 /**
- * @summary Get the cloud product access template for vendors
+ * @summary Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
  *
  * @param request DescribeCloudVendorProductTemplateConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11227,7 +11412,7 @@ DescribeCloudVendorProductTemplateConfigResponse Client::describeCloudVendorProd
 }
 
 /**
- * @summary Get the cloud product access template for vendors
+ * @summary Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
  *
  * @param request DescribeCloudVendorProductTemplateConfigRequest
  * @return DescribeCloudVendorProductTemplateConfigResponse
@@ -11978,7 +12163,6 @@ DescribeContainerCriteriaResponse Client::describeContainerCriteria(const Descri
 /**
  * @summary Queries the statistical information about containers.
  *
- * @param request DescribeContainerFieldStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeContainerFieldStatisticsResponse
  */
@@ -12411,7 +12595,6 @@ DescribeContainerTagsResponse Client::describeContainerTags(const DescribeContai
 /**
  * @summary Queries the number of images that are not scanned.
  *
- * @param request DescribeCountNotScannedImageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCountNotScannedImageResponse
  */
@@ -12444,7 +12627,6 @@ DescribeCountNotScannedImageResponse Client::describeCountNotScannedImage() {
 /**
  * @summary Queries the number of images that are scanned.
  *
- * @param request DescribeCountScannedImageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCountScannedImageResponse
  */
@@ -13039,7 +13221,6 @@ DescribeDefaultKeyInfoResponse Client::describeDefaultKeyInfo(const DescribeDefa
 /**
  * @summary Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
  *
- * @param request DescribeDefaultProxyInstallVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDefaultProxyInstallVersionResponse
  */
@@ -13652,7 +13833,6 @@ DescribeDynamicDictUploadInfoResponse Client::describeDynamicDictUploadInfo(cons
 /**
  * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
  *
- * @param request DescribeEmgUserAgreementRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeEmgUserAgreementResponse
  */
@@ -14195,7 +14375,6 @@ DescribeExposedInstanceListResponse Client::describeExposedInstanceList(const De
 /**
  * @summary Queries the exposure statistics of the assets on the Internet.
  *
- * @param request DescribeExposedStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeExposedStatisticsResponse
  */
@@ -14356,7 +14535,6 @@ DescribeFieldStatisticsResponse Client::describeFieldStatistics(const DescribeFi
 /**
  * @summary Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
  *
- * @param request DescribeFixUsedCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeFixUsedCountResponse
  */
@@ -16099,7 +16277,6 @@ DescribeImageEventOperationPageResponse Client::describeImageEventOperationPage(
 /**
  * @summary Queries the configurations of the scheduled fix of image risks.
  *
- * @param request DescribeImageFixCycleConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeImageFixCycleConfigResponse
  */
@@ -16900,7 +17077,6 @@ DescribeImageRepoListResponse Client::describeImageRepoList(const DescribeImageR
 /**
  * @summary Queries the number of images on which security alerts are generated. Security alerts are generated for risks such as vulnerabilities, baselines risks, and malicious samples.
  *
- * @param request DescribeImageRiskLevelStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeImageRiskLevelStatisticResponse
  */
@@ -16933,7 +17109,6 @@ DescribeImageRiskLevelStatisticResponse Client::describeImageRiskLevelStatistic(
 /**
  * @summary Queries the details of the quota for container image scan.
  *
- * @param request DescribeImageScanAuthCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeImageScanAuthCountResponse
  */
@@ -17195,7 +17370,6 @@ DescribeImageSensitiveFileListResponse Client::describeImageSensitiveFileList(co
  * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
  * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
  *
- * @param request DescribeImageStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeImageStatisticsResponse
  */
@@ -17497,7 +17671,6 @@ DescribeInstallCaptchaResponse Client::describeInstallCaptcha(const DescribeInst
 /**
  * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
  *
- * @param request DescribeInstallCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstallCodeResponse
  */
@@ -17534,7 +17707,6 @@ DescribeInstallCodeResponse Client::describeInstallCode() {
  * ### QPS limit
  * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
  *
- * @param request DescribeInstallCodesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstallCodesResponse
  */
@@ -17771,7 +17943,6 @@ DescribeInstanceVulStatisticsResponse Client::describeInstanceVulStatistics(cons
 /**
  * @summary Queries the progress of the last virus scan task.
  *
- * @param request DescribeLatestScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLatestScanTaskResponse
  */
@@ -17954,7 +18125,6 @@ DescribeLoginBaseConfigsResponse Client::describeLoginBaseConfigs(const Describe
 /**
  * @summary Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
  *
- * @param request DescribeLoginSwitchConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLoginSwitchConfigsResponse
  */
@@ -18125,7 +18295,6 @@ DescribeMatchedMaliciousNamesResponse Client::describeMatchedMaliciousNames(cons
 /**
  * @summary Queries the configurations of the asset fingerprint module.
  *
- * @param request DescribeModuleConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeModuleConfigResponse
  */
@@ -18158,7 +18327,6 @@ DescribeModuleConfigResponse Client::describeModuleConfig() {
 /**
  * @summary Queries the list of accounts that are added to the multi-account management feature as members.
  *
- * @param request DescribeMonitorAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeMonitorAccountsResponse
  */
@@ -18661,7 +18829,7 @@ DescribePropertyCountResponse Client::describePropertyCount(const DescribeProper
 }
 
 /**
- * @summary Query Asset Fingerprint Scheduled Task Details
+ * @summary Queries the detailed info of the Schedule Job List in host Assets.
  *
  * @param request DescribePropertyCronDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18724,7 +18892,7 @@ DescribePropertyCronDetailResponse Client::describePropertyCronDetailWithOptions
 }
 
 /**
- * @summary Query Asset Fingerprint Scheduled Task Details
+ * @summary Queries the detailed info of the Schedule Job List in host Assets.
  *
  * @param request DescribePropertyCronDetailRequest
  * @return DescribePropertyCronDetailResponse
@@ -21935,7 +22103,6 @@ DescribeSummaryInfoResponse Client::describeSummaryInfo(const DescribeSummaryInf
 /**
  * @summary Queries the time when a system vulnerability was last detected.
  *
- * @param request DescribeSupervisonInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSupervisonInfoResponse
  */
@@ -21968,7 +22135,6 @@ DescribeSupervisonInfoResponse Client::describeSupervisonInfo() {
 /**
  * @summary Queries the regions in which the anti-ransomware feature is supported.
  *
- * @param request DescribeSupportRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSupportRegionResponse
  */
@@ -22461,7 +22627,6 @@ DescribeSuspiciousOverallConfigResponse Client::describeSuspiciousOverallConfig(
 /**
  * @summary Query Alarm Security Event Statistics
  *
- * @param request DescribeSuspiciousSecurityEventyStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSuspiciousSecurityEventyStatisticsResponse
  */
@@ -23084,7 +23249,6 @@ DescribeUniBackupPolicyDetailResponse Client::describeUniBackupPolicyDetail(cons
 /**
  * @summary Queries the statistics on backups based on anti-ransomware policies.
  *
- * @param request DescribeUniBackupStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUniBackupStatisticsResponse
  */
@@ -23171,7 +23335,6 @@ DescribeUniRecoverableListResponse Client::describeUniRecoverableList(const Desc
 /**
  * @summary Queries the region that is supported by anti-ransomware for databases.
  *
- * @param request DescribeUniSupportRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUniSupportRegionResponse
  */
@@ -23204,7 +23367,6 @@ DescribeUniSupportRegionResponse Client::describeUniSupportRegion() {
 /**
  * @summary Queries the information about the servers to which an anti-ransomware policy is applied.
  *
- * @param request DescribeUserBackupMachinesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserBackupMachinesResponse
  */
@@ -23427,7 +23589,6 @@ DescribeUuidsByVulNamesResponse Client::describeUuidsByVulNames(const DescribeUu
 /**
  * @summary Queries the service providers whose assets can be added to Security Center.
  *
- * @param request DescribeVendorListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVendorListResponse
  */
@@ -23660,7 +23821,6 @@ DescribeVpcHoneyPotListResponse Client::describeVpcHoneyPotList(const DescribeVp
 /**
  * @summary Queries the information about virtual private clouds (VPCs).
  *
- * @param request DescribeVpcListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVpcListResponse
  */
@@ -23939,7 +24099,6 @@ DescribeVulExportInfoResponse Client::describeVulExportInfo(const DescribeVulExp
 /**
  * @summary Queries the statistics of vulnerability fixes.
  *
- * @param request DescribeVulFixStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVulFixStatisticsResponse
  */
@@ -24156,7 +24315,6 @@ DescribeVulListPageResponse Client::describeVulListPage(const DescribeVulListPag
 /**
  * @summary Queries the statistics of vulnerabilities in Security Center.
  *
- * @param request DescribeVulMetaCountStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVulMetaCountStatisticsResponse
  */
@@ -24629,7 +24787,6 @@ DescribeWebLockConfigListResponse Client::describeWebLockConfigList(const Descri
 /**
  * @summary Queries the types of files that are excluded from web tamper proofing.
  *
- * @param request DescribeWebLockExclusiveFileTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeWebLockExclusiveFileTypeResponse
  */
@@ -24774,7 +24931,6 @@ DescribeWebLockFileEventsResponse Client::describeWebLockFileEvents(const Descri
 /**
  * @summary Queries the summary information about the types of files for which web tamper proofing is enabled.
  *
- * @param request DescribeWebLockFileTypeSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeWebLockFileTypeSummaryResponse
  */
@@ -24807,7 +24963,6 @@ DescribeWebLockFileTypeSummaryResponse Client::describeWebLockFileTypeSummary() 
 /**
  * @summary Queries the types of files that can be protected by web tamper proofing.
  *
- * @param request DescribeWebLockInclusiveFileTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeWebLockInclusiveFileTypeResponse
  */
@@ -24990,7 +25145,6 @@ DescribeWebLockStatusResponse Client::describeWebLockStatus(const DescribeWebLoc
 /**
  * @summary Queries the number of times that the files protected by web tamper proofing are changed.
  *
- * @param request DescribeWebLockTotalFileChangeCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeWebLockTotalFileChangeCountResponse
  */
@@ -25833,7 +25987,6 @@ EnableCustomInstanceBlockRecordResponse Client::enableCustomInstanceBlockRecord(
  *
  * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
  *
- * @param request EnableServiceAccessResourceDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableServiceAccessResourceDirectoryResponse
  */
@@ -27458,7 +27611,7 @@ GetAttackEventDetailResponse Client::getAttackEventDetail(const GetAttackEventDe
 }
 
 /**
- * @summary Query Attack Path Event Details.
+ * @summary Query attack path management event details.
  *
  * @param request GetAttackPathEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27497,7 +27650,7 @@ GetAttackPathEventDetailResponse Client::getAttackPathEventDetailWithOptions(con
 }
 
 /**
- * @summary Query Attack Path Event Details.
+ * @summary Query attack path management event details.
  *
  * @param request GetAttackPathEventDetailRequest
  * @return GetAttackPathEventDetailResponse
@@ -27510,7 +27663,6 @@ GetAttackPathEventDetailResponse Client::getAttackPathEventDetail(const GetAttac
 /**
  * @summary Query Attack Path Event Statistics.
  *
- * @param request GetAttackPathEventStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAttackPathEventStatisticsResponse
  */
@@ -27631,7 +27783,6 @@ GetAttackPathWhitelistResponse Client::getAttackPathWhitelist(const GetAttackPat
 /**
  * @summary Queries a list of attack types on the Attack Analysis page.
  *
- * @param request GetAttackTypeListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAttackTypeListResponse
  */
@@ -27664,7 +27815,6 @@ GetAttackTypeListResponse Client::getAttackTypeList() {
 /**
  * @summary Queries the statistics of asset protection quota.
  *
- * @param request GetAuthSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAuthSummaryResponse
  */
@@ -27697,7 +27847,6 @@ GetAuthSummaryResponse Client::getAuthSummary() {
 /**
  * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
  *
- * @param request GetAuthVersionStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAuthVersionStatisticResponse
  */
@@ -27730,7 +27879,6 @@ GetAuthVersionStatisticResponse Client::getAuthVersionStatistic() {
 /**
  * @summary Checks whether the managed anti-ransomware feature can automatically configure an anti-ransomware policy for servers.
  *
- * @param request GetBackupAutoConfigStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBackupAutoConfigStatusResponse
  */
@@ -27763,7 +27911,6 @@ GetBackupAutoConfigStatusResponse Client::getBackupAutoConfigStatus() {
 /**
  * @summary Queries the anti-ransomware capacity that is used.
  *
- * @param request GetBackupStorageCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBackupStorageCountResponse
  */
@@ -27884,7 +28031,6 @@ GetCanTrySasResponse Client::getCanTrySas(const GetCanTrySasRequest &request) {
 /**
  * @summary Queries the information about an automatic configuration check on cloud services.
  *
- * @param request GetCheckConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCheckConfigResponse
  */
@@ -28743,7 +28889,6 @@ GetClusterScannerYamlResponse Client::getClusterScannerYaml(const GetClusterScan
 /**
  * @summary Queries the number of policies in each cluster.
  *
- * @param request GetClusterStrategyCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetClusterStrategyCountResponse
  */
@@ -28956,7 +29101,6 @@ GetContainerDefenseRuleDetailResponse Client::getContainerDefenseRuleDetail(cons
 /**
  * @summary Queries the publish details of the Security Center agent.
  *
- * @param request GetCurrentVersionPublishRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCurrentVersionPublishResponse
  */
@@ -29043,7 +29187,6 @@ GetDataTrendResponse Client::getDataTrend(const GetDataTrendRequest &request) {
 /**
  * @summary Queries the numbers of handled alerts of the precision defense type and the web tamper proofing type.
  *
- * @param request GetDefenceCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDefenceCountResponse
  */
@@ -29160,7 +29303,6 @@ GetDockerhubImageRiskStatisticResponse Client::getDockerhubImageRiskStatistic(co
 /**
  * @summary Obtains the usage information of the malicious file detection SDK.
  *
- * @param request GetFileDetectApiInvokeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFileDetectApiInvokeInfoResponse
  */
@@ -29305,7 +29447,6 @@ GetFileDetectResultResponse Client::getFileDetectResult(const GetFileDetectResul
 /**
  * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
  *
- * @param request GetFileProtectDashboardRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFileProtectDashboardResponse
  */
@@ -29464,7 +29605,6 @@ GetFileProtectRuleResponse Client::getFileProtectRule(const GetFileProtectRuleRe
 /**
  * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
  *
- * @param request GetFileUploadLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetFileUploadLimitResponse
  */
@@ -30087,7 +30227,7 @@ GetInstallCodeForUuidResponse Client::getInstallCodeForUuid(const GetInstallCode
 }
 
 /**
- * @summary Count the number of security events for a single instance
+ * @summary Queries the alerting statistics information of a server.
  *
  * @param request GetInstanceAlarmStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30122,7 +30262,7 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatisticsWithOptions
 }
 
 /**
- * @summary Count the number of security events for a single instance
+ * @summary Queries the alerting statistics information of a server.
  *
  * @param request GetInstanceAlarmStatisticsRequest
  * @return GetInstanceAlarmStatisticsResponse
@@ -30135,7 +30275,6 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatistics(const GetI
 /**
  * @summary Get Instance Authorization Value Range
  *
- * @param request GetInstanceAuthRangeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceAuthRangeResponse
  */
@@ -30714,7 +30853,6 @@ GetOnceTaskResultInfoResponse Client::getOnceTaskResultInfo(const GetOnceTaskRes
 /**
  * @summary Queries the baselines that are supported by at-risk image blocking.
  *
- * @param request GetOpaClusterBaseLineListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetOpaClusterBaseLineListResponse
  */
@@ -30993,7 +31131,6 @@ GetOpaStrategyDetailNewResponse Client::getOpaStrategyDetailNew(const GetOpaStra
 /**
  * @summary Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
  *
- * @param request GetOpaStrategyTemplateSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetOpaStrategyTemplateSummaryResponse
  */
@@ -31164,7 +31301,6 @@ GetPropertyScheduleConfigResponse Client::getPropertyScheduleConfig(const GetPro
 /**
  * @summary Get Publish Time Configuration
  *
- * @param request GetPublishCronRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPublishCronResponse
  */
@@ -31199,7 +31335,6 @@ GetPublishCronResponse Client::getPublishCron() {
  *
  * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
  *
- * @param request GetRdTreeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRdTreeResponse
  */
@@ -31234,7 +31369,6 @@ GetRdTreeResponse Client::getRdTree() {
 /**
  * @summary Queries the time range of image scans.
  *
- * @param request GetRegistryScanDayNumRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRegistryScanDayNumResponse
  */
@@ -31267,7 +31401,6 @@ GetRegistryScanDayNumResponse Client::getRegistryScanDayNum() {
 /**
  * @summary Queries the numbers of system defense rules and custom defense rules.
  *
- * @param request GetRulesCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRulesCountResponse
  */
@@ -31840,7 +31973,6 @@ GetSwitchRegionDetailResponse Client::getSwitchRegionDetail(const GetSwitchRegio
 /**
  * @summary Checks whether you can submit a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
  *
- * @param request GetTenantCheckAvailableRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTenantCheckAvailableResponse
  */
@@ -31871,9 +32003,43 @@ GetTenantCheckAvailableResponse Client::getTenantCheckAvailable() {
 }
 
 /**
+ * @summary 获取未知威胁发现的统计信息
+ *
+ * @param request GetUnknownThreatDetectStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUnknownThreatDetectStatisticResponse
+ */
+GetUnknownThreatDetectStatisticResponse Client::getUnknownThreatDetectStatisticWithOptions(const GetUnknownThreatDetectStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetUnknownThreatDetectStatistic"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUnknownThreatDetectStatisticResponse>();
+}
+
+/**
+ * @summary 获取未知威胁发现的统计信息
+ *
+ * @param request GetUnknownThreatDetectStatisticRequest
+ * @return GetUnknownThreatDetectStatisticResponse
+ */
+GetUnknownThreatDetectStatisticResponse Client::getUnknownThreatDetectStatistic(const GetUnknownThreatDetectStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUnknownThreatDetectStatisticWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the language settings of log analysis.
  *
- * @param request GetUserLangRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUserLangResponse
  */
@@ -31998,7 +32164,6 @@ GetVirusScanConfigResponse Client::getVirusScanConfig(const GetVirusScanConfigRe
 /**
  * @summary Queries the information about the latest virus scan task.
  *
- * @param request GetVirusScanLatestTaskStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetVirusScanLatestTaskStatisticResponse
  */
@@ -32229,6 +32394,72 @@ HandleMaliciousFilesResponse Client::handleMaliciousFiles(const HandleMaliciousF
 }
 
 /**
+ * @summary 文件检测告警处理操作
+ *
+ * @param request HandleObjectScanEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HandleObjectScanEventResponse
+ */
+HandleObjectScanEventResponse Client::handleObjectScanEventWithOptions(const HandleObjectScanEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBatchType()) {
+    query["BatchType"] = request.getBatchType();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasEventIdList()) {
+    query["EventIdList"] = request.getEventIdList();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasRuleConditionList()) {
+    query["RuleConditionList"] = request.getRuleConditionList();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "HandleObjectScanEvent"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HandleObjectScanEventResponse>();
+}
+
+/**
+ * @summary 文件检测告警处理操作
+ *
+ * @param request HandleObjectScanEventRequest
+ * @return HandleObjectScanEventResponse
+ */
+HandleObjectScanEventResponse Client::handleObjectScanEvent(const HandleObjectScanEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return handleObjectScanEventWithOptions(request, runtime);
+}
+
+/**
  * @summary Handles alert events.
  *
  * @param request HandleSecurityEventsRequest
@@ -32424,6 +32655,52 @@ HandleSimilarSecurityEventsResponse Client::handleSimilarSecurityEventsWithOptio
 HandleSimilarSecurityEventsResponse Client::handleSimilarSecurityEvents(const HandleSimilarSecurityEventsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return handleSimilarSecurityEventsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 处理未知威胁分析告警
+ *
+ * @param request HandleUnknownThreatDetectEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HandleUnknownThreatDetectEventResponse
+ */
+HandleUnknownThreatDetectEventResponse Client::handleUnknownThreatDetectEventWithOptions(const HandleUnknownThreatDetectEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventIdList()) {
+    query["EventIdList"] = request.getEventIdList();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "HandleUnknownThreatDetectEvent"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HandleUnknownThreatDetectEventResponse>();
+}
+
+/**
+ * @summary 处理未知威胁分析告警
+ *
+ * @param request HandleUnknownThreatDetectEventRequest
+ * @return HandleUnknownThreatDetectEventResponse
+ */
+HandleUnknownThreatDetectEventResponse Client::handleUnknownThreatDetectEvent(const HandleUnknownThreatDetectEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return handleUnknownThreatDetectEventWithOptions(request, runtime);
 }
 
 /**
@@ -32969,7 +33246,6 @@ JoinWebLockProcessWhiteListResponse Client::joinWebLockProcessWhiteList(const Jo
  *
  * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
  *
- * @param request ListAccountsInResourceDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAccountsInResourceDirectoryResponse
  */
@@ -33266,7 +33542,6 @@ ListAgentlessMaliciousFilesResponse Client::listAgentlessMaliciousFiles(const Li
 /**
  * @summary Queries the regions that are supported by the agentless detection feature.
  *
- * @param request ListAgentlessRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAgentlessRegionResponse
  */
@@ -33533,7 +33808,6 @@ ListAgentlessTaskResponse Client::listAgentlessTask(const ListAgentlessTaskReque
 /**
  * @summary Queries the configurations for cleaning offline hosts whose provider cannot be identified.
  *
- * @param request ListAssetCleanConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAssetCleanConfigResponse
  */
@@ -34600,7 +34874,7 @@ ListCheckItemsResponse Client::listCheckItems(const ListCheckItemsRequest &reque
 }
 
 /**
- * @summary List User Policies
+ * @summary In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
  *
  * @param request ListCheckPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34627,7 +34901,7 @@ ListCheckPoliciesResponse Client::listCheckPoliciesWithOptions(const ListCheckPo
 }
 
 /**
- * @summary List User Policies
+ * @summary In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
  *
  * @param request ListCheckPoliciesRequest
  * @return ListCheckPoliciesResponse
@@ -35000,7 +35274,6 @@ ListClientAlertModeResponse Client::listClientAlertMode(const ListClientAlertMod
 /**
  * @summary Queries the supported types of custom defense rules.
  *
- * @param request ListClientUserDefineRuleTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListClientUserDefineRuleTypesResponse
  */
@@ -35655,7 +35928,6 @@ ListContainerDefenseRuleResponse Client::listContainerDefenseRule(const ListCont
 /**
  * @summary Queries a list of clusters that are included in a rule for non-image program defense.
  *
- * @param request ListContainerDefenseRuleClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListContainerDefenseRuleClustersResponse
  */
@@ -37264,7 +37536,6 @@ ListKspmInstancesResponse Client::listKspmInstances(const ListKspmInstancesReque
 /**
  * @summary Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.
  *
- * @param request ListLogShipperRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListLogShipperRegionsResponse
  */
@@ -38123,7 +38394,6 @@ ListPodRiskResponse Client::listPodRisk(const ListPodRiskRequest &request) {
 /**
  * @summary Queries the information about the self-managed Kubernetes clusters that are added to Security Center.
  *
- * @param request ListPrivateK8sRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListPrivateK8sResponse
  */
@@ -38296,7 +38566,6 @@ ListPublishBatchResponse Client::listPublishBatch(const ListPublishBatchRequest 
  *
  * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
  *
- * @param request ListRdDefaultSyncListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRdDefaultSyncListResponse
  */
@@ -38481,7 +38750,6 @@ ListSupportAttackPathAssetResponse Client::listSupportAttackPathAsset(const List
 /**
  * @summary Queries supported file suffixes.
  *
- * @param request ListSupportObjectSuffixRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSupportObjectSuffixResponse
  */
@@ -38552,7 +38820,6 @@ ListSystemAggregationRulesResponse Client::listSystemAggregationRules(const List
 /**
  * @summary Queries the types of system rules.
  *
- * @param request ListSystemClientRuleTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSystemClientRuleTypesResponse
  */
@@ -38916,6 +39183,286 @@ ListUninstallAegisMachinesResponse Client::listUninstallAegisMachinesWithOptions
 ListUninstallAegisMachinesResponse Client::listUninstallAegisMachines(const ListUninstallAegisMachinesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listUninstallAegisMachinesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询未知威胁发现事件
+ *
+ * @param request ListUnknownThreatDetectEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUnknownThreatDetectEventResponse
+ */
+ListUnknownThreatDetectEventResponse Client::listUnknownThreatDetectEventWithOptions(const ListUnknownThreatDetectEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasHashKey()) {
+    query["HashKey"] = request.getHashKey();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasParentProcessPath()) {
+    query["ParentProcessPath"] = request.getParentProcessPath();
+  }
+
+  if (!!request.hasProcessPath()) {
+    query["ProcessPath"] = request.getProcessPath();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUnknownThreatDetectEvent"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUnknownThreatDetectEventResponse>();
+}
+
+/**
+ * @summary 查询未知威胁发现事件
+ *
+ * @param request ListUnknownThreatDetectEventRequest
+ * @return ListUnknownThreatDetectEventResponse
+ */
+ListUnknownThreatDetectEventResponse Client::listUnknownThreatDetectEvent(const ListUnknownThreatDetectEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUnknownThreatDetectEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询未知威胁发现的机器列表
+ *
+ * @param request ListUnknownThreatDetectMachineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUnknownThreatDetectMachineResponse
+ */
+ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachineWithOptions(const ListUnknownThreatDetectMachineRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStudyMode()) {
+    query["StudyMode"] = request.getStudyMode();
+  }
+
+  if (!!request.hasStudyTimeEnd()) {
+    query["StudyTimeEnd"] = request.getStudyTimeEnd();
+  }
+
+  if (!!request.hasStudyTimeStart()) {
+    query["StudyTimeStart"] = request.getStudyTimeStart();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUnknownThreatDetectMachine"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUnknownThreatDetectMachineResponse>();
+}
+
+/**
+ * @summary 查询未知威胁发现的机器列表
+ *
+ * @param request ListUnknownThreatDetectMachineRequest
+ * @return ListUnknownThreatDetectMachineResponse
+ */
+ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachine(const ListUnknownThreatDetectMachineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUnknownThreatDetectMachineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询未知威胁发现进程列表
+ *
+ * @param request ListUnknownThreatDetectProcessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUnknownThreatDetectProcessResponse
+ */
+ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcessWithOptions(const ListUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAnalyzeResult()) {
+    query["AnalyzeResult"] = request.getAnalyzeResult();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasFirstTimeEnd()) {
+    query["FirstTimeEnd"] = request.getFirstTimeEnd();
+  }
+
+  if (!!request.hasFirstTimeStart()) {
+    query["FirstTimeStart"] = request.getFirstTimeStart();
+  }
+
+  if (!!request.hasMd5()) {
+    query["Md5"] = request.getMd5();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasProcessPath()) {
+    query["ProcessPath"] = request.getProcessPath();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasSha256()) {
+    query["Sha256"] = request.getSha256();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUnknownThreatDetectProcess"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUnknownThreatDetectProcessResponse>();
+}
+
+/**
+ * @summary 查询未知威胁发现进程列表
+ *
+ * @param request ListUnknownThreatDetectProcessRequest
+ * @return ListUnknownThreatDetectProcessResponse
+ */
+ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcess(const ListUnknownThreatDetectProcessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUnknownThreatDetectProcessWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询未知威胁发现策略列表
+ *
+ * @param request ListUnknownThreatDetectStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUnknownThreatDetectStrategyResponse
+ */
+ListUnknownThreatDetectStrategyResponse Client::listUnknownThreatDetectStrategyWithOptions(const ListUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStudyMode()) {
+    query["StudyMode"] = request.getStudyMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUnknownThreatDetectStrategy"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUnknownThreatDetectStrategyResponse>();
+}
+
+/**
+ * @summary 查询未知威胁发现策略列表
+ *
+ * @param request ListUnknownThreatDetectStrategyRequest
+ * @return ListUnknownThreatDetectStrategyResponse
+ */
+ListUnknownThreatDetectStrategyResponse Client::listUnknownThreatDetectStrategy(const ListUnknownThreatDetectStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUnknownThreatDetectStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -42543,7 +43090,7 @@ ModifySecurityEventMarkMissIndividuallyResponse Client::modifySecurityEventMarkM
 }
 
 /**
- * @summary Manage Serverless Asset Authorization
+ * @summary Serverless Asset authorization Management.
  *
  * @param request ModifyServerlessAuthToMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -42630,7 +43177,7 @@ ModifyServerlessAuthToMachineResponse Client::modifyServerlessAuthToMachineWithO
 }
 
 /**
- * @summary Manage Serverless Asset Authorization
+ * @summary Serverless Asset authorization Management.
  *
  * @param request ModifyServerlessAuthToMachineRequest
  * @return ModifyServerlessAuthToMachineResponse
@@ -44485,6 +45032,56 @@ OperateSwitchStatusResponse Client::operateSwitchStatus(const OperateSwitchStatu
 }
 
 /**
+ * @summary 修改未知威胁发现的机器状态
+ *
+ * @param request OperateUnknownThreatDetectMachineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateUnknownThreatDetectMachineResponse
+ */
+OperateUnknownThreatDetectMachineResponse Client::operateUnknownThreatDetectMachineWithOptions(const OperateUnknownThreatDetectMachineRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOperateType()) {
+    query["OperateType"] = request.getOperateType();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUuidList()) {
+    query["UuidList"] = request.getUuidList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateUnknownThreatDetectMachine"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateUnknownThreatDetectMachineResponse>();
+}
+
+/**
+ * @summary 修改未知威胁发现的机器状态
+ *
+ * @param request OperateUnknownThreatDetectMachineRequest
+ * @return OperateUnknownThreatDetectMachineResponse
+ */
+OperateUnknownThreatDetectMachineResponse Client::operateUnknownThreatDetectMachine(const OperateUnknownThreatDetectMachineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateUnknownThreatDetectMachineWithOptions(request, runtime);
+}
+
+/**
  * @summary Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
  *
  * @param request OperateVirusEventsRequest
@@ -45383,7 +45980,6 @@ QueryGroupedSecurityEventMarkMissListResponse Client::queryGroupedSecurityEventM
 /**
  * @summary Queries the list of beginner tasks. Security Center provides rewards for users who complete tasks. The rewards include the quota for a value-added feature and log storage capacity.
  *
- * @param request QueryGuidTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryGuidTaskListResponse
  */
@@ -45692,7 +46288,6 @@ RefreshContainerAssetsResponse Client::refreshContainerAssets(const RefreshConta
 /**
  * @summary Refreshes the list of Object Storage Service (OSS) buckets.
  *
- * @param request RefreshOssBucketScanInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RefreshOssBucketScanInfoResponse
  */
@@ -46987,7 +47582,6 @@ StartBaselineSecurityCheckResponse Client::startBaselineSecurityCheck(const Star
 /**
  * @summary Starts a database scan task.
  *
- * @param request StartDiscoverDatabaseTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartDiscoverDatabaseTaskResponse
  */
@@ -47066,7 +47660,6 @@ StartHoneypotResponse Client::startHoneypot(const StartHoneypotRequest &request)
 /**
  * @summary Starts an IDC scan task.
  *
- * @param request StartIdcProbeScanRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartIdcProbeScanResponse
  */
@@ -47345,7 +47938,6 @@ SubmitOperationTaskResponse Client::submitOperationTask(const SubmitOperationTas
 /**
  * @summary Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
  *
- * @param request SubmitTenantCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitTenantCheckResponse
  */
@@ -47378,7 +47970,6 @@ SubmitTenantCheckResponse Client::submitTenantCheck() {
 /**
  * @summary Triggers ISO 27001 compliance checks of Security Center.
  *
- * @param request TriggerCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TriggerCheckResponse
  */
@@ -49750,6 +50341,110 @@ UpdateTargetListByBatchResponse Client::updateTargetListByBatchWithOptions(const
 UpdateTargetListByBatchResponse Client::updateTargetListByBatch(const UpdateTargetListByBatchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateTargetListByBatchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新未知威胁发现的进程详情
+ *
+ * @param request UpdateUnknownThreatDetectProcessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateUnknownThreatDetectProcessResponse
+ */
+UpdateUnknownThreatDetectProcessResponse Client::updateUnknownThreatDetectProcessWithOptions(const UpdateUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProcessId()) {
+    query["ProcessId"] = request.getProcessId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateUnknownThreatDetectProcess"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateUnknownThreatDetectProcessResponse>();
+}
+
+/**
+ * @summary 更新未知威胁发现的进程详情
+ *
+ * @param request UpdateUnknownThreatDetectProcessRequest
+ * @return UpdateUnknownThreatDetectProcessResponse
+ */
+UpdateUnknownThreatDetectProcessResponse Client::updateUnknownThreatDetectProcess(const UpdateUnknownThreatDetectProcessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateUnknownThreatDetectProcessWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新未知威胁发现策略
+ *
+ * @param request UpdateUnknownThreatDetectStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateUnknownThreatDetectStrategyResponse
+ */
+UpdateUnknownThreatDetectStrategyResponse Client::updateUnknownThreatDetectStrategyWithOptions(const UpdateUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDurationDaysAfterInit()) {
+    query["DurationDaysAfterInit"] = request.getDurationDaysAfterInit();
+  }
+
+  if (!!request.hasDurationDaysAfterStop()) {
+    query["DurationDaysAfterStop"] = request.getDurationDaysAfterStop();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasStudyMode()) {
+    query["StudyMode"] = request.getStudyMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateUnknownThreatDetectStrategy"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateUnknownThreatDetectStrategyResponse>();
+}
+
+/**
+ * @summary 更新未知威胁发现策略
+ *
+ * @param request UpdateUnknownThreatDetectStrategyRequest
+ * @return UpdateUnknownThreatDetectStrategyResponse
+ */
+UpdateUnknownThreatDetectStrategyResponse Client::updateUnknownThreatDetectStrategy(const UpdateUnknownThreatDetectStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateUnknownThreatDetectStrategyWithOptions(request, runtime);
 }
 
 /**
