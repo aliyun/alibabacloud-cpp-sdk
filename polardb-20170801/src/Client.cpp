@@ -276,6 +276,62 @@ AddFirewallRulesResponse Client::addFirewallRules(const AddFirewallRulesRequest 
 }
 
 /**
+ * @summary 添加PolarClaw MCP Server
+ *
+ * @param tmpReq AddPolarClawMCPServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddPolarClawMCPServerResponse
+ */
+AddPolarClawMCPServerResponse Client::addPolarClawMCPServerWithOptions(const AddPolarClawMCPServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddPolarClawMCPServerShrinkRequest request = AddPolarClawMCPServerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasServerConfig()) {
+    request.setServerConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServerConfig(), "ServerConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasServerConfigShrink()) {
+    query["ServerConfig"] = request.getServerConfigShrink();
+  }
+
+  if (!!request.hasServerName()) {
+    query["ServerName"] = request.getServerName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddPolarClawMCPServer"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddPolarClawMCPServerResponse>();
+}
+
+/**
+ * @summary 添加PolarClaw MCP Server
+ *
+ * @param request AddPolarClawMCPServerRequest
+ * @return AddPolarClawMCPServerResponse
+ */
+AddPolarClawMCPServerResponse Client::addPolarClawMCPServer(const AddPolarClawMCPServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addPolarClawMCPServerWithOptions(request, runtime);
+}
+
+/**
  * @summary 新增polarfs bucket路径
  *
  * @param request AddPolarFsPathMappingRequest
@@ -553,6 +609,60 @@ AttachApplicationPolarFSResponse Client::attachApplicationPolarFSWithOptions(con
 AttachApplicationPolarFSResponse Client::attachApplicationPolarFS(const AttachApplicationPolarFSRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return attachApplicationPolarFSWithOptions(request, runtime);
+}
+
+/**
+ * @summary 绑定PolarClaw Agent
+ *
+ * @param request BindPolarClawAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindPolarClawAgentResponse
+ */
+BindPolarClawAgentResponse Client::bindPolarClawAgentWithOptions(const BindPolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasChannelAccountId()) {
+    query["ChannelAccountId"] = request.getChannelAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BindPolarClawAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindPolarClawAgentResponse>();
+}
+
+/**
+ * @summary 绑定PolarClaw Agent
+ *
+ * @param request BindPolarClawAgentRequest
+ * @return BindPolarClawAgentResponse
+ */
+BindPolarClawAgentResponse Client::bindPolarClawAgent(const BindPolarClawAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bindPolarClawAgentWithOptions(request, runtime);
 }
 
 /**
@@ -4688,6 +4798,252 @@ CreateParameterGroupResponse Client::createParameterGroup(const CreateParameterG
 }
 
 /**
+ * @summary 创建PolarClaw Agent
+ *
+ * @param request CreatePolarClawAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarClawAgentResponse
+ */
+CreatePolarClawAgentResponse Client::createPolarClawAgentWithOptions(const CreatePolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAvatar()) {
+    query["Avatar"] = request.getAvatar();
+  }
+
+  if (!!request.hasEmoji()) {
+    query["Emoji"] = request.getEmoji();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["Workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarClawAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarClawAgentResponse>();
+}
+
+/**
+ * @summary 创建PolarClaw Agent
+ *
+ * @param request CreatePolarClawAgentRequest
+ * @return CreatePolarClawAgentResponse
+ */
+CreatePolarClawAgentResponse Client::createPolarClawAgent(const CreatePolarClawAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarClawAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建PolarClaw Channel
+ *
+ * @param tmpReq CreatePolarClawChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarClawChannelResponse
+ */
+CreatePolarClawChannelResponse Client::createPolarClawChannelWithOptions(const CreatePolarClawChannelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePolarClawChannelShrinkRequest request = CreatePolarClawChannelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChannelConfig()) {
+    request.setChannelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelConfig(), "ChannelConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelConfigShrink()) {
+    query["ChannelConfig"] = request.getChannelConfigShrink();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasNpmPackage()) {
+    query["NpmPackage"] = request.getNpmPackage();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarClawChannel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarClawChannelResponse>();
+}
+
+/**
+ * @summary 创建PolarClaw Channel
+ *
+ * @param request CreatePolarClawChannelRequest
+ * @return CreatePolarClawChannelResponse
+ */
+CreatePolarClawChannelResponse Client::createPolarClawChannel(const CreatePolarClawChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarClawChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建PolarClaw定时任务
+ *
+ * @param tmpReq CreatePolarClawCronJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarClawCronJobResponse
+ */
+CreatePolarClawCronJobResponse Client::createPolarClawCronJobWithOptions(const CreatePolarClawCronJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePolarClawCronJobShrinkRequest request = CreatePolarClawCronJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDelivery()) {
+    request.setDeliveryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDelivery(), "Delivery", "json"));
+  }
+
+  if (!!tmpReq.hasFailureAlert()) {
+    request.setFailureAlertShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFailureAlert(), "FailureAlert", "json"));
+  }
+
+  if (!!tmpReq.hasPayload()) {
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
+  }
+
+  if (!!tmpReq.hasSchedule()) {
+    request.setScheduleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSchedule(), "Schedule", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDeleteAfterRun()) {
+    query["DeleteAfterRun"] = request.getDeleteAfterRun();
+  }
+
+  if (!!request.hasDeliveryShrink()) {
+    query["Delivery"] = request.getDeliveryShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasFailureAlertShrink()) {
+    query["FailureAlert"] = request.getFailureAlertShrink();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPayloadShrink()) {
+    query["Payload"] = request.getPayloadShrink();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasRunImmediately()) {
+    query["RunImmediately"] = request.getRunImmediately();
+  }
+
+  if (!!request.hasScheduleShrink()) {
+    query["Schedule"] = request.getScheduleShrink();
+  }
+
+  if (!!request.hasSessionKey()) {
+    query["SessionKey"] = request.getSessionKey();
+  }
+
+  if (!!request.hasSessionTarget()) {
+    query["SessionTarget"] = request.getSessionTarget();
+  }
+
+  if (!!request.hasWakeMode()) {
+    query["WakeMode"] = request.getWakeMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarClawCronJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarClawCronJobResponse>();
+}
+
+/**
+ * @summary 创建PolarClaw定时任务
+ *
+ * @param request CreatePolarClawCronJobRequest
+ * @return CreatePolarClawCronJobResponse
+ */
+CreatePolarClawCronJobResponse Client::createPolarClawCronJob(const CreatePolarClawCronJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 用于在指定PolarFS实例中创建新的目录。
  *
  * @description ## 请求说明
@@ -6973,6 +7329,164 @@ DeleteParameterGroupResponse Client::deleteParameterGroupWithOptions(const Delet
 DeleteParameterGroupResponse Client::deleteParameterGroup(const DeleteParameterGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarClaw Agent
+ *
+ * @param request DeletePolarClawAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarClawAgentResponse
+ */
+DeletePolarClawAgentResponse Client::deletePolarClawAgentWithOptions(const DeletePolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDeleteFiles()) {
+    query["DeleteFiles"] = request.getDeleteFiles();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarClawAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarClawAgentResponse>();
+}
+
+/**
+ * @summary 删除PolarClaw Agent
+ *
+ * @param request DeletePolarClawAgentRequest
+ * @return DeletePolarClawAgentResponse
+ */
+DeletePolarClawAgentResponse Client::deletePolarClawAgent(const DeletePolarClawAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarClawAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarClaw Channel
+ *
+ * @param request DeletePolarClawChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarClawChannelResponse
+ */
+DeletePolarClawChannelResponse Client::deletePolarClawChannelWithOptions(const DeletePolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasUninstallPlugin()) {
+    query["UninstallPlugin"] = request.getUninstallPlugin();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarClawChannel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarClawChannelResponse>();
+}
+
+/**
+ * @summary 删除PolarClaw Channel
+ *
+ * @param request DeletePolarClawChannelRequest
+ * @return DeletePolarClawChannelResponse
+ */
+DeletePolarClawChannelResponse Client::deletePolarClawChannel(const DeletePolarClawChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarClawChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarClaw定时任务
+ *
+ * @param request DeletePolarClawCronJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarClawCronJobResponse
+ */
+DeletePolarClawCronJobResponse Client::deletePolarClawCronJobWithOptions(const DeletePolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarClawCronJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarClawCronJobResponse>();
+}
+
+/**
+ * @summary 删除PolarClaw定时任务
+ *
+ * @param request DeletePolarClawCronJobRequest
+ * @return DeletePolarClawCronJobResponse
+ */
+DeletePolarClawCronJobResponse Client::deletePolarClawCronJob(const DeletePolarClawCronJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarClawCronJobWithOptions(request, runtime);
 }
 
 /**
@@ -14634,6 +15148,266 @@ DescribePolarAgentUserSessionsResponse Client::describePolarAgentUserSessions(co
 }
 
 /**
+ * @summary 查询PolarClaw Agent列表
+ *
+ * @param tmpReq DescribePolarClawAgentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawAgentsResponse
+ */
+DescribePolarClawAgentsResponse Client::describePolarClawAgentsWithOptions(const DescribePolarClawAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribePolarClawAgentsShrinkRequest request = DescribePolarClawAgentsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgentList()) {
+    request.setAgentListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgentList(), "AgentList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentListShrink()) {
+    query["AgentList"] = request.getAgentListShrink();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawAgents"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawAgentsResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw Agent列表
+ *
+ * @param request DescribePolarClawAgentsRequest
+ * @return DescribePolarClawAgentsResponse
+ */
+DescribePolarClawAgentsResponse Client::describePolarClawAgents(const DescribePolarClawAgentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawAgentsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarClaw Channels
+ *
+ * @param tmpReq DescribePolarClawChannelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawChannelsResponse
+ */
+DescribePolarClawChannelsResponse Client::describePolarClawChannelsWithOptions(const DescribePolarClawChannelsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribePolarClawChannelsShrinkRequest request = DescribePolarClawChannelsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChannelList()) {
+    request.setChannelListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelList(), "ChannelList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelListShrink()) {
+    query["ChannelList"] = request.getChannelListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawChannels"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawChannelsResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw Channels
+ *
+ * @param request DescribePolarClawChannelsRequest
+ * @return DescribePolarClawChannelsResponse
+ */
+DescribePolarClawChannelsResponse Client::describePolarClawChannels(const DescribePolarClawChannelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawChannelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarClaw定时任务列表
+ *
+ * @param tmpReq DescribePolarClawCronJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawCronJobsResponse
+ */
+DescribePolarClawCronJobsResponse Client::describePolarClawCronJobsWithOptions(const DescribePolarClawCronJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribePolarClawCronJobsShrinkRequest request = DescribePolarClawCronJobsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasJobIdList()) {
+    request.setJobIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobIdList(), "JobIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasIncludeDisabled()) {
+    query["IncludeDisabled"] = request.getIncludeDisabled();
+  }
+
+  if (!!request.hasIncludeRuns()) {
+    query["IncludeRuns"] = request.getIncludeRuns();
+  }
+
+  if (!!request.hasJobIdListShrink()) {
+    query["JobIdList"] = request.getJobIdListShrink();
+  }
+
+  if (!!request.hasRunLimit()) {
+    query["RunLimit"] = request.getRunLimit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawCronJobs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawCronJobsResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw定时任务列表
+ *
+ * @param request DescribePolarClawCronJobsRequest
+ * @return DescribePolarClawCronJobsResponse
+ */
+DescribePolarClawCronJobsResponse Client::describePolarClawCronJobs(const DescribePolarClawCronJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawCronJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarClaw MCP Servers
+ *
+ * @param request DescribePolarClawMCPServersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawMCPServersResponse
+ */
+DescribePolarClawMCPServersResponse Client::describePolarClawMCPServersWithOptions(const DescribePolarClawMCPServersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasServerList()) {
+    query["ServerList"] = request.getServerList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawMCPServers"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawMCPServersResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw MCP Servers
+ *
+ * @param request DescribePolarClawMCPServersRequest
+ * @return DescribePolarClawMCPServersResponse
+ */
+DescribePolarClawMCPServersResponse Client::describePolarClawMCPServers(const DescribePolarClawMCPServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawMCPServersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarClaw Plugins
+ *
+ * @param request DescribePolarClawPluginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawPluginsResponse
+ */
+DescribePolarClawPluginsResponse Client::describePolarClawPluginsWithOptions(const DescribePolarClawPluginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPluginList()) {
+    query["PluginList"] = request.getPluginList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawPlugins"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawPluginsResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw Plugins
+ *
+ * @param request DescribePolarClawPluginsRequest
+ * @return DescribePolarClawPluginsResponse
+ */
+DescribePolarClawPluginsResponse Client::describePolarClawPlugins(const DescribePolarClawPluginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawPluginsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取PolarFS实例详情
  *
  * @param request DescribePolarFsAttributeRequest
@@ -16198,6 +16972,156 @@ DisableDBClusterServerlessResponse Client::disableDBClusterServerless(const Disa
 }
 
 /**
+ * @summary 禁用PolarClaw Channel
+ *
+ * @param request DisablePolarClawChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisablePolarClawChannelResponse
+ */
+DisablePolarClawChannelResponse Client::disablePolarClawChannelWithOptions(const DisablePolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisablePolarClawChannel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisablePolarClawChannelResponse>();
+}
+
+/**
+ * @summary 禁用PolarClaw Channel
+ *
+ * @param request DisablePolarClawChannelRequest
+ * @return DisablePolarClawChannelResponse
+ */
+DisablePolarClawChannelResponse Client::disablePolarClawChannel(const DisablePolarClawChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disablePolarClawChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用PolarClaw定时任务
+ *
+ * @param request DisablePolarClawCronJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisablePolarClawCronJobResponse
+ */
+DisablePolarClawCronJobResponse Client::disablePolarClawCronJobWithOptions(const DisablePolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisablePolarClawCronJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisablePolarClawCronJobResponse>();
+}
+
+/**
+ * @summary 禁用PolarClaw定时任务
+ *
+ * @param request DisablePolarClawCronJobRequest
+ * @return DisablePolarClawCronJobResponse
+ */
+DisablePolarClawCronJobResponse Client::disablePolarClawCronJob(const DisablePolarClawCronJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disablePolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用PolarClaw Plugin
+ *
+ * @param request DisablePolarClawPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisablePolarClawPluginResponse
+ */
+DisablePolarClawPluginResponse Client::disablePolarClawPluginWithOptions(const DisablePolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisablePolarClawPlugin"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisablePolarClawPluginResponse>();
+}
+
+/**
+ * @summary 禁用PolarClaw Plugin
+ *
+ * @param request DisablePolarClawPluginRequest
+ * @return DisablePolarClawPluginResponse
+ */
+DisablePolarClawPluginResponse Client::disablePolarClawPlugin(const DisablePolarClawPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disablePolarClawPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary 开启DynamoDB兼容性能力
  *
  * @param request EnableDBClusterDynamoDBRequest
@@ -16443,6 +17367,156 @@ EnableFirewallRulesResponse Client::enableFirewallRulesWithOptions(const EnableF
 EnableFirewallRulesResponse Client::enableFirewallRules(const EnableFirewallRulesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableFirewallRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用PolarClaw Channel
+ *
+ * @param request EnablePolarClawChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnablePolarClawChannelResponse
+ */
+EnablePolarClawChannelResponse Client::enablePolarClawChannelWithOptions(const EnablePolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnablePolarClawChannel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnablePolarClawChannelResponse>();
+}
+
+/**
+ * @summary 启用PolarClaw Channel
+ *
+ * @param request EnablePolarClawChannelRequest
+ * @return EnablePolarClawChannelResponse
+ */
+EnablePolarClawChannelResponse Client::enablePolarClawChannel(const EnablePolarClawChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enablePolarClawChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用PolarClaw定时任务
+ *
+ * @param request EnablePolarClawCronJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnablePolarClawCronJobResponse
+ */
+EnablePolarClawCronJobResponse Client::enablePolarClawCronJobWithOptions(const EnablePolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnablePolarClawCronJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnablePolarClawCronJobResponse>();
+}
+
+/**
+ * @summary 启用PolarClaw定时任务
+ *
+ * @param request EnablePolarClawCronJobRequest
+ * @return EnablePolarClawCronJobResponse
+ */
+EnablePolarClawCronJobResponse Client::enablePolarClawCronJob(const EnablePolarClawCronJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enablePolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用PolarClaw Plugin
+ *
+ * @param request EnablePolarClawPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnablePolarClawPluginResponse
+ */
+EnablePolarClawPluginResponse Client::enablePolarClawPluginWithOptions(const EnablePolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnablePolarClawPlugin"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnablePolarClawPluginResponse>();
+}
+
+/**
+ * @summary 启用PolarClaw Plugin
+ *
+ * @param request EnablePolarClawPluginRequest
+ * @return EnablePolarClawPluginResponse
+ */
+EnablePolarClawPluginResponse Client::enablePolarClawPlugin(const EnablePolarClawPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enablePolarClawPluginWithOptions(request, runtime);
 }
 
 /**
@@ -16993,6 +18067,52 @@ GetPolarAgentResponse Client::getPolarAgent(const GetPolarAgentRequest &request)
 }
 
 /**
+ * @summary 获取PolarClaw配置
+ *
+ * @param request GetPolarClawConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPolarClawConfigResponse
+ */
+GetPolarClawConfigResponse Client::getPolarClawConfigWithOptions(const GetPolarClawConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasConfigPath()) {
+    query["ConfigPath"] = request.getConfigPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPolarClawConfig"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPolarClawConfigResponse>();
+}
+
+/**
+ * @summary 获取PolarClaw配置
+ *
+ * @param request GetPolarClawConfigRequest
+ * @return GetPolarClawConfigResponse
+ */
+GetPolarClawConfigResponse Client::getPolarClawConfig(const GetPolarClawConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPolarClawConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
  *
  * @description > *   An account can be authorized to access one or more databases.
@@ -17149,6 +18269,60 @@ GrantAccountPrivilegeZonalResponse Client::grantAccountPrivilegeZonal(const Gran
 }
 
 /**
+ * @summary 安装PolarClaw Plugin
+ *
+ * @param request InstallPolarClawPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallPolarClawPluginResponse
+ */
+InstallPolarClawPluginResponse Client::installPolarClawPluginWithOptions(const InstallPolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasNpmPackage()) {
+    query["NpmPackage"] = request.getNpmPackage();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstallPolarClawPlugin"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallPolarClawPluginResponse>();
+}
+
+/**
+ * @summary 安装PolarClaw Plugin
+ *
+ * @param request InstallPolarClawPluginRequest
+ * @return InstallPolarClawPluginResponse
+ */
+InstallPolarClawPluginResponse Client::installPolarClawPlugin(const InstallPolarClawPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return installPolarClawPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询订单
  *
  * @param request ListOrdersRequest
@@ -17224,6 +18398,58 @@ ListOrdersResponse Client::listOrdersWithOptions(const ListOrdersRequest &reques
 ListOrdersResponse Client::listOrders(const ListOrdersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listOrdersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询PolarClaw绑定关系列表
+ *
+ * @param tmpReq ListPolarClawBindingsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPolarClawBindingsResponse
+ */
+ListPolarClawBindingsResponse Client::listPolarClawBindingsWithOptions(const ListPolarClawBindingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListPolarClawBindingsShrinkRequest request = ListPolarClawBindingsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgentList()) {
+    request.setAgentListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgentList(), "AgentList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentListShrink()) {
+    query["AgentList"] = request.getAgentListShrink();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPolarClawBindings"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPolarClawBindingsResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw绑定关系列表
+ *
+ * @param request ListPolarClawBindingsRequest
+ * @return ListPolarClawBindingsResponse
+ */
+ListPolarClawBindingsResponse Client::listPolarClawBindings(const ListPolarClawBindingsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPolarClawBindingsWithOptions(request, runtime);
 }
 
 /**
@@ -22707,6 +23933,62 @@ OpenAITaskResponse Client::openAITask(const OpenAITaskRequest &request) {
 }
 
 /**
+ * @summary 更新PolarClaw配置
+ *
+ * @param tmpReq PatchPolarClawConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PatchPolarClawConfigResponse
+ */
+PatchPolarClawConfigResponse Client::patchPolarClawConfigWithOptions(const PatchPolarClawConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PatchPolarClawConfigShrinkRequest request = PatchPolarClawConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfigPatch()) {
+    request.setConfigPatchShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfigPatch(), "ConfigPatch", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasConfigPatchShrink()) {
+    query["ConfigPatch"] = request.getConfigPatchShrink();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PatchPolarClawConfig"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PatchPolarClawConfigResponse>();
+}
+
+/**
+ * @summary 更新PolarClaw配置
+ *
+ * @param request PatchPolarClawConfigRequest
+ * @return PatchPolarClawConfigResponse
+ */
+PatchPolarClawConfigResponse Client::patchPolarClawConfig(const PatchPolarClawConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return patchPolarClawConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Reactivates the backup feature.
  *
  * @param request ReactivateDBClusterBackupRequest
@@ -22807,6 +24089,62 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const 
 }
 
 /**
+ * @summary 删除应用环境变量
+ *
+ * @param tmpReq RemoveApplicationEnvironmentVariablesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveApplicationEnvironmentVariablesResponse
+ */
+RemoveApplicationEnvironmentVariablesResponse Client::removeApplicationEnvironmentVariablesWithOptions(const RemoveApplicationEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RemoveApplicationEnvironmentVariablesShrinkRequest request = RemoveApplicationEnvironmentVariablesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVariableNames()) {
+    request.setVariableNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVariableNames(), "VariableNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasVariableNamesShrink()) {
+    query["VariableNames"] = request.getVariableNamesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveApplicationEnvironmentVariables"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveApplicationEnvironmentVariablesResponse>();
+}
+
+/**
+ * @summary 删除应用环境变量
+ *
+ * @param request RemoveApplicationEnvironmentVariablesRequest
+ * @return RemoveApplicationEnvironmentVariablesResponse
+ */
+RemoveApplicationEnvironmentVariablesResponse Client::removeApplicationEnvironmentVariables(const RemoveApplicationEnvironmentVariablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeApplicationEnvironmentVariablesWithOptions(request, runtime);
+}
+
+/**
  * @summary Removes a secondary cluster from a GDN.
  *
  * @description >  You cannot remove the primary cluster from a GDN.
@@ -22882,6 +24220,52 @@ RemoveDBClusterFromGDNResponse Client::removeDBClusterFromGDNWithOptions(const R
 RemoveDBClusterFromGDNResponse Client::removeDBClusterFromGDN(const RemoveDBClusterFromGDNRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeDBClusterFromGDNWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarClaw MCP Server
+ *
+ * @param request RemovePolarClawMCPServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemovePolarClawMCPServerResponse
+ */
+RemovePolarClawMCPServerResponse Client::removePolarClawMCPServerWithOptions(const RemovePolarClawMCPServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasServerName()) {
+    query["ServerName"] = request.getServerName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemovePolarClawMCPServer"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemovePolarClawMCPServerResponse>();
+}
+
+/**
+ * @summary 删除PolarClaw MCP Server
+ *
+ * @param request RemovePolarClawMCPServerRequest
+ * @return RemovePolarClawMCPServerResponse
+ */
+RemovePolarClawMCPServerResponse Client::removePolarClawMCPServer(const RemovePolarClawMCPServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removePolarClawMCPServerWithOptions(request, runtime);
 }
 
 /**
@@ -23621,6 +25005,60 @@ RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonal(const Re
 }
 
 /**
+ * @summary 手动执行PolarClaw定时任务
+ *
+ * @param request RunPolarClawCronJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunPolarClawCronJobResponse
+ */
+RunPolarClawCronJobResponse Client::runPolarClawCronJobWithOptions(const RunPolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasMode()) {
+    query["Mode"] = request.getMode();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RunPolarClawCronJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunPolarClawCronJobResponse>();
+}
+
+/**
+ * @summary 手动执行PolarClaw定时任务
+ *
+ * @param request RunPolarClawCronJobRequest
+ * @return RunPolarClawCronJobResponse
+ */
+RunPolarClawCronJobResponse Client::runPolarClawCronJob(const RunPolarClawCronJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runPolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 检索记忆
  *
  * @param request SearchMemoriesRequest
@@ -24071,6 +25509,110 @@ TransformDBClusterPayTypeResponse Client::transformDBClusterPayType(const Transf
 }
 
 /**
+ * @summary 解绑PolarClaw Agent通道
+ *
+ * @param request UnbindPolarClawAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnbindPolarClawAgentResponse
+ */
+UnbindPolarClawAgentResponse Client::unbindPolarClawAgentWithOptions(const UnbindPolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasChannelAccountId()) {
+    query["ChannelAccountId"] = request.getChannelAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnbindPolarClawAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnbindPolarClawAgentResponse>();
+}
+
+/**
+ * @summary 解绑PolarClaw Agent通道
+ *
+ * @param request UnbindPolarClawAgentRequest
+ * @return UnbindPolarClawAgentResponse
+ */
+UnbindPolarClawAgentResponse Client::unbindPolarClawAgent(const UnbindPolarClawAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unbindPolarClawAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 卸载PolarClaw Plugin
+ *
+ * @param request UninstallPolarClawPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallPolarClawPluginResponse
+ */
+UninstallPolarClawPluginResponse Client::uninstallPolarClawPluginWithOptions(const UninstallPolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UninstallPolarClawPlugin"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallPolarClawPluginResponse>();
+}
+
+/**
+ * @summary 卸载PolarClaw Plugin
+ *
+ * @param request UninstallPolarClawPluginRequest
+ * @return UninstallPolarClawPluginResponse
+ */
+UninstallPolarClawPluginResponse Client::uninstallPolarClawPlugin(const UninstallPolarClawPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uninstallPolarClawPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary Unbinds tags from PolarDB clusters.
  *
  * @param request UntagResourcesRequest
@@ -24142,6 +25684,62 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新应用环境变量
+ *
+ * @param tmpReq UpdateApplicationEnvironmentVariablesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationEnvironmentVariablesResponse
+ */
+UpdateApplicationEnvironmentVariablesResponse Client::updateApplicationEnvironmentVariablesWithOptions(const UpdateApplicationEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateApplicationEnvironmentVariablesShrinkRequest request = UpdateApplicationEnvironmentVariablesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVariables()) {
+    request.setVariablesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVariables(), "Variables", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasVariablesShrink()) {
+    query["Variables"] = request.getVariablesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationEnvironmentVariables"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationEnvironmentVariablesResponse>();
+}
+
+/**
+ * @summary 更新应用环境变量
+ *
+ * @param request UpdateApplicationEnvironmentVariablesRequest
+ * @return UpdateApplicationEnvironmentVariablesResponse
+ */
+UpdateApplicationEnvironmentVariablesResponse Client::updateApplicationEnvironmentVariables(const UpdateApplicationEnvironmentVariablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationEnvironmentVariablesWithOptions(request, runtime);
 }
 
 /**
@@ -24228,6 +25826,198 @@ UpdateExtensionsResponse Client::updateExtensionsWithOptions(const UpdateExtensi
 UpdateExtensionsResponse Client::updateExtensions(const UpdateExtensionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateExtensionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新PolarClaw Agent
+ *
+ * @param tmpReq UpdatePolarClawAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePolarClawAgentResponse
+ */
+UpdatePolarClawAgentResponse Client::updatePolarClawAgentWithOptions(const UpdatePolarClawAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePolarClawAgentShrinkRequest request = UpdatePolarClawAgentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFiles()) {
+    request.setFilesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFiles(), "Files", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAvatar()) {
+    query["Avatar"] = request.getAvatar();
+  }
+
+  if (!!request.hasFilesShrink()) {
+    query["Files"] = request.getFilesShrink();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["Workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePolarClawAgent"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePolarClawAgentResponse>();
+}
+
+/**
+ * @summary 更新PolarClaw Agent
+ *
+ * @param request UpdatePolarClawAgentRequest
+ * @return UpdatePolarClawAgentResponse
+ */
+UpdatePolarClawAgentResponse Client::updatePolarClawAgent(const UpdatePolarClawAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePolarClawAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新PolarClaw定时任务
+ *
+ * @param tmpReq UpdatePolarClawCronJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePolarClawCronJobResponse
+ */
+UpdatePolarClawCronJobResponse Client::updatePolarClawCronJobWithOptions(const UpdatePolarClawCronJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePolarClawCronJobShrinkRequest request = UpdatePolarClawCronJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDelivery()) {
+    request.setDeliveryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDelivery(), "Delivery", "json"));
+  }
+
+  if (!!tmpReq.hasFailureAlert()) {
+    request.setFailureAlertShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFailureAlert(), "FailureAlert", "json"));
+  }
+
+  if (!!tmpReq.hasPayload()) {
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
+  }
+
+  if (!!tmpReq.hasSchedule()) {
+    request.setScheduleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSchedule(), "Schedule", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDeleteAfterRun()) {
+    query["DeleteAfterRun"] = request.getDeleteAfterRun();
+  }
+
+  if (!!request.hasDeliveryShrink()) {
+    query["Delivery"] = request.getDeliveryShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasFailureAlertShrink()) {
+    query["FailureAlert"] = request.getFailureAlertShrink();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPayloadShrink()) {
+    query["Payload"] = request.getPayloadShrink();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  if (!!request.hasScheduleShrink()) {
+    query["Schedule"] = request.getScheduleShrink();
+  }
+
+  if (!!request.hasSessionKey()) {
+    query["SessionKey"] = request.getSessionKey();
+  }
+
+  if (!!request.hasSessionTarget()) {
+    query["SessionTarget"] = request.getSessionTarget();
+  }
+
+  if (!!request.hasWakeMode()) {
+    query["WakeMode"] = request.getWakeMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePolarClawCronJob"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePolarClawCronJobResponse>();
+}
+
+/**
+ * @summary 更新PolarClaw定时任务
+ *
+ * @param request UpdatePolarClawCronJobRequest
+ * @return UpdatePolarClawCronJobResponse
+ */
+UpdatePolarClawCronJobResponse Client::updatePolarClawCronJob(const UpdatePolarClawCronJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePolarClawCronJobWithOptions(request, runtime);
 }
 
 /**
@@ -24418,6 +26208,128 @@ UpgradeDBClusterVersionZonalResponse Client::upgradeDBClusterVersionZonalWithOpt
 UpgradeDBClusterVersionZonalResponse Client::upgradeDBClusterVersionZonal(const UpgradeDBClusterVersionZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeDBClusterVersionZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 升级PolarClaw Channel
+ *
+ * @param tmpReq UpgradePolarClawChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradePolarClawChannelResponse
+ */
+UpgradePolarClawChannelResponse Client::upgradePolarClawChannelWithOptions(const UpgradePolarClawChannelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpgradePolarClawChannelShrinkRequest request = UpgradePolarClawChannelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChannelConfig()) {
+    request.setChannelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelConfig(), "ChannelConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelConfigShrink()) {
+    query["ChannelConfig"] = request.getChannelConfigShrink();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasNpmPackage()) {
+    query["NpmPackage"] = request.getNpmPackage();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradePolarClawChannel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradePolarClawChannelResponse>();
+}
+
+/**
+ * @summary 升级PolarClaw Channel
+ *
+ * @param request UpgradePolarClawChannelRequest
+ * @return UpgradePolarClawChannelResponse
+ */
+UpgradePolarClawChannelResponse Client::upgradePolarClawChannel(const UpgradePolarClawChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradePolarClawChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 升级PolarClaw Plugin
+ *
+ * @param request UpgradePolarClawPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradePolarClawPluginResponse
+ */
+UpgradePolarClawPluginResponse Client::upgradePolarClawPluginWithOptions(const UpgradePolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasNpmPackage()) {
+    query["NpmPackage"] = request.getNpmPackage();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasRestart()) {
+    query["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradePolarClawPlugin"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradePolarClawPluginResponse>();
+}
+
+/**
+ * @summary 升级PolarClaw Plugin
+ *
+ * @param request UpgradePolarClawPluginRequest
+ * @return UpgradePolarClawPluginResponse
+ */
+UpgradePolarClawPluginResponse Client::upgradePolarClawPlugin(const UpgradePolarClawPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradePolarClawPluginWithOptions(request, runtime);
 }
 
 /**

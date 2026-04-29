@@ -68,6 +68,23 @@ namespace Polardb20170801
       Models::AddFirewallRulesResponse addFirewallRules(const Models::AddFirewallRulesRequest &request);
 
       /**
+       * @summary 添加PolarClaw MCP Server
+       *
+       * @param tmpReq AddPolarClawMCPServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddPolarClawMCPServerResponse
+       */
+      Models::AddPolarClawMCPServerResponse addPolarClawMCPServerWithOptions(const Models::AddPolarClawMCPServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加PolarClaw MCP Server
+       *
+       * @param request AddPolarClawMCPServerRequest
+       * @return AddPolarClawMCPServerResponse
+       */
+      Models::AddPolarClawMCPServerResponse addPolarClawMCPServer(const Models::AddPolarClawMCPServerRequest &request);
+
+      /**
        * @summary 新增polarfs bucket路径
        *
        * @param request AddPolarFsPathMappingRequest
@@ -151,6 +168,23 @@ namespace Polardb20170801
        * @return AttachApplicationPolarFSResponse
        */
       Models::AttachApplicationPolarFSResponse attachApplicationPolarFS(const Models::AttachApplicationPolarFSRequest &request);
+
+      /**
+       * @summary 绑定PolarClaw Agent
+       *
+       * @param request BindPolarClawAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindPolarClawAgentResponse
+       */
+      Models::BindPolarClawAgentResponse bindPolarClawAgentWithOptions(const Models::BindPolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 绑定PolarClaw Agent
+       *
+       * @param request BindPolarClawAgentRequest
+       * @return BindPolarClawAgentResponse
+       */
+      Models::BindPolarClawAgentResponse bindPolarClawAgent(const Models::BindPolarClawAgentRequest &request);
 
       /**
        * @summary Cancels O\\\\\\&M events at a time.
@@ -1065,6 +1099,57 @@ namespace Polardb20170801
       Models::CreateParameterGroupResponse createParameterGroup(const Models::CreateParameterGroupRequest &request);
 
       /**
+       * @summary 创建PolarClaw Agent
+       *
+       * @param request CreatePolarClawAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePolarClawAgentResponse
+       */
+      Models::CreatePolarClawAgentResponse createPolarClawAgentWithOptions(const Models::CreatePolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建PolarClaw Agent
+       *
+       * @param request CreatePolarClawAgentRequest
+       * @return CreatePolarClawAgentResponse
+       */
+      Models::CreatePolarClawAgentResponse createPolarClawAgent(const Models::CreatePolarClawAgentRequest &request);
+
+      /**
+       * @summary 创建PolarClaw Channel
+       *
+       * @param tmpReq CreatePolarClawChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePolarClawChannelResponse
+       */
+      Models::CreatePolarClawChannelResponse createPolarClawChannelWithOptions(const Models::CreatePolarClawChannelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建PolarClaw Channel
+       *
+       * @param request CreatePolarClawChannelRequest
+       * @return CreatePolarClawChannelResponse
+       */
+      Models::CreatePolarClawChannelResponse createPolarClawChannel(const Models::CreatePolarClawChannelRequest &request);
+
+      /**
+       * @summary 创建PolarClaw定时任务
+       *
+       * @param tmpReq CreatePolarClawCronJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePolarClawCronJobResponse
+       */
+      Models::CreatePolarClawCronJobResponse createPolarClawCronJobWithOptions(const Models::CreatePolarClawCronJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建PolarClaw定时任务
+       *
+       * @param request CreatePolarClawCronJobRequest
+       * @return CreatePolarClawCronJobResponse
+       */
+      Models::CreatePolarClawCronJobResponse createPolarClawCronJob(const Models::CreatePolarClawCronJobRequest &request);
+
+      /**
        * @summary 用于在指定PolarFS实例中创建新的目录。
        *
        * @description ## 请求说明
@@ -1761,6 +1846,57 @@ namespace Polardb20170801
        * @return DeleteParameterGroupResponse
        */
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
+
+      /**
+       * @summary 删除PolarClaw Agent
+       *
+       * @param request DeletePolarClawAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarClawAgentResponse
+       */
+      Models::DeletePolarClawAgentResponse deletePolarClawAgentWithOptions(const Models::DeletePolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarClaw Agent
+       *
+       * @param request DeletePolarClawAgentRequest
+       * @return DeletePolarClawAgentResponse
+       */
+      Models::DeletePolarClawAgentResponse deletePolarClawAgent(const Models::DeletePolarClawAgentRequest &request);
+
+      /**
+       * @summary 删除PolarClaw Channel
+       *
+       * @param request DeletePolarClawChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarClawChannelResponse
+       */
+      Models::DeletePolarClawChannelResponse deletePolarClawChannelWithOptions(const Models::DeletePolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarClaw Channel
+       *
+       * @param request DeletePolarClawChannelRequest
+       * @return DeletePolarClawChannelResponse
+       */
+      Models::DeletePolarClawChannelResponse deletePolarClawChannel(const Models::DeletePolarClawChannelRequest &request);
+
+      /**
+       * @summary 删除PolarClaw定时任务
+       *
+       * @param request DeletePolarClawCronJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarClawCronJobResponse
+       */
+      Models::DeletePolarClawCronJobResponse deletePolarClawCronJobWithOptions(const Models::DeletePolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarClaw定时任务
+       *
+       * @param request DeletePolarClawCronJobRequest
+       * @return DeletePolarClawCronJobResponse
+       */
+      Models::DeletePolarClawCronJobResponse deletePolarClawCronJob(const Models::DeletePolarClawCronJobRequest &request);
 
       /**
        * @summary 删除PolarFs文件
@@ -3768,6 +3904,91 @@ namespace Polardb20170801
       Models::DescribePolarAgentUserSessionsResponse describePolarAgentUserSessions(const Models::DescribePolarAgentUserSessionsRequest &request);
 
       /**
+       * @summary 查询PolarClaw Agent列表
+       *
+       * @param tmpReq DescribePolarClawAgentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawAgentsResponse
+       */
+      Models::DescribePolarClawAgentsResponse describePolarClawAgentsWithOptions(const Models::DescribePolarClawAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw Agent列表
+       *
+       * @param request DescribePolarClawAgentsRequest
+       * @return DescribePolarClawAgentsResponse
+       */
+      Models::DescribePolarClawAgentsResponse describePolarClawAgents(const Models::DescribePolarClawAgentsRequest &request);
+
+      /**
+       * @summary 查询PolarClaw Channels
+       *
+       * @param tmpReq DescribePolarClawChannelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawChannelsResponse
+       */
+      Models::DescribePolarClawChannelsResponse describePolarClawChannelsWithOptions(const Models::DescribePolarClawChannelsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw Channels
+       *
+       * @param request DescribePolarClawChannelsRequest
+       * @return DescribePolarClawChannelsResponse
+       */
+      Models::DescribePolarClawChannelsResponse describePolarClawChannels(const Models::DescribePolarClawChannelsRequest &request);
+
+      /**
+       * @summary 查询PolarClaw定时任务列表
+       *
+       * @param tmpReq DescribePolarClawCronJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawCronJobsResponse
+       */
+      Models::DescribePolarClawCronJobsResponse describePolarClawCronJobsWithOptions(const Models::DescribePolarClawCronJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw定时任务列表
+       *
+       * @param request DescribePolarClawCronJobsRequest
+       * @return DescribePolarClawCronJobsResponse
+       */
+      Models::DescribePolarClawCronJobsResponse describePolarClawCronJobs(const Models::DescribePolarClawCronJobsRequest &request);
+
+      /**
+       * @summary 查询PolarClaw MCP Servers
+       *
+       * @param request DescribePolarClawMCPServersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawMCPServersResponse
+       */
+      Models::DescribePolarClawMCPServersResponse describePolarClawMCPServersWithOptions(const Models::DescribePolarClawMCPServersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw MCP Servers
+       *
+       * @param request DescribePolarClawMCPServersRequest
+       * @return DescribePolarClawMCPServersResponse
+       */
+      Models::DescribePolarClawMCPServersResponse describePolarClawMCPServers(const Models::DescribePolarClawMCPServersRequest &request);
+
+      /**
+       * @summary 查询PolarClaw Plugins
+       *
+       * @param request DescribePolarClawPluginsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawPluginsResponse
+       */
+      Models::DescribePolarClawPluginsResponse describePolarClawPluginsWithOptions(const Models::DescribePolarClawPluginsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw Plugins
+       *
+       * @param request DescribePolarClawPluginsRequest
+       * @return DescribePolarClawPluginsResponse
+       */
+      Models::DescribePolarClawPluginsResponse describePolarClawPlugins(const Models::DescribePolarClawPluginsRequest &request);
+
+      /**
        * @summary 获取PolarFS实例详情
        *
        * @param request DescribePolarFsAttributeRequest
@@ -4181,6 +4402,57 @@ namespace Polardb20170801
       Models::DisableDBClusterServerlessResponse disableDBClusterServerless(const Models::DisableDBClusterServerlessRequest &request);
 
       /**
+       * @summary 禁用PolarClaw Channel
+       *
+       * @param request DisablePolarClawChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisablePolarClawChannelResponse
+       */
+      Models::DisablePolarClawChannelResponse disablePolarClawChannelWithOptions(const Models::DisablePolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用PolarClaw Channel
+       *
+       * @param request DisablePolarClawChannelRequest
+       * @return DisablePolarClawChannelResponse
+       */
+      Models::DisablePolarClawChannelResponse disablePolarClawChannel(const Models::DisablePolarClawChannelRequest &request);
+
+      /**
+       * @summary 禁用PolarClaw定时任务
+       *
+       * @param request DisablePolarClawCronJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisablePolarClawCronJobResponse
+       */
+      Models::DisablePolarClawCronJobResponse disablePolarClawCronJobWithOptions(const Models::DisablePolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用PolarClaw定时任务
+       *
+       * @param request DisablePolarClawCronJobRequest
+       * @return DisablePolarClawCronJobResponse
+       */
+      Models::DisablePolarClawCronJobResponse disablePolarClawCronJob(const Models::DisablePolarClawCronJobRequest &request);
+
+      /**
+       * @summary 禁用PolarClaw Plugin
+       *
+       * @param request DisablePolarClawPluginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisablePolarClawPluginResponse
+       */
+      Models::DisablePolarClawPluginResponse disablePolarClawPluginWithOptions(const Models::DisablePolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用PolarClaw Plugin
+       *
+       * @param request DisablePolarClawPluginRequest
+       * @return DisablePolarClawPluginResponse
+       */
+      Models::DisablePolarClawPluginResponse disablePolarClawPlugin(const Models::DisablePolarClawPluginRequest &request);
+
+      /**
        * @summary 开启DynamoDB兼容性能力
        *
        * @param request EnableDBClusterDynamoDBRequest
@@ -4247,6 +4519,57 @@ namespace Polardb20170801
        * @return EnableFirewallRulesResponse
        */
       Models::EnableFirewallRulesResponse enableFirewallRules(const Models::EnableFirewallRulesRequest &request);
+
+      /**
+       * @summary 启用PolarClaw Channel
+       *
+       * @param request EnablePolarClawChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnablePolarClawChannelResponse
+       */
+      Models::EnablePolarClawChannelResponse enablePolarClawChannelWithOptions(const Models::EnablePolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用PolarClaw Channel
+       *
+       * @param request EnablePolarClawChannelRequest
+       * @return EnablePolarClawChannelResponse
+       */
+      Models::EnablePolarClawChannelResponse enablePolarClawChannel(const Models::EnablePolarClawChannelRequest &request);
+
+      /**
+       * @summary 启用PolarClaw定时任务
+       *
+       * @param request EnablePolarClawCronJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnablePolarClawCronJobResponse
+       */
+      Models::EnablePolarClawCronJobResponse enablePolarClawCronJobWithOptions(const Models::EnablePolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用PolarClaw定时任务
+       *
+       * @param request EnablePolarClawCronJobRequest
+       * @return EnablePolarClawCronJobResponse
+       */
+      Models::EnablePolarClawCronJobResponse enablePolarClawCronJob(const Models::EnablePolarClawCronJobRequest &request);
+
+      /**
+       * @summary 启用PolarClaw Plugin
+       *
+       * @param request EnablePolarClawPluginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnablePolarClawPluginResponse
+       */
+      Models::EnablePolarClawPluginResponse enablePolarClawPluginWithOptions(const Models::EnablePolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用PolarClaw Plugin
+       *
+       * @param request EnablePolarClawPluginRequest
+       * @return EnablePolarClawPluginResponse
+       */
+      Models::EnablePolarClawPluginResponse enablePolarClawPlugin(const Models::EnablePolarClawPluginRequest &request);
 
       /**
        * @summary 启用/禁用SQL限流规则
@@ -4377,6 +4700,23 @@ namespace Polardb20170801
       Models::GetPolarAgentResponse getPolarAgent(const Models::GetPolarAgentRequest &request);
 
       /**
+       * @summary 获取PolarClaw配置
+       *
+       * @param request GetPolarClawConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPolarClawConfigResponse
+       */
+      Models::GetPolarClawConfigResponse getPolarClawConfigWithOptions(const Models::GetPolarClawConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取PolarClaw配置
+       *
+       * @param request GetPolarClawConfigRequest
+       * @return GetPolarClawConfigResponse
+       */
+      Models::GetPolarClawConfigResponse getPolarClawConfig(const Models::GetPolarClawConfigRequest &request);
+
+      /**
        * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
        *
        * @description > *   An account can be authorized to access one or more databases.
@@ -4423,6 +4763,23 @@ namespace Polardb20170801
       Models::GrantAccountPrivilegeZonalResponse grantAccountPrivilegeZonal(const Models::GrantAccountPrivilegeZonalRequest &request);
 
       /**
+       * @summary 安装PolarClaw Plugin
+       *
+       * @param request InstallPolarClawPluginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallPolarClawPluginResponse
+       */
+      Models::InstallPolarClawPluginResponse installPolarClawPluginWithOptions(const Models::InstallPolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 安装PolarClaw Plugin
+       *
+       * @param request InstallPolarClawPluginRequest
+       * @return InstallPolarClawPluginResponse
+       */
+      Models::InstallPolarClawPluginResponse installPolarClawPlugin(const Models::InstallPolarClawPluginRequest &request);
+
+      /**
        * @summary 查询订单
        *
        * @param request ListOrdersRequest
@@ -4438,6 +4795,23 @@ namespace Polardb20170801
        * @return ListOrdersResponse
        */
       Models::ListOrdersResponse listOrders(const Models::ListOrdersRequest &request);
+
+      /**
+       * @summary 查询PolarClaw绑定关系列表
+       *
+       * @param tmpReq ListPolarClawBindingsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPolarClawBindingsResponse
+       */
+      Models::ListPolarClawBindingsResponse listPolarClawBindingsWithOptions(const Models::ListPolarClawBindingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw绑定关系列表
+       *
+       * @param request ListPolarClawBindingsRequest
+       * @return ListPolarClawBindingsResponse
+       */
+      Models::ListPolarClawBindingsResponse listPolarClawBindings(const Models::ListPolarClawBindingsRequest &request);
 
       /**
        * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
@@ -5740,6 +6114,23 @@ namespace Polardb20170801
       Models::OpenAITaskResponse openAITask(const Models::OpenAITaskRequest &request);
 
       /**
+       * @summary 更新PolarClaw配置
+       *
+       * @param tmpReq PatchPolarClawConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PatchPolarClawConfigResponse
+       */
+      Models::PatchPolarClawConfigResponse patchPolarClawConfigWithOptions(const Models::PatchPolarClawConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新PolarClaw配置
+       *
+       * @param request PatchPolarClawConfigRequest
+       * @return PatchPolarClawConfigResponse
+       */
+      Models::PatchPolarClawConfigResponse patchPolarClawConfig(const Models::PatchPolarClawConfigRequest &request);
+
+      /**
        * @summary Reactivates the backup feature.
        *
        * @param request ReactivateDBClusterBackupRequest
@@ -5774,6 +6165,23 @@ namespace Polardb20170801
       Models::RefreshDBClusterStorageUsageResponse refreshDBClusterStorageUsage(const Models::RefreshDBClusterStorageUsageRequest &request);
 
       /**
+       * @summary 删除应用环境变量
+       *
+       * @param tmpReq RemoveApplicationEnvironmentVariablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveApplicationEnvironmentVariablesResponse
+       */
+      Models::RemoveApplicationEnvironmentVariablesResponse removeApplicationEnvironmentVariablesWithOptions(const Models::RemoveApplicationEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除应用环境变量
+       *
+       * @param request RemoveApplicationEnvironmentVariablesRequest
+       * @return RemoveApplicationEnvironmentVariablesResponse
+       */
+      Models::RemoveApplicationEnvironmentVariablesResponse removeApplicationEnvironmentVariables(const Models::RemoveApplicationEnvironmentVariablesRequest &request);
+
+      /**
        * @summary Removes a secondary cluster from a GDN.
        *
        * @description >  You cannot remove the primary cluster from a GDN.
@@ -5793,6 +6201,23 @@ namespace Polardb20170801
        * @return RemoveDBClusterFromGDNResponse
        */
       Models::RemoveDBClusterFromGDNResponse removeDBClusterFromGDN(const Models::RemoveDBClusterFromGDNRequest &request);
+
+      /**
+       * @summary 删除PolarClaw MCP Server
+       *
+       * @param request RemovePolarClawMCPServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemovePolarClawMCPServerResponse
+       */
+      Models::RemovePolarClawMCPServerResponse removePolarClawMCPServerWithOptions(const Models::RemovePolarClawMCPServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarClaw MCP Server
+       *
+       * @param request RemovePolarClawMCPServerRequest
+       * @return RemovePolarClawMCPServerResponse
+       */
+      Models::RemovePolarClawMCPServerResponse removePolarClawMCPServer(const Models::RemovePolarClawMCPServerRequest &request);
 
       /**
        * @summary Resets the permissions of a privileged account for a PolarDB cluster.
@@ -5984,6 +6409,23 @@ namespace Polardb20170801
       Models::RevokeAccountPrivilegeZonalResponse revokeAccountPrivilegeZonal(const Models::RevokeAccountPrivilegeZonalRequest &request);
 
       /**
+       * @summary 手动执行PolarClaw定时任务
+       *
+       * @param request RunPolarClawCronJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunPolarClawCronJobResponse
+       */
+      Models::RunPolarClawCronJobResponse runPolarClawCronJobWithOptions(const Models::RunPolarClawCronJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 手动执行PolarClaw定时任务
+       *
+       * @param request RunPolarClawCronJobRequest
+       * @return RunPolarClawCronJobResponse
+       */
+      Models::RunPolarClawCronJobResponse runPolarClawCronJob(const Models::RunPolarClawCronJobRequest &request);
+
+      /**
        * @summary 检索记忆
        *
        * @param request SearchMemoriesRequest
@@ -6096,6 +6538,40 @@ namespace Polardb20170801
       Models::TransformDBClusterPayTypeResponse transformDBClusterPayType(const Models::TransformDBClusterPayTypeRequest &request);
 
       /**
+       * @summary 解绑PolarClaw Agent通道
+       *
+       * @param request UnbindPolarClawAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindPolarClawAgentResponse
+       */
+      Models::UnbindPolarClawAgentResponse unbindPolarClawAgentWithOptions(const Models::UnbindPolarClawAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解绑PolarClaw Agent通道
+       *
+       * @param request UnbindPolarClawAgentRequest
+       * @return UnbindPolarClawAgentResponse
+       */
+      Models::UnbindPolarClawAgentResponse unbindPolarClawAgent(const Models::UnbindPolarClawAgentRequest &request);
+
+      /**
+       * @summary 卸载PolarClaw Plugin
+       *
+       * @param request UninstallPolarClawPluginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UninstallPolarClawPluginResponse
+       */
+      Models::UninstallPolarClawPluginResponse uninstallPolarClawPluginWithOptions(const Models::UninstallPolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 卸载PolarClaw Plugin
+       *
+       * @param request UninstallPolarClawPluginRequest
+       * @return UninstallPolarClawPluginResponse
+       */
+      Models::UninstallPolarClawPluginResponse uninstallPolarClawPlugin(const Models::UninstallPolarClawPluginRequest &request);
+
+      /**
        * @summary Unbinds tags from PolarDB clusters.
        *
        * @param request UntagResourcesRequest
@@ -6113,6 +6589,23 @@ namespace Polardb20170801
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
+       * @summary 更新应用环境变量
+       *
+       * @param tmpReq UpdateApplicationEnvironmentVariablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApplicationEnvironmentVariablesResponse
+       */
+      Models::UpdateApplicationEnvironmentVariablesResponse updateApplicationEnvironmentVariablesWithOptions(const Models::UpdateApplicationEnvironmentVariablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新应用环境变量
+       *
+       * @param request UpdateApplicationEnvironmentVariablesRequest
+       * @return UpdateApplicationEnvironmentVariablesResponse
+       */
+      Models::UpdateApplicationEnvironmentVariablesResponse updateApplicationEnvironmentVariables(const Models::UpdateApplicationEnvironmentVariablesRequest &request);
+
+      /**
        * @summary 更新插件
        *
        * @param request UpdateExtensionsRequest
@@ -6128,6 +6621,40 @@ namespace Polardb20170801
        * @return UpdateExtensionsResponse
        */
       Models::UpdateExtensionsResponse updateExtensions(const Models::UpdateExtensionsRequest &request);
+
+      /**
+       * @summary 更新PolarClaw Agent
+       *
+       * @param tmpReq UpdatePolarClawAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePolarClawAgentResponse
+       */
+      Models::UpdatePolarClawAgentResponse updatePolarClawAgentWithOptions(const Models::UpdatePolarClawAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新PolarClaw Agent
+       *
+       * @param request UpdatePolarClawAgentRequest
+       * @return UpdatePolarClawAgentResponse
+       */
+      Models::UpdatePolarClawAgentResponse updatePolarClawAgent(const Models::UpdatePolarClawAgentRequest &request);
+
+      /**
+       * @summary 更新PolarClaw定时任务
+       *
+       * @param tmpReq UpdatePolarClawCronJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePolarClawCronJobResponse
+       */
+      Models::UpdatePolarClawCronJobResponse updatePolarClawCronJobWithOptions(const Models::UpdatePolarClawCronJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新PolarClaw定时任务
+       *
+       * @param request UpdatePolarClawCronJobRequest
+       * @return UpdatePolarClawCronJobResponse
+       */
+      Models::UpdatePolarClawCronJobResponse updatePolarClawCronJob(const Models::UpdatePolarClawCronJobRequest &request);
 
       /**
        * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
@@ -6168,6 +6695,40 @@ namespace Polardb20170801
        * @return UpgradeDBClusterVersionZonalResponse
        */
       Models::UpgradeDBClusterVersionZonalResponse upgradeDBClusterVersionZonal(const Models::UpgradeDBClusterVersionZonalRequest &request);
+
+      /**
+       * @summary 升级PolarClaw Channel
+       *
+       * @param tmpReq UpgradePolarClawChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradePolarClawChannelResponse
+       */
+      Models::UpgradePolarClawChannelResponse upgradePolarClawChannelWithOptions(const Models::UpgradePolarClawChannelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级PolarClaw Channel
+       *
+       * @param request UpgradePolarClawChannelRequest
+       * @return UpgradePolarClawChannelResponse
+       */
+      Models::UpgradePolarClawChannelResponse upgradePolarClawChannel(const Models::UpgradePolarClawChannelRequest &request);
+
+      /**
+       * @summary 升级PolarClaw Plugin
+       *
+       * @param request UpgradePolarClawPluginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradePolarClawPluginResponse
+       */
+      Models::UpgradePolarClawPluginResponse upgradePolarClawPluginWithOptions(const Models::UpgradePolarClawPluginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 升级PolarClaw Plugin
+       *
+       * @param request UpgradePolarClawPluginRequest
+       * @return UpgradePolarClawPluginResponse
+       */
+      Models::UpgradePolarClawPluginResponse upgradePolarClawPlugin(const Models::UpgradePolarClawPluginRequest &request);
 
       /**
        * @summary 执行自定义命令
